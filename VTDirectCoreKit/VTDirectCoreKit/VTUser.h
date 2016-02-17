@@ -13,8 +13,10 @@
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *email;
-@property (nonatomic, readonly) NSString *phone;
+@property (nonatomic, readonly) NSNumber *phone;
 @property (nonatomic, readonly) VTAddress *address;
 @property (nonatomic, readonly) VTAddress *billingAddress;
+
++ (instancetype)userWithName:(NSString *)name email:(NSString *)email phone:(NSNumber *)phone address:(VTAddress *)address billingAddress:(VTAddress *)billingAddress;
 
 @end

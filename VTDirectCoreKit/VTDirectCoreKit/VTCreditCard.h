@@ -12,10 +12,13 @@
 
 @property (nonatomic, readonly) NSNumber *number;
 @property (nonatomic, readonly) NSNumber *cvv;
-@property (nonatomic, readonly) NSString *bank;
-@property (nonatomic, readonly) NSNumber *grossAmount;
-@property (nonatomic, readonly) NSNumber *yearExpire;
-@property (nonatomic, readonly) NSNumber *monthExpire;
-@property (nonatomic, readonly) BOOL secure;
+@property (nonatomic, readonly) NSNumber *expiryYear;
+@property (nonatomic, readonly) NSNumber *expiryMonth;
+
+//@property (nonatomic, readonly) NSNumber *grossAmount;
+//@property (nonatomic, readonly) NSString *bank;
+//@property (nonatomic, readonly) BOOL secure;
+
++ (instancetype)cardWithNumber:(NSNumber *)number expiryMonth:(NSNumber *)expiryMonth expiryYear:(NSNumber *)expiryYear cvv:(NSNumber *)cvv;
 
 @end

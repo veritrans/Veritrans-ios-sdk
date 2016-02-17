@@ -8,6 +8,21 @@
 
 #import "VTPayment.h"
 
+#define OrderIdLength 10
+
+@implementation NSString (random)
+
++ (NSString *)randomWithLength:(NSUInteger)length {
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:length];
+    for (int i=0; i<length; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
+    }
+    return randomString;
+}
+
+@end
+
 @interface VTPayment()
 @property (nonatomic, readwrite) VTUser *user;
 @property (nonatomic, readwrite) NSArray <VTItem *> *items;
@@ -21,6 +36,7 @@
     if (self = [super init]) {
         self.items = items;
         self.user = user;
+        self.orderId = [NSString randomWithLength:OrderIdLength];
     }
     return self;
 }

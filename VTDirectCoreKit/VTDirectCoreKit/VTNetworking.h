@@ -12,7 +12,7 @@
 
 + (id)sharedInstance;
 
-- (void)postWithEndpoint:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, id error))callback;
-- (void)getWithEndpoint:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, id error))callback;
+- (void)post:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback;
+- (void)get:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback;
 
 @end

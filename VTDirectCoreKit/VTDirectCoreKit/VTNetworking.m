@@ -9,9 +9,11 @@
 #import "VTNetworking.h"
 #import "VTConfig.h"
 
+#define ErrorDomain @"error.veritrans.co.id"
+
 @implementation NSData (decode)
 
--(NSData*)validateUTF8 {
+- (NSData*)validateUTF8 {
     NSString *strUtf8 = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
     NSString *strAscii = [[NSString alloc] initWithData:self encoding:NSASCIIStringEncoding];
     if (strUtf8) {
@@ -79,7 +81,14 @@
     return shared;
 }
 
-- (void)postWithEndpoint:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, id error))callback {
+- (NSString *)authorisationValue {
+    NSString *sk = [[[VTConfig sharedInstance] serverKey] stringByAppendingString:@":"];
+    NSData *encodedSK = [sk dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *decodedSK = [encodedSK base64EncodedStringWithOptions:0];
+    return [NSString stringWithFormat:@"Basic %@", decodedSK];
+}
+
+- (void)post:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback {
     NSError *error;
     
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -93,25 +102,34 @@
     
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    
+    [request addValue:[self authorisationValue] forHTTPHeaderField:@"Authorization"];
     [request setHTTPMethod:@"POST"];
     
     NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
     [request setHTTPBody:postData];
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        id responseObject = [NSJSONSerialization JSONObjectWithData:[data validateUTF8]
-                                                            options:NSJSONReadingMutableContainers
-                                                              error:nil];
-        if (callback) {
-            callback(responseObject, error);
-        }
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [VTNetworking handleError:error callback:callback];
+            } else {
+                NSError *parseError;
+                id responseObject = [NSJSONSerialization JSONObjectWithData:[data validateUTF8]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:&parseError];
+                if (parseError) {
+                    [VTNetworking handleError:parseError callback:callback];
+                } else {
+                    [VTNetworking handleResponse:responseObject callback:callback];
+                }
+            }
+        });
     }];
     
     [postDataTask resume];
 }
 
-- (void)getWithEndpoint:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, id error))callback {
+- (void)get:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback {
     NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
     NSString *queryString = [parameters queryStringValue];
@@ -121,20 +139,53 @@
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
                                                            cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                        timeoutInterval:60.0];
-    
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     
     NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        id responseObject = [NSJSONSerialization JSONObjectWithData:[data validateUTF8]
-                                                            options:NSJSONReadingMutableContainers
-                                                              error:nil];
-        if (callback) {
-            callback(responseObject, error);
-        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                [VTNetworking handleError:error callback:callback];
+            } else {
+                NSError *parseError;
+                id responseObject = [NSJSONSerialization JSONObjectWithData:[data validateUTF8]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:&parseError];
+                if (parseError) {
+                    [VTNetworking handleError:parseError callback:callback];
+                } else {
+                    [VTNetworking handleResponse:responseObject callback:callback];
+                }
+            }
+        });
     }];
     
     [postDataTask resume];
+}
+
++ (void)handleError:(NSError *)error callback:(void(^)(id response, NSError *error))callback {
+    if (callback) {
+        callback(nil, error);
+    }
+}
+
++ (void)handleResponse:(id)response callback:(void(^)(id response, NSError *error))callback {
+    NSError *error;
+    id _response;
+    
+    NSInteger code = [response[@"status_code"] integerValue];
+    NSString *message = response[@"status_message"];
+    
+    if (code == 200) {
+        _response = response;
+    } else {
+        error = [[NSError alloc] initWithDomain:ErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:message}];
+    }
+    
+    if (callback) {
+        callback(_response, error);
+    }
 }
 
 @end

@@ -7,25 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		302F721F1C731C6E00FE73FE /* VTUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F721D1C731C6E00FE73FE /* VTUser.h */; };
+		3016468F1C741BDB0020DE82 /* VTDirectCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3016468E1C741BDB0020DE82 /* VTDirectCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		302F721F1C731C6E00FE73FE /* VTUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F721D1C731C6E00FE73FE /* VTUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F72201C731C6E00FE73FE /* VTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F721E1C731C6E00FE73FE /* VTUser.m */; };
-		302F72231C731C7700FE73FE /* VTItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72211C731C7700FE73FE /* VTItem.h */; };
+		302F72231C731C7700FE73FE /* VTItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72211C731C7700FE73FE /* VTItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F72241C731C7700FE73FE /* VTItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F72221C731C7700FE73FE /* VTItem.m */; };
-		302F72271C731C8200FE73FE /* VTPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72251C731C8200FE73FE /* VTPayment.h */; };
+		302F72271C731C8200FE73FE /* VTPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72251C731C8200FE73FE /* VTPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F72281C731C8200FE73FE /* VTPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F72261C731C8200FE73FE /* VTPayment.m */; };
-		302F722B1C731C9300FE73FE /* VTPaymentCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72291C731C9300FE73FE /* VTPaymentCreditCard.h */; };
+		302F722B1C731C9300FE73FE /* VTPaymentCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72291C731C9300FE73FE /* VTPaymentCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F722C1C731C9300FE73FE /* VTPaymentCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F722A1C731C9300FE73FE /* VTPaymentCreditCard.m */; };
-		302F722F1C731CB200FE73FE /* VTConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F722D1C731CB200FE73FE /* VTConfig.h */; };
+		302F722F1C731CB200FE73FE /* VTConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F722D1C731CB200FE73FE /* VTConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F72301C731CB200FE73FE /* VTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F722E1C731CB200FE73FE /* VTConfig.m */; };
-		302F72331C731D2F00FE73FE /* VTNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72311C731D2F00FE73FE /* VTNetworking.h */; };
+		302F72331C731D2F00FE73FE /* VTNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72311C731D2F00FE73FE /* VTNetworking.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F72341C731D2F00FE73FE /* VTNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F72321C731D2F00FE73FE /* VTNetworking.m */; };
-		302F72371C73209100FE73FE /* VTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72351C73209100FE73FE /* VTAddress.h */; };
+		302F72371C73209100FE73FE /* VTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72351C73209100FE73FE /* VTAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F72381C73209100FE73FE /* VTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F72361C73209100FE73FE /* VTAddress.m */; };
-		302F723B1C7320BE00FE73FE /* VTCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72391C7320BE00FE73FE /* VTCreditCard.h */; };
+		302F723B1C7320BE00FE73FE /* VTCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 302F72391C7320BE00FE73FE /* VTCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		302F723C1C7320BE00FE73FE /* VTCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F723A1C7320BE00FE73FE /* VTCreditCard.m */; };
+		3035E71F1C7476A600D863A1 /* VTWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3035E71D1C7476A600D863A1 /* VTWebViewController.h */; };
+		3035E7201C7476A600D863A1 /* VTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3035E71E1C7476A600D863A1 /* VTWebViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3016468E1C741BDB0020DE82 /* VTDirectCoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTDirectCoreKit.h; sourceTree = "<group>"; };
 		302F71951C73160500FE73FE /* VTDirectCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = VTDirectCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F719A1C73160500FE73FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302F721D1C731C6E00FE73FE /* VTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTUser.h; sourceTree = "<group>"; };
@@ -44,6 +48,8 @@
 		302F72361C73209100FE73FE /* VTAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddress.m; sourceTree = "<group>"; };
 		302F72391C7320BE00FE73FE /* VTCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCreditCard.h; sourceTree = "<group>"; };
 		302F723A1C7320BE00FE73FE /* VTCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCreditCard.m; sourceTree = "<group>"; };
+		3035E71D1C7476A600D863A1 /* VTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTWebViewController.h; sourceTree = "<group>"; };
+		3035E71E1C7476A600D863A1 /* VTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTWebViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,12 +83,12 @@
 			isa = PBXGroup;
 			children = (
 				302F719A1C73160500FE73FE /* Info.plist */,
+				3035E7211C747AC700D863A1 /* Payment */,
+				3016468E1C741BDB0020DE82 /* VTDirectCoreKit.h */,
 				302F721D1C731C6E00FE73FE /* VTUser.h */,
 				302F721E1C731C6E00FE73FE /* VTUser.m */,
 				302F72211C731C7700FE73FE /* VTItem.h */,
 				302F72221C731C7700FE73FE /* VTItem.m */,
-				302F72291C731C9300FE73FE /* VTPaymentCreditCard.h */,
-				302F722A1C731C9300FE73FE /* VTPaymentCreditCard.m */,
 				302F722D1C731CB200FE73FE /* VTConfig.h */,
 				302F722E1C731CB200FE73FE /* VTConfig.m */,
 				302F72311C731D2F00FE73FE /* VTNetworking.h */,
@@ -91,10 +97,21 @@
 				302F72361C73209100FE73FE /* VTAddress.m */,
 				302F72391C7320BE00FE73FE /* VTCreditCard.h */,
 				302F723A1C7320BE00FE73FE /* VTCreditCard.m */,
+			);
+			path = VTDirectCoreKit;
+			sourceTree = "<group>";
+		};
+		3035E7211C747AC700D863A1 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				302F72291C731C9300FE73FE /* VTPaymentCreditCard.h */,
+				302F722A1C731C9300FE73FE /* VTPaymentCreditCard.m */,
+				3035E71D1C7476A600D863A1 /* VTWebViewController.h */,
+				3035E71E1C7476A600D863A1 /* VTWebViewController.m */,
 				302F72251C731C8200FE73FE /* VTPayment.h */,
 				302F72261C731C8200FE73FE /* VTPayment.m */,
 			);
-			path = VTDirectCoreKit;
+			name = Payment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,13 +121,15 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3016468F1C741BDB0020DE82 /* VTDirectCoreKit.h in Headers */,
 				302F72371C73209100FE73FE /* VTAddress.h in Headers */,
 				302F722B1C731C9300FE73FE /* VTPaymentCreditCard.h in Headers */,
 				302F721F1C731C6E00FE73FE /* VTUser.h in Headers */,
+				3035E71F1C7476A600D863A1 /* VTWebViewController.h in Headers */,
 				302F723B1C7320BE00FE73FE /* VTCreditCard.h in Headers */,
-				302F722F1C731CB200FE73FE /* VTConfig.h in Headers */,
 				302F72231C731C7700FE73FE /* VTItem.h in Headers */,
 				302F72331C731D2F00FE73FE /* VTNetworking.h in Headers */,
+				302F722F1C731CB200FE73FE /* VTConfig.h in Headers */,
 				302F72271C731C8200FE73FE /* VTPayment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -184,6 +203,7 @@
 			files = (
 				302F723C1C7320BE00FE73FE /* VTCreditCard.m in Sources */,
 				302F72241C731C7700FE73FE /* VTItem.m in Sources */,
+				3035E7201C7476A600D863A1 /* VTWebViewController.m in Sources */,
 				302F722C1C731C9300FE73FE /* VTPaymentCreditCard.m in Sources */,
 				302F72301C731CB200FE73FE /* VTConfig.m in Sources */,
 				302F72201C731C6E00FE73FE /* VTUser.m in Sources */,
@@ -233,7 +253,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -274,7 +294,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

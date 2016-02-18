@@ -13,7 +13,7 @@
 #define VTAmexRegex         @"^3[47][0-9]{2}$"
 #define VTDinersClubRegex	@"^3(?:0[0-5]|[68][0-9])[0-9]$"
 #define VTDiscoverRegex		@"^6(?:011|5[0-9]{2})$"
-#define VTJCBRegex          @"^(?:2131|1800|35\\d{3})\\d{11}$"
+#define VTJCBRegex          @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
 
 @interface VTCreditCard ()
 @property (nonatomic, readwrite) NSNumber *number;

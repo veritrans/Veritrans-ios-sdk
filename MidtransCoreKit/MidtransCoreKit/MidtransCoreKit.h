@@ -15,6 +15,5 @@
 #import "VTAddress.h"
 #import "VTCreditCard.h"
 #import "VTConfig.h"
-#import "VTNetworking.h"
 
 #endif /* MidtransCoreKit_h */

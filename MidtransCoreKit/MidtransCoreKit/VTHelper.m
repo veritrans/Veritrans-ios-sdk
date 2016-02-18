@@ -12,7 +12,6 @@
 
 + (id)nullifyIfNil:(id)object {
     if (object) {
-        NSLog(@"not nulled %@", object);
         return object;
     } else {
         return [NSNull null];

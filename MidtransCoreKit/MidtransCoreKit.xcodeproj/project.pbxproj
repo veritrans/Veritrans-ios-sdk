@@ -1,0 +1,349 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		305494471C75A01900938C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494461C75A01900938C17 /* Foundation.framework */; };
+		305494551C75A08900938C17 /* VTUser.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494491C75A08900938C17 /* VTUser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305494561C75A08900938C17 /* VTUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944A1C75A08900938C17 /* VTUser.m */; };
+		305494571C75A08900938C17 /* VTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* VTAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305494581C75A08900938C17 /* VTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944C1C75A08900938C17 /* VTAddress.m */; };
+		305494591C75A08900938C17 /* VTItem.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944D1C75A08900938C17 /* VTItem.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3054945A1C75A08900938C17 /* VTItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944E1C75A08900938C17 /* VTItem.m */; };
+		3054945B1C75A08900938C17 /* VTConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944F1C75A08900938C17 /* VTConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3054945C1C75A08900938C17 /* VTConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494501C75A08900938C17 /* VTConfig.m */; };
+		3054945D1C75A08900938C17 /* VTNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494511C75A08900938C17 /* VTNetworking.h */; };
+		3054945E1C75A08900938C17 /* VTNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494521C75A08900938C17 /* VTNetworking.m */; };
+		3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494531C75A08900938C17 /* VTCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305494601C75A08900938C17 /* VTCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494541C75A08900938C17 /* VTCreditCard.m */; };
+		305494671C75A0DF00938C17 /* VTPaymentCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305494681C75A0DF00938C17 /* VTPaymentCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */; };
+		305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494631C75A0DF00938C17 /* VTWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3054946A1C75A0DF00938C17 /* VTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494641C75A0DF00938C17 /* VTWebViewController.m */; };
+		3054946B1C75A0DF00938C17 /* VTPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494651C75A0DF00938C17 /* VTPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3054946C1C75A0DF00938C17 /* VTPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494661C75A0DF00938C17 /* VTPayment.m */; };
+		3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054946D1C75A0ED00938C17 /* VTHelper.h */; };
+		305494701C75A0ED00938C17 /* VTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054946E1C75A0ED00938C17 /* VTHelper.m */; };
+		3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948C1C75A40900938C17 /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		305494381C759FF800938C17 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		3054943A1C759FF800938C17 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		305494461C75A01900938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		305494491C75A08900938C17 /* VTUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTUser.h; sourceTree = "<group>"; };
+		3054944A1C75A08900938C17 /* VTUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTUser.m; sourceTree = "<group>"; };
+		3054944B1C75A08900938C17 /* VTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddress.h; sourceTree = "<group>"; };
+		3054944C1C75A08900938C17 /* VTAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddress.m; sourceTree = "<group>"; };
+		3054944D1C75A08900938C17 /* VTItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTItem.h; sourceTree = "<group>"; };
+		3054944E1C75A08900938C17 /* VTItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTItem.m; sourceTree = "<group>"; };
+		3054944F1C75A08900938C17 /* VTConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTConfig.h; sourceTree = "<group>"; };
+		305494501C75A08900938C17 /* VTConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTConfig.m; sourceTree = "<group>"; };
+		305494511C75A08900938C17 /* VTNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNetworking.h; sourceTree = "<group>"; };
+		305494521C75A08900938C17 /* VTNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworking.m; sourceTree = "<group>"; };
+		305494531C75A08900938C17 /* VTCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCreditCard.h; sourceTree = "<group>"; };
+		305494541C75A08900938C17 /* VTCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCreditCard.m; sourceTree = "<group>"; };
+		305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentCreditCard.h; sourceTree = "<group>"; };
+		305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentCreditCard.m; sourceTree = "<group>"; };
+		305494631C75A0DF00938C17 /* VTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTWebViewController.h; sourceTree = "<group>"; };
+		305494641C75A0DF00938C17 /* VTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTWebViewController.m; sourceTree = "<group>"; };
+		305494651C75A0DF00938C17 /* VTPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPayment.h; sourceTree = "<group>"; };
+		305494661C75A0DF00938C17 /* VTPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPayment.m; sourceTree = "<group>"; };
+		3054946D1C75A0ED00938C17 /* VTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTHelper.h; sourceTree = "<group>"; };
+		3054946E1C75A0ED00938C17 /* VTHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTHelper.m; sourceTree = "<group>"; };
+		3054948C1C75A40900938C17 /* MidtransCoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransCoreKit.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		305494371C759FF800938C17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				305494471C75A01900938C17 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		305494311C759FF800938C17 = {
+			isa = PBXGroup;
+			children = (
+				3054943C1C759FF800938C17 /* MidtransCoreKit */,
+				3054943B1C759FF800938C17 /* Products */,
+				305494461C75A01900938C17 /* Foundation.framework */,
+			);
+			sourceTree = "<group>";
+		};
+		3054943B1C759FF800938C17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3054943A1C759FF800938C17 /* libMidtransCoreKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3054943C1C759FF800938C17 /* MidtransCoreKit */ = {
+			isa = PBXGroup;
+			children = (
+				3054948C1C75A40900938C17 /* MidtransCoreKit.h */,
+				3054946D1C75A0ED00938C17 /* VTHelper.h */,
+				3054946E1C75A0ED00938C17 /* VTHelper.m */,
+				305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */,
+				305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */,
+				305494631C75A0DF00938C17 /* VTWebViewController.h */,
+				305494641C75A0DF00938C17 /* VTWebViewController.m */,
+				305494651C75A0DF00938C17 /* VTPayment.h */,
+				305494661C75A0DF00938C17 /* VTPayment.m */,
+				305494491C75A08900938C17 /* VTUser.h */,
+				3054944A1C75A08900938C17 /* VTUser.m */,
+				3054944B1C75A08900938C17 /* VTAddress.h */,
+				3054944C1C75A08900938C17 /* VTAddress.m */,
+				3054944D1C75A08900938C17 /* VTItem.h */,
+				3054944E1C75A08900938C17 /* VTItem.m */,
+				3054944F1C75A08900938C17 /* VTConfig.h */,
+				305494501C75A08900938C17 /* VTConfig.m */,
+				305494511C75A08900938C17 /* VTNetworking.h */,
+				305494521C75A08900938C17 /* VTNetworking.m */,
+				305494531C75A08900938C17 /* VTCreditCard.h */,
+				305494541C75A08900938C17 /* VTCreditCard.m */,
+			);
+			path = MidtransCoreKit;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		305494481C75A04F00938C17 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */,
+				3054945B1C75A08900938C17 /* VTConfig.h in Headers */,
+				305494671C75A0DF00938C17 /* VTPaymentCreditCard.h in Headers */,
+				305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */,
+				3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */,
+				305494551C75A08900938C17 /* VTUser.h in Headers */,
+				305494571C75A08900938C17 /* VTAddress.h in Headers */,
+				305494591C75A08900938C17 /* VTItem.h in Headers */,
+				3054946B1C75A0DF00938C17 /* VTPayment.h in Headers */,
+				3054945D1C75A08900938C17 /* VTNetworking.h in Headers */,
+				3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		305494391C759FF800938C17 /* MidtransCoreKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 305494431C759FF800938C17 /* Build configuration list for PBXNativeTarget "MidtransCoreKit" */;
+			buildPhases = (
+				305494361C759FF800938C17 /* Sources */,
+				305494371C759FF800938C17 /* Frameworks */,
+				305494381C759FF800938C17 /* CopyFiles */,
+				305494481C75A04F00938C17 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MidtransCoreKit;
+			productName = MidtransCoreKit;
+			productReference = 3054943A1C759FF800938C17 /* libMidtransCoreKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		305494321C759FF800938C17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = Veritrans;
+				TargetAttributes = {
+					305494391C759FF800938C17 = {
+						CreatedOnToolsVersion = 7.2;
+					};
+				};
+			};
+			buildConfigurationList = 305494351C759FF800938C17 /* Build configuration list for PBXProject "MidtransCoreKit" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 305494311C759FF800938C17;
+			productRefGroup = 3054943B1C759FF800938C17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				305494391C759FF800938C17 /* MidtransCoreKit */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		305494361C759FF800938C17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3054945A1C75A08900938C17 /* VTItem.m in Sources */,
+				305494561C75A08900938C17 /* VTUser.m in Sources */,
+				3054946C1C75A0DF00938C17 /* VTPayment.m in Sources */,
+				3054945C1C75A08900938C17 /* VTConfig.m in Sources */,
+				305494581C75A08900938C17 /* VTAddress.m in Sources */,
+				305494681C75A0DF00938C17 /* VTPaymentCreditCard.m in Sources */,
+				305494601C75A08900938C17 /* VTCreditCard.m in Sources */,
+				305494701C75A0ED00938C17 /* VTHelper.m in Sources */,
+				3054945E1C75A08900938C17 /* VTNetworking.m in Sources */,
+				3054946A1C75A0DF00938C17 /* VTWebViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		305494411C759FF800938C17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		305494421C759FF800938C17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		305494441C759FF800938C17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Debug;
+		};
+		305494451C759FF800938C17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
+				SKIP_INSTALL = YES;
+				STRIP_STYLE = "non-global";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		305494351C759FF800938C17 /* Build configuration list for PBXProject "MidtransCoreKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				305494411C759FF800938C17 /* Debug */,
+				305494421C759FF800938C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		305494431C759FF800938C17 /* Build configuration list for PBXNativeTarget "MidtransCoreKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				305494441C759FF800938C17 /* Debug */,
+				305494451C759FF800938C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 305494321C759FF800938C17 /* Project object */;
+}

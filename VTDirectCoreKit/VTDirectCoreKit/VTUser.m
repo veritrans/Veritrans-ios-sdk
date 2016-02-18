@@ -7,27 +7,52 @@
 //
 
 #import "VTUser.h"
+#import "VTHelper.h"
 
 @interface VTUser ()
 
-@property (nonatomic, readwrite) NSString *name;
+@property (nonatomic, readwrite) NSString *firstName;
+@property (nonatomic, readwrite) NSString *lastName;
 @property (nonatomic, readwrite) NSString *email;
-@property (nonatomic, readwrite) NSNumber *phone;
-@property (nonatomic, readwrite) VTAddress *address;
+@property (nonatomic, readwrite) NSString *phone;
 @property (nonatomic, readwrite) VTAddress *billingAddress;
+@property (nonatomic, readwrite) VTAddress *shippingAddress;
 
 @end
 
 @implementation VTUser
 
-+ (instancetype)userWithName:(NSString *)name email:(NSString *)email phone:(NSNumber *)phone address:(VTAddress *)address billingAddress:(VTAddress *)billingAddress {
++ (instancetype)userWithFirstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                            email:(NSString *)email
+                            phone:(NSString *)phone
+                  shippingAddress:(VTAddress *)shippingAddress
+                   billingAddress:(VTAddress *)billingAddress
+{
     VTUser *user = [[VTUser alloc] init];
-    user.name = name;
+    user.firstName = firstName;
+    user.lastName = lastName;
     user.email = email;
     user.phone = phone;
-    user.address = address;
     user.billingAddress = billingAddress;
+    user.shippingAddress = shippingAddress;
     return user;
+}
+
+- (NSDictionary *)requestData {
+    NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:
+                                   @{@"first_name":[VTHelper nullifyIfNil:_firstName],
+                                     @"last_name":[VTHelper nullifyIfNil:_lastName],
+                                     @"email":[VTHelper nullifyIfNil:_email],
+                                     @"phone":[VTHelper nullifyIfNil:_phone]}];
+    if (_billingAddress) {
+        [result setValue:_billingAddress.requestData forKey:@"billing_address"];
+    }
+    if (_shippingAddress) {
+        [result setValue:_shippingAddress.requestData forKey:@"shipping_address"];
+    }
+    
+    return result;
 }
 
 @end

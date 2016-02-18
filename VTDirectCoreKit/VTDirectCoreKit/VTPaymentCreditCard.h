@@ -17,7 +17,6 @@
 + (instancetype)paymentWithCard:(VTCreditCard *)card
                            bank:(NSString *)bank
                          secure:(BOOL)secure
-                    grossAmount:(NSNumber *)grossAmount
                            user:(VTUser *)user
                           items:(NSArray *)items;
 

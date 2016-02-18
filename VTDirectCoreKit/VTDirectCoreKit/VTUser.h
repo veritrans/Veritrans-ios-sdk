@@ -11,12 +11,20 @@
 
 @interface VTUser : NSObject
 
-@property (nonatomic, readonly) NSString *name;
+@property (nonatomic, readonly) NSString *firstName;
+@property (nonatomic, readonly) NSString *lastName;
 @property (nonatomic, readonly) NSString *email;
-@property (nonatomic, readonly) NSNumber *phone;
-@property (nonatomic, readonly) VTAddress *address;
+@property (nonatomic, readonly) NSString *phone;
 @property (nonatomic, readonly) VTAddress *billingAddress;
+@property (nonatomic, readonly) VTAddress *shippingAddress;
 
-+ (instancetype)userWithName:(NSString *)name email:(NSString *)email phone:(NSNumber *)phone address:(VTAddress *)address billingAddress:(VTAddress *)billingAddress;
++ (instancetype)userWithFirstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                            email:(NSString *)email
+                            phone:(NSString *)phone
+                  shippingAddress:(VTAddress *)shippingAddress
+                   billingAddress:(VTAddress *)billingAddress;
+
+- (NSDictionary *)requestData;
 
 @end

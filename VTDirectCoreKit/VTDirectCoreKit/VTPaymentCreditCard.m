@@ -10,13 +10,16 @@
 #import "VTNetworking.h"
 #import "VTConfig.h"
 #import "VTWebViewController.h"
+#import "VTHelper.h"
 
 @interface VTPaymentCreditCard() <VTWebViewControllerDelegate>
 @property (nonatomic, readwrite) VTCreditCard *card;
+@property (nonatomic, readwrite) VTUser *user;
 @property (nonatomic, readwrite) NSString *bank;
 @property (nonatomic, readwrite) NSString *tokenId;
-@property (nonatomic, readwrite) BOOL secure;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
+@property (nonatomic, readwrite) NSArray *items;
+@property (nonatomic, readwrite) BOOL secure;
 
 @property (nonatomic, strong) VTWebViewController *webTransViewController;
 @property (nonatomic, copy) void (^tokenCallback)(id response, NSError *error);
@@ -24,17 +27,21 @@
 
 @implementation VTPaymentCreditCard
 
+@synthesize items;
+@synthesize user;
+
 + (instancetype)paymentWithCard:(VTCreditCard *)card
                            bank:(NSString *)bank
                          secure:(BOOL)secure
-                    grossAmount:(NSNumber *)grossAmount
                            user:(VTUser *)user
                           items:(NSArray *)items {
     VTPaymentCreditCard *payment = [[VTPaymentCreditCard alloc] initWithItems:items user:user];
     payment.card = card;
     payment.bank = bank;
     payment.secure = secure;
-    payment.grossAmount = grossAmount;
+    payment.user = user;
+    payment.items = items;
+    payment.grossAmount = [items amount];
     return payment;
 }
 
@@ -48,7 +55,8 @@
                             @"secure":self.secure?@"true":@"false",
                             @"bank":self.bank,
                             @"gross_amount":self.grossAmount,
-                            @"card_type":@"VISA"};
+                            @"card_type":self.card.type
+                            };
     [[VTNetworking sharedInstance] get:endPoint parameters:param callback:^(id response, NSError *error) {
         if (error) {
             if (callback) {
@@ -74,16 +82,21 @@
     }];
 }
 
+- (NSDictionary *)transactionDetail {
+    return @{@"order_id":self.orderId, @"gross_amount":self.grossAmount};
+}
+
+- (NSDictionary *)creditCardData {
+    return @{@"token_id":self.tokenId, @"bank":self.bank};
+}
+
 - (void)chargeWithCallback:(void(^)(id response, NSError *error))callback {
-    NSDictionary *transactionDetail = @{@"order_id":self.orderId,
-                                        @"gross_amount":self.grossAmount};
-    NSDictionary *creditCard = @{@"token_id":self.tokenId,
-                                 @"bank":self.bank};
-    
-    NSDictionary *parameter = @{@"payment_type":@"credit_card",
-                                @"credit_card":creditCard,
-                                @"transaction_details":transactionDetail};
     NSString *endPoint = @"charge";
+    NSDictionary *parameter = @{@"payment_type":@"credit_card",
+                                @"credit_card":[self creditCardData],
+                                @"transaction_details":[self transactionDetail],
+                                @"customer_details":self.user.requestData,
+                                @"item_details":self.items.convertItemsToRequestData};
     
     [[VTNetworking sharedInstance] post:endPoint parameters:parameter callback:callback];
 }

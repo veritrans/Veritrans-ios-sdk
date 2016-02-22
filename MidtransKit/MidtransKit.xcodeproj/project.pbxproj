@@ -22,10 +22,12 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3014E0C71C7AE896003EB203 /* VTCartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3014E0C51C7AE896003EB203 /* VTCartController.h */; };
+		3014E0C81C7AE896003EB203 /* VTCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3014E0C61C7AE896003EB203 /* VTCartController.m */; };
+		3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */; };
+		3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3014E0CD1C7AF38F003EB203 /* VTPaymentListController.m */; };
 		305494281C759EFC00938C17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494271C759EFC00938C17 /* UIKit.framework */; };
 		3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494291C759F0100938C17 /* Foundation.framework */; };
-		3054942D1C759F2400938C17 /* VTMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054942C1C759F2400938C17 /* VTMainViewController.m */; };
-		3054942F1C759F3600938C17 /* VTMainViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054942B1C759F2400938C17 /* VTMainViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494881C75A36A00938C17 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494871C75A36A00938C17 /* libMidtransCoreKit.a */; };
 		3054948F1C75A43800938C17 /* MidtransKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948E1C75A43800938C17 /* MidtransKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494951C75A4DB00938C17 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494911C75A4DB00938C17 /* Flurry.h */; };
@@ -57,11 +59,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3014E0C51C7AE896003EB203 /* VTCartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCartController.h; sourceTree = "<group>"; };
+		3014E0C61C7AE896003EB203 /* VTCartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCartController.m; sourceTree = "<group>"; };
+		3014E0C91C7AEC17003EB203 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListController.h; sourceTree = "<group>"; };
+		3014E0CD1C7AF38F003EB203 /* VTPaymentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListController.m; sourceTree = "<group>"; };
+		301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Midtrans.storyboard; sourceTree = "<group>"; };
 		3054941B1C759EDF00938C17 /* libMidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305494271C759EFC00938C17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		305494291C759F0100938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3054942B1C759F2400938C17 /* VTMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMainViewController.h; sourceTree = "<group>"; };
-		3054942C1C759F2400938C17 /* VTMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMainViewController.m; sourceTree = "<group>"; };
 		305494871C75A36A00938C17 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "/Volumes/HDD/XCode/DerrivedData/VTDirectDemo-dfrlbkjigmgusseuflnfvzdbvrvl/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<absolute>"; };
 		3054948E1C75A43800938C17 /* MidtransKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransKit.h; sourceTree = "<group>"; };
 		305494911C75A4DB00938C17 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
@@ -106,9 +112,13 @@
 		3054941D1C759EDF00938C17 /* MidtransKit */ = {
 			isa = PBXGroup;
 			children = (
-				3054942B1C759F2400938C17 /* VTMainViewController.h */,
-				3054942C1C759F2400938C17 /* VTMainViewController.m */,
+				3014E0C91C7AEC17003EB203 /* Images.xcassets */,
 				3054948E1C75A43800938C17 /* MidtransKit.h */,
+				301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */,
+				3014E0C51C7AE896003EB203 /* VTCartController.h */,
+				3014E0C61C7AE896003EB203 /* VTCartController.m */,
+				3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */,
+				3014E0CD1C7AF38F003EB203 /* VTPaymentListController.m */,
 			);
 			path = MidtransKit;
 			sourceTree = "<group>";
@@ -145,8 +155,9 @@
 			files = (
 				305494951C75A4DB00938C17 /* Flurry.h in Headers */,
 				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
+				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
 				305494961C75A4DB00938C17 /* FlurryWatch.h in Headers */,
-				3054942F1C759F3600938C17 /* VTMainViewController.h in Headers */,
+				3014E0C71C7AE896003EB203 /* VTCartController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,7 +255,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3054942D1C759F2400938C17 /* VTMainViewController.m in Sources */,
+				3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */,
+				3014E0C81C7AE896003EB203 /* VTCartController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +425,7 @@
 				305494CC1C75DBEC00938C17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

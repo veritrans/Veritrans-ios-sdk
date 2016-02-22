@@ -20,6 +20,6 @@
                            user:(VTUser *)user
                           items:(NSArray *)items;
 
-- (void)payWithCallback:(void(^)(id response, NSError *error))callback;
+- (void)payWithCVV:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback;
 
 @end

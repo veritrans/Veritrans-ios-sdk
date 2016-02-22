@@ -45,19 +45,50 @@
     return payment;
 }
 
-- (void)getTokenWithCallback:(void(^)(id response, NSError *error))callback {
-    NSString *endPoint = @"token";
+//- (void)saveWithCVV:(NSString *)cvv {
+//    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] merchantServerURL], @"card"];
+//    NSDictionary *parameter = @{@"card_cvv":cvv,
+//                                @"":};
+//}
+
+#pragma mark - Public
+
++ (void)getSavedCardWithCalback:(void(^)(id response, NSError *error))callback {
+    
+}
+
+- (void)payWithCVV:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback {
+    [self getTokenWithCVV:cvv callback:^(id response, NSError *error) {
+        if (error) {
+            if (callback) {
+                callback(nil, error);
+            }
+        } else {
+            [self chargeWithCallback:callback];
+        }
+    }];
+}
+
+#pragma mark - Private
+
+- (void)saveCardAndSavedTokenId:(id)savedToken callback:(void(^)(id response, NSError *error))callback {
+    
+}
+
+- (void)getTokenWithCVV:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback {
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] baseUrl], @"token"];
     NSDictionary *param = @{@"client_key":[[VTConfig sharedInstance] clientKey],
                             @"card_number":self.card.number,
                             @"card_exp_month":self.card.expiryMonth,
                             @"card_exp_year":self.card.expiryYear,
-                            @"card_cvv":self.card.cvv,
+                            @"card_cvv":cvv,
                             @"secure":self.secure?@"true":@"false",
                             @"bank":self.bank,
                             @"gross_amount":self.grossAmount,
                             @"card_type":self.card.type
                             };
-    [[VTNetworking sharedInstance] get:endPoint parameters:param callback:^(id response, NSError *error) {
+    
+    [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
         if (error) {
             if (callback) {
                 callback(nil, error);
@@ -87,30 +118,20 @@
 }
 
 - (NSDictionary *)creditCardData {
-    return @{@"token_id":self.tokenId, @"bank":self.bank};
+    return @{@"token_id":self.tokenId,
+             @"bank":self.bank,
+             @"save_token_id":self.card.saved?@"true":@"false"};
 }
 
 - (void)chargeWithCallback:(void(^)(id response, NSError *error))callback {
-    NSString *endPoint = @"charge";
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] merchantServerURL], @"charge"];
     NSDictionary *parameter = @{@"payment_type":@"credit_card",
                                 @"credit_card":[self creditCardData],
                                 @"transaction_details":[self transactionDetail],
                                 @"customer_details":self.user.requestData,
                                 @"item_details":self.items.convertItemsToRequestData};
     
-    [[VTNetworking sharedInstance] post:endPoint parameters:parameter callback:callback];
-}
-
-- (void)payWithCallback:(void(^)(id response, NSError *error))callback {
-    [self getTokenWithCallback:^(id response, NSError *error) {
-        if (error) {
-            if (callback) {
-                callback(nil, error);
-            }
-        } else {
-            [self chargeWithCallback:callback];
-        }
-    }];
+    [[VTNetworking sharedInstance] postToURL:URL parameters:parameter callback:callback];
 }
 
 #pragma mark - VTWebViewControllerDelegate

@@ -22,18 +22,29 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		3014E0C71C7AE896003EB203 /* VTCartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3014E0C51C7AE896003EB203 /* VTCartController.h */; };
+		3005E2771C7C175000064169 /* VTCardDetailController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTCardDetailController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3005E2781C7C175000064169 /* VTCardDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTCardDetailController.m */; };
+		3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */; };
+		3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2A61C7C239A00064169 /* VTClassHelper.h */; };
+		3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2A71C7C239A00064169 /* VTClassHelper.m */; };
+		300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 300F5CA41C7C0EB200DA6E13 /* VTCardListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		300F5CA71C7C0EB200DA6E13 /* VTCardListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */; };
 		3014E0C81C7AE896003EB203 /* VTCartController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3014E0C61C7AE896003EB203 /* VTCartController.m */; };
-		3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */; };
+		3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3014E0CD1C7AF38F003EB203 /* VTPaymentListController.m */; };
 		305494281C759EFC00938C17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494271C759EFC00938C17 /* UIKit.framework */; };
 		3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494291C759F0100938C17 /* Foundation.framework */; };
-		305494881C75A36A00938C17 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494871C75A36A00938C17 /* libMidtransCoreKit.a */; };
 		3054948F1C75A43800938C17 /* MidtransKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948E1C75A43800938C17 /* MidtransKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		305494951C75A4DB00938C17 /* Flurry.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494911C75A4DB00938C17 /* Flurry.h */; };
-		305494961C75A4DB00938C17 /* FlurryWatch.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494921C75A4DB00938C17 /* FlurryWatch.h */; };
-		305494971C75A4DB00938C17 /* libFlurry_7.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494931C75A4DB00938C17 /* libFlurry_7.5.0.a */; };
-		305494981C75A4DC00938C17 /* libFlurryWatch_7.5.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494941C75A4DB00938C17 /* libFlurryWatch_7.5.0.a */; };
+		30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */; };
+		30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */; };
+		30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */; };
+		30AB73A31C7D62AB001F42FE /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AB73A01C7D62AB001F42FE /* libMidtransCoreKit.a */; };
+		30BB9C7E1C7D79330012BB2A /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */; };
+		30BB9C811C7DA6410012BB2A /* VTTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 30BB9C7F1C7DA6410012BB2A /* VTTextField.h */; };
+		30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB9C801C7DA6410012BB2A /* VTTextField.m */; };
+		30BB9C891C7DB4470012BB2A /* VTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB9C801C7DA6410012BB2A /* VTTextField.m */; };
+		30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */; };
+		30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,43 +70,83 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		3005E2751C7C175000064169 /* VTCardDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCardDetailController.h; sourceTree = "<group>"; };
+		3005E2761C7C175000064169 /* VTCardDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardDetailController.m; sourceTree = "<group>"; };
+		3005E2871C7C17A200064169 /* MidtransResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3005E2891C7C17A200064169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3005E2A61C7C239A00064169 /* VTClassHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClassHelper.h; sourceTree = "<group>"; };
+		3005E2A71C7C239A00064169 /* VTClassHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClassHelper.m; sourceTree = "<group>"; };
+		300F5CA41C7C0EB200DA6E13 /* VTCardListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCardListController.h; sourceTree = "<group>"; };
+		300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardListController.m; sourceTree = "<group>"; };
 		3014E0C51C7AE896003EB203 /* VTCartController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCartController.h; sourceTree = "<group>"; };
 		3014E0C61C7AE896003EB203 /* VTCartController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCartController.m; sourceTree = "<group>"; };
-		3014E0C91C7AEC17003EB203 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListController.h; sourceTree = "<group>"; };
 		3014E0CD1C7AF38F003EB203 /* VTPaymentListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListController.m; sourceTree = "<group>"; };
 		301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Midtrans.storyboard; sourceTree = "<group>"; };
 		3054941B1C759EDF00938C17 /* libMidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305494271C759EFC00938C17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		305494291C759F0100938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		305494871C75A36A00938C17 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "/Volumes/HDD/XCode/DerrivedData/VTDirectDemo-dfrlbkjigmgusseuflnfvzdbvrvl/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<absolute>"; };
 		3054948E1C75A43800938C17 /* MidtransKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransKit.h; sourceTree = "<group>"; };
-		305494911C75A4DB00938C17 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
-		305494921C75A4DB00938C17 /* FlurryWatch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryWatch.h; sourceTree = "<group>"; };
-		305494931C75A4DB00938C17 /* libFlurry_7.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_7.5.0.a; sourceTree = "<group>"; };
-		305494941C75A4DB00938C17 /* libFlurryWatch_7.5.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryWatch_7.5.0.a; sourceTree = "<group>"; };
+		30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicator@2x.png"; path = "../MidtransResources/DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
+		30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicatorGray@2x.png"; path = "../MidtransResources/DisclosureIndicatorGray@2x.png"; sourceTree = "<group>"; };
+		30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ImageOffer@2x.png"; path = "../MidtransResources/ImageOffer@2x.png"; sourceTree = "<group>"; };
+		30AB73A01C7D62AB001F42FE /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../../Volumes/HDD/XCode/DerrivedData/VTDirectDemo-gdjladrbdmowytbzblvfzjoagbvc/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
+		30BB9C731C7D70BB0012BB2A /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../../Volumes/HDD/XCode/DerrivedData/VTDirectDemo-gdjladrbdmowytbzblvfzjoagbvc/Build/Products/Debug-iphoneos/libMidtransKit.a"; sourceTree = "<group>"; };
+		30BB9C7F1C7DA6410012BB2A /* VTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTextField.h; sourceTree = "<group>"; };
+		30BB9C801C7DA6410012BB2A /* VTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTextField.m; sourceTree = "<group>"; };
+		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
+		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3005E2841C7C17A100064169 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		305494181C759EDF00938C17 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				305494881C75A36A00938C17 /* libMidtransCoreKit.a in Frameworks */,
+				30AB73A31C7D62AB001F42FE /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
-				305494971C75A4DB00938C17 /* libFlurry_7.5.0.a in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
-				305494981C75A4DC00938C17 /* libFlurryWatch_7.5.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3005E2881C7C17A200064169 /* MidtransResources */ = {
+			isa = PBXGroup;
+			children = (
+				30AB739C1C7D57B6001F42FE /* Assets */,
+				301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */,
+				3005E2891C7C17A200064169 /* Info.plist */,
+			);
+			path = MidtransResources;
+			sourceTree = "<group>";
+		};
+		3005E29D1C7C1C6B00064169 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				3005E2A61C7C239A00064169 /* VTClassHelper.h */,
+				3005E2A71C7C239A00064169 /* VTClassHelper.m */,
+				30BB9C7F1C7DA6410012BB2A /* VTTextField.h */,
+				30BB9C801C7DA6410012BB2A /* VTTextField.m */,
+				30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */,
+				30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		305494121C759EDF00938C17 = {
 			isa = PBXGroup;
 			children = (
 				3054941D1C759EDF00938C17 /* MidtransKit */,
+				3005E2881C7C17A200064169 /* MidtransResources */,
 				3054941C1C759EDF00938C17 /* Products */,
 				305494991C75A4E700938C17 /* Frameworks */,
 			);
@@ -105,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				3054941B1C759EDF00938C17 /* libMidtransKit.a */,
+				3005E2871C7C17A200064169 /* MidtransResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -112,38 +164,40 @@
 		3054941D1C759EDF00938C17 /* MidtransKit */ = {
 			isa = PBXGroup;
 			children = (
-				3014E0C91C7AEC17003EB203 /* Images.xcassets */,
+				3005E29D1C7C1C6B00064169 /* Helper */,
 				3054948E1C75A43800938C17 /* MidtransKit.h */,
-				301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */,
 				3014E0C51C7AE896003EB203 /* VTCartController.h */,
 				3014E0C61C7AE896003EB203 /* VTCartController.m */,
 				3014E0CC1C7AF38F003EB203 /* VTPaymentListController.h */,
 				3014E0CD1C7AF38F003EB203 /* VTPaymentListController.m */,
+				300F5CA41C7C0EB200DA6E13 /* VTCardListController.h */,
+				300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */,
+				3005E2751C7C175000064169 /* VTCardDetailController.h */,
+				3005E2761C7C175000064169 /* VTCardDetailController.m */,
 			);
 			path = MidtransKit;
-			sourceTree = "<group>";
-		};
-		305494901C75A4DB00938C17 /* Flurry */ = {
-			isa = PBXGroup;
-			children = (
-				305494911C75A4DB00938C17 /* Flurry.h */,
-				305494921C75A4DB00938C17 /* FlurryWatch.h */,
-				305494931C75A4DB00938C17 /* libFlurry_7.5.0.a */,
-				305494941C75A4DB00938C17 /* libFlurryWatch_7.5.0.a */,
-			);
-			name = Flurry;
-			path = MidtransKit/Flurry;
 			sourceTree = "<group>";
 		};
 		305494991C75A4E700938C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				305494901C75A4DB00938C17 /* Flurry */,
-				305494871C75A36A00938C17 /* libMidtransCoreKit.a */,
+				30AB73A01C7D62AB001F42FE /* libMidtransCoreKit.a */,
+				30BB9C731C7D70BB0012BB2A /* libMidtransKit.a */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		30AB739C1C7D57B6001F42FE /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */,
+				30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */,
+				30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */,
+			);
+			name = Assets;
+			path = ../MidtransKit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,17 +207,36 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				305494951C75A4DB00938C17 /* Flurry.h in Headers */,
-				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
+				3005E2771C7C175000064169 /* VTCardDetailController.h in Headers */,
 				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
-				305494961C75A4DB00938C17 /* FlurryWatch.h in Headers */,
-				3014E0C71C7AE896003EB203 /* VTCartController.h in Headers */,
+				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
+				30BB9C811C7DA6410012BB2A /* VTTextField.h in Headers */,
+				3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */,
+				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
+				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3005E2861C7C17A100064169 /* MidtransResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3005E28A1C7C17A200064169 /* Build configuration list for PBXNativeTarget "MidtransResources" */;
+			buildPhases = (
+				3005E2831C7C17A100064169 /* Sources */,
+				3005E2841C7C17A100064169 /* Frameworks */,
+				3005E2851C7C17A100064169 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MidtransResources;
+			productName = MidtransResources;
+			productReference = 3005E2871C7C17A200064169 /* MidtransResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		3054941A1C759EDF00938C17 /* MidtransKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 305494241C759EDF00938C17 /* Build configuration list for PBXNativeTarget "MidtransKit" */;
@@ -193,6 +266,9 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Veritrans;
 				TargetAttributes = {
+					3005E2861C7C17A100064169 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
 					3054941A1C759EDF00938C17 = {
 						CreatedOnToolsVersion = 7.2;
 					};
@@ -215,9 +291,24 @@
 			targets = (
 				3054941A1C759EDF00938C17 /* MidtransKit */,
 				305494CA1C75DBEC00938C17 /* Framework */,
+				3005E2861C7C17A100064169 /* MidtransResources */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3005E2851C7C17A100064169 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
+				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
+				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
+				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		305494D01C75DC1A00938C17 /* MultiPlatform Build */ = {
@@ -251,12 +342,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3005E2831C7C17A100064169 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30BB9C891C7DB4470012BB2A /* VTTextField.m in Sources */,
+				30BB9C7E1C7D79330012BB2A /* NSString+TextDirectionality.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		305494171C759EDF00938C17 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */,
+				3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */,
 				3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */,
+				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,
 				3014E0C81C7AE896003EB203 /* VTCartController.m in Sources */,
+				3005E2781C7C175000064169 /* VTCardDetailController.m in Sources */,
+				300F5CA71C7C0EB200DA6E13 /* VTCardListController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,6 +376,41 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		3005E28B1C7C17A200064169 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_BITCODE = NO;
+				INFOPLIST_FILE = MidtransResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.MidtransResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		3005E28C1C7C17A200064169 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = MidtransResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_LDFLAGS = "";
+				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.MidtransResources;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		305494221C759EDF00938C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -307,7 +447,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -344,7 +484,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -400,6 +540,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		3005E28A1C7C17A200064169 /* Build configuration list for PBXNativeTarget "MidtransResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3005E28B1C7C17A200064169 /* Debug */,
+				3005E28C1C7C17A200064169 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		305494161C759EDF00938C17 /* Build configuration list for PBXProject "MidtransKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

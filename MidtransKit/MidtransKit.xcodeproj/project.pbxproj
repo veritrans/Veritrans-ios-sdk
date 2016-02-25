@@ -51,6 +51,7 @@
 		3068387A1C7EDB4D0064A305 /* VTPaymentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 306838711C7EDA0A0064A305 /* VTPaymentHeader.m */; };
 		3068387B1C7EDC490064A305 /* VTCartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056A2161C7E986C0015B3CC /* VTCartCell.m */; };
 		3068387D1C7EDD210064A305 /* VTItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056A21C1C7EA3660015B3CC /* VTItemViewModel.m */; };
+		3068387E1C7EE2CE0064A305 /* VTCartController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3014E0C51C7AE896003EB203 /* VTCartController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */; };
 		30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */; };
 		30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */; };
@@ -295,6 +296,7 @@
 				30BB9C811C7DA6410012BB2A /* VTTextField.h in Headers */,
 				3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */,
 				306838721C7EDA0A0064A305 /* VTPaymentHeader.h in Headers */,
+				3068387E1C7EE2CE0064A305 /* VTCartController.h in Headers */,
 				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
 				3056A2171C7E986C0015B3CC /* VTCartCell.h in Headers */,
 				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,

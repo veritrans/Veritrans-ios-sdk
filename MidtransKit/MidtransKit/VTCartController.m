@@ -14,9 +14,17 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *totalAmountLabel;
 
+@property (nonatomic, readwrite) NSArray *items;
 @end
 
 @implementation VTCartController
+
++ (instancetype)cartWithItems:(NSArray *)items {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTCartController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCartController"];
+    vc.items = items;
+    return vc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

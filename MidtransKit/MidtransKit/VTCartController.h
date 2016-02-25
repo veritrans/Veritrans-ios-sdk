@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface VTCartController : UIViewController
-@property (nonatomic, strong) NSArray *items;
+@property (nonatomic, readonly) NSArray *items;
+
++ (instancetype)cartWithItems:(NSArray *)items;
 @end

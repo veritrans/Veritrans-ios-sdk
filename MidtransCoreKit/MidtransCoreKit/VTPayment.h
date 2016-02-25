@@ -10,10 +10,6 @@
 #import "VTUser.h"
 #import "VTItem.h"
 
-@interface NSString (random)
-+ (NSString *)randomWithLength:(NSUInteger)length;
-@end
-
 @interface VTPayment : NSObject
 
 @property (nonatomic, readonly) VTUser *user;

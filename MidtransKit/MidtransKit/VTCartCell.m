@@ -31,8 +31,11 @@
     
     VTItemViewModel *vm = [VTItemViewModel viewModelWithItem:item];
     _priceLabel.text = vm.price;
-    _quantityLabel.text = vm.quantity;    
-    [_imageView sd_setImageWithURL:vm.image];
+    _quantityLabel.text = vm.quantity;
+    
+    if (vm.image) {
+        [_imageView sd_setImageWithURL:vm.image];
+    }
 }
 
 @end

@@ -16,3 +16,7 @@
 - (NSArray *)itemsRequestData;
 - (NSNumber *)itemsPriceAmount;
 @end
+
+@interface NSString (random)
++ (NSString *)randomWithLength:(NSUInteger)length;
+@end

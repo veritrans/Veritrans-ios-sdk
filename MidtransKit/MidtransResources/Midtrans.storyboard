@@ -654,6 +654,40 @@
                                     <constraint firstAttribute="height" constant="50" id="Dkf-pM-AwD"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padlock1.png" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-IM-wd4">
+                                <rect key="frame" x="15" y="396" width="42" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="kWc-Ve-92F"/>
+                                    <constraint firstAttribute="width" constant="42" id="pt0-UQ-HhX"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3F-da-6Ce">
+                                <rect key="frame" x="72" y="392" width="233" height="59"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-Pp-xzc">
+                                        <rect key="frame" x="0.0" y="0.0" width="233" height="12"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                        <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veritrans securely manage your credit cards transactions in all our merchants." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eO-D0-LvQ">
+                                        <rect key="frame" x="0.0" y="12" width="233" height="47"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="2eO-D0-LvQ" firstAttribute="top" secondItem="cPv-Pp-xzc" secondAttribute="bottom" id="AHz-er-axW"/>
+                                    <constraint firstItem="cPv-Pp-xzc" firstAttribute="top" secondItem="Y3F-da-6Ce" secondAttribute="top" id="YG6-43-md3"/>
+                                    <constraint firstAttribute="trailing" secondItem="2eO-D0-LvQ" secondAttribute="trailing" id="cew-Ez-9PR"/>
+                                    <constraint firstItem="cPv-Pp-xzc" firstAttribute="leading" secondItem="Y3F-da-6Ce" secondAttribute="leading" id="ebk-QQ-lSN"/>
+                                    <constraint firstAttribute="trailing" secondItem="cPv-Pp-xzc" secondAttribute="trailing" id="feS-Zi-j5i"/>
+                                    <constraint firstItem="2eO-D0-LvQ" firstAttribute="leading" secondItem="Y3F-da-6Ce" secondAttribute="leading" id="jOA-1d-6DN"/>
+                                    <constraint firstAttribute="bottom" secondItem="2eO-D0-LvQ" secondAttribute="bottom" id="oZo-zs-CLJ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -668,7 +702,9 @@
                             <constraint firstItem="QL2-zI-XiW" firstAttribute="top" secondItem="e6N-ga-dfN" secondAttribute="bottom" constant="8" id="GI9-fA-15c"/>
                             <constraint firstItem="QL2-zI-XiW" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" constant="15" id="LXN-QV-1XI"/>
                             <constraint firstItem="zsz-Bw-nKc" firstAttribute="top" secondItem="PI3-3S-vSa" secondAttribute="bottom" constant="16" id="PTP-CH-3Vi"/>
+                            <constraint firstItem="Y3F-da-6Ce" firstAttribute="centerY" secondItem="VQk-IM-wd4" secondAttribute="centerY" id="QIw-VD-D59"/>
                             <constraint firstItem="gCB-fe-8Gs" firstAttribute="top" secondItem="hvj-up-n3q" secondAttribute="bottom" id="TQJ-IN-snZ"/>
+                            <constraint firstItem="VQk-IM-wd4" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" constant="15" id="UXy-Da-Spa"/>
                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="trailing" secondItem="QL2-zI-XiW" secondAttribute="trailing" id="Wdy-o3-v7Y"/>
                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="top" secondItem="QL2-zI-XiW" secondAttribute="bottom" id="Zpu-vf-176"/>
                             <constraint firstItem="R9p-Lf-W2T" firstAttribute="top" secondItem="gCB-fe-8Gs" secondAttribute="bottom" id="Zq7-jx-FoM"/>
@@ -677,13 +713,16 @@
                             <constraint firstAttribute="trailing" secondItem="gCB-fe-8Gs" secondAttribute="trailing" id="cJP-aG-SHY"/>
                             <constraint firstItem="gCB-fe-8Gs" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="cJS-hG-EGK"/>
                             <constraint firstItem="pPW-0T-eZ6" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" constant="8" id="d98-wg-ryn"/>
+                            <constraint firstItem="Y3F-da-6Ce" firstAttribute="leading" secondItem="VQk-IM-wd4" secondAttribute="trailing" constant="15" id="gKA-5K-B6c"/>
                             <constraint firstItem="7gk-kx-ISN" firstAttribute="leading" secondItem="nS6-Y8-oAj" secondAttribute="leading" id="gcU-Sq-Don"/>
                             <constraint firstItem="JaV-SL-Hwc" firstAttribute="centerY" secondItem="7gk-kx-ISN" secondAttribute="centerY" id="hfp-xU-dUX"/>
                             <constraint firstItem="pPW-0T-eZ6" firstAttribute="top" secondItem="OXb-fd-uxo" secondAttribute="bottom" constant="8" id="iuZ-9X-AZR"/>
+                            <constraint firstItem="hvj-up-n3q" firstAttribute="top" secondItem="VQk-IM-wd4" secondAttribute="bottom" constant="20" id="mBS-YP-rVM"/>
                             <constraint firstItem="hvj-up-n3q" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="rcn-ZH-1Dj"/>
                             <constraint firstItem="zm0-F0-Tel" firstAttribute="centerY" secondItem="zsz-Bw-nKc" secondAttribute="centerY" id="rg9-dL-SMM"/>
                             <constraint firstAttribute="trailing" secondItem="hvj-up-n3q" secondAttribute="trailing" id="xou-kb-OhU"/>
                             <constraint firstItem="JaV-SL-Hwc" firstAttribute="leading" secondItem="7gk-kx-ISN" secondAttribute="trailing" constant="8" id="y1o-YW-hnM"/>
+                            <constraint firstAttribute="trailing" secondItem="Y3F-da-6Ce" secondAttribute="trailing" constant="15" id="y2u-yN-37T"/>
                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="leading" secondItem="QL2-zI-XiW" secondAttribute="leading" id="ylT-sg-nIG"/>
                         </constraints>
                     </view>
@@ -693,6 +732,7 @@
                         <outlet property="cardExpiryDate" destination="7gk-kx-ISN" id="Yu0-UW-spv"/>
                         <outlet property="cardName" destination="QL2-zI-XiW" id="FA6-df-GEP"/>
                         <outlet property="cardNumber" destination="nS6-Y8-oAj" id="3uL-T1-Mt8"/>
+                        <outlet property="saveStateSwitch" destination="zsz-Bw-nKc" id="95x-8K-Aim"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zc0-oi-mdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -724,5 +764,6 @@
         <image name="DisclosureIndicator@2x.png" width="8" height="13"/>
         <image name="DisclosureIndicatorGray.png" width="8" height="13"/>
         <image name="ImageOffer.png" width="60" height="60"/>
+        <image name="padlock1.png" width="42" height="51"/>
     </resources>
 </document>

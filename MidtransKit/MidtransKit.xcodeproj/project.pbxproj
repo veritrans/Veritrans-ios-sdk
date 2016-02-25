@@ -35,6 +35,7 @@
 		305494281C759EFC00938C17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494271C759EFC00938C17 /* UIKit.framework */; };
 		3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494291C759F0100938C17 /* Foundation.framework */; };
 		3054948F1C75A43800938C17 /* MidtransKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948E1C75A43800938C17 /* MidtransKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3056A2121C7E95E20015B3CC /* padlock1@2x.png */; };
 		30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */; };
 		30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */; };
 		30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */; };
@@ -87,6 +88,7 @@
 		305494271C759EFC00938C17 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		305494291C759F0100938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3054948E1C75A43800938C17 /* MidtransKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransKit.h; sourceTree = "<group>"; };
+		3056A2121C7E95E20015B3CC /* padlock1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padlock1@2x.png"; sourceTree = "<group>"; };
 		30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicator@2x.png"; path = "../MidtransResources/DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
 		30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicatorGray@2x.png"; path = "../MidtransResources/DisclosureIndicatorGray@2x.png"; sourceTree = "<group>"; };
 		30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ImageOffer@2x.png"; path = "../MidtransResources/ImageOffer@2x.png"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */,
 				30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */,
 				30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */,
+				3056A2121C7E95E20015B3CC /* padlock1@2x.png */,
 			);
 			name = Assets;
 			path = ../MidtransKit;
@@ -304,6 +307,7 @@
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
+				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

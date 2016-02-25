@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
+@property (strong, nonatomic) IBOutlet UISwitch *saveStateSwitch;
 
 @end
 

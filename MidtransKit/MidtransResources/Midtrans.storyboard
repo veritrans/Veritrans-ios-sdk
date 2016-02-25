@@ -528,6 +528,10 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="cardNumberChanged:" destination="SFx-Ox-ybq" eventType="editingChanged" id="k5Q-3a-daH"/>
+                                    <outlet property="delegate" destination="SFx-Ox-ybq" id="SVU-GT-WfA"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gk-kx-ISN" customClass="VTTextField">
                                 <rect key="frame" x="15" y="168" width="170" height="48"/>
@@ -537,6 +541,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="SFx-Ox-ybq" id="JJA-Rf-Ynb"/>
+                                </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaV-SL-Hwc">
                                 <rect key="frame" x="193" y="168" width="127" height="48"/>
@@ -551,6 +558,9 @@
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <outlet property="delegate" destination="SFx-Ox-ybq" id="zSm-we-ilf"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsZ-iw-JGd">
                                         <rect key="frame" x="90" y="8" width="22" height="22"/>

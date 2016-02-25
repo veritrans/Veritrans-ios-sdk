@@ -15,3 +15,9 @@
 @interface NSString (utilities)
 - (BOOL)isNumeric;
 @end
+
+@interface UITextField (helper)
+
+- (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
+
+@end

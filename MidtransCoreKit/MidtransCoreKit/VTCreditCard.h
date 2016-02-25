@@ -29,4 +29,6 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
 
 + (instancetype)cardWithNumber:(NSNumber *)number expiryMonth:(NSNumber *)expiryMonth expiryYear:(NSNumber *)expiryYear saved:(BOOL)saved;
 
++ (VTCreditCardType)typeWithNumber:(NSNumber *)cardNumber;
+
 @end

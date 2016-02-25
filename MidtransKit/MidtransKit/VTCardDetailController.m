@@ -9,8 +9,9 @@
 #import "VTCardDetailController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
+#import <MidtransCoreKit/VTCreditCard.h>
 
-@interface VTCardDetailController () <UITextFieldDelegate>
+@interface VTCardDetailController ()
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
@@ -28,8 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
-    _cardExpiryDate.delegate = self;
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,45 +37,58 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)paymentPressed:(UIButton *)sender {
+- (IBAction)cardNumberChanged:(VTTextField *)sender {
+    NSNumber *cardNumber = @([sender.text integerValue]);
+    VTCreditCardType type = [VTCreditCard typeWithNumber:cardNumber];
+    switch (type) {
+        case VTCreditCardTypeVisa:
+            NSLog(@"visa");
+            break;
+        case VTCreditCardTypeAmex:
+            NSLog(@"amex");
+            break;
+        case VTCreditCardTypeDinersClub:
+            NSLog(@"dc");
+            break;
+        case VTCreditCardTypeDiscover:
+            NSLog(@"d");
+            break;
+        case VTCreditCardTypeJCB:
+            NSLog(@"jcb");
+            break;
+        case VTCreditCardTypeMasterCard:
+            NSLog(@"mastercard");
+            break;
+        case VTCreditCardTypeUnknown:
+            NSLog(@"unknown");
+            break;
+    }
+}
 
+- (IBAction)paymentPressed:(UIButton *)sender {
+    
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([string isNumeric] == NO) {
-        return NO;
+    if ([textField isEqual:_cardExpiryDate]) {
+        return [textField filterCreditCardExpiryDate:string range:range];
+    } else if ([textField isEqual:_cardNumber] || [textField isEqual:_cardCvv]) {
+        return [string isNumeric];
+    } else {
+        return YES;
     }
-    
-    NSMutableString *changedString = textField.text.mutableCopy;
-    [changedString replaceCharactersInRange:range withString:string];
-    
-    if ([changedString length] == 1 && [changedString integerValue] > 1) {
-        textField.text = [NSString stringWithFormat:@"0%@/", changedString];
-    } else if ([changedString length] == 2) {
-        if ([changedString integerValue] < 13) {
-            textField.text = changedString;
-        }
-    } else if ([changedString length] == 3) {
-        if ([string length]) {
-            [changedString insertString:@"/" atIndex:2];
-        }
-        textField.text = changedString;
-    } else if ([changedString length] < 6) {
-        textField.text = changedString;
-    }
-    return NO;
 }
 
 @end

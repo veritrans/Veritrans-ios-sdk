@@ -40,7 +40,7 @@
 }
 
 + (NSString *)checkTypeStringWithNumber:(NSNumber *)number {
-    switch ([self checkTypeWithNumber:number]) {
+    switch ([self typeWithNumber:number]) {
         case VTCreditCardTypeVisa:
             return @"VISA";
             break;
@@ -65,7 +65,7 @@
     }
 }
 
-+ (VTCreditCardType)checkTypeWithNumber:(NSNumber *)cardNumber
++ (VTCreditCardType)typeWithNumber:(NSNumber *)cardNumber
 {
     NSString *numberString = cardNumber.stringValue;
     

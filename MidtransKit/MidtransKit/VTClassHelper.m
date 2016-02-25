@@ -37,6 +37,34 @@
     return r.location == NSNotFound;
 }
 
+@end
+
+@implementation UITextField (helper)
+
+- (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *changedString = self.text.mutableCopy;
+    [changedString replaceCharactersInRange:range withString:string];
+    
+    if ([changedString length] == 1 && [changedString integerValue] > 1) {
+        self.text = [NSString stringWithFormat:@"0%@/", changedString];
+    } else if ([changedString length] == 2) {
+        if ([changedString integerValue] < 13) {
+            self.text = changedString;
+        }
+    } else if ([changedString length] == 3) {
+        if ([string length]) {
+            [changedString insertString:@"/" atIndex:2];
+        }
+        self.text = changedString;
+    } else if ([changedString length] < 6) {
+        self.text = changedString;
+    }
+    return NO;
+}
 
 @end
 

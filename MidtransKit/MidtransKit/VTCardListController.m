@@ -7,6 +7,8 @@
 //
 
 #import "VTCardListController.h"
+#import <MidtransCoreKit/VTItem.h>
+#import "VTClassHelper.h"
 
 @interface VTCardListController ()
 

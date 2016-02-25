@@ -41,7 +41,7 @@
     payment.secure = secure;
     payment.user = user;
     payment.items = items;
-    payment.grossAmount = [items amount];
+    payment.grossAmount = [items itemsPriceAmount];
     return payment;
 }
 
@@ -129,7 +129,7 @@
                                 @"credit_card":[self creditCardData],
                                 @"transaction_details":[self transactionDetail],
                                 @"customer_details":self.user.requestData,
-                                @"item_details":self.items.convertItemsToRequestData};
+                                @"item_details":[self.items itemsRequestData]};
     
     [[VTNetworking sharedInstance] postToURL:URL parameters:parameter callback:callback];
 }

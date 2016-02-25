@@ -23,7 +23,7 @@
 @implementation VTCardDetailController
 
 + (instancetype)newController {
-    VTCardDetailController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:[VTClassHelper kitBundle]] instantiateViewControllerWithIdentifier:@"VTCardDetailController"];
+    VTCardDetailController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle] instantiateViewControllerWithIdentifier:@"VTCardDetailController"];
     return vc;
 }
 

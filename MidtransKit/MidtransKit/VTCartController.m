@@ -7,8 +7,12 @@
 //
 
 #import "VTCartController.h"
+#import "VTCartCell.h"
+#import "VTClassHelper.h"
 
 @interface VTCartController ()
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UILabel *totalAmountLabel;
 
 @end
 
@@ -17,11 +21,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _totalAmountLabel.text = [VTItemViewModel totalPriceOfItems:_items];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)payPressed:(UIButton *)sender {
+}
+- (IBAction)optionPressed:(UIBarButtonItem *)sender {
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_items count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    VTCartCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTCartCell"];
+    cell.item = _items[indexPath.row];
+    return cell;
 }
 
 /*

@@ -46,7 +46,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Jjb-gj-nco">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VTCartCell" id="Jjb-gj-nco" customClass="VTCartCell">
                                         <rect key="frame" x="0.0" y="28" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jjb-gj-nco" id="Dcr-DQ-aAL">
@@ -84,8 +84,17 @@
                                                 <constraint firstItem="K2t-aC-Iax" firstAttribute="leading" secondItem="7hl-nL-nQm" secondAttribute="leading" id="y8I-ox-LXn"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="_imageView" destination="Qwm-Kg-7F9" id="FCg-cW-q67"/>
+                                            <outlet property="_priceLabel" destination="7hl-nL-nQm" id="RAn-xh-i01"/>
+                                            <outlet property="_quantityLabel" destination="K2t-aC-Iax" id="5NM-gb-p9a"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="2by-89-rh9" id="M8u-UO-o8S"/>
+                                    <outlet property="delegate" destination="2by-89-rh9" id="d3q-RN-QN9"/>
+                                </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NST-GL-hej">
                                 <rect key="frame" x="0.0" y="512" width="320" height="56"/>
@@ -95,6 +104,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                                 <state key="normal" title="Pay Now"/>
+                                <connections>
+                                    <action selector="payPressed:" destination="2by-89-rh9" eventType="touchUpInside" id="xpj-Rt-Bjw"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="aFj-4B-QPb">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
@@ -114,10 +126,16 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Cart" id="KjF-vV-fBA">
-                        <barButtonItem key="rightBarButtonItem" title="Options" id="qcr-gD-1SI"/>
+                        <barButtonItem key="rightBarButtonItem" title="Options" id="qcr-gD-1SI">
+                            <connections>
+                                <action selector="optionPressed:" destination="2by-89-rh9" id="VPV-4h-U1V"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="tableView" destination="hDi-ih-NhE" id="nQA-VP-76C"/>
+                        <outlet property="totalAmountLabel" destination="utN-H8-8k4" id="z8q-46-gbk"/>
                         <segue destination="RHJ-xn-0Dn" kind="show" identifier="paymentList" id="l5K-Wa-a1B"/>
                     </connections>
                 </viewController>
@@ -201,11 +219,11 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="40" id="qbW-0s-zdi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VTPaymentHeader" rowHeight="40" id="qbW-0s-zdi" customClass="VTPaymentHeader">
                                         <rect key="frame" x="0.0" y="108" width="320" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qbW-0s-zdi" id="Gpx-kS-UWe">
-                                            <rect key="frame" x="0.0" y="0.0" width="287" height="40"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SECTION" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cP4-qV-h1r">
@@ -221,10 +239,11 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="titleLabel" destination="cP4-qV-h1r" id="IHx-1w-O7N"/>
                                             <segue destination="nMQ-US-4wv" kind="show" identifier="cardList" id="GzM-Ud-XTx"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Dk0-X5-dgC">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VTPaymentCell" id="Dk0-X5-dgC" customClass="VTPaymentCell">
                                         <rect key="frame" x="0.0" y="148" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dk0-X5-dgC" id="tT3-DM-fqM">
@@ -253,8 +272,16 @@
                                                 <constraint firstItem="NEM-aJ-hrl" firstAttribute="centerY" secondItem="tT3-DM-fqM" secondAttribute="centerY" id="nBC-P0-ZZj"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="_iconView" destination="NEM-aJ-hrl" id="WZU-sb-hTH"/>
+                                            <outlet property="_nameLabel" destination="NBX-8I-1fN" id="dco-s6-Nog"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="RHJ-xn-0Dn" id="TbU-oI-vbp"/>
+                                    <outlet property="delegate" destination="RHJ-xn-0Dn" id="F1Z-Mj-BFx"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h28-Kf-y7m">
                                 <rect key="frame" x="0.0" y="488" width="320" height="80"/>
@@ -300,6 +327,11 @@
                     </view>
                     <navigationItem key="navigationItem" title="Payment Method" id="He5-2a-Jd1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <connections>
+                        <outlet property="footerAmountLabel" destination="bD7-uX-kbj" id="4DV-xC-acW"/>
+                        <outlet property="headerAmountLabel" destination="Bj1-LH-Yee" id="wx4-pJ-epC"/>
+                        <outlet property="tableView" destination="CSP-tK-xN9" id="bI7-Fu-eFd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fH5-bk-CGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -664,13 +696,13 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3F-da-6Ce">
                                 <rect key="frame" x="72" y="392" width="233" height="59"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-Pp-xzc">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-Pp-xzc">
                                         <rect key="frame" x="0.0" y="0.0" width="233" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333333333335" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veritrans securely manage your credit cards transactions in all our merchants." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eO-D0-LvQ">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veritrans securely manage your credit cards transactions in all our merchants." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="2eO-D0-LvQ">
                                         <rect key="frame" x="0.0" y="12" width="233" height="47"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                         <color key="textColor" red="0.42745098039215684" green="0.42745098039215684" blue="0.44705882352941173" alpha="1" colorSpace="calibratedRGB"/>

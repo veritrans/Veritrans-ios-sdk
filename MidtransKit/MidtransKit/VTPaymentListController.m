@@ -7,21 +7,94 @@
 //
 
 #import "VTPaymentListController.h"
+#import "VTClassHelper.h"
+#import "VTPaymentCell.h"
+#import "VTPaymentHeader.h"
 
 @interface VTPaymentListController ()
-
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (strong, nonatomic) IBOutlet UILabel *headerAmountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *footerAmountLabel;
+@property (nonatomic) NSNumber *priceAmount;
 @end
 
-@implementation VTPaymentListController
+@implementation VTPaymentListController {
+    NSArray *_payments;
+}
+
++ (instancetype)paymentListWithPriceAmount:(NSNumber *)amount {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTPaymentListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTPaymentListController"];
+    vc.priceAmount = amount;
+    return vc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSString *path = [VTBundle pathForResource:@"Payments" ofType:@"plist"];
+    _payments = [NSArray arrayWithContentsOfFile:path];
+
+    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
+    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
+    _headerAmountLabel.text = [formatter stringFromNumber:_priceAmount];
+    _footerAmountLabel.text = [formatter stringFromNumber:_priceAmount];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return [_payments count];
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    NSArray *items = _payments[section][@"items"];
+    return [items count];
+}
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSArray *items = _payments[indexPath.section][@"items"];
+    
+    VTPaymentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTPaymentCell"];
+    cell.paymentItem = items[indexPath.row];
+    return cell;
+}
+
+#pragma mark - UITableViewDelegate
+
+- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    VTPaymentHeader *header = [tableView dequeueReusableCellWithIdentifier:@"VTPaymentHeader"];
+    header.titleLabel.text = _payments[section][@"name"];
+    return header;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSDictionary *item = _payments[indexPath.section][@"items"][indexPath.row];
+    NSString *identifier = item[@"id"];
+    
+    if ([identifier isEqualToString:VTPaymentBCAKlikpay]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentBCAVA]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentCIMBClicks]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentCreditCard]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentIndomaret]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentMandiriBillpay]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentMandiriClickpay]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentMandiriECash]) {
+        
+    } else if ([identifier isEqualToString:VTPaymentPermataVA]) {
+        
+    }
 }
 
 /*

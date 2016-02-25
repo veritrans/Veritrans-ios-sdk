@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VTCardListController : UIViewController
-
+@property (nonatomic, strong) NSArray *items;
 @end

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VTCartController : UIViewController
-
+@property (nonatomic, strong) NSArray *items;
 @end

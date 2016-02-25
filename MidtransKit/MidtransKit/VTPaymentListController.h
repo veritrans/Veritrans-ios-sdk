@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTItemViewModel.h"
 
 @interface VTPaymentListController : UIViewController
-
++ (instancetype)paymentListWithPriceAmount:(NSNumber *)amount;
 @end

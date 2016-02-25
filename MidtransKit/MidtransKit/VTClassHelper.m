@@ -8,6 +8,16 @@
 
 #import "VTClassHelper.h"
 
+NSString *const VTPaymentCreditCard = @"cc";
+NSString *const VTPaymentPermataVA = @"permatava";
+NSString *const VTPaymentMandiriClickpay = @"clickpay";
+NSString *const VTPaymentBCAVA = @"bcava";
+NSString *const VTPaymentMandiriBillpay = @"billpay";
+NSString *const VTPaymentCIMBClicks = @"clicks";
+NSString *const VTPaymentBCAKlikpay = @"klikpay";
+NSString *const VTPaymentIndomaret = @"indomaret";
+NSString *const VTPaymentMandiriECash = @"ecash";
+
 @implementation VTClassHelper
 
 + (NSBundle*)kitBundle {
@@ -68,4 +78,20 @@
 
 @end
 
+@implementation NSObject (utilities)
+
++ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier {
+    NSMutableDictionary *dictionary = [[NSThread currentThread] threadDictionary];
+    NSNumberFormatter *currentFormatter = [dictionary objectForKey:identifier];
+    
+    if (currentFormatter == nil) {
+        currentFormatter = [NSNumberFormatter new];
+        currentFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+        [dictionary setObject:currentFormatter forKey:identifier];
+    }
+    
+    return currentFormatter;
+}
+
+@end
 

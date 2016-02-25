@@ -7,6 +7,7 @@
 //
 
 #import "VTHelper.h"
+#import "VTItem.h"
 
 @implementation VTHelper
 
@@ -16,6 +17,26 @@
     } else {
         return [NSNull null];
     }
+}
+
+@end
+
+@implementation NSArray (item)
+
+- (NSArray *)itemsRequestData {
+    NSMutableArray *result = [NSMutableArray new];
+    for (VTItem *item in self) {
+        [result addObject:item.requestData];
+    }
+    return result;
+}
+
+- (NSNumber *)itemsPriceAmount {
+    double result;
+    for (VTItem *item in self) {
+        result += (item.price.doubleValue * item.quantity.integerValue);
+    }
+    return @(result);
 }
 
 @end

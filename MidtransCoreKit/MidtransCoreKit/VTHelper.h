@@ -11,3 +11,8 @@
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
 @end
+
+@interface NSArray (item)
+- (NSArray *)itemsRequestData;
+- (NSNumber *)itemsPriceAmount;
+@end

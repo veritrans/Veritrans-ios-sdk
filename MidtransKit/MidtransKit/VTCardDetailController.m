@@ -10,7 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTTextField.h"
 
-@interface VTCardDetailController ()
+@interface VTCardDetailController () <UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
@@ -29,6 +29,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    _cardExpiryDate.delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -37,11 +38,7 @@
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    if ([_cardCvv.warning length]) {
-        _cardCvv.warning = nil;
-    } else {
-        _cardCvv.warning = @"Wrong input";
-    }
+
 }
 
 /*
@@ -53,5 +50,32 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *changedString = textField.text.mutableCopy;
+    [changedString replaceCharactersInRange:range withString:string];
+    
+    if ([changedString length] == 1 && [changedString integerValue] > 1) {
+        textField.text = [NSString stringWithFormat:@"0%@/", changedString];
+    } else if ([changedString length] == 2) {
+        if ([changedString integerValue] < 13) {
+            textField.text = changedString;
+        }
+    } else if ([changedString length] == 3) {
+        if ([string length]) {
+            [changedString insertString:@"/" atIndex:2];
+        }
+        textField.text = changedString;
+    } else if ([changedString length] < 6) {
+        textField.text = changedString;
+    }
+    return NO;
+}
 
 @end

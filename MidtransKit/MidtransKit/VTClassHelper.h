@@ -11,3 +11,7 @@
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
 @end
+
+@interface NSString (utilities)
+- (BOOL)isNumeric;
+@end

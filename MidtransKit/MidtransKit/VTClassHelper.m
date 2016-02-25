@@ -28,3 +28,16 @@
 }
 
 @end
+
+@implementation NSString (utilities)
+
+- (BOOL)isNumeric {
+    NSCharacterSet* nonNumbers = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSRange r = [self rangeOfCharacterFromSet: nonNumbers];
+    return r.location == NSNotFound;
+}
+
+
+@end
+
+

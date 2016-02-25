@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTPaymentCell.h"
 #import "VTPaymentHeader.h"
+#import "VTCardListController.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -76,6 +77,8 @@
     NSDictionary *item = _payments[indexPath.section][@"items"][indexPath.row];
     NSString *identifier = item[@"id"];
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    
     if ([identifier isEqualToString:VTPaymentBCAKlikpay]) {
         
     } else if ([identifier isEqualToString:VTPaymentBCAVA]) {
@@ -83,6 +86,9 @@
     } else if ([identifier isEqualToString:VTPaymentCIMBClicks]) {
         
     } else if ([identifier isEqualToString:VTPaymentCreditCard]) {
+        
+        VTCardListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCardListController"];
+        [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([identifier isEqualToString:VTPaymentIndomaret]) {
         

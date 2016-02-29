@@ -17,7 +17,7 @@
 		30FDCC591C80093200CEFED3 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FDCC4E1C8008D900CEFED3 /* libMidtransCoreKit.a */; };
 		30FDCC5A1C80093200CEFED3 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30FDCC561C8008DF00CEFED3 /* libMidtransKit.a */; };
 		30FDCC611C80096000CEFED3 /* MidtransResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 30FDCC581C8008DF00CEFED3 /* MidtransResources.bundle */; };
-		A7F8B8FA73109D61A8BBE445 /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A563CDA27E2A44584FB8CB40 /* libPods-VTDirectDemo.a */; };
+		942B0CC839B192344048CA88 /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EFC8F81927F2186D65B89691 /* libPods-VTDirectDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		11247E868ACF1C484EFCC9D9 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
 		302F71BE1C73163C00FE73FE /* VTDirectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTDirectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71C21C73163C00FE73FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		302F71C41C73163C00FE73FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -81,9 +82,8 @@
 		30FDCC401C8002B400CEFED3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
 		30FDCC481C8008D900CEFED3 /* MidtransCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransCoreKit.xcodeproj; path = ../../MidtransCoreKit/MidtransCoreKit.xcodeproj; sourceTree = "<group>"; };
 		30FDCC4F1C8008DF00CEFED3 /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
-		6BC6466A89F8C7F405A73AF1 /* Pods-VTDirectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		9618335524F17DC07784ECBB /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
-		A563CDA27E2A44584FB8CB40 /* libPods-VTDirectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTDirectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BAA1487E0EA684A4F509CD4 /* Pods-VTDirectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		EFC8F81927F2186D65B89691 /* libPods-VTDirectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTDirectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,7 +93,7 @@
 			files = (
 				30FDCC591C80093200CEFED3 /* libMidtransCoreKit.a in Frameworks */,
 				30FDCC5A1C80093200CEFED3 /* libMidtransKit.a in Frameworks */,
-				A7F8B8FA73109D61A8BBE445 /* libPods-VTDirectDemo.a in Frameworks */,
+				942B0CC839B192344048CA88 /* libPods-VTDirectDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -105,8 +105,8 @@
 			children = (
 				302F71C01C73163C00FE73FE /* VTDirectDemo */,
 				302F71BF1C73163C00FE73FE /* Products */,
-				36FA91A064525FC2A9342DD3 /* Pods */,
-				FC8E45667D179904D750CCDD /* Frameworks */,
+				C2C5B7F251A0490F6D0CBC70 /* Pods */,
+				60DE1F59509B50552B10D5AE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -164,21 +164,21 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		36FA91A064525FC2A9342DD3 /* Pods */ = {
+		60DE1F59509B50552B10D5AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				6BC6466A89F8C7F405A73AF1 /* Pods-VTDirectDemo.debug.xcconfig */,
-				9618335524F17DC07784ECBB /* Pods-VTDirectDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		FC8E45667D179904D750CCDD /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A563CDA27E2A44584FB8CB40 /* libPods-VTDirectDemo.a */,
+				EFC8F81927F2186D65B89691 /* libPods-VTDirectDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C2C5B7F251A0490F6D0CBC70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4BAA1487E0EA684A4F509CD4 /* Pods-VTDirectDemo.debug.xcconfig */,
+				11247E868ACF1C484EFCC9D9 /* Pods-VTDirectDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,12 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F71D51C73163C00FE73FE /* Build configuration list for PBXNativeTarget "VTDirectDemo" */;
 			buildPhases = (
-				F4EF705589D28118D573094A /* Check Pods Manifest.lock */,
+				1D147952714E3770EB4AD20E /* Check Pods Manifest.lock */,
 				302F71BA1C73163C00FE73FE /* Sources */,
 				302F71BB1C73163C00FE73FE /* Frameworks */,
 				302F71BC1C73163C00FE73FE /* Resources */,
-				B27563DDFD72451709C01A1D /* Embed Pods Frameworks */,
-				F608C928A1BFA3C37247C283 /* Copy Pods Resources */,
+				5E3349689F3C4A2CA5E60EAF /* Embed Pods Frameworks */,
+				96D6137AB7D4CDF0E4D3BB5F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -289,22 +289,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B27563DDFD72451709C01A1D /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F4EF705589D28118D573094A /* Check Pods Manifest.lock */ = {
+		1D147952714E3770EB4AD20E /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -319,7 +304,22 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		F608C928A1BFA3C37247C283 /* Copy Pods Resources */ = {
+		5E3349689F3C4A2CA5E60EAF /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		96D6137AB7D4CDF0E4D3BB5F /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -472,7 +472,7 @@
 		};
 		302F71D61C73163C00FE73FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6BC6466A89F8C7F405A73AF1 /* Pods-VTDirectDemo.debug.xcconfig */;
+			baseConfigurationReference = 4BAA1487E0EA684A4F509CD4 /* Pods-VTDirectDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -494,7 +494,7 @@
 		};
 		302F71D71C73163C00FE73FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9618335524F17DC07784ECBB /* Pods-VTDirectDemo.release.xcconfig */;
+			baseConfigurationReference = 11247E868ACF1C484EFCC9D9 /* Pods-VTDirectDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

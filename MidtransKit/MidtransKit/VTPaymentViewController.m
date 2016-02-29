@@ -16,8 +16,8 @@
 
 @implementation VTPaymentViewController
 
-+ (instancetype)paymentWithItems:(NSArray<VTItem *> *)items {
-    VTCartController *vc = [VTCartController cartWithItems:items];
++ (instancetype)paymentWithUser:(VTUser *)user andItems:(NSArray<VTItem *> *)items {
+    VTCartController *vc = [VTCartController cartWithUser:user andItems:items];
     VTPaymentViewController *nvc = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return nvc;
 }

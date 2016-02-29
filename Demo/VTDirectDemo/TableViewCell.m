@@ -7,7 +7,7 @@
 //
 
 #import "TableViewCell.h"
-#import <UIImageView+WebCache.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation TableViewCell {
     IBOutlet UILabel *_quantityLabel;

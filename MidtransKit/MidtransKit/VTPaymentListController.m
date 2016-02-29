@@ -11,22 +11,25 @@
 #import "VTPaymentCell.h"
 #import "VTPaymentHeader.h"
 #import "VTCardListController.h"
+#import "VTClickpayController.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *headerAmountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *footerAmountLabel;
-@property (nonatomic) NSNumber *priceAmount;
+@property (nonatomic) NSNumber *amount;
+@property (nonatomic) VTUser *user;
 @end
 
 @implementation VTPaymentListController {
     NSArray *_payments;
 }
 
-+ (instancetype)paymentListWithPriceAmount:(NSNumber *)amount {
++ (instancetype)paymentListWithUser:(VTUser *)user andAmount:(NSNumber *)amount {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTPaymentListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTPaymentListController"];
-    vc.priceAmount = amount;
+    vc.amount = amount;
+    vc.user = user;
     return vc;
 }
 
@@ -39,8 +42,8 @@
 
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
     formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    _headerAmountLabel.text = [formatter stringFromNumber:_priceAmount];
-    _footerAmountLabel.text = [formatter stringFromNumber:_priceAmount];
+    _headerAmountLabel.text = [formatter stringFromNumber:_amount];
+    _footerAmountLabel.text = [formatter stringFromNumber:_amount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -95,7 +98,8 @@
     } else if ([identifier isEqualToString:VTPaymentMandiriBillpay]) {
         
     } else if ([identifier isEqualToString:VTPaymentMandiriClickpay]) {
-        
+        VTClickpayController *vc = [VTClickpayController controllerWithUser:_user andAmount:_amount];
+        [self.navigationController pushViewController:vc animated:YES];
     } else if ([identifier isEqualToString:VTPaymentMandiriECash]) {
         
     } else if ([identifier isEqualToString:VTPaymentPermataVA]) {

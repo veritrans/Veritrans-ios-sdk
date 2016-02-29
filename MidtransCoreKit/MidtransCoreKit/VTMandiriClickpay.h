@@ -8,15 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
+extern NSString *const APPLIType;
+
 @interface VTMandiriClickpay : NSObject
 
-@property (nonatomic, readonly) NSString *debitNumber;
-@property (nonatomic, readonly) NSString *token;
+@property (nonatomic) NSString *debitNumber;
+@property (nonatomic) NSString *token;
 @property (nonatomic, readonly) NSString *input1;
 @property (nonatomic, readonly) NSString *input2;
 @property (nonatomic, readonly) NSString *input3;
 
-+ (instancetype)dataWithDebitNumber:(NSString *)debitNumber token:(NSString *)token transactionAmount:(NSNumber *)transactionAmount;
++ (instancetype)dataWithTransactionAmount:(NSNumber *)transactionAmount;
 
 - (NSDictionary *)requestData;
 

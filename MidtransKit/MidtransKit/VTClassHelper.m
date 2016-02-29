@@ -86,6 +86,7 @@ NSString *const VTPaymentMandiriECash = @"ecash";
     
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
+        currentFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
         currentFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
         [dictionary setObject:currentFormatter forKey:identifier];
     }

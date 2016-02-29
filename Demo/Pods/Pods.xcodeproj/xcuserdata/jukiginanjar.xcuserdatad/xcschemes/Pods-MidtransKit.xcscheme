@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '99BA8D2C11B90164E5F4E6CB'
+               BlueprintIdentifier = 'A88B2C4D49178DADA81D7C8C'
                BlueprintName = 'Pods-MidtransKit'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libPods-MidtransKit.a'>

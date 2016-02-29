@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/VTItem.h>
+#import <MidtransCoreKit/VTUser.h>
 
 @interface VTPaymentViewController : UINavigationController
 
-+ (instancetype)paymentWithItems:(NSArray <VTItem *> *)items;
++ (instancetype)paymentWithUser:(VTUser *)user andItems:(NSArray <VTItem *> *)items;
 
 @end

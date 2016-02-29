@@ -9,23 +9,24 @@
 #import "VTMandiriClickpay.h"
 #import "VTHelper.h"
 
+NSString *const APPLIType = @"3";
+
 @interface VTMandiriClickpay()
 
-@property (nonatomic, readwrite) NSString *debitNumber;
-@property (nonatomic, readwrite) NSString *token;
 @property (nonatomic, readwrite) NSString *input1;
 @property (nonatomic, readwrite) NSString *input2;
 @property (nonatomic, readwrite) NSString *input3;
 @property (nonatomic, readwrite) NSNumber *transactionAmount;
+
 @end
 
 @implementation VTMandiriClickpay
 
-+ (instancetype)dataWithDebitNumber:(NSString *)debitNumber token:(NSString *)token transactionAmount:(NSNumber *)transactionAmount {
++ (instancetype)dataWithTransactionAmount:(NSNumber *)transactionAmount {
     VTMandiriClickpay *obj = [VTMandiriClickpay new];
-    obj.debitNumber = debitNumber;
-    obj.token = token;
     obj.transactionAmount = transactionAmount;
+    obj.input2 = [transactionAmount stringValue];
+    obj.input3 = [NSString stringWithFormat:@"%i", arc4random_uniform(5)];
     return obj;
 }
 
@@ -33,9 +34,11 @@
     _debitNumber = debitNumber;
     
     NSInteger startIndex = [debitNumber length] - 10;
-    _input1 = [debitNumber substringFromIndex:startIndex];
-    _input2 = [_transactionAmount stringValue];
-    _input3 = [NSString stringWithFormat:@"%i", arc4random_uniform(5)];
+    if (startIndex > 0) {
+        self.input1 = [debitNumber substringFromIndex:startIndex];
+    } else {
+        self.input1 = debitNumber;
+    }
 }
 
 - (NSDictionary *)requestData {

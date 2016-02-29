@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "VTItemViewModel.h"
+#import <MidtransCoreKit/VTUser.h>
 
 @interface VTPaymentListController : UIViewController
-+ (instancetype)paymentListWithPriceAmount:(NSNumber *)amount;
++ (instancetype)paymentListWithUser:(VTUser *)user andAmount:(NSNumber *)amount;
 @end

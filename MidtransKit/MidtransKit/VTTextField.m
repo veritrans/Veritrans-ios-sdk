@@ -373,7 +373,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     
     
     _divView.frame = CGRectMake(0,
-                                self.bounds.size.height - (_warningLabel.font.pointSize + 4),
+                                self.bounds.size.height - (_warningLabel.font.pointSize + 2),
                                 self.bounds.size.width,
                                 1);
     

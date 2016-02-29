@@ -16,16 +16,17 @@
 @interface VTCartController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *totalAmountLabel;
-
+@property (nonatomic, readwrite) VTUser *user;
 @property (nonatomic, readwrite) NSArray *items;
 @end
 
 @implementation VTCartController
 
-+ (instancetype)cartWithItems:(NSArray *)items {
++ (instancetype)cartWithUser:(VTUser *)user andItems:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTCartController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCartController"];
     vc.items = items;
+    vc.user = user;
     return vc;
 }
 
@@ -42,9 +43,10 @@
 }
 
 - (IBAction)payPressed:(UIButton *)sender {
-    VTPaymentListController *vc = [VTPaymentListController paymentListWithPriceAmount:[_items itemsPriceAmount]];
+    VTPaymentListController *vc = [VTPaymentListController paymentListWithUser:_user andAmount:[_items itemsPriceAmount]];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
 - (IBAction)optionPressed:(UIBarButtonItem *)sender {
 }
 

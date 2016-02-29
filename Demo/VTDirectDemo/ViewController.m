@@ -37,6 +37,7 @@
     IBOutlet UITextField *emailTextField;
     
     NSArray *_items;
+    VTUser *_user;
 }
 
 - (void)viewDidLoad {
@@ -44,10 +45,12 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _items = [self items];
-    
-    NSString *test = @"a;sdkjf;asdkjf;aksjdf;jasd11111444441234567890";
-    NSInteger startIndex = [test length] - 10;
-    NSLog(@"result: %@", [test substringFromIndex:startIndex]);
+    _user = [VTUser userWithFirstName:@"Nanang"
+                             lastName:@"Rafsanjani"
+                                email:@"jukiginanjar@yahoo.com"
+                                phone:@"08985999286"
+                      shippingAddress:nil
+                       billingAddress:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +58,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    VTPaymentViewController *vc = [VTPaymentViewController paymentWithItems:_items];
+    VTPaymentViewController *vc = [VTPaymentViewController paymentWithUser:_user andItems:_items];
     [self presentViewController:vc animated:YES completion:nil];
 }
 
@@ -83,63 +86,63 @@
 - (IBAction)payPressed:(UIButton *)sender {
     
     
-//    VTCartController *vc = [VTCartController cartWithItems:[self items]];
-//    [self presentViewController:vc animated:YES completion:nil];
+    //    VTCartController *vc = [VTCartController cartWithItems:[self items]];
+    //    [self presentViewController:vc animated:YES completion:nil];
     
-//    VTPaymentListController *vc = [VTPaymentListController paymentListWithPriceAmount:@50000];
-//    [self presentViewController:vc animated:YES completion:nil];
+    //    VTPaymentListController *vc = [VTPaymentListController paymentListWithPriceAmount:@50000];
+    //    [self presentViewController:vc animated:YES completion:nil];
     
-//    VTCardDetailController *vc = [VTCardDetailController newController];
-//    [self presentViewController:vc animated:YES completion:nil];
-//    
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"MidtransResources" ofType:@"bundle"];
-//    NSBundle *bundle = [NSBundle bundleWithPath:path];
-//    NSError *error;
-//    [bundle loadAndReturnError:&error];
-//    NSLog(@"%@", error);
+    //    VTCardDetailController *vc = [VTCardDetailController newController];
+    //    [self presentViewController:vc animated:YES completion:nil];
+    //
+    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"MidtransResources" ofType:@"bundle"];
+    //    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    //    NSError *error;
+    //    [bundle loadAndReturnError:&error];
+    //    NSLog(@"%@", error);
     
-//    [indicatorView startAnimating];
-//    VTCreditCard *card = [VTCreditCard cardWithNumber:@4811111111111114
-//                                          expiryMonth:@1
-//                                           expiryYear:@2020
-//                                                saved:YES];
-//    
-//    VTAddress *address = [VTAddress addressWithName:@"Jaka"
-//                                           lastName:@"Ginanjar"
-//                                              email:emailTextField.text
-//                                              phone:@"08985999286"
-//                                            address:@"Condong Catur"
-//                                               city:@"Yogyakarta"
-//                                         postalCode:@"54824"
-//                                        countryCode:@"IND"];
-//    
-//    VTUser *user = [VTUser userWithFirstName:@"Jaka"
-//                                    lastName:@"Ginanjar"
-//                                       email:emailTextField.text
-//                                       phone:@"08985999286"
-//                             shippingAddress:address
-//                              billingAddress:address];
-//    
-//    VTItem *item = [VTItem itemWithId:@"xyz"
-//                                 name:@"yakult"
-//                                price:@5000
-//                             quantity:@10];
-//
-//    VTPaymentCreditCard *payment = [VTPaymentCreditCard paymentWithCard:card
-//                                                                   bank:@"bni"
-//                                                                 secure:YES
-//                                                                   user:user
-//                                                                  items:@[item]];
-//    
-//    [payment payWithCVV:@"123" callback:^(id response, NSError *error) {
-//        [indicatorView stopAnimating];
-//        
-//        if (error) {
-//            statusLabel.text = [NSString stringWithFormat:@"Error %@", error.localizedDescription];
-//        } else {
-//            statusLabel.text = [NSString stringWithFormat:@"Success %@", response];
-//        }
-//    }];
+    //    [indicatorView startAnimating];
+    //    VTCreditCard *card = [VTCreditCard cardWithNumber:@4811111111111114
+    //                                          expiryMonth:@1
+    //                                           expiryYear:@2020
+    //                                                saved:YES];
+    //
+    //    VTAddress *address = [VTAddress addressWithName:@"Jaka"
+    //                                           lastName:@"Ginanjar"
+    //                                              email:emailTextField.text
+    //                                              phone:@"08985999286"
+    //                                            address:@"Condong Catur"
+    //                                               city:@"Yogyakarta"
+    //                                         postalCode:@"54824"
+    //                                        countryCode:@"IND"];
+    //
+    //    VTUser *user = [VTUser userWithFirstName:@"Jaka"
+    //                                    lastName:@"Ginanjar"
+    //                                       email:emailTextField.text
+    //                                       phone:@"08985999286"
+    //                             shippingAddress:address
+    //                              billingAddress:address];
+    //
+    //    VTItem *item = [VTItem itemWithId:@"xyz"
+    //                                 name:@"yakult"
+    //                                price:@5000
+    //                             quantity:@10];
+    //
+    //    VTPaymentCreditCard *payment = [VTPaymentCreditCard paymentWithCard:card
+    //                                                                   bank:@"bni"
+    //                                                                 secure:YES
+    //                                                                   user:user
+    //                                                                  items:@[item]];
+    //
+    //    [payment payWithCVV:@"123" callback:^(id response, NSError *error) {
+    //        [indicatorView stopAnimating];
+    //
+    //        if (error) {
+    //            statusLabel.text = [NSString stringWithFormat:@"Error %@", error.localizedDescription];
+    //        } else {
+    //            statusLabel.text = [NSString stringWithFormat:@"Success %@", response];
+    //        }
+    //    }];
 }
 
 @end

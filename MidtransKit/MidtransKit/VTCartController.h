@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MidtransCoreKit/VTUser.h>
 
 @interface VTCartController : UIViewController
 @property (nonatomic, readonly) NSArray *items;
+@property (nonatomic, readonly) VTUser *user;
 
-+ (instancetype)cartWithItems:(NSArray *)items;
++ (instancetype)cartWithUser:(VTUser *)user andItems:(NSArray *)items;
 @end

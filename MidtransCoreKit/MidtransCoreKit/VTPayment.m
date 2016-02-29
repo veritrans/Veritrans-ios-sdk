@@ -16,17 +16,29 @@
 @property (nonatomic, readwrite) NSArray <VTItem *> *items;
 @property (nonatomic, readwrite) NSNumber *totalPayment;
 @property (nonatomic, readwrite) NSString *orderId;
+@property (nonatomic, readwrite) NSNumber *grossAmount;
 @end
 
 @implementation VTPayment
 
-- (id)initWithItems:(NSArray *)items user:(VTUser *)user {
-    if (self = [super init]) {
-        self.items = items;
-        self.user = user;
-        self.orderId = [NSString randomWithLength:OrderIdLength];
++ (instancetype)paymentWithUser:(VTUser *)user andItems:(NSArray *)items {
+    VTPayment *payment = [VTPayment new];
+    payment.user = user;
+    payment.items = items;
+    payment.grossAmount = [payment grossAmountOfItems:items];
+    return payment;
+}
+
+- (NSNumber *)grossAmountOfItems:(NSArray *)items {
+    double amount = 0;
+    for (VTItem *item in items) {
+        amount += (item.price.doubleValue * item.quantity.integerValue);
     }
-    return self;
+    return @(amount);
+}
+
+- (NSDictionary *)transactionDetail {
+    return @{@"order_id":self.orderId, @"gross_amount":self.grossAmount};
 }
 
 @end

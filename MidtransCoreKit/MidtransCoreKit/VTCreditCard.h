@@ -21,14 +21,14 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
 
 @interface VTCreditCard : NSObject
 
-@property (nonatomic, readonly) NSNumber *number;
 @property (nonatomic, readonly) NSNumber *expiryYear;
 @property (nonatomic, readonly) NSNumber *expiryMonth;
 @property (nonatomic, readonly) NSString *type;
+@property (nonatomic, readonly) NSString *number;
 @property (nonatomic, readonly) BOOL saved;
 
-+ (instancetype)cardWithNumber:(NSNumber *)number expiryMonth:(NSNumber *)expiryMonth expiryYear:(NSNumber *)expiryYear saved:(BOOL)saved;
++ (instancetype)dataWithNumber:(NSString *)number expiryMonth:(NSNumber *)expiryMonth expiryYear:(NSNumber *)expiryYear saved:(BOOL)saved;
 
-+ (VTCreditCardType)typeWithNumber:(NSNumber *)cardNumber;
++ (VTCreditCardType)typeWithNumber:(NSString *)cardNumber;
 
 @end

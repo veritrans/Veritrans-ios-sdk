@@ -14,12 +14,9 @@
 
 @interface VTPaymentCreditCard : VTPayment
 
-+ (instancetype)paymentWithCard:(VTCreditCard *)card
-                           bank:(NSString *)bank
-                         secure:(BOOL)secure
-                           user:(VTUser *)user
-                          items:(NSArray *)items;
+@property (nonatomic, assign) BOOL secure;
+@property (nonatomic, strong) NSString *bank;
 
-- (void)payWithCVV:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback;
+- (void)payWithCard:(VTCreditCard *)card cvv:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback;
 
 @end

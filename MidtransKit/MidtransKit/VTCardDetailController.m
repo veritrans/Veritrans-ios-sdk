@@ -39,8 +39,7 @@
 }
 
 - (IBAction)cardNumberChanged:(VTTextField *)sender {
-    NSNumber *cardNumber = @([sender.text integerValue]);
-    VTCreditCardType type = [VTCreditCard typeWithNumber:cardNumber];
+    VTCreditCardType type = [VTCreditCard typeWithNumber:sender.text];
     switch (type) {
         case VTCreditCardTypeVisa:
             NSLog(@"visa");

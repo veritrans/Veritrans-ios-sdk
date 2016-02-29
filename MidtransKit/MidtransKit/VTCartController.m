@@ -9,6 +9,9 @@
 #import "VTCartController.h"
 #import "VTCartCell.h"
 #import "VTClassHelper.h"
+#import "VTPaymentListController.h"
+
+#import <MidtransCoreKit/VTHelper.h>
 
 @interface VTCartController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -39,6 +42,8 @@
 }
 
 - (IBAction)payPressed:(UIButton *)sender {
+    VTPaymentListController *vc = [VTPaymentListController paymentListWithPriceAmount:[_items itemsPriceAmount]];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 - (IBAction)optionPressed:(UIBarButtonItem *)sender {
 }

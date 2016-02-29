@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
     </dependencies>
     <scenes>
-        <!--Cart-->
+        <!--Cart Overview-->
         <scene sceneID="LF6-jE-dtK">
             <objects>
-                <viewController storyboardIdentifier="VTCartController" automaticallyAdjustsScrollViewInsets="NO" id="2by-89-rh9" customClass="VTCartController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VTCartController" title="Cart Overview" automaticallyAdjustsScrollViewInsets="NO" id="2by-89-rh9" customClass="VTCartController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="1df-Qz-y51"/>
                         <viewControllerLayoutGuide type="bottom" id="UY3-mo-X8y"/>
@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hDi-ih-NhE">
-                                <rect key="frame" x="0.0" y="64" width="320" height="448"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="xpg-WZ-Opb">
                                     <rect key="frame" x="0.0" y="108" width="320" height="40"/>
@@ -108,7 +108,7 @@
                                     <action selector="payPressed:" destination="2by-89-rh9" eventType="touchUpInside" id="xpj-Rt-Bjw"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator@2x.png" translatesAutoresizingMaskIntoConstraints="NO" id="aFj-4B-QPb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aFj-4B-QPb">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                         </subviews>
@@ -125,25 +125,17 @@
                             <constraint firstItem="UY3-mo-X8y" firstAttribute="top" secondItem="NST-GL-hej" secondAttribute="bottom" id="wCa-pn-fnw"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Cart" id="KjF-vV-fBA">
-                        <barButtonItem key="rightBarButtonItem" title="Options" id="qcr-gD-1SI">
-                            <connections>
-                                <action selector="optionPressed:" destination="2by-89-rh9" id="VPV-4h-U1V"/>
-                            </connections>
-                        </barButtonItem>
-                    </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="tableView" destination="hDi-ih-NhE" id="nQA-VP-76C"/>
                         <outlet property="totalAmountLabel" destination="utN-H8-8k4" id="z8q-46-gbk"/>
-                        <segue destination="RHJ-xn-0Dn" kind="show" identifier="paymentList" id="l5K-Wa-a1B"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5nC-vD-s10" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="170"/>
+            <point key="canvasLocation" x="754" y="170"/>
         </scene>
-        <!--Payment Method-->
+        <!--Payment List Controller-->
         <scene sceneID="BO8-6K-ySg">
             <objects>
                 <viewController storyboardIdentifier="VTPaymentListController" automaticallyAdjustsScrollViewInsets="NO" id="RHJ-xn-0Dn" customClass="VTPaymentListController" sceneMemberID="viewController">
@@ -156,7 +148,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="50" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CSP-tK-xN9">
-                                <rect key="frame" x="0.0" y="64" width="320" height="424"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="12C-62-S24" userLabel="Header View">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
@@ -240,7 +232,6 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="titleLabel" destination="cP4-qV-h1r" id="IHx-1w-O7N"/>
-                                            <segue destination="nMQ-US-4wv" kind="show" identifier="cardList" id="GzM-Ud-XTx"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VTPaymentCell" id="Dk0-X5-dgC" customClass="VTPaymentCell">
@@ -325,7 +316,6 @@
                             <constraint firstAttribute="trailing" secondItem="h28-Kf-y7m" secondAttribute="trailing" id="otu-Wi-cLB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Payment Method" id="He5-2a-Jd1"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="footerAmountLabel" destination="bD7-uX-kbj" id="4DV-xC-acW"/>
@@ -337,7 +327,7 @@
             </objects>
             <point key="canvasLocation" x="1207" y="170"/>
         </scene>
-        <!--Choose Card-->
+        <!--Card List Controller-->
         <scene sceneID="eXI-gH-m08">
             <objects>
                 <viewController storyboardIdentifier="VTCardListController" automaticallyAdjustsScrollViewInsets="NO" id="nMQ-US-4wv" customClass="VTCardListController" sceneMemberID="viewController">
@@ -350,7 +340,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xg8-GV-u9C">
-                                <rect key="frame" x="0.0" y="64" width="320" height="424"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="QiH-JH-Xob">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
@@ -522,18 +512,13 @@
                             <constraint firstItem="9Vz-SD-53p" firstAttribute="top" secondItem="Xg8-GV-u9C" secondAttribute="bottom" id="tG5-ys-ADo"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Choose Card" id="Zhs-Ki-XMk">
-                        <barButtonItem key="rightBarButtonItem" title="Edit" id="yFR-GK-kgV"/>
-                    </navigationItem>
-                    <connections>
-                        <segue destination="SFx-Ox-ybq" kind="show" identifier="cardDetail" id="5dT-tH-PTV"/>
-                    </connections>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKC-9U-5sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1668" y="170"/>
+            <point key="canvasLocation" x="1653" y="170"/>
         </scene>
-        <!--Card Details-->
+        <!--Card Detail Controller-->
         <scene sceneID="oMo-iY-718">
             <objects>
                 <viewController storyboardIdentifier="VTCardDetailController" id="SFx-Ox-ybq" customClass="VTCardDetailController" sceneMemberID="viewController">
@@ -546,7 +531,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Name (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QL2-zI-XiW" customClass="VTTextField">
-                                <rect key="frame" x="15" y="72" width="290" height="48"/>
+                                <rect key="frame" x="15" y="28" width="290" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="nVu-Nb-DF6"/>
                                 </constraints>
@@ -554,7 +539,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nS6-Y8-oAj" customClass="VTTextField">
-                                <rect key="frame" x="15" y="120" width="290" height="48"/>
+                                <rect key="frame" x="15" y="76" width="290" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="gET-yg-94T"/>
                                 </constraints>
@@ -566,7 +551,7 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7gk-kx-ISN" customClass="VTTextField">
-                                <rect key="frame" x="15" y="168" width="170" height="48"/>
+                                <rect key="frame" x="15" y="124" width="170" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="pUE-x3-SvG"/>
                                     <constraint firstAttribute="height" constant="48" id="vEx-eZ-ile"/>
@@ -578,7 +563,7 @@
                                 </connections>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JaV-SL-Hwc">
-                                <rect key="frame" x="193" y="168" width="127" height="48"/>
+                                <rect key="frame" x="193" y="124" width="127" height="48"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PI3-3S-vSa" customClass="VTTextField">
                                         <rect key="frame" x="0.0" y="0.0" width="127" height="48"/>
@@ -614,16 +599,16 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-F0-Tel">
-                                <rect key="frame" x="15" y="237" width="163" height="21"/>
+                                <rect key="frame" x="15" y="193" width="163" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zsz-Bw-nKc">
-                                <rect key="frame" x="256" y="232" width="51" height="31"/>
+                                <rect key="frame" x="256" y="188" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to help your future transactions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="OXb-fd-uxo">
-                                <rect key="frame" x="15" y="268" width="275" height="32"/>
+                                <rect key="frame" x="15" y="224" width="275" height="32"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -680,7 +665,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPW-0T-eZ6" customClass="VTTextView">
-                                <rect key="frame" x="8" y="308" width="304" height="50"/>
+                                <rect key="frame" x="8" y="264" width="304" height="50"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Dkf-pM-AwD"/>
@@ -758,7 +743,7 @@
                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="leading" secondItem="QL2-zI-XiW" secondAttribute="leading" id="ylT-sg-nIG"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Card Details" id="dBv-R1-79G"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="cardCvv" destination="PI3-3S-vSa" id="nQK-FC-jxQ"/>
                         <outlet property="cardExpiryDate" destination="7gk-kx-ISN" id="Yu0-UW-spv"/>
@@ -771,29 +756,9 @@
             </objects>
             <point key="canvasLocation" x="2147" y="170"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="CKe-vh-hl6">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pEc-LE-O6V" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zpt-DB-59D">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="2by-89-rh9" kind="relationship" relationship="rootViewController" id="VxC-os-h55"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EaY-51-g6t" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="237" y="170"/>
-        </scene>
     </scenes>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
-        <image name="DisclosureIndicator@2x.png" width="8" height="13"/>
         <image name="DisclosureIndicatorGray.png" width="8" height="13"/>
         <image name="ImageOffer.png" width="60" height="60"/>
         <image name="padlock1.png" width="42" height="51"/>

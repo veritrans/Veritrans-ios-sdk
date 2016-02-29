@@ -39,7 +39,7 @@
     return user;
 }
 
-- (NSDictionary *)requestData {
+- (NSDictionary *)customerDetails {
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:
                                    @{@"first_name":[VTHelper nullifyIfNil:_firstName],
                                      @"last_name":[VTHelper nullifyIfNil:_lastName],

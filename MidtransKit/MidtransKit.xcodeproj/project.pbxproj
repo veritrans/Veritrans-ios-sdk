@@ -22,7 +22,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		17567E2C6CC33B28F52A0A94 /* libPods-MidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DCD1E6855E85F5FF3D6875B /* libPods-MidtransKit.a */; };
 		3005E2771C7C175000064169 /* VTCardDetailController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTCardDetailController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3005E2781C7C175000064169 /* VTCardDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTCardDetailController.m */; };
 		3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */; };
@@ -57,7 +56,6 @@
 		30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */; };
 		30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */; };
 		30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */; };
-		30AB73A31C7D62AB001F42FE /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30AB73A01C7D62AB001F42FE /* libMidtransCoreKit.a */; };
 		30BB9C7E1C7D79330012BB2A /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */; };
 		30BB9C811C7DA6410012BB2A /* VTTextField.h in Headers */ = {isa = PBXBuildFile; fileRef = 30BB9C7F1C7DA6410012BB2A /* VTTextField.h */; };
 		30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB9C801C7DA6410012BB2A /* VTTextField.m */; };
@@ -151,10 +149,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				30AB73A31C7D62AB001F42FE /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
-				17567E2C6CC33B28F52A0A94 /* libPods-MidtransKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,10 +171,10 @@
 		3005E2881C7C17A200064169 /* MidtransResources */ = {
 			isa = PBXGroup;
 			children = (
-				30AB739C1C7D57B6001F42FE /* Assets */,
-				301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */,
 				3005E2891C7C17A200064169 /* Info.plist */,
-				3068383C1C7EB35A0064A305 /* Payments.plist */,
+				30AB739C1C7D57B6001F42FE /* Assets */,
+				306838871C7EF3B80064A305 /* Views */,
+				306838861C7EF3AC0064A305 /* Data */,
 			);
 			path = MidtransResources;
 			sourceTree = "<group>";
@@ -273,6 +269,22 @@
 				3056A21C1C7EA3660015B3CC /* VTItemViewModel.m */,
 			);
 			name = "View Model";
+			sourceTree = "<group>";
+		};
+		306838861C7EF3AC0064A305 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				3068383C1C7EB35A0064A305 /* Payments.plist */,
+			);
+			name = Data;
+			sourceTree = "<group>";
+		};
+		306838871C7EF3B80064A305 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		30AB739C1C7D57B6001F42FE /* Assets */ = {

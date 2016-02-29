@@ -7,7 +7,10 @@
 //
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "VTMandiriClickpay.h"
 
 @interface VTPaymentMandiriClickpay : VTPayment
+
+- (void)payWithData:(VTMandiriClickpay *)data callback:(void(^)(id response, NSError *error))callback;
 
 @end

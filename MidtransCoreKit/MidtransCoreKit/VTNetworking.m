@@ -8,6 +8,7 @@
 
 #import "VTNetworking.h"
 #import "VTConfig.h"
+#import "VTNetworkOperation.h"
 
 #define ErrorDomain @"error.veritrans.co.id"
 
@@ -70,6 +71,11 @@
 
 @end
 
+
+@interface VTNetworking ()
+@property (nonatomic, strong) NSOperationQueue *operationQueue;
+@end
+
 @implementation VTNetworking
 
 + (id)sharedInstance {
@@ -81,87 +87,52 @@
     return shared;
 }
 
-- (NSString *)authorisationValue {
-    NSString *sk = [[[VTConfig sharedInstance] serverKey] stringByAppendingString:@":"];
-    NSData *encodedSK = [sk dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *decodedSK = [encodedSK base64EncodedStringWithOptions:0];
-    return [NSString stringWithFormat:@"Basic %@", decodedSK];
+- (id)init {
+    if (self = [super init]) {
+        _operationQueue = [[NSOperationQueue alloc] init];
+    }
+    return self;
 }
 
-- (void)post:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback {
-    NSError *error;
+//- (NSString *)authorisationValue {
+//    NSString *sk = [[[VTConfig sharedInstance] serverKey] stringByAppendingString:@":"];
+//    NSData *encodedSK = [sk dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString *decodedSK = [encodedSK base64EncodedStringWithOptions:0];
+//    return [NSString stringWithFormat:@"Basic %@", decodedSK];
+//}
+
+- (void)postToURL:(NSString *)URL
+       parameters:(NSDictionary *)parameters
+         callback:(void(^)(id response, NSError *error))callback
+{
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
+    if (parameters) {
+        NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+        [request setHTTPBody:body];
+    }
     
-    NSString *stringUrl = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] baseUrl], endPoint];
-    NSURL *url = [NSURL URLWithString:stringUrl];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
-    
-    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request addValue:[self authorisationValue] forHTTPHeaderField:@"Authorization"];
     [request setHTTPMethod:@"POST"];
-    
-    NSData *postData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
-    [request setHTTPBody:postData];
-    
-    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                [VTNetworking handleError:error callback:callback];
-            } else {
-                NSError *parseError;
-                id responseObject = [NSJSONSerialization JSONObjectWithData:[data validateUTF8]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:&parseError];
-                if (parseError) {
-                    [VTNetworking handleError:parseError callback:callback];
-                } else {
-                    [VTNetworking handleResponse:responseObject callback:callback];
-                }
-            }
-        });
-    }];
-    
-    [postDataTask resume];
-}
-
-- (void)get:(NSString *)endPoint parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback {
-    NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-    NSURLSession *session = [NSURLSession sessionWithConfiguration:configuration delegate:nil delegateQueue:nil];
-    NSString *queryString = [parameters queryStringValue];
-    NSString *stringUrl = [NSString stringWithFormat:@"%@/%@?%@",[[VTConfig sharedInstance] baseUrl], endPoint, queryString];
-    NSURL *url = [NSURL URLWithString:stringUrl];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url
-                                                           cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval:60.0];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
+
+    VTNetworkOperation *op = [VTNetworkOperation operationWithRequest:request
+                                                             callback:callback];
+    [_operationQueue addOperation:op];
     
-    NSURLSessionDataTask *postDataTask = [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-        
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (error) {
-                [VTNetworking handleError:error callback:callback];
-            } else {
-                NSError *parseError;
-                id responseObject = [NSJSONSerialization JSONObjectWithData:[data validateUTF8]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:&parseError];
-                if (parseError) {
-                    [VTNetworking handleError:parseError callback:callback];
-                } else {
-                    [VTNetworking handleResponse:responseObject callback:callback];
-                }
-            }
-        });
-    }];
+}
+
+- (void)getFromURL:(NSString *)URL
+        parameters:(NSDictionary *)parameters
+          callback:(void(^)(id response, NSError *error))callback
+{
+    NSString *params = [parameters queryStringValue];
+    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
     
-    [postDataTask resume];
+    VTNetworkOperation *op = [VTNetworkOperation operationWithRequest:request
+                                                             callback:callback];
+    [_operationQueue addOperation:op];
 }
 
 + (void)handleError:(NSError *)error callback:(void(^)(id response, NSError *error))callback {

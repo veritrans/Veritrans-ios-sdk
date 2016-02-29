@@ -18,13 +18,13 @@
 @property (nonatomic, readonly) VTAddress *billingAddress;
 @property (nonatomic, readonly) VTAddress *shippingAddress;
 
+@property (nonatomic, readonly) NSDictionary *customerDetails;
+
 + (instancetype)userWithFirstName:(NSString *)firstName
                          lastName:(NSString *)lastName
                             email:(NSString *)email
                             phone:(NSString *)phone
                   shippingAddress:(VTAddress *)shippingAddress
                    billingAddress:(VTAddress *)billingAddress;
-
-- (NSDictionary *)requestData;
 
 @end

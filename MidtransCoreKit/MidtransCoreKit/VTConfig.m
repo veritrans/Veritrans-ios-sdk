@@ -14,7 +14,7 @@ NSString *const VTEnvironmentProduction = @"production";
 @interface VTConfig ()
 @property (nonatomic, readwrite) NSString *baseUrl;
 @property (nonatomic, readwrite) NSString *clientKey;
-@property (nonatomic, readwrite) NSString *serverKey;
+@property (nonatomic, readwrite) NSString *merchantServerURL;
 @property (nonatomic, strong) NSString *environment;
 @end
 
@@ -29,10 +29,10 @@ NSString *const VTEnvironmentProduction = @"production";
     return shared;
 }
 
-+ (instancetype)configWithClientKey:(NSString *)clientKey serverKey:(NSString *)serverKey environment:(NSString *)environment {
++ (instancetype)configWithClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL environment:(NSString *)environment {
     VTConfig *config = [VTConfig sharedInstance];
     config.clientKey = clientKey;
-    config.serverKey = serverKey;
+    config.merchantServerURL = merchantServerURL;
     config.environment = environment;
     return config;
 }

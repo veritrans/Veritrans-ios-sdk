@@ -10,17 +10,16 @@
 #import "VTUser.h"
 #import "VTItem.h"
 
-@interface NSString (random)
-+ (NSString *)randomWithLength:(NSUInteger)length;
-@end
-
 @interface VTPayment : NSObject
 
 @property (nonatomic, readonly) VTUser *user;
 @property (nonatomic, readonly) NSArray <VTItem *> *items;
 @property (nonatomic, readonly) NSNumber *totalPayment;
 @property (nonatomic, readonly) NSString *orderId;
+@property (nonatomic, readonly) NSNumber *grossAmount;
 
-- (id)initWithItems:(NSArray *)items user:(VTUser *)user;
++ (instancetype)paymentWithUser:(VTUser *)user andItems:(NSArray *)items;
+
+- (NSDictionary *)transactionDetail;
 
 @end

@@ -1,31 +1,24 @@
 //
-//  VTMainViewController.m
+//  VTCardListController.m
 //  MidtransKit
 //
-//  Created by Nanang Rafsanjani on 2/18/16.
+//  Created by Nanang Rafsanjani on 2/23/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTMainViewController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
-#import "Flurry.h"
+#import "VTCardListController.h"
+#import <MidtransCoreKit/VTItem.h>
+#import "VTClassHelper.h"
 
-@interface VTMainViewController ()
+@interface VTCardListController ()
 
 @end
 
-@implementation VTMainViewController
+@implementation VTCardListController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    BOOL sandbox = [[[VTConfig sharedInstance] environment] isEqual:VTEnvironmentSandbox];
-    if (sandbox) {
-        [Flurry startSession:@"SD44GY5Y2YRSPP66QZXD"];
-    } else {
-        [Flurry startSession:@"X9FXW5PZQB3V5HDTRR7Z"];
-    }
 }
 
 - (void)didReceiveMemoryWarning {

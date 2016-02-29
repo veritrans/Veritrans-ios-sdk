@@ -61,12 +61,13 @@
 		30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 30BB9C801C7DA6410012BB2A /* VTTextField.m */; };
 		30E77E801C83FE570090D228 /* VTBorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E7E1C83FE570090D228 /* VTBorderedView.h */; };
 		30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E7F1C83FE570090D228 /* VTBorderedView.m */; };
-		30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E881C84021A0090D228 /* VTClickpayController.h */; };
+		30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E881C84021A0090D228 /* VTClickpayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30E77E8B1C84021A0090D228 /* VTClickpayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E891C84021A0090D228 /* VTClickpayController.m */; };
 		30E77E8C1C8410130090D228 /* VTBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E7F1C83FE570090D228 /* VTBorderedView.m */; };
 		30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */; };
 		30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */; };
-		87CDD90A1F447532C5714A55 /* libPods-MidtransResources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ED4F969082C2197F0DBBE2AB /* libPods-MidtransResources.a */; };
+		B97A10D852DC7A196EBDDDDC /* libPods-MidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 40762C442A1F681278A646D8 /* libPods-MidtransKit.a */; };
+		C4296E7A1FE46E7494879623 /* libPods-MidtransResources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD7C21641D8D3E609C4E7BB1 /* libPods-MidtransResources.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,14 +122,9 @@
 		306838711C7EDA0A0064A305 /* VTPaymentHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentHeader.m; sourceTree = "<group>"; };
 		3068387F1C7EE7220064A305 /* VTPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentViewController.h; sourceTree = "<group>"; };
 		306838801C7EE7220064A305 /* VTPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentViewController.m; sourceTree = "<group>"; };
-		307C89DF1C7EACE500E15D88 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "/Users/jukiginanjar/Documents/Projects/Midtrans/Demo/Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<absolute>"; };
-		307C89E11C7EACED00E15D88 /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "/Users/jukiginanjar/Documents/Projects/Midtrans/Demo/Pods/../build/Debug-iphoneos/libPods.a"; sourceTree = "<absolute>"; };
-		307C89E31C7EACF900E15D88 /* libSDWebImage.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSDWebImage.a; path = "/Users/jukiginanjar/Documents/Projects/Midtrans/Demo/Pods/../build/Debug-iphoneos/libSDWebImage.a"; sourceTree = "<absolute>"; };
 		30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicator@2x.png"; path = "../MidtransResources/DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
 		30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicatorGray@2x.png"; path = "../MidtransResources/DisclosureIndicatorGray@2x.png"; sourceTree = "<group>"; };
 		30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ImageOffer@2x.png"; path = "../MidtransResources/ImageOffer@2x.png"; sourceTree = "<group>"; };
-		30AB73A01C7D62AB001F42FE /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../../Volumes/HDD/XCode/DerrivedData/VTDirectDemo-gdjladrbdmowytbzblvfzjoagbvc/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
-		30BB9C731C7D70BB0012BB2A /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../../Volumes/HDD/XCode/DerrivedData/VTDirectDemo-gdjladrbdmowytbzblvfzjoagbvc/Build/Products/Debug-iphoneos/libMidtransKit.a"; sourceTree = "<group>"; };
 		30BB9C7F1C7DA6410012BB2A /* VTTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTextField.h; sourceTree = "<group>"; };
 		30BB9C801C7DA6410012BB2A /* VTTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTextField.m; sourceTree = "<group>"; };
 		30E77E7E1C83FE570090D228 /* VTBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBorderedView.h; sourceTree = "<group>"; };
@@ -137,12 +133,12 @@
 		30E77E891C84021A0090D228 /* VTClickpayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClickpayController.m; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
-		6DCD1E6855E85F5FF3D6875B /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		40762C442A1F681278A646D8 /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		757A5EE739A3C4AD6DFC3552 /* Pods-MidtransResources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransResources.release.xcconfig"; path = "../Demo/Pods/Target Support Files/Pods-MidtransResources/Pods-MidtransResources.release.xcconfig"; sourceTree = "<group>"; };
 		92D7D4E3A5E5912127EADAF2 /* Pods-MidtransResources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransResources.debug.xcconfig"; path = "../Demo/Pods/Target Support Files/Pods-MidtransResources/Pods-MidtransResources.debug.xcconfig"; sourceTree = "<group>"; };
 		B76B3ACBE6A9B9CC589C5542 /* Pods-MidtransKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.debug.xcconfig"; path = "../Demo/Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit.debug.xcconfig"; sourceTree = "<group>"; };
+		CD7C21641D8D3E609C4E7BB1 /* libPods-MidtransResources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransResources.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F131D4633474A6C58E24FE /* Pods-MidtransKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.release.xcconfig"; path = "../Demo/Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit.release.xcconfig"; sourceTree = "<group>"; };
-		ED4F969082C2197F0DBBE2AB /* libPods-MidtransResources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransResources.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,7 +146,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				87CDD90A1F447532C5714A55 /* libPods-MidtransResources.a in Frameworks */,
+				C4296E7A1FE46E7494879623 /* libPods-MidtransResources.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +156,7 @@
 			files = (
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
+				B97A10D852DC7A196EBDDDDC /* libPods-MidtransKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,15 +231,10 @@
 		305494991C75A4E700938C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				307C89E31C7EACF900E15D88 /* libSDWebImage.a */,
-				307C89E11C7EACED00E15D88 /* libPods.a */,
-				307C89DF1C7EACE500E15D88 /* libSDWebImage.a */,
-				30AB73A01C7D62AB001F42FE /* libMidtransCoreKit.a */,
-				30BB9C731C7D70BB0012BB2A /* libMidtransKit.a */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
-				6DCD1E6855E85F5FF3D6875B /* libPods-MidtransKit.a */,
-				ED4F969082C2197F0DBBE2AB /* libPods-MidtransResources.a */,
+				40762C442A1F681278A646D8 /* libPods-MidtransKit.a */,
+				CD7C21641D8D3E609C4E7BB1 /* libPods-MidtransResources.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -360,11 +352,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3005E28A1C7C17A200064169 /* Build configuration list for PBXNativeTarget "MidtransResources" */;
 			buildPhases = (
-				EB7B072800AA4C29F05DB38F /* Check Pods Manifest.lock */,
+				B6ECD220FC26197D0EFD5BE4 /* Check Pods Manifest.lock */,
 				3005E2831C7C17A100064169 /* Sources */,
 				3005E2841C7C17A100064169 /* Frameworks */,
 				3005E2851C7C17A100064169 /* Resources */,
-				A2FA62C38E0C0DC507D38CC7 /* Copy Pods Resources */,
+				9FE3AD165FB0871CA55B9743 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -379,13 +371,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 305494241C759EDF00938C17 /* Build configuration list for PBXNativeTarget "MidtransKit" */;
 			buildPhases = (
-				15EB7FE0015C6AEA5C161C3E /* Check Pods Manifest.lock */,
+				DF912610B43AA9085EE06673 /* Check Pods Manifest.lock */,
 				305494171C759EDF00938C17 /* Sources */,
 				305494181C759EDF00938C17 /* Frameworks */,
 				305494191C759EDF00938C17 /* CopyFiles */,
 				3054942E1C759F3100938C17 /* Headers */,
 				305494D11C75DD0100938C17 /* Build Framework */,
-				8036615C9744FDB679836922 /* Copy Pods Resources */,
+				136E8975F30181BB8247B027 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -453,19 +445,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		15EB7FE0015C6AEA5C161C3E /* Check Pods Manifest.lock */ = {
+		136E8975F30181BB8247B027 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "\"${SRCROOT}/../Demo/Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		305494D01C75DC1A00938C17 /* MultiPlatform Build */ = {
@@ -496,22 +488,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"";
 		};
-		8036615C9744FDB679836922 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Demo/Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A2FA62C38E0C0DC507D38CC7 /* Copy Pods Resources */ = {
+		9FE3AD165FB0871CA55B9743 /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,7 +503,22 @@
 			shellScript = "\"${SRCROOT}/../Demo/Pods/Target Support Files/Pods-MidtransResources/Pods-MidtransResources-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EB7B072800AA4C29F05DB38F /* Check Pods Manifest.lock */ = {
+		B6ECD220FC26197D0EFD5BE4 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DF912610B43AA9085EE06673 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -597,6 +589,10 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MidtransResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -615,6 +611,10 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MidtransResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
@@ -712,6 +712,10 @@
 			baseConfigurationReference = B76B3ACBE6A9B9CC589C5542 /* Pods-MidtransKit.debug.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransKit/Flurry",
@@ -729,6 +733,10 @@
 			baseConfigurationReference = D2F131D4633474A6C58E24FE /* Pods-MidtransKit.release.xcconfig */;
 			buildSettings = {
 				DEAD_CODE_STRIPPING = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransKit/Flurry",

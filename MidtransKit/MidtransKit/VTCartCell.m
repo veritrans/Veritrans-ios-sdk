@@ -8,6 +8,7 @@
 
 #import "VTCartCell.h"
 #import "VTClassHelper.h"
+
 #import <SDWebImage/UIImageView+WebCache.h>
 
 @implementation VTCartCell {

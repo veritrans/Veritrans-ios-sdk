@@ -9,7 +9,8 @@
 #import "VTClickpayController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
-#import <MidtransCoreKit/VTMandiriClickpay.h>
+
+#import <MidtransCoreKit/VTCPaymentClickpay.h>
 
 @interface VTClickpayController ()
 
@@ -20,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *input1Label;
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
+@property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
 @property (nonatomic, readwrite) VTUser *user;
 @property (nonatomic, readwrite) NSNumber *amount;
@@ -43,7 +45,11 @@
     // Do any additional setup after loading the view.
     
     _clickpay = [VTMandiriClickpay dataWithTransactionAmount:_amount];
-    [_clickpay addObserver:self forKeyPath:@"input1" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:nil];
+    
+    [_clickpay addObserver:self
+                forKeyPath:@"input1"
+                   options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
+                   context:nil];
     
     _appliLabel.text = APPLIType;
     _input2Label.text = _clickpay.input2;
@@ -51,6 +57,8 @@
     
     NSNumberFormatter *nf = [NSNumberFormatter numberFormatterWith:@"vt.number"];
     _amountLabel.text = [nf stringFromNumber:_amount];
+    
+    [_confirmButton addTarget:self action:@selector(confirmPaymentPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,8 +75,11 @@
     }
 }
 
-- (IBAction)confirmPaymentPressed:(UIButton *)sender {
-    
+- (void)confirmPaymentPressed:(UIButton *)sender {
+    VTCPaymentClickpay *payment = [VTCPaymentClickpay paymentWithUser:_user andAmount:_amount clickpay:_clickpay];
+    [payment payWithCallback:^(id response, NSError *error) {
+        
+    }];    
 }
 
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {

@@ -57,11 +57,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
     VTPaymentViewController *vc = [VTPaymentViewController paymentWithUser:_user andItems:_items];
     [self presentViewController:vc animated:YES completion:nil];
 }
-
 
 #pragma mark - UITableViewDataSource
 

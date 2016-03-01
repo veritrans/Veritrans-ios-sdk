@@ -159,6 +159,7 @@
                                 </userDefinedRuntimeAttributes>
                                 <connections>
                                     <action selector="debitTextFieldChanged:" destination="XBT-Y9-akU" eventType="editingChanged" id="WE3-f3-NKP"/>
+                                    <outlet property="delegate" destination="XBT-Y9-akU" id="Q99-zG-mSW"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Challenge Token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Qy-hB-SRJ" customClass="VTTextField">
@@ -171,6 +172,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="XBT-Y9-akU" id="g3r-DY-3lM"/>
+                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sbj-Tl-L5D">
                                 <rect key="frame" x="0.0" y="512" width="320" height="56"/>

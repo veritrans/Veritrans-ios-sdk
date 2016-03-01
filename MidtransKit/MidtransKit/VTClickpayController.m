@@ -61,18 +61,17 @@
     [_confirmButton addTarget:self action:@selector(confirmPaymentPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
+- (void)dealloc {
+    [_clickpay removeObserver:self forKeyPath:@"input1"];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)debitTextFieldChanged:(VTTextField *)sender {
-    if ([sender.text isNumeric] == NO) {
-        sender.warning = @"please input numeric data";
-    } else {
-        sender.warning = nil;
-        _clickpay.debitNumber = sender.text;
-    }
+    _clickpay.debitNumber = sender.text;
 }
 
 - (void)confirmPaymentPressed:(UIButton *)sender {
@@ -90,6 +89,15 @@
     if ([keyPath isEqualToString:@"input1"]) {
         _input1Label.text = _clickpay.input1;
     }
+}
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    return YES;
 }
 
 /*

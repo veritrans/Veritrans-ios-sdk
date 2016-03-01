@@ -23,14 +23,14 @@
 }
 
 - (void)payWithCallback:(void(^)(id response, NSError *error))callback {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] baseUrl], @"charge"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] merchantServerURL], @"charge"];
     NSDictionary *param = @{@"payment_type":@"mandiri_clickpay",
                             @"mandiri_clickpay":[_clickpay requestData],
                             @"transaction_details":[self transactionDetail],
                             @"customer_details":[self.user customerDetails]
                             };
     
-    [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
+    [[VTNetworking sharedInstance] postToURL:URL parameters:param callback:^(id response, NSError *error) {
         if (error) {
             if (callback) {
                 callback(nil, error);

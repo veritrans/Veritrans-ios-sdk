@@ -121,6 +121,7 @@
 		302F71C01C73163C00FE73FE /* VTDirectDemo */ = {
 			isa = PBXGroup;
 			children = (
+				302F71C11C73163C00FE73FE /* Supporting Files */,
 				30FDCC481C8008D900CEFED3 /* MidtransCoreKit.xcodeproj */,
 				30FDCC4F1C8008DF00CEFED3 /* MidtransKit.xcodeproj */,
 				302F71C41C73163C00FE73FE /* AppDelegate.h */,
@@ -128,7 +129,6 @@
 				302F71C71C73163C00FE73FE /* ViewController.h */,
 				302F71C81C73163C00FE73FE /* ViewController.m */,
 				302F71CA1C73163C00FE73FE /* Main.storyboard */,
-				302F71C11C73163C00FE73FE /* Supporting Files */,
 				30FDCC3F1C8002B400CEFED3 /* TableViewCell.h */,
 				30FDCC401C8002B400CEFED3 /* TableViewCell.m */,
 			);

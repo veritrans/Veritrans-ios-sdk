@@ -56,5 +56,20 @@
 			</dict>
 		</array>
 	</dict>
+	<dict>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>bt</string>
+				<key>name</key>
+				<string>Bank Transfer</string>
+				<key>icon</key>
+				<string>bt.png</string>
+			</dict>
+		</array>
+		<key>name</key>
+		<string>Virtual Account</string>
+	</dict>
 </array>
 </plist>

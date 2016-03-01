@@ -10,6 +10,20 @@
 
 @implementation VTBorderedView
 
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    if (self = [super initWithCoder:aDecoder]) {
+        self.contentMode = UIViewContentModeRedraw;
+    }
+    return self;
+}
+
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.contentMode = UIViewContentModeRedraw;
+    }
+    return self;
+}
+
 - (void)drawRect:(CGRect)rect {
     
     // Drawing code

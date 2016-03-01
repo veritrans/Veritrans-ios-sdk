@@ -7,8 +7,13 @@
 //
 
 #import "VTPermataVAController.h"
+#import "VTTextField.h"
+#import "VTPermataVAHelpController.h"
 
 @interface VTPermataVAController ()
+@property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
+@property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
 
 @end
 
@@ -22,6 +27,14 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)helpPressed:(UIButton *)sender {
+    VTPermataVAHelpController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPermataVAHelpController"];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (IBAction)paymentPressed:(UIButton *)sender {
 }
 
 /*

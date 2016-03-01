@@ -73,6 +73,23 @@
 		30E713161C8580BC00AFB7B4 /* VTPermataVAController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713141C8580BC00AFB7B4 /* VTPermataVAController.m */; };
 		30E713191C85816B00AFB7B4 /* VTDetailedTitleController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713171C85816B00AFB7B4 /* VTDetailedTitleController.h */; };
 		30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713181C85816B00AFB7B4 /* VTDetailedTitleController.m */; };
+		30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E7131B1C85975000AFB7B4 /* DetailDisclosure@2x.png */; };
+		30E713221C859D6100AFB7B4 /* MBXPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713201C859D6100AFB7B4 /* MBXPageViewController.h */; };
+		30E713231C859D6100AFB7B4 /* MBXPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713211C859D6100AFB7B4 /* MBXPageViewController.m */; };
+		30E713261C859EE100AFB7B4 /* VTButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713241C859EE100AFB7B4 /* VTButton.h */; };
+		30E713271C859EE100AFB7B4 /* VTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713251C859EE100AFB7B4 /* VTButton.m */; };
+		30E713281C859EE100AFB7B4 /* VTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713251C859EE100AFB7B4 /* VTButton.m */; };
+		30E7132B1C85A5FB00AFB7B4 /* VTPermataVAHelpController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713291C85A5FB00AFB7B4 /* VTPermataVAHelpController.h */; };
+		30E7132C1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E7132A1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m */; };
+		30E7132D1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E7132A1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m */; };
+		30E713351C85A6E800AFB7B4 /* VTPaymentGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713331C85A6E800AFB7B4 /* VTPaymentGuideController.h */; };
+		30E713361C85A6E800AFB7B4 /* VTPaymentGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713341C85A6E800AFB7B4 /* VTPaymentGuideController.m */; };
+		30E713371C85A6E800AFB7B4 /* VTPaymentGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713341C85A6E800AFB7B4 /* VTPaymentGuideController.m */; };
+		30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713391C85A8A800AFB7B4 /* VTGuideCell.h */; };
+		30E7133C1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E7133A1C85A8A800AFB7B4 /* VTGuideCell.m */; };
+		30E7133D1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E7133A1C85A8A800AFB7B4 /* VTGuideCell.m */; };
+		30E7133F1C85AAE600AFB7B4 /* permataVaGuideAtm.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E7133E1C85AAE600AFB7B4 /* permataVaGuideAtm.plist */; };
+		30E713401C85AE7B00AFB7B4 /* MBXPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713211C859D6100AFB7B4 /* MBXPageViewController.m */; };
 		30E77E801C83FE570090D228 /* VTBorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E7E1C83FE570090D228 /* VTBorderedView.h */; };
 		30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E7F1C83FE570090D228 /* VTBorderedView.m */; };
 		30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E881C84021A0090D228 /* VTClickpayController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -152,6 +169,18 @@
 		30E713141C8580BC00AFB7B4 /* VTPermataVAController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPermataVAController.m; sourceTree = "<group>"; };
 		30E713171C85816B00AFB7B4 /* VTDetailedTitleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTDetailedTitleController.h; sourceTree = "<group>"; };
 		30E713181C85816B00AFB7B4 /* VTDetailedTitleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTDetailedTitleController.m; sourceTree = "<group>"; };
+		30E7131B1C85975000AFB7B4 /* DetailDisclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DetailDisclosure@2x.png"; sourceTree = "<group>"; };
+		30E713201C859D6100AFB7B4 /* MBXPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBXPageViewController.h; sourceTree = "<group>"; };
+		30E713211C859D6100AFB7B4 /* MBXPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBXPageViewController.m; sourceTree = "<group>"; };
+		30E713241C859EE100AFB7B4 /* VTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTButton.h; sourceTree = "<group>"; };
+		30E713251C859EE100AFB7B4 /* VTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTButton.m; sourceTree = "<group>"; };
+		30E713291C85A5FB00AFB7B4 /* VTPermataVAHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPermataVAHelpController.h; sourceTree = "<group>"; };
+		30E7132A1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPermataVAHelpController.m; sourceTree = "<group>"; };
+		30E713331C85A6E800AFB7B4 /* VTPaymentGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentGuideController.h; sourceTree = "<group>"; };
+		30E713341C85A6E800AFB7B4 /* VTPaymentGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentGuideController.m; sourceTree = "<group>"; };
+		30E713391C85A8A800AFB7B4 /* VTGuideCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTGuideCell.h; sourceTree = "<group>"; };
+		30E7133A1C85A8A800AFB7B4 /* VTGuideCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTGuideCell.m; sourceTree = "<group>"; };
+		30E7133E1C85AAE600AFB7B4 /* permataVaGuideAtm.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = permataVaGuideAtm.plist; sourceTree = "<group>"; };
 		30E77E7E1C83FE570090D228 /* VTBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBorderedView.h; sourceTree = "<group>"; };
 		30E77E7F1C83FE570090D228 /* VTBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTBorderedView.m; sourceTree = "<group>"; };
 		30E77E881C84021A0090D228 /* VTClickpayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClickpayController.h; sourceTree = "<group>"; };
@@ -213,6 +242,7 @@
 		3005E29D1C7C1C6B00064169 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				30E7131F1C859D6100AFB7B4 /* MBXPageViewController */,
 				3005E2A61C7C239A00064169 /* VTClassHelper.h */,
 				3005E2A71C7C239A00064169 /* VTClassHelper.m */,
 				30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */,
@@ -283,6 +313,8 @@
 				30E7130C1C856B0D00AFB7B4 /* VTRoundedLabel.m */,
 				30E713171C85816B00AFB7B4 /* VTDetailedTitleController.h */,
 				30E713181C85816B00AFB7B4 /* VTDetailedTitleController.m */,
+				30E713241C859EE100AFB7B4 /* VTButton.h */,
+				30E713251C859EE100AFB7B4 /* VTButton.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -315,6 +347,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				30E7131B1C85975000AFB7B4 /* DetailDisclosure@2x.png */,
 				30E712FF1C85592800AFB7B4 /* TokenButtonIcon@2x.png */,
 				30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */,
 				30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */,
@@ -347,13 +380,36 @@
 			name = Clickpay;
 			sourceTree = "<group>";
 		};
-		30E713121C857DFB00AFB7B4 /* Permata VA */ = {
+		30E713121C857DFB00AFB7B4 /* Bank Transfer */ = {
 			isa = PBXGroup;
 			children = (
 				30E713131C8580BC00AFB7B4 /* VTPermataVAController.h */,
 				30E713141C8580BC00AFB7B4 /* VTPermataVAController.m */,
+				30E713291C85A5FB00AFB7B4 /* VTPermataVAHelpController.h */,
+				30E7132A1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m */,
+				30E7133E1C85AAE600AFB7B4 /* permataVaGuideAtm.plist */,
 			);
-			name = "Permata VA";
+			name = "Bank Transfer";
+			sourceTree = "<group>";
+		};
+		30E7131F1C859D6100AFB7B4 /* MBXPageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				30E713201C859D6100AFB7B4 /* MBXPageViewController.h */,
+				30E713211C859D6100AFB7B4 /* MBXPageViewController.m */,
+			);
+			path = MBXPageViewController;
+			sourceTree = "<group>";
+		};
+		30E713381C85A89400AFB7B4 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				30E713331C85A6E800AFB7B4 /* VTPaymentGuideController.h */,
+				30E713341C85A6E800AFB7B4 /* VTPaymentGuideController.m */,
+				30E713391C85A8A800AFB7B4 /* VTGuideCell.h */,
+				30E7133A1C85A8A800AFB7B4 /* VTGuideCell.m */,
+			);
+			name = Guide;
 			sourceTree = "<group>";
 		};
 		30E77E821C8401C40090D228 /* Controller */ = {
@@ -373,9 +429,10 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				30E713121C857DFB00AFB7B4 /* Permata VA */,
+				30E713121C857DFB00AFB7B4 /* Bank Transfer */,
 				30E713101C85749F00AFB7B4 /* Credit Card */,
 				30E713111C857DF400AFB7B4 /* Clickpay */,
+				30E713381C85A89400AFB7B4 /* Guide */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -387,9 +444,14 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */,
+				30E713351C85A6E800AFB7B4 /* VTPaymentGuideController.h in Headers */,
 				30E713191C85816B00AFB7B4 /* VTDetailedTitleController.h in Headers */,
+				30E713221C859D6100AFB7B4 /* MBXPageViewController.h in Headers */,
+				30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */,
 				30E713081C8564B300AFB7B4 /* VTClickpayHelpController.h in Headers */,
+				30E7132B1C85A5FB00AFB7B4 /* VTPermataVAHelpController.h in Headers */,
 				3005E2771C7C175000064169 /* VTCardDetailController.h in Headers */,
 				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
@@ -501,7 +563,9 @@
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
+				30E7133F1C85AAE600AFB7B4 /* permataVaGuideAtm.plist in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
+				30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */,
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
 				3068383D1C7EB35A0064A305 /* Payments.plist in Resources */,
@@ -609,13 +673,18 @@
 				3068387B1C7EDC490064A305 /* VTCartCell.m in Sources */,
 				3068387D1C7EDD210064A305 /* VTItemViewModel.m in Sources */,
 				30BB9C7E1C7D79330012BB2A /* NSString+TextDirectionality.m in Sources */,
+				30E713371C85A6E800AFB7B4 /* VTPaymentGuideController.m in Sources */,
 				30E7130A1C8566F100AFB7B4 /* VTClassHelper.m in Sources */,
 				3068387A1C7EDB4D0064A305 /* VTPaymentHeader.m in Sources */,
 				30E77E8C1C8410130090D228 /* VTBorderedView.m in Sources */,
+				30E7132D1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m in Sources */,
 				306838791C7EDB4D0064A305 /* VTPaymentCell.m in Sources */,
 				30E713051C855B6E00AFB7B4 /* VTLabel.m in Sources */,
+				30E7133D1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */,
+				30E713401C85AE7B00AFB7B4 /* MBXPageViewController.m in Sources */,
 				30E7130F1C856B1400AFB7B4 /* VTRoundedLabel.m in Sources */,
 				306838771C7EDB4D0064A305 /* VTTextField.m in Sources */,
+				30E713281C859EE100AFB7B4 /* VTButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -623,15 +692,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				30E713271C859EE100AFB7B4 /* VTButton.m in Sources */,
 				30E7130E1C856B0D00AFB7B4 /* VTRoundedLabel.m in Sources */,
+				30E713231C859D6100AFB7B4 /* MBXPageViewController.m in Sources */,
 				30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */,
 				3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */,
 				30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */,
 				30E713041C855B6600AFB7B4 /* VTLabel.m in Sources */,
 				30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */,
+				30E7133C1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */,
+				30E7132C1C85A5FB00AFB7B4 /* VTPermataVAHelpController.m in Sources */,
 				3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */,
 				3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */,
 				30E77E8B1C84021A0090D228 /* VTClickpayController.m in Sources */,
+				30E713361C85A6E800AFB7B4 /* VTPaymentGuideController.m in Sources */,
 				3056A2181C7E986C0015B3CC /* VTCartCell.m in Sources */,
 				306838731C7EDA0A0064A305 /* VTPaymentHeader.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,

@@ -12,6 +12,7 @@
 #import "VTPaymentHeader.h"
 #import "VTCardListController.h"
 #import "VTClickpayController.h"
+#import "VTPermataVAController.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -107,6 +108,9 @@
         
     } else if ([identifier isEqualToString:VTPaymentPermataVA]) {
         
+    } else if ([identifier isEqualToString:@"bt"]) {
+        VTPermataVAController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPermataVAController"];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 

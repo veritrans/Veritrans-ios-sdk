@@ -12,7 +12,7 @@
 
 
 
-@interface VTPaymentCreditCard : VTPayment
+@interface VTCPaymentCreditCard : VTPayment
 
 @property (nonatomic, assign) BOOL secure;
 @property (nonatomic, strong) NSString *bank;

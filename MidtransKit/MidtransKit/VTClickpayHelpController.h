@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTDetailedTitleController.h"
 
-@interface VTClickpayHelpController : UIViewController
+@interface VTClickpayHelpController : VTDetailedTitleController
 
 @end

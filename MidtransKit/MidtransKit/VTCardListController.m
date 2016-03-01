@@ -9,6 +9,7 @@
 #import "VTCardListController.h"
 #import <MidtransCoreKit/VTItem.h>
 #import "VTClassHelper.h"
+#import "VTCardDetailController.h"
 
 @interface VTCardListController ()
 
@@ -24,6 +25,11 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)newCardPressed:(UITapGestureRecognizer *)sender {
+    VTCardDetailController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTCardDetailController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

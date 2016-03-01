@@ -422,10 +422,10 @@
             </objects>
             <point key="canvasLocation" x="744" y="943"/>
         </scene>
-        <!--Payment Instruction-->
+        <!--Clickpay Help Controller-->
         <scene sceneID="YeH-0B-1bp">
             <objects>
-                <viewController storyboardIdentifier="VTClickpayHelpController" title="Payment Instruction" id="y0M-0n-4ZD" customClass="VTClickpayHelpController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VTClickpayHelpController" id="y0M-0n-4ZD" customClass="VTClickpayHelpController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="d0Q-NG-lGp"/>
                         <viewControllerLayoutGuide type="bottom" id="9PM-j0-meS"/>
@@ -668,6 +668,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Ok, I Got it"/>
+                                <connections>
+                                    <action selector="gotItPressed:" destination="y0M-0n-4ZD" eventType="touchUpInside" id="zyd-nB-wVd"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-my-em2">
                                 <rect key="frame" x="0.0" y="467" width="320" height="1"/>
@@ -715,6 +718,10 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="headerTitle" value="Mandiri Clickpay"/>
+                        <userDefinedRuntimeAttribute type="string" keyPath="headerDescription" value="Payment Instructions"/>
+                    </userDefinedRuntimeAttributes>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UuX-nD-K2W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -927,7 +934,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Xg8-GV-u9C">
                                 <rect key="frame" x="0.0" y="20" width="320" height="468"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <view key="tableHeaderView" contentMode="scaleToFill" id="QiH-JH-Xob">
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="QiH-JH-Xob" userLabel="Header View">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -955,6 +962,7 @@
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <gestureRecognizers/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="koq-c4-twt" secondAttribute="trailing" id="0m9-lK-pF8"/>
                                         <constraint firstItem="feN-ti-Wfr" firstAttribute="top" secondItem="QiH-JH-Xob" secondAttribute="top" constant="10" id="AEt-FX-4IV"/>
@@ -966,6 +974,9 @@
                                         <constraint firstItem="koq-c4-twt" firstAttribute="top" secondItem="feN-ti-Wfr" secondAttribute="bottom" constant="10" id="rNK-Qc-kQ5"/>
                                         <constraint firstAttribute="trailing" secondItem="Yxz-xQ-Yg5" secondAttribute="trailing" constant="15" id="shK-4q-ogd"/>
                                     </constraints>
+                                    <connections>
+                                        <outletCollection property="gestureRecognizers" destination="zw2-OY-eK7" appends="YES" id="SXw-IV-Bsx"/>
+                                    </connections>
                                 </view>
                                 <view key="tableFooterView" contentMode="scaleToFill" id="XCY-mg-DKt" userLabel="Footer View">
                                     <rect key="frame" x="0.0" y="173" width="320" height="45"/>
@@ -1100,6 +1111,11 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKC-9U-5sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="zw2-OY-eK7">
+                    <connections>
+                        <action selector="newCardPressed:" destination="nMQ-US-4wv" id="YpE-PE-EDx"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1653" y="170"/>
         </scene>
@@ -1249,13 +1265,6 @@
                                     <constraint firstAttribute="bottom" secondItem="40s-W7-f3j" secondAttribute="bottom" id="SDe-y9-OEA"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pPW-0T-eZ6" customClass="VTTextView">
-                                <rect key="frame" x="8" y="264" width="304" height="50"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Dkf-pM-AwD"/>
-                                </constraints>
-                            </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padlock1.png" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-IM-wd4">
                                 <rect key="frame" x="15" y="396" width="42" height="51"/>
                                 <constraints>
@@ -1310,15 +1319,12 @@
                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="trailing" secondItem="QL2-zI-XiW" secondAttribute="trailing" id="Wdy-o3-v7Y"/>
                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="top" secondItem="QL2-zI-XiW" secondAttribute="bottom" id="Zpu-vf-176"/>
                             <constraint firstItem="R9p-Lf-W2T" firstAttribute="top" secondItem="gCB-fe-8Gs" secondAttribute="bottom" id="Zq7-jx-FoM"/>
-                            <constraint firstAttribute="trailing" secondItem="pPW-0T-eZ6" secondAttribute="trailing" constant="8" id="aAa-Eb-iP8"/>
                             <constraint firstAttribute="trailing" secondItem="JaV-SL-Hwc" secondAttribute="trailing" id="aES-vz-ARm"/>
                             <constraint firstAttribute="trailing" secondItem="gCB-fe-8Gs" secondAttribute="trailing" id="cJP-aG-SHY"/>
                             <constraint firstItem="gCB-fe-8Gs" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="cJS-hG-EGK"/>
-                            <constraint firstItem="pPW-0T-eZ6" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" constant="8" id="d98-wg-ryn"/>
                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="leading" secondItem="VQk-IM-wd4" secondAttribute="trailing" constant="15" id="gKA-5K-B6c"/>
                             <constraint firstItem="7gk-kx-ISN" firstAttribute="leading" secondItem="nS6-Y8-oAj" secondAttribute="leading" id="gcU-Sq-Don"/>
                             <constraint firstItem="JaV-SL-Hwc" firstAttribute="centerY" secondItem="7gk-kx-ISN" secondAttribute="centerY" id="hfp-xU-dUX"/>
-                            <constraint firstItem="pPW-0T-eZ6" firstAttribute="top" secondItem="OXb-fd-uxo" secondAttribute="bottom" constant="8" id="iuZ-9X-AZR"/>
                             <constraint firstItem="hvj-up-n3q" firstAttribute="top" secondItem="VQk-IM-wd4" secondAttribute="bottom" constant="20" id="mBS-YP-rVM"/>
                             <constraint firstItem="hvj-up-n3q" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="rcn-ZH-1Dj"/>
                             <constraint firstItem="zm0-F0-Tel" firstAttribute="centerY" secondItem="zsz-Bw-nKc" secondAttribute="centerY" id="rg9-dL-SMM"/>

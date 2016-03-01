@@ -37,8 +37,8 @@
 		3054945E1C75A08900938C17 /* VTNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494521C75A08900938C17 /* VTNetworking.m */; };
 		3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494531C75A08900938C17 /* VTCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494601C75A08900938C17 /* VTCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494541C75A08900938C17 /* VTCreditCard.m */; };
-		305494671C75A0DF00938C17 /* VTPaymentCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		305494681C75A0DF00938C17 /* VTPaymentCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */; };
+		305494671C75A0DF00938C17 /* VTCPaymentCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494611C75A0DF00938C17 /* VTCPaymentCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305494681C75A0DF00938C17 /* VTCPaymentCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494621C75A0DF00938C17 /* VTCPaymentCreditCard.m */; };
 		305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494631C75A0DF00938C17 /* VTWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3054946A1C75A0DF00938C17 /* VTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494641C75A0DF00938C17 /* VTWebViewController.m */; };
 		3054946B1C75A0DF00938C17 /* VTPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494651C75A0DF00938C17 /* VTPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -91,8 +91,8 @@
 		305494521C75A08900938C17 /* VTNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworking.m; sourceTree = "<group>"; };
 		305494531C75A08900938C17 /* VTCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCreditCard.h; sourceTree = "<group>"; };
 		305494541C75A08900938C17 /* VTCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCreditCard.m; sourceTree = "<group>"; };
-		305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentCreditCard.h; sourceTree = "<group>"; };
-		305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentCreditCard.m; sourceTree = "<group>"; };
+		305494611C75A0DF00938C17 /* VTCPaymentCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCPaymentCreditCard.h; sourceTree = "<group>"; };
+		305494621C75A0DF00938C17 /* VTCPaymentCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCPaymentCreditCard.m; sourceTree = "<group>"; };
 		305494631C75A0DF00938C17 /* VTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTWebViewController.h; sourceTree = "<group>"; };
 		305494641C75A0DF00938C17 /* VTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTWebViewController.m; sourceTree = "<group>"; };
 		305494651C75A0DF00938C17 /* VTPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPayment.h; sourceTree = "<group>"; };
@@ -134,8 +134,8 @@
 				305494661C75A0DF00938C17 /* VTPayment.m */,
 				3052C4F61C843749001F8B4A /* VTCPaymentClickpay.h */,
 				3052C4F71C843749001F8B4A /* VTCPaymentClickpay.m */,
-				305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */,
-				305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */,
+				305494611C75A0DF00938C17 /* VTCPaymentCreditCard.h */,
+				305494621C75A0DF00938C17 /* VTCPaymentCreditCard.m */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -211,7 +211,7 @@
 				3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */,
 				3054945B1C75A08900938C17 /* VTConfig.h in Headers */,
 				3052C4F81C843749001F8B4A /* VTCPaymentClickpay.h in Headers */,
-				305494671C75A0DF00938C17 /* VTPaymentCreditCard.h in Headers */,
+				305494671C75A0DF00938C17 /* VTCPaymentCreditCard.h in Headers */,
 				305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */,
 				3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */,
 				305494551C75A08900938C17 /* VTUser.h in Headers */,
@@ -327,7 +327,7 @@
 				3054946C1C75A0DF00938C17 /* VTPayment.m in Sources */,
 				3054945C1C75A08900938C17 /* VTConfig.m in Sources */,
 				305494581C75A08900938C17 /* VTAddress.m in Sources */,
-				305494681C75A0DF00938C17 /* VTPaymentCreditCard.m in Sources */,
+				305494681C75A0DF00938C17 /* VTCPaymentCreditCard.m in Sources */,
 				305494601C75A08900938C17 /* VTCreditCard.m in Sources */,
 				305494701C75A0ED00938C17 /* VTHelper.m in Sources */,
 				3054945E1C75A08900938C17 /* VTNetworking.m in Sources */,

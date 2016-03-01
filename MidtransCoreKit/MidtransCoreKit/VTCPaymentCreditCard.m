@@ -6,25 +6,25 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentCreditCard.h"
+#import "VTCPaymentCreditCard.h"
 #import "VTNetworking.h"
 #import "VTConfig.h"
 #import "VTWebViewController.h"
 #import "VTHelper.h"
 
-@interface VTPaymentCreditCard() <VTWebViewControllerDelegate>
+@interface VTCPaymentCreditCard() <VTWebViewControllerDelegate>
 @property (nonatomic, readwrite) VTCreditCard *creditCard;
 @property (nonatomic, readwrite) NSString *tokenId;
 @property (nonatomic, strong) VTWebViewController *webTransViewController;
 @property (nonatomic, copy) void (^tokenCallback)(id response, NSError *error);
 @end
 
-@implementation VTPaymentCreditCard
+@implementation VTCPaymentCreditCard
 
 #pragma mark - Public
 
 + (instancetype)paymentWithUser:(VTUser *)user amount:(NSNumber *)amount creditCard:(VTCreditCard *)creditCard {
-    VTPaymentCreditCard *payment = [[VTPaymentCreditCard alloc] initWithUser:user amount:amount];
+    VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:user amount:amount];
     payment.creditCard = creditCard;
     return payment;
 }
@@ -63,7 +63,7 @@
             }
         } else {
             //set token id
-            __weak VTPaymentCreditCard *wself = self;
+            __weak VTCPaymentCreditCard *wself = self;
             wself.tokenId = response[@"token_id"];
             
             //set callback

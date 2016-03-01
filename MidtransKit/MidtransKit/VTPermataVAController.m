@@ -1,33 +1,27 @@
 //
-//  VTClickpayHelpController.m
+//  VTPermataVAController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/1/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTClickpayHelpController.h"
+#import "VTPermataVAController.h"
 
-@interface VTClickpayHelpController ()
+@interface VTPermataVAController ()
 
 @end
 
-@implementation VTClickpayHelpController
+@implementation VTPermataVAController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)gotItPressed:(UIButton *)sender {
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 /*

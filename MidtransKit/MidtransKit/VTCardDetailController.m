@@ -9,7 +9,7 @@
 #import "VTCardDetailController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
-#import <MidtransCoreKit/VTCreditCard.h>
+#import <MidtransCoreKit/VTCPaymentCreditCard.h>
 
 @interface VTCardDetailController ()
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
@@ -66,7 +66,12 @@
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    
+    NSInteger expMonth = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] firstObject] integerValue];
+    NSInteger expYear = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] lastObject] integerValue];
+    VTCreditCard *card = [VTCreditCard dataWithNumber:_cardNumber.text
+                                          expiryMonth:@(expMonth)
+                                           expiryYear:@(expYear)
+                                                saved:NO];
 }
 
 /*

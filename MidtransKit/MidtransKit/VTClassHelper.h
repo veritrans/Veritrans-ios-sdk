@@ -35,6 +35,10 @@ extern NSString *const VTPaymentMandiriECash;
 
 @end
 
+@interface UILabel (utilities)
+- (void)setRoundedCorners:(BOOL)rounded;
+@end
+
 @interface NSObject (utilities)
 + (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier;
 @end

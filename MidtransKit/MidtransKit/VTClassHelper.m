@@ -78,6 +78,18 @@ NSString *const VTPaymentMandiriECash = @"ecash";
 
 @end
 
+@implementation UILabel (utilities)
+
+- (void)setRoundedCorners:(BOOL)rounded {
+    if (rounded) {
+        self.layer.cornerRadius = CGRectGetHeight(self.bounds)/2.0;
+    } else {
+        self.layer.cornerRadius = 0;
+    }
+}
+
+@end
+
 @implementation NSObject (utilities)
 
 + (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier {

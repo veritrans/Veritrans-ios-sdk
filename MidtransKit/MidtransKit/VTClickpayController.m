@@ -9,6 +9,7 @@
 #import "VTClickpayController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
+#import "VTClickpayHelpController.h"
 
 #import <MidtransCoreKit/VTCPaymentClickpay.h>
 
@@ -51,7 +52,7 @@
                    options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld
                    context:nil];
     
-    _appliLabel.text = APPLIType;
+    _appliLabel.text = APPLIClickpay;
     _input2Label.text = _clickpay.input2;
     _input3Label.text = _clickpay.input3;
     
@@ -82,7 +83,8 @@
 }
 
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {
-    
+    VTClickpayHelpController *help = [self.storyboard instantiateViewControllerWithIdentifier:@"VTClickpayHelpController"];
+    [self.navigationController pushViewController:help animated:YES];
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {

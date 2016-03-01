@@ -9,7 +9,7 @@
 #import "VTMandiriClickpay.h"
 #import "VTHelper.h"
 
-NSString *const APPLIType = @"3";
+NSString *const APPLIClickpay = @"3";
 
 @interface VTMandiriClickpay()
 

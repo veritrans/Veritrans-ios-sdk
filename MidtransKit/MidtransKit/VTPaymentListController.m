@@ -39,7 +39,7 @@
     
     NSString *path = [VTBundle pathForResource:@"Payments" ofType:@"plist"];
     _payments = [NSArray arrayWithContentsOfFile:path];
-
+    
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
     formatter.numberStyle = NSNumberFormatterCurrencyStyle;
     _headerAmountLabel.text = [formatter stringFromNumber:_amount];
@@ -98,8 +98,11 @@
     } else if ([identifier isEqualToString:VTPaymentMandiriBillpay]) {
         
     } else if ([identifier isEqualToString:VTPaymentMandiriClickpay]) {
-        VTClickpayController *vc = [VTClickpayController controllerWithUser:_user andAmount:_amount];
+        
+        VTClickpayController *vc = [VTClickpayController controllerWithUser:_user
+                                                                  andAmount:_amount];
         [self.navigationController pushViewController:vc animated:YES];
+        
     } else if ([identifier isEqualToString:VTPaymentMandiriECash]) {
         
     } else if ([identifier isEqualToString:VTPaymentPermataVA]) {
@@ -108,13 +111,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

@@ -27,8 +27,7 @@
     NSDictionary *param = @{@"payment_type":@"mandiri_clickpay",
                             @"mandiri_clickpay":[_clickpay requestData],
                             @"transaction_details":[self transactionDetail],
-                            @"customer_details":[self.user customerDetails]
-                            };
+                            @"customer_details":[self.user customerDetails]};
     
     [[VTNetworking sharedInstance] postToURL:URL parameters:param callback:^(id response, NSError *error) {
         if (error) {

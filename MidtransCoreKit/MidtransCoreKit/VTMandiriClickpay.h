@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const APPLIType;
+extern NSString *const APPLIClickpay;
 
 @interface VTMandiriClickpay : NSObject
 

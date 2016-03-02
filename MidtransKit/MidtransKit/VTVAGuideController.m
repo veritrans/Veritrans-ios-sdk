@@ -1,22 +1,22 @@
 //
-//  VTPermataVAHelpController.m
+//  VTVAGuideController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/1/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPermataVAHelpController.h"
+#import "VTVAGuideController.h"
 #import "MBXPageViewController.h"
 #import "VTPaymentGuideController.h"
 #import "VTClassHelper.h"
 
-@interface VTPermataVAHelpController ()<MBXPageControllerDataSource, MBXPageControllerDataDelegate>
+@interface VTVAGuideController ()<MBXPageControllerDataSource, MBXPageControllerDataDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @end
 
-@implementation VTPermataVAHelpController
+@implementation VTVAGuideController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -49,16 +49,27 @@
 
 - (NSArray *)MBXPageControllers
 {
-    // Or Load it from a xib file
-    UIViewController *demo2 = [UIViewController new];
-
-    VTPaymentGuideController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
+    NSMutableArray *vcs = [NSMutableArray new];
     
-    NSString *path = [VTBundle pathForResource:@"permataVaGuideAtm" ofType:@"plist"];
-    vc.guides = [NSArray arrayWithContentsOfFile:path];
+    NSString *path = [VTBundle pathForResource:@"permataVaGuide" ofType:@"plist"];
+    NSArray *allGuides = [NSArray arrayWithContentsOfFile:path];
+    
+    for (int i=0; i<[allGuides count]; i++) {
+        NSDictionary *guide = allGuides[i];
+        
+        if (i>1) {
+            [_segmentController insertSegmentWithTitle:guide[@"name"] atIndex:i animated:NO];
+        } else {
+            [_segmentController setTitle:guide[@"name"] forSegmentAtIndex:i];
+        }
+        
+        VTPaymentGuideController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
+        vc.guides = guide[@"guides"];
+        [vcs addObject:vc];
+    }
     
     // The order matters.
-    return @[vc, demo2];
+    return vcs;
 }
 
 
@@ -67,7 +78,7 @@
 
 - (void)MBXPageChangedToIndex:(NSInteger)index
 {
-
+    
 }
 
 @end

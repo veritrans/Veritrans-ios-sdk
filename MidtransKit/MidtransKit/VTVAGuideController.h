@@ -1,5 +1,5 @@
 //
-//  VTPermataVAController.h
+//  VTVAGuideController.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/1/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTPermataVAController : UIViewController
+@interface VTVAGuideController : UIViewController
 
 @end

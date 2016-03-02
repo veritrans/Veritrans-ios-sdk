@@ -1,23 +1,23 @@
 //
-//  VTPermataVAController.m
+//  VTVAController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/1/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPermataVAController.h"
+#import "VTVAController.h"
 #import "VTTextField.h"
-#import "VTPermataVAHelpController.h"
+#import "VTVAGuideController.h"
 
-@interface VTPermataVAController ()
+@interface VTVAController ()
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
 
 @end
 
-@implementation VTPermataVAController
+@implementation VTVAController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,7 +30,7 @@
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    VTPermataVAHelpController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPermataVAHelpController"];
+    VTVAGuideController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTVAGuideController"];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

@@ -7,9 +7,11 @@
 //
 
 #import "VTClickpayHelpController.h"
+#import "VTClassHelper.h"
+#import "VTPaymentGuideController.h"
 
 @interface VTClickpayHelpController ()
-
+@property (strong, nonatomic) IBOutlet UIView *helpView;
 @end
 
 @implementation VTClickpayHelpController
@@ -19,6 +21,10 @@
     // Do any additional setup after loading the view.
     
     
+    VTPaymentGuideController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
+    NSString *path = [VTBundle pathForResource:@"clickpayGuide" ofType:@"plist"];
+    vc.guides = [NSArray arrayWithContentsOfFile:path];
+    [self addSubViewController:vc toView:_helpView];
 }
 
 

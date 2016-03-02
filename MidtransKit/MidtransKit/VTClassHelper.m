@@ -108,3 +108,26 @@ NSString *const VTPaymentMandiriECash = @"ecash";
 
 @end
 
+@implementation UIViewController (Utils)
+
+- (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView {
+    
+    [self addChildViewController:viewController];
+    [viewController didMoveToParentViewController:self];
+    
+    viewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    [contentView addSubview:viewController.view];
+    
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[content]|" options:0 metrics:0 views:@{@"content":viewController.view}]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[content]|" options:0 metrics:0 views:@{@"content":viewController.view}]];
+}
+
+- (void)removeSubViewController:(UIViewController *)viewController {
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
+    [viewController didMoveToParentViewController:nil];
+}
+
+@end
+
+

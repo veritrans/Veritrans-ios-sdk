@@ -7,10 +7,12 @@
 //
 
 #import "VTGuideCell.h"
+#import "VTLabel.h"
+#import "VTRoundedLabel.h"
 
 @interface VTGuideCell ()
-@property (nonatomic) IBOutlet UILabel *guideLabel;
-@property (nonatomic) IBOutlet UILabel *numberLabel;
+@property (nonatomic) IBOutlet VTLabel *guideLabel;
+@property (nonatomic) IBOutlet VTRoundedLabel *numberLabel;
 @end
 
 @implementation VTGuideCell
@@ -27,7 +29,7 @@
 
 - (void)setGuide:(NSString *)guide {
     _guide = guide;
-    _guideLabel.text = guide;    
+    _guideLabel.vtText = guide;
 }
 
 - (void)setNumber:(NSInteger)number {

@@ -11,21 +11,23 @@
 
 @implementation VTLabel
 
-- (void)awakeFromNib {
+- (void)setVtText:(NSString *)vtText {
+    _vtText = vtText;
+    
     NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
     attachment.image = [UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil];
     NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
     
-    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:self.text];
-    NSRange foundRange = [self.text rangeOfString:@"*"];
+    NSMutableAttributedString *att = [[NSMutableAttributedString alloc] initWithString:vtText];
+    NSRange foundRange = [vtText rangeOfString:@"*"];
     
     while (foundRange.location != NSNotFound) {
         [att replaceCharactersInRange:foundRange withAttributedString:attachmentString];
         
         NSRange rangeToSearch;
         rangeToSearch.location = foundRange.location + foundRange.length;
-        rangeToSearch.length = self.text.length - rangeToSearch.location;
-        foundRange = [self.text rangeOfString:@"*" options:0 range:rangeToSearch];
+        rangeToSearch.length = vtText.length - rangeToSearch.location;
+        foundRange = [vtText rangeOfString:@"*" options:0 range:rangeToSearch];
     }
     
     [self setAttributedText:att];

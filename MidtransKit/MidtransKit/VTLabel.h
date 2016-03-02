@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VTLabel : UILabel
-
+@property (nonatomic) IBInspectable  NSString *vtText;
 @end

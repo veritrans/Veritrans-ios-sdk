@@ -11,9 +11,6 @@
 
 #define VTVisaRegex         @"^4[0-9]{3}?"
 #define VTMasterCardRegex   @"^5[1-5][0-9]{2}$"
-#define VTAmexRegex         @"^3[47][0-9]{2}$"
-#define VTDinersClubRegex	@"^3(?:0[0-5]|[68][0-9])[0-9]$"
-#define VTDiscoverRegex		@"^6(?:011|5[0-9]{2})$"
 #define VTJCBRegex          @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
 
 @interface VTCreditCard ()
@@ -43,15 +40,6 @@
     switch ([self typeWithNumber:number]) {
         case VTCreditCardTypeVisa:
             return @"VISA";
-            break;
-        case VTCreditCardTypeAmex:
-            return @"AMEX";
-            break;
-        case VTCreditCardTypeDinersClub:
-            return @"DINERSCLUB";
-            break;
-        case VTCreditCardTypeDiscover:
-            return @"DISCOVER";
             break;
         case VTCreditCardTypeMasterCard:
             return @"MASTERCARD";
@@ -83,15 +71,6 @@
                 break;
             case VTCreditCardTypeMasterCard:
                 regex = [NSRegularExpression regularExpressionWithPattern:VTMasterCardRegex options:0 error:&error];
-                break;
-            case VTCreditCardTypeAmex:
-                regex = [NSRegularExpression regularExpressionWithPattern:VTAmexRegex options:0 error:&error];
-                break;
-            case VTCreditCardTypeDinersClub:
-                regex = [NSRegularExpression regularExpressionWithPattern:VTDinersClubRegex options:0 error:&error];
-                break;
-            case VTCreditCardTypeDiscover:
-                regex = [NSRegularExpression regularExpressionWithPattern:VTDiscoverRegex options:0 error:&error];
                 break;
             case VTCreditCardTypeJCB :
                 regex = [NSRegularExpression regularExpressionWithPattern:VTJCBRegex options:0 error:&error];

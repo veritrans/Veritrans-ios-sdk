@@ -314,7 +314,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 
 - (CGRect)insetRectForBounds:(CGRect)rect
 {
-    rect = CGRectMake(_floatingLabelXPadding, rect.origin.y, rect.size.width, rect.size.height);
+    rect = CGRectMake(_floatingLabelXPadding, rect.origin.y, rect.size.width - _textRightPadding, rect.size.height);
     return CGRectInset(rect, 0, _floatingLabel.font.pointSize);
 }
 

@@ -11,9 +11,6 @@
 typedef NS_ENUM(NSInteger, VTCreditCardType) {
     VTCreditCardTypeVisa,
     VTCreditCardTypeMasterCard,
-    VTCreditCardTypeDinersClub,
-    VTCreditCardTypeAmex,
-    VTCreditCardTypeDiscover,
     VTCreditCardTypeJCB,
     VTCreditCardTypeUnknown
 };

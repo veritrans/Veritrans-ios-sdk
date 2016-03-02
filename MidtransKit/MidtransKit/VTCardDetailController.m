@@ -17,6 +17,10 @@
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
 @property (strong, nonatomic) IBOutlet UISwitch *saveStateSwitch;
+@property (strong, nonatomic) IBOutlet UIImageView *creditCardLogo;
+@property (strong, nonatomic) IBOutlet UILabel *cardNumberLabel;
+@property (strong, nonatomic) IBOutlet UILabel *cardHolderLabel;
+@property (strong, nonatomic) IBOutlet UILabel *expiryLabel;
 
 @end
 
@@ -31,6 +35,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,40 +43,54 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)cardNumberChanged:(VTTextField *)sender {
-    VTCreditCardType type = [VTCreditCard typeWithNumber:sender.text];
+- (void)dealloc {
+    [_cardExpiryDate removeObserver:self forKeyPath:@"text"];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"text"] &&
+        [object isEqual:_cardExpiryDate]) {
+        _expiryLabel.text = _cardExpiryDate.text;
+    }
+}
+
+- (IBAction)textFieldChanged:(id)sender {
+    if ([sender isEqual:_cardName]) {
+        _cardHolderLabel.text = _cardName.text;
+    } else if ([sender isEqual:_cardNumber]) {
+        [self updateCreditCardIconWithNumber:_cardNumber.text];
+        _cardNumberLabel.text = _cardNumber.text;
+    }
+}
+
+- (void)updateCreditCardIconWithNumber:(NSString *)number {
+    VTCreditCardType type = [VTCreditCard typeWithNumber:number];
     switch (type) {
         case VTCreditCardTypeVisa:
-            NSLog(@"visa");
-            break;
-        case VTCreditCardTypeAmex:
-            NSLog(@"amex");
-            break;
-        case VTCreditCardTypeDinersClub:
-            NSLog(@"dc");
-            break;
-        case VTCreditCardTypeDiscover:
-            NSLog(@"d");
+            _creditCardLogo.image = [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
             break;
         case VTCreditCardTypeJCB:
-            NSLog(@"jcb");
+            _creditCardLogo.image = [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
             break;
         case VTCreditCardTypeMasterCard:
-            NSLog(@"mastercard");
+            _creditCardLogo.image = [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
             break;
         case VTCreditCardTypeUnknown:
-            NSLog(@"unknown");
+            _creditCardLogo.image = nil;
             break;
     }
 }
 
+- (IBAction)cvvInfoPressed:(UIButton *)sender {
+}
+
 - (IBAction)paymentPressed:(UIButton *)sender {
-    NSInteger expMonth = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] firstObject] integerValue];
-    NSInteger expYear = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] lastObject] integerValue];
-    VTCreditCard *card = [VTCreditCard dataWithNumber:_cardNumber.text
-                                          expiryMonth:@(expMonth)
-                                           expiryYear:@(expYear)
-                                                saved:NO];
+//    NSInteger expMonth = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] firstObject] integerValue];
+//    NSInteger expYear = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] lastObject] integerValue];
+//    VTCreditCard *card = [VTCreditCard dataWithNumber:_cardNumber.text
+//                                          expiryMonth:@(expMonth)
+//                                           expiryYear:@(expYear)
+//                                                saved:NO];
 }
 
 /*

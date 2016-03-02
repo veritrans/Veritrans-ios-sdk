@@ -63,6 +63,14 @@
 		309CC0E01C86B88C00C058BE /* cimbClicksGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */; };
 		309CC0E41C86B9FA00C058BE /* VTClicksController.h in Headers */ = {isa = PBXBuildFile; fileRef = 309CC0E21C86B9FA00C058BE /* VTClicksController.h */; };
 		309CC0E51C86B9FA00C058BE /* VTClicksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CC0E31C86B9FA00C058BE /* VTClicksController.m */; };
+		309CC0EE1C86C72200C058BE /* CreditCardBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0E61C86C72200C058BE /* CreditCardBack@2x.png */; };
+		309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0E71C86C72200C058BE /* CreditCardBackSmall@2x.png */; };
+		309CC0F01C86C72200C058BE /* CreditCardFront@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0E81C86C72200C058BE /* CreditCardFront@2x.png */; };
+		309CC0F11C86C72200C058BE /* JCB@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0E91C86C72200C058BE /* JCB@2x.png */; };
+		309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0EA1C86C72200C058BE /* JCBDark@2x.png */; };
+		309CC0F31C86C72200C058BE /* MasterCard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0EB1C86C72200C058BE /* MasterCard@2x.png */; };
+		309CC0F41C86C72200C058BE /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0EC1C86C72200C058BE /* Visa@2x.png */; };
+		309CC0F51C86C72200C058BE /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0ED1C86C72200C058BE /* VisaDark@2x.png */; };
 		30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */; };
 		30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */; };
 		30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */; };
@@ -173,6 +181,14 @@
 		309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cimbClicksGuide.plist; sourceTree = "<group>"; };
 		309CC0E21C86B9FA00C058BE /* VTClicksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClicksController.h; sourceTree = "<group>"; };
 		309CC0E31C86B9FA00C058BE /* VTClicksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClicksController.m; sourceTree = "<group>"; };
+		309CC0E61C86C72200C058BE /* CreditCardBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreditCardBack@2x.png"; sourceTree = "<group>"; };
+		309CC0E71C86C72200C058BE /* CreditCardBackSmall@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreditCardBackSmall@2x.png"; sourceTree = "<group>"; };
+		309CC0E81C86C72200C058BE /* CreditCardFront@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreditCardFront@2x.png"; sourceTree = "<group>"; };
+		309CC0E91C86C72200C058BE /* JCB@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JCB@2x.png"; sourceTree = "<group>"; };
+		309CC0EA1C86C72200C058BE /* JCBDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "JCBDark@2x.png"; sourceTree = "<group>"; };
+		309CC0EB1C86C72200C058BE /* MasterCard@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterCard@2x.png"; sourceTree = "<group>"; };
+		309CC0EC1C86C72200C058BE /* Visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Visa@2x.png"; sourceTree = "<group>"; };
+		309CC0ED1C86C72200C058BE /* VisaDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaDark@2x.png"; sourceTree = "<group>"; };
 		30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicator@2x.png"; path = "../MidtransResources/DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
 		30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicatorGray@2x.png"; path = "../MidtransResources/DisclosureIndicatorGray@2x.png"; sourceTree = "<group>"; };
 		30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ImageOffer@2x.png"; path = "../MidtransResources/ImageOffer@2x.png"; sourceTree = "<group>"; };
@@ -389,6 +405,14 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				309CC0E61C86C72200C058BE /* CreditCardBack@2x.png */,
+				309CC0E71C86C72200C058BE /* CreditCardBackSmall@2x.png */,
+				309CC0E81C86C72200C058BE /* CreditCardFront@2x.png */,
+				309CC0E91C86C72200C058BE /* JCB@2x.png */,
+				309CC0EA1C86C72200C058BE /* JCBDark@2x.png */,
+				309CC0EB1C86C72200C058BE /* MasterCard@2x.png */,
+				309CC0EC1C86C72200C058BE /* Visa@2x.png */,
+				309CC0ED1C86C72200C058BE /* VisaDark@2x.png */,
 				309CC0D61C86960000C058BE /* InfoIcon@2x.png */,
 				30E7131B1C85975000AFB7B4 /* DetailDisclosure@2x.png */,
 				30E712FF1C85592800AFB7B4 /* TokenButtonIcon@2x.png */,
@@ -610,13 +634,21 @@
 			files = (
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */,
+				309CC0F51C86C72200C058BE /* VisaDark@2x.png in Resources */,
 				309CC0D91C86A53400C058BE /* bcaVaGuide.plist in Resources */,
+				309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */,
+				309CC0F11C86C72200C058BE /* JCB@2x.png in Resources */,
+				309CC0F01C86C72200C058BE /* CreditCardFront@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
+				309CC0F41C86C72200C058BE /* Visa@2x.png in Resources */,
 				30E7133F1C85AAE600AFB7B4 /* permataVaGuide.plist in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
+				309CC0EE1C86C72200C058BE /* CreditCardBack@2x.png in Resources */,
+				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,
 				30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */,
+				309CC0F31C86C72200C058BE /* MasterCard@2x.png in Resources */,
 				309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */,
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,

@@ -7,12 +7,17 @@
 //
 
 #import "VTPayment.h"
+#import "VTPaymentDelegate.h"
 #import "VTMandiriClickpay.h"
 
 @interface VTCPaymentClickpay : VTPayment
 
+@property (nonatomic, weak) id<VTPaymentDelegate> delegate;
+
 + (instancetype)paymentWithUser:(VTUser *)user andAmount:(NSNumber *)amount clickpay:(VTMandiriClickpay *)clickpay;
 
 - (void)payWithCallback:(void(^)(id response, NSError *error))callback;
+
+- (void)pay;
 
 @end

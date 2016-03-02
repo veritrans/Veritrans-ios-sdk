@@ -50,6 +50,7 @@
 		30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */; };
 		30FDCC641C803AD200CEFED3 /* VTMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30FDCC651C803AD200CEFED3 /* VTMandiriClickpay.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */; };
+		BAB89FE91C858AA800BEBAAB /* VTPaymentDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB89FE81C858AA800BEBAAB /* VTPaymentDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +105,7 @@
 		30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkOperation.m; sourceTree = "<group>"; };
 		30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMandiriClickpay.h; sourceTree = "<group>"; };
 		30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMandiriClickpay.m; sourceTree = "<group>"; };
+		BAB89FE81C858AA800BEBAAB /* VTPaymentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 				3052C4F71C843749001F8B4A /* VTCPaymentClickpay.m */,
 				305494611C75A0DF00938C17 /* VTPaymentCreditCard.h */,
 				305494621C75A0DF00938C17 /* VTPaymentCreditCard.m */,
+				BAB89FE81C858AA800BEBAAB /* VTPaymentDelegate.h */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -211,6 +214,7 @@
 				3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */,
 				3054945B1C75A08900938C17 /* VTConfig.h in Headers */,
 				3052C4F81C843749001F8B4A /* VTCPaymentClickpay.h in Headers */,
+				BAB89FE91C858AA800BEBAAB /* VTPaymentDelegate.h in Headers */,
 				305494671C75A0DF00938C17 /* VTPaymentCreditCard.h in Headers */,
 				305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */,
 				3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */,

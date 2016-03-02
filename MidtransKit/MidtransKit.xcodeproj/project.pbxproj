@@ -59,6 +59,10 @@
 		309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0D61C86960000C058BE /* InfoIcon@2x.png */; };
 		309CC0D91C86A53400C058BE /* bcaVaGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0D81C86A32000C058BE /* bcaVaGuide.plist */; };
 		309CC0DC1C86A68F00C058BE /* mandiriVaGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DB1C86A68F00C058BE /* mandiriVaGuide.plist */; };
+		309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DD1C86B5BD00C058BE /* otherVaGuide.plist */; };
+		309CC0E01C86B88C00C058BE /* cimbClicksGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */; };
+		309CC0E41C86B9FA00C058BE /* VTClicksController.h in Headers */ = {isa = PBXBuildFile; fileRef = 309CC0E21C86B9FA00C058BE /* VTClicksController.h */; };
+		309CC0E51C86B9FA00C058BE /* VTClicksController.m in Sources */ = {isa = PBXBuildFile; fileRef = 309CC0E31C86B9FA00C058BE /* VTClicksController.m */; };
 		30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */; };
 		30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */; };
 		30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */; };
@@ -165,6 +169,10 @@
 		309CC0D61C86960000C058BE /* InfoIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "InfoIcon@2x.png"; sourceTree = "<group>"; };
 		309CC0D81C86A32000C058BE /* bcaVaGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bcaVaGuide.plist; sourceTree = "<group>"; };
 		309CC0DB1C86A68F00C058BE /* mandiriVaGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mandiriVaGuide.plist; sourceTree = "<group>"; };
+		309CC0DD1C86B5BD00C058BE /* otherVaGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = otherVaGuide.plist; sourceTree = "<group>"; };
+		309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = cimbClicksGuide.plist; sourceTree = "<group>"; };
+		309CC0E21C86B9FA00C058BE /* VTClicksController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClicksController.h; sourceTree = "<group>"; };
+		309CC0E31C86B9FA00C058BE /* VTClicksController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClicksController.m; sourceTree = "<group>"; };
 		30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicator@2x.png"; path = "../MidtransResources/DisclosureIndicator@2x.png"; sourceTree = "<group>"; };
 		30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "DisclosureIndicatorGray@2x.png"; path = "../MidtransResources/DisclosureIndicatorGray@2x.png"; sourceTree = "<group>"; };
 		30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ImageOffer@2x.png"; path = "../MidtransResources/ImageOffer@2x.png"; sourceTree = "<group>"; };
@@ -362,8 +370,20 @@
 				30E7133E1C85AAE600AFB7B4 /* permataVaGuide.plist */,
 				309CC0D81C86A32000C058BE /* bcaVaGuide.plist */,
 				309CC0DB1C86A68F00C058BE /* mandiriVaGuide.plist */,
+				309CC0DD1C86B5BD00C058BE /* otherVaGuide.plist */,
+				309CC0C91C86875400C058BE /* clickpayGuide.plist */,
+				309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */,
 			);
 			name = "Guide Data";
+			sourceTree = "<group>";
+		};
+		309CC0E11C86B9E200C058BE /* Clicks */ = {
+			isa = PBXGroup;
+			children = (
+				309CC0E21C86B9FA00C058BE /* VTClicksController.h */,
+				309CC0E31C86B9FA00C058BE /* VTClicksController.m */,
+			);
+			name = Clicks;
 			sourceTree = "<group>";
 		};
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
@@ -399,7 +419,6 @@
 				30E77E891C84021A0090D228 /* VTClickpayController.m */,
 				30E713061C8564B300AFB7B4 /* VTClickpayHelpController.h */,
 				30E713071C8564B300AFB7B4 /* VTClickpayHelpController.m */,
-				309CC0C91C86875400C058BE /* clickpayGuide.plist */,
 			);
 			name = Clickpay;
 			sourceTree = "<group>";
@@ -429,6 +448,7 @@
 		30E713381C85A89400AFB7B4 /* Guide */ = {
 			isa = PBXGroup;
 			children = (
+				309CC0DA1C86A58000C058BE /* Guide Data */,
 				30E713331C85A6E800AFB7B4 /* VTPaymentGuideController.h */,
 				30E713341C85A6E800AFB7B4 /* VTPaymentGuideController.m */,
 				30E713391C85A8A800AFB7B4 /* VTGuideCell.h */,
@@ -454,7 +474,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				309CC0DA1C86A58000C058BE /* Guide Data */,
+				309CC0E11C86B9E200C058BE /* Clicks */,
 				30E713121C857DFB00AFB7B4 /* Bank Transfer */,
 				30E713101C85749F00AFB7B4 /* Credit Card */,
 				30E713111C857DF400AFB7B4 /* Clickpay */,
@@ -474,6 +494,7 @@
 				30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */,
 				309CC0CF1C86952300C058BE /* VTVAConfirmationController.h in Headers */,
 				30E713351C85A6E800AFB7B4 /* VTPaymentGuideController.h in Headers */,
+				309CC0E41C86B9FA00C058BE /* VTClicksController.h in Headers */,
 				30E713191C85816B00AFB7B4 /* VTDetailedTitleController.h in Headers */,
 				30E713221C859D6100AFB7B4 /* MBXPageViewController.h in Headers */,
 				30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */,
@@ -588,6 +609,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
+				309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */,
 				309CC0D91C86A53400C058BE /* bcaVaGuide.plist in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
@@ -599,6 +621,7 @@
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
 				309CC0DC1C86A68F00C058BE /* mandiriVaGuide.plist in Resources */,
+				309CC0E01C86B88C00C058BE /* cimbClicksGuide.plist in Resources */,
 				3068383D1C7EB35A0064A305 /* Payments.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -731,6 +754,7 @@
 				3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */,
 				30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */,
 				30E713041C855B6600AFB7B4 /* VTLabel.m in Sources */,
+				309CC0E51C86B9FA00C058BE /* VTClicksController.m in Sources */,
 				30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */,
 				30E7133C1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */,
 				30E7132C1C85A5FB00AFB7B4 /* VTVAGuideController.m in Sources */,

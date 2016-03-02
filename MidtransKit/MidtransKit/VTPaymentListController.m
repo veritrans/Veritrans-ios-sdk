@@ -13,6 +13,7 @@
 #import "VTCardListController.h"
 #import "VTClickpayController.h"
 #import "VTVAController.h"
+#import "VTClicksController.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -88,6 +89,9 @@
     } else if ([identifier isEqualToString:VTPaymentBCAVA]) {
         
     } else if ([identifier isEqualToString:VTPaymentCIMBClicks]) {
+        
+        VTClicksController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTClicksController"];
+        [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([identifier isEqualToString:VTPaymentCreditCard]) {
         

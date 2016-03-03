@@ -10,6 +10,8 @@
 #import "VTClassHelper.h"
 #import "VTTextField.h"
 #import <MidtransCoreKit/VTCPaymentCreditCard.h>
+#import "UIViewController+Modal.h"
+#import "VTCVVGuideController.h"
 
 @interface VTCardDetailController ()
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
@@ -21,10 +23,13 @@
 @property (strong, nonatomic) IBOutlet UILabel *cardNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *cardHolderLabel;
 @property (strong, nonatomic) IBOutlet UILabel *expiryLabel;
-
+@property (strong, nonatomic) IBOutlet UIView *navigationView;
+@property (strong, nonatomic) IBOutlet UIScrollView *containerTextField;
 @end
 
-@implementation VTCardDetailController
+@implementation VTCardDetailController {
+    __weak UITextField *selectedTextField;
+}
 
 + (instancetype)newController {
     VTCardDetailController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle] instantiateViewControllerWithIdentifier:@"VTCardDetailController"];
@@ -36,6 +41,7 @@
     // Do any additional setup after loading the view.
     
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,7 +50,10 @@
 }
 
 - (void)dealloc {
+    
     [_cardExpiryDate removeObserver:self forKeyPath:@"text"];
+    [[NSNotificationCenter defaultCenter] removeObserver:selectedTextField];
+    
 }
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
@@ -82,15 +91,49 @@
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
+    VTCVVGuideController *guide = [self.storyboard instantiateViewControllerWithIdentifier:@"VTCVVGuideController"];
+    guide.modalSize = guide.preferredContentSize;
+    [self presentCustomViewController:guide
+             presentingViewController:self.navigationController
+                           completion:nil];
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-//    NSInteger expMonth = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] firstObject] integerValue];
-//    NSInteger expYear = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] lastObject] integerValue];
-//    VTCreditCard *card = [VTCreditCard dataWithNumber:_cardNumber.text
-//                                          expiryMonth:@(expMonth)
-//                                           expiryYear:@(expYear)
-//                                                saved:NO];
+    //    NSInteger expMonth = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] firstObject] integerValue];
+    //    NSInteger expYear = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] lastObject] integerValue];
+    //    VTCreditCard *card = [VTCreditCard dataWithNumber:_cardNumber.text
+    //                                          expiryMonth:@(expMonth)
+    //                                           expiryYear:@(expYear)
+    //                                                saved:NO];
+    
+}
+
+- (IBAction)nextFieldPressed:(id)sender {
+    if ([selectedTextField isEqual:_cardNumber]) {
+        [_cardExpiryDate becomeFirstResponder];
+    } else if ([selectedTextField isEqual:_cardExpiryDate]) {
+        [_cardCvv becomeFirstResponder];
+    } else if ([selectedTextField isEqual:_cardCvv]) {
+        [_cardName becomeFirstResponder];
+    } else {
+        [_cardNumber becomeFirstResponder];
+    }
+}
+
+- (IBAction)prevFieldPressed:(id)sender {
+    if ([selectedTextField isEqual:_cardNumber]) {
+        [_cardName becomeFirstResponder];
+    } else if ([selectedTextField isEqual:_cardExpiryDate]) {
+        [_cardNumber becomeFirstResponder];
+    } else if ([selectedTextField isEqual:_cardCvv]) {
+        [_cardExpiryDate becomeFirstResponder];
+    } else {
+        [_cardCvv becomeFirstResponder];
+    }
+}
+
+- (IBAction)donePressed:(id)sender {
+    [self.view endEditing:YES];
 }
 
 /*
@@ -104,6 +147,11 @@
  */
 
 #pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField {
+    selectedTextField = textField;
+    textField.inputAccessoryView = _navigationView;
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isEqual:_cardExpiryDate]) {

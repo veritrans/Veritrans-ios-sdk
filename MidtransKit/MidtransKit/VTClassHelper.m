@@ -130,4 +130,24 @@ NSString *const VTPaymentMandiriECash = @"ecash";
 
 @end
 
+@implementation UIApplication (Utils)
+
++ (UIViewController *)rootViewController {
+    UIViewController *base = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if ([base isKindOfClass:[UINavigationController class]]) {
+        return [(UINavigationController *)base visibleViewController];
+    } else if ([base isKindOfClass:[UITabBarController class]]) {
+        return [(UITabBarController *)base selectedViewController];
+    } else {
+        if ([base presentedViewController]) {
+            return [base presentedViewController];
+        } else {
+            return base;
+        }
+    }
+}
+
+
+@end
+
 

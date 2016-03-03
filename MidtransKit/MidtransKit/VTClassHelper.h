@@ -47,3 +47,7 @@ extern NSString *const VTPaymentMandiriECash;
 - (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView;
 - (void)removeSubViewController:(UIViewController *)viewController;
 @end
+
+@interface UIApplication (utilities)
++ (UIViewController *)rootViewController;
+@end

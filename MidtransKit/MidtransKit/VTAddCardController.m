@@ -1,19 +1,19 @@
 //
-//  VTCardDetailController.m
+//  VTAddCardController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 2/23/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCardDetailController.h"
+#import "VTAddCardController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
 #import <MidtransCoreKit/VTCPaymentCreditCard.h>
 #import "UIViewController+Modal.h"
 #import "VTCVVGuideController.h"
 
-@interface VTCardDetailController ()
+@interface VTAddCardController ()
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
@@ -27,12 +27,12 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *containerTextField;
 @end
 
-@implementation VTCardDetailController {
+@implementation VTAddCardController {
     __weak UITextField *selectedTextField;
 }
 
 + (instancetype)newController {
-    VTCardDetailController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle] instantiateViewControllerWithIdentifier:@"VTCardDetailController"];
+    VTAddCardController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle] instantiateViewControllerWithIdentifier:@"VTAddCardController"];
     return vc;
 }
 
@@ -158,6 +158,8 @@
         return [textField filterCreditCardExpiryDate:string range:range];
     } else if ([textField isEqual:_cardNumber] || [textField isEqual:_cardCvv]) {
         return [string isNumeric];
+    } else if ([textField isEqual:_cardCvv]) {
+        return [textField filterCvvNumber:string range:range];
     } else {
         return YES;
     }

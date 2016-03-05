@@ -49,7 +49,7 @@
                             @"card_number":_creditCard.number,
                             @"card_exp_month":_creditCard.expiryMonth,
                             @"card_exp_year":_creditCard.expiryYear,
-                            @"card_type":_creditCard.type,
+                            @"card_type":[_creditCard stringType],
                             @"card_cvv":cvv,
                             @"secure":self.secure?@"true":@"false",
                             @"bank":self.bank,

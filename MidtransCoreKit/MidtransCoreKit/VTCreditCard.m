@@ -21,7 +21,7 @@
 @property (nonatomic, readwrite) NSNumber *expiryYear;
 @property (nonatomic, readwrite) BOOL saved;
 @property (nonatomic, readwrite) BOOL secure;
-@property (nonatomic, readwrite) NSString *type;
+@property (nonatomic, readwrite) VTCreditCardType type;
 @end
 
 @implementation VTCreditCard
@@ -32,12 +32,12 @@
     card.expiryMonth = expiryMonth;
     card.expiryYear = expiryYear;
     card.saved = saved;
-    card.type = [VTCreditCard checkTypeStringWithNumber:number];
+    card.type = [VTCreditCard typeWithNumber:number];
     return card;
 }
 
-+ (NSString *)checkTypeStringWithNumber:(NSString *)number {
-    switch ([self typeWithNumber:number]) {
+- (NSString *)stringType {
+    switch (self.type) {
         case VTCreditCardTypeVisa:
             return @"VISA";
             break;

@@ -7,6 +7,7 @@
 //
 
 #import "VTPaymentCell.h"
+#import "VTClassHelper.h"
 
 @implementation VTPaymentCell {
     IBOutlet UILabel *_nameLabel;
@@ -27,6 +28,6 @@
     _paymentItem = paymentItem;
     
     _nameLabel.text = paymentItem[@"name"];
-    _iconView.image = [UIImage imageNamed:paymentItem[@"icon"]];
+    _iconView.image = [UIImage imageNamed:paymentItem[@"icon"] inBundle:VTBundle compatibleWithTraitCollection:nil];
 }
 @end

@@ -31,6 +31,7 @@ extern NSString *const VTPaymentMandiriECash;
 
 @interface UITextField (helper)
 
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range ;
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
 
 @end

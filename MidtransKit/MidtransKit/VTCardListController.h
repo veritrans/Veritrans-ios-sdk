@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTCardCell.h"
 
 @interface VTCardListController : UIViewController
 @property (nonatomic, strong) NSArray *items;

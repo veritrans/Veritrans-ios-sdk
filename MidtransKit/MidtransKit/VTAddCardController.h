@@ -1,5 +1,5 @@
 //
-//  VTCardDetailController.h
+//  VTAddCardController.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 2/23/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTCardDetailController : UIViewController
+@interface VTAddCardController : UIViewController
 + (instancetype)newController;
 @end

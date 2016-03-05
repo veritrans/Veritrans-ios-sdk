@@ -92,7 +92,7 @@
     //    VTPaymentListController *vc = [VTPaymentListController paymentListWithPriceAmount:@50000];
     //    [self presentViewController:vc animated:YES completion:nil];
     
-    //    VTCardDetailController *vc = [VTCardDetailController newController];
+    //    VTAddCardController *vc = [VTAddCardController newController];
     //    [self presentViewController:vc animated:YES completion:nil];
     //
     //    NSString *path = [[NSBundle mainBundle] pathForResource:@"MidtransResources" ofType:@"bundle"];

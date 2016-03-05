@@ -51,27 +51,37 @@ NSString *const VTPaymentMandiriECash = @"ecash";
 
 @implementation UITextField (helper)
 
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    return [mstring length] <= 3;
+}
+
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {
     if ([string isNumeric] == NO) {
         return NO;
     }
     
-    NSMutableString *changedString = self.text.mutableCopy;
-    [changedString replaceCharactersInRange:range withString:string];
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
     
-    if ([changedString length] == 1 && [changedString integerValue] > 1) {
-        self.text = [NSString stringWithFormat:@"0%@/", changedString];
-    } else if ([changedString length] == 2) {
-        if ([changedString integerValue] < 13) {
-            self.text = changedString;
+    if ([mstring length] == 1 && [mstring integerValue] > 1) {
+        self.text = [NSString stringWithFormat:@"0%@/", mstring];
+    } else if ([mstring length] == 2) {
+        if ([mstring integerValue] < 13) {
+            self.text = mstring;
         }
-    } else if ([changedString length] == 3) {
+    } else if ([mstring length] == 3) {
         if ([string length]) {
-            [changedString insertString:@"/" atIndex:2];
+            [mstring insertString:@"/" atIndex:2];
         }
-        self.text = changedString;
-    } else if ([changedString length] < 6) {
-        self.text = changedString;
+        self.text = mstring;
+    } else if ([mstring length] < 6) {
+        self.text = mstring;
     }
     return NO;
 }

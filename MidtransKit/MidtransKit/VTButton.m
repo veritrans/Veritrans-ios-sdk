@@ -8,14 +8,22 @@
 
 #import "VTButton.h"
 
-@implementation VTButton
+@implementation VTButton {
+    UIView *_bottomBorder;
+}
 
 - (void)awakeFromNib {
     if (self.topLine) {
-        UIView *bottomBorder = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, 1)];
-        bottomBorder.backgroundColor = self.topLineColor;
-        [self addSubview:bottomBorder];
+        _bottomBorder = [[UIView alloc] init];
+        _bottomBorder.backgroundColor = self.topLineColor;
+        [self addSubview:_bottomBorder];
     }
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _bottomBorder.frame = CGRectMake(0, 0, self.frame.size.width, 0.5);
 }
 
 @end

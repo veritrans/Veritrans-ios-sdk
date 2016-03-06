@@ -8,15 +8,15 @@
 
 #import "VTClassHelper.h"
 
-NSString *const VTPaymentCreditCard = @"cc";
-NSString *const VTPaymentPermataVA = @"permatava";
-NSString *const VTPaymentMandiriClickpay = @"clickpay";
-NSString *const VTPaymentBCAVA = @"bcava";
-NSString *const VTPaymentMandiriBillpay = @"billpay";
-NSString *const VTPaymentCIMBClicks = @"clicks";
-NSString *const VTPaymentBCAKlikpay = @"klikpay";
-NSString *const VTPaymentIndomaret = @"indomaret";
-NSString *const VTPaymentMandiriECash = @"ecash";
+NSString *const VTCreditCardIdentifier = @"cc";
+NSString *const VTPermataVAIdentifier = @"permatava";
+NSString *const VTMandiriClickpayIdentifier = @"clickpay";
+NSString *const VTBCAVAIdentifier = @"bcava";
+NSString *const VTMandiriBillpayIdentifier = @"billpay";
+NSString *const VTCIMBClicksIdentifier = @"clicks";
+NSString *const VTBCAKlikpayIdentifier = @"klikpay";
+NSString *const VTIndomaretIdentifier = @"indomaret";
+NSString *const VTMandiriECashIdentifier = @"ecash";
 
 @implementation VTClassHelper
 

@@ -7,12 +7,80 @@
 //
 
 #import "VTInputCvvController.h"
+#import "VTCardListController.h"
 #import "VTTextField.h"
 #import "VTClassHelper.h"
+#import "VTCCBackView.h"
+#import "VTCCFrontView.h"
 
-@interface VTInputCvvController ()
+@interface PopAnimator : NSObject <UIViewControllerAnimatedTransitioning>
+
+@end
+
+@implementation PopAnimator
+
+- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
+{
+    return 0.6;
+}
+
+- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
+{
+    VTCardListController* toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
+    toViewController.view.layer.zPosition = -1000;
+    VTInputCvvController* fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
+    fromViewController.view.layer.zPosition = -500;
+    
+    UIView *containerView = [transitionContext containerView];
+    
+    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
+    CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.backView.frame fromView:fromViewController.backView.superview];
+    
+    VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
+    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame];
+    
+    [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
+    [containerView addSubview:frontView];
+    [containerView addSubview:backView];
+    
+    toViewController.collectionView.hidden = YES;
+    fromViewController.backView.hidden = YES;
+    
+    CATransform3D rotateTransform = CATransform3DIdentity;
+    rotateTransform.m34 = 1.0/-500.0;
+    
+    frontView.layer.transform = CATransform3DRotate(rotateTransform, M_PI_2, 0, 1, 0);
+    
+    [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
+        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1.0 animations:^{
+            fromViewController.view.alpha = 0.0;
+        }];
+        
+        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1/2.0 animations:^{
+            backView.layer.transform = CATransform3DRotate(rotateTransform, -M_PI_2, 0, 1, 0);
+        }];
+        
+        [UIView addKeyframeWithRelativeStartTime:1/2.0 relativeDuration:1/2.0 animations:^{
+            frontView.layer.transform = CATransform3DRotate(rotateTransform, 0, 0, 1, 0);
+        }];
+        
+    } completion:^(BOOL finished) {
+        
+        toViewController.collectionView.hidden = NO;
+        fromViewController.backView.hidden = NO;
+        
+        [backView removeFromSuperview];
+        [frontView removeFromSuperview];
+        
+        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
+    }];
+}
+
+@end
+
+@interface VTInputCvvController () <UINavigationControllerDelegate>
 @property (nonatomic) IBOutlet VTTextField *cvvTextField;
-@property (nonatomic) IBOutlet UILabel *cvvLabel;
+@property (strong, nonatomic) IBOutlet UIView *finishPaymentView;
 @end
 
 @implementation VTInputCvvController
@@ -21,78 +89,41 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIView *containerView = _backCardView.superview;
+    _cvvTextField.inputAccessoryView = _finishPaymentView;
     
-    _frontCardView.translatesAutoresizingMaskIntoConstraints = NO;
-    [containerView addSubview:_frontCardView];
+    self.navigationController.delegate = self;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
     
-    [containerView addConstraint:[NSLayoutConstraint constraintWithItem:_frontCardView attribute:NSLayoutAttributeLeading relatedBy:NSLayoutRelationEqual toItem:_backCardView attribute:NSLayoutAttributeLeading multiplier:1 constant:0]];
+    [_cvvTextField becomeFirstResponder];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
     
-    [containerView addConstraint:[NSLayoutConstraint constraintWithItem:_frontCardView attribute:NSLayoutAttributeTrailing relatedBy:NSLayoutRelationEqual toItem:_backCardView attribute:NSLayoutAttributeTrailing multiplier:1 constant:0]];
-    
-    [containerView addConstraint:[NSLayoutConstraint constraintWithItem:_frontCardView attribute:NSLayoutAttributeTop relatedBy:NSLayoutRelationEqual toItem:_backCardView attribute:NSLayoutAttributeTop multiplier:1 constant:0]];
-    
-    [containerView addConstraint:[NSLayoutConstraint constraintWithItem:_frontCardView attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:_backCardView attribute:NSLayoutAttributeHeight multiplier:1 constant:0]];
-    
-    
-    CATransform3D transform = CATransform3DIdentity;
-    transform.m34 = -0.002;
-    containerView.layer.sublayerTransform = transform;
-    
-    _backCardView.layer.transform = CATransform3DMakeRotation(M_PI_2, 0, 1, 0);
-    
-    [UIView animateKeyframesWithDuration:0.6 delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1/2.0 animations:^{
-            _frontCardView.layer.transform = CATransform3DMakeRotation(-M_PI_2, 0, 1, 0);
-        }];
-        [UIView addKeyframeWithRelativeStartTime:1/2.0 relativeDuration:1/2.0 animations:^{
-            _backCardView.layer.transform = CATransform3DMakeRotation(0, 0, 1, 0);
-        }];
-    } completion:^(BOOL finished) {
-        [_cvvTextField becomeFirstResponder];
-    }];
-    
-    UIBarButtonItem *negativeSpacer = [[UIBarButtonItem alloc]
-                                       initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace
-                                       target:nil action:nil];
-    negativeSpacer.width = -47;
-    
-    UIButton *backButton = [UIButton buttonWithType:UIButtonTypeSystem];
-    [backButton setTitle:@"Back" forState:UIControlStateNormal];
-    [backButton setImage:[UIImage imageNamed:@"BackBarIcon" inBundle:VTBundle compatibleWithTraitCollection:nil] forState:UIControlStateNormal];
-    backButton.titleLabel.font = [UIFont systemFontOfSize:17];
-    [backButton setTitleEdgeInsets:UIEdgeInsetsMake(2, 12, 0, 0)];
-    
-    [backButton addTarget:self action:@selector(backPressed:) forControlEvents:UIControlEventTouchUpInside];
-    [backButton setFrame:CGRectMake(0, 0, 130, 30)];
-    self.navigationItem.leftBarButtonItems = @[negativeSpacer, [[UIBarButtonItem alloc] initWithCustomView:backButton]];
-    
-    [_cvvTextField addTarget:self action:@selector(CVVChanged:) forControlEvents:UIControlEventEditingChanged];
-    
+    [self.view endEditing:YES];
 }
 
 - (void)CVVChanged:(UITextField *)sender {
-    _cvvLabel.text = sender.text;
-}
-
-- (void)backPressed:(id)sender {
-    [self.view endEditing:YES];
     
-    [UIView animateKeyframesWithDuration:0.6 delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1/2.0 animations:^{
-            _backCardView.layer.transform = CATransform3DMakeRotation(M_PI_2, 0, 1, 0);
-        }];
-        [UIView addKeyframeWithRelativeStartTime:1/2.0 relativeDuration:1/2.0 animations:^{
-            _frontCardView.layer.transform = CATransform3DMakeRotation(0, 0, 1, 0);
-        }];
-    } completion:^(BOOL finished) {
-        [self.navigationController popViewControllerAnimated:NO];
-    }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC
+{
+    if (operation == UINavigationControllerOperationPop)
+        return [[PopAnimator alloc] init];
+    
+    return nil;
 }
 
 #pragma mark - UITextFieldDelegate

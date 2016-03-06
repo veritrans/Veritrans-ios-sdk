@@ -20,9 +20,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [VTConfig configWithClientKey:@"VT-client-6_dY49SlR_Ph32_1"
-                merchantServerURL:@"http://51ec2a11.ngrok.io/api"
-                      environment:VTEnvironmentSandbox];
+    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1"];
+    [VTConfig setMerchantServerURL:@"http://51ec2a11.ngrok.io/api"];
+    [VTConfig setServerEnvironment:VTServerEnvironmentSandbox];
+    [VTConfig setCreditCardPaymentFeature:VTCreditCardFeatureTwoClick];
+    [VTConfig setCreditCardSecurePayment:YES];
     
     return YES;
 }

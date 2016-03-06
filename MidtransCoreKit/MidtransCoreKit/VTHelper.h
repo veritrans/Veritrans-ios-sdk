@@ -20,3 +20,10 @@
 @interface NSString (random)
 + (NSString *)randomWithLength:(NSUInteger)length;
 @end
+
+@interface NSUserDefaults (utilities)
+
+- (void)saveNewCard:(NSDictionary *)card;
+- (NSMutableArray *)savedCards;
+
+@end

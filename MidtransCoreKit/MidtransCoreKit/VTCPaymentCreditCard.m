@@ -21,22 +21,72 @@
 
 @implementation VTCPaymentCreditCard
 
-#pragma mark - Public
-
-+ (instancetype)paymentWithUser:(VTUser *)user amount:(NSNumber *)amount creditCard:(VTCreditCard *)creditCard {
-    VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:user amount:amount];
-    payment.creditCard = creditCard;
-    return payment;
-}
-
-- (void)payWithCVV:(NSString *)cvv callback:(void (^)(id, NSError *))callback {
+- (void)chargeWithCard:(VTCreditCard *)card cvv:(NSString *)cvv callback:(void (^)(id response, NSError *error))callback {
     [self getTokenWithCVV:cvv callback:^(id response, NSError *error) {
         if (error) {
             if (callback) {
                 callback(nil, error);
             }
         } else {
-            [self chargeWithCallback:callback];
+            NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
+            NSDictionary *parameter = @{@"payment_type":@"credit_card",
+                                        @"credit_card":[self creditCardRequestData],
+                                        @"transaction_details":[self transactionDetail],
+                                        @"customer_details":[self.user customerDetails],
+                                        @"item_details":[self.items itemsRequestData]};
+            
+            [[VTNetworking sharedInstance] postToURL:URL parameters:parameter callback:^(id response, NSError *error) {
+                if (response) {
+                    NSDictionary *card = @{@"holder":_creditCard.holder,
+                                           @"token_id":response[@"saved_token_id"],
+                                           @"expiry_token_id":response[@"saved_token_id_expired_at"],
+                                           @"masked_card_number":response[@"masked_card"]};
+                    [[NSUserDefaults standardUserDefaults] saveNewCard:card];
+                }
+                
+                if (callback) {
+                    callback(response, error);
+                }
+            }];
+        }
+    }];
+}
+
+- (void)chargeWithSavedCard:(id)savedCard cvv:(NSString *)cvv callback:(void (^)(id response, NSError *error))callback {
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
+    
+    NSDictionary *ccData;
+    
+    if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
+        ccData = @{@"token_id":savedCard[@"token_id"]};
+    } else {
+        ccData = @{@"card_cvv":cvv,
+                   @"token_id":savedCard[@"token_id"],
+                   @"two_click":@"true",
+                   @"secure":@"true",
+                   @"gross_amount":self.amount};
+    }
+    
+    NSDictionary *parameter = @{@"payment_type":@"credit_card",
+                                @"credit_card":ccData,
+                                @"transaction_details":[self transactionDetail],
+                                @"customer_details":[self.user customerDetails],
+                                @"item_details":[self.items itemsRequestData]};
+    
+    [[VTNetworking sharedInstance] postToURL:URL parameters:parameter callback:^(id response, NSError *error) {
+        if (response) {
+            id savedTokenId = response[@"saved_token_id"];
+            if (savedTokenId) {
+                NSDictionary *card = @{@"holder":_creditCard.holder,
+                                       @"token_id":response[@"saved_token_id"],
+                                       @"expiry_token_id":response[@"saved_token_id_expired_at"],
+                                       @"masked_card_number":response[@"masked_card"]};
+                [[NSUserDefaults standardUserDefaults] saveNewCard:card];
+            }
+        }
+        
+        if (callback) {
+            callback(response, error);
         }
     }];
 }
@@ -44,14 +94,23 @@
 #pragma mark - Private
 
 - (void)getTokenWithCVV:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] baseUrl], @"token"];
-    NSDictionary *param = @{@"client_key":[[VTConfig sharedInstance] clientKey],
+    if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
+        
+    } else if ([CONFIG creditCardFeature] == VTCreditCardFeatureTwoClick) {
+        NSAssert([cvv length] < 3, @"system need cvv for two click payment");
+    } else {
+        NSAssert([cvv length] < 3, @"system need cvv for normal payment");
+    }
+    
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"token"];
+    
+    NSDictionary *param = @{@"client_key":[CONFIG clientKey],
+                            @"secure":[CONFIG secureCreditCardPayment] ? @"true":@"false",
                             @"card_number":_creditCard.number,
                             @"card_exp_month":_creditCard.expiryMonth,
                             @"card_exp_year":_creditCard.expiryYear,
-                            @"card_type":[_creditCard stringType],
+                            @"card_type":[VTCreditCard typeStringWithNumber:_creditCard.number],
                             @"card_cvv":cvv,
-                            @"secure":self.secure?@"true":@"false",
                             @"bank":self.bank,
                             @"gross_amount":self.amount
                             };
@@ -82,20 +141,18 @@
 }
 
 - (NSDictionary *)creditCardRequestData {
-    return @{@"token_id":self.tokenId,
-             @"bank":self.bank,
-             @"save_token_id":_creditCard.saved ? @"true":@"false"};
-}
-
-- (void)chargeWithCallback:(void(^)(id response, NSError *error))callback {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] merchantServerURL], @"charge"];
-    NSDictionary *parameter = @{@"payment_type":@"credit_card",
-                                @"credit_card":[self creditCardRequestData],
-                                @"transaction_details":[self transactionDetail],
-                                @"customer_details":[self.user customerDetails],
-                                @"item_details":[self.items itemsRequestData]};
-    
-    [[VTNetworking sharedInstance] postToURL:URL parameters:parameter callback:callback];
+    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:@{@"token_id":self.tokenId,
+                                                                                @"bank":self.bank}];
+    switch ([CONFIG creditCardFeature]) {
+        case VTCreditCardFeatureTwoClick:
+        case VTCreditCardFeatureOneClick:
+            [data setObject:@"true" forKey:@"save_token_id"];
+            break;
+        default:
+            [data setObject:@"false" forKey:@"save_token_id"];
+            break;
+    }
+    return data;
 }
 
 #pragma mark - VTWebViewControllerDelegate

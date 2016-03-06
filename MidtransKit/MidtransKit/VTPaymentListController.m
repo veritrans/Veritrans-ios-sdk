@@ -14,6 +14,7 @@
 #import "VTClickpayController.h"
 #import "VTVAController.h"
 #import "VTClicksController.h"
+#import "VTAddCardController.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -84,34 +85,39 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     
-    if ([identifier isEqualToString:VTPaymentBCAKlikpay]) {
+    if ([identifier isEqualToString:VTBCAKlikpayIdentifier]) {
         
-    } else if ([identifier isEqualToString:VTPaymentBCAVA]) {
+    } else if ([identifier isEqualToString:VTBCAVAIdentifier]) {
         
-    } else if ([identifier isEqualToString:VTPaymentCIMBClicks]) {
+    } else if ([identifier isEqualToString:VTCIMBClicksIdentifier]) {
         
         VTClicksController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTClicksController"];
         [self.navigationController pushViewController:vc animated:YES];
         
-    } else if ([identifier isEqualToString:VTPaymentCreditCard]) {
+    } else if ([identifier isEqualToString:VTCreditCardIdentifier]) {
+        NSArray *cards = [[NSUserDefaults standardUserDefaults] savedCards];
         
+        if ([cards count]) {
+            VTCardListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCardListController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            VTAddCardController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTAddCardController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
         
-        VTCardListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCardListController"];
-        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([identifier isEqualToString:VTIndomaretIdentifier]) {
         
-    } else if ([identifier isEqualToString:VTPaymentIndomaret]) {
+    } else if ([identifier isEqualToString:VTMandiriBillpayIdentifier]) {
         
-    } else if ([identifier isEqualToString:VTPaymentMandiriBillpay]) {
-        
-    } else if ([identifier isEqualToString:VTPaymentMandiriClickpay]) {
+    } else if ([identifier isEqualToString:VTMandiriClickpayIdentifier]) {
         
         VTClickpayController *vc = [VTClickpayController controllerWithUser:_user
                                                                   andAmount:_amount];
         [self.navigationController pushViewController:vc animated:YES];
         
-    } else if ([identifier isEqualToString:VTPaymentMandiriECash]) {
+    } else if ([identifier isEqualToString:VTMandiriECashIdentifier]) {
         
-    } else if ([identifier isEqualToString:VTPaymentPermataVA]) {
+    } else if ([identifier isEqualToString:VTPermataVAIdentifier]) {
         
     } else if ([identifier isEqualToString:@"bt"]) {
         VTVAController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTVAController"];

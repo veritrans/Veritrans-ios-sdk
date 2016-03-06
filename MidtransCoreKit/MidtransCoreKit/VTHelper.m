@@ -9,6 +9,24 @@
 #import "VTHelper.h"
 #import "VTItem.h"
 
+@implementation NSUserDefaults (utilities)
+
+- (void)saveNewCard:(NSDictionary *)card {
+    [self setObject:card forKey:@"vt_saved_card"];
+    [self synchronize];
+}
+
+- (NSMutableArray *)savedCards {
+    NSArray *cards = [self objectForKey:@"vt_saved_card"];
+    if ([cards count]) {
+        return [NSMutableArray arrayWithArray:cards];
+    } else {
+        return [NSMutableArray new];
+    }    
+}
+
+@end
+
 @implementation VTHelper
 
 + (id)nullifyIfNil:(id)object {

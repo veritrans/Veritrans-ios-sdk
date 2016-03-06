@@ -1,0 +1,13 @@
+workspace 'MidtransKit.xcworkspace'
+
+platform :ios, '7.0'
+
+target :MidtransKit do
+    pod 'MidtransCoreKit', :path => '../MidtransCoreKit'
+    pod 'SDWebImage', '~>3.7'
+end
+
+target :MidtransResources do
+    pod 'MidtransCoreKit', :path => '../MidtransCoreKit'
+    pod 'SDWebImage', '~>3.7'
+end

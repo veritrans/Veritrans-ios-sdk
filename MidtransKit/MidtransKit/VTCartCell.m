@@ -9,7 +9,7 @@
 #import "VTCartCell.h"
 #import "VTClassHelper.h"
 
-#import <SDWebImage/UIImageView+WebCache.h>
+#import "UIImageView+WebCache.h"
 
 @implementation VTCartCell {
     IBOutlet UILabel *_priceLabel;

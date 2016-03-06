@@ -14,35 +14,34 @@
 #define VTJCBRegex          @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
 
 @interface VTCreditCard ()
-@property (nonatomic, readwrite) NSString *number;
-@property (nonatomic, readwrite) NSString *bank;
-@property (nonatomic, readwrite) NSNumber *grossAmount;
-@property (nonatomic, readwrite) NSNumber *expiryMonth;
 @property (nonatomic, readwrite) NSNumber *expiryYear;
-@property (nonatomic, readwrite) BOOL saved;
-@property (nonatomic, readwrite) BOOL secure;
-@property (nonatomic, readwrite) VTCreditCardType type;
+@property (nonatomic, readwrite) NSNumber *expiryMonth;
+@property (nonatomic, readwrite) NSString *number;
+@property (nonatomic, readwrite) NSString *holder;
 @end
 
 @implementation VTCreditCard
 
-+ (instancetype)dataWithNumber:(NSString *)number expiryMonth:(NSNumber *)expiryMonth expiryYear:(NSNumber *)expiryYear saved:(BOOL)saved {
++ (instancetype)cardWithNumber:(NSString *)number
+                   expiryMonth:(NSNumber *)expiryMonth
+                    expiryYear:(NSNumber *)expiryYear
+                        holder:(NSString *)holder {
     VTCreditCard *card = [[VTCreditCard alloc] init];
     card.number = number;
     card.expiryMonth = expiryMonth;
     card.expiryYear = expiryYear;
-    card.saved = saved;
-    card.type = [VTCreditCard typeWithNumber:number];
+    card.holder = holder;
     return card;
 }
 
-- (NSString *)stringType {
-    switch (self.type) {
++ (NSString *)typeStringWithNumber:(NSString *)number {
+    VTCreditCardType type = [self typeWithNumber:number];
+    switch (type) {
         case VTCreditCardTypeVisa:
-            return @"VISA";
+            return @"Visa";
             break;
         case VTCreditCardTypeMasterCard:
-            return @"MASTERCARD";
+            return @"MasterCard";
             break;
         case VTCreditCardTypeJCB:
             return @"JCB";

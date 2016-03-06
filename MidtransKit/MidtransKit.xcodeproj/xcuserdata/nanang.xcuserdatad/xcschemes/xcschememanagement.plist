@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>Framework.xcscheme</key>
-		<dict>
-			<key>orderHint</key>
-			<integer>4</integer>
-		</dict>
 		<key>MidtransKit.xcscheme</key>
 		<dict>
 			<key>orderHint</key>

@@ -11,15 +11,15 @@
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/VTHelper.h>
 
-extern NSString *const VTPaymentCreditCard;
-extern NSString *const VTPaymentPermataVA;
-extern NSString *const VTPaymentMandiriClickpay;
-extern NSString *const VTPaymentBCAVA;
-extern NSString *const VTPaymentMandiriBillpay;
-extern NSString *const VTPaymentCIMBClicks;
-extern NSString *const VTPaymentBCAKlikpay;
-extern NSString *const VTPaymentIndomaret;
-extern NSString *const VTPaymentMandiriECash;
+extern NSString *const VTCreditCardIdentifier;
+extern NSString *const VTPermataVAIdentifier;
+extern NSString *const VTMandiriClickpayIdentifier;
+extern NSString *const VTBCAVAIdentifier;
+extern NSString *const VTMandiriBillpayIdentifier;
+extern NSString *const VTCIMBClicksIdentifier;
+extern NSString *const VTBCAKlikpayIdentifier;
+extern NSString *const VTIndomaretIdentifier;
+extern NSString *const VTMandiriECashIdentifier;
 
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;

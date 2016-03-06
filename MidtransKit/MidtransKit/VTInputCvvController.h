@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTCCBackView.h"
 
 @interface VTInputCvvController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *backCardView;
-@property (nonatomic, strong) UIView *frontCardView;
+@property (weak, nonatomic) IBOutlet VTCCBackView *backView;
+
 @end

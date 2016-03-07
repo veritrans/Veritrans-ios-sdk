@@ -20,4 +20,6 @@
                             email:(NSString *)email
                             phone:(NSString *)phone;
 
+- (NSDictionary *)dictionaryValue;
+
 @end

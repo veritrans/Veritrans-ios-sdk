@@ -27,4 +27,14 @@
     return self;
 }
 
+- (NSDictionary *)dictionaryValue {
+    // Format MUST BE compatible with
+    // http://docs.veritrans.co.id/en/api/methods.html#customer_details_attr
+    
+    return @{@"first_name": self.firstName,
+             @"last_name": self.lastName,
+             @"email": self.email,
+             @"phone": self.phone};
+}
+
 @end

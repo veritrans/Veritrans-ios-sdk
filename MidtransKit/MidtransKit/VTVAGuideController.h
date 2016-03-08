@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTClassHelper.h"
+#import "VTDetailedTitleController.h"
 
-@interface VTVAGuideController : UIViewController
-
+@interface VTVAGuideController : VTDetailedTitleController
++ (instancetype)controllerWithVAType:(VTVAType)vaType;
 @end

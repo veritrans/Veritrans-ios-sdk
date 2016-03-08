@@ -14,8 +14,8 @@
 #define VTJCBRegex          @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
 
 @interface VTCreditCard ()
-@property (nonatomic, readwrite) NSNumber *expiryYear;
-@property (nonatomic, readwrite) NSNumber *expiryMonth;
+@property (nonatomic, readwrite) NSString *expiryYear;
+@property (nonatomic, readwrite) NSString *expiryMonth;
 @property (nonatomic, readwrite) NSString *number;
 @property (nonatomic, readwrite) NSString *holder;
 @end
@@ -23,8 +23,8 @@
 @implementation VTCreditCard
 
 + (instancetype)cardWithNumber:(NSString *)number
-                   expiryMonth:(NSNumber *)expiryMonth
-                    expiryYear:(NSNumber *)expiryYear
+                   expiryMonth:(NSString *)expiryMonth
+                    expiryYear:(NSString *)expiryYear
                         holder:(NSString *)holder {
     VTCreditCard *card = [[VTCreditCard alloc] init];
     card.number = number;

@@ -12,21 +12,24 @@
 
 @end
 
-@implementation VTDetailedTitleController
+@implementation VTDetailedTitleController {
+    UILabel *titleLabel;
+    UILabel *descLabel;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     // Do any additional setup after loading the view.
     UIView *headerView = [UIView new];
-    UILabel *titleLabel = [UILabel new];
+    titleLabel = [UILabel new];
     titleLabel.font = [UIFont systemFontOfSize:15];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.text = self.headerTitle;
     
-    UILabel *descLabel = [UILabel new];
+    descLabel = [UILabel new];
     descLabel.font = [UIFont systemFontOfSize:11];
     descLabel.textColor = [UIColor blackColor];
     descLabel.textAlignment = NSTextAlignmentCenter;
@@ -49,6 +52,16 @@
     
     self.navigationItem.titleView.frame = CGRectMake(0, 20, 500, 44);
 
+}
+
+- (void)setHeaderDescription:(NSString *)headerDescription {
+    _headerDescription = headerDescription;
+    descLabel.text = headerDescription;
+}
+
+- (void)setHeaderTitle:(NSString *)headerTitle {
+    _headerTitle = headerTitle;
+    titleLabel.text = headerTitle;
 }
 
 - (void)didReceiveMemoryWarning {

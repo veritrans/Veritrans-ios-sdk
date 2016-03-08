@@ -17,7 +17,7 @@
 @property (nonatomic, assign) BOOL secure;
 @property (nonatomic, strong) NSString *bank;
 
-- (void)chargeWithCard:(VTCreditCard *)card cvv:(NSString *)cvv callback:(void (^)(id response, NSError *error))callback;
+- (void)chargeWithCard:(VTCreditCard *)card cvv:(NSString *)cvv saveCard:(BOOL)saveCard callback:(void (^)(id response, NSError *error))callback;
 - (void)chargeWithSavedCard:(id)savedCard cvv:(NSString *)cvv callback:(void (^)(id response, NSError *error))callback;
 
 @end

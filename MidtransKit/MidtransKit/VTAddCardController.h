@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MidtransCoreKit/VTUser.h>
 
 @interface VTAddCardController : UIViewController
-+ (instancetype)newController;
+
+@property (nonatomic, readonly) VTUser *user;
+@property (nonatomic, readonly) NSArray *items;
+
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items;
 @end

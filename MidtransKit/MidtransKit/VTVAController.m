@@ -15,13 +15,42 @@
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
 
+@property (nonatomic, assign) VTVAType vaType;
+
 @end
 
 @implementation VTVAController
 
++ (instancetype)controllerWithVaType:(VTVAType)vaType {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTVAController *vc = [sb instantiateViewControllerWithIdentifier:@"VTVAController"];
+    vc.vaType = vaType;
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil
+                                                                            action:nil];
+    
+    switch (self.vaType) {
+        case VTVATypeBCA:
+            self.title = @"BCA Bank Transfer";
+            break;
+        case VTVATypeMandiri:
+            self.title = @"Mandiri Bank Transfer";
+            break;
+        case VTVATypePermata:
+            self.title = @"Permata Bank Transfer";
+            break;
+        case VTVATypeOther:
+            self.title = @"Other Bank Transfer";
+            break;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,11 +59,21 @@
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    VTVAGuideController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTVAGuideController"];
+    VTVAGuideController *vc = [VTVAGuideController controllerWithVAType:_vaType];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
+    switch (self.vaType) {
+        case VTVATypeBCA:
+            break;
+        case VTVATypeMandiri:
+            break;
+        case VTVATypePermata:
+            break;
+        case VTVATypeOther:
+            break;
+    }
 }
 
 /*

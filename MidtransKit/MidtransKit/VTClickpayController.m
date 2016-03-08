@@ -25,7 +25,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
 @property (nonatomic, readwrite) VTUser *user;
-@property (nonatomic, readwrite) NSNumber *amount;
+@property (nonatomic, readwrite) NSArray *items;
 
 @end
 
@@ -33,11 +33,11 @@
     VTMandiriClickpay *_clickpay;
 }
 
-+ (instancetype)controllerWithUser:(VTUser *)user andAmount:(NSNumber *)amount {
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTClickpayController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTClickpayController"];
     vc.user = user;
-    vc.amount = amount;
+    vc.items = items;
     return vc;
 }
 
@@ -45,7 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _clickpay = [VTMandiriClickpay dataWithTransactionAmount:_amount];
+    _clickpay = [VTMandiriClickpay dataWithTransactionAmount:[_items itemsPriceAmount]];
     
     [_clickpay addObserver:self
                 forKeyPath:@"input1"
@@ -57,7 +57,7 @@
     _input3Label.text = _clickpay.input3;
     
     NSNumberFormatter *nf = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    _amountLabel.text = [nf stringFromNumber:_amount];
+    _amountLabel.text = [nf stringFromNumber:[_items itemsPriceAmount]];
     
     [_confirmButton addTarget:self action:@selector(confirmPaymentPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
@@ -76,10 +76,10 @@
 }
 
 - (void)confirmPaymentPressed:(UIButton *)sender {
-    VTCPaymentClickpay *payment = [VTCPaymentClickpay paymentWithUser:_user andAmount:_amount clickpay:_clickpay];
-    [payment payWithCallback:^(id response, NSError *error) {
+    VTCPaymentClickpay *payment = [[VTCPaymentClickpay alloc] initWithUser:_user items:_items];
+    [payment chargeWithClickpay:_clickpay callback:^(id response, NSError *error) {
         
-    }];    
+    }];
 }
 
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {

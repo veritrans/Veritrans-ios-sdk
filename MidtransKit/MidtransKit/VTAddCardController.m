@@ -9,9 +9,14 @@
 #import "VTAddCardController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
-#import <MidtransCoreKit/VTCPaymentCreditCard.h>
 #import "UIViewController+Modal.h"
 #import "VTCVVGuideController.h"
+#import "VTCCFrontView.h"
+#import "VTSuccessStatusController.h"
+#import "VTErrorStatusController.h"
+
+
+#import <MidtransCoreKit/VTCPaymentCreditCard.h>
 
 @interface VTAddCardController ()
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
@@ -20,19 +25,23 @@
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
 @property (strong, nonatomic) IBOutlet UISwitch *saveStateSwitch;
 @property (strong, nonatomic) IBOutlet UIImageView *creditCardLogo;
-@property (strong, nonatomic) IBOutlet UILabel *cardNumberLabel;
-@property (strong, nonatomic) IBOutlet UILabel *cardHolderLabel;
-@property (strong, nonatomic) IBOutlet UILabel *expiryLabel;
 @property (strong, nonatomic) IBOutlet UIView *navigationView;
 @property (strong, nonatomic) IBOutlet UIScrollView *containerTextField;
+@property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
+@property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+
+@property (nonatomic, readwrite) VTUser *user;
+@property (nonatomic, readwrite) NSArray *items;
 @end
 
 @implementation VTAddCardController {
     __weak UITextField *selectedTextField;
 }
 
-+ (instancetype)newController {
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
     VTAddCardController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle] instantiateViewControllerWithIdentifier:@"VTAddCardController"];
+    vc.user = user;
+    vc.items = items;
     return vc;
 }
 
@@ -42,6 +51,12 @@
     
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
+    NSNumberFormatter *formatter = [NSNumberFormatter new];
+    formatter.numberStyle = NSNumberFormatterDecimalStyle;
+    
+    NSNumber *amount = [_items itemsPriceAmount];
+    
+    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:amount]]; //[[_items itemsPriceAmount] stringValue];// [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -59,34 +74,45 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"text"] &&
         [object isEqual:_cardExpiryDate]) {
-        _expiryLabel.text = _cardExpiryDate.text;
+        _cardFrontView.expiryLabel.text = _cardExpiryDate.text;
     }
 }
 
 - (IBAction)textFieldChanged:(id)sender {
     if ([sender isEqual:_cardName]) {
-        _cardHolderLabel.text = _cardName.text;
+        _cardFrontView.holderNameLabel.text = _cardName.text;
     } else if ([sender isEqual:_cardNumber]) {
-        [self updateCreditCardIconWithNumber:_cardNumber.text];
-        _cardNumberLabel.text = _cardNumber.text;
+        _creditCardLogo.image = [self iconDarkWithNumber:_cardNumber.text];
+        _cardFrontView.iconView.image = [self iconWithNumber:_cardNumber.text];
+        _cardFrontView.numberLabel.text = _cardNumber.text;
     }
 }
 
-- (void)updateCreditCardIconWithNumber:(NSString *)number {
+- (UIImage *)iconDarkWithNumber:(NSString *)number {
     VTCreditCardType type = [VTCreditCard typeWithNumber:number];
     switch (type) {
         case VTCreditCardTypeVisa:
-            _creditCardLogo.image = [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-            break;
+            return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
-            _creditCardLogo.image = [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-            break;
+            return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeMasterCard:
-            _creditCardLogo.image = [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
-            break;
+            return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeUnknown:
-            _creditCardLogo.image = nil;
-            break;
+            return nil;
+    }
+}
+
+- (UIImage *)iconWithNumber:(NSString *)number {
+    VTCreditCardType type = [VTCreditCard typeWithNumber:number];
+    switch (type) {
+        case VTCreditCardTypeVisa:
+            return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeJCB:
+            return [UIImage imageNamed:@"JCB" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeMasterCard:
+            return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeUnknown:
+            return nil;
     }
 }
 
@@ -99,12 +125,32 @@
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    //    NSInteger expMonth = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] firstObject] integerValue];
-    //    NSInteger expYear = [[[_cardExpiryDate.text componentsSeparatedByString:@"/"] lastObject] integerValue];
-    //    VTCreditCard *card = [VTCreditCard dataWithNumber:_cardNumber.text
-    //                                          expiryMonth:@(expMonth)
-    //                                           expiryYear:@(expYear)
-    //                                                saved:NO];
+    NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
+    if ([dates count] != 2) {
+        _cardExpiryDate.warning = @"wrong expiry date format";
+        return;
+    }
+    
+    NSString *expMonth = dates[0];
+    NSString *expYear = dates[1];
+    
+    NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    VTCreditCard *card = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear holder:_cardName.text];
+    
+    VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:_user items:_items];
+    [payment chargeWithCard:card cvv:_cardCvv.text saveCard:_saveStateSwitch.selected callback:^(id response, NSError *error) {
+        NSLog(@"%@ \n\n%@", response, error);
+        
+        if (error) {
+            VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            VTSuccessStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTSuccessStatusController"];
+            vc.successViewModel = [VTPaymentStatusViewModel viewModelWithData:response];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }];
     
 }
 
@@ -156,8 +202,18 @@
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isEqual:_cardExpiryDate]) {
         return [textField filterCreditCardExpiryDate:string range:range];
-    } else if ([textField isEqual:_cardNumber] || [textField isEqual:_cardCvv]) {
-        return [string isNumeric];
+    } else if ([textField isEqual:_cardNumber]) {
+        
+        BOOL shouldChange = [textField filterCreditCardWithString:string range:range];
+        
+        if (shouldChange == NO) {
+            _creditCardLogo.image = [self iconDarkWithNumber:_cardNumber.text];
+            _cardFrontView.iconView.image = [self iconWithNumber:_cardNumber.text];
+            _cardFrontView.numberLabel.text = _cardNumber.text;
+        }
+        
+        return shouldChange;
+        
     } else if ([textField isEqual:_cardCvv]) {
         return [textField filterCvvNumber:string range:range];
     } else {

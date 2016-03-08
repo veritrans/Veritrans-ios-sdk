@@ -9,19 +9,25 @@
 #import "VTCPaymentCreditCard.h"
 #import "VTNetworking.h"
 #import "VTConfig.h"
-#import "VTWebViewController.h"
+#import "VT3DSController.h"
 #import "VTHelper.h"
 
-@interface VTCPaymentCreditCard() <VTWebViewControllerDelegate>
+@interface VTCPaymentCreditCard() <VT3DSControllerDelegate>
 @property (nonatomic, readwrite) VTCreditCard *creditCard;
 @property (nonatomic, readwrite) NSString *tokenId;
-@property (nonatomic, strong) VTWebViewController *webTransViewController;
+@property (nonatomic, strong) VT3DSController *secureController;
 @property (nonatomic, copy) void (^tokenCallback)(id response, NSError *error);
 @end
 
 @implementation VTCPaymentCreditCard
 
-- (void)chargeWithCard:(VTCreditCard *)card cvv:(NSString *)cvv callback:(void (^)(id response, NSError *error))callback {
+- (void)chargeWithCard:(VTCreditCard *)card
+                   cvv:(NSString *)cvv
+              saveCard:(BOOL)saveCard
+              callback:(void (^)(id response, NSError *error))callback
+{
+    _creditCard = card;
+    
     [self getTokenWithCVV:cvv callback:^(id response, NSError *error) {
         if (error) {
             if (callback) {
@@ -64,7 +70,7 @@
                    @"token_id":savedCard[@"token_id"],
                    @"two_click":@"true",
                    @"secure":@"true",
-                   @"gross_amount":self.amount};
+                   @"gross_amount":[self.items itemsPriceAmount]};
     }
     
     NSDictionary *parameter = @{@"payment_type":@"credit_card",
@@ -94,13 +100,6 @@
 #pragma mark - Private
 
 - (void)getTokenWithCVV:(NSString *)cvv callback:(void(^)(id response, NSError *error))callback {
-    if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
-        
-    } else if ([CONFIG creditCardFeature] == VTCreditCardFeatureTwoClick) {
-        NSAssert([cvv length] < 3, @"system need cvv for two click payment");
-    } else {
-        NSAssert([cvv length] < 3, @"system need cvv for normal payment");
-    }
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"token"];
     
@@ -111,8 +110,7 @@
                             @"card_exp_year":_creditCard.expiryYear,
                             @"card_type":[VTCreditCard typeStringWithNumber:_creditCard.number],
                             @"card_cvv":cvv,
-                            @"bank":self.bank,
-                            @"gross_amount":self.amount
+                            @"gross_amount":[self.items itemsPriceAmount]
                             };
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
@@ -129,35 +127,37 @@
             self.tokenCallback = callback;
             
             //present 3ds dialogue
-            if (!self.webTransViewController) {
-                self.webTransViewController = [[VTWebViewController alloc] init];
+            if (!self.secureController) {
+                self.secureController = [[VT3DSController alloc] init];
             }
-            self.webTransViewController.webDelegate = self;
-            self.webTransViewController.webUrl = [NSURL URLWithString:response[@"redirect_url"]];
-            UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-            [window.rootViewController presentViewController:self.webTransViewController animated:YES completion:nil];
+            self.secureController.webDelegate = self;
+            self.secureController.webUrl = [NSURL URLWithString:response[@"redirect_url"]];
+            UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:self.secureController];            
+            [[UIApplication rootViewController] presentViewController:navigation animated:YES completion:nil];
         }
     }];
 }
 
 - (NSDictionary *)creditCardRequestData {
-    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:@{@"token_id":self.tokenId,
-                                                                                @"bank":self.bank}];
-    switch ([CONFIG creditCardFeature]) {
-        case VTCreditCardFeatureTwoClick:
-        case VTCreditCardFeatureOneClick:
-            [data setObject:@"true" forKey:@"save_token_id"];
-            break;
-        default:
-            [data setObject:@"false" forKey:@"save_token_id"];
-            break;
-    }
-    return data;
+//    NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:@{@"token_id":self.tokenId}];
+//    switch ([CONFIG creditCardFeature]) {
+//        case VTCreditCardFeatureTwoClick:
+//        case VTCreditCardFeatureOneClick:
+//            [data setObject:@"true" forKey:@"save_token_id"];
+//            break;
+//        default:
+//            [data setObject:@"false" forKey:@"save_token_id"];
+//            break;
+//    }
+//    return data;
+    
+    return @{@"token_id":self.tokenId,
+             @"save_token_id":@"true"};
 }
 
-#pragma mark - VTWebViewControllerDelegate
+#pragma mark - VT3DSControllerDelegate
 
-- (void)viewController_didFinishTransaction:(VTWebViewController *)viewController {
+- (void)viewController_didFinishTransaction:(VT3DSController *)viewController {
     [viewController dismissViewControllerAnimated:YES completion:nil];
     
     if (self.tokenCallback) {

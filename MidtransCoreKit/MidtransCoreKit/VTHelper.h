@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
@@ -26,4 +27,9 @@
 - (void)saveNewCard:(NSDictionary *)card;
 - (NSMutableArray *)savedCards;
 
+@end
+
+
+@interface UIApplication (utilities)
++ (UIViewController *)rootViewController;
 @end

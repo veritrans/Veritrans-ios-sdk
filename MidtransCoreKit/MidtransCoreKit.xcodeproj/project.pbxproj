@@ -39,8 +39,8 @@
 		305494601C75A08900938C17 /* VTCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494541C75A08900938C17 /* VTCreditCard.m */; };
 		305494671C75A0DF00938C17 /* VTCPaymentCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494611C75A0DF00938C17 /* VTCPaymentCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494681C75A0DF00938C17 /* VTCPaymentCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494621C75A0DF00938C17 /* VTCPaymentCreditCard.m */; };
-		305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494631C75A0DF00938C17 /* VTWebViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3054946A1C75A0DF00938C17 /* VTWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494641C75A0DF00938C17 /* VTWebViewController.m */; };
+		305494691C75A0DF00938C17 /* VT3DSController.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494631C75A0DF00938C17 /* VT3DSController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3054946A1C75A0DF00938C17 /* VT3DSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494641C75A0DF00938C17 /* VT3DSController.m */; };
 		3054946B1C75A0DF00938C17 /* VTPayment.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494651C75A0DF00938C17 /* VTPayment.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3054946C1C75A0DF00938C17 /* VTPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494661C75A0DF00938C17 /* VTPayment.m */; };
 		3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054946D1C75A0ED00938C17 /* VTHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -93,8 +93,8 @@
 		305494541C75A08900938C17 /* VTCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCreditCard.m; sourceTree = "<group>"; };
 		305494611C75A0DF00938C17 /* VTCPaymentCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCPaymentCreditCard.h; sourceTree = "<group>"; };
 		305494621C75A0DF00938C17 /* VTCPaymentCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCPaymentCreditCard.m; sourceTree = "<group>"; };
-		305494631C75A0DF00938C17 /* VTWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTWebViewController.h; sourceTree = "<group>"; };
-		305494641C75A0DF00938C17 /* VTWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTWebViewController.m; sourceTree = "<group>"; };
+		305494631C75A0DF00938C17 /* VT3DSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VT3DSController.h; sourceTree = "<group>"; };
+		305494641C75A0DF00938C17 /* VT3DSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VT3DSController.m; sourceTree = "<group>"; };
 		305494651C75A0DF00938C17 /* VTPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPayment.h; sourceTree = "<group>"; };
 		305494661C75A0DF00938C17 /* VTPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPayment.m; sourceTree = "<group>"; };
 		3054946D1C75A0ED00938C17 /* VTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTHelper.h; sourceTree = "<group>"; };
@@ -121,8 +121,8 @@
 		3014E0C11C7AD6D7003EB203 /* Kit */ = {
 			isa = PBXGroup;
 			children = (
-				305494631C75A0DF00938C17 /* VTWebViewController.h */,
-				305494641C75A0DF00938C17 /* VTWebViewController.m */,
+				305494631C75A0DF00938C17 /* VT3DSController.h */,
+				305494641C75A0DF00938C17 /* VT3DSController.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -212,7 +212,7 @@
 				3054945B1C75A08900938C17 /* VTConfig.h in Headers */,
 				3052C4F81C843749001F8B4A /* VTCPaymentClickpay.h in Headers */,
 				305494671C75A0DF00938C17 /* VTCPaymentCreditCard.h in Headers */,
-				305494691C75A0DF00938C17 /* VTWebViewController.h in Headers */,
+				305494691C75A0DF00938C17 /* VT3DSController.h in Headers */,
 				3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */,
 				305494551C75A08900938C17 /* VTUser.h in Headers */,
 				305494571C75A08900938C17 /* VTAddress.h in Headers */,
@@ -331,7 +331,7 @@
 				305494601C75A08900938C17 /* VTCreditCard.m in Sources */,
 				305494701C75A0ED00938C17 /* VTHelper.m in Sources */,
 				3054945E1C75A08900938C17 /* VTNetworking.m in Sources */,
-				3054946A1C75A0DF00938C17 /* VTWebViewController.m in Sources */,
+				3054946A1C75A0DF00938C17 /* VT3DSController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

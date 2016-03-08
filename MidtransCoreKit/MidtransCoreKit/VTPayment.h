@@ -16,9 +16,8 @@
 @property (nonatomic, readonly) NSArray <VTItem *> *items;
 @property (nonatomic, readonly) NSNumber *totalPayment;
 @property (nonatomic, readonly) NSString *orderId;
-@property (nonatomic, readonly) NSNumber *amount;
 
-- (id)initWithUser:(VTUser *)user amount:(NSNumber *)amount;
+- (id)initWithUser:(VTUser *)user items:(NSArray *)items;
 
 - (NSDictionary *)transactionDetail;
 

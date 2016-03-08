@@ -16,13 +16,7 @@
 
 @implementation VTCPaymentClickpay
 
-+ (instancetype)paymentWithUser:(VTUser *)user andAmount:(NSNumber *)amount clickpay:(VTMandiriClickpay *)clickpay {
-    VTCPaymentClickpay *payment = [[VTCPaymentClickpay alloc] initWithUser:user amount:amount];
-    payment.clickpay = clickpay;
-    return payment;
-}
-
-- (void)payWithCallback:(void(^)(id response, NSError *error))callback {
+- (void)chargeWithClickpay:(VTMandiriClickpay *)clickpay callback:(void (^)(id, NSError *))callback {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
     NSDictionary *param = @{@"payment_type":@"mandiri_clickpay",
                             @"mandiri_clickpay":[_clickpay requestData],

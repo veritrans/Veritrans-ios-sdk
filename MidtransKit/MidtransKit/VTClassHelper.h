@@ -8,18 +8,37 @@
 
 #define VTBundle [VTClassHelper kitBundle]
 
-#import <UIKit/UIKit.h>
 #import <MidtransCoreKit/VTHelper.h>
 
+typedef NS_ENUM(NSUInteger, VTVAType) {
+    VTVATypeBCA,
+    VTVATypeMandiri,
+    VTVATypePermata,
+    VTVATypeOther
+};
+
+
 extern NSString *const VTCreditCardIdentifier;
-extern NSString *const VTPermataVAIdentifier;
+
 extern NSString *const VTMandiriClickpayIdentifier;
-extern NSString *const VTBCAVAIdentifier;
-extern NSString *const VTMandiriBillpayIdentifier;
 extern NSString *const VTCIMBClicksIdentifier;
 extern NSString *const VTBCAKlikpayIdentifier;
+extern NSString *const VTBRIEpayIdentifier;
+
 extern NSString *const VTIndomaretIdentifier;
+
 extern NSString *const VTMandiriECashIdentifier;
+extern NSString *const VTBBMIdentifier;
+extern NSString *const VTIndosatDompetkuIdentifier;
+extern NSString *const VTTCashIdentifier;
+extern NSString *const VTXLTunaiIdentifier;
+
+extern NSString *const VTVAIdentifier;
+extern NSString *const VTPermataVAIdentifier;
+extern NSString *const VTBCAVAIdentifier;
+extern NSString *const VTMandiriVAIdentifier;
+extern NSString *const VTOtherVAIdentifier;
+
 
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
@@ -33,6 +52,7 @@ extern NSString *const VTMandiriECashIdentifier;
 
 - (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range ;
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
+- (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range;
 
 @end
 
@@ -47,8 +67,4 @@ extern NSString *const VTMandiriECashIdentifier;
 @interface UIViewController (Utils)
 - (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView;
 - (void)removeSubViewController:(UIViewController *)viewController;
-@end
-
-@interface UIApplication (utilities)
-+ (UIViewController *)rootViewController;
 @end

@@ -9,14 +9,25 @@
 #import "VTClassHelper.h"
 
 NSString *const VTCreditCardIdentifier = @"cc";
-NSString *const VTPermataVAIdentifier = @"permatava";
+
 NSString *const VTMandiriClickpayIdentifier = @"clickpay";
-NSString *const VTBCAVAIdentifier = @"bcava";
-NSString *const VTMandiriBillpayIdentifier = @"billpay";
 NSString *const VTCIMBClicksIdentifier = @"clicks";
 NSString *const VTBCAKlikpayIdentifier = @"klikpay";
+NSString *const VTBRIEpayIdentifier = @"epay";
+
 NSString *const VTIndomaretIdentifier = @"indomaret";
+
 NSString *const VTMandiriECashIdentifier = @"ecash";
+NSString *const VTBBMIdentifier = @"bbm";
+NSString *const VTIndosatDompetkuIdentifier = @"dompetku";
+NSString *const VTTCashIdentifier = @"tcash";
+NSString *const VTXLTunaiIdentifier = @"xltunai";
+
+NSString *const VTVAIdentifier = @"va";
+NSString *const VTPermataVAIdentifier = @"permatava";
+NSString *const VTBCAVAIdentifier = @"bcava";
+NSString *const VTMandiriVAIdentifier = @"mandiriva";
+NSString *const VTOtherVAIdentifier = @"otherva";
 
 @implementation VTClassHelper
 
@@ -50,6 +61,39 @@ NSString *const VTMandiriECashIdentifier = @"ecash";
 @end
 
 @implementation UITextField (helper)
+
+- (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range {
+    NSString *text = self.text;
+    
+    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789\b"];
+    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([string rangeOfCharacterFromSet:[characterSet invertedSet]].location != NSNotFound) {
+        return NO;
+    }
+    
+    text = [text stringByReplacingCharactersInRange:range withString:string];
+    text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *newString = @"";
+    while (text.length > 0) {
+        NSString *subString = [text substringToIndex:MIN(text.length, 4)];
+        newString = [newString stringByAppendingString:subString];
+        if (subString.length == 4) {
+            newString = [newString stringByAppendingString:@" "];
+        }
+        text = [text substringFromIndex:MIN(text.length, 4)];
+    }
+    
+    newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
+    
+    if (newString.length >= 20) {
+        return NO;
+    }
+    
+    [self setText:newString];
+    
+    return NO;
+}
 
 - (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range {
     if ([string isNumeric] == NO) {
@@ -108,8 +152,7 @@ NSString *const VTMandiriECashIdentifier = @"ecash";
     
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
-        currentFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-        currentFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
         [dictionary setObject:currentFormatter forKey:identifier];
     }
     
@@ -137,26 +180,6 @@ NSString *const VTMandiriECashIdentifier = @"ecash";
     [viewController removeFromParentViewController];
     [viewController didMoveToParentViewController:nil];
 }
-
-@end
-
-@implementation UIApplication (Utils)
-
-+ (UIViewController *)rootViewController {
-    UIViewController *base = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-    if ([base isKindOfClass:[UINavigationController class]]) {
-        return [(UINavigationController *)base visibleViewController];
-    } else if ([base isKindOfClass:[UITabBarController class]]) {
-        return [(UITabBarController *)base selectedViewController];
-    } else {
-        if ([base presentedViewController]) {
-            return [base presentedViewController];
-        } else {
-            return base;
-        }
-    }
-}
-
 
 @end
 

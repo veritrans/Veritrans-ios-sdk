@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTClassHelper.h"
 
 @interface VTVAController : UIViewController
+
++ (instancetype)controllerWithVaType:(VTVAType)vaType;
 
 @end

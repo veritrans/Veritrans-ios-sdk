@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import <MidtransCoreKit/VTConfig.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 @interface AppDelegate ()
 
@@ -20,8 +22,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1"];
-    [VTConfig setMerchantServerURL:@"http://51ec2a11.ngrok.io/api"];
+    [Fabric with:@[[Crashlytics class]]];
+    
+    [VTConfig setClientKey:@"VT-client-P15EFHb_Z_ADN8tJ"];
+    [VTConfig setMerchantServerURL:@"https://vt-merchant.coral-inc.com/api"];
     [VTConfig setServerEnvironment:VTServerEnvironmentSandbox];
     [VTConfig setCreditCardPaymentFeature:VTCreditCardFeatureTwoClick];
     [VTConfig setCreditCardSecurePayment:YES];

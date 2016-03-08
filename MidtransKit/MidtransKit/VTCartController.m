@@ -43,7 +43,7 @@
 }
 
 - (IBAction)payPressed:(UIButton *)sender {
-    VTPaymentListController *vc = [VTPaymentListController paymentListWithUser:_user andAmount:[_items itemsPriceAmount]];
+    VTPaymentListController *vc = [VTPaymentListController controllerWithUser:_user items:_items];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

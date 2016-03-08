@@ -84,23 +84,23 @@
 
 @end
 
-@interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate>
+@interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
 @property (nonatomic) NSMutableArray *cards;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (strong, nonatomic) IBOutlet UIView *paymentView;
 
 @property (nonatomic, readwrite) VTUser *user;
-@property (nonatomic, readwrite) NSNumber *amount;
+@property (nonatomic, readwrite) NSArray *items;
 @end
 
 @implementation VTCardListController
 
-+ (instancetype)controllerWithUser:(VTUser *)user amount:(NSNumber *)amount {
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTCardListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCardListController"];
     vc.user = user;
-    vc.amount = amount;
+    vc.items = items;
     return vc;
 }
 
@@ -154,15 +154,15 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
         
-        id savedCard = _cards[indexPath.row];
-        VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:_user amount:_amount];
-        [payment chargeWithSavedCard:savedCard cvv:nil callback:^(id response, NSError *error) {
-            
-        }];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
+        [alert setTag:indexPath.row];
+        [alert show];
         
     } else {
+        
         VTInputCvvController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTInputCvvController"];
         [self.navigationController pushViewController:vc animated:YES];
+        
     }
 }
 
@@ -182,6 +182,18 @@
     }
     
     return nil;
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        id savedCard = _cards[alertView.tag];
+        VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:_user items:_items];
+        [payment chargeWithSavedCard:savedCard cvv:nil callback:^(id response, NSError *error) {
+            
+        }];
+    }
 }
 
 #pragma MARK - UICollectionViewDelegateFlowLayout

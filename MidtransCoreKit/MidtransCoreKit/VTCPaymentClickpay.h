@@ -11,8 +11,6 @@
 
 @interface VTCPaymentClickpay : VTPayment
 
-+ (instancetype)paymentWithUser:(VTUser *)user andAmount:(NSNumber *)amount clickpay:(VTMandiriClickpay *)clickpay;
-
-- (void)payWithCallback:(void(^)(id response, NSError *error))callback;
+- (void)chargeWithClickpay:(VTMandiriClickpay *)clickpay callback:(void(^)(id response, NSError *error))callback;
 
 @end

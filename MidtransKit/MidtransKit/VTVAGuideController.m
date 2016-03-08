@@ -14,13 +14,38 @@
 @interface VTVAGuideController ()<MBXPageControllerDataSource, MBXPageControllerDataDelegate>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
+
+@property (nonatomic, assign) VTVAType vaType;
 @end
 
 @implementation VTVAGuideController
 
++ (instancetype)controllerWithVAType:(VTVAType)vaType {
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTVAGuideController *vc = [sb instantiateViewControllerWithIdentifier:@"VTVAGuideController"];
+    vc.vaType = vaType;
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.headerDescription = @"Payment Instructions";
+    switch (self.vaType) {
+        case VTVATypeBCA:
+            self.headerTitle = @"BCA Bank Transfer";
+            break;
+        case VTVATypeMandiri:
+            self.headerTitle = @"Mandiri Bank Transfer";
+            break;
+        case VTVATypePermata:
+            self.headerTitle = @"Permata Bank Transfer";
+            break;
+        case VTVATypeOther:
+            self.headerTitle = @"Other Bank Transfer";
+            break;
+    }
     
     // Initiate MBXPageController
     MBXPageViewController *MBXPageController = [MBXPageViewController new];
@@ -47,15 +72,33 @@
     return self.containerView;
 }
 
+- (NSArray *)usedGuides {
+    NSString *path;
+    switch (self.vaType) {
+        case VTVATypeBCA:
+            path = [VTBundle pathForResource:@"bcaVaGuide" ofType:@"plist"];
+            break;
+        case VTVATypeMandiri:
+            path = [VTBundle pathForResource:@"mandiriVaGuide" ofType:@"plist"];
+            break;
+        case VTVATypePermata:
+            path = [VTBundle pathForResource:@"permataVaGuide" ofType:@"plist"];
+            break;
+        default:
+            path = nil;
+            break;
+    }
+    return [NSArray arrayWithContentsOfFile:path];
+}
+
 - (NSArray *)MBXPageControllers
 {
     NSMutableArray *vcs = [NSMutableArray new];
     
-    NSString *path = [VTBundle pathForResource:@"permataVaGuide" ofType:@"plist"];
-    NSArray *allGuides = [NSArray arrayWithContentsOfFile:path];
+    NSArray *guides = [self usedGuides];
     
-    for (int i=0; i<[allGuides count]; i++) {
-        NSDictionary *guide = allGuides[i];
+    for (int i=0; i<[guides count]; i++) {
+        NSDictionary *guide = guides[i];
         
         if (i>1) {
             [_segmentController insertSegmentWithTitle:guide[@"name"] atIndex:i animated:NO];

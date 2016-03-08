@@ -29,6 +29,7 @@
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.text = self.headerTitle;
     
+    
     descLabel = [UILabel new];
     descLabel.font = [UIFont systemFontOfSize:11];
     descLabel.textColor = [UIColor blackColor];

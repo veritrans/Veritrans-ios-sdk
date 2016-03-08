@@ -1390,7 +1390,7 @@
                                         <constraint firstItem="Bj1-LH-Yee" firstAttribute="centerX" secondItem="fhp-pR-Isj" secondAttribute="centerX" id="hcr-oY-bhH"/>
                                     </constraints>
                                 </view>
-                                <view key="tableFooterView" contentMode="scaleToFill" id="cf1-N9-cbv" userLabel="Footer View">
+                                <view key="tableFooterView" contentMode="scaleToFill" id="cf1-N9-cbv" userLabel="Footer View" customClass="VTBorderedView">
                                     <rect key="frame" x="0.0" y="148" width="320" height="45"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
@@ -1406,24 +1406,23 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rbx-lG-Crd" userLabel="Line View">
-                                            <rect key="frame" x="0.0" y="44" width="320" height="1"/>
-                                            <color key="backgroundColor" red="0.7843137255" green="0.79215686269999996" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="1" id="QLA-Lx-mhz"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="rbx-lG-Crd" firstAttribute="leading" secondItem="cf1-N9-cbv" secondAttribute="leading" id="TP6-43-5Yp"/>
                                         <constraint firstItem="vGq-Nl-JTT" firstAttribute="centerY" secondItem="cf1-N9-cbv" secondAttribute="centerY" id="Ve2-77-oKx"/>
                                         <constraint firstAttribute="trailing" secondItem="bD7-uX-kbj" secondAttribute="trailing" constant="15" id="fBc-97-heE"/>
-                                        <constraint firstAttribute="trailing" secondItem="rbx-lG-Crd" secondAttribute="trailing" id="gMo-pO-Wu1"/>
                                         <constraint firstItem="vGq-Nl-JTT" firstAttribute="leading" secondItem="cf1-N9-cbv" secondAttribute="leading" constant="15" id="lQg-5X-yZ4"/>
                                         <constraint firstItem="bD7-uX-kbj" firstAttribute="centerY" secondItem="cf1-N9-cbv" secondAttribute="centerY" id="lUn-ET-SZ8"/>
-                                        <constraint firstAttribute="bottom" secondItem="rbx-lG-Crd" secondAttribute="bottom" id="wpW-Mk-Omk"/>
                                     </constraints>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                                            <color key="value" red="0.78431372549019607" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="VTPaymentHeader" rowHeight="40" id="qbW-0s-zdi" customClass="VTPaymentHeader">
@@ -1455,7 +1454,7 @@
                                     <outlet property="delegate" destination="RHJ-xn-0Dn" id="F1Z-Mj-BFx"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h28-Kf-y7m">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h28-Kf-y7m" customClass="VTBorderedView">
                                 <rect key="frame" x="0.0" y="488" width="320" height="80"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ImageOffer.png" translatesAutoresizingMaskIntoConstraints="NO" id="Jz4-w8-tvs">
@@ -1484,6 +1483,15 @@
                                     <constraint firstAttribute="height" constant="80" id="nW6-BT-5eX"/>
                                     <constraint firstAttribute="trailing" secondItem="Jz4-w8-tvs" secondAttribute="trailing" constant="15" id="r9n-Zi-rPd"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                                        <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                                </userDefinedRuntimeAttributes>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1767,7 +1775,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="357" y="8"/>
+            <point key="canvasLocation" x="241" y="8"/>
         </scene>
         <!--Pay With Credit Card-->
         <scene sceneID="VM8-9v-b3p">
@@ -1883,7 +1891,7 @@
                     </constraints>
                 </view>
             </objects>
-            <point key="canvasLocation" x="699" y="8"/>
+            <point key="canvasLocation" x="675" y="8"/>
         </scene>
         <!--Card Details-->
         <scene sceneID="oMo-iY-718">
@@ -2296,7 +2304,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLc-Cr-X21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1443" y="-118"/>
+            <point key="canvasLocation" x="1471" y="-126"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="LXX-Zy-UxL">

@@ -151,6 +151,16 @@
 		E503AED91C8E8AF800F097FF /* VTListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E503AED61C8E8AF800F097FF /* VTListCell.m */; };
 		E503AEDA1C8E8AF800F097FF /* VTListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E503AED61C8E8AF800F097FF /* VTListCell.m */; };
 		E503AEDB1C8E8AF800F097FF /* VTListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E503AED71C8E8AF800F097FF /* VTListCell.xib */; };
+		E503AEE31C8EC50E00F097FF /* clickpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEDF1C8EC50E00F097FF /* clickpay@2x.png */; };
+		E503AEE41C8EC50E00F097FF /* clicks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE01C8EC50E00F097FF /* clicks@2x.png */; };
+		E503AEE51C8EC50E00F097FF /* epay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE11C8EC50E00F097FF /* epay@2x.png */; };
+		E503AEE61C8EC50E00F097FF /* klikpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE21C8EC50E00F097FF /* klikpay@2x.png */; };
+		E503AEEC1C8EC69800F097FF /* bbm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE71C8EC69800F097FF /* bbm@2x.png */; };
+		E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE81C8EC69800F097FF /* dompetku@2x.png */; };
+		E503AEEE1C8EC69800F097FF /* ecash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE91C8EC69800F097FF /* ecash@2x.png */; };
+		E503AEEF1C8EC69800F097FF /* tcash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEA1C8EC69800F097FF /* tcash@2x.png */; };
+		E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEB1C8EC69800F097FF /* xltunai@2x.png */; };
+		E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEF11C8EC81000F097FF /* indomaret@2x.png */; };
 		E51FBCE51C8C8AB4008D240A /* VTCardListController.m in Sources */ = {isa = PBXBuildFile; fileRef = 300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */; };
 		E51FBCE61C8C8ADA008D240A /* VTInputCvvController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E879861C88EDE1000C0F4B /* VTInputCvvController.m */; };
 		E51FBCEA1C8C8BEE008D240A /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */; };
@@ -350,6 +360,16 @@
 		E503AED51C8E8AF800F097FF /* VTListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTListCell.h; sourceTree = "<group>"; };
 		E503AED61C8E8AF800F097FF /* VTListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTListCell.m; sourceTree = "<group>"; };
 		E503AED71C8E8AF800F097FF /* VTListCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTListCell.xib; sourceTree = "<group>"; };
+		E503AEDF1C8EC50E00F097FF /* clickpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clickpay@2x.png"; sourceTree = "<group>"; };
+		E503AEE01C8EC50E00F097FF /* clicks@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "clicks@2x.png"; sourceTree = "<group>"; };
+		E503AEE11C8EC50E00F097FF /* epay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "epay@2x.png"; sourceTree = "<group>"; };
+		E503AEE21C8EC50E00F097FF /* klikpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klikpay@2x.png"; sourceTree = "<group>"; };
+		E503AEE71C8EC69800F097FF /* bbm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bbm@2x.png"; sourceTree = "<group>"; };
+		E503AEE81C8EC69800F097FF /* dompetku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dompetku@2x.png"; sourceTree = "<group>"; };
+		E503AEE91C8EC69800F097FF /* ecash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecash@2x.png"; sourceTree = "<group>"; };
+		E503AEEA1C8EC69800F097FF /* tcash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcash@2x.png"; sourceTree = "<group>"; };
+		E503AEEB1C8EC69800F097FF /* xltunai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xltunai@2x.png"; sourceTree = "<group>"; };
+		E503AEF11C8EC81000F097FF /* indomaret@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indomaret@2x.png"; sourceTree = "<group>"; };
 		E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-hdrykpiqgmphelboupjgwsjxsxkn/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		E583AFDD1C8D575600C04512 /* errorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "errorIcon@2x.png"; sourceTree = "<group>"; };
 		E583AFDE1C8D575600C04512 /* pendingIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pendingIcon@2x.png"; sourceTree = "<group>"; };
@@ -572,6 +592,16 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
+				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
+				E503AEE81C8EC69800F097FF /* dompetku@2x.png */,
+				E503AEE91C8EC69800F097FF /* ecash@2x.png */,
+				E503AEEA1C8EC69800F097FF /* tcash@2x.png */,
+				E503AEEB1C8EC69800F097FF /* xltunai@2x.png */,
+				E503AEDF1C8EC50E00F097FF /* clickpay@2x.png */,
+				E503AEE01C8EC50E00F097FF /* clicks@2x.png */,
+				E503AEE11C8EC50E00F097FF /* epay@2x.png */,
+				E503AEE21C8EC50E00F097FF /* klikpay@2x.png */,
 				E503AEC11C8E85C500F097FF /* bcaVA@2x.png */,
 				E503AEC21C8E85C500F097FF /* mandiriVA@2x.png */,
 				E503AEC31C8E85C500F097FF /* otherVA@2x.png */,
@@ -918,9 +948,11 @@
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */,
 				309CC0F51C86C72200C058BE /* VisaDark@2x.png in Resources */,
+				E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */,
 				E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */,
 				E503AEDB1C8E8AF800F097FF /* VTListCell.xib in Resources */,
 				309CC0D91C86A53400C058BE /* bcaVaGuide.plist in Resources */,
+				E503AEEC1C8EC69800F097FF /* bbm@2x.png in Resources */,
 				E503AEC81C8E85C500F097FF /* permataVA@2x.png in Resources */,
 				308A16E91C87D56C007C196B /* NextIcon@2x.png in Resources */,
 				309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */,
@@ -928,11 +960,14 @@
 				E503AEC51C8E85C500F097FF /* bcaVA@2x.png in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */,
 				E5EF827C1C8C0837007B6585 /* VTCCFrontView.xib in Resources */,
+				E503AEEE1C8EC69800F097FF /* ecash@2x.png in Resources */,
 				308A16E81C87D56C007C196B /* BackIcon@2x.png in Resources */,
 				309CC0F11C86C72200C058BE /* JCB@2x.png in Resources */,
 				309CC0F01C86C72200C058BE /* CreditCardFront@2x.png in Resources */,
+				E503AEE41C8EC50E00F097FF /* clicks@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
+				E503AEE61C8EC50E00F097FF /* klikpay@2x.png in Resources */,
 				309CC0F41C86C72200C058BE /* Visa@2x.png in Resources */,
 				302BAA3D1C88133100AE68CC /* AlertBackground@2x.png in Resources */,
 				30E7133F1C85AAE600AFB7B4 /* permataVaGuide.plist in Resources */,
@@ -943,16 +978,21 @@
 				E503AEC71C8E85C500F097FF /* otherVA@2x.png in Resources */,
 				309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */,
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
+				E503AEE51C8EC50E00F097FF /* epay@2x.png in Resources */,
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
+				E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */,
 				309CC0DC1C86A68F00C058BE /* mandiriVaGuide.plist in Resources */,
 				309CC0E01C86B88C00C058BE /* cimbClicksGuide.plist in Resources */,
 				30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
 				E503AEC61C8E85C500F097FF /* mandiriVA@2x.png in Resources */,
 				E503AECA1C8E860700F097FF /* virtualAccount.plist in Resources */,
+				E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */,
 				30E8798C1C894718000C0F4B /* BackBarIcon@2x.png in Resources */,
+				E503AEEF1C8EC69800F097FF /* tcash@2x.png in Resources */,
 				3068383D1C7EB35A0064A305 /* payments.plist in Resources */,
+				E503AEE31C8EC50E00F097FF /* clickpay@2x.png in Resources */,
 				E583AFE21C8D575600C04512 /* successIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

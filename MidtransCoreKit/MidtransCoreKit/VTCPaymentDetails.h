@@ -10,6 +10,8 @@
 
 @protocol VTCPaymentDetails <NSObject>
 
+- (NSString *)paymentType;
+
 - (NSDictionary *)dictionaryValue;
 
 @end

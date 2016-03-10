@@ -25,6 +25,10 @@
     return self;
 }
 
+- (NSString *)paymentType {
+    return @"bank_transfer";
+}
+
 - (NSDictionary *)dictionaryValue {
     // The format MUST BE compatible with JSON that described in
     // http://docs.veritrans.co.id/en/api/methods.html#bank_transfer_attr

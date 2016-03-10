@@ -1,23 +1,23 @@
 //
-//  VTPaymentCreditCard.h
+//  VTCPaymentCreditCard.h
 //  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 2/16/16.
+//  Created by Akbar Taufiq Herlangga on 3/7/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
-#import <UIKit/UIKit.h>
 
-#import "VTPayment.h"
-#import "VTCreditCard.h"
+#import <Foundation/Foundation.h>
 
+@interface VTCPaymentCreditCard : NSObject
 
+@property (nonatomic, readonly) NSString *cardNumber;
+@property (nonatomic, readonly) NSString *cardExpiryMonth;
+@property (nonatomic, readonly) NSString *cardExpiryYear;
+@property (nonatomic, readonly) NSString *cardCvv;
 
-@interface VTCPaymentCreditCard : VTPayment
-
-@property (nonatomic, assign) BOOL secure;
-@property (nonatomic, strong) NSString *bank;
-
-- (void)chargeWithCard:(VTCreditCard *)card cvv:(NSString *)cvv saveCard:(BOOL)saveCard callback:(void (^)(id response, NSError *error))callback;
-- (void)chargeWithSavedCard:(id)savedCard cvv:(NSString *)cvv callback:(void (^)(id response, NSError *error))callback;
+- (instancetype)initWithCardNumber:(NSString *)cardNumber
+                   cardExpiryMonth:(NSString *)cardExpiryMonth
+                    cardExpiryYear:(NSString *)cardExpiryYear
+                           cardCvv:(NSString *)cardCvv;
 
 @end

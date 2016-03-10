@@ -28,4 +28,6 @@
                                                    secure:(BOOL)secure
                                               grossAmount:(NSNumber *)grossAmount;
 
+- (NSDictionary *)dictionaryValue;
+
 @end

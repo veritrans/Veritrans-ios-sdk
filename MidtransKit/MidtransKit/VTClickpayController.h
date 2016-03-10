@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTUser.h>
+#import <MidtransCoreKit/VTCustomerDetails.h>
 
 @interface VTClickpayController : UIViewController
 
-@property (nonatomic, readonly) VTUser *user;
+@property (nonatomic, readonly) VTCustomerDetails *customer;
 @property (nonatomic, readonly) NSArray *items;
 
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items;
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items;
 
 @end

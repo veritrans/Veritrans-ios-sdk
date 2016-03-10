@@ -90,16 +90,16 @@
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (strong, nonatomic) IBOutlet UIView *paymentView;
 
-@property (nonatomic, readwrite) VTUser *user;
+@property (nonatomic, readwrite) VTCustomerDetails *customer;
 @property (nonatomic, readwrite) NSArray *items;
 @end
 
 @implementation VTCardListController
 
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTCardListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCardListController"];
-    vc.user = user;
+    vc.customer = customer;
     vc.items = items;
     return vc;
 }
@@ -188,11 +188,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        id savedCard = _cards[alertView.tag];
-        VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:_user items:_items];
-        [payment chargeWithSavedCard:savedCard cvv:nil callback:^(id response, NSError *error) {
-            
-        }];
+
     }
 }
 

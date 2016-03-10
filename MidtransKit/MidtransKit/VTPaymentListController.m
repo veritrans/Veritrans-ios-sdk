@@ -23,7 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *footerAmountLabel;
 
 @property (nonatomic, readwrite) NSArray *items;
-@property (nonatomic, readwrite) VTUser *user;
+@property (nonatomic, readwrite) VTCustomerDetails *customer;
 
 @end
 
@@ -31,11 +31,11 @@
     NSArray *_payments;
 }
 
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTPaymentListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTPaymentListController"];
     vc.items = items;
-    vc.user = user;
+    vc.customer = customer;
     return vc;
 }
 
@@ -91,10 +91,10 @@
     if ([identifier isEqualToString:VTCreditCardIdentifier]) {
         NSArray *cards = [[NSUserDefaults standardUserDefaults] savedCards];
         if ([cards count]) {
-            VTCardListController *vc = [VTCardListController controllerWithUser:_user items:_items];
+            VTCardListController *vc = [VTCardListController controllerWithCustomer:_customer items:_items];
             [self.navigationController pushViewController:vc animated:YES];
         } else {
-            VTAddCardController *vc = [VTAddCardController controllerWithUser:_user items:_items];
+            VTAddCardController *vc = [VTAddCardController controllerWithCustomer:_customer items:_items];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
@@ -111,7 +111,7 @@
         
     }
     else if ([identifier isEqualToString:VTMandiriClickpayIdentifier]) {
-        VTClickpayController *vc = [VTClickpayController controllerWithUser:_user items:_items];
+        VTClickpayController *vc = [VTClickpayController controllerWithCustomer:_customer items:_items];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([identifier isEqualToString:VTBBMIdentifier]) {
@@ -130,7 +130,7 @@
         
     }
     else if ([identifier isEqualToString:VTVAIdentifier]) {
-        VTVAListController *vc = [VTVAListController controllerWithUser:_user items:_items];
+        VTVAListController *vc = [VTVAListController controllerWithCustomer:_customer items:_items];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([identifier isEqualToString:VTIndomaretIdentifier]) {

@@ -12,6 +12,7 @@
 
 #import <MidtransCoreKit/VTMandiriClickpay.h>
 #import <MidtransCoreKit/VTItem.h>
+#import <MidtransCoreKit/VTCustomerDetails.h>
 
 @implementation NSString (random)
 
@@ -33,7 +34,7 @@
 
 @implementation ViewController {
     NSArray *_items;
-    VTUser *_user;
+    VTCustomerDetails *_customer;
 }
 
 - (void)viewDidLoad {
@@ -41,12 +42,7 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _items = [self items];
-    _user = [VTUser userWithFirstName:@"Nanang"
-                             lastName:@"Rafsanjani"
-                                email:@"jukiginanjar@yahoo.com"
-                                phone:@"08985999286"
-                      shippingAddress:nil
-                       billingAddress:nil];
+    _customer = [[VTCustomerDetails alloc] initWithFirstName:@"Nanang" lastName:@"Rafsanjani" email:@"jukiginanjar@yahoo.com" phone:@"08985999286"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,7 +51,7 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    VTPaymentViewController *vc = [VTPaymentViewController paymentWithUser:_user andItems:_items];
+    VTPaymentViewController *vc = [VTPaymentViewController controllerWithCustomer:_customer andItems:_items];
     [self presentViewController:vc animated:YES completion:nil];
 }
 

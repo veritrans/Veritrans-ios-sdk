@@ -15,8 +15,10 @@
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 
-
-#import <MidtransCoreKit/VTCPaymentCreditCard.h>
+#import <MidtransCoreKit/VTClient.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransCoreKit/VTPaymentCreditCard.h>
+#import <MidtransCoreKit/VTCTransactionDetails.h>
 
 @interface VTAddCardController ()
 @property (strong, nonatomic) IBOutlet VTTextField *cardName;
@@ -30,7 +32,7 @@
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 
-@property (nonatomic, readwrite) VTUser *user;
+@property (nonatomic, readwrite) VTCustomerDetails *customer;
 @property (nonatomic, readwrite) NSArray *items;
 @end
 
@@ -38,9 +40,9 @@
     __weak UITextField *selectedTextField;
 }
 
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
     VTAddCardController *vc = [[UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle] instantiateViewControllerWithIdentifier:@"VTAddCardController"];
-    vc.user = user;
+    vc.customer = customer;
     vc.items = items;
     return vc;
 }
@@ -136,22 +138,23 @@
     
     NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     
-    VTCreditCard *card = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear holder:_cardName.text];
+    NSNumber *grossAmount = [_items itemsPriceAmount];
     
-    VTCPaymentCreditCard *payment = [[VTCPaymentCreditCard alloc] initWithUser:_user items:_items];
-    [payment chargeWithCard:card cvv:_cardCvv.text saveCard:_saveStateSwitch.selected callback:^(id response, NSError *error) {
-        NSLog(@"%@ \n\n%@", response, error);
-        
-        if (error) {
-            VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
-            [self.navigationController pushViewController:vc animated:YES];
-        } else {
-            VTSuccessStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTSuccessStatusController"];
-            vc.successViewModel = [VTPaymentStatusViewModel viewModelWithData:response];
-            [self.navigationController pushViewController:vc animated:YES];
+    
+    VTCreditCard *creditCard = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text holder:_cardName.text];
+    VTTokenRequest *tokenRequest = [VTTokenRequest tokenFor3DSecureTransactionWithCreditCard:creditCard bank:nil secure:YES grossAmount:grossAmount];
+    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
+        if (token) {
+            VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:token];
+            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:grossAmount];
+            
+            
+            VTCTransactionData *transactionData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail transactionDetails:transDetail customerDetails:_customer itemDetails:_items];
+            [[VTMerchantClient sharedClient] performCreditCardTransaction:transactionData completion:^(id response, NSError *error) {
+                
+            }];
         }
     }];
-    
 }
 
 - (IBAction)nextFieldPressed:(id)sender {

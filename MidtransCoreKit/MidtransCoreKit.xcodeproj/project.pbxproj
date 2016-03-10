@@ -50,6 +50,8 @@
 		30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */; };
 		30FDCC641C803AD200CEFED3 /* VTMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30FDCC651C803AD200CEFED3 /* VTMandiriClickpay.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */; };
+		BA469BB61C9134E30069C8BE /* VTPaymentCrediCard.h in Headers */ = {isa = PBXBuildFile; fileRef = BA469BB41C9134E30069C8BE /* VTPaymentCrediCard.h */; };
+		BA469BB71C9134E30069C8BE /* VTPaymentCrediCard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA469BB51C9134E30069C8BE /* VTPaymentCrediCard.m */; };
 		E55DB9401C912ED300813B81 /* Veritrans.h in Headers */ = {isa = PBXBuildFile; fileRef = E55DB92E1C912ED300813B81 /* Veritrans.h */; };
 		E55DB9411C912ED300813B81 /* Veritrans.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DB92F1C912ED300813B81 /* Veritrans.m */; };
 		E55DB9421C912ED300813B81 /* VTCCustomerDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = E55DB9301C912ED300813B81 /* VTCCustomerDetails.h */; };
@@ -122,6 +124,8 @@
 		30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkOperation.m; sourceTree = "<group>"; };
 		30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMandiriClickpay.h; sourceTree = "<group>"; };
 		30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMandiriClickpay.m; sourceTree = "<group>"; };
+		BA469BB41C9134E30069C8BE /* VTPaymentCrediCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentCrediCard.h; sourceTree = "<group>"; };
+		BA469BB51C9134E30069C8BE /* VTPaymentCrediCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentCrediCard.m; sourceTree = "<group>"; };
 		E55DB92E1C912ED300813B81 /* Veritrans.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Veritrans.h; sourceTree = "<group>"; };
 		E55DB92F1C912ED300813B81 /* Veritrans.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Veritrans.m; sourceTree = "<group>"; };
 		E55DB9301C912ED300813B81 /* VTCCustomerDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCCustomerDetails.h; sourceTree = "<group>"; };
@@ -190,6 +194,8 @@
 				3052C4F71C843749001F8B4A /* VTCPaymentClickpay.m */,
 				305494611C75A0DF00938C17 /* VTCPaymentCreditCard.h */,
 				305494621C75A0DF00938C17 /* VTCPaymentCreditCard.m */,
+				BA469BB41C9134E30069C8BE /* VTPaymentCrediCard.h */,
+				BA469BB51C9134E30069C8BE /* VTPaymentCrediCard.m */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -271,6 +277,7 @@
 				305494691C75A0DF00938C17 /* VT3DSController.h in Headers */,
 				3054945F1C75A08900938C17 /* VTCreditCard.h in Headers */,
 				305494551C75A08900938C17 /* VTUser.h in Headers */,
+				BA469BB61C9134E30069C8BE /* VTPaymentCrediCard.h in Headers */,
 				E55DB9481C912ED300813B81 /* VTCPaymentDetails.h in Headers */,
 				305494571C75A08900938C17 /* VTAddress.h in Headers */,
 				30FDCC641C803AD200CEFED3 /* VTMandiriClickpay.h in Headers */,
@@ -393,6 +400,7 @@
 				E55DB9501C912ED300813B81 /* VTMerchantClient.m in Sources */,
 				E55DB94A1C912ED300813B81 /* VTCTransactionData.m in Sources */,
 				3054946C1C75A0DF00938C17 /* VTPayment.m in Sources */,
+				BA469BB71C9134E30069C8BE /* VTPaymentCrediCard.m in Sources */,
 				E55DB94C1C912ED300813B81 /* VTCTransactionDetails.m in Sources */,
 				3054945C1C75A08900938C17 /* VTConfig.m in Sources */,
 				305494581C75A08900938C17 /* VTAddress.m in Sources */,

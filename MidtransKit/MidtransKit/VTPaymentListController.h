@@ -11,5 +11,5 @@
 #import <MidtransCoreKit/VTUser.h>
 
 @interface VTPaymentListController : UIViewController
-+ (instancetype)paymentListWithUser:(VTUser *)user andAmount:(NSNumber *)amount;
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items;
 @end

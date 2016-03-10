@@ -15,7 +15,8 @@ NSString *const VTEnvironmentProduction = @"production";
 @property (nonatomic, readwrite) NSString *baseUrl;
 @property (nonatomic, readwrite) NSString *clientKey;
 @property (nonatomic, readwrite) NSString *merchantServerURL;
-@property (nonatomic, strong) NSString *environment;
+@property (nonatomic, readwrite) VTCreditCardFeature creditCardFeature;
+@property (nonatomic, readwrite) BOOL secureCreditCardPayment;
 @end
 
 @implementation VTConfig
@@ -29,29 +30,30 @@ NSString *const VTEnvironmentProduction = @"production";
     return shared;
 }
 
-+ (instancetype)configWithClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL environment:(NSString *)environment {
-    VTConfig *config = [VTConfig sharedInstance];
-    config.clientKey = clientKey;
-    config.merchantServerURL = merchantServerURL;
-    config.environment = environment;
-    return config;
++ (void)setMerchantServerURL:(NSString *)merchantServerURL {
+    [CONFIG setMerchantServerURL:merchantServerURL];
 }
 
-- (void)setEnvironment:(NSString *)environment {
-    _environment = environment;
-    
-    [self setBaseUrlWithEnvironment:environment];
-    
-}
-
-- (void)setBaseUrlWithEnvironment:(NSString *)environment {
-    if ([environment isEqualToString:VTEnvironmentProduction]) {
-        self.baseUrl = @"https://api.veritrans.co.id/v2";
-    } else if ([environment isEqualToString:VTEnvironmentSandbox]) {
-        self.baseUrl = @"https://api.sandbox.veritrans.co.id/v2";
-    } else {
-        NSAssert(NO, @"Wrong environment type!");
++ (void)setServerEnvironment:(VTServerEnvironment)environment {
+    switch (environment) {
+        case VTServerEnvironmentProduction:
+            [CONFIG setBaseUrl:@"https://api.veritrans.co.id/v2"];
+            break;
+        case VTServerEnvironmentSandbox:
+            [CONFIG setBaseUrl:@"https://api.sandbox.veritrans.co.id/v2"];
+            break;
+        default:
+            break;
     }
+}
++ (void)setClientKey:(NSString *)clientKey {
+    [CONFIG setClientKey:clientKey];
+}
++ (void)setCreditCardPaymentFeature:(VTCreditCardFeature)creditCardFeature {
+    [CONFIG setCreditCardFeature:creditCardFeature];
+}
++ (void)setCreditCardSecurePayment:(BOOL)secure {
+    [CONFIG setSecureCreditCardPayment:secure];
 }
 
 @end

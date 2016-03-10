@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTCardCell.h"
+#import <MidtransCoreKit/VTUser.h>
 
 @interface VTCardListController : UIViewController
-@property (nonatomic, strong) NSArray *items;
+@property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (nonatomic, readonly) NSArray *items;
+@property (nonatomic, readonly) VTUser *user;
+
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items;
+
 @end

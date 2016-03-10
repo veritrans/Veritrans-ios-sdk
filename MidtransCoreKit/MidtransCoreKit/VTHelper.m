@@ -9,6 +9,31 @@
 #import "VTHelper.h"
 #import "VTItem.h"
 
+@implementation NSUserDefaults (utilities)
+
+- (void)saveNewCard:(NSDictionary *)card {
+//    NSArray *cards = [self savedCards];
+//    NSMutableArray *mcards = cards ? [NSMutableArray arrayWithArray:cards] : [NSMutableArray new];
+//    if ([cards count]) {
+//        
+//    }
+//    
+//    [self setObject:@[card] forKey:@"vt_saved_card"];
+//    [self synchronize];
+}
+
+- (NSMutableArray *)savedCards {
+//    NSArray *cards = [self objectForKey:@"vt_saved_card"];
+//    if ([cards count]) {
+//        return [NSMutableArray arrayWithArray:cards];
+//    } else {
+//        return [NSMutableArray new];
+//    }
+    return [NSMutableArray new];
+}
+
+@end
+
 @implementation VTHelper
 
 + (id)nullifyIfNil:(id)object {
@@ -51,5 +76,25 @@
     }
     return randomString;
 }
+
+@end
+
+@implementation UIApplication (Utils)
+
++ (UIViewController *)rootViewController {
+    UIViewController *base = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+    if ([base isKindOfClass:[UINavigationController class]]) {
+        return [(UINavigationController *)base visibleViewController];
+    } else if ([base isKindOfClass:[UITabBarController class]]) {
+        return [(UITabBarController *)base selectedViewController];
+    } else {
+        if ([base presentedViewController]) {
+            return [base presentedViewController];
+        } else {
+            return base;
+        }
+    }
+}
+
 
 @end

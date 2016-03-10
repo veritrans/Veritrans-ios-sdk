@@ -314,7 +314,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 
 - (CGRect)insetRectForBounds:(CGRect)rect
 {
-    rect = CGRectMake(_floatingLabelXPadding, rect.origin.y, rect.size.width, rect.size.height);
+    rect = CGRectMake(_floatingLabelXPadding, rect.origin.y, rect.size.width - _textRightPadding, rect.size.height);
     return CGRectInset(rect, 0, _floatingLabel.font.pointSize);
 }
 
@@ -375,7 +375,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     _divView.frame = CGRectMake(0,
                                 self.bounds.size.height - (_warningLabel.font.pointSize + 2),
                                 self.bounds.size.width,
-                                1);
+                                0.5);
     
     BOOL firstResponder = self.isFirstResponder;
     _floatingLabel.textColor = (firstResponder && self.text && self.text.length > 0 ?

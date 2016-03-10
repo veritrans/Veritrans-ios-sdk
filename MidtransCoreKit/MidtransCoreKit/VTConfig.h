@@ -8,16 +8,35 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *const VTEnvironmentSandbox;
-extern NSString *const VTEnvironmentProduction;
+typedef NS_ENUM(NSUInteger, VTCreditCardFeature) {
+    VTCreditCardFeatureOneClick,
+    VTCreditCardFeatureTwoClick,
+    VTCreditCardFeatureNormal,
+    VTCreditCardFeatureUnknown
+};
+
+typedef NS_ENUM(NSUInteger, VTServerEnvironment) {
+    VTServerEnvironmentSandbox,
+    VTServerEnvironmentProduction,
+    VTServerEnvironmentUnknown
+};
+
+#define CONFIG (VTConfig *)[VTConfig sharedInstance]
 
 @interface VTConfig : NSObject
 
 + (id)sharedInstance;
-+ (instancetype)configWithClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL environment:(NSString *)environment;
 
++ (void)setCreditCardPaymentFeature:(VTCreditCardFeature)creditCardFeature;
++ (void)setCreditCardSecurePayment:(BOOL)secure;
++ (void)setMerchantServerURL:(NSString *)merchantServerURL;
++ (void)setServerEnvironment:(VTServerEnvironment)environment;
++ (void)setClientKey:(NSString *)clientKey;
+
+@property (nonatomic, readonly) VTCreditCardFeature creditCardFeature;
 @property (nonatomic, readonly) NSString *baseUrl;
 @property (nonatomic, readonly) NSString *clientKey;
 @property (nonatomic, readonly) NSString *merchantServerURL;
+@property (nonatomic, readonly) BOOL secureCreditCardPayment;
 
 @end

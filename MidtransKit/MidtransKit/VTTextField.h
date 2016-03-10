@@ -22,6 +22,8 @@
 
 @property (nonatomic) IBInspectable CGFloat placeholderYPadding;
 
+@property (nonatomic) IBInspectable CGFloat textRightPadding;
+
 @property (nonatomic, strong) UIFont * floatingLabelFont;
 
 @property (nonatomic, strong) IBInspectable UIColor * floatingLabelTextColor;

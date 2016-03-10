@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
@@ -19,4 +20,16 @@
 
 @interface NSString (random)
 + (NSString *)randomWithLength:(NSUInteger)length;
+@end
+
+@interface NSUserDefaults (utilities)
+
+- (void)saveNewCard:(NSDictionary *)card;
+- (NSMutableArray *)savedCards;
+
+@end
+
+
+@interface UIApplication (utilities)
++ (UIViewController *)rootViewController;
 @end

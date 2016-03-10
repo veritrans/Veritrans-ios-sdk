@@ -94,13 +94,6 @@
     return self;
 }
 
-//- (NSString *)authorisationValue {
-//    NSString *sk = [[[VTConfig sharedInstance] serverKey] stringByAppendingString:@":"];
-//    NSData *encodedSK = [sk dataUsingEncoding:NSUTF8StringEncoding];
-//    NSString *decodedSK = [encodedSK base64EncodedStringWithOptions:0];
-//    return [NSString stringWithFormat:@"Basic %@", decodedSK];
-//}
-
 - (void)postToURL:(NSString *)URL
        parameters:(NSDictionary *)parameters
          callback:(void(^)(id response, NSError *error))callback

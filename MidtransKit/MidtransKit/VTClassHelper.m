@@ -8,15 +8,26 @@
 
 #import "VTClassHelper.h"
 
-NSString *const VTPaymentCreditCard = @"cc";
-NSString *const VTPaymentPermataVA = @"permatava";
-NSString *const VTPaymentMandiriClickpay = @"clickpay";
-NSString *const VTPaymentBCAVA = @"bcava";
-NSString *const VTPaymentMandiriBillpay = @"billpay";
-NSString *const VTPaymentCIMBClicks = @"clicks";
-NSString *const VTPaymentBCAKlikpay = @"klikpay";
-NSString *const VTPaymentIndomaret = @"indomaret";
-NSString *const VTPaymentMandiriECash = @"ecash";
+NSString *const VTCreditCardIdentifier = @"cc";
+
+NSString *const VTMandiriClickpayIdentifier = @"clickpay";
+NSString *const VTCIMBClicksIdentifier = @"clicks";
+NSString *const VTBCAKlikpayIdentifier = @"klikpay";
+NSString *const VTBRIEpayIdentifier = @"epay";
+
+NSString *const VTIndomaretIdentifier = @"indomaret";
+
+NSString *const VTMandiriECashIdentifier = @"ecash";
+NSString *const VTBBMIdentifier = @"bbm";
+NSString *const VTIndosatDompetkuIdentifier = @"dompetku";
+NSString *const VTTCashIdentifier = @"tcash";
+NSString *const VTXLTunaiIdentifier = @"xltunai";
+
+NSString *const VTVAIdentifier = @"va";
+NSString *const VTPermataVAIdentifier = @"permatava";
+NSString *const VTBCAVAIdentifier = @"bcava";
+NSString *const VTMandiriVAIdentifier = @"mandiriva";
+NSString *const VTOtherVAIdentifier = @"otherva";
 
 @implementation VTClassHelper
 
@@ -51,29 +62,84 @@ NSString *const VTPaymentMandiriECash = @"ecash";
 
 @implementation UITextField (helper)
 
+- (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range {
+    NSString *text = self.text;
+    
+    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789\b"];
+    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([string rangeOfCharacterFromSet:[characterSet invertedSet]].location != NSNotFound) {
+        return NO;
+    }
+    
+    text = [text stringByReplacingCharactersInRange:range withString:string];
+    text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *newString = @"";
+    while (text.length > 0) {
+        NSString *subString = [text substringToIndex:MIN(text.length, 4)];
+        newString = [newString stringByAppendingString:subString];
+        if (subString.length == 4) {
+            newString = [newString stringByAppendingString:@" "];
+        }
+        text = [text substringFromIndex:MIN(text.length, 4)];
+    }
+    
+    newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
+    
+    if (newString.length >= 20) {
+        return NO;
+    }
+    
+    [self setText:newString];
+    
+    return NO;
+}
+
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    return [mstring length] <= 3;
+}
+
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {
     if ([string isNumeric] == NO) {
         return NO;
     }
     
-    NSMutableString *changedString = self.text.mutableCopy;
-    [changedString replaceCharactersInRange:range withString:string];
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
     
-    if ([changedString length] == 1 && [changedString integerValue] > 1) {
-        self.text = [NSString stringWithFormat:@"0%@/", changedString];
-    } else if ([changedString length] == 2) {
-        if ([changedString integerValue] < 13) {
-            self.text = changedString;
+    if ([mstring length] == 1 && [mstring integerValue] > 1) {
+        self.text = [NSString stringWithFormat:@"0%@/", mstring];
+    } else if ([mstring length] == 2) {
+        if ([mstring integerValue] < 13) {
+            self.text = mstring;
         }
-    } else if ([changedString length] == 3) {
+    } else if ([mstring length] == 3) {
         if ([string length]) {
-            [changedString insertString:@"/" atIndex:2];
+            [mstring insertString:@"/" atIndex:2];
         }
-        self.text = changedString;
-    } else if ([changedString length] < 6) {
-        self.text = changedString;
+        self.text = mstring;
+    } else if ([mstring length] < 6) {
+        self.text = mstring;
     }
     return NO;
+}
+
+@end
+
+@implementation UILabel (utilities)
+
+- (void)setRoundedCorners:(BOOL)rounded {
+    if (rounded) {
+        self.layer.cornerRadius = CGRectGetHeight(self.bounds)/2.0;
+    } else {
+        self.layer.cornerRadius = 0;
+    }
 }
 
 @end
@@ -86,8 +152,7 @@ NSString *const VTPaymentMandiriECash = @"ecash";
     
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
-        currentFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
-        currentFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
         [dictionary setObject:currentFormatter forKey:identifier];
     }
     
@@ -95,4 +160,27 @@ NSString *const VTPaymentMandiriECash = @"ecash";
 }
 
 @end
+
+@implementation UIViewController (Utils)
+
+- (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView {
+    
+    [self addChildViewController:viewController];
+    [viewController didMoveToParentViewController:self];
+    
+    viewController.view.translatesAutoresizingMaskIntoConstraints = NO;
+    [contentView addSubview:viewController.view];
+    
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[content]|" options:0 metrics:0 views:@{@"content":viewController.view}]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[content]|" options:0 metrics:0 views:@{@"content":viewController.view}]];
+}
+
+- (void)removeSubViewController:(UIViewController *)viewController {
+    [viewController.view removeFromSuperview];
+    [viewController removeFromParentViewController];
+    [viewController didMoveToParentViewController:nil];
+}
+
+@end
+
 

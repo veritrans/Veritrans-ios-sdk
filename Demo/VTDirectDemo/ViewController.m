@@ -32,10 +32,6 @@
 @end
 
 @implementation ViewController {
-    IBOutlet UIActivityIndicatorView *indicatorView;
-    IBOutlet UILabel *statusLabel;
-    IBOutlet UITextField *emailTextField;
-    
     NSArray *_items;
     VTUser *_user;
 }
@@ -57,11 +53,11 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
     VTPaymentViewController *vc = [VTPaymentViewController paymentWithUser:_user andItems:_items];
     [self presentViewController:vc animated:YES completion:nil];
 }
-
 
 #pragma mark - UITableViewDataSource
 
@@ -81,68 +77,6 @@
         [result addObject:item];
     }
     return result;
-}
-
-- (IBAction)payPressed:(UIButton *)sender {
-    
-    
-    //    VTCartController *vc = [VTCartController cartWithItems:[self items]];
-    //    [self presentViewController:vc animated:YES completion:nil];
-    
-    //    VTPaymentListController *vc = [VTPaymentListController paymentListWithPriceAmount:@50000];
-    //    [self presentViewController:vc animated:YES completion:nil];
-    
-    //    VTCardDetailController *vc = [VTCardDetailController newController];
-    //    [self presentViewController:vc animated:YES completion:nil];
-    //
-    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"MidtransResources" ofType:@"bundle"];
-    //    NSBundle *bundle = [NSBundle bundleWithPath:path];
-    //    NSError *error;
-    //    [bundle loadAndReturnError:&error];
-    //    NSLog(@"%@", error);
-    
-    //    [indicatorView startAnimating];
-    //    VTCreditCard *card = [VTCreditCard cardWithNumber:@4811111111111114
-    //                                          expiryMonth:@1
-    //                                           expiryYear:@2020
-    //                                                saved:YES];
-    //
-    //    VTAddress *address = [VTAddress addressWithName:@"Jaka"
-    //                                           lastName:@"Ginanjar"
-    //                                              email:emailTextField.text
-    //                                              phone:@"08985999286"
-    //                                            address:@"Condong Catur"
-    //                                               city:@"Yogyakarta"
-    //                                         postalCode:@"54824"
-    //                                        countryCode:@"IND"];
-    //
-    //    VTUser *user = [VTUser userWithFirstName:@"Jaka"
-    //                                    lastName:@"Ginanjar"
-    //                                       email:emailTextField.text
-    //                                       phone:@"08985999286"
-    //                             shippingAddress:address
-    //                              billingAddress:address];
-    //
-    //    VTItem *item = [VTItem itemWithId:@"xyz"
-    //                                 name:@"yakult"
-    //                                price:@5000
-    //                             quantity:@10];
-    //
-    //    VTPaymentCreditCard *payment = [VTPaymentCreditCard paymentWithCard:card
-    //                                                                   bank:@"bni"
-    //                                                                 secure:YES
-    //                                                                   user:user
-    //                                                                  items:@[item]];
-    //
-    //    [payment payWithCVV:@"123" callback:^(id response, NSError *error) {
-    //        [indicatorView stopAnimating];
-    //
-    //        if (error) {
-    //            statusLabel.text = [NSString stringWithFormat:@"Error %@", error.localizedDescription];
-    //        } else {
-    //            statusLabel.text = [NSString stringWithFormat:@"Success %@", response];
-    //        }
-    //    }];
 }
 
 @end

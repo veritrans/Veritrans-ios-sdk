@@ -12,7 +12,8 @@
 @interface VTClickpayController : UIViewController
 
 @property (nonatomic, readonly) VTUser *user;
-@property (nonatomic, readonly) NSNumber *amount;
+@property (nonatomic, readonly) NSArray *items;
 
-+ (instancetype)controllerWithUser:(VTUser *)user andAmount:(NSNumber *)amount;
++ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items;
+
 @end

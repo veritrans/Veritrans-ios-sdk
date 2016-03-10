@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>name</key>
+        <string>CARD PAYMENT</string>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>id</key>
+                <string>cc</string>
+                <key>name</key>
+                <string>Credit Card</string>
+                <key>icon</key>
+                <string>cc.png</string>
+            </dict>
+        </array>
+    </dict>
+	<dict>
+        <key>name</key>
+        <string>DIRECT DEBIT</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>klikpay</string>
+				<key>name</key>
+				<string>BCA Klikpay</string>
+				<key>icon</key>
+				<string>klikpay</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>clicks</string>
+				<key>name</key>
+				<string>CIMB Clicks</string>
+				<key>icon</key>
+				<string>clicks</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>epay</string>
+				<key>name</key>
+				<string>e-Pay BRI</string>
+				<key>icon</key>
+				<string>epay</string>
+			</dict>
+			<dict>
+				<key>id</key>
+				<string>clickpay</string>
+				<key>name</key>
+				<string>Mandiri Clickpay</string>
+				<key>icon</key>
+				<string>clickpay</string>
+			</dict>
+		</array>
+	</dict>
+    <dict>
+        <key>name</key>
+        <string>E-WALLET</string>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>id</key>
+                <string>bbm</string>
+                <key>name</key>
+                <string>BBM Money</string>
+                <key>icon</key>
+                <string>bbm</string>
+            </dict>
+            <dict>
+                <key>id</key>
+                <string>dompetku</string>
+                <key>name</key>
+                <string>Indosat Dompetku</string>
+                <key>icon</key>
+                <string>dompetku</string>
+            </dict>
+            <dict>
+                <key>id</key>
+                <string>ecash</string>
+                <key>name</key>
+                <string>Mandiri e-Cash</string>
+                <key>icon</key>
+                <string>ecash</string>
+            </dict>
+            <dict>
+                <key>id</key>
+                <string>tcash</string>
+                <key>name</key>
+                <string>T-Cash</string>
+                <key>icon</key>
+                <string>tcash</string>
+            </dict>
+            <dict>
+                <key>id</key>
+                <string>xltunai</string>
+                <key>name</key>
+                <string>XL Tunai</string>
+                <key>icon</key>
+                <string>xltunai</string>
+            </dict>
+        </array>
+    </dict>
+	<dict>
+        <key>name</key>
+        <string>VIRTUAL ACCOUNT</string>
+		<key>items</key>
+		<array>
+			<dict>
+				<key>id</key>
+				<string>va</string>
+				<key>name</key>
+				<string>Bank Transfer</string>
+				<key>icon</key>
+				<string>otherVA</string>
+			</dict>
+		</array>
+	</dict>
+    <dict>
+        <key>name</key>
+        <string>CONVENIENCE STORE</string>
+        <key>items</key>
+        <array>
+            <dict>
+                <key>id</key>
+                <string>indomaret</string>
+                <key>name</key>
+                <string>Indomaret</string>
+                <key>icon</key>
+                <string>indomaret</string>
+            </dict>
+        </array>
+    </dict>
+</array>
+</plist>

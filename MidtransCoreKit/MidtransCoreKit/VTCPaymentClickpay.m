@@ -34,25 +34,4 @@
     }];
 }
 
-- (void)pay {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [[VTConfig sharedInstance] baseUrl], @"charge"];
-    NSDictionary *param = @{@"payment_type":@"mandiri_clickpay",
-                            @"mandiri_clickpay":[_clickpay requestData],
-                            @"transaction_details":[self transactionDetail],
-                            @"customer_details":[self.user customerDetails]
-                            };
-    
-    [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
-        if (error) {
-            if (self.delegate) {
-                [self.delegate paymentFailed];
-            }
-        } else {
-            if (self.delegate) {
-                [self.delegate paymentSuccessfullyCompleted];
-            }
-        }
-    }];
-}
-
 @end

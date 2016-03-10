@@ -44,6 +44,15 @@
     }
 }
 
++ (void)handleResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
+    NSInteger code = [response[@"status_code"] integerValue];
+    if (code/200 == 2) {
+        if (completion) completion(response, nil);
+    } else {
+        NSAssert(YES, @"handle API error response");
+        if (completion) completion(nil, nil);
+    }
+}
 @end
 
 @implementation NSArray (item)

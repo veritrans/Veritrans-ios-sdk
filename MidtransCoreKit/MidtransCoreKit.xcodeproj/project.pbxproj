@@ -66,6 +66,10 @@
 		BA9452471C88251700A08268 /* VTCTransactionData.m in Sources */ = {isa = PBXBuildFile; fileRef = BA9452451C88251700A08268 /* VTCTransactionData.m */; };
 		BA9452491C88408900A08268 /* VTCPaymentDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = BA9452481C88408900A08268 /* VTCPaymentDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAB89FE91C858AA800BEBAAB /* VTPaymentDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = BAB89FE81C858AA800BEBAAB /* VTPaymentDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BABF80901C8EC604003FD60C /* VTClient.h in Headers */ = {isa = PBXBuildFile; fileRef = BABF808E1C8EC604003FD60C /* VTClient.h */; };
+		BABF80911C8EC604003FD60C /* VTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF808F1C8EC604003FD60C /* VTClient.m */; };
+		BABF988F1C911C930097FF34 /* VTMerchantClient.h in Headers */ = {isa = PBXBuildFile; fileRef = BABF988D1C911C930097FF34 /* VTMerchantClient.h */; };
+		BABF98901C911C930097FF34 /* VTMerchantClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BABF988E1C911C930097FF34 /* VTMerchantClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +140,10 @@
 		BA9452451C88251700A08268 /* VTCTransactionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCTransactionData.m; sourceTree = "<group>"; };
 		BA9452481C88408900A08268 /* VTCPaymentDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCPaymentDetails.h; sourceTree = "<group>"; };
 		BAB89FE81C858AA800BEBAAB /* VTPaymentDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentDelegate.h; sourceTree = "<group>"; };
+		BABF808E1C8EC604003FD60C /* VTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClient.h; sourceTree = "<group>"; };
+		BABF808F1C8EC604003FD60C /* VTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClient.m; sourceTree = "<group>"; };
+		BABF988D1C911C930097FF34 /* VTMerchantClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMerchantClient.h; sourceTree = "<group>"; };
+		BABF988E1C911C930097FF34 /* VTMerchantClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMerchantClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -245,6 +253,10 @@
 				3014E0C21C7AD6E4003EB203 /* Payment */,
 				BA94523C1C880E3A00A08268 /* Veritrans.h */,
 				BA94523D1C880E3A00A08268 /* Veritrans.m */,
+				BABF808E1C8EC604003FD60C /* VTClient.h */,
+				BABF808F1C8EC604003FD60C /* VTClient.m */,
+				BABF988D1C911C930097FF34 /* VTMerchantClient.h */,
+				BABF988E1C911C930097FF34 /* VTMerchantClient.m */,
 			);
 			path = MidtransCoreKit;
 			sourceTree = "<group>";
@@ -272,7 +284,9 @@
 				BA94523A1C87F81300A08268 /* VTCPaymentBankTransfer.h in Headers */,
 				30FDCC641C803AD200CEFED3 /* VTMandiriClickpay.h in Headers */,
 				305494591C75A08900938C17 /* VTItem.h in Headers */,
+				BABF988F1C911C930097FF34 /* VTMerchantClient.h in Headers */,
 				3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */,
+				BABF80901C8EC604003FD60C /* VTClient.h in Headers */,
 				3054946B1C75A0DF00938C17 /* VTPayment.h in Headers */,
 				3054945D1C75A08900938C17 /* VTNetworking.h in Headers */,
 				30D9ABFC1C76FD1D00F858AE /* VTNetworkOperation.h in Headers */,
@@ -379,6 +393,7 @@
 				3054945A1C75A08900938C17 /* VTItem.m in Sources */,
 				305494561C75A08900938C17 /* VTUser.m in Sources */,
 				BA94523F1C880E3A00A08268 /* Veritrans.m in Sources */,
+				BABF80911C8EC604003FD60C /* VTClient.m in Sources */,
 				30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */,
 				BA94523B1C87F81300A08268 /* VTCPaymentBankTransfer.m in Sources */,
 				BA4FD56A1C8D3194007C46A7 /* VTCPaymentCreditCard.m in Sources */,
@@ -387,6 +402,7 @@
 				3054946C1C75A0DF00938C17 /* VTPayment.m in Sources */,
 				BA5E48201C86CD5000762606 /* VTCTransactionRequest.m in Sources */,
 				3054945C1C75A08900938C17 /* VTConfig.m in Sources */,
+				BABF98901C911C930097FF34 /* VTMerchantClient.m in Sources */,
 				305494581C75A08900938C17 /* VTAddress.m in Sources */,
 				BA5E48281C86F46400762606 /* VTCCustomerDetails.m in Sources */,
 				305494681C75A0DF00938C17 /* VTPaymentCreditCard.m in Sources */,

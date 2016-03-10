@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "VTItem.h"
 #import "VTAddress.h"
-#import "VTCCustomerDetails.h"
+#import "VTCustomerDetails.h"
 
 NS_ENUM(NSInteger, VTCTransactionRequestPaymentMethod) {
     VTCTransactionPaymentMethodUnspecified,
@@ -43,7 +43,7 @@ NS_ENUM(NSInteger, VTCTransactionRequestCardClickType) {
 @property (nonatomic, readonly) NSMutableArray<VTItem *> *items;
 @property (nonatomic, readwrite) VTAddress* billingAddress;
 @property (nonatomic, readwrite) VTAddress* shippingAddress;
-@property (nonatomic, readwrite) VTCCustomerDetails* customerDetails;
+@property (nonatomic, readwrite) VTCustomerDetails* customerDetails;
 @property (nonatomic, readwrite) BOOL useUi;
 
 - (instancetype)initWithOrderId:(NSString *)orderId

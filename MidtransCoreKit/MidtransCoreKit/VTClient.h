@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "VTCreditCard.h"
+#import "VTTokenRequest.h"
 
 @interface VTClient : NSObject
 
 + (id)sharedClient;
 
-- (void)generateTokenForCreditCard:(VTCreditCard *)creditCard
-                        completion:(void (^)(NSString *, NSError *))callback;
+- (void)generateToken:(VTTokenRequest *)tokenRequest
+           completion:(void (^)(NSString *, NSError *))callback;
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
                 completion:(void (^)(NSString *, NSError *))callback;

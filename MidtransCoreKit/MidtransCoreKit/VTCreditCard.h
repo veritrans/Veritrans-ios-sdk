@@ -22,10 +22,12 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
 @property (nonatomic, readonly) NSString *expiryMonth;
 @property (nonatomic, readonly) NSString *number;
 @property (nonatomic, readonly) NSString *holder;
+@property (nonatomic, readonly) NSString *cvv;
 
 + (instancetype)cardWithNumber:(NSString *)number
                    expiryMonth:(NSString *)expiryMonth
                     expiryYear:(NSString *)expiryYear
+                           cvv:(NSString *)cvv
                         holder:(NSString *)holder;
 
 + (VTCreditCardType)typeWithNumber:(NSString *)number;

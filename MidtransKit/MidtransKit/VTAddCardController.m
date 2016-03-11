@@ -141,20 +141,27 @@
     NSNumber *grossAmount = [_items itemsPriceAmount];
     
     
+    
     VTCreditCard *creditCard = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text holder:_cardName.text];
-    VTTokenRequest *tokenRequest = [VTTokenRequest tokenFor3DSecureTransactionWithCreditCard:creditCard bank:nil secure:YES grossAmount:grossAmount];
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
-        if (token) {
-            VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:token];
-            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:grossAmount];
-            
-            
-            VTCTransactionData *transactionData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail transactionDetails:transDetail customerDetails:_customer itemDetails:_items];
-            [[VTMerchantClient sharedClient] performCreditCardTransaction:transactionData completion:^(id response, NSError *error) {
-                
-            }];
-        }
+    
+    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTRegisteredCreditCard *registeredCard, NSError *error) {
+        
     }];
+    
+//    VTTokenRequest *tokenRequest = [VTTokenRequest tokenFor3DSecureTransactionWithCreditCard:creditCard bank:nil secure:YES grossAmount:grossAmount];
+//    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
+//        if (token) {
+//            VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:token];
+//            payDetail.saveTokenId = YES;
+//            
+//            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:grossAmount];
+//                        
+//            VTCTransactionData *transactionData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail transactionDetails:transDetail customerDetails:_customer itemDetails:_items];
+//            [[VTMerchantClient sharedClient] performCreditCardTransaction:transactionData completion:^(id response, NSError *error) {
+//                
+//            }];
+//        }
+//    }];
 }
 
 - (IBAction)nextFieldPressed:(id)sender {

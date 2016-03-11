@@ -61,7 +61,7 @@
 }
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(VTRegisteredCreditCard *registeredCard, NSError *))completion {
+                completion:(void (^)(VTRegisteredCreditCard *registeredCard, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"card/register"];
     NSDictionary *param = @{@"card_number":creditCard.number,
                             @"card_exp_month":creditCard.expiryMonth,

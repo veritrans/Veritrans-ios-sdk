@@ -20,7 +20,7 @@
            completion:(void (^)(NSString *token, NSError *error))completion;
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(VTRegisteredCreditCard *registeredCard, NSError *))completion;
+                completion:(void (^)(VTRegisteredCreditCard *registeredCard, NSError *error))completion;
 
 
 @end

@@ -31,7 +31,7 @@
              @"bank":[VTHelper nullifyIfNil:_bank],
              @"installment_term":[VTHelper nullifyIfNil:_installment],
              @"bins":[VTHelper nullifyIfNil:_bins],
-             @"type":[VTHelper nullifyIfNil:_type],
+//             @"type":[VTHelper nullifyIfNil:_type],
              @"save_token_id":_saveTokenId ? @"true":@"false"};
 }
 

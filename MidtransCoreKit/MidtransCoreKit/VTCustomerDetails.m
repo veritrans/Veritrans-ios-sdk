@@ -1,21 +1,21 @@
 //
-//  VTCCustomerDetails.m
+//  VTCustomerDetails.m
 //  MidtransCoreKit
 //
 //  Created by Akbar Taufiq Herlangga on 3/2/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCCustomerDetails.h"
+#import "VTCustomerDetails.h"
 
-@interface VTCCustomerDetails ()
+@interface VTCustomerDetails ()
 @property (nonatomic, readwrite) NSString *firstName;
 @property (nonatomic, readwrite) NSString *lastName;
 @property (nonatomic, readwrite) NSString *email;
 @property (nonatomic, readwrite) NSString *phone;
 @end
 
-@implementation VTCCustomerDetails
+@implementation VTCustomerDetails
 
 - (instancetype)initWithFirstName:(NSString *)firstName lastName:(NSString *)lastName email:(NSString *)email phone:(NSString *)phone {
     if (self = [super init]) {

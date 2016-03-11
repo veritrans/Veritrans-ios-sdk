@@ -10,7 +10,7 @@
 
 #import "VTCPaymentDetails.h"
 #import "VTCTransactionDetails.h"
-#import "VTCCustomerDetails.h"
+#import "VTCustomerDetails.h"
 #import "VTItem.h"
 
 /**
@@ -20,12 +20,12 @@
 
 @property (nonatomic, readonly) id<VTCPaymentDetails> paymentDetails;
 @property (nonatomic, readonly) VTCTransactionDetails *transactionDetails;
-@property (nonatomic, readonly) VTCCustomerDetails *customerDetails;
+@property (nonatomic, readonly) VTCustomerDetails *customerDetails;
 @property (nonatomic, readonly) NSArray<VTItem*> *itemDetails;
 
 - (instancetype)initWithpaymentDetails:(id<VTCPaymentDetails>)paymentDetails
                     transactionDetails:(VTCTransactionDetails *)transactionDetails
-                       customerDetails:(VTCCustomerDetails *)customerDetails
+                       customerDetails:(VTCustomerDetails *)customerDetails
                            itemDetails:(NSArray<VTItem*> *)itemDetails;
 
 - (NSDictionary *)dictionaryValue;

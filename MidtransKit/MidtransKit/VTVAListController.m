@@ -12,7 +12,7 @@
 #import "VTVAController.h"
 
 @interface VTVAListController ()
-@property (nonatomic) VTUser *user;
+@property (nonatomic) VTCustomerDetails *customer;
 @property (nonatomic) NSArray *items;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
@@ -23,10 +23,10 @@
     NSArray *_banks;
 }
 
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTVAListController *vc = [sb instantiateViewControllerWithIdentifier:@"VTVAListController"];
-    vc.user = user;
+    vc.customer = customer;
     vc.items = items;
     return vc;
 }

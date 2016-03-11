@@ -18,8 +18,7 @@
 @property (nonatomic, readonly) NSString* orderId;
 @property (nonatomic, readonly) NSNumber* grossAmount;
 
-- (instancetype)initWithOrderId:(NSString *)orderId
-                    grossAmount:(NSNumber *)grossAmount;
+- (instancetype)initWithGrossAmount:(NSNumber *)grossAmount;
 
 - (NSDictionary *)dictionaryValue;
 

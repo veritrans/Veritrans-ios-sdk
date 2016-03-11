@@ -7,6 +7,7 @@
 //
 
 #import "VTCTransactionDetails.h"
+#import "VTHelper.h"
 
 @interface VTCTransactionDetails()
 
@@ -17,9 +18,9 @@
 
 @implementation VTCTransactionDetails
 
-- (instancetype)initWithOrderId:(NSString *)orderId grossAmount:(NSNumber *)grossAmount {
+- (instancetype)initWithGrossAmount:(NSNumber *)grossAmount {
     if (self = [super init]) {
-        self.orderId = orderId;
+        self.orderId = [NSString randomWithLength:10];
         self.grossAmount = grossAmount;
     }
     return self;

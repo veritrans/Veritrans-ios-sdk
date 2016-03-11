@@ -24,7 +24,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
-@property (nonatomic, readwrite) VTUser *user;
+@property (nonatomic, readwrite) VTCustomerDetails *customer;
 @property (nonatomic, readwrite) NSArray *items;
 
 @end
@@ -33,10 +33,10 @@
     VTMandiriClickpay *_clickpay;
 }
 
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items {
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     VTClickpayController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTClickpayController"];
-    vc.user = user;
+    vc.customer = customer;
     vc.items = items;
     return vc;
 }
@@ -76,10 +76,7 @@
 }
 
 - (void)confirmPaymentPressed:(UIButton *)sender {
-    VTCPaymentClickpay *payment = [[VTCPaymentClickpay alloc] initWithUser:_user items:_items];
-    [payment chargeWithClickpay:_clickpay callback:^(id response, NSError *error) {
-        
-    }];
+
 }
 
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {

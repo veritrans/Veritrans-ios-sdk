@@ -18,6 +18,7 @@
 @property (nonatomic, readwrite) NSString *expiryMonth;
 @property (nonatomic, readwrite) NSString *number;
 @property (nonatomic, readwrite) NSString *holder;
+@property (nonatomic, readwrite) NSString *cvv;
 @end
 
 @implementation VTCreditCard
@@ -25,12 +26,14 @@
 + (instancetype)cardWithNumber:(NSString *)number
                    expiryMonth:(NSString *)expiryMonth
                     expiryYear:(NSString *)expiryYear
+                           cvv:(NSString *)cvv
                         holder:(NSString *)holder {
     VTCreditCard *card = [[VTCreditCard alloc] init];
     card.number = number;
     card.expiryMonth = expiryMonth;
     card.expiryYear = expiryYear;
     card.holder = holder;
+    card.cvv = cvv;
     return card;
 }
 

@@ -45,7 +45,15 @@
         if ([value isKindOfClass:[NSArray class]]) {
             [pairs addObjectsFromArray:[self pairsOfArray:value key:key]];
         } else {
-            NSString *escapedValue = [value isKindOfClass:[NSNumber class]] ? value : [value URLEncodedString];
+            NSString *escapedValue;
+            
+            if ([value isKindOfClass:[NSNumber class]])
+                escapedValue = value;
+            else if ([value isKindOfClass:[NSNull class]])
+                escapedValue = @"";
+            else
+                escapedValue = [value URLEncodedString];
+
             [pairs addObject:[NSString stringWithFormat:@"%@=%@", key, escapedValue]];
         }
     }

@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTUser.h>
+#import <MidtransCoreKit/VTCustomerDetails.h>
 
 @interface VTVAListController : UIViewController
-+ (instancetype)controllerWithUser:(VTUser *)user items:(NSArray *)items;
++ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items;
 @end

@@ -29,7 +29,7 @@
         self.items = [[NSMutableArray alloc] init];
         self.billingAddress = [[VTAddress alloc] init];
         self.shippingAddress = [[VTAddress alloc] init];
-        self.customerDetails = [[VTCCustomerDetails alloc] init];
+        self.customerDetails = [[VTCustomerDetails alloc] init];
         self.useUi = FALSE;
     }
     return self;

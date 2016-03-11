@@ -13,14 +13,14 @@
 
 @property (nonatomic, readwrite) id paymentDetails;
 @property (nonatomic, readwrite) VTCTransactionDetails *transactionDetails;
-@property (nonatomic, readwrite) VTCCustomerDetails *customerDetails;
+@property (nonatomic, readwrite) VTCustomerDetails *customerDetails;
 @property (nonatomic, readwrite) NSArray<VTItem*> *itemDetails;
 
 @end
 
 @implementation VTCTransactionData
 
-- (instancetype)initWithpaymentDetails:(id<VTCPaymentDetails>)paymentDetails transactionDetails:(VTCTransactionDetails *)transactionDetails customerDetails:(VTCCustomerDetails *)customerDetails itemDetails:(NSArray<VTItem *> *)itemDetails {
+- (instancetype)initWithpaymentDetails:(id<VTCPaymentDetails>)paymentDetails transactionDetails:(VTCTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItem *> *)itemDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
         self.transactionDetails = transactionDetails;
@@ -40,7 +40,7 @@
                              // MUST HAVE key with the same name with the value of "payment_type".
                              // For example, when the "payment_type" value is "bank_transfer",
                              // the JSON MUST HAVE key named "bank_transfer", too.
-                             [self.paymentDetails paymentType]: [self.paymentDetails dictionaryValue]};
+                             [self.paymentDetails paymentType]:[self.paymentDetails dictionaryValue]};
     return result;
 }
 

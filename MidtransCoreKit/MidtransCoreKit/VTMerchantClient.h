@@ -11,9 +11,8 @@
 
 @interface VTMerchantClient : NSObject
 
-- (void)performCreditCardTransaction:(VTCTransactionData *)transaction;
++ (id)sharedClient;
 
-- (void)performCreditCardTransaction:(VTCTransactionData *)transaction
-                         withTokenId:(NSString *)token;
+- (void)performCreditCardTransaction:(VTCTransactionData *)transaction completion:(void(^)(id response, NSError *error))completion;
 
 @end

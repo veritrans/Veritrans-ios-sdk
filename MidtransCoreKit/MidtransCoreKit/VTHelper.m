@@ -9,6 +9,8 @@
 #import "VTHelper.h"
 #import "VTItem.h"
 
+NSString *const ErrorDomain = @"error.veritrans.co.id";
+
 @implementation NSUserDefaults (utilities)
 
 - (void)saveNewCard:(NSDictionary *)card {
@@ -46,13 +48,14 @@
 
 + (void)handleResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
     NSInteger code = [response[@"status_code"] integerValue];
-    if (code/200 == 2) {
+    if (code/100 == 2) {
         if (completion) completion(response, nil);
     } else {
-        NSAssert(YES, @"handle API error response");
-        if (completion) completion(nil, nil);
+        NSError *error = [NSError errorWithDomain:ErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:response[@"status_message"]}];
+        if (completion) completion(nil, error);
     }
 }
+
 @end
 
 @implementation NSArray (item)

@@ -14,6 +14,7 @@
 		302F71CE1C73163C00FE73FE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302F71CD1C73163C00FE73FE /* Assets.xcassets */; };
 		302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302F71CF1C73163C00FE73FE /* LaunchScreen.storyboard */; };
 		30FDCC411C8002B400CEFED3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCC401C8002B400CEFED3 /* TableViewCell.m */; };
+		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
 		E51FBCDC1C8C8A21008D240A /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB20B1C8C83DC0043A027 /* libMidtransCoreKit.a */; };
 		E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB2131C8C83E20043A027 /* libMidtransKit.a */; };
 		E51FBCDE1C8C8A26008D240A /* MidtransResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransResources.bundle */; };
@@ -93,6 +94,8 @@
 		302F71D21C73163C00FE73FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30FDCC3F1C8002B400CEFED3 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		30FDCC401C8002B400CEFED3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		E5154AB91C980EAD001A69E2 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
+		E5154ABA1C980EAD001A69E2 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
 		E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransCoreKit.xcodeproj; path = ../../MidtransCoreKit/MidtransCoreKit.xcodeproj; sourceTree = "<group>"; };
 		E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
 		E5AEB21B1C8C84860043A027 /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -173,6 +176,8 @@
 				302F71CA1C73163C00FE73FE /* Main.storyboard */,
 				30FDCC3F1C8002B400CEFED3 /* TableViewCell.h */,
 				30FDCC401C8002B400CEFED3 /* TableViewCell.m */,
+				E5154AB91C980EAD001A69E2 /* OptionViewController.h */,
+				E5154ABA1C980EAD001A69E2 /* OptionViewController.m */,
 			);
 			path = VTDirectDemo;
 			sourceTree = "<group>";
@@ -381,6 +386,7 @@
 				E5AEB2381C8C84860043A027 /* NSData+ImageContentType.m in Sources */,
 				E5AEB23E1C8C84860043A027 /* SDWebImageManager.m in Sources */,
 				E5AEB2431C8C84860043A027 /* UIImageView+HighlightedWebCache.m in Sources */,
+				E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */,
 				E5AEB23C1C8C84860043A027 /* SDWebImageDownloader.m in Sources */,
 				E5AEB2441C8C84860043A027 /* UIImageView+WebCache.m in Sources */,
 				E5AEB2391C8C84860043A027 /* SDImageCache.m in Sources */,

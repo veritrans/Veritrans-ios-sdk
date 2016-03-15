@@ -36,7 +36,7 @@
                   moduleName = "VTDirectDemo"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransCoreKit/MidtransCoreKit/VTClient.m"
-                  timestampString = "479720685.671034"
+                  timestampString = "479733864.842152"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -51,7 +51,7 @@
                   moduleName = "MidtransResources"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransCoreKit/MidtransCoreKit/VTClient.m"
-                  timestampString = "479720687.952144"
+                  timestampString = "479733866.687465"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
@@ -66,12 +66,60 @@
                   moduleName = "MidtransResources"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransCoreKit/MidtransCoreKit/VTClient.m"
-                  timestampString = "479720687.952403"
+                  timestampString = "479733866.687658"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "85"
                   endingLineNumber = "85"
                   offsetFromSymbolStart = "92">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "../MidtransKit/MidtransKit/VTTwoClickController.m"
+            timestampString = "479727837.372322"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "113"
+            endingLineNumber = "113"
+            landmarkName = "-paymentPressed:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[VTTwoClickController paymentPressed:]_block_invoke_2"
+                  moduleName = "VTDirectDemo"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransKit/MidtransKit/VTTwoClickController.m"
+                  timestampString = "479733864.844597"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "121">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__39-[VTTwoClickController paymentPressed:]_block_invoke_2"
+                  moduleName = "MidtransResources"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransKit/MidtransKit/VTTwoClickController.m"
+                  timestampString = "479733866.687953"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "113"
+                  endingLineNumber = "113"
+                  offsetFromSymbolStart = "121">
                </Location>
             </Locations>
          </BreakpointContent>

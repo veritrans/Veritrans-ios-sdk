@@ -12,7 +12,9 @@
 
 #import <MidtransCoreKit/VTMandiriClickpay.h>
 #import <MidtransCoreKit/VTItem.h>
+#import <MidtransCoreKit/VTConfig.h>
 #import <MidtransCoreKit/VTCustomerDetails.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
 
 @implementation NSString (random)
 
@@ -43,6 +45,21 @@
     
     _items = [self items];
     _customer = [[VTCustomerDetails alloc] initWithFirstName:@"Nanang" lastName:@"Rafsanjani" email:@"jukiginanjar@yahoo.com" phone:@"08985999286"];
+    
+    
+    self.navigationController.view.userInteractionEnabled = NO;
+    
+    if ([CONFIG merchantAuth]) {
+        self.navigationController.view.userInteractionEnabled = YES;
+    } else {
+        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
+            VTMerchantAuth *merchantAuth = [[VTMerchantAuth alloc] initWithAuthData:response];
+            [CONFIG setMerchantAuth:merchantAuth];
+            
+            self.navigationController.view.userInteractionEnabled = YES;
+        }];
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning {

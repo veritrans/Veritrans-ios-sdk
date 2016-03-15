@@ -24,11 +24,10 @@
     
     [Fabric with:@[[Crashlytics class]]];
     
-    [VTConfig setClientKey:@"VT-client-P15EFHb_Z_ADN8tJ"];
-    [VTConfig setMerchantServerURL:@"https://vt-merchant.coral-inc.com/api"];
-    [VTConfig setServerEnvironment:VTServerEnvironmentSandbox];
-    [VTConfig setCreditCardPaymentFeature:VTCreditCardFeatureTwoClick];
-    [VTConfig setCreditCardSecurePayment:YES];
+    [CONFIG setClientKey:@"VT-client-P15EFHb_Z_ADN8tJ"];
+    [CONFIG setMerchantServerURL:@"https://vt-merchant.coral-inc.com/api"];
+    [CONFIG setEnvironment:VTServerEnvironmentSandbox];
+    [CONFIG setCreditCardFeature:VTCreditCardFeatureTwoClick];
     
     return YES;
 }

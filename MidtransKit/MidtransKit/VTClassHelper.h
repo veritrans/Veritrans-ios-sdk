@@ -39,13 +39,13 @@ extern NSString *const VTBCAVAIdentifier;
 extern NSString *const VTMandiriVAIdentifier;
 extern NSString *const VTOtherVAIdentifier;
 
-
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
 @end
 
 @interface NSString (utilities)
 - (BOOL)isNumeric;
+- (NSString *)formattedCreditCardNumber;
 @end
 
 @interface UITextField (helper)

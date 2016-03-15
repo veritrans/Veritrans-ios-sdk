@@ -2684,11 +2684,6 @@ be used for every transactions.</string>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="descriptionLabel" destination="6mr-yf-nvQ" id="aOi-zd-VKG"/>
-                        <outlet property="statusIconView" destination="jQE-yJ-yhz" id="sL7-R1-yj1"/>
-                        <outlet property="titleLabel" destination="wb6-A5-Iy3" id="OsW-Sc-2P4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ye6-Qb-OtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2703,15 +2698,15 @@ be used for every transactions.</string>
                         <viewControllerLayoutGuide type="bottom" id="0AH-AB-dcx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4NF-bg-on5">
-                        <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="270" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-rK-RBv" customClass="VTAlertBackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-8s-Dyb" customClass="VTButton">
-                                <rect key="frame" x="0.0" y="223" width="135" height="47"/>
+                                <rect key="frame" x="0.0" y="203" width="135" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="OVE-1H-BA0"/>
                                 </constraints>
@@ -2734,7 +2729,7 @@ be used for every transactions.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-7l-sHY" customClass="VTButton">
-                                <rect key="frame" x="135" y="223" width="135" height="47"/>
+                                <rect key="frame" x="135" y="203" width="135" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="hlf-bg-mex"/>
                                 </constraints>
@@ -2752,7 +2747,7 @@ be used for every transactions.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7F-UK-Frb" userLabel="Total View" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="178" width="270" height="45"/>
+                                <rect key="frame" x="0.0" y="158" width="270" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-yT-9PG">
                                         <rect key="frame" x="15" y="14" width="81" height="16"/>
@@ -2790,7 +2785,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-K7-rCb" userLabel="Total View" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="133" width="270" height="45"/>
+                                <rect key="frame" x="0.0" y="113" width="270" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzE-PG-WKm">
                                         <rect key="frame" x="15" y="14" width="81" height="16"/>
@@ -2828,7 +2823,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm your payment below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="TMa-9q-Tbd">
-                                <rect key="frame" x="15" y="65" width="240" height="60"/>
+                                <rect key="frame" x="15" y="65" width="240" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2860,9 +2855,9 @@ be used for every transactions.</string>
                             <constraint firstAttribute="trailing" secondItem="TMa-9q-Tbd" secondAttribute="trailing" constant="15" id="zJo-Hx-1fY"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="270" height="270"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="270" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="270" height="270"/>
+                    <size key="freeformSize" width="270" height="250"/>
                     <connections>
                         <outlet property="cardNumberLabel" destination="vlJ-Bm-yoX" id="ykg-Sv-hFM"/>
                         <outlet property="grossAmountLabel" destination="mbg-FA-M6g" id="P6A-Kw-kZg"/>

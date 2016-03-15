@@ -176,6 +176,8 @@
 			children = (
 				3054944B1C75A08900938C17 /* VTAddress.h */,
 				3054944C1C75A08900938C17 /* VTAddress.m */,
+				E55DB9301C912ED300813B81 /* VTCustomerDetails.h */,
+				E55DB9311C912ED300813B81 /* VTCustomerDetails.m */,
 				3054944D1C75A08900938C17 /* VTItem.h */,
 				3054944E1C75A08900938C17 /* VTItem.m */,
 				305494531C75A08900938C17 /* VTCreditCard.h */,
@@ -184,8 +186,8 @@
 				30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */,
 				E55DB9531C915A8300813B81 /* VTMaskedCreditCard.h */,
 				E55DB9541C915A8300813B81 /* VTMaskedCreditCard.m */,
-				E55DB9301C912ED300813B81 /* VTCustomerDetails.h */,
-				E55DB9311C912ED300813B81 /* VTCustomerDetails.m */,
+				E517C2B41C9660FD009AE6AA /* VTMerchantAuth.h */,
+				E517C2B51C9660FD009AE6AA /* VTMerchantAuth.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -201,8 +203,6 @@
 				305494521C75A08900938C17 /* VTNetworking.m */,
 				30D9ABFA1C76FD1D00F858AE /* VTNetworkOperation.h */,
 				30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */,
-				E517C2B41C9660FD009AE6AA /* VTMerchantAuth.h */,
-				E517C2B51C9660FD009AE6AA /* VTMerchantAuth.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";

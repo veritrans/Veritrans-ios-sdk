@@ -10,7 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTTextField.h"
 #import "UIViewController+Modal.h"
-#import "VTCVVGuideController.h"
+#import "VTCvvInfoController.h"
 #import "VTCCFrontView.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
@@ -20,8 +20,10 @@
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTCTransactionDetails.h>
 
+#import "VTHudView.h"
+
 @interface VTAddCardController ()
-@property (strong, nonatomic) IBOutlet VTTextField *cardName;
+
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
@@ -38,6 +40,8 @@
 
 @implementation VTAddCardController {
     __weak UITextField *selectedTextField;
+    
+    VTHudView *_hudView;
 }
 
 + (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
@@ -51,6 +55,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    _hudView = [[VTHudView alloc] init];
+    
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
     NSNumberFormatter *formatter = [NSNumberFormatter new];
@@ -58,7 +64,7 @@
     
     NSNumber *amount = [_items itemsPriceAmount];
     
-    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:amount]]; //[[_items itemsPriceAmount] stringValue];// [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
+    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:amount]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,9 +87,7 @@
 }
 
 - (IBAction)textFieldChanged:(id)sender {
-    if ([sender isEqual:_cardName]) {
-        _cardFrontView.holderNameLabel.text = _cardName.text;
-    } else if ([sender isEqual:_cardNumber]) {
+    if ([sender isEqual:_cardNumber]) {
         _creditCardLogo.image = [self iconDarkWithNumber:_cardNumber.text];
         _cardFrontView.iconView.image = [self iconWithNumber:_cardNumber.text];
         _cardFrontView.numberLabel.text = _cardNumber.text;
@@ -119,49 +123,35 @@
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
-    VTCVVGuideController *guide = [self.storyboard instantiateViewControllerWithIdentifier:@"VTCVVGuideController"];
+    VTCvvInfoController *guide = [self.storyboard instantiateViewControllerWithIdentifier:@"VTCvvInfoController"];
     guide.modalSize = guide.preferredContentSize;
     [self presentCustomViewController:guide
              presentingViewController:self.navigationController
                            completion:nil];
 }
 
-- (IBAction)paymentPressed:(UIButton *)sender {
-    NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
-    if ([dates count] != 2) {
-        _cardExpiryDate.warning = @"wrong expiry date format";
-        return;
-    }
+- (IBAction)registerPressed:(UIButton *)sender {
+    if ([self expiryDateValid] == NO) return;
     
+    [_hudView showOnView:self.view];
+    
+    NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
     NSString *expYear = dates[1];
     
-    NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    VTCreditCard *creditCard = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text];
     
-    NSNumber *grossAmount = [_items itemsPriceAmount];
-    
-    
-    
-    VTCreditCard *creditCard = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text holder:_cardName.text];
-    
-    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTRegisteredCreditCard *registeredCard, NSError *error) {
+    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *registeredCard, NSError *error) {
+        [_hudView hide];
         
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            [alert show];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }];
-    
-//    VTTokenRequest *tokenRequest = [VTTokenRequest tokenFor3DSecureTransactionWithCreditCard:creditCard bank:nil secure:YES grossAmount:grossAmount];
-//    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
-//        if (token) {
-//            VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:token];
-//            payDetail.saveTokenId = YES;
-//            
-//            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:grossAmount];
-//                        
-//            VTCTransactionData *transactionData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail transactionDetails:transDetail customerDetails:_customer itemDetails:_items];
-//            [[VTMerchantClient sharedClient] performCreditCardTransaction:transactionData completion:^(id response, NSError *error) {
-//                
-//            }];
-//        }
-//    }];
 }
 
 - (IBAction)nextFieldPressed:(id)sender {
@@ -170,21 +160,27 @@
     } else if ([selectedTextField isEqual:_cardExpiryDate]) {
         [_cardCvv becomeFirstResponder];
     } else if ([selectedTextField isEqual:_cardCvv]) {
-        [_cardName becomeFirstResponder];
-    } else {
         [_cardNumber becomeFirstResponder];
     }
 }
 
 - (IBAction)prevFieldPressed:(id)sender {
     if ([selectedTextField isEqual:_cardNumber]) {
-        [_cardName becomeFirstResponder];
-    } else if ([selectedTextField isEqual:_cardExpiryDate]) {
-        [_cardNumber becomeFirstResponder];
+        [_cardCvv becomeFirstResponder];
     } else if ([selectedTextField isEqual:_cardCvv]) {
         [_cardExpiryDate becomeFirstResponder];
     } else {
-        [_cardCvv becomeFirstResponder];
+        [_cardNumber becomeFirstResponder];
+    }
+}
+
+- (BOOL)expiryDateValid {
+    NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
+    if ([dates count] != 2) {
+        _cardExpiryDate.warning = @"wrong expiry date format";
+        return NO;
+    } else {
+        return YES;
     }
 }
 

@@ -13,23 +13,19 @@
 
 @property (nonatomic, readonly) VTCreditCard *creditCard;
 @property (nonatomic, readonly) NSString *bank;
-@property (nonatomic, readonly) BOOL secure;
 @property (nonatomic, readonly) NSNumber *grossAmount;
 @property (nonatomic, readonly) BOOL installment;
 @property (nonatomic, readonly) NSNumber *installmentTerm;
 @property (nonatomic, readonly) NSString *token;
 @property (nonatomic, readonly) BOOL twoClick;
 @property (nonatomic, readonly) NSString *type;
+@property (nonatomic, readonly) BOOL secure;
 
 + (instancetype)tokenForNormalTransactionWithCreditCard:(VTCreditCard *)creditCard;
 
-+ (instancetype)tokenFor3DSecureTransactionWithCreditCard:(VTCreditCard *)creditCard
-                                                     bank:(NSString *)bank
-                                              grossAmount:(NSNumber *)grossAmount;
-
 + (instancetype)tokenForTwoClickTransactionWithToken:(NSString *)token
-                                              secure:(BOOL)secure
                                                  cvv:(NSString *)cvv
+                                              secure:(BOOL)secure
                                          grossAmount:(NSNumber *)grossAmount;
 
 - (NSDictionary *)dictionaryValue;

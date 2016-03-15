@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 #import "VTCreditCard.h"
 #import "VTTokenRequest.h"
-#import "VTRegisteredCreditCard.h"
+#import "VTMaskedCreditCard.h"
 
 @interface VTClient : NSObject
 
@@ -20,7 +20,7 @@
            completion:(void (^)(NSString *token, NSError *error))completion;
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(VTRegisteredCreditCard *registeredCard, NSError *error))completion;
+                completion:(void (^)(id response, NSError *error))completion;
 
 
 @end

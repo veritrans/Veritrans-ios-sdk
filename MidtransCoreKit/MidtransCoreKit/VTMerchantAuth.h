@@ -10,7 +10,7 @@
 
 @interface VTMerchantAuth : NSObject
 
-- (id)initWithKey:(NSString *)key value:(id)value;
+- (id)initWithAuthData:(NSDictionary *)authData;
 
 - (NSDictionary *)dictinaryValue;
 

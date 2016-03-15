@@ -14,8 +14,7 @@ extern NSString *const ErrorDomain;
 
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
-+ (void)handleMerchantResponse:(id)response completion:(void (^)(id response, NSError *error))completion;
-+ (void)handleVeritransResponse:(id)response completion:(void (^)(id response, NSError *error))completion;
++ (void)handleResponse:(id)response completion:(void (^)(id response, NSError *error))completion;
 @end
 
 @interface NSArray (item)

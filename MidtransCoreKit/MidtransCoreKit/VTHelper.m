@@ -22,17 +22,7 @@ NSString *const ErrorDomain = @"error.veritrans.co.id";
     }
 }
 
-+ (void)handleMerchantResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
-    NSInteger code = [response[@"code"] integerValue];
-    if (code/100 == 2) {
-        if (completion) completion(response, nil);
-    } else {
-        NSError *error = [NSError errorWithDomain:ErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:response[@"message"]}];
-        if (completion) completion(nil, error);
-    }
-}
-
-+ (void)handleVeritransResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
++ (void)handleResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
     NSInteger code = [response[@"status_code"] integerValue];
     if (code/100 == 2) {
         if (completion) completion(response, nil);

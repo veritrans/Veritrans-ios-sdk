@@ -29,21 +29,21 @@
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
     
     [[VTNetworking sharedInstance] postToURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
-        [VTHelper handleMerchantResponse:response completion:completion];
+        [VTHelper handleResponse:response completion:completion];
     }];
 }
 
 - (void)saveRegisteredCard:(id)savedCard completion:(void(^)(id response, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card/register"];
     [[VTNetworking sharedInstance] postToURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:savedCard callback:^(id response, NSError *error) {
-        [VTHelper handleMerchantResponse:response completion:completion];
+        [VTHelper handleResponse:response completion:completion];
     }];
 }
 
 - (void)fetchMaskedCardsWithCompletion:(void(^)(NSArray *maskedCards, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card"];
     [[VTNetworking sharedInstance] getFromURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:nil callback:^(id response, NSError *error) {
-        [VTHelper handleMerchantResponse:response completion:^(id response, NSError *error) {
+        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
             
             NSMutableArray *result;
             if (response) {

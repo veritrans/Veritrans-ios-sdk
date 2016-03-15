@@ -80,7 +80,7 @@
                             @"card_exp_year":@(year)};
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
-        [VTHelper handleVeritransResponse:response completion:^(id response, NSError *error) {
+        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
             if (response) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
                 [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:completion];

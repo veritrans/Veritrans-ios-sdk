@@ -19,44 +19,59 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "../MidtransKit/MidtransKit/VTAddCardController.m"
-            timestampString = "479358634.840863"
+            filePath = "../MidtransCoreKit/MidtransCoreKit/VTClient.m"
+            timestampString = "479720647.031783"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "-paymentPressed:"
+            startingLineNumber = "85"
+            endingLineNumber = "85"
+            landmarkName = "-registerCreditCard:completion:"
             landmarkType = "5">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__38-[VTAddCardController paymentPressed:]_block_invoke"
+                  symbolName = "__42-[VTClient registerCreditCard:completion:]_block_invoke_2"
                   moduleName = "VTDirectDemo"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransKit/MidtransKit/VTAddCardController.m"
-                  timestampString = "479358668.704844"
+                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransCoreKit/MidtransCoreKit/VTClient.m"
+                  timestampString = "479720685.671034"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "149"
-                  endingLineNumber = "149"
-                  offsetFromSymbolStart = "83">
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "100">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "__38-[VTAddCardController paymentPressed:]_block_invoke"
+                  symbolName = "__42-[VTClient registerCreditCard:completion:]_block_invoke_2"
                   moduleName = "MidtransResources"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransKit/MidtransKit/VTAddCardController.m"
-                  timestampString = "479358679.991028"
+                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransCoreKit/MidtransCoreKit/VTClient.m"
+                  timestampString = "479720687.952144"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "149"
-                  endingLineNumber = "149"
-                  offsetFromSymbolStart = "83">
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__42-[VTClient registerCreditCard:completion:]_block_invoke_3"
+                  moduleName = "MidtransResources"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nanang/Documents/Workspace/vt/Midtrans/MidtransCoreKit/MidtransCoreKit/VTClient.m"
+                  timestampString = "479720687.952403"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "92">
                </Location>
             </Locations>
          </BreakpointContent>

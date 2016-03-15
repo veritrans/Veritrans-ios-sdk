@@ -13,15 +13,11 @@ NSString *const VTEnvironmentProduction = @"production";
 
 @interface VTConfig ()
 @property (nonatomic, readwrite) NSString *baseUrl;
-@property (nonatomic, readwrite) NSString *clientKey;
-@property (nonatomic, readwrite) NSString *merchantServerURL;
-@property (nonatomic, readwrite) VTCreditCardFeature creditCardFeature;
-@property (nonatomic, readwrite) BOOL secureCreditCardPayment;
-@property (nonatomic) VTMerchantAuth *merchantAuth;
 @end
 
 @implementation VTConfig
 
+@synthesize merchantAuth = _merchantAuth;
 
 - (NSString *)merchantServerURL {
     NSAssert(_merchantServerURL, @"please include your merchant server URL in VTConfig");
@@ -33,10 +29,22 @@ NSString *const VTEnvironmentProduction = @"production";
     return _clientKey;
 }
 
-//- (VTMerchantAuth *)merchantAuth {
-//    NSAssert(_merchantAuth, @"please add an set VTMerchantAuth in VTConfig");
-//    return _merchantAuth;
-//}
+- (VTMerchantAuth *)merchantAuth {
+    NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_merchant_auth"];
+    if (encoded) {
+        _merchantAuth = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    }
+    return _merchantAuth;
+}
+
+- (void)setMerchantAuth:(VTMerchantAuth *)merchantAuth {
+    _merchantAuth = merchantAuth;
+    
+    NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:merchantAuth];
+    [[NSUserDefaults standardUserDefaults] setObject:encoded forKey:@"vt_merchant_auth"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 
 + (id)sharedInstance {
     static VTConfig *shared = nil;
@@ -47,38 +55,19 @@ NSString *const VTEnvironmentProduction = @"production";
     return shared;
 }
 
-+ (void)setMerchantAuthWithKey:(NSString *)key value:(id)value {
-    VTMerchantAuth *merchantAuth = [[VTMerchantAuth alloc] initWithKey:key value:value];
-    [CONFIG setMerchantAuth:merchantAuth];
-}
-
-+(void)setMerchantServerURL:(NSString *)merchantServerURL {
-    [CONFIG setMerchantServerURL:merchantServerURL];
-}
-
-+ (void)setServerEnvironment:(VTServerEnvironment)environment {
+- (void)setEnvironment:(VTServerEnvironment)environment {
+    _environment = environment;
+    
     switch (environment) {
         case VTServerEnvironmentProduction:
-            [CONFIG setBaseUrl:@"https://api.veritrans.co.id/v2"];
+            self.baseUrl = @"https://api.veritrans.co.id/v2";
             break;
         case VTServerEnvironmentSandbox:
-            [CONFIG setBaseUrl:@"https://api.sandbox.veritrans.co.id/v2"];
+            self.baseUrl = @"https://api.sandbox.veritrans.co.id/v2";
             break;
         default:
             break;
     }
-}
-
-+ (void)setClientKey:(NSString *)clientKey {
-    [CONFIG setClientKey:clientKey];
-}
-
-+ (void)setCreditCardPaymentFeature:(VTCreditCardFeature)creditCardFeature {
-    [CONFIG setCreditCardFeature:creditCardFeature];
-}
-
-+ (void)setCreditCardSecurePayment:(BOOL)secure {
-    [CONFIG setSecureCreditCardPayment:secure];
 }
 
 @end

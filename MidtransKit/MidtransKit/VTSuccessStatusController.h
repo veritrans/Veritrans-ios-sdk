@@ -10,5 +10,5 @@
 #import "VTPaymentStatusViewModel.h"
 
 @interface VTSuccessStatusController : UIViewController
-@property (nonatomic) VTPaymentStatusViewModel *successViewModel;
++ (instancetype)controllerWithSuccessViewModel:(VTPaymentStatusViewModel *)viewModel;
 @end

@@ -46,8 +46,7 @@
     _banks = [NSArray arrayWithContentsOfFile:path];
     
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    _totalAmountLabel.text = [formatter stringFromNumber:[_items itemsPriceAmount]];
+    _totalAmountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
 }
 
 - (void)didReceiveMemoryWarning {

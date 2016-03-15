@@ -23,8 +23,7 @@
 
 - (NSString *)price {
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    return [formatter stringFromNumber:_item.price];
+    return [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:_item.price]];
 }
 - (NSString *)quantity {
     return [NSString stringWithFormat:@"Quantity: %@", _item.quantity];
@@ -36,8 +35,7 @@
 + (NSString *)totalPriceOfItems:(NSArray *)items {
     NSNumber *price = [items itemsPriceAmount];
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    return [formatter stringFromNumber:price];
+    return [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:price]];
 }
 
 @end

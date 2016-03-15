@@ -8,6 +8,7 @@
 
 #import "VTPaymentCreditCard.h"
 #import "VTHelper.h"
+#import "VTConfig.h"
 
 @interface VTPaymentCreditCard()
 @property (nonatomic, readwrite) NSString *tokenId;
@@ -27,12 +28,25 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"token_id":_tokenId,
-             @"bank":[VTHelper nullifyIfNil:_bank],
-             @"installment_term":[VTHelper nullifyIfNil:_installment],
-             @"bins":[VTHelper nullifyIfNil:_bins],
-//             @"type":[VTHelper nullifyIfNil:_type],
-             @"save_token_id":_saveTokenId ? @"true":@"false"};
+    switch ([CONFIG creditCardFeature]) {
+        case VTCreditCardFeatureNormal:
+            return @{@"token_id":_tokenId,
+                     @"bank":[VTHelper nullifyIfNil:_bank],
+                     @"installment_term":[VTHelper nullifyIfNil:_installment],
+                     @"bins":[VTHelper nullifyIfNil:_bins],
+                     @"type":[VTHelper nullifyIfNil:_type],
+                     @"save_token_id":_saveTokenId ? @"true":@"false"};
+        case VTCreditCardFeatureOneClick:
+            return @{@"token_id":_tokenId,
+                     @"recurring":@"true"};
+        case VTCreditCardFeatureTwoClick:
+            return @{@"token_id":_tokenId};
+        case VTCreditCardFeatureUnknown:
+            NSAssert(false, @"Unknown feature credit card payment");
+            break;
+    }
+    
+    return nil;
 }
 
 @end

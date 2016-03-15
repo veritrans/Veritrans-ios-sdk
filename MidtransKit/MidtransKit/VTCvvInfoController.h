@@ -1,5 +1,5 @@
 //
-//  VTCVVGuideController.h
+//  VTCvvInfoController.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/3/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTCVVGuideController : UIViewController
+@interface VTCvvInfoController : UIViewController
 
 @end

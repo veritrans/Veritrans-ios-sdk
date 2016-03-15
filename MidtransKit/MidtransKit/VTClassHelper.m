@@ -58,6 +58,21 @@ NSString *const VTOtherVAIdentifier = @"otherva";
     return r.location == NSNotFound;
 }
 
+- (NSString *)formattedCreditCardNumber {
+    NSString *cardNumber = self;
+    NSString *result = @"";
+    
+    while (cardNumber.length > 0) {
+        NSString *subString = [cardNumber substringToIndex:MIN(cardNumber.length, 4)];
+        result = [result stringByAppendingString:subString];
+        if (subString.length == 4) {
+            result = [result stringByAppendingString:@" "];
+        }
+        cardNumber = [cardNumber substringFromIndex:MIN(cardNumber.length, 4)];
+    }
+    return result;
+}
+
 @end
 
 @implementation UITextField (helper)

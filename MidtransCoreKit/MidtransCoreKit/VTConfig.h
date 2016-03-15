@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #import "VTMerchantAuth.h"
 
 typedef NS_ENUM(NSUInteger, VTCreditCardFeature) {
@@ -28,18 +30,12 @@ typedef NS_ENUM(NSUInteger, VTServerEnvironment) {
 
 + (id)sharedInstance;
 
-+ (void)setCreditCardPaymentFeature:(VTCreditCardFeature)creditCardFeature;
-+ (void)setCreditCardSecurePayment:(BOOL)secure;
-+ (void)setMerchantServerURL:(NSString *)merchantServerURL;
-+ (void)setServerEnvironment:(VTServerEnvironment)environment;
-+ (void)setClientKey:(NSString *)clientKey;
-+ (void)setMerchantAuthWithKey:(NSString *)key value:(id)value;
+@property (nonatomic) VTMerchantAuth *merchantAuth;
+@property (nonatomic) VTCreditCardFeature creditCardFeature;
+@property (nonatomic) NSString *clientKey;
+@property (nonatomic) NSString *merchantServerURL;
+@property (nonatomic) VTServerEnvironment environment;
 
-@property (nonatomic, readonly) VTMerchantAuth *merchantAuth;
-@property (nonatomic, readonly) VTCreditCardFeature creditCardFeature;
 @property (nonatomic, readonly) NSString *baseUrl;
-@property (nonatomic, readonly) NSString *clientKey;
-@property (nonatomic, readonly) NSString *merchantServerURL;
-@property (nonatomic, readonly) BOOL secureCreditCardPayment;
 
 @end

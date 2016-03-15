@@ -11,90 +11,43 @@
 #import <MidtransCoreKit/VTConfig.h>
 #import <MidtransCoreKit/VTCPaymentCreditCard.h>
 
+#import "PushAnimator.h"
+
 #import "VTClassHelper.h"
 #import "VTAddCardController.h"
-#import "VTInputCvvController.h"
+#import "VTTwoClickController.h"
 #import "VTTextField.h"
 #import "VTCCBackView.h"
 #import "VTCCFrontView.h"
+#import "VTHudView.h"
+#import "VTPaymentStatusViewModel.h"
 
-@interface PushAnimator : NSObject <UIViewControllerAnimatedTransitioning>
-@end
+#import "VTSuccessStatusController.h"
+#import "VTErrorStatusController.h"
+#import "VTConfirmPaymentController.h"
+#import "UIViewController+Modal.h"
+#import "UICollectionView+Empty.h"
 
-@implementation PushAnimator
-
-- (NSTimeInterval)transitionDuration:(id <UIViewControllerContextTransitioning>)transitionContext
-{
-    return 0.6;
-}
-
-- (void)animateTransition:(id<UIViewControllerContextTransitioning>)transitionContext
-{
-    UIView *container = [transitionContext containerView];
-    
-    VTInputCvvController* toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    toViewController.view.layer.zPosition = -500;
-    VTCardListController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    fromViewController.view.layer.zPosition = -1000;
-    
-    
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.collectionView.frame fromView:fromViewController.collectionView.superview];
-    
-    VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
-    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame];
-    
-    [container addSubview:toViewController.view];
-    [container addSubview:backView];
-    [container addSubview:frontView];
-    
-    toViewController.backView.hidden = YES;
-    fromViewController.collectionView.hidden = YES;
-    
-    CATransform3D rotateTransform = CATransform3DIdentity;
-    rotateTransform.m34 = 1.0/-500.0;
-    
-    backView.layer.transform = CATransform3DRotate(rotateTransform, M_PI_2, 0, 1, 0);
-    toViewController.view.alpha = 0;
-    
-    [UIView animateKeyframesWithDuration:[self transitionDuration:transitionContext] delay:0 options:UIViewKeyframeAnimationOptionCalculationModeCubic animations:^{
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1.0 animations:^{
-            toViewController.view.alpha = 1.0;
-        }];
-        
-        [UIView addKeyframeWithRelativeStartTime:0 relativeDuration:1/2.0 animations:^{
-            frontView.layer.transform = CATransform3DRotate(rotateTransform, -M_PI_2, 0, 1, 0);
-        }];
-        
-        [UIView addKeyframeWithRelativeStartTime:1/2.0 relativeDuration:1/2.0 animations:^{
-            backView.layer.transform = CATransform3DRotate(rotateTransform, 0, 0, 1, 0);
-        }];
-        
-    } completion:^(BOOL finished) {
-        
-        fromViewController.collectionView.hidden = NO;
-        toViewController.backView.hidden = NO;
-        
-        [backView removeFromSuperview];
-        [frontView removeFromSuperview];
-        
-        [transitionContext completeTransition:![transitionContext transitionWasCancelled]];
-    }];
-}
-
-@end
+#import <MidtransCoreKit/VTClient.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransCoreKit/VTPaymentCreditCard.h>
+#import <MidtransCoreKit/VTCTransactionDetails.h>
 
 @interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
-@property (nonatomic) NSMutableArray *cards;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (strong, nonatomic) IBOutlet UIView *paymentView;
+@property (strong, nonatomic) IBOutlet UIView *emptyCardView;
+@property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 
 @property (nonatomic, readwrite) VTCustomerDetails *customer;
 @property (nonatomic, readwrite) NSArray *items;
+@property (nonatomic) NSArray *cards;
 @end
 
-@implementation VTCardListController
+@implementation VTCardListController {
+    VTHudView *_hudView;
+}
 
 + (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
@@ -108,15 +61,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _cards = [[NSUserDefaults standardUserDefaults] savedCards];
+    _hudView = [[VTHudView alloc] init];
     
-    [_pageControl setNumberOfPages:[_cards count]];
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
+    _collectionView.emptyDataView = _emptyCardView;
     
-    self.navigationController.delegate = self;
+    [_pageControl setNumberOfPages:0];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
+    
+    [self reloadMaskedCards];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,8 +77,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)reloadMaskedCards {
+    [_hudView showOnView:self.view];
+    
+    __weak VTCardListController *wself = self;
+    [[VTMerchantClient sharedClient] fetchMaskedCardsWithCompletion:^(NSArray *maskedCards, NSError *error) {
+        wself.cards = maskedCards;
+        [_hudView hide];
+    }];
+}
+
+- (void)cardsUpdated:(id)sender {
+    [self reloadMaskedCards];
+}
+
+- (void)setCards:(NSArray *)cards {
+    _cards = cards;
+    
+    [_pageControl setNumberOfPages:[cards count]];
+    [_collectionView reloadData];
+}
+
 - (IBAction)newCardPressed:(UITapGestureRecognizer *)sender {
-    VTAddCardController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTAddCardController"];
+    VTAddCardController *vc = [VTAddCardController controllerWithCustomer:_customer items:_items];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -138,7 +112,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     VTCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VTCardCell" forIndexPath:indexPath];
     cell.delegate = self;
-    cell.creditCard = nil;
+    cell.maskedCard = _cards[indexPath.row];
     return cell;
 }
 
@@ -152,15 +126,50 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
+    
     if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
         
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Confirmation" message:@"Are you sure?" delegate:self cancelButtonTitle:@"No" otherButtonTitles:@"Yes", nil];
-        [alert setTag:indexPath.row];
-        [alert show];
+        VTConfirmPaymentController *vc =
+        [VTConfirmPaymentController controllerWithMaskedCardNumber:maskedCard.maskedNumber
+                                                       grossAmount:[_items itemsPriceAmount]
+                                                          callback:^(NSInteger selectedIndex)
+         {
+             [self dismissCustomViewController:nil];
+             
+             if (selectedIndex == 1) {
+                 [_hudView showOnView:self.view];
+                 
+                 VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:maskedCard.savedTokenId];
+                 VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:[_items itemsPriceAmount]];
+                 VTCTransactionData *transData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail
+                                                                                 transactionDetails:transDetail
+                                                                                    customerDetails:_customer
+                                                                                        itemDetails:_items];
+                 
+                 [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(id response, NSError *error) {
+                     [_hudView hide];
+                     
+                     if (response) {
+                         VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithData:response];
+                         VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
+                         [self.navigationController pushViewController:vc animated:YES];
+                     } else {
+                         VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+                         [self.navigationController pushViewController:vc animated:YES];
+                     }
+                 }];
+             }
+         }];
+        vc.modalSize = vc.preferredContentSize;
+        [self presentCustomViewController:vc
+                 presentingViewController:self.navigationController
+                               completion:nil];
         
     } else {
         
-        VTInputCvvController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTInputCvvController"];
+        VTTwoClickController *vc = [VTTwoClickController controllerWithCustomer:_customer items:_items savedTokenId:maskedCard.savedTokenId];
+        [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
         
     }
@@ -188,7 +197,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-
+        
     }
 }
 

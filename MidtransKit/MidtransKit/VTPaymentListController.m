@@ -49,8 +49,7 @@
     _payments = [NSArray arrayWithContentsOfFile:path];
     
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    formatter.numberStyle = NSNumberFormatterCurrencyStyle;
-    _headerAmountLabel.text = [formatter stringFromNumber:[_items itemsPriceAmount]];
+    _headerAmountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
     _footerAmountLabel.text = _headerAmountLabel.text;
 }
 
@@ -89,14 +88,10 @@
     NSString *identifier = item[@"id"];
     
     if ([identifier isEqualToString:VTCreditCardIdentifier]) {
-        NSArray *cards = [[NSUserDefaults standardUserDefaults] savedCards];
-        if ([cards count]) {
-            VTCardListController *vc = [VTCardListController controllerWithCustomer:_customer items:_items];
-            [self.navigationController pushViewController:vc animated:YES];
-        } else {
-            VTAddCardController *vc = [VTAddCardController controllerWithCustomer:_customer items:_items];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
+        
+        VTCardListController *vc = [VTCardListController controllerWithCustomer:_customer items:_items];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }
     else if ([identifier isEqualToString:VTBCAKlikpayIdentifier]) {
         

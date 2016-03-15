@@ -15,11 +15,28 @@
 
 @implementation VTMerchantAuth
 
-- (id)initWithKey:(NSString *)key value:(id)value {
+- (void)encodeWithCoder:(NSCoder *)encoder {
+    //Encode properties, other class variables, etc
+    [encoder encodeObject:self.key forKey:@"key"];
+    [encoder encodeObject:self.value forKey:@"value"];
+}
+
+- (id)initWithCoder:(NSCoder *)decoder {
+    if((self = [super init])) {
+        //decode properties, other class vars
+        self.key = [decoder decodeObjectForKey:@"key"];
+        self.value = [decoder decodeObjectForKey:@"value"];
+    }
+    return self;
+}
+
+- (id)initWithAuthData:(NSDictionary *)authData {
     self = [super init];
     if (self) {
-        _key = key;
-        _value = value;
+        for (NSString *key in [authData allKeys]) {
+            _key = key;
+            _value = authData[key];
+        }
     }
     return self;
 }

@@ -56,8 +56,8 @@
     _input2Label.text = _clickpay.input2;
     _input3Label.text = _clickpay.input3;
     
-    NSNumberFormatter *nf = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    _amountLabel.text = [nf stringFromNumber:[_items itemsPriceAmount]];
+    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
+    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
     
     [_confirmButton addTarget:self action:@selector(confirmPaymentPressed:) forControlEvents:UIControlEventTouchUpInside];
 }

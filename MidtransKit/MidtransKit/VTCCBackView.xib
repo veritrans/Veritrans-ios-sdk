@@ -22,13 +22,13 @@
                         <constraint firstAttribute="height" constant="180" id="VXM-4z-Mfp"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhP-rh-zkE">
-                    <rect key="frame" x="247" y="103" width="43" height="26"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhP-rh-zkE">
+                    <rect key="frame" x="247" y="104" width="43" height="26"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="26" id="6od-00-YVx"/>
                         <constraint firstAttribute="width" constant="43" id="IOv-vp-NZz"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -37,7 +37,7 @@
             <constraints>
                 <constraint firstItem="VGG-3e-CqV" firstAttribute="centerY" secondItem="sZZ-1S-OC4" secondAttribute="centerY" id="Ser-eX-ZoQ"/>
                 <constraint firstItem="AhP-rh-zkE" firstAttribute="trailing" secondItem="VGG-3e-CqV" secondAttribute="trailing" constant="-15" id="l3S-G7-oyP"/>
-                <constraint firstItem="AhP-rh-zkE" firstAttribute="bottom" secondItem="VGG-3e-CqV" secondAttribute="bottom" constant="-61" id="qV1-mL-DGM"/>
+                <constraint firstItem="AhP-rh-zkE" firstAttribute="bottom" secondItem="VGG-3e-CqV" secondAttribute="bottom" constant="-60" id="qV1-mL-DGM"/>
                 <constraint firstItem="VGG-3e-CqV" firstAttribute="centerX" secondItem="sZZ-1S-OC4" secondAttribute="centerX" id="xXz-rD-NTF"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>

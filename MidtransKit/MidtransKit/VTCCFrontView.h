@@ -10,7 +10,6 @@
 
 @interface VTCCFrontView : VTXibView
 @property (nonatomic) IBOutlet UIImageView *iconView;
-@property (nonatomic) IBOutlet UILabel *holderNameLabel;
 @property (nonatomic) IBOutlet UILabel *numberLabel;
 @property (nonatomic) IBOutlet UILabel *expiryLabel;
 @end

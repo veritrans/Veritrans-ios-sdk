@@ -8,6 +8,9 @@
 
 #import "VTCardCell.h"
 #import "VTCCFrontView.h"
+#import "VTClassHelper.h"
+
+#import <MidtransCoreKit/VTCreditCard.h>
 
 @interface CellCache : NSObject
 @property (nonatomic, strong) NSMutableDictionary *container;
@@ -66,18 +69,17 @@
     }
 }
 
-- (void)setCreditCard:(VTCreditCard *)creditCard {
-    if (!creditCard) return;
+- (void)setMaskedCard:(VTMaskedCreditCard *)maskedCard {
+    if (!maskedCard) return;
     
-    _creditCard = creditCard;
+    _maskedCard = maskedCard;
     
-    _frontCardView.numberLabel.text = creditCard.number;
+    _frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
     
-    NSString *iconName = [VTCreditCard typeStringWithNumber:creditCard.number];
+    NSString *iconName = [VTCreditCard typeStringWithNumber:maskedCard.maskedNumber];
     _frontCardView.iconView.image = [UIImage imageNamed:iconName];
     
-    _frontCardView.holderNameLabel.text = creditCard.holder;
-    _frontCardView.expiryLabel.text = [NSString stringWithFormat:@"%@/%@", creditCard.expiryMonth, creditCard.expiryYear];
+    _frontCardView.expiryLabel.text = @"XX/XX";
 }
 
 - (void)startEditing:(id)sender {

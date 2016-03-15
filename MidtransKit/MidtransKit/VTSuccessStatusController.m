@@ -7,6 +7,7 @@
 //
 
 #import "VTSuccessStatusController.h"
+#import "VTClassHelper.h"
 
 @interface VTSuccessStatusController ()
 @property (weak, nonatomic) IBOutlet UIImageView *statusIconView;
@@ -16,9 +17,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentTypeLabel;
+
+@property (nonatomic) VTPaymentStatusViewModel *successViewModel;
 @end
 
 @implementation VTSuccessStatusController
+
++ (instancetype)controllerWithSuccessViewModel:(VTPaymentStatusViewModel *)viewModel {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTSuccessStatusController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTSuccessStatusController"];
+    vc.successViewModel = viewModel;
+    return vc;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

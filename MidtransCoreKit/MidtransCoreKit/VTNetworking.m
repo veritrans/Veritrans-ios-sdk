@@ -102,10 +102,7 @@
     return self;
 }
 
-- (void)postToURL:(NSString *)URL
-       parameters:(NSDictionary *)parameters
-         callback:(void(^)(id response, NSError *error))callback
-{
+- (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(NSDictionary *)parameters callback:(void (^)(id response, NSError *error))callback {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     
     if (parameters) {
@@ -116,14 +113,25 @@
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-
+    
+    for (NSString *key in [header allKeys]) {
+        [request addValue:header[key] forHTTPHeaderField:key];
+    }
+    
     VTNetworkOperation *op = [VTNetworkOperation operationWithRequest:request
                                                              callback:callback];
     [_operationQueue addOperation:op];
-    
+}
+
+- (void)postToURL:(NSString *)URL
+       parameters:(NSDictionary *)parameters
+         callback:(void(^)(id response, NSError *error))callback
+{
+    [self postToURL:URL header:nil parameters:parameters callback:callback];
 }
 
 - (void)getFromURL:(NSString *)URL
+            header:(NSDictionary *)header
         parameters:(NSDictionary *)parameters
           callback:(void(^)(id response, NSError *error))callback
 {
@@ -131,9 +139,20 @@
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
     
+    for (NSString *key in [header allKeys]) {
+        [request addValue:header[key] forHTTPHeaderField:key];
+    }
+    
     VTNetworkOperation *op = [VTNetworkOperation operationWithRequest:request
                                                              callback:callback];
     [_operationQueue addOperation:op];
+}
+
+- (void)getFromURL:(NSString *)URL
+        parameters:(NSDictionary *)parameters
+          callback:(void(^)(id response, NSError *error))callback
+{
+    [self getFromURL:URL header:nil parameters:parameters callback:callback];
 }
 
 + (void)handleError:(NSError *)error callback:(void(^)(id response, NSError *error))callback {

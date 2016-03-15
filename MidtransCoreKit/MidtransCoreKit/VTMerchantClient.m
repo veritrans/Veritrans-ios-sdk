@@ -27,13 +27,42 @@
 
 - (void)performCreditCardTransaction:(VTCTransactionData *)transaction completion:(void(^)(id response, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
+    
+    [[VTNetworking sharedInstance] postToURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
+        [VTHelper handleMerchantResponse:response completion:completion];
+    }];
+}
 
-    [[VTNetworking sharedInstance] postToURL:URL parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
-        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
-            if (completion) completion(response, error);
+- (void)saveRegisteredCard:(id)savedCard completion:(void(^)(id response, NSError *error))completion {
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card/register"];
+    [[VTNetworking sharedInstance] postToURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:savedCard callback:^(id response, NSError *error) {
+        [VTHelper handleMerchantResponse:response completion:completion];
+    }];
+}
+
+- (void)fetchMaskedCardsWithCompletion:(void(^)(NSArray *maskedCards, NSError *error))completion {
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card"];
+    [[VTNetworking sharedInstance] getFromURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:nil callback:^(id response, NSError *error) {
+        [VTHelper handleMerchantResponse:response completion:^(id response, NSError *error) {
+            
+            NSMutableArray *result;
+            if (response) {
+                result = [NSMutableArray new];
+                NSArray *rawCards = response[@"data"];
+                for (id rawCard in rawCards) {
+                    VTMaskedCreditCard *card = [VTMaskedCreditCard maskedCardFromData:rawCard];
+                    [result addObject:card];
+                }
+            }
+            if (completion) completion(result, error);
+            
         }];
     }];
+}
 
+- (void)fetchMerchantAuthDataWithCompletion:(void(^)(id response, NSError *error))completion {
+    NSString *URL = [NSString stringWithFormat:@"%@/auth", [CONFIG merchantServerURL]];
+    [[VTNetworking sharedInstance] postToURL:URL parameters:nil callback:completion];
 }
 
 @end

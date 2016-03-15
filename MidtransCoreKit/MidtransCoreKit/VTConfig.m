@@ -17,9 +17,26 @@ NSString *const VTEnvironmentProduction = @"production";
 @property (nonatomic, readwrite) NSString *merchantServerURL;
 @property (nonatomic, readwrite) VTCreditCardFeature creditCardFeature;
 @property (nonatomic, readwrite) BOOL secureCreditCardPayment;
+@property (nonatomic) VTMerchantAuth *merchantAuth;
 @end
 
 @implementation VTConfig
+
+
+- (NSString *)merchantServerURL {
+    NSAssert(_merchantServerURL, @"please include your merchant server URL in VTConfig");
+    return _merchantServerURL;
+}
+
+- (NSString *)clientKey {
+    NSAssert(_clientKey, @"please include the Client Key in VTConfig");
+    return _clientKey;
+}
+
+//- (VTMerchantAuth *)merchantAuth {
+//    NSAssert(_merchantAuth, @"please add an set VTMerchantAuth in VTConfig");
+//    return _merchantAuth;
+//}
 
 + (id)sharedInstance {
     static VTConfig *shared = nil;
@@ -30,7 +47,12 @@ NSString *const VTEnvironmentProduction = @"production";
     return shared;
 }
 
-+ (void)setMerchantServerURL:(NSString *)merchantServerURL {
++ (void)setMerchantAuthWithKey:(NSString *)key value:(id)value {
+    VTMerchantAuth *merchantAuth = [[VTMerchantAuth alloc] initWithKey:key value:value];
+    [CONFIG setMerchantAuth:merchantAuth];
+}
+
++(void)setMerchantServerURL:(NSString *)merchantServerURL {
     [CONFIG setMerchantServerURL:merchantServerURL];
 }
 
@@ -46,12 +68,15 @@ NSString *const VTEnvironmentProduction = @"production";
             break;
     }
 }
+
 + (void)setClientKey:(NSString *)clientKey {
     [CONFIG setClientKey:clientKey];
 }
+
 + (void)setCreditCardPaymentFeature:(VTCreditCardFeature)creditCardFeature {
     [CONFIG setCreditCardFeature:creditCardFeature];
 }
+
 + (void)setCreditCardSecurePayment:(BOOL)secure {
     [CONFIG setSecureCreditCardPayment:secure];
 }

@@ -1,5 +1,5 @@
 //
-//  VTRegisteredCreditCard.h
+//  VTMaskedCreditCard.h
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 3/10/16.
@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VTRegisteredCreditCard : NSObject
+@interface VTMaskedCreditCard : NSObject
 @property (nonatomic, readonly) NSString *maskedNumber;
 @property (nonatomic, readonly) NSString *savedTokenId;
 
-+ (instancetype)registeredCardFromData:(NSDictionary *)data;
++ (instancetype)maskedCardFromData:(NSDictionary *)data;
 @end

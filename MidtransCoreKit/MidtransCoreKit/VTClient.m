@@ -11,6 +11,7 @@
 #import "VTNetworking.h"
 #import "VT3DSController.h"
 #import "VTHelper.h"
+#import "VTMerchantClient.h"
 
 @interface VTClient() <VT3DSControllerDelegate>
 @property (nonatomic, readwrite) NSString *tokenId;
@@ -48,30 +49,41 @@
             //set callback
             self.generateTokenCompletion = completion;
             
-            //present 3ds dialogue
-            if (!self.secureController) {
-                self.secureController = [[VT3DSController alloc] init];
+            NSString *url3Dsecure = response[@"redirect_url"];
+            
+            if (url3Dsecure != nil) {
+                //present 3ds dialogue
+                if (!self.secureController) {
+                    self.secureController = [[VT3DSController alloc] init];
+                }
+                self.secureController.webDelegate = self;
+                self.secureController.webUrl = [NSURL URLWithString:url3Dsecure];
+                UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:self.secureController];
+                [[UIApplication rootViewController] presentViewController:navigation animated:YES completion:nil];
+            } else {
+                if (completion) completion(response[@"token_id"], nil);
             }
-            self.secureController.webDelegate = self;
-            self.secureController.webUrl = [NSURL URLWithString:response[@"redirect_url"]];
-            UINavigationController *navigation = [[UINavigationController alloc] initWithRootViewController:self.secureController];
-            [[UIApplication rootViewController] presentViewController:navigation animated:YES completion:nil];
+
         }
     }];
 }
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(VTRegisteredCreditCard *registeredCard, NSError *error))completion {
+                completion:(void (^)(id response, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"card/register"];
-    NSDictionary *param = @{@"card_number":creditCard.number,
+    
+    double year = creditCard.expiryYear.doubleValue + 2000;
+    
+    NSDictionary *param = @{@"client_key":[CONFIG clientKey],
+                            @"card_number":creditCard.number,
                             @"card_exp_month":creditCard.expiryMonth,
-                            @"card_exp_year":creditCard.expiryYear};
+                            @"card_exp_year":@(year)};
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
-        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
+        [VTHelper handleVeritransResponse:response completion:^(id response, NSError *error) {
             if (response) {
-                VTRegisteredCreditCard *registeredCard = [VTRegisteredCreditCard registeredCardFromData:response];
-                if (completion) completion(registeredCard, nil);
+                [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
+                [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:completion];
             } else {
                 if (completion) completion(nil, error);
             }

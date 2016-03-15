@@ -9,32 +9,8 @@
 #import "VTHelper.h"
 #import "VTItem.h"
 
+NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
 NSString *const ErrorDomain = @"error.veritrans.co.id";
-
-@implementation NSUserDefaults (utilities)
-
-- (void)saveNewCard:(NSDictionary *)card {
-//    NSArray *cards = [self savedCards];
-//    NSMutableArray *mcards = cards ? [NSMutableArray arrayWithArray:cards] : [NSMutableArray new];
-//    if ([cards count]) {
-//        
-//    }
-//    
-//    [self setObject:@[card] forKey:@"vt_saved_card"];
-//    [self synchronize];
-}
-
-- (NSMutableArray *)savedCards {
-//    NSArray *cards = [self objectForKey:@"vt_saved_card"];
-//    if ([cards count]) {
-//        return [NSMutableArray arrayWithArray:cards];
-//    } else {
-//        return [NSMutableArray new];
-//    }
-    return [NSMutableArray new];
-}
-
-@end
 
 @implementation VTHelper
 
@@ -46,7 +22,17 @@ NSString *const ErrorDomain = @"error.veritrans.co.id";
     }
 }
 
-+ (void)handleResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
++ (void)handleMerchantResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
+    NSInteger code = [response[@"code"] integerValue];
+    if (code/100 == 2) {
+        if (completion) completion(response, nil);
+    } else {
+        NSError *error = [NSError errorWithDomain:ErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:response[@"message"]}];
+        if (completion) completion(nil, error);
+    }
+}
+
++ (void)handleVeritransResponse:(id)response completion:(void (^)(id response, NSError *error))completion {
     NSInteger code = [response[@"status_code"] integerValue];
     if (code/100 == 2) {
         if (completion) completion(response, nil);

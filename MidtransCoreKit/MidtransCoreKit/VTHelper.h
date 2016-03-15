@@ -9,11 +9,13 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+extern NSString *const VTMaskedCardsUpdated;
 extern NSString *const ErrorDomain;
 
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
-+ (void)handleResponse:(id)response completion:(void(^)(id response, NSError *error))completion;
++ (void)handleMerchantResponse:(id)response completion:(void (^)(id response, NSError *error))completion;
++ (void)handleVeritransResponse:(id)response completion:(void (^)(id response, NSError *error))completion;
 @end
 
 @interface NSArray (item)
@@ -24,14 +26,6 @@ extern NSString *const ErrorDomain;
 @interface NSString (random)
 + (NSString *)randomWithLength:(NSUInteger)length;
 @end
-
-@interface NSUserDefaults (utilities)
-
-- (void)saveNewCard:(NSDictionary *)card;
-- (NSMutableArray *)savedCards;
-
-@end
-
 
 @interface UIApplication (utilities)
 + (UIViewController *)rootViewController;

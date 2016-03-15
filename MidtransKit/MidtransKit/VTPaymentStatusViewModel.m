@@ -48,8 +48,7 @@
 - (void)setPaymentStatusData:(NSDictionary *)paymentStatusData {
     _paymentStatusData = paymentStatusData;
     
-    NSNumberFormatter *nformatter = [NSNumberFormatter new];
-    nformatter.numberStyle = NSNumberFormatterDecimalStyle;
+    NSNumberFormatter *nformatter = [NSObject numberFormatterWith:@"vt.number"];
     double damount = [paymentStatusData[@"gross_amount"] doubleValue];
     self.totalAmount = [NSString stringWithFormat:@"Rp %@", [nformatter stringFromNumber:@(damount)]];
     

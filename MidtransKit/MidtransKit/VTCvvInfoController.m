@@ -1,19 +1,20 @@
 //
-//  VTCVVGuideController.m
+//  VTCvvInfoController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/3/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCVVGuideController.h"
+#import "VTCvvInfoController.h"
 #import "UIViewController+Modal.h"
 
-@interface VTCVVGuideController ()
+@interface VTCvvInfoController ()
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
 
 @end
 
-@implementation VTCVVGuideController
+@implementation VTCvvInfoController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

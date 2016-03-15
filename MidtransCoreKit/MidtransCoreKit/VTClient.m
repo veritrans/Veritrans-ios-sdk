@@ -69,7 +69,7 @@
 }
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(id response, NSError *error))completion {
+                completion:(void (^)(VTMaskedCreditCard *maskedCard, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"card/register"];
     
     double year = creditCard.expiryYear.doubleValue + 2000;
@@ -82,8 +82,17 @@
     [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
         [VTHelper handleResponse:response completion:^(id response, NSError *error) {
             if (response) {
-                [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
-                [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:completion];
+                [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:^(id response, NSError *error) {
+                    [VTHelper handleResponse:response completion:^(id response, NSError *error) {
+                        if (response) {
+                            VTMaskedCreditCard *maskedCard = [VTMaskedCreditCard maskedCardFromData:response];
+                            if (completion) completion(maskedCard, error);
+                            [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
+                        } else {
+                            if (completion) completion(nil, error);
+                        }
+                    }];
+                }];
             } else {
                 if (completion) completion(nil, error);
             }

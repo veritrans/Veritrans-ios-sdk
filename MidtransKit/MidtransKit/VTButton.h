@@ -10,5 +10,6 @@
 
 @interface VTButton : UIButton
 @property (nonatomic) IBInspectable BOOL topLine;
+@property (nonatomic) IBInspectable BOOL leftLine;
 @property (nonatomic) IBInspectable UIColor *topLineColor;
 @end

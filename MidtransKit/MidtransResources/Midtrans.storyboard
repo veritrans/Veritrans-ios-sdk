@@ -1998,7 +1998,7 @@ be used for every transactions.</string>
                                 <rect key="frame" x="0.0" y="8" width="320" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDp-Im-pnw">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="547"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="549"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvb-nA-fBv" customClass="VTCCFrontView">
                                                 <rect key="frame" x="0.0" y="10" width="320" height="200"/>
@@ -2067,30 +2067,21 @@ be used for every transactions.</string>
                                                     <action selector="cvvInfoPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="R5I-r6-MIO"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zm0-F0-Tel">
-                                                <rect key="frame" x="15" y="338" width="163" height="21"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zsz-Bw-nKc">
-                                                <rect key="frame" x="256" y="333" width="51" height="31"/>
-                                            </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to help your future transactions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="OXb-fd-uxo">
-                                                <rect key="frame" x="15" y="369" width="290" height="32"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to ease your transactions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="OXb-fd-uxo">
+                                                <rect key="frame" x="15" y="326" width="290" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padlock1.png" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-IM-wd4">
-                                                <rect key="frame" x="15" y="426" width="42" height="51"/>
+                                                <rect key="frame" x="15" y="428" width="42" height="51"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="kWc-Ve-92F"/>
                                                     <constraint firstAttribute="width" constant="42" id="pt0-UQ-HhX"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3F-da-6Ce">
-                                                <rect key="frame" x="72" y="422" width="233" height="59"/>
+                                                <rect key="frame" x="72" y="424" width="233" height="59"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-Pp-xzc">
                                                         <rect key="frame" x="0.0" y="0.0" width="233" height="12"/>
@@ -2124,7 +2115,7 @@ be used for every transactions.</string>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvj-up-n3q">
-                                                <rect key="frame" x="0.0" y="502" width="320" height="45"/>
+                                                <rect key="frame" x="0.0" y="504" width="320" height="45"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40s-W7-f3j">
                                                         <rect key="frame" x="0.0" y="1" width="320" height="44"/>
@@ -2162,17 +2153,13 @@ be used for every transactions.</string>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="leading" secondItem="zm0-F0-Tel" secondAttribute="leading" id="BO0-tc-cly"/>
+                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" constant="15" id="6R8-Qe-V7T"/>
                                             <constraint firstItem="V00-tA-MLO" firstAttribute="trailing" secondItem="nS6-Y8-oAj" secondAttribute="trailing" id="DeY-zA-m03"/>
                                             <constraint firstItem="7gk-kx-ISN" firstAttribute="leading" secondItem="nS6-Y8-oAj" secondAttribute="leading" id="N7S-ff-PdO"/>
-                                            <constraint firstItem="zsz-Bw-nKc" firstAttribute="top" secondItem="PI3-3S-vSa" secondAttribute="bottom" constant="15" id="OJi-kr-W8E"/>
                                             <constraint firstItem="PI3-3S-vSa" firstAttribute="leading" secondItem="7gk-kx-ISN" secondAttribute="trailing" constant="15" id="PcQ-dR-Gd8"/>
                                             <constraint firstAttribute="trailing" secondItem="nS6-Y8-oAj" secondAttribute="trailing" constant="15" id="Q1c-5m-vvY"/>
-                                            <constraint firstItem="zm0-F0-Tel" firstAttribute="leading" secondItem="7gk-kx-ISN" secondAttribute="leading" id="RHX-O2-3fR"/>
-                                            <constraint firstItem="zm0-F0-Tel" firstAttribute="centerY" secondItem="zsz-Bw-nKc" secondAttribute="centerY" id="Rio-Oi-8dP"/>
                                             <constraint firstAttribute="trailing" secondItem="Fvb-nA-fBv" secondAttribute="trailing" id="TYQ-ok-tVy"/>
-                                            <constraint firstItem="VQk-IM-wd4" firstAttribute="top" secondItem="OXb-fd-uxo" secondAttribute="bottom" constant="25" id="Uaw-Cs-mnV"/>
-                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="top" secondItem="zm0-F0-Tel" secondAttribute="bottom" constant="10" id="VOf-OH-Sd8"/>
+                                            <constraint firstItem="VQk-IM-wd4" firstAttribute="top" secondItem="OXb-fd-uxo" secondAttribute="bottom" constant="70" id="Uaw-Cs-mnV"/>
                                             <constraint firstItem="nsZ-iw-JGd" firstAttribute="centerY" secondItem="PI3-3S-vSa" secondAttribute="centerY" constant="-5" id="XMa-YB-Nb4"/>
                                             <constraint firstItem="PI3-3S-vSa" firstAttribute="trailing" secondItem="nS6-Y8-oAj" secondAttribute="trailing" id="XUK-7Z-ePm"/>
                                             <constraint firstItem="Fvb-nA-fBv" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" id="YZr-Ip-Het"/>
@@ -2180,15 +2167,16 @@ be used for every transactions.</string>
                                             <constraint firstItem="VQk-IM-wd4" firstAttribute="leading" secondItem="OXb-fd-uxo" secondAttribute="leading" id="cgm-S1-VGQ"/>
                                             <constraint firstItem="Fvb-nA-fBv" firstAttribute="top" secondItem="RDp-Im-pnw" secondAttribute="top" constant="10" id="cgv-g8-aPP"/>
                                             <constraint firstItem="hvj-up-n3q" firstAttribute="top" secondItem="VQk-IM-wd4" secondAttribute="bottom" constant="25" id="dYS-uW-teV"/>
-                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="trailing" secondItem="zsz-Bw-nKc" secondAttribute="trailing" id="ddY-bm-m3Y"/>
                                             <constraint firstAttribute="trailing" secondItem="hvj-up-n3q" secondAttribute="trailing" id="edL-7z-N67"/>
                                             <constraint firstItem="PI3-3S-vSa" firstAttribute="centerY" secondItem="7gk-kx-ISN" secondAttribute="centerY" id="g8s-ah-Uhx"/>
                                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" constant="15" id="hg0-cn-1eK"/>
                                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="centerY" secondItem="VQk-IM-wd4" secondAttribute="centerY" id="i70-D8-cIe"/>
                                             <constraint firstItem="7gk-kx-ISN" firstAttribute="top" secondItem="nS6-Y8-oAj" secondAttribute="bottom" id="ngg-Ii-7ls"/>
                                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="trailing" secondItem="OXb-fd-uxo" secondAttribute="trailing" id="o92-JD-Eco"/>
+                                            <constraint firstAttribute="trailing" secondItem="OXb-fd-uxo" secondAttribute="trailing" constant="15" id="pfS-gh-2LN"/>
                                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="leading" secondItem="VQk-IM-wd4" secondAttribute="trailing" constant="15" id="tYJ-PW-cIR"/>
                                             <constraint firstItem="V00-tA-MLO" firstAttribute="centerY" secondItem="nS6-Y8-oAj" secondAttribute="centerY" id="uR3-25-AaR"/>
+                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="top" secondItem="PI3-3S-vSa" secondAttribute="bottom" constant="8" id="v8U-nh-8nP"/>
                                             <constraint firstItem="nsZ-iw-JGd" firstAttribute="trailing" secondItem="PI3-3S-vSa" secondAttribute="trailing" id="vXP-yF-Ju8"/>
                                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="top" secondItem="Fvb-nA-fBv" secondAttribute="bottom" constant="8" id="wQj-B1-Ses"/>
                                             <constraint firstAttribute="bottom" secondItem="hvj-up-n3q" secondAttribute="bottom" id="z0h-9X-Cyr"/>
@@ -2215,7 +2203,7 @@ be used for every transactions.</string>
                                     <action selector="registerPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="Ssd-YL-Gzq"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="xYW-g2-Kyj">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="xYW-g2-Kyj">
                                 <rect key="frame" x="297" y="534" width="8" height="13"/>
                             </imageView>
                         </subviews>
@@ -2242,7 +2230,6 @@ be used for every transactions.</string>
                         <outlet property="containerTextField" destination="nvf-5m-Qzj" id="ppO-Ws-xqw"/>
                         <outlet property="creditCardLogo" destination="V00-tA-MLO" id="5et-im-FgB"/>
                         <outlet property="navigationView" destination="cdH-0o-LyG" id="rIc-vU-Hfa"/>
-                        <outlet property="saveStateSwitch" destination="zsz-Bw-nKc" id="95x-8K-Aim"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zc0-oi-mdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2697,11 +2684,6 @@ be used for every transactions.</string>
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
-                    <connections>
-                        <outlet property="descriptionLabel" destination="6mr-yf-nvQ" id="aOi-zd-VKG"/>
-                        <outlet property="statusIconView" destination="jQE-yJ-yhz" id="sL7-R1-yj1"/>
-                        <outlet property="titleLabel" destination="wb6-A5-Iy3" id="OsW-Sc-2P4"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ye6-Qb-OtK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -2716,15 +2698,15 @@ be used for every transactions.</string>
                         <viewControllerLayoutGuide type="bottom" id="0AH-AB-dcx"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="4NF-bg-on5">
-                        <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="270" height="250"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gGA-rK-RBv" customClass="VTAlertBackgroundView">
-                                <rect key="frame" x="0.0" y="0.0" width="270" height="270"/>
+                                <rect key="frame" x="0.0" y="0.0" width="270" height="250"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fah-8s-Dyb" customClass="VTButton">
-                                <rect key="frame" x="0.0" y="223" width="135" height="47"/>
+                                <rect key="frame" x="0.0" y="203" width="135" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="OVE-1H-BA0"/>
                                 </constraints>
@@ -2747,7 +2729,7 @@ be used for every transactions.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hGN-7l-sHY" customClass="VTButton">
-                                <rect key="frame" x="135" y="223" width="135" height="47"/>
+                                <rect key="frame" x="135" y="203" width="135" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="hlf-bg-mex"/>
                                 </constraints>
@@ -2765,7 +2747,7 @@ be used for every transactions.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A7F-UK-Frb" userLabel="Total View" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="178" width="270" height="45"/>
+                                <rect key="frame" x="0.0" y="158" width="270" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PdY-yT-9PG">
                                         <rect key="frame" x="15" y="14" width="81" height="16"/>
@@ -2803,7 +2785,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UuG-K7-rCb" userLabel="Total View" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="133" width="270" height="45"/>
+                                <rect key="frame" x="0.0" y="113" width="270" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZzE-PG-WKm">
                                         <rect key="frame" x="15" y="14" width="81" height="16"/>
@@ -2841,7 +2823,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please confirm your payment below" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="240" translatesAutoresizingMaskIntoConstraints="NO" id="TMa-9q-Tbd">
-                                <rect key="frame" x="15" y="65" width="240" height="60"/>
+                                <rect key="frame" x="15" y="65" width="240" height="40"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -2873,9 +2855,9 @@ be used for every transactions.</string>
                             <constraint firstAttribute="trailing" secondItem="TMa-9q-Tbd" secondAttribute="trailing" constant="15" id="zJo-Hx-1fY"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="270" height="270"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="270" height="250"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="270" height="270"/>
+                    <size key="freeformSize" width="270" height="250"/>
                     <connections>
                         <outlet property="cardNumberLabel" destination="vlJ-Bm-yoX" id="ykg-Sv-hFM"/>
                         <outlet property="grossAmountLabel" destination="mbg-FA-M6g" id="P6A-Kw-kZg"/>

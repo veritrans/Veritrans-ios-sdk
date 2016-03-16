@@ -27,7 +27,6 @@
     [CONFIG setClientKey:@"VT-client-P15EFHb_Z_ADN8tJ"];
     [CONFIG setMerchantServerURL:@"https://vt-merchant.coral-inc.com/api"];
     [CONFIG setEnvironment:VTServerEnvironmentSandbox];
-    [CONFIG setCreditCardFeature:VTCreditCardFeatureTwoClick];
     
     return YES;
 }

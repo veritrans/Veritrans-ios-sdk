@@ -55,6 +55,14 @@ NSString *const VTEnvironmentProduction = @"production";
     return shared;
 }
 
+- (id)init {
+    self = [super init];
+    if (self) {
+        _creditCardFeature = VTCreditCardFeatureOneClick;
+    }
+    return self;
+}
+
 - (void)setEnvironment:(VTServerEnvironment)environment {
     _environment = environment;
     

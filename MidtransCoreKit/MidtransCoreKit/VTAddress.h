@@ -12,22 +12,20 @@
 
 @property (nonatomic, readonly) NSString *firstName;
 @property (nonatomic, readonly) NSString *lastName;
-@property (nonatomic, readonly) NSString *email;
 @property (nonatomic, readonly) NSString *phone;
 @property (nonatomic, readonly) NSString *address;
 @property (nonatomic, readonly) NSString *city;
 @property (nonatomic, readonly) NSString *postalCode;
 @property (nonatomic, readonly) NSString *countryCode;
 
-+ (instancetype)addressWithName:(NSString *)firstName
-                       lastName:(NSString *)lastName
-                          email:(NSString *)email
-                          phone:(NSString *)phone
-                        address:(NSString *)address
-                           city:(NSString *)city
-                     postalCode:(NSString *)postalCode
-                    countryCode:(NSString *)countryCode;
++ (instancetype)addressWithFirstName:(NSString *)firstName
+                            lastName:(NSString *)lastName
+                               phone:(NSString *)phone
+                             address:(NSString *)address
+                                city:(NSString *)city
+                          postalCode:(NSString *)postalCode
+                         countryCode:(NSString *)countryCode;
 
-- (NSDictionary *)requestData;
+- (NSDictionary *)dictionaryValue;
 
 @end

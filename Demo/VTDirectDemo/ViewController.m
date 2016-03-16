@@ -16,6 +16,8 @@
 #import <MidtransCoreKit/VTCustomerDetails.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 
+#import "OptionViewController.h"
+
 @implementation NSString (random)
 
 + (NSString *)randomWithLength:(NSUInteger)length {
@@ -44,8 +46,6 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     _items = [self items];
-    _customer = [[VTCustomerDetails alloc] initWithFirstName:@"Nanang" lastName:@"Rafsanjani" email:@"jukiginanjar@yahoo.com" phone:@"08985999286"];
-    
     
     self.navigationController.view.userInteractionEnabled = NO;
     
@@ -59,7 +59,6 @@
             self.navigationController.view.userInteractionEnabled = YES;
         }];
     }
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -67,9 +66,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)settingPressed:(UIBarButtonItem *)sender {
+    OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+    [self.navigationController pushViewController:option animated:YES];
+}
+
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    VTPaymentViewController *vc = [VTPaymentViewController controllerWithCustomer:_customer andItems:_items];
-    [self presentViewController:vc animated:YES completion:nil];
+    NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
+    VTCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    
+    if (customer) {
+        VTPaymentViewController *vc = [VTPaymentViewController controllerWithCustomer:customer andItems:_items];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
+        OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+        [self.navigationController pushViewController:option animated:YES];
+    }
 }
 
 #pragma mark - UITableViewDataSource

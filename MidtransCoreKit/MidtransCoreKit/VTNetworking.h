@@ -12,6 +12,11 @@
 
 + (id)sharedInstance;
 
+- (void)deleteFromURL:(NSString *)URL
+               header:(NSDictionary *)header
+           parameters:(NSDictionary *)parameters
+             callback:(void(^)(id response, NSError *error))callback;
+
 - (void)postToURL:(NSString *)URL parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback;
 - (void)getFromURL:(NSString *)URL parameters:(NSDictionary *)parameters callback:(void(^)(id response, NSError *error))callback;
 

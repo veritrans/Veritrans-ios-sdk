@@ -36,6 +36,8 @@
 
 @implementation VTTwoClickController {
     VTHudView *_hudView;
+    
+    NSNumber *_grossAmount;
 }
 
 + (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items savedTokenId:(NSString *)savedTokenId {
@@ -52,6 +54,8 @@
     // Do any additional setup after loading the view.
     
     _hudView = [[VTHudView alloc] init];
+    
+    _grossAmount = [_items itemsPriceAmount];
     
     _cvvTextField.inputAccessoryView = _navigationView;
     
@@ -96,22 +100,22 @@
     VTTokenRequest *tokenRequest = [VTTokenRequest tokenForTwoClickTransactionWithToken:_savedTokenId
                                                                                     cvv:_cvvTextField.text
                                                                                  secure:NO
-                                                                            grossAmount:[_items itemsPriceAmount]];
+                                                                            grossAmount:_grossAmount];
     
     [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
         if (token) {
             VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:token];
-            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:[_items itemsPriceAmount]];
+            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:_grossAmount];
             VTCTransactionData *transData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail
                                                                             transactionDetails:transDetail
                                                                                customerDetails:_customer
                                                                                    itemDetails:_items];
             
-            [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(id response, NSError *error) {
+            [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(VTPaymentResult *result, NSError *error) {
                 [_hudView hide];
                 
-                if (response) {
-                    VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithData:response];
+                if (result) {
+                    VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithPaymentResult:result];
                     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
                     [self.navigationController pushViewController:vc animated:YES];
                 } else {

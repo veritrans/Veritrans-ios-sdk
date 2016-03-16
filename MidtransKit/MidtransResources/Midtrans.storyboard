@@ -109,7 +109,7 @@
                                     <action selector="payPressed:" destination="2by-89-rh9" eventType="touchUpInside" id="xpj-Rt-Bjw"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aFj-4B-QPb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aFj-4B-QPb">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                         </subviews>
@@ -189,7 +189,7 @@
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <state key="normal" title="Confirm Payment"/>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="3yI-AC-DVB">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="3yI-AC-DVB">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPv-Tk-1Yb">
@@ -563,7 +563,7 @@
                                     <action selector="helpPressed:" destination="bp0-bC-k3g" eventType="touchUpInside" id="07A-ac-T8G"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="gL3-6c-V3k">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="gL3-6c-V3k">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiQ-tO-kwQ" customClass="VTBorderedView">
@@ -746,7 +746,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="9nd-Z8-Osm">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="9nd-Z8-Osm">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caV-C8-H5G">
@@ -834,7 +834,7 @@
                                     <action selector="confirmPaymentPressed:" destination="KEk-Rd-k8b" eventType="touchUpInside" id="SOy-zS-UpT"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="ScD-jX-75Q">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="ScD-jX-75Q">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-1k-3t3" customClass="VTBorderedView">
@@ -990,7 +990,7 @@
                                     <action selector="helpPressed:" destination="mjV-Wt-aZP" eventType="touchUpInside" id="PI6-zM-IvU"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="yqi-jj-i29">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="yqi-jj-i29">
                                 <rect key="frame" x="297" y="534" width="8" height="13"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5R-SR-u27" customClass="VTButton">
@@ -1303,7 +1303,7 @@
                                     <action selector="gotItPressed:" destination="y0M-0n-4ZD" eventType="touchUpInside" id="zyd-nB-wVd"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aXE-SI-wqO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aXE-SI-wqO">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-my-em2">
@@ -1803,7 +1803,7 @@ be used for every transactions.</string>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                             <state key="normal" title="Finish Payment"/>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="HmO-iT-z0z">
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="HmO-iT-z0z">
                             <rect key="frame" x="297" y="18" width="8" height="13"/>
                         </imageView>
                     </subviews>
@@ -1906,7 +1906,7 @@ be used for every transactions.</string>
                                     <action selector="paymentPressed:" destination="VTt-h6-9yy" eventType="touchUpInside" id="bJ8-ue-NXf"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="thx-J3-od5">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="thx-J3-od5">
                                 <rect key="frame" x="297" y="534" width="8" height="13"/>
                             </imageView>
                         </subviews>

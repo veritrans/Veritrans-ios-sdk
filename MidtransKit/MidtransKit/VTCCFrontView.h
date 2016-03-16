@@ -12,4 +12,6 @@
 @property (nonatomic) IBOutlet UIImageView *iconView;
 @property (nonatomic) IBOutlet UILabel *numberLabel;
 @property (nonatomic) IBOutlet UILabel *expiryLabel;
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
+@property (strong, nonatomic) IBOutlet UIButton *deleteButton;
 @end

@@ -1557,10 +1557,6 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 </view>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SVF-gB-fT5">
-                                                    <rect key="frame" x="291" y="2" width="22" height="22"/>
-                                                    <state key="normal" backgroundImage="DeleteIcon.png"/>
-                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -1571,7 +1567,6 @@
                                             <constraint firstItem="PZC-6a-G8q" firstAttribute="top" secondItem="9gq-dY-yRC" secondAttribute="top" id="v2T-fQ-smm"/>
                                         </constraints>
                                         <connections>
-                                            <outlet property="deleteButton" destination="SVF-gB-fT5" id="hJL-cl-10X"/>
                                             <outlet property="frontCardView" destination="PZC-6a-G8q" id="N5P-us-R66"/>
                                         </connections>
                                     </collectionViewCell>
@@ -2871,7 +2866,6 @@ be used for every transactions.</string>
     <resources>
         <image name="BackIcon.png" width="8" height="13"/>
         <image name="CreditCardBackSmall.png" width="182" height="114"/>
-        <image name="DeleteIcon.png" width="22" height="22"/>
         <image name="DetailDisclosure.png" width="50" height="50"/>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="DisclosureIndicatorGray.png" width="8" height="13"/>

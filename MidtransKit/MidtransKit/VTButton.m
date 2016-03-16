@@ -27,6 +27,17 @@
     }
 }
 
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    CGRect bounds = self.bounds;
+    
+    //Calculate offsets from buttons bounds
+    CGFloat widthDelta = (44. - bounds.size.width) > 0 ? (44. - bounds.size.width) : 0;
+    CGFloat heightDelta = (44. - bounds.size.height) > 0 ? (44. - bounds.size.height) : 0;
+    bounds = CGRectInset(bounds, -(widthDelta/2.), -(heightDelta/2.));
+    
+    return CGRectContainsPoint(bounds, point);
+}
+
 - (void)layoutSubviews {
     [super layoutSubviews];
     

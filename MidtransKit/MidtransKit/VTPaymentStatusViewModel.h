@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <MidtransCoreKit/VTPaymentResult.h>
 
 @interface VTPaymentStatusViewModel : NSObject
 
@@ -15,6 +16,6 @@
 @property (nonatomic, readonly) NSString *transactionTime;
 @property (nonatomic, readonly) NSString *paymentType;
 
-+ (instancetype)viewModelWithData:(NSDictionary *)paymentStatusData;
++ (instancetype)viewModelWithPaymentResult:(VTPaymentResult *)paymentResult;
 
 @end

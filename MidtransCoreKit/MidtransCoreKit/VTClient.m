@@ -63,7 +63,7 @@
             } else {
                 if (completion) completion(response[@"token_id"], nil);
             }
-
+            
         }
     }];
 }
@@ -83,15 +83,19 @@
         [VTHelper handleResponse:response completion:^(id response, NSError *error) {
             if (response) {
                 [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:^(id response, NSError *error) {
-                    [VTHelper handleResponse:response completion:^(id response, NSError *error) {
-                        if (response) {
-                            VTMaskedCreditCard *maskedCard = [VTMaskedCreditCard maskedCardFromData:response];
-                            if (completion) completion(maskedCard, error);
-                            [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
-                        } else {
-                            if (completion) completion(nil, error);
-                        }
-                    }];
+                    if (response) {
+                        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
+                            if (response) {
+                                VTMaskedCreditCard *maskedCard = [VTMaskedCreditCard maskedCardFromData:response];
+                                if (completion) completion(maskedCard, error);
+                                [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
+                            } else {
+                                if (completion) completion(nil, error);
+                            }
+                        }];
+                    } else {
+                        if (completion) completion(nil, error);
+                    }
                 }];
             } else {
                 if (completion) completion(nil, error);

@@ -48,6 +48,9 @@
  */
 @property(nonatomic, readonly) NSDictionary *additionalData;
 
+@property(nonatomic, readonly) NSDate *transactionTime;
+@property(nonatomic, readonly) NSNumber *grossAmount;
+
 ///---------------------
 /// @name Initialization
 ///---------------------
@@ -55,6 +58,9 @@
 /**
  TODO: This should only be used internally.
  */
+
+- (instancetype)initWithPaymentResponse:(NSDictionary *)response;
+
 - (instancetype)initWithStatusCode:(NSInteger)statusCode
                      statusMessage:(NSString *)statusMessage
                      transactionId:(NSString *)transactionId

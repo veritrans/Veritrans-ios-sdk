@@ -84,5 +84,41 @@ NSString *const ErrorDomain = @"error.veritrans.co.id";
     }
 }
 
+@end
+
+@implementation NSMutableDictionary (utilities)
+
+- (id)objectThenDeleteForKey:(NSString *)key {
+    id result = [self objectForKey:key];
+    [self removeObjectForKey:key];
+    return result;
+}
+
+@end
+
+@implementation NSObject (utilities)
+
++ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier {
+    NSMutableDictionary *dictionary = [[NSThread currentThread] threadDictionary];
+    NSNumberFormatter *currentFormatter = [dictionary objectForKey:identifier];
+    
+    if (currentFormatter == nil) {
+        currentFormatter = [NSNumberFormatter new];
+        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        [dictionary setObject:currentFormatter forKey:identifier];
+    }
+    
+    return currentFormatter;
+}
+
++ (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier {
+    NSMutableDictionary *dictionary = [[NSThread currentThread] threadDictionary];
+    NSDateFormatter *currentFormatter = [dictionary objectForKey:identifier];
+    if (currentFormatter == nil) {
+        currentFormatter = [NSDateFormatter new];
+        [dictionary setObject:currentFormatter forKey:identifier];
+    }
+    return currentFormatter;
+}
 
 @end

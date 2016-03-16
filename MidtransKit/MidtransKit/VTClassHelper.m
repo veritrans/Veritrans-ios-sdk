@@ -159,23 +159,6 @@ NSString *const VTOtherVAIdentifier = @"otherva";
 
 @end
 
-@implementation NSObject (utilities)
-
-+ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier {
-    NSMutableDictionary *dictionary = [[NSThread currentThread] threadDictionary];
-    NSNumberFormatter *currentFormatter = [dictionary objectForKey:identifier];
-    
-    if (currentFormatter == nil) {
-        currentFormatter = [NSNumberFormatter new];
-        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        [dictionary setObject:currentFormatter forKey:identifier];
-    }
-    
-    return currentFormatter;
-}
-
-@end
-
 @implementation UIViewController (Utils)
 
 - (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView {

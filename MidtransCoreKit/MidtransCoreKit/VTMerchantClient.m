@@ -25,11 +25,18 @@
     return instance;
 }
 
-- (void)performCreditCardTransaction:(VTCTransactionData *)transaction completion:(void(^)(id response, NSError *error))completion {
+- (void)performCreditCardTransaction:(VTCTransactionData *)transaction completion:(void(^)(VTPaymentResult *result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
     
     [[VTNetworking sharedInstance] postToURL:URL header:[[CONFIG merchantAuth] dictinaryValue] parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
-        [VTHelper handleResponse:response completion:completion];
+        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
+            if (response) {
+                VTPaymentResult *result = [[VTPaymentResult alloc] initWithPaymentResponse:response];
+                if (completion) completion(result, error);
+            } else {
+                if (completion) completion(nil, error);
+            }
+        }];
     }];
 }
 

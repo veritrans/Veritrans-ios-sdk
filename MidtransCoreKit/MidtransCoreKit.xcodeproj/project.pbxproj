@@ -46,7 +46,7 @@
 		BA469BB71C9134E30069C8BE /* VTPaymentCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = BA469BB51C9134E30069C8BE /* VTPaymentCreditCard.m */; };
 		BA469BBA1C9147FE0069C8BE /* VTTokenRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = BA469BB81C9147FE0069C8BE /* VTTokenRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BA469BBB1C9147FE0069C8BE /* VTTokenRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = BA469BB91C9147FE0069C8BE /* VTTokenRequest.m */; };
-		BAEEF2D01C98138100366632 /* VTPaymentResult.h in Headers */ = {isa = PBXBuildFile; fileRef = BAEEF2CE1C98138100366632 /* VTPaymentResult.h */; };
+		BAEEF2D01C98138100366632 /* VTPaymentResult.h in Headers */ = {isa = PBXBuildFile; fileRef = BAEEF2CE1C98138100366632 /* VTPaymentResult.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BAEEF2D11C98138100366632 /* VTPaymentResult.m in Sources */ = {isa = PBXBuildFile; fileRef = BAEEF2CF1C98138100366632 /* VTPaymentResult.m */; };
 		E517C2B61C9660FD009AE6AA /* VTMerchantAuth.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2B41C9660FD009AE6AA /* VTMerchantAuth.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E517C2B71C9660FD009AE6AA /* VTMerchantAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2B51C9660FD009AE6AA /* VTMerchantAuth.m */; };
@@ -171,8 +171,6 @@
 				E55DB93A1C912ED300813B81 /* VTCTransactionDetails.m */,
 				BA469BB81C9147FE0069C8BE /* VTTokenRequest.h */,
 				BA469BB91C9147FE0069C8BE /* VTTokenRequest.m */,
-				BAEEF2CE1C98138100366632 /* VTPaymentResult.h */,
-				BAEEF2CF1C98138100366632 /* VTPaymentResult.m */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -194,6 +192,8 @@
 				E55DB9541C915A8300813B81 /* VTMaskedCreditCard.m */,
 				E517C2B41C9660FD009AE6AA /* VTMerchantAuth.h */,
 				E517C2B51C9660FD009AE6AA /* VTMerchantAuth.m */,
+				BAEEF2CE1C98138100366632 /* VTPaymentResult.h */,
+				BAEEF2CF1C98138100366632 /* VTPaymentResult.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";

@@ -45,7 +45,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    _clickpay = [VTMandiriClickpay dataWithTransactionAmount:[_items itemsPriceAmount]];
+    NSNumber *grossAmount = [_items itemsPriceAmount];
+    
+    _clickpay = [VTMandiriClickpay dataWithTransactionAmount:grossAmount];
     
     [_clickpay addObserver:self
                 forKeyPath:@"input1"
@@ -57,7 +59,7 @@
     _input3Label.text = _clickpay.input3;
     
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
+    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:grossAmount]];
     
     [_confirmButton addTarget:self action:@selector(confirmPaymentPressed:) forControlEvents:UIControlEventTouchUpInside];
 }

@@ -29,3 +29,13 @@ extern NSString *const ErrorDomain;
 @interface UIApplication (utilities)
 + (UIViewController *)rootViewController;
 @end
+
+@interface NSMutableDictionary (utilities)
+- (id)objectThenDeleteForKey:(NSString *)key;
+@end
+
+
+@interface NSObject (utilities)
++ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier;
++ (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
+@end

@@ -47,6 +47,7 @@
 
 @implementation VTCardListController {
     VTHudView *_hudView;
+    NSNumber *_grossAmount;
 }
 
 + (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
@@ -68,6 +69,11 @@
     [_pageControl setNumberOfPages:0];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
+    
+    _grossAmount = [_items itemsPriceAmount];
+    
+    NSNumberFormatter *formatter = [NSObject numberFormatterWith:@"vt.number"];
+    _amountLabel.text = [formatter stringFromNumber:_grossAmount];
     
     [self reloadMaskedCards];
 }
@@ -127,12 +133,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
-    
+
     if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
         
         VTConfirmPaymentController *vc =
         [VTConfirmPaymentController controllerWithMaskedCardNumber:maskedCard.maskedNumber
-                                                       grossAmount:[_items itemsPriceAmount]
+                                                       grossAmount:_grossAmount
                                                           callback:^(NSInteger selectedIndex)
          {
              [self dismissCustomViewController:nil];
@@ -141,17 +147,17 @@
                  [_hudView showOnView:self.view];
                  
                  VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:maskedCard.savedTokenId];
-                 VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:[_items itemsPriceAmount]];
+                 VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:_grossAmount];
                  VTCTransactionData *transData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail
                                                                                  transactionDetails:transDetail
                                                                                     customerDetails:_customer
                                                                                         itemDetails:_items];
                  
-                 [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(id response, NSError *error) {
+                 [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(VTPaymentResult *result, NSError *error) {
                      [_hudView hide];
                      
-                     if (response) {
-                         VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithData:response];
+                     if (result) {
+                         VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithPaymentResult:result];
                          VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
                          [self.navigationController pushViewController:vc animated:YES];
                      } else {

@@ -60,10 +60,6 @@ extern NSString *const VTOtherVAIdentifier;
 - (void)setRoundedCorners:(BOOL)rounded;
 @end
 
-@interface NSObject (utilities)
-+ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier;
-@end
-
 @interface UIViewController (Utils)
 - (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView;
 - (void)removeSubViewController:(UIViewController *)viewController;

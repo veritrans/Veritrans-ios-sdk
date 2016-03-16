@@ -9,12 +9,13 @@
 #import <Foundation/Foundation.h>
 #import "VTCTransactionData.h"
 #import "VTMaskedCreditCard.h"
+#import "VTPaymentResult.h"
 
 @interface VTMerchantClient : NSObject
 
 + (id)sharedClient;
 
-- (void)performCreditCardTransaction:(VTCTransactionData *)transaction completion:(void(^)(id response, NSError *error))completion;
+- (void)performCreditCardTransaction:(VTCTransactionData *)transaction completion:(void(^)(VTPaymentResult *result, NSError *error))completion;
 
 - (void)saveRegisteredCard:(id)savedCard completion:(void(^)(id response, NSError *error))completion;
 

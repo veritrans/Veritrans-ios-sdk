@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTCCFrontView">
             <connections>
+                <outlet property="backgroundView" destination="ggi-UH-Ee0" id="uau-lG-azc"/>
+                <outlet property="deleteButton" destination="pKB-xE-SGa" id="j2J-0n-9WS"/>
                 <outlet property="expiryLabel" destination="F9r-Rn-uc5" id="59j-b2-UJP"/>
                 <outlet property="iconView" destination="Wmd-pJ-IOa" id="PhU-ev-lfe"/>
                 <outlet property="numberLabel" destination="JB2-na-n8Q" id="wma-1J-tQT"/>
@@ -55,9 +57,15 @@
                     <color key="textColor" red="1" green="1" blue="1" alpha="0.40000000000000002" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pKB-xE-SGa" customClass="VTButton">
+                    <rect key="frame" x="289" y="4" width="22" height="22"/>
+                    <state key="normal" backgroundImage="DeleteIcon.png"/>
+                </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="pKB-xE-SGa" firstAttribute="trailing" secondItem="ggi-UH-Ee0" secondAttribute="trailing" constant="6" id="KCC-ez-HsP"/>
+                <constraint firstItem="pKB-xE-SGa" firstAttribute="top" secondItem="ggi-UH-Ee0" secondAttribute="top" constant="-6" id="KRs-f1-8cB"/>
                 <constraint firstItem="F9r-Rn-uc5" firstAttribute="bottom" secondItem="ggi-UH-Ee0" secondAttribute="bottom" constant="-15" id="Mha-Wl-cCA"/>
                 <constraint firstItem="F9r-Rn-uc5" firstAttribute="top" secondItem="Sp0-Oc-Y0R" secondAttribute="bottom" id="VRy-zR-f1e"/>
                 <constraint firstItem="JB2-na-n8Q" firstAttribute="centerY" secondItem="2vS-C3-ZTb" secondAttribute="centerY" id="Vpj-TM-5Dx"/>
@@ -76,6 +84,7 @@
     </objects>
     <resources>
         <image name="CreditCardFront.png" width="290" height="180"/>
+        <image name="DeleteIcon.png" width="22" height="22"/>
         <image name="Visa.png" width="35" height="12"/>
     </resources>
 </document>

@@ -8,6 +8,8 @@
 
 #import "VTNetworkOperation.h"
 
+NSString *const ErrorDomain = @"error.veritrans.co.id";
+
 @implementation NSData (decode)
 
 - (NSData*)validateUTF8 {
@@ -101,9 +103,19 @@ NSURLConnectionDelegate
                                                         options:NSJSONReadingMutableContainers
                                                           error:nil];
     
-    if (self.callback) {
-        self.callback(responseObject, nil);
-    }
+    if (responseObject[@"status_code"]) {
+        NSInteger code = [responseObject[@"status_code"] integerValue];
+        if (code/100 == 2) {
+            if (self.callback) self.callback(responseObject, nil);
+        } else {
+            NSError *error = [NSError errorWithDomain:ErrorDomain
+                                                 code:code
+                                             userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"]}];
+            if (self.callback) self.callback(nil, error);
+        }
+    } else {
+        if (self.callback) self.callback(responseObject, nil);
+    }    
     
     [self finish];
 }

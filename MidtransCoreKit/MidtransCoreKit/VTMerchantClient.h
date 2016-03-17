@@ -23,4 +23,6 @@
 
 - (void)fetchMerchantAuthDataWithCompletion:(void(^)(id response, NSError *error))completion;
 
+- (void)deleteMaskedCard:(VTMaskedCreditCard *)maskedCard completion:(void(^)(BOOL success, NSError *error))completion;
+
 @end

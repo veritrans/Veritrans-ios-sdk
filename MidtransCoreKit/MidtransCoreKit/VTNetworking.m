@@ -102,6 +102,26 @@
     return self;
 }
 
+- (void)deleteFromURL:(NSString *)URL
+            header:(NSDictionary *)header
+        parameters:(NSDictionary *)parameters
+          callback:(void(^)(id response, NSError *error))callback
+{
+    NSString *params = [parameters queryStringValue];
+    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
+    [request setHTTPMethod:@"DELETE"];
+    [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    
+    for (NSString *key in [header allKeys]) {
+        [request addValue:header[key] forHTTPHeaderField:key];
+    }
+    
+    VTNetworkOperation *op = [VTNetworkOperation operationWithRequest:request
+                                                             callback:callback];
+    [_operationQueue addOperation:op];
+}
+
 - (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(NSDictionary *)parameters callback:(void (^)(id response, NSError *error))callback {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     

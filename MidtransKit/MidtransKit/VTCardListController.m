@@ -33,7 +33,7 @@
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTCTransactionDetails.h>
 
-@interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate, UIAlertViewDelegate>
+@interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 @property (strong, nonatomic) IBOutlet UIView *paymentView;
@@ -42,7 +42,9 @@
 
 @property (nonatomic, readwrite) VTCustomerDetails *customer;
 @property (nonatomic, readwrite) NSArray *items;
-@property (nonatomic) NSArray *cards;
+@property (nonatomic) NSMutableArray *cards;
+
+@property (nonatomic) BOOL editingCell;
 @end
 
 @implementation VTCardListController {
@@ -76,6 +78,10 @@
     _amountLabel.text = [formatter stringFromNumber:_grossAmount];
     
     [self reloadMaskedCards];
+    
+    //cell editing
+    [_collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
+    self.editingCell = false;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -83,13 +89,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)setEditingCell:(BOOL)editingCell {
+    _editingCell = editingCell;
+    
+    [_collectionView reloadData];
+}
+
+- (void)startEditing:(id)sender {
+    self.editingCell = true;
+}
+
 - (void)reloadMaskedCards {
     [_hudView showOnView:self.view];
     
     __weak VTCardListController *wself = self;
     [[VTMerchantClient sharedClient] fetchMaskedCardsWithCompletion:^(NSArray *maskedCards, NSError *error) {
-        wself.cards = maskedCards;
         [_hudView hide];
+        
+        if (maskedCards) {
+            wself.cards = [NSMutableArray arrayWithArray:maskedCards];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Close"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
     }];
 }
 
@@ -97,7 +123,7 @@
     [self reloadMaskedCards];
 }
 
-- (void)setCards:(NSArray *)cards {
+- (void)setCards:(NSMutableArray *)cards {
     _cards = cards;
     
     [_pageControl setNumberOfPages:[cards count]];
@@ -107,6 +133,18 @@
 - (IBAction)newCardPressed:(UITapGestureRecognizer *)sender {
     VTAddCardController *vc = [VTAddCardController controllerWithCustomer:_customer items:_items];
     [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
+                                  animationControllerForOperation:(UINavigationControllerOperation)operation
+                                               fromViewController:(UIViewController*)fromVC
+                                                 toViewController:(UIViewController*)toVC
+{
+    if (operation == UINavigationControllerOperationPush) {
+        return [PushAnimator new];;
+    }
+    
+    return nil;
 }
 
 #pragma mark - UICollectionViewDataSource
@@ -119,6 +157,7 @@
     VTCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VTCardCell" forIndexPath:indexPath];
     cell.delegate = self;
     cell.maskedCard = _cards[indexPath.row];
+    cell.editing = self.editingCell;
     return cell;
 }
 
@@ -132,8 +171,12 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    if (self.editingCell) {
+        self.editingCell = false; return;
+    }
+    
     VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
-
+    
     if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
         
         VTConfirmPaymentController *vc =
@@ -184,27 +227,22 @@
 #pragma mark - VTCardCellDelegate
 
 - (void)cardCellShouldRemoveCell:(VTCardCell *)cell {
-    
-}
-
-- (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
-                                  animationControllerForOperation:(UINavigationControllerOperation)operation
-                                               fromViewController:(UIViewController*)fromVC
-                                                 toViewController:(UIViewController*)toVC
-{
-    if (operation == UINavigationControllerOperationPush) {
-        return [PushAnimator new];;
-    }
-    
-    return nil;
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        
-    }
+    NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
+    VTMaskedCreditCard *card = _cards[indexPath.row];
+    [[VTMerchantClient sharedClient] deleteMaskedCard:card completion:^(BOOL success, NSError *error) {
+        if (success) {
+            [_cards removeObjectAtIndex:indexPath.row];
+            [_collectionView deleteItemsAtIndexPaths:@[indexPath]];
+            [_pageControl setNumberOfPages:[_cards count]];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Close"
+                                                  otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
 }
 
 #pragma MARK - UICollectionViewDelegateFlowLayout

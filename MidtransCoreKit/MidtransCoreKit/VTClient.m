@@ -80,27 +80,19 @@
                             @"card_exp_year":@(year)};
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
-        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
-            if (response) {
-                [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:^(id response, NSError *error) {
-                    if (response) {
-                        [VTHelper handleResponse:response completion:^(id response, NSError *error) {
-                            if (response) {
-                                VTMaskedCreditCard *maskedCard = [VTMaskedCreditCard maskedCardFromData:response];
-                                if (completion) completion(maskedCard, error);
-                                [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
-                            } else {
-                                if (completion) completion(nil, error);
-                            }
-                        }];
-                    } else {
-                        if (completion) completion(nil, error);
-                    }
-                }];
-            } else {
-                if (completion) completion(nil, error);
-            }
-        }];
+        if (response) {
+            [[VTMerchantClient sharedClient] saveRegisteredCard:response completion:^(id response, NSError *error) {
+                if (response) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:VTMaskedCardsUpdated object:nil];
+                    VTMaskedCreditCard *maskedCard = [VTMaskedCreditCard maskedCardFromData:response];
+                    if (completion) completion(maskedCard, error);
+                } else {
+                    if (completion) completion(nil, error);
+                }
+            }];
+        } else {
+            if (completion) completion(nil, error);
+        }
     }];
 }
 

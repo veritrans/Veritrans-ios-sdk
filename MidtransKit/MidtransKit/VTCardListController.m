@@ -9,7 +9,6 @@
 #import "VTCardListController.h"
 #import <MidtransCoreKit/VTItem.h>
 #import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTCPaymentCreditCard.h>
 
 #import "PushAnimator.h"
 

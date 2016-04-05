@@ -40,7 +40,7 @@
     _frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
     
     NSString *iconName = [VTCreditCard typeStringWithNumber:maskedCard.maskedNumber];
-    _frontCardView.iconView.image = [UIImage imageNamed:iconName];
+    _frontCardView.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     _frontCardView.expiryLabel.text = @"XX/XX";
 }

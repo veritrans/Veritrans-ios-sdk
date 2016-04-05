@@ -47,7 +47,7 @@
     
     NSString *path = [VTBundle pathForResource:@"payments" ofType:@"plist"];
     _payments = [NSArray arrayWithContentsOfFile:path];
-    
+
     NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
     _headerAmountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
     _footerAmountLabel.text = _headerAmountLabel.text;

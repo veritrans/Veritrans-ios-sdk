@@ -168,7 +168,6 @@
 		E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2CF1C969110009AE6AA /* UICollectionView+Empty.h */; };
 		E517C2D21C969110009AE6AA /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */; };
 		E517C2D31C969110009AE6AA /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */; };
-		E517C2D51C9699E7009AE6AA /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E517C2D41C9699E7009AE6AA /* emptyCardIcon@2x.png */; };
 		E517C2D81C96B610009AE6AA /* VTHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2D61C96B610009AE6AA /* VTHudView.h */; };
 		E517C2D91C96B610009AE6AA /* VTHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D71C96B610009AE6AA /* VTHudView.m */; };
 		E517C2DA1C96B610009AE6AA /* VTHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D71C96B610009AE6AA /* VTHudView.m */; };
@@ -232,6 +231,7 @@
 		E5AEB2001C8C79090043A027 /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEB1E31C8C79090043A027 /* UIImageView+WebCache.m */; };
 		E5AEB2011C8C79090043A027 /* UIView+WebCacheOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AEB1E41C8C79090043A027 /* UIView+WebCacheOperation.h */; };
 		E5AEB2021C8C79090043A027 /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AEB1E51C8C79090043A027 /* UIView+WebCacheOperation.m */; };
+		E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */; };
 		E5EF826D1C8C07AF007B6585 /* VTXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* VTXibView.h */; };
 		E5EF826E1C8C07AF007B6585 /* VTXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EF826C1C8C07AF007B6585 /* VTXibView.m */; };
 		E5EF826F1C8C07AF007B6585 /* VTXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EF826C1C8C07AF007B6585 /* VTXibView.m */; };
@@ -393,7 +393,6 @@
 		E517C2C01C9673B4009AE6AA /* VTAlertBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAlertBackgroundView.m; sourceTree = "<group>"; };
 		E517C2CF1C969110009AE6AA /* UICollectionView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Empty.h"; sourceTree = "<group>"; };
 		E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Empty.m"; sourceTree = "<group>"; };
-		E517C2D41C9699E7009AE6AA /* emptyCardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyCardIcon@2x.png"; sourceTree = "<group>"; };
 		E517C2D61C96B610009AE6AA /* VTHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTHudView.h; sourceTree = "<group>"; };
 		E517C2D71C96B610009AE6AA /* VTHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTHudView.m; sourceTree = "<group>"; };
 		E517C2DB1C96C1A2009AE6AA /* PushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PushAnimator.h; sourceTree = "<group>"; };
@@ -441,6 +440,7 @@
 		E5AEB1E31C8C79090043A027 /* UIImageView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WebCache.m"; sourceTree = "<group>"; };
 		E5AEB1E41C8C79090043A027 /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		E5AEB1E51C8C79090043A027 /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
+		E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyCardIcon@2x.png"; sourceTree = "<group>"; };
 		E5EF826B1C8C07AF007B6585 /* VTXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTXibView.h; sourceTree = "<group>"; };
 		E5EF826C1C8C07AF007B6585 /* VTXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTXibView.m; sourceTree = "<group>"; };
 		E5EF82711C8C0814007B6585 /* VTCCFrontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCCFrontView.h; sourceTree = "<group>"; };
@@ -630,7 +630,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				E517C2D41C9699E7009AE6AA /* emptyCardIcon@2x.png */,
+				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
 				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
@@ -1023,8 +1023,8 @@
 				308A16E91C87D56C007C196B /* NextIcon@2x.png in Resources */,
 				309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */,
 				30E8798E1C897E7D000C0F4B /* cc@2x.png in Resources */,
-				E517C2D51C9699E7009AE6AA /* emptyCardIcon@2x.png in Resources */,
 				E503AEC51C8E85C500F097FF /* bcaVA@2x.png in Resources */,
+				E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */,
 				E5EF827C1C8C0837007B6585 /* VTCCFrontView.xib in Resources */,
 				E503AEEE1C8EC69800F097FF /* ecash@2x.png in Resources */,

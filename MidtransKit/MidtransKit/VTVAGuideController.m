@@ -7,11 +7,11 @@
 //
 
 #import "VTVAGuideController.h"
-#import "MBXPageViewController.h"
+#import "MBXPageViewController_vt.h"
 #import "VTPaymentGuideController.h"
 #import "VTClassHelper.h"
 
-@interface VTVAGuideController ()<MBXPageControllerDataSource, MBXPageControllerDataDelegate>
+@interface VTVAGuideController ()<MBXPageControllerDataSource_vt, MBXPageControllerDataDelegate_vt>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 
@@ -48,7 +48,7 @@
     }
     
     // Initiate MBXPageController
-    MBXPageViewController *MBXPageController = [MBXPageViewController new];
+    MBXPageViewController_vt *MBXPageController = [MBXPageViewController_vt new];
     MBXPageController.MBXDataSource = self;
     MBXPageController.MBXDataDelegate = self;
     MBXPageController.pageMode = MBX_SegmentController;

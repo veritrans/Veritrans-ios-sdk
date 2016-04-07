@@ -49,14 +49,8 @@
 		306838821C7EE7220064A305 /* VTPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 306838801C7EE7220064A305 /* VTPaymentViewController.m */; };
 		308A16E81C87D56C007C196B /* BackIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308A16E61C87D56C007C196B /* BackIcon@2x.png */; };
 		308A16E91C87D56C007C196B /* NextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 308A16E71C87D56C007C196B /* NextIcon@2x.png */; };
-		308A16F51C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.h in Headers */ = {isa = PBXBuildFile; fileRef = 308A16ED1C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.h */; };
-		308A16F61C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A16EE1C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.m */; };
-		308A16F81C87EA8A007C196B /* TPKeyboardAvoidingScrollView.h in Headers */ = {isa = PBXBuildFile; fileRef = 308A16EF1C87EA8A007C196B /* TPKeyboardAvoidingScrollView.h */; };
-		308A16F91C87EA8A007C196B /* TPKeyboardAvoidingScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A16F01C87EA8A007C196B /* TPKeyboardAvoidingScrollView.m */; };
-		308A16FB1C87EA8A007C196B /* TPKeyboardAvoidingTableView.h in Headers */ = {isa = PBXBuildFile; fileRef = 308A16F11C87EA8A007C196B /* TPKeyboardAvoidingTableView.h */; };
-		308A16FC1C87EA8A007C196B /* TPKeyboardAvoidingTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A16F21C87EA8A007C196B /* TPKeyboardAvoidingTableView.m */; };
-		308A16FE1C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.h in Headers */ = {isa = PBXBuildFile; fileRef = 308A16F31C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.h */; };
-		308A16FF1C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A16F41C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.m */; };
+		308A16F81C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = 308A16EF1C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.h */; };
+		308A16F91C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A16F01C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.m */; };
 		308A17101C87F4C2007C196B /* UIViewController+Modal.h in Headers */ = {isa = PBXBuildFile; fileRef = 308A170E1C87F4C2007C196B /* UIViewController+Modal.h */; };
 		308A17111C87F4C2007C196B /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = 308A170F1C87F4C2007C196B /* UIViewController+Modal.m */; };
 		309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0C91C86875400C058BE /* clickpayGuide.plist */; };
@@ -91,8 +85,8 @@
 		30E713191C85816B00AFB7B4 /* VTDetailedTitleController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713171C85816B00AFB7B4 /* VTDetailedTitleController.h */; };
 		30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713181C85816B00AFB7B4 /* VTDetailedTitleController.m */; };
 		30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E7131B1C85975000AFB7B4 /* DetailDisclosure@2x.png */; };
-		30E713221C859D6100AFB7B4 /* MBXPageViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713201C859D6100AFB7B4 /* MBXPageViewController.h */; };
-		30E713231C859D6100AFB7B4 /* MBXPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713211C859D6100AFB7B4 /* MBXPageViewController.m */; };
+		30E713221C859D6100AFB7B4 /* MBXPageViewController_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713201C859D6100AFB7B4 /* MBXPageViewController_vt.h */; };
+		30E713231C859D6100AFB7B4 /* MBXPageViewController_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713211C859D6100AFB7B4 /* MBXPageViewController_vt.m */; };
 		30E713261C859EE100AFB7B4 /* VTButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713241C859EE100AFB7B4 /* VTButton.h */; };
 		30E713271C859EE100AFB7B4 /* VTButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713251C859EE100AFB7B4 /* VTButton.m */; };
 		30E7132B1C85A5FB00AFB7B4 /* VTVAGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713291C85A5FB00AFB7B4 /* VTVAGuideController.h */; };
@@ -158,6 +152,8 @@
 		E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E583AFEF1C8D6DC500C04512 /* VTErrorStatusController.m */; };
 		E583AFF51C8D6DD300C04512 /* VTSuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */; };
 		E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */; };
+		E58DA06F1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E58DA06D1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.h */; };
+		E58DA0701CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = E58DA06E1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.m */; };
 		E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */; };
 		E5D9933D1CB517E00041406D /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */; };
 		E5EF826D1C8C07AF007B6585 /* VTXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* VTXibView.h */; };
@@ -223,14 +219,8 @@
 		306838801C7EE7220064A305 /* VTPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentViewController.m; sourceTree = "<group>"; };
 		308A16E61C87D56C007C196B /* BackIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackIcon@2x.png"; sourceTree = "<group>"; };
 		308A16E71C87D56C007C196B /* NextIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "NextIcon@2x.png"; sourceTree = "<group>"; };
-		308A16ED1C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingCollectionView.h; sourceTree = "<group>"; };
-		308A16EE1C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingCollectionView.m; sourceTree = "<group>"; };
-		308A16EF1C87EA8A007C196B /* TPKeyboardAvoidingScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView.h; sourceTree = "<group>"; };
-		308A16F01C87EA8A007C196B /* TPKeyboardAvoidingScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView.m; sourceTree = "<group>"; };
-		308A16F11C87EA8A007C196B /* TPKeyboardAvoidingTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingTableView.h; sourceTree = "<group>"; };
-		308A16F21C87EA8A007C196B /* TPKeyboardAvoidingTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingTableView.m; sourceTree = "<group>"; };
-		308A16F31C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions.h"; sourceTree = "<group>"; };
-		308A16F41C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions.m"; sourceTree = "<group>"; };
+		308A16EF1C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TPKeyboardAvoidingScrollView_vt.h; sourceTree = "<group>"; };
+		308A16F01C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TPKeyboardAvoidingScrollView_vt.m; sourceTree = "<group>"; };
 		308A170E1C87F4C2007C196B /* UIViewController+Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Modal.h"; sourceTree = "<group>"; };
 		308A170F1C87F4C2007C196B /* UIViewController+Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Modal.m"; sourceTree = "<group>"; };
 		309CC0C91C86875400C058BE /* clickpayGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = clickpayGuide.plist; path = ../MidtransKit/clickpayGuide.plist; sourceTree = "<group>"; };
@@ -265,8 +255,8 @@
 		30E713171C85816B00AFB7B4 /* VTDetailedTitleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTDetailedTitleController.h; sourceTree = "<group>"; };
 		30E713181C85816B00AFB7B4 /* VTDetailedTitleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTDetailedTitleController.m; sourceTree = "<group>"; };
 		30E7131B1C85975000AFB7B4 /* DetailDisclosure@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "DetailDisclosure@2x.png"; sourceTree = "<group>"; };
-		30E713201C859D6100AFB7B4 /* MBXPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBXPageViewController.h; sourceTree = "<group>"; };
-		30E713211C859D6100AFB7B4 /* MBXPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBXPageViewController.m; sourceTree = "<group>"; };
+		30E713201C859D6100AFB7B4 /* MBXPageViewController_vt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBXPageViewController_vt.h; sourceTree = "<group>"; };
+		30E713211C859D6100AFB7B4 /* MBXPageViewController_vt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBXPageViewController_vt.m; sourceTree = "<group>"; };
 		30E713241C859EE100AFB7B4 /* VTButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTButton.h; sourceTree = "<group>"; };
 		30E713251C859EE100AFB7B4 /* VTButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTButton.m; sourceTree = "<group>"; };
 		30E713291C85A5FB00AFB7B4 /* VTVAGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVAGuideController.h; sourceTree = "<group>"; };
@@ -332,6 +322,8 @@
 		E583AFEF1C8D6DC500C04512 /* VTErrorStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTErrorStatusController.m; sourceTree = "<group>"; };
 		E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSuccessStatusController.h; sourceTree = "<group>"; };
 		E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSuccessStatusController.m; sourceTree = "<group>"; };
+		E58DA06D1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+TPKeyboardAvoidingAdditions_vt.h"; sourceTree = "<group>"; };
+		E58DA06E1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+TPKeyboardAvoidingAdditions_vt.m"; sourceTree = "<group>"; };
 		E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyCardIcon@2x.png"; sourceTree = "<group>"; };
 		E5EF826B1C8C07AF007B6585 /* VTXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTXibView.h; sourceTree = "<group>"; };
 		E5EF826C1C8C07AF007B6585 /* VTXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTXibView.m; sourceTree = "<group>"; };
@@ -497,14 +489,10 @@
 		308A16EC1C87EA8A007C196B /* TPKeyboardAvoiding */ = {
 			isa = PBXGroup;
 			children = (
-				308A16ED1C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.h */,
-				308A16EE1C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.m */,
-				308A16EF1C87EA8A007C196B /* TPKeyboardAvoidingScrollView.h */,
-				308A16F01C87EA8A007C196B /* TPKeyboardAvoidingScrollView.m */,
-				308A16F11C87EA8A007C196B /* TPKeyboardAvoidingTableView.h */,
-				308A16F21C87EA8A007C196B /* TPKeyboardAvoidingTableView.m */,
-				308A16F31C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.h */,
-				308A16F41C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.m */,
+				308A16EF1C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.h */,
+				308A16F01C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.m */,
+				E58DA06D1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.h */,
+				E58DA06E1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.m */,
 			);
 			path = TPKeyboardAvoiding;
 			sourceTree = "<group>";
@@ -609,8 +597,8 @@
 		30E7131F1C859D6100AFB7B4 /* MBXPageViewController */ = {
 			isa = PBXGroup;
 			children = (
-				30E713201C859D6100AFB7B4 /* MBXPageViewController.h */,
-				30E713211C859D6100AFB7B4 /* MBXPageViewController.m */,
+				30E713201C859D6100AFB7B4 /* MBXPageViewController_vt.h */,
+				30E713211C859D6100AFB7B4 /* MBXPageViewController_vt.m */,
 			);
 			path = MBXPageViewController;
 			sourceTree = "<group>";
@@ -721,19 +709,17 @@
 				30E713351C85A6E800AFB7B4 /* VTPaymentGuideController.h in Headers */,
 				309CC0E41C86B9FA00C058BE /* VTClicksController.h in Headers */,
 				30E713191C85816B00AFB7B4 /* VTDetailedTitleController.h in Headers */,
-				308A16FB1C87EA8A007C196B /* TPKeyboardAvoidingTableView.h in Headers */,
-				30E713221C859D6100AFB7B4 /* MBXPageViewController.h in Headers */,
+				30E713221C859D6100AFB7B4 /* MBXPageViewController_vt.h in Headers */,
 				E5EF82731C8C0814007B6585 /* VTCCFrontView.h in Headers */,
 				E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */,
+				E58DA06F1CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.h in Headers */,
 				30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */,
 				30E713081C8564B300AFB7B4 /* VTClickpayHelpController.h in Headers */,
-				308A16F51C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.h in Headers */,
 				30E7132B1C85A5FB00AFB7B4 /* VTVAGuideController.h in Headers */,
 				3005E2771C7C175000064169 /* VTAddCardController.h in Headers */,
 				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
-				308A16F81C87EA8A007C196B /* TPKeyboardAvoidingScrollView.h in Headers */,
+				308A16F81C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
-				308A16FE1C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.h in Headers */,
 				E5EF82781C8C081F007B6585 /* VTCCBackView.h in Headers */,
 				3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */,
 				302BAA401C8816C400AE68CC /* VTCvvInfoController.h in Headers */,
@@ -933,10 +919,11 @@
 				30E713271C859EE100AFB7B4 /* VTButton.m in Sources */,
 				E5EF82791C8C081F007B6585 /* VTCCBackView.m in Sources */,
 				30E7130E1C856B0D00AFB7B4 /* VTRoundedLabel.m in Sources */,
-				30E713231C859D6100AFB7B4 /* MBXPageViewController.m in Sources */,
+				30E713231C859D6100AFB7B4 /* MBXPageViewController_vt.m in Sources */,
 				30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */,
 				3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */,
 				30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */,
+				E58DA0701CB640F300AE83A6 /* UIScrollView+TPKeyboardAvoidingAdditions_vt.m in Sources */,
 				302BAA451C881FA200AE68CC /* VTCardCell.m in Sources */,
 				30E713041C855B6600AFB7B4 /* VTLabel.m in Sources */,
 				309CC0E51C86B9FA00C058BE /* VTClicksController.m in Sources */,
@@ -955,10 +942,8 @@
 				308A17111C87F4C2007C196B /* UIViewController+Modal.m in Sources */,
 				E517C2D91C96B610009AE6AA /* VTHudView.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,
-				308A16FF1C87EA8A007C196B /* UIScrollView+TPKeyboardAvoidingAdditions.m in Sources */,
-				308A16F61C87EA8A007C196B /* TPKeyboardAvoidingCollectionView.m in Sources */,
 				E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */,
-				308A16F91C87EA8A007C196B /* TPKeyboardAvoidingScrollView.m in Sources */,
+				308A16F91C87EA8A007C196B /* TPKeyboardAvoidingScrollView_vt.m in Sources */,
 				E503AED91C8E8AF800F097FF /* VTListCell.m in Sources */,
 				3005E2781C7C175000064169 /* VTAddCardController.m in Sources */,
 				30E713161C8580BC00AFB7B4 /* VTVAController.m in Sources */,
@@ -968,7 +953,6 @@
 				E5EF82741C8C0814007B6585 /* VTCCFrontView.m in Sources */,
 				300F5CA71C7C0EB200DA6E13 /* VTCardListController.m in Sources */,
 				E517C2D21C969110009AE6AA /* UICollectionView+Empty.m in Sources */,
-				308A16FC1C87EA8A007C196B /* TPKeyboardAvoidingTableView.m in Sources */,
 				30E879881C88EDE1000C0F4B /* VTTwoClickController.m in Sources */,
 				E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */,
 				E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */,

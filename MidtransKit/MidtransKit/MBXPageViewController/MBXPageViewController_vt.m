@@ -7,9 +7,9 @@
 //
 // Based in the Work of : cwRichardKim https://github.com/cwRichardKim/RKSwipeBetweenViewControllers
 
-#import "MBXPageViewController.h"
+#import "MBXPageViewController_vt.h"
 
-@interface MBXPageViewController () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate>
+@interface MBXPageViewController_vt () <UIPageViewControllerDelegate, UIPageViewControllerDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *viewControllerArray;
 @property (nonatomic, strong) UIPageViewController *pageController;
@@ -22,13 +22,13 @@
 @property (nonatomic, strong) NSArray *connectedButtons;
 @end
 
-@implementation MBXPageViewController
+@implementation MBXPageViewController_vt
 
 #pragma mark - Init
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
     
-    self = [[MBXPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
+    self = [[MBXPageViewController_vt alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll
                                             navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal
                                                           options:nil];
     

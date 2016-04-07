@@ -7,8 +7,6 @@
 //
 
 #import "VTCardListController.h"
-#import <MidtransCoreKit/VTItem.h>
-#import <MidtransCoreKit/VTConfig.h>
 
 #import "PushAnimator.h"
 
@@ -26,10 +24,12 @@
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
 
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTCTransactionDetails.h>
+#import "MidtransCoreKit/VTItem.h"
+#import "MidtransCoreKit/VTConfig.h"
+#import "MidtransCoreKit/VTClient.h"
+#import "MidtransCoreKit/VTMerchantClient.h"
+#import "MidtransCoreKit/VTPaymentCreditCard.h"
+#import "MidtransCoreKit/VTCTransactionDetails.h"
 
 @interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -74,6 +74,8 @@
     
     NSNumberFormatter *formatter = [NSObject numberFormatterWith:@"vt.number"];
     _amountLabel.text = [formatter stringFromNumber:_grossAmount];
+    
+    [self updateView];
     
     [self reloadMaskedCards];
     

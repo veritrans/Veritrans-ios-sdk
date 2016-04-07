@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VTCardCell.h"
-#import <MidtransCoreKit/VTCustomerDetails.h>
+#import "MidtransCoreKit/VTCustomerDetails.h"
 
 @interface VTCardListController : UIViewController
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;

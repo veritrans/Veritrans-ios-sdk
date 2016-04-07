@@ -15,10 +15,10 @@
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTCTransactionDetails.h>
+#import "MidtransCoreKit/VTClient.h"
+#import "MidtransCoreKit/VTMerchantClient.h"
+#import "MidtransCoreKit/VTPaymentCreditCard.h"
+#import "MidtransCoreKit/VTCTransactionDetails.h"
 
 #import "VTHudView.h"
 
@@ -27,7 +27,6 @@
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
-@property (strong, nonatomic) IBOutlet UISwitch *saveStateSwitch;
 @property (strong, nonatomic) IBOutlet UIImageView *creditCardLogo;
 @property (strong, nonatomic) IBOutlet UIView *navigationView;
 @property (strong, nonatomic) IBOutlet UIScrollView *containerTextField;

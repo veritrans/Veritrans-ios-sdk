@@ -7,10 +7,7 @@
 //
 
 #import "OptionViewController.h"
-
-#import <MidtransCoreKit/VTCustomerDetails.h>
-#import <MidtransCoreKit/VTAddress.h>
-#import <MidtransCoreKit/VTConfig.h>
+#import "MidtransKit/VTPaymentViewController.h"
 
 @interface OptionViewController ()
 

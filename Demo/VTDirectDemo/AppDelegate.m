@@ -8,9 +8,10 @@
 
 #import "AppDelegate.h"
 
-#import <MidtransCoreKit/VTConfig.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+
+#import "MidtransKit/VTPaymentViewController.h"
 
 @interface AppDelegate ()
 

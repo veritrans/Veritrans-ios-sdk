@@ -7,15 +7,8 @@
 //
 
 #import "ViewController.h"
-#import <MidtransKit/VTPaymentViewController.h>
+#import "MidtransKit/VTPaymentViewController.h"
 #import "TableViewCell.h"
-
-#import <MidtransCoreKit/VTMandiriClickpay.h>
-#import <MidtransCoreKit/VTItem.h>
-#import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTCustomerDetails.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-
 #import "OptionViewController.h"
 
 @implementation NSString (random)

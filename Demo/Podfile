@@ -1,28 +1,3 @@
-#workspace 'VTDirectDemo.xcworkspace'
-
 platform :ios, '7.0'
 
-pod 'MidtransKit', :path => '../MidtransKit'
 pod 'SDWebImage', '~>3.7'
-
-#xcodeproj '../MidtransCoreKit/MidtransCoreKit.xcodeproj'
-#xcodeproj '../MidtransKit/MidtransKit.xcodeproj'
-#
-#target :VTDirectDemo do
-#    xcodeproj 'VTDirectDemo.xcodeproj'
-#    pod 'SDWebImage', '~>3.7'
-#end
-#
-#target :MidtransCoreKit do
-#    xcodeproj '../MidtransCoreKit/MidtransCoreKit.xcodeproj'
-#end
-#
-#target :MidtransKit do
-#    xcodeproj '../MidtransKit/MidtransKit.xcodeproj'
-#    pod 'SDWebImage', '~>3.7'
-#end
-#
-#target :MidtransResources do
-#    xcodeproj '../MidtransKit/MidtransKit.xcodeproj'
-#    pod 'SDWebImage', '~>3.7'
-#end

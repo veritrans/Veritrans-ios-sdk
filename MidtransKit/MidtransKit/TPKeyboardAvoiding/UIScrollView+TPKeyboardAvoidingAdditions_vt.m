@@ -18,7 +18,7 @@ static const int kStateKey;
 
 #define _UIKeyboardFrameEndUserInfoKey (&UIKeyboardFrameEndUserInfoKey != NULL ? UIKeyboardFrameEndUserInfoKey : @"UIKeyboardBoundsUserInfoKey")
 
-@interface TPKeyboardAvoidingState : NSObject
+@interface TPKeyboardAvoidingState_vt : NSObject
 @property (nonatomic, assign) UIEdgeInsets priorInset;
 @property (nonatomic, assign) UIEdgeInsets priorScrollIndicatorInsets;
 @property (nonatomic, assign) BOOL         keyboardVisible;
@@ -31,10 +31,10 @@ static const int kStateKey;
 
 @implementation UIScrollView (TPKeyboardAvoidingAdditions_vt)
 
-- (TPKeyboardAvoidingState*)keyboardAvoidingState {
-    TPKeyboardAvoidingState *state = objc_getAssociatedObject(self, &kStateKey);
+- (TPKeyboardAvoidingState_vt *)keyboardAvoidingState {
+    TPKeyboardAvoidingState_vt *state = objc_getAssociatedObject(self, &kStateKey);
     if ( !state ) {
-        state = [[TPKeyboardAvoidingState alloc] init];
+        state = [[TPKeyboardAvoidingState_vt alloc] init];
         objc_setAssociatedObject(self, &kStateKey, state, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 #if !__has_feature(objc_arc)
         [state release];
@@ -49,7 +49,7 @@ static const int kStateKey;
         return;
     }
     
-    TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+    TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
     
     if ( state.ignoringNotifications ) {
         return;
@@ -119,7 +119,7 @@ static const int kStateKey;
         return;
     }
     
-    TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+    TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
     
     if ( state.ignoringNotifications ) {
         return;
@@ -149,14 +149,14 @@ static const int kStateKey;
 }
 
 - (void)TPKeyboardAvoiding_updateContentInset {
-    TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+    TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
     if ( state.keyboardVisible ) {
         self.contentInset = [self TPKeyboardAvoiding_contentInsetForKeyboard];
     }
 }
 
 - (void)TPKeyboardAvoiding_updateFromContentSizeChange {
-    TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+    TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
     if ( state.keyboardVisible ) {
         state.priorContentSize = self.contentSize;
         self.contentInset = [self TPKeyboardAvoiding_contentInsetForKeyboard];
@@ -175,7 +175,7 @@ static const int kStateKey;
     
     if ( view ) {
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0), dispatch_get_main_queue(), ^{
-            TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+            TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
             state.ignoringNotifications = YES;
             [view becomeFirstResponder];
             state.ignoringNotifications = NO;
@@ -187,7 +187,7 @@ static const int kStateKey;
 }
 
 -(void)TPKeyboardAvoiding_scrollToActiveTextField {
-    TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+    TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
     
     if ( !state.keyboardVisible ) return;
     
@@ -322,7 +322,7 @@ static const int kStateKey;
 
 
 - (UIEdgeInsets)TPKeyboardAvoiding_contentInsetForKeyboard {
-    TPKeyboardAvoidingState *state = self.keyboardAvoidingState;
+    TPKeyboardAvoidingState_vt *state = self.keyboardAvoidingState;
     UIEdgeInsets newInset = self.contentInset;
     CGRect keyboardRect = state.keyboardRect;
     newInset.bottom = keyboardRect.size.height - MAX((CGRectGetMaxY(keyboardRect) - CGRectGetMaxY(self.bounds)), 0);
@@ -379,5 +379,5 @@ static const int kStateKey;
 
 @end
 
-@implementation TPKeyboardAvoidingState
+@implementation TPKeyboardAvoidingState_vt
 @end

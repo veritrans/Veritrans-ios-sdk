@@ -80,11 +80,7 @@
 }
 
 - (NSString *)countryCode {
-    if ([_countryTextField.text.lowercaseString isEqualToString:@"indonesia"]) {
-        return @"IDN";
-    } else {
-        return @"";
-    }
+    return @"IDN";
 }
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {

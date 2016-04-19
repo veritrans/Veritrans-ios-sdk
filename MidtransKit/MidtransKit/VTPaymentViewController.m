@@ -7,8 +7,8 @@
 //
 
 #import "VTPaymentViewController.h"
+#import "VTPaymentListController.h"
 #import "VTClassHelper.h"
-#import "VTCartController.h"
 
 @interface VTPaymentViewController ()
 @property (nonatomic) NSArray <VTItem *> *items;
@@ -17,7 +17,7 @@
 @implementation VTPaymentViewController
 
 + (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer andItems:(NSArray <VTItem *> *)items {
-    VTCartController *vc = [VTCartController cartWithCustomer:customer andItems:items];
+    VTPaymentListController *vc = [VTPaymentListController controllerWithCustomer:customer items:items];
     VTPaymentViewController *nvc = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return nvc;
 }

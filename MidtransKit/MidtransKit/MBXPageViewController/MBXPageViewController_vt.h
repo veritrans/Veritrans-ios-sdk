@@ -14,13 +14,13 @@ typedef NS_ENUM(NSInteger, MBXPageMode) {
     MBX_SegmentController
 };
 
-@protocol MBXPageControllerDataSource;
-@protocol MBXPageControllerDataDelegate;
+@protocol MBXPageControllerDataSource_vt;
+@protocol MBXPageControllerDataDelegate_vt;
 
-@interface MBXPageViewController : UIPageViewController
+@interface MBXPageViewController_vt : UIPageViewController
 
-@property (nonatomic, assign) id<MBXPageControllerDataSource>   MBXDataSource;
-@property (nonatomic, assign) id<MBXPageControllerDataDelegate> MBXDataDelegate;
+@property (nonatomic, assign) id<MBXPageControllerDataSource_vt>   MBXDataSource;
+@property (nonatomic, assign) id<MBXPageControllerDataDelegate_vt> MBXDataDelegate;
 
 @property (nonatomic, assign) MBXPageMode                           pageMode;     // This selects the mode of the PageViewController
 
@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, MBXPageMode) {
 - (void)moveToViewNumber:(NSInteger)viewNumber;     // The ViewController position. Starts from 0
 @end
 
-@protocol MBXPageControllerDataSource <NSObject>
+@protocol MBXPageControllerDataSource_vt <NSObject>
 @required
 - (NSArray *)MBXPageButtons;
 - (NSArray *)MBXPageControllers;
@@ -37,7 +37,7 @@ typedef NS_ENUM(NSInteger, MBXPageMode) {
 - (void)otherConfiguration;                         // Good place to put methods that you want to execute after everything is ready i.e. moveToViewNumber to set a different starting page.
 @end
 
-@protocol MBXPageControllerDataDelegate <NSObject>
+@protocol MBXPageControllerDataDelegate_vt <NSObject>
 @optional
 - (void)MBXPageChangedToIndex:(NSInteger)index;
 @end

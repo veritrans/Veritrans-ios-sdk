@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTItem.h>
-#import <MidtransCoreKit/VTCustomerDetails.h>
+
+#import "MidtransCoreKit/VTItem.h"
+#import "MidtransCoreKit/VTConfig.h"
+#import "MidtransCoreKit/VTCustomerDetails.h"
+#import "MidtransCoreKit/VTMerchantClient.h"
+#import "MidtransCoreKit/VTMandiriClickpay.h"
 
 @interface VTPaymentViewController : UINavigationController
 

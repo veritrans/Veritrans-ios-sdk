@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTItem.h>
+#import "MidtransKit/VTPaymentViewController.h"
 
 @interface TableViewCell : UITableViewCell
 @property (nonatomic, strong) VTItem *item;

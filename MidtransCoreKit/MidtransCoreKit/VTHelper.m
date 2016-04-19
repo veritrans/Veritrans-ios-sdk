@@ -35,9 +35,9 @@ NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
 }
 
 - (NSNumber *)itemsPriceAmount {
-    double result;
+    double result = 0.0;
     for (VTItem *item in self) {
-        result += (item.price.doubleValue * item.quantity.integerValue);
+        result = result + (item.price.doubleValue * item.quantity.integerValue);
     }
     return @(result);
 }

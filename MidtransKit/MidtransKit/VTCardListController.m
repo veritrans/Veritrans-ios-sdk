@@ -7,9 +7,6 @@
 //
 
 #import "VTCardListController.h"
-#import <MidtransCoreKit/VTItem.h>
-#import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTCPaymentCreditCard.h>
 
 #import "PushAnimator.h"
 
@@ -26,19 +23,22 @@
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-#import "UICollectionView+Empty.h"
 
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTCTransactionDetails.h>
+#import "MidtransCoreKit/VTItem.h"
+#import "MidtransCoreKit/VTConfig.h"
+#import "MidtransCoreKit/VTClient.h"
+#import "MidtransCoreKit/VTMerchantClient.h"
+#import "MidtransCoreKit/VTPaymentCreditCard.h"
+#import "MidtransCoreKit/VTCTransactionDetails.h"
 
 @interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
-@property (strong, nonatomic) IBOutlet UIView *infoView;
-@property (strong, nonatomic) IBOutlet UIView *paymentView;
+
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
+@property (strong, nonatomic) IBOutlet UIView *cardsView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+
+@property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 
 @property (nonatomic, readwrite) VTCustomerDetails *customer;
 @property (nonatomic, readwrite) NSArray *items;
@@ -66,8 +66,6 @@
     
     _hudView = [[VTHudView alloc] init];
     
-    _collectionView.emptyDataView = _emptyCardView;
-    
     [_pageControl setNumberOfPages:0];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
@@ -76,6 +74,8 @@
     
     NSNumberFormatter *formatter = [NSObject numberFormatterWith:@"vt.number"];
     _amountLabel.text = [formatter stringFromNumber:_grossAmount];
+    
+    [self updateView];
     
     [self reloadMaskedCards];
     
@@ -116,7 +116,22 @@
                                                   otherButtonTitles:nil];
             [alert show];
         }
+        
+        [self updateView];
     }];
+}
+
+
+- (void)updateView {
+    if (self.cards.count) {
+        _addCardButtonHeight.constant = 0;
+        _emptyCardView.hidden = true;
+        _cardsView.hidden = false;
+    } else {
+        _addCardButtonHeight.constant = 50.;
+        _emptyCardView.hidden = false;
+        _cardsView.hidden = true;
+    }
 }
 
 - (void)cardsUpdated:(id)sender {
@@ -130,7 +145,7 @@
     [_collectionView reloadData];
 }
 
-- (IBAction)newCardPressed:(UITapGestureRecognizer *)sender {
+- (IBAction)addCardPressed:(id)sender {
     VTAddCardController *vc = [VTAddCardController controllerWithCustomer:_customer items:_items];
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -234,6 +249,9 @@
             [_cards removeObjectAtIndex:indexPath.row];
             [_collectionView deleteItemsAtIndexPaths:@[indexPath]];
             [_pageControl setNumberOfPages:[_cards count]];
+            
+            self.editingCell = false;
+            
         } else {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
                                                             message:error.localizedDescription
@@ -242,6 +260,8 @@
                                                   otherButtonTitles:nil];
             [alert show];
         }
+        
+        [self updateView];
     }];
 }
 

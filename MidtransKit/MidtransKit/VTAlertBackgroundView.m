@@ -9,7 +9,9 @@
 #import "VTAlertBackgroundView.h"
 #import "VTClassHelper.h"
 
-@implementation VTAlertBackgroundView
+@implementation VTAlertBackgroundView {
+    UIImageView *_backgroundView;
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -39,15 +41,21 @@
     self.backgroundColor = [UIColor clearColor];
     
     UIImage *background = [UIImage imageNamed:@"alertBackground" inBundle:VTBundle compatibleWithTraitCollection:nil];
-    UIImageView *backgroundView = [UIImageView new];
-    backgroundView.backgroundColor = [UIColor clearColor];
-    backgroundView.translatesAutoresizingMaskIntoConstraints = NO;
-    backgroundView.image = [background stretchableImageWithLeftCapWidth:20 topCapHeight:20];
+    background = [background stretchableImageWithLeftCapWidth:15 topCapHeight:15];
     
-    [self insertSubview:backgroundView atIndex:0];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[bg]|" options:0 metrics:0 views:@{@"bg":backgroundView}]];
-    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[bg]|" options:0 metrics:0 views:@{@"bg":backgroundView}]];
+    _backgroundView = [UIImageView new];
+    _backgroundView.backgroundColor = [UIColor clearColor];
+    _backgroundView.contentMode = UIViewContentModeScaleToFill;
+    _backgroundView.image = background;
     
+    [self insertSubview:_backgroundView atIndex:0];
+    
+}
+
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _backgroundView.frame = self.bounds;
 }
 
 @end

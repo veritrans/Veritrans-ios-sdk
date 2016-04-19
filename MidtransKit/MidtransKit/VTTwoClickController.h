@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTCustomerDetails.h>
+#import "MidtransCoreKit/VTCustomerDetails.h"
 
 #import "VTCCBackView.h"
 

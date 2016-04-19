@@ -1,23 +1,21 @@
 //
-//  TPKeyboardAvoidingCollectionView.m
+//  TPKeyboardAvoidingScrollView.m
 //  TPKeyboardAvoiding
 //
 //  Created by Michael Tyson on 30/09/2013.
-//  Copyright 2015 A Tasty Pixel & The CocoaBots. All rights reserved.
+//  Copyright 2015 A Tasty Pixel. All rights reserved.
 //
 
-#import "TPKeyboardAvoidingCollectionView.h"
+#import "TPKeyboardAvoidingScrollView_vt.h"
 
-@interface TPKeyboardAvoidingCollectionView () <UITextFieldDelegate, UITextViewDelegate>
+@interface TPKeyboardAvoidingScrollView_vt () <UITextFieldDelegate, UITextViewDelegate>
 @end
 
-@implementation TPKeyboardAvoidingCollectionView
+@implementation TPKeyboardAvoidingScrollView_vt
 
 #pragma mark - Setup/Teardown
 
 - (void)setup {
-    if ( [self hasAutomaticKeyboardAvoidingBehaviour] ) return;
-    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillShow:) name:UIKeyboardWillChangeFrameNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(TPKeyboardAvoiding_keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(scrollToActiveTextField) name:UITextViewTextDidBeginEditingNotification object:nil];
@@ -26,12 +24,6 @@
 
 -(id)initWithFrame:(CGRect)frame {
     if ( !(self = [super initWithFrame:frame]) ) return nil;
-    [self setup];
-    return self;
-}
-
-- (id)initWithFrame:(CGRect)frame collectionViewLayout:(UICollectionViewLayout *)layout {
-    if ( !(self = [super initWithFrame:frame collectionViewLayout:layout]) ) return nil;
     [self setup];
     return self;
 }
@@ -47,31 +39,18 @@
 #endif
 }
 
-
--(BOOL)hasAutomaticKeyboardAvoidingBehaviour {
-    if ( [[[UIDevice currentDevice] systemVersion] integerValue] >= 9
-            && [self.delegate isKindOfClass:[UICollectionViewController class]] ) {
-        // Theory: It looks like iOS 9's collection views automatically avoid the keyboard. As usual
-        // Apple have totally failed to document this anywhere, so this is just a guess.
-        return YES;
-    }
-    
-    return NO;
-}
-
 -(void)setFrame:(CGRect)frame {
     [super setFrame:frame];
     [self TPKeyboardAvoiding_updateContentInset];
 }
 
 -(void)setContentSize:(CGSize)contentSize {
-    if (CGSizeEqualToSize(contentSize, self.contentSize)) {
-        // Prevent triggering contentSize when it's already the same that
-        // cause weird infinte scrolling and locking bug
-        return;
-    }
     [super setContentSize:contentSize];
-    [self TPKeyboardAvoiding_updateContentInset];
+    [self TPKeyboardAvoiding_updateFromContentSizeChange];
+}
+
+- (void)contentSizeToFit {
+    self.contentSize = [self TPKeyboardAvoiding_calculatedContentSizeFromSubviewFrames];
 }
 
 - (BOOL)focusNextTextField {

@@ -11,7 +11,7 @@
 #import "VTTextField.h"
 #import "VTClickpayHelpController.h"
 
-#import <MidtransCoreKit/VTCPaymentClickpay.h>
+#import "MidtransCoreKit/VTMandiriClickpay.h"
 
 @interface VTClickpayController ()
 

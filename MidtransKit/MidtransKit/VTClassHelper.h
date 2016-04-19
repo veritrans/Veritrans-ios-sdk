@@ -8,7 +8,7 @@
 
 #define VTBundle [VTClassHelper kitBundle]
 
-#import <MidtransCoreKit/VTHelper.h>
+#import "MidtransCoreKit/VTHelper.h"
 
 typedef NS_ENUM(NSUInteger, VTVAType) {
     VTVATypeBCA,

@@ -9,7 +9,7 @@
 #import "VTCardCell.h"
 #import "VTCCFrontView.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTCreditCard.h>
+#import "MidtransCoreKit/VTCreditCard.h"
 
 @interface VTCardCell ()
 @property (nonatomic) IBOutlet VTCCFrontView *frontCardView;
@@ -40,7 +40,7 @@
     _frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
     
     NSString *iconName = [VTCreditCard typeStringWithNumber:maskedCard.maskedNumber];
-    _frontCardView.iconView.image = [UIImage imageNamed:iconName];
+    _frontCardView.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     _frontCardView.expiryLabel.text = @"XX/XX";
 }

@@ -7,15 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@protocol VT3DSControllerDelegate;
+#import "VTTransactionResult.h"
 
 @interface VT3DSController : UIViewController
 @property (nonatomic, strong) UIWebView *webView;
-@property (nonatomic, strong) NSURL *webUrl;
-@property (nonatomic, assign) id<VT3DSControllerDelegate>webDelegate;
-@end
+@property (nonatomic, readonly) NSURL *secureURL;
+@property (nonatomic, readonly) NSString *token;
 
-@protocol VT3DSControllerDelegate<NSObject>
-- (void)viewController_didFinishTransaction:(VT3DSController *)viewController;
+- (instancetype)initWithToken:(NSString *)token
+                    secureURL:(NSURL *)secureURL;
+- (void)showWithCompletion:(void(^)())completion;
+
 @end

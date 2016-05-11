@@ -1,26 +1,26 @@
 //
-//  VTCTransactionDetails.m
-//  MidtransCoreKit
+//  VTTransactionDetails.m
+//  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/3/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCTransactionDetails.h"
+#import "VTTransactionDetails.h"
 #import "VTHelper.h"
 
-@interface VTCTransactionDetails()
+@interface VTTransactionDetails()
 
 @property (nonatomic, readwrite) NSString* orderId;
 @property (nonatomic, readwrite) NSNumber* grossAmount;
 
 @end
 
-@implementation VTCTransactionDetails
+@implementation VTTransactionDetails
 
-- (instancetype)initWithGrossAmount:(NSNumber *)grossAmount {
+- (instancetype)initWithOrderID:(NSString *)orderID andGrossAmount:(NSNumber *)grossAmount {
     if (self = [super init]) {
-        self.orderId = [NSString randomWithLength:10];
+        self.orderId = orderID;
         self.grossAmount = grossAmount;
     }
     return self;

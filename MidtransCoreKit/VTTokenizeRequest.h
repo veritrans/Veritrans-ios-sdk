@@ -1,6 +1,6 @@
 //
-//  VTTokenRequest.h
-//  MidtransCoreKit
+//  VTTokenizeRequest.h
+//  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/10/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
@@ -10,9 +10,9 @@
 #import "VTCreditCard.h"
 
 /**
- `VTTokenRequest` is plain data object that represent a request to tokenize a credit card.
+ `VTTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
  */
-@interface VTTokenRequest : NSObject
+@interface VTTokenizeRequest : NSObject
 
 @property (nonatomic, readonly) VTCreditCard *creditCard;
 @property (nonatomic, readonly) NSString *bank;
@@ -29,16 +29,17 @@
 ///----------------
 
 /**
- Get a `VTTokenRequest` object based on a credit card data. The returned `VTTokenRequest` can be used to reqeust token for normal credit card transaction.
+ Get a `VTTokenizeRequest` object based on a credit card data. The resulting `VTTokenizeRequest` can be used to request token for normal credit card transaction.
  
  @param creditCard The credit card to be tokenized.
+ @param grossAmount The amount to charge.
  */
-+ (instancetype)tokenForNormalTransactionWithCreditCard:(VTCreditCard *)creditCard;
++ (instancetype)tokenForNormalTransactionWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount;
 
 /**
- Get a `VTTokenReqeust` for two-clicks transaction.
+ Get a `VTTokenizeReqeust` for two-clicks transaction.
  
- @param token The token from TODO.
+ @param token The token from previous successful transaction.
  @param cvv The credit card's CVV.
  @param secure Flag that will be used to determine whether the token request process will use a redirect URL provided by the bank
  @param grossAmount The amount
@@ -47,6 +48,8 @@
                                                  cvv:(NSString *)cvv
                                               secure:(BOOL)secure
                                          grossAmount:(NSNumber *)grossAmount;
+
++ (instancetype)tokenFor3DSecureTransactionWithCreditCard:(VTCreditCard *)creditCard bank:(NSString *)bank grossAmount:(NSNumber *)grossAmount;
 
 - (NSDictionary *)dictionaryValue;
 

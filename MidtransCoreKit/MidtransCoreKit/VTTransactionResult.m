@@ -1,15 +1,15 @@
 //
-//  VTPaymentResult.m
-//  MidtransCoreKit
+//  VTTransactionResult.m
+//  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/15/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentResult.h"
+#import "VTTransactionResult.h"
 #import "VTHelper.h"
 
-@interface VTPaymentResult()
+@interface VTTransactionResult()
 
 @property(nonatomic, readwrite) NSInteger statusCode;
 @property(nonatomic, readwrite) NSString *statusMessage;
@@ -23,9 +23,9 @@
 
 @end
 
-@implementation VTPaymentResult
+@implementation VTTransactionResult
 
-- (instancetype)initWithPaymentResponse:(NSDictionary *)response {
+- (instancetype)initWithTransactionResponse:(NSDictionary *)response {
     self = [super init];
     if (self) {
         NSMutableDictionary *mResponse = [NSMutableDictionary dictionaryWithDictionary:response];
@@ -48,6 +48,14 @@
             self.transactionTime = [formatter dateFromString:rawTransactionTime];
         }
         
+        if (response[@"saved_token_id" ]) {
+            NSDictionary *maskedCardObject = @{@"masked_card":response[@"masked_card"],
+                                               @"saved_token_id":response[@"saved_token_id"],
+                                               @"status_code":response[@"status_code"],
+                                               @"transaction_id":response[@"transaction_id"]};
+            _maskedCreditCard = [VTMaskedCreditCard maskedCardFromData:maskedCardObject];
+        }
+        
         self.additionalData = mResponse;
     }
     return self;
@@ -65,6 +73,10 @@
     }
     
     return self;
+}
+
+- (NSString *)description {
+    return [NSString stringWithFormat:@"statusCode = %li\nstatusMessage = %@\ntransactionId = %@\ntransactionStatus = %@\norderId = %@\npaymentType = %@\ngrossAmount = %@\ntransactionTime = %@\nadditionalData = %@\n", (long)self.statusCode, self.statusMessage, self.transactionId, self.transactionStatus, self.orderId, self.paymentType, self.grossAmount, self.transactionTime, self.additionalData];
 }
 
 @end

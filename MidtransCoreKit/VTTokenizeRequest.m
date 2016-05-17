@@ -92,8 +92,7 @@
                                     @"installment":self.installment? @"true":@"false",
                                     @"installment_term":[VTHelper nullifyIfNil:self.installmentTerm],
                                     @"two_click":self.twoClick? @"true":@"false",
-                                    @"type":[VTHelper nullifyIfNil:self.type],
-                                    @"token_id":[VTHelper nullifyIfNil:self.token]}];
+                                    @"type":[VTHelper nullifyIfNil:self.type]}];
     }
     
     if ([CONFIG environment] == VTServerEnvironmentProduction) {

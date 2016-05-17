@@ -1,19 +1,12 @@
 //
 //  VTCreditCard.h
-//  MidtransCoreKit
+//  iossdk-gojek
 //
 //  Created by Nanang Rafsanjani on 2/16/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
-
-typedef NS_ENUM(NSInteger, VTCreditCardType) {
-    VTCreditCardTypeVisa,
-    VTCreditCardTypeMasterCard,
-    VTCreditCardTypeJCB,
-    VTCreditCardTypeUnknown
-};
 
 @interface VTCreditCard : NSObject
 
@@ -26,8 +19,5 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
                    expiryMonth:(NSString *)expiryMonth
                     expiryYear:(NSString *)expiryYear
                            cvv:(NSString *)cvv;
-
-+ (VTCreditCardType)typeWithNumber:(NSString *)number;
-+ (NSString *)typeStringWithNumber:(NSString *)number;
 
 @end

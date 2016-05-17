@@ -16,11 +16,6 @@ extern NSString *const ErrorDomain;
 + (id)nullifyIfNil:(id)object;
 @end
 
-@interface NSArray (item)
-- (NSArray *)itemsRequestData;
-- (NSNumber *)itemsPriceAmount;
-@end
-
 @interface NSString (random)
 + (NSString *)randomWithLength:(NSUInteger)length;
 @end
@@ -35,6 +30,6 @@ extern NSString *const ErrorDomain;
 
 
 @interface NSObject (utilities)
-+ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier;
++ (NSNumberFormatter *)indonesianCurrencyFormatter;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
 @end

@@ -1,6 +1,6 @@
 //
 //  VTClient.h
-//  MidtransCoreKit
+//  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/8/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "VTCreditCard.h"
-#import "VTTokenRequest.h"
+#import "VTTokenizeRequest.h"
 #import "VTMaskedCreditCard.h"
 
 /**
@@ -27,29 +27,29 @@
 + (id)sharedClient;
 
 
-///--------------------
-/// @name Veritrans API
-///--------------------
+///---------------------------
+/// @name Veritrans Client API
+///---------------------------
 
 /**
  Generate a token from Veritrans server. This token will be used as a representation of a unique credit card for later transaction.
  
- @param tokenRequest Object that contains various information to be "transformed" into a token. Supplying the credit card information is mandatory.
+ @param tokenizeRequest Object that contains various information to be "transformed" into a token. Supplying the credit card information is mandatory.
  
- @param completion A callback that will be called when the operation finished. When the operation succeeded, the generated token will be in be in `token` variable.
+ @param completion A callback that will be called when the operation finished. When the operation succeeded, the generated token will be passed as `token` variable.
  */
-- (void)generateToken:(VTTokenRequest *)tokenRequest
-           completion:(void (^)(NSString *token, NSError *error))completion;
+- (void)generateToken:(VTTokenizeRequest *)tokenizeRequest
+           completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion;
 
 /**
  Register a credit card to be stored in Veritrans server.
  
- @param creditCard `VTCreditCard` object that contains information of the credit card.
+ @param response `NSDictionary` object that contains information of the credit card.
  
- @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain `VTMaskedCreditCard` object.
+ @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain registered credit card object.
  */
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(VTMaskedCreditCard *maskedCard, NSError *error))completion;
+                completion:(void (^)(id response, NSError *error))completion;
 
 
 @end

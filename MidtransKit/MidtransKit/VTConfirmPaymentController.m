@@ -8,6 +8,7 @@
 
 #import "VTConfirmPaymentController.h"
 #import "VTClassHelper.h"
+#import <MidtransCoreKit/UIViewController+Modal.h>
 
 @interface VTConfirmPaymentController ()
 @property (strong, nonatomic) IBOutlet UILabel *cardNumberLabel;
@@ -16,19 +17,20 @@
 @property (nonatomic) NSString *cardNumber;
 @property (nonatomic) NSNumber *grossAmount;
 
-@property (nonatomic, copy) void (^callback)(NSInteger selectedIndex);
+@property (nonatomic, copy) void (^completion)(NSUInteger selectedIndex);
 
 @end
 
 @implementation VTConfirmPaymentController
 
-+ (instancetype)controllerWithMaskedCardNumber:(NSString *)cardNumber grossAmount:(NSNumber *)amount callback:(void(^)(NSInteger selectedIndex))callback {
+- (instancetype)initWithCardNumber:(NSString *)cardNumber grossAmount:(NSNumber *)grossAmount {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTConfirmPaymentController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTConfirmPaymentController"];
-    vc.cardNumber = cardNumber;
-    vc.grossAmount = amount;
-    vc.callback = callback;
-    return vc;
+    self = [storyboard instantiateViewControllerWithIdentifier:@"VTConfirmPaymentController"];
+    if (self) {
+        self.cardNumber = cardNumber;
+        self.grossAmount = grossAmount;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -37,8 +39,8 @@
     
     _cardNumberLabel.text = [_cardNumber formattedCreditCardNumber];
     
-    NSNumberFormatter *formatter = [NSObject numberFormatterWith:@"vt.number"];
-    _grossAmountLabel.text = [@"Rp " stringByAppendingString:[formatter stringFromNumber:_grossAmount]];
+    NSNumberFormatter *formatter = [NSObject indonesianCurrencyFormatter];
+    _grossAmountLabel.text = [formatter stringFromNumber:self.grossAmount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -47,9 +49,16 @@
 }
 
 - (IBAction)buttonPressed:(UIButton *)sender {
-    if (self.callback) {
-        self.callback(sender.tag);
+    if (self.completion) {
+        self.completion(sender.tag);
     }
+}
+
+- (void)showOnViewController:(UIViewController *)controller clickedButtonsCompletion:(void (^)(NSUInteger selectedIndex))completion {
+    self.completion = completion;
+    
+    self.modalSize = self.preferredContentSize;
+    [controller presentCustomViewController:self completion:nil];
 }
 
 /*

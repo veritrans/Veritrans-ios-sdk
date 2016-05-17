@@ -15,49 +15,41 @@
 
 #import "PopAnimator.h"
 
-#import "MidtransCoreKit/VTClient.h"
-#import "MidtransCoreKit/VTMerchantClient.h"
-#import "MidtransCoreKit/VTPaymentCreditCard.h"
+#import <MidtransCoreKit/VTClient.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransCoreKit/VTPaymentCreditCard.h>
+#import <MidtransCoreKit/VTTokenizeRequest.h>
+#import <MidtransCoreKit/VT3DSController.h>
 
 #import "VTHudView.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
+#import "IHKeyboardAvoiding_vt.h"
+#import "VTKeyboardAccessoryView.h"
 
 @interface VTTwoClickController () <UINavigationControllerDelegate>
-@property (nonatomic) IBOutlet VTTextField *cvvTextField;
-@property (strong, nonatomic) IBOutlet UIView *navigationView;
 
-@property (nonatomic) VTCustomerDetails *customer;
-@property (nonatomic) NSArray *items;
+@property (nonatomic) IBOutlet VTTextField *cvvTextField;
+@property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (nonatomic) NSString *savedTokenId;
+@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
 
 @implementation VTTwoClickController {
     VTHudView *_hudView;
-    
-    NSNumber *_grossAmount;
-}
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items savedTokenId:(NSString *)savedTokenId {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTTwoClickController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTTwoClickController"];
-    vc.customer = customer;
-    vc.items = items;
-    vc.savedTokenId = savedTokenId;
-    return vc;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
+    
     _hudView = [[VTHudView alloc] init];
     
-    _grossAmount = [_items itemsPriceAmount];
-    
-    _cvvTextField.inputAccessoryView = _navigationView;
+    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_cvvTextField]];
     
     self.navigationController.delegate = self;
 }
@@ -90,47 +82,39 @@
     return nil;
 }
 
-- (IBAction)donePressed:(UIButton *)sender {
-    [self.view endEditing:YES];
-}
-
 - (IBAction)paymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.view];
     
-    VTTokenRequest *tokenRequest = [VTTokenRequest tokenForTwoClickTransactionWithToken:_savedTokenId
-                                                                                    cvv:_cvvTextField.text
-                                                                                 secure:NO
-                                                                            grossAmount:_grossAmount];
-    
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
-        if (token) {
-            VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:token];
-            VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:_grossAmount];
-            VTCTransactionData *transData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail
-                                                                            transactionDetails:transDetail
-                                                                               customerDetails:_customer
-                                                                                   itemDetails:_items];
-            
-            [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(VTPaymentResult *result, NSError *error) {
-                [_hudView hide];
-                
-                if (result) {
-                    VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithPaymentResult:result];
-                    VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
-                    [self.navigationController pushViewController:vc animated:YES];
-                } else {
-                    VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
-                    [self.navigationController pushViewController:vc animated:YES];
-                }
-            }];
-        }
-        else {
-            [_hudView hide];
-            
-            VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
-            [self.navigationController pushViewController:vc animated:YES];
+    VTTokenizeRequest *tokenRequest = [VTTokenizeRequest tokenForTwoClickTransactionWithToken:_savedTokenId cvv:_cvvTextField.text secure:YES grossAmount:self.transactionDetails.grossAmount];
+    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            if (redirectURL) {
+                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
+                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
+                [secureController showWithCompletion:^(NSError *error) {
+                    if (error) {
+                        [self handleTransactionError:error];
+                    } else {
+                        [self payWithToken:token];
+                    }
+                }];
+            } else {
+                [self payWithToken:token];
+            }
         }
     }];
+}
+
+- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+    [super handleTransactionSuccess:result];
+    [_hudView hide];
+}
+
+- (void)handleTransactionError:(NSError *)error {
+    [super handleTransactionError:error];
+    [_hudView hide];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -141,6 +125,20 @@
     } else {
         return YES;
     }
+}
+
+#pragma mark - Helper
+
+- (void)payWithToken:(NSString *)token {
+    VTPaymentCreditCard *paymentDetail = [VTPaymentCreditCard paymentUsingFeature:VTCreditCardPaymentFeatureOneClick forTokenId:token];
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
 }
 
 /*

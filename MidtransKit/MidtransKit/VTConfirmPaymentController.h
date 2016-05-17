@@ -10,6 +10,7 @@
 
 @interface VTConfirmPaymentController : UIViewController
 
-+ (instancetype)controllerWithMaskedCardNumber:(NSString *)cardNumber grossAmount:(NSNumber *)amount callback:(void(^)(NSInteger selectedIndex))callback;
+- (instancetype)initWithCardNumber:(NSString *)cardNumber grossAmount:(NSNumber *)grossAmount;
+- (void)showOnViewController:(UIViewController *)controller clickedButtonsCompletion:(void (^)(NSUInteger selectedIndex))completion;
 
 @end

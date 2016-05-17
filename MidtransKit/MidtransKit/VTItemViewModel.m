@@ -10,32 +10,26 @@
 #import "VTClassHelper.h"
 
 @interface VTItemViewModel()
-@property (nonatomic) VTItem *item;
+@property (nonatomic) VTItemDetail *item;
 @end
 
 @implementation VTItemViewModel
 
-+ (instancetype)viewModelWithItem:(VTItem *)item {
++ (instancetype)viewModelWithItem:(VTItemDetail *)item {
     VTItemViewModel *mv = [VTItemViewModel new];
     mv.item =  item;
     return mv;
 }
 
 - (NSString *)price {
-    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    return [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:_item.price]];
+    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
+    return [formatter stringFromNumber:_item.price];
 }
 - (NSString *)quantity {
     return [NSString stringWithFormat:@"Quantity: %@", _item.quantity];
 }
 - (NSURL *)image {
-    return [NSURL URLWithString:_item.imageURL];
-}
-
-+ (NSString *)totalPriceOfItems:(NSArray *)items {
-    NSNumber *price = [items itemsPriceAmount];
-    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    return [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:price]];
+    return nil;
 }
 
 @end

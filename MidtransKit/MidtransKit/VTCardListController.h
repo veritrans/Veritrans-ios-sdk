@@ -8,14 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "VTCardCell.h"
-#import "MidtransCoreKit/VTCustomerDetails.h"
+#import "VTPaymentController.h"
 
-@interface VTCardListController : UIViewController
+@interface VTCardListController : VTPaymentController
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
-
-@property (nonatomic, readonly) NSArray *items;
-@property (nonatomic, readonly) VTCustomerDetails *customer;
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items;
-
 @end

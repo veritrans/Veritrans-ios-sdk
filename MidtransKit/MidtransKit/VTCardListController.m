@@ -22,14 +22,14 @@
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
-#import "UIViewController+Modal.h"
 
-#import "MidtransCoreKit/VTItem.h"
-#import "MidtransCoreKit/VTConfig.h"
-#import "MidtransCoreKit/VTClient.h"
-#import "MidtransCoreKit/VTMerchantClient.h"
-#import "MidtransCoreKit/VTPaymentCreditCard.h"
-#import "MidtransCoreKit/VTCTransactionDetails.h"
+
+#import <MidtransCoreKit/UIViewController+Modal.h>
+#import <MidtransCoreKit/VTConfig.h>
+#import <MidtransCoreKit/VTClient.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransCoreKit/VTPaymentCreditCard.h>
+#import <MidtransCoreKit/VTTransactionDetails.h>
 
 @interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
@@ -40,24 +40,12 @@
 
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 
-@property (nonatomic, readwrite) VTCustomerDetails *customer;
-@property (nonatomic, readwrite) NSArray *items;
 @property (nonatomic) NSMutableArray *cards;
-
 @property (nonatomic) BOOL editingCell;
 @end
 
 @implementation VTCardListController {
     VTHudView *_hudView;
-    NSNumber *_grossAmount;
-}
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTCardListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTCardListController"];
-    vc.customer = customer;
-    vc.items = items;
-    return vc;
 }
 
 - (void)viewDidLoad {
@@ -70,10 +58,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
     
-    _grossAmount = [_items itemsPriceAmount];
-    
-    NSNumberFormatter *formatter = [NSObject numberFormatterWith:@"vt.number"];
-    _amountLabel.text = [formatter stringFromNumber:_grossAmount];
+    NSNumberFormatter *formatter = [NSObject indonesianCurrencyFormatter];
+    _amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     
     [self updateView];
     
@@ -146,7 +132,7 @@
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [VTAddCardController controllerWithCustomer:_customer items:_items];
+    VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -192,51 +178,36 @@
     
     VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
     
-    if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
-        
-        VTConfirmPaymentController *vc =
-        [VTConfirmPaymentController controllerWithMaskedCardNumber:maskedCard.maskedNumber
-                                                       grossAmount:_grossAmount
-                                                          callback:^(NSInteger selectedIndex)
-         {
-             [self dismissCustomViewController:nil];
-             
-             if (selectedIndex == 1) {
-                 [_hudView showOnView:self.view];
-                 
-                 VTPaymentCreditCard *payDetail = [VTPaymentCreditCard paymentForTokenId:maskedCard.savedTokenId];
-                 VTCTransactionDetails *transDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:_grossAmount];
-                 VTCTransactionData *transData = [[VTCTransactionData alloc] initWithpaymentDetails:payDetail
-                                                                                 transactionDetails:transDetail
-                                                                                    customerDetails:_customer
-                                                                                        itemDetails:_items];
-                 
-                 [[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(VTPaymentResult *result, NSError *error) {
-                     [_hudView hide];
-                     
-                     if (result) {
-                         VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithPaymentResult:result];
-                         VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
-                         [self.navigationController pushViewController:vc animated:YES];
-                     } else {
-                         VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
-                         [self.navigationController pushViewController:vc animated:YES];
-                     }
-                 }];
-             }
-         }];
-        vc.modalSize = vc.preferredContentSize;
-        [self presentCustomViewController:vc
-                 presentingViewController:self.navigationController
-                               completion:nil];
-        
+    if ([CONFIG enableOneClick]) {
+        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber grossAmount:self.transactionDetails.grossAmount];
+        [vc showOnViewController:self clickedButtonsCompletion:^(NSUInteger selectedIndex) {
+            if (selectedIndex == 1) {
+                [self payWithToken:maskedCard.savedTokenId];
+            }
+        }];
     } else {
-        
-        VTTwoClickController *vc = [VTTwoClickController controllerWithCustomer:_customer items:_items savedTokenId:maskedCard.savedTokenId];
+        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
-        
     }
+}
+
+#pragma mark - Helper
+
+- (void)payWithToken:(NSString *)token {
+    [_hudView showOnView:self.navigationController.view];
+    
+    VTPaymentCreditCard *paymentDetail = [VTPaymentCreditCard paymentUsingFeature:VTCreditCardPaymentFeatureOneClick forTokenId:token];
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+        [_hudView hide];
+        
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
 }
 
 #pragma mark - VTCardCellDelegate

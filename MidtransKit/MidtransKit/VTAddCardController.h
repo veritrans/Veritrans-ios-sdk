@@ -7,12 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MidtransCoreKit/VTCustomerDetails.h"
+#import "VTPaymentController.h"
 
-@interface VTAddCardController : UIViewController
-
-@property (nonatomic, readonly) VTCustomerDetails *customer;
-@property (nonatomic, readonly) NSArray *items;
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items;
+@interface VTAddCardController : VTPaymentController
 @end

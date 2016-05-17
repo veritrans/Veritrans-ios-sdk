@@ -15,23 +15,23 @@
 @property (nonatomic) NSString *orderId;
 @property (nonatomic) NSString *transactionTime;
 @property (nonatomic) NSString *paymentType;
-@property (nonatomic) VTPaymentResult *paymentResult;
+@property (nonatomic) VTTransactionResult *paymentResult;
 
 @end
 
 @implementation VTPaymentStatusViewModel
 
-+ (instancetype)viewModelWithPaymentResult:(VTPaymentResult *)paymentResult {
++ (instancetype)viewModelWithPaymentResult:(VTTransactionResult *)paymentResult {
     VTPaymentStatusViewModel *viewModel = [[VTPaymentStatusViewModel alloc] init];
     viewModel.paymentResult = paymentResult;
     return viewModel;
 }
 
-- (void)setPaymentResult:(VTPaymentResult *)paymentResult {
+- (void)setPaymentResult:(VTTransactionResult *)paymentResult {
     _paymentResult = paymentResult;
     
-    NSNumberFormatter *nformatter = [NSObject numberFormatterWith:@"vt.number"];
-    self.totalAmount = [NSString stringWithFormat:@"Rp %@", [nformatter stringFromNumber:paymentResult.grossAmount]];
+    NSNumberFormatter *nformatter = [NSObject indonesianCurrencyFormatter];
+    self.totalAmount = [nformatter stringFromNumber:paymentResult.grossAmount];
     
     self.orderId = paymentResult.orderId;
     

@@ -7,13 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MidtransCoreKit/VTCustomerDetails.h"
-
+#import "VTPaymentController.h"
 #import "VTCCBackView.h"
 
-@interface VTTwoClickController : UIViewController
+@interface VTTwoClickController : VTPaymentController
 @property (weak, nonatomic) IBOutlet VTCCBackView *backView;
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items savedTokenId:(NSString *)savedTokenId;
 
 @end

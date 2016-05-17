@@ -9,28 +9,39 @@
 #import "VTVAController.h"
 #import "VTTextField.h"
 #import "VTVAGuideController.h"
+#import "VTKeyboardAccessoryView.h"
+#import "VTHudView.h"
+
+#import <MidtransCoreKit/VTPaymentBankTransfer.h>
+#import <MidtransCoreKit/VTTransaction.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
 
 @interface VTVAController ()
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
-
+@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, assign) VTVAType vaType;
+@property (nonatomic) VTHudView *hudView;
 
 @end
 
 @implementation VTVAController
 
-+ (instancetype)controllerWithVaType:(VTVAType)vaType {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTVAController *vc = [sb instantiateViewControllerWithIdentifier:@"VTVAController"];
-    vc.vaType = vaType;
-    return vc;
+- (instancetype)initWithVAType:(VTVAType)type customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails*)transactionDetails {
+    if (self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails]) {
+        self.vaType = type;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _hudView = [[VTHudView alloc] init];
+    
+    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_emailTextField]];
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
                                                                              style:UIBarButtonItemStylePlain
@@ -51,6 +62,9 @@
             self.title = @"Other Bank Transfer";
             break;
     }
+    
+    self.amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
+    self.orderIdLabel.text = self.transactionDetails.orderId;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -64,16 +78,34 @@
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
+    [_hudView showOnView:self.navigationController.view];
+    
+    VTPaymentBankTransfer *paymentDetails;
     switch (self.vaType) {
         case VTVATypeBCA:
+            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"bca"];
             break;
         case VTVATypeMandiri:
+            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"mandiri"];
             break;
         case VTVATypePermata:
+            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"permata"];
             break;
         case VTVATypeOther:
+            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"unknown"];
             break;
     }
+    
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+        [_hudView hide];
+        
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
 }
 
 /*

@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTPaymentController.h"
 #import "VTClassHelper.h"
 
-@interface VTVAController : UIViewController
+@interface VTVAController : VTPaymentController
 
-+ (instancetype)controllerWithVaType:(VTVAType)vaType;
+- (instancetype)initWithVAType:(VTVAType)type customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails*)transactionDetails;
 
 @end

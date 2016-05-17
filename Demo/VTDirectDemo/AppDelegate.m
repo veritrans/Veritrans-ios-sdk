@@ -11,7 +11,8 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
-#import "MidtransKit/VTPaymentViewController.h"
+#import <MidtransKit/VTPaymentViewController.h>
+#import <MidtransCoreKit/VTConfig.h>
 
 @interface AppDelegate ()
 
@@ -25,8 +26,8 @@
     
     [Fabric with:@[[Crashlytics class]]];
     
-    [CONFIG setClientKey:@"VT-client-P15EFHb_Z_ADN8tJ"];
-    [CONFIG setMerchantServerURL:@"https://vt-merchant.coral-inc.com/api"];
+    [CONFIG setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"];
+    [CONFIG setMerchantServerURL:@"http://188.166.243.158"];
     [CONFIG setEnvironment:VTServerEnvironmentSandbox];
     
     return YES;

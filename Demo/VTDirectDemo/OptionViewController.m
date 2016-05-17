@@ -7,13 +7,17 @@
 //
 
 #import "OptionViewController.h"
-#import "MidtransKit/VTPaymentViewController.h"
+#import "IHKeyboardAvoiding.h"
+
+#import <MidtransKit/VTPaymentViewController.h>
+#import <MidtransCoreKit/VTConfig.h>
 
 @interface OptionViewController ()
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *cardOptionsSegment;
 
 
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *lastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *emailTextField;
@@ -43,11 +47,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if ([CONFIG creditCardFeature] == VTCreditCardFeatureOneClick) {
+    if ([CONFIG enableOneClick]) {
         _cardOptionsSegment.selectedSegmentIndex = 0;
     } else {
         _cardOptionsSegment.selectedSegmentIndex = 1;
     }
+    
+    [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
@@ -97,11 +103,7 @@
 }
 
 - (IBAction)cardOptionsChanged:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0) {
-        [CONFIG setCreditCardFeature:VTCreditCardFeatureOneClick];
-    } else {
-        [CONFIG setCreditCardFeature:VTCreditCardFeatureTwoClick];
-    }
+    [CONFIG setEnableOneClick:sender.selectedSegmentIndex == 0];
 }
 
 /*

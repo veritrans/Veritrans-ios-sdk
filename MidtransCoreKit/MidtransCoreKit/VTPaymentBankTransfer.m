@@ -6,16 +6,16 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCPaymentBankTransfer.h"
+#import "VTPaymentBankTransfer.h"
 #import "VTHelper.h"
 
-@interface VTCPaymentBankTransfer()
+@interface VTPaymentBankTransfer()
 
 @property (nonatomic, readwrite) NSString* bankName;
 
 @end
 
-@implementation VTCPaymentBankTransfer
+@implementation VTPaymentBankTransfer
 
 - (instancetype)initWithBankName:(NSString *)bankName {
     if (self = [super init]) {

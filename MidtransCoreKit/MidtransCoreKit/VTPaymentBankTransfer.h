@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTCPaymentDetails.h"
+#import "VTPaymentDetails.h"
 
-@interface VTCPaymentBankTransfer : NSObject<VTCPaymentDetails>
+@interface VTPaymentBankTransfer : NSObject<VTPaymentDetails>
 
 @property (nonatomic, readonly) NSString* bankName;
 

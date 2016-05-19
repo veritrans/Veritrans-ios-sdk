@@ -63,6 +63,8 @@
             break;
     }
     
+    _emailTextField.text = self.customerDetails.email;
+    
     self.amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
     self.orderIdLabel.text = self.transactionDetails.orderId;
 }
@@ -95,6 +97,8 @@
             paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"unknown"];
             break;
     }
+    
+    self.customerDetails.email = _emailTextField.text;
     
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {

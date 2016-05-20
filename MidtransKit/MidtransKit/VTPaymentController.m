@@ -42,7 +42,7 @@
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
-    VTPaymentStatusViewModel *vm = [VTPaymentStatusViewModel viewModelWithPaymentResult:result];
+    VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
     [self.navigationController pushViewController:vc animated:YES];
 }

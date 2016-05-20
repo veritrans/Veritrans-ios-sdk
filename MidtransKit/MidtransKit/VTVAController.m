@@ -11,6 +11,7 @@
 #import "VTVAGuideController.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTHudView.h"
+#import "VTVASuccessController.h"
 
 #import <MidtransCoreKit/VTPaymentBankTransfer.h>
 #import <MidtransCoreKit/VTTransaction.h>
@@ -110,6 +111,12 @@
             [self handleTransactionSuccess:result];
         }
     }];
+}
+
+- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+    VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:_vaType];
+    VTVASuccessController *vc = [[VTVASuccessController alloc] initWithViewModel:vm];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 /*

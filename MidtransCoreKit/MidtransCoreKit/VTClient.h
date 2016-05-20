@@ -49,7 +49,7 @@
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain registered credit card object.
  */
 - (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(id response, NSError *error))completion;
+                completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion;
 
 
 @end

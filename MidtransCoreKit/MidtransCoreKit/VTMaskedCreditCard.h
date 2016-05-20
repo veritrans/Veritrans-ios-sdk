@@ -29,6 +29,6 @@
 
 @property (nonatomic, readonly) NSDictionary *dictionaryValue;
 
-+ (instancetype)maskedCardFromData:(NSDictionary *)data;
+- (instancetype)initWithData:(NSDictionary *)data;
 
 @end

@@ -18,14 +18,15 @@
 
 @implementation VTMaskedCreditCard
 
-+ (instancetype)maskedCardFromData:(NSDictionary *)data; {
-    VTMaskedCreditCard *card = [VTMaskedCreditCard new];
-    card.maskedNumber = [data[@"masked_card"] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
-    card.savedTokenId = data[@"saved_token_id"];
-    card.statusCode = [data[@"status_code"] integerValue];
-    card.transactionId = data[@"transaction_id"];
-    card.dictionaryValue = data;
-    return card;
+- (instancetype)initWithData:(NSDictionary *)data {
+    if (self = [super init]) {
+        self.maskedNumber = [data[@"masked_card"] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
+        self.savedTokenId = data[@"saved_token_id"];
+        self.statusCode = [data[@"status_code"] integerValue];
+        self.transactionId = data[@"transaction_id"];
+        self.dictionaryValue = data;
+    }
+    return self;
 }
 
 - (NSString *)description

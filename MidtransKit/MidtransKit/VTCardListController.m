@@ -31,12 +31,13 @@
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTTransactionDetails.h>
 
-@interface VTCardListController () <VTCardCellDelegate, UINavigationControllerDelegate>
+@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (strong, nonatomic) IBOutlet UIButton *addCardButton;
 
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 
@@ -110,10 +111,12 @@
 
 - (void)updateView {
     if (self.cards.count) {
+        _addCardButton.hidden = true;
         _addCardButtonHeight.constant = 0;
         _emptyCardView.hidden = true;
         _cardsView.hidden = false;
     } else {
+        _addCardButton.hidden = false;
         _addCardButtonHeight.constant = 50.;
         _emptyCardView.hidden = false;
         _cardsView.hidden = true;
@@ -133,6 +136,7 @@
 
 - (IBAction)addCardPressed:(id)sender {
     VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -208,6 +212,13 @@
             [self handleTransactionSuccess:result];
         }
     }];
+}
+
+#pragma mark - VTAddCardControllerDelegate
+
+- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(VTMaskedCreditCard *)registeredCard {
+    [self.navigationController popViewControllerAnimated:YES];
+    [self reloadMaskedCards];
 }
 
 #pragma mark - VTCardCellDelegate

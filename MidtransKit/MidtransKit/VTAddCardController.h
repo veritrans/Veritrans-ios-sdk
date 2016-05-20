@@ -9,5 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "VTPaymentController.h"
 
+
+@protocol VTAddCardControllerDelegate;
+
 @interface VTAddCardController : VTPaymentController
+@property (nonatomic, assign) id<VTAddCardControllerDelegate>delegate;
+@end
+
+@protocol VTAddCardControllerDelegate <NSObject>
+
+- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(VTMaskedCreditCard *)registeredCard;
+
 @end

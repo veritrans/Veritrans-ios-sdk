@@ -53,7 +53,7 @@
     _hudView = [[VTHudView alloc] init];
     
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
-        
+    
     _amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
 }
 
@@ -121,18 +121,32 @@
     NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
+    
     NSString *expYear = dates[1];
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yyyy";
+    NSString *currentYear = [df stringFromDate:[NSDate date]];
+    expYear = [[currentYear substringToIndex:currentYear.length-2] stringByAppendingString:expYear];
     
     VTCreditCard *creditCard = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text];
     
-    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *registeredCard, NSError *error) {
+    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
         [_hudView hide];
         
         if (error) {
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
             [alert show];
         } else {
-            [self.navigationController popViewControllerAnimated:YES];
+            [[VTMerchantClient sharedClient] saveRegisteredCard:maskedCreditCard completion:^(id result, NSError *error) {
+                if (error) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+                    [alert show];
+                } else {
+                    if ([self.delegate respondsToSelector:@selector(viewController:didRegisterCard:)]) {
+                        [self.delegate viewController:self didRegisterCard:maskedCreditCard];
+                    }                
+                }
+            }];
         }
     }];
 }

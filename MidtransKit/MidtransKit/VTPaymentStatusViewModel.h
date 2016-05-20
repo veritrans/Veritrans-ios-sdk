@@ -11,11 +11,11 @@
 
 @interface VTPaymentStatusViewModel : NSObject
 
-@property (nonatomic, readonly) NSString *totalAmount;
-@property (nonatomic, readonly) NSString *orderId;
-@property (nonatomic, readonly) NSString *transactionTime;
-@property (nonatomic, readonly) NSString *paymentType;
+@property (nonatomic) NSString *totalAmount;
+@property (nonatomic) NSString *orderId;
+@property (nonatomic) NSString *transactionTime;
+@property (nonatomic) NSString *paymentType;
 
-+ (instancetype)viewModelWithPaymentResult:(VTTransactionResult *)paymentResult;
+- (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult;
 
 @end

@@ -42,9 +42,9 @@
     }];
 }
 
-- (void)saveRegisteredCard:(id)savedCard completion:(void(^)(id response, NSError *error))completion {
+- (void)saveRegisteredCard:(VTMaskedCreditCard *)savedCard completion:(void(^)(id result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card/register"];
-    [[VTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:savedCard callback:completion];
+    [[VTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:savedCard.dictionaryValue callback:completion];
 }
 
 - (void)fetchMaskedCardsWithCompletion:(void(^)(NSArray *maskedCards, NSError *error))completion {
@@ -56,7 +56,7 @@
             result = [NSMutableArray new];
             NSArray *rawCards = response[@"data"];
             for (id rawCard in rawCards) {
-                VTMaskedCreditCard *card = [VTMaskedCreditCard maskedCardFromData:rawCard];
+                VTMaskedCreditCard *card = [[VTMaskedCreditCard alloc] initWithData:rawCard];
                 [result addObject:card];
             }
         }

@@ -53,7 +53,7 @@
                                                @"saved_token_id":response[@"saved_token_id"],
                                                @"status_code":response[@"status_code"],
                                                @"transaction_id":response[@"transaction_id"]};
-            _maskedCreditCard = [VTMaskedCreditCard maskedCardFromData:maskedCardObject];
+            _maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:maskedCardObject];
         }
         
         self.additionalData = mResponse;

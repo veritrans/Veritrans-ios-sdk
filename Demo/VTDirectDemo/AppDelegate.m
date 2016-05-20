@@ -27,7 +27,7 @@
     [Fabric with:@[[Crashlytics class]]];
     
     [CONFIG setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"];
-    [CONFIG setMerchantServerURL:@"http://188.166.243.158"];
+    [CONFIG setMerchantServerURL:@"https://vt-merchant.coralshop.top/api"];
     [CONFIG setEnvironment:VTServerEnvironmentSandbox];
     
     return YES;

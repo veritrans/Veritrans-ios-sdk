@@ -22,21 +22,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *headerAmountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *footerAmountLabel;
 
-@property (nonatomic, readwrite) NSArray *items;
-@property (nonatomic, readwrite) VTCustomerDetails *customer;
-
 @end
 
 @implementation VTPaymentListController {
     NSArray *_payments;
-}
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTPaymentListController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTPaymentListController"];
-    vc.items = items;
-    vc.customer = customer;
-    return vc;
 }
 
 - (void)viewDidLoad {
@@ -48,8 +37,8 @@
     NSString *path = [VTBundle pathForResource:@"payments" ofType:@"plist"];
     _payments = [NSArray arrayWithContentsOfFile:path];
 
-    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    _headerAmountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
+    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
+    _headerAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     _footerAmountLabel.text = _headerAmountLabel.text;
 }
 
@@ -89,7 +78,7 @@
     
     if ([identifier isEqualToString:VTCreditCardIdentifier]) {
         
-        VTCardListController *vc = [VTCardListController controllerWithCustomer:_customer items:_items];
+        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
         
     }
@@ -106,7 +95,7 @@
         
     }
     else if ([identifier isEqualToString:VTMandiriClickpayIdentifier]) {
-        VTClickpayController *vc = [VTClickpayController controllerWithCustomer:_customer items:_items];
+        VTClickpayController *vc = [[VTClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([identifier isEqualToString:VTBBMIdentifier]) {
@@ -125,7 +114,7 @@
         
     }
     else if ([identifier isEqualToString:VTVAIdentifier]) {
-        VTVAListController *vc = [VTVAListController controllerWithCustomer:_customer items:_items];
+        VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([identifier isEqualToString:VTIndomaretIdentifier]) {

@@ -7,7 +7,6 @@
 //
 
 #import "VTHelper.h"
-#import "VTItem.h"
 
 NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
 
@@ -24,25 +23,6 @@ NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
 
 @end
 
-@implementation NSArray (item)
-
-- (NSArray *)itemsRequestData {
-    NSMutableArray *result = [NSMutableArray new];
-    for (VTItem *item in self) {
-        [result addObject:item.requestData];
-    }
-    return result;
-}
-
-- (NSNumber *)itemsPriceAmount {
-    double result = 0.0;
-    for (VTItem *item in self) {
-        result = result + (item.price.doubleValue * item.quantity.integerValue);
-    }
-    return @(result);
-}
-
-@end
 
 @implementation NSString (random)
 
@@ -88,13 +68,15 @@ NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
 
 @implementation NSObject (utilities)
 
-+ (NSNumberFormatter *)numberFormatterWith:(NSString *)identifier {
++ (NSNumberFormatter *)indonesianCurrencyFormatter {
+    NSString *identifier = @"VTIndonesianFormatter";
     NSMutableDictionary *dictionary = [[NSThread currentThread] threadDictionary];
     NSNumberFormatter *currentFormatter = [dictionary objectForKey:identifier];
     
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
-        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
+        currentFormatter.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"id_ID"];
+        currentFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
         [dictionary setObject:currentFormatter forKey:identifier];
     }
     

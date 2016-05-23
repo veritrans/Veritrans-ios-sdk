@@ -11,15 +11,14 @@
 #import "VTClassHelper.h"
 
 @interface VTPaymentViewController ()
-@property (nonatomic) NSArray <VTItem *> *items;
 @end
 
 @implementation VTPaymentViewController
 
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer andItems:(NSArray <VTItem *> *)items {
-    VTPaymentListController *vc = [VTPaymentListController controllerWithCustomer:customer items:items];
-    VTPaymentViewController *nvc = [[VTPaymentViewController alloc] initWithRootViewController:vc];
-    return nvc;
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
+    self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
+    return self;
 }
 
 - (void)viewDidLoad {

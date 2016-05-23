@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MidtransCoreKit/VTItem.h"
+#import "MidtransCoreKit/VTItemDetail.h"
 
 @interface VTItemViewModel : NSObject
 
@@ -15,7 +15,5 @@
 @property (nonatomic, readonly) NSString *quantity;
 @property (nonatomic, readonly) NSURL *image;
 
-+ (NSString *)totalPriceOfItems:(NSArray *)items;
-
-+ (instancetype)viewModelWithItem:(VTItem *)item;
++ (instancetype)viewModelWithItem:(VTItemDetail *)item;
 @end

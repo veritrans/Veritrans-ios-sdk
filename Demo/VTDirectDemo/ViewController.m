@@ -7,9 +7,12 @@
 //
 
 #import "ViewController.h"
-#import "MidtransKit/VTPaymentViewController.h"
 #import "TableViewCell.h"
 #import "OptionViewController.h"
+
+#import <MidtransKit/VTPaymentViewController.h>
+#import <MidtransCoreKit/VTConfig.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
 
 @implementation NSString (random)
 
@@ -27,29 +30,48 @@
 
 @interface ViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic) NSArray <VTItemDetail*>* itemDetails;
 @end
 
-@implementation ViewController {
-    NSArray *_items;
-    VTCustomerDetails *_customer;
-}
+@implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    _items = [self items];
-    
     self.navigationController.view.userInteractionEnabled = NO;
     
-    if ([CONFIG merchantAuth]) {
+    self.itemDetails = [self generateItemDetails];
+    
+    NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];    
+    if (clientAuth) {
+        [CONFIG setMerchantClientData:clientAuth];
         self.navigationController.view.userInteractionEnabled = YES;
     } else {
         [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-            VTMerchantAuth *merchantAuth = [[VTMerchantAuth alloc] initWithAuthData:response];
-            [CONFIG setMerchantAuth:merchantAuth];
-            
-            self.navigationController.view.userInteractionEnabled = YES;
+            if (response) {
+                [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
+                [[NSUserDefaults standardUserDefaults] synchronize];
+                [CONFIG setMerchantClientData:response];
+                self.navigationController.view.userInteractionEnabled = YES;
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+    }
+    
+    if ([CONFIG merchantClientData]) {
+        self.navigationController.view.userInteractionEnabled = YES;
+    } else {
+        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
+            if (response) {
+                [CONFIG setMerchantClientData:response];
+                self.navigationController.view.userInteractionEnabled = YES;
+            } else {
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+                [alert show];
+            }
         }];
     }
 }
@@ -66,10 +88,11 @@
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
-    if (customer) {
-        VTPaymentViewController *vc = [VTPaymentViewController controllerWithCustomer:customer andItems:_items];
+    if (customerDetails) {
+        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
         [self presentViewController:vc animated:YES completion:nil];
     } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
@@ -80,19 +103,29 @@
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_items count];
+    return [self.itemDetails count];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cartCell"];
-    cell.item = _items[indexPath.row];
+    cell.item = self.itemDetails[indexPath.row];
     return cell;
 }
 
-- (NSArray *)items {
+#pragma mark - Helper
+
+- (NSNumber *)grossAmountOfItemDetails:(NSArray<VTItemDetail*>*)itemDetails {
+    double totalPrice = 0;
+    for (VTItemDetail *itemDetail in itemDetails) {
+        totalPrice += (itemDetail.price.doubleValue * itemDetail.quantity.integerValue);
+    }
+    return @(totalPrice);
+}
+
+- (NSArray *)generateItemDetails {
     NSMutableArray *result = [NSMutableArray new];
     for (int i=0; i<6; i++) {
-        VTItem *item = [VTItem itemWithId:[NSString randomWithLength:4] name:[NSString stringWithFormat:@"Item %i", i] price:@10000 imageURL:@"http://ecx.images-amazon.com/images/I/41kaolKUqdL._AA160_.jpg" quantity:@3];
-        [result addObject:item];
+        VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@1000 quantity:@3];
+        [result addObject:itemDetail];
     }
     return result;
 }

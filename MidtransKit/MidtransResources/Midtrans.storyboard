@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -110,6 +111,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aFj-4B-QPb">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="1Ie-eO-mdg"/>
+                                    <constraint firstAttribute="width" constant="8" id="9qe-am-zNW"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -190,6 +195,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="3yI-AC-DVB">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="chW-O5-2gc"/>
+                                    <constraint firstAttribute="width" constant="8" id="diX-EN-HnF"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aPv-Tk-1Yb">
                                 <rect key="frame" x="0.0" y="468" width="320" height="44"/>
@@ -521,7 +530,7 @@
                                     <constraint firstAttribute="height" constant="48" id="jeb-qb-7lG"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                 </userDefinedRuntimeAttributes>
@@ -564,6 +573,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="gL3-6c-V3k">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="g7Y-RW-z1C"/>
+                                    <constraint firstAttribute="width" constant="8" id="jf7-a9-LlW"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fiQ-tO-kwQ" customClass="VTBorderedView">
                                 <rect key="frame" x="0.0" y="424" width="320" height="45"/>
@@ -747,6 +760,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="9nd-Z8-Osm">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="AZg-qJ-sov"/>
+                                    <constraint firstAttribute="width" constant="8" id="yRz-cz-Gde"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="caV-C8-H5G">
                                 <rect key="frame" x="0.0" y="57" width="320" height="412"/>
@@ -835,6 +852,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="ScD-jX-75Q">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="c4C-u6-eLj"/>
+                                    <constraint firstAttribute="width" constant="8" id="uFM-7F-ai1"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j7J-1k-3t3" customClass="VTBorderedView">
                                 <rect key="frame" x="0.0" y="379" width="320" height="45"/>
@@ -991,6 +1012,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="yqi-jj-i29">
                                 <rect key="frame" x="297" y="534" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="22j-fE-Wxp"/>
+                                    <constraint firstAttribute="height" constant="13" id="kvL-Cd-fgr"/>
+                                </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l5R-SR-u27" customClass="VTButton">
                                 <rect key="frame" x="0.0" y="426" width="320" height="43"/>
@@ -1304,6 +1329,10 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="aXE-SI-wqO">
                                 <rect key="frame" x="297" y="533" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="SUL-9k-jWN"/>
+                                    <constraint firstAttribute="height" constant="13" id="qck-Zu-Gjy"/>
+                                </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q9d-my-em2">
                                 <rect key="frame" x="0.0" y="467" width="320" height="1"/>
@@ -1532,10 +1561,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rRb-0n-OGk">
-                                <rect key="frame" x="0.0" y="20" width="320" height="377"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="333"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JuZ-el-9me">
-                                        <rect key="frame" x="30" y="98" width="260" height="181"/>
+                                        <rect key="frame" x="30" y="76" width="260" height="181"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Card Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6N-5Y-e6r">
                                                 <rect key="frame" x="0.0" y="128" width="260" height="21"/>
@@ -1576,7 +1605,7 @@ be used for every transactions.</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="leu-cZ-fHV" userLabel="Cards View">
-                                <rect key="frame" x="0.0" y="20" width="320" height="377"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="312"/>
                                 <subviews>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="XDD-cc-AnS">
                                         <rect key="frame" x="0.0" y="16" width="320" height="200"/>
@@ -1624,23 +1653,24 @@ be used for every transactions.</string>
                                     </collectionView>
                                     <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="D3F-r5-CHs">
                                         <rect key="frame" x="140" y="224" width="39" height="37"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="qK9-zE-Ons"/>
+                                            <constraint firstAttribute="height" priority="750" constant="37" id="qK9-zE-Ons"/>
                                         </constraints>
                                         <color key="pageIndicatorTintColor" red="0.0" green="0.0" blue="0.0" alpha="0.29999999999999999" colorSpace="calibratedRGB"/>
                                         <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                     </pageControl>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RN-JU-EOS" userLabel="New Card View" customClass="VTBorderedView">
-                                        <rect key="frame" x="15" y="269" width="290" height="39"/>
+                                        <rect key="frame" x="15" y="269" width="290" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFM-6n-XfQ">
-                                                <rect key="frame" x="0.0" y="10" width="106" height="21"/>
+                                                <rect key="frame" x="0.0" y="10" width="106" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicatorGray.png" translatesAutoresizingMaskIntoConstraints="NO" id="oxl-Tx-Qbj">
-                                                <rect key="frame" x="267" y="14" width="8" height="13"/>
+                                                <rect key="frame" x="267" y="12" width="8" height="13"/>
                                             </imageView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1649,6 +1679,7 @@ be used for every transactions.</string>
                                             <constraint firstAttribute="bottom" secondItem="FFM-6n-XfQ" secondAttribute="bottom" constant="8" id="7Vc-tS-wTg"/>
                                             <constraint firstItem="FFM-6n-XfQ" firstAttribute="leading" secondItem="0RN-JU-EOS" secondAttribute="leading" id="9QU-cM-WAl"/>
                                             <constraint firstItem="oxl-Tx-Qbj" firstAttribute="centerY" secondItem="FFM-6n-XfQ" secondAttribute="centerY" id="AdJ-AH-Ptk"/>
+                                            <constraint firstAttribute="height" constant="35" id="Ify-hD-0qr"/>
                                             <constraint firstAttribute="trailing" secondItem="oxl-Tx-Qbj" secondAttribute="trailing" constant="15" id="lGj-tQ-kOh"/>
                                             <constraint firstItem="FFM-6n-XfQ" firstAttribute="top" secondItem="0RN-JU-EOS" secondAttribute="top" constant="10" id="maj-Zh-IAX"/>
                                         </constraints>
@@ -1670,9 +1701,10 @@ be used for every transactions.</string>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="XDD-cc-AnS" secondAttribute="trailing" id="04Y-8K-apg"/>
                                     <constraint firstItem="XDD-cc-AnS" firstAttribute="leading" secondItem="leu-cZ-fHV" secondAttribute="leading" id="9r8-mM-j3t"/>
-                                    <constraint firstItem="0RN-JU-EOS" firstAttribute="top" secondItem="D3F-r5-CHs" secondAttribute="bottom" constant="8" id="DVV-MM-fhb"/>
+                                    <constraint firstItem="0RN-JU-EOS" firstAttribute="top" secondItem="D3F-r5-CHs" secondAttribute="bottom" priority="900" constant="8" id="DVV-MM-fhb"/>
+                                    <constraint firstAttribute="bottom" secondItem="0RN-JU-EOS" secondAttribute="bottom" priority="900" constant="8" id="NDf-EX-Z6T"/>
                                     <constraint firstAttribute="trailing" secondItem="0RN-JU-EOS" secondAttribute="trailing" constant="15" id="PRd-O0-VFi"/>
-                                    <constraint firstItem="D3F-r5-CHs" firstAttribute="top" secondItem="XDD-cc-AnS" secondAttribute="bottom" constant="8" id="gv5-53-2Fw"/>
+                                    <constraint firstItem="D3F-r5-CHs" firstAttribute="top" secondItem="XDD-cc-AnS" secondAttribute="bottom" priority="900" constant="8" id="gv5-53-2Fw"/>
                                     <constraint firstItem="0RN-JU-EOS" firstAttribute="leading" secondItem="leu-cZ-fHV" secondAttribute="leading" constant="15" id="pQS-cJ-ZXf"/>
                                     <constraint firstItem="D3F-r5-CHs" firstAttribute="centerX" secondItem="XDD-cc-AnS" secondAttribute="centerX" id="rkO-zd-9DT"/>
                                     <constraint firstItem="XDD-cc-AnS" firstAttribute="top" secondItem="leu-cZ-fHV" secondAttribute="top" constant="16" id="srx-n0-3q0"/>
@@ -1770,6 +1802,10 @@ be used for every transactions.</string>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="HmO-iT-z0z">
                                 <rect key="frame" x="297" y="537" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="8" id="Vtz-EB-CrS"/>
+                                    <constraint firstAttribute="height" constant="13" id="WRc-ot-LGZ"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1778,7 +1814,6 @@ be used for every transactions.</string>
                             <constraint firstAttribute="trailing" secondItem="rRb-0n-OGk" secondAttribute="trailing" id="94E-ie-4NU"/>
                             <constraint firstItem="XCY-mg-DKt" firstAttribute="leading" secondItem="8HW-5i-sa8" secondAttribute="leading" id="C7q-ET-8LQ"/>
                             <constraint firstItem="Cep-Ff-4j1" firstAttribute="leading" secondItem="8HW-5i-sa8" secondAttribute="leading" constant="15" id="Ihv-vq-sVC"/>
-                            <constraint firstItem="Cep-Ff-4j1" firstAttribute="top" secondItem="rRb-0n-OGk" secondAttribute="bottom" id="J0A-YN-yK6"/>
                             <constraint firstItem="XCY-mg-DKt" firstAttribute="top" secondItem="Cep-Ff-4j1" secondAttribute="bottom" constant="25" id="KM5-fL-0g3"/>
                             <constraint firstAttribute="trailing" secondItem="XCY-mg-DKt" secondAttribute="trailing" id="Qeg-OA-IWI"/>
                             <constraint firstItem="cIE-gz-cAO" firstAttribute="top" secondItem="UWG-HF-3EF" secondAttribute="bottom" id="TKm-Y7-g1j"/>
@@ -1786,11 +1821,13 @@ be used for every transactions.</string>
                             <constraint firstItem="rRb-0n-OGk" firstAttribute="top" secondItem="3XL-06-vyf" secondAttribute="bottom" id="VSR-C5-HhV"/>
                             <constraint firstItem="UWG-HF-3EF" firstAttribute="leading" secondItem="8HW-5i-sa8" secondAttribute="leading" id="YgO-bO-i67"/>
                             <constraint firstItem="rRb-0n-OGk" firstAttribute="leading" secondItem="8HW-5i-sa8" secondAttribute="leading" id="aXc-fl-4Qv"/>
-                            <constraint firstItem="Cep-Ff-4j1" firstAttribute="top" secondItem="leu-cZ-fHV" secondAttribute="bottom" id="dxV-h7-MBS"/>
+                            <constraint firstItem="Cep-Ff-4j1" firstAttribute="top" relation="greaterThanOrEqual" secondItem="leu-cZ-fHV" secondAttribute="bottom" constant="10" id="e0W-rG-Kvi"/>
                             <constraint firstItem="npo-Z0-CHi" firstAttribute="centerY" secondItem="Cep-Ff-4j1" secondAttribute="centerY" id="fKv-0I-TAx"/>
                             <constraint firstItem="leu-cZ-fHV" firstAttribute="top" secondItem="3XL-06-vyf" secondAttribute="bottom" id="gTr-C9-Kv4"/>
                             <constraint firstItem="leu-cZ-fHV" firstAttribute="leading" secondItem="8HW-5i-sa8" secondAttribute="leading" id="iTK-PF-OXx"/>
+                            <constraint firstItem="Cep-Ff-4j1" firstAttribute="top" secondItem="rRb-0n-OGk" secondAttribute="bottom" id="jdT-d5-giy"/>
                             <constraint firstItem="HmO-iT-z0z" firstAttribute="trailing" secondItem="UWG-HF-3EF" secondAttribute="trailing" constant="-15" id="shi-qB-7LJ"/>
+                            <constraint firstItem="leu-cZ-fHV" firstAttribute="leading" secondItem="Cep-Ff-4j1" secondAttribute="trailing" constant="-57" id="snb-fd-DMs"/>
                             <constraint firstItem="UWG-HF-3EF" firstAttribute="top" secondItem="XCY-mg-DKt" secondAttribute="bottom" id="upe-Da-GJm"/>
                             <constraint firstItem="HmO-iT-z0z" firstAttribute="centerY" secondItem="UWG-HF-3EF" secondAttribute="centerY" id="wIz-aG-RIb"/>
                             <constraint firstAttribute="trailing" secondItem="leu-cZ-fHV" secondAttribute="trailing" id="y8g-kK-ouc"/>
@@ -1799,8 +1836,10 @@ be used for every transactions.</string>
                     <navigationItem key="navigationItem" title="Credit Card" id="r4P-8E-krM">
                         <barButtonItem key="backBarButtonItem" title="Back" id="Qhq-qp-5PS"/>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="addCardButton" destination="UWG-HF-3EF" id="0CZ-YS-hbh"/>
                         <outlet property="addCardButtonHeight" destination="Fjk-En-IEC" id="oSq-nJ-f84"/>
                         <outlet property="amountLabel" destination="YL3-5o-03e" id="cGp-tX-V3B"/>
                         <outlet property="cardsView" destination="leu-cZ-fHV" id="PNb-TT-dIg"/>
@@ -1810,11 +1849,6 @@ be used for every transactions.</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jKC-9U-5sD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="kNF-lf-HpY">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <tapGestureRecognizer id="yBN-T4-YbR">
                     <connections>
                         <action selector="addCardPressed:" destination="nMQ-US-4wv" id="Xhg-iR-yma"/>
@@ -1835,7 +1869,7 @@ be used for every transactions.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-ri-Oq6" customClass="TPKeyboardAvoidingScrollView_vt">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fNW-ri-Oq6">
                                 <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMW-Cs-RCR">
@@ -1906,6 +1940,10 @@ be used for every transactions.</string>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="thx-J3-od5">
                                 <rect key="frame" x="297" y="534" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="1Jg-Qb-ieJ"/>
+                                    <constraint firstAttribute="width" constant="8" id="RPh-Ak-QX5"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -1925,58 +1963,10 @@ be used for every transactions.</string>
                     <connections>
                         <outlet property="backView" destination="H7i-ec-e3C" id="vFB-yJ-u6Q"/>
                         <outlet property="cvvTextField" destination="xmR-5y-5rF" id="VjU-it-yqf"/>
-                        <outlet property="navigationView" destination="pHB-zk-LR9" id="fnC-pt-A6o"/>
+                        <outlet property="fieldScrollView" destination="fNW-ri-Oq6" id="4sR-ZW-P1L"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iuk-mk-5kK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="pHB-zk-LR9">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7y-79-XFo">
-                            <rect key="frame" x="0.0" y="13" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="VYX-D5-QzT"/>
-                                <constraint firstAttribute="width" constant="30" id="WVD-uU-9L8"/>
-                            </constraints>
-                            <state key="normal" image="BackIcon.png"/>
-                            <connections>
-                                <action selector="prevFieldPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="fpw-7R-jAw"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6bh-AV-WQi">
-                            <rect key="frame" x="30" y="13" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="9Is-aC-SD7"/>
-                                <constraint firstAttribute="width" constant="30" id="CQu-hq-7UZ"/>
-                            </constraints>
-                            <state key="normal" image="NextIcon.png"/>
-                            <connections>
-                                <action selector="nextFieldPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="be8-Sf-Fj4"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnV-dA-6Sl">
-                            <rect key="frame" x="271" y="11" width="41" height="33"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="Done">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="donePressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="GGq-TD-jyi"/>
-                                <action selector="donePressed:" destination="VTt-h6-9yy" eventType="touchUpInside" id="QPG-Ly-rVg"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="hnV-dA-6Sl" secondAttribute="trailing" constant="8" id="2Hp-jg-7Vk"/>
-                        <constraint firstItem="z7y-79-XFo" firstAttribute="leading" secondItem="pHB-zk-LR9" secondAttribute="leading" id="ATv-hG-I3u"/>
-                        <constraint firstItem="6bh-AV-WQi" firstAttribute="centerY" secondItem="pHB-zk-LR9" secondAttribute="centerY" id="Sg8-Mt-U2V"/>
-                        <constraint firstItem="6bh-AV-WQi" firstAttribute="leading" secondItem="z7y-79-XFo" secondAttribute="trailing" id="Vmi-kR-2LL"/>
-                        <constraint firstItem="z7y-79-XFo" firstAttribute="centerY" secondItem="pHB-zk-LR9" secondAttribute="centerY" id="qjG-zF-WQl"/>
-                        <constraint firstItem="hnV-dA-6Sl" firstAttribute="centerY" secondItem="pHB-zk-LR9" secondAttribute="centerY" id="tfC-P3-FzY"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="675" y="8"/>
         </scene>
@@ -1992,7 +1982,7 @@ be used for every transactions.</string>
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvf-5m-Qzj" customClass="TPKeyboardAvoidingScrollView_vt">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvf-5m-Qzj">
                                 <rect key="frame" x="0.0" y="8" width="320" height="560"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDp-Im-pnw">
@@ -2203,6 +2193,10 @@ be used for every transactions.</string>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="xYW-g2-Kyj">
                                 <rect key="frame" x="297" y="534" width="8" height="13"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="eXG-D1-Z4K"/>
+                                    <constraint firstAttribute="width" constant="8" id="yop-E1-ufy"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -2225,59 +2219,11 @@ be used for every transactions.</string>
                         <outlet property="cardExpiryDate" destination="7gk-kx-ISN" id="Yu0-UW-spv"/>
                         <outlet property="cardFrontView" destination="Fvb-nA-fBv" id="3Cg-72-2GO"/>
                         <outlet property="cardNumber" destination="nS6-Y8-oAj" id="3uL-T1-Mt8"/>
-                        <outlet property="containerTextField" destination="nvf-5m-Qzj" id="ppO-Ws-xqw"/>
                         <outlet property="creditCardLogo" destination="V00-tA-MLO" id="5et-im-FgB"/>
-                        <outlet property="navigationView" destination="cdH-0o-LyG" id="rIc-vU-Hfa"/>
+                        <outlet property="fieldScrollView" destination="nvf-5m-Qzj" id="HeA-95-B4C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zc0-oi-mdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="cdH-0o-LyG">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="55"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Znq-AT-OfF">
-                            <rect key="frame" x="0.0" y="13" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="HT8-sp-F3Y"/>
-                                <constraint firstAttribute="height" constant="30" id="cV8-V0-QJ0"/>
-                            </constraints>
-                            <state key="normal" image="BackIcon.png"/>
-                            <connections>
-                                <action selector="prevFieldPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="d8b-wp-oNi"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXb-dB-ggT">
-                            <rect key="frame" x="30" y="13" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="30" id="0qY-Il-qAz"/>
-                                <constraint firstAttribute="width" constant="30" id="6h0-Nu-gAQ"/>
-                            </constraints>
-                            <state key="normal" image="NextIcon.png"/>
-                            <connections>
-                                <action selector="nextFieldPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="PAa-dZ-ALp"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CAb-4e-V8V">
-                            <rect key="frame" x="271" y="11" width="41" height="33"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <state key="normal" title="Done">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="donePressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="Kgv-NC-Bdo"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.098039215686274508" green="0.63921568627450975" blue="0.93725490196078431" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstItem="IXb-dB-ggT" firstAttribute="centerY" secondItem="cdH-0o-LyG" secondAttribute="centerY" id="6Ib-Lb-NZ4"/>
-                        <constraint firstItem="IXb-dB-ggT" firstAttribute="leading" secondItem="Znq-AT-OfF" secondAttribute="trailing" id="9PI-eF-dsQ"/>
-                        <constraint firstItem="CAb-4e-V8V" firstAttribute="centerY" secondItem="cdH-0o-LyG" secondAttribute="centerY" id="JzE-9g-InF"/>
-                        <constraint firstItem="Znq-AT-OfF" firstAttribute="leading" secondItem="cdH-0o-LyG" secondAttribute="leading" id="enm-nm-SyK"/>
-                        <constraint firstAttribute="trailing" secondItem="CAb-4e-V8V" secondAttribute="trailing" constant="8" id="iJV-00-9o8"/>
-                        <constraint firstItem="Znq-AT-OfF" firstAttribute="centerY" secondItem="cdH-0o-LyG" secondAttribute="centerY" id="xmi-sJ-2lw"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="1078" y="8"/>
         </scene>
@@ -2386,7 +2332,7 @@ be used for every transactions.</string>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yp3-xe-b9G" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="304" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="348" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsk-8T-PYb">
                                         <rect key="frame" x="263" y="12" width="42" height="21"/>
@@ -2420,7 +2366,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2HG-s2-aPB" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="259" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="303" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ofu-en-G5p">
                                         <rect key="frame" x="263" y="12" width="42" height="21"/>
@@ -2454,7 +2400,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M4q-yh-4p4" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="214" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="258" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sLY-Mj-3Qa">
                                         <rect key="frame" x="263" y="12" width="42" height="21"/>
@@ -2488,7 +2434,7 @@ be used for every transactions.</string>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kuR-ui-EWA">
-                                <rect key="frame" x="0.0" y="89" width="320" height="110"/>
+                                <rect key="frame" x="0.0" y="133" width="320" height="110"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DAY-AC-Smc">
                                         <rect key="frame" x="118" y="45" width="85" height="21"/>
@@ -2513,14 +2459,14 @@ be used for every transactions.</string>
                                 </constraints>
                             </view>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="successIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="jLb-up-28r">
-                                <rect key="frame" x="135" y="64" width="50" height="50"/>
+                                <rect key="frame" x="135" y="108" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="180-jE-hM8"/>
                                     <constraint firstAttribute="width" constant="50" id="ODP-p5-c82"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lx6-LA-DnS" customClass="VTBorderedView">
-                                <rect key="frame" x="0.0" y="349" width="320" height="45"/>
+                                <rect key="frame" x="0.0" y="393" width="320" height="45"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCG-aM-6EN">
                                         <rect key="frame" x="263" y="12" width="42" height="21"/>
@@ -2571,13 +2517,15 @@ be used for every transactions.</string>
                             <constraint firstItem="M4q-yh-4p4" firstAttribute="leading" secondItem="whu-BC-eZ4" secondAttribute="leading" id="XZZ-BU-5ex"/>
                             <constraint firstItem="Lx6-LA-DnS" firstAttribute="top" secondItem="Yp3-xe-b9G" secondAttribute="bottom" id="a4W-ij-1Rc"/>
                             <constraint firstAttribute="trailing" secondItem="Lx6-LA-DnS" secondAttribute="trailing" id="hUm-3H-3Os"/>
-                            <constraint firstItem="jLb-up-28r" firstAttribute="top" secondItem="Jbu-dU-iJS" secondAttribute="bottom" constant="44" id="png-tb-Gmi"/>
+                            <constraint firstItem="FLX-HE-zjF" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Lx6-LA-DnS" secondAttribute="bottom" constant="10" id="iws-Oe-rLy"/>
+                            <constraint firstItem="jLb-up-28r" firstAttribute="top" secondItem="Jbu-dU-iJS" secondAttribute="bottom" priority="750" constant="44" id="png-tb-Gmi"/>
                             <constraint firstAttribute="trailing" secondItem="Yp3-xe-b9G" secondAttribute="trailing" id="qxr-vJ-2Lz"/>
                             <constraint firstItem="sHj-b5-8qF" firstAttribute="top" secondItem="FLX-HE-zjF" secondAttribute="bottom" id="u0D-PU-wNn"/>
                             <constraint firstItem="Yp3-xe-b9G" firstAttribute="leading" secondItem="whu-BC-eZ4" secondAttribute="leading" id="uJ9-3c-jfm"/>
                             <constraint firstAttribute="trailing" secondItem="FLX-HE-zjF" secondAttribute="trailing" id="uLe-8i-u9d"/>
                         </constraints>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="amountLabel" destination="sLY-Mj-3Qa" id="ShE-qe-ENk"/>
@@ -2848,14 +2796,12 @@ be used for every transactions.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="BackIcon.png" width="8" height="13"/>
         <image name="CreditCardBackSmall.png" width="182" height="114"/>
         <image name="DetailDisclosure.png" width="50" height="50"/>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="DisclosureIndicatorGray.png" width="8" height="13"/>
         <image name="ImageOffer.png" width="60" height="60"/>
         <image name="InfoIcon.png" width="52" height="52"/>
-        <image name="NextIcon.png" width="8" height="13"/>
         <image name="emptyCardIcon.png" width="169" height="120"/>
         <image name="errorIcon.png" width="52" height="52"/>
         <image name="padlock1.png" width="42" height="51"/>

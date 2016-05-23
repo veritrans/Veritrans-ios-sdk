@@ -12,7 +12,6 @@
 @interface VTCustomerDetails ()
 @property (nonatomic, readwrite) NSString *firstName;
 @property (nonatomic, readwrite) NSString *lastName;
-@property (nonatomic, readwrite) NSString *email;
 @property (nonatomic, readwrite) NSString *phone;
 @property (nonatomic, readwrite) VTAddress *shippingAddress;
 @property (nonatomic, readwrite) VTAddress *billingAddress;

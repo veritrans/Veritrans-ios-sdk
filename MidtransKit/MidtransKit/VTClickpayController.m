@@ -11,7 +11,7 @@
 #import "VTTextField.h"
 #import "VTClickpayHelpController.h"
 
-#import "MidtransCoreKit/VTMandiriClickpay.h"
+#import <MidtransCoreKit/VTMandiriClickpay.h>
 
 @interface VTClickpayController ()
 
@@ -24,30 +24,17 @@
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 @property (strong, nonatomic) IBOutlet UIButton *confirmButton;
 
-@property (nonatomic, readwrite) VTCustomerDetails *customer;
-@property (nonatomic, readwrite) NSArray *items;
-
 @end
 
 @implementation VTClickpayController {
     VTMandiriClickpay *_clickpay;
 }
 
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTClickpayController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTClickpayController"];
-    vc.customer = customer;
-    vc.items = items;
-    return vc;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    NSNumber *grossAmount = [_items itemsPriceAmount];
-    
-    _clickpay = [VTMandiriClickpay dataWithTransactionAmount:grossAmount];
+    _clickpay = [VTMandiriClickpay dataWithTransactionAmount:self.transactionDetails.grossAmount];
     
     [_clickpay addObserver:self
                 forKeyPath:@"input1"
@@ -58,8 +45,8 @@
     _input2Label.text = _clickpay.input2;
     _input3Label.text = _clickpay.input3;
     
-    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    _amountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:grossAmount]];
+    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
+    _amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     
     [_confirmButton addTarget:self action:@selector(confirmPaymentPressed:) forControlEvents:UIControlEventTouchUpInside];
 }

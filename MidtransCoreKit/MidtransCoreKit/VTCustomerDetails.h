@@ -13,10 +13,11 @@
 
 @property (nonatomic, readonly) NSString *firstName;
 @property (nonatomic, readonly) NSString *lastName;
-@property (nonatomic, readonly) NSString *email;
 @property (nonatomic, readonly) NSString *phone;
 @property (nonatomic, readonly) VTAddress *shippingAddress;
 @property (nonatomic, readonly) VTAddress *billingAddress;
+
+@property (nonatomic) NSString *email;
 
 - (instancetype)initWithFirstName:(NSString *)firstName
                          lastName:(NSString *)lastName

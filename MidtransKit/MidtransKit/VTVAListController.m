@@ -13,7 +13,6 @@
 
 @interface VTVAListController ()
 @property (nonatomic) VTCustomerDetails *customer;
-@property (nonatomic) NSArray *items;
 
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -21,14 +20,6 @@
 
 @implementation VTVAListController {
     NSArray *_banks;
-}
-
-+ (instancetype)controllerWithCustomer:(VTCustomerDetails *)customer items:(NSArray *)items {
-    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTVAListController *vc = [sb instantiateViewControllerWithIdentifier:@"VTVAListController"];
-    vc.customer = customer;
-    vc.items = items;
-    return vc;
 }
 
 - (void)viewDidLoad {
@@ -45,8 +36,8 @@
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     _banks = [NSArray arrayWithContentsOfFile:path];
     
-    NSNumberFormatter *formatter = [NSNumberFormatter numberFormatterWith:@"vt.number"];
-    _totalAmountLabel.text = [NSString stringWithFormat:@"Rp %@", [formatter stringFromNumber:[_items itemsPriceAmount]]];
+    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
+    _totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -74,18 +65,15 @@
     
     if ([identifier isEqualToString:VTBCAVAIdentifier]) {
         vaType = VTVATypeBCA;
-    }
-    else if ([identifier isEqualToString:VTMandiriVAIdentifier]) {
+    } else if ([identifier isEqualToString:VTMandiriVAIdentifier]) {
         vaType = VTVATypeMandiri;
-    }
-    else if ([identifier isEqualToString:VTPermataVAIdentifier]) {
+    } else if ([identifier isEqualToString:VTPermataVAIdentifier]) {
         vaType = VTVATypePermata;
-    }
-    else {
+    } else {
         vaType = VTVATypeOther;
     }
     
-    VTVAController *vc = [VTVAController controllerWithVaType:vaType];
+    VTVAController *vc = [[VTVAController alloc] initWithVAType:vaType customerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

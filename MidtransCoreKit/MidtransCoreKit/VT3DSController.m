@@ -7,17 +7,13 @@
 //
 
 #import "VT3DSController.h"
-#import "VTHudView.h"
 #import "VTHelper.h"
-#import "UIViewController+Modal.h"
 
 @interface VT3DSController() <UIWebViewDelegate, UIAlertViewDelegate>
-@property (nonatomic) VTHudView *hudView;
 @property (nonatomic) NSURL *secureURL;
 @property (nonatomic) NSString *token;
 @property (nonatomic) UIViewController *rootViewController;
-@property (nonatomic, copy) void (^completion)();
-
+@property (nonatomic, copy) void (^completion)(NSError *error);
 @end
 
 @implementation VT3DSController
@@ -41,9 +37,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _hudView = [[VTHudView alloc] init];
-    
-    self.automaticallyAdjustsScrollViewInsets = NO;
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
+    self.navigationItem.leftBarButtonItem = closeButton;
+    self.title = @"3D Secure";
     
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -61,69 +57,52 @@
 }
 
 - (void)closePressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Warning"
-                                                    message:@"Are you sure?"
-                                                   delegate:self
-                                          cancelButtonTitle:@"No"
-                                          otherButtonTitles:@"Yes", nil];
-    [alert setTag:1];
-    [alert show];
+    NSError *error = [[NSError alloc] initWithDomain:ErrorDomain code:-30 userInfo:@{NSLocalizedDescriptionKey:@"3D Secure transaction canceled by user"}];
+    if (self.completion) self.completion(error);
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)showWithCompletion:(void(^)())completion {
-    self.modalSize = CGRectInset(self.rootViewController.view.frame, 20, 20).size;
-    [self.rootViewController presentCustomViewController:self completion:nil];
-    
+- (void)showWithCompletion:(void(^)(NSError *error))completion {
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:self];
+    [self.rootViewController presentViewController:nvc animated:YES completion:nil];
     self.completion = completion;
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (alertView.tag == 1 && buttonIndex == 1) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    } else if (alertView.tag == 2) {
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
 }
 
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [_hudView showOnView:self.rootViewController.view];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    [self scaleTo3DSSize];
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
-    [_hudView hide];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                    message:error.localizedDescription
-                                                   delegate:self
-                                          cancelButtonTitle:@"Close"
-                                          otherButtonTitles:nil];
-    [alert setTag:2];
-    [alert show];
+    [self dismissViewControllerAnimated:YES completion:^{
+        if (self.completion) self.completion(nil);
+    }];
+}
+
+- (void)scaleTo3DSSize {
+    //400x800 is the standard 3ds page size
+    CGFloat factor = CGRectGetWidth(self.webView.frame) / 400.;
+    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = %f;", factor];
+    [self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
-    [_hudView hide];
+    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    //resize after its loaded
-    CGSize contentSize = webView.scrollView.contentSize;
-    CGFloat factor = self.modalSize.width / contentSize.width;
-    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = %f;", factor];
-    [self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
+    [self scaleTo3DSSize];
     
     //filter request
     NSURLRequest *request = webView.request;
     if (request.URL.pathComponents.count > 3 &&
         [request.URL.pathComponents[3] isEqualToString:@"callback"]) {
         
-        if (self.completion != nil) {
-            self.completion();
-        }
-        
-        [self dismissCustomViewController:nil];
+        [self dismissViewControllerAnimated:YES completion:^{
+            if (self.completion) self.completion(nil);
+        }];
     }
 }
 

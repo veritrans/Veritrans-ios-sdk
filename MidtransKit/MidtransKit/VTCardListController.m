@@ -190,7 +190,7 @@
             }
         }];
     } else {
-        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails savedToken:maskedCard.savedTokenId];
         [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
     }

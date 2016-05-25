@@ -11,19 +11,23 @@
 #import "VTPaymentStatusViewModel.h"
 #import "VTButton.h"
 
+#define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
+
 @interface VTVASuccessController ()
 @property (strong, nonatomic) IBOutlet UILabel *vaNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet UILabel *vaNumberTitleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *companyCodeLabel;
 @property (strong, nonatomic) IBOutlet VTButton *numberCopyButton;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *mainInfoViewHeight;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *fieldHeight;
 
 @property (nonatomic) VTVATransactionStatusViewModel *viewModel;
 @end
 
 @implementation VTVASuccessController
-
 
 - (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel {
     self = [[VTVASuccessController alloc] initWithNibName:@"VTVASuccessController" bundle:VTBundle];
@@ -38,6 +42,20 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.navigationItem setHidesBackButton:YES];
+    
+    if (IPHONE_4) {
+        _mainInfoViewHeight.constant = 80.;
+        if (_viewModel.vaType == VTVATypeMandiri) {
+            _fieldHeight.constant = 38.;
+        } else {
+            _fieldHeight.constant = 45.;
+        }
+    } else {
+        _mainInfoViewHeight.constant = 110.;
+        _fieldHeight.constant = 45.;
+    }
+    
+    _companyCodeLabel.superview.hidden = _viewModel.vaType != VTVATypeMandiri;
     
     _amountLabel.text = _viewModel.totalAmount;
     _orderIdLabel.text = _viewModel.orderId;
@@ -57,6 +75,7 @@
         } case VTVATypeMandiri: {
             _vaNumberTitleLabel.text = @"Billpay Code";
             _vaNumberLabel.text = _viewModel.billpayCode;
+            _companyCodeLabel.text = _viewModel.companyCode;
             [_numberCopyButton setTitle:@"Copy Billpay Code" forState:UIControlStateNormal];
             self.title = @"Mandiri Bank Transfer";
             break;

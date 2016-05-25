@@ -14,6 +14,7 @@
 @interface VTVATransactionStatusViewModel : VTPaymentStatusViewModel
 @property (nonatomic) NSString *vaNumber;
 @property (nonatomic) NSString *billpayCode;
+@property (nonatomic) NSString *companyCode;
 @property (nonatomic, assign) VTVAType vaType;
 - (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult vaType:(VTVAType)vaType;
 @end

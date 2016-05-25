@@ -22,6 +22,7 @@
             case VTVATypePermata:
             case VTVATypeMandiri:
                 self.billpayCode = transactionResult.additionalData[@"bill_key"];
+                self.companyCode = transactionResult.additionalData[@"biller_code"];
             case  VTVATypeOther:
                 self.vaNumber = transactionResult.additionalData[@"permata_va_number"];
                 break;

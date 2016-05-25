@@ -88,8 +88,8 @@
         case VTVATypePermata:
             path = [VTBundle pathForResource:@"permataVaGuide" ofType:@"plist"];
             break;
-        default:
-            path = nil;
+        case VTVATypeOther:
+            path = [VTBundle pathForResource:@"otherVaGuide" ofType:@"plist"];
             break;
     }
     return [NSArray arrayWithContentsOfFile:path];

@@ -11,29 +11,54 @@
 
 @interface VTPaymentBankTransfer()
 
-@property (nonatomic, readwrite) NSString* bankName;
+@property (nonatomic, readwrite) VTVAType type;
 
 @end
 
 @implementation VTPaymentBankTransfer
 
-- (instancetype)initWithBankName:(NSString *)bankName {
+- (instancetype)initWithBankTransferType:(VTVAType)type {
     if (self = [super init]) {
-        self.bankName = bankName;
+        self.type = type;
     }
     
     return self;
 }
 
 - (NSString *)paymentType {
-    return @"bank_transfer";
+    NSString *typeString;
+    switch (_type) {
+        case VTVATypeMandiri:
+            typeString = @"echannel";
+            break;
+        case VTVATypeBCA:
+        case VTVATypePermata:
+        case VTVATypeOther:
+            typeString = @"bank_transfer";
+            break;
+    }
+    return typeString;
 }
 
 - (NSDictionary *)dictionaryValue {
     // The format MUST BE compatible with JSON that described in
     // http://docs.veritrans.co.id/en/api/methods.html#bank_transfer_attr
     
-    return @{@"bank": [VTHelper nullifyIfNil:_bankName]};
+    switch (_type) {
+        case VTVATypeMandiri: {
+            return @{@"bill_info1":@"demo_label",
+                     @"bill_info2":@"demo_value"};
+        }
+        case VTVATypePermata: {
+            return @{@"bank": @"permata"};
+        }
+        case VTVATypeBCA: {
+            return @{@"bank": @"bca"};
+        }
+        case VTVATypeOther: {
+            return @{@"bank": @"unknown"};
+        }
+    }
 }
 
 @end

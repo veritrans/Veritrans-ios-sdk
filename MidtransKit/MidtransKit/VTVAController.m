@@ -12,6 +12,7 @@
 #import "VTKeyboardAccessoryView.h"
 #import "VTHudView.h"
 #import "VTVASuccessController.h"
+#import "VTButton.h"
 
 #import <MidtransCoreKit/VTPaymentBankTransfer.h>
 #import <MidtransCoreKit/VTTransaction.h>
@@ -21,6 +22,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
+@property (strong, nonatomic) IBOutlet VTButton *helpButton;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, assign) VTVAType vaType;
 @property (nonatomic) VTHudView *hudView;
@@ -50,18 +52,23 @@
                                                                             action:nil];
     
     switch (self.vaType) {
-        case VTVATypeBCA:
+        case VTVATypeBCA: {
             self.title = @"BCA Bank Transfer";
+            [_helpButton setTitle:@"How Can I Pay Via BCA Bank Transfer?" forState:UIControlStateNormal];
             break;
-        case VTVATypeMandiri:
+        } case VTVATypeMandiri: {
             self.title = @"Mandiri Bank Transfer";
+            [_helpButton setTitle:@"How Can I Pay Via Mandiri Bank Transfer?" forState:UIControlStateNormal];
             break;
-        case VTVATypePermata:
+        } case VTVATypePermata: {
             self.title = @"Permata Bank Transfer";
+            [_helpButton setTitle:@"How Can I Pay Via Permata Bank Transfer?" forState:UIControlStateNormal];
             break;
-        case VTVATypeOther:
+        } case VTVATypeOther: {
             self.title = @"Other Bank Transfer";
+            [_helpButton setTitle:@"How Can I Pay Via Other Bank Transfer?" forState:UIControlStateNormal];
             break;
+        }
     }
     
     _emailTextField.text = self.customerDetails.email;
@@ -83,21 +90,7 @@
 - (IBAction)paymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentBankTransfer *paymentDetails;
-    switch (self.vaType) {
-        case VTVATypeBCA:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"bca"];
-            break;
-        case VTVATypeMandiri:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"mandiri"];
-            break;
-        case VTVATypePermata:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"permata"];
-            break;
-        case VTVATypeOther:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"unknown"];
-            break;
-    }
+    VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:self.vaType];
     
     self.customerDetails.email = _emailTextField.text;
     

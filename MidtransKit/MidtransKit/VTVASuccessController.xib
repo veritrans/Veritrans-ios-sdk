@@ -8,9 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTVASuccessController">
             <connections>
                 <outlet property="amountLabel" destination="OQN-Yw-e7d" id="xNY-cy-5qH"/>
+                <outlet property="numberCopyButton" destination="Iyd-Rt-1Dy" id="rbm-ud-O24"/>
                 <outlet property="orderIdLabel" destination="1fA-l1-3Kj" id="AYP-wd-wEE"/>
                 <outlet property="transactionTimeLabel" destination="Ird-0A-w4l" id="fLi-Ac-716"/>
                 <outlet property="vaNumberLabel" destination="unH-rw-rEA" id="8fU-lT-uEH"/>
+                <outlet property="vaNumberTitleLabel" destination="qkW-if-IBP" id="ivU-Kw-ILk"/>
                 <outlet property="view" destination="o2T-wJ-1g0" id="xhv-jU-NmS"/>
             </connections>
         </placeholder>
@@ -61,7 +63,7 @@
                         <constraint firstAttribute="height" constant="43" id="X2p-Vu-9SB"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Save Virtual Account Number">
+                    <state key="normal" title="Copy Virtual Account Number">
                         <color key="titleColor" red="0.0" green="0.59999999999999998" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                     </state>
                     <userDefinedRuntimeAttributes>

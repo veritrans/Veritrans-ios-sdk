@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MidtransCoreKit/VTItemDetail.h"
+#import <MidtransCoreKit/VTItemDetail.h>
 
 @interface VTItemViewModel : NSObject
 

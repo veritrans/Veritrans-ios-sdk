@@ -8,15 +8,7 @@
 
 #define VTBundle [VTClassHelper kitBundle]
 
-#import "MidtransCoreKit/VTHelper.h"
-
-typedef NS_ENUM(NSUInteger, VTVAType) {
-    VTVATypeBCA,
-    VTVATypeMandiri,
-    VTVATypePermata,
-    VTVATypeOther
-};
-
+#import <MidtransCoreKit/VTHelper.h>
 
 extern NSString *const VTCreditCardIdentifier;
 

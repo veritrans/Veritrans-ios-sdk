@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MidtransCoreKit/VTPaymentBankTransfer.h>
+
 #import "VTClassHelper.h"
 #import "VTDetailedTitleController.h"
 

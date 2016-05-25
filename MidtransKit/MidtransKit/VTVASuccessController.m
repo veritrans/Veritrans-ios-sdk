@@ -9,12 +9,15 @@
 #import "VTVASuccessController.h"
 #import "VTVAGuideController.h"
 #import "VTPaymentStatusViewModel.h"
+#import "VTButton.h"
 
 @interface VTVASuccessController ()
 @property (strong, nonatomic) IBOutlet UILabel *vaNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
+@property (strong, nonatomic) IBOutlet UILabel *vaNumberTitleLabel;
+@property (strong, nonatomic) IBOutlet VTButton *numberCopyButton;
 
 @property (nonatomic) VTVATransactionStatusViewModel *viewModel;
 @end
@@ -36,24 +39,33 @@
     
     [self.navigationItem setHidesBackButton:YES];
     
-    _vaNumberLabel.text = _viewModel.vaNumber;
     _amountLabel.text = _viewModel.totalAmount;
     _orderIdLabel.text = _viewModel.orderId;
     _transactionTimeLabel.text = _viewModel.transactionTime;
     
     switch (_viewModel.vaType) {
-        case VTVATypeBCA:
+        case VTVATypeBCA: {
+            _vaNumberTitleLabel.text = @"Virtual Account Number";
+            _vaNumberLabel.text = _viewModel.vaNumber;
             self.title = @"BCA Bank Transfer";
             break;
-        case VTVATypePermata:
+        } case VTVATypePermata: {
+            _vaNumberTitleLabel.text = @"Virtual Account Number";
+            _vaNumberLabel.text = _viewModel.vaNumber;
             self.title = @"Permata Bank Transfer";
             break;
-        case VTVATypeMandiri:
+        } case VTVATypeMandiri: {
+            _vaNumberTitleLabel.text = @"Billpay Code";
+            _vaNumberLabel.text = _viewModel.billpayCode;
+            [_numberCopyButton setTitle:@"Copy Billpay Code" forState:UIControlStateNormal];
             self.title = @"Mandiri Bank Transfer";
             break;
-        case VTVATypeOther:
+        } case VTVATypeOther: {
+            _vaNumberTitleLabel.text = @"Virtual Account Number";
+            _vaNumberLabel.text = _viewModel.vaNumber;
             self.title = @"Other Bank Transfer";
             break;
+        }
     }
 }
 
@@ -63,6 +75,8 @@
 }
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
+    UIPasteboard *pb = [UIPasteboard generalPasteboard];
+    [pb setString:_viewModel.vaNumber];
 }
 - (IBAction)helpPressed:(UIButton *)sender {
     VTVAGuideController *vc = [VTVAGuideController controllerWithVAType:_viewModel.vaType];

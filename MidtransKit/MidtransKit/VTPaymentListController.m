@@ -32,11 +32,14 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
+    self.navigationItem.leftBarButtonItem = closeButton;
+    
     [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     _payments = [NSArray arrayWithContentsOfFile:path];
-
+    
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
     _headerAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     _footerAmountLabel.text = _headerAmountLabel.text;
@@ -45,6 +48,10 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)closePressed:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - UITableViewDataSource
@@ -60,52 +67,15 @@
 
 #pragma mark - UITableViewDelegate
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *identifier = _payments[indexPath.row][@"id"];
     
     if ([identifier isEqualToString:VTCreditCardIdentifier]) {
-        
         VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
-        
-    }
-    else if ([identifier isEqualToString:VTBCAKlikpayIdentifier]) {
-        
-    }
-    else if ([identifier isEqualToString:VTCIMBClicksIdentifier]) {
-        VTClicksController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTClicksController"];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([identifier isEqualToString:VTBRIEpayIdentifier]) {
-        
-        
-        
-    }
-    else if ([identifier isEqualToString:VTMandiriClickpayIdentifier]) {
-        VTClickpayController *vc = [[VTClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([identifier isEqualToString:VTBBMIdentifier]) {
-        
-    }
-    else if ([identifier isEqualToString:VTIndosatDompetkuIdentifier]) {
-        
-    }
-    else if ([identifier isEqualToString:VTMandiriECashIdentifier]) {
-        
-    }
-    else if ([identifier isEqualToString:VTTCashIdentifier]) {
-        
-    }
-    else if ([identifier isEqualToString:VTXLTunaiIdentifier]) {
-        
-    }
-    else if ([identifier isEqualToString:VTVAIdentifier]) {
+    } else if ([identifier isEqualToString:VTVAIdentifier]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([identifier isEqualToString:VTIndomaretIdentifier]) {
-        
     }
 }
 

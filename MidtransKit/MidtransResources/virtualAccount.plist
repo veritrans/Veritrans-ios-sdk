@@ -2,37 +2,37 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<dict>
-		<key>icon</key>
-		<string>bcaVA</string>
-		<key>name</key>
-		<string>BCA</string>
-        <key>id</key>
-        <string>bcava</string>
-	</dict>
     <dict>
-        <key>icon</key>
-        <string>mandiriVA</string>
-        <key>name</key>
+        <key>title</key>
+        <string>BCA</string>
+        <key>description</key>
+        <string>Pay from BCA ATMs or internet banking</string>
+        <key>id</key>
+        <string>vabca</string>
+    </dict>
+    <dict>
+        <key>title</key>
         <string>Mandiri</string>
+        <key>description</key>
+        <string>Pay from Mandiri ATMs or internet banking</string>
         <key>id</key>
-        <string>mandiriva</string>
+        <string>vamandiri</string>
     </dict>
     <dict>
-        <key>icon</key>
-        <string>permataVA</string>
-        <key>name</key>
+        <key>title</key>
         <string>Permata</string>
+        <key>description</key>
+        <string>Pay from Permata ATMs or internet banking</string>
         <key>id</key>
-        <string>permatava</string>
+        <string>vapermata</string>
     </dict>
     <dict>
-        <key>icon</key>
-        <string>otherVA</string>
-        <key>name</key>
-        <string>Other Banks</string>
+        <key>title</key>
+        <string>Other Bank</string>
+        <key>description</key>
+        <string>Pay from Permata ATMs or internet banking</string>
         <key>id</key>
-        <string>otherva</string>
+        <string>vaother</string>
     </dict>
 </array>
 </plist>

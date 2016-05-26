@@ -9,25 +9,19 @@
 #import "VTClassHelper.h"
 
 NSString *const VTCreditCardIdentifier = @"cc";
-
-NSString *const VTMandiriClickpayIdentifier = @"clickpay";
-NSString *const VTCIMBClicksIdentifier = @"clicks";
-NSString *const VTBCAKlikpayIdentifier = @"klikpay";
-NSString *const VTBRIEpayIdentifier = @"epay";
-
+NSString *const VTVAIdentifier = @"atm";
+NSString *const VTPermataVAIdentifier = @"vapermata";
+NSString *const VTBCAVAIdentifier = @"vabca";
+NSString *const VTMandiriVAIdentifier = @"vamandiri";
+NSString *const VTOtherVAIdentifier = @"vaother";
+NSString *const VTKlikBCAIdentifier = @"klikbca";
+NSString *const VTKlikpayIdentifier = @"klikpay";
+NSString *const VTClickpayIdentifier = @"clickpay";
+NSString *const VTClicksIdentifier = @"clicks";
+NSString *const VTEpayIdentifier = @"epay";
+NSString *const VTTelkomselIdentifier = @"tcash";
 NSString *const VTIndomaretIdentifier = @"indomaret";
 
-NSString *const VTMandiriECashIdentifier = @"ecash";
-NSString *const VTBBMIdentifier = @"bbm";
-NSString *const VTIndosatDompetkuIdentifier = @"dompetku";
-NSString *const VTTCashIdentifier = @"tcash";
-NSString *const VTXLTunaiIdentifier = @"xltunai";
-
-NSString *const VTVAIdentifier = @"va";
-NSString *const VTPermataVAIdentifier = @"permatava";
-NSString *const VTBCAVAIdentifier = @"bcava";
-NSString *const VTMandiriVAIdentifier = @"mandiriva";
-NSString *const VTOtherVAIdentifier = @"otherva";
 
 @implementation VTClassHelper
 

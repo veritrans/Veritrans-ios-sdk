@@ -42,7 +42,6 @@
 		3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3056A2121C7E95E20015B3CC /* padlock1@2x.png */; };
 		3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3056A21B1C7EA3660015B3CC /* VTItemViewModel.h */; };
 		3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056A21C1C7EA3660015B3CC /* VTItemViewModel.m */; };
-		3068383D1C7EB35A0064A305 /* payments_old.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3068383C1C7EB35A0064A305 /* payments_old.plist */; };
 		306838721C7EDA0A0064A305 /* VTPaymentHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 306838701C7EDA0A0064A305 /* VTPaymentHeader.h */; };
 		306838731C7EDA0A0064A305 /* VTPaymentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 306838711C7EDA0A0064A305 /* VTPaymentHeader.m */; };
 		306838811C7EE7220064A305 /* VTPaymentViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3068387F1C7EE7220064A305 /* VTPaymentViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -221,7 +220,6 @@
 		3056A2121C7E95E20015B3CC /* padlock1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "padlock1@2x.png"; sourceTree = "<group>"; };
 		3056A21B1C7EA3660015B3CC /* VTItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTItemViewModel.h; sourceTree = "<group>"; };
 		3056A21C1C7EA3660015B3CC /* VTItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTItemViewModel.m; sourceTree = "<group>"; };
-		3068383C1C7EB35A0064A305 /* payments_old.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = payments_old.plist; sourceTree = "<group>"; };
 		306838701C7EDA0A0064A305 /* VTPaymentHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentHeader.h; sourceTree = "<group>"; };
 		306838711C7EDA0A0064A305 /* VTPaymentHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentHeader.m; sourceTree = "<group>"; };
 		3068387F1C7EE7220064A305 /* VTPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentViewController.h; sourceTree = "<group>"; };
@@ -492,7 +490,6 @@
 				309CC0DD1C86B5BD00C058BE /* otherVaGuide.plist */,
 				309CC0C91C86875400C058BE /* clickpayGuide.plist */,
 				309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */,
-				3068383C1C7EB35A0064A305 /* payments_old.plist */,
 				E503AEC91C8E860700F097FF /* virtualAccount.plist */,
 				E5F4AA8B1CF6D2C70059DDF8 /* paymentMethods.plist */,
 			);
@@ -870,7 +867,6 @@
 				309CC0DC1C86A68F00C058BE /* mandiriVaGuide.plist in Resources */,
 				309CC0E01C86B88C00C058BE /* cimbClicksGuide.plist in Resources */,
 				E503AECA1C8E860700F097FF /* virtualAccount.plist in Resources */,
-				3068383D1C7EB35A0064A305 /* payments_old.plist in Resources */,
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,

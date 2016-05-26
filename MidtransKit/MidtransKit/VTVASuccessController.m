@@ -95,7 +95,11 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     UIPasteboard *pb = [UIPasteboard generalPasteboard];
-    [pb setString:_viewModel.vaNumber];
+    
+    if (_viewModel.vaType == VTVATypeMandiri)
+        [pb setString:_viewModel.billpayCode];
+    else
+        [pb setString:_viewModel.vaNumber];
 }
 - (IBAction)helpPressed:(UIButton *)sender {
     VTVAGuideController *vc = [VTVAGuideController controllerWithVAType:_viewModel.vaType];

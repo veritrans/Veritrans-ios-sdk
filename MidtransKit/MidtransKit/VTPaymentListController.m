@@ -34,7 +34,7 @@
     
     [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
-    NSString *path = [VTBundle pathForResource:@"payments" ofType:@"plist"];
+    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     _payments = [NSArray arrayWithContentsOfFile:path];
 
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
@@ -49,32 +49,19 @@
 
 #pragma mark - UITableViewDataSource
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [_payments count];
 }
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSArray *items = _payments[section][@"items"];
-    return [items count];
-}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSArray *items = _payments[indexPath.section][@"items"];
-    
     VTListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
-    cell.item = items[indexPath.row];
+    cell.item = _payments[indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
-- (nullable UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    VTPaymentHeader *header = [tableView dequeueReusableCellWithIdentifier:@"VTPaymentHeader"];
-    header.titleLabel.text = _payments[section][@"name"];
-    return header;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSDictionary *item = _payments[indexPath.section][@"items"][indexPath.row];
-    NSString *identifier = item[@"id"];
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {    
+    NSString *identifier = _payments[indexPath.row][@"id"];
     
     if ([identifier isEqualToString:VTCreditCardIdentifier]) {
         

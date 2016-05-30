@@ -30,6 +30,6 @@
     
     _titleLabel.text = item[@"title"];
     _descLabel.text = item[@"description"];
-//    _iconView.image = [UIImage imageNamed:item[@"icon"] inBundle:VTBundle compatibleWithTraitCollection:nil];
+    _iconView.image = [UIImage imageNamed:item[@"id"] inBundle:VTBundle compatibleWithTraitCollection:nil];
 }
 @end

@@ -13,6 +13,7 @@
 #import "VTHudView.h"
 #import "VTVASuccessController.h"
 #import "VTButton.h"
+#import "VTBillpaySuccessController.h"
 
 #import <MidtransCoreKit/VTPaymentBankTransfer.h>
 #import <MidtransCoreKit/VTTransaction.h>
@@ -108,18 +109,23 @@
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
     VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:_vaType];
-    VTVASuccessController *vc = [[VTVASuccessController alloc] initWithViewModel:vm];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (_vaType == VTVATypeMandiri) {
+        VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        VTVASuccessController *vc = [[VTVASuccessController alloc] initWithViewModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

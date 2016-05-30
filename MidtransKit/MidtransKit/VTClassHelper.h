@@ -8,6 +8,8 @@
 
 #define VTBundle [VTClassHelper kitBundle]
 
+#define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
+
 #import <MidtransCoreKit/VTHelper.h>
 
 extern NSString *const VTCreditCardIdentifier;

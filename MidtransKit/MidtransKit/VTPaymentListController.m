@@ -16,12 +16,13 @@
 #import "VTClicksController.h"
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
+#import "VTPaymentListFooter.h"
+#import "VTPaymentListHeader.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) IBOutlet UILabel *headerAmountLabel;
-@property (strong, nonatomic) IBOutlet UILabel *footerAmountLabel;
-
+@property (nonatomic) VTPaymentListFooter *footer;
+@property (nonatomic) VTPaymentListHeader *header;
 @end
 
 @implementation VTPaymentListController {
@@ -32,8 +33,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = @"Select Payment";
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];    
+    
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
+    
+    _footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];    
+    _header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
+    
     
     [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
@@ -41,8 +49,17 @@
     _payments = [NSArray arrayWithContentsOfFile:path];
     
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    _headerAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
-    _footerAmountLabel.text = _headerAmountLabel.text;
+    _footer.amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    _header.amountLabel.text = _footer.amountLabel.text;
+}
+
+- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    
+    _footer.frame = CGRectMake(0, 0, CGRectGetWidth(_tableView.frame), 45);
+    _tableView.tableFooterView = _footer;
+    _header.frame = CGRectMake(0, 0, CGRectGetWidth(_tableView.frame), 80);
+    _tableView.tableHeaderView = _header;
 }
 
 - (void)didReceiveMemoryWarning {

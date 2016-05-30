@@ -16,8 +16,14 @@
 @implementation VTPaymentController
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+    
+    @try {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+        self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+    } @catch (NSException *exception) {
+        self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    }
+    
     if (self) {
         self.customerDetails = customerDetails;
         self.itemDetails = itemDetails;

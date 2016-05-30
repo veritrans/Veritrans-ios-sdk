@@ -35,9 +35,6 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
         @catch (NSException *exception) {
             kitBundle = [NSBundle mainBundle];
         }
-        @finally {
-            [kitBundle load];
-        }
     });
     return kitBundle;
 }

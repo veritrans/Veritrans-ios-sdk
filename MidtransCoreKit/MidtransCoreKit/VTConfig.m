@@ -8,13 +8,26 @@
 
 #import "VTConfig.h"
 #import "VTMerchantClient.h"
+#import "VTPrivateConfig.h"
 
 @interface VTConfig ()
-@property (nonatomic, readwrite) NSString *baseUrl;
-@property (nonatomic, readwrite) NSString *mixpanelToken;
+@property (nonatomic) NSString *clientKey;
+@property (nonatomic) NSString *merchantServerURL;
+@property (nonatomic) VTServerEnvironment environment;
 @end
 
 @implementation VTConfig
+
++ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment {
+    [[VTConfig sharedInstance] setClientKey:clientKey];
+    [[VTConfig sharedInstance] setMerchantServerURL:merchantServerURL];
+    [[VTConfig sharedInstance] setEnvironment:environment];
+}
+
++ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData {
+    [VTConfig setClientKey:clientKey merchantServerURL:merchantServerURL serverEnvironment:environment];
+    [[VTConfig sharedInstance] setMerchantClientData:merchantClientData];
+}
 
 - (NSString *)merchantServerURL {
     NSAssert(_merchantServerURL, @"Please set your merchant server URL in VTConfig");
@@ -36,20 +49,7 @@
 }
 
 - (void)setEnvironment:(VTServerEnvironment)environment {
-    _environment = environment;
-    
-    switch (environment) {
-        case VTServerEnvironmentProduction:
-            self.baseUrl = @"https://api.veritrans.co.id/v2";
-            self.mixpanelToken = @"cc005b296ca4ce612fe3939177c668bb";
-            break;
-        case VTServerEnvironmentSandbox:
-            self.baseUrl = @"https://api.sandbox.veritrans.co.id/v2";
-            self.mixpanelToken = @"0269722c477a0e085fde32e0248c6003";
-            break;
-        default:
-            break;
-    }
+    [VTPrivateConfig setServerEnvironment:environment];    
 }
 
 @end

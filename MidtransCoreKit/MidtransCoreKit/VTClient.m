@@ -10,6 +10,7 @@
 #import "VTConfig.h"
 #import "VTNetworking.h"
 #import "VTHelper.h"
+#import "VTPrivateConfig.h"
 
 @interface VTClient ()
 
@@ -31,7 +32,7 @@
 
 - (void)generateToken:(VTTokenizeRequest *)tokenizeRequest
            completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"token"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"token"];
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
@@ -44,7 +45,7 @@
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
                 completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG baseUrl], @"card/register"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"card/register"];
     NSDictionary *param = @{@"client_key":[CONFIG clientKey],
                             @"card_number":creditCard.number,
                             @"card_exp_month":creditCard.expiryMonth,

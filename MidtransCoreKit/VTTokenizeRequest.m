@@ -28,36 +28,33 @@
 
 @implementation VTTokenizeRequest
 
-+ (instancetype)tokenForNormalTransactionWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount {
-    VTTokenizeRequest *req = [VTTokenizeRequest new];
-    req.creditCard = creditCard;
-    req.cvv = creditCard.cvv;
-    req.grossAmount = grossAmount;
-    req.creditCardPaymentFeature = VTCreditCardPaymentFeatureNormal;
-    return req;
+- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard
+                       grossAmount:(NSNumber *)grossAmount
+                            secure:(BOOL)secure
+                              bank:(NSString *)bank
+{
+    if (self = [super init]) {
+        self.creditCard = creditCard;
+        self.cvv = creditCard.cvv;
+        self.grossAmount = grossAmount;
+        self.creditCardPaymentFeature = VTCreditCardPaymentFeatureNormal;
+        self.secure = secure;
+        self.bank = bank;
+    }
+    return self;
 }
 
-+ (instancetype)tokenForTwoClickTransactionWithToken:(NSString *)token
-                                                 cvv:(NSString *)cvv
-                                              secure:(BOOL)secure
-                                         grossAmount:(NSNumber *)grossAmount {
-    VTTokenizeRequest *req = [VTTokenizeRequest new];
-    req.grossAmount = grossAmount;
-    req.token = token;
-    req.cvv = cvv;
-    req.secure = secure;
-    req.creditCardPaymentFeature = VTCreditCardPaymentFeatureTwoClick;
-    return req;
-}
-
-+ (instancetype)tokenFor3DSecureTransactionWithCreditCard:(VTCreditCard *)creditCard bank:(NSString *)bank grossAmount:(NSNumber *)grossAmount {
-    VTTokenizeRequest *req = [VTTokenizeRequest new];
-    req.creditCard = creditCard;
-    req.cvv = creditCard.cvv;
-    req.grossAmount = grossAmount;
-    req.secure = YES;
-    req.bank = bank;
-    return req;
+- (instancetype)initWithTwoClickToken:(NSString *)token
+                                  cvv:(NSString *)cvv
+                          grossAmount:(NSNumber *)grossAmount {
+    if (self = [super init]) {
+        self.grossAmount = grossAmount;
+        self.token = token;
+        self.cvv = cvv;
+        self.secure = YES;
+        self.creditCardPaymentFeature = VTCreditCardPaymentFeatureTwoClick;
+    }
+    return self;
 }
 
 - (NSDictionary *)dictionaryValue {

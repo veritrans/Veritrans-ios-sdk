@@ -1,0 +1,22 @@
+//
+//  VTPrivateConfig.h
+//  MidtransCoreKit
+//
+//  Created by Nanang Rafsanjani on 5/31/16.
+//  Copyright © 2016 Veritrans. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "VTEnvironment.h"
+
+#define PRIVATECONFIG (VTPrivateConfig *)[VTPrivateConfig sharedInstance]
+
+@interface VTPrivateConfig : NSObject
+
+@property (nonatomic, readonly) NSString *baseUrl;
+@property (nonatomic, readonly) NSString *mixpanelToken;
+
++ (void)setServerEnvironment:(VTServerEnvironment)environment;
++ (id)sharedInstance;
+
+@end

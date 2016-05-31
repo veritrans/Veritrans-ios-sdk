@@ -18,14 +18,13 @@
 #import "VTCCFrontView.h"
 #import "VTHudView.h"
 #import "VTPaymentStatusViewModel.h"
+#import "VTCardControllerConfig.h"
 
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
+#import "UIViewController+Modal.h"
 
-
-#import <MidtransCoreKit/UIViewController+Modal.h>
-#import <MidtransCoreKit/VTConfig.h>
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
@@ -182,7 +181,7 @@
     
     VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
     
-    if ([CONFIG enableOneClick]) {
+    if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
         VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber grossAmount:self.transactionDetails.grossAmount];
         [vc showOnViewController:self clickedButtonsCompletion:^(NSUInteger selectedIndex) {
             if (selectedIndex == 1) {

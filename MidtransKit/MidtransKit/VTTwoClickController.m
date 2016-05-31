@@ -93,7 +93,8 @@
 - (IBAction)paymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.view];
     
-    VTTokenizeRequest *tokenRequest = [VTTokenizeRequest tokenForTwoClickTransactionWithToken:_savedToken cvv:_cvvTextField.text secure:YES grossAmount:self.transactionDetails.grossAmount];
+    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_savedToken cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
+    
     [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

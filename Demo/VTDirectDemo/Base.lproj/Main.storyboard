@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ucP-pH-0wc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="ucP-pH-0wc">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--Cart-->
@@ -356,11 +357,18 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Customer Details" id="VD5-s8-do6">
-                        <barButtonItem key="rightBarButtonItem" title="Save" id="04g-n1-JuK">
-                            <connections>
-                                <action selector="savePressed:" destination="iQs-OU-mo2" id="cDu-gc-244"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem title="Save" id="04g-n1-JuK">
+                                <connections>
+                                    <action selector="savePressed:" destination="iQs-OU-mo2" id="cDu-gc-244"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem systemItem="refresh" id="2vo-2e-bpd">
+                                <connections>
+                                    <action selector="resetMerchantAuth:" destination="iQs-OU-mo2" id="707-Xr-4aQ"/>
+                                </connections>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="addressTextField" destination="5MO-ey-dKE" id="s4o-e9-k1U"/>

@@ -33,8 +33,9 @@
  
  @param creditCard The credit card to be tokenized.
  @param grossAmount The amount to charge.
+ @param secure To activate 3D secure payment.
  */
-+ (instancetype)tokenForNormalTransactionWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount;
+- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure;
 
 /**
  Get a `VTTokenizeReqeust` for two-clicks transaction.
@@ -44,12 +45,9 @@
  @param secure Flag that will be used to determine whether the token request process will use a redirect URL provided by the bank
  @param grossAmount The amount
  */
-+ (instancetype)tokenForTwoClickTransactionWithToken:(NSString *)token
-                                                 cvv:(NSString *)cvv
-                                              secure:(BOOL)secure
-                                         grossAmount:(NSNumber *)grossAmount;
-
-+ (instancetype)tokenFor3DSecureTransactionWithCreditCard:(VTCreditCard *)creditCard bank:(NSString *)bank grossAmount:(NSNumber *)grossAmount;
+- (instancetype)initWithTwoClickToken:(NSString *)token
+                                  cvv:(NSString *)cvv
+                          grossAmount:(NSNumber *)grossAmount;
 
 - (NSDictionary *)dictionaryValue;
 

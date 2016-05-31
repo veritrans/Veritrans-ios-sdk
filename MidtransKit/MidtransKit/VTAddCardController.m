@@ -15,13 +15,13 @@
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "VTKeyboardAccessoryView.h"
+#import "UIViewController+Modal.h"
+#import "VTHudView.h"
 
-#import <MidtransCoreKit/UIViewController+Modal.h>
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTTransactionDetails.h>
-#import <MidtransCoreKit/VTHudView.h>
 #import <MidtransCoreKit/VTCreditCardHelper.h>
 
 @interface VTAddCardController ()

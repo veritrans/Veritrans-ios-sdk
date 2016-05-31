@@ -8,7 +8,7 @@
 
 #import "VTConfirmPaymentController.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/UIViewController+Modal.h>
+#import "UIViewController+Modal.h"
 
 @interface VTConfirmPaymentController ()
 @property (strong, nonatomic) IBOutlet UILabel *cardNumberLabel;

@@ -7,7 +7,7 @@
 //
 
 #import "VTCvvInfoController.h"
-#import <MidtransCoreKit/UIViewController+Modal.h>
+#import "UIViewController+Modal.h"
 
 @interface VTCvvInfoController ()
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundView;

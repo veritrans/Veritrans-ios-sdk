@@ -26,22 +26,17 @@
 /**
  The Veritrans' client key for this app.
  */
-@property (nonatomic) NSString *clientKey;
-
-
-/**
- The base URL for the payment method.
- */
-@property (nonatomic, readonly) NSString *baseUrl;
-
-///------------------------------
-/// @name Merchant Configuration
-///------------------------------
+@property (nonatomic, readonly) NSString *clientKey;
 
 /**
  The merchant server URL. This URL will be used by `VTMerchantClient`.
  */
-@property (nonatomic) NSString *merchantServerURL;
+@property (nonatomic, readonly) NSString *merchantServerURL;
+
+/**
+ The payment environment this app will use.
+ */
+@property (nonatomic, readonly) VTServerEnvironment environment;
 
 /**
  Container for data that will be sent to the Merchant Server. The common use-case for this data is to identify client to the Merchant Server. If this variable is set to non-nil, then every request to the Merchant Server will contain this data in its HTTP request header.
@@ -50,13 +45,8 @@
  */
 @property (nonatomic) NSDictionary *merchantClientData;
 
-/**
- The payment environment this app will use.
- */
-@property (nonatomic) VTServerEnvironment environment;
 
-@property (nonatomic, readonly) NSString *mixpanelToken;
-
-@property (nonatomic) BOOL enableOneClick;
++ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment;
++ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData;
 
 @end

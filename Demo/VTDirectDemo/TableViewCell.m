@@ -36,6 +36,8 @@
     _priceLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:totalPrice];
     _nameLabel.text = item.name;
     _quantityLabel.text = item.quantity.stringValue;
+    
+    [_imageView sd_setImageWithURL:item.imageURL];
 }
 
 @end

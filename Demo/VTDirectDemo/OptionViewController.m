@@ -10,7 +10,9 @@
 #import "IHKeyboardAvoiding.h"
 
 #import <MidtransKit/VTPaymentViewController.h>
+#import <MidtransKit/VTCardControllerConfig.h>
 #import <MidtransCoreKit/VTConfig.h>
+#import <MidtransCoreKit/VTMerchantClient.h>
 
 @interface OptionViewController ()
 
@@ -47,7 +49,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if ([CONFIG enableOneClick]) {
+    if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
         _cardOptionsSegment.selectedSegmentIndex = 0;
     } else {
         _cardOptionsSegment.selectedSegmentIndex = 1;
@@ -89,6 +91,22 @@
     return @"IDN";
 }
 
+- (IBAction)resetMerchantAuth:(id)sender {
+    [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
+        if (response) {
+            [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
+            [[NSUserDefaults standardUserDefaults] synchronize];
+            [[VTConfig sharedInstance] setMerchantClientData:response];
+            
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Reset merchant authentication success!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+            [alert show];
+        }
+    }];
+}
+
 - (IBAction)savePressed:(UIBarButtonItem *)sender {
     VTAddress *shipAddr = [VTAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
     VTAddress *billAddr = [VTAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
@@ -103,17 +121,17 @@
 }
 
 - (IBAction)cardOptionsChanged:(UISegmentedControl *)sender {
-    [CONFIG setEnableOneClick:sender.selectedSegmentIndex == 0];
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:sender.selectedSegmentIndex == 0];
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

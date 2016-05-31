@@ -11,7 +11,6 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
-#import <MidtransKit/VTPaymentViewController.h>
 #import <MidtransCoreKit/VTConfig.h>
 
 @interface AppDelegate ()
@@ -20,15 +19,14 @@
 
 @implementation AppDelegate
 
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [Fabric with:@[[Crashlytics class]]];
     
-    [CONFIG setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"];
-    [CONFIG setMerchantServerURL:@"https://vt-merchant.coralshop.top/api"];
-    [CONFIG setEnvironment:VTServerEnvironmentSandbox];
+    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
+         merchantServerURL:@"https://vt-merchant.coralshop.top/api"
+         serverEnvironment:VTServerEnvironmentSandbox];
     
     return YES;
 }

@@ -1,34 +1,32 @@
 //
-//  VTVASuccessController.m
+//  VTBillpaySuccessController.m
 //  MidtransKit
 //
-//  Created by Nanang Rafsanjani on 5/20/16.
+//  Created by Nanang Rafsanjani on 5/30/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTVASuccessController.h"
+#import "VTBillpaySuccessController.h"
 #import "VTVAGuideController.h"
-#import "VTPaymentStatusViewModel.h"
-#import "VTButton.h"
+#import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
 #import "VTToast.h"
 
-#import <QuartzCore/QuartzCore.h>
-
-@interface VTVASuccessController ()
-@property (strong, nonatomic) IBOutlet UILabel *vaNumberLabel;
+@interface VTBillpaySuccessController ()
+@property (strong, nonatomic) IBOutlet UILabel *billCodeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
+@property (strong, nonatomic) IBOutlet UILabel *companyCodeLabel;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 
 @property (nonatomic) VTVATransactionStatusViewModel *viewModel;
 @end
 
-@implementation VTVASuccessController
+@implementation VTBillpaySuccessController
 
 - (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel {
-    self = [[VTVASuccessController alloc] initWithNibName:@"VTVASuccessController" bundle:VTBundle];
+    self = [[VTBillpaySuccessController alloc] initWithNibName:@"VTBillpaySuccessController" bundle:VTBundle];
     if (self) {
         self.viewModel = viewModel;
     }
@@ -39,28 +37,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
-    [self.navigationItem setHidesBackButton:YES];
-
+    self.navigationItem.hidesBackButton = YES;
+    
     _amountLabel.text = _viewModel.totalAmount;
     _orderIdLabel.text = _viewModel.orderId;
     _transactionTimeLabel.text = _viewModel.transactionTime;
+    _billCodeLabel.text = _viewModel.billpayCode;
+    _companyCodeLabel.text = _viewModel.companyCode;
     
-    switch (_viewModel.vaType) {
-        case VTVATypeBCA: {
-            _vaNumberLabel.text = _viewModel.vaNumber;
-            self.title = @"BCA Bank Transfer";
-            break;
-        } case VTVATypePermata: {
-            _vaNumberLabel.text = _viewModel.vaNumber;
-            self.title = @"Permata Bank Transfer";
-            break;
-        } case VTVATypeMandiri: {
-        } case VTVATypeOther: {
-            _vaNumberLabel.text = _viewModel.vaNumber;
-            self.title = @"Other Bank Transfer";
-            break;
-        }
-    }
+    self.title = @"Mandiri Billpay";
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,7 +54,7 @@
 }
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
-    [[UIPasteboard generalPasteboard] setString:_viewModel.vaNumber];
+    [[UIPasteboard generalPasteboard] setString:_viewModel.billpayCode];
     [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
 }
 
@@ -81,15 +66,5 @@
 - (IBAction)finishPressed:(UIButton *)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

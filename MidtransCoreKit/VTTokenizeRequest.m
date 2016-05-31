@@ -63,14 +63,15 @@
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary new];
     switch (_creditCardPaymentFeature) {
-        case VTCreditCardPaymentFeatureTwoClick:
+        case VTCreditCardPaymentFeatureTwoClick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
                                     @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
                                     @"token_id":[VTHelper nullifyIfNil:self.token]}];
-        case VTCreditCardPaymentFeatureNormal:
+            break;
+        } case VTCreditCardPaymentFeatureNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
@@ -79,7 +80,8 @@
                                     @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
                                     @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount]}];
-        default:
+            break;
+        } default: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
@@ -93,6 +95,8 @@
                                     @"installment_term":[VTHelper nullifyIfNil:self.installmentTerm],
                                     @"two_click":self.twoClick? @"true":@"false",
                                     @"type":[VTHelper nullifyIfNil:self.type]}];
+            break;
+        }
     }
     
     if ([CONFIG environment] == VTServerEnvironmentProduction) {

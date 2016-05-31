@@ -12,6 +12,8 @@
 #import "VTKeyboardAccessoryView.h"
 #import "VTHudView.h"
 #import "VTVASuccessController.h"
+#import "VTButton.h"
+#import "VTBillpaySuccessController.h"
 
 #import <MidtransCoreKit/VTPaymentBankTransfer.h>
 #import <MidtransCoreKit/VTTransaction.h>
@@ -21,6 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
+@property (strong, nonatomic) IBOutlet VTButton *helpButton;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, assign) VTVAType vaType;
 @property (nonatomic) VTHudView *hudView;
@@ -50,18 +53,23 @@
                                                                             action:nil];
     
     switch (self.vaType) {
-        case VTVATypeBCA:
-            self.title = @"BCA Bank Transfer";
+        case VTVATypeBCA: {
+            self.title = @"BCA ATM";
+            [_helpButton setTitle:@"How Can I Pay Via BCA Bank Transfer?" forState:UIControlStateNormal];
             break;
-        case VTVATypeMandiri:
-            self.title = @"Mandiri Bank Transfer";
+        } case VTVATypeMandiri: {
+            self.title = @"Mandiri ATM";
+            [_helpButton setTitle:@"How Can I Pay Via Mandiri Bank Transfer?" forState:UIControlStateNormal];
             break;
-        case VTVATypePermata:
-            self.title = @"Permata Bank Transfer";
+        } case VTVATypePermata: {
+            self.title = @"Permata ATM";
+            [_helpButton setTitle:@"How Can I Pay Via Permata Bank Transfer?" forState:UIControlStateNormal];
             break;
-        case VTVATypeOther:
-            self.title = @"Other Bank Transfer";
+        } case VTVATypeOther: {
+            self.title = @"Other Bank";
+            [_helpButton setTitle:@"How Can I Pay Via Other Bank Transfer?" forState:UIControlStateNormal];
             break;
+        }
     }
     
     _emailTextField.text = self.customerDetails.email;
@@ -83,21 +91,7 @@
 - (IBAction)paymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentBankTransfer *paymentDetails;
-    switch (self.vaType) {
-        case VTVATypeBCA:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"bca"];
-            break;
-        case VTVATypeMandiri:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"mandiri"];
-            break;
-        case VTVATypePermata:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"permata"];
-            break;
-        case VTVATypeOther:
-            paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankName:@"unknown"];
-            break;
-    }
+    VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:self.vaType];
     
     self.customerDetails.email = _emailTextField.text;
     
@@ -115,18 +109,23 @@
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
     VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:_vaType];
-    VTVASuccessController *vc = [[VTVASuccessController alloc] initWithViewModel:vm];
-    [self.navigationController pushViewController:vc animated:YES];
+    if (_vaType == VTVATypeMandiri) {
+        VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else {
+        VTVASuccessController *vc = [[VTVASuccessController alloc] initWithViewModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

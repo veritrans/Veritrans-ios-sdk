@@ -16,6 +16,7 @@
 
 - (instancetype)initWithToken:(NSString *)token
                     secureURL:(NSURL *)secureURL;
-- (void)showWithCompletion:(void(^)())completion;
+
+- (void)showWithCompletion:(void(^)(NSError *error))completion;
 
 @end

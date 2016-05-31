@@ -9,10 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "VTPaymentDetails.h"
 
+typedef NS_ENUM(NSUInteger, VTVAType) {
+    VTVATypeBCA,
+    VTVATypeMandiri,
+    VTVATypePermata,
+    VTVATypeOther
+};
 @interface VTPaymentBankTransfer : NSObject<VTPaymentDetails>
 
-@property (nonatomic, readonly) NSString* bankName;
+@property (nonatomic, readonly) VTVAType type;
 
-- (instancetype)initWithBankName:(NSString *)bankName;
+- (instancetype)initWithBankTransferType:(VTVAType)type;
 
 @end

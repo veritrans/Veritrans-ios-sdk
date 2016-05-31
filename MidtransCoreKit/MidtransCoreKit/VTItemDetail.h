@@ -15,6 +15,8 @@
 @property(nonatomic, readonly) NSNumber *quantity;
 @property(nonatomic, readonly) NSString* name;
 
+@property (nonatomic) NSURL *imageURL;
+
 - (instancetype)initWithItemID:(NSString *)itemID
                           name:(NSString *)name
                          price:(NSNumber *)price

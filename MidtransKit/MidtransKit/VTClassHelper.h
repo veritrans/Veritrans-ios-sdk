@@ -8,36 +8,23 @@
 
 #define VTBundle [VTClassHelper kitBundle]
 
-#import "MidtransCoreKit/VTHelper.h"
+#define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
-typedef NS_ENUM(NSUInteger, VTVAType) {
-    VTVATypeBCA,
-    VTVATypeMandiri,
-    VTVATypePermata,
-    VTVATypeOther
-};
-
+#import <MidtransCoreKit/VTHelper.h>
 
 extern NSString *const VTCreditCardIdentifier;
-
-extern NSString *const VTMandiriClickpayIdentifier;
-extern NSString *const VTCIMBClicksIdentifier;
-extern NSString *const VTBCAKlikpayIdentifier;
-extern NSString *const VTBRIEpayIdentifier;
-
-extern NSString *const VTIndomaretIdentifier;
-
-extern NSString *const VTMandiriECashIdentifier;
-extern NSString *const VTBBMIdentifier;
-extern NSString *const VTIndosatDompetkuIdentifier;
-extern NSString *const VTTCashIdentifier;
-extern NSString *const VTXLTunaiIdentifier;
-
 extern NSString *const VTVAIdentifier;
 extern NSString *const VTPermataVAIdentifier;
 extern NSString *const VTBCAVAIdentifier;
 extern NSString *const VTMandiriVAIdentifier;
 extern NSString *const VTOtherVAIdentifier;
+extern NSString *const VTKlikBCAIdentifier;
+extern NSString *const VTKlikpayIdentifier;
+extern NSString *const VTClickpayIdentifier;
+extern NSString *const VTClicksIdentifier;
+extern NSString *const VTEpayIdentifier;
+extern NSString *const VTTelkomselIdentifier;
+extern NSString *const VTIndomaretIdentifier;
 
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;

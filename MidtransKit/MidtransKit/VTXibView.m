@@ -22,16 +22,15 @@
         self.backgroundColor = _customView.backgroundColor;
         _customView.backgroundColor = [UIColor clearColor];
         
-        // 2. Set the bounds if not set by programmer (i.e. init called)
         if(CGRectIsEmpty(frame)) {
-            self.bounds = _customView.bounds;
+            _customView.translatesAutoresizingMaskIntoConstraints = NO;
+            [self addSubview:_customView];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":_customView}]];
+            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":_customView}]];
         } else {
             _customView.frame = self.bounds;
+            [self addSubview:_customView];
         }
-        
-        // 3. Add as a subview
-        [self addSubview:_customView];
-        
     }
     return self;
 }

@@ -32,13 +32,21 @@
 
 @property (nonatomic) IBOutlet VTTextField *cvvTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
-@property (nonatomic) NSString *savedTokenId;
+@property (nonatomic) NSString *savedToken;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
 
 @implementation VTTwoClickController {
     VTHudView *_hudView;
+}
+
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails savedToken:(NSString *)savedToken {
+    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
+    if (self) {
+        self.savedToken = savedToken;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
@@ -85,7 +93,7 @@
 - (IBAction)paymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.view];
     
-    VTTokenizeRequest *tokenRequest = [VTTokenizeRequest tokenForTwoClickTransactionWithToken:_savedTokenId cvv:_cvvTextField.text secure:YES grossAmount:self.transactionDetails.grossAmount];
+    VTTokenizeRequest *tokenRequest = [VTTokenizeRequest tokenForTwoClickTransactionWithToken:_savedToken cvv:_cvvTextField.text secure:YES grossAmount:self.transactionDetails.grossAmount];
     [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

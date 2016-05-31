@@ -28,10 +28,7 @@
 
 @implementation VTTokenizeRequest
 
-- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard
-                       grossAmount:(NSNumber *)grossAmount
-                            secure:(BOOL)secure
-                              bank:(NSString *)bank
+- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure
 {
     if (self = [super init]) {
         self.creditCard = creditCard;
@@ -39,7 +36,6 @@
         self.grossAmount = grossAmount;
         self.creditCardPaymentFeature = VTCreditCardPaymentFeatureNormal;
         self.secure = secure;
-        self.bank = bank;
     }
     return self;
 }

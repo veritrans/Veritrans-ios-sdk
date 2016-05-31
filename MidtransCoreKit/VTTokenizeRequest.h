@@ -34,9 +34,8 @@
  @param creditCard The credit card to be tokenized.
  @param grossAmount The amount to charge.
  @param secure To activate 3D secure payment.
- @param bank The name of bank as card provider.
  */
-- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure bank:(NSString *)bank;
+- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure;
 
 /**
  Get a `VTTokenizeReqeust` for two-clicks transaction.

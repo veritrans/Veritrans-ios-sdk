@@ -31,7 +31,7 @@
 		3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948C1C75A40900938C17 /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30D9ABFC1C76FD1D00F858AE /* VTNetworkOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D9ABFA1C76FD1D00F858AE /* VTNetworkOperation.h */; };
 		30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */; };
-		30FDCC641C803AD200CEFED3 /* VTMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */; };
+		30FDCC641C803AD200CEFED3 /* VTMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30FDCC651C803AD200CEFED3 /* VTMandiriClickpay.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */; };
 		E525E1211CFD402D009448A5 /* VTPrivateConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E11F1CFD402D009448A5 /* VTPrivateConfig.h */; };
 		E525E1221CFD402D009448A5 /* VTPrivateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1201CFD402D009448A5 /* VTPrivateConfig.m */; };

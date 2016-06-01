@@ -7,9 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTCustomerDetails.h>
-#import <MidtransCoreKit/VTItemDetail.h>
-#import <MidtransCoreKit/VTTransactionDetails.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 #import "VTErrorStatusController.h"
 #import "VTPaymentStatusViewModel.h"

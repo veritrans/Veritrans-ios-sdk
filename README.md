@@ -41,7 +41,7 @@ Once you have completed installation of MidtransKit, import the MidtransKit head
 #import <MidtransKit/MidtransKit.h>
 ```
 
-Copy and paste the following into `application:didFinishLaunchingWithOptions:` in your `AppDelegate`
+Copy and paste the following code into `application:didFinishLaunchingWithOptions:` in your `AppDelegate`
 
 ```
 [VTConfig setClientKey:<#(NSString *)#> 
@@ -78,18 +78,20 @@ VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerD
 #### Two Click & One Click
 `Two Click` and `One Click` are feature for simplify credit card payment. You can read more detail [here](http://docs.veritrans.co.id/en/vtdirect/other_features.html).
 
-Copy and paste the following code wherever you think is good as long as its executed before you present the `VTPaymentViewController`.
+Copy and paste the following code wherever you think is good as long as it's executed before you present the `VTPaymentViewController`.
 
 ```
 [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
 ```
 
-You can configure it with `VTCardControllerConfig`, if its not configure it will automatically use `Two Click` feature
+You can configure it with `VTCardControllerConfig`, if it's not configure it will automatically use `Two Click` feature
 
 #### 3D Secure
-Copy and past the following code wherever you think is good as long as its executed before you present the `VTPaymentViewController`.
+3-D Secure is an authenticated payment system to improve online transaction security
+
+Copy and paste the following code wherever you think is good as long as it's executed before you present the `VTPaymentViewController`.
 
 ```
 [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
 ```
-If its not configure, the default value is `NO`.
+If it's not configure, the default value is `NO`.

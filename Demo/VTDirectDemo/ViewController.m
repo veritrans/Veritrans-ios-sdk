@@ -10,9 +10,7 @@
 #import "TableViewCell.h"
 #import "OptionViewController.h"
 
-#import <MidtransKit/VTPaymentViewController.h>
-#import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransKit/MidtransKit.h>
 
 @implementation NSString (random)
 
@@ -87,6 +85,7 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
+    
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];

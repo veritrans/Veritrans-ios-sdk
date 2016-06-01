@@ -200,8 +200,14 @@
 - (void)payWithToken:(NSString *)token {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentCreditCard *paymentDetail = [VTPaymentCreditCard paymentUsingFeature:VTCreditCardPaymentFeatureOneClick forTokenId:token];
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    VTPaymentCreditCard *paymentDetail =
+    [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
+                                           token:token];
+    VTTransaction *transaction =
+    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
+                               transactionDetails:self.transactionDetails
+                                  customerDetails:self.customerDetails
+                                      itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [_hudView hide];
         

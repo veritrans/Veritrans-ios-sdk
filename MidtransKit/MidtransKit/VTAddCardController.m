@@ -128,7 +128,7 @@
     NSString *currentYear = [df stringFromDate:[NSDate date]];
     expYear = [[currentYear substringToIndex:currentYear.length-2] stringByAppendingString:expYear];
     
-    VTCreditCard *creditCard = [VTCreditCard cardWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text];
+    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text];
     
     [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
         [_hudView hide];

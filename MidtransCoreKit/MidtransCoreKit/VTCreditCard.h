@@ -15,7 +15,7 @@
 @property (nonatomic, readonly) NSString *number;
 @property (nonatomic, readonly) NSString *cvv;
 
-+ (instancetype)cardWithNumber:(NSString *)number
+- (instancetype)initWithNumber:(NSString *)number
                    expiryMonth:(NSString *)expiryMonth
                     expiryYear:(NSString *)expiryYear
                            cvv:(NSString *)cvv;

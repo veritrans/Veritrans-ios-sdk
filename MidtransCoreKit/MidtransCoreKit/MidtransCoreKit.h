@@ -9,11 +9,25 @@
 #ifndef MidtransCoreKit_h
 #define MidtransCoreKit_h
 
-#import "VTUser.h"
-#import "VTItem.h"
-#import "VTPaymentCreditCard.h"
-#import "VTAddress.h"
-#import "VTCreditCard.h"
+#import "VTTransactionResult.h"
+#import "VTItemDetail.h"
+#import "VTTransaction.h"
+#import "VTTransactionDetails.h"
 #import "VTConfig.h"
+#import "VTTokenizeRequest.h"
+#import "VTEnvironment.h"
+#import "VTAddress.h"
+#import "VTClient.h"
+#import "VTPaymentDetails.h"
+#import "VTPaymentCreditCard.h"
+#import "VTMaskedCreditCard.h"
+#import "VTHelper.h"
+#import "VTPaymentBankTransfer.h"
+#import "VTCreditCardHelper.h"
+#import "VTCreditCardPaymentFeature.h"
+#import "VTMerchantClient.h"
+#import "VT3DSController.h"
+#import "VTCreditCard.h"
+#import "VTCustomerDetails.h"
 
 #endif /* MidtransCoreKit_h */

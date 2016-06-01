@@ -11,7 +11,7 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 
-#import <MidtransCoreKit/VTConfig.h>
+#import <MidtransKit/MidtransKit.h>
 
 @interface AppDelegate ()
 

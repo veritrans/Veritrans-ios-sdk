@@ -72,3 +72,24 @@ VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWit
 VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:@[itemDetail] transactionDetails:transactionDetails];
         [self presentViewController:vc animated:YES completion:nil];
 ```
+
+### Configure features for credit card payment
+
+#### Two Click & One Click
+`Two Click` and `One Click` are feature for simplify credit card payment. You can read more detail [here](http://docs.veritrans.co.id/en/vtdirect/other_features.html).
+
+Copy and paste the following code wherever you think is good as long as its executed before you present the `VTPaymentViewController`.
+
+```
+[[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
+```
+
+You can configure it with `VTCardControllerConfig`, if its not configure it will automatically use `Two Click` feature
+
+#### 3D Secure
+Copy and past the following code wherever you think is good as long as its executed before you present the `VTPaymentViewController`.
+
+```
+[[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
+```
+If its not configure, the default value is `NO`.

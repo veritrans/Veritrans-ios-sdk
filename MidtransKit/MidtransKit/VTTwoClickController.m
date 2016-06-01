@@ -139,7 +139,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail = [VTPaymentCreditCard paymentUsingFeature:VTCreditCardPaymentFeatureOneClick forTokenId:token];
+    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick token:token];
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {

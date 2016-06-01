@@ -140,6 +140,9 @@
 		E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */; };
 		E525E12A1CFD75D1009448A5 /* UIViewController+Modal.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */; };
 		E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */; };
+		E529405A1CFEC2F1000180D3 /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940571CFEC2F1000180D3 /* libCardIO.a */; };
+		E529405B1CFEC2F1000180D3 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940581CFEC2F1000180D3 /* libopencv_core.a */; };
+		E529405C1CFEC2F1000180D3 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940591CFEC2F1000180D3 /* libopencv_imgproc.a */; };
 		E52F72B81C996103009D7BA4 /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B61C996103009D7BA4 /* Visa@2x.png */; };
 		E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B71C996103009D7BA4 /* VisaDark@2x.png */; };
 		E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */; };
@@ -336,6 +339,19 @@
 		E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardControllerConfig.m; sourceTree = "<group>"; };
 		E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Modal.h"; sourceTree = "<group>"; };
 		E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Modal.m"; sourceTree = "<group>"; };
+		E52940571CFEC2F1000180D3 /* libCardIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCardIO.a; path = CardIO/libCardIO.a; sourceTree = "<group>"; };
+		E52940581CFEC2F1000180D3 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = CardIO/libopencv_core.a; sourceTree = "<group>"; };
+		E52940591CFEC2F1000180D3 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = CardIO/libopencv_imgproc.a; sourceTree = "<group>"; };
+		E529405D1CFEC639000180D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E529405F1CFEC65B000180D3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E52940611CFEC660000180D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E52940641CFEC66C000180D3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E52940661CFEC673000180D3 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E52940681CFEC679000180D3 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E529406A1CFEC683000180D3 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		E529406C1CFEC68B000180D3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		E529406E1CFEC691000180D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		E52940701CFEC69A000180D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E52F72B61C996103009D7BA4 /* Visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Visa@2x.png"; sourceTree = "<group>"; };
 		E52F72B71C996103009D7BA4 /* VisaDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaDark@2x.png"; sourceTree = "<group>"; };
 		E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKeyboardAccessoryView.h; sourceTree = "<group>"; };
@@ -400,6 +416,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E529405A1CFEC2F1000180D3 /* libCardIO.a in Frameworks */,
+				E529405B1CFEC2F1000180D3 /* libopencv_core.a in Frameworks */,
+				E529405C1CFEC2F1000180D3 /* libopencv_imgproc.a in Frameworks */,
 				E51FBCEB1C8C8C6D008D240A /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
@@ -469,6 +488,19 @@
 		305494991C75A4E700938C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E52940701CFEC69A000180D3 /* Security.framework */,
+				E529406E1CFEC691000180D3 /* QuartzCore.framework */,
+				E529406C1CFEC68B000180D3 /* OpenGLES.framework */,
+				E529406A1CFEC683000180D3 /* MobileCoreServices.framework */,
+				E52940681CFEC679000180D3 /* CoreVideo.framework */,
+				E52940661CFEC673000180D3 /* CoreMedia.framework */,
+				E52940641CFEC66C000180D3 /* CoreGraphics.framework */,
+				E52940611CFEC660000180D3 /* AudioToolbox.framework */,
+				E529405F1CFEC65B000180D3 /* Accelerate.framework */,
+				E529405D1CFEC639000180D3 /* AVFoundation.framework */,
+				E52940571CFEC2F1000180D3 /* libCardIO.a */,
+				E52940581CFEC2F1000180D3 /* libopencv_core.a */,
+				E52940591CFEC2F1000180D3 /* libopencv_imgproc.a */,
 				E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
@@ -1233,10 +1265,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include";
+				HEADER_SEARCH_PATHS = (
+					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
+					"$(SRCROOT)/CardIO",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransKit/Flurry",
+					"$(SRCROOT)/CardIO",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
@@ -1257,10 +1293,14 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include";
+				HEADER_SEARCH_PATHS = (
+					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
+					"$(SRCROOT)/CardIO",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransKit/Flurry",
+					"$(SRCROOT)/CardIO",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";

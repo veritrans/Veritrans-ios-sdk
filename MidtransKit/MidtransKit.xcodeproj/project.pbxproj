@@ -38,7 +38,7 @@
 		302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 302BAA471C882D3300AE68CC /* DeleteIcon@2x.png */; };
 		305494281C759EFC00938C17 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494271C759EFC00938C17 /* UIKit.framework */; };
 		3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 305494291C759F0100938C17 /* Foundation.framework */; };
-		3054948F1C75A43800938C17 /* MidtransKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948E1C75A43800938C17 /* MidtransKit.h */; };
+		3054948F1C75A43800938C17 /* MidtransKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948E1C75A43800938C17 /* MidtransKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3056A2121C7E95E20015B3CC /* padlock1@2x.png */; };
 		3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 3056A21B1C7EA3660015B3CC /* VTItemViewModel.h */; };
 		3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3056A21C1C7EA3660015B3CC /* VTItemViewModel.m */; };
@@ -793,6 +793,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
 				30E879871C88EDE1000C0F4B /* VTTwoClickController.h in Headers */,
 				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				309CC0CF1C86952300C058BE /* VTVAConfirmationController.h in Headers */,
@@ -802,7 +803,6 @@
 				3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */,
 				E583AFEA1C8D5C1600C04512 /* VTPaymentStatusViewModel.h in Headers */,
 				E578DD0F1CFBFA980091760A /* VTBillpaySuccessController.h in Headers */,
-				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
 				E5EF826D1C8C07AF007B6585 /* VTXibView.h in Headers */,
 				30E713351C85A6E800AFB7B4 /* VTPaymentGuideController.h in Headers */,
 				309CC0E41C86B9FA00C058BE /* VTClicksController.h in Headers */,

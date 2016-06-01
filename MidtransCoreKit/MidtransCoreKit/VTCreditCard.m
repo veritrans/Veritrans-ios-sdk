@@ -17,16 +17,17 @@
 
 @implementation VTCreditCard
 
-+ (instancetype)cardWithNumber:(NSString *)number
+- (instancetype)initWithNumber:(NSString *)number
                    expiryMonth:(NSString *)expiryMonth
                     expiryYear:(NSString *)expiryYear
                            cvv:(NSString *)cvv {
-    VTCreditCard *card = [[VTCreditCard alloc] init];
-    card.number = number;
-    card.expiryMonth = expiryMonth;
-    card.expiryYear = expiryYear;
-    card.cvv = cvv;
-    return card;
+    if (self = [super init]) {
+        self.number = number;
+        self.expiryMonth = expiryMonth;
+        self.expiryYear = expiryYear;
+        self.cvv = cvv;
+    }
+    return self;
 }
 
 @end

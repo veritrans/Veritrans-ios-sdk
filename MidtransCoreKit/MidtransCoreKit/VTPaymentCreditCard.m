@@ -11,18 +11,20 @@
 #import "VTConfig.h"
 
 @interface VTPaymentCreditCard()
-@property (nonatomic, readwrite) NSString *tokenId;
+@property (nonatomic, readwrite) NSString *token;
 @property (nonatomic, readwrite) VTCreditCardPaymentFeature creditCardPaymentFeature;
 @end
 
 @implementation VTPaymentCreditCard
 
-+ (instancetype)paymentUsingFeature:(VTCreditCardPaymentFeature)feature forTokenId:(NSString *)tokenId {
-    VTPaymentCreditCard *payment = [VTPaymentCreditCard new];
-    payment.creditCardPaymentFeature = feature;
-    payment.tokenId = tokenId;
-    payment.type = @"authorize";
-    return payment;
+- (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
+                          token:(NSString *)token {
+    if (self = [super init]) {
+        self.creditCardPaymentFeature = feature;
+        self.token = token;
+        self.type = @"authorize";
+    }
+    return self;
 }
 
 - (NSString *)paymentType {

@@ -59,7 +59,7 @@
  @param feature The feature of the payment.
  @param tokenId The specified token ID.
  */
-+ (instancetype)paymentUsingFeature:(VTCreditCardPaymentFeature)feature
-                         forTokenId:(NSString *)tokenId;
+- (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
+                          token:(NSString *)token;
 
 @end

@@ -1,0 +1,10 @@
+.DS_Store
+.Trashes
+*.swp
+*.lock
+*~.nib
+*.xcworkspacedata
+Pods/
+xcuserdata/
+DerivedData/
+build/

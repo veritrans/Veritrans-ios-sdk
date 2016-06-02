@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM Permata</string>
+		<key>guides</key>
+        <array>
+            <string>On the main menu choose ‘Others Transaction’</string>
+            <string>Choose ‘Payment’</string>
+            <string>Choose ‘Other Payment’</string>
+            <string>Choose ‘Virtual Account’</string>
+            <string>Enter 16 digits payment Account No. and press ‘Correct’</string>
+            <string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
+            <string>Choose your payment account and press ‘Correct’</string>
+        </array>
+	</dict>
+    <dict>
+        <key>name</key>
+        <string>Alto</string>
+        <key>guides</key>
+        <array>
+            <string>On the main menu choose ‘Others Transaction’</string>
+            <string>Choose ‘Payment’</string>
+            <string>Choose ‘Other Payment’</string>
+            <string>Choose ‘Virtual Account’</string>
+            <string>Enter 16 digits payment Account No. and press ‘Correct’</string>
+            <string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
+            <string>Choose your payment account and press ‘Correct’</string>
+        </array>
+    </dict>
+</array>
+</plist>

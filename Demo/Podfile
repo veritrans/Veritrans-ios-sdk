@@ -1,0 +1,8 @@
+platform :ios, '7.0'
+
+def shared_pods
+    pod 'SDWebImage', '~>3.7'
+end
+target 'VTDirectDemo' do
+    shared_pods
+end

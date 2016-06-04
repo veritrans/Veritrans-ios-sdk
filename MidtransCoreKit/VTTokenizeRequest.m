@@ -69,7 +69,7 @@
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
-                                    @"card_type":[VTCreditCardHelper typeStringWithNumber:self.creditCard.number],
+                                    @"card_type":self.creditCard.number.creditCardName,
                                     @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
                                     @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount]}];
@@ -79,7 +79,7 @@
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
-                                    @"card_type":[VTCreditCardHelper typeStringWithNumber:self.creditCard.number],
+                                    @"card_type":self.creditCard.number.creditCardName,
                                     @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
                                     @"bank":[VTHelper nullifyIfNil:self.bank],
                                     @"secure":_secure ? @"true":@"false",

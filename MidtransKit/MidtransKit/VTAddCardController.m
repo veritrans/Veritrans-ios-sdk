@@ -30,7 +30,6 @@
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
 @property (strong, nonatomic) IBOutlet UIImageView *creditCardLogo;
-//@property (strong, nonatomic) IBOutlet UIView *navigationView;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
@@ -82,26 +81,32 @@
 }
 
 - (UIImage *)iconDarkWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeWithNumber:number]) {
+    switch (number.creditCardType) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+#warning need amex icon
+            return nil;
         case VTCreditCardTypeUnknown:
             return nil;
     }
 }
 
 - (UIImage *)iconWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeWithNumber:number]) {
+    switch (number.creditCardType) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCB" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+#warning need amex icon
+            return nil;
         case VTCreditCardTypeUnknown:
             return nil;
     }

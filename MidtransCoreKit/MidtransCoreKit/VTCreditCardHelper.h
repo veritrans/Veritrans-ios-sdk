@@ -7,17 +7,28 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VTCreditCard.h"
 
 typedef NS_ENUM(NSInteger, VTCreditCardType) {
     VTCreditCardTypeVisa,
     VTCreditCardTypeMasterCard,
     VTCreditCardTypeJCB,
+    VTCreditCardTypeAmex,
     VTCreditCardTypeUnknown
 };
 
 @interface VTCreditCardHelper : NSObject
 
-+ (VTCreditCardType)typeWithNumber:(NSString *)number;
-+ (NSString *)typeStringWithNumber:(NSString *)number;
+@end
 
+@interface NSString (CreditCard)
+
+- (VTCreditCardType)creditCardType;
+- (NSString *)creditCardName;
+
+@end
+
+
+@interface VTCreditCard (Validation)
+- (BOOL)isValidCreditCard:(NSError **)error;
 @end

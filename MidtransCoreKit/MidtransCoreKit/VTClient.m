@@ -11,6 +11,7 @@
 #import "VTNetworking.h"
 #import "VTHelper.h"
 #import "VTPrivateConfig.h"
+#import "VTCreditCardHelper.h"
 
 @interface VTClient ()
 
@@ -50,6 +51,11 @@
                             @"card_number":creditCard.number,
                             @"card_exp_month":creditCard.expiryMonth,
                             @"card_exp_year":creditCard.expiryYear};
+    
+    NSError *error = nil;
+    if ([creditCard isValidCreditCard:&error] == NO) {
+        if (completion) completion(nil, error);
+    }
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
         if (response) {

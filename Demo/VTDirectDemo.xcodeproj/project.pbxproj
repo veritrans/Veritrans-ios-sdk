@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2E357EA11D016900009DD985 /* testCreditCard3DS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E357EA01D016900009DD985 /* testCreditCard3DS.m */; };
+		2E6BFAB61D013D29002C8E85 /* MandiriPaymentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BFAB51D013D29002C8E85 /* MandiriPaymentTest.m */; };
+		2EF9D9501D0166C200298D3A /* BCAPaymentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9D94F1D0166C200298D3A /* BCAPaymentTest.m */; };
 		302F71C31C73163C00FE73FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C21C73163C00FE73FE /* main.m */; };
 		302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C51C73163C00FE73FE /* AppDelegate.m */; };
 		302F71C91C73163C00FE73FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C81C73163C00FE73FE /* ViewController.m */; };
@@ -34,6 +37,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 302F71B61C73163C00FE73FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302F71BD1C73163C00FE73FE;
+			remoteInfo = VTDirectDemo;
+		};
 		E51FBCDF1C8C8A31008D240A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
@@ -72,6 +82,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2E357EA01D016900009DD985 /* testCreditCard3DS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCreditCard3DS.m; sourceTree = "<group>"; };
+		2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VTDirectDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E6BFAA51D01391E002C8E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2E6BFAB51D013D29002C8E85 /* MandiriPaymentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandiriPaymentTest.m; sourceTree = "<group>"; };
+		2EF9D94F1D0166C200298D3A /* BCAPaymentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCAPaymentTest.m; sourceTree = "<group>"; };
 		302F71BE1C73163C00FE73FE /* VTDirectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTDirectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71C21C73163C00FE73FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		302F71C41C73163C00FE73FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -108,6 +123,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2E6BFA9E1D01391E002C8E85 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		302F71BB1C73163C00FE73FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -132,10 +154,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E6BFAA21D01391E002C8E85 /* VTDirectDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2E6BFAA51D01391E002C8E85 /* Info.plist */,
+				2E6BFAB51D013D29002C8E85 /* MandiriPaymentTest.m */,
+				2EF9D94F1D0166C200298D3A /* BCAPaymentTest.m */,
+				2E357EA01D016900009DD985 /* testCreditCard3DS.m */,
+			);
+			path = VTDirectDemoUITests;
+			sourceTree = "<group>";
+		};
 		302F71B51C73163C00FE73FE = {
 			isa = PBXGroup;
 			children = (
 				302F71C01C73163C00FE73FE /* VTDirectDemo */,
+				2E6BFAA21D01391E002C8E85 /* VTDirectDemoUITests */,
 				302F71BF1C73163C00FE73FE /* Products */,
 				60DE1F59509B50552B10D5AE /* Frameworks */,
 				4D1E0DCF787971764604B0C9 /* Pods */,
@@ -146,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				302F71BE1C73163C00FE73FE /* VTDirectDemo.app */,
+				2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -231,6 +266,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2E6BFAA01D01391E002C8E85 /* VTDirectDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2E6BFAAD1D01391E002C8E85 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */;
+			buildPhases = (
+				2E6BFA9D1D01391E002C8E85 /* Sources */,
+				2E6BFA9E1D01391E002C8E85 /* Frameworks */,
+				2E6BFA9F1D01391E002C8E85 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2E6BFAA71D01391E002C8E85 /* PBXTargetDependency */,
+			);
+			name = VTDirectDemoUITests;
+			productName = VTDirectDemoUITests;
+			productReference = 2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		302F71BD1C73163C00FE73FE /* VTDirectDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F71D51C73163C00FE73FE /* Build configuration list for PBXNativeTarget "VTDirectDemo" */;
@@ -263,6 +316,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = Veritrans;
 				TargetAttributes = {
+					2E6BFAA01D01391E002C8E85 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 302F71BD1C73163C00FE73FE;
+					};
 					302F71BD1C73163C00FE73FE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = 36T5DNWZL4;
@@ -293,6 +350,7 @@
 			projectRoot = "";
 			targets = (
 				302F71BD1C73163C00FE73FE /* VTDirectDemo */,
+				2E6BFAA01D01391E002C8E85 /* VTDirectDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -322,6 +380,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2E6BFA9F1D01391E002C8E85 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		302F71BC1C73163C00FE73FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -397,6 +462,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2E6BFA9D1D01391E002C8E85 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2E6BFAB61D013D29002C8E85 /* MandiriPaymentTest.m in Sources */,
+				2E357EA11D016900009DD985 /* testCreditCard3DS.m in Sources */,
+				2EF9D9501D0166C200298D3A /* BCAPaymentTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		302F71BA1C73163C00FE73FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -413,6 +488,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2E6BFAA71D01391E002C8E85 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
+			targetProxy = 2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */;
+		};
 		E51FBCE01C8C8A31008D240A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MidtransKit;
@@ -445,6 +525,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2E6BFAA81D01391E002C8E85 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtransCoreKit.VTDirectDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6bd17941-d07e-4b30-985c-ad33ade4796c";
+				TEST_TARGET_NAME = VTDirectDemo;
+			};
+			name = Debug;
+		};
+		2E6BFAA91D01391E002C8E85 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtransCoreKit.VTDirectDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "6bd17941-d07e-4b30-985c-ad33ade4796c";
+				TEST_TARGET_NAME = VTDirectDemo;
+			};
+			name = Release;
+		};
 		302F71D31C73163C00FE73FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -547,6 +655,7 @@
 					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					$inherited,
@@ -580,6 +689,7 @@
 					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					$inherited,
@@ -596,6 +706,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2E6BFAAD1D01391E002C8E85 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2E6BFAA81D01391E002C8E85 /* Debug */,
+				2E6BFAA91D01391E002C8E85 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		302F71B91C73163C00FE73FE /* Build configuration list for PBXProject "VTDirectDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

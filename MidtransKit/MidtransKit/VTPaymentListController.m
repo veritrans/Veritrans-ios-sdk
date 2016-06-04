@@ -39,9 +39,10 @@
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    _footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];    
+    _footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
+    _footer.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     _header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
-    
+    _header.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     

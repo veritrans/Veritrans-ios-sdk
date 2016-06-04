@@ -28,6 +28,9 @@
          merchantServerURL:@"https://vt-merchant.coralshop.top/api"
          serverEnvironment:VTServerEnvironmentSandbox];
     
+    BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
+    
     return YES;
 }
 

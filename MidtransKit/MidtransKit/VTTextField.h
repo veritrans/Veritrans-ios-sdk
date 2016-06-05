@@ -40,6 +40,8 @@
 
 @property (nonatomic, assign) IBInspectable BOOL keepBaseline;
 
+@property (nonatomic) UIImage *infoIcon;
+
 - (void)setPlaceholder:(NSString *)placeholder floatingTitle:(NSString *)floatingTitle;
 
 @end

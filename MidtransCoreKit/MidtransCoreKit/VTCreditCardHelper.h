@@ -18,16 +18,9 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
 };
 
 @interface VTCreditCardHelper : NSObject
-
++ (VTCreditCardType) typeFromString:(NSString *) string;
++ (NSString *)nameFromString:(NSString *)string;
 @end
-
-@interface NSString (CreditCard)
-
-- (VTCreditCardType)creditCardType;
-- (NSString *)creditCardName;
-
-@end
-
 
 @interface VTCreditCard (Validation)
 - (BOOL)isValidCreditCard:(NSError **)error;

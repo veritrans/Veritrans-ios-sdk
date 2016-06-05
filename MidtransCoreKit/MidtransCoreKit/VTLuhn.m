@@ -8,13 +8,7 @@
 
 #import "VTLuhn.h"
 
-@interface NSString (VTLuhn_Private)
-
-- (NSString *) formattedStringForProcessing;
-
-@end
-
-@implementation NSString (VTLuhn_Private)
+@implementation NSString (VTLuhn)
 
 - (NSString *) formattedStringForProcessing {
     NSCharacterSet *illegalCharacters = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];

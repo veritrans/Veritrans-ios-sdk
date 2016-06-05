@@ -14,3 +14,9 @@
 + (BOOL) validateString:(NSString *) string;
 
 @end
+
+@interface NSString (VTLuhn)
+
+- (NSString *) formattedStringForProcessing;
+
+@end

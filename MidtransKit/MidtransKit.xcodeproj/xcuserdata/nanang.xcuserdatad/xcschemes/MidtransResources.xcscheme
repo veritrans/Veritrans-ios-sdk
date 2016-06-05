@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "3005E2861C7C17A100064169"
-               BuildableName = "MidtransResources.bundle"
+               BuildableName = "MidtransKit.bundle"
                BlueprintName = "MidtransResources"
                ReferencedContainer = "container:MidtransKit.xcodeproj">
             </BuildableReference>
@@ -46,7 +46,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3005E2861C7C17A100064169"
-            BuildableName = "MidtransResources.bundle"
+            BuildableName = "MidtransKit.bundle"
             BlueprintName = "MidtransResources"
             ReferencedContainer = "container:MidtransKit.xcodeproj">
          </BuildableReference>
@@ -64,7 +64,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "3005E2861C7C17A100064169"
-            BuildableName = "MidtransResources.bundle"
+            BuildableName = "MidtransKit.bundle"
             BlueprintName = "MidtransResources"
             ReferencedContainer = "container:MidtransKit.xcodeproj">
          </BuildableReference>

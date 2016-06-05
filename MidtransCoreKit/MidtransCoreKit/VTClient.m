@@ -46,18 +46,13 @@
 
 - (void)registerCreditCard:(VTCreditCard *)creditCard
                 completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"card/register"];
-    NSDictionary *param = @{@"client_key":[CONFIG clientKey],
-                            @"card_number":creditCard.number,
-                            @"card_exp_month":creditCard.expiryMonth,
-                            @"card_exp_year":creditCard.expiryYear};
-    
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         if (completion) completion(nil, error);
-    }
-    
-    [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
+        return;
+    }    
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"card/register"];
+    [[VTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
         if (response) {
             VTMaskedCreditCard *maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:response];
             if (completion) completion(maskedCreditCard, error);

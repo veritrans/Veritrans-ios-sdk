@@ -20,4 +20,6 @@
                     expiryYear:(NSString *)expiryYear
                            cvv:(NSString *)cvv;
 
+- (NSDictionary *)dictionaryValue;
+
 @end

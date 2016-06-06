@@ -30,9 +30,9 @@
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTTransactionDetails.h>
 
-#import <CardIO.h>
+//#import <CardIO.h>
 
-@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, CardIOPaymentViewControllerDelegate>
+@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate/*, CardIOPaymentViewControllerDelegate*/>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
@@ -136,8 +136,12 @@
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    UIActionSheet *inputSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Input Manual", @"Scan With Camera", nil];
-    [inputSheet showInView:self.navigationController.view];
+    VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:YES];
+    
+//    UIActionSheet *inputSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Input Manual", @"Scan With Camera", nil];
+//    [inputSheet showInView:self.navigationController.view];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -269,6 +273,7 @@
  }
  */
 
+/*
 - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 0) {
         VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
@@ -276,11 +281,12 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if (buttonIndex == 1) {
         CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
-        //        scanViewController.modalPresentationStyle = UIModalPresentationFormSheet;
         [self presentViewController:scanViewController animated:YES completion:nil];
     }
 }
+*/
 
+/*
 #pragma mark - CardIOPaymentViewControllerDelegate
 
 /// This method will be called if the user cancels the scan. You MUST dismiss paymentViewController.
@@ -321,5 +327,5 @@
         }
     }];
 }
-
+*/
 @end

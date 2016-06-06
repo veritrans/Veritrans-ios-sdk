@@ -136,14 +136,10 @@
 		E517C2DE1C96C1A2009AE6AA /* PushAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2DC1C96C1A2009AE6AA /* PushAnimator.m */; };
 		E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2E01C96C1C4009AE6AA /* PopAnimator.h */; };
 		E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2E11C96C1C4009AE6AA /* PopAnimator.m */; };
-		E51FBCEB1C8C8C6D008D240A /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */; };
 		E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E1231CFD6654009448A5 /* VTCardControllerConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */; };
 		E525E12A1CFD75D1009448A5 /* UIViewController+Modal.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */; };
 		E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */; };
-		E529405A1CFEC2F1000180D3 /* libCardIO.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940571CFEC2F1000180D3 /* libCardIO.a */; };
-		E529405B1CFEC2F1000180D3 /* libopencv_core.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940581CFEC2F1000180D3 /* libopencv_core.a */; };
-		E529405C1CFEC2F1000180D3 /* libopencv_imgproc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940591CFEC2F1000180D3 /* libopencv_imgproc.a */; };
 		E52F72B81C996103009D7BA4 /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B61C996103009D7BA4 /* Visa@2x.png */; };
 		E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B71C996103009D7BA4 /* VisaDark@2x.png */; };
 		E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */; };
@@ -182,7 +178,6 @@
 		E583AFF51C8D6DD300C04512 /* VTSuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */; };
 		E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */; };
 		E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */; };
-		E5D9933D1CB517E00041406D /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */; };
 		E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436451CE3290900F688ED /* VTPaymentController.h */; };
 		E5E436481CE3290900F688ED /* VTPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436461CE3290900F688ED /* VTPaymentController.m */; };
 		E5EF826D1C8C07AF007B6585 /* VTXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* VTXibView.h */; };
@@ -342,14 +337,10 @@
 		E517C2DC1C96C1A2009AE6AA /* PushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PushAnimator.m; sourceTree = "<group>"; };
 		E517C2E01C96C1C4009AE6AA /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopAnimator.h; sourceTree = "<group>"; };
 		E517C2E11C96C1C4009AE6AA /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopAnimator.m; sourceTree = "<group>"; };
-		E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-hdrykpiqgmphelboupjgwsjxsxkn/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		E525E1231CFD6654009448A5 /* VTCardControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCardControllerConfig.h; sourceTree = "<group>"; };
 		E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardControllerConfig.m; sourceTree = "<group>"; };
 		E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Modal.h"; sourceTree = "<group>"; };
 		E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Modal.m"; sourceTree = "<group>"; };
-		E52940571CFEC2F1000180D3 /* libCardIO.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCardIO.a; path = CardIO/libCardIO.a; sourceTree = "<group>"; };
-		E52940581CFEC2F1000180D3 /* libopencv_core.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_core.a; path = CardIO/libopencv_core.a; sourceTree = "<group>"; };
-		E52940591CFEC2F1000180D3 /* libopencv_imgproc.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libopencv_imgproc.a; path = CardIO/libopencv_imgproc.a; sourceTree = "<group>"; };
 		E529405D1CFEC639000180D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E529405F1CFEC65B000180D3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E52940611CFEC660000180D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -416,7 +407,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D9933D1CB517E00041406D /* libMidtransCoreKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,10 +414,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E529405A1CFEC2F1000180D3 /* libCardIO.a in Frameworks */,
-				E529405B1CFEC2F1000180D3 /* libopencv_core.a in Frameworks */,
-				E529405C1CFEC2F1000180D3 /* libopencv_imgproc.a in Frameworks */,
-				E51FBCEB1C8C8C6D008D240A /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
 			);
@@ -506,10 +492,6 @@
 				E52940611CFEC660000180D3 /* AudioToolbox.framework */,
 				E529405F1CFEC65B000180D3 /* Accelerate.framework */,
 				E529405D1CFEC639000180D3 /* AVFoundation.framework */,
-				E52940571CFEC2F1000180D3 /* libCardIO.a */,
-				E52940581CFEC2F1000180D3 /* libopencv_core.a */,
-				E52940591CFEC2F1000180D3 /* libopencv_imgproc.a */,
-				E51FBCE91C8C8BEE008D240A /* libMidtransCoreKit.a */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
 			);

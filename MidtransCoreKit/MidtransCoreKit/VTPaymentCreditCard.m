@@ -38,7 +38,7 @@
                      @"bank":[VTHelper nullifyIfNil:_bank],
                      @"installment_term":[VTHelper nullifyIfNil:_installmentTerm],
                      @"bins":[VTHelper nullifyIfNil:_bins],
-                     @"save_token_id":_saveTokenId ? @"true":@"false"};
+                     @"save_token_id":_saveToken?@"true":@"false"};
         case VTCreditCardPaymentFeatureOneClick:
             return @{@"token_id":_token,
                      @"recurring":@"true"};

@@ -46,7 +46,7 @@
 /**
  Flag to determine whether Veritrans server should keep record of this payment attribute to used in future transaction. To use `one-click` and `two-clicks` feature, this feature must be enabled.
  */
-@property (nonatomic) BOOL saveTokenId;
+@property (nonatomic) BOOL saveToken;
 
 
 ///--------------------

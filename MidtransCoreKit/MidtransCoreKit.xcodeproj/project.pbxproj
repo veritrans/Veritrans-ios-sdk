@@ -115,8 +115,8 @@
 		E5E436121CE31C9C00F688ED /* VTMerchantClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMerchantClient.m; sourceTree = "<group>"; };
 		E5E436131CE31C9C00F688ED /* VTClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClient.h; sourceTree = "<group>"; };
 		E5E436141CE31C9C00F688ED /* VTClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClient.m; sourceTree = "<group>"; };
-		E5E436191CE31CD800F688ED /* VTTokenizeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTTokenizeRequest.h; path = ../VTTokenizeRequest.h; sourceTree = "<group>"; };
-		E5E4361A1CE31CD800F688ED /* VTTokenizeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTTokenizeRequest.m; path = ../VTTokenizeRequest.m; sourceTree = "<group>"; };
+		E5E436191CE31CD800F688ED /* VTTokenizeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTokenizeRequest.h; sourceTree = "<group>"; };
+		E5E4361A1CE31CD800F688ED /* VTTokenizeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTokenizeRequest.m; sourceTree = "<group>"; };
 		E5E4361D1CE31D1200F688ED /* VTTransactionResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTransactionResult.h; sourceTree = "<group>"; };
 		E5E4361E1CE31D1200F688ED /* VTTransactionResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTransactionResult.m; sourceTree = "<group>"; };
 		E5E436211CE31D2D00F688ED /* VTCreditCardHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCreditCardHelper.h; sourceTree = "<group>"; };

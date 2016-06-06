@@ -7,6 +7,8 @@
 //
 
 #import "VTCreditCard.h"
+#import "VTHelper.h"
+#import "VTConfig.h"
 
 @interface VTCreditCard ()
 @property (nonatomic, readwrite) NSString *expiryYear;
@@ -30,4 +32,10 @@
     return self;
 }
 
+- (NSDictionary *)dictionaryValue {
+    return @{@"client_key":[CONFIG clientKey],
+             @"card_number":[VTHelper nullifyIfNil:self.number],
+             @"card_exp_month":[VTHelper nullifyIfNil:self.expiryMonth],
+             @"card_exp_year":[VTHelper nullifyIfNil:self.expiryYear]};
+}
 @end

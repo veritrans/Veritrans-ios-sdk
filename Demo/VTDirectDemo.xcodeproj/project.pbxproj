@@ -20,7 +20,7 @@
 		E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */; };
 		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
 		E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB2131C8C83E20043A027 /* libMidtransKit.a */; };
-		E51FBCDE1C8C8A26008D240A /* MidtransResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransResources.bundle */; };
+		E51FBCDE1C8C8A26008D240A /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
 		E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940721CFEC6C4000180D3 /* AVFoundation.framework */; };
 		E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940771CFEC6D4000180D3 /* Accelerate.framework */; };
 		E529407A1CFEC6DB000180D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940791CFEC6DB000180D3 /* AudioToolbox.framework */; };
@@ -43,20 +43,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = 302F71BD1C73163C00FE73FE;
 			remoteInfo = VTDirectDemo;
-		};
-		E51FBCDF1C8C8A31008D240A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3054941A1C759EDF00938C17;
-			remoteInfo = MidtransKit;
-		};
-		E51FBCE11C8C8A31008D240A /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3005E2861C7C17A100064169;
-			remoteInfo = MidtransResources;
 		};
 		E5AEB20A1C8C83DC0043A027 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -258,7 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				E5AEB2131C8C83E20043A027 /* libMidtransKit.a */,
-				E5AEB2151C8C83E20043A027 /* MidtransResources.bundle */,
+				E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -299,8 +285,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				E51FBCE01C8C8A31008D240A /* PBXTargetDependency */,
-				E51FBCE21C8C8A31008D240A /* PBXTargetDependency */,
 			);
 			name = VTDirectDemo;
 			productName = VTDirectDemo;
@@ -370,10 +354,10 @@
 			remoteRef = E5AEB2121C8C83E20043A027 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		E5AEB2151C8C83E20043A027 /* MidtransResources.bundle */ = {
+		E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = MidtransResources.bundle;
+			path = MidtransKit.bundle;
 			remoteRef = E5AEB2141C8C83E20043A027 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -391,7 +375,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E51FBCDE1C8C8A26008D240A /* MidtransResources.bundle in Resources */,
+				E51FBCDE1C8C8A26008D240A /* MidtransKit.bundle in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
 				302F71CE1C73163C00FE73FE /* Assets.xcassets in Resources */,
 				302F71CC1C73163C00FE73FE /* Main.storyboard in Resources */,
@@ -492,16 +476,6 @@
 			isa = PBXTargetDependency;
 			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
 			targetProxy = 2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */;
-		};
-		E51FBCE01C8C8A31008D240A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MidtransKit;
-			targetProxy = E51FBCDF1C8C8A31008D240A /* PBXContainerItemProxy */;
-		};
-		E51FBCE21C8C8A31008D240A /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MidtransResources;
-			targetProxy = E51FBCE11C8C8A31008D240A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -655,7 +629,7 @@
 					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					$inherited,
@@ -689,7 +663,7 @@
 					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
 					$inherited,

@@ -18,6 +18,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     
     UILabel *_warningLabel;
     UIView *_divView;
+    UIImageView *_infoIconView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -40,6 +41,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 
 - (void)commonInit
 {
+    _infoIconView = [UIImageView new];
+    [self addSubview:_infoIconView];
+    
     _divView = [UIView new];
     [self addSubview:_divView];
     
@@ -52,7 +56,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [self addSubview:_floatingLabel];
     
     // some basic default fonts/colors
-    _floatingLabelFont = [self defaultFloatingLabelFont];
+    _floatingLabelFont = [UIFont systemFontOfSize:12];
     _floatingLabel.font = _floatingLabelFont;
     _floatingLabelTextColor = [UIColor grayColor];
     _floatingLabel.textColor = _floatingLabelTextColor;
@@ -61,7 +65,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
     [self setFloatingLabelText:self.placeholder];
     
-    _warningLabel.font = _floatingLabelFont;
+    _warningLabel.font = [UIFont systemFontOfSize:10];
     _warningLabel.textColor = [UIColor redColor];
     
     _adjustsClearButtonRect = YES;
@@ -131,20 +135,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 {
     _warningLabel.text = _warning;
     
-    CGSize warningLabelSize = [_warningLabel sizeThatFits:_warningLabel.superview.bounds.size];
-    _warningLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                     _warningLabel.frame.origin.y,
-                                     warningLabelSize.width,
-                                     warningLabelSize.height);
-    
     void (^showBlock)() = ^{
-        _warningLabel.alpha = 1.0f;
-        _warningLabel.frame = CGRectMake(_warningLabel.frame.origin.x,
-                                         self.bounds.size.height - (_warningLabel.font.pointSize + 3),
-                                         _warningLabel.frame.size.width,
-                                         _warningLabel.frame.size.height);
-        
-        
+        _warningLabel.alpha = 1.0;
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -163,10 +155,6 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 {
     void (^hideBlock)() = ^{
         _warningLabel.alpha = 0.0f;
-        _warningLabel.frame = CGRectMake(_warningLabel.frame.origin.x,
-                                         0,//_warningLabel.font.lineHeight + _placeholderYPadding,
-                                         _warningLabel.frame.size.width,
-                                         _warningLabel.frame.size.height);
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -174,9 +162,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
                               delay:0.0f
                             options:UIViewAnimationOptionBeginFromCurrentState | UIViewAnimationOptionCurveEaseIn
                          animations:hideBlock
-                         completion:^(BOOL finished) {
-                             _warningLabel.text = nil;
-                         }];
+                         completion:nil];
     }
     else {
         hideBlock();
@@ -187,10 +173,6 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 {
     void (^showBlock)() = ^{
         _floatingLabel.alpha = 1.0f;
-        _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                          0,
-                                          _floatingLabel.frame.size.width,
-                                          _floatingLabel.frame.size.height);
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -209,11 +191,6 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 {
     void (^hideBlock)() = ^{
         _floatingLabel.alpha = 0.0f;
-        _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                          _floatingLabel.font.lineHeight + _placeholderYPadding,
-                                          _floatingLabel.frame.size.width,
-                                          _floatingLabel.frame.size.height);
-        
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -314,41 +291,14 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 
 - (CGRect)insetRectForBounds:(CGRect)rect
 {
-    rect = CGRectMake(_floatingLabelXPadding, rect.origin.y, rect.size.width - _textRightPadding, rect.size.height);
-    return CGRectInset(rect, 0, _floatingLabel.font.pointSize);
+    CGFloat rightPadding = CGRectGetWidth([self infoIconRect]);
+    return CGRectMake(0, 15, rect.size.width-rightPadding, rect.size.height-30);
 }
 
 - (CGRect)clearButtonRectForBounds:(CGRect)bounds
 {
     CGRect rect = [super clearButtonRectForBounds:bounds];
     return CGRectIntegral(rect);
-}
-
-- (CGRect)leftViewRectForBounds:(CGRect)bounds
-{
-    CGRect rect = [super leftViewRectForBounds:bounds];
-    
-    CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
-    topInset = MIN(topInset, [self maxTopInset]);
-    rect = CGRectOffset(rect, 0, topInset / 2.0f);
-    
-    return rect;
-}
-
-- (CGRect)rightViewRectForBounds:(CGRect)bounds {
-    
-    CGRect rect = [super rightViewRectForBounds:bounds];
-    
-    CGFloat topInset = ceilf(_floatingLabel.font.lineHeight + _placeholderYPadding);
-    topInset = MIN(topInset, [self maxTopInset]);
-    rect = CGRectOffset(rect, 0, topInset / 2.0f);
-    
-    return rect;
-}
-
-- (CGFloat)maxTopInset
-{
-    return MAX(0, floorf(self.bounds.size.height - self.font.lineHeight - 4.0f));
 }
 
 - (void)setTextAlignment:(NSTextAlignment)textAlignment
@@ -362,20 +312,6 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [super layoutSubviews];
     
     [self setLabelOriginForTextAlignment];
-    
-    CGSize floatingLabelSize = [_floatingLabel sizeThatFits:_floatingLabel.superview.bounds.size];
-    
-    _floatingLabel.frame = CGRectMake(_floatingLabel.frame.origin.x,
-                                      _floatingLabel.frame.origin.y,
-                                      floatingLabelSize.width,
-                                      floatingLabelSize.height);
-    
-    
-    
-    _divView.frame = CGRectMake(0,
-                                self.bounds.size.height - (_warningLabel.font.pointSize + 2),
-                                self.bounds.size.width,
-                                0.5);
     
     BOOL firstResponder = self.isFirstResponder;
     _floatingLabel.textColor = (firstResponder && self.text && self.text.length > 0 ?
@@ -397,7 +333,34 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
                                                    alpha:1.0f];
     }
     
+    _infoIconView.frame = [self infoIconRect];
+    _infoIconView.image = _infoIcon;
+    
+    _warningLabel.frame = [self warningLabelRect];
+    
+    _divView.frame = [self divViewRect];
     _divView.hidden = !_underlined;
+    
+    _floatingLabel.frame = [self floatingLabelRect];
+}
+
+- (CGRect)floatingLabelRect {
+    return CGRectMake(0, 0, CGRectGetWidth(self.frame), 15);
+}
+
+- (CGRect)divViewRect {
+    return CGRectMake(0, CGRectGetMaxY([self textRectForBounds:self.bounds]), CGRectGetWidth(self.bounds), 1.);
+}
+
+- (CGRect)warningLabelRect {
+    return CGRectMake(0, CGRectGetMaxY([self divViewRect]), CGRectGetWidth(self.bounds), 15);
+}
+
+- (CGRect)infoIconRect {
+    CGSize size = _infoIcon.size;
+    CGFloat width = _infoIcon ? size.width : 0;
+    CGRect fieldRect = self.bounds;
+    return CGRectMake(CGRectGetMaxX(fieldRect)-size.width, CGRectGetMidY(fieldRect)-(size.height/2.0), width, size.height);
 }
 
 @end

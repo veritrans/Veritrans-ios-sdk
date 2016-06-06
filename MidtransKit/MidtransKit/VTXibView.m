@@ -23,14 +23,12 @@
         _customView.backgroundColor = [UIColor clearColor];
         
         if(CGRectIsEmpty(frame)) {
-            _customView.translatesAutoresizingMaskIntoConstraints = NO;
-            [self addSubview:_customView];
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":_customView}]];
-            [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":_customView}]];
+            self.bounds = _customView.bounds;
         } else {
             _customView.frame = self.bounds;
-            [self addSubview:_customView];
         }
+        
+        [self addSubview:_customView];
     }
     return self;
 }

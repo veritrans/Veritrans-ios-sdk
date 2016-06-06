@@ -20,7 +20,7 @@
 /**
  The representation token of the real credit card data which securely stored in Veritrans server.
  */
-@property (nonatomic, readonly) NSString *tokenId;
+@property (nonatomic, readonly) NSString *token;
 
 /**
  The name of the bank.

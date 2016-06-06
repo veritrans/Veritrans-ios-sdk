@@ -121,7 +121,11 @@
 }
 
 - (IBAction)cardOptionsChanged:(UISegmentedControl *)sender {
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:sender.selectedSegmentIndex == 0];
+    BOOL enableOneclick = sender.selectedSegmentIndex == 0;
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(enableOneclick) forKey:@"enable_oneclick"];
+    
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
 }
 
 /*

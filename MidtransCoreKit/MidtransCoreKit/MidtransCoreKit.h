@@ -29,5 +29,6 @@
 #import "VT3DSController.h"
 #import "VTCreditCard.h"
 #import "VTCustomerDetails.h"
+#import "VTMandiriClickpay.h"
 
 #endif /* MidtransCoreKit_h */

@@ -49,9 +49,11 @@
 }
 
 - (IBAction)buttonPressed:(UIButton *)sender {
-    if (self.completion) {
-        self.completion(sender.tag);
-    }
+    [self dismissCustomViewController:^{
+        if (self.completion) {
+            self.completion(sender.tag);
+        }
+    }];
 }
 
 - (void)showOnViewController:(UIViewController *)controller clickedButtonsCompletion:(void (^)(NSUInteger selectedIndex))completion {

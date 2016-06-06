@@ -177,6 +177,8 @@
 		E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E583AFEF1C8D6DC500C04512 /* VTErrorStatusController.m */; };
 		E583AFF51C8D6DD300C04512 /* VTSuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */; };
 		E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */; };
+		E59BD7431D05B288004AE009 /* Amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7411D05B288004AE009 /* Amex@2x.png */; };
+		E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */; };
 		E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */; };
 		E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436451CE3290900F688ED /* VTPaymentController.h */; };
 		E5E436481CE3290900F688ED /* VTPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436461CE3290900F688ED /* VTPaymentController.m */; };
@@ -377,6 +379,8 @@
 		E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSuccessStatusController.h; sourceTree = "<group>"; };
 		E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSuccessStatusController.m; sourceTree = "<group>"; };
 		E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-eqxrxkxsbvdjcldqnpylvbluulfl/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
+		E59BD7411D05B288004AE009 /* Amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Amex@2x.png"; sourceTree = "<group>"; };
+		E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VASuccessIcon@2x.png"; sourceTree = "<group>"; };
 		E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyCardIcon@2x.png"; sourceTree = "<group>"; };
 		E5E436451CE3290900F688ED /* VTPaymentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentController.h; sourceTree = "<group>"; };
 		E5E436461CE3290900F688ED /* VTPaymentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentController.m; sourceTree = "<group>"; };
@@ -585,6 +589,8 @@
 				30E8798D1C897E7D000C0F4B /* cc@2x.png */,
 				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
+				E59BD7411D05B288004AE009 /* Amex@2x.png */,
+				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
 				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
 				E503AEE81C8EC69800F097FF /* dompetku@2x.png */,
@@ -945,6 +951,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E503AEDB1C8E8AF800F097FF /* VTListCell.xib in Resources */,
+				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
 				E5EF827C1C8C0837007B6585 /* VTCCFrontView.xib in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
@@ -975,6 +982,7 @@
 				E503AEE41C8EC50E00F097FF /* clicks@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
+				E59BD7431D05B288004AE009 /* Amex@2x.png in Resources */,
 				E503AEE61C8EC50E00F097FF /* klikpay@2x.png in Resources */,
 				E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */,
 				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,

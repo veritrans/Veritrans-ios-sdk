@@ -87,8 +87,7 @@
         case VTCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeAmex:
-#warning need amex icon
-            return nil;
+            return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
         default:
             return nil;
     }
@@ -103,8 +102,7 @@
         case VTCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeAmex:
-#warning need amex icon
-            return nil;
+            return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
         default:
             return nil;
     }

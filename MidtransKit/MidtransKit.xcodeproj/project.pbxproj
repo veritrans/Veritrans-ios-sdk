@@ -376,6 +376,7 @@
 		E583AFEF1C8D6DC500C04512 /* VTErrorStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTErrorStatusController.m; sourceTree = "<group>"; };
 		E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSuccessStatusController.h; sourceTree = "<group>"; };
 		E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSuccessStatusController.m; sourceTree = "<group>"; };
+		E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-eqxrxkxsbvdjcldqnpylvbluulfl/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyCardIcon@2x.png"; sourceTree = "<group>"; };
 		E5E436451CE3290900F688ED /* VTPaymentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentController.h; sourceTree = "<group>"; };
 		E5E436461CE3290900F688ED /* VTPaymentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentController.m; sourceTree = "<group>"; };
@@ -470,6 +471,7 @@
 		305494991C75A4E700938C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */,
 				E52940701CFEC69A000180D3 /* Security.framework */,
 				E529406E1CFEC691000180D3 /* QuartzCore.framework */,
 				E529406C1CFEC68B000180D3 /* OpenGLES.framework */,

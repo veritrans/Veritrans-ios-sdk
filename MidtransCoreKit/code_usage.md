@@ -1,12 +1,11 @@
 
 # Overview
-We provide an API only implementation for all payment types, This allows users to Bring your own UI to the mobile App.
+We provide an API-only implementation for all payment types, This allows users to bring your own UI to the mobile App.
 
 # Prerequsites
 
-1. Please familiarize yourself with our documentation
-2. Create a merchant account in MAP
-3. Setup your merchant accounts settings, in particular Notification URL.
+1. Create a merchant account in MAP
+2. Setup your merchant accounts settings, in particular Notification URL.
 
 # Supported Payments
 1. Credit Card
@@ -88,14 +87,14 @@ VTTransactionDetails *transactionDetails =
                                andGrossAmount:<#(NSNumber *)#>];
 ```
 
-**Important Note:** `grossAmount` need to be the same as `itemDetails` total price
+**Important Note:** `grossAmount` need to be the same as `itemDetails` total price, otherwise Veritrans server will reject the transaction.
 
 
-After you've the data above ready, you can continue to make a payment transaction.
+After the above data ready, you can continue to make a payment transaction.
 
 ## 2. Normal Credit Card Transaction
 
-In Credit Card transaction there're two main step to make transaction
+In Credit Card transaction there are two main steps to make transaction
 
 * Generate `token` as representation of credit card
 * Charge transaction with generated and valid `token`
@@ -126,7 +125,7 @@ VTTokenizeRequest *tokenRequest =
 }];
                                        
 ```
-**Note:** If you enable [3D Secure](https://en.wikipedia.org/wiki/3-D_Secure) feature, your `Token` are still not valid yet, you need to open `redirectURL` on `VT3DSController`, do the 3D secure things, and if success your `Token` will be valid. 
+**Note:** If you enable [3D Secure](https://en.wikipedia.org/wiki/3-D_Secure) feature, your token is still in invalid state. To make it valid, you need capture the redirectURL, and open an additional View Controller called VT3DSController. If the end-user puts correct 3D Secure code, then your token be in valid state.
 
 Copy and paste the following code to open `VT3DSController`
 
@@ -170,7 +169,7 @@ You will have `result` if the transaction is success, and `error` if the transac
 
 ## 3. Oneclick Credit Card Transaction
 
-One click transaction offer simple credit card transaction because it only need `token` to charge transaction. The `token` represents the credit card number dan expiry date of the customer.
+One click transaction offer simple credit card transaction because it only need `token` to charge transaction. The `token` represents the credit card number dan expiry date of the customer's credit card.
 
 ### 3.1 <a name="get-oneclick-token"></a>Get Oneclick Token
 You can get `token` with two methods:
@@ -191,7 +190,7 @@ paymentDetail.saveToken = YES;
 ```
 
 #### B. Get Token With Register Credit Card 
-Register credit card provide more simple way to get the oneclick token
+Register credit card provides simpler way to get the oneclick token
 
 ```
 VTCreditCard *creditCard =

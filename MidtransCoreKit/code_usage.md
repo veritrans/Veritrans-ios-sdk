@@ -102,7 +102,7 @@ In Credit Card transaction there are two main steps to make transaction
 
 ### 2.1 Generate Token
 
-Copy and paste the following code to generate `token`.
+Use following code as a template
 
 ```
 VTCreditCard *card =
@@ -127,7 +127,7 @@ VTTokenizeRequest *tokenRequest =
 ```
 **Note:** If you enable [3D Secure](https://en.wikipedia.org/wiki/3-D_Secure) feature, your token is still in invalid state. To make it valid, you need capture the redirectURL, and open an additional View Controller called VT3DSController. If the end-user puts correct 3D Secure code, then your token be in valid state.
 
-Copy and paste the following code to open `VT3DSController`
+Use following code as a template
 
 ```
 VT3DSController *secureController =
@@ -146,7 +146,7 @@ VT3DSController *secureController =
 ### 2.2 <a name="charge-normal-transaction"></a>Charge Transaction
 After you have a valid `token`, you can continue to the final step of payment and your credit card will be charged. 
 
-Copy and paste the following code to charge transaction. Use your valid `token` as parameter on `VTPaymentCreditCard`.
+Use following code as a template.
 
 ```
 VTPaymentCreditCard *paymentDetails =

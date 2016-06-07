@@ -1,54 +1,296 @@
+
+# Overview
+We provide an API only implementation for all payment types, This allows users to Bring your own UI to the mobile App.
+
+# Prerequsites
+
+1. Please familiarize yourself with our documentation
+2. Create a merchant account in MAP
+3. Setup your merchant accounts settings, in particular Notification URL.
+
+# Supported Payments
+1. Credit Card
+2. Bank Transfer
+
+# Other Features
+1. Register Card
+
+# Transactions
+
+<!--Credit Card payment is a little bit different with other payments. It need to communicate with `Veritrans Payment API` to Generate `token`.
+
+Credit Card have 3 types of transactions :
+
+* Normal Transaction
+* One Click Transaction
+* Two Click Transaction
+-->
+## 1. Requirement
+To Create a credit card transaction you need the following objects :
+
+* **VTCustomerDetails**
+* Array of **VTItemDetail**
+* **VTTransactionDetails**
+* **VTClient**
+
+#### Create VTCustomerDetails
+
+It's representation of customer's information, here is the sample code how to create it.
+
 ```
-//Get saved card
-[[VTMerchantClient sharedClient] fetchMaskedCardsWithCompletion:^(NSArray *maskedCards, NSError *error) {
-	//maskedCards is array of VTMaskedCreditCard
+VTAddress *shippingAddress =
+[VTAddress addressWithFirstName:<#(NSString *)#>
+                       lastName:<#(NSString *)#>
+                          phone:<#(NSString *)#>
+                        address:<#(NSString *)#>
+                           city:<#(NSString *)#>
+                     postalCode:<#(NSString *)#>
+                    countryCode:<#(NSString *)#>];
+    
+VTAddress *billingAddress =
+[VTAddress addressWithFirstName:<#(NSString *)#>
+                       lastName:<#(NSString *)#>
+                          phone:<#(NSString *)#>
+                        address:<#(NSString *)#>
+                           city:<#(NSString *)#>
+                     postalCode:<#(NSString *)#>
+                    countryCode:<#(NSString *)#>];                        
+  
+VTCustomerDetails *customerDetails =
+[[VTCustomerDetails alloc] initWithFirstName:<#(NSString *)#>
+                                    lastName:<#(NSString *)#>
+                                       email:<#(NSString *)#>
+                                       phone:<#(NSString *)#>
+                             shippingAddress:shippingAddress
+                              billingAddress:billingAddress]
+```
+**Important Note:** countryCode need to use 3 digit ISO format e.g. `IDN` for `Indonesia`
+
+#### Create VTItemDetail
+It's representation of item that customer want to buy. You need to wrap it in an `NSArray` here is an example.
+
+```
+VTItemDetail *itemDetail =
+[[VTItemDetail alloc] initWithItemID:<#(NSString *)#>
+                                name:<#(NSString *)#>
+                               price:<#(NSNumber *)#>
+                            quantity:<#(NSNumber *)#>];
+NSArray *itemDetails = @[itemDetail];                                    
+```
+
+#### Create VTTransactionDetails
+
+It's representation of customer's Order
+
+```
+VTTransactionDetails *transactionDetails =
+[[VTTransactionDetails alloc] initWithOrderID:<#(NSString *)#>
+                               andGrossAmount:<#(NSNumber *)#>];
+```
+
+**Important Note:** `grossAmount` need to be the same as `itemDetails` total price
+
+
+After you've the data above ready, you can continue to make a payment transaction.
+
+## 2. Normal Credit Card Transaction
+
+In Credit Card transaction there're two main step to make transaction
+
+* Generate `token` as representation of credit card
+* Charge transaction with generated and valid `token`
+
+
+### 2.1 Generate Token
+
+Copy and paste the following code to generate `token`.
+
+```
+VTCreditCard *card =
+[[VTCreditCard alloc] initWithNumber:<#(NSString *)#>
+                         expiryMonth:<#(NSString *)#>
+                          expiryYear:<#(NSString *)#>
+                                 cvv:<#(NSString *)#>];
+
+VTTokenizeRequest *tokenRequest =
+[[VTTokenizeRequest alloc] initWithCreditCard:card
+                                  grossAmount:transactionDetails.grossAmount
+                                       secure:<#(BOOL)#>];
+
+[[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+    if (error) {
+    	//error generating token
+    } else {
+    	//generate token success
+    }
+}];
+                                       
+```
+**Note:** If you enable [3D Secure](https://en.wikipedia.org/wiki/3-D_Secure) feature, your `Token` are still not valid yet, you need to open `redirectURL` on `VT3DSController`, do the 3D secure things, and if success your `Token` will be valid. 
+
+Copy and paste the following code to open `VT3DSController`
+
+```
+VT3DSController *secureController =
+                [[VT3DSController alloc] initWithToken:token
+                                             secureURL:[NSURL URLWithString:redirectURL]];
+[secureController showWithCompletion:^(NSError *error) {
+    if (error) {
+        //3ds error
+    } else {
+        //token now is valid
+    }
 }];
 
-//Delete saved card
-[[VTMerchantClient sharedClient] deleteMaskedCard:<VTMaskedCreditCard> completion:^(BOOL success, NSError *error) {
+```
 
+### 2.2 <a name="charge-normal-transaction"></a>Charge Transaction
+After you have a valid `token`, you can continue to the final step of payment and your credit card will be charged. 
+
+Copy and paste the following code to charge transaction. Use your valid `token` as parameter on `VTPaymentCreditCard`.
+
+```
+VTPaymentCreditCard *paymentDetails =
+[[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:<Valid Token>];
+    
+VTTransaction *transaction =
+[[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                           transactionDetails:transactionDetails];
+       
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+    	//transaction error
+    } else {
+    	//transaction success
+    }
 }];
+```
 
-//REGISTERING THE CREDIT CARD
-VTCreditCard *creditCard = [VTCreditCard cardWithNumber:<card number> expiryMonth:<expiry month> expiryYear:<expiry year> cvv:<cvv number>];    
-[[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *registeredCard, NSError *error) {
-	
+You will have `result` if the transaction is success, and `error` if the transaction is failed.
+
+## 3. Oneclick Credit Card Transaction
+
+One click transaction offer simple credit card transaction because it only need `token` to charge transaction. The `token` represents the credit card number dan expiry date of the customer.
+
+### 3.1 <a name="get-oneclick-token"></a>Get Oneclick Token
+You can get `token` with two methods:
+
+* Doing Normal credit card transaction with **save token** feature enabled.
+* Register the credit card
+
+#### A. Get Token With Normal Credit Card Transaction
+When creating `VTPaymentCreditCard` object, make sure it's initialized with feature `VTCreditCardPaymentFeatureNormal` and set `saveToken` to `YES`
+
+```
+VTPaymentCreditCard *paymentDetail =
+[[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal
+                                       token:token];
+paymentDetail.saveToken = YES;
+
+//next charge transaction process..
+```
+
+#### B. Get Token With Register Credit Card 
+Register credit card provide more simple way to get the oneclick token
+
+```
+VTCreditCard *creditCard =
+[[VTCreditCard alloc] initWithNumber:<#(NSString *)#>
+                         expiryMonth:<#(NSString *)#>
+                          expiryYear:<#(NSString *)#>
+                                 cvv:<#(NSString *)#>];
+[[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
+    if (maskedCreditCard) {
+        
+    } else {
+        //error
+    }
 }];
+```
 
+### 3.2 Charge Transaction With One Click Token
+After you have one click `token`, then you can charge credit card transaction with that `token`
 
-//PERFORMING ONECLICK PAYMENT
-VTPaymentCreditCard *paymentDetail = [VTPaymentCreditCard paymentForTokenId:<savedTokenId fromm VTMaskedCreditCard>];
-VTCTransactionDetails *transactionDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:<transaction amount>];
-VTCTransactionData *transactionData = [[VTCTransactionData alloc] initWithpaymentDetails:paymentDetail
-															 transactionDetails:transactionDetail
-																customerDetails:<VTCustomerDetails object>
-																	itemDetails:<array of VTItem>];
+```
+//create payment detail with oneclick token
+VTPaymentCreditCard *paymentDetail =
+[[VTPaymentCreditCard alloc] initWithFeature:<#(VTCreditCardPaymentFeature)#>
+                                       token:oneClickToken];
+    
+//create transaction object
+VTTransaction *transaction =
+[[VTTransaction alloc] initWithPaymentDetails:paymentDetail
+                           transactionDetails:<#(VTTransactionDetails *)#>
+                              customerDetails:<#(VTCustomerDetails *)#>
+                                  itemDetails:<#(NSArray<VTItemDetail *> *)#>];
+    
+//charge transaction    
+[[VTMerchantClient sharedClient] performTransaction:transaction
+                                         completion:^(VTTransactionResult *result, NSError *error) {
+                                             
+                                         }];
+```
 
-[[VTMerchantClient sharedClient] performCreditCardTransaction:transactionData completion:^(VTPaymentResult *result, NSError *error) {
- 
-}];
+## 4. Two Click Credit Card Transaction
 
+The **two click token** is basically representation of credit card's information, so you can use that **token** to generate **new token** for charging a transaction.
 
-// PERFORMING TWO CLICK PAYMENT
+### 4.1 Get Two Click Token
+To get **two click token** you can use the same step as **[getting one click token](#get-oneclick-token)**
 
-//first generate token id using savedTokenId from VTMaskedCreditCard
-VTTokenRequest *tokenRequest = [VTTokenRequest tokenForTwoClickTransactionWithToken:<savedTokenId from VTMaskedCreditCard>
-                                                                                    cvv:<cvv number>
-                                                                                 secure:<activate 3D secure transaction or not>
-                                                                            grossAmount:<transaction amount>];    
-[[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSError *error) {
+### 4.2 Generate New Token
+After you've got the **two click `token`**, then you can generate **new token** 
 
-}];
+```
+//create token request with two click token
+VTTokenizeRequest *tokenRequest =
+[[[VTTokenizeRequest alloc] initWithTwoClickToken:twoClickToken
+                                              cvv:<#(NSString *)#>
+                                      grossAmount:<#(NSNumber *)#>]];
+                                      
+//generate new token for charging a transaction                                      
+[[VTClient sharedClient] generateToken:tokenRequest
+                            completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+                             			
+                            }];
+```
 
-//then use that token to performing transaction
-VTPaymentCreditCard *paymentDetail = [VTPaymentCreditCard paymentForTokenId:<token>];
-VTCTransactionDetails *transactionDetail = [[VTCTransactionDetails alloc] initWithGrossAmount:<transaction amount>];
-VTCTransactionData *transData = [[VTCTransactionData alloc] initWithpaymentDetails:paymentDetail
-																transactionDetails:transactionDetail
-																   customerDetails:<VTCustomerDetails object>
-																	   itemDetails:<array of VTItem>];
+### 4.3 Charge Transaction
 
-[[VTMerchantClient sharedClient] performCreditCardTransaction:transData completion:^(VTPaymentResult *result, NSError *error) {
-	
+To charge transaction, you can use the same step as **[normal charge transaction](#charge-normal-transaction)**
+
+## 5. VA / Bank Transfer Transaction
+
+### 5.1 Preparing Payment Details
+You need to create `paymentDetail` as object of **VTPaymentBankTransfer** and set the bank transfer type with **VTVAType** values
+
+* VTVATypeBCA
+* VTVATypeMandiri
+* VTVATypePermata
+* VTVATypeOther
+
+```
+//create payment detail object
+VTPaymentBankTransfer *paymentDetails =
+[[VTPaymentBankTransfer alloc] initWithBankTransferType:<#(VTVAType)#>];
+
+//create transaction object
+VTTransaction *transaction =
+[[VTTransaction alloc] initWithPaymentDetails:<#(id<VTPaymentDetails>)#>
+                           transactionDetails:<#(VTTransactionDetails *)#>
+                              customerDetails:<#(VTCustomerDetails *)#>
+                                  itemDetails:<#(NSArray<VTItemDetail *> *)#>];
+```
+
+### 5.2 Charge Transaction
+Use transaction object to charge the transaction
+
+```
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+ 	   if (result) {
+ 	   		//success
+ 	   } else {
+ 	   		//error
+ 	   }
 }];
 ```

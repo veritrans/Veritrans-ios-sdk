@@ -39,14 +39,14 @@
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {
-    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
-        [self.delegate paymentViewController:self paymentSuccess:sender.userInfo[@"payment_result"]];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
+        [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[@"payment_result"]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
-    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
-        [self.delegate paymentViewController:self paymentFailed:sender.userInfo[@"payment_error"]];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
+        [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[@"payment_error"]];
     }
 }
 

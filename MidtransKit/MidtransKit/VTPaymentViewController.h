@@ -14,7 +14,7 @@
 @interface VTPaymentViewController : UINavigationController
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails;
-@property (nonatomic, assign) id<VTPaymentViewControllerDelegate>delegate;
+@property (nonatomic, assign) id<VTPaymentViewControllerDelegate>paymentDelegate;
 
 @end
 

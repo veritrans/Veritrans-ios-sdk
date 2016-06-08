@@ -1,12 +1,12 @@
 //
-//  VTVASuccessController.m
+//  VTVASuccessStatusController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 5/20/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTVASuccessController.h"
+#import "VTVASuccessStatusController.h"
 #import "VTVAGuideController.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTButton.h"
@@ -15,7 +15,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface VTVASuccessController ()
+@interface VTVASuccessStatusController ()
 @property (strong, nonatomic) IBOutlet UILabel *vaNumberLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
@@ -25,10 +25,10 @@
 @property (nonatomic) VTVATransactionStatusViewModel *viewModel;
 @end
 
-@implementation VTVASuccessController
+@implementation VTVASuccessStatusController
 
 - (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel {
-    self = [[VTVASuccessController alloc] initWithNibName:@"VTVASuccessController" bundle:VTBundle];
+    self = [[VTVASuccessStatusController alloc] initWithNibName:@"VTVASuccessStatusController" bundle:VTBundle];
     if (self) {
         self.viewModel = viewModel;
     }

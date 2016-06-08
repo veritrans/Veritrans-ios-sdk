@@ -11,7 +11,7 @@
 #import "VTVAGuideController.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTHudView.h"
-#import "VTVASuccessController.h"
+#import "VTVASuccessStatusController.h"
 #import "VTButton.h"
 #import "VTBillpaySuccessController.h"
 
@@ -113,7 +113,7 @@
         VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
     } else {
-        VTVASuccessController *vc = [[VTVASuccessController alloc] initWithViewModel:vm];
+        VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithViewModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

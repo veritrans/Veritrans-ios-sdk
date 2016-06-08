@@ -7,12 +7,21 @@
 //
 
 #import "VTErrorStatusController.h"
+#import "VTClassHelper.h"
 
 @interface VTErrorStatusController ()
-
+@property (nonatomic) NSError *error;
 @end
 
 @implementation VTErrorStatusController
+
+- (instancetype)initWithError:(NSError *)error {
+    UIStoryboard *storybaord = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    if (self = [storybaord instantiateViewControllerWithIdentifier:@"VTErrorStatusController"]) {
+        self.error = error;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,6 +38,9 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
+    NSDictionary *userInfo = @{@"tr_error":_error};
+    [[NSNotificationCenter defaultCenter] postNotificationName:_TRANSACTION_FAILED object:nil userInfo:userInfo];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

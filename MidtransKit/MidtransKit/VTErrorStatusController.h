@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VTErrorStatusController : UIViewController
-
+- (instancetype)initWithError:(NSError *)error;
 @end

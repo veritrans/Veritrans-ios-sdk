@@ -27,6 +27,27 @@
     
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont systemFontOfSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
     self.navigationBar.barTintColor = [UIColor whiteColor];
+    
+    //register payment observer
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:_TRANSACTION_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:_TRANSACTION_FAILED object:nil];
+}
+
+- (void)dealloc {
+    //remove all observers 
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+- (void)transactionSuccess:(NSNotification *)sender {
+    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
+        [self.delegate paymentViewController:self paymentSuccess:sender.userInfo[@"payment_result"]];
+    }
+}
+
+- (void)transactionFailed:(NSNotification *)sender {
+    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
+        [self.delegate paymentViewController:self paymentFailed:sender.userInfo[@"payment_error"]];
+    }
 }
 
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {

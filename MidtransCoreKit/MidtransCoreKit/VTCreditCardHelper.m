@@ -10,10 +10,10 @@
 #import "VTLuhn.h"
 #import "VTHelper.h"
 
-#define VTVisaRegex         @"^4[0-9]{6,}$"
-#define VTMasterCardRegex   @"^5[1-5][0-9]{5,}$"
-#define VTJCBRegex          @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$"
-#define VTAmexRegex         @"^3[47][0-9]{5,}$"
+#define VTVisaRegex         @"^4[0-9]{12}(?:[0-9]{3})?$"
+#define VTMasterCardRegex   @"^5[1-5][0-9]{14}$"
+#define VTJCBRegex          @"^(?:2131|1800|35\d{3})\d{11}$"
+#define VTAmexRegex         @"^3[47][0-9]{13}$"
 
 @implementation NSString (CreditCard)
 

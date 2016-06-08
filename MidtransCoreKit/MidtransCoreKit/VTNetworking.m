@@ -53,7 +53,7 @@
                 escapedValue = @"";
             else
                 escapedValue = [value URLEncodedString];
-
+            
             [pairs addObject:[NSString stringWithFormat:@"%@=%@", key, escapedValue]];
         }
     }
@@ -103,13 +103,15 @@
 }
 
 - (void)deleteFromURL:(NSString *)URL
-            header:(NSDictionary *)header
-        parameters:(NSDictionary *)parameters
-          callback:(void(^)(id response, NSError *error))callback
+               header:(NSDictionary *)header
+           parameters:(NSDictionary *)parameters
+             callback:(void(^)(id response, NSError *error))callback
 {
     NSString *params = [parameters queryStringValue];
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
+                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                           timeoutInterval:60];
     [request setHTTPMethod:@"DELETE"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
@@ -123,7 +125,9 @@
 }
 
 - (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(NSDictionary *)parameters callback:(void (^)(id response, NSError *error))callback {
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:URL]
+                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                           timeoutInterval:60];
     
     if (parameters) {
         NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
@@ -157,8 +161,9 @@
 {
     NSString *params = [parameters queryStringValue];
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
-    
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
+                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
+                                                           timeoutInterval:60];
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }

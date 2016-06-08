@@ -34,19 +34,19 @@
 }
 
 - (void)dealloc {
-    //remove all observers 
+    //remove all observers
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
-        [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[@"payment_result"]];
+        [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[@"tr_result"]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
-        [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[@"payment_error"]];
+        [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[@"tr_error"]];
     }
 }
 

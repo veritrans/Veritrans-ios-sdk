@@ -40,7 +40,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.navigationItem setHidesBackButton:YES];
-
+    
     _amountLabel.text = _viewModel.totalAmount;
     _orderIdLabel.text = _viewModel.orderId;
     _transactionTimeLabel.text = _viewModel.transactionTime;
@@ -48,16 +48,16 @@
     switch (_viewModel.vaType) {
         case VTVATypeBCA: {
             _vaNumberLabel.text = _viewModel.vaNumber;
-            self.title = @"BCA Bank Transfer";
+            self.title = NSLocalizedString(@"BCA Bank Transfer",nil);
             break;
         } case VTVATypePermata: {
             _vaNumberLabel.text = _viewModel.vaNumber;
-            self.title = @"Permata Bank Transfer";
+            self.title = NSLocalizedString(@"Permata Bank Transfer",nil);
             break;
         } case VTVATypeMandiri: {
         } case VTVATypeOther: {
             _vaNumberLabel.text = _viewModel.vaNumber;
-            self.title = @"Other Bank Transfer";
+            self.title = NSLocalizedString(@"Other Bank Transfer",nil);
             break;
         }
     }
@@ -70,7 +70,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:_viewModel.vaNumber];
-    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+    [VTToast createToast:NSLocalizedString(@"Copied to clipboard",nil) duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

@@ -9,16 +9,21 @@
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
+@class VTPaymentViewController;
+
 @protocol VTPaymentViewControllerDelegate;
+
+@protocol VTPaymentViewControllerDelegate <UINavigationControllerDelegate>
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result;
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error;
+@end
 
 @interface VTPaymentViewController : UINavigationController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails;
-@property (nonatomic, assign) id<VTPaymentViewControllerDelegate>paymentDelegate;
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails;
 
-@end
+@property (nonatomic, assign) id<VTPaymentViewControllerDelegate>delegate;
 
-@protocol VTPaymentViewControllerDelegate <NSObject>
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result;
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error;
 @end

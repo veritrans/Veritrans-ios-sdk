@@ -20,7 +20,6 @@
 		E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */; };
 		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
 		E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB2131C8C83E20043A027 /* libMidtransKit.a */; };
-		E51FBCDE1C8C8A26008D240A /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
 		E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940721CFEC6C4000180D3 /* AVFoundation.framework */; };
 		E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940771CFEC6D4000180D3 /* Accelerate.framework */; };
 		E529407A1CFEC6DB000180D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940791CFEC6DB000180D3 /* AudioToolbox.framework */; };
@@ -31,6 +30,8 @@
 		E52940841CFEC6FD000180D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940831CFEC6FD000180D3 /* OpenGLES.framework */; };
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
+		E556AB421D07C6FD002CB50B /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB20B1C8C83DC0043A027 /* libMidtransCoreKit.a */; };
+		E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
 		ED85FEDA87A535F97555511B /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */; };
@@ -131,6 +132,7 @@
 				E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */,
 				E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */,
 				E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */,
+				E556AB421D07C6FD002CB50B /* libMidtransCoreKit.a in Frameworks */,
 				E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */,
 				E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */,
 				ED85FEDA87A535F97555511B /* libPods-VTDirectDemo.a in Frameworks */,
@@ -375,7 +377,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E51FBCDE1C8C8A26008D240A /* MidtransKit.bundle in Resources */,
+				E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
 				302F71CE1C73163C00FE73FE /* Assets.xcassets in Resources */,
 				302F71CC1C73163C00FE73FE /* Main.storyboard in Resources */,
@@ -638,7 +640,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "000e6cf4-1d6f-48e1-a276-1f3882b091fd";
+				PROVISIONING_PROFILE = "a14168fe-6f6d-4ed2-93e0-f3c8e6bb2cac";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -672,7 +674,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6bd17941-d07e-4b30-985c-ad33ade4796c";
+				PROVISIONING_PROFILE = "ab816bfd-4f88-44b0-83fe-e7e8abadf5fe";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

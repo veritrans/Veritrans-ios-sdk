@@ -26,7 +26,7 @@
 @end
 
 
-@interface ViewController ()
+@interface ViewController () <VTPaymentViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <VTItemDetail*>* itemDetails;
 @end
@@ -92,11 +92,22 @@
     
     if (customerDetails) {
         VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+        vc.paymentDelegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         [self.navigationController pushViewController:option animated:YES];
     }
+}
+
+#pragma mark - VTPaymentViewControllerDelegate
+
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+    NSLog(@"success: %@", result);
+}
+
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+    NSLog(@"error: %@", error);
 }
 
 #pragma mark - UITableViewDataSource

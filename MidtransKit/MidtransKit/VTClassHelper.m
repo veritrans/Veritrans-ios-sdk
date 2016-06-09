@@ -8,6 +8,9 @@
 
 #import "VTClassHelper.h"
 
+NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
+NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
+
 NSString *const VTCreditCardIdentifier = @"cc";
 NSString *const VTVAIdentifier = @"atm";
 NSString *const VTPermataVAIdentifier = @"vapermata";

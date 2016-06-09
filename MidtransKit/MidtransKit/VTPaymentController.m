@@ -43,7 +43,7 @@
 }
 
 - (void)handleTransactionError:(NSError *)error {
-    VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+    VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

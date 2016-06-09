@@ -25,6 +25,7 @@
 }
 
 + (void)setServerEnvironment:(VTServerEnvironment)environment {
+    
     if (environment == VTServerEnvironmentProduction) {
         [[VTPrivateConfig sharedInstance] setBaseUrl: VT_PRODUCTION_API_URL];
         [[VTPrivateConfig sharedInstance] setMixpanelToken: VT_PRODUCTION_MIXPANEL];
@@ -32,5 +33,6 @@
         [[VTPrivateConfig sharedInstance] setBaseUrl: VT_SANDBOX_API_URL];
         [[VTPrivateConfig sharedInstance] setMixpanelToken:VT_SANDBOX_MIXPANEL];
     }
+    
 }
 @end

@@ -8,12 +8,8 @@
 
 #import "VTCreditCardHelper.h"
 #import "VTLuhn.h"
+#import "VTConstant.h"
 #import "VTHelper.h"
-
-#define VTVisaRegex         @"^4[0-9]{12}(?:[0-9]{3})?$"
-#define VTMasterCardRegex   @"^5[1-5][0-9]{14}$"
-#define VTJCBRegex          @"^(?:2131|1800|35\d{3})\d{11}$"
-#define VTAmexRegex         @"^3[47][0-9]{13}$"
 
 @implementation NSString (CreditCard)
 
@@ -41,7 +37,7 @@
 
 - (BOOL)isValidCreditCard:(NSError **)error {
     if ([self.number isValidCreditCardNumber] == NO) {
-        NSString *errorMessage = @"Card number is invalid";
+        NSString *errorMessage = VT_MESSAGE_CARD_INVALID;
         NSInteger numberInvalideCode = -20;
         *error = [NSError errorWithDomain:ErrorDomain code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
@@ -49,21 +45,21 @@
     
     
     if ([self.expiryYear isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = @"Expiry Year is invalid";
+        NSString *errorMessage = VT_MESSAGE_EXPIRE_DATE_INVALID;
         NSInteger expiryDateInvalidCode = -21;
         *error = [NSError errorWithDomain:ErrorDomain code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.expiryMonth isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = @"Expiry Month is invalid";
+        NSString *errorMessage = VT_MESSAGE_EXPIRE_MONTH_INVALID;
         NSInteger expiryDateInvalidCode = -21;
         *error = [NSError errorWithDomain:ErrorDomain code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.cvv isValidCreditCardCVV] == NO) {
-        NSString *errorMessage = @"CVV is invalid";
+        NSString *errorMessage = VT_MESSAGE_CARD_CVV_INVALID;
         NSInteger cvvInvalidCode = -22;
         *error = [NSError errorWithDomain:ErrorDomain code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
@@ -96,13 +92,13 @@
 + (NSString *)nameFromString:(NSString *)string {
     switch ([self typeFromString:string]) {
         case VTCreditCardTypeAmex:
-            return @"Amex";
+            return CREDIT_CARD_TYPE_AMEX;
         case VTCreditCardTypeJCB:
-            return @"JCB";
+            return CREDIT_CARD_TYPE_JCB;
         case VTCreditCardTypeMasterCard:
-            return @"MasterCard";
+            return CREDIT_CARD_TYPE_MASTER_CARD;
         case VTCreditCardTypeVisa:
-            return @"Visa";
+            return CREDIT_CARD_TYPE_VISA;
         default:
             return @"";
     }
@@ -112,16 +108,16 @@
     NSString *regex = nil;
     switch (type) {
         case VTCreditCardTypeAmex:
-            regex = @"^3[47][0-9]{5,}$";
+            regex = VT_AMEX_REGEX;
             break;
         case VTCreditCardTypeJCB:
-            regex = @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$";
+            regex = VT_JCB_REGEX;
             break;
         case VTCreditCardTypeMasterCard:
-            regex = @"^5[1-5][0-9]{5,}$";
+            regex = VT_MASTER_CARD_REGEX;
             break;
         case VTCreditCardTypeVisa:
-            regex = @"^4[0-9]{6,}$";
+            regex = VT_VISA_REGEX;
             break;
         default:
             break;

@@ -7,6 +7,7 @@
 //
 
 #import "VTConfig.h"
+#import "VTConstant.h"
 #import "VTMerchantClient.h"
 #import "VTPrivateConfig.h"
 
@@ -30,12 +31,12 @@
 }
 
 - (NSString *)merchantServerURL {
-    NSAssert(_merchantServerURL, @"Please set your merchant server URL in VTConfig");
+    NSAssert(_merchantServerURL, VT_MESSAGE_MERCHANT_SERVER_NOT_SET);
     return _merchantServerURL;
 }
 
 - (NSString *)clientKey {
-    NSAssert(_clientKey, @"Please set your Veritrans Client Key in VTConfig");
+    NSAssert(_clientKey, VT_MESSAGE_CLIENT_KEY_NOT_SET);
     return _clientKey;
 }
 

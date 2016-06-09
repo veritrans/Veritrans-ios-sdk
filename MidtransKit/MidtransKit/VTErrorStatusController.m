@@ -39,7 +39,7 @@
 
 - (IBAction)finishPressed:(UIButton *)sender {
     NSDictionary *userInfo = @{@"tr_error":_error};
-    [[NSNotificationCenter defaultCenter] postNotificationName:_TRANSACTION_FAILED object:nil userInfo:userInfo];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }

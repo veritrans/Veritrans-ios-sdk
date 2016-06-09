@@ -29,8 +29,8 @@
     self.navigationBar.barTintColor = [UIColor whiteColor];
     
     //register payment observer
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:_TRANSACTION_SUCCESS object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:_TRANSACTION_FAILED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
 }
 
 - (void)dealloc {

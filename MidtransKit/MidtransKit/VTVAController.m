@@ -14,7 +14,6 @@
 #import "VTVASuccessStatusController.h"
 #import "VTButton.h"
 #import "VTBillpaySuccessController.h"
-
 #import <MidtransCoreKit/VTPaymentBankTransfer.h>
 #import <MidtransCoreKit/VTTransaction.h>
 #import <MidtransCoreKit/VTMerchantClient.h>

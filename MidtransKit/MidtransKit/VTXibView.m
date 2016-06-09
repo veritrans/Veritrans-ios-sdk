@@ -11,8 +11,7 @@
 
 @implementation VTXibView
 
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         // 1. Load the .xib file .xib file must match classname

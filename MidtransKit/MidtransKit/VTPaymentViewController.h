@@ -24,6 +24,6 @@
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
                      transactionDetails:(VTTransactionDetails *)transactionDetails;
 
-@property (nonatomic, weak) id<VTPaymentViewControllerDelegate>delegate;
+@property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 
 @end

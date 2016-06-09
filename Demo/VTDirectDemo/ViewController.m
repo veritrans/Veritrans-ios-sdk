@@ -92,7 +92,7 @@
     
     if (customerDetails) {
         VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
-        vc.paymentDelegate = self;
+        vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];

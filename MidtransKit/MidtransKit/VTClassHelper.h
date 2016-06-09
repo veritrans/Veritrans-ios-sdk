@@ -12,6 +12,9 @@
 
 #import <MidtransCoreKit/VTHelper.h>
 
+extern NSString *const TRANSACTION_SUCCESS;
+extern NSString *const TRANSACTION_FAILED;
+
 extern NSString *const VTCreditCardIdentifier;
 extern NSString *const VTVAIdentifier;
 extern NSString *const VTPermataVAIdentifier;

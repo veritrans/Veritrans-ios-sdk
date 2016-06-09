@@ -1,5 +1,5 @@
 //
-//  VTVASuccessController.h
+//  VTVASuccessStatusController.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 5/20/16.
@@ -10,6 +10,6 @@
 #import "VTClassHelper.h"
 #import "VTVATransactionStatusViewModel.h"
 
-@interface VTVASuccessController : UIViewController
+@interface VTVASuccessStatusController : UIViewController
 - (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel;
 @end

@@ -17,7 +17,8 @@
 
 - (instancetype)initWithError:(NSError *)error {
     UIStoryboard *storybaord = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    if (self = [storybaord instantiateViewControllerWithIdentifier:@"VTErrorStatusController"]) {
+    self = [storybaord instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+    if (self) {
         self.error = error;
     }
     return self;

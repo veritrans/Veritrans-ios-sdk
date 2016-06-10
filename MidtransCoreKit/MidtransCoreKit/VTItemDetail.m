@@ -10,10 +10,10 @@
 #import "VTHelper.h"
 
 @interface VTItemDetail ()
-@property(nonatomic, readwrite) NSString* itemId;
+@property(nonatomic, readwrite) NSString *itemId;
 @property(nonatomic, readwrite) NSNumber *price;
 @property(nonatomic, readwrite) NSNumber *quantity;
-@property(nonatomic, readwrite) NSString* name;
+@property(nonatomic, readwrite) NSString *name;
 @end
 
 @implementation VTItemDetail

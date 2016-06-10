@@ -16,18 +16,15 @@
 }
 
 - (void)awakeFromNib {
-    // Initialization code
+    [super awakeFromNib];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
 }
 
 - (void)setItem:(NSDictionary *)item {
     _item = item;
-    
     _titleLabel.text = item[@"title"];
     _descLabel.text = item[@"description"];
     _iconView.image = [UIImage imageNamed:item[@"id"] inBundle:VTBundle compatibleWithTraitCollection:nil];

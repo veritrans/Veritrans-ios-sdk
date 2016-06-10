@@ -28,8 +28,7 @@
 
 @implementation VTTokenizeRequest
 
-- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure
-{
+- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;

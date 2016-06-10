@@ -34,10 +34,7 @@ NSString *const ErrorDomain = @"error.veritrans.co.id";
 
 @end
 
-@interface VTNetworkOperation() <
-NSURLConnectionDataDelegate,
-NSURLConnectionDelegate
->
+@interface VTNetworkOperation() <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, copy) void (^callback)(id response, NSError *error);
 @end

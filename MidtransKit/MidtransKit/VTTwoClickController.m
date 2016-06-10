@@ -32,7 +32,7 @@
 
 @property (nonatomic) IBOutlet VTTextField *cvvTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
-@property (nonatomic) NSString *savedToken;
+@property (nonatomic) VTMaskedCreditCard *maskeCard;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
@@ -41,10 +41,10 @@
     VTHudView *_hudView;
 }
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails savedToken:(NSString *)savedToken {
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails maskedCard:(VTMaskedCreditCard *)maskedCard {
     self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
     if (self) {
-        self.savedToken = savedToken;
+        self.maskeCard = maskedCard;
     }
     return self;
 }
@@ -93,7 +93,7 @@
 - (IBAction)paymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.view];
     
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_savedToken cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
+    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_maskeCard.savedTokenId cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
     
     [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
         if (error) {
@@ -130,7 +130,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isEqual:_cvvTextField]) {
-        return [textField filterCvvNumber:string range:range isAmex:NO];
+        return [textField filterCvvNumber:string range:range withCardNumber:_maskeCard.maskedNumber];
     } else {
         return YES;
     }

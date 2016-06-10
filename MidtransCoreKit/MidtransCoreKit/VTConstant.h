@@ -44,6 +44,12 @@ static NSString *const VT_SANDBOX_API_URL = @"https://api.sandbox.veritrans.co.i
 static NSString *const VT_SANDBOX_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
 static NSString *const VT_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
 static NSString *const VT_PRODUCTION_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
+
+static NSString *const VT_TRACKING_CC_TOKEN = @"token";
+static NSString *const VT_TRACKING_PAYMENT_METHOD = @"payment_method";
+static NSString *const VT_TRACKING_PAYMENT_AMOUNT = @"amount";
+static NSString *const VT_TRACKING_PAYMENT_FEATURE = @"payment_feature";
+static NSString *const VT_TRACKING_SECURE_PROTOCOL = @"secure";
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

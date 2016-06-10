@@ -30,7 +30,6 @@
 		E52940841CFEC6FD000180D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940831CFEC6FD000180D3 /* OpenGLES.framework */; };
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
-		E556AB421D07C6FD002CB50B /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB20B1C8C83DC0043A027 /* libMidtransCoreKit.a */; };
 		E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
@@ -65,6 +64,27 @@
 			proxyType = 2;
 			remoteGlobalIDString = 3005E2871C7C17A200064169;
 			remoteInfo = MidtransResources;
+		};
+		E5B615171D0A9EBB009F40EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3054941A1C759EDF00938C17;
+			remoteInfo = MidtransKit;
+		};
+		E5B615191D0A9EBB009F40EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3005E2861C7C17A100064169;
+			remoteInfo = MidtransResources;
+		};
+		E5B6151B1D0A9EBB009F40EF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 305494391C759FF800938C17;
+			remoteInfo = MidtransCoreKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -132,7 +152,6 @@
 				E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */,
 				E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */,
 				E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */,
-				E556AB421D07C6FD002CB50B /* libMidtransCoreKit.a in Frameworks */,
 				E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */,
 				E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */,
 				ED85FEDA87A535F97555511B /* libPods-VTDirectDemo.a in Frameworks */,
@@ -287,6 +306,9 @@
 			buildRules = (
 			);
 			dependencies = (
+				E5B615181D0A9EBB009F40EF /* PBXTargetDependency */,
+				E5B6151A1D0A9EBB009F40EF /* PBXTargetDependency */,
+				E5B6151C1D0A9EBB009F40EF /* PBXTargetDependency */,
 			);
 			name = VTDirectDemo;
 			productName = VTDirectDemo;
@@ -443,7 +465,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "./Fabric.framework/run 86217d547d82adb1c9a91e7b4a9507ddb81b943d a46aeff01ae21a55590751ae60cf8b2ae10c8e09231657116fa9e364a4e9268f";
+			shellScript = "./Fabric.framework/run 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -478,6 +500,21 @@
 			isa = PBXTargetDependency;
 			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
 			targetProxy = 2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */;
+		};
+		E5B615181D0A9EBB009F40EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MidtransKit;
+			targetProxy = E5B615171D0A9EBB009F40EF /* PBXContainerItemProxy */;
+		};
+		E5B6151A1D0A9EBB009F40EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MidtransResources;
+			targetProxy = E5B615191D0A9EBB009F40EF /* PBXContainerItemProxy */;
+		};
+		E5B6151C1D0A9EBB009F40EF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = MidtransCoreKit;
+			targetProxy = E5B6151B1D0A9EBB009F40EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -619,6 +656,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VTDirectDemo",
@@ -628,7 +666,6 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -640,7 +677,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "a14168fe-6f6d-4ed2-93e0-f3c8e6bb2cac";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -653,6 +690,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/VTDirectDemo",
@@ -662,7 +700,6 @@
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
 					"\"${PODS_ROOT}/Headers/Public/SDWebImage\"",
-					"$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include",
 				);
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -674,7 +711,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "ab816bfd-4f88-44b0-83fe-e7e8abadf5fe";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

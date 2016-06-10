@@ -12,8 +12,7 @@
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.17f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 
-@implementation VTTextField
-{
+@implementation VTTextField {
     BOOL _isFloatingLabelFontDefault;
     
     UILabel *_warningLabel;
@@ -21,8 +20,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     UIImageView *_infoIconView;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self commonInit];
@@ -30,8 +28,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     return self;
 }
 
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
         [self commonInit];
@@ -39,8 +36,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     return self;
 }
 
-- (void)commonInit
-{
+- (void)commonInit {
     _infoIconView = [UIImageView new];
     [self addSubview:_infoIconView];
     
@@ -79,8 +75,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [self setNeedsLayout];
 }
 
-- (UIFont *)defaultFloatingLabelFont
-{
+- (UIFont *)defaultFloatingLabelFont {
     UIFont *textFieldFont = nil;
     
     if (!textFieldFont && self.attributedPlaceholder && self.attributedPlaceholder.length > 0) {
@@ -96,8 +91,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     return [UIFont fontWithName:textFieldFont.fontName size:roundf(textFieldFont.pointSize * 0.7f)];
 }
 
-- (void)updateDefaultFloatingLabelFont
-{
+- (void)updateDefaultFloatingLabelFont {
     UIFont *derivedFont = [self defaultFloatingLabelFont];
     
     if (_isFloatingLabelFontDefault) {
@@ -109,8 +103,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
 }
 
-- (UIColor *)labelActiveColor
-{
+- (UIColor *)labelActiveColor {
     if (_floatingLabelActiveTextColor) {
         return _floatingLabelActiveTextColor;
     }
@@ -120,8 +113,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     return [UIColor blueColor];
 }
 
-- (void)setFloatingLabelFont:(UIFont *)floatingLabelFont
-{
+- (void)setFloatingLabelFont:(UIFont *)floatingLabelFont {
     if (floatingLabelFont != nil) {
         _floatingLabelFont = floatingLabelFont;
     }
@@ -131,8 +123,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [self invalidateIntrinsicContentSize];
 }
 
-- (void)showWarningLabel:(BOOL)animated
-{
+- (void)showWarningLabel:(BOOL)animated {
     _warningLabel.text = _warning;
     
     void (^showBlock)() = ^{
@@ -151,8 +142,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
 }
 
-- (void)hideWarningLabel:(BOOL)animated
-{
+- (void)hideWarningLabel:(BOOL)animated {
     void (^hideBlock)() = ^{
         _warningLabel.alpha = 0.0f;
     };
@@ -169,8 +159,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
 }
 
-- (void)showFloatingLabel:(BOOL)animated
-{
+- (void)showFloatingLabel:(BOOL)animated {
     void (^showBlock)() = ^{
         _floatingLabel.alpha = 1.0f;
     };
@@ -187,8 +176,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
 }
 
-- (void)hideFloatingLabel:(BOOL)animated
-{
+- (void)hideFloatingLabel:(BOOL)animated {
     void (^hideBlock)() = ^{
         _floatingLabel.alpha = 0.0f;
     };
@@ -205,8 +193,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
 }
 
-- (void)setLabelOriginForTextAlignment
-{
+- (void)setLabelOriginForTextAlignment {
     CGRect textRect = [self textRectForBounds:self.bounds];
     
     CGFloat originX = textRect.origin.x;
@@ -228,87 +215,74 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
                                       _floatingLabel.frame.size.width, _floatingLabel.frame.size.height);
 }
 
-- (void)setFloatingLabelText:(NSString *)text
-{
+- (void)setFloatingLabelText:(NSString *)text {
     _floatingLabel.text = text;
     [self setNeedsLayout];
 }
 
 #pragma mark - UITextField
 
-- (void)setFont:(UIFont *)font
-{
+- (void)setFont:(UIFont *)font {
     [super setFont:font];
     [self updateDefaultFloatingLabelFont];
 }
 
-- (void)setAttributedText:(NSAttributedString *)attributedText
-{
+- (void)setAttributedText:(NSAttributedString *)attributedText {
     [super setAttributedText:attributedText];
     [self updateDefaultFloatingLabelFont];
 }
 
-- (CGSize)intrinsicContentSize
-{
+- (CGSize)intrinsicContentSize {
     CGSize textFieldIntrinsicContentSize = [super intrinsicContentSize];
     [_floatingLabel sizeToFit];
     return CGSizeMake(textFieldIntrinsicContentSize.width,
                       textFieldIntrinsicContentSize.height + _floatingLabelYPadding + _floatingLabel.bounds.size.height);
 }
 
-- (void)setPlaceholder:(NSString *)placeholder
-{
+- (void)setPlaceholder:(NSString *)placeholder {
     [super setPlaceholder:placeholder];
     [self setFloatingLabelText:placeholder];
 }
 
-- (void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder
-{
+- (void)setAttributedPlaceholder:(NSAttributedString *)attributedPlaceholder {
     [super setAttributedPlaceholder:attributedPlaceholder];
     [self setFloatingLabelText:attributedPlaceholder.string];
     [self updateDefaultFloatingLabelFont];
 }
 
-- (void)setPlaceholder:(NSString *)placeholder floatingTitle:(NSString *)floatingTitle
-{
+- (void)setPlaceholder:(NSString *)placeholder floatingTitle:(NSString *)floatingTitle {
     [super setPlaceholder:placeholder];
     [self setFloatingLabelText:floatingTitle];
 }
 
-- (CGRect)textRectForBounds:(CGRect)bounds
-{
+- (CGRect)textRectForBounds:(CGRect)bounds {
     CGRect rect = [super textRectForBounds:bounds];
     rect = [self insetRectForBounds:rect];
     return CGRectIntegral(rect);
 }
 
-- (CGRect)editingRectForBounds:(CGRect)bounds
-{
+- (CGRect)editingRectForBounds:(CGRect)bounds {
     CGRect rect = [super editingRectForBounds:bounds];
     rect = [self insetRectForBounds:rect];
     return CGRectIntegral(rect);
 }
 
-- (CGRect)insetRectForBounds:(CGRect)rect
-{
+- (CGRect)insetRectForBounds:(CGRect)rect {
     CGFloat rightPadding = CGRectGetWidth([self infoIconRect]);
     return CGRectMake(0, 15, rect.size.width-rightPadding, rect.size.height-30);
 }
 
-- (CGRect)clearButtonRectForBounds:(CGRect)bounds
-{
+- (CGRect)clearButtonRectForBounds:(CGRect)bounds {
     CGRect rect = [super clearButtonRectForBounds:bounds];
     return CGRectIntegral(rect);
 }
 
-- (void)setTextAlignment:(NSTextAlignment)textAlignment
-{
+- (void)setTextAlignment:(NSTextAlignment)textAlignment {
     [super setTextAlignment:textAlignment];
     [self setNeedsLayout];
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
     
     [self setLabelOriginForTextAlignment];

@@ -33,8 +33,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Select Payment";
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];    
+    self.title =  NSLocalizedString(@"Select Payment", nil);
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)  style:UIBarButtonItemStylePlain target:nil action:nil];
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;

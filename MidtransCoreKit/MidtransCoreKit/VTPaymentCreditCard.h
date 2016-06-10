@@ -15,7 +15,7 @@
  
  This class is modeled after http://docs.veritrans.co.id/en/api/methods.html#credit_card_attr
  */
-@interface VTPaymentCreditCard : NSObject<VTPaymentDetails>
+@interface VTPaymentCreditCard : NSObject <VTPaymentDetails>
 
 /**
  The representation token of the real credit card data which securely stored in Veritrans server.

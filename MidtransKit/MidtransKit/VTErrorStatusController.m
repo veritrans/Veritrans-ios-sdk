@@ -26,8 +26,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self setTitle:@"Payment Failed"];
+    self.title = NSLocalizedString(@"Payment Failed",nil);
     [self.navigationItem setHidesBackButton:YES];
     
 }

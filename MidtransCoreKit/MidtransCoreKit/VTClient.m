@@ -20,7 +20,6 @@
 @implementation VTClient
 
 + (id)sharedClient {
-    // Idea stolen from http://www.galloway.me.uk/tutorials/singleton-classes/
     static VTClient *instance = nil;
     @synchronized(self) {
         if (instance == nil) {
@@ -31,8 +30,7 @@
     return instance;
 }
 
-- (void)generateToken:(VTTokenizeRequest *)tokenizeRequest
-           completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion {
+- (void)generateToken:(VTTokenizeRequest *)tokenizeRequest completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"token"];
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
@@ -44,8 +42,7 @@
     }];
 }
 
-- (void)registerCreditCard:(VTCreditCard *)creditCard
-                completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion {
+- (void)registerCreditCard:(VTCreditCard *)creditCard completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion {
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         if (completion) completion(nil, error);

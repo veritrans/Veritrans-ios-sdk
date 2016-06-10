@@ -14,7 +14,6 @@
 #import "VTVASuccessStatusController.h"
 #import "VTButton.h"
 #import "VTBillpaySuccessController.h"
-
 #import <MidtransCoreKit/VTPaymentBankTransfer.h>
 #import <MidtransCoreKit/VTTransaction.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
@@ -54,20 +53,20 @@
     
     switch (self.vaType) {
         case VTVATypeBCA: {
-            self.title = @"BCA ATM";
-            [_helpButton setTitle:@"How Can I Pay Via BCA Bank Transfer?" forState:UIControlStateNormal];
+            self.title = NSLocalizedString(@"BCA ATM", nil);
+            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via BCA Bank Transfer?", nil) forState:UIControlStateNormal];
             break;
         } case VTVATypeMandiri: {
-            self.title = @"Mandiri ATM";
-            [_helpButton setTitle:@"How Can I Pay Via Mandiri Bank Transfer?" forState:UIControlStateNormal];
+            self.title =  NSLocalizedString(@"Mandiri ATM",nil);
+            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via Mandiri Bank Transfer?",nil) forState:UIControlStateNormal];
             break;
         } case VTVATypePermata: {
-            self.title = @"Permata ATM";
-            [_helpButton setTitle:@"How Can I Pay Via Permata Bank Transfer?" forState:UIControlStateNormal];
+            self.title = NSLocalizedString(@"Permata ATM",nil);
+            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via Permata Bank Transfer?",nil) forState:UIControlStateNormal];
             break;
         } case VTVATypeOther: {
-            self.title = @"Other Bank";
-            [_helpButton setTitle:@"How Can I Pay Via Other Bank Transfer?" forState:UIControlStateNormal];
+            self.title = NSLocalizedString(@"Other Bank",nil);
+            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via Other Bank Transfer?",nil) forState:UIControlStateNormal];
             break;
         }
     }

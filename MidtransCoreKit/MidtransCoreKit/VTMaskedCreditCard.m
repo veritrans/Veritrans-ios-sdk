@@ -29,8 +29,7 @@
     return self;
 }
 
-- (NSString *)description
-{
+- (NSString *)description {
     return [NSString stringWithFormat:@"Masked Number: %@\n Saved Token ID: %@", _maskedNumber, _savedTokenId];
 }
 @end

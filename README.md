@@ -97,3 +97,39 @@ Copy and paste the following code wherever you think is good as long as it's exe
 [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
 ```
 If it's not configure, the default value is `NO`.
+
+# Get Notified
+
+Set your view controller to conform with **VTPaymentViewControllerDelegate**
+
+```
+#import "ViewController.h"
+#import <MidtransKit/MidtransKit.h>
+
+@interface ViewController () <VTPaymentViewControllerDelegate>
+
+@end
+
+```
+
+Set the delegate of VTPaymentViewController 
+
+```
+VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+//set the delegate
+vc.delegate = self;
+```
+
+Add two methods to your view controller, these methods are from VTPaymentViewControllerDelegate protocol
+
+```
+#pragma mark - VTPaymentViewControllerDelegate
+
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+    NSLog(@"success: %@", result);
+}
+
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+    NSLog(@"error: %@", error);
+}
+```

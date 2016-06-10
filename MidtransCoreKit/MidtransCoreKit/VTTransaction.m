@@ -17,7 +17,7 @@
 
 @implementation VTTransaction
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithPaymentDetails:(id <VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
         self.transactionDetails = transactionDetails;
@@ -26,7 +26,7 @@
     return self;
 }
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails {
+- (instancetype)initWithPaymentDetails:(id <VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *> *)itemDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
         self.transactionDetails = transactionDetails;

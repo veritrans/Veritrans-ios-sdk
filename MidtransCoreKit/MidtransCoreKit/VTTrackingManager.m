@@ -11,27 +11,33 @@
 #import "VTConstant.h"
 #import "VTNetworking.h"
 #import "VTCreditCardPaymentFeature.h"
-@implementation VTTrackingManager
 
-#pragma mark - Singleton
-- (NSUUID *)deviceUUID {
+@implementation NSDictionary (TrackingManager)
+
+- (NSDictionary*)dictionaryByRemovingKey:(NSString *)key {
+    NSMutableDictionary *result = [self mutableCopy];
+    [result removeObjectForKey:key];
+    return result;
+}
+
+- (NSMutableDictionary*)addDefaultParameter{
     NSUUID *uuid;
 #if TARGET_OS_SIMULATOR
     uuid = [[NSUUID alloc] initWithUUIDString:@"E621E1F8-C36C-495A-93FC-0C247A3E6E5F"];
 #else
     uuid = [UIDevice currentDevice].identifierForVendor;
 #endif
-    return uuid;
-}
-
-- (NSMutableDictionary*)defaultParameters {
     NSDictionary *parameters = @{@"token":[PRIVATECONFIG mixpanelToken],
                                  @"Platform":@"iOS",
-                                 @"Device ID":[self deviceUUID].UUIDString,
+                                 @"Device ID":uuid.UUIDString,
                                  @"Merchant":@"Go-Jek",
                                  @"SDK Version":VERSION};
     return parameters;
 }
+
+@end
+
+@implementation VTTrackingManager
 
 +(VTTrackingManager *)sharedInstance {
     static VTTrackingManager *sharedInstance;
@@ -54,7 +60,7 @@
     [parameters setObject:value?value:0 forKey:VT_TRACKING_PAYMENT_AMOUNT];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
     [parameters setObject:token?token:@"-" forKey:VT_TRACKING_CC_TOKEN];
-    
+    parameters  = [parameters addDefaultParameter];
     NSDictionary *event = @{@"event":@"Track.app.tokenizer",
                             @"properties":parameters};
     

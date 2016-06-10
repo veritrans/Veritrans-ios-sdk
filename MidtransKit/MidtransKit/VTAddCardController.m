@@ -192,11 +192,7 @@
         return shouldChange;
         
     } else if ([textField isEqual:_cardCvv]) {
-        BOOL isAmexCreditCard = NO;
-        if ([VTCreditCardHelper typeFromString:[_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex) {
-            isAmexCreditCard = YES;
-        }
-        return [textField filterCvvNumber:string range:range isAmex:isAmexCreditCard];
+        return [textField filterCvvNumber:string range:range withCardNumber:_cardNumber.text];
     } else {
         return YES;
     }

@@ -7,6 +7,7 @@
 //
 
 #import "VTClassHelper.h"
+#import <MidtransCoreKit/VTCreditCardHelper.h>
 
 NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
 NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
@@ -104,17 +105,15 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
     return NO;
 }
 
-- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range isAmex:(BOOL)isAmex {
-    if ([string isNumeric] == NO) {
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber {
+    if ([self.text isNumeric] == NO)
         return NO;
-    }
+    
+    BOOL isAmex = [VTCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
+    NSInteger cvvLength = isAmex ? 4 : 3;
+    
     NSMutableString *mstring = self.text.mutableCopy;
     [mstring replaceCharactersInRange:range withString:string];
-    NSInteger cvvLength = 3;
-    
-    if (isAmex) {
-        cvvLength = 4;
-    }
     return [mstring length] <= cvvLength;
 }
 

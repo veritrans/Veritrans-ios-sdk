@@ -23,11 +23,9 @@
     return [myTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidCreditCardCVV:(BOOL)isAmex{
-    NSInteger cvvLegth = 3;
-    if (isAmex) {
-        cvvLegth = 4;
-    }
+- (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber {
+    BOOL isAmex = [VTCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
+    NSInteger cvvLegth = isAmex ? 4 : 3;    
     return [self isNumeric] && ([self length] == cvvLegth);
 }
 
@@ -44,10 +42,6 @@
 @implementation VTCreditCard (Validation)
 
 - (BOOL)isValidCreditCard:(NSError **)error {
-    BOOL isAmex = NO;
-    if ([VTCreditCardHelper typeFromString:[self.number stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex) {
-        isAmex = YES;
-    }
     if ([self.number isValidCreditCardNumber] == NO) {
         NSString *errorMessage = @"Card number is invalid";
         NSInteger numberInvalideCode = -20;
@@ -70,7 +64,7 @@
         return NO;
     }
     
-    if ([self.cvv isValidCreditCardCVV:isAmex] == NO) {
+    if ([self.cvv isValidCVVWithCreditCardNumber:self.number] == NO) {
         NSString *errorMessage = @"CVV is invalid";
         NSInteger cvvInvalidCode = -22;
         *error = [NSError errorWithDomain:ErrorDomain code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];

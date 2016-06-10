@@ -179,6 +179,7 @@
 		E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */; };
 		E59BD7431D05B288004AE009 /* Amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7411D05B288004AE009 /* Amex@2x.png */; };
 		E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */; };
+		E5B6151D1D0A9F0C009F40EF /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */; };
 		E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */; };
 		E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436451CE3290900F688ED /* VTPaymentController.h */; };
 		E5E436481CE3290900F688ED /* VTPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436461CE3290900F688ED /* VTPaymentController.m */; };
@@ -407,6 +408,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5B6151D1D0A9F0C009F40EF /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
 			);
@@ -1267,11 +1269,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include";
+				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
@@ -1288,11 +1291,12 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEAD_CODE_STRIPPING = NO;
+				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "$(OBJROOT)/UninstalledProducts/$(PLATFORM_NAME)/include";
+				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";

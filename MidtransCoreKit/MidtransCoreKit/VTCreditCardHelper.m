@@ -8,8 +8,12 @@
 
 #import "VTCreditCardHelper.h"
 #import "VTLuhn.h"
-#import "VTConstant.h"
 #import "VTHelper.h"
+
+#define VTVisaRegex         @"^4[0-9]{12}(?:[0-9]{3})?$"
+#define VTMasterCardRegex   @"^5[1-5][0-9]{14}$"
+#define VTJCBRegex          @"^(?:2131|1800|35\d{3})\d{11}$"
+#define VTAmexRegex         @"^3[47][0-9]{13}$"
 
 @implementation NSString (CreditCard)
 
@@ -19,8 +23,12 @@
     return [myTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidCreditCardCVV {
-    return [self isNumeric] && ([self length] == 3);
+- (BOOL)isValidCreditCardCVV:(BOOL)isAmex{
+    NSInteger cvvLegth = 3;
+    if (isAmex) {
+        cvvLegth = 4;
+    }
+    return [self isNumeric] && ([self length] == cvvLegth);
 }
 
 - (BOOL)isValidCreditCardExpiryDate {
@@ -36,8 +44,12 @@
 @implementation VTCreditCard (Validation)
 
 - (BOOL)isValidCreditCard:(NSError **)error {
+    BOOL isAmex = NO;
+    if ([VTCreditCardHelper typeFromString:[self.number stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex) {
+        isAmex = YES;
+    }
     if ([self.number isValidCreditCardNumber] == NO) {
-        NSString *errorMessage = VT_MESSAGE_CARD_INVALID;
+        NSString *errorMessage = @"Card number is invalid";
         NSInteger numberInvalideCode = -20;
         *error = [NSError errorWithDomain:ErrorDomain code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
@@ -45,21 +57,21 @@
     
     
     if ([self.expiryYear isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = VT_MESSAGE_EXPIRE_DATE_INVALID;
+        NSString *errorMessage = @"Expiry Year is invalid";
         NSInteger expiryDateInvalidCode = -21;
         *error = [NSError errorWithDomain:ErrorDomain code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.expiryMonth isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = VT_MESSAGE_EXPIRE_MONTH_INVALID;
+        NSString *errorMessage = @"Expiry Month is invalid";
         NSInteger expiryDateInvalidCode = -21;
         *error = [NSError errorWithDomain:ErrorDomain code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
-    if ([self.cvv isValidCreditCardCVV] == NO) {
-        NSString *errorMessage = VT_MESSAGE_CARD_CVV_INVALID;
+    if ([self.cvv isValidCreditCardCVV:isAmex] == NO) {
+        NSString *errorMessage = @"CVV is invalid";
         NSInteger cvvInvalidCode = -22;
         *error = [NSError errorWithDomain:ErrorDomain code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
@@ -72,7 +84,7 @@
 
 @implementation VTCreditCardHelper
 
-+ (VTCreditCardType) typeFromString:(NSString *) string {
++ (VTCreditCardType)typeFromString:(NSString *)string {
     NSString *formattedString = [string formattedStringForProcessing];
     NSArray *enums = @[@(VTCreditCardTypeVisa), @(VTCreditCardTypeMasterCard), @(VTCreditCardTypeJCB), @(VTCreditCardTypeAmex)];
     
@@ -92,32 +104,32 @@
 + (NSString *)nameFromString:(NSString *)string {
     switch ([self typeFromString:string]) {
         case VTCreditCardTypeAmex:
-            return CREDIT_CARD_TYPE_AMEX;
+            return @"Amex";
         case VTCreditCardTypeJCB:
-            return CREDIT_CARD_TYPE_JCB;
+            return @"JCB";
         case VTCreditCardTypeMasterCard:
-            return CREDIT_CARD_TYPE_MASTER_CARD;
+            return @"MasterCard";
         case VTCreditCardTypeVisa:
-            return CREDIT_CARD_TYPE_VISA;
+            return @"Visa";
         default:
             return @"";
     }
 }
 
-+ (NSPredicate *) predicateForType:(VTCreditCardType) type {
++ (NSPredicate *)predicateForType:(VTCreditCardType)type {
     NSString *regex = nil;
     switch (type) {
         case VTCreditCardTypeAmex:
-            regex = VT_AMEX_REGEX;
+            regex = @"^3[47][0-9]{5,}$";
             break;
         case VTCreditCardTypeJCB:
-            regex = VT_JCB_REGEX;
+            regex = @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$";
             break;
         case VTCreditCardTypeMasterCard:
-            regex = VT_MASTER_CARD_REGEX;
+            regex = @"^5[1-5][0-9]{5,}$";
             break;
         case VTCreditCardTypeVisa:
-            regex = VT_VISA_REGEX;
+            regex = @"^4[0-9]{6,}$";
             break;
         default:
             break;

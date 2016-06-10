@@ -40,7 +40,7 @@ extern NSString *const VTIndomaretIdentifier;
 
 @interface UITextField (helper)
 
-- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range ;
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range isAmex:(BOOL)isAmex;
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
 - (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range;
 

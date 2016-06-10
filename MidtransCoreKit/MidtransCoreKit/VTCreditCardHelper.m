@@ -23,8 +23,12 @@
     return [myTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidCreditCardCVV {
-    return [self isNumeric] && ([self length] == 3);
+- (BOOL)isValidCreditCardCVV:(BOOL)isAmex{
+    NSInteger cvvLegth = 3;
+    if (isAmex) {
+        cvvLegth = 4;
+    }
+    return [self isNumeric] && ([self length] == cvvLegth);
 }
 
 - (BOOL)isValidCreditCardExpiryDate {
@@ -40,6 +44,10 @@
 @implementation VTCreditCard (Validation)
 
 - (BOOL)isValidCreditCard:(NSError **)error {
+    BOOL isAmex = NO;
+    if ([VTCreditCardHelper typeFromString:[self.number stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex) {
+        isAmex = YES;
+    }
     if ([self.number isValidCreditCardNumber] == NO) {
         NSString *errorMessage = @"Card number is invalid";
         NSInteger numberInvalideCode = -20;
@@ -62,7 +70,7 @@
         return NO;
     }
     
-    if ([self.cvv isValidCreditCardCVV] == NO) {
+    if ([self.cvv isValidCreditCardCVV:isAmex] == NO) {
         NSString *errorMessage = @"CVV is invalid";
         NSInteger cvvInvalidCode = -22;
         *error = [NSError errorWithDomain:ErrorDomain code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
@@ -76,7 +84,7 @@
 
 @implementation VTCreditCardHelper
 
-+ (VTCreditCardType) typeFromString:(NSString *) string {
++ (VTCreditCardType)typeFromString:(NSString *)string {
     NSString *formattedString = [string formattedStringForProcessing];
     NSArray *enums = @[@(VTCreditCardTypeVisa), @(VTCreditCardTypeMasterCard), @(VTCreditCardTypeJCB), @(VTCreditCardTypeAmex)];
     
@@ -108,7 +116,7 @@
     }
 }
 
-+ (NSPredicate *) predicateForType:(VTCreditCardType) type {
++ (NSPredicate *)predicateForType:(VTCreditCardType)type {
     NSString *regex = nil;
     switch (type) {
         case VTCreditCardTypeAmex:

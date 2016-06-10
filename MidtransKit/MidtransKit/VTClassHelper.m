@@ -104,14 +104,18 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
     return NO;
 }
 
-- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range {
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range isAmex:(BOOL)isAmex {
     if ([string isNumeric] == NO) {
         return NO;
     }
-    
     NSMutableString *mstring = self.text.mutableCopy;
     [mstring replaceCharactersInRange:range withString:string];
-    return [mstring length] <= 3;
+    NSInteger cvvLength = 3;
+    
+    if (isAmex) {
+        cvvLength = 4;
+    }
+    return [mstring length] <= cvvLength;
 }
 
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {

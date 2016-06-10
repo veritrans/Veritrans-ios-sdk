@@ -130,7 +130,7 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isEqual:_cvvTextField]) {
-        return [textField filterCvvNumber:string range:range];
+        return [textField filterCvvNumber:string range:range isAmex:NO];
     } else {
         return YES;
     }

@@ -121,6 +121,12 @@
 		E503AEEF1C8EC69800F097FF /* tcash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEA1C8EC69800F097FF /* tcash@2x.png */; };
 		E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEB1C8EC69800F097FF /* xltunai@2x.png */; };
 		E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEF11C8EC81000F097FF /* indomaret@2x.png */; };
+		E50D85C61D0EC26F00F26D2E /* VTBCAKlikpayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50D85C51D0EC26F00F26D2E /* VTBCAKlikpayController.xib */; };
+		E50D85C81D0EC28900F26D2E /* klikpayGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85C71D0EC28900F26D2E /* klikpayGuide.plist */; };
+		E50D85CE1D0EC2E000F26D2E /* VTBCAKlikpayController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85CA1D0EC2E000F26D2E /* VTBCAKlikpayController.h */; };
+		E50D85CF1D0EC2E000F26D2E /* VTBCAKlikpayController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85CB1D0EC2E000F26D2E /* VTBCAKlikpayController.m */; };
+		E50D85D01D0EC2E000F26D2E /* VTKlikpayPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85CC1D0EC2E000F26D2E /* VTKlikpayPageController.h */; };
+		E50D85D11D0EC2E000F26D2E /* VTKlikpayPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85CD1D0EC2E000F26D2E /* VTKlikpayPageController.m */; };
 		E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E517C2B81C967284009AE6AA /* alertBackground@2x.png */; };
 		E517C2BC1C9672BA009AE6AA /* VTConfirmPaymentController.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2BA1C9672BA009AE6AA /* VTConfirmPaymentController.h */; };
 		E517C2BD1C9672BA009AE6AA /* VTConfirmPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2BB1C9672BA009AE6AA /* VTConfirmPaymentController.m */; };
@@ -316,6 +322,12 @@
 		E503AEEA1C8EC69800F097FF /* tcash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcash@2x.png"; sourceTree = "<group>"; };
 		E503AEEB1C8EC69800F097FF /* xltunai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xltunai@2x.png"; sourceTree = "<group>"; };
 		E503AEF11C8EC81000F097FF /* indomaret@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indomaret@2x.png"; sourceTree = "<group>"; };
+		E50D85C51D0EC26F00F26D2E /* VTBCAKlikpayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTBCAKlikpayController.xib; sourceTree = "<group>"; };
+		E50D85C71D0EC28900F26D2E /* klikpayGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = klikpayGuide.plist; sourceTree = "<group>"; };
+		E50D85CA1D0EC2E000F26D2E /* VTBCAKlikpayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBCAKlikpayController.h; sourceTree = "<group>"; };
+		E50D85CB1D0EC2E000F26D2E /* VTBCAKlikpayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTBCAKlikpayController.m; sourceTree = "<group>"; };
+		E50D85CC1D0EC2E000F26D2E /* VTKlikpayPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKlikpayPageController.h; sourceTree = "<group>"; };
+		E50D85CD1D0EC2E000F26D2E /* VTKlikpayPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTKlikpayPageController.m; sourceTree = "<group>"; };
 		E517C2B81C967284009AE6AA /* alertBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertBackground@2x.png"; sourceTree = "<group>"; };
 		E517C2BA1C9672BA009AE6AA /* VTConfirmPaymentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTConfirmPaymentController.h; sourceTree = "<group>"; };
 		E517C2BB1C9672BA009AE6AA /* VTConfirmPaymentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTConfirmPaymentController.m; sourceTree = "<group>"; };
@@ -551,6 +563,7 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E50D85C71D0EC28900F26D2E /* klikpayGuide.plist */,
 				30E7133E1C85AAE600AFB7B4 /* permataVaGuide.plist */,
 				309CC0D81C86A32000C058BE /* bcaVaGuide.plist */,
 				309CC0DB1C86A68F00C058BE /* mandiriVaGuide.plist */,
@@ -566,6 +579,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E50D85C51D0EC26F00F26D2E /* VTBCAKlikpayController.xib */,
 				E578DD1B1CFC3F250091760A /* VTPaymentListController.xib */,
 				E578DD2D1CFC406F0091760A /* VTPaymentListHeader.xib */,
 				E578DD2F1CFC407B0091760A /* VTPaymentListFooter.xib */,
@@ -716,6 +730,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				E50D85C91D0EC2BF00F26D2E /* Klikpay */,
 				309CC0E11C86B9E200C058BE /* Clicks */,
 				30E713121C857DFB00AFB7B4 /* Bank Transfer */,
 				30E713101C85749F00AFB7B4 /* Credit Card */,
@@ -758,6 +773,17 @@
 				E578DD2A1CFC40480091760A /* VTPaymentListFooter.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		E50D85C91D0EC2BF00F26D2E /* Klikpay */ = {
+			isa = PBXGroup;
+			children = (
+				E50D85CA1D0EC2E000F26D2E /* VTBCAKlikpayController.h */,
+				E50D85CB1D0EC2E000F26D2E /* VTBCAKlikpayController.m */,
+				E50D85CC1D0EC2E000F26D2E /* VTKlikpayPageController.h */,
+				E50D85CD1D0EC2E000F26D2E /* VTKlikpayPageController.m */,
+			);
+			name = Klikpay;
 			sourceTree = "<group>";
 		};
 		E517C2C41C967C5D009AE6AA /* Alerts */ = {
@@ -837,6 +863,7 @@
 				30E713351C85A6E800AFB7B4 /* VTPaymentGuideController.h in Headers */,
 				30E713191C85816B00AFB7B4 /* VTDetailedTitleController.h in Headers */,
 				30E713221C859D6100AFB7B4 /* MBXPageViewController_vt.h in Headers */,
+				E50D85D01D0EC2E000F26D2E /* VTKlikpayPageController.h in Headers */,
 				E502249E1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h in Headers */,
 				E578DD171CFC1BD50091760A /* VTToast.h in Headers */,
 				E5EF82731C8C0814007B6585 /* VTCCFrontView.h in Headers */,
@@ -844,6 +871,7 @@
 				E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */,
 				30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */,
 				30E713081C8564B300AFB7B4 /* VTClickpayHelpController.h in Headers */,
+				E50D85CE1D0EC2E000F26D2E /* VTBCAKlikpayController.h in Headers */,
 				30E7132B1C85A5FB00AFB7B4 /* VTVAGuideController.h in Headers */,
 				E578DD2B1CFC40480091760A /* VTPaymentListFooter.h in Headers */,
 				E578DD271CFC403D0091760A /* VTPaymentListHeader.h in Headers */,
@@ -977,6 +1005,7 @@
 				E578DD1C1CFC3F250091760A /* VTPaymentListController.xib in Resources */,
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
+				E50D85C81D0EC28900F26D2E /* klikpayGuide.plist in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
 				E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */,
 				E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */,
@@ -1014,6 +1043,7 @@
 				E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */,
 				E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */,
 				30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */,
+				E50D85C61D0EC26F00F26D2E /* VTBCAKlikpayController.xib in Resources */,
 				E503AEC61C8E85C500F097FF /* vamandiri@2x.png in Resources */,
 				E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */,
 				30E8798C1C894718000C0F4B /* BackBarIcon@2x.png in Resources */,
@@ -1087,7 +1117,9 @@
 				302BAA451C881FA200AE68CC /* VTCardCell.m in Sources */,
 				30E713041C855B6600AFB7B4 /* VTLabel.m in Sources */,
 				30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */,
+				E50D85CF1D0EC2E000F26D2E /* VTBCAKlikpayController.m in Sources */,
 				30E7133C1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */,
+				E50D85D11D0EC2E000F26D2E /* VTKlikpayPageController.m in Sources */,
 				E583AFEB1C8D5C1600C04512 /* VTPaymentStatusViewModel.m in Sources */,
 				E517C2BD1C9672BA009AE6AA /* VTConfirmPaymentController.m in Sources */,
 				30E7132C1C85A5FB00AFB7B4 /* VTVAGuideController.m in Sources */,

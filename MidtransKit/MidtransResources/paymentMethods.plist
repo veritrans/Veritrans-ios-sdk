@@ -26,16 +26,15 @@
         <key>id</key>
         <string>clicks</string>
     </dict>
+    <dict>
+        <key>title</key>
+        <string>KlikBCA</string>
+        <key>description</key>
+        <string>Pay with your KlikBCA account</string>
+        <key>id</key>
+        <string>klikbca</string>
+    </dict>
     
-    
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>KlikBCA</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay with your KlikBCA account</string>-->
-<!--        <key>id</key>-->
-<!--        <string>klikbca</string>-->
-<!--    </dict>-->
 <!--    <dict>-->
 <!--        <key>title</key>-->
 <!--        <string>BCA KlikPay</string>-->

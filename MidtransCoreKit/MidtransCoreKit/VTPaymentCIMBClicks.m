@@ -14,7 +14,7 @@
 
 @implementation VTPaymentCIMBClicks
 
-- (instancetype)initWithDescription:(NSString *)description {
+- (instancetype _Nonnull)initWithDescription:(NSString * _Nonnull)description {
     if (self = [super init]) {
         self.cimbClicksCescription = description;
     }

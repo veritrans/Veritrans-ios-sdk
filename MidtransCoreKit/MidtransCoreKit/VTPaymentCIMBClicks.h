@@ -10,5 +10,5 @@
 #import "VTPaymentDetails.h"
 
 @interface VTPaymentCIMBClicks : NSObject <VTPaymentDetails>
-- (instancetype)initWithDescription:(NSString *)description;
+- (instancetype _Nonnull)initWithDescription:(NSString * _Nonnull)description;
 @end

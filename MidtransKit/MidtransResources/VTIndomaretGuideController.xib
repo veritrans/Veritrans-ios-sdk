@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTIndomaretGuideController">
+            <connections>
+                <outlet property="helpView" destination="RbG-NS-rIl" id="VHf-JJ-Rcn"/>
+                <outlet property="view" destination="Neh-Ay-b1c" id="uIC-pu-SfY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Neh-Ay-b1c">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lDv-Ie-gBW">
+                    <rect key="frame" x="0.0" y="512" width="320" height="56"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="Z5E-IM-q2X"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <state key="normal" title="Ok, I Got it"/>
+                    <connections>
+                        <action selector="gotItPressed:" destination="-1" eventType="touchUpInside" id="2vs-3g-Za6"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="GRm-xo-5Op">
+                    <rect key="frame" x="297" y="533" width="8" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="8" id="90k-bu-mG1"/>
+                        <constraint firstAttribute="height" constant="13" id="Hbd-oX-fRD"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6G4-M1-oWd">
+                    <rect key="frame" x="0.0" y="511" width="320" height="1"/>
+                    <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="eIj-MM-0ld"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RbG-NS-rIl">
+                    <rect key="frame" x="0.0" y="72" width="320" height="439"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="6G4-M1-oWd" secondAttribute="trailing" id="5g7-DQ-gu3"/>
+                <constraint firstAttribute="trailing" secondItem="lDv-Ie-gBW" secondAttribute="trailing" id="8yu-Cz-d57"/>
+                <constraint firstItem="GRm-xo-5Op" firstAttribute="centerY" secondItem="lDv-Ie-gBW" secondAttribute="centerY" id="BI8-jS-NFN"/>
+                <constraint firstItem="RbG-NS-rIl" firstAttribute="leading" secondItem="Neh-Ay-b1c" secondAttribute="leading" id="EK8-Df-CTs"/>
+                <constraint firstItem="lDv-Ie-gBW" firstAttribute="leading" secondItem="Neh-Ay-b1c" secondAttribute="leading" id="UyU-jQ-amp"/>
+                <constraint firstAttribute="trailing" secondItem="RbG-NS-rIl" secondAttribute="trailing" id="X5Y-Pj-czO"/>
+                <constraint firstItem="GRm-xo-5Op" firstAttribute="trailing" secondItem="lDv-Ie-gBW" secondAttribute="trailing" constant="-15" id="ZZF-8c-Spg"/>
+                <constraint firstItem="RbG-NS-rIl" firstAttribute="top" secondItem="Neh-Ay-b1c" secondAttribute="top" constant="72" id="eSD-CW-Nql"/>
+                <constraint firstAttribute="bottom" secondItem="lDv-Ie-gBW" secondAttribute="bottom" id="hyr-hH-WcG"/>
+                <constraint firstItem="6G4-M1-oWd" firstAttribute="top" secondItem="RbG-NS-rIl" secondAttribute="bottom" id="oA3-Uo-Ter"/>
+                <constraint firstItem="6G4-M1-oWd" firstAttribute="leading" secondItem="Neh-Ay-b1c" secondAttribute="leading" id="veT-Ey-UNj"/>
+                <constraint firstItem="lDv-Ie-gBW" firstAttribute="top" secondItem="6G4-M1-oWd" secondAttribute="bottom" id="wwR-Lh-iZL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="DisclosureIndicator.png" width="8" height="13"/>
+    </resources>
+</document>

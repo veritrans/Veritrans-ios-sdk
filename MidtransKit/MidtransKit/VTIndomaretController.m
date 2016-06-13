@@ -37,6 +37,8 @@
                                                                             target:nil
                                                                             action:nil];
     
+    self.title = @"Pay at Indomaret";
+    
     _hudView = [[VTHudView alloc] init];
     
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_emailTextField]];

@@ -22,6 +22,7 @@ NSString *const VTKlikBCAIdentifier = @"klikbca";
 NSString *const VTKlikpayIdentifier = @"klikpay";
 NSString *const VTClickpayIdentifier = @"clickpay";
 NSString *const VTClicksIdentifier = @"clicks";
+NSString *const VTECashIdentifier = @"ecash";
 NSString *const VTEpayIdentifier = @"epay";
 NSString *const VTTelkomselIdentifier = @"tcash";
 NSString *const VTIndomaretIdentifier = @"indomaret";

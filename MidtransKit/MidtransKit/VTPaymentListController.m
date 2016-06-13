@@ -14,6 +14,8 @@
 #import "VTClickpayController.h"
 #import "VTVAController.h"
 #import "VTCIMBClicksController.h"
+#import "VTMandiriECashController.h"
+
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
 #import "VTPaymentListFooter.h"
@@ -97,7 +99,10 @@
     } else if ([identifier isEqualToString:VTClicksIdentifier]) {
         VTCIMBClicksController *vc = [[VTCIMBClicksController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
-    }
+    } else if ([identifier isEqualToString:VTECashIdentifier]) {
+        VTMandiriECashController *vc = [[VTMandiriECashController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        [self.navigationController pushViewController:vc animated:YES];
+    }    
 }
 
 /*

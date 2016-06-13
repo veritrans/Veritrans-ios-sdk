@@ -11,6 +11,7 @@
 #import "VTPaymentGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTHudView.h"
+#import "VTClicksPageController.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -58,7 +59,10 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [self handleTransactionSuccess:result];
+            NSURL *redirectURL = [NSURL URLWithString:result.additionalData[@"redirect_url"]];
+            VTClicksPageController *vc = [[VTClicksPageController alloc] initWithRedirectURL:redirectURL];
+            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+            [self presentViewController:nvc animated:YES completion:nil];
         }
     }];
 }

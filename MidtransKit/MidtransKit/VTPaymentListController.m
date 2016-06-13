@@ -13,7 +13,7 @@
 #import "VTCardListController.h"
 #import "VTClickpayController.h"
 #import "VTVAController.h"
-#import "VTClicksController.h"
+#import "VTCIMBClicksController.h"
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
 #import "VTPaymentListFooter.h"
@@ -93,6 +93,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([identifier isEqualToString:VTVAIdentifier]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([identifier isEqualToString:VTClicksIdentifier]) {
+        VTCIMBClicksController *vc = [[VTCIMBClicksController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

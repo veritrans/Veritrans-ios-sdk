@@ -18,6 +18,16 @@
         <key>id</key>
         <string>atm</string>
     </dict>
+    <dict>
+        <key>title</key>
+        <string>CIMB Clicks</string>
+        <key>description</key>
+        <string>Pay using CIMB Clicks account</string>
+        <key>id</key>
+        <string>clicks</string>
+    </dict>
+    
+    
 <!--    <dict>-->
 <!--        <key>title</key>-->
 <!--        <string>KlikBCA</string>-->
@@ -42,14 +52,7 @@
 <!--        <key>id</key>-->
 <!--        <string>clickpay</string>-->
 <!--    </dict>-->
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>CIMB Clicks</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay using CIMB Clicks account</string>-->
-<!--        <key>id</key>-->
-<!--        <string>clicks</string>-->
-<!--    </dict>-->
+
 <!--    <dict>-->
 <!--        <key>title</key>-->
 <!--        <string>e-Pay BRI</string>-->

@@ -31,5 +31,8 @@
 #import "VTCustomerDetails.h"
 #import "VTMandiriClickpay.h"
 #import "VTPaymentCIMBClicks.h"
+#import "VTPaymentBCAKlikpay.h"
+#import "VTPaymentMandiriECash.h"
+#import "VTPaymentCStore.h"
 
 #endif /* MidtransCoreKit_h */

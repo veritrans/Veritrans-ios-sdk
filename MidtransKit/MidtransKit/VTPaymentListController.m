@@ -11,12 +11,13 @@
 #import "VTListCell.h"
 #import "VTPaymentHeader.h"
 #import "VTCardListController.h"
-#import "VTClickpayController.h"
+#import "VTMandiriClickpayController.h"
 #import "VTVAController.h"
 #import "VTCIMBClicksController.h"
 #import "VTMandiriECashController.h"
 #import "VTBCAKlikpayController.h"
 #import "VTIndomaretController.h"
+#import "VTMandiriClickpayController.h"
 
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
@@ -109,6 +110,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([identifier isEqualToString:VTIndomaretIdentifier]) {
         VTIndomaretController *vc = [[VTIndomaretController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([identifier isEqualToString:VTClickpayIdentifier]) {
+        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

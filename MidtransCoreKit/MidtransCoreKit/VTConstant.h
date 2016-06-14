@@ -50,6 +50,8 @@ static NSString *const VT_TRACKING_PAYMENT_METHOD = @"payment_method";
 static NSString *const VT_TRACKING_PAYMENT_AMOUNT = @"amount";
 static NSString *const VT_TRACKING_PAYMENT_FEATURE = @"payment_feature";
 static NSString *const VT_TRACKING_SECURE_PROTOCOL = @"secure";
+
+static NSString *const VT_TRACKING_APP_TOKENIZER = @"track.app.tokenizer";
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "VTPaymentController.h"
 
-@interface VTClickpayController : VTPaymentController
+@interface VTMandiriClickpayController : VTPaymentController
 
 @end

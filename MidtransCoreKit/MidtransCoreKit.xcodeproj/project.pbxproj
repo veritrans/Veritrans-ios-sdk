@@ -44,6 +44,8 @@
 		E525E1221CFD402D009448A5 /* VTPrivateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1201CFD402D009448A5 /* VTPrivateConfig.m */; };
 		E5504E0C1D0E58BE00137655 /* VTPaymentCIMBClicks.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E0A1D0E58BE00137655 /* VTPaymentCIMBClicks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5504E0D1D0E58BE00137655 /* VTPaymentCIMBClicks.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E0B1D0E58BE00137655 /* VTPaymentCIMBClicks.m */; };
+		E5583DF01D0FB82F002B7FA1 /* VTPaymentEpayBRI.h in Headers */ = {isa = PBXBuildFile; fileRef = E5583DEE1D0FB82F002B7FA1 /* VTPaymentEpayBRI.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5583DF11D0FB82F002B7FA1 /* VTPaymentEpayBRI.m in Sources */ = {isa = PBXBuildFile; fileRef = E5583DEF1D0FB82F002B7FA1 /* VTPaymentEpayBRI.m */; };
 		E55DB9421C912ED300813B81 /* VTCustomerDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = E55DB9301C912ED300813B81 /* VTCustomerDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55DB9431C912ED300813B81 /* VTCustomerDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DB9311C912ED300813B81 /* VTCustomerDetails.m */; };
 		E55DB9461C912ED300813B81 /* VTPaymentBankTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = E55DB9341C912ED300813B81 /* VTPaymentBankTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -116,6 +118,8 @@
 		E525E1201CFD402D009448A5 /* VTPrivateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPrivateConfig.m; sourceTree = "<group>"; };
 		E5504E0A1D0E58BE00137655 /* VTPaymentCIMBClicks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentCIMBClicks.h; sourceTree = "<group>"; };
 		E5504E0B1D0E58BE00137655 /* VTPaymentCIMBClicks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentCIMBClicks.m; sourceTree = "<group>"; };
+		E5583DEE1D0FB82F002B7FA1 /* VTPaymentEpayBRI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentEpayBRI.h; sourceTree = "<group>"; };
+		E5583DEF1D0FB82F002B7FA1 /* VTPaymentEpayBRI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentEpayBRI.m; sourceTree = "<group>"; };
 		E55DB9301C912ED300813B81 /* VTCustomerDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerDetails.h; sourceTree = "<group>"; };
 		E55DB9311C912ED300813B81 /* VTCustomerDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCustomerDetails.m; sourceTree = "<group>"; };
 		E55DB9341C912ED300813B81 /* VTPaymentBankTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentBankTransfer.h; sourceTree = "<group>"; };
@@ -186,6 +190,8 @@
 			children = (
 				E50D85E31D0ECB7000F26D2E /* VTPaymentBCAKlikpay.h */,
 				E50D85E41D0ECB7000F26D2E /* VTPaymentBCAKlikpay.m */,
+				E5583DEE1D0FB82F002B7FA1 /* VTPaymentEpayBRI.h */,
+				E5583DEF1D0FB82F002B7FA1 /* VTPaymentEpayBRI.m */,
 				E50D85E51D0ECB7000F26D2E /* VTPaymentCStore.h */,
 				E50D85E61D0ECB7000F26D2E /* VTPaymentCStore.m */,
 				E50D85D21D0EC64E00F26D2E /* VTPaymentMandiriECash.h */,
@@ -320,6 +326,7 @@
 				E5504E0C1D0E58BE00137655 /* VTPaymentCIMBClicks.h in Headers */,
 				E50D85E91D0ECB7000F26D2E /* VTPaymentCStore.h in Headers */,
 				30D9ABFC1C76FD1D00F858AE /* VTNetworkOperation.h in Headers */,
+				E5583DF01D0FB82F002B7FA1 /* VTPaymentEpayBRI.h in Headers */,
 				E525E1211CFD402D009448A5 /* VTPrivateConfig.h in Headers */,
 				E5DACA921D034E7000F5BE0A /* VTLuhn.h in Headers */,
 				E55DB9421C912ED300813B81 /* VTCustomerDetails.h in Headers */,
@@ -426,6 +433,7 @@
 				E5E4362E1CE31DED00F688ED /* VTPaymentCreditCard.m in Sources */,
 				E525E1221CFD402D009448A5 /* VTPrivateConfig.m in Sources */,
 				30FDCC651C803AD200CEFED3 /* VTMandiriClickpay.m in Sources */,
+				E5583DF11D0FB82F002B7FA1 /* VTPaymentEpayBRI.m in Sources */,
 				E5E436161CE31C9C00F688ED /* VTMerchantClient.m in Sources */,
 				E5504E0D1D0E58BE00137655 /* VTPaymentCIMBClicks.m in Sources */,
 				E5E4360A1CE31ACE00F688ED /* VTTransactionDetails.m in Sources */,

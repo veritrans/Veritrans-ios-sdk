@@ -45,8 +45,10 @@
     
     // Fill-in mandatory fields.
     [result setValue:[self.transactionDetails dictionaryValue] forKey:@"transaction_details"];
-    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];
-    [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
+    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];    
+    if ([self.paymentDetails dictionaryValue]) {
+        [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
+    }
     
     // Fill-in optional fields.
     if (self.customerDetails) {

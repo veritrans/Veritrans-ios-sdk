@@ -172,6 +172,12 @@
 		E5504E131D0E5D4800137655 /* VTCIMBClicksController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5504E101D0E5B7B00137655 /* VTCIMBClicksController.xib */; };
 		E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */; };
 		E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */; };
+		E5583DE41D0FB58B002B7FA1 /* epayGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5583DE31D0FB58B002B7FA1 /* epayGuide.plist */; };
+		E5583DE81D0FB752002B7FA1 /* VTEpayBRIController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5583DE71D0FB752002B7FA1 /* VTEpayBRIController.xib */; };
+		E5583DEC1D0FB77B002B7FA1 /* VTEpayBRIController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5583DEA1D0FB77B002B7FA1 /* VTEpayBRIController.h */; };
+		E5583DED1D0FB77B002B7FA1 /* VTEpayBRIController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5583DEB1D0FB77B002B7FA1 /* VTEpayBRIController.m */; };
+		E5583DF41D0FBA12002B7FA1 /* VTEpayPageController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5583DF21D0FBA12002B7FA1 /* VTEpayPageController.h */; };
+		E5583DF51D0FBA12002B7FA1 /* VTEpayPageController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5583DF31D0FBA12002B7FA1 /* VTEpayPageController.m */; };
 		E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */; };
 		E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */; };
 		E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */; };
@@ -399,6 +405,12 @@
 		E5504E101D0E5B7B00137655 /* VTCIMBClicksController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VTCIMBClicksController.xib; sourceTree = "<group>"; };
 		E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HeaderSubtitle.h"; sourceTree = "<group>"; };
 		E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HeaderSubtitle.m"; sourceTree = "<group>"; };
+		E5583DE31D0FB58B002B7FA1 /* epayGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = epayGuide.plist; sourceTree = "<group>"; };
+		E5583DE71D0FB752002B7FA1 /* VTEpayBRIController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTEpayBRIController.xib; sourceTree = "<group>"; };
+		E5583DEA1D0FB77B002B7FA1 /* VTEpayBRIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEpayBRIController.h; sourceTree = "<group>"; };
+		E5583DEB1D0FB77B002B7FA1 /* VTEpayBRIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTEpayBRIController.m; sourceTree = "<group>"; };
+		E5583DF21D0FBA12002B7FA1 /* VTEpayPageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEpayPageController.h; sourceTree = "<group>"; };
+		E5583DF31D0FBA12002B7FA1 /* VTEpayPageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTEpayPageController.m; sourceTree = "<group>"; };
 		E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVASuccessStatusController.h; sourceTree = "<group>"; };
 		E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVASuccessStatusController.m; sourceTree = "<group>"; };
 		E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTVASuccessStatusController.xib; path = ../MidtransKit/VTVASuccessStatusController.xib; sourceTree = "<group>"; };
@@ -596,6 +608,7 @@
 			isa = PBXGroup;
 			children = (
 				E50D85F31D0ECB9C00F26D2E /* indomaretGuide.plist */,
+				E5583DE31D0FB58B002B7FA1 /* epayGuide.plist */,
 				E50D85F41D0ECB9C00F26D2E /* klikpayGuide.plist */,
 				E50D85E11D0EC93400F26D2E /* ecashGuide.plist */,
 				30E7133E1C85AAE600AFB7B4 /* permataVaGuide.plist */,
@@ -614,6 +627,7 @@
 			isa = PBXGroup;
 			children = (
 				E50D85EB1D0ECB9000F26D2E /* VTBCAKlikpayController.xib */,
+				E5583DE71D0FB752002B7FA1 /* VTEpayBRIController.xib */,
 				E50D85EC1D0ECB9000F26D2E /* VTIndomaretController.xib */,
 				E50D85ED1D0ECB9000F26D2E /* VTIndomaretGuideController.xib */,
 				E50D85EE1D0ECB9000F26D2E /* VTIndomaretSuccessController.xib */,
@@ -770,6 +784,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				E5583DE91D0FB761002B7FA1 /* EPay */,
 				E50D860C1D0ECBD600F26D2E /* Klikpay */,
 				E50D860B1D0ECBCD00F26D2E /* Indomaret */,
 				E50D85D61D0EC89300F26D2E /* ECash */,
@@ -872,6 +887,17 @@
 			name = Animators;
 			sourceTree = "<group>";
 		};
+		E5583DE91D0FB761002B7FA1 /* EPay */ = {
+			isa = PBXGroup;
+			children = (
+				E5583DEA1D0FB77B002B7FA1 /* VTEpayBRIController.h */,
+				E5583DEB1D0FB77B002B7FA1 /* VTEpayBRIController.m */,
+				E5583DF21D0FBA12002B7FA1 /* VTEpayPageController.h */,
+				E5583DF31D0FBA12002B7FA1 /* VTEpayPageController.m */,
+			);
+			name = EPay;
+			sourceTree = "<group>";
+		};
 		E578DD071CFBF6480091760A /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -951,12 +977,14 @@
 				30BB9C811C7DA6410012BB2A /* VTTextField.h in Headers */,
 				E50D85DD1D0EC8DA00F26D2E /* VTClicksPageController.h in Headers */,
 				3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */,
+				E5583DEC1D0FB77B002B7FA1 /* VTEpayBRIController.h in Headers */,
 				E583AFF51C8D6DD300C04512 /* VTSuccessStatusController.h in Headers */,
 				30E7130D1C856B0D00AFB7B4 /* VTRoundedLabel.h in Headers */,
 				306838721C7EDA0A0064A305 /* VTPaymentHeader.h in Headers */,
 				E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */,
 				E503AED81C8E8AF800F097FF /* VTListCell.h in Headers */,
 				E517C2BC1C9672BA009AE6AA /* VTConfirmPaymentController.h in Headers */,
+				E5583DF41D0FBA12002B7FA1 /* VTEpayPageController.h in Headers */,
 				E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
 				30E713031C855B6600AFB7B4 /* VTLabel.h in Headers */,
@@ -1077,6 +1105,7 @@
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
+				E5583DE81D0FB752002B7FA1 /* VTEpayBRIController.xib in Resources */,
 				E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */,
 				E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */,
 				E503AEEC1C8EC69800F097FF /* bbm@2x.png in Resources */,
@@ -1098,6 +1127,7 @@
 				E59BD7431D05B288004AE009 /* Amex@2x.png in Resources */,
 				E503AEE61C8EC50E00F097FF /* klikpay@2x.png in Resources */,
 				E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */,
+				E5583DE41D0FB58B002B7FA1 /* epayGuide.plist in Resources */,
 				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,
 				30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */,
 				309CC0F31C86C72200C058BE /* MasterCard@2x.png in Resources */,
@@ -1176,6 +1206,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5583DED1D0FB77B002B7FA1 /* VTEpayBRIController.m in Sources */,
 				E546D1D91CEAC91D00D65252 /* VTKeyboardAccessoryView.m in Sources */,
 				E517C2C21C9673B4009AE6AA /* VTAlertBackgroundView.m in Sources */,
 				E578DD2C1CFC40480091760A /* VTPaymentListFooter.m in Sources */,
@@ -1214,6 +1245,7 @@
 				E578DD181CFC1BD50091760A /* VTToast.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,
 				E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */,
+				E5583DF51D0FBA12002B7FA1 /* VTEpayPageController.m in Sources */,
 				E50D86041D0ECBC500F26D2E /* VTIndomaretController.m in Sources */,
 				E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */,
 				E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */,

@@ -17,6 +17,7 @@
 #import "VTMandiriECashController.h"
 #import "VTBCAKlikpayController.h"
 #import "VTIndomaretController.h"
+#import "VTEpayBRIController.h"
 
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
@@ -109,6 +110,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([identifier isEqualToString:VTIndomaretIdentifier]) {
         VTIndomaretController *vc = [[VTIndomaretController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([identifier isEqualToString:VTEpayIdentifier]) {
+        VTEpayBRIController *vc = [[VTEpayBRIController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

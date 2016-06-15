@@ -17,6 +17,7 @@
 #import "VTKeyboardAccessoryView.h"
 #import "UIViewController+Modal.h"
 #import "VTHudView.h"
+#import "VTCardControllerConfig.h"
 
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
@@ -120,33 +122,41 @@
     NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
+    NSString *expYear = dates.count == 2 ? dates[1] : nil;
     
-    NSString *expYear;
-    if (dates.count == 2) {
-        expYear = dates[1];
-        NSDateFormatter *df = [[NSDateFormatter alloc] init];
-        df.dateFormat = @"yyyy";
-        NSString *currentYear = [df stringFromDate:[NSDate date]];
-        expYear = [[currentYear substringToIndex:currentYear.length-2] stringByAppendingString:expYear];
-    }    
+    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber
+                                                        expiryMonth:expMonth
+                                                         expiryYear:expYear
+                                                                cvv:_cardCvv.text];
     
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text];
+    NSError *error = nil;
+    if ([creditCard isValidCreditCard:&error] == NO) {
+        [self handleRegisterCreditCardError:error];
+        return;
+    }
     
-    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
-        [_hudView hide];
-        
+    BOOL enable3Ds = [[VTCardControllerConfig sharedInstance] enable3DSecure];
+    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
+                                                                        grossAmount:self.transactionDetails.grossAmount
+                                                                             secure:enable3Ds];
+    
+    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
         if (error) {
-            [self handleRegisterCreditCardError:error];
+            [self handleTransactionError:error];
         } else {
-            [[VTMerchantClient sharedClient] saveRegisteredCard:maskedCreditCard completion:^(id result, NSError *error) {
-                if (error) {
-                    
-                } else {
-                    if ([self.delegate respondsToSelector:@selector(viewController:didRegisterCard:)]) {
-                        [self.delegate viewController:self didRegisterCard:maskedCreditCard];
+            if (redirectURL) {
+                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
+                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
+                [secureController showWithCompletion:^(NSError *error) {
+                    if (error) {
+                        [self handleTransactionError:error];
+                    } else {
+                        [self payWithToken:token];
                     }
-                }
-            }];
+                }];
+            } else {
+                [self payWithToken:token];
+            }
         }
     }];
 }
@@ -196,6 +206,23 @@
     } else {
         return YES;
     }
+}
+
+#pragma mark - Helper
+
+- (void)payWithToken:(NSString *)token {
+    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
+    paymentDetail.saveToken = _saveCardSwitch.on;
+    
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    
+    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
 }
 
 @end

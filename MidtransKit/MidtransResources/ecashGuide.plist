@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<!--
+   ecashGuide.plist
+   MidtransKit
+
+   Created by Nanang Rafsanjani on 6/13/16.
+   Copyright (c) 2016 Veritrans. All rights reserved.
+-->
+<plist version="1.0">
+    <array>
+        <string>Make sure you have registered your mobile phone number for Mandiri e-Cash</string>
+        <string>Tap 'Confirm Payment'</string>
+        <string>Enter your phone number and PIN</string>
+        <string>Please wait for an SMS from Mandiri e-Cash that contains your One Time Password (OTP)</string>
+        <string>Enter the 6 digit OTP, then click ‘Confirm Payment’ to make payment</string>
+        <string>If you haven’t received the OTP or the OTP has expired, tap ‘back’ and retry your transaction</string>
+    </array>
+</plist>

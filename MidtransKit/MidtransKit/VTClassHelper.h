@@ -25,6 +25,7 @@ extern NSString *const VTKlikBCAIdentifier;
 extern NSString *const VTKlikpayIdentifier;
 extern NSString *const VTClickpayIdentifier;
 extern NSString *const VTClicksIdentifier;
+extern NSString *const VTECashIdentifier;
 extern NSString *const VTEpayIdentifier;
 extern NSString *const VTTelkomselIdentifier;
 extern NSString *const VTIndomaretIdentifier;

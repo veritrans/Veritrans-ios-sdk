@@ -29,13 +29,23 @@
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    [headers addEntriesFromDictionary:[CONFIG merchantClientData]];    
+    [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
     
     [[VTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         if (response) {
-            VTTransactionResult *result = [[VTTransactionResult alloc] initWithTransactionResponse:response];
-            if (completion) completion(result, error);
+            VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
+            
+            BOOL isSavedToken = response[@"saved_token_id"] != nil;
+            
+            if (isSavedToken) {
+                VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
+                [self saveRegisteredCard:savedCard completion:^(id result, NSError *error) {
+                    if (completion) completion(chargeResult, error);
+                }];
+            } else {
+                if (completion) completion(chargeResult, error);
+            }
         } else {
             if (completion) completion(nil, error);
         }

@@ -31,6 +31,9 @@
     BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
     [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
     
+    BOOL enable3ds = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_3ds"] boolValue];
+    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:enable3ds];
+    
     return YES;
 }
 

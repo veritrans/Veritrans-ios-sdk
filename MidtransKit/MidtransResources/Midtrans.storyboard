@@ -1165,8 +1165,8 @@ be used for every transactions.</string>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0RN-JU-EOS" userLabel="New Card View" customClass="VTBorderedView">
                                         <rect key="frame" x="15" y="269" width="290" height="35"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFM-6n-XfQ">
-                                                <rect key="frame" x="0.0" y="10" width="106" height="17"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay with new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFM-6n-XfQ">
+                                                <rect key="frame" x="0.0" y="10" width="138.5" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1297,7 +1297,7 @@ be used for every transactions.</string>
                                     <constraint firstAttribute="height" constant="50" id="Fjk-En-IEC"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="Add New Card"/>
+                                <state key="normal" title="Pay With New Card"/>
                                 <connections>
                                     <action selector="addCardPressed:" destination="nMQ-US-4wv" eventType="touchUpInside" id="Hjk-Eq-4kz"/>
                                 </connections>
@@ -1485,10 +1485,10 @@ be used for every transactions.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nvf-5m-Qzj">
-                                <rect key="frame" x="0.0" y="8" width="320" height="560"/>
+                                <rect key="frame" x="0.0" y="8" width="320" height="460"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDp-Im-pnw">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="509"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fvb-nA-fBv" customClass="VTCCFrontView">
                                                 <rect key="frame" x="0.0" y="10" width="320" height="200"/>
@@ -1558,20 +1558,20 @@ be used for every transactions.</string>
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to ease your transactions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="OXb-fd-uxo">
-                                                <rect key="frame" x="15" y="331" width="290" height="32"/>
+                                                <rect key="frame" x="15" y="384" width="290" height="32"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                 <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padlock1.png" translatesAutoresizingMaskIntoConstraints="NO" id="VQk-IM-wd4">
-                                                <rect key="frame" x="15" y="388" width="42" height="51"/>
+                                                <rect key="frame" x="15" y="441" width="42" height="51"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="51" id="kWc-Ve-92F"/>
                                                     <constraint firstAttribute="width" constant="42" id="pt0-UQ-HhX"/>
                                                 </constraints>
                                             </imageView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y3F-da-6Ce">
-                                                <rect key="frame" x="72" y="392" width="233" height="44"/>
+                                                <rect key="frame" x="72" y="445" width="233" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="cPv-Pp-xzc">
                                                         <rect key="frame" x="0.0" y="0.0" width="233" height="12"/>
@@ -1597,70 +1597,65 @@ be used for every transactions.</string>
                                                     <constraint firstAttribute="bottom" secondItem="2eO-D0-LvQ" secondAttribute="bottom" id="oZo-zs-CLJ"/>
                                                 </constraints>
                                             </view>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hvj-up-n3q">
-                                                <rect key="frame" x="0.0" y="464" width="320" height="45"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pHI-P1-SQL" customClass="VTBorderedView">
+                                                <rect key="frame" x="16" y="331" width="288" height="45"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40s-W7-f3j">
-                                                        <rect key="frame" x="0.0" y="1" width="320" height="44"/>
-                                                        <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbU-Fx-Knd">
-                                                                <rect key="frame" x="15" y="14" width="81" height="16"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                                                <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awl-F6-zcY">
-                                                                <rect key="frame" x="294" y="12" width="11" height="21"/>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                        <constraints>
-                                                            <constraint firstItem="EbU-Fx-Knd" firstAttribute="centerY" secondItem="40s-W7-f3j" secondAttribute="centerY" id="XgP-OP-i4u"/>
-                                                            <constraint firstAttribute="trailing" secondItem="awl-F6-zcY" secondAttribute="trailing" constant="15" id="oPx-o0-2M4"/>
-                                                            <constraint firstItem="EbU-Fx-Knd" firstAttribute="leading" secondItem="40s-W7-f3j" secondAttribute="leading" constant="15" id="q5x-eW-hE1"/>
-                                                            <constraint firstItem="awl-F6-zcY" firstAttribute="centerY" secondItem="40s-W7-f3j" secondAttribute="centerY" id="rPc-nO-fw9"/>
-                                                        </constraints>
-                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57r-4c-7k4">
+                                                        <rect key="frame" x="0.0" y="12" width="162.5" height="20.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GHx-IB-R0d">
+                                                        <rect key="frame" x="237" y="7" width="51" height="31"/>
+                                                    </switch>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="40s-W7-f3j" firstAttribute="top" secondItem="hvj-up-n3q" secondAttribute="top" constant="1" id="1OQ-Jp-z3F"/>
-                                                    <constraint firstItem="40s-W7-f3j" firstAttribute="leading" secondItem="hvj-up-n3q" secondAttribute="leading" id="1vY-KH-Hte"/>
-                                                    <constraint firstAttribute="trailing" secondItem="40s-W7-f3j" secondAttribute="trailing" id="75C-xu-vZV"/>
-                                                    <constraint firstAttribute="height" constant="45" id="Q99-pc-G0i"/>
-                                                    <constraint firstAttribute="bottom" secondItem="40s-W7-f3j" secondAttribute="bottom" id="SDe-y9-OEA"/>
+                                                    <constraint firstAttribute="height" constant="45" id="99N-kb-pgM"/>
+                                                    <constraint firstItem="GHx-IB-R0d" firstAttribute="centerY" secondItem="57r-4c-7k4" secondAttribute="centerY" id="QbE-xM-k0K"/>
+                                                    <constraint firstItem="57r-4c-7k4" firstAttribute="centerY" secondItem="pHI-P1-SQL" secondAttribute="centerY" id="Xgi-Ls-LjN"/>
+                                                    <constraint firstItem="57r-4c-7k4" firstAttribute="leading" secondItem="pHI-P1-SQL" secondAttribute="leading" id="fde-8m-LC7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="GHx-IB-R0d" secondAttribute="trailing" constant="2" id="oxU-Mf-ZkC"/>
                                                 </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                                                        <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
+                                                </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
                                             <constraint firstItem="OXb-fd-uxo" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" constant="15" id="6R8-Qe-V7T"/>
+                                            <constraint firstItem="pHI-P1-SQL" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" constant="16" id="8Tg-RV-iJ9"/>
                                             <constraint firstItem="7gk-kx-ISN" firstAttribute="leading" secondItem="nS6-Y8-oAj" secondAttribute="leading" id="N7S-ff-PdO"/>
                                             <constraint firstItem="PI3-3S-vSa" firstAttribute="leading" secondItem="7gk-kx-ISN" secondAttribute="trailing" constant="15" id="PcQ-dR-Gd8"/>
                                             <constraint firstAttribute="trailing" secondItem="nS6-Y8-oAj" secondAttribute="trailing" constant="15" id="Q1c-5m-vvY"/>
                                             <constraint firstAttribute="trailing" secondItem="Fvb-nA-fBv" secondAttribute="trailing" id="TYQ-ok-tVy"/>
                                             <constraint firstItem="VQk-IM-wd4" firstAttribute="top" secondItem="OXb-fd-uxo" secondAttribute="bottom" constant="25" id="Uaw-Cs-mnV"/>
+                                            <constraint firstItem="pHI-P1-SQL" firstAttribute="top" secondItem="PI3-3S-vSa" secondAttribute="bottom" constant="8" id="VXE-9r-JvU"/>
                                             <constraint firstItem="nsZ-iw-JGd" firstAttribute="centerY" secondItem="PI3-3S-vSa" secondAttribute="centerY" constant="-5" id="XMa-YB-Nb4"/>
                                             <constraint firstItem="PI3-3S-vSa" firstAttribute="trailing" secondItem="nS6-Y8-oAj" secondAttribute="trailing" id="XUK-7Z-ePm"/>
                                             <constraint firstItem="Fvb-nA-fBv" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" id="YZr-Ip-Het"/>
-                                            <constraint firstItem="hvj-up-n3q" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" id="Ymk-nL-fAU"/>
                                             <constraint firstItem="VQk-IM-wd4" firstAttribute="leading" secondItem="OXb-fd-uxo" secondAttribute="leading" id="cgm-S1-VGQ"/>
                                             <constraint firstItem="Fvb-nA-fBv" firstAttribute="top" secondItem="RDp-Im-pnw" secondAttribute="top" constant="10" id="cgv-g8-aPP"/>
-                                            <constraint firstItem="hvj-up-n3q" firstAttribute="top" secondItem="VQk-IM-wd4" secondAttribute="bottom" constant="25" id="dYS-uW-teV"/>
-                                            <constraint firstAttribute="trailing" secondItem="hvj-up-n3q" secondAttribute="trailing" id="edL-7z-N67"/>
                                             <constraint firstItem="PI3-3S-vSa" firstAttribute="centerY" secondItem="7gk-kx-ISN" secondAttribute="centerY" id="g8s-ah-Uhx"/>
                                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="leading" secondItem="RDp-Im-pnw" secondAttribute="leading" constant="15" id="hg0-cn-1eK"/>
                                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="centerY" secondItem="VQk-IM-wd4" secondAttribute="centerY" id="i70-D8-cIe"/>
                                             <constraint firstItem="7gk-kx-ISN" firstAttribute="top" secondItem="nS6-Y8-oAj" secondAttribute="bottom" constant="5" id="ngg-Ii-7ls"/>
                                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="trailing" secondItem="OXb-fd-uxo" secondAttribute="trailing" id="o92-JD-Eco"/>
                                             <constraint firstAttribute="trailing" secondItem="OXb-fd-uxo" secondAttribute="trailing" constant="15" id="pfS-gh-2LN"/>
+                                            <constraint firstAttribute="trailing" secondItem="pHI-P1-SQL" secondAttribute="trailing" constant="16" id="qg5-Yh-5aJ"/>
                                             <constraint firstItem="Y3F-da-6Ce" firstAttribute="leading" secondItem="VQk-IM-wd4" secondAttribute="trailing" constant="15" id="tYJ-PW-cIR"/>
-                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="top" secondItem="PI3-3S-vSa" secondAttribute="bottom" constant="8" id="v8U-nh-8nP"/>
+                                            <constraint firstAttribute="bottom" secondItem="VQk-IM-wd4" secondAttribute="bottom" constant="8" id="u6e-qT-W5D"/>
                                             <constraint firstItem="nsZ-iw-JGd" firstAttribute="trailing" secondItem="PI3-3S-vSa" secondAttribute="trailing" id="vXP-yF-Ju8"/>
                                             <constraint firstItem="nS6-Y8-oAj" firstAttribute="top" secondItem="Fvb-nA-fBv" secondAttribute="bottom" constant="8" id="wQj-B1-Ses"/>
-                                            <constraint firstAttribute="bottom" secondItem="hvj-up-n3q" secondAttribute="bottom" id="z0h-9X-Cyr"/>
+                                            <constraint firstItem="OXb-fd-uxo" firstAttribute="top" secondItem="pHI-P1-SQL" secondAttribute="bottom" constant="8" id="xYQ-es-b9F"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1679,7 +1674,7 @@ be used for every transactions.</string>
                                     <constraint firstAttribute="height" constant="56" id="7rf-GI-pig"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
-                                <state key="normal" title="Register Card"/>
+                                <state key="normal" title="Finish Payment"/>
                                 <connections>
                                     <action selector="registerPressed:" destination="SFx-Ox-ybq" eventType="touchUpInside" id="Ssd-YL-Gzq"/>
                                 </connections>
@@ -1691,16 +1686,52 @@ be used for every transactions.</string>
                                     <constraint firstAttribute="width" constant="8" id="yop-E1-ufy"/>
                                 </constraints>
                             </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="40s-W7-f3j" customClass="VTBorderedView">
+                                <rect key="frame" x="0.0" y="468" width="320" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EbU-Fx-Knd">
+                                        <rect key="frame" x="15" y="14" width="81" height="16"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                        <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awl-F6-zcY">
+                                        <rect key="frame" x="294" y="12" width="11" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="EbU-Fx-Knd" firstAttribute="centerY" secondItem="40s-W7-f3j" secondAttribute="centerY" id="XgP-OP-i4u"/>
+                                    <constraint firstAttribute="trailing" secondItem="awl-F6-zcY" secondAttribute="trailing" constant="15" id="oPx-o0-2M4"/>
+                                    <constraint firstItem="EbU-Fx-Knd" firstAttribute="leading" secondItem="40s-W7-f3j" secondAttribute="leading" constant="15" id="q5x-eW-hE1"/>
+                                    <constraint firstItem="awl-F6-zcY" firstAttribute="centerY" secondItem="40s-W7-f3j" secondAttribute="centerY" id="rPc-nO-fw9"/>
+                                    <constraint firstAttribute="height" constant="44" id="y0L-6z-uyN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                                        <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                                        <integer key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="xYW-g2-Kyj" firstAttribute="trailing" secondItem="POY-qf-2Pj" secondAttribute="trailing" constant="-15" id="4G7-iA-XjM"/>
-                            <constraint firstItem="R9p-Lf-W2T" firstAttribute="top" secondItem="nvf-5m-Qzj" secondAttribute="bottom" id="LKr-g0-Emj"/>
                             <constraint firstAttribute="trailing" secondItem="POY-qf-2Pj" secondAttribute="trailing" id="OI1-j8-pzt"/>
                             <constraint firstItem="xYW-g2-Kyj" firstAttribute="centerY" secondItem="POY-qf-2Pj" secondAttribute="centerY" id="PqQ-H4-23Q"/>
                             <constraint firstAttribute="trailing" secondItem="nvf-5m-Qzj" secondAttribute="trailing" id="Psk-GQ-S5n"/>
+                            <constraint firstItem="40s-W7-f3j" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="aon-XM-UP8"/>
                             <constraint firstItem="nvf-5m-Qzj" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="bPG-5B-2iS"/>
+                            <constraint firstItem="POY-qf-2Pj" firstAttribute="top" secondItem="40s-W7-f3j" secondAttribute="bottom" id="co8-wz-Bxk"/>
+                            <constraint firstItem="40s-W7-f3j" firstAttribute="top" secondItem="nvf-5m-Qzj" secondAttribute="bottom" id="eHx-1Z-wu6"/>
                             <constraint firstItem="nvf-5m-Qzj" firstAttribute="top" secondItem="5qs-Td-Kqh" secondAttribute="top" constant="8" id="fb1-ah-FUp"/>
+                            <constraint firstAttribute="trailing" secondItem="40s-W7-f3j" secondAttribute="trailing" id="fcT-UO-yFw"/>
                             <constraint firstItem="R9p-Lf-W2T" firstAttribute="top" secondItem="POY-qf-2Pj" secondAttribute="bottom" id="fyx-lx-ft6"/>
                             <constraint firstItem="POY-qf-2Pj" firstAttribute="leading" secondItem="5qs-Td-Kqh" secondAttribute="leading" id="mTI-VT-4WT"/>
                         </constraints>
@@ -1713,6 +1744,7 @@ be used for every transactions.</string>
                         <outlet property="cardFrontView" destination="Fvb-nA-fBv" id="3Cg-72-2GO"/>
                         <outlet property="cardNumber" destination="nS6-Y8-oAj" id="3uL-T1-Mt8"/>
                         <outlet property="fieldScrollView" destination="nvf-5m-Qzj" id="HeA-95-B4C"/>
+                        <outlet property="saveCardSwitch" destination="GHx-IB-R0d" id="m6a-8j-tmG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zc0-oi-mdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1797,7 +1829,7 @@ be used for every transactions.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qLc-Cr-X21" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="-126"/>
+            <point key="canvasLocation" x="1456" y="-165"/>
         </scene>
         <!--Success Status Controller-->
         <scene sceneID="jTh-zC-hGN">
@@ -2284,7 +2316,7 @@ be used for every transactions.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4fO-Vf-JPj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1418" y="231"/>
+            <point key="canvasLocation" x="1456" y="207"/>
         </scene>
     </scenes>
     <resources>

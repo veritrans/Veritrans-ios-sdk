@@ -43,7 +43,8 @@
     
     [self.navigationItem setTitleView:headerView];
     
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"          " style:UIBarButtonItemStylePlain target:nil action:nil]];
+    NSString *spacesToCenterTheTitle = @"          ";
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:spacesToCenterTheTitle style:UIBarButtonItemStylePlain target:nil action:nil]];
     
     self.navigationItem.titleView.frame = CGRectMake(0, 20, 500, 44);
 }

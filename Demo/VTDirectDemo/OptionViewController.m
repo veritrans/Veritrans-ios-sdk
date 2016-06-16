@@ -16,8 +16,8 @@
 
 @interface OptionViewController ()
 
-@property (strong, nonatomic) IBOutlet UISegmentedControl *cardOptionsSegment;
-
+@property (nonatomic) IBOutlet UISwitch *oneClickSwitch;
+@property (nonatomic) IBOutlet UISwitch *secureSwitch;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -49,11 +49,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
-        _cardOptionsSegment.selectedSegmentIndex = 0;
-    } else {
-        _cardOptionsSegment.selectedSegmentIndex = 1;
-    }
+    [_oneClickSwitch setOn:[[VTCardControllerConfig sharedInstance] enableOneClick]];
+    [_secureSwitch setOn:[[VTCardControllerConfig sharedInstance] enable3DSecure]];
     
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
@@ -120,22 +117,14 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)cardOptionsChanged:(UISegmentedControl *)sender {
-    BOOL enableOneclick = sender.selectedSegmentIndex == 0;
-    
-    [[NSUserDefaults standardUserDefaults] setObject:@(enableOneclick) forKey:@"enable_oneclick"];
-    
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
+- (IBAction)oneClickSwitchChanged:(UISwitch *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_oneclick"];
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:sender.on];
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (IBAction)secureSwitchChanged:(UISwitch *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_3ds"];
+    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:sender.on];
+}
 
 @end

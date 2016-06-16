@@ -29,12 +29,12 @@
     NSString *typeString;
     switch (_type) {
         case VTVATypeMandiri:
-            typeString = @"echannel";
+            typeString = VT_PAYMENT_ECHANNEL;
             break;
         case VTVATypeBCA:
         case VTVATypePermata:
         case VTVATypeOther:
-            typeString = @"bank_transfer";
+            typeString = VT_PAYMENT_BANK_TRANSFER;
             break;
     }
     return typeString;

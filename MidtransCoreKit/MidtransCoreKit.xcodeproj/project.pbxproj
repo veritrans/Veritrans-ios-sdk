@@ -23,6 +23,8 @@
 
 /* Begin PBXBuildFile section */
 		2ED4518E1D09C4D7008BAED8 /* VTConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* VTConstant.h */; };
+		2EDAA3A31D0A7601009EC90D /* VTTrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDAA3A11D0A7601009EC90D /* VTTrackingManager.h */; };
+		2EDAA3A41D0A7601009EC90D /* VTTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAA3A21D0A7601009EC90D /* VTTrackingManager.m */; };
 		305494571C75A08900938C17 /* VTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* VTAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494581C75A08900938C17 /* VTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944C1C75A08900938C17 /* VTAddress.m */; };
 		3054945D1C75A08900938C17 /* VTNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494511C75A08900938C17 /* VTNetworking.h */; };
@@ -40,12 +42,14 @@
 		E50D85EA1D0ECB7000F26D2E /* VTPaymentCStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85E61D0ECB7000F26D2E /* VTPaymentCStore.m */; };
 		E525E1211CFD402D009448A5 /* VTPrivateConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E11F1CFD402D009448A5 /* VTPrivateConfig.h */; };
 		E525E1221CFD402D009448A5 /* VTPrivateConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1201CFD402D009448A5 /* VTPrivateConfig.m */; };
+		E53BD0181D124AB7001FADDE /* VTDirectDebitController.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0161D124AB7001FADDE /* VTDirectDebitController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E53BD0191D124AB7001FADDE /* VTDirectDebitController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0171D124AB7001FADDE /* VTDirectDebitController.m */; };
+		E53BD0261D128F4C001FADDE /* VTMandiriClickpayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0221D128F4C001FADDE /* VTMandiriClickpayHelper.h */; };
+		E53BD0271D128F4C001FADDE /* VTMandiriClickpayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0231D128F4C001FADDE /* VTMandiriClickpayHelper.m */; };
+		E53BD0281D128F4C001FADDE /* VTPaymentMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0241D128F4C001FADDE /* VTPaymentMandiriClickpay.h */; };
+		E53BD0291D128F4C001FADDE /* VTPaymentMandiriClickpay.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0251D128F4C001FADDE /* VTPaymentMandiriClickpay.m */; };
 		E5504E0C1D0E58BE00137655 /* VTPaymentCIMBClicks.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E0A1D0E58BE00137655 /* VTPaymentCIMBClicks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5504E0D1D0E58BE00137655 /* VTPaymentCIMBClicks.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E0B1D0E58BE00137655 /* VTPaymentCIMBClicks.m */; };
-		E5583DF81D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = E5583DF61D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5583DF91D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.m in Sources */ = {isa = PBXBuildFile; fileRef = E5583DF71D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.m */; };
-		E5583DFC1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = E5583DFA1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5583DFD1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5583DFB1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.m */; };
 		E55DB9421C912ED300813B81 /* VTCustomerDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = E55DB9301C912ED300813B81 /* VTCustomerDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55DB9431C912ED300813B81 /* VTCustomerDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E55DB9311C912ED300813B81 /* VTCustomerDetails.m */; };
 		E55DB9461C912ED300813B81 /* VTPaymentBankTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = E55DB9341C912ED300813B81 /* VTPaymentBankTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -79,7 +83,7 @@
 		E5E436341CE31E4200F688ED /* VTCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436321CE31E4200F688ED /* VTCreditCard.m */; };
 		E5E436371CE31E6500F688ED /* VTMaskedCreditCard.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436351CE31E6500F688ED /* VTMaskedCreditCard.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5E436381CE31E6500F688ED /* VTMaskedCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436361CE31E6500F688ED /* VTMaskedCreditCard.m */; };
-		E5E4363B1CE31E8D00F688ED /* VT3DSController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436391CE31E8D00F688ED /* VT3DSController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5E4363B1CE31E8D00F688ED /* VT3DSController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436391CE31E8D00F688ED /* VT3DSController.h */; };
 		E5E4363C1CE31E8D00F688ED /* VT3DSController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E4363A1CE31E8D00F688ED /* VT3DSController.m */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +99,8 @@
 
 /* Begin PBXFileReference section */
 		2ED4518D1D09C4D7008BAED8 /* VTConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTConstant.h; sourceTree = "<group>"; };
+		2EDAA3A11D0A7601009EC90D /* VTTrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTrackingManager.h; sourceTree = "<group>"; };
+		2EDAA3A21D0A7601009EC90D /* VTTrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTrackingManager.m; sourceTree = "<group>"; };
 		3054943A1C759FF800938C17 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305494461C75A01900938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3054944B1C75A08900938C17 /* VTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddress.h; sourceTree = "<group>"; };
@@ -106,6 +112,8 @@
 		3054948C1C75A40900938C17 /* MidtransCoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransCoreKit.h; sourceTree = "<group>"; };
 		30D9ABFA1C76FD1D00F858AE /* VTNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNetworkOperation.h; sourceTree = "<group>"; };
 		30D9ABFB1C76FD1D00F858AE /* VTNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNetworkOperation.m; sourceTree = "<group>"; };
+		30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMandiriClickpay.h; sourceTree = "<group>"; };
+		30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMandiriClickpay.m; sourceTree = "<group>"; };
 		E50D85D21D0EC64E00F26D2E /* VTPaymentMandiriECash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentMandiriECash.h; sourceTree = "<group>"; };
 		E50D85D31D0EC64E00F26D2E /* VTPaymentMandiriECash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentMandiriECash.m; sourceTree = "<group>"; };
 		E50D85E31D0ECB7000F26D2E /* VTPaymentBCAKlikpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentBCAKlikpay.h; sourceTree = "<group>"; };
@@ -114,12 +122,14 @@
 		E50D85E61D0ECB7000F26D2E /* VTPaymentCStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentCStore.m; sourceTree = "<group>"; };
 		E525E11F1CFD402D009448A5 /* VTPrivateConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPrivateConfig.h; sourceTree = "<group>"; };
 		E525E1201CFD402D009448A5 /* VTPrivateConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPrivateConfig.m; sourceTree = "<group>"; };
+		E53BD0161D124AB7001FADDE /* VTDirectDebitController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTDirectDebitController.h; sourceTree = "<group>"; };
+		E53BD0171D124AB7001FADDE /* VTDirectDebitController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTDirectDebitController.m; sourceTree = "<group>"; };
+		E53BD0221D128F4C001FADDE /* VTMandiriClickpayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMandiriClickpayHelper.h; sourceTree = "<group>"; };
+		E53BD0231D128F4C001FADDE /* VTMandiriClickpayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMandiriClickpayHelper.m; sourceTree = "<group>"; };
+		E53BD0241D128F4C001FADDE /* VTPaymentMandiriClickpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentMandiriClickpay.h; sourceTree = "<group>"; };
+		E53BD0251D128F4C001FADDE /* VTPaymentMandiriClickpay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentMandiriClickpay.m; sourceTree = "<group>"; };
 		E5504E0A1D0E58BE00137655 /* VTPaymentCIMBClicks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentCIMBClicks.h; sourceTree = "<group>"; };
 		E5504E0B1D0E58BE00137655 /* VTPaymentCIMBClicks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentCIMBClicks.m; sourceTree = "<group>"; };
-		E5583DF61D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentMandiriClickpay.h; sourceTree = "<group>"; };
-		E5583DF71D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentMandiriClickpay.m; sourceTree = "<group>"; };
-		E5583DFA1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMandiriClickpayHelper.h; sourceTree = "<group>"; };
-		E5583DFB1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMandiriClickpayHelper.m; sourceTree = "<group>"; };
 		E55DB9301C912ED300813B81 /* VTCustomerDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerDetails.h; sourceTree = "<group>"; };
 		E55DB9311C912ED300813B81 /* VTCustomerDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCustomerDetails.m; sourceTree = "<group>"; };
 		E55DB9341C912ED300813B81 /* VTPaymentBankTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentBankTransfer.h; sourceTree = "<group>"; };
@@ -176,11 +186,22 @@
 			name = Const;
 			sourceTree = "<group>";
 		};
+		2EDAA3A01D0A7597009EC90D /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				2EDAA3A11D0A7601009EC90D /* VTTrackingManager.h */,
+				2EDAA3A21D0A7601009EC90D /* VTTrackingManager.m */,
+			);
+			name = Tracking;
+			sourceTree = "<group>";
+		};
 		3014E0C11C7AD6D7003EB203 /* Kit */ = {
 			isa = PBXGroup;
 			children = (
 				E5E436391CE31E8D00F688ED /* VT3DSController.h */,
 				E5E4363A1CE31E8D00F688ED /* VT3DSController.m */,
+				E53BD0161D124AB7001FADDE /* VTDirectDebitController.h */,
+				E53BD0171D124AB7001FADDE /* VTDirectDebitController.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -188,8 +209,10 @@
 		3014E0C21C7AD6E4003EB203 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				E5583DF61D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.h */,
-				E5583DF71D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.m */,
+				E53BD0221D128F4C001FADDE /* VTMandiriClickpayHelper.h */,
+				E53BD0231D128F4C001FADDE /* VTMandiriClickpayHelper.m */,
+				E53BD0241D128F4C001FADDE /* VTPaymentMandiriClickpay.h */,
+				E53BD0251D128F4C001FADDE /* VTPaymentMandiriClickpay.m */,
 				E50D85E31D0ECB7000F26D2E /* VTPaymentBCAKlikpay.h */,
 				E50D85E41D0ECB7000F26D2E /* VTPaymentBCAKlikpay.m */,
 				E50D85E51D0ECB7000F26D2E /* VTPaymentCStore.h */,
@@ -227,6 +250,8 @@
 				E5E436321CE31E4200F688ED /* VTCreditCard.m */,
 				E5E436351CE31E6500F688ED /* VTMaskedCreditCard.h */,
 				E5E436361CE31E6500F688ED /* VTMaskedCreditCard.m */,
+				30FDCC621C803AD200CEFED3 /* VTMandiriClickpay.h */,
+				30FDCC631C803AD200CEFED3 /* VTMandiriClickpay.m */,
 				E5E4361D1CE31D1200F688ED /* VTTransactionResult.h */,
 				E5E4361E1CE31D1200F688ED /* VTTransactionResult.m */,
 			);
@@ -238,8 +263,6 @@
 			children = (
 				E5E436211CE31D2D00F688ED /* VTCreditCardHelper.h */,
 				E5E436221CE31D2D00F688ED /* VTCreditCardHelper.m */,
-				E5583DFA1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.h */,
-				E5583DFB1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.m */,
 				E5DACA901D034E7000F5BE0A /* VTLuhn.h */,
 				E5DACA911D034E7000F5BE0A /* VTLuhn.m */,
 				E5E436291CE31DB700F688ED /* VTEnvironment.h */,
@@ -278,6 +301,7 @@
 			isa = PBXGroup;
 			children = (
 				3054948C1C75A40900938C17 /* MidtransCoreKit.h */,
+				2EDAA3A01D0A7597009EC90D /* Tracking */,
 				2ED4518C1D09C4BB008BAED8 /* Const */,
 				3014E0C41C7AD709003EB203 /* Utils */,
 				3014E0C11C7AD6D7003EB203 /* Kit */,
@@ -299,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */,
+				2EDAA3A31D0A7601009EC90D /* VTTrackingManager.h in Headers */,
 				E5E4361F1CE31D1200F688ED /* VTTransactionResult.h in Headers */,
 				E5E4360F1CE31B3600F688ED /* VTItemDetail.h in Headers */,
 				E5E436071CE31ACE00F688ED /* VTTransaction.h in Headers */,
@@ -310,10 +335,9 @@
 				305494571C75A08900938C17 /* VTAddress.h in Headers */,
 				E5E436171CE31C9C00F688ED /* VTClient.h in Headers */,
 				E5E4360C1CE31AED00F688ED /* VTPaymentDetails.h in Headers */,
-				E5583DF81D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.h in Headers */,
-				E5583DFC1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.h in Headers */,
 				E5E4362D1CE31DED00F688ED /* VTPaymentCreditCard.h in Headers */,
 				E5E436371CE31E6500F688ED /* VTMaskedCreditCard.h in Headers */,
+				E53BD0181D124AB7001FADDE /* VTDirectDebitController.h in Headers */,
 				3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */,
 				E55DB9461C912ED300813B81 /* VTPaymentBankTransfer.h in Headers */,
 				E5E436231CE31D2D00F688ED /* VTCreditCardHelper.h in Headers */,
@@ -321,11 +345,13 @@
 				E50D85D41D0EC64E00F26D2E /* VTPaymentMandiriECash.h in Headers */,
 				2ED4518E1D09C4D7008BAED8 /* VTConstant.h in Headers */,
 				3054945D1C75A08900938C17 /* VTNetworking.h in Headers */,
+				E53BD0261D128F4C001FADDE /* VTMandiriClickpayHelper.h in Headers */,
 				E5E436151CE31C9C00F688ED /* VTMerchantClient.h in Headers */,
 				E5E4363B1CE31E8D00F688ED /* VT3DSController.h in Headers */,
 				E5E436331CE31E4200F688ED /* VTCreditCard.h in Headers */,
 				E5504E0C1D0E58BE00137655 /* VTPaymentCIMBClicks.h in Headers */,
 				E50D85E91D0ECB7000F26D2E /* VTPaymentCStore.h in Headers */,
+				E53BD0281D128F4C001FADDE /* VTPaymentMandiriClickpay.h in Headers */,
 				30D9ABFC1C76FD1D00F858AE /* VTNetworkOperation.h in Headers */,
 				E525E1211CFD402D009448A5 /* VTPrivateConfig.h in Headers */,
 				E5DACA921D034E7000F5BE0A /* VTLuhn.h in Headers */,
@@ -425,10 +451,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EDAA3A41D0A7601009EC90D /* VTTrackingManager.m in Sources */,
 				E55DB9471C912ED300813B81 /* VTPaymentBankTransfer.m in Sources */,
 				E5E436101CE31B3600F688ED /* VTItemDetail.m in Sources */,
 				E5E436181CE31C9C00F688ED /* VTClient.m in Sources */,
 				30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */,
+				E53BD0291D128F4C001FADDE /* VTPaymentMandiriClickpay.m in Sources */,
 				E5E436381CE31E6500F688ED /* VTMaskedCreditCard.m in Sources */,
 				E5E4362E1CE31DED00F688ED /* VTPaymentCreditCard.m in Sources */,
 				E525E1221CFD402D009448A5 /* VTPrivateConfig.m in Sources */,
@@ -438,10 +466,9 @@
 				E5DACA931D034E7000F5BE0A /* VTLuhn.m in Sources */,
 				305494581C75A08900938C17 /* VTAddress.m in Sources */,
 				E5E436281CE31DA100F688ED /* VTConfig.m in Sources */,
-				E5583DF91D0FC1DB002B7FA1 /* VTPaymentMandiriClickpay.m in Sources */,
 				E5E436341CE31E4200F688ED /* VTCreditCard.m in Sources */,
 				E55DB9431C912ED300813B81 /* VTCustomerDetails.m in Sources */,
-				E5583DFD1D0FD00A002B7FA1 /* VTMandiriClickpayHelper.m in Sources */,
+				E53BD0191D124AB7001FADDE /* VTDirectDebitController.m in Sources */,
 				E50D85E81D0ECB7000F26D2E /* VTPaymentBCAKlikpay.m in Sources */,
 				E5E4361C1CE31CD800F688ED /* VTTokenizeRequest.m in Sources */,
 				E50D85EA1D0ECB7000F26D2E /* VTPaymentCStore.m in Sources */,
@@ -449,6 +476,7 @@
 				E50D85D51D0EC64E00F26D2E /* VTPaymentMandiriECash.m in Sources */,
 				305494701C75A0ED00938C17 /* VTHelper.m in Sources */,
 				E5E436201CE31D1200F688ED /* VTTransactionResult.m in Sources */,
+				E53BD0271D128F4C001FADDE /* VTMandiriClickpayHelper.m in Sources */,
 				3054945E1C75A08900938C17 /* VTNetworking.m in Sources */,
 				E5E436081CE31ACE00F688ED /* VTTransaction.m in Sources */,
 				E5E4363C1CE31E8D00F688ED /* VT3DSController.m in Sources */,

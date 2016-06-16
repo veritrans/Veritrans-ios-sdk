@@ -18,7 +18,7 @@
 @implementation NSString (CreditCard)
 
 - (BOOL)isNumeric {
-    NSString *numericRegex = @"^(?:|0|[1-9]\\d*)(?:\\.\\d*)?$";
+    NSString *numericRegex = @"^[0-9]*$";
     NSPredicate *myTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", numericRegex];
     return [myTest evaluateWithObject:self];
 }

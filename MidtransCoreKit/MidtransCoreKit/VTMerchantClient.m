@@ -38,7 +38,7 @@
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
             NSString *paymentType = response[@"payment_type"];
             
-            if ([paymentType isEqualToString:@"bca_klikpay"]) {
+            if ([self isDirectDebitPaymentType:paymentType]) {
                 
                 NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
                 VTDirectDebitController *vc = [[VTDirectDebitController alloc] initWithRedirectURL:redirectURL];
@@ -50,7 +50,7 @@
                     }
                 }];
                 
-            } else if ([paymentType isEqualToString:@"credit_card"]) {
+            } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
                 
                 BOOL isSavedToken = response[@"saved_token_id"] != nil;
                 if (isSavedToken) {
@@ -106,6 +106,12 @@
 - (void)fetchMerchantAuthDataWithCompletion:(void(^)(id response, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/auth", [CONFIG merchantServerURL]];
     [[VTNetworking sharedInstance] postToURL:URL parameters:nil callback:completion];
+}
+
+#pragma mark - Helper
+
+- (BOOL)isDirectDebitPaymentType:(NSString *)paymentType {
+    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] || [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY];
 }
 
 @end

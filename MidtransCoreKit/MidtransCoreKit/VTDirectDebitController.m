@@ -1,19 +1,21 @@
 //
-//  VTKlikpayPageController.m
-//  MidtransKit
+//  VTDirectDebitController.m
+//  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 6/13/16.
+//  Created by Nanang Rafsanjani on 6/16/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTKlikpayPageController.h"
+#import "VTDirectDebitController.h"
+#import "VTHelper.h"
 
-@interface VTKlikpayPageController () <UIWebViewDelegate>
+@interface VTDirectDebitController () <UIWebViewDelegate>
 @property (nonatomic) UIWebView *webView;
 @property (nonatomic) NSURL *redirectURL;
+@property (nonatomic, copy) void (^_Nullable callback)(NSError *_Nullable error);
 @end
 
-@implementation VTKlikpayPageController
+@implementation VTDirectDebitController
 
 - (instancetype _Nonnull)initWithRedirectURL:(NSURL * _Nonnull)redirectURL {
     if (self = [super init]) {
@@ -28,7 +30,6 @@
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
-    self.title = @"BCA KlikPay";
     
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -48,23 +49,48 @@
 }
 
 - (void)closePressed:(id)sender {
+    NSInteger canceledDirectDebitErrorCode = -31;
+    NSError *error = [[NSError alloc] initWithDomain:ErrorDomain code:canceledDirectDebitErrorCode userInfo:@{NSLocalizedDescriptionKey:@"Direct debit transaction canceled by user"}];
+    if (self.callback) self.callback(error);
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)showPageWithCallback:(void(^_Nullable)(NSError *_Nullable error))callback {
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:self];
+    [[UIApplication rootViewController] presentViewController:nvc animated:YES completion:nil];
+    self.callback = callback;
 }
 
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-
+    
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+    
+    if (self.callback) self.callback(error);
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-
+    
+    NSURL *reqURL = webView.request.URL;
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    
+    for (NSString *param in [reqURL.query componentsSeparatedByString:@"&"]) {
+        NSArray *elts = [param componentsSeparatedByString:@"="];
+        if([elts count] < 2) continue;
+        [params setObject:[elts lastObject] forKey:[elts firstObject]];
+    }
+    
+    if (params && params[@"id"]) {
+        if (self.callback) self.callback(nil);
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 @end

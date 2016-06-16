@@ -22,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return @"cimb_clicks";
+    return VT_PAYMENT_CIMB_CLICKS;
 }
 
 - (NSDictionary *)dictionaryValue {

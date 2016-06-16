@@ -28,7 +28,7 @@
 }
 
 - (NSString *)paymentType {
-    return @"credit_card";
+    return VT_PAYMENT_CREDIT_CARD;
 }
 
 - (NSDictionary *)dictionaryValue {

@@ -45,21 +45,8 @@
                         <constraint firstItem="Zb4-Eb-6xO" firstAttribute="width" secondItem="Xfh-FY-Qg5" secondAttribute="width" id="rS1-vI-T0h"/>
                     </constraints>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PiK-SX-tza">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiK-SX-tza">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnH-Sb-Jwt">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="UnH-Sb-Jwt" secondAttribute="bottom" id="3e7-Ig-CGd"/>
-                        <constraint firstItem="UnH-Sb-Jwt" firstAttribute="leading" secondItem="PiK-SX-tza" secondAttribute="leading" id="8ff-9x-7WA"/>
-                        <constraint firstAttribute="trailing" secondItem="UnH-Sb-Jwt" secondAttribute="trailing" id="Qf8-Th-F5D"/>
-                        <constraint firstItem="UnH-Sb-Jwt" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="top" id="Rjr-zA-xIt"/>
-                        <constraint firstItem="UnH-Sb-Jwt" firstAttribute="width" secondItem="PiK-SX-tza" secondAttribute="width" id="vkd-6o-FBs"/>
-                    </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="DYK-7v-zLW"/>
                     </connections>
@@ -67,15 +54,14 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" id="1vZ-FO-LkS"/>
-                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="bottom" constant="-1" id="Cag-4c-KhP"/>
-                <constraint firstAttribute="trailing" secondItem="PiK-SX-tza" secondAttribute="trailing" id="Isx-yo-ehv"/>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="Hn8-d6-loq"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="width" secondItem="Zf2-Us-Q8L" secondAttribute="width" id="J6v-VS-jjg"/>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" id="USm-Hf-pcN"/>
+                <constraint firstAttribute="trailing" secondItem="PiK-SX-tza" secondAttribute="trailing" id="ZCi-DB-ABc"/>
                 <constraint firstAttribute="trailing" secondItem="Xfh-FY-Qg5" secondAttribute="trailing" id="bDy-Bc-5Nv"/>
                 <constraint firstAttribute="bottom" secondItem="Xfh-FY-Qg5" secondAttribute="bottom" id="e6a-V9-ACs"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="mgy-Rg-Erw"/>
-                <constraint firstItem="PiK-SX-tza" firstAttribute="width" secondItem="Zf2-Us-Q8L" secondAttribute="width" id="wTT-hH-kbc"/>
-                <constraint firstItem="PiK-SX-tza" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="yk6-HR-P2t"/>
+                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="bottom" constant="-1" id="tQL-4H-qiB"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>

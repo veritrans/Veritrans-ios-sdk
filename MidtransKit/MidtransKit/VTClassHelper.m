@@ -73,6 +73,16 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
 
 @implementation UITextField (helper)
 
+- (BOOL)filterNumericWithString:(NSString *)string range:(NSRange)range length:(NSInteger)length {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    return [mstring length] <= length;
+}
+
 - (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range {
     NSString *text = self.text;
     

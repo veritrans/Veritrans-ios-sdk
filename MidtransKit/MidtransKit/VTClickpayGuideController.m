@@ -6,22 +6,24 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTClickpayHelpController.h"
+#import "VTClickpayGuideController.h"
 #import "VTClassHelper.h"
 #import "VTPaymentGuideController.h"
+#import "UIViewController+HeaderSubtitle.m"
 
-@interface VTClickpayHelpController ()
+@interface VTClickpayGuideController ()
 @property (strong, nonatomic) IBOutlet UIView *helpView;
 @end
 
-@implementation VTClickpayHelpController
+@implementation VTClickpayGuideController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    [self setHeaderWithTitle:@"Mandiri Clickpay" subTitle:@"Payment Instructions"];
     
-    
-    VTPaymentGuideController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTPaymentGuideController *vc = [sb instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
     NSString *path = [VTBundle pathForResource:@"clickpayGuide" ofType:@"plist"];
     vc.guides = [NSArray arrayWithContentsOfFile:path];
     [self addSubViewController:vc toView:_helpView];

@@ -82,8 +82,8 @@
 		30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E712FF1C85592800AFB7B4 /* TokenButtonIcon@2x.png */; };
 		30E713031C855B6600AFB7B4 /* VTLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713011C855B6600AFB7B4 /* VTLabel.h */; };
 		30E713041C855B6600AFB7B4 /* VTLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713021C855B6600AFB7B4 /* VTLabel.m */; };
-		30E713081C8564B300AFB7B4 /* VTClickpayHelpController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713061C8564B300AFB7B4 /* VTClickpayHelpController.h */; };
-		30E713091C8564B300AFB7B4 /* VTClickpayHelpController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713071C8564B300AFB7B4 /* VTClickpayHelpController.m */; };
+		30E713081C8564B300AFB7B4 /* VTClickpayGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713061C8564B300AFB7B4 /* VTClickpayGuideController.h */; };
+		30E713091C8564B300AFB7B4 /* VTClickpayGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713071C8564B300AFB7B4 /* VTClickpayGuideController.m */; };
 		30E7130D1C856B0D00AFB7B4 /* VTRoundedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E7130B1C856B0D00AFB7B4 /* VTRoundedLabel.h */; };
 		30E7130E1C856B0D00AFB7B4 /* VTRoundedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E7130C1C856B0D00AFB7B4 /* VTRoundedLabel.m */; };
 		30E713151C8580BC00AFB7B4 /* VTVAController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713131C8580BC00AFB7B4 /* VTVAController.h */; };
@@ -104,8 +104,8 @@
 		30E7133F1C85AAE600AFB7B4 /* permataVaGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E7133E1C85AAE600AFB7B4 /* permataVaGuide.plist */; };
 		30E77E801C83FE570090D228 /* VTBorderedView.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E7E1C83FE570090D228 /* VTBorderedView.h */; };
 		30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E7F1C83FE570090D228 /* VTBorderedView.m */; };
-		30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E881C84021A0090D228 /* VTClickpayController.h */; };
-		30E77E8B1C84021A0090D228 /* VTClickpayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E891C84021A0090D228 /* VTClickpayController.m */; };
+		30E77E8A1C84021A0090D228 /* VTMandiriClickpayController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E77E881C84021A0090D228 /* VTMandiriClickpayController.h */; };
+		30E77E8B1C84021A0090D228 /* VTMandiriClickpayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E77E891C84021A0090D228 /* VTMandiriClickpayController.m */; };
 		30E879871C88EDE1000C0F4B /* VTTwoClickController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E879851C88EDE1000C0F4B /* VTTwoClickController.h */; };
 		30E879881C88EDE1000C0F4B /* VTTwoClickController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E879861C88EDE1000C0F4B /* VTTwoClickController.m */; };
 		30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E879891C88EF4A000C0F4B /* CreditCardBack@2x.png */; };
@@ -184,6 +184,8 @@
 		E5504E131D0E5D4800137655 /* VTCIMBClicksController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5504E101D0E5B7B00137655 /* VTCIMBClicksController.xib */; };
 		E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */; };
 		E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */; };
+		E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */; };
+		E5583E011D0FD5DA002B7FA1 /* VTClickpayGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5583E001D0FD5DA002B7FA1 /* VTClickpayGuideController.xib */; };
 		E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */; };
 		E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */; };
 		E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */; };
@@ -311,8 +313,8 @@
 		30E712FF1C85592800AFB7B4 /* TokenButtonIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TokenButtonIcon@2x.png"; sourceTree = "<group>"; };
 		30E713011C855B6600AFB7B4 /* VTLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTLabel.h; sourceTree = "<group>"; };
 		30E713021C855B6600AFB7B4 /* VTLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTLabel.m; sourceTree = "<group>"; };
-		30E713061C8564B300AFB7B4 /* VTClickpayHelpController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClickpayHelpController.h; sourceTree = "<group>"; };
-		30E713071C8564B300AFB7B4 /* VTClickpayHelpController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClickpayHelpController.m; sourceTree = "<group>"; };
+		30E713061C8564B300AFB7B4 /* VTClickpayGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClickpayGuideController.h; sourceTree = "<group>"; };
+		30E713071C8564B300AFB7B4 /* VTClickpayGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClickpayGuideController.m; sourceTree = "<group>"; };
 		30E7130B1C856B0D00AFB7B4 /* VTRoundedLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTRoundedLabel.h; sourceTree = "<group>"; };
 		30E7130C1C856B0D00AFB7B4 /* VTRoundedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTRoundedLabel.m; sourceTree = "<group>"; };
 		30E713131C8580BC00AFB7B4 /* VTVAController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVAController.h; sourceTree = "<group>"; };
@@ -333,8 +335,8 @@
 		30E7133E1C85AAE600AFB7B4 /* permataVaGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = permataVaGuide.plist; path = ../MidtransKit/permataVaGuide.plist; sourceTree = "<group>"; };
 		30E77E7E1C83FE570090D228 /* VTBorderedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBorderedView.h; sourceTree = "<group>"; };
 		30E77E7F1C83FE570090D228 /* VTBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTBorderedView.m; sourceTree = "<group>"; };
-		30E77E881C84021A0090D228 /* VTClickpayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClickpayController.h; sourceTree = "<group>"; };
-		30E77E891C84021A0090D228 /* VTClickpayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClickpayController.m; sourceTree = "<group>"; };
+		30E77E881C84021A0090D228 /* VTMandiriClickpayController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMandiriClickpayController.h; sourceTree = "<group>"; };
+		30E77E891C84021A0090D228 /* VTMandiriClickpayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMandiriClickpayController.m; sourceTree = "<group>"; };
 		30E879851C88EDE1000C0F4B /* VTTwoClickController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTwoClickController.h; sourceTree = "<group>"; };
 		30E879861C88EDE1000C0F4B /* VTTwoClickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTwoClickController.m; sourceTree = "<group>"; };
 		30E879891C88EF4A000C0F4B /* CreditCardBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreditCardBack@2x.png"; sourceTree = "<group>"; };
@@ -423,6 +425,8 @@
 		E5504E101D0E5B7B00137655 /* VTCIMBClicksController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VTCIMBClicksController.xib; sourceTree = "<group>"; };
 		E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HeaderSubtitle.h"; sourceTree = "<group>"; };
 		E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HeaderSubtitle.m"; sourceTree = "<group>"; };
+		E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTMandiriClickpayController.xib; sourceTree = "<group>"; };
+		E5583E001D0FD5DA002B7FA1 /* VTClickpayGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTClickpayGuideController.xib; sourceTree = "<group>"; };
 		E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVASuccessStatusController.h; sourceTree = "<group>"; };
 		E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVASuccessStatusController.m; sourceTree = "<group>"; };
 		E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTVASuccessStatusController.xib; path = ../MidtransKit/VTVASuccessStatusController.xib; sourceTree = "<group>"; };
@@ -663,6 +667,8 @@
 			isa = PBXGroup;
 			children = (
 				002CC9AE1D127C5F003A1203 /* VTPaymentGuideViewController.xib */,
+				E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */,
+				E5583E001D0FD5DA002B7FA1 /* VTClickpayGuideController.xib */,
 				E50D85EB1D0ECB9000F26D2E /* VTBCAKlikpayController.xib */,
 				E50D85EC1D0ECB9000F26D2E /* VTIndomaretController.xib */,
 				E50D85ED1D0ECB9000F26D2E /* VTIndomaretGuideController.xib */,
@@ -767,10 +773,10 @@
 		30E713111C857DF400AFB7B4 /* Clickpay */ = {
 			isa = PBXGroup;
 			children = (
-				30E77E881C84021A0090D228 /* VTClickpayController.h */,
-				30E77E891C84021A0090D228 /* VTClickpayController.m */,
-				30E713061C8564B300AFB7B4 /* VTClickpayHelpController.h */,
-				30E713071C8564B300AFB7B4 /* VTClickpayHelpController.m */,
+				30E77E881C84021A0090D228 /* VTMandiriClickpayController.h */,
+				30E77E891C84021A0090D228 /* VTMandiriClickpayController.m */,
+				30E713061C8564B300AFB7B4 /* VTClickpayGuideController.h */,
+				30E713071C8564B300AFB7B4 /* VTClickpayGuideController.m */,
 			);
 			name = Clickpay;
 			sourceTree = "<group>";
@@ -971,7 +977,7 @@
 				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				309CC0CF1C86952300C058BE /* VTVAConfirmationController.h in Headers */,
 				E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */,
-				30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */,
+				30E77E8A1C84021A0090D228 /* VTMandiriClickpayController.h in Headers */,
 				E5504E111D0E5D3200137655 /* VTCIMBClicksController.h in Headers */,
 				002CC9A01D125AD1003A1203 /* VTKlikBCAViewController.h in Headers */,
 				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
@@ -990,7 +996,7 @@
 				E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */,
 				30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */,
 				E50D86011D0ECBC500F26D2E /* VTBCAKlikpayController.h in Headers */,
-				30E713081C8564B300AFB7B4 /* VTClickpayHelpController.h in Headers */,
+				30E713081C8564B300AFB7B4 /* VTClickpayGuideController.h in Headers */,
 				30E7132B1C85A5FB00AFB7B4 /* VTVAGuideController.h in Headers */,
 				E578DD2B1CFC40480091760A /* VTPaymentListFooter.h in Headers */,
 				002CC9A41D125AE4003A1203 /* VTKlikBCAView.h in Headers */,
@@ -1117,10 +1123,12 @@
 			files = (
 				E503AEDB1C8E8AF800F097FF /* VTListCell.xib in Resources */,
 				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
+				E5583E011D0FD5DA002B7FA1 /* VTClickpayGuideController.xib in Resources */,
 				E5EF827C1C8C0837007B6585 /* VTCCFrontView.xib in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
 				309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */,
+				E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */,
 				309CC0D91C86A53400C058BE /* bcaVaGuide.plist in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */,
 				E50D85F11D0ECB9000F26D2E /* VTIndomaretGuideController.xib in Resources */,
@@ -1264,7 +1272,7 @@
 				3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */,
 				3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */,
 				E50D86061D0ECBC500F26D2E /* VTIndomaretGuideController.m in Sources */,
-				30E77E8B1C84021A0090D228 /* VTClickpayController.m in Sources */,
+				30E77E8B1C84021A0090D228 /* VTMandiriClickpayController.m in Sources */,
 				30E713361C85A6E800AFB7B4 /* VTPaymentGuideController.m in Sources */,
 				E5EF826E1C8C07AF007B6585 /* VTXibView.m in Sources */,
 				E517C2DE1C96C1A2009AE6AA /* PushAnimator.m in Sources */,
@@ -1282,7 +1290,7 @@
 				E578DD281CFC403D0091760A /* VTPaymentListHeader.m in Sources */,
 				3005E2781C7C175000064169 /* VTAddCardController.m in Sources */,
 				30E713161C8580BC00AFB7B4 /* VTVAController.m in Sources */,
-				30E713091C8564B300AFB7B4 /* VTClickpayHelpController.m in Sources */,
+				30E713091C8564B300AFB7B4 /* VTClickpayGuideController.m in Sources */,
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
 				306838821C7EE7220064A305 /* VTPaymentViewController.m in Sources */,
 				E5EF82741C8C0814007B6585 /* VTCCFrontView.m in Sources */,

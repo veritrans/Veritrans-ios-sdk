@@ -58,6 +58,15 @@
         <key>id</key>
         <string>ecash</string>
     </dict>
+    <dict>
+        <key>title</key>
+        <string>Mandiri Clickpay</string>
+        <key>description</key>
+        <string>Pay through your Mandiri Clickpay account</string>
+        <key>id</key>
+        <string>clickpay</string>
+    </dict>
+    
 <!--    <dict>-->
 <!--        <key>title</key>-->
 <!--        <string>KlikBCA</string>-->
@@ -66,15 +75,6 @@
 <!--        <key>id</key>-->
 <!--        <string>klikbca</string>-->
 <!--    </dict>-->
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>Mandiri Clickpay</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay through your Mandiri Clickpay account</string>-->
-<!--        <key>id</key>-->
-<!--        <string>clickpay</string>-->
-<!--    </dict>-->
-
 <!--    <dict>-->
 <!--        <key>title</key>-->
 <!--        <string>e-Pay BRI</string>-->

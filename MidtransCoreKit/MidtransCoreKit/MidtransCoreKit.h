@@ -24,17 +24,19 @@
 #import "VTMaskedCreditCard.h"
 #import "VTHelper.h"
 #import "VTPaymentBankTransfer.h"
-#import "VTCreditCardHelper.h"
 #import "VTCreditCardPaymentFeature.h"
 #import "VTMerchantClient.h"
 #import "VT3DSController.h"
 #import "VTCreditCard.h"
 #import "VTCustomerDetails.h"
-#import "VTMandiriClickpay.h"
+
 #import "VTPaymentCIMBClicks.h"
 #import "VTPaymentMandiriECash.h"
 #import "VTPaymentCStore.h"
 #import "VTPaymentBCAKlikpay.h"
 #import "VTPaymentKlikBCA.h"
+#import "VTPaymentMandiriClickpay.h"
+#import "VTCreditCardHelper.h"
+#import "VTMandiriClickpayHelper.h"
 
 #endif /* MidtransCoreKit_h */

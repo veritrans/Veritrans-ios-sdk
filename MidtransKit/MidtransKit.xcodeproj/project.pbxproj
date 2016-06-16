@@ -23,6 +23,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		002CC99B1D12591B003A1203 /* VTKlikBCAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002CC99A1D12591B003A1203 /* VTKlikBCAViewController.xib */; };
 		3005E2771C7C175000064169 /* VTAddCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTAddCardController.h */; };
 		3005E2781C7C175000064169 /* VTAddCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTAddCardController.m */; };
 		3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */; };
@@ -237,6 +238,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		002CC99A1D12591B003A1203 /* VTKlikBCAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTKlikBCAViewController.xib; sourceTree = "<group>"; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -630,6 +632,7 @@
 				E578DD191CFC1BE00091760A /* VTToast.xib */,
 				E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */,
 				301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */,
+				002CC99A1D12591B003A1203 /* VTKlikBCAViewController.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1101,6 +1104,7 @@
 				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,
 				30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */,
 				309CC0F31C86C72200C058BE /* MasterCard@2x.png in Resources */,
+				002CC99B1D12591B003A1203 /* VTKlikBCAViewController.xib in Resources */,
 				E503AEC71C8E85C500F097FF /* atm@2x.png in Resources */,
 				309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */,
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,

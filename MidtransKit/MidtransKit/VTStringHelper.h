@@ -10,12 +10,8 @@
 
 @interface VTStringHelper : NSObject
 + (NSString *)emptyString;
-+ (NSMutableAttributedString *)attributedStringFromHTML:(NSString *)string
-                                   withDefaultAttribute:(NSDictionary *)defaultAttribute;
 + (NSMutableAttributedString *)indentText:(NSAttributedString *)attributedString;
 + (NSMutableAttributedString *)indentTextWithDefaultStyle:(NSAttributedString *)attributedString;
-
-+ (NSMutableAttributedString *)numberingTextWithLocalizedString:(NSString *)localizedString
-                                                 withTotalCount:(NSUInteger)count;
++ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString;
 
 @end

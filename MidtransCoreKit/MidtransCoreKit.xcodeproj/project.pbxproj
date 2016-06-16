@@ -24,7 +24,7 @@
 /* Begin PBXBuildFile section */
 		002CC9981D125604003A1203 /* VTPaymentKlikBCA.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9961D125604003A1203 /* VTPaymentKlikBCA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		002CC9AA1D127618003A1203 /* VTPaymentKlikBCA.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9971D125604003A1203 /* VTPaymentKlikBCA.m */; };
-		2ED4518E1D09C4D7008BAED8 /* VTConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* VTConstant.h */; };
+		2ED4518E1D09C4D7008BAED8 /* VTConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* VTConstant.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		2EDAA3A31D0A7601009EC90D /* VTTrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDAA3A11D0A7601009EC90D /* VTTrackingManager.h */; };
 		2EDAA3A41D0A7601009EC90D /* VTTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAA3A21D0A7601009EC90D /* VTTrackingManager.m */; };
 		305494571C75A08900938C17 /* VTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* VTAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };

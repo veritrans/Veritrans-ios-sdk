@@ -26,6 +26,9 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                             <state key="normal" title="Ok, I Got it"/>
+                            <connections>
+                                <action selector="okButtonDidTapped:" destination="-1" eventType="touchUpInside" id="7qU-2o-oFT"/>
+                            </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="wdV-Nx-npC">
                             <rect key="frame" x="304" y="21" width="8" height="13"/>

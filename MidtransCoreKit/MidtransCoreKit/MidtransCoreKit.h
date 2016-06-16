@@ -18,6 +18,7 @@
 #import "VTEnvironment.h"
 #import "VTAddress.h"
 #import "VTClient.h"
+#import "VTConstant.h"
 #import "VTPaymentDetails.h"
 #import "VTPaymentCreditCard.h"
 #import "VTMaskedCreditCard.h"

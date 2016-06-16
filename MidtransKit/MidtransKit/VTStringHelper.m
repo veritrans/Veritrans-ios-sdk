@@ -8,6 +8,7 @@
 
 #import "VTStringHelper.h"
 #import <UIKit/UIKit.h>
+#import "VTClassHelper.h"
 @implementation VTStringHelper
 
 + (NSString *)emptyString {
@@ -33,21 +34,20 @@
                                     value:[UIFont fontWithName:@"HelveticaNeue" size:14.0f]
                                     range:NSMakeRange(0, attributedString.length)];
     [mutableAttributedString addAttribute:NSForegroundColorAttributeName
-                                    value:[UIColor lightGrayColor]
+                                    value:[UIColor darkGrayColor]
                                     range:NSMakeRange(0, attributedString.length)];
     return mutableAttributedString;
 }
 
-+ (NSMutableAttributedString *)numberingTextWithLocalizedString:(NSString *)localizedString
-                                                 withTotalCount:(NSUInteger)count{
++ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString {
     
+    NSString *paymentName = [[localizedString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSArray *file = [NSArray arrayWithContentsOfFile:[VTBundle pathForResource:paymentName ofType:@"plist"]];
     NSMutableArray *points = [[NSMutableArray alloc] init];
-    
-    for (NSInteger i = 1; i <= count; i++) {
-        NSString *key = [NSString stringWithFormat:@"%@%ld", localizedString, (long)i];
+    for (NSInteger i = 1; i <= file.count; i++) {
+        NSString *key = [NSString stringWithFormat:@"%@", file[i-1]];
         [points addObject:[NSString stringWithFormat:@"%ld.\t%@", (long)i, NSLocalizedString(key, nil)]];
     }
-    
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:[points componentsJoinedByString:@"\n"]];
     mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
     return mutableAttributedString;

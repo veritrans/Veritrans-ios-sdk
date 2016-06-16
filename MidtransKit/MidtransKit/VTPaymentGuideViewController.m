@@ -11,6 +11,7 @@
 #import "UIViewController+HeaderSubtitle.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTClassHelper.h"
+#import "VTStringHelper.h"
 @interface VTPaymentGuideViewController ()
 @property (strong, nonatomic) IBOutlet VTPaymentGuideView *view;
 @property (strong, nonatomic) NSString *paymentMethodName;
@@ -23,23 +24,18 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
     [self setHeaderWithTitle:NSLocalizedString(self.paymentMethodName,nil) subTitle:NSLocalizedString(@"Payment Instructions",nil)];
-    NSString *paymentName = [[self.paymentMethodName lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSString *path = [VTBundle pathForResource:[NSString stringWithFormat:@"%@Guide",[paymentName lowercaseString]] ofType:@"plist"];
-    self.view.guideTextView.text = @"data";
+    self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithLocalizedStringPath:self.paymentMethodName];
 }
 
 - (instancetype)initGuideWithPaymentMethodName:(NSString *)paymentMethodName {
     self = [super initWithNibName:[self.class description] bundle:VTBundle];
     if (self) {
         self.paymentMethodName = paymentMethodName;
-        NSLog(@"payment name %@",paymentMethodName);
-        
     }
     return self;
 }
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (IBAction)okButtonDidTapped:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "VTConfig.h"
 #import "VTNetworking.h"
 #import "VTHelper.h"
+#import "VTDirectDebitController.h"
 
 @implementation VTMerchantClient
 
@@ -35,14 +36,30 @@
         
         if (response) {
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
+            NSString *paymentType = response[@"payment_type"];
             
-            BOOL isSavedToken = response[@"saved_token_id"] != nil;
-            
-            if (isSavedToken) {
-                VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
-                [self saveRegisteredCard:savedCard completion:^(id result, NSError *error) {
-                    if (completion) completion(chargeResult, error);
+            if ([paymentType isEqualToString:@"bca_klikpay"]) {
+                
+                NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
+                VTDirectDebitController *vc = [[VTDirectDebitController alloc] initWithRedirectURL:redirectURL];
+                [vc showPageWithCallback:^(NSError * _Nullable error) {
+                    if (error) {
+                        if (completion) completion(nil, error);
+                    } else {
+                        if (completion) completion(chargeResult, nil);
+                    }
                 }];
+                
+            } else if ([paymentType isEqualToString:@"credit_card"]) {
+                
+                BOOL isSavedToken = response[@"saved_token_id"] != nil;
+                if (isSavedToken) {
+                    VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
+                    [self saveRegisteredCard:savedCard completion:^(id result, NSError *error) {
+                        if (completion) completion(chargeResult, error);
+                    }];
+                }
+                
             } else {
                 if (completion) completion(chargeResult, error);
             }
@@ -90,6 +107,5 @@
     NSString *URL = [NSString stringWithFormat:@"%@/auth", [CONFIG merchantServerURL]];
     [[VTNetworking sharedInstance] postToURL:URL parameters:nil callback:completion];
 }
-
 
 @end

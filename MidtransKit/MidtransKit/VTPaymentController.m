@@ -8,9 +8,9 @@
 
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
-
+#import "VTHudView.h"
 @interface VTPaymentController ()
-
+@property (nonatomic) VTHudView *hudView;
 @end
 
 @implementation VTPaymentController
@@ -34,12 +34,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+      self.hudView = [[VTHudView alloc] init];
     // Do any additional setup after loading the view.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)showLoadingHud {
+    [self.hudView showOnView:self.navigationController.view];
+}
+
+- (void)hideLoadingHud {
+    [self.hudView hide];
 }
 
 - (void)handleTransactionError:(NSError *)error {

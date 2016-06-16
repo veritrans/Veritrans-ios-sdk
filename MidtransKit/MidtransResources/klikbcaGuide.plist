@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <string>User ID KlikBCA yang Anda masukkan adalah User ID yang masih aktif dan terdaftar di BCA</string>
+        <string>Setelah Anda menyelesaikan transaksi ini, Anda harap melakaukan pembayaran melalui halaman KlikBCA dengan membuka wwww.klikbca.com dari tab terpisah dengan menggunakan User ID yang Anda masukkan di bawah.</string>
+        <string>Transaksi Anda akan di batalkan atau kadaluarsa jika Anda tidak melakukan pembayaran dalam batas waktu 2 jam</string>
+    </array>
+</plist>

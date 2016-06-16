@@ -24,6 +24,12 @@
 
 /* Begin PBXBuildFile section */
 		002CC99B1D12591B003A1203 /* VTKlikBCAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 002CC99A1D12591B003A1203 /* VTKlikBCAViewController.xib */; };
+		002CC9A01D125AD1003A1203 /* VTKlikBCAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC99E1D125AD1003A1203 /* VTKlikBCAViewController.h */; };
+		002CC9A11D125AD1003A1203 /* VTKlikBCAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC99F1D125AD1003A1203 /* VTKlikBCAViewController.m */; };
+		002CC9A41D125AE4003A1203 /* VTKlikBCAView.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9A21D125AE4003A1203 /* VTKlikBCAView.h */; };
+		002CC9A51D125AE4003A1203 /* VTKlikBCAView.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9A31D125AE4003A1203 /* VTKlikBCAView.m */; };
+		002CC9A71D125BFF003A1203 /* klikbcaGuide.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A61D125BFF003A1203 /* klikbcaGuide.plist */; };
+		002CC9A91D12639F003A1203 /* klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A81D12639F003A1203 /* klikbca@2x.png */; };
 		3005E2771C7C175000064169 /* VTAddCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTAddCardController.h */; };
 		3005E2781C7C175000064169 /* VTAddCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTAddCardController.m */; };
 		3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */; };
@@ -239,6 +245,12 @@
 
 /* Begin PBXFileReference section */
 		002CC99A1D12591B003A1203 /* VTKlikBCAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTKlikBCAViewController.xib; sourceTree = "<group>"; };
+		002CC99E1D125AD1003A1203 /* VTKlikBCAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKlikBCAViewController.h; sourceTree = "<group>"; };
+		002CC99F1D125AD1003A1203 /* VTKlikBCAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTKlikBCAViewController.m; sourceTree = "<group>"; };
+		002CC9A21D125AE4003A1203 /* VTKlikBCAView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKlikBCAView.h; sourceTree = "<group>"; };
+		002CC9A31D125AE4003A1203 /* VTKlikBCAView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTKlikBCAView.m; sourceTree = "<group>"; };
+		002CC9A61D125BFF003A1203 /* klikbcaGuide.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = klikbcaGuide.plist; sourceTree = "<group>"; };
+		002CC9A81D12639F003A1203 /* klikbca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klikbca@2x.png"; sourceTree = "<group>"; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -469,6 +481,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		002CC99C1D125A55003A1203 /* Klik BCA */ = {
+			isa = PBXGroup;
+			children = (
+				002CC99E1D125AD1003A1203 /* VTKlikBCAViewController.h */,
+				002CC99F1D125AD1003A1203 /* VTKlikBCAViewController.m */,
+				002CC9A21D125AE4003A1203 /* VTKlikBCAView.h */,
+				002CC9A31D125AE4003A1203 /* VTKlikBCAView.m */,
+			);
+			name = "Klik BCA";
+			sourceTree = "<group>";
+		};
 		3005E2881C7C17A200064169 /* MidtransResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -608,6 +631,7 @@
 				309CC0DF1C86B88C00C058BE /* cimbClicksGuide.plist */,
 				E503AEC91C8E860700F097FF /* virtualAccount.plist */,
 				E5F4AA8B1CF6D2C70059DDF8 /* paymentMethods.plist */,
+				002CC9A61D125BFF003A1203 /* klikbcaGuide.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -659,6 +683,7 @@
 				30E8798D1C897E7D000C0F4B /* cc@2x.png */,
 				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
+				002CC9A81D12639F003A1203 /* klikbca@2x.png */,
 				E59BD7411D05B288004AE009 /* Amex@2x.png */,
 				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
@@ -773,6 +798,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				002CC99C1D125A55003A1203 /* Klik BCA */,
 				E50D860C1D0ECBD600F26D2E /* Klikpay */,
 				E50D860B1D0ECBCD00F26D2E /* Indomaret */,
 				E50D85D61D0EC89300F26D2E /* ECash */,
@@ -924,6 +950,7 @@
 				E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */,
 				30E77E8A1C84021A0090D228 /* VTClickpayController.h in Headers */,
 				E5504E111D0E5D3200137655 /* VTCIMBClicksController.h in Headers */,
+				002CC9A01D125AD1003A1203 /* VTKlikBCAViewController.h in Headers */,
 				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
 				3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */,
 				E583AFEA1C8D5C1600C04512 /* VTPaymentStatusViewModel.h in Headers */,
@@ -942,6 +969,7 @@
 				30E713081C8564B300AFB7B4 /* VTClickpayHelpController.h in Headers */,
 				30E7132B1C85A5FB00AFB7B4 /* VTVAGuideController.h in Headers */,
 				E578DD2B1CFC40480091760A /* VTPaymentListFooter.h in Headers */,
+				002CC9A41D125AE4003A1203 /* VTKlikBCAView.h in Headers */,
 				E578DD271CFC403D0091760A /* VTPaymentListHeader.h in Headers */,
 				3005E2771C7C175000064169 /* VTAddCardController.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
@@ -1094,6 +1122,7 @@
 				309CC0F11C86C72200C058BE /* JCB@2x.png in Resources */,
 				E50D85E21D0EC93400F26D2E /* ecashGuide.plist in Resources */,
 				309CC0F01C86C72200C058BE /* CreditCardFront@2x.png in Resources */,
+				002CC9A91D12639F003A1203 /* klikbca@2x.png in Resources */,
 				E503AEE41C8EC50E00F097FF /* clicks@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
@@ -1113,6 +1142,7 @@
 				E578DD2E1CFC406F0091760A /* VTPaymentListHeader.xib in Resources */,
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				E578DD1A1CFC1F170091760A /* VTToast.xib in Resources */,
+				002CC9A71D125BFF003A1203 /* klikbcaGuide.plist in Resources */,
 				E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */,
 				E50D85E01D0EC92700F26D2E /* VTMandiriECashController.xib in Resources */,
 				E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */,
@@ -1180,6 +1210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				002CC9A11D125AD1003A1203 /* VTKlikBCAViewController.m in Sources */,
 				E546D1D91CEAC91D00D65252 /* VTKeyboardAccessoryView.m in Sources */,
 				E517C2C21C9673B4009AE6AA /* VTAlertBackgroundView.m in Sources */,
 				E578DD2C1CFC40480091760A /* VTPaymentListFooter.m in Sources */,
@@ -1237,6 +1268,7 @@
 				E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */,
 				E5591A4E1CEF28A3005A2DB1 /* VTVATransactionStatusViewModel.m in Sources */,
 				E50D86021D0ECBC500F26D2E /* VTBCAKlikpayController.m in Sources */,
+				002CC9A51D125AE4003A1203 /* VTKlikBCAView.m in Sources */,
 				E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */,
 				E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */,
 				302BAA411C8816C400AE68CC /* VTCvvInfoController.m in Sources */,

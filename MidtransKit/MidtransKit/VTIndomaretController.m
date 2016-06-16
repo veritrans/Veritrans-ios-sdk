@@ -7,16 +7,13 @@
 //
 
 #import "VTIndomaretController.h"
-#import "VTIndomaretGuideController.h"
 #import "VTIndomaretSuccessController.h"
-
 #import "VTTextField.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTHudView.h"
 #import "VTButton.h"
 #import "VTClassHelper.h"
 #import "VTPaymentStatusViewModel.h"
-
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTIndomaretController ()
@@ -24,7 +21,6 @@
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet VTTextField *emailTextField;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
-@property (nonatomic) VTHudView *hudView;
 @end
 
 @implementation VTIndomaretController
@@ -32,19 +28,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", nil)
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
-    
-    self.title = @"Pay at Indomaret";
-    
-    _hudView = [[VTHudView alloc] init];
-    
-    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_emailTextField]];
-    
-    _emailTextField.text = self.customerDetails.email;
-    
+   
+    self.title = [NSString stringWithFormat: NSLocalizedString(@"Pay at %@",nil),VT_PAYMENT_INDOMARET];
+    self.keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_emailTextField]];
+    self.emailTextField.text = self.customerDetails.email;
     self.amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
     self.orderIdLabel.text = self.transactionDetails.orderId;
 }
@@ -55,21 +46,18 @@
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    VTIndomaretGuideController *vc = [[VTIndomaretGuideController alloc] initWithNibName:@"VTIndomaretGuideController" bundle:VTBundle];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self showGuideViewControllerWithPaymentName:VT_PAYMENT_INDOMARET];
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    [_hudView showOnView:self.navigationController.view];
-    
+    [self showLoadingHud];
     VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithStoreName:@"Indomaret" message:@""];
     
     self.customerDetails.email = _emailTextField.text;
     
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-        [_hudView hide];
-        
+        [self hideLoadingHud];
         if (error) {
             [self handleTransactionError:error];
         } else {

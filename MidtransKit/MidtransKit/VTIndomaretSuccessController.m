@@ -8,7 +8,7 @@
 
 #import "VTIndomaretSuccessController.h"
 #import "VTClassHelper.h"
-#import "VTIndomaretGuideController.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
 #import "VTToast.h"
@@ -51,8 +51,7 @@
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    VTIndomaretGuideController *vc = [[VTIndomaretGuideController alloc] initWithNibName:@"VTIndomaretGuideController" bundle:VTBundle];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self showGuideViewControllerWithPaymentName:VT_PAYMENT_INDOMARET];
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {

@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"KlikBCA",nil);
+    self.title = NSLocalizedString(VT_PAYMENT_KLIK_BCA,nil);
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
     self.view.totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
@@ -47,7 +47,7 @@
     }];
 }
 - (IBAction)guideButtonDidtapped:(id)sender {
-    [self showGuideViewControllerWithPaymentName:@"KlikBCA"];
+    [self showGuideViewControllerWithPaymentName:VT_PAYMENT_KLIK_BCA];
 }
 
 @end

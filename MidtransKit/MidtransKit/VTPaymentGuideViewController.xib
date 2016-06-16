@@ -100,7 +100,7 @@
                         <constraint firstItem="2vq-iq-CRd" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="top" id="C1a-i6-PFo"/>
                         <constraint firstItem="2vq-iq-CRd" firstAttribute="leading" secondItem="PiK-SX-tza" secondAttribute="leading" id="UkS-BL-n6K"/>
                         <constraint firstAttribute="trailing" secondItem="2vq-iq-CRd" secondAttribute="trailing" id="egc-AL-fFX"/>
-                        <constraint firstAttribute="bottom" secondItem="2vq-iq-CRd" secondAttribute="bottom" constant="154" id="sNn-ut-fma"/>
+                        <constraint firstAttribute="bottom" secondItem="2vq-iq-CRd" secondAttribute="bottom" id="sNn-ut-fma"/>
                         <constraint firstItem="2vq-iq-CRd" firstAttribute="width" secondItem="PiK-SX-tza" secondAttribute="width" id="zIO-vZ-Jnw"/>
                     </constraints>
                     <connections>

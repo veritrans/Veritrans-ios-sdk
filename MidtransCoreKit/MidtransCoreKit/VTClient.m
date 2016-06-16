@@ -30,7 +30,8 @@
     return instance;
 }
 
-- (void)generateToken:(VTTokenizeRequest *)tokenizeRequest completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion {
+- (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
+           completion:(void (^_Nullable)(NSString *_Nullable token, NSString *_Nullable redirectURL, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"token"];
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
@@ -42,12 +43,13 @@
     }];
 }
 
-- (void)registerCreditCard:(VTCreditCard *)creditCard completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion {
+- (void)registerCreditCard:(VTCreditCard *_Nonnull)creditCard
+                completion:(void (^_Nullable)(VTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion {
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         if (completion) completion(nil, error);
         return;
-    }    
+    }
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"card/register"];
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
         if (response) {

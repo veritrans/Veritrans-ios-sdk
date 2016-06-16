@@ -23,13 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setHeaderWithTitle:NSLocalizedString(@"BCA KlikPay",nil) subTitle:NSLocalizedString(@"Payment Instructions",nil)];
-    
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTPaymentGuideController *guide = [storyboard instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
-    NSString *path = [VTBundle pathForResource:@"klikbcaGuide" ofType:@"plist"];
-    guide.guides = [NSArray arrayWithContentsOfFile:path];
-    [self addSubViewController:guide toView:self.view.helpView];
-    
+    self.title = NSLocalizedString(@"BCA KlikPay",nil);
+
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
     self.view.totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
@@ -52,6 +47,8 @@
             [self handleTransactionSuccess:result];
         }
     }];
+}
+- (IBAction)guideButtonDidtapped:(id)sender {
 }
 
 @end

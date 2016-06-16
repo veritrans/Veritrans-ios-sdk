@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTPaymentGuideViewController"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Zf2-Us-Q8L" customClass="VTPaymentGuideView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xfh-FY-Qg5">
+                    <rect key="frame" x="0.0" y="512" width="320" height="56"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zb4-Eb-6xO">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="56"/>
+                            <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="56" id="Ajh-or-Xe6"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                            <state key="normal" title="Ok, I Got it"/>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="wdV-Nx-npC">
+                            <rect key="frame" x="304" y="21" width="8" height="13"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="8" id="8oo-1s-10c"/>
+                                <constraint firstAttribute="height" constant="13" id="DzZ-h6-CP0"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Zb4-Eb-6xO" firstAttribute="height" secondItem="Xfh-FY-Qg5" secondAttribute="height" id="7cY-qA-LeA"/>
+                        <constraint firstItem="Zb4-Eb-6xO" firstAttribute="leading" secondItem="Xfh-FY-Qg5" secondAttribute="leading" id="HUo-YP-Ums"/>
+                        <constraint firstItem="Zb4-Eb-6xO" firstAttribute="top" secondItem="Xfh-FY-Qg5" secondAttribute="top" id="HyV-jE-HwG"/>
+                        <constraint firstAttribute="trailing" secondItem="Zb4-Eb-6xO" secondAttribute="trailing" id="SCq-bk-QAV"/>
+                        <constraint firstItem="wdV-Nx-npC" firstAttribute="top" secondItem="Xfh-FY-Qg5" secondAttribute="top" constant="21" id="TjE-bk-mFy"/>
+                        <constraint firstAttribute="height" constant="56" id="aPa-2F-xjx"/>
+                        <constraint firstItem="wdV-Nx-npC" firstAttribute="leading" secondItem="Xfh-FY-Qg5" secondAttribute="leading" constant="304" id="eeb-du-3Vs"/>
+                        <constraint firstAttribute="bottom" secondItem="Zb4-Eb-6xO" secondAttribute="bottom" id="oiW-8R-2XD"/>
+                        <constraint firstAttribute="bottom" secondItem="wdV-Nx-npC" secondAttribute="bottom" constant="22" id="rBs-Pn-Ddv"/>
+                        <constraint firstItem="Zb4-Eb-6xO" firstAttribute="width" secondItem="Xfh-FY-Qg5" secondAttribute="width" id="rS1-vI-T0h"/>
+                    </constraints>
+                </view>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PiK-SX-tza">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UnH-Sb-Jwt">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="UnH-Sb-Jwt" secondAttribute="bottom" id="3e7-Ig-CGd"/>
+                        <constraint firstItem="UnH-Sb-Jwt" firstAttribute="leading" secondItem="PiK-SX-tza" secondAttribute="leading" id="8ff-9x-7WA"/>
+                        <constraint firstAttribute="trailing" secondItem="UnH-Sb-Jwt" secondAttribute="trailing" id="Qf8-Th-F5D"/>
+                        <constraint firstItem="UnH-Sb-Jwt" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="top" id="Rjr-zA-xIt"/>
+                        <constraint firstItem="UnH-Sb-Jwt" firstAttribute="width" secondItem="PiK-SX-tza" secondAttribute="width" id="vkd-6o-FBs"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="DYK-7v-zLW"/>
+                    </connections>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" id="1vZ-FO-LkS"/>
+                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="bottom" constant="-1" id="Cag-4c-KhP"/>
+                <constraint firstAttribute="trailing" secondItem="PiK-SX-tza" secondAttribute="trailing" id="Isx-yo-ehv"/>
+                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="width" secondItem="Zf2-Us-Q8L" secondAttribute="width" id="J6v-VS-jjg"/>
+                <constraint firstAttribute="trailing" secondItem="Xfh-FY-Qg5" secondAttribute="trailing" id="bDy-Bc-5Nv"/>
+                <constraint firstAttribute="bottom" secondItem="Xfh-FY-Qg5" secondAttribute="bottom" id="e6a-V9-ACs"/>
+                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="mgy-Rg-Erw"/>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="width" secondItem="Zf2-Us-Q8L" secondAttribute="width" id="wTT-hH-kbc"/>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="yk6-HR-P2t"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="DisclosureIndicator.png" width="8" height="13"/>
+    </resources>
+</document>

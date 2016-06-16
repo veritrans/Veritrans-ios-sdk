@@ -11,7 +11,6 @@
 #import "VTPaymentGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTHudView.h"
-#import "VTKlikpayPageController.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -51,30 +50,19 @@
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] init];
+    VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithDescription:@"klikpay bca description"];
+    
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [_hudView hide];
         
         if (error) {
             [self handleTransactionError:error];
         } else {
-            NSURL *redirectURL = [NSURL URLWithString:result.additionalData[@"redirect_url"]];
-            VTKlikpayPageController *vc = [[VTKlikpayPageController alloc] initWithRedirectURL:redirectURL];
-            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-            [self presentViewController:nvc animated:YES completion:nil];
+            [self handleTransactionSuccess:result];
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

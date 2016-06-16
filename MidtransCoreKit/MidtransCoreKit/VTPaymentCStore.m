@@ -24,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return @"cstore";
+    return VT_PAYMENT_CSTORE;
 }
 
 - (NSDictionary *)dictionaryValue {

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VTPaymentGuideView : UIView
-
+@property (weak, nonatomic) IBOutlet UITextView *guideTextView;
 @end

@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTPaymentController.h"
 
-@interface VTPaymentGuideViewController : UIViewController
-
+@interface VTPaymentGuideViewController : VTPaymentController
+- (instancetype)initGuideWithPaymentMethodName:(NSString *)paymentMethodName;
 @end

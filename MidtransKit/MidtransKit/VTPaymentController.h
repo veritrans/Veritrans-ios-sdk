@@ -18,9 +18,10 @@
 @property (nonatomic) NSArray *itemDetails;
 @property (nonatomic) VTTransactionDetails *transactionDetails;
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails;
-- (void)showLoadingHud;
-- (void)hideLoadingHud;
-- (void)handleTransactionError:(NSError *)error;
-- (void)handleTransactionSuccess:(VTTransactionResult *)result;
+-(instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails;
+-(void)showLoadingHud;
+-(void)hideLoadingHud;
+-(void)handleTransactionError:(NSError *)error;
+-(void)handleTransactionSuccess:(VTTransactionResult *)result;
+-(void)showGuideViewControllerWithPaymentName:(NSString *)paymentName;
 @end

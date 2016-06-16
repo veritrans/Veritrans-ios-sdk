@@ -5,7 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTPaymentGuideViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTPaymentGuideViewController">
+            <connections>
+                <outlet property="view" destination="Zf2-Us-Q8L" id="Qqq-U0-B5h"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Zf2-Us-Q8L" customClass="VTPaymentGuideView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -46,7 +50,56 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiK-SX-tza">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="447"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vq-iq-CRd">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                            <subviews>
+                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB5-BP-0sX">
+                                    <rect key="frame" x="8" y="8" width="304" height="265"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <attributedString key="attributedText">
+                                        <fragment>
+                                            <string key="content">1.	Jumlah yang ditransfer harus sesuai dengan harga total yang tertera, sampai ke 3 (tiga) angka terakhir.
+2.	Masukkan No. Pesanan Anda sebagai referensi di ATM atau berita di e-banking/m-banking.
+3.	Traveloka tidak akan menerbitkan e-tiket apabila jumlah transfer tidak sesuai harga total.
+4.	Untuk pemesanan yang dibatalkan karena kesalahan jumlah transfer atau melewati batas waktu pembayaran, refund membutuhkan 5 hari kerja.</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
+                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
+                                                <integer key="NSLigature" value="0"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" paragraphSpacing="2" paragraphSpacingBefore="2" headIndent="28" defaultTabInterval="2" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="26.450000762939453">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="qvu-qj-d8e"/>
+                                    </connections>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="EB5-BP-0sX" firstAttribute="leading" secondItem="2vq-iq-CRd" secondAttribute="leading" constant="8" id="Eaw-8g-Alo"/>
+                                <constraint firstAttribute="bottom" secondItem="EB5-BP-0sX" secondAttribute="bottom" constant="20" id="ZiE-Up-13B"/>
+                                <constraint firstAttribute="trailing" secondItem="EB5-BP-0sX" secondAttribute="trailing" constant="8" id="cF5-UN-Rdw"/>
+                                <constraint firstItem="EB5-BP-0sX" firstAttribute="top" secondItem="2vq-iq-CRd" secondAttribute="top" constant="8" id="eAb-pj-FRm"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="2vq-iq-CRd" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="top" id="C1a-i6-PFo"/>
+                        <constraint firstItem="2vq-iq-CRd" firstAttribute="leading" secondItem="PiK-SX-tza" secondAttribute="leading" id="UkS-BL-n6K"/>
+                        <constraint firstAttribute="trailing" secondItem="2vq-iq-CRd" secondAttribute="trailing" id="egc-AL-fFX"/>
+                        <constraint firstAttribute="bottom" secondItem="2vq-iq-CRd" secondAttribute="bottom" constant="154" id="sNn-ut-fma"/>
+                        <constraint firstItem="2vq-iq-CRd" firstAttribute="width" secondItem="PiK-SX-tza" secondAttribute="width" id="zIO-vZ-Jnw"/>
+                    </constraints>
                     <connections>
                         <outlet property="delegate" destination="-1" id="DYK-7v-zLW"/>
                     </connections>
@@ -56,14 +109,18 @@
             <constraints>
                 <constraint firstItem="PiK-SX-tza" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="Hn8-d6-loq"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="width" secondItem="Zf2-Us-Q8L" secondAttribute="width" id="J6v-VS-jjg"/>
-                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" id="USm-Hf-pcN"/>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" constant="64" id="USm-Hf-pcN"/>
                 <constraint firstAttribute="trailing" secondItem="PiK-SX-tza" secondAttribute="trailing" id="ZCi-DB-ABc"/>
                 <constraint firstAttribute="trailing" secondItem="Xfh-FY-Qg5" secondAttribute="trailing" id="bDy-Bc-5Nv"/>
                 <constraint firstAttribute="bottom" secondItem="Xfh-FY-Qg5" secondAttribute="bottom" id="e6a-V9-ACs"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="mgy-Rg-Erw"/>
-                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="bottom" constant="-1" id="tQL-4H-qiB"/>
+                <constraint firstItem="Xfh-FY-Qg5" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="bottom" constant="1" id="tQL-4H-qiB"/>
             </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="guideTextView" destination="EB5-BP-0sX" id="PJs-ZB-6xe"/>
+            </connections>
         </view>
     </objects>
     <resources>

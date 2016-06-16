@@ -9,6 +9,7 @@
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
 #import "VTHudView.h"
+#import "VTPaymentGuideViewController.h"
 @interface VTPaymentController ()
 @property (nonatomic) VTHudView *hudView;
 @end
@@ -61,7 +62,10 @@
     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
+-(void)showGuideViewControllerWithPaymentName:(NSString *)paymentName {
+    VTPaymentGuideViewController *paymentGuideVC = [[VTPaymentGuideViewController alloc] initGuideWithPaymentMethodName:paymentName];
+    [self.navigationController pushViewController:paymentGuideVC animated:YES];
+}
 
 /*
  #pragma mark - Navigation

@@ -7,31 +7,39 @@
 //
 
 #import "VTPaymentGuideViewController.h"
-
+#import "VTPaymentGuideView.h"
+#import "UIViewController+HeaderSubtitle.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "VTClassHelper.h"
 @interface VTPaymentGuideViewController ()
-
+@property (strong, nonatomic) IBOutlet VTPaymentGuideView *view;
+@property (strong, nonatomic) NSString *paymentMethodName;
 @end
 
 @implementation VTPaymentGuideViewController
+@dynamic view;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.automaticallyAdjustsScrollViewInsets = NO;
+    [self setHeaderWithTitle:NSLocalizedString(self.paymentMethodName,nil) subTitle:NSLocalizedString(@"Payment Instructions",nil)];
+    NSString *paymentName = [[self.paymentMethodName lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *path = [VTBundle pathForResource:[NSString stringWithFormat:@"%@Guide",[paymentName lowercaseString]] ofType:@"plist"];
+    self.view.guideTextView.text = @"data";
 }
 
+- (instancetype)initGuideWithPaymentMethodName:(NSString *)paymentMethodName {
+    self = [super initWithNibName:[self.class description] bundle:VTBundle];
+    if (self) {
+        self.paymentMethodName = paymentMethodName;
+        NSLog(@"payment name %@",paymentMethodName);
+        
+    }
+    return self;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

@@ -41,6 +41,7 @@ extern NSString *const VTIndomaretIdentifier;
 
 @interface UITextField (helper)
 
+- (BOOL)filterNumericWithString:(NSString *)string range:(NSRange)range length:(NSInteger)length;
 - (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber;
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
 - (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range;

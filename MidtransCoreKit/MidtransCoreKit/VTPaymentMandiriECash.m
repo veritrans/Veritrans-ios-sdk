@@ -21,7 +21,7 @@
     return self;
 }
 - (NSString *)paymentType {
-    return @"mandiri_ecash";
+    return VT_PAYMENT_MANDIRI_ECASH;
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"description":_ecashDescription};

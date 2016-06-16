@@ -19,6 +19,16 @@ static NSString * const CREDIT_CARD_TYPE_JCB    = @"JCB";
 static NSString * const CREDIT_CARD_TYPE_MASTER_CARD    = @"MasterCard";
 static NSString * const CREDIT_CARD_TYPE_VISA    = @"Visa";
 
+/**
+ *  PAYMENT TYPE
+ */
+static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
+static NSString * const VT_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
+static NSString * const VT_PAYMENT_CSTORE = @"cstore";
+static NSString * const VT_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
+static NSString * const VT_PAYMENT_CREDIT_CARD = @"credit_card";
+static NSString * const VT_PAYMENT_BANK_TRANSFER = @"bank_transfer";
+static NSString * const VT_PAYMENT_ECHANNEL = @"echannel";
 
 /**
  *  CONSTANT REGEX

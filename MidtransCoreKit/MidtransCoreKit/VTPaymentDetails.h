@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "VTConstant.h"
 
 /**
  Protocol that needs to be implemented for each payment type.

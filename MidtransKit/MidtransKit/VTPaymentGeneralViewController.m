@@ -68,6 +68,20 @@
             }
         }];
     }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
+        VTPaymentEpayBRI *paymentDetails = [[VTPaymentEpayBRI alloc] init];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+            [self hideLoadingHud];
+            
+            if (error) {
+                [self handleTransactionError:error];
+            } else {
+                [self handleTransactionSuccess:result];
+            }
+        }];
+        
+    }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER]) {
         VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithDescription:@"dummy_description"];
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];

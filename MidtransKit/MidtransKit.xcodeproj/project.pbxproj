@@ -187,7 +187,7 @@
 		E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B71C996103009D7BA4 /* VisaDark@2x.png */; };
 		E53BD0351D1429C7001FADDE /* VTCIMBClicksView.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0331D1429C7001FADDE /* VTCIMBClicksView.h */; };
 		E53BD0361D1429C7001FADDE /* VTCIMBClicksView.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0341D1429C7001FADDE /* VTCIMBClicksView.m */; };
-		E53BD0401D143BE8001FADDE /* bri_epay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53BD03F1D143BE8001FADDE /* bri_epay.plist */; };
+		E53BD0401D143BE8001FADDE /* e-pay bri.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53BD03F1D143BE8001FADDE /* e-pay bri.plist */; };
 		E53BD0421D143BF3001FADDE /* VTEpayBRIController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53BD0411D143BF3001FADDE /* VTEpayBRIController.xib */; };
 		E53BD0471D143C90001FADDE /* VTEpayBRIController.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0431D143C90001FADDE /* VTEpayBRIController.h */; };
 		E53BD0481D143C90001FADDE /* VTEpayBRIController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0441D143C90001FADDE /* VTEpayBRIController.m */; };
@@ -447,7 +447,7 @@
 		E52F72B71C996103009D7BA4 /* VisaDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaDark@2x.png"; sourceTree = "<group>"; };
 		E53BD0331D1429C7001FADDE /* VTCIMBClicksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCIMBClicksView.h; sourceTree = "<group>"; };
 		E53BD0341D1429C7001FADDE /* VTCIMBClicksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCIMBClicksView.m; sourceTree = "<group>"; };
-		E53BD03F1D143BE8001FADDE /* bri_epay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bri_epay.plist; sourceTree = "<group>"; };
+		E53BD03F1D143BE8001FADDE /* e-pay bri.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "e-pay bri.plist"; sourceTree = "<group>"; };
 		E53BD0411D143BF3001FADDE /* VTEpayBRIController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTEpayBRIController.xib; sourceTree = "<group>"; };
 		E53BD0431D143C90001FADDE /* VTEpayBRIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEpayBRIController.h; sourceTree = "<group>"; };
 		E53BD0441D143C90001FADDE /* VTEpayBRIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTEpayBRIController.m; sourceTree = "<group>"; };
@@ -729,7 +729,7 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E53BD03F1D143BE8001FADDE /* bri_epay.plist */,
+				E53BD03F1D143BE8001FADDE /* e-pay bri.plist */,
 				E50D85F31D0ECB9C00F26D2E /* indomaret.plist */,
 				E50D85F41D0ECB9C00F26D2E /* bca klikpay.plist */,
 				E50D85E11D0EC93400F26D2E /* mandiri e-cash.plist */,
@@ -1281,7 +1281,7 @@
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				E578DD1A1CFC1F170091760A /* VTToast.xib in Resources */,
 				002CC9A71D125BFF003A1203 /* klikbca.plist in Resources */,
-				E53BD0401D143BE8001FADDE /* bri_epay.plist in Resources */,
+				E53BD0401D143BE8001FADDE /* e-pay bri.plist in Resources */,
 				E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */,
 				E50D85E01D0EC92700F26D2E /* VTMandiriECashController.xib in Resources */,
 				E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */,

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTDirectDebitController : UIViewController
-- (instancetype _Nonnull)initWithRedirectURL:(NSURL * _Nonnull)redirectURL;
+@interface VTPaymentWebController : UIViewController
+- (instancetype _Nonnull)initWithRedirectURL:(NSURL * _Nonnull)redirectURL paymentType:(NSString *_Nonnull)paymentType;
 - (void)showPageWithCallback:(void(^_Nullable)(NSError *_Nullable error))callback;
 @end

@@ -40,5 +40,6 @@
 #import "VTMandiriClickpayHelper.h"
 #import "VTPaymentEpayBRI.h"
 #import "VTPaymentListModel.h"
+#import "VTTrackingManager.h"
 
 #endif /* MidtransCoreKit_h */

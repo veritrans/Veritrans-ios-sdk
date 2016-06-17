@@ -68,7 +68,7 @@ static NSString *const VT_INDOMARET_IDENTIFIER = @"indomaret";
  *  CONSTANT REGEX
  */
 static NSString * const VT_VISA_REGEX         = @"^4[0-9]{12}(?:[0-9]{3})?$";
-static NSString * const VT_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{14}$";
+static NSString * const VT_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{5,}$";
 static NSString * const VT_JCB_REGEX          = @"^(?:2131|1800|35\d{3})\d{11}$";
 static NSString * const VT_AMEX_REGEX         = @"^3[47][0-9]{13}$";
 
@@ -79,7 +79,7 @@ static NSString * const VT_AMEX_REGEX         = @"^3[47][0-9]{13}$";
 static NSString * const VT_MESSAGE_CARD_INVALID = @"Card number is invalid";
 static NSString * const VT_MESSAGE_EXPIRE_DATE_INVALID = @"Expiry Year is invalid";
 static NSString * const VT_MESSAGE_EXPIRE_MONTH_INVALID = @"Expiry Month is invalid";
-static NSString * const VT_MESSAGE_CARD_CVV_INVALID = @"Card number is invalid";
+static NSString * const VT_MESSAGE_CARD_CVV_INVALID = @"CVV is invalid";
 static NSString * const VT_MESSAGE_MERCHANT_SERVER_NOT_SET = @"Please set your merchant server URL in VTConfig";
 static NSString * const VT_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your Veritrans Client Key in VTConfig";
 

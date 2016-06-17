@@ -54,8 +54,7 @@
                              address:(NSString *)address
                                 city:(NSString *)city
                           postalCode:(NSString *)postalCode
-                         countryCode:(NSString *)countryCode
-{
+                         countryCode:(NSString *)countryCode {
     VTAddress *addr = [[VTAddress alloc] init];
     addr.firstName = firstName;
     addr.lastName = lastName;

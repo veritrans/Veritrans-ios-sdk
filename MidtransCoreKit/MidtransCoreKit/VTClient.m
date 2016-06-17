@@ -12,6 +12,7 @@
 #import "VTHelper.h"
 #import "VTPrivateConfig.h"
 #import "VTCreditCardHelper.h"
+#import "VT3DSController.h"
 
 @interface VTClient ()
 
@@ -31,14 +32,29 @@
 }
 
 - (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
-           completion:(void (^_Nullable)(NSString *_Nullable token, NSString *_Nullable redirectURL, NSError *_Nullable error))completion {
+           completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"token"];
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
-            if (completion) completion(nil, nil, error);
+            if (completion) completion(nil, error);
         } else {
-            if (completion) completion(response[@"token_id"], response[@"redirect_url"], nil);
+            NSString *redirectURL = response[@"redirect_url"];
+            NSString *token = response[@"token_id"];
+            
+            if (redirectURL) {
+                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
+                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
+                [secureController showWithCompletion:^(NSError *error) {
+                    if (error) {
+                        if (completion) completion(nil, error);
+                    } else {
+                        if (completion) completion(token, error);
+                    }
+                }];
+            } else {
+                if (completion) completion(token, nil);
+            }
         }
     }];
 }

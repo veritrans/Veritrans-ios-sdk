@@ -9,6 +9,7 @@
 #import "VTCreditCardHelper.h"
 #import "VTLuhn.h"
 #import "VTHelper.h"
+#import "VTConstant.h"
 
 #define VTVisaRegex         @"^4[0-9]{12}(?:[0-9]{3})?$"
 #define VTMasterCardRegex   @"^5[1-5][0-9]{14}$"
@@ -45,7 +46,7 @@
     if ([self.number isValidCreditCardNumber] == NO) {
         NSString *errorMessage = @"Card number is invalid";
         NSInteger numberInvalideCode = -20;
-        *error = [NSError errorWithDomain:ErrorDomain code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
@@ -53,21 +54,21 @@
     if ([self.expiryYear isValidCreditCardExpiryDate] == NO) {
         NSString *errorMessage = @"Expiry Year is invalid";
         NSInteger expiryDateInvalidCode = -21;
-        *error = [NSError errorWithDomain:ErrorDomain code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.expiryMonth isValidCreditCardExpiryDate] == NO) {
         NSString *errorMessage = @"Expiry Month is invalid";
         NSInteger expiryDateInvalidCode = -21;
-        *error = [NSError errorWithDomain:ErrorDomain code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.cvv isValidCVVWithCreditCardNumber:self.number] == NO) {
         NSString *errorMessage = @"CVV is invalid";
         NSInteger cvvInvalidCode = -22;
-        *error = [NSError errorWithDomain:ErrorDomain code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     

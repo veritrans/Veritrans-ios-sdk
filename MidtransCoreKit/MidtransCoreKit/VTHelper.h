@@ -10,7 +10,6 @@
 #import <UIKit/UIKit.h>
 
 extern NSString *const VTMaskedCardsUpdated;
-extern NSString *const ErrorDomain;
 
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;

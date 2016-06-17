@@ -40,7 +40,7 @@
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the generated token will be passed as `token` variable.
  */
 - (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
-           completion:(void (^_Nullable)(NSString *_Nullable token, NSString *_Nullable redirectURL, NSError *_Nullable error))completion;
+           completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion;
 
 /**
  Register a credit card to be stored in Veritrans server.

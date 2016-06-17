@@ -23,6 +23,7 @@
 #import "VTVAListController.h"
 #import "VTPaymentListFooter.h"
 #import "VTPaymentListHeader.h"
+#import "VTEpayBRIController.h"
 
 @interface VTPaymentListController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -116,6 +117,9 @@
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([identifier isEqualToString:VTClickpayIdentifier]) {
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([identifier isEqualToString:VTEpayIdentifier]) {
+        VTEpayBRIController *vc = [[VTEpayBRIController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

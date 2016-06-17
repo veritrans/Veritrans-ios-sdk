@@ -174,6 +174,12 @@
 		E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B71C996103009D7BA4 /* VisaDark@2x.png */; };
 		E53BD0351D1429C7001FADDE /* VTCIMBClicksView.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0331D1429C7001FADDE /* VTCIMBClicksView.h */; };
 		E53BD0361D1429C7001FADDE /* VTCIMBClicksView.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0341D1429C7001FADDE /* VTCIMBClicksView.m */; };
+		E53BD0401D143BE8001FADDE /* bri_epay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53BD03F1D143BE8001FADDE /* bri_epay.plist */; };
+		E53BD0421D143BF3001FADDE /* VTEpayBRIController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53BD0411D143BF3001FADDE /* VTEpayBRIController.xib */; };
+		E53BD0471D143C90001FADDE /* VTEpayBRIController.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0431D143C90001FADDE /* VTEpayBRIController.h */; };
+		E53BD0481D143C90001FADDE /* VTEpayBRIController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0441D143C90001FADDE /* VTEpayBRIController.m */; };
+		E53BD04E1D143CAC001FADDE /* VTEpayBRIView.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD04C1D143CAC001FADDE /* VTEpayBRIView.h */; };
+		E53BD04F1D143CAC001FADDE /* VTEpayBRIView.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD04D1D143CAC001FADDE /* VTEpayBRIView.m */; };
 		E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */; };
 		E546D1D91CEAC91D00D65252 /* VTKeyboardAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E546D1D71CEAC91D00D65252 /* VTKeyboardAccessoryView.m */; };
 		E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */; };
@@ -415,6 +421,12 @@
 		E52F72B71C996103009D7BA4 /* VisaDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaDark@2x.png"; sourceTree = "<group>"; };
 		E53BD0331D1429C7001FADDE /* VTCIMBClicksView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCIMBClicksView.h; sourceTree = "<group>"; };
 		E53BD0341D1429C7001FADDE /* VTCIMBClicksView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCIMBClicksView.m; sourceTree = "<group>"; };
+		E53BD03F1D143BE8001FADDE /* bri_epay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bri_epay.plist; sourceTree = "<group>"; };
+		E53BD0411D143BF3001FADDE /* VTEpayBRIController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTEpayBRIController.xib; sourceTree = "<group>"; };
+		E53BD0431D143C90001FADDE /* VTEpayBRIController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEpayBRIController.h; sourceTree = "<group>"; };
+		E53BD0441D143C90001FADDE /* VTEpayBRIController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTEpayBRIController.m; sourceTree = "<group>"; };
+		E53BD04C1D143CAC001FADDE /* VTEpayBRIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTEpayBRIView.h; sourceTree = "<group>"; };
+		E53BD04D1D143CAC001FADDE /* VTEpayBRIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTEpayBRIView.m; sourceTree = "<group>"; };
 		E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKeyboardAccessoryView.h; sourceTree = "<group>"; };
 		E546D1D71CEAC91D00D65252 /* VTKeyboardAccessoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTKeyboardAccessoryView.m; sourceTree = "<group>"; };
 		E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTKeyboardAccessoryView.xib; sourceTree = "<group>"; };
@@ -647,6 +659,7 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E53BD03F1D143BE8001FADDE /* bri_epay.plist */,
 				E50D85F31D0ECB9C00F26D2E /* indomaret.plist */,
 				E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */,
 				E50D85E11D0EC93400F26D2E /* ecashGuide.plist */,
@@ -666,6 +679,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E53BD0411D143BF3001FADDE /* VTEpayBRIController.xib */,
 				002CC9AE1D127C5F003A1203 /* VTPaymentGuideViewController.xib */,
 				E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */,
 				E5583E001D0FD5DA002B7FA1 /* VTClickpayGuideController.xib */,
@@ -828,6 +842,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				E53BD04B1D143C9A001FADDE /* EPay */,
 				002CC9AB1D127C23003A1203 /* Payment Guide */,
 				002CC99C1D125A55003A1203 /* Klik BCA */,
 				E50D860C1D0ECBD600F26D2E /* Klikpay */,
@@ -930,6 +945,17 @@
 			name = Animators;
 			sourceTree = "<group>";
 		};
+		E53BD04B1D143C9A001FADDE /* EPay */ = {
+			isa = PBXGroup;
+			children = (
+				E53BD0431D143C90001FADDE /* VTEpayBRIController.h */,
+				E53BD0441D143C90001FADDE /* VTEpayBRIController.m */,
+				E53BD04C1D143CAC001FADDE /* VTEpayBRIView.h */,
+				E53BD04D1D143CAC001FADDE /* VTEpayBRIView.m */,
+			);
+			name = EPay;
+			sourceTree = "<group>";
+		};
 		E578DD071CFBF6480091760A /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -976,6 +1002,7 @@
 				E50D86071D0ECBC500F26D2E /* VTIndomaretSuccessController.h in Headers */,
 				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				309CC0CF1C86952300C058BE /* VTVAConfirmationController.h in Headers */,
+				E53BD04E1D143CAC001FADDE /* VTEpayBRIView.h in Headers */,
 				E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */,
 				30E77E8A1C84021A0090D228 /* VTMandiriClickpayController.h in Headers */,
 				E5504E111D0E5D3200137655 /* VTCIMBClicksController.h in Headers */,
@@ -993,6 +1020,7 @@
 				E578DD171CFC1BD50091760A /* VTToast.h in Headers */,
 				E5EF82731C8C0814007B6585 /* VTCCFrontView.h in Headers */,
 				E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */,
+				E53BD0471D143C90001FADDE /* VTEpayBRIController.h in Headers */,
 				E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */,
 				30E7133B1C85A8A800AFB7B4 /* VTGuideCell.h in Headers */,
 				E50D86011D0ECBC500F26D2E /* VTBCAKlikpayController.h in Headers */,
@@ -1176,6 +1204,7 @@
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				E578DD1A1CFC1F170091760A /* VTToast.xib in Resources */,
 				002CC9A71D125BFF003A1203 /* klikbca.plist in Resources */,
+				E53BD0401D143BE8001FADDE /* bri_epay.plist in Resources */,
 				E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */,
 				E50D85E01D0EC92700F26D2E /* VTMandiriECashController.xib in Resources */,
 				E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */,
@@ -1186,6 +1215,7 @@
 				E503AEC61C8E85C500F097FF /* vamandiri@2x.png in Resources */,
 				E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */,
 				E50D85EF1D0ECB9000F26D2E /* VTBCAKlikpayController.xib in Resources */,
+				E53BD0421D143BF3001FADDE /* VTEpayBRIController.xib in Resources */,
 				E50D85F01D0ECB9000F26D2E /* VTIndomaretController.xib in Resources */,
 				E50D85F61D0ECB9C00F26D2E /* bca_klikpay.plist in Resources */,
 				30E8798C1C894718000C0F4B /* BackBarIcon@2x.png in Resources */,
@@ -1248,6 +1278,7 @@
 				002CC9A11D125AD1003A1203 /* VTKlikBCAViewController.m in Sources */,
 				E546D1D91CEAC91D00D65252 /* VTKeyboardAccessoryView.m in Sources */,
 				E517C2C21C9673B4009AE6AA /* VTAlertBackgroundView.m in Sources */,
+				E53BD0481D143C90001FADDE /* VTEpayBRIController.m in Sources */,
 				E578DD2C1CFC40480091760A /* VTPaymentListFooter.m in Sources */,
 				309CC0D01C86952300C058BE /* VTVAConfirmationController.m in Sources */,
 				30E713271C859EE100AFB7B4 /* VTButton.m in Sources */,
@@ -1276,6 +1307,7 @@
 				E517C2DE1C96C1A2009AE6AA /* PushAnimator.m in Sources */,
 				E5E436481CE3290900F688ED /* VTPaymentController.m in Sources */,
 				E502249F1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m in Sources */,
+				E53BD04F1D143CAC001FADDE /* VTEpayBRIView.m in Sources */,
 				306838731C7EDA0A0064A305 /* VTPaymentHeader.m in Sources */,
 				E517C2D91C96B610009AE6AA /* VTHudView.m in Sources */,
 				E578DD181CFC1BD50091760A /* VTToast.m in Sources */,

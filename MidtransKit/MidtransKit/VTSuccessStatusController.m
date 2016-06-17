@@ -8,6 +8,7 @@
 
 #import "VTSuccessStatusController.h"
 #import "VTClassHelper.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTSuccessStatusController ()
 @property (weak, nonatomic) IBOutlet UIImageView *statusIconView;
@@ -17,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentTypeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *finishButton;
 
 @property (nonatomic) VTPaymentStatusViewModel *successViewModel;
 @end
@@ -39,6 +41,9 @@
     _orderIdLabel.text = _successViewModel.orderId;
     _transactionTimeLabel.text = _successViewModel.transactionTime;
     _paymentTypeLabel.text = _successViewModel.paymentType;
+    if ([_successViewModel.paymentType isEqualToString:@"Bca Klikbca"]) {
+        [self.finishButton setTitle:NSLocalizedString(@"Complete Payment At KlikBCA",nil) forState:UIControlStateNormal];
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,16 +57,5 @@
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

@@ -803,7 +803,7 @@ be used for every transactions.</string>
                                         <rect key="frame" x="15" y="269" width="290" height="35"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay with new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FFM-6n-XfQ">
-                                                <rect key="frame" x="0.0" y="10" width="138.5" height="17"/>
+                                                <rect key="frame" x="0.0" y="10" width="139" height="17"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -1238,7 +1238,7 @@ be used for every transactions.</string>
                                                 <rect key="frame" x="16" y="331" width="288" height="45"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="57r-4c-7k4">
-                                                        <rect key="frame" x="0.0" y="12" width="162.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="12" width="163" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                         <nil key="highlightedColor"/>
@@ -1691,6 +1691,7 @@ be used for every transactions.</string>
                     <connections>
                         <outlet property="amountLabel" destination="sLY-Mj-3Qa" id="ShE-qe-ENk"/>
                         <outlet property="descriptionLabel" destination="KRM-r2-F6l" id="aBl-th-Wmd"/>
+                        <outlet property="finishButton" destination="FLX-HE-zjF" id="jab-oD-v5V"/>
                         <outlet property="orderIdLabel" destination="Ofu-en-G5p" id="jct-RG-gFP"/>
                         <outlet property="paymentTypeLabel" destination="tCG-aM-6EN" id="18C-fM-2yc"/>
                         <outlet property="statusIconView" destination="jLb-up-28r" id="1Ih-cE-XdB"/>

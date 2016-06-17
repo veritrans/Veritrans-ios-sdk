@@ -18,6 +18,7 @@
 #import "VTEnvironment.h"
 #import "VTAddress.h"
 #import "VTClient.h"
+#import "VTConstant.h"
 #import "VTPaymentDetails.h"
 #import "VTPaymentCreditCard.h"
 #import "VTMaskedCreditCard.h"
@@ -28,13 +29,13 @@
 #import "VT3DSController.h"
 #import "VTCreditCard.h"
 #import "VTCustomerDetails.h"
-
+#import "NSString+VTValidation.h"
 #import "VTPaymentCIMBClicks.h"
 #import "VTPaymentMandiriECash.h"
 #import "VTPaymentCStore.h"
 #import "VTPaymentBCAKlikpay.h"
+#import "VTPaymentKlikBCA.h"
 #import "VTPaymentMandiriClickpay.h"
-
 #import "VTCreditCardHelper.h"
 #import "VTMandiriClickpayHelper.h"
 

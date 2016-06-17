@@ -8,7 +8,7 @@
 
 #import "VTIndomaretSuccessController.h"
 #import "VTClassHelper.h"
-#import "VTIndomaretGuideController.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
 #import "VTToast.h"
@@ -42,7 +42,7 @@
     _transactionTimeLabel.text = _viewModel.transactionTime;
     _paymentCodeLabel.text = _viewModel.transactionResult.additionalData[@"payment_code"];
     
-    self.title = @"Pay at Indomaret";
+   self.title = [NSString stringWithFormat: NSLocalizedString(@"Pay at %@",nil),[VT_PAYMENT_INDOMARET capitalizedString]];
 }
 
 - (IBAction)copyCodePressed:(UIButton *)sender {
@@ -51,8 +51,7 @@
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    VTIndomaretGuideController *vc = [[VTIndomaretGuideController alloc] initWithNibName:@"VTIndomaretGuideController" bundle:VTBundle];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self showGuideViewControllerWithPaymentName:VT_PAYMENT_INDOMARET];
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {

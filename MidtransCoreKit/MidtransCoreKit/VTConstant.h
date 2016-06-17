@@ -22,7 +22,10 @@ static NSString * const CREDIT_CARD_TYPE_VISA    = @"Visa";
 /**
  *  PAYMENT TYPE
  */
-static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
+static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bcaklikpay";
+static NSString * const VT_PAYMENT_KLIK_BCA = @"KlikBCA";
+static NSString * const VT_PAYMENT_KLIK_BCA_IDENTIFIER = @"bca_klikbca";
+static NSString * const VT_PAYMENT_INDOMARET = @"indomaret";
 static NSString * const VT_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const VT_PAYMENT_CSTORE = @"cstore";
 static NSString * const VT_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";

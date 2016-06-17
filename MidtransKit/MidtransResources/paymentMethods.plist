@@ -44,6 +44,14 @@
     </dict>
     <dict>
         <key>title</key>
+        <string>KlikBCA</string>
+        <key>description</key>
+        <string>Pay using KlikBCA</string>
+        <key>id</key>
+        <string>klikbca</string>
+    </dict>
+    <dict>
+        <key>title</key>
         <string>Mandiri e-Cash</string>
         <key>description</key>
         <string>Pay with Mandiri e-Cash</string>

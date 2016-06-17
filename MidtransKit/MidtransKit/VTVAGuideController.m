@@ -95,8 +95,7 @@
     return [NSArray arrayWithContentsOfFile:path];
 }
 
-- (NSArray *)MBXPageControllers
-{
+- (NSArray *)MBXPageControllers {
     NSMutableArray *vcs = [NSMutableArray new];
     
     NSArray *guides = [self usedGuides];

@@ -13,7 +13,6 @@
 
 @interface VTVAListController ()
 @property (nonatomic) VTCustomerDetails *customer;
-
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

@@ -43,18 +43,10 @@
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; };
 		00F61AEF1D145A6200C93DA0 /* VTPaymentListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AED1D145A6200C93DA0 /* VTPaymentListDataSource.m */; };
-		00F61AFD1D145B4600C93DA0 /* SourceSansPro-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF11D145B4600C93DA0 /* SourceSansPro-Black.ttf */; };
-		00F61AFE1D145B4600C93DA0 /* SourceSansPro-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF21D145B4600C93DA0 /* SourceSansPro-BlackItalic.ttf */; };
 		00F61AFF1D145B4600C93DA0 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF31D145B4600C93DA0 /* SourceSansPro-Bold.ttf */; };
-		00F61B001D145B4600C93DA0 /* SourceSansPro-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF41D145B4600C93DA0 /* SourceSansPro-BoldItalic.ttf */; };
-		00F61B011D145B4600C93DA0 /* SourceSansPro-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF51D145B4600C93DA0 /* SourceSansPro-ExtraLight.ttf */; };
-		00F61B021D145B4600C93DA0 /* SourceSansPro-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF61D145B4600C93DA0 /* SourceSansPro-ExtraLightItalic.ttf */; };
-		00F61B031D145B4600C93DA0 /* SourceSansPro-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF71D145B4600C93DA0 /* SourceSansPro-Italic.ttf */; };
 		00F61B041D145B4600C93DA0 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF81D145B4600C93DA0 /* SourceSansPro-Light.ttf */; };
-		00F61B051D145B4600C93DA0 /* SourceSansPro-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF91D145B4600C93DA0 /* SourceSansPro-LightItalic.ttf */; };
 		00F61B061D145B4600C93DA0 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AFA1D145B4600C93DA0 /* SourceSansPro-Regular.ttf */; };
 		00F61B071D145B4600C93DA0 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AFB1D145B4600C93DA0 /* SourceSansPro-Semibold.ttf */; };
-		00F61B081D145B4600C93DA0 /* SourceSansPro-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AFC1D145B4600C93DA0 /* SourceSansPro-SemiboldItalic.ttf */; };
 		3005E2771C7C175000064169 /* VTAddCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTAddCardController.h */; };
 		3005E2781C7C175000064169 /* VTAddCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTAddCardController.m */; };
 		3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */; };
@@ -293,18 +285,10 @@
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
 		00F61AED1D145A6200C93DA0 /* VTPaymentListDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListDataSource.m; sourceTree = "<group>"; };
-		00F61AF11D145B4600C93DA0 /* SourceSansPro-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Black.ttf"; sourceTree = "<group>"; };
-		00F61AF21D145B4600C93DA0 /* SourceSansPro-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BlackItalic.ttf"; sourceTree = "<group>"; };
 		00F61AF31D145B4600C93DA0 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
-		00F61AF41D145B4600C93DA0 /* SourceSansPro-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-BoldItalic.ttf"; sourceTree = "<group>"; };
-		00F61AF51D145B4600C93DA0 /* SourceSansPro-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLight.ttf"; sourceTree = "<group>"; };
-		00F61AF61D145B4600C93DA0 /* SourceSansPro-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
-		00F61AF71D145B4600C93DA0 /* SourceSansPro-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Italic.ttf"; sourceTree = "<group>"; };
 		00F61AF81D145B4600C93DA0 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
-		00F61AF91D145B4600C93DA0 /* SourceSansPro-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-LightItalic.ttf"; sourceTree = "<group>"; };
 		00F61AFA1D145B4600C93DA0 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
 		00F61AFB1D145B4600C93DA0 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.ttf"; sourceTree = "<group>"; };
-		00F61AFC1D145B4600C93DA0 /* SourceSansPro-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -585,18 +569,10 @@
 		00F61AF01D145B3600C93DA0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				00F61AF11D145B4600C93DA0 /* SourceSansPro-Black.ttf */,
-				00F61AF21D145B4600C93DA0 /* SourceSansPro-BlackItalic.ttf */,
 				00F61AF31D145B4600C93DA0 /* SourceSansPro-Bold.ttf */,
-				00F61AF41D145B4600C93DA0 /* SourceSansPro-BoldItalic.ttf */,
-				00F61AF51D145B4600C93DA0 /* SourceSansPro-ExtraLight.ttf */,
-				00F61AF61D145B4600C93DA0 /* SourceSansPro-ExtraLightItalic.ttf */,
-				00F61AF71D145B4600C93DA0 /* SourceSansPro-Italic.ttf */,
 				00F61AF81D145B4600C93DA0 /* SourceSansPro-Light.ttf */,
-				00F61AF91D145B4600C93DA0 /* SourceSansPro-LightItalic.ttf */,
 				00F61AFA1D145B4600C93DA0 /* SourceSansPro-Regular.ttf */,
 				00F61AFB1D145B4600C93DA0 /* SourceSansPro-Semibold.ttf */,
-				00F61AFC1D145B4600C93DA0 /* SourceSansPro-SemiboldItalic.ttf */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -1232,13 +1208,11 @@
 				309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */,
 				00F61B071D145B4600C93DA0 /* SourceSansPro-Semibold.ttf in Resources */,
 				E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */,
-				00F61B021D145B4600C93DA0 /* SourceSansPro-ExtraLightItalic.ttf in Resources */,
 				309CC0D91C86A53400C058BE /* bcaVaGuide.plist in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpayGuide.plist in Resources */,
 				E50D85F11D0ECB9000F26D2E /* VTIndomaretGuideController.xib in Resources */,
 				30E7133F1C85AAE600AFB7B4 /* permataVaGuide.plist in Resources */,
 				309CC0DC1C86A68F00C058BE /* mandiriVaGuide.plist in Resources */,
-				00F61B001D145B4600C93DA0 /* SourceSansPro-BoldItalic.ttf in Resources */,
 				309CC0E01C86B88C00C058BE /* cimb_clicks.plist in Resources */,
 				E503AECA1C8E860700F097FF /* virtualAccount.plist in Resources */,
 				E50D85F51D0ECB9C00F26D2E /* indomaret.plist in Resources */,
@@ -1258,7 +1232,6 @@
 				E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */,
 				E503AEEE1C8EC69800F097FF /* ecash@2x.png in Resources */,
 				309CC0F11C86C72200C058BE /* JCB@2x.png in Resources */,
-				00F61AFE1D145B4600C93DA0 /* SourceSansPro-BlackItalic.ttf in Resources */,
 				E50D85E21D0EC93400F26D2E /* ecashGuide.plist in Resources */,
 				309CC0F01C86C72200C058BE /* CreditCardFront@2x.png in Resources */,
 				002CC9A91D12639F003A1203 /* klikbca@2x.png in Resources */,
@@ -1286,20 +1259,15 @@
 				E53BD0401D143BE8001FADDE /* bri_epay.plist in Resources */,
 				E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */,
 				E50D85E01D0EC92700F26D2E /* VTMandiriECashController.xib in Resources */,
-				00F61B051D145B4600C93DA0 /* SourceSansPro-LightItalic.ttf in Resources */,
 				E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
-				00F61B081D145B4600C93DA0 /* SourceSansPro-SemiboldItalic.ttf in Resources */,
 				E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */,
 				E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */,
-				00F61B011D145B4600C93DA0 /* SourceSansPro-ExtraLight.ttf in Resources */,
 				30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */,
 				E503AEC61C8E85C500F097FF /* vamandiri@2x.png in Resources */,
 				00F61AFF1D145B4600C93DA0 /* SourceSansPro-Bold.ttf in Resources */,
-				00F61B031D145B4600C93DA0 /* SourceSansPro-Italic.ttf in Resources */,
 				E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */,
 				E50D85EF1D0ECB9000F26D2E /* VTBCAKlikpayController.xib in Resources */,
-				00F61AFD1D145B4600C93DA0 /* SourceSansPro-Black.ttf in Resources */,
 				E53BD0421D143BF3001FADDE /* VTEpayBRIController.xib in Resources */,
 				E50D85F01D0ECB9000F26D2E /* VTIndomaretController.xib in Resources */,
 				E50D85F61D0ECB9C00F26D2E /* bca_klikpay.plist in Resources */,

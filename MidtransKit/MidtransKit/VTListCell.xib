@@ -8,9 +8,7 @@
     <customFonts key="customFonts">
         <mutableArray key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
-        </mutableArray>
-        <mutableArray key="SourceSansPro-Semibold.ttf">
-            <string>SourceSansPro-Semibold</string>
+            <string>SourceSansPro-Regular</string>
         </mutableArray>
     </customFonts>
     <objects>
@@ -20,7 +18,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sl1-Dt-YGF" id="O91-jH-LaY">
-                <rect key="frame" x="0.0" y="0.0" width="287" height="70"/>
+                <rect key="frame" x="0.0" y="0.0" width="287" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AmP-uM-h43">
@@ -35,7 +33,7 @@
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gbv-Xq-Pto">
                                 <rect key="frame" x="8" y="0.0" width="201" height="19"/>
-                                <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>

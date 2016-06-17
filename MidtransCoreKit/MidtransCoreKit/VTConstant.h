@@ -6,6 +6,17 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
+/**
+ *  error domain
+ */
+static NSString * const VT_ERROR_DOMAIN = @"error.veritrans.co.id";
+
+/**
+ *  transaction status
+ */
+static NSString * const VT_TRANSACTION_STATUS_DENY   = @"deny";
+static NSString * const VT_TRANSACTION_STATUS_SETTLE   = @"settlement";
+
 
 /**
  *  credit card type
@@ -22,7 +33,7 @@ static NSString * const CREDIT_CARD_TYPE_VISA    = @"Visa";
 /**
  *  PAYMENT TYPE
  */
-static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bcaklikpay";
+static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
 static NSString * const VT_PAYMENT_KLIK_BCA = @"KlikBCA";
 static NSString * const VT_PAYMENT_KLIK_BCA_IDENTIFIER = @"bca_klikbca";
 static NSString * const VT_PAYMENT_INDOMARET = @"indomaret";

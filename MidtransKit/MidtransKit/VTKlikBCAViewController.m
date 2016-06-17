@@ -9,6 +9,7 @@
 #import "VTKlikBCAViewController.h"
 #import "VTKlikBCAView.h"
 #import "VTClassHelper.h"
+#import "VTTextField.h"
 #import "VTPaymentGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -28,23 +29,26 @@
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)confirmPaymentButtonDidTapped:(id)sender {
-    [self showLoadingHud];
-    VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] init];
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-        [self hideLoadingHud];
-        if (error) {
-            [self handleTransactionError:error];
-        } else {
-            [self handleTransactionSuccess:result];
-        }
-    }];
+    if (self.view.userIdTextField.text.isEmpty) {
+        self.view.userIdTextField.warning = @"Cannot be empty";
+        return;
+    }
+    else {
+        [self showLoadingHud];
+        VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.userIdTextField.text];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+        
+        
+        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+            [self hideLoadingHud];
+            if (error) {
+                [self handleTransactionError:error];
+            } else {
+                [self handleTransactionSuccess:result];
+            }
+        }];
+    }
 }
 - (IBAction)guideButtonDidtapped:(id)sender {
     [self showGuideViewControllerWithPaymentName:VT_PAYMENT_KLIK_BCA];

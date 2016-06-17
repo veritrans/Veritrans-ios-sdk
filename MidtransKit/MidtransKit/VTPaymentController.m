@@ -35,7 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-      self.hudView = [[VTHudView alloc] init];
+    self.hudView = [[VTHudView alloc] init];
     // Do any additional setup after loading the view.
 }
 

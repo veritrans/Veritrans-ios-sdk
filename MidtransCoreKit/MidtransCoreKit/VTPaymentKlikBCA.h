@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 #import "VTPaymentDetails.h"
 @interface VTPaymentKlikBCA : NSObject<VTPaymentDetails>
-
+- (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId;
 @end

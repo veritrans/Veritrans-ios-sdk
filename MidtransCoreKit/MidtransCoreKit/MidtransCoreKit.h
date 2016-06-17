@@ -29,7 +29,7 @@
 #import "VT3DSController.h"
 #import "VTCreditCard.h"
 #import "VTCustomerDetails.h"
-
+#import "NSString+VTValidation.h"
 #import "VTPaymentCIMBClicks.h"
 #import "VTPaymentMandiriECash.h"
 #import "VTPaymentCStore.h"

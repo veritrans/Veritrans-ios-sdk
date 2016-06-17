@@ -7,14 +7,25 @@
 //
 
 #import "VTPaymentKlikBCA.h"
+#import "VTConstant.h"
+@interface VTPaymentKlikBCA()
+@property (nonatomic) NSString *klikBCAUserId;
+@end;
 
 @implementation VTPaymentKlikBCA
 
+- (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId {
+    if (self = [super init]) {
+        self.klikBCAUserId = userId;
+    }
+    return self;
+}
+
 - (NSString *)paymentType {
-    return @"bca_klikbca";
+    return VT_PAYMENT_KLIK_BCA_IDENTIFIER;
 }
 - (NSDictionary *)dictionaryValue {
-    return @{@"user_id":@"veritranss1012",
-             @"description":@"3176440"};
+    return @{@"user_id" : self.klikBCAUserId,
+             @"description" : @"3176440"};
 }
 @end

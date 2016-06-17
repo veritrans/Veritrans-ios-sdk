@@ -150,7 +150,6 @@
                                                                                  secureURL:[NSURL URLWithString:redirectURL]];
                 [secureController showWithCompletion:^(NSError *error) {
                     if (error) {
-                        [self hideLoadingHud];
                         [self handleTransactionError:error];
                     } else {
                         [self payWithToken:token];
@@ -196,7 +195,6 @@
         
         if (shouldChange == NO) {
             _cardFrontView.numberLabel.text = _cardNumber.text;
-            
             NSString *originNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
             _cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
             _cardFrontView.iconView.image = [self iconWithNumber:originNumber];

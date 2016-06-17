@@ -56,6 +56,16 @@
     [_cardExpiryDate removeObserver:self forKeyPath:@"text"];
 }
 
+- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+    [super handleTransactionSuccess:result];
+    [self hideLoadingHud];
+}
+
+- (void)handleTransactionError:(NSError *)error {
+    [super handleTransactionError:error];
+    [self hideLoadingHud];
+}
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"text"] &&
         [object isEqual:_cardExpiryDate]) {
@@ -141,23 +151,11 @@
                                                                         grossAmount:self.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
     
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
         if (error) {
             [self handleTransactionError:error];
         } else {
-            if (redirectURL) {
-                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
-                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
-                [secureController showWithCompletion:^(NSError *error) {
-                    if (error) {
-                        [self handleTransactionError:error];
-                    } else {
-                        [self payWithToken:token];
-                    }
-                }];
-            } else {
-                [self payWithToken:token];
-            }
+            [self payWithToken:token];
         }
     }];
 }

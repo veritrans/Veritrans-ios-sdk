@@ -43,6 +43,7 @@ static NSString * const VT_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
 static NSString * const VT_PAYMENT_CREDIT_CARD = @"credit_card";
 static NSString * const VT_PAYMENT_BANK_TRANSFER = @"bank_transfer";
 static NSString * const VT_PAYMENT_ECHANNEL = @"echannel";
+static NSString * const VT_PAYMENT_BRI_EPAY = @"bri_epay";
 
 /**
  *  CONSTANT REGEX

@@ -113,7 +113,8 @@
 - (BOOL)isWebPaymentType:(NSString *)paymentType {
     return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
     [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
-    [paymentType isEqualToString:VT_PAYMENT_MANDIRI_ECASH];
+    [paymentType isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
+    [paymentType isEqualToString:VT_PAYMENT_BRI_EPAY];
 }
 
 @end

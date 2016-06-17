@@ -19,7 +19,7 @@
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithAttributedString:attributedString];
     NSMutableParagraphStyle *paragrahStyle = [[NSMutableParagraphStyle alloc] init];
     paragrahStyle.lineSpacing = 2.0f;
-    paragrahStyle.paragraphSpacing = 2.0f;
+    paragrahStyle.paragraphSpacing = 5.0f;
     paragrahStyle.paragraphSpacingBefore = 2.0f;
     paragrahStyle.firstLineHeadIndent = 0.0f;  // First line is the one with bullet point
     paragrahStyle.headIndent = 28.0f;    // Set the indent for given bullet character and size font

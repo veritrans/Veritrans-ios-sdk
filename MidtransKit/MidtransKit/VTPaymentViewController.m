@@ -18,7 +18,7 @@
 @dynamic delegate;
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:@""];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }

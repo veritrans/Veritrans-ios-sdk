@@ -41,8 +41,7 @@
 
 + (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString objectAtIndex:(NSInteger *)integer {
     
-    NSString *paymentName = [[localizedString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSArray *file = [NSArray arrayWithContentsOfFile:[VTBundle pathForResource:paymentName ofType:@"plist"]];
+    NSArray *file = [NSArray arrayWithContentsOfFile:[VTBundle pathForResource:localizedString ofType:@"plist"]];
     NSMutableArray *points = [[NSMutableArray alloc] init];
     for (NSInteger i = 1; i <= file.count; i++) {
         NSString *key = [NSString stringWithFormat:@"%@", file[i-1]];

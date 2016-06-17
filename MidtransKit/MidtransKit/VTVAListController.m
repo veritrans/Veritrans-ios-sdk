@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTListCell.h"
 #import "VTVAController.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTVAListController ()
 @property (nonatomic) VTCustomerDetails *customer;
@@ -62,11 +63,11 @@
     NSString *identifier = _banks[indexPath.row][@"id"];
     VTVAType vaType;
     
-    if ([identifier isEqualToString:VTBCAVAIdentifier]) {
+    if ([identifier isEqualToString:VT_VA_BCA_IDENTIFIER]) {
         vaType = VTVATypeBCA;
-    } else if ([identifier isEqualToString:VTMandiriVAIdentifier]) {
+    } else if ([identifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER]) {
         vaType = VTVATypeMandiri;
-    } else if ([identifier isEqualToString:VTPermataVAIdentifier]) {
+    } else if ([identifier isEqualToString:VT_VA_PERMATA_IDENTIFIER]) {
         vaType = VTVATypePermata;
     } else {
         vaType = VTVATypeOther;

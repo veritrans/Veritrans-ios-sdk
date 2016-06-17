@@ -39,7 +39,7 @@
 @implementation VTTwoClickController
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails maskedCard:(VTMaskedCreditCard *)maskedCard {
-    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
+    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:@""];
     if (self) {
         self.maskeCard = maskedCard;
     }

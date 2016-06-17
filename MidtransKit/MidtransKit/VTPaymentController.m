@@ -16,7 +16,7 @@
 
 @implementation VTPaymentController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod; {
     
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
@@ -26,6 +26,7 @@
     }
     
     if (self) {
+        self.paymentMethod = paymentMethod;
         self.customerDetails = customerDetails;
         self.itemDetails = itemDetails;
         self.transactionDetails = transactionDetails;
@@ -36,12 +37,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.hudView = [[VTHudView alloc] init];
-    // Do any additional setup after loading the view.
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)showLoadingHud {

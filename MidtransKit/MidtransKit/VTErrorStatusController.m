@@ -8,7 +8,7 @@
 
 #import "VTErrorStatusController.h"
 #import "VTClassHelper.h"
-
+#import <MidtransCoreKit/MidtransCoreKit.h>
 @interface VTErrorStatusController ()
 @property (nonatomic) NSError *error;
 @end

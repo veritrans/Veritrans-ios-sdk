@@ -9,24 +9,6 @@
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/VTCreditCardHelper.h>
 
-NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
-NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
-
-NSString *const VTCreditCardIdentifier = @"cc";
-NSString *const VTVAIdentifier = @"atm";
-NSString *const VTPermataVAIdentifier = @"vapermata";
-NSString *const VTBCAVAIdentifier = @"vabca";
-NSString *const VTMandiriVAIdentifier = @"vamandiri";
-NSString *const VTOtherVAIdentifier = @"vaother";
-NSString *const VTKlikBCAIdentifier = @"klikbca";
-NSString *const VTKlikpayIdentifier = @"klikpay";
-NSString *const VTClickpayIdentifier = @"clickpay";
-NSString *const VTClicksIdentifier = @"clicks";
-NSString *const VTECashIdentifier = @"ecash";
-NSString *const VTEpayIdentifier = @"epay";
-NSString *const VTTelkomselIdentifier = @"tcash";
-NSString *const VTIndomaretIdentifier = @"indomaret";
-
 
 @implementation VTClassHelper
 

@@ -136,12 +136,12 @@
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:@""];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
     
-//    UIActionSheet *inputSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Input Manual", @"Scan With Camera", nil];
-//    [inputSheet showInView:self.navigationController.view];
+    //    UIActionSheet *inputSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Input Manual", @"Scan With Camera", nil];
+    //    [inputSheet showInView:self.navigationController.view];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -274,58 +274,58 @@
  */
 
 /*
-- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 0) {
-        VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
-        vc.delegate = self;
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if (buttonIndex == 1) {
-        CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
-        [self presentViewController:scanViewController animated:YES completion:nil];
-    }
-}
-*/
+ - (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+ if (buttonIndex == 0) {
+ VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+ vc.delegate = self;
+ [self.navigationController pushViewController:vc animated:YES];
+ } else if (buttonIndex == 1) {
+ CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+ [self presentViewController:scanViewController animated:YES completion:nil];
+ }
+ }
+ */
 
 /*
-#pragma mark - CardIOPaymentViewControllerDelegate
-
-/// This method will be called if the user cancels the scan. You MUST dismiss paymentViewController.
-/// @param paymentViewController The active CardIOPaymentViewController.
-- (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
-/// This method will be called when there is a successful scan (or manual entry). You MUST dismiss paymentViewController.
-/// @param cardInfo The results of the scan.
-/// @param paymentViewController The active CardIOPaymentViewController.
-- (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
-    
-    NSString *year = cardInfo.expiryYear < 10 ? [NSString stringWithFormat:@"0%lu", (unsigned long)cardInfo.expiryYear] : [NSString stringWithFormat:@"%lu", (unsigned long)cardInfo.expiryYear];
-    NSString *month = cardInfo.expiryMonth < 10 ? [NSString stringWithFormat:@"0%lu", (unsigned long)cardInfo.expiryMonth] : [NSString stringWithFormat:@"%lu", (unsigned long)cardInfo.expiryMonth];
-    
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardInfo.cardNumber
-                                                        expiryMonth:month
-                                                         expiryYear:year
-                                                                cvv:cardInfo.cvv];
-    
-    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
-        [_hudView hide];
-        
-        if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-            [alert show];
-        } else {
-            [[VTMerchantClient sharedClient] saveRegisteredCard:maskedCreditCard completion:^(id result, NSError *error) {
-                if (error) {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-                    [alert show];
-                } else {
-                    [self reloadMaskedCards];
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }
-            }];
-        }
-    }];
-}
-*/
+ #pragma mark - CardIOPaymentViewControllerDelegate
+ 
+ /// This method will be called if the user cancels the scan. You MUST dismiss paymentViewController.
+ /// @param paymentViewController The active CardIOPaymentViewController.
+ - (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+ [self dismissViewControllerAnimated:YES completion:nil];
+ }
+ 
+ /// This method will be called when there is a successful scan (or manual entry). You MUST dismiss paymentViewController.
+ /// @param cardInfo The results of the scan.
+ /// @param paymentViewController The active CardIOPaymentViewController.
+ - (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+ 
+ NSString *year = cardInfo.expiryYear < 10 ? [NSString stringWithFormat:@"0%lu", (unsigned long)cardInfo.expiryYear] : [NSString stringWithFormat:@"%lu", (unsigned long)cardInfo.expiryYear];
+ NSString *month = cardInfo.expiryMonth < 10 ? [NSString stringWithFormat:@"0%lu", (unsigned long)cardInfo.expiryMonth] : [NSString stringWithFormat:@"%lu", (unsigned long)cardInfo.expiryMonth];
+ 
+ VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardInfo.cardNumber
+ expiryMonth:month
+ expiryYear:year
+ cvv:cardInfo.cvv];
+ 
+ [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
+ [_hudView hide];
+ 
+ if (error) {
+ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+ [alert show];
+ } else {
+ [[VTMerchantClient sharedClient] saveRegisteredCard:maskedCreditCard completion:^(id result, NSError *error) {
+ if (error) {
+ UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+ [alert show];
+ } else {
+ [self reloadMaskedCards];
+ [self dismissViewControllerAnimated:YES completion:nil];
+ }
+ }];
+ }
+ }];
+ }
+ */
 @end

@@ -14,6 +14,7 @@
 #import "VTMandiriClickpayController.h"
 #import "VTVAController.h"
 #import "VTCIMBClicksController.h"
+#import "VTPaymentGeneralViewController.h"
 #import "VTMandiriECashController.h"
 #import "VTBCAKlikpayController.h"
 #import "VTIndomaretController.h"
@@ -25,6 +26,7 @@
 #import "VTPaymentListHeader.h"
 #import "VTEpayBRIController.h"
 #import "VTPaymentListView.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/VTPaymentListModel.h>
 #import "VTPaymentListDataSource.h"
 @interface VTPaymentListController () <UITableViewDelegate>
@@ -117,32 +119,29 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
-    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTCreditCardIdentifier]) {
-        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CREDIT_CARD_IDENTIFIER]) {
+        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTVAIdentifier]) {
-        VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
+        VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTClicksIdentifier]) {
-        VTCIMBClicksController *vc = [[VTCIMBClicksController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER] || [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER] || [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER]) {
+        VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTECashIdentifier]) {
-        VTMandiriECashController *vc = [[VTMandiriECashController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER]) {
+        VTMandiriECashController *vc = [[VTMandiriECashController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTKlikpayIdentifier]) {
-        VTBCAKlikpayController *vc = [[VTBCAKlikpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER]) {
+        VTKlikBCAViewController *vc = [[VTKlikBCAViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTKlikBCAIdentifier]) {
-        VTKlikBCAViewController *vc = [[VTKlikBCAViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER]) {
+        VTIndomaretController *vc = [[VTIndomaretController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTIndomaretIdentifier]) {
-        VTIndomaretController *vc = [[VTIndomaretController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {
+        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTClickpayIdentifier]) {
-        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VTEpayIdentifier]) {
-        VTEpayBRIController *vc = [[VTEpayBRIController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
+        VTEpayBRIController *vc = [[VTEpayBRIController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

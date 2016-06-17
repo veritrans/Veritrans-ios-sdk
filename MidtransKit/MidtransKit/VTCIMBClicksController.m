@@ -10,19 +10,17 @@
 #import "VTClassHelper.h"
 #import "VTPaymentGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
-#import "VTHudView.h"
-#import "VTClicksPageController.h"
+#import "VTCIMBClicksView.h"
+#import "VTStringHelper.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTCIMBClicksController ()
-@property (strong, nonatomic) IBOutlet UIView *helpView;
-@property (strong, nonatomic) IBOutlet UILabel *amountLabel;
-@property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
-@property (nonatomic) VTHudView *hudView;
+@property (strong, nonatomic) IBOutlet VTCIMBClicksView *view;
 @end
 
 @implementation VTCIMBClicksController
+@dynamic view;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,17 +28,10 @@
     
     [self setHeaderWithTitle:@"CIMB Clicks" subTitle:@"Payment Instructions"];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    VTPaymentGuideController *guide = [storyboard instantiateViewControllerWithIdentifier:@"VTPaymentGuideController"];
-    NSString *path = [VTBundle pathForResource:@"cimbClicksGuide" ofType:@"plist"];
-    guide.guides = [NSArray arrayWithContentsOfFile:path];
-    [self addSubViewController:guide toView:_helpView];
-    
-    _hudView = [[VTHudView alloc] init];
-    
+    self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithLocalizedStringPath:VT_PAYMENT_CIMB_CLICKS objectAtIndex:0];
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    self.amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
-    self.orderIdLabel.text = self.transactionDetails.orderId;
+    self.view.totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    self.view.orderIdLabel.text = self.transactionDetails.orderId;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,32 +40,19 @@
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
-    [_hudView showOnView:self.navigationController.view];
+    [self showLoadingHud];
     
     VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithDescription:@"dummy_description"];
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-        [_hudView hide];
+        [self hideLoadingHud];
         
         if (error) {
             [self handleTransactionError:error];
         } else {
-            NSURL *redirectURL = [NSURL URLWithString:result.additionalData[@"redirect_url"]];
-            VTClicksPageController *vc = [[VTClicksPageController alloc] initWithRedirectURL:redirectURL];
-            UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-            [self presentViewController:nvc animated:YES completion:nil];
+            [self handleTransactionSuccess:result];
         }
     }];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

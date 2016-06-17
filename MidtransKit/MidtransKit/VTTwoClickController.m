@@ -21,7 +21,6 @@
 #import <MidtransCoreKit/VTTokenizeRequest.h>
 #import <MidtransCoreKit/VT3DSController.h>
 
-#import "VTHudView.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
@@ -37,9 +36,7 @@
 
 @end
 
-@implementation VTTwoClickController {
-    VTHudView *_hudView;
-}
+@implementation VTTwoClickController
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails maskedCard:(VTMaskedCreditCard *)maskedCard {
     self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
@@ -54,8 +51,6 @@
     // Do any additional setup after loading the view.
     
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
-    
-    _hudView = [[VTHudView alloc] init];
     
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_cvvTextField]];
     
@@ -91,39 +86,27 @@
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    [_hudView showOnView:self.view];
+    [self showLoadingHud];
     
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_maskeCard.savedTokenId cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
     
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
         if (error) {
             [self handleTransactionError:error];
         } else {
-            if (redirectURL) {
-                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
-                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
-                [secureController showWithCompletion:^(NSError *error) {
-                    if (error) {
-                        [self handleTransactionError:error];
-                    } else {
-                        [self payWithToken:token];
-                    }
-                }];
-            } else {
-                [self payWithToken:token];
-            }
+            [self payWithToken:token];
         }
     }];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
     [super handleTransactionSuccess:result];
-    [_hudView hide];
+    [self hideLoadingHud];
 }
 
 - (void)handleTransactionError:(NSError *)error {
     [super handleTransactionError:error];
-    [_hudView hide];
+    [self hideLoadingHud];
 }
 
 #pragma mark - UITextFieldDelegate

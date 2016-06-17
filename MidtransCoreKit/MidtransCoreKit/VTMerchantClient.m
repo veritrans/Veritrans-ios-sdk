@@ -10,7 +10,7 @@
 #import "VTConfig.h"
 #import "VTNetworking.h"
 #import "VTHelper.h"
-#import "VTDirectDebitController.h"
+#import "VTPaymentWebController.h"
 
 @implementation VTMerchantClient
 
@@ -38,10 +38,10 @@
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
             NSString *paymentType = response[@"payment_type"];
             
-            if ([self isDirectDebitPaymentType:paymentType]) {
+            if ([self isWebPaymentType:paymentType]) {
                 
                 NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
-                VTDirectDebitController *vc = [[VTDirectDebitController alloc] initWithRedirectURL:redirectURL];
+                VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithRedirectURL:redirectURL paymentType:paymentType];
                 [vc showPageWithCallback:^(NSError * _Nullable error) {
                     if (error) {
                         if (completion) completion(nil, error);
@@ -110,8 +110,11 @@
 
 #pragma mark - Helper
 
-- (BOOL)isDirectDebitPaymentType:(NSString *)paymentType {
-    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] || [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY];
+- (BOOL)isWebPaymentType:(NSString *)paymentType {
+    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
+    [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
+    [paymentType isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
+    [paymentType isEqualToString:VT_PAYMENT_BRI_EPAY];
 }
 
 @end

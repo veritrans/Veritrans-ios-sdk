@@ -53,13 +53,13 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s76-4B-bbE">
-                    <rect key="frame" x="0.0" y="64" width="320" height="361"/>
+                    <rect key="frame" x="0.0" y="64" width="320" height="359"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWd-P2-0fu">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="292.5"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIo-EL-pdK">
-                                    <rect key="frame" x="8" y="8" width="304" height="265"/>
+                                    <rect key="frame" x="8" y="8" width="304" height="264.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
@@ -181,7 +181,7 @@
                 <constraint firstItem="zxE-wW-Umb" firstAttribute="width" secondItem="SVh-t7-Ed5" secondAttribute="width" id="Ora-lE-QAZ"/>
                 <constraint firstAttribute="bottom" secondItem="zxE-wW-Umb" secondAttribute="bottom" id="P0u-FP-fPI"/>
                 <constraint firstAttribute="trailing" secondItem="zxE-wW-Umb" secondAttribute="trailing" id="gWQ-E9-dqw"/>
-                <constraint firstItem="KFu-Mr-Nqx" firstAttribute="top" secondItem="s76-4B-bbE" secondAttribute="bottom" constant="-2" id="h7w-r6-zMk"/>
+                <constraint firstItem="KFu-Mr-Nqx" firstAttribute="top" secondItem="s76-4B-bbE" secondAttribute="bottom" id="h7w-r6-zMk"/>
                 <constraint firstAttribute="trailing" secondItem="s76-4B-bbE" secondAttribute="trailing" id="h8V-dC-1Pf"/>
                 <constraint firstItem="s76-4B-bbE" firstAttribute="top" secondItem="SVh-t7-Ed5" secondAttribute="top" constant="64" id="ntb-qZ-6Q9"/>
                 <constraint firstItem="KFu-Mr-Nqx" firstAttribute="leading" secondItem="SVh-t7-Ed5" secondAttribute="leading" id="rP4-Zs-xUO"/>

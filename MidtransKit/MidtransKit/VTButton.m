@@ -40,7 +40,6 @@
 
 - (void)layoutSubviews {
     [super layoutSubviews];
-    
     _bottomBorder.frame = CGRectMake(0, 0, self.frame.size.width, 0.5);
     _leftBorder.frame = CGRectMake(0, 0, 0.5, self.frame.size.height);
 }

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class VTPaymentListModel;
 @interface VTListCell : UITableViewCell
 @property (nonatomic) NSDictionary *item;
+@property (weak, nonatomic) IBOutlet UILabel *paymentMethodNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *paymentMethodDescriptionLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *paymentMethodLogo;
+- (void)configurePaymetnList:(VTPaymentListModel *)paymentList;
 @end

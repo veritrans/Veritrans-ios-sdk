@@ -8,12 +8,8 @@
 
 #import "VTListCell.h"
 #import "VTClassHelper.h"
-
-@implementation VTListCell {
-    IBOutlet UILabel *_titleLabel;
-    IBOutlet UILabel *_descLabel;
-    IBOutlet UIImageView *_iconView;
-}
+#import <MidtransCoreKit/VTPaymentListModel.h>
+@implementation VTListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,11 +18,10 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-
-- (void)setItem:(NSDictionary *)item {
-    _item = item;
-    _titleLabel.text = item[@"title"];
-    _descLabel.text = item[@"description"];
-    _iconView.image = [UIImage imageNamed:item[@"id"] inBundle:VTBundle compatibleWithTraitCollection:nil];
+- (void)configurePaymetnList:(VTPaymentListModel *)paymentList {
+    self.paymentMethodNameLabel.text = paymentList.title;
+    self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
+    NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
+    self.paymentMethodLogo.image = [UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil];
 }
 @end

@@ -9,8 +9,7 @@
 #import "VTNetworking.h"
 #import "VTConfig.h"
 #import "VTNetworkOperation.h"
-
-#define ErrorDomain @"error.veritrans.co.id"
+#import "VTConstant.h"
 
 @implementation NSData (decode)
 
@@ -196,7 +195,7 @@
     if (code == 200) {
         _response = response;
     } else {
-        error = [[NSError alloc] initWithDomain:ErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:message}];
+        error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN code:code userInfo:@{NSLocalizedDescriptionKey:message}];
     }
     
     if (callback) {

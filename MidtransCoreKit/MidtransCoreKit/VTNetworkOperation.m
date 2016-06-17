@@ -7,8 +7,8 @@
 //
 
 #import "VTNetworkOperation.h"
+#import "VTConstant.h"
 
-NSString *const ErrorDomain = @"error.veritrans.co.id";
 
 @implementation NSData (decode)
 
@@ -105,7 +105,7 @@ NSString *const ErrorDomain = @"error.veritrans.co.id";
         if (code/100 == 2) {
             if (self.callback) self.callback(responseObject, nil);
         } else {
-            NSError *error = [NSError errorWithDomain:ErrorDomain
+            NSError *error = [NSError errorWithDomain:VT_ERROR_DOMAIN
                                                  code:code
                                              userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"]}];
             if (self.callback) self.callback(nil, error);

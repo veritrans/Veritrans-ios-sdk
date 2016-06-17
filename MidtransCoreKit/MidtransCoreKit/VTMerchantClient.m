@@ -10,6 +10,7 @@
 #import "VTConfig.h"
 #import "VTNetworking.h"
 #import "VTHelper.h"
+#import "VTDirectDebitController.h"
 
 @implementation VTMerchantClient
 
@@ -29,13 +30,39 @@
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
-    [headers addEntriesFromDictionary:[CONFIG merchantClientData]];    
+    [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
     
     [[VTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         if (response) {
-            VTTransactionResult *result = [[VTTransactionResult alloc] initWithTransactionResponse:response];
-            if (completion) completion(result, error);
+            VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
+            NSString *paymentType = response[@"payment_type"];
+            
+            if ([self isDirectDebitPaymentType:paymentType]) {
+                
+                NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
+                VTDirectDebitController *vc = [[VTDirectDebitController alloc] initWithRedirectURL:redirectURL];
+                [vc showPageWithCallback:^(NSError * _Nullable error) {
+                    if (error) {
+                        if (completion) completion(nil, error);
+                    } else {
+                        if (completion) completion(chargeResult, nil);
+                    }
+                }];
+                
+            } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+                
+                BOOL isSavedToken = response[@"saved_token_id"] != nil;
+                if (isSavedToken) {
+                    VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
+                    [self saveRegisteredCard:savedCard completion:^(id result, NSError *error) {
+                        if (completion) completion(chargeResult, error);
+                    }];
+                }
+                
+            } else {
+                if (completion) completion(chargeResult, error);
+            }
         } else {
             if (completion) completion(nil, error);
         }
@@ -81,5 +108,10 @@
     [[VTNetworking sharedInstance] postToURL:URL parameters:nil callback:completion];
 }
 
+#pragma mark - Helper
+
+- (BOOL)isDirectDebitPaymentType:(NSString *)paymentType {
+    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] || [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY];
+}
 
 @end

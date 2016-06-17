@@ -28,22 +28,22 @@
 }
 
 - (NSString *)paymentType {
-    return @"credit_card";
+    return VT_PAYMENT_CREDIT_CARD;
 }
 
 - (NSDictionary *)dictionaryValue {
     switch (_creditCardPaymentFeature) {
         case VTCreditCardPaymentFeatureNormal:
-            return @{@"token_id":_tokenId,
+            return @{@"token_id":_token,
                      @"bank":[VTHelper nullifyIfNil:_bank],
                      @"installment_term":[VTHelper nullifyIfNil:_installmentTerm],
                      @"bins":[VTHelper nullifyIfNil:_bins],
-                     @"save_token_id":_saveTokenId ? @"true":@"false"};
+                     @"save_token_id":_saveToken?@"true":@"false"};
         case VTCreditCardPaymentFeatureOneClick:
-            return @{@"token_id":_tokenId,
+            return @{@"token_id":_token,
                      @"recurring":@"true"};
         case VTCreditCardPaymentFeatureTwoClick:
-            return @{@"token_id":_tokenId};
+            return @{@"token_id":_token};
         case VTCreditCardPaymentFeatureUnknown:
             NSAssert(false, @"Unknown feature credit card payment");
             break;

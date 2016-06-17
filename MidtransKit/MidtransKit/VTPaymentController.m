@@ -8,9 +8,10 @@
 
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
-
+#import "VTHudView.h"
+#import "VTPaymentGuideViewController.h"
 @interface VTPaymentController ()
-
+@property (nonatomic) VTHudView *hudView;
 @end
 
 @implementation VTPaymentController
@@ -34,6 +35,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+      self.hudView = [[VTHudView alloc] init];
     // Do any additional setup after loading the view.
 }
 
@@ -42,8 +44,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)showLoadingHud {
+    [self.hudView showOnView:self.navigationController.view];
+}
+
+- (void)hideLoadingHud {
+    [self.hudView hide];
+}
+
 - (void)handleTransactionError:(NSError *)error {
-    VTErrorStatusController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+    VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -52,7 +62,10 @@
     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
     [self.navigationController pushViewController:vc animated:YES];
 }
-
+-(void)showGuideViewControllerWithPaymentName:(NSString *)paymentName {
+    VTPaymentGuideViewController *paymentGuideVC = [[VTPaymentGuideViewController alloc] initGuideWithPaymentMethodName:paymentName];
+    [self.navigationController pushViewController:paymentGuideVC animated:YES];
+}
 
 /*
  #pragma mark - Navigation

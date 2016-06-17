@@ -17,6 +17,7 @@
 #import "VTKeyboardAccessoryView.h"
 #import "UIViewController+Modal.h"
 #import "VTHudView.h"
+#import "VTCardControllerConfig.h"
 
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
@@ -29,11 +30,10 @@
 @property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
 @property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
 @property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
-@property (strong, nonatomic) IBOutlet UIImageView *creditCardLogo;
-//@property (strong, nonatomic) IBOutlet UIView *navigationView;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
@@ -75,34 +75,37 @@
 
 - (IBAction)textFieldChanged:(id)sender {
     if ([sender isEqual:_cardNumber]) {
-        _creditCardLogo.image = [self iconDarkWithNumber:_cardNumber.text];
         _cardFrontView.iconView.image = [self iconWithNumber:_cardNumber.text];
         _cardFrontView.numberLabel.text = _cardNumber.text;
     }
 }
 
 - (UIImage *)iconDarkWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeWithNumber:number]) {
+    switch ([VTCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeUnknown:
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
             return nil;
     }
 }
 
 - (UIImage *)iconWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeWithNumber:number]) {
+    switch ([VTCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCB" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeUnknown:
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
             return nil;
     }
 }
@@ -114,66 +117,74 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    if ([self expiryDateValid] == NO) return;
-    
     [_hudView showOnView:self.view];
     
     NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
+    NSString *expYear = dates.count == 2 ? dates[1] : nil;
     
-    NSString *expYear = dates[1];
-    NSDateFormatter *df = [[NSDateFormatter alloc] init];
-    df.dateFormat = @"yyyy";
-    NSString *currentYear = [df stringFromDate:[NSDate date]];
-    expYear = [[currentYear substringToIndex:currentYear.length-2] stringByAppendingString:expYear];
+    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber
+                                                        expiryMonth:expMonth
+                                                         expiryYear:expYear
+                                                                cvv:_cardCvv.text];
     
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber expiryMonth:expMonth expiryYear:expYear cvv:_cardCvv.text];
+    NSError *error = nil;
+    if ([creditCard isValidCreditCard:&error] == NO) {
+        [self handleRegisterCreditCardError:error];
+        return;
+    }
     
-    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
-        [_hudView hide];
-        
+    BOOL enable3Ds = [[VTCardControllerConfig sharedInstance] enable3DSecure];
+    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
+                                                                        grossAmount:self.transactionDetails.grossAmount
+                                                                             secure:enable3Ds];
+    
+    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
         if (error) {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-            [alert show];
+            [self handleTransactionError:error];
         } else {
-            [[VTMerchantClient sharedClient] saveRegisteredCard:maskedCreditCard completion:^(id result, NSError *error) {
-                if (error) {
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-                    [alert show];
-                } else {
-                    if ([self.delegate respondsToSelector:@selector(viewController:didRegisterCard:)]) {
-                        [self.delegate viewController:self didRegisterCard:maskedCreditCard];
-                    }                
-                }
-            }];
+            if (redirectURL) {
+                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
+                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
+                [secureController showWithCompletion:^(NSError *error) {
+                    if (error) {
+                        [self handleTransactionError:error];
+                    } else {
+                        [self payWithToken:token];
+                    }
+                }];
+            } else {
+                [self payWithToken:token];
+            }
         }
     }];
 }
 
-- (BOOL)expiryDateValid {
-    NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
-    if ([dates count] != 2) {
-        _cardExpiryDate.warning = @"wrong expiry date format";
-        return NO;
+- (void)handleRegisterCreditCardError:(NSError *)error {
+    if (error.code == -20) {
+        //number invalid
+        _cardNumber.warning = error.localizedDescription;
+    } else if (error.code == -21) {
+        //expiry date invalid
+        _cardExpiryDate.warning = error.localizedDescription;
+    } else if (error.code == -22) {
+        //cvv number invalid
+        _cardCvv.warning = error.localizedDescription;
     } else {
-        return YES;
+        //other error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+        [alert show];
     }
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isKindOfClass:[VTTextField class]]) {
+        ((VTTextField *) textField).warning = nil;
+    }
+    
     if ([textField isEqual:_cardExpiryDate]) {
         return [textField filterCreditCardExpiryDate:string range:range];
     } else if ([textField isEqual:_cardNumber]) {
@@ -181,18 +192,37 @@
         BOOL shouldChange = [textField filterCreditCardWithString:string range:range];
         
         if (shouldChange == NO) {
-            _creditCardLogo.image = [self iconDarkWithNumber:_cardNumber.text];
-            _cardFrontView.iconView.image = [self iconWithNumber:_cardNumber.text];
             _cardFrontView.numberLabel.text = _cardNumber.text;
+            
+            NSString *originNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+            _cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
+            _cardFrontView.iconView.image = [self iconWithNumber:originNumber];
         }
         
         return shouldChange;
         
     } else if ([textField isEqual:_cardCvv]) {
-        return [textField filterCvvNumber:string range:range];
+        return [textField filterCvvNumber:string range:range withCardNumber:_cardNumber.text];
     } else {
         return YES;
     }
+}
+
+#pragma mark - Helper
+
+- (void)payWithToken:(NSString *)token {
+    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
+    paymentDetail.saveToken = _saveCardSwitch.on;
+    
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    
+    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
 }
 
 @end

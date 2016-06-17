@@ -7,18 +7,27 @@
 //
 
 #import "VTErrorStatusController.h"
+#import "VTClassHelper.h"
 
 @interface VTErrorStatusController ()
-
+@property (nonatomic) NSError *error;
 @end
 
 @implementation VTErrorStatusController
 
+- (instancetype)initWithError:(NSError *)error {
+    UIStoryboard *storybaord = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    self = [storybaord instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+    if (self) {
+        self.error = error;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self setTitle:@"Payment Failed"];
+    self.title = NSLocalizedString(@"Payment Failed",nil);
     [self.navigationItem setHidesBackButton:YES];
     
 }
@@ -29,6 +38,9 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
+    NSDictionary *userInfo = @{@"tr_error":_error};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

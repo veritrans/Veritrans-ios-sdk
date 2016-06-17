@@ -10,10 +10,10 @@
 
 @interface VTItemDetail : NSObject
 
-@property(nonatomic, readonly) NSString* itemId;
+@property(nonatomic, readonly) NSString *itemId;
 @property(nonatomic, readonly) NSNumber *price;
 @property(nonatomic, readonly) NSNumber *quantity;
-@property(nonatomic, readonly) NSString* name;
+@property(nonatomic, readonly) NSString *name;
 
 @property (nonatomic) NSURL *imageURL;
 

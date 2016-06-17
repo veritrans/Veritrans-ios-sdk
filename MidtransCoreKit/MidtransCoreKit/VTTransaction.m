@@ -17,7 +17,7 @@
 
 @implementation VTTransaction
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithPaymentDetails:(id <VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
         self.transactionDetails = transactionDetails;
@@ -26,7 +26,7 @@
     return self;
 }
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails {
+- (instancetype)initWithPaymentDetails:(id <VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *> *)itemDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
         self.transactionDetails = transactionDetails;
@@ -45,8 +45,10 @@
     
     // Fill-in mandatory fields.
     [result setValue:[self.transactionDetails dictionaryValue] forKey:@"transaction_details"];
-    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];
-    [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
+    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];    
+    if ([self.paymentDetails dictionaryValue]) {
+        [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
+    }
     
     // Fill-in optional fields.
     if (self.customerDetails) {

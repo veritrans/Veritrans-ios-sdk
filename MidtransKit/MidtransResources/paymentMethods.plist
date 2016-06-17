@@ -18,6 +18,55 @@
         <key>id</key>
         <string>atm</string>
     </dict>
+    <dict>
+        <key>title</key>
+        <string>CIMB Clicks</string>
+        <key>description</key>
+        <string>Pay using CIMB Clicks account</string>
+        <key>id</key>
+        <string>clicks</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>Indomaret</string>
+        <key>description</key>
+        <string>Pay from Indomaret</string>
+        <key>id</key>
+        <string>indomaret</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>BCA KlikPay</string>
+        <key>description</key>
+        <string>Pay with BCA KlikPay</string>
+        <key>id</key>
+        <string>klikpay</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>KlikBCA</string>
+        <key>description</key>
+        <string>Pay using KlikBCA</string>
+        <key>id</key>
+        <string>klikbca</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>Mandiri e-Cash</string>
+        <key>description</key>
+        <string>Pay with Mandiri e-Cash</string>
+        <key>id</key>
+        <string>ecash</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>Mandiri Clickpay</string>
+        <key>description</key>
+        <string>Pay through your Mandiri Clickpay account</string>
+        <key>id</key>
+        <string>clickpay</string>
+    </dict>
+    
 <!--    <dict>-->
 <!--        <key>title</key>-->
 <!--        <string>KlikBCA</string>-->
@@ -25,30 +74,6 @@
 <!--        <string>Pay with your KlikBCA account</string>-->
 <!--        <key>id</key>-->
 <!--        <string>klikbca</string>-->
-<!--    </dict>-->
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>BCA KlikPay</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay with BCA KlikPay</string>-->
-<!--        <key>id</key>-->
-<!--        <string>klikpay</string>-->
-<!--    </dict>-->
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>Mandiri Clickpay</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay through your Mandiri Clickpay account</string>-->
-<!--        <key>id</key>-->
-<!--        <string>clickpay</string>-->
-<!--    </dict>-->
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>CIMB Clicks</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay using CIMB Clicks account</string>-->
-<!--        <key>id</key>-->
-<!--        <string>clicks</string>-->
 <!--    </dict>-->
 <!--    <dict>-->
 <!--        <key>title</key>-->
@@ -65,14 +90,6 @@
 <!--        <string>Pay through your Telkomsel Cash account</string>-->
 <!--        <key>id</key>-->
 <!--        <string>tcash</string>-->
-<!--    </dict>-->
-<!--    <dict>-->
-<!--        <key>title</key>-->
-<!--        <string>Indomaret</string>-->
-<!--        <key>description</key>-->
-<!--        <string>Pay from Indomaret</string>-->
-<!--        <key>id</key>-->
-<!--        <string>indomaret</string>-->
 <!--    </dict>-->
 </array>
 </plist>

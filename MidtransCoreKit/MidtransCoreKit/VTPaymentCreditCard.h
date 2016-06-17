@@ -15,12 +15,12 @@
  
  This class is modeled after http://docs.veritrans.co.id/en/api/methods.html#credit_card_attr
  */
-@interface VTPaymentCreditCard : NSObject<VTPaymentDetails>
+@interface VTPaymentCreditCard : NSObject <VTPaymentDetails>
 
 /**
  The representation token of the real credit card data which securely stored in Veritrans server.
  */
-@property (nonatomic, readonly) NSString *tokenId;
+@property (nonatomic, readonly) NSString *token;
 
 /**
  The name of the bank.
@@ -46,7 +46,7 @@
 /**
  Flag to determine whether Veritrans server should keep record of this payment attribute to used in future transaction. To use `one-click` and `two-clicks` feature, this feature must be enabled.
  */
-@property (nonatomic) BOOL saveTokenId;
+@property (nonatomic) BOOL saveToken;
 
 
 ///--------------------

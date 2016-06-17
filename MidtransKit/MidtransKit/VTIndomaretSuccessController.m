@@ -42,7 +42,7 @@
     _transactionTimeLabel.text = _viewModel.transactionTime;
     _paymentCodeLabel.text = _viewModel.transactionResult.additionalData[@"payment_code"];
     
-    self.title = @"Pay at Indomaret";
+   self.title = [NSString stringWithFormat: NSLocalizedString(@"Pay at %@",nil),[VT_PAYMENT_INDOMARET capitalizedString]];
 }
 
 - (IBAction)copyCodePressed:(UIButton *)sender {

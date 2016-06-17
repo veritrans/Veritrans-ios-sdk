@@ -39,7 +39,7 @@
     return mutableAttributedString;
 }
 
-+ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString {
++ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString objectAtIndex:(NSInteger *)integer {
     
     NSString *paymentName = [[localizedString lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *file = [NSArray arrayWithContentsOfFile:[VTBundle pathForResource:paymentName ofType:@"plist"]];

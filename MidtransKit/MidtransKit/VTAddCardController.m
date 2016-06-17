@@ -16,7 +16,6 @@
 #import "IHKeyboardAvoiding_vt.h"
 #import "VTKeyboardAccessoryView.h"
 #import "UIViewController+Modal.h"
-#import "VTHudView.h"
 #import "VTCardControllerConfig.h"
 
 #import <MidtransCoreKit/VTClient.h>
@@ -38,9 +37,7 @@
 
 @end
 
-@implementation VTAddCardController {
-    VTHudView *_hudView;
-}
+@implementation VTAddCardController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -50,16 +47,9 @@
     
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
     
-    _hudView = [[VTHudView alloc] init];
-    
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
     _amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)dealloc {
@@ -117,8 +107,19 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    [_hudView showOnView:self.view];
-    
+    if (self.cardNumber.text.isEmpty) {
+        self.cardNumber.warning =@"Cannot Be Empty";
+        return;
+    }
+    else if (self.cardExpiryDate.text.isEmpty) {
+        self.cardExpiryDate.warning =@"Cannot Be Empty";
+        return;
+    }
+    else if (self.cardCvv.text.isEmpty) {
+        self.cardCvv.warning =@"Cannot Be Empty";
+        return;
+    }
+    [self showLoadingHud];
     NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
@@ -162,6 +163,7 @@
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
+    [self hideLoadingHud];
     if (error.code == -20) {
         //number invalid
         _cardNumber.warning = error.localizedDescription;
@@ -193,7 +195,6 @@
         
         if (shouldChange == NO) {
             _cardFrontView.numberLabel.text = _cardNumber.text;
-            
             NSString *originNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
             _cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
             _cardFrontView.iconView.image = [self iconWithNumber:originNumber];

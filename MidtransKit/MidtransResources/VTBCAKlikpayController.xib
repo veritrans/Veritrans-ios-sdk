@@ -56,10 +56,10 @@
                     <rect key="frame" x="0.0" y="64" width="320" height="359"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WWd-P2-0fu">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="292.5"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pIo-EL-pdK">
-                                    <rect key="frame" x="8" y="8" width="304" height="264.5"/>
+                                    <rect key="frame" x="8" y="8" width="304" height="265"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>

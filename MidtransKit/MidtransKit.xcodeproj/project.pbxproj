@@ -52,6 +52,11 @@
 		00F61B171D146F8C00C93DA0 /* VTPaymentGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F61B141D146F7100C93DA0 /* VTPaymentGeneralViewController.xib */; };
 		00F61B1A1D14703100C93DA0 /* VTPaymentGeneralView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B181D14703100C93DA0 /* VTPaymentGeneralView.h */; };
 		00F61B1B1D14703100C93DA0 /* VTPaymentGeneralView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B191D14703100C93DA0 /* VTPaymentGeneralView.m */; };
+		00F61B201D1481FD00C93DA0 /* VTPaymentDirectViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B1D1D1481FD00C93DA0 /* VTPaymentDirectViewController.h */; };
+		00F61B211D1481FD00C93DA0 /* VTPaymentDirectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B1E1D1481FD00C93DA0 /* VTPaymentDirectViewController.m */; };
+		00F61B231D1481FD00C93DA0 /* VTPaymentDirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F61B1F1D1481FD00C93DA0 /* VTPaymentDirectViewController.xib */; };
+		00F61B261D14825100C93DA0 /* VTPaymentDirectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B241D14825100C93DA0 /* VTPaymentDirectView.h */; };
+		00F61B271D14825100C93DA0 /* VTPaymentDirectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B251D14825100C93DA0 /* VTPaymentDirectView.m */; };
 		3005E2771C7C175000064169 /* VTAddCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTAddCardController.h */; };
 		3005E2781C7C175000064169 /* VTAddCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTAddCardController.m */; };
 		3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 301995EC1C76AF4600C5DF8C /* Midtrans.storyboard */; };
@@ -299,6 +304,11 @@
 		00F61B141D146F7100C93DA0 /* VTPaymentGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTPaymentGeneralViewController.xib; path = ../MidtransKit/VTPaymentGeneralViewController.xib; sourceTree = "<group>"; };
 		00F61B181D14703100C93DA0 /* VTPaymentGeneralView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentGeneralView.h; sourceTree = "<group>"; };
 		00F61B191D14703100C93DA0 /* VTPaymentGeneralView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentGeneralView.m; sourceTree = "<group>"; };
+		00F61B1D1D1481FD00C93DA0 /* VTPaymentDirectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentDirectViewController.h; sourceTree = "<group>"; };
+		00F61B1E1D1481FD00C93DA0 /* VTPaymentDirectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentDirectViewController.m; sourceTree = "<group>"; };
+		00F61B1F1D1481FD00C93DA0 /* VTPaymentDirectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTPaymentDirectViewController.xib; path = ../MidtransKit/VTPaymentDirectViewController.xib; sourceTree = "<group>"; };
+		00F61B241D14825100C93DA0 /* VTPaymentDirectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentDirectView.h; sourceTree = "<group>"; };
+		00F61B251D14825100C93DA0 /* VTPaymentDirectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentDirectView.m; sourceTree = "<group>"; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -598,6 +608,17 @@
 			name = "General Payment";
 			sourceTree = "<group>";
 		};
+		00F61B1C1D1481B200C93DA0 /* Direct Payment */ = {
+			isa = PBXGroup;
+			children = (
+				00F61B1D1D1481FD00C93DA0 /* VTPaymentDirectViewController.h */,
+				00F61B1E1D1481FD00C93DA0 /* VTPaymentDirectViewController.m */,
+				00F61B241D14825100C93DA0 /* VTPaymentDirectView.h */,
+				00F61B251D14825100C93DA0 /* VTPaymentDirectView.m */,
+			);
+			name = "Direct Payment";
+			sourceTree = "<group>";
+		};
 		3005E2881C7C17A200064169 /* MidtransResources */ = {
 			isa = PBXGroup;
 			children = (
@@ -749,6 +770,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00F61B1F1D1481FD00C93DA0 /* VTPaymentDirectViewController.xib */,
 				00F61B141D146F7100C93DA0 /* VTPaymentGeneralViewController.xib */,
 				E53BD0411D143BF3001FADDE /* VTEpayBRIController.xib */,
 				002CC9AE1D127C5F003A1203 /* VTPaymentGuideViewController.xib */,
@@ -913,6 +935,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				00F61B1C1D1481B200C93DA0 /* Direct Payment */,
 				00F61B111D146E3300C93DA0 /* General Payment */,
 				E53BD04B1D143C9A001FADDE /* EPay */,
 				002CC9AB1D127C23003A1203 /* Payment Guide */,
@@ -1074,6 +1097,7 @@
 				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */,
 				00F61B1A1D14703100C93DA0 /* VTPaymentGeneralView.h in Headers */,
+				00F61B201D1481FD00C93DA0 /* VTPaymentDirectViewController.h in Headers */,
 				309CC0CF1C86952300C058BE /* VTVAConfirmationController.h in Headers */,
 				E53BD04E1D143CAC001FADDE /* VTEpayBRIView.h in Headers */,
 				E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */,
@@ -1123,6 +1147,7 @@
 				E517C2BC1C9672BA009AE6AA /* VTConfirmPaymentController.h in Headers */,
 				E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
+				00F61B261D14825100C93DA0 /* VTPaymentDirectView.h in Headers */,
 				30E713031C855B6600AFB7B4 /* VTLabel.h in Headers */,
 				E517C2C11C9673B4009AE6AA /* VTAlertBackgroundView.h in Headers */,
 				E583AFF01C8D6DC500C04512 /* VTErrorStatusController.h in Headers */,
@@ -1244,6 +1269,7 @@
 				E578DD1C1CFC3F250091760A /* VTPaymentListController.xib in Resources */,
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
+				00F61B231D1481FD00C93DA0 /* VTPaymentDirectViewController.xib in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
 				E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */,
 				E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */,
@@ -1410,11 +1436,13 @@
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
 				306838821C7EE7220064A305 /* VTPaymentViewController.m in Sources */,
 				E5EF82741C8C0814007B6585 /* VTCCFrontView.m in Sources */,
+				00F61B211D1481FD00C93DA0 /* VTPaymentDirectViewController.m in Sources */,
 				300F5CA71C7C0EB200DA6E13 /* VTCardListController.m in Sources */,
 				E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */,
 				E517C2D21C969110009AE6AA /* UICollectionView+Empty.m in Sources */,
 				002CC9B01D127C5F003A1203 /* VTPaymentGuideViewController.m in Sources */,
 				30E879881C88EDE1000C0F4B /* VTTwoClickController.m in Sources */,
+				00F61B271D14825100C93DA0 /* VTPaymentDirectView.m in Sources */,
 				E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */,
 				E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */,
 				E5591A4E1CEF28A3005A2DB1 /* VTVATransactionStatusViewModel.m in Sources */,

@@ -23,7 +23,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(VT_PAYMENT_KLIK_BCA,nil);
+    self.title = NSLocalizedString(self.paymentMethod.title,nil);
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
     self.view.totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
@@ -38,8 +38,6 @@
         [self showLoadingHud];
         VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.userIdTextField.text];
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
-        
-        
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];
             if (error) {
@@ -51,7 +49,7 @@
     }
 }
 - (IBAction)guideButtonDidtapped:(id)sender {
-    [self showGuideViewControllerWithPaymentName:VT_PAYMENT_KLIK_BCA];
+    [self showGuideViewControllerWithPaymentName:[self.paymentMethod.title lowercaseString]];
 }
 
 @end

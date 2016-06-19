@@ -203,6 +203,8 @@
 		E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */; };
 		E546D1DE1CEACBBB00D65252 /* nextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */; };
 		E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */; };
+		E54AC3FE1D16487800BA4603 /* VTFontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTFontManager.h */; };
+		E54AC3FF1D16487800BA4603 /* VTFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* VTFontManager.m */; };
 		E5504E111D0E5D3200137655 /* VTCIMBClicksController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E0E1D0E5B7B00137655 /* VTCIMBClicksController.h */; };
 		E5504E121D0E5D3800137655 /* VTCIMBClicksController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E0F1D0E5B7B00137655 /* VTCIMBClicksController.m */; };
 		E5504E131D0E5D4800137655 /* VTCIMBClicksController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5504E101D0E5B7B00137655 /* VTCIMBClicksController.xib */; };
@@ -468,6 +470,8 @@
 		E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTKeyboardAccessoryView.xib; sourceTree = "<group>"; };
 		E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextIcon@2x.png"; sourceTree = "<group>"; };
 		E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prevIcon@2x.png"; sourceTree = "<group>"; };
+		E54AC3FC1D16487800BA4603 /* VTFontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTFontManager.h; sourceTree = "<group>"; };
+		E54AC3FD1D16487800BA4603 /* VTFontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTFontManager.m; sourceTree = "<group>"; };
 		E5504E0E1D0E5B7B00137655 /* VTCIMBClicksController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTCIMBClicksController.h; sourceTree = "<group>"; };
 		E5504E0F1D0E5B7B00137655 /* VTCIMBClicksController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTCIMBClicksController.m; sourceTree = "<group>"; };
 		E5504E101D0E5B7B00137655 /* VTCIMBClicksController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VTCIMBClicksController.xib; sourceTree = "<group>"; };
@@ -643,6 +647,8 @@
 				30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */,
 				002CC9B61D12A442003A1203 /* VTStringHelper.h */,
 				002CC9B71D12A442003A1203 /* VTStringHelper.m */,
+				E54AC3FC1D16487800BA4603 /* VTFontManager.h */,
+				E54AC3FD1D16487800BA4603 /* VTFontManager.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1161,6 +1167,7 @@
 				E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */,
 				E50D85D91D0EC8AF00F26D2E /* VTMandiriECashController.h in Headers */,
 				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,
+				E54AC3FE1D16487800BA4603 /* VTFontManager.h in Headers */,
 				E50D86031D0ECBC500F26D2E /* VTIndomaretController.h in Headers */,
 				E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */,
 			);
@@ -1434,6 +1441,7 @@
 				0089B5F31D13A6CA009C0059 /* VTBCAKlikPayView.m in Sources */,
 				30E713091C8564B300AFB7B4 /* VTClickpayGuideController.m in Sources */,
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
+				E54AC3FF1D16487800BA4603 /* VTFontManager.m in Sources */,
 				306838821C7EE7220064A305 /* VTPaymentViewController.m in Sources */,
 				E5EF82741C8C0814007B6585 /* VTCCFrontView.m in Sources */,
 				00F61B211D1481FD00C93DA0 /* VTPaymentDirectViewController.m in Sources */,

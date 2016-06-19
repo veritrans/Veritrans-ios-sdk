@@ -6,9 +6,12 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
+#import <CoreText/CoreText.h>
+
 #import "VTPaymentViewController.h"
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
+#import "VTFontManager.h"
 
 @interface VTPaymentViewController ()
 @end
@@ -18,8 +21,11 @@
 @dynamic delegate;
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:@""];
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
+    if (self) {
+        [VTFontManager registerSourceSansProFonts];
+    }
     return self;
 }
 

@@ -32,7 +32,7 @@
 @implementation VTVAController
 
 - (instancetype)initWithVAType:(VTVAType)type customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails*)transactionDetails {
-    if (self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:@""]) {
+    if (self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil]) {
         self.vaType = type;
     }
     return self;

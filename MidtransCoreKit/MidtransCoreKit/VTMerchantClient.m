@@ -58,6 +58,8 @@
                     [self saveRegisteredCard:savedCard completion:^(id result, NSError *error) {
                         if (completion) completion(chargeResult, error);
                     }];
+                } else {
+                    if (completion) completion(chargeResult, error);
                 }
                 
             } else {

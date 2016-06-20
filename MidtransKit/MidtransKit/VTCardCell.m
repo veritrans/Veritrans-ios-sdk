@@ -23,7 +23,7 @@
 }
 
 - (void)setEditing:(BOOL)editing {
-    self.editing = editing;
+    _editing = editing;
     self.frontCardView.deleteButton.hidden = !editing;
 }
 
@@ -34,9 +34,7 @@
 }
 
 - (void)setMaskedCard:(VTMaskedCreditCard *)maskedCard {
-    if (!maskedCard) return;
-    
-    self.maskedCard = maskedCard;
+    _maskedCard = maskedCard;
     
     self.frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
     

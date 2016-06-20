@@ -19,7 +19,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="y6F-zy-dvC" customClass="VTTextField">
-                    <rect key="frame" x="15" y="72" width="290" height="48"/>
+                    <rect key="frame" x="15" y="10" width="290" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="pR2-gk-kF5"/>
                     </constraints>
@@ -30,7 +30,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just in case, we can send you the payment instructions to your email address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="0Ld-Qm-mq7">
-                    <rect key="frame" x="15" y="120" width="290" height="32"/>
+                    <rect key="frame" x="15" y="58" width="290" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -179,7 +179,7 @@
                 <constraint firstItem="KUZ-Cd-en9" firstAttribute="leading" secondItem="Mb3-EO-Nyd" secondAttribute="leading" id="065-Jf-bqB"/>
                 <constraint firstItem="j90-rv-bdf" firstAttribute="top" secondItem="KUZ-Cd-en9" secondAttribute="bottom" id="2S2-2i-Twh"/>
                 <constraint firstItem="j90-rv-bdf" firstAttribute="leading" secondItem="6dS-ep-r0q" secondAttribute="leading" id="6UC-Pd-QmH"/>
-                <constraint firstItem="y6F-zy-dvC" firstAttribute="top" secondItem="Mb3-EO-Nyd" secondAttribute="top" constant="72" id="Aoq-hm-T5T"/>
+                <constraint firstItem="y6F-zy-dvC" firstAttribute="top" secondItem="Mb3-EO-Nyd" secondAttribute="top" constant="10" id="Aoq-hm-T5T"/>
                 <constraint firstItem="0Ld-Qm-mq7" firstAttribute="top" secondItem="y6F-zy-dvC" secondAttribute="bottom" id="CNf-W2-fIw"/>
                 <constraint firstItem="8bF-5D-i9A" firstAttribute="top" secondItem="pEi-3q-KUJ" secondAttribute="bottom" constant="25" id="CQL-hy-rvn"/>
                 <constraint firstItem="8bF-5D-i9A" firstAttribute="leading" secondItem="Mb3-EO-Nyd" secondAttribute="leading" id="Ie6-yi-zPL"/>

@@ -32,6 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.navigationBar.translucent = false;
     // Do any additional setup after loading the view.
     
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTFontManager shared] semiBoldFontWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};

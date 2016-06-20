@@ -76,7 +76,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fVC-DB-ng3">
-                    <rect key="frame" x="0.0" y="72" width="320" height="370"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="442"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gyf-Ka-kNi">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="320"/>
@@ -258,7 +258,7 @@
                 <constraint firstItem="doy-8X-ixT" firstAttribute="trailing" secondItem="TZf-S0-dXY" secondAttribute="trailing" constant="-15" id="YeM-nX-VUy"/>
                 <constraint firstItem="TZf-S0-dXY" firstAttribute="top" secondItem="v3B-An-4eK" secondAttribute="bottom" id="bIH-u5-9Up"/>
                 <constraint firstAttribute="bottom" secondItem="TZf-S0-dXY" secondAttribute="bottom" id="fuk-7v-8C2"/>
-                <constraint firstItem="fVC-DB-ng3" firstAttribute="top" secondItem="STR-Fk-zFJ" secondAttribute="top" constant="72" id="fzb-wo-Egx"/>
+                <constraint firstItem="fVC-DB-ng3" firstAttribute="top" secondItem="STR-Fk-zFJ" secondAttribute="top" id="fzb-wo-Egx"/>
                 <constraint firstAttribute="trailing" secondItem="fVC-DB-ng3" secondAttribute="trailing" id="oA0-LW-kz0"/>
                 <constraint firstAttribute="trailing" secondItem="pYh-nV-lDi" secondAttribute="trailing" id="pXb-bv-6RY"/>
                 <constraint firstItem="pYh-nV-lDi" firstAttribute="top" secondItem="fVC-DB-ng3" secondAttribute="bottom" id="sOk-1V-CtV"/>

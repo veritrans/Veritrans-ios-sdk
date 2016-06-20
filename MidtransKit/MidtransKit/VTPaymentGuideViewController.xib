@@ -53,13 +53,13 @@
                     </constraints>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PiK-SX-tza">
-                    <rect key="frame" x="0.0" y="64" width="320" height="447"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="511"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2vq-iq-CRd">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="292.5"/>
                             <subviews>
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EB5-BP-0sX">
-                                    <rect key="frame" x="8" y="8" width="304" height="265"/>
+                                    <rect key="frame" x="8" y="8" width="304" height="264.5"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <attributedString key="attributedText">
                                         <fragment>
@@ -112,14 +112,14 @@
             <constraints>
                 <constraint firstItem="PiK-SX-tza" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="Hn8-d6-loq"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="width" secondItem="Zf2-Us-Q8L" secondAttribute="width" id="J6v-VS-jjg"/>
-                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" constant="64" id="USm-Hf-pcN"/>
+                <constraint firstItem="PiK-SX-tza" firstAttribute="top" secondItem="Zf2-Us-Q8L" secondAttribute="top" id="USm-Hf-pcN"/>
                 <constraint firstAttribute="trailing" secondItem="PiK-SX-tza" secondAttribute="trailing" id="ZCi-DB-ABc"/>
                 <constraint firstAttribute="trailing" secondItem="Xfh-FY-Qg5" secondAttribute="trailing" id="bDy-Bc-5Nv"/>
                 <constraint firstAttribute="bottom" secondItem="Xfh-FY-Qg5" secondAttribute="bottom" id="e6a-V9-ACs"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="leading" secondItem="Zf2-Us-Q8L" secondAttribute="leading" id="mgy-Rg-Erw"/>
                 <constraint firstItem="Xfh-FY-Qg5" firstAttribute="top" secondItem="PiK-SX-tza" secondAttribute="bottom" constant="1" id="tQL-4H-qiB"/>
             </constraints>
-            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+            <nil key="simulatedTopBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
                 <outlet property="guideTextView" destination="EB5-BP-0sX" id="PJs-ZB-6xe"/>

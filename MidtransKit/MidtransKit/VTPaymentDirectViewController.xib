@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ltQ-Rg-4pD" customClass="VTTextField">
-                    <rect key="frame" x="15" y="72" width="290" height="48"/>
+                    <rect key="frame" x="15" y="10" width="290" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="wQm-nr-GHc"/>
                     </constraints>
@@ -23,7 +23,7 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Just in case, we can send you the payment instructions to your email address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="bjL-2z-Sni">
-                    <rect key="frame" x="15" y="120" width="290" height="32"/>
+                    <rect key="frame" x="15" y="58" width="290" height="32"/>
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                     <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -174,7 +174,7 @@
                 <constraint firstAttribute="trailing" secondItem="pIz-Pp-rKr" secondAttribute="trailing" id="LCs-Xd-C1o"/>
                 <constraint firstItem="TaK-33-Kde" firstAttribute="centerY" secondItem="2AF-lH-6ld" secondAttribute="centerY" id="RNM-MJ-vAx"/>
                 <constraint firstItem="ZjO-XZ-gBe" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" constant="15" id="Xh3-XE-mfo"/>
-                <constraint firstItem="ltQ-Rg-4pD" firstAttribute="top" secondItem="wPm-rL-6ps" secondAttribute="top" constant="72" id="XuZ-l5-McO"/>
+                <constraint firstItem="ltQ-Rg-4pD" firstAttribute="top" secondItem="wPm-rL-6ps" secondAttribute="top" constant="10" id="XuZ-l5-McO"/>
                 <constraint firstItem="scR-bc-yC0" firstAttribute="leading" secondItem="ZjO-XZ-gBe" secondAttribute="trailing" constant="15" id="Y8I-1L-Fft"/>
                 <constraint firstItem="ZmT-QA-caE" firstAttribute="leading" secondItem="2AF-lH-6ld" secondAttribute="leading" id="YBT-ur-wcn"/>
                 <constraint firstItem="xlP-9r-rzc" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" id="aCo-qI-ZqQ"/>

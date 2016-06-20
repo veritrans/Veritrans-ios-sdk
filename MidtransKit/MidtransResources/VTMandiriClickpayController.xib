@@ -22,19 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mandiri Debit Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBR-oS-8a6" customClass="VTTextField">
-                    <rect key="frame" x="15" y="72" width="290" height="50"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="50" id="v5q-2r-8C1"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Challenge Token" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b7d-h5-DON" customClass="VTTextField">
-                    <rect key="frame" x="15" y="122" width="290" height="50"/>
+                    <rect key="frame" x="15" y="60" width="290" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="a5c-do-QzS"/>
                     </constraints>
@@ -83,7 +72,7 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="43G-7J-gw7">
-                    <rect key="frame" x="0.0" y="188" width="320" height="280"/>
+                    <rect key="frame" x="0.0" y="126" width="320" height="342"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wf0-GL-eWY">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="225"/>
@@ -290,7 +279,7 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lLg-Ys-OAp" userLabel="Space View" customClass="VTBorderedView">
-                    <rect key="frame" x="0.0" y="172" width="320" height="16"/>
+                    <rect key="frame" x="0.0" y="110" width="320" height="16"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="16" id="NJN-0l-8dN"/>
@@ -305,11 +294,22 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mandiri Debit Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HBR-oS-8a6" customClass="VTTextField">
+                    <rect key="frame" x="15" y="10" width="290" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="v5q-2r-8C1"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="lLg-Ys-OAp" firstAttribute="leading" secondItem="T6Q-JJ-GX0" secondAttribute="leading" id="19P-Zy-s43"/>
-                <constraint firstItem="HBR-oS-8a6" firstAttribute="top" secondItem="T6Q-JJ-GX0" secondAttribute="top" constant="72" id="34d-Pq-xeB"/>
+                <constraint firstItem="HBR-oS-8a6" firstAttribute="top" secondItem="T6Q-JJ-GX0" secondAttribute="top" constant="10" id="34d-Pq-xeB"/>
                 <constraint firstAttribute="trailing" secondItem="HBR-oS-8a6" secondAttribute="trailing" constant="15" id="3Wn-uY-ixO"/>
                 <constraint firstItem="qKi-iq-5yb" firstAttribute="top" secondItem="LfL-cI-XDn" secondAttribute="bottom" id="7Ob-lS-h6D"/>
                 <constraint firstItem="lLg-Ys-OAp" firstAttribute="top" secondItem="b7d-h5-DON" secondAttribute="bottom" id="D92-nj-I5H"/>

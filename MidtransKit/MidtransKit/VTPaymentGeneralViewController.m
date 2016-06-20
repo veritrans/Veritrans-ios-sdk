@@ -64,7 +64,7 @@
             if (error) {
                 [self handleTransactionError:error];
             } else {
-                
+                [self handleTransactionSuccess:result];
             }
         }];
     }

@@ -11,6 +11,7 @@
 #import "VTTextField.h"
 #import "VTClickpayGuideController.h"
 #import "VTHudView.h"
+#import "VTKeyboardAccessoryView.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -25,6 +26,7 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input1Label;
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
+@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @property (nonatomic) VTHudView *hudView;
 
@@ -37,6 +39,8 @@ static NSString* const ClickpayAPPLI = @"3";
     // Do any additional setup after loading the view.
     
     self.title = @"Mandiri Clickpay";
+    
+    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_debitNumberTextField, _tokenTextField]];
     
     _hudView = [[VTHudView alloc] init];
     

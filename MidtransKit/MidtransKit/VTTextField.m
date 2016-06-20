@@ -114,10 +114,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (void)setFloatingLabelFont:(UIFont *)floatingLabelFont {
-    if (floatingLabelFont != nil) {
-        self.floatingLabelFont = floatingLabelFont;
-    }
-    _floatingLabel.font = self.floatingLabelFont ? self.floatingLabelFont : [self defaultFloatingLabelFont];
+    _floatingLabelFont = floatingLabelFont;
+    _floatingLabel.font = _floatingLabelFont ? _floatingLabelFont : [self defaultFloatingLabelFont];
     _isFloatingLabelFontDefault = floatingLabelFont == nil;
     [self setFloatingLabelText:self.placeholder];
     [self invalidateIntrinsicContentSize];

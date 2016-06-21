@@ -15,6 +15,19 @@
     return (string.length == 0);
 }
 
+- (BOOL)isValidClickpayNumber {
+    NSString *formatted = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *regex = @"^[0-9]{16}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", regex];
+    return [predicate evaluateWithObject:formatted];
+}
+
+- (BOOL)isValidClickpayToken {
+    NSString *regex = @"^[0-9]{6}$";
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", regex];
+    return [predicate evaluateWithObject:self];
+}
+
 - (BOOL)isValidEmail {
     NSString *emailRegex =
     @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"

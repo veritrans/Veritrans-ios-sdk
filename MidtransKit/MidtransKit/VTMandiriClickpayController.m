@@ -26,9 +26,6 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input1Label;
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
-@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
-
-@property (nonatomic) VTHudView *hudView;
 
 @end
 
@@ -40,9 +37,7 @@ static NSString* const ClickpayAPPLI = @"3";
     
     self.title = @"Mandiri Clickpay";
     
-    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_debitNumberTextField, _tokenTextField]];
-    
-    _hudView = [[VTHudView alloc] init];
+    [self addNavigationToTextFields:@[_debitNumberTextField, _tokenTextField]];
     
     _debitNumberTextField.delegate = self;
     _tokenTextField.delegate = self;
@@ -57,7 +52,20 @@ static NSString* const ClickpayAPPLI = @"3";
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
-    [_hudView showOnView:self.navigationController.view];
+    _tokenTextField.warning = nil;
+    _debitNumberTextField.warning = nil;
+    
+    if ([_debitNumberTextField.text isValidClickpayNumber] == NO) {
+        _debitNumberTextField.warning = NSLocalizedString(@"Invalid Debit Number", nil);
+        return;
+    }
+    
+    if ([_tokenTextField.text isValidClickpayToken] == NO) {
+        _tokenTextField.warning = NSLocalizedString(@"Invalid Clickpay Token", nil);
+        return;
+    }
+    
+    [self showLoadingHud];
     
     VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:_debitNumberTextField.text grossAmount:self.transactionDetails.grossAmount token:_tokenTextField.text];
     
@@ -67,7 +75,7 @@ static NSString* const ClickpayAPPLI = @"3";
                                                                    itemDetails:self.itemDetails];
     
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-        [_hudView hide];
+        [self hideLoadingHud];
         
         if (error) {
             [self handleTransactionError:error];

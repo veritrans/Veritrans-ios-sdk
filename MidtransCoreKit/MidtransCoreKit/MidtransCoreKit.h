@@ -26,7 +26,6 @@
 #import "VTPaymentBankTransfer.h"
 #import "VTCreditCardPaymentFeature.h"
 #import "VTMerchantClient.h"
-#import "VT3DSController.h"
 #import "VTCreditCard.h"
 #import "VTCustomerDetails.h"
 #import "NSString+VTValidation.h"
@@ -41,5 +40,7 @@
 #import "VTPaymentEpayBRI.h"
 #import "VTPaymentListModel.h"
 #import "VTTrackingManager.h"
+
+#import "NSString+VTValidation.h"
 
 #endif /* MidtransCoreKit_h */

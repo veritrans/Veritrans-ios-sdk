@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTListCell.h"
 #import "VTVAController.h"
+#import "VTPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTVAListController ()
@@ -61,22 +62,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *vaTypeModel = (VTPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
-    VTVAType vaType;
-    
-    if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER]) {
-        vaType = VTVATypeBCA;
-    } else if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER]) {
-        vaType = VTVATypeMandiri;
-    } else if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER]) {
-        vaType = VTVATypePermata;
-    } else {
-        vaType = VTVATypeOther;
-    }
-    
-    VTVAController *vc = [[VTVAController alloc] initWithVAType:vaType
-                                                customerDetails:self.customerDetails
-                                                    itemDetails:self.itemDetails
-                                             transactionDetails:self.transactionDetails];
+    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:vaTypeModel];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

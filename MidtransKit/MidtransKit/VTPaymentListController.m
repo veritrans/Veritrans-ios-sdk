@@ -21,6 +21,7 @@
 #import "VTVAListController.h"
 #import "VTPaymentListFooter.h"
 #import "VTPaymentListHeader.h"
+#import "VTPaymentDirectViewController.h"
 #import "VTPaymentListView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/VTPaymentListModel.h>
@@ -130,13 +131,8 @@
                [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
         VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-        
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER]) {
-        VTKlikBCAViewController *vc = [[VTKlikBCAViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
-        [self.navigationController pushViewController:vc animated:YES];
-        
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER]) {
-        VTIndomaretController *vc = [[VTIndomaretController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER] || [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER]) {
+        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {

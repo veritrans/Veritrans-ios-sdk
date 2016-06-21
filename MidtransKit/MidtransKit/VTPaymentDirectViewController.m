@@ -13,6 +13,7 @@
 #import "VTVATransactionStatusViewModel.h"
 #import "VTBillpaySuccessController.h"
 #import "VTVASuccessStatusController.h"
+#import "VTIndomaretSuccessController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 @interface VTPaymentDirectViewController ()
 @property (strong, nonatomic) IBOutlet VTPaymentDirectView *view;
@@ -84,15 +85,37 @@
         
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
+        VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithStoreName:@"Indomaret" message:@""];
+        self.customerDetails.email = self.view.directPaymentTextField.text;
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+            [self hideLoadingHud];
+            if (error) {
+                [self handleTransactionError:error];
+            } else {
+                [self handleTransactionSuccess:result];
+            }
+        }];
     }
 }
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
-    VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:self.paymentType];
-    if (self.paymentType == VTVATypeMandiri) {
-        VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
-        [self.navigationController pushViewController:vc animated:YES];
-    } else {
-        VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithViewModel:vm];
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
+        VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:self.paymentType];
+        if (self.paymentType == VTVATypeMandiri) {
+            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
+            [self.navigationController pushViewController:vc animated:YES];
+        } else {
+            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithViewModel:vm];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+    }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
+        VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
+        VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithViewModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

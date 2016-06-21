@@ -50,6 +50,7 @@ static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
 static NSString *const VT_CREDIT_CARD_IDENTIFIER = @"cc";
 static NSString *const VT_VA_IDENTIFIER = @"atm";
 static NSString *const VT_PAYMENT_KLIK_BCA_IDENTIFIER = @"bca_klikbca";
+static NSString *const VT_PAYMENT_KLIK_BCA_IDENTIFIER2 = @"klikbca";
 static NSString *const VT_VA_PERMATA_IDENTIFIER = @"vapermata";
 static NSString *const VT_VA_BCA_IDENTIFIER = @"vabca";
 static NSString *const VT_VA_MANDIRI_IDENTIFIER = @"vamandiri";

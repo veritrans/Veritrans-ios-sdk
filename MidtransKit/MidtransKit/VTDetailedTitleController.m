@@ -7,6 +7,7 @@
 //
 
 #import "VTDetailedTitleController.h"
+#import "VTFontManager.h"
 
 @interface VTDetailedTitleController ()
 
@@ -23,7 +24,7 @@
     // Do any additional setup after loading the view.
     UIView *headerView = [UIView new];
     titleLabel = [UILabel new];
-    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.font = [[VTFontManager shared] regularFontWithSize:15];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -31,7 +32,7 @@
     
     
     descLabel = [UILabel new];
-    descLabel.font = [UIFont systemFontOfSize:11];
+    descLabel.font = [[VTFontManager shared] regularFontWithSize:11];
     descLabel.textColor = [UIColor blackColor];
     descLabel.textAlignment = NSTextAlignmentCenter;
     descLabel.translatesAutoresizingMaskIntoConstraints = NO;

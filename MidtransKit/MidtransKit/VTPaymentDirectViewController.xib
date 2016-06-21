@@ -21,7 +21,11 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTPaymentDirectViewController"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTPaymentDirectViewController">
+            <connections>
+                <outlet property="view" destination="wPm-rL-6ps" id="YuY-MT-ofI"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="wPm-rL-6ps" customClass="VTPaymentDirectView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -80,13 +84,13 @@
                     <rect key="frame" x="0.0" y="424" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlU-a7-unk">
-                            <rect key="frame" x="265.5" y="12" width="39.5" height="21"/>
+                            <rect key="frame" x="266" y="12" width="39" height="21"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eQy-Q4-XQK">
-                            <rect key="frame" x="15" y="15" width="45.5" height="16"/>
+                            <rect key="frame" x="15" y="15" width="46" height="16"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -114,13 +118,13 @@
                     <rect key="frame" x="0.0" y="379" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-Uh-jUh">
-                            <rect key="frame" x="265.5" y="12" width="39.5" height="21"/>
+                            <rect key="frame" x="266" y="12" width="39" height="21"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aQ-Jk-lYW">
-                            <rect key="frame" x="15" y="15" width="73.5" height="16"/>
+                            <rect key="frame" x="15" y="15" width="74" height="16"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -151,7 +155,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scR-bc-yC0">
-                    <rect key="frame" x="80" y="306.5" width="225" height="46"/>
+                    <rect key="frame" x="80" y="306" width="225" height="46"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2V-pB-bEz">
                             <rect key="frame" x="0.0" y="0.0" width="225" height="13"/>
@@ -208,6 +212,15 @@
                 <constraint firstItem="bjL-2z-Sni" firstAttribute="trailing" secondItem="ltQ-Rg-4pD" secondAttribute="trailing" id="xsL-nP-HDh"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="confirmPaymentButton" destination="2AF-lH-6ld" id="E4L-OC-ega"/>
+                <outlet property="directPaymentTextField" destination="ltQ-Rg-4pD" id="c9j-Q1-kad"/>
+                <outlet property="howToPaymentButton" destination="ZmT-QA-caE" id="mTh-E8-vG7"/>
+                <outlet property="orderIdLabel" destination="MlU-a7-unk" id="N2s-2h-Rg4"/>
+                <outlet property="totalAmountLabel" destination="BCL-Uh-jUh" id="sAG-jF-A48"/>
+                <outlet property="vtInformationLabel" destination="bjL-2z-Sni" id="Lbr-0E-vda"/>
+            </connections>
+            <point key="canvasLocation" x="-104" y="174"/>
         </view>
     </objects>
     <resources>

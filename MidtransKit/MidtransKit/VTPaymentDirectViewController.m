@@ -7,12 +7,14 @@
 //
 
 #import "VTPaymentDirectViewController.h"
-
+#import "VTPaymentDirectView.h"
 @interface VTPaymentDirectViewController ()
+@property (strong, nonatomic) IBOutlet VTPaymentDirectView *view;
 
 @end
 
 @implementation VTPaymentDirectViewController
+@dynamic view;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

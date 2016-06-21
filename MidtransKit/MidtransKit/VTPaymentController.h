@@ -23,6 +23,7 @@
                     transactionDetails:(VTTransactionDetails *)transactionDetails
                      paymentMethodName:(VTPaymentListModel *)paymentMethod;
 
+-(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
 -(void)showLoadingHud;
 -(void)hideLoadingHud;
 -(void)handleTransactionError:(NSError *)error;

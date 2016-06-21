@@ -56,6 +56,9 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="Confirm Payment"/>
+                    <connections>
+                        <action selector="confirmPaymentDidTapped:" destination="-1" eventType="touchUpInside" id="gkj-Ot-TMq"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmT-QA-caE" customClass="VTButton">
                     <rect key="frame" x="0.0" y="469" width="320" height="43"/>
@@ -72,6 +75,9 @@
                             <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="paymentGuideDidTapped:" destination="-1" eventType="touchUpInside" id="QvV-aK-J2P"/>
+                    </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="TaK-33-Kde">
                     <rect key="frame" x="297" y="533" width="8" height="13"/>

@@ -30,6 +30,7 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
+    
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         paymentName  = NSLocalizedString(@"Indomaret",nil);
     }
@@ -53,12 +54,22 @@
         paymentName  =  NSLocalizedString(@"Other Bank",nil);
     }
     
+    [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
+    
     self.title = [NSString stringWithFormat: NSLocalizedString(@"%@",nil),[paymentName capitalizedString]];
     [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"How can i Pay Via %@",nil),paymentName] forState:UIControlStateNormal];
     self.view.totalAmountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
-    self.view.directPaymentTextField.text = self.customerDetails.email;
-    // Do any additional setup after loading the view from its nib.
+    
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]) {
+        self.view.directPaymentTextField.text = nil;
+        self.view.directPaymentTextField.placeholder = NSLocalizedString(@"KlikBCA User ID", nil);
+        self.view.vtInformationLabel.text = NSLocalizedString(@"Please continue the payment process via KlikBCA by opening www.klikbca.com on a separate window or tab.", nil);
+    } else {
+        self.view.directPaymentTextField.text = self.customerDetails.email;
+        self.view.directPaymentTextField.placeholder = NSLocalizedString(@"Email Address (optional)", nil);
+        self.view.vtInformationLabel.text = NSLocalizedString(@"Just in case, we can send you the payment instructions to your email address.", nil);
+    }
 }
 - (IBAction)paymentGuideDidTapped:(id)sender {
     
@@ -84,6 +95,11 @@
         
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]){
+        if (self.view.directPaymentTextField.text.length == 0) {
+            self.view.directPaymentTextField.warning = NSLocalizedString(@"KlikBCA User ID should not be empty", nil);
+            return;
+        }
+        
         VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {

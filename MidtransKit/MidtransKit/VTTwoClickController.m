@@ -15,11 +15,7 @@
 
 #import "PopAnimator.h"
 
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTTokenizeRequest.h>
-#import <MidtransCoreKit/VT3DSController.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"

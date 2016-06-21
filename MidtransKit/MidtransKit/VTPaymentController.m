@@ -10,8 +10,11 @@
 #import "VTClassHelper.h"
 #import "VTHudView.h"
 #import "VTPaymentGuideViewController.h"
+#import "VTKeyboardAccessoryView.h"
+
 @interface VTPaymentController ()
 @property (nonatomic) VTHudView *hudView;
+@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @end
 
 @implementation VTPaymentController
@@ -37,6 +40,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.hudView = [[VTHudView alloc] init];
+}
+
+- (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
+    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];
 }
 
 - (void)showLoadingHud {

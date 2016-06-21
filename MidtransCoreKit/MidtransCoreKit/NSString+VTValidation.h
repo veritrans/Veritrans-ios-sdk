@@ -15,4 +15,8 @@
 - (BOOL)isValidNumber;
 - (BOOL)isValidPhoneNumber;
 - (BOOL)isValidUsingPlusPhoneNumber;
+
+- (BOOL)isValidClickpayNumber;
+- (BOOL)isValidClickpayToken;
+
 @end

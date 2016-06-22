@@ -144,6 +144,7 @@
 		E50438B61D1A656400710470 /* VTSubGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B51D1A656400710470 /* VTSubGuideController.xib */; };
 		E50438B91D1A679400710470 /* VTGuideView.h in Headers */ = {isa = PBXBuildFile; fileRef = E50438B71D1A679400710470 /* VTGuideView.h */; };
 		E50438BA1D1A679400710470 /* VTGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50438B81D1A679400710470 /* VTGuideView.m */; };
+		E50438BD1D1A999700710470 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E50438BC1D1A999700710470 /* Localizable.strings */; };
 		E50D85E21D0EC93400F26D2E /* ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85E11D0EC93400F26D2E /* ecash.plist */; };
 		E50D85F21D0ECB9000F26D2E /* VTIndomaretSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50D85EE1D0ECB9000F26D2E /* VTIndomaretSuccessController.xib */; };
 		E50D85F51D0ECB9C00F26D2E /* indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85F31D0ECB9C00F26D2E /* indomaret.plist */; };
@@ -369,6 +370,7 @@
 		E50438B51D1A656400710470 /* VTSubGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTSubGuideController.xib; sourceTree = "<group>"; };
 		E50438B71D1A679400710470 /* VTGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTGuideView.h; sourceTree = "<group>"; };
 		E50438B81D1A679400710470 /* VTGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTGuideView.m; sourceTree = "<group>"; };
+		E50438BC1D1A999700710470 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E50D85E11D0EC93400F26D2E /* ecash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ecash.plist; sourceTree = "<group>"; };
 		E50D85EE1D0ECB9000F26D2E /* VTIndomaretSuccessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTIndomaretSuccessController.xib; sourceTree = "<group>"; };
 		E50D85F31D0ECB9C00F26D2E /* indomaret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = indomaret.plist; sourceTree = "<group>"; };
@@ -685,6 +687,7 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E50438BC1D1A999700710470 /* Localizable.strings */,
 				E53BD03F1D143BE8001FADDE /* epay.plist */,
 				E50D85F31D0ECB9C00F26D2E /* indomaret.plist */,
 				E50D85F41D0ECB9C00F26D2E /* klikpay.plist */,
@@ -1170,6 +1173,7 @@
 				E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */,
 				00F61B171D146F8C00C93DA0 /* VTPaymentGeneralViewController.xib in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
+				E50438BD1D1A999700710470 /* Localizable.strings in Resources */,
 				E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */,
 				E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */,
 				30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */,

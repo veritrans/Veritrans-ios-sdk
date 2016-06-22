@@ -40,18 +40,27 @@
     return mutableAttributedString;
 }
 
-+ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString objectAtIndex:(NSInteger *)integer {
-    
-    NSArray *file = [NSArray arrayWithContentsOfFile:[VTBundle pathForResource:localizedString ofType:@"plist"]];
++ (NSMutableAttributedString *)numberingTextWithList:(NSArray *)list {
     NSMutableArray *points = [[NSMutableArray alloc] init];
-    for (NSInteger i = 1; i <= file.count; i++) {
-        NSString *key = [NSString stringWithFormat:@"%@", file[i-1]];
+    for (NSInteger i = 1; i <= list.count; i++) {
+        NSString *key = [NSString stringWithFormat:@"%@", list[i-1]];
         [points addObject:[NSString stringWithFormat:@"%ld.\t%@", (long)i, NSLocalizedString(key, nil)]];
     }
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:[points componentsJoinedByString:@"\n"]];
     mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
     return mutableAttributedString;
 }
+
++ (NSMutableAttributedString *)numberingTextWithFromListFile:(NSString *)filePath {
+    NSArray *list = [NSArray arrayWithContentsOfFile:filePath];
+    return [self numberingTextWithLocalizedStringPath:list];
+}
+
++ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString objectAtIndex:(NSInteger *)integer {
+    NSString *filePath = [VTBundle pathForResource:localizedString ofType:@"plist"];
+    return [self numberingTextWithFromListFile:filePath];
+}
+
 + (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSArray *)localizedString {
     NSMutableArray *points = [[NSMutableArray alloc] init];
     for (NSInteger i = 1; i <= localizedString.count; i++) {

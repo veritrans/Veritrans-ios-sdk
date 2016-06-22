@@ -7,11 +7,11 @@
 //
 
 #import "VTVASuccessStatusController.h"
-#import "VTVAGuideController.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTButton.h"
 #import "VTClassHelper.h"
 #import "VTToast.h"
+#import "VTMultiGuideController.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -22,15 +22,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 
-@property (nonatomic) VTVATransactionStatusViewModel *viewModel;
+@property (nonatomic) VTVATransactionStatusViewModel *statusModel;
 @end
 
 @implementation VTVASuccessStatusController
 
-- (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel {
-    self = [[VTVASuccessStatusController alloc] initWithNibName:@"VTVASuccessStatusController" bundle:VTBundle];
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTVATransactionStatusViewModel *)statusModel {
+    self = [[VTVASuccessStatusController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:paymentMethod];
     if (self) {
-        self.viewModel = viewModel;
+        self.statusModel = statusModel;
     }
     return self;
 }
@@ -41,58 +41,42 @@
     
     [self.navigationItem setHidesBackButton:YES];
     
-    _amountLabel.text = _viewModel.totalAmount;
-    _orderIdLabel.text = _viewModel.orderId;
-    _transactionTimeLabel.text = _viewModel.transactionTime;
+    _amountLabel.text = _statusModel.totalAmount;
+    _orderIdLabel.text = _statusModel.orderId;
+    _transactionTimeLabel.text = _statusModel.transactionTime;
     
-    switch (_viewModel.vaType) {
+    switch (_statusModel.vaType) {
         case VTVATypeBCA: {
-            _vaNumberLabel.text = _viewModel.vaNumber;
+            _vaNumberLabel.text = _statusModel.vaNumber;
             self.title = NSLocalizedString(@"BCA Bank Transfer",nil);
             break;
         } case VTVATypePermata: {
-            _vaNumberLabel.text = _viewModel.vaNumber;
+            _vaNumberLabel.text = _statusModel.vaNumber;
             self.title = NSLocalizedString(@"Permata Bank Transfer",nil);
             break;
         } case VTVATypeMandiri: {
         } case VTVATypeOther: {
-            _vaNumberLabel.text = _viewModel.vaNumber;
+            _vaNumberLabel.text = _statusModel.vaNumber;
             self.title = NSLocalizedString(@"Other Bank Transfer",nil);
             break;
         }
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)saveVAPressed:(UIButton *)sender {
-    [[UIPasteboard generalPasteboard] setString:_viewModel.vaNumber];
+    [[UIPasteboard generalPasteboard] setString:_statusModel.vaNumber];
     [VTToast createToast:NSLocalizedString(@"Copied to clipboard",nil) duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    VTVAGuideController *vc = [VTVAGuideController controllerWithVAType:_viewModel.vaType];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self showGuideViewController];
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"tr_result":_viewModel.transactionResult};
+    NSDictionary *userInfo = @{@"tr_result":_statusModel.transactionResult};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

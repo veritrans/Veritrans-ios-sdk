@@ -30,6 +30,7 @@
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
+    
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         paymentName  = NSLocalizedString(@"Indomaret",nil);
     }
@@ -53,22 +54,34 @@
         paymentName  =  NSLocalizedString(@"Other Bank",nil);
     }
     
+    [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
+    
     self.title = [NSString stringWithFormat: NSLocalizedString(@"%@",nil),[paymentName capitalizedString]];
     [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"How can i Pay Via %@",nil),paymentName] forState:UIControlStateNormal];
     self.view.totalAmountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
-    self.view.directPaymentTextField.text = self.customerDetails.email;
-    // Do any additional setup after loading the view from its nib.
+    
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]) {
+        self.view.directPaymentTextField.text = nil;
+        self.view.directPaymentTextField.placeholder = NSLocalizedString(@"KlikBCA User ID", nil);
+        self.view.vtInformationLabel.text = NSLocalizedString(@"Please continue the payment process via KlikBCA by opening www.klikbca.com on a separate window or tab.", nil);
+    } else {
+        self.view.directPaymentTextField.text = self.customerDetails.email;
+        self.view.directPaymentTextField.placeholder = NSLocalizedString(@"Email Address (optional)", nil);
+        self.view.vtInformationLabel.text = NSLocalizedString(@"Just in case, we can send you the payment instructions to your email address.", nil);
+    }
 }
 - (IBAction)paymentGuideDidTapped:(id)sender {
     
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
+    [self showLoadingHud];
+    
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
-        [self showLoadingHud];
+        
         VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType];
         self.customerDetails.email = self.view.directPaymentTextField.text;
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
@@ -79,11 +92,15 @@
             } else {
                 [self handleTransactionSuccess:result];
             }
-        }];
-        
-        
+        }];   
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]){
+        if (self.view.directPaymentTextField.text.length == 0) {
+            self.view.directPaymentTextField.warning = NSLocalizedString(@"KlikBCA User ID should not be empty", nil);
+            [self hideLoadingHud];
+            return;
+        }
+        
         VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
@@ -110,7 +127,7 @@
     }
 }
 - (IBAction)howtoButtonDidTapped:(id)sender {
-    [self showGuideViewControllerWithPaymentName:self.paymentMethod.internalBaseClassIdentifier];
+    [self showGuideViewController];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
@@ -120,17 +137,17 @@
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
         VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:self.paymentType];
         if (self.paymentType == VTVATypeMandiri) {
-            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
+            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
             [self.navigationController pushViewController:vc animated:YES];
         } else {
-            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithViewModel:vm];
+            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
     
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-        VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithViewModel:vm];
+        VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

@@ -341,7 +341,6 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="EOs-IP-e8z" firstAttribute="top" secondItem="HXG-UO-BCh" secondAttribute="bottom" id="Ekt-Yh-aIU"/>
                             <constraint firstAttribute="trailing" secondItem="caV-C8-H5G" secondAttribute="trailing" id="F9p-D2-pmF"/>
                             <constraint firstItem="9nd-Z8-Osm" firstAttribute="centerY" secondItem="HXG-UO-BCh" secondAttribute="centerY" id="KgQ-pL-tyx"/>
                             <constraint firstItem="caV-C8-H5G" firstAttribute="leading" secondItem="wS4-ei-lfl" secondAttribute="leading" id="Kzf-pj-53B"/>
@@ -350,8 +349,9 @@
                             <constraint firstItem="HXG-UO-BCh" firstAttribute="top" secondItem="caV-C8-H5G" secondAttribute="bottom" id="gvv-mi-eoU"/>
                             <constraint firstAttribute="trailing" secondItem="HXG-UO-BCh" secondAttribute="trailing" id="htk-Rs-BZv"/>
                             <constraint firstItem="HXG-UO-BCh" firstAttribute="leading" secondItem="wS4-ei-lfl" secondAttribute="leading" id="i29-ut-LYF"/>
+                            <constraint firstItem="APo-Xq-3yC" firstAttribute="top" secondItem="ewx-Wh-JiM" secondAttribute="bottom" constant="8" id="jNf-dR-RWU"/>
+                            <constraint firstItem="EOs-IP-e8z" firstAttribute="top" secondItem="HXG-UO-BCh" secondAttribute="bottom" id="mtj-sR-zwE"/>
                             <constraint firstItem="9nd-Z8-Osm" firstAttribute="trailing" secondItem="HXG-UO-BCh" secondAttribute="trailing" constant="-15" id="qfN-a7-bkD"/>
-                            <constraint firstItem="APo-Xq-3yC" firstAttribute="top" secondItem="ewx-Wh-JiM" secondAttribute="bottom" constant="8" id="tKf-Un-NUf"/>
                             <constraint firstItem="APo-Xq-3yC" firstAttribute="leading" secondItem="wS4-ei-lfl" secondAttribute="leading" constant="10" id="yvO-3E-6fd"/>
                         </constraints>
                     </view>

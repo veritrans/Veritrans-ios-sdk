@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-@class VTTextField, VTButton;
+
+#import "VTTextField.h"
+#import "VTButton.h"
+
 @interface VTPaymentDirectView : UIView
 @property (weak, nonatomic) IBOutlet VTTextField *directPaymentTextField;
 @property (weak, nonatomic) IBOutlet UILabel *vtInformationLabel;

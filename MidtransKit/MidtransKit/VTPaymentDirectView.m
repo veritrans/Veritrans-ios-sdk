@@ -10,4 +10,9 @@
 
 @implementation VTPaymentDirectView
 
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    
+    _vtInformationLabel.preferredMaxLayoutWidth = CGRectGetWidth(_vtInformationLabel.frame);
+}
 @end

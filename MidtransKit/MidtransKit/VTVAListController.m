@@ -9,7 +9,6 @@
 #import "VTVAListController.h"
 #import "VTClassHelper.h"
 #import "VTListCell.h"
-#import "VTVAController.h"
 #import "VTPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 

@@ -25,7 +25,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setHeaderWithTitle:self.paymentMethod.title subTitle:@"Payment Instructions"];
-    self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithLocalizedStringPath:[self.paymentMethod.title lowercaseString] objectAtIndex:0];
+    self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithLocalizedStringPath:self.paymentMethod.internalBaseClassIdentifier objectAtIndex:0];
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
     self.view.totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;

@@ -153,6 +153,7 @@
 		E503AEEF1C8EC69800F097FF /* tcash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEA1C8EC69800F097FF /* tcash@2x.png */; };
 		E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEB1C8EC69800F097FF /* xltunai@2x.png */; };
 		E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEF11C8EC81000F097FF /* indomaret@2x.png */; };
+		E504386B1D1A334D00710470 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E504386A1D1A334D00710470 /* Localizable.strings */; };
 		E50D85E21D0EC93400F26D2E /* mandiri e-cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85E11D0EC93400F26D2E /* mandiri e-cash.plist */; };
 		E50D85F01D0ECB9000F26D2E /* VTIndomaretController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50D85EC1D0ECB9000F26D2E /* VTIndomaretController.xib */; };
 		E50D85F11D0ECB9000F26D2E /* VTIndomaretGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50D85ED1D0ECB9000F26D2E /* VTIndomaretGuideController.xib */; };
@@ -392,6 +393,7 @@
 		E503AEEA1C8EC69800F097FF /* tcash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcash@2x.png"; sourceTree = "<group>"; };
 		E503AEEB1C8EC69800F097FF /* xltunai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xltunai@2x.png"; sourceTree = "<group>"; };
 		E503AEF11C8EC81000F097FF /* indomaret@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indomaret@2x.png"; sourceTree = "<group>"; };
+		E504386A1D1A334D00710470 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E50D85E11D0EC93400F26D2E /* mandiri e-cash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "mandiri e-cash.plist"; sourceTree = "<group>"; };
 		E50D85EC1D0ECB9000F26D2E /* VTIndomaretController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTIndomaretController.xib; sourceTree = "<group>"; };
 		E50D85ED1D0ECB9000F26D2E /* VTIndomaretGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTIndomaretGuideController.xib; sourceTree = "<group>"; };
@@ -733,6 +735,7 @@
 				E503AEC91C8E860700F097FF /* virtualAccount.plist */,
 				E5F4AA8B1CF6D2C70059DDF8 /* paymentMethods.plist */,
 				002CC9A61D125BFF003A1203 /* klikbca.plist */,
+				E504386A1D1A334D00710470 /* Localizable.strings */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1167,6 +1170,7 @@
 				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
 				E5583E011D0FD5DA002B7FA1 /* VTClickpayGuideController.xib in Resources */,
 				E5EF827C1C8C0837007B6585 /* VTCCFrontView.xib in Resources */,
+				E504386B1D1A334D00710470 /* Localizable.strings in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
 				309CC0DE1C86B5BD00C058BE /* otherVaGuide.plist in Resources */,

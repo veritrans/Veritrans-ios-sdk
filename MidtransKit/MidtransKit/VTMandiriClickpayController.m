@@ -86,8 +86,7 @@ static NSString* const ClickpayAPPLI = @"3";
 }
 
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {
-    VTClickpayGuideController *help = [[VTClickpayGuideController alloc] initWithNibName:@"VTClickpayGuideController" bundle:VTBundle];
-    [self.navigationController pushViewController:help animated:YES];
+    [self showGuideViewController];
 }
 
 #pragma mark - UITextFieldDelegate

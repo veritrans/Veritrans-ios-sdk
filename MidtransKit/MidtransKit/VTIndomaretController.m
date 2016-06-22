@@ -28,11 +28,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", nil)
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: UILocalizedString(@"Back", nil)
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
-    self.title = [NSString stringWithFormat: NSLocalizedString(@"Pay at %@",nil),[VT_PAYMENT_INDOMARET capitalizedString]];
+    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil),[VT_PAYMENT_INDOMARET capitalizedString]];
     self.keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_emailTextField]];
     self.emailTextField.text = self.customerDetails.email;
     self.amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];

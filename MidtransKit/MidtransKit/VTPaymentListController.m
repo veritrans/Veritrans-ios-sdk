@@ -38,8 +38,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title =  NSLocalizedString(@"Select Payment", nil);
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"Back", nil)  style:UIBarButtonItemStylePlain target:nil action:nil];
+    self.title =  UILocalizedString(@"payment.list.title", nil);
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:UILocalizedString(@"Back", nil)  style:UIBarButtonItemStylePlain target:nil action:nil];
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
     

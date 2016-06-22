@@ -23,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
-    [self setHeaderWithTitle:NSLocalizedString(self.paymentMethodName,nil) subTitle:NSLocalizedString(@"Payment Instructions",nil)];
+    [self setHeaderWithTitle:NSLocalizedString(self.paymentMethodName,nil) subTitle:UILocalizedString(@"guide.header-subtitle",nil)];
     self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithLocalizedStringPath:self.paymentMethodName objectAtIndex:0];
 }
 

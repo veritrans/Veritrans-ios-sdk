@@ -31,19 +31,20 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.headerDescription = NSLocalizedString(@"Payment Instructions",nil);
+    self.headerDescription = UILocalizedString(@"guide.header-subtitle",nil);
+    
     switch (self.vaType) {
         case VTVATypeBCA:
-            self.headerTitle = NSLocalizedString(@"BCA Bank Transfer",nil);
+            self.headerTitle = UILocalizedString(@"BCA Bank Transfer",nil);
             break;
         case VTVATypeMandiri:
-            self.headerTitle = NSLocalizedString(@"Mandiri Bank Transfer",nil);
+            self.headerTitle = UILocalizedString(@"Mandiri Bank Transfer",nil);
             break;
         case VTVATypePermata:
-            self.headerTitle = NSLocalizedString(@"Permata Bank Transfer",nil);
+            self.headerTitle = UILocalizedString(@"Permata Bank Transfer",nil);
             break;
         case VTVATypeOther:
-            self.headerTitle = NSLocalizedString(@"Other Bank Transfer",nil);
+            self.headerTitle = UILocalizedString(@"Other Bank Transfer",nil);
             break;
     }
     

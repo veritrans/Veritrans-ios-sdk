@@ -53,20 +53,20 @@
     
     switch (self.vaType) {
         case VTVATypeBCA: {
-            self.title = NSLocalizedString(@"BCA ATM", nil);
-            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via BCA Bank Transfer?", nil) forState:UIControlStateNormal];
+            self.title = UILocalizedString(@"BCA ATM", nil);
+            [_helpButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.va.help-button-title", nil), @"BCA"] forState:UIControlStateNormal];
             break;
         } case VTVATypeMandiri: {
-            self.title =  NSLocalizedString(@"Mandiri ATM",nil);
-            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via Mandiri Bank Transfer?",nil) forState:UIControlStateNormal];
+            self.title =  UILocalizedString(@"Mandiri ATM",nil);
+            [_helpButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.va.help-button-title", nil), @"Mandiri"] forState:UIControlStateNormal];
             break;
         } case VTVATypePermata: {
-            self.title = NSLocalizedString(@"Permata ATM",nil);
-            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via Permata Bank Transfer?",nil) forState:UIControlStateNormal];
+            self.title = UILocalizedString(@"Permata ATM",nil);
+            [_helpButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.va.help-button-title", nil), @"Permata"] forState:UIControlStateNormal];
             break;
         } case VTVATypeOther: {
-            self.title = NSLocalizedString(@"Other Bank",nil);
-            [_helpButton setTitle: NSLocalizedString(@"How Can I Pay Via Other Bank Transfer?",nil) forState:UIControlStateNormal];
+            self.title = UILocalizedString(@"Other Bank",nil);
+            [_helpButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.va.help-button-title", nil), @"Other"] forState:UIControlStateNormal];
             break;
         }
     }

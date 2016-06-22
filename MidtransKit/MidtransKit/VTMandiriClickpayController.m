@@ -56,12 +56,12 @@ static NSString* const ClickpayAPPLI = @"3";
     _debitNumberTextField.warning = nil;
     
     if ([_debitNumberTextField.text isValidClickpayNumber] == NO) {
-        _debitNumberTextField.warning = NSLocalizedString(@"Invalid Debit Number", nil);
+        _debitNumberTextField.warning = UILocalizedString(@"clickpay.invalid-number", nil);
         return;
     }
     
     if ([_tokenTextField.text isValidClickpayToken] == NO) {
-        _tokenTextField.warning = NSLocalizedString(@"Invalid Clickpay Token", nil);
+        _tokenTextField.warning = UILocalizedString(@"clickpay.invalid-token", nil);
         return;
     }
     

@@ -1,22 +1,22 @@
 //
-//  VTGuideController.m
+//  VTSubGuideController.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 6/22/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTGuideController.h"
+#import "VTSubGuideController.h"
 #import "VTGuideView.h"
 #import "VTStringHelper.h"
 #import "VTClassHelper.h"
 
-@interface VTGuideController ()
+@interface VTSubGuideController ()
 @property (strong, nonatomic) IBOutlet VTGuideView *view;
 @property (strong, nonatomic) NSArray *guideList;
 @end
 
-@implementation VTGuideController
+@implementation VTSubGuideController
 
 @dynamic view;
 

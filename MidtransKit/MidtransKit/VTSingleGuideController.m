@@ -9,7 +9,7 @@
 #import "VTSingleGuideController.h"
 #import "VTClassHelper.h"
 #import "UIViewController+HeaderSubtitle.h"
-#import "VTGuideController.h"
+#import "VTSubGuideController.h"
 
 @interface VTSingleGuideController ()
 @property (strong, nonatomic) VTPaymentListModel *model;
@@ -33,7 +33,7 @@
     
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *guideList = [NSArray arrayWithContentsOfFile:guidePath];
-    VTGuideController *vc = [[VTGuideController alloc] initWithList:guideList];
+    VTSubGuideController *vc = [[VTSubGuideController alloc] initWithList:guideList];
     [self addSubViewController:vc toView:self.view];
 }
 

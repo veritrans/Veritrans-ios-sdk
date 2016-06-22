@@ -1,5 +1,5 @@
 //
-//  VTGuideController.h
+//  VTSubGuideController.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 6/22/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTGuideController : UIViewController
+@interface VTSubGuideController : UIViewController
 - (instancetype)initWithList:(NSArray *)list;
 @end

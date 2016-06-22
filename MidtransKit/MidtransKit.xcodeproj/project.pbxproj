@@ -139,11 +139,11 @@
 		E50438701D1A4A2100710470 /* VTMultiGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = E504386E1D1A4A2100710470 /* VTMultiGuideController.m */; };
 		E50438731D1A4A5000710470 /* VTSingleGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50438711D1A4A5000710470 /* VTSingleGuideController.h */; };
 		E50438741D1A4A5000710470 /* VTSingleGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50438721D1A4A5000710470 /* VTSingleGuideController.m */; };
-		E50438771D1A4A7C00710470 /* VTGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50438751D1A4A7C00710470 /* VTGuideController.h */; };
-		E50438781D1A4A7C00710470 /* VTGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50438761D1A4A7C00710470 /* VTGuideController.m */; };
+		E50438771D1A4A7C00710470 /* VTSubGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50438751D1A4A7C00710470 /* VTSubGuideController.h */; };
+		E50438781D1A4A7C00710470 /* VTSubGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50438761D1A4A7C00710470 /* VTSubGuideController.m */; };
 		E50438B21D1A654B00710470 /* VTMultiGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B11D1A654B00710470 /* VTMultiGuideController.xib */; };
 		E50438B41D1A655500710470 /* VTSingleGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B31D1A655500710470 /* VTSingleGuideController.xib */; };
-		E50438B61D1A656400710470 /* VTGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B51D1A656400710470 /* VTGuideController.xib */; };
+		E50438B61D1A656400710470 /* VTSubGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B51D1A656400710470 /* VTSubGuideController.xib */; };
 		E50438B91D1A679400710470 /* VTGuideView.h in Headers */ = {isa = PBXBuildFile; fileRef = E50438B71D1A679400710470 /* VTGuideView.h */; };
 		E50438BA1D1A679400710470 /* VTGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E50438B81D1A679400710470 /* VTGuideView.m */; };
 		E50D85E21D0EC93400F26D2E /* ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85E11D0EC93400F26D2E /* ecash.plist */; };
@@ -366,11 +366,11 @@
 		E504386E1D1A4A2100710470 /* VTMultiGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMultiGuideController.m; sourceTree = "<group>"; };
 		E50438711D1A4A5000710470 /* VTSingleGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSingleGuideController.h; sourceTree = "<group>"; };
 		E50438721D1A4A5000710470 /* VTSingleGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSingleGuideController.m; sourceTree = "<group>"; };
-		E50438751D1A4A7C00710470 /* VTGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTGuideController.h; sourceTree = "<group>"; };
-		E50438761D1A4A7C00710470 /* VTGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTGuideController.m; sourceTree = "<group>"; };
+		E50438751D1A4A7C00710470 /* VTSubGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSubGuideController.h; sourceTree = "<group>"; };
+		E50438761D1A4A7C00710470 /* VTSubGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSubGuideController.m; sourceTree = "<group>"; };
 		E50438B11D1A654B00710470 /* VTMultiGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTMultiGuideController.xib; sourceTree = "<group>"; };
 		E50438B31D1A655500710470 /* VTSingleGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTSingleGuideController.xib; sourceTree = "<group>"; };
-		E50438B51D1A656400710470 /* VTGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTGuideController.xib; sourceTree = "<group>"; };
+		E50438B51D1A656400710470 /* VTSubGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTSubGuideController.xib; sourceTree = "<group>"; };
 		E50438B71D1A679400710470 /* VTGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTGuideView.h; sourceTree = "<group>"; };
 		E50438B81D1A679400710470 /* VTGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTGuideView.m; sourceTree = "<group>"; };
 		E50D85E11D0EC93400F26D2E /* ecash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ecash.plist; sourceTree = "<group>"; };
@@ -494,8 +494,8 @@
 				E504386E1D1A4A2100710470 /* VTMultiGuideController.m */,
 				E50438711D1A4A5000710470 /* VTSingleGuideController.h */,
 				E50438721D1A4A5000710470 /* VTSingleGuideController.m */,
-				E50438751D1A4A7C00710470 /* VTGuideController.h */,
-				E50438761D1A4A7C00710470 /* VTGuideController.m */,
+				E50438751D1A4A7C00710470 /* VTSubGuideController.h */,
+				E50438761D1A4A7C00710470 /* VTSubGuideController.m */,
 				E50438B71D1A679400710470 /* VTGuideView.h */,
 				E50438B81D1A679400710470 /* VTGuideView.m */,
 			);
@@ -894,7 +894,7 @@
 			children = (
 				E50438B11D1A654B00710470 /* VTMultiGuideController.xib */,
 				E50438B31D1A655500710470 /* VTSingleGuideController.xib */,
-				E50438B51D1A656400710470 /* VTGuideController.xib */,
+				E50438B51D1A656400710470 /* VTSubGuideController.xib */,
 			);
 			name = Guide;
 			sourceTree = "<group>";
@@ -980,7 +980,7 @@
 				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */,
 				00F61B1A1D14703100C93DA0 /* VTPaymentGeneralView.h in Headers */,
-				E50438771D1A4A7C00710470 /* VTGuideController.h in Headers */,
+				E50438771D1A4A7C00710470 /* VTSubGuideController.h in Headers */,
 				00F61B201D1481FD00C93DA0 /* VTPaymentDirectViewController.h in Headers */,
 				E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */,
 				30E77E8A1C84021A0090D228 /* VTMandiriClickpayController.h in Headers */,
@@ -1171,7 +1171,7 @@
 				E503AEC71C8E85C500F097FF /* atm@2x.png in Resources */,
 				309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */,
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
-				E50438B61D1A656400710470 /* VTGuideController.xib in Resources */,
+				E50438B61D1A656400710470 /* VTSubGuideController.xib in Resources */,
 				E578DD111CFC05790091760A /* VTBillpaySuccessController.xib in Resources */,
 				E503AEE51C8EC50E00F097FF /* epay@2x.png in Resources */,
 				E578DD2E1CFC406F0091760A /* VTPaymentListHeader.xib in Resources */,
@@ -1262,7 +1262,7 @@
 				E578DD101CFBFA980091760A /* VTBillpaySuccessController.m in Sources */,
 				302BAA451C881FA200AE68CC /* VTCardCell.m in Sources */,
 				30E713041C855B6600AFB7B4 /* VTLabel.m in Sources */,
-				E50438781D1A4A7C00710470 /* VTGuideController.m in Sources */,
+				E50438781D1A4A7C00710470 /* VTSubGuideController.m in Sources */,
 				30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */,
 				30E7133C1C85A8A800AFB7B4 /* VTGuideCell.m in Sources */,
 				E583AFEB1C8D5C1600C04512 /* VTPaymentStatusViewModel.m in Sources */,

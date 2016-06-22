@@ -9,7 +9,7 @@
 #import "VTMultiGuideController.h"
 #import "MBXPageViewController_vt.h"
 #import "VTClassHelper.h"
-#import "VTGuideController.h"
+#import "VTSubGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
 
 @interface VTMultiGuideController ()<MBXPageControllerDataSource_vt, MBXPageControllerDataDelegate_vt>
@@ -46,7 +46,7 @@
             [_segmentController setTitle:guide[@"name"] forSegmentAtIndex:i];
         }
         
-        VTGuideController *vc = [[VTGuideController alloc] initWithList:guide[@"guides"]];
+        VTSubGuideController *vc = [[VTSubGuideController alloc] initWithList:guide[@"guides"]];
         [_guideViewControllers addObject:vc];
     }
     

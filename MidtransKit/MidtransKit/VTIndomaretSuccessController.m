@@ -14,7 +14,7 @@
 #import "VTToast.h"
 
 @interface VTIndomaretSuccessController ()
-@property (nonatomic) VTPaymentStatusViewModel *viewModel;
+@property (nonatomic) VTPaymentStatusViewModel *statusModel;
 
 @property (strong, nonatomic) IBOutlet UILabel *paymentCodeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *transactionTimeLabel;
@@ -25,10 +25,10 @@
 
 @implementation VTIndomaretSuccessController
 
-- (instancetype)initWithViewModel:(VTPaymentStatusViewModel *)viewModel {
-    self = [[VTIndomaretSuccessController alloc] initWithNibName:@"VTIndomaretSuccessController" bundle:VTBundle];
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTPaymentStatusViewModel *)statusModel {
+    self = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:paymentMethod];
     if (self) {
-        self.viewModel = viewModel;
+        self.statusModel = statusModel;
     }
     return self;
 }
@@ -37,10 +37,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.    
     
-    _amountLabel.text = _viewModel.totalAmount;
-    _orderIdLabel.text = _viewModel.orderId;
-    _transactionTimeLabel.text = _viewModel.transactionTime;
-    _paymentCodeLabel.text = _viewModel.transactionResult.additionalData[@"payment_code"];
+    _amountLabel.text = _statusModel.totalAmount;
+    _orderIdLabel.text = _statusModel.orderId;
+    _transactionTimeLabel.text = _statusModel.transactionTime;
+    _paymentCodeLabel.text = _statusModel.transactionResult.additionalData[@"payment_code"];
     
    self.title = [NSString stringWithFormat: NSLocalizedString(@"Pay at %@",nil),[VT_PAYMENT_INDOMARET capitalizedString]];
 }
@@ -51,7 +51,7 @@
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    [self showGuideViewControllerWithPaymentName:VT_PAYMENT_INDOMARET];
+    [self showGuideViewController];
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {

@@ -77,6 +77,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                     <connections>
+                        <action selector="howtoButtonDidTapped:" destination="-1" eventType="touchUpInside" id="Slz-8G-jFh"/>
                         <action selector="paymentGuideDidTapped:" destination="-1" eventType="touchUpInside" id="QvV-aK-J2P"/>
                     </connections>
                 </button>

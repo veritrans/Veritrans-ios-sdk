@@ -10,4 +10,6 @@
 
 @interface VTPaymentGuideView : UIView
 @property (weak, nonatomic) IBOutlet UITextView *guideTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topMenuGuideHeightConstraints;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedControl;
 @end

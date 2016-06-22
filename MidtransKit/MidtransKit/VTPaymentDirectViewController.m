@@ -112,7 +112,7 @@
         }];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
-        VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithStoreName:@"Indomaret" message:@""];
+        VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithStoreName:VT_PAYMENT_INDOMARET message:@""];
         self.customerDetails.email = self.view.directPaymentTextField.text;
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
@@ -124,6 +124,9 @@
             }
         }];
     }
+}
+- (IBAction)howtoButtonDidTapped:(id)sender {
+    [self showGuideViewControllerWithPaymentName:self.paymentMethod.internalBaseClassIdentifier];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {

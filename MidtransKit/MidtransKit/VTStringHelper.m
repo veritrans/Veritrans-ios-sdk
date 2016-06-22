@@ -52,5 +52,14 @@
     mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
     return mutableAttributedString;
 }
-
++ (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSArray *)localizedString {
+    NSMutableArray *points = [[NSMutableArray alloc] init];
+    for (NSInteger i = 1; i <= localizedString.count; i++) {
+        NSString *key = [NSString stringWithFormat:@"%@", localizedString[i-1]];
+        [points addObject:[NSString stringWithFormat:@"%ld.\t%@", (long)i, NSLocalizedString(key, nil)]];
+    }
+    NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:[points componentsJoinedByString:@"\n"]];
+    mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
+    return mutableAttributedString;
+}
 @end

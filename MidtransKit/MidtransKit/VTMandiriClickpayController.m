@@ -9,7 +9,6 @@
 #import "VTMandiriClickpayController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
-#import "VTClickpayGuideController.h"
 #import "VTHudView.h"
 #import "VTKeyboardAccessoryView.h"
 

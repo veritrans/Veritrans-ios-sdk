@@ -18,6 +18,7 @@
 @property (nonatomic,strong) VTPaymentListModel *paymentMethod;
 @property (nonatomic) VTTransactionDetails *transactionDetails;
 
+
 -(instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                            itemDetails:(NSArray <VTItemDetail*>*)itemDetails
                     transactionDetails:(VTTransactionDetails *)transactionDetails

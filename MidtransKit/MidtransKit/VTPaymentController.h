@@ -29,5 +29,5 @@
 -(void)hideLoadingHud;
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(VTTransactionResult *)result;
--(void)showGuideViewControllerWithPaymentName:(NSString *)paymentName;
+-(void)showGuideViewController;
 @end

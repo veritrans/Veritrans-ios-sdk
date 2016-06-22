@@ -9,8 +9,9 @@
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
 #import "VTHudView.h"
-#import "VTPaymentGuideViewController.h"
 #import "VTKeyboardAccessoryView.h"
+#import "VTMultiGuideController.h"
+#import "VTSingleGuideController.h"
 
 @interface VTPaymentController ()
 @property (nonatomic) VTHudView *hudView;
@@ -64,19 +65,19 @@
     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
     [self.navigationController pushViewController:vc animated:YES];
 }
--(void)showGuideViewControllerWithPaymentName:(NSString *)paymentName {
-    VTPaymentGuideViewController *paymentGuideVC = [[VTPaymentGuideViewController alloc] initGuideWithPaymentMethodName:paymentName];
-    [self.navigationController pushViewController:paymentGuideVC animated:YES];
-}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void)showGuideViewController {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
+        VTMultiGuideController *vc = [[VTMultiGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        VTSingleGuideController *vc = [[VTSingleGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 
 @end

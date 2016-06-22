@@ -75,11 +75,13 @@
     
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
+    [self showLoadingHud];
+    
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
-        [self showLoadingHud];
+        
         VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType];
         self.customerDetails.email = self.view.directPaymentTextField.text;
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
@@ -90,13 +92,12 @@
             } else {
                 [self handleTransactionSuccess:result];
             }
-        }];
-        
-        
+        }];   
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]){
         if (self.view.directPaymentTextField.text.length == 0) {
             self.view.directPaymentTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
+            [self hideLoadingHud];
             return;
         }
         
@@ -126,7 +127,7 @@
     }
 }
 - (IBAction)howtoButtonDidTapped:(id)sender {
-    [self showGuideViewControllerWithPaymentName:self.paymentMethod.internalBaseClassIdentifier];
+    [self showGuideViewController];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
@@ -136,17 +137,17 @@
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
         VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result vaType:self.paymentType];
         if (self.paymentType == VTVATypeMandiri) {
-            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithViewModel:vm];
+            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
             [self.navigationController pushViewController:vc animated:YES];
         } else {
-            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithViewModel:vm];
+            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
     
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-        VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithViewModel:vm];
+        VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

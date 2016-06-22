@@ -12,6 +12,8 @@
 + (NSString *)emptyString;
 + (NSMutableAttributedString *)indentText:(NSAttributedString *)attributedString;
 + (NSMutableAttributedString *)indentTextWithDefaultStyle:(NSAttributedString *)attributedString;
++ (NSMutableAttributedString *)numberingTextWithList:(NSArray *)list;
++ (NSMutableAttributedString *)numberingTextWithFromListFile:(NSString *)filePath;
 + (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString objectAtIndex:(NSInteger *)integer;
 + (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSArray *)localizedString;
 

@@ -15,11 +15,7 @@
 
 #import "PopAnimator.h"
 
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTTokenizeRequest.h>
-#import <MidtransCoreKit/VT3DSController.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
@@ -39,7 +35,7 @@
 @implementation VTTwoClickController
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails maskedCard:(VTMaskedCreditCard *)maskedCard {
-    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
+    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil];
     if (self) {
         self.maskeCard = maskedCard;
     }

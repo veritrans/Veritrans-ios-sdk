@@ -7,7 +7,7 @@
 //
 
 #import "VTLuhn.h"
-
+#import "NSString+VTValidation.h"
 @implementation NSString (VTLuhn)
 
 - (NSString *) formattedStringForProcessing {
@@ -22,21 +22,18 @@
 
 + (BOOL)validateString:(NSString *)string {
     NSString *formattedString = [string formattedStringForProcessing];
-    if (formattedString == nil || formattedString.length < 9) {
+    if (formattedString == nil || formattedString.length < 9 || formattedString.isEmpty) {
         return NO;
     }
     
     NSMutableString *reversedString = [NSMutableString stringWithCapacity:[formattedString length]];
-    
     [formattedString enumerateSubstringsInRange:NSMakeRange(0, [formattedString length]) options:(NSStringEnumerationReverse |NSStringEnumerationByComposedCharacterSequences) usingBlock:^(NSString *substring, NSRange substringRange, NSRange enclosingRange, BOOL *stop) {
         [reversedString appendString:substring];
     }];
-    
     NSUInteger oddSum = 0, evenSum = 0;
     
     for (NSUInteger i = 0; i < [reversedString length]; i++) {
         NSInteger digit = [[NSString stringWithFormat:@"%C", [reversedString characterAtIndex:i]] integerValue];
-        
         if (i % 2 == 0) {
             evenSum += digit;
         }

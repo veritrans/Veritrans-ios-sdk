@@ -25,7 +25,6 @@
     [defaultParameters setObject:[PRIVATECONFIG mixpanelToken] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];
     [defaultParameters setObject:VERSION forKey:@"sdkVersion"];
-    
     return defaultParameters;
 }
 
@@ -33,12 +32,11 @@
 
 @implementation VTTrackingManager
 
-+(VTTrackingManager *)sharedInstance {
++ (VTTrackingManager *)sharedInstance {
     static VTTrackingManager *sharedInstance;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         sharedInstance = [[VTTrackingManager alloc] init];
-        NSLog(@"init");
     });
     return sharedInstance;
 }
@@ -67,8 +65,8 @@
     
     NSString *URL = @"https://api.mixpanel.com/track";
     NSDictionary *parameter = @{@"data":base64String};
-        [[VTNetworking sharedInstance] getFromURL:URL parameters:parameter callback:nil];
-
+    [[VTNetworking sharedInstance] getFromURL:URL parameters:parameter callback:nil];
+    
 }
 - (void)sendSuccessTrackingWithParameters:(NSDictionary *)parameters {
 }

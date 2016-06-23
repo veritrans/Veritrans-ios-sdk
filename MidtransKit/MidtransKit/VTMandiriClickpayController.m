@@ -9,8 +9,8 @@
 #import "VTMandiriClickpayController.h"
 #import "VTClassHelper.h"
 #import "VTTextField.h"
-#import "VTClickpayGuideController.h"
 #import "VTHudView.h"
+#import "VTKeyboardAccessoryView.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -26,8 +26,6 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 
-@property (nonatomic) VTHudView *hudView;
-
 @end
 
 @implementation VTMandiriClickpayController
@@ -38,7 +36,7 @@ static NSString* const ClickpayAPPLI = @"3";
     
     self.title = @"Mandiri Clickpay";
     
-    _hudView = [[VTHudView alloc] init];
+    [self addNavigationToTextFields:@[_debitNumberTextField, _tokenTextField]];
     
     _debitNumberTextField.delegate = self;
     _tokenTextField.delegate = self;
@@ -53,7 +51,20 @@ static NSString* const ClickpayAPPLI = @"3";
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
-    [_hudView showOnView:self.navigationController.view];
+    _tokenTextField.warning = nil;
+    _debitNumberTextField.warning = nil;
+    
+    if ([_debitNumberTextField.text isValidClickpayNumber] == NO) {
+        _debitNumberTextField.warning = UILocalizedString(@"clickpay.invalid-number", nil);
+        return;
+    }
+    
+    if ([_tokenTextField.text isValidClickpayToken] == NO) {
+        _tokenTextField.warning = UILocalizedString(@"clickpay.invalid-token", nil);
+        return;
+    }
+    
+    [self showLoadingHud];
     
     VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:_debitNumberTextField.text grossAmount:self.transactionDetails.grossAmount token:_tokenTextField.text];
     
@@ -63,7 +74,7 @@ static NSString* const ClickpayAPPLI = @"3";
                                                                    itemDetails:self.itemDetails];
     
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-        [_hudView hide];
+        [self hideLoadingHud];
         
         if (error) {
             [self handleTransactionError:error];
@@ -74,8 +85,7 @@ static NSString* const ClickpayAPPLI = @"3";
 }
 
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {
-    VTClickpayGuideController *help = [[VTClickpayGuideController alloc] initWithNibName:@"VTClickpayGuideController" bundle:VTBundle];
-    [self.navigationController pushViewController:help animated:YES];
+    [self showGuideViewController];
 }
 
 #pragma mark - UITextFieldDelegate

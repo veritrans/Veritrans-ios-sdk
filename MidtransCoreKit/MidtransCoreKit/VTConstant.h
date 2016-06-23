@@ -35,7 +35,6 @@ static NSString * const CREDIT_CARD_TYPE_VISA    = @"Visa";
  */
 static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
 static NSString * const VT_PAYMENT_KLIK_BCA = @"KlikBCA";
-static NSString * const VT_PAYMENT_KLIK_BCA_IDENTIFIER = @"bca_klikbca";
 static NSString * const VT_PAYMENT_INDOMARET = @"indomaret";
 static NSString * const VT_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const VT_PAYMENT_CSTORE = @"cstore";
@@ -45,11 +44,32 @@ static NSString * const VT_PAYMENT_BANK_TRANSFER = @"bank_transfer";
 static NSString * const VT_PAYMENT_ECHANNEL = @"echannel";
 static NSString * const VT_PAYMENT_BRI_EPAY = @"bri_epay";
 
+static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
+static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
+
+static NSString *const VT_CREDIT_CARD_IDENTIFIER = @"cc";
+static NSString *const VT_VA_IDENTIFIER = @"atm";
+static NSString *const VT_PAYMENT_KLIK_BCA_IDENTIFIER = @"bca_klikbca";
+static NSString *const VT_PAYMENT_KLIK_BCA_IDENTIFIER2 = @"klikbca";
+static NSString *const VT_VA_PERMATA_IDENTIFIER = @"vapermata";
+static NSString *const VT_VA_BCA_IDENTIFIER = @"vabca";
+static NSString *const VT_VA_MANDIRI_IDENTIFIER = @"vamandiri";
+static NSString *const VT_VA_OTHER_IDENTIFIER = @"vaother";
+static NSString *const VT_KLIK_BCA_IDENTIFIER = @"klikbca";
+static NSString *const VT_BCA_KLIKPAY_IDENTIFIER = @"klikpay";
+static NSString *const VT_MANDIRI_CLICKPAY_IDENTIFIER = @"clickpay";
+static NSString *const VT_CIMB_CLIKS_IDENTIFIER = @"clicks";
+static NSString *const VT_ECASH_IDENTIFIER = @"ecash";
+static NSString *const VT_EPAY_IDENTIFIER = @"epay";
+static NSString *const VT_TELKOMSEL_TCASH_IDENTIFIER = @"tcash";
+static NSString *const VT_INDOMARET_IDENTIFIER = @"indomaret";
+
+
 /**
  *  CONSTANT REGEX
  */
 static NSString * const VT_VISA_REGEX         = @"^4[0-9]{12}(?:[0-9]{3})?$";
-static NSString * const VT_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{14}$";
+static NSString * const VT_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{5,}$";
 static NSString * const VT_JCB_REGEX          = @"^(?:2131|1800|35\d{3})\d{11}$";
 static NSString * const VT_AMEX_REGEX         = @"^3[47][0-9]{13}$";
 
@@ -60,7 +80,7 @@ static NSString * const VT_AMEX_REGEX         = @"^3[47][0-9]{13}$";
 static NSString * const VT_MESSAGE_CARD_INVALID = @"Card number is invalid";
 static NSString * const VT_MESSAGE_EXPIRE_DATE_INVALID = @"Expiry Year is invalid";
 static NSString * const VT_MESSAGE_EXPIRE_MONTH_INVALID = @"Expiry Month is invalid";
-static NSString * const VT_MESSAGE_CARD_CVV_INVALID = @"Card number is invalid";
+static NSString * const VT_MESSAGE_CARD_CVV_INVALID = @"CVV is invalid";
 static NSString * const VT_MESSAGE_MERCHANT_SERVER_NOT_SET = @"Please set your merchant server URL in VTConfig";
 static NSString * const VT_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your Veritrans Client Key in VTConfig";
 

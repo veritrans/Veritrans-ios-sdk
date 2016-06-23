@@ -93,5 +93,29 @@ NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
     }
     return currentFormatter;
 }
+@end
+
+@implementation NSDictionary (SafeObject)
+
+- (id)safeObjectForKey:(id)key {
+    id result = [self objectForKey:key];
+    if ([result isEqual:[NSNull null]]) {
+        return nil;
+    }
+    return result;
+}
+
+- (id)safeValueForKeyPath:(NSString*)keyPath {
+    id result = [self valueForKeyPath:keyPath];
+    if ([result isEqual:[NSNull null]]) {
+        return nil;
+    }
+    return result;
+}
+
+- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict {
+    id object = [dict objectForKey:aKey];
+    return [object isEqual:[NSNull null]] ? nil : object;
+}
 
 @end

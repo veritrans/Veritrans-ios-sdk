@@ -8,7 +8,7 @@
 
 #import "VTErrorStatusController.h"
 #import "VTClassHelper.h"
-
+#import <MidtransCoreKit/MidtransCoreKit.h>
 @interface VTErrorStatusController ()
 @property (nonatomic) NSError *error;
 @end
@@ -27,7 +27,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = NSLocalizedString(@"Payment Failed",nil);
+    self.title = UILocalizedString(@"payment.failed",nil);
     [self.navigationItem setHidesBackButton:YES];
     
 }

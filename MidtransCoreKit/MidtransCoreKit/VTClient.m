@@ -41,7 +41,7 @@
         } else {
             NSString *redirectURL = response[@"redirect_url"];
             NSString *token = response[@"token_id"];
-            
+            NSLog(@"response->%@",response);
             if (redirectURL) {
                 VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
                                                                                  secureURL:[NSURL URLWithString:redirectURL]];

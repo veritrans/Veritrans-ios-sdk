@@ -10,5 +10,5 @@
 #import "VTPaymentStatusViewModel.h"
 
 @interface VTIndomaretSuccessController : VTPaymentController
-- (instancetype)initWithViewModel:(VTPaymentStatusViewModel *)viewModel;
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTPaymentStatusViewModel *)statusModel;
 @end

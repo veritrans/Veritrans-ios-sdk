@@ -9,14 +9,18 @@
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
 #import "VTHudView.h"
-#import "VTPaymentGuideViewController.h"
+#import "VTKeyboardAccessoryView.h"
+#import "VTMultiGuideController.h"
+#import "VTSingleGuideController.h"
+
 @interface VTPaymentController ()
 @property (nonatomic) VTHudView *hudView;
+@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @end
 
 @implementation VTPaymentController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod; {
     
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
@@ -26,6 +30,7 @@
     }
     
     if (self) {
+        self.paymentMethod = paymentMethod;
         self.customerDetails = customerDetails;
         self.itemDetails = itemDetails;
         self.transactionDetails = transactionDetails;
@@ -36,12 +41,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.hudView = [[VTHudView alloc] init];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
+    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];
 }
 
 - (void)showLoadingHud {
@@ -62,19 +65,19 @@
     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
     [self.navigationController pushViewController:vc animated:YES];
 }
--(void)showGuideViewControllerWithPaymentName:(NSString *)paymentName {
-    VTPaymentGuideViewController *paymentGuideVC = [[VTPaymentGuideViewController alloc] initGuideWithPaymentMethodName:paymentName];
-    [self.navigationController pushViewController:paymentGuideVC animated:YES];
-}
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (void)showGuideViewController {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
+        VTMultiGuideController *vc = [[VTMultiGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        VTSingleGuideController *vc = [[VTSingleGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
 
 @end

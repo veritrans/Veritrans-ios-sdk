@@ -23,10 +23,10 @@
 
 - (NSString *)price {
     NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    return [formatter stringFromNumber:_item.price];
+    return [formatter stringFromNumber:self.item.price];
 }
 - (NSString *)quantity {
-    return [NSString stringWithFormat:@"Quantity: %@", _item.quantity];
+    return [NSString stringWithFormat:@"Quantity: %@", self.item.quantity];
 }
 - (NSURL *)image {
     return nil;

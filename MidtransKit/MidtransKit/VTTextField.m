@@ -8,6 +8,7 @@
 
 #import "VTTextField.h"
 #import "NSString+TextDirectionality.h"
+#import "VTFontManager.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.17f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
@@ -52,8 +53,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [self addSubview:_floatingLabel];
     
     // some basic default fonts/colors
-    _floatingLabelFont = [UIFont systemFontOfSize:12];
-    _floatingLabel.font = _floatingLabelFont;
+    self.floatingLabelFont = [[VTFontManager shared] regularFontWithSize:12];
+    _floatingLabel.font = self.floatingLabelFont;
     _floatingLabelTextColor = [UIColor grayColor];
     _floatingLabel.textColor = _floatingLabelTextColor;
     _animateEvenIfNotFirstResponder = NO;
@@ -61,7 +62,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
     [self setFloatingLabelText:self.placeholder];
     
-    _warningLabel.font = [UIFont systemFontOfSize:10];
+    _warningLabel.font = [[VTFontManager shared] regularFontWithSize:10];
     _warningLabel.textColor = [UIColor redColor];
     
     _adjustsClearButtonRect = YES;
@@ -99,7 +100,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
     else {
         // dont apply to the label, just store for future use where floatingLabelFont may be reset to nil
-        _floatingLabelFont = derivedFont;
+        self.floatingLabelFont = derivedFont;
     }
 }
 
@@ -114,9 +115,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (void)setFloatingLabelFont:(UIFont *)floatingLabelFont {
-    if (floatingLabelFont != nil) {
-        _floatingLabelFont = floatingLabelFont;
-    }
+    _floatingLabelFont = floatingLabelFont;
     _floatingLabel.font = _floatingLabelFont ? _floatingLabelFont : [self defaultFloatingLabelFont];
     _isFloatingLabelFontDefault = floatingLabelFont == nil;
     [self setFloatingLabelText:self.placeholder];

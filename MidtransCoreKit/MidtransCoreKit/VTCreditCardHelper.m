@@ -44,7 +44,7 @@
 
 - (BOOL)isValidCreditCard:(NSError **)error {
     if ([self.number isValidCreditCardNumber] == NO) {
-        NSString *errorMessage = @"Card number is invalid";
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_INVALID, nil);
         NSInteger numberInvalideCode = -20;
         *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
@@ -52,21 +52,21 @@
     
     
     if ([self.expiryYear isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = @"Expiry Year is invalid";
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_DATE_INVALID, nil);
         NSInteger expiryDateInvalidCode = -21;
         *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.expiryMonth isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = @"Expiry Month is invalid";
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_MONTH_INVALID, nil);
         NSInteger expiryDateInvalidCode = -21;
         *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
     
     if ([self.cvv isValidCVVWithCreditCardNumber:self.number] == NO) {
-        NSString *errorMessage = @"CVV is invalid";
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_CVV_INVALID, nil);
         NSInteger cvvInvalidCode = -22;
         *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
@@ -99,13 +99,13 @@
 + (NSString *)nameFromString:(NSString *)string {
     switch ([self typeFromString:string]) {
         case VTCreditCardTypeAmex:
-            return @"Amex";
+            return CREDIT_CARD_TYPE_AMEX;
         case VTCreditCardTypeJCB:
-            return @"JCB";
+            return CREDIT_CARD_TYPE_JCB;
         case VTCreditCardTypeMasterCard:
-            return @"MasterCard";
+            return CREDIT_CARD_TYPE_MASTER_CARD;
         case VTCreditCardTypeVisa:
-            return @"Visa";
+            return CREDIT_CARD_TYPE_VISA;
         default:
             return @"";
     }
@@ -124,7 +124,7 @@
             regex = @"^5[1-5][0-9]{5,}$";
             break;
         case VTCreditCardTypeVisa:
-            regex = @"^4[0-9]{6,}$";
+            regex = @"^4[0-9]{12}(?:[0-9]{3})?$";
             break;
         default:
             break;

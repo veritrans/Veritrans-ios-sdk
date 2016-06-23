@@ -34,7 +34,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = NSLocalizedString(@"Payment Successful",nil);
+    self.title = UILocalizedString(@"payment.success",nil);
     [self.navigationItem setHidesBackButton:YES];
     
     _amountLabel.text = _successViewModel.totalAmount;
@@ -42,7 +42,7 @@
     _transactionTimeLabel.text = _successViewModel.transactionTime;
     _paymentTypeLabel.text = _successViewModel.paymentType;
     if ([_successViewModel.paymentType isEqualToString:@"Bca Klikbca"]) {
-        [self.finishButton setTitle:NSLocalizedString(@"Complete Payment At KlikBCA",nil) forState:UIControlStateNormal];
+        [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title",nil), @"KlikBCA"] forState:UIControlStateNormal];
     }
 }
 

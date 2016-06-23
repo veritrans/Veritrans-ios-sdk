@@ -26,49 +26,49 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     NSString *paymentName = @"";
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: NSLocalizedString(@"Back", nil)
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: UILocalizedString(@"Back", nil)
                                                                              style:UIBarButtonItemStylePlain
                                                                             target:nil
                                                                             action:nil];
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
-        paymentName  = NSLocalizedString(@"Indomaret",nil);
+        paymentName  = UILocalizedString(@"Indomaret",nil);
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]) {
-        paymentName  =  NSLocalizedString(@"KlikBCA",nil);
+        paymentName  =  UILocalizedString(@"KlikBCA",nil);
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER]) {
         self.paymentType = VTVATypeBCA;
-        paymentName  =  NSLocalizedString(@"BCA ATM",nil);
+        paymentName  =  UILocalizedString(@"BCA ATM",nil);
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER]) {
         self.paymentType = VTVATypeMandiri;
-        paymentName  =  NSLocalizedString(@"Mandiri ATM",nil);
+        paymentName  =  UILocalizedString(@"Mandiri ATM",nil);
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER]) {
         self.paymentType = VTVATypePermata;
-        paymentName  =  NSLocalizedString(@"Permata ATM",nil);
+        paymentName  =  UILocalizedString(@"Permata ATM",nil);
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
         self.paymentType = VTVATypeOther;
-        paymentName  =  NSLocalizedString(@"Other Bank",nil);
+        paymentName  =  UILocalizedString(@"name.other-bank",nil);
     }
     
     [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
     
-    self.title = [NSString stringWithFormat: NSLocalizedString(@"%@",nil),[paymentName capitalizedString]];
-    [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:NSLocalizedString(@"How can i Pay Via %@",nil),paymentName] forState:UIControlStateNormal];
+    self.title = [NSString stringWithFormat: UILocalizedString(@"%@",nil),[paymentName capitalizedString]];
+    [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.how",nil) ,paymentName] forState:UIControlStateNormal];
     self.view.totalAmountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]) {
         self.view.directPaymentTextField.text = nil;
-        self.view.directPaymentTextField.placeholder = NSLocalizedString(@"KlikBCA User ID", nil);
-        self.view.vtInformationLabel.text = NSLocalizedString(@"Please continue the payment process via KlikBCA by opening www.klikbca.com on a separate window or tab.", nil);
+        self.view.directPaymentTextField.placeholder = UILocalizedString(@"KlikBCA User ID", nil);
+        self.view.vtInformationLabel.text = UILocalizedString(@"payment.klikbca.userid-note", nil);
     } else {
         self.view.directPaymentTextField.text = self.customerDetails.email;
-        self.view.directPaymentTextField.placeholder = NSLocalizedString(@"Email Address (optional)", nil);
-        self.view.vtInformationLabel.text = NSLocalizedString(@"Just in case, we can send you the payment instructions to your email address.", nil);
+        self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.email-placeholder", nil);
+        self.view.vtInformationLabel.text = UILocalizedString(@"payment.email-note", nil);
     }
 }
 - (IBAction)paymentGuideDidTapped:(id)sender {
@@ -96,7 +96,7 @@
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]){
         if (self.view.directPaymentTextField.text.length == 0) {
-            self.view.directPaymentTextField.warning = NSLocalizedString(@"KlikBCA User ID should not be empty", nil);
+            self.view.directPaymentTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
             [self hideLoadingHud];
             return;
         }

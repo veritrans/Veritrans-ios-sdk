@@ -12,6 +12,7 @@
 #import "VTSubGuideController.h"
 
 @interface VTSingleGuideController ()
+@property (strong, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) VTPaymentListModel *model;
 @end
 
@@ -34,7 +35,11 @@
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *guideList = [NSArray arrayWithContentsOfFile:guidePath];
     VTSubGuideController *vc = [[VTSubGuideController alloc] initWithList:guideList];
-    [self addSubViewController:vc toView:self.view];
+    [self addSubViewController:vc toView:self.containerView];
+}
+
+- (IBAction)gotitPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

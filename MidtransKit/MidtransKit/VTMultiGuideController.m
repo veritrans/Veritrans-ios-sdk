@@ -58,6 +58,10 @@
     [MBXPageController reloadPages];
 }
 
+- (IBAction)gotitPressed:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 #pragma mark - MBXPageViewController Data Source
 
 - (NSArray *)MBXPageButtons

@@ -48,16 +48,16 @@
     switch (_statusModel.vaType) {
         case VTVATypeBCA: {
             _vaNumberLabel.text = _statusModel.vaNumber;
-            self.title = NSLocalizedString(@"BCA Bank Transfer",nil);
+            self.title = UILocalizedString(@"BCA Bank Transfer",nil);
             break;
         } case VTVATypePermata: {
             _vaNumberLabel.text = _statusModel.vaNumber;
-            self.title = NSLocalizedString(@"Permata Bank Transfer",nil);
+            self.title = UILocalizedString(@"Permata Bank Transfer",nil);
             break;
         } case VTVATypeMandiri: {
         } case VTVATypeOther: {
             _vaNumberLabel.text = _statusModel.vaNumber;
-            self.title = NSLocalizedString(@"Other Bank Transfer",nil);
+            self.title = UILocalizedString(@"Other Bank Transfer",nil);
             break;
         }
     }
@@ -65,7 +65,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:_statusModel.vaNumber];
-    [VTToast createToast:NSLocalizedString(@"Copied to clipboard",nil) duration:1.5 containerView:self.view];
+    [VTToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

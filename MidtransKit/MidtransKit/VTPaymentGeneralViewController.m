@@ -9,7 +9,6 @@
 #import "VTPaymentGeneralViewController.h"
 #import "VTPaymentGeneralView.h"
 #import "VTClassHelper.h"
-#import "VTPaymentGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>

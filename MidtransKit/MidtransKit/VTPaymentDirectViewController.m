@@ -144,11 +144,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
         VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        [super handleTransactionSuccess:result];
     }
 }
 - (void)didReceiveMemoryWarning {

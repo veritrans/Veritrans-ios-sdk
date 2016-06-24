@@ -40,8 +40,8 @@
                         <constraint firstAttribute="height" constant="35" placeholder="YES" id="G3O-56-878"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX/XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-Rn-uc5">
-                    <rect key="frame" x="30" y="154" width="52" height="21"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-Rn-uc5">
+                    <rect key="frame" x="30" y="154" width="0.0" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="A5H-ae-Aoc"/>
                     </constraints>

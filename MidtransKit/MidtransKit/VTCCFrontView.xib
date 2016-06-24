@@ -4,6 +4,13 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="OCRAEXT.TTF">
+            <string>OCRAExtended</string>
+            <string>OCRAExtended</string>
+            <string>OCRAExtended</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTCCFrontView">
             <connections>
@@ -27,33 +34,34 @@
                     </constraints>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="topRight" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Wmd-pJ-IOa">
-                    <rect key="frame" x="255" y="25" width="35" height="35"/>
+                    <rect key="frame" x="255" y="140" width="35" height="35"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="35" id="6O7-db-z6P"/>
-                        <constraint firstAttribute="height" constant="35" id="G3O-56-878"/>
+                        <constraint firstAttribute="width" constant="35" placeholder="YES" id="6O7-db-z6P"/>
+                        <constraint firstAttribute="height" constant="35" placeholder="YES" id="G3O-56-878"/>
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XX/XX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9r-Rn-uc5">
-                    <rect key="frame" x="240" y="154" width="50" height="21"/>
+                    <rect key="frame" x="30" y="154" width="52" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="A5H-ae-Aoc"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="17"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPIRE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-Oc-Y0R">
-                    <rect key="frame" x="241" y="142" width="49" height="12"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EXPIRES" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sp0-Oc-Y0R">
+                    <rect key="frame" x="30" y="143" width="43" height="11"/>
+                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="10"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JB2-na-n8Q" userLabel="Card Number">
-                    <rect key="frame" x="160" y="75" width="0.0" height="50"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JB2-na-n8Q" userLabel="Card Number">
+                    <rect key="frame" x="20" y="75" width="280" height="50"/>
                     <constraints>
+                        <constraint firstAttribute="width" constant="280" id="GPy-4T-k6F"/>
                         <constraint firstAttribute="height" constant="50" id="ofS-go-xWj"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="25"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -67,14 +75,13 @@
                 <constraint firstItem="pKB-xE-SGa" firstAttribute="trailing" secondItem="ggi-UH-Ee0" secondAttribute="trailing" constant="6" id="KCC-ez-HsP"/>
                 <constraint firstItem="pKB-xE-SGa" firstAttribute="top" secondItem="ggi-UH-Ee0" secondAttribute="top" constant="-6" id="KRs-f1-8cB"/>
                 <constraint firstItem="F9r-Rn-uc5" firstAttribute="bottom" secondItem="ggi-UH-Ee0" secondAttribute="bottom" constant="-15" id="Mha-Wl-cCA"/>
+                <constraint firstItem="Sp0-Oc-Y0R" firstAttribute="leading" secondItem="F9r-Rn-uc5" secondAttribute="leading" id="RNy-Cg-GOn"/>
                 <constraint firstItem="F9r-Rn-uc5" firstAttribute="top" secondItem="Sp0-Oc-Y0R" secondAttribute="bottom" id="VRy-zR-f1e"/>
                 <constraint firstItem="JB2-na-n8Q" firstAttribute="centerY" secondItem="2vS-C3-ZTb" secondAttribute="centerY" id="Vpj-TM-5Dx"/>
                 <constraint firstItem="ggi-UH-Ee0" firstAttribute="centerY" secondItem="2vS-C3-ZTb" secondAttribute="centerY" id="bLy-ol-DVC"/>
                 <constraint firstItem="JB2-na-n8Q" firstAttribute="centerX" secondItem="2vS-C3-ZTb" secondAttribute="centerX" id="bwA-1M-V0g"/>
-                <constraint firstItem="Sp0-Oc-Y0R" firstAttribute="centerX" secondItem="F9r-Rn-uc5" secondAttribute="centerX" id="fbU-ct-BWe"/>
-                <constraint firstItem="Sp0-Oc-Y0R" firstAttribute="trailing" secondItem="ggi-UH-Ee0" secondAttribute="trailing" constant="-15" id="hvg-JM-5pW"/>
-                <constraint firstItem="F9r-Rn-uc5" firstAttribute="trailing" secondItem="ggi-UH-Ee0" secondAttribute="trailing" constant="-15" id="nNB-Jk-AYX"/>
-                <constraint firstItem="Wmd-pJ-IOa" firstAttribute="top" secondItem="ggi-UH-Ee0" secondAttribute="top" constant="15" id="qr5-N4-2BF"/>
+                <constraint firstItem="F9r-Rn-uc5" firstAttribute="leading" secondItem="ggi-UH-Ee0" secondAttribute="leading" constant="15" id="cXL-xx-YUE"/>
+                <constraint firstItem="Wmd-pJ-IOa" firstAttribute="bottom" secondItem="F9r-Rn-uc5" secondAttribute="bottom" id="meH-La-Q7N"/>
                 <constraint firstItem="ggi-UH-Ee0" firstAttribute="centerX" secondItem="2vS-C3-ZTb" secondAttribute="centerX" id="teK-0E-UhM"/>
                 <constraint firstItem="Wmd-pJ-IOa" firstAttribute="trailing" secondItem="ggi-UH-Ee0" secondAttribute="trailing" constant="-15" id="xVd-hx-n15"/>
             </constraints>

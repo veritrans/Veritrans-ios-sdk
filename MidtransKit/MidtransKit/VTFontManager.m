@@ -94,6 +94,9 @@
     
     filePath = [VTBundle pathForResource:@"SourceSansPro-Semibold" ofType:@"ttf"];
     [self registerFontFromResource:filePath];
+    
+    filePath = [VTBundle pathForResource:@"OCRAEXT" ofType:@"TTF"];
+    [self registerFontFromResource:filePath];
 }
 
 @end

@@ -115,16 +115,16 @@
     NSString *regex = nil;
     switch (type) {
         case VTCreditCardTypeAmex:
-            regex = @"^3[47][0-9]{5,}$";
+            regex = VT_AMEX_REGEX;
             break;
         case VTCreditCardTypeJCB:
-            regex = @"^(?:2131|1800|35[0-9]{3})[0-9]{3,}$";
+            regex = VT_JCB_REGEX;
             break;
         case VTCreditCardTypeMasterCard:
-            regex = @"^5[1-5][0-9]{5,}$";
+            regex = VT_MASTER_CARD_REGEX;
             break;
         case VTCreditCardTypeVisa:
-            regex = @"^4[0-9]{12}(?:[0-9]{3})?$";
+            regex = VT_VISA_REGEX;
             break;
         default:
             break;

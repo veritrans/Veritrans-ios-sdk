@@ -54,9 +54,10 @@
         paymentName  =  UILocalizedString(@"name.other-bank",nil);
     }
     
+    self.title = paymentName;
+    
     [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
     
-    self.title = [NSString stringWithFormat: UILocalizedString(@"%@",nil),[paymentName capitalizedString]];
     [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.how",nil) ,paymentName] forState:UIControlStateNormal];
     self.view.totalAmountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
     self.view.orderIdLabel.text = self.transactionDetails.orderId;

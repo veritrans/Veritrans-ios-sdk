@@ -7,8 +7,16 @@
 //
 
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTCreditCardHelper.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
+@implementation NSNumber (formatter)
+
+- (NSString *)formattedCurrencyNumber {
+    NSNumberFormatter *nf = [NSNumberFormatter indonesianCurrencyFormatter];
+    return [@"Rp " stringByAppendingString:[nf stringFromNumber:self]];
+}
+
+@end
 
 @implementation VTClassHelper
 

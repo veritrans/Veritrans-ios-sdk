@@ -20,8 +20,7 @@
     if (self = [super init]) {
         self.transactionResult = transactionResult;
         
-        NSNumberFormatter *nformatter = [NSObject indonesianCurrencyFormatter];
-        self.totalAmount = [nformatter stringFromNumber:transactionResult.grossAmount];
+        self.totalAmount = transactionResult.grossAmount.formattedCurrencyNumber;
         
         self.orderId = transactionResult.orderId;
         

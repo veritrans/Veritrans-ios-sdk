@@ -12,6 +12,7 @@
 #import "VTErrorStatusController.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
+
 @interface VTPaymentController : UIViewController
 @property (nonatomic,strong) VTCustomerDetails *customerDetails;
 @property (nonatomic,strong) NSArray *itemDetails;

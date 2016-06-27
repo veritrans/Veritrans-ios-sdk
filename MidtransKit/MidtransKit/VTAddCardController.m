@@ -41,7 +41,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = UILocalizedString(@"creditcard.input.title", nil);
     
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_cardNumber, _cardExpiryDate, _cardCvv]];
     
@@ -49,7 +50,7 @@
     
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
-    _amountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
+    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber; 
 }
 
 - (void)dealloc {
@@ -111,9 +112,8 @@
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
-    VTCvvInfoController *guide = [self.storyboard instantiateViewControllerWithIdentifier:@"VTCvvInfoController"];
-    guide.modalSize = guide.preferredContentSize;
-    [self presentCustomViewController:guide onViewController:self.navigationController completion:nil];
+    VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
+    [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {

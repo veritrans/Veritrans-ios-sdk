@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface VTCvvInfoController : UIViewController
-
+- (instancetype)init;
 @end

@@ -24,11 +24,11 @@
 @implementation VTConfirmPaymentController
 
 - (instancetype)initWithCardNumber:(NSString *)cardNumber grossAmount:(NSNumber *)grossAmount {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    self = [storyboard instantiateViewControllerWithIdentifier:@"VTConfirmPaymentController"];
+    self = [[VTConfirmPaymentController alloc] initWithNibName:@"VTConfirmPaymentController" bundle:VTBundle];
     if (self) {
         self.cardNumber = cardNumber;
         self.grossAmount = grossAmount;
+        self.modalSize = CGSizeMake(270, 250);
     }
     return self;
 }
@@ -39,13 +39,7 @@
     
     _cardNumberLabel.text = [_cardNumber formattedCreditCardNumber];
     
-    NSNumberFormatter *formatter = [NSObject indonesianCurrencyFormatter];
-    _grossAmountLabel.text = [formatter stringFromNumber:self.grossAmount];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _grossAmountLabel.text = self.grossAmount.formattedCurrencyNumber;
 }
 
 - (IBAction)buttonPressed:(UIButton *)sender {
@@ -58,19 +52,7 @@
 
 - (void)showOnViewController:(UIViewController *)controller clickedButtonsCompletion:(void (^)(NSUInteger selectedIndex))completion {
     self.completion = completion;
-    
-    self.modalSize = self.preferredContentSize;
     [controller presentCustomViewController:self completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

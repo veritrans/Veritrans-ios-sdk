@@ -54,19 +54,21 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.title = UILocalizedString(@"creditcard.list.title", nil);
+    
     _hudView = [[VTHudView alloc] init];
     
     [_pageControl setNumberOfPages:0];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
     
-    NSNumberFormatter *formatter = [NSObject indonesianCurrencyFormatter];
-    _amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
     
     [self updateView];
     
     [self reloadMaskedCards];
     
+    [_collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
     //cell editing
     [_collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
@@ -139,9 +141,6 @@
     VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:nil];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
-    
-    //    UIActionSheet *inputSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Input Manual", @"Scan With Camera", nil];
-    //    [inputSheet showInView:self.navigationController.view];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -188,7 +187,7 @@
     
     if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
         VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber grossAmount:self.transactionDetails.grossAmount];
-        [vc showOnViewController:self clickedButtonsCompletion:^(NSUInteger selectedIndex) {
+        [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
             if (selectedIndex == 1) {
                 [self payWithToken:maskedCard.savedTokenId];
             }

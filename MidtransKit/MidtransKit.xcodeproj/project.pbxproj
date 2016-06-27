@@ -164,6 +164,8 @@
 		E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */; };
 		E525E12A1CFD75D1009448A5 /* UIViewController+Modal.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */; };
 		E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */; };
+		E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52831FE1D2116EF00F4F8F0 /* VTCvvInfoController.xib */; };
+		E52832011D2116FB00F4F8F0 /* VTConfirmPaymentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52832001D2116FB00F4F8F0 /* VTConfirmPaymentController.xib */; };
 		E52F72B81C996103009D7BA4 /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B61C996103009D7BA4 /* Visa@2x.png */; };
 		E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B71C996103009D7BA4 /* VisaDark@2x.png */; };
 		E53BD0401D143BE8001FADDE /* epay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53BD03F1D143BE8001FADDE /* epay.plist */; };
@@ -214,6 +216,10 @@
 		E5D23C791D1D096A0069B5F9 /* OCRAEXT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C781D1D096A0069B5F9 /* OCRAEXT.TTF */; };
 		E5D23C7C1D1D104A0069B5F9 /* AmexDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C7A1D1D104A0069B5F9 /* AmexDark@2x.png */; };
 		E5D23C7D1D1D104A0069B5F9 /* MasterCardDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C7B1D1D104A0069B5F9 /* MasterCardDark@2x.png */; };
+		E5D23C821D1D31E60069B5F9 /* VTCardListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C811D1D31E60069B5F9 /* VTCardListController.xib */; };
+		E5D23C841D1D31F10069B5F9 /* VTTwoClickController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C831D1D31F10069B5F9 /* VTTwoClickController.xib */; };
+		E5D23C861D1D31FC0069B5F9 /* VTAddCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C851D1D31FC0069B5F9 /* VTAddCardController.xib */; };
+		E5D23C881D1D3D0B0069B5F9 /* VTCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C871D1D3D0B0069B5F9 /* VTCardCell.xib */; };
 		E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436451CE3290900F688ED /* VTPaymentController.h */; };
 		E5E436481CE3290900F688ED /* VTPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436461CE3290900F688ED /* VTPaymentController.m */; };
 		E5EF826D1C8C07AF007B6585 /* VTXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* VTXibView.h */; };
@@ -389,6 +395,8 @@
 		E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardControllerConfig.m; sourceTree = "<group>"; };
 		E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Modal.h"; sourceTree = "<group>"; };
 		E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Modal.m"; sourceTree = "<group>"; };
+		E52831FE1D2116EF00F4F8F0 /* VTCvvInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTCvvInfoController.xib; sourceTree = "<group>"; };
+		E52832001D2116FB00F4F8F0 /* VTConfirmPaymentController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTConfirmPaymentController.xib; sourceTree = "<group>"; };
 		E529405D1CFEC639000180D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E529405F1CFEC65B000180D3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E52940611CFEC660000180D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -449,6 +457,10 @@
 		E5D23C781D1D096A0069B5F9 /* OCRAEXT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = OCRAEXT.TTF; sourceTree = "<group>"; };
 		E5D23C7A1D1D104A0069B5F9 /* AmexDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AmexDark@2x.png"; sourceTree = "<group>"; };
 		E5D23C7B1D1D104A0069B5F9 /* MasterCardDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "MasterCardDark@2x.png"; sourceTree = "<group>"; };
+		E5D23C811D1D31E60069B5F9 /* VTCardListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTCardListController.xib; sourceTree = "<group>"; };
+		E5D23C831D1D31F10069B5F9 /* VTTwoClickController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTTwoClickController.xib; sourceTree = "<group>"; };
+		E5D23C851D1D31FC0069B5F9 /* VTAddCardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTAddCardController.xib; sourceTree = "<group>"; };
+		E5D23C871D1D3D0B0069B5F9 /* VTCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTCardCell.xib; sourceTree = "<group>"; };
 		E5E436451CE3290900F688ED /* VTPaymentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentController.h; sourceTree = "<group>"; };
 		E5E436461CE3290900F688ED /* VTPaymentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentController.m; sourceTree = "<group>"; };
 		E5EF826B1C8C07AF007B6585 /* VTXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTXibView.h; sourceTree = "<group>"; };
@@ -705,6 +717,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E5D23C801D1D31CA0069B5F9 /* Credit Card */,
 				E50438BB1D1A718700710470 /* Status */,
 				E50438B01D1A653500710470 /* Guide */,
 				00F61B1F1D1481FD00C93DA0 /* VTPaymentDirectViewController.xib */,
@@ -735,7 +748,6 @@
 				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
 				002CC9A81D12639F003A1203 /* klikbca@2x.png */,
-				E59BD7411D05B288004AE009 /* Amex@2x.png */,
 				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
 				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
@@ -752,6 +764,7 @@
 				E583AFDF1C8D575600C04512 /* successIcon@2x.png */,
 				30E8798B1C894718000C0F4B /* BackBarIcon@2x.png */,
 				302BAA471C882D3300AE68CC /* DeleteIcon@2x.png */,
+				E59BD7411D05B288004AE009 /* Amex@2x.png */,
 				E5D23C7A1D1D104A0069B5F9 /* AmexDark@2x.png */,
 				E5D23C7B1D1D104A0069B5F9 /* MasterCardDark@2x.png */,
 				30E879891C88EF4A000C0F4B /* CreditCardBack@2x.png */,
@@ -953,6 +966,19 @@
 			name = Status;
 			sourceTree = "<group>";
 		};
+		E5D23C801D1D31CA0069B5F9 /* Credit Card */ = {
+			isa = PBXGroup;
+			children = (
+				E5D23C811D1D31E60069B5F9 /* VTCardListController.xib */,
+				E5D23C831D1D31F10069B5F9 /* VTTwoClickController.xib */,
+				E5D23C851D1D31FC0069B5F9 /* VTAddCardController.xib */,
+				E5D23C871D1D3D0B0069B5F9 /* VTCardCell.xib */,
+				E52831FE1D2116EF00F4F8F0 /* VTCvvInfoController.xib */,
+				E52832001D2116FB00F4F8F0 /* VTConfirmPaymentController.xib */,
+			);
+			name = "Credit Card";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -1109,9 +1135,12 @@
 				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
 				E5EF827C1C8C0837007B6585 /* VTCCFrontView.xib in Resources */,
 				3005E28E1C7C17BF00064169 /* Midtrans.storyboard in Resources */,
+				E5D23C861D1D31FC0069B5F9 /* VTAddCardController.xib in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
 				309CC0DE1C86B5BD00C058BE /* vaother.plist in Resources */,
+				E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */,
 				00F61B071D145B4600C93DA0 /* SourceSansPro-Semibold.ttf in Resources */,
+				E52832011D2116FB00F4F8F0 /* VTConfirmPaymentController.xib in Resources */,
 				E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */,
 				309CC0D91C86A53400C058BE /* vabca.plist in Resources */,
 				309CC0CC1C868B0100C058BE /* clickpay.plist in Resources */,
@@ -1124,6 +1153,7 @@
 				E50D85F51D0ECB9C00F26D2E /* indomaret.plist in Resources */,
 				E578DD1C1CFC3F250091760A /* VTPaymentListController.xib in Resources */,
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
+				E5D23C841D1D31F10069B5F9 /* VTTwoClickController.xib in Resources */,
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				00F61B231D1481FD00C93DA0 /* VTPaymentDirectViewController.xib in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
@@ -1134,6 +1164,7 @@
 				309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */,
 				E5F4AA8C1CF6D2C70059DDF8 /* paymentMethods.plist in Resources */,
 				30E8798E1C897E7D000C0F4B /* cc@2x.png in Resources */,
+				E5D23C881D1D3D0B0069B5F9 /* VTCardCell.xib in Resources */,
 				E503AEC51C8E85C500F097FF /* vabca@2x.png in Resources */,
 				E578DD061CFBED7A0091760A /* vaother@2x.png in Resources */,
 				E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */,
@@ -1163,6 +1194,7 @@
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				E578DD1A1CFC1F170091760A /* VTToast.xib in Resources */,
 				002CC9A71D125BFF003A1203 /* klikbca.plist in Resources */,
+				E5D23C821D1D31E60069B5F9 /* VTCardListController.xib in Resources */,
 				E50438B21D1A654B00710470 /* VTMultiGuideController.xib in Resources */,
 				E53BD0401D143BE8001FADDE /* epay.plist in Resources */,
 				E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */,

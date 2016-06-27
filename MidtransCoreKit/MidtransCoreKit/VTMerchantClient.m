@@ -52,14 +52,15 @@
                 
             } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
                 
+                //transaction finished here
+                if (completion) completion(chargeResult, error);
+                
+                //save token to merchant server
+                //i'm not set callback until save card finished because save card is optional
                 BOOL isSavedToken = response[@"saved_token_id"] != nil;
                 if (isSavedToken) {
                     VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
-                    [self saveRegisteredCard:savedCard completion:^(id result, NSError *error) {
-                        if (completion) completion(chargeResult, error);
-                    }];
-                } else {
-                    if (completion) completion(chargeResult, error);
+                    [self saveRegisteredCard:savedCard completion:nil];
                 }
                 
             } else {

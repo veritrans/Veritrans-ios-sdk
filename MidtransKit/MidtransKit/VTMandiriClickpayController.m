@@ -10,7 +10,6 @@
 #import "VTClassHelper.h"
 #import "VTTextField.h"
 #import "VTHudView.h"
-#import "VTKeyboardAccessoryView.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 

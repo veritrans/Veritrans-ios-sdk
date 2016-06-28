@@ -40,7 +40,7 @@
     _amountLabel.text = _statusModel.totalAmount;
     _orderIdLabel.text = _statusModel.orderId;
     _transactionTimeLabel.text = _statusModel.transactionTime;
-    _paymentCodeLabel.text = _statusModel.transactionResult.additionalData[@"payment_code"];
+    _paymentCodeLabel.text = _statusModel.transactionResult.indomaretPaymentCode;
     
    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
 }

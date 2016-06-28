@@ -10,9 +10,13 @@ We provide an API-only implementation for all payment types, This allows users t
 # Supported Payments
 1. Credit Card
 2. Bank Transfer
-
-# Other Features
-1. Register Card
+3. CIMB Clicks
+4. Indomaret
+5. BCA KlikPay
+6. KlikBCA
+7. Mandiri E-Cash
+8. Mandiri Clickpay
+9. BRI E-Pay
 
 # Transactions
 
@@ -92,7 +96,7 @@ VTTransactionDetails *transactionDetails =
 
 After the above data ready, you can continue to make a payment transaction.
 
-## 2. Normal Credit Card Transaction
+## 2. Credit Card
 
 In Credit Card transaction there are two main steps to make transaction
 
@@ -110,11 +114,14 @@ VTCreditCard *card =
                          expiryMonth:<#(NSString *)#>
                           expiryYear:<#(NSString *)#>
                                  cvv:<#(NSString *)#>];
+                                 
+//Set 3D secure enable or not by set the secure parameter
+BOOL enable3DSecure = YES;
 
 VTTokenizeRequest *tokenRequest =
 [[VTTokenizeRequest alloc] initWithCreditCard:card
                                   grossAmount:transactionDetails.grossAmount
-                                       secure:<#(BOOL)#>];
+                                       secure:enable3DSecure];
 
 [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
     if (error) {
@@ -124,23 +131,6 @@ VTTokenizeRequest *tokenRequest =
     }
 }];
                                        
-```
-**Note:** If you enable [3D Secure](https://en.wikipedia.org/wiki/3-D_Secure) feature, your token is still in invalid state. To make it valid, you need capture the redirectURL, and open an additional View Controller called VT3DSController. If the end-user puts correct 3D Secure code, then your token be in valid state.
-
-Use following code as a template
-
-```
-VT3DSController *secureController =
-                [[VT3DSController alloc] initWithToken:token
-                                             secureURL:[NSURL URLWithString:redirectURL]];
-[secureController showWithCompletion:^(NSError *error) {
-    if (error) {
-        //3ds error
-    } else {
-        //token now is valid
-    }
-}];
-
 ```
 
 ### 2.2 <a name="charge-normal-transaction"></a>Charge Transaction
@@ -167,18 +157,14 @@ VTTransaction *transaction =
 
 You will have `result` if the transaction is success, and `error` if the transaction is failed.
 
-## 3. Oneclick Credit Card Transaction
+
+## 3. One Click Credit Card
 
 One click transaction offer simple credit card transaction because it only need `token` to charge transaction. The `token` represents the credit card number dan expiry date of the customer's credit card.
 
 ### 3.1 <a name="get-oneclick-token"></a>Get Oneclick Token
-You can get `token` with two methods:
 
-* Doing Normal credit card transaction with **save token** feature enabled.
-* Register the credit card
-
-#### A. Get Token With Normal Credit Card Transaction
-When creating `VTPaymentCreditCard` object, make sure it's initialized with feature `VTCreditCardPaymentFeatureNormal` and set `saveToken` to `YES`
+To retrieve One click **token** you need to charge **normal transaction** with  `VTPaymentCreditCard` initialized with feature `VTCreditCardPaymentFeatureNormal` and set `saveToken` to `YES`.
 
 ```
 VTPaymentCreditCard *paymentDetail =
@@ -186,26 +172,20 @@ VTPaymentCreditCard *paymentDetail =
                                        token:token];
 paymentDetail.saveToken = YES;
 
-//next charge transaction process..
-```
-
-#### B. Get Token With Register Credit Card 
-Register credit card provides simpler way to get the oneclick token
-
-```
-VTCreditCard *creditCard =
-[[VTCreditCard alloc] initWithNumber:<#(NSString *)#>
-                         expiryMonth:<#(NSString *)#>
-                          expiryYear:<#(NSString *)#>
-                                 cvv:<#(NSString *)#>];
-[[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
-    if (maskedCreditCard) {
-        
+VTTransaction *transaction =
+[[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                           transactionDetails:transactionDetails];
+       
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+    	//transaction error
     } else {
-        //error
+    	//transaction success
+    	NSString *oneClickToken = result.maskedCreditCard.savedTokenId;
     }
 }];
 ```
+If the transaction was successful, you'll get `VTTransactionResult` which have the **token**.
 
 ### 3.2 Charge Transaction With One Click Token
 After you have one click `token`, then you can charge credit card transaction with that `token`
@@ -230,7 +210,7 @@ VTTransaction *transaction =
                                          }];
 ```
 
-## 4. Two Click Credit Card Transaction
+## 4. Two Click Credit Card
 
 The **two click token** is basically representation of credit card's information, so you can use that **token** to generate **new token** for charging a transaction.
 
@@ -238,7 +218,7 @@ The **two click token** is basically representation of credit card's information
 To get **two click token** you can use the same step as **[getting one click token](#get-oneclick-token)**
 
 ### 4.2 Generate New Token
-After you've got the **two click `token`**, then you can generate **new token** 
+After you've got the **two click token**, then you can generate **new token** 
 
 ```
 //create token request with two click token
@@ -258,7 +238,7 @@ VTTokenizeRequest *tokenRequest =
 
 To charge transaction, you can use the same step as **[normal charge transaction](#charge-normal-transaction)**
 
-## 5. VA / Bank Transfer Transaction
+## 5. VA / Bank Transfer
 
 ### 5.1 Preparing Payment Details
 You need to create `paymentDetail` as object of **VTPaymentBankTransfer** and set the bank transfer type with **VTVAType** values
@@ -270,15 +250,13 @@ You need to create `paymentDetail` as object of **VTPaymentBankTransfer** and se
 
 ```
 //create payment detail object
-VTPaymentBankTransfer *paymentDetails =
-[[VTPaymentBankTransfer alloc] initWithBankTransferType:<#(VTVAType)#>];
+VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:<VTVAType>];
 
 //create transaction object
-VTTransaction *transaction =
-[[VTTransaction alloc] initWithPaymentDetails:<#(id<VTPaymentDetails>)#>
-                           transactionDetails:<#(VTTransactionDetails *)#>
-                              customerDetails:<#(VTCustomerDetails *)#>
-                                  itemDetails:<#(NSArray<VTItemDetail *> *)#>];
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
 ```
 
 ### 5.2 Charge Transaction
@@ -286,10 +264,159 @@ Use transaction object to charge the transaction
 
 ```
 [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
- 	   if (result) {
- 	   		//success
- 	   } else {
- 	   		//error
- 	   }
+   if (result) {
+   		//success
+   } else {
+   		//error
+   }
+}];
+```
+
+### 5.3 Handle Transaction Result
+After **charge transaction** was successful, you'll get `VTTransactionResult` object, which have **codes** that needed to continue the transaction via ATM etc.
+
+```
+if (result) {
+	<for Mandiri VA>
+	NSString *billpayCode = transactionResult.mandiriBillpayCode;
+	NSString *companyCode = transactionResult.mandiriBillpayCompanyCode;
+	
+	<for Others VA>
+	NSString *virtualAccountNumber = transactionResult.virtualAccountNumber;
+} else {
+	//error
+}
+```
+
+## 6. CIMB Clicks
+```
+VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithDescription:<purchase_description>];
+
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
+                                                               
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success
+    }
+}];
+```
+
+## 7. Indomaret
+```
+VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithStoreName:@"indomaret" message:<purchase_message>];
+
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
+    
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success        
+        //inform this code to user
+        NSString *paymentCode = result.indomaretPaymentCode;
+    }
+}];
+```
+
+## 8. BCA KlikPay
+```
+VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithDescription:<purchase_description>];
+        
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
+    
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success
+    }
+}];
+```
+
+## 9. KlikBCA
+```
+VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:<userid_klikbca>];
+
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
+
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //inform user for the next transaction he should do
+    }
+}];
+```
+
+## 10. Mandiri E-Cash
+```
+VTPaymentMandiriECash *paymentDetails = [[VTPaymentMandiriECash alloc] initWithDescription:<purchase_description>];
+
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
+                                                               
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success
+    }
+}];
+```
+
+## 11. Mandiri Clickpay
+```
+VTPaymentMandiriClickpay *paymentDetails =
+[[VTPaymentMandiriClickpay alloc] initWithCardNumber:<mandiri_debit_number>
+                                         grossAmount:self.transactionDetails.grossAmount
+                                               token:<mandiri_token_number>];
+    
+VTTransaction *transaction =
+[[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                           transactionDetails:self.transactionDetails
+                              customerDetails:self.customerDetails
+                                  itemDetails:self.itemDetails];
+    
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success
+    }
+}];
+```
+
+## 12. BRI E-Pay
+
+```
+VTPaymentEpayBRI *paymentDetails = [[VTPaymentEpayBRI alloc] init];
+        
+VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                        transactionDetails:self.transactionDetails
+                                                           customerDetails:self.customerDetails
+                                                               itemDetails:self.itemDetails];
+    
+[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success
+    }
 }];
 ```

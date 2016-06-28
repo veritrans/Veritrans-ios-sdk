@@ -19,6 +19,10 @@
 + (NSBundle*)kitBundle;
 @end
 
+@interface NSNumber (formatter)
+- (NSString *)formattedCurrencyNumber;
+@end
+
 @interface NSString (utilities)
 - (BOOL)isNumeric;
 - (NSString *)formattedCreditCardNumber;

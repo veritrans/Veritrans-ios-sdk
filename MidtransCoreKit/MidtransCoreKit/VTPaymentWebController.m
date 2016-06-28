@@ -29,36 +29,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
-    self.navigationItem.leftBarButtonItem = closeButton;
     
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
     
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     [self.view addSubview:self.webView];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:_redirectURL]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-- (void)closePressed:(id)sender {
-    if (self.callback) self.callback([self transactionError]);
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (void)showPageWithCallback:(void(^_Nullable)(NSError *_Nullable error))callback {
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:self];
-    [[UIApplication rootViewController] presentViewController:nvc animated:YES completion:nil];
+    [[UIApplication rootViewController] presentViewController:self animated:YES completion:nil];
     self.callback = callback;
 }
 

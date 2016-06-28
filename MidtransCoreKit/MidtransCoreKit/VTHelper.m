@@ -76,7 +76,7 @@ NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
         currentFormatter.locale = [NSLocale currentLocale];
-        currentFormatter.numberStyle = NSNumberFormatterCurrencyStyle;
+        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
         currentFormatter.currencySymbol = @"Rp ";
         [dictionary setObject:currentFormatter forKey:identifier];
     }

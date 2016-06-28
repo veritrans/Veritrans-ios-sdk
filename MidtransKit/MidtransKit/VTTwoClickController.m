@@ -44,7 +44,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
     
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
     

@@ -25,11 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *paymentName = @"";
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: UILocalizedString(@"Back", nil)
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:nil
-                                                                            action:nil];
+    NSString *paymentName = @"";    
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         paymentName  = UILocalizedString(@"Indomaret",nil);
@@ -54,11 +50,12 @@
         paymentName  =  UILocalizedString(@"name.other-bank",nil);
     }
     
+    self.title = paymentName;
+    
     [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
     
-    self.title = [NSString stringWithFormat: UILocalizedString(@"%@",nil),[paymentName capitalizedString]];
     [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.how",nil) ,paymentName] forState:UIControlStateNormal];
-    self.view.totalAmountLabel.text = [[NSObject indonesianCurrencyFormatter] stringFromNumber:self.transactionDetails.grossAmount];
+    self.view.totalAmountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.transactionDetails.orderId;
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]) {
@@ -144,11 +141,13 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
         VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
         VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:self.paymentMethod statusModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        [super handleTransactionSuccess:result];
     }
 }
 - (void)didReceiveMemoryWarning {

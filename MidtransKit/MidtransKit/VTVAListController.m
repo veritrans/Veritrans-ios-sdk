@@ -23,12 +23,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:UILocalizedString(@"Back", nil)
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:nil
-                                                                            action:nil];
     
     [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
@@ -41,8 +35,7 @@
     }
     _vaList = vaListM;
     
-    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    _totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    _totalAmountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 #pragma mark - UITableViewDataSource

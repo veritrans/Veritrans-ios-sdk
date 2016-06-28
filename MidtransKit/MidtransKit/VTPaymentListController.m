@@ -35,8 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title =  UILocalizedString(@"payment.list.title", nil);
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:UILocalizedString(@"Back", nil)  style:UIBarButtonItemStylePlain target:nil action:nil];
+    
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
     
@@ -65,9 +66,8 @@
     self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 80);
     self.view.tableView.tableHeaderView = self.view.header;
     
-    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    self.view.footer.amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
-    self.view.header.amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    self.view.footer.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.view.header.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self.view.tableView reloadData];
 }
 

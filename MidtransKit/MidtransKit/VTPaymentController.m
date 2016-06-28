@@ -40,6 +40,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: UILocalizedString(@"Back", nil)
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil
+                                                                            action:nil];
+    
     self.hudView = [[VTHudView alloc] init];
 }
 

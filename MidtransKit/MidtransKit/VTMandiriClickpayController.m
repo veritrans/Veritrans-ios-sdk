@@ -46,8 +46,7 @@ static NSString* const ClickpayAPPLI = @"3";
     _input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.transactionDetails.grossAmount];
     _input3Label.text = [VTMandiriClickpayHelper generateInput3];
     
-    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    _amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {

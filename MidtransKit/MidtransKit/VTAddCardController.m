@@ -14,7 +14,6 @@
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
-#import "VTKeyboardAccessoryView.h"
 #import "UIViewController+Modal.h"
 #import "VTCardControllerConfig.h"
 
@@ -33,7 +32,6 @@
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
-@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
 
@@ -44,13 +42,13 @@
     
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     
-    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_cardNumber, _cardExpiryDate, _cardCvv]];
+    [self addNavigationToTextFields:@[_cardNumber, _cardExpiryDate, _cardCvv]];
     
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
     
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
-    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber; 
+    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (void)dealloc {
@@ -117,19 +115,6 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    if (self.cardNumber.text.isEmpty) {
-        self.cardNumber.warning =@"Cannot Be Empty";
-        return;
-    }
-    else if (self.cardExpiryDate.text.isEmpty) {
-        self.cardExpiryDate.warning =@"Cannot Be Empty";
-        return;
-    }
-    else if (self.cardCvv.text.isEmpty) {
-        self.cardCvv.warning =@"Cannot Be Empty";
-        return;
-    }
-    [self showLoadingHud];
     NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
@@ -142,10 +127,11 @@
     
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
-        [self hideLoadingHud];
         [self handleRegisterCreditCardError:error];
         return;
     }
+    
+    [self showLoadingHud];
     
     BOOL enable3Ds = [[VTCardControllerConfig sharedInstance] enable3DSecure];
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard

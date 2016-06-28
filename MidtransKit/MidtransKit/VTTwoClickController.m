@@ -21,14 +21,12 @@
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
-#import "VTKeyboardAccessoryView.h"
 
 @interface VTTwoClickController () <UINavigationControllerDelegate>
 
 @property (nonatomic) IBOutlet VTTextField *cvvTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (nonatomic) VTMaskedCreditCard *maskeCard;
-@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 
 @end
 
@@ -49,7 +47,7 @@
     
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
     
-    _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:@[_cvvTextField]];
+    [self addNavigationToTextFields:@[self.cvvTextField]];
     
     self.navigationController.delegate = self;
 }

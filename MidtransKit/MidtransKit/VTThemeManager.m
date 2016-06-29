@@ -6,11 +6,11 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTFontManager.h"
+#import "VTThemeManager.h"
 #import <CoreText/CoreText.h>
 #import "VTClassHelper.h"
 
-@interface VTFontManager()
+@interface VTThemeManager()
 @property (nonatomic, assign) CGFontRef boldFontRef;
 @property (nonatomic, assign) CGFontRef lightFontRef;
 @property (nonatomic, assign) CGFontRef regularFontRef;
@@ -22,10 +22,10 @@
 @property (nonatomic, strong) UIFont *semiBoldFont;
 @end
 
-@implementation VTFontManager
+@implementation VTThemeManager
 
 + (id)shared {
-    static VTFontManager *sharedMyManager = nil;
+    static VTThemeManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedMyManager = [[self alloc] init];
@@ -48,6 +48,13 @@
         _semiBoldFontRef = [self fontRefFromFile:filePath];
     }
     return self;
+}
+
+- (UIColor *)themeColor {
+    if (!_themeColor) {
+        _themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
+    }
+    return _themeColor;
 }
 
 - (UIFont *)boldFontWithSize:(NSInteger)size {

@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface VTFontManager : NSObject
+@interface VTThemeManager : NSObject
+
+@property (nonatomic) UIColor *themeColor;
 
 + (id)shared;
 

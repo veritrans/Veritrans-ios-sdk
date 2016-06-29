@@ -174,14 +174,20 @@
 		E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */; };
 		E546D1DE1CEACBBB00D65252 /* nextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */; };
 		E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */; };
-		E54AC3FE1D16487800BA4603 /* VTFontManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTFontManager.h */; };
-		E54AC3FF1D16487800BA4603 /* VTFontManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* VTFontManager.m */; };
+		E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTThemeManager.h */; };
+		E54AC3FF1D16487800BA4603 /* VTThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* VTThemeManager.m */; };
 		E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */; };
 		E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */; };
 		E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */; };
 		E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */; };
 		E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */; };
 		E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */; };
+		E56455031D23A5DB00CE5FA4 /* VTNextStepButton.h in Headers */ = {isa = PBXBuildFile; fileRef = E56455011D23A5DB00CE5FA4 /* VTNextStepButton.h */; };
+		E56455041D23A5DB00CE5FA4 /* VTNextStepButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E56455021D23A5DB00CE5FA4 /* VTNextStepButton.m */; };
+		E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E56455051D23ABF000CE5FA4 /* VTNoteTitleLabel.h */; };
+		E56455081D23ABF000CE5FA4 /* VTNoteTitleLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E56455061D23ABF000CE5FA4 /* VTNoteTitleLabel.m */; };
+		E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */ = {isa = PBXBuildFile; fileRef = E56455091D23AD5000CE5FA4 /* VTSegmentedControl.h */; };
+		E564550C1D23AD5000CE5FA4 /* VTSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E564550A1D23AD5000CE5FA4 /* VTSegmentedControl.m */; };
 		E578DD061CFBED7A0091760A /* vaother@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E578DD051CFBED7A0091760A /* vaother@2x.png */; };
 		E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = E578DD081CFBF6480091760A /* UIView+Toast.h */; };
 		E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD091CFBF6480091760A /* UIView+Toast.m */; };
@@ -415,14 +421,20 @@
 		E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTKeyboardAccessoryView.xib; sourceTree = "<group>"; };
 		E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "nextIcon@2x.png"; sourceTree = "<group>"; };
 		E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prevIcon@2x.png"; sourceTree = "<group>"; };
-		E54AC3FC1D16487800BA4603 /* VTFontManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTFontManager.h; sourceTree = "<group>"; };
-		E54AC3FD1D16487800BA4603 /* VTFontManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTFontManager.m; sourceTree = "<group>"; };
+		E54AC3FC1D16487800BA4603 /* VTThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTThemeManager.h; sourceTree = "<group>"; };
+		E54AC3FD1D16487800BA4603 /* VTThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTThemeManager.m; sourceTree = "<group>"; };
 		E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HeaderSubtitle.h"; sourceTree = "<group>"; };
 		E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HeaderSubtitle.m"; sourceTree = "<group>"; };
 		E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTMandiriClickpayController.xib; sourceTree = "<group>"; };
 		E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVASuccessStatusController.h; sourceTree = "<group>"; };
 		E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVASuccessStatusController.m; sourceTree = "<group>"; };
 		E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTVASuccessStatusController.xib; path = ../MidtransKit/VTVASuccessStatusController.xib; sourceTree = "<group>"; };
+		E56455011D23A5DB00CE5FA4 /* VTNextStepButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNextStepButton.h; sourceTree = "<group>"; };
+		E56455021D23A5DB00CE5FA4 /* VTNextStepButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNextStepButton.m; sourceTree = "<group>"; };
+		E56455051D23ABF000CE5FA4 /* VTNoteTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNoteTitleLabel.h; sourceTree = "<group>"; };
+		E56455061D23ABF000CE5FA4 /* VTNoteTitleLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNoteTitleLabel.m; sourceTree = "<group>"; };
+		E56455091D23AD5000CE5FA4 /* VTSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSegmentedControl.h; sourceTree = "<group>"; };
+		E564550A1D23AD5000CE5FA4 /* VTSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSegmentedControl.m; sourceTree = "<group>"; };
 		E578DD051CFBED7A0091760A /* vaother@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vaother@2x.png"; sourceTree = "<group>"; };
 		E578DD081CFBF6480091760A /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		E578DD091CFBF6480091760A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
@@ -589,8 +601,8 @@
 				30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */,
 				002CC9B61D12A442003A1203 /* VTStringHelper.h */,
 				002CC9B71D12A442003A1203 /* VTStringHelper.m */,
-				E54AC3FC1D16487800BA4603 /* VTFontManager.h */,
-				E54AC3FD1D16487800BA4603 /* VTFontManager.m */,
+				E54AC3FC1D16487800BA4603 /* VTThemeManager.h */,
+				E54AC3FD1D16487800BA4603 /* VTThemeManager.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -650,6 +662,7 @@
 		3056A2141C7E98490015B3CC /* Kit */ = {
 			isa = PBXGroup;
 			children = (
+				E56454FC1D23A18F00CE5FA4 /* Customizable */,
 				E578DD151CFC1BD50091760A /* VTToast.h */,
 				E578DD161CFC1BD50091760A /* VTToast.m */,
 				E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */,
@@ -664,8 +677,6 @@
 				30E7130C1C856B0D00AFB7B4 /* VTRoundedLabel.m */,
 				30E713171C85816B00AFB7B4 /* VTDetailedTitleController.h */,
 				30E713181C85816B00AFB7B4 /* VTDetailedTitleController.m */,
-				30E713241C859EE100AFB7B4 /* VTButton.h */,
-				30E713251C859EE100AFB7B4 /* VTButton.m */,
 				E5EF826B1C8C07AF007B6585 /* VTXibView.h */,
 				E5EF826C1C8C07AF007B6585 /* VTXibView.m */,
 				E517C2BF1C9673B4009AE6AA /* VTAlertBackgroundView.h */,
@@ -676,6 +687,14 @@
 				E517C2D71C96B610009AE6AA /* VTHudView.m */,
 				E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */,
 				E546D1D71CEAC91D00D65252 /* VTKeyboardAccessoryView.m */,
+				30E713241C859EE100AFB7B4 /* VTButton.h */,
+				30E713251C859EE100AFB7B4 /* VTButton.m */,
+				E56455011D23A5DB00CE5FA4 /* VTNextStepButton.h */,
+				E56455021D23A5DB00CE5FA4 /* VTNextStepButton.m */,
+				E56455051D23ABF000CE5FA4 /* VTNoteTitleLabel.h */,
+				E56455061D23ABF000CE5FA4 /* VTNoteTitleLabel.m */,
+				E56455091D23AD5000CE5FA4 /* VTSegmentedControl.h */,
+				E564550A1D23AD5000CE5FA4 /* VTSegmentedControl.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -932,6 +951,13 @@
 			name = Animators;
 			sourceTree = "<group>";
 		};
+		E56454FC1D23A18F00CE5FA4 /* Customizable */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Customizable;
+			sourceTree = "<group>";
+		};
 		E578DD071CFBF6480091760A /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -999,11 +1025,14 @@
 				E502249E1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h in Headers */,
 				E578DD171CFC1BD50091760A /* VTToast.h in Headers */,
 				E5EF82731C8C0814007B6585 /* VTCCFrontView.h in Headers */,
+				E56455031D23A5DB00CE5FA4 /* VTNextStepButton.h in Headers */,
 				E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */,
 				E50438B91D1A679400710470 /* VTGuideView.h in Headers */,
 				E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */,
 				E50438731D1A4A5000710470 /* VTSingleGuideController.h in Headers */,
 				E578DD2B1CFC40480091760A /* VTPaymentListFooter.h in Headers */,
+				E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */,
+				E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */,
 				E578DD271CFC403D0091760A /* VTPaymentListHeader.h in Headers */,
 				3005E2771C7C175000064169 /* VTAddCardController.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
@@ -1035,7 +1064,7 @@
 				306838811C7EE7220064A305 /* VTPaymentViewController.h in Headers */,
 				E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */,
 				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,
-				E54AC3FE1D16487800BA4603 /* VTFontManager.h in Headers */,
+				E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */,
 				E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1259,6 +1288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E546D1D91CEAC91D00D65252 /* VTKeyboardAccessoryView.m in Sources */,
+				E564550C1D23AD5000CE5FA4 /* VTSegmentedControl.m in Sources */,
 				E517C2C21C9673B4009AE6AA /* VTAlertBackgroundView.m in Sources */,
 				E578DD2C1CFC40480091760A /* VTPaymentListFooter.m in Sources */,
 				30E713271C859EE100AFB7B4 /* VTButton.m in Sources */,
@@ -1277,6 +1307,7 @@
 				E583AFEB1C8D5C1600C04512 /* VTPaymentStatusViewModel.m in Sources */,
 				E517C2BD1C9672BA009AE6AA /* VTConfirmPaymentController.m in Sources */,
 				3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */,
+				E56455081D23ABF000CE5FA4 /* VTNoteTitleLabel.m in Sources */,
 				3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */,
 				30E77E8B1C84021A0090D228 /* VTMandiriClickpayController.m in Sources */,
 				00F61B1B1D14703100C93DA0 /* VTPaymentGeneralView.m in Sources */,
@@ -1294,11 +1325,12 @@
 				E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */,
 				00F61AEF1D145A6200C93DA0 /* VTPaymentListDataSource.m in Sources */,
 				E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */,
+				E56455041D23A5DB00CE5FA4 /* VTNextStepButton.m in Sources */,
 				E503AED91C8E8AF800F097FF /* VTListCell.m in Sources */,
 				E578DD281CFC403D0091760A /* VTPaymentListHeader.m in Sources */,
 				3005E2781C7C175000064169 /* VTAddCardController.m in Sources */,
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
-				E54AC3FF1D16487800BA4603 /* VTFontManager.m in Sources */,
+				E54AC3FF1D16487800BA4603 /* VTThemeManager.m in Sources */,
 				E50438BA1D1A679400710470 /* VTGuideView.m in Sources */,
 				306838821C7EE7220064A305 /* VTPaymentViewController.m in Sources */,
 				E5EF82741C8C0814007B6585 /* VTCCFrontView.m in Sources */,

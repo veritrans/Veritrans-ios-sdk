@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTKeyboardAccessoryView">
             <connections>
+                <outlet property="doneButton" destination="24R-cM-Esc" id="NKG-Xl-TDk"/>
                 <outlet property="nextButton" destination="oxf-cH-7sI" id="3ks-F6-drs"/>
                 <outlet property="prevButton" destination="cSK-3H-8On" id="B8P-nm-uVd"/>
             </connections>

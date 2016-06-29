@@ -8,7 +8,7 @@
 
 #import "VTStringHelper.h"
 #import <UIKit/UIKit.h>
-#import "VTFontManager.h"
+#import "VTThemeManager.h"
 #import "VTClassHelper.h"
 
 @interface NSMutableAttributedString (Helper)
@@ -57,7 +57,7 @@
 + (NSMutableAttributedString *)indentTextWithDefaultStyle:(NSAttributedString *)attributedString {
     NSMutableAttributedString *mutableAttributedString = [self indentText:attributedString];
     [mutableAttributedString addAttribute:NSFontAttributeName
-                                    value:[[VTFontManager shared] regularFontWithSize:15]
+                                    value:[[VTThemeManager shared] regularFontWithSize:15]
                                     range:NSMakeRange(0, attributedString.length)];
     [mutableAttributedString addAttribute:NSForegroundColorAttributeName
                                     value:[UIColor darkGrayColor]

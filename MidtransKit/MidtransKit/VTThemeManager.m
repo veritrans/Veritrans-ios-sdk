@@ -1,5 +1,5 @@
 //
-//  VTFontManager.m
+//  VTThemeManager.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 6/19/16.

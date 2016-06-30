@@ -38,6 +38,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (void)commonInit {
+    
+    self.font = [[VTThemeManager shared] regularFontWithSize:self.font.pointSize];
+    
     self.floatingLabelActiveTextColor = [[VTThemeManager shared] themeColor];
     
     _infoIconView = [UIImageView new];

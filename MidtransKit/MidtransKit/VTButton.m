@@ -30,6 +30,8 @@
         _leftBorder.backgroundColor = self.topLineColor;
         [self addSubview:_leftBorder];
     }
+    
+    self.titleLabel.font = [[VTThemeManager shared] regularFontWithSize:self.titleLabel.font.pointSize];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {

@@ -9,7 +9,6 @@
 #ifndef MidtransKit_h
 #define MidtransKit_h
 
-#import "VTCardControllerConfig.h"
 #import "VTPaymentViewController.h"
 #import "VTCardControllerConfig.h"
 

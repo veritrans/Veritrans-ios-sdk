@@ -101,7 +101,17 @@
     if (customerDetails) {
         NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
         UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
-        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails themeColor:themeColor];
+        
+        NSString *boldPath = [[NSBundle mainBundle] pathForResource:@"TitilliumWeb-Bold" ofType:@"ttf"];
+        NSString *regularPath = [[NSBundle mainBundle] pathForResource:@"TitilliumWeb-Regular" ofType:@"ttf"];
+        NSString *lightPath = [[NSBundle mainBundle] pathForResource:@"TitilliumWeb-Light" ofType:@"ttf"];
+        VTFontSource *fontSource = [[VTFontSource alloc] initWithBoldFontPath:boldPath regularFontPath:regularPath lightFontPath:lightPath];
+        
+        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails
+                                                                                   itemDetails:self.itemDetails
+                                                                            transactionDetails:transactionDetails
+                                                                                    themeColor:themeColor
+                                                                                    fontSource:fontSource];
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {

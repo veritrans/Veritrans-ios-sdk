@@ -20,6 +20,9 @@
 		E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */; };
 		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
 		E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB2131C8C83E20043A027 /* libMidtransKit.a */; };
+		E522A2A61D25086000788BBE /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E522A2A31D25086000788BBE /* TitilliumWeb-Bold.ttf */; };
+		E522A2A71D25086000788BBE /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E522A2A41D25086000788BBE /* TitilliumWeb-Light.ttf */; };
+		E522A2A81D25086000788BBE /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E522A2A51D25086000788BBE /* TitilliumWeb-Regular.ttf */; };
 		E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940721CFEC6C4000180D3 /* AVFoundation.framework */; };
 		E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940771CFEC6D4000180D3 /* Accelerate.framework */; };
 		E529407A1CFEC6DB000180D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940791CFEC6DB000180D3 /* AudioToolbox.framework */; };
@@ -111,6 +114,9 @@
 		E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
 		E5154AB91C980EAD001A69E2 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
 		E5154ABA1C980EAD001A69E2 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
+		E522A2A31D25086000788BBE /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		E522A2A41D25086000788BBE /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		E522A2A51D25086000788BBE /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		E52940721CFEC6C4000180D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E52940771CFEC6D4000180D3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E52940791CFEC6DB000180D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -216,6 +222,7 @@
 		302F71C11C73163C00FE73FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E522A2A21D2500C300788BBE /* Font */,
 				302F71CD1C73163C00FE73FE /* Assets.xcassets */,
 				302F71CF1C73163C00FE73FE /* LaunchScreen.storyboard */,
 				302F71D21C73163C00FE73FE /* Info.plist */,
@@ -251,6 +258,16 @@
 				E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E522A2A21D2500C300788BBE /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E522A2A31D25086000788BBE /* TitilliumWeb-Bold.ttf */,
+				E522A2A41D25086000788BBE /* TitilliumWeb-Light.ttf */,
+				E522A2A51D25086000788BBE /* TitilliumWeb-Regular.ttf */,
+			);
+			name = Font;
 			sourceTree = "<group>";
 		};
 		E5AEB2061C8C83DC0043A027 /* Products */ = {
@@ -402,6 +419,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E522A2A71D25086000788BBE /* TitilliumWeb-Light.ttf in Resources */,
+				E522A2A81D25086000788BBE /* TitilliumWeb-Regular.ttf in Resources */,
+				E522A2A61D25086000788BBE /* TitilliumWeb-Bold.ttf in Resources */,
 				E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
 				302F71CE1C73163C00FE73FE /* Assets.xcassets in Resources */,

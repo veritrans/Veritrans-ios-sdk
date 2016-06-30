@@ -6,21 +6,29 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "VTFontSource.h"
 
 @interface VTThemeManager : NSObject
 
-@property (nonatomic) UIColor *themeColor;
+@property (nonatomic, readonly) UIColor *themeColor;
 
-+ (id)shared;
++ (instancetype)shared;
+
+- (NSString *)boldFontName;
+- (NSString *)regularFontName;
+- (NSString *)lightFontName;
 
 - (UIFont *)boldFontWithSize:(NSInteger)size;
 - (UIFont *)lightFontWithSize:(NSInteger)size;
 - (UIFont *)regularFontWithSize:(NSInteger)size;
-- (UIFont *)semiBoldFontWithSize:(NSInteger)size;
 
-+ (void)registerFontFromResource:(NSString *)fontFilePath;
-+ (void)registerSourceSansProFonts;
+- (UIColor *)themeColor;
+
+/**
+ * Call it once before presenting UI Flow
+ */
++ (void)applyCustomThemeColor:(UIColor *)themeColor fontSource:(VTFontSource *)fontSource;
++ (void)applyStandardTheme;
 
 @end

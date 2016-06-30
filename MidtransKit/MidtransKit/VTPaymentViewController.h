@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
+#import "VTFontSource.h"
+
 @class VTPaymentViewController;
 
 @protocol VTPaymentViewControllerDelegate;
@@ -27,7 +29,8 @@
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
                      transactionDetails:(VTTransactionDetails *)transactionDetails
-                             themeColor:(UIColor *)themeColor;
+                             themeColor:(UIColor *)themeColor
+                             fontSource:(VTFontSource *)fontSource;
 
 @property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 

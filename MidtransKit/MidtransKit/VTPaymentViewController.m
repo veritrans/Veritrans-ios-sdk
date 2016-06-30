@@ -24,7 +24,7 @@
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     if (self) {
-        [VTThemeManager registerSourceSansProFonts];
+        
     }
     return self;
 }
@@ -32,10 +32,15 @@
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
                      transactionDetails:(VTTransactionDetails *)transactionDetails
-                             themeColor:(UIColor *)themeColor {
-    [[VTThemeManager shared] setThemeColor:themeColor];
-    
+                             themeColor:(UIColor *)themeColor
+                             fontSource:(VTFontSource *)fontSource
+{
+    [VTThemeManager applyCustomThemeColor:themeColor fontSource:fontSource];
+    //        [VTThemeManager applyStandardTheme];
     self = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
+    if (self) {
+        
+    }
     return self;
 }
 
@@ -46,7 +51,7 @@
     
     self.navigationBar.tintColor = [[VTThemeManager shared] themeColor];
     
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTThemeManager shared] semiBoldFontWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
+    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTThemeManager shared] regularFontWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
     self.navigationBar.barTintColor = [UIColor whiteColor];
     
     //register payment observer

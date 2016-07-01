@@ -57,7 +57,7 @@
 + (NSMutableAttributedString *)indentTextWithDefaultStyle:(NSAttributedString *)attributedString {
     NSMutableAttributedString *mutableAttributedString = [self indentText:attributedString];
     [mutableAttributedString addAttribute:NSFontAttributeName
-                                    value:[[VTThemeManager shared] regularFontWithSize:15]
+                                    value:[[VTThemeManager shared].themeFont fontRegularWithSize:15]
                                     range:NSMakeRange(0, attributedString.length)];
     [mutableAttributedString addAttribute:NSForegroundColorAttributeName
                                     value:[UIColor darkGrayColor]

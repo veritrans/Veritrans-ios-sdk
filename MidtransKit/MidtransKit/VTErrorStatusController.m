@@ -15,7 +15,7 @@
 
 @implementation VTErrorStatusController
 
-- (instancetype)initWithError:(NSError *)error {
+- (instancetype _Nonnull)initWithError:(NSError *_Nonnull)error {
     UIStoryboard *storybaord = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
     self = [storybaord instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
     if (self) {
@@ -32,27 +32,11 @@
     
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)finishPressed:(UIButton *)sender {
     NSDictionary *userInfo = @{@"tr_error":_error};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

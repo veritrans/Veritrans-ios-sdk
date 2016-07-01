@@ -31,7 +31,7 @@
         [self addSubview:_leftBorder];
     }
     
-    self.titleLabel.font = [[VTThemeManager shared] regularFontWithSize:self.titleLabel.font.pointSize];
+    self.titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {

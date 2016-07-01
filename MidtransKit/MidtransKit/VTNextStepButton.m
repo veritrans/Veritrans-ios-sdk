@@ -15,6 +15,6 @@
     [super awakeFromNib];    
     [self setBackgroundColor:[[VTThemeManager shared] themeColor]];
     
-    self.titleLabel.font = [[VTThemeManager shared] regularFontWithSize:self.titleLabel.font.pointSize];
+    self.titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }
 @end

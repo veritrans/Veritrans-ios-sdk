@@ -6,14 +6,14 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 #import "VTErrorStatusController.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
 
-@interface VTPaymentController : UIViewController
+@interface VTPaymentController : VTViewController
 @property (nonatomic,strong) VTCustomerDetails *customerDetails;
 @property (nonatomic,strong) NSArray *itemDetails;
 @property (nonatomic,strong) VTPaymentListModel *paymentMethod;

@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 
-@interface VTErrorStatusController : UIViewController
-- (instancetype)initWithError:(NSError *)error;
+@interface VTErrorStatusController : VTViewController
+- (instancetype _Nonnull)initWithError:(NSError *_Nonnull)error;
 @end

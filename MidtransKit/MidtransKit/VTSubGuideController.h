@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 
-@interface VTSubGuideController : UIViewController
+@interface VTSubGuideController : VTViewController
 - (instancetype)initWithList:(NSArray *)list;
 @end

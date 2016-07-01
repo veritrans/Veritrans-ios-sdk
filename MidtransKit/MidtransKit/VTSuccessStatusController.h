@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 #import "VTPaymentStatusViewModel.h"
 
-@interface VTSuccessStatusController : UIViewController
-+ (instancetype)controllerWithSuccessViewModel:(VTPaymentStatusViewModel *)viewModel;
+@interface VTSuccessStatusController : VTViewController
+- (instancetype _Nonnull)initWithSuccessViewModel:(VTPaymentStatusViewModel *_Nonnull)viewModel;
 @end

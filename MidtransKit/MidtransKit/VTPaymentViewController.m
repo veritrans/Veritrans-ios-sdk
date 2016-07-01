@@ -11,8 +11,7 @@
 #import "VTPaymentViewController.h"
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
-#import "VTFontManager.h"
-#import "VTFontManager.h"
+#import "VTThemeManager.h"
 
 @interface VTPaymentViewController ()
 @end
@@ -25,17 +24,29 @@
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     if (self) {
-        [VTFontManager registerSourceSansProFonts];
+        [VTThemeManager registerSourceSansProFonts];
     }
+    return self;
+}
+
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                             themeColor:(UIColor *)themeColor {
+    [[VTThemeManager shared] setThemeColor:themeColor];
+    
+    self = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails];
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBar.translucent = false;
-    // Do any additional setup after loading the view.
     
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTFontManager shared] semiBoldFontWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
+    self.navigationBar.translucent = false;
+    
+    self.navigationBar.tintColor = [[VTThemeManager shared] themeColor];
+    
+    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTThemeManager shared] semiBoldFontWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
     self.navigationBar.barTintColor = [UIColor whiteColor];
     
     //register payment observer

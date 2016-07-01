@@ -8,7 +8,7 @@
 
 #import "VTTextField.h"
 #import "NSString+TextDirectionality.h"
-#import "VTFontManager.h"
+#import "VTThemeManager.h"
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.17f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
@@ -38,6 +38,8 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (void)commonInit {
+    self.floatingLabelActiveTextColor = [[VTThemeManager shared] themeColor];
+    
     _infoIconView = [UIImageView new];
     [self addSubview:_infoIconView];
     
@@ -53,7 +55,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [self addSubview:_floatingLabel];
     
     // some basic default fonts/colors
-    self.floatingLabelFont = [[VTFontManager shared] regularFontWithSize:12];
+    self.floatingLabelFont = [[VTThemeManager shared] regularFontWithSize:12];
     _floatingLabel.font = self.floatingLabelFont;
     _floatingLabelTextColor = [UIColor grayColor];
     _floatingLabel.textColor = _floatingLabelTextColor;
@@ -62,7 +64,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
     [self setFloatingLabelText:self.placeholder];
     
-    _warningLabel.font = [[VTFontManager shared] regularFontWithSize:10];
+    _warningLabel.font = [[VTThemeManager shared] regularFontWithSize:10];
     _warningLabel.textColor = [UIColor redColor];
     
     _adjustsClearButtonRect = YES;

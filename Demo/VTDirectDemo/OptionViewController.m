@@ -14,10 +14,13 @@
 #import <MidtransCoreKit/VTConfig.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 
-@interface OptionViewController ()
+#import <FCColorPickerViewController.h>
+
+@interface OptionViewController () <FCColorPickerViewControllerDelegate>
 
 @property (nonatomic) IBOutlet UISwitch *oneClickSwitch;
 @property (nonatomic) IBOutlet UISwitch *secureSwitch;
+@property (strong, nonatomic) IBOutlet UIButton *chooseColorButton;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -47,7 +50,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+    UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
+    [self.chooseColorButton setBackgroundColor:themeColor];
     
     [_oneClickSwitch setOn:[[VTCardControllerConfig sharedInstance] enableOneClick]];
     [_secureSwitch setOn:[[VTCardControllerConfig sharedInstance] enable3DSecure]];
@@ -79,13 +85,15 @@
     _shipPostCodeTextField.text = customer.shippingAddress.postalCode;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSString *)countryCode {
     return @"IDN";
+}
+
+- (IBAction)chooseColorPressed:(UIButton *)sender {
+    FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPicker];
+    colorPicker.color = sender.backgroundColor;
+    colorPicker.delegate = self;
+    [self presentViewController:colorPicker animated:YES completion:nil];
 }
 
 - (IBAction)resetMerchantAuth:(id)sender {
@@ -125,6 +133,21 @@
 - (IBAction)secureSwitchChanged:(UISwitch *)sender {
     [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_3ds"];
     [[VTCardControllerConfig sharedInstance] setEnable3DSecure:sender.on];
+}
+
+#pragma mark - FCColorPickerViewControllerDelegate Methods
+
+-(void)colorPickerViewController:(FCColorPickerViewController *)colorPicker didSelectColor:(UIColor *)color {
+    NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject:color];
+    [[NSUserDefaults standardUserDefaults] setObject:colorData forKey:@"theme_color"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.chooseColorButton setBackgroundColor:color];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)colorPickerViewControllerDidCancel:(FCColorPickerViewController *)colorPicker {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

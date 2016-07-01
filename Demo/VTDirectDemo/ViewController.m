@@ -35,7 +35,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    //set default theme color
+    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+    if (!themeColorData) {
+        UIColor *themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
+        themeColorData = [NSKeyedArchiver archivedDataWithRootObject:themeColor];
+        [[NSUserDefaults standardUserDefaults] setObject:themeColorData forKey:@"theme_color"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     
     self.navigationController.view.userInteractionEnabled = NO;
     
@@ -91,7 +99,9 @@
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails) {
-        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+        NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+        UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
+        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails themeColor:themeColor];
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {

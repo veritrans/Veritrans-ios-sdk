@@ -2,6 +2,7 @@ platform :ios, '7.0'
 
 def shared_pods
     pod 'SDWebImage', '~>3.7'
+    pod 'iOS-Color-Picker'
 end
 target 'VTDirectDemo' do
     shared_pods

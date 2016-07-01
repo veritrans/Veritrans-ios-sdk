@@ -7,6 +7,7 @@
 //
 
 #import "VTButton.h"
+#import "VTThemeManager.h"
 
 @implementation VTButton {
     UIView *_bottomBorder;
@@ -14,6 +15,10 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    [self setTitleColor:[[VTThemeManager shared] themeColor] forState:UIControlStateNormal];
+    
     if (self.topLine) {
         _bottomBorder = [[UIView alloc] init];
         _bottomBorder.backgroundColor = self.topLineColor;

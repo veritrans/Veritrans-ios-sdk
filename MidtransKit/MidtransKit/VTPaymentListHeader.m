@@ -7,11 +7,19 @@
 //
 
 #import "VTPaymentListHeader.h"
+#import "VTThemeManager.h"
 
 @interface VTPaymentListHeader()
 
 @end
 
 @implementation VTPaymentListHeader
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        self.backgroundColor = [[VTThemeManager shared] themeColor];
+    }
+    return self;
+}
 
 @end

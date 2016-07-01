@@ -16,6 +16,7 @@
 #import "IHKeyboardAvoiding_vt.h"
 #import "UIViewController+Modal.h"
 #import "VTCardControllerConfig.h"
+#import "VTThemeManager.h"
 
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
@@ -32,6 +33,7 @@
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
 
 @end
 
@@ -41,6 +43,8 @@
     [super viewDidLoad];
     
     self.title = UILocalizedString(@"creditcard.input.title", nil);
+    
+    self.infoButton.tintColor = [[VTThemeManager shared] themeColor];
     
     [self addNavigationToTextFields:@[_cardNumber, _cardExpiryDate, _cardCvv]];
     

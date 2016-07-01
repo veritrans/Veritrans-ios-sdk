@@ -7,16 +7,13 @@
 //
 
 #import "VTThemeManager.h"
-#import <CoreText/CoreText.h>
 #import "VTClassHelper.h"
 
 @interface VTThemeManager()
-@property (nonatomic, assign) CGFontRef boldFontRef;
-@property (nonatomic, assign) CGFontRef lightFontRef;
-@property (nonatomic, assign) CGFontRef regularFontRef;
+
 
 @property (nonatomic) UIColor *themeColor;
-@property (nonatomic) VTFontSource *fontSource;
+@property (nonatomic) VTFontSource *themeFont;
 @end
 
 @implementation VTThemeManager
@@ -33,50 +30,14 @@
 - (instancetype)init {
     if (self = [super init]) {
         //register font for credit card number
-        [self registerFontFromFile:[VTBundle pathForResource:@"OCRAEXT" ofType:@"TTF"]];
+        [VTFontSource registerFontFromFile:[VTBundle pathForResource:@"OCRAEXT" ofType:@"TTF"]];
     }
     return self;
 }
 
-- (void)setFontSource:(VTFontSource *)fontSource {
-    _fontSource = fontSource;
-    
-    self.boldFontRef = [self registerFontFromFile:fontSource.fontBoldPath];
-    self.regularFontRef = [self registerFontFromFile:fontSource.fontRegularPath];
-    self.lightFontRef = [self registerFontFromFile:fontSource.fontLightPath];
-}
-
-- (NSString *)boldFontName {
-    return (NSString *)CFBridgingRelease(CGFontCopyPostScriptName(self.boldFontRef));
-}
-- (NSString *)regularFontName {
-    return (NSString *)CFBridgingRelease(CGFontCopyPostScriptName(self.regularFontRef));
-}
-- (NSString *)lightFontName {
-    return (NSString *)CFBridgingRelease(CGFontCopyPostScriptName(self.lightFontRef));
-}
-
-- (UIFont *)boldFontWithSize:(NSInteger)size {
-    return [UIFont fontWithName:self.boldFontName size:size];
-}
-- (UIFont *)lightFontWithSize:(NSInteger)size {
-    return [UIFont fontWithName:self.lightFontName size:size];
-}
-- (UIFont *)regularFontWithSize:(NSInteger)size {
-    return [UIFont fontWithName:self.regularFontName size:size];
-}
-
-- (CGFontRef)registerFontFromFile:(NSString *)filePath {
-    NSData *inData = [[NSData alloc] initWithContentsOfFile:filePath];
-    CGDataProviderRef provider = CGDataProviderCreateWithCFData((CFDataRef)inData);
-    CGFontRef fontRef = CGFontCreateWithDataProvider(provider);
-    CTFontManagerRegisterGraphicsFont(fontRef, nil);
-    return fontRef;
-}
-
-+ (void)applyCustomThemeColor:(UIColor *)themeColor fontSource:(VTFontSource *)fontSource {
++ (void)applyCustomThemeColor:(UIColor *)themeColor themeFont:(VTFontSource *)themeFont {
     [VTThemeManager shared].themeColor = themeColor;
-    [VTThemeManager shared].fontSource = fontSource;
+    [VTThemeManager shared].themeFont = themeFont;
 }
 
 + (void)applyStandardTheme {
@@ -84,10 +45,10 @@
     [VTThemeManager shared].themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
     
     //set default font collection
-    [VTThemeManager shared].fontSource =
-    [[VTFontSource alloc] initWithBoldFontPath:[VTBundle pathForResource:@"SourceSansPro-Bold" ofType:@"ttf"]
-                               regularFontPath:[VTBundle pathForResource:@"SourceSansPro-Regular" ofType:@"ttf"]
-                                 lightFontPath:[VTBundle pathForResource:@"SourceSansPro-Light" ofType:@"ttf"]];
+    [VTThemeManager shared].themeFont =
+    [[VTFontSource alloc] initWithFontPathBold:[VTBundle pathForResource:@"SourceSansPro-Bold" ofType:@"ttf"]
+                               fontPathRegular:[VTBundle pathForResource:@"SourceSansPro-Regular" ofType:@"ttf"]
+                                 fontPathLight:[VTBundle pathForResource:@"SourceSansPro-Light" ofType:@"ttf"]];
 }
 
 @end

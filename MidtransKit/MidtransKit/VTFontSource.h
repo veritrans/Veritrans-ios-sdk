@@ -10,11 +10,22 @@
 
 @interface VTFontSource : NSObject
 
-@property (nonatomic, readonly) NSString *fontBoldPath;
-@property (nonatomic, readonly) NSString *fontRegularPath;
-@property (nonatomic, readonly) NSString *fontLightPath;
+@property (nonatomic, readonly) NSString *fontNameBold;
+@property (nonatomic, readonly) NSString *fontNameRegular;
+@property (nonatomic, readonly) NSString *fontNameLight;
 
-- (instancetype)initWithBoldFontPath:(NSString *)fontBoldPath
-                     regularFontPath:(NSString *)fontRegularPath
-                       lightFontPath:(NSString *)fontLightPath;
+- (instancetype)initWithFontNameBold:(NSString *)fontNameBold
+                     fontNameRegular:(NSString *)fontNameRegular
+                       fontNameLight:(NSString *)fontNameLight;
+
+- (instancetype)initWithFontPathBold:(NSString *)fontPathBold
+                     fontPathRegular:(NSString *)fontPathRegular
+                       fontPathLight:(NSString *)fontPathLight;
+
+- (UIFont *)fontBoldWithSize:(NSInteger)size;
+- (UIFont *)fontLightWithSize:(NSInteger)size;
+- (UIFont *)fontRegularWithSize:(NSInteger)size;
+
++ (CGFontRef)registerFontFromFile:(NSString *)filePath;
+
 @end

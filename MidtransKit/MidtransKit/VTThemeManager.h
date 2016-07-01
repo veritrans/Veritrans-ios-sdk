@@ -12,23 +12,15 @@
 @interface VTThemeManager : NSObject
 
 @property (nonatomic, readonly) UIColor *themeColor;
+@property (nonatomic, readonly) VTFontSource *themeFont;
+
 
 + (instancetype)shared;
-
-- (NSString *)boldFontName;
-- (NSString *)regularFontName;
-- (NSString *)lightFontName;
-
-- (UIFont *)boldFontWithSize:(NSInteger)size;
-- (UIFont *)lightFontWithSize:(NSInteger)size;
-- (UIFont *)regularFontWithSize:(NSInteger)size;
-
-- (UIColor *)themeColor;
 
 /**
  * Call it once before presenting UI Flow
  */
-+ (void)applyCustomThemeColor:(UIColor *)themeColor fontSource:(VTFontSource *)fontSource;
++ (void)applyCustomThemeColor:(UIColor *)themeColor themeFont:(VTFontSource *)themeFont;
 + (void)applyStandardTheme;
 
 @end

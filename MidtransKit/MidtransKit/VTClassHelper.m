@@ -96,7 +96,7 @@
     }
     
     newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
-    
+
     if (newString.length >= 20) {
         return NO;
     }
@@ -115,7 +115,11 @@
     
     NSMutableString *mstring = self.text.mutableCopy;
     [mstring replaceCharactersInRange:range withString:string];
-    return [mstring length] <= cvvLength;
+    
+    if ([mstring length] <= cvvLength) {
+        self.text = mstring;
+    }
+    return NO;
 }
 
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {

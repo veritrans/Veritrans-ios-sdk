@@ -4,6 +4,17 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTCardListController">
             <connections>
@@ -26,24 +37,24 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="397"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBk-Up-o01">
-                            <rect key="frame" x="30" y="108" width="260" height="181"/>
+                            <rect key="frame" x="44" y="107" width="232" height="183"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Card Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vl-pC-whZ">
-                                    <rect key="frame" x="0.0" y="128" width="260" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="128" width="232" height="22"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" red="0.57647058819999997" green="0.58431372550000005" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="x8Y-tY-MY1">
-                                    <rect key="frame" x="0.0" y="149" width="260" height="32"/>
+                                    <rect key="frame" x="0.0" y="150" width="232" height="33"/>
                                     <string key="text">Save your time by add credit card that can 
 be used for every transactions.</string>
-                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                     <color key="textColor" red="0.57647058819999997" green="0.58431372550000005" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyCardIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oUC-TE-I6l">
-                                    <rect key="frame" x="45" y="0.0" width="169" height="120"/>
+                                    <rect key="frame" x="31" y="0.0" width="169" height="120"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -101,8 +112,8 @@ be used for every transactions.</string>
                             <rect key="frame" x="15" y="269" width="290" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay with new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJu-Uv-YlX">
-                                    <rect key="frame" x="0.0" y="10" width="139" height="17"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <rect key="frame" x="0.0" y="10" width="129" height="17"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
@@ -151,14 +162,14 @@ be used for every transactions.</string>
                     <rect key="frame" x="0.0" y="473" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQA-H8-m1F">
-                            <rect key="frame" x="15" y="14" width="81" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <rect key="frame" x="15" y="14" width="74" height="17"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-Kh-Feo">
-                            <rect key="frame" x="263" y="12" width="42" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <rect key="frame" x="265" y="12" width="40" height="22"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -199,17 +210,17 @@ be used for every transactions.</string>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzS-Jl-EY5">
-                    <rect key="frame" x="72" y="401" width="201" height="44"/>
+                    <rect key="frame" x="72" y="400" width="210" height="46"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-L2-p46" customClass="VTNoteTitleLabel">
-                            <rect key="frame" x="0.0" y="0.0" width="201" height="12"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                            <rect key="frame" x="0.0" y="0.0" width="210" height="13"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="10"/>
                             <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertrans securely manages your credit cards for all our merchants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="14m-CR-X1Q">
-                            <rect key="frame" x="0.0" y="12" width="201" height="32"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <rect key="frame" x="0.0" y="13" width="210" height="33"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>

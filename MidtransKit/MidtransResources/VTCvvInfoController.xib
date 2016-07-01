@@ -4,6 +4,12 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTCvvInfoController">
             <connections>
@@ -21,7 +27,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBJ-QW-fhI" customClass="VTButton">
-                    <rect key="frame" x="0.0" y="246" width="270" height="47"/>
+                    <rect key="frame" x="0.0" y="249" width="270" height="47"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="Wqm-H7-1ii"/>
                     </constraints>
@@ -45,14 +51,14 @@
                     </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is CVV?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quZ-lD-kP5">
-                    <rect key="frame" x="83" y="40" width="104" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <rect key="frame" x="90" y="39" width="90" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                     <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CVV is the 3 (or 4) digit security code printed on the back of your credit/debit card" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="5yn-n4-4j7">
-                    <rect key="frame" x="35" y="191" width="200" height="47"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <rect key="frame" x="36" y="191" width="198" height="50"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                     <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>

@@ -12,6 +12,7 @@
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
 #import "VTSingleGuideController.h"
+#import "VTThemeManager.h"
 
 @interface VTPaymentController ()
 @property (nonatomic) VTHudView *hudView;
@@ -40,12 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: UILocalizedString(@"Back", nil)
-                                                                             style:UIBarButtonItemStylePlain
-                                                                            target:nil
-                                                                            action:nil];
-    
+
     self.hudView = [[VTHudView alloc] init];
 }
 
@@ -63,13 +59,13 @@
 
 - (void)handleTransactionError:(NSError *)error {
     VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
-    [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
     VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-    VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
-    [self.navigationController pushViewController:vc animated:YES];
+    VTSuccessStatusController *vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
+    [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
 }
 
 - (void)showGuideViewController {

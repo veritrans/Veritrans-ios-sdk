@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 
-@interface VTConfirmPaymentController : UIViewController
+@interface VTConfirmPaymentController : VTViewController
 
 - (instancetype)initWithCardNumber:(NSString *)cardNumber grossAmount:(NSNumber *)grossAmount;
 - (void)showOnViewController:(UIViewController *)controller clickedButtonsCompletion:(void (^)(NSUInteger selectedIndex))completion;

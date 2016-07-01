@@ -35,7 +35,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    //set default font
+    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+    if (!fontNames) {
+        [[NSUserDefaults standardUserDefaults] setObject:[UIFont fontNamesForFamilyName:@"Changa"] forKey:@"custom_font"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+
     //set default theme color
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     if (!themeColorData) {
@@ -101,7 +108,28 @@
     if (customerDetails) {
         NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
         UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
-        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails themeColor:themeColor];
+        
+        NSString *fontNameBold;
+        NSString *fontNameRegular;
+        NSString *fontNameLight;
+        NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+        for (NSString *fontName in fontNames) {
+            if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                fontNameBold = fontName;
+            } else if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                fontNameRegular = fontName;
+            } else if ([fontName rangeOfString:@"-light" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+                fontNameLight = fontName;
+            }
+        }
+        
+        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+        
+        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails
+                                                                                   itemDetails:self.itemDetails
+                                                                            transactionDetails:transactionDetails
+                                                                                    themeColor:themeColor
+                                                                                    fontSource:fontSource];
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {

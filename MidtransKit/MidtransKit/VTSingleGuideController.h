@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTSingleGuideController : UIViewController
+@interface VTSingleGuideController : VTViewController
 - (instancetype)initWithPaymentMethodModel:(VTPaymentListModel *)model;
 @end

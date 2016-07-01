@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "VTViewController.h"
 
-@interface VTDetailedTitleController : UIViewController
+@interface VTDetailedTitleController : VTViewController
 @property (nonatomic) IBInspectable NSString *headerTitle;
 @property (nonatomic) IBInspectable NSString *headerDescription;
 @end

@@ -38,6 +38,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (void)commonInit {
+    
+    self.font = [[VTThemeManager shared].themeFont fontRegularWithSize:self.font.pointSize];
+    
     self.floatingLabelActiveTextColor = [[VTThemeManager shared] themeColor];
     
     _infoIconView = [UIImageView new];
@@ -55,7 +58,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     [self addSubview:_floatingLabel];
     
     // some basic default fonts/colors
-    self.floatingLabelFont = [[VTThemeManager shared] regularFontWithSize:12];
+    self.floatingLabelFont = [[VTThemeManager shared].themeFont fontRegularWithSize:12];
     _floatingLabel.font = self.floatingLabelFont;
     _floatingLabelTextColor = [UIColor grayColor];
     _floatingLabel.textColor = _floatingLabelTextColor;
@@ -64,7 +67,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     _floatingLabelHideAnimationDuration = kFloatingLabelHideAnimationDuration;
     [self setFloatingLabelText:self.placeholder];
     
-    _warningLabel.font = [[VTThemeManager shared] regularFontWithSize:10];
+    _warningLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:10];
     _warningLabel.textColor = [UIColor redColor];
     
     _adjustsClearButtonRect = YES;

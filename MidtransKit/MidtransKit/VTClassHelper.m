@@ -97,6 +97,10 @@
     
     newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
 
+    if (newString.length >= 20) {
+        return NO;
+    }
+    
     [self setText:newString];
     
     return NO;

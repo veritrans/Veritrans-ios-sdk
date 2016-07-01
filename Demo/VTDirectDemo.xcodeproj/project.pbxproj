@@ -20,9 +20,6 @@
 		E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */; };
 		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
 		E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB2131C8C83E20043A027 /* libMidtransKit.a */; };
-		E522A2A61D25086000788BBE /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E522A2A31D25086000788BBE /* TitilliumWeb-Bold.ttf */; };
-		E522A2A71D25086000788BBE /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E522A2A41D25086000788BBE /* TitilliumWeb-Light.ttf */; };
-		E522A2A81D25086000788BBE /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E522A2A51D25086000788BBE /* TitilliumWeb-Regular.ttf */; };
 		E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940721CFEC6C4000180D3 /* AVFoundation.framework */; };
 		E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940771CFEC6D4000180D3 /* Accelerate.framework */; };
 		E529407A1CFEC6DB000180D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940791CFEC6DB000180D3 /* AudioToolbox.framework */; };
@@ -34,6 +31,22 @@
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
 		E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
+		E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */; };
+		E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */; };
+		E5C25FBF1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F8E1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf */; };
+		E5C25FC21D25DE520012BCC8 /* Changa-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F921D25DE520012BCC8 /* Changa-Bold.ttf */; };
+		E5C25FC51D25DE520012BCC8 /* Changa-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F951D25DE520012BCC8 /* Changa-Light.ttf */; };
+		E5C25FC71D25DE520012BCC8 /* Changa-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F971D25DE520012BCC8 /* Changa-Regular.ttf */; };
+		E5C25FCC1D25DE520012BCC8 /* Lato-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F9D1D25DE520012BCC8 /* Lato-Bold.ttf */; };
+		E5C25FD11D25DE520012BCC8 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FA21D25DE520012BCC8 /* Lato-Light.ttf */; };
+		E5C25FD31D25DE520012BCC8 /* Lato-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FA41D25DE520012BCC8 /* Lato-Regular.ttf */; };
+		E5C25FD71D25DE520012BCC8 /* TitilliumWeb-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FA91D25DE520012BCC8 /* TitilliumWeb-Bold.ttf */; };
+		E5C25FDC1D25DE520012BCC8 /* TitilliumWeb-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FAE1D25DE520012BCC8 /* TitilliumWeb-Light.ttf */; };
+		E5C25FDE1D25DE520012BCC8 /* TitilliumWeb-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FB01D25DE520012BCC8 /* TitilliumWeb-Regular.ttf */; };
+		E5C25FE21D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FB51D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf */; };
+		E5C25FE41D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FB71D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf */; };
+		E5C25FE51D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FB81D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf */; };
+		E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
 		ED85FEDA87A535F97555511B /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */; };
@@ -114,9 +127,6 @@
 		E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
 		E5154AB91C980EAD001A69E2 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
 		E5154ABA1C980EAD001A69E2 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
-		E522A2A31D25086000788BBE /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
-		E522A2A41D25086000788BBE /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
-		E522A2A51D25086000788BBE /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
 		E52940721CFEC6C4000180D3 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		E52940771CFEC6D4000180D3 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		E52940791CFEC6DB000180D3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -129,6 +139,23 @@
 		E52940871CFEC70B000180D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransCoreKit.xcodeproj; path = ../../MidtransCoreKit/MidtransCoreKit.xcodeproj; sourceTree = "<group>"; };
 		E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
+		E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Bold.ttf"; sourceTree = "<group>"; };
+		E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Light.ttf"; sourceTree = "<group>"; };
+		E5C25F8E1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Regular.ttf"; sourceTree = "<group>"; };
+		E5C25F921D25DE520012BCC8 /* Changa-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Changa-Bold.ttf"; sourceTree = "<group>"; };
+		E5C25F951D25DE520012BCC8 /* Changa-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Changa-Light.ttf"; sourceTree = "<group>"; };
+		E5C25F971D25DE520012BCC8 /* Changa-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Changa-Regular.ttf"; sourceTree = "<group>"; };
+		E5C25F9D1D25DE520012BCC8 /* Lato-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Bold.ttf"; sourceTree = "<group>"; };
+		E5C25FA21D25DE520012BCC8 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
+		E5C25FA41D25DE520012BCC8 /* Lato-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Regular.ttf"; sourceTree = "<group>"; };
+		E5C25FA91D25DE520012BCC8 /* TitilliumWeb-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Bold.ttf"; sourceTree = "<group>"; };
+		E5C25FAE1D25DE520012BCC8 /* TitilliumWeb-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Light.ttf"; sourceTree = "<group>"; };
+		E5C25FB01D25DE520012BCC8 /* TitilliumWeb-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "TitilliumWeb-Regular.ttf"; sourceTree = "<group>"; };
+		E5C25FB51D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Bold.ttf"; sourceTree = "<group>"; };
+		E5C25FB71D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Light.ttf"; sourceTree = "<group>"; };
+		E5C25FB81D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
+		E5C25FE61D25FFC10012BCC8 /* FontListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontListViewController.h; sourceTree = "<group>"; };
+		E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
 		E5C32B321C8E789200C8EB92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		E5C32B331C8E789200C8EB92 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
 		E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTDirectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -204,17 +231,8 @@
 				E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */,
 				E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */,
 				302F71C11C73163C00FE73FE /* Supporting Files */,
-				302F71C41C73163C00FE73FE /* AppDelegate.h */,
-				302F71C51C73163C00FE73FE /* AppDelegate.m */,
-				302F71C71C73163C00FE73FE /* ViewController.h */,
-				302F71C81C73163C00FE73FE /* ViewController.m */,
-				302F71CA1C73163C00FE73FE /* Main.storyboard */,
-				30FDCC3F1C8002B400CEFED3 /* TableViewCell.h */,
-				30FDCC401C8002B400CEFED3 /* TableViewCell.m */,
-				E5154AB91C980EAD001A69E2 /* OptionViewController.h */,
-				E5154ABA1C980EAD001A69E2 /* OptionViewController.m */,
-				E50224981CE975D30010C0ED /* IHKeyboardAvoiding.h */,
-				E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */,
+				E5C25FE91D25FFCD0012BCC8 /* controllers */,
+				E5C25FEA1D25FFD50012BCC8 /* views */,
 			);
 			path = VTDirectDemo;
 			sourceTree = "<group>";
@@ -226,6 +244,8 @@
 				302F71CD1C73163C00FE73FE /* Assets.xcassets */,
 				302F71CF1C73163C00FE73FE /* LaunchScreen.storyboard */,
 				302F71D21C73163C00FE73FE /* Info.plist */,
+				302F71C41C73163C00FE73FE /* AppDelegate.h */,
+				302F71C51C73163C00FE73FE /* AppDelegate.m */,
 				302F71C21C73163C00FE73FE /* main.m */,
 			);
 			name = "Supporting Files";
@@ -263,9 +283,11 @@
 		E522A2A21D2500C300788BBE /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				E522A2A31D25086000788BBE /* TitilliumWeb-Bold.ttf */,
-				E522A2A41D25086000788BBE /* TitilliumWeb-Light.ttf */,
-				E522A2A51D25086000788BBE /* TitilliumWeb-Regular.ttf */,
+				E5C25F871D25DE520012BCC8 /* Arima_Madurai */,
+				E5C25F911D25DE520012BCC8 /* Changa */,
+				E5C25F9A1D25DE520012BCC8 /* Lato */,
+				E5C25FA61D25DE520012BCC8 /* Titillium_Web */,
+				E5C25FB31D25DE520012BCC8 /* Yanone_Kaffeesatz */,
 			);
 			name = Font;
 			sourceTree = "<group>";
@@ -285,6 +307,81 @@
 				E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		E5C25F871D25DE520012BCC8 /* Arima_Madurai */ = {
+			isa = PBXGroup;
+			children = (
+				E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */,
+				E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */,
+				E5C25F8E1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf */,
+			);
+			path = Arima_Madurai;
+			sourceTree = "<group>";
+		};
+		E5C25F911D25DE520012BCC8 /* Changa */ = {
+			isa = PBXGroup;
+			children = (
+				E5C25F921D25DE520012BCC8 /* Changa-Bold.ttf */,
+				E5C25F951D25DE520012BCC8 /* Changa-Light.ttf */,
+				E5C25F971D25DE520012BCC8 /* Changa-Regular.ttf */,
+			);
+			path = Changa;
+			sourceTree = "<group>";
+		};
+		E5C25F9A1D25DE520012BCC8 /* Lato */ = {
+			isa = PBXGroup;
+			children = (
+				E5C25F9D1D25DE520012BCC8 /* Lato-Bold.ttf */,
+				E5C25FA21D25DE520012BCC8 /* Lato-Light.ttf */,
+				E5C25FA41D25DE520012BCC8 /* Lato-Regular.ttf */,
+			);
+			path = Lato;
+			sourceTree = "<group>";
+		};
+		E5C25FA61D25DE520012BCC8 /* Titillium_Web */ = {
+			isa = PBXGroup;
+			children = (
+				E5C25FA91D25DE520012BCC8 /* TitilliumWeb-Bold.ttf */,
+				E5C25FAE1D25DE520012BCC8 /* TitilliumWeb-Light.ttf */,
+				E5C25FB01D25DE520012BCC8 /* TitilliumWeb-Regular.ttf */,
+			);
+			path = Titillium_Web;
+			sourceTree = "<group>";
+		};
+		E5C25FB31D25DE520012BCC8 /* Yanone_Kaffeesatz */ = {
+			isa = PBXGroup;
+			children = (
+				E5C25FB51D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf */,
+				E5C25FB71D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf */,
+				E5C25FB81D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf */,
+			);
+			path = Yanone_Kaffeesatz;
+			sourceTree = "<group>";
+		};
+		E5C25FE91D25FFCD0012BCC8 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				302F71C71C73163C00FE73FE /* ViewController.h */,
+				302F71C81C73163C00FE73FE /* ViewController.m */,
+				E5154AB91C980EAD001A69E2 /* OptionViewController.h */,
+				E5154ABA1C980EAD001A69E2 /* OptionViewController.m */,
+				E5C25FE61D25FFC10012BCC8 /* FontListViewController.h */,
+				E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		E5C25FEA1D25FFD50012BCC8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				302F71CA1C73163C00FE73FE /* Main.storyboard */,
+				30FDCC3F1C8002B400CEFED3 /* TableViewCell.h */,
+				30FDCC401C8002B400CEFED3 /* TableViewCell.m */,
+				E50224981CE975D30010C0ED /* IHKeyboardAvoiding.h */,
+				E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */,
+			);
+			name = views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -419,12 +516,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E522A2A71D25086000788BBE /* TitilliumWeb-Light.ttf in Resources */,
-				E522A2A81D25086000788BBE /* TitilliumWeb-Regular.ttf in Resources */,
-				E522A2A61D25086000788BBE /* TitilliumWeb-Bold.ttf in Resources */,
+				E5C25FE21D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf in Resources */,
+				E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */,
+				E5C25FD31D25DE520012BCC8 /* Lato-Regular.ttf in Resources */,
+				E5C25FD11D25DE520012BCC8 /* Lato-Light.ttf in Resources */,
+				E5C25FD71D25DE520012BCC8 /* TitilliumWeb-Bold.ttf in Resources */,
 				E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */,
+				E5C25FCC1D25DE520012BCC8 /* Lato-Bold.ttf in Resources */,
+				E5C25FDC1D25DE520012BCC8 /* TitilliumWeb-Light.ttf in Resources */,
+				E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
+				E5C25FE41D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf in Resources */,
+				E5C25FC71D25DE520012BCC8 /* Changa-Regular.ttf in Resources */,
+				E5C25FC21D25DE520012BCC8 /* Changa-Bold.ttf in Resources */,
 				302F71CE1C73163C00FE73FE /* Assets.xcassets in Resources */,
+				E5C25FE51D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf in Resources */,
+				E5C25FC51D25DE520012BCC8 /* Changa-Light.ttf in Resources */,
+				E5C25FDE1D25DE520012BCC8 /* TitilliumWeb-Regular.ttf in Resources */,
+				E5C25FBF1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf in Resources */,
 				302F71CC1C73163C00FE73FE /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -554,6 +663,7 @@
 			files = (
 				E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */,
 				E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */,
+				E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */,
 				302F71C91C73163C00FE73FE /* ViewController.m in Sources */,
 				30FDCC411C8002B400CEFED3 /* TableViewCell.m in Sources */,
 				302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */,

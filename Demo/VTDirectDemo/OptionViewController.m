@@ -8,6 +8,7 @@
 
 #import "OptionViewController.h"
 #import "IHKeyboardAvoiding.h"
+#import "FontListViewController.h"
 
 #import <MidtransKit/VTPaymentViewController.h>
 #import <MidtransKit/VTCardControllerConfig.h>
@@ -21,6 +22,7 @@
 @property (nonatomic) IBOutlet UISwitch *oneClickSwitch;
 @property (nonatomic) IBOutlet UISwitch *secureSwitch;
 @property (strong, nonatomic) IBOutlet UIButton *chooseColorButton;
+@property (strong, nonatomic) IBOutlet UIButton *chooseFontButton;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -54,6 +56,13 @@
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
     [self.chooseColorButton setBackgroundColor:themeColor];
+    
+    
+    self.chooseColorButton.layer.cornerRadius = 5;
+    self.chooseFontButton.layer.cornerRadius = 5;
+    self.chooseFontButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.chooseFontButton.layer.borderWidth = 1.0;
+    
     
     [_oneClickSwitch setOn:[[VTCardControllerConfig sharedInstance] enableOneClick]];
     [_secureSwitch setOn:[[VTCardControllerConfig sharedInstance] enable3DSecure]];
@@ -89,6 +98,20 @@
     return @"IDN";
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSString *fontNameBold;
+    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+    for (NSString *fontName in fontNames) {
+        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameBold = fontName;
+        }
+    }
+    self.chooseFontButton.titleLabel.font = [UIFont fontWithName:fontNameBold size:self.chooseFontButton.titleLabel.font.pointSize];
+    [self.chooseFontButton setTitle:fontNameBold forState:UIControlStateNormal];
+}
+
 - (IBAction)chooseColorPressed:(UIButton *)sender {
     FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPicker];
     colorPicker.color = sender.backgroundColor;
@@ -110,6 +133,11 @@
             [alert show];
         }
     }];
+}
+
+- (IBAction)chooseFontPressed:(UIButton *)sender {
+    FontListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FontListViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {

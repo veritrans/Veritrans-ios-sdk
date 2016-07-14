@@ -144,6 +144,7 @@
     
     [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
         if (error) {
+            
             [self hideLoadingHud];
             [self handleTransactionError:error];
         } else {

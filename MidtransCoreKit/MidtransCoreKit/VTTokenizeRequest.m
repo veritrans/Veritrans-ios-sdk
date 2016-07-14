@@ -36,9 +36,6 @@
         self.grossAmount = grossAmount;
         self.creditCardPaymentFeature = VTCreditCardPaymentFeatureNormal;
         self.secure = secure;
-        [[VTTrackingManager sharedInstance] trackAppGenerateToken:nil
-                                                   secureProtocol:YES
-                                               withPaymentFeature:VTCreditCardPaymentFeatureNormal paymentMethod:@"credit card" value:grossAmount];
     }
     return self;
 }
@@ -52,9 +49,6 @@
         self.cvv = cvv;
         self.secure = YES;
         self.creditCardPaymentFeature = VTCreditCardPaymentFeatureTwoClick;
-        [[VTTrackingManager sharedInstance] trackAppGenerateToken:token
-                                                   secureProtocol:YES
-                                               withPaymentFeature:VTCreditCardPaymentFeatureTwoClick paymentMethod:@"credit card" value:grossAmount];
     }
     return self;
 }

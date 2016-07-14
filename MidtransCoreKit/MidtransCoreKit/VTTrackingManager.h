@@ -9,9 +9,14 @@
 #import <Foundation/Foundation.h>
 @interface VTTrackingManager : NSObject
 + (VTTrackingManager *)sharedInstance;
-- (void)trackAppGenerateToken:(NSString *)token
-               secureProtocol:(BOOL)secure
-           withPaymentFeature:(NSInteger)paymentFeature
-                paymentMethod:(NSString *)paymentMethod
-                        value:(NSNumber *)value;
+- (void)trackAppSuccessGenerateToken:(NSString *)token
+                      secureProtocol:(BOOL)secure
+                  withPaymentFeature:(NSInteger)paymentFeature
+                       paymentMethod:(NSString *)paymentMethod
+                               value:(NSNumber *)value;
+- (void)trackAppFailGenerateToken:(NSString *)token
+                   secureProtocol:(BOOL)secure
+               withPaymentFeature:(NSInteger)paymentFeature
+                    paymentMethod:(NSString *)paymentMethod
+                            value:(NSNumber *)value;
 @end

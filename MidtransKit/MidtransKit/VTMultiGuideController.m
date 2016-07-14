@@ -64,13 +64,11 @@
 
 #pragma mark - MBXPageViewController Data Source
 
-- (NSArray *)MBXPageButtons
-{
+- (NSArray *)MBXPageButtons {
     return @[self.segmentController];
 }
 
-- (UIView *)MBXPageContainer
-{
+- (UIView *)MBXPageContainer {
     return self.containerView;
 }
 
@@ -80,8 +78,7 @@
 
 #pragma mark - MBXPageViewController Delegate
 
-- (void)MBXPageChangedToIndex:(NSInteger)index
-{
+- (void)MBXPageChangedToIndex:(NSInteger)index {
     
 }
 

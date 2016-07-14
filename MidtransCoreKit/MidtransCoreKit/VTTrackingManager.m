@@ -48,10 +48,7 @@
                                value:(NSNumber *)value {
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    [parameters setObject:paymentMethod forKey:VT_TRACKING_PAYMENT_METHOD];
-    [parameters setObject:value?value:0 forKey:VT_TRACKING_PAYMENT_AMOUNT];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
-    [parameters setObject:token?token:@"-" forKey:VT_TRACKING_CC_TOKEN];
     parameters  = [parameters addDefaultParameter];
     NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_SUCCESS,
                             @"properties":parameters};
@@ -65,12 +62,9 @@
                             value:(NSNumber *)value {
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    [parameters setObject:paymentMethod forKey:VT_TRACKING_PAYMENT_METHOD];
-    [parameters setObject:value?value:0 forKey:VT_TRACKING_PAYMENT_AMOUNT];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
-    [parameters setObject:token?token:@"-" forKey:VT_TRACKING_CC_TOKEN];
     parameters  = [parameters addDefaultParameter];
-    NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_SUCCESS,
+    NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_ERROR,
                             @"properties":parameters};
     
     [self sendTrackingData:event];

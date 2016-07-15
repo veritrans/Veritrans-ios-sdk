@@ -40,7 +40,20 @@
     });
     return sharedInstance;
 }
-
+- (void)trackTransaction:(BOOL)isSuccess
+          secureProtocol:(BOOL)secure
+      withPaymentFeature:(NSInteger)paymentFeature
+           paymentMethod:(NSString *)paymentMethod
+                   value:(NSNumber *)value {
+    NSString *secureProtocol = secure ? @"true" : @"false";
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
+    parameters  = [parameters addDefaultParameter];
+    NSDictionary *event = @{@"event":isSuccess?VT_TRACKING_APP_TRANSACTION_SUCCESS:VT_TRACKING_APP_TRANSACTION_ERROR,
+                            @"properties":parameters};
+    
+    [self sendTrackingData:event];
+}
 - (void)trackAppSuccessGenerateToken:(NSString *)token
                       secureProtocol:(BOOL)secure
                   withPaymentFeature:(NSInteger)paymentFeature

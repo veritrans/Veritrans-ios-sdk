@@ -23,10 +23,10 @@
                     paymentMethod:(NSString *)paymentMethod
                             value:(NSNumber *)value;
 
-- (void)trackTrasactionSuccess:(BOOL)isSuccess
-                secureProtocol:(BOOL)secure
-            withPaymentFeature:(NSInteger)paymentFeature
-                 paymentMethod:(NSString *)paymentMethod
-                         value:(NSNumber *)value;
+- (void)trackTransaction:(BOOL)isSuccess
+          secureProtocol:(BOOL)secure
+      withPaymentFeature:(NSInteger)paymentFeature
+           paymentMethod:(NSString *)paymentMethod
+                   value:(NSNumber *)value;
 
 @end

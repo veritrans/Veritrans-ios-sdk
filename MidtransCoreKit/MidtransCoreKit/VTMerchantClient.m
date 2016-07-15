@@ -10,6 +10,7 @@
 #import "VTConfig.h"
 #import "VTNetworking.h"
 #import "VTHelper.h"
+#import "VTTrackingManager.h"
 #import "VTPaymentWebController.h"
 
 @implementation VTMerchantClient
@@ -33,25 +34,24 @@
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
     
     [[VTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
-        
+        NSString *paymentType = response[@"payment_type"];
         if (response) {
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
-            NSString *paymentType = response[@"payment_type"];
-            
             if ([self isWebPaymentType:paymentType]) {
-                
                 NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
                 VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithRedirectURL:redirectURL paymentType:paymentType];
                 [vc showPageWithCallback:^(NSError * _Nullable error) {
                     if (error) {
+                        [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
                         if (completion) completion(nil, error);
                     } else {
+                        [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
                         if (completion) completion(chargeResult, nil);
                     }
                 }];
                 
             } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
-                
+                [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:VT_PAYMENT_CREDIT_CARD value:0];
                 //transaction finished here
                 if (completion) completion(chargeResult, error);
                 
@@ -64,9 +64,11 @@
                 }
                 
             } else {
+                [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
                 if (completion) completion(chargeResult, error);
             }
         } else {
+            [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
             if (completion) completion(nil, error);
         }
     }];

@@ -41,7 +41,6 @@
 #import "VTPaymentListModel.h"
 #import "VirtualAccountModel.h"
 #import "VTTrackingManager.h"
-
 #import "NSString+VTValidation.h"
 
 #endif /* MidtransCoreKit_h */

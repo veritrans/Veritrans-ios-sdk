@@ -21,7 +21,10 @@
 
 @implementation VTPaymentController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod; {
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray <VTItemDetail*>*)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                      paymentMethodName:(VTPaymentListModel *)paymentMethod; {
     
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
@@ -41,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.hudView = [[VTHudView alloc] init];
 }
 

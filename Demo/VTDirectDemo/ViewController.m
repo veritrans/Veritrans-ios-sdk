@@ -35,14 +35,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     //set default font
     NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
     if (!fontNames) {
         [[NSUserDefaults standardUserDefaults] setObject:[UIFont fontNamesForFamilyName:@"Changa"] forKey:@"custom_font"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
-
+    
     //set default theme color
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     if (!themeColorData) {

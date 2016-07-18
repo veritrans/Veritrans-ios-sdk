@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VTTransaction.h"
+#import "VTTransactionDetails.h"
 #import "VTTransactionResult.h"
 #import "VTMaskedCreditCard.h"
 #import "VTTransactionResult.h"
@@ -49,9 +50,15 @@
  Fetch saved partial information about credit cards from Merchant Server.
  */
 - (void)fetchMaskedCardsWithCompletion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
-
 - (void)fetchMerchantAuthDataWithCompletion:(void(^_Nullable)(id _Nullable response, NSError *_Nullable error))completion;
-
 - (void)deleteMaskedCard:(VTMaskedCreditCard *_Nonnull)maskedCard completion:(void(^_Nullable)(BOOL success, NSError *_Nullable error))completion;
 
+/*
+ * updated method, snapping
+ */
+- (void)generateSnapTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails;
+- (void)generateSnapTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                    itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                customerDetails:(nullable VTCustomerDetails *)customerDetails
+                        customerCreditCardToken:(nullable NSString *)creditCardToken;
 @end

@@ -409,7 +409,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F71D51C73163C00FE73FE /* Build configuration list for PBXNativeTarget "VTDirectDemo" */;
 			buildPhases = (
-				E9FA244A27BCADA6547F7E20 /* 📦 Check Pods Manifest.lock */,
+				E9FA244A27BCADA6547F7E20 /* [CP] Check Pods Manifest.lock */,
 				7115CC24ABEFDD8D2D4136B1 /* [CP] Check Pods Manifest.lock */,
 				302F71BA1C73163C00FE73FE /* Sources */,
 				302F71BB1C73163C00FE73FE /* Frameworks */,
@@ -629,14 +629,14 @@
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
 		};
-		E9FA244A27BCADA6547F7E20 /* 📦 Check Pods Manifest.lock */ = {
+		E9FA244A27BCADA6547F7E20 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

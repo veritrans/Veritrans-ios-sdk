@@ -40,25 +40,48 @@
     });
     return sharedInstance;
 }
-
-- (void)trackAppGenerateToken:(NSString *)token
-               secureProtocol:(BOOL)secure
-           withPaymentFeature:(NSInteger)paymentFeature
-                paymentMethod:(NSString *)paymentMethod
-                        value:(NSNumber *)value {
+- (void)trackTransaction:(BOOL)isSuccess
+          secureProtocol:(BOOL)secure
+      withPaymentFeature:(NSInteger)paymentFeature
+           paymentMethod:(NSString *)paymentMethod
+                   value:(NSNumber *)value {
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    [parameters setObject:paymentMethod forKey:VT_TRACKING_PAYMENT_METHOD];
-    [parameters setObject:value?value:0 forKey:VT_TRACKING_PAYMENT_AMOUNT];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
-    [parameters setObject:token?token:@"-" forKey:VT_TRACKING_CC_TOKEN];
     parameters  = [parameters addDefaultParameter];
-    NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER,
+    NSDictionary *event = @{@"event":isSuccess?VT_TRACKING_APP_TRANSACTION_SUCCESS:VT_TRACKING_APP_TRANSACTION_ERROR,
                             @"properties":parameters};
     
     [self sendTrackingData:event];
 }
-
+- (void)trackAppSuccessGenerateToken:(NSString *)token
+                      secureProtocol:(BOOL)secure
+                  withPaymentFeature:(NSInteger)paymentFeature
+                       paymentMethod:(NSString *)paymentMethod
+                               value:(NSNumber *)value {
+    NSString *secureProtocol = secure ? @"true" : @"false";
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
+    parameters  = [parameters addDefaultParameter];
+    NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_SUCCESS,
+                            @"properties":parameters};
+    
+    [self sendTrackingData:event];
+}
+- (void)trackAppFailGenerateToken:(NSString *)token
+                   secureProtocol:(BOOL)secure
+               withPaymentFeature:(NSInteger)paymentFeature
+                    paymentMethod:(NSString *)paymentMethod
+                            value:(NSNumber *)value {
+    NSString *secureProtocol = secure ? @"true" : @"false";
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
+    parameters  = [parameters addDefaultParameter];
+    NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_ERROR,
+                            @"properties":parameters};
+    
+    [self sendTrackingData:event];
+}
 - (void)sendTrackingData:(NSDictionary *)dictionary {
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
     NSString *base64String = [decoded base64EncodedStringWithOptions:0];

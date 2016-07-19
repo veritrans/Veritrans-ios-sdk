@@ -24,6 +24,25 @@
 /* Begin PBXBuildFile section */
 		002CC9981D125604003A1203 /* VTPaymentKlikBCA.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9961D125604003A1203 /* VTPaymentKlikBCA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		002CC9AA1D127618003A1203 /* VTPaymentKlikBCA.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9971D125604003A1203 /* VTPaymentKlikBCA.m */; };
+		006DB7B91D3DE294001C9A71 /* SnapTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB7B71D3DE294001C9A71 /* SnapTokenResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB7BA1D3DE294001C9A71 /* SnapTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB7B81D3DE294001C9A71 /* SnapTokenResponse.m */; };
+		006DB8131D3E1050001C9A71 /* PaymentRequestBankTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8021D3E1050001C9A71 /* PaymentRequestBankTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB8141D3E1050001C9A71 /* PaymentRequestBankTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB8031D3E1050001C9A71 /* PaymentRequestBankTransfer.m */; };
+		006DB8151D3E1050001C9A71 /* PaymentRequestCustomerDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8041D3E1050001C9A71 /* PaymentRequestCustomerDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB8161D3E1050001C9A71 /* PaymentRequestCustomerDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB8051D3E1050001C9A71 /* PaymentRequestCustomerDetails.m */; };
+		006DB8171D3E1050001C9A71 /* PaymentRequestDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8061D3E1050001C9A71 /* PaymentRequestDataModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB8181D3E1050001C9A71 /* PaymentRequestItemDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8071D3E1050001C9A71 /* PaymentRequestItemDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB8191D3E1050001C9A71 /* PaymentRequestItemDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB8081D3E1050001C9A71 /* PaymentRequestItemDetails.m */; };
+		006DB81A1D3E1050001C9A71 /* PaymentRequestMerchantData.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8091D3E1050001C9A71 /* PaymentRequestMerchantData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB81B1D3E1050001C9A71 /* PaymentRequestMerchantData.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB80A1D3E1050001C9A71 /* PaymentRequestMerchantData.m */; };
+		006DB81C1D3E1050001C9A71 /* PaymentRequestPaymentOptions.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB80B1D3E1050001C9A71 /* PaymentRequestPaymentOptions.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB81D1D3E1050001C9A71 /* PaymentRequestPaymentOptions.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB80C1D3E1050001C9A71 /* PaymentRequestPaymentOptions.m */; };
+		006DB81E1D3E1050001C9A71 /* PaymentRequestResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB80D1D3E1050001C9A71 /* PaymentRequestResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB81F1D3E1050001C9A71 /* PaymentRequestResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB80E1D3E1050001C9A71 /* PaymentRequestResponse.m */; };
+		006DB8201D3E1050001C9A71 /* PaymentRequestTransactionData.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB80F1D3E1050001C9A71 /* PaymentRequestTransactionData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB8211D3E1050001C9A71 /* PaymentRequestTransactionData.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB8101D3E1050001C9A71 /* PaymentRequestTransactionData.m */; };
+		006DB8221D3E1050001C9A71 /* PaymentRequestTransactionDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8111D3E1050001C9A71 /* PaymentRequestTransactionDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB8231D3E1050001C9A71 /* PaymentRequestTransactionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB8121D3E1050001C9A71 /* PaymentRequestTransactionDetails.m */; };
 		0089B5F91D13D5D6009C0059 /* NSString+VTValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0089B5F71D13D5D6009C0059 /* NSString+VTValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0089B5FA1D13D5D6009C0059 /* NSString+VTValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0089B5F81D13D5D6009C0059 /* NSString+VTValidation.m */; };
 		00C95DB71D196589001EC6B7 /* VirtualAccountDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C95DB41D196589001EC6B7 /* VirtualAccountDataModels.h */; };
@@ -112,6 +131,25 @@
 /* Begin PBXFileReference section */
 		002CC9961D125604003A1203 /* VTPaymentKlikBCA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentKlikBCA.h; sourceTree = "<group>"; };
 		002CC9971D125604003A1203 /* VTPaymentKlikBCA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentKlikBCA.m; sourceTree = "<group>"; };
+		006DB7B71D3DE294001C9A71 /* SnapTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapTokenResponse.h; sourceTree = "<group>"; };
+		006DB7B81D3DE294001C9A71 /* SnapTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapTokenResponse.m; sourceTree = "<group>"; };
+		006DB8021D3E1050001C9A71 /* PaymentRequestBankTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestBankTransfer.h; sourceTree = "<group>"; };
+		006DB8031D3E1050001C9A71 /* PaymentRequestBankTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestBankTransfer.m; sourceTree = "<group>"; };
+		006DB8041D3E1050001C9A71 /* PaymentRequestCustomerDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestCustomerDetails.h; sourceTree = "<group>"; };
+		006DB8051D3E1050001C9A71 /* PaymentRequestCustomerDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestCustomerDetails.m; sourceTree = "<group>"; };
+		006DB8061D3E1050001C9A71 /* PaymentRequestDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestDataModels.h; sourceTree = "<group>"; };
+		006DB8071D3E1050001C9A71 /* PaymentRequestItemDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestItemDetails.h; sourceTree = "<group>"; };
+		006DB8081D3E1050001C9A71 /* PaymentRequestItemDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestItemDetails.m; sourceTree = "<group>"; };
+		006DB8091D3E1050001C9A71 /* PaymentRequestMerchantData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestMerchantData.h; sourceTree = "<group>"; };
+		006DB80A1D3E1050001C9A71 /* PaymentRequestMerchantData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestMerchantData.m; sourceTree = "<group>"; };
+		006DB80B1D3E1050001C9A71 /* PaymentRequestPaymentOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestPaymentOptions.h; sourceTree = "<group>"; };
+		006DB80C1D3E1050001C9A71 /* PaymentRequestPaymentOptions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestPaymentOptions.m; sourceTree = "<group>"; };
+		006DB80D1D3E1050001C9A71 /* PaymentRequestResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestResponse.h; sourceTree = "<group>"; };
+		006DB80E1D3E1050001C9A71 /* PaymentRequestResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestResponse.m; sourceTree = "<group>"; };
+		006DB80F1D3E1050001C9A71 /* PaymentRequestTransactionData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestTransactionData.h; sourceTree = "<group>"; };
+		006DB8101D3E1050001C9A71 /* PaymentRequestTransactionData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestTransactionData.m; sourceTree = "<group>"; };
+		006DB8111D3E1050001C9A71 /* PaymentRequestTransactionDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestTransactionDetails.h; sourceTree = "<group>"; };
+		006DB8121D3E1050001C9A71 /* PaymentRequestTransactionDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestTransactionDetails.m; sourceTree = "<group>"; };
 		0089B5F71D13D5D6009C0059 /* NSString+VTValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+VTValidation.h"; sourceTree = "<group>"; };
 		0089B5F81D13D5D6009C0059 /* NSString+VTValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+VTValidation.m"; sourceTree = "<group>"; };
 		00C95DB41D196589001EC6B7 /* VirtualAccountDataModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VirtualAccountDataModels.h; sourceTree = "<group>"; };
@@ -200,6 +238,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		006DB7B51D3DE279001C9A71 /* Snap */ = {
+			isa = PBXGroup;
+			children = (
+				006DB8011D3E1050001C9A71 /* PaymentRequest */,
+				006DB7B61D3DE27D001C9A71 /* Token Request */,
+			);
+			name = Snap;
+			sourceTree = "<group>";
+		};
+		006DB7B61D3DE27D001C9A71 /* Token Request */ = {
+			isa = PBXGroup;
+			children = (
+				006DB7B71D3DE294001C9A71 /* SnapTokenResponse.h */,
+				006DB7B81D3DE294001C9A71 /* SnapTokenResponse.m */,
+			);
+			name = "Token Request";
+			sourceTree = "<group>";
+		};
+		006DB8011D3E1050001C9A71 /* PaymentRequest */ = {
+			isa = PBXGroup;
+			children = (
+				006DB8021D3E1050001C9A71 /* PaymentRequestBankTransfer.h */,
+				006DB8031D3E1050001C9A71 /* PaymentRequestBankTransfer.m */,
+				006DB8041D3E1050001C9A71 /* PaymentRequestCustomerDetails.h */,
+				006DB8051D3E1050001C9A71 /* PaymentRequestCustomerDetails.m */,
+				006DB8061D3E1050001C9A71 /* PaymentRequestDataModels.h */,
+				006DB8071D3E1050001C9A71 /* PaymentRequestItemDetails.h */,
+				006DB8081D3E1050001C9A71 /* PaymentRequestItemDetails.m */,
+				006DB8091D3E1050001C9A71 /* PaymentRequestMerchantData.h */,
+				006DB80A1D3E1050001C9A71 /* PaymentRequestMerchantData.m */,
+				006DB80B1D3E1050001C9A71 /* PaymentRequestPaymentOptions.h */,
+				006DB80C1D3E1050001C9A71 /* PaymentRequestPaymentOptions.m */,
+				006DB80D1D3E1050001C9A71 /* PaymentRequestResponse.h */,
+				006DB80E1D3E1050001C9A71 /* PaymentRequestResponse.m */,
+				006DB80F1D3E1050001C9A71 /* PaymentRequestTransactionData.h */,
+				006DB8101D3E1050001C9A71 /* PaymentRequestTransactionData.m */,
+				006DB8111D3E1050001C9A71 /* PaymentRequestTransactionDetails.h */,
+				006DB8121D3E1050001C9A71 /* PaymentRequestTransactionDetails.m */,
+			);
+			path = PaymentRequest;
+			sourceTree = "<group>";
+		};
 		0089B5F61D13D5B7009C0059 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -295,6 +375,7 @@
 		3014E0C31C7AD6F9003EB203 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				006DB7B51D3DE279001C9A71 /* Snap */,
 				00C95DB31D196589001EC6B7 /* VA */,
 				00F61B0A1D145D0E00C93DA0 /* PaymentList */,
 				E5E4360D1CE31B3600F688ED /* VTItemDetail.h */,
@@ -383,20 +464,27 @@
 				E5E4361F1CE31D1200F688ED /* VTTransactionResult.h in Headers */,
 				E5E4360F1CE31B3600F688ED /* VTItemDetail.h in Headers */,
 				00F61B0F1D145D0E00C93DA0 /* VTPaymentListModel.h in Headers */,
+				006DB8181D3E1050001C9A71 /* PaymentRequestItemDetails.h in Headers */,
+				006DB8171D3E1050001C9A71 /* PaymentRequestDataModels.h in Headers */,
 				E5E436071CE31ACE00F688ED /* VTTransaction.h in Headers */,
+				006DB8221D3E1050001C9A71 /* PaymentRequestTransactionDetails.h in Headers */,
 				00C95DB81D196589001EC6B7 /* VirtualAccountModel.h in Headers */,
+				006DB81A1D3E1050001C9A71 /* PaymentRequestMerchantData.h in Headers */,
 				E5E436091CE31ACE00F688ED /* VTTransactionDetails.h in Headers */,
 				E5E436271CE31DA100F688ED /* VTConfig.h in Headers */,
 				E50D85E71D0ECB7000F26D2E /* VTPaymentBCAKlikpay.h in Headers */,
 				E5E4361B1CE31CD800F688ED /* VTTokenizeRequest.h in Headers */,
 				E5E4362A1CE31DB700F688ED /* VTEnvironment.h in Headers */,
+				006DB8131D3E1050001C9A71 /* PaymentRequestBankTransfer.h in Headers */,
 				305494571C75A08900938C17 /* VTAddress.h in Headers */,
 				E5E436171CE31C9C00F688ED /* VTClient.h in Headers */,
 				E5E4360C1CE31AED00F688ED /* VTPaymentDetails.h in Headers */,
 				E5E4362D1CE31DED00F688ED /* VTPaymentCreditCard.h in Headers */,
 				E5E436371CE31E6500F688ED /* VTMaskedCreditCard.h in Headers */,
+				006DB81C1D3E1050001C9A71 /* PaymentRequestPaymentOptions.h in Headers */,
 				E53BD0181D124AB7001FADDE /* VTPaymentWebController.h in Headers */,
 				3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */,
+				006DB8151D3E1050001C9A71 /* PaymentRequestCustomerDetails.h in Headers */,
 				E55DB9461C912ED300813B81 /* VTPaymentBankTransfer.h in Headers */,
 				E5E436231CE31D2D00F688ED /* VTCreditCardHelper.h in Headers */,
 				E5E436301CE31E0100F688ED /* VTCreditCardPaymentFeature.h in Headers */,
@@ -414,11 +502,14 @@
 				E53BD03D1D14322B001FADDE /* VTPaymentEpayBRI.h in Headers */,
 				00EA7E681D12D10D00A6CA53 /* VTPaymentMandiriClickpay.h in Headers */,
 				00C95DB71D196589001EC6B7 /* VirtualAccountDataModels.h in Headers */,
+				006DB8201D3E1050001C9A71 /* PaymentRequestTransactionData.h in Headers */,
+				006DB81E1D3E1050001C9A71 /* PaymentRequestResponse.h in Headers */,
 				00F61B0E1D145D0E00C93DA0 /* VTPaymentListDataModel.h in Headers */,
 				30D9ABFC1C76FD1D00F858AE /* VTNetworkOperation.h in Headers */,
 				E525E1211CFD402D009448A5 /* VTPrivateConfig.h in Headers */,
 				E5DACA921D034E7000F5BE0A /* VTLuhn.h in Headers */,
 				E55DB9421C912ED300813B81 /* VTCustomerDetails.h in Headers */,
+				006DB7B91D3DE294001C9A71 /* SnapTokenResponse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +605,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				006DB8191D3E1050001C9A71 /* PaymentRequestItemDetails.m in Sources */,
+				006DB8231D3E1050001C9A71 /* PaymentRequestTransactionDetails.m in Sources */,
 				2EDAA3A41D0A7601009EC90D /* VTTrackingManager.m in Sources */,
 				00C95DB91D196589001EC6B7 /* VirtualAccountModel.m in Sources */,
 				E53BD03E1D14322B001FADDE /* VTPaymentEpayBRI.m in Sources */,
@@ -521,20 +614,25 @@
 				E5E436101CE31B3600F688ED /* VTItemDetail.m in Sources */,
 				0089B5FA1D13D5D6009C0059 /* NSString+VTValidation.m in Sources */,
 				E5E436181CE31C9C00F688ED /* VTClient.m in Sources */,
+				006DB7BA1D3DE294001C9A71 /* SnapTokenResponse.m in Sources */,
 				30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */,
 				00EA7E691D12D10D00A6CA53 /* VTPaymentMandiriClickpay.m in Sources */,
 				E5E436381CE31E6500F688ED /* VTMaskedCreditCard.m in Sources */,
+				006DB8141D3E1050001C9A71 /* PaymentRequestBankTransfer.m in Sources */,
+				006DB8211D3E1050001C9A71 /* PaymentRequestTransactionData.m in Sources */,
 				E5E4362E1CE31DED00F688ED /* VTPaymentCreditCard.m in Sources */,
 				E525E1221CFD402D009448A5 /* VTPrivateConfig.m in Sources */,
 				E5E436161CE31C9C00F688ED /* VTMerchantClient.m in Sources */,
 				E5504E0D1D0E58BE00137655 /* VTPaymentCIMBClicks.m in Sources */,
 				E5E4360A1CE31ACE00F688ED /* VTTransactionDetails.m in Sources */,
+				006DB81D1D3E1050001C9A71 /* PaymentRequestPaymentOptions.m in Sources */,
 				E5DACA931D034E7000F5BE0A /* VTLuhn.m in Sources */,
 				305494581C75A08900938C17 /* VTAddress.m in Sources */,
 				002CC9AA1D127618003A1203 /* VTPaymentKlikBCA.m in Sources */,
 				E5E436281CE31DA100F688ED /* VTConfig.m in Sources */,
 				E5E436341CE31E4200F688ED /* VTCreditCard.m in Sources */,
 				E55DB9431C912ED300813B81 /* VTCustomerDetails.m in Sources */,
+				006DB81F1D3E1050001C9A71 /* PaymentRequestResponse.m in Sources */,
 				E53BD0191D124AB7001FADDE /* VTPaymentWebController.m in Sources */,
 				E50D85E81D0ECB7000F26D2E /* VTPaymentBCAKlikpay.m in Sources */,
 				E5E4361C1CE31CD800F688ED /* VTTokenizeRequest.m in Sources */,
@@ -548,6 +646,8 @@
 				3054945E1C75A08900938C17 /* VTNetworking.m in Sources */,
 				E5E436081CE31ACE00F688ED /* VTTransaction.m in Sources */,
 				E5E4363C1CE31E8D00F688ED /* VT3DSController.m in Sources */,
+				006DB8161D3E1050001C9A71 /* PaymentRequestCustomerDetails.m in Sources */,
+				006DB81B1D3E1050001C9A71 /* PaymentRequestMerchantData.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

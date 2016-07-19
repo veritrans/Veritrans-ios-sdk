@@ -44,7 +44,7 @@
  Note that each key and value pair must be an NSString* instances.
  */
 @property (nonatomic) NSDictionary *merchantClientData;
-
+@property (nonatomic) NSDictionary *merchantDefaultHeader;
 
 + (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment;
 

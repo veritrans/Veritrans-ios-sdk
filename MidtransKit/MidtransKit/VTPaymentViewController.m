@@ -7,12 +7,11 @@
 //
 
 #import <CoreText/CoreText.h>
-
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTPaymentViewController.h"
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
 #import "VTThemeManager.h"
-
 @interface VTPaymentViewController ()
 @end
 
@@ -40,6 +39,7 @@
                              fontSource:(VTFontSource *)fontSource
 {
     [VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
+    
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
                                                                                itemDetails:itemDetails
                                                                         transactionDetails:transactionDetails
@@ -50,21 +50,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.navigationBar.translucent = false;
-    
     self.navigationBar.tintColor = [[VTThemeManager shared] themeColor];
-    
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTThemeManager shared].themeFont fontRegularWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
     self.navigationBar.barTintColor = [UIColor whiteColor];
-    
-    //register payment observer
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
 }
 
 - (void)dealloc {
-    //remove all observers
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
@@ -87,11 +81,4 @@
 - (BOOL)shouldAutorotate {
     return NO;
 }
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-}
-
 @end

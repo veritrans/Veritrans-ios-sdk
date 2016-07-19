@@ -28,11 +28,11 @@
     
 #ifdef RELEASE
     [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-         merchantServerURL:@"https://vt-merchant.coralshop.top/api-prod"
+         merchantServerURL:@"https://demo.veritrans.co.id"
          serverEnvironment:VTServerEnvironmentProduction];
 #else
     [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
-         merchantServerURL:@"https://vt-merchant.coralshop.top/api"
+         merchantServerURL:@"https://demo.veritrans.co.id"
          serverEnvironment:VTServerEnvironmentSandbox];
 #endif
     

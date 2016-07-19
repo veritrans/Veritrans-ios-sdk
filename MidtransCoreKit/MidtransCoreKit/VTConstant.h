@@ -87,7 +87,9 @@ static NSString * const VT_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your Veritr
 
 static NSString *const VT_SANDBOX_API_URL = @"https://api.sandbox.veritrans.co.id/v2";
 static NSString *const VT_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
+static NSString *const VT_SANDBOX_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1/payment_pages/";
 static NSString *const VT_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
+static NSString *const VT_PROD_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1/payment_pages/";
 static NSString *const VT_PRODUCTION_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
 
 static NSString *const VT_TRACKING_CC_TOKEN = @"token";
@@ -101,6 +103,10 @@ static NSString *const VT_TRACKING_APP_TOKENIZER_ERROR = @"Tokenize Failed";
 
 static NSString *const VT_TRACKING_APP_TRANSACTION_SUCCESS = @"Transaction Success";
 static NSString *const VT_TRACKING_APP_TRANSACTION_ERROR = @"Transaction Failed";
+
+
+static NSString *const VT_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
+static NSString *const VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

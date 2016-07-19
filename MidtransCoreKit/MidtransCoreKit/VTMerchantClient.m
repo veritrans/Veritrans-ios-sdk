@@ -9,10 +9,13 @@
 #import "VTMerchantClient.h"
 #import "VTConfig.h"
 #import "VTNetworking.h"
+#import "VTPrivateConfig.h"
 #import "VTHelper.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTTrackingManager.h"
 #import "VTPaymentWebController.h"
-
+#import "SnapTokenResponse.h"
+#import "PaymentRequestDataModels.h"
 @implementation VTMerchantClient
 
 + (id)sharedClient {
@@ -122,4 +125,46 @@
     [paymentType isEqualToString:VT_PAYMENT_BRI_EPAY];
 }
 
+- (void)generateSnapTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                    itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                customerDetails:(nullable VTCustomerDetails *)customerDetails
+                        customerCreditCardToken:(nullable NSString *)creditCardToken
+                                     completion:(void (^_Nullable)(SnapTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+    NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
+    [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
+    
+    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL],VT_CORE_SNAP_MERCHANT_SERVER_CHARGE]
+                                      header:nil
+                                  parameters:dictionaryParameters
+                                    callback:^(id response, NSError *error) {
+                                        if (!error) {
+                                            SnapTokenResponse *token = [[SnapTokenResponse alloc] initWithDictionary:(NSDictionary *) response];
+                                            if (completion) {
+                                                completion(token,NULL);
+                                            }
+                                        }
+                                        else{
+                                            if (completion) {
+                                                completion(NULL,error);
+                                            }
+                                        }
+                                    }];
+}
+- (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
+                         completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
+    
+    [[VTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@",[PRIVATECONFIG snapURL],token] parameters:nil callback:^(id response, NSError *error) {
+        if (!error) {
+            PaymentRequestResponse *paymentRequest = [[PaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
+            if (completion) {
+                completion(paymentRequest,NULL);
+            }
+        }
+        else{
+            if (completion) {
+                completion(NULL,error);
+            }
+        }
+    }];
+}
 @end

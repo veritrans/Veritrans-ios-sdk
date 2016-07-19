@@ -37,15 +37,29 @@
     [super viewDidLoad];
     
     self.title =  UILocalizedString(@"payment.list.title", nil);
-    
+    self.view.tableView.tableFooterView  = [UIView new];
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [[VTMerchantClient sharedClient] generateSnapTokenWithTransactionDetails:self.transactionDetails
+                                                                     itemDetails:self.itemDetails
+                                                                 customerDetails:self.customerDetails
+                                                         customerCreditCardToken:nil
+                                                                      completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
+                                                                          if (!error) {
+                                                                              [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
+                                                                                  NSLog(@"response->%@",response);
+                                                                              }];
+                                                                          }
+                                                                      }];
+    });
+    
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
-    
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     self.paymentMethodList = [NSMutableArray new];

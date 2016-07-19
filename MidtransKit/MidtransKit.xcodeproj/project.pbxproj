@@ -29,7 +29,7 @@
 		002CC9B91D12A442003A1203 /* VTStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* VTStringHelper.m */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
-		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; };
+		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00F61AEF1D145A6200C93DA0 /* VTPaymentListDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AED1D145A6200C93DA0 /* VTPaymentListDataSource.m */; };
 		00F61AFF1D145B4600C93DA0 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF31D145B4600C93DA0 /* SourceSansPro-Bold.ttf */; };
 		00F61B041D145B4600C93DA0 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 00F61AF81D145B4600C93DA0 /* SourceSansPro-Light.ttf */; };

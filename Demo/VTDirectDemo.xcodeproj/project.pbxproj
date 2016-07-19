@@ -447,7 +447,6 @@
 					};
 					302F71BD1C73163C00FE73FE = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 36T5DNWZL4;
 					};
 				};
 			};
@@ -855,7 +854,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "a14168fe-6f6d-4ed2-93e0-f3c8e6bb2cac";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
@@ -889,7 +888,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ab816bfd-4f88-44b0-83fe-e7e8abadf5fe";
+				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;

@@ -52,12 +52,12 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
     
-    self.navigationController.view.userInteractionEnabled = NO;
+    self.navigationController.view.userInteractionEnabled = YES;
     
     self.itemDetails = [self generateItemDetails];
     
     NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
-    if (clientAuth) {
+    if (clientAuth != nil) {
         [CONFIG setMerchantClientData:clientAuth];
         self.navigationController.view.userInteractionEnabled = YES;
     } else {
@@ -105,7 +105,7 @@
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
-    if (customerDetails) {
+    if (customerDetails!=nil) {
         NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
         UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
         

@@ -12,6 +12,7 @@
 @interface VTPaymentListModel : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *internalBaseClassIdentifier;
+@property (nonatomic, strong) NSString *localPaymentIdentifier;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *internalBaseClassDescription;
 

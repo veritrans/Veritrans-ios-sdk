@@ -1,95 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <array>
-        <dict>
-            <key>title</key>
-            <string>Credit Card</string>
-            <key>description</key>
-            <string>Pay with Visa, MasterCard, or JCB</string>
-            <key>id</key>
-            <string>cc</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>ATM/Bank Transfer</string>
-            <key>description</key>
-            <string>Pay from ATM Bersama, Prima or Alto</string>
-            <key>id</key>
-            <string>atm</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>CIMB Clicks</string>
-            <key>description</key>
-            <string>Pay using CIMB Clicks account</string>
-            <key>id</key>
-            <string>clicks</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Indomaret</string>
-            <key>description</key>
-            <string>Pay from Indomaret</string>
-            <key>id</key>
-            <string>indomaret</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>BCA KlikPay</string>
-            <key>description</key>
-            <string>Pay with BCA KlikPay</string>
-            <key>id</key>
-            <string>klikpay</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>KlikBCA</string>
-            <key>description</key>
-            <string>Pay using KlikBCA</string>
-            <key>id</key>
-            <string>klikbca</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Mandiri e-Cash</string>
-            <key>description</key>
-            <string>Pay with Mandiri e-Cash</string>
-            <key>id</key>
-            <string>ecash</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>Mandiri Clickpay</string>
-            <key>description</key>
-            <string>Pay through your Mandiri Clickpay account</string>
-            <key>id</key>
-            <string>clickpay</string>
-        </dict>
-        <dict>
-            <key>title</key>
-            <string>e-Pay BRI</string>
-            <key>description</key>
-            <string>Pay using e-Pay BRI account</string>
-            <key>id</key>
-            <string>epay</string>
-        </dict>
-        
-        <!--    <dict>-->
-        <!--        <key>title</key>-->
-        <!--        <string>KlikBCA</string>-->
-        <!--        <key>description</key>-->
-        <!--        <string>Pay with your KlikBCA account</string>-->
-        <!--        <key>id</key>-->
-        <!--        <string>klikbca</string>-->
-        <!--    </dict>-->
-        <!--    <dict>-->
-        <!--        <key>title</key>-->
-        <!--        <string>Telkomsel Cash</string>-->
-        <!--        <key>description</key>-->
-        <!--        <string>Pay through your Telkomsel Cash account</string>-->
-        <!--        <key>id</key>-->
-        <!--        <string>tcash</string>-->
-        <!--    </dict>-->
-    </array>
+<array>
+	<dict>
+		<key>title</key>
+		<string>Credit Card</string>
+		<key>description</key>
+		<string>Pay with Visa, MasterCard, or JCB</string>
+		<key>id</key>
+		<string>cc</string>
+		<key>identifier</key>
+		<string>credit_card</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>ATM/Bank Transfer</string>
+		<key>description</key>
+		<string>Pay from ATM Bersama, Prima or Alto</string>
+		<key>id</key>
+		<string>atm</string>
+		<key>identifier</key>
+		<string>bank_transfer</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>CIMB Clicks</string>
+		<key>description</key>
+		<string>Pay using CIMB Clicks account</string>
+		<key>id</key>
+		<string>clicks</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Indomaret</string>
+		<key>description</key>
+		<string>Pay from Indomaret</string>
+		<key>id</key>
+		<string>indomaret</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>BCA KlikPay</string>
+		<key>description</key>
+		<string>Pay with BCA KlikPay</string>
+		<key>id</key>
+		<string>klikpay</string>
+		<key>identifier</key>
+		<string>bca_klikpay</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>KlikBCA</string>
+		<key>description</key>
+		<string>Pay using KlikBCA</string>
+		<key>id</key>
+		<string>klikbca</string>
+		<key>identifier</key>
+		<string>bca_klikbca</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Mandiri e-Cash</string>
+		<key>description</key>
+		<string>Pay with Mandiri e-Cash</string>
+		<key>id</key>
+		<string>ecash</string>
+		<key>identifier</key>
+		<string>mandiri_ecash</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Mandiri Clickpay</string>
+		<key>description</key>
+		<string>Pay through your Mandiri Clickpay account</string>
+		<key>id</key>
+		<string>clickpay</string>
+		<key>identifier</key>
+		<string>mandiri_clickpay</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>e-Pay BRI</string>
+		<key>description</key>
+		<string>Pay using e-Pay BRI account</string>
+		<key>id</key>
+		<string>epay</string>
+	</dict>
+</array>
 </plist>

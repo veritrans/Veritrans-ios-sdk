@@ -22,6 +22,7 @@
 #import "VTPaymentListView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/VTPaymentListModel.h>
+#import <MidtransCoreKit/PaymentRequestDataModels.h>
 #import "VTPaymentListDataSource.h"
 
 @interface VTPaymentListController () <UITableViewDelegate>
@@ -37,39 +38,15 @@
     [super viewDidLoad];
     
     self.title =  UILocalizedString(@"payment.list.title", nil);
-    self.view.tableView.tableFooterView  = [UIView new];
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [[VTMerchantClient sharedClient] generateSnapTokenWithTransactionDetails:self.transactionDetails
-                                                                     itemDetails:self.itemDetails
-                                                                 customerDetails:self.customerDetails
-                                                         customerCreditCardToken:nil
-                                                                      completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
-                                                                          if (!error) {
-                                                                              [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
-                                                                                  NSLog(@"response->%@",response);
-                                                                              }];
-                                                                          }
-                                                                      }];
-    });
-    
-    
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
-    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
-    self.paymentMethodList = [NSMutableArray new];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    for (int i = 0; i<paymentList.count; i++) {
-        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-        [self.paymentMethodList addObject:paymentmodel];
-    }
-    self.dataSource.paymentList = self.paymentMethodList;
     
+    self.paymentMethodList = [NSMutableArray new];
     self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
     self.view.footer.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.view.header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
@@ -82,16 +59,44 @@
     
     self.view.footer.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.header.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
-    [self.view.tableView reloadData];
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self showLoadingHud];
+        [[VTMerchantClient sharedClient] generateSnapTokenWithTransactionDetails:self.transactionDetails
+                                                                     itemDetails:self.itemDetails
+                                                                 customerDetails:self.customerDetails
+                                                         customerCreditCardToken:nil
+                                                                      completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
+                                                                          if (!error) {
+                                                                              [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
+                                                                                  [self hideLoadingHud];
+                                                                                  if (!error) {
+                                                                                      if (response.transactionData.enabledPayments.count) {
+                                                                                          for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+                                                                                              for (int i = 0; i<paymentList.count; i++) {
+                                                                                                  VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                                                                                                  if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+                                                                                                      [self.paymentMethodList addObject:paymentmodel];
+                                                                                                  }
+                                                                                              }
+                                                                                          }
+                                                                                      }
+                                                                                      self.dataSource.paymentList = self.paymentMethodList;
+                                                                                      [self.view.tableView reloadData];
+                                                                                  }
+                                                                              }];
+                                                                          }
+                                                                          else {
+                                                                              [self hideLoadingHud];
+                                                                          }
+                                                                      }];
+    });
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)closePressed:(id)sender {

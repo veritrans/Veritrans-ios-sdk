@@ -21,8 +21,7 @@
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-{
+                     transactionDetails:(VTTransactionDetails *)transactionDetails {
     [VTThemeManager applyStandardTheme];
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
                                                                                itemDetails:itemDetails
@@ -36,10 +35,9 @@
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
                      transactionDetails:(VTTransactionDetails *)transactionDetails
                              themeColor:(UIColor *)themeColor
-                             fontSource:(VTFontSource *)fontSource
-{
-    [VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
+                             fontSource:(VTFontSource *)fontSource {
     
+    [VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
                                                                                itemDetails:itemDetails
                                                                         transactionDetails:transactionDetails

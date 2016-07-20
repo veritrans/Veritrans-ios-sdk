@@ -29,6 +29,8 @@
 		<string>Pay using CIMB Clicks account</string>
 		<key>id</key>
 		<string>clicks</string>
+		<key>identifier</key>
+		<string>cimb_clicks</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -36,6 +38,8 @@
 		<key>description</key>
 		<string>Pay from Indomaret</string>
 		<key>id</key>
+		<string>indomaret</string>
+		<key>identifier</key>
 		<string>indomaret</string>
 	</dict>
 	<dict>
@@ -85,6 +89,8 @@
 		<string>Pay using e-Pay BRI account</string>
 		<key>id</key>
 		<string>epay</string>
+		<key>identifier</key>
+		<string>bri_epay</string>
 	</dict>
 </array>
 </plist>

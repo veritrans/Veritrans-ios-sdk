@@ -38,6 +38,10 @@
     [super viewDidLoad];
     
     self.title =  UILocalizedString(@"payment.list.title", nil);
+    
+    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+    
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
@@ -56,11 +60,8 @@
     self.view.tableView.tableFooterView = self.view.footer;
     self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 80);
     self.view.tableView.tableHeaderView = self.view.header;
-    
-    self.view.footer.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
-    self.view.header.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
-    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+    self.view.footer.amountLabel.text = @"-";
+    self.view.header.amountLabel.text = @"-";
     
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [self showLoadingHud];
@@ -73,6 +74,10 @@
                                                                               [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
                                                                                   [self hideLoadingHud];
                                                                                   if (!error) {
+                                                                                      NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+                                                                                      self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+                                                                                      self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+                                                                                      
                                                                                       if (response.transactionData.enabledPayments.count) {
                                                                                           for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
                                                                                               for (int i = 0; i<paymentList.count; i++) {

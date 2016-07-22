@@ -27,6 +27,10 @@
 		002CC9A91D12639F003A1203 /* klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A81D12639F003A1203 /* klikbca@2x.png */; };
 		002CC9B81D12A442003A1203 /* VTStringHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9B61D12A442003A1203 /* VTStringHelper.h */; };
 		002CC9B91D12A442003A1203 /* VTStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* VTStringHelper.m */; };
+		007F58EF1D41FBF500937DBE /* VTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 007F58ED1D41FBF500937DBE /* VTTheme.h */; };
+		007F58F01D41FBF500937DBE /* VTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F58EE1D41FBF500937DBE /* VTTheme.m */; };
+		007F58F31D41FD6100937DBE /* UIColor+VTColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 007F58F11D41FD6100937DBE /* UIColor+VTColor.h */; };
+		007F58F41D41FD6100937DBE /* UIColor+VTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F58F21D41FD6100937DBE /* UIColor+VTColor.m */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -268,6 +272,10 @@
 		002CC9A81D12639F003A1203 /* klikbca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klikbca@2x.png"; sourceTree = "<group>"; };
 		002CC9B61D12A442003A1203 /* VTStringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTStringHelper.h; sourceTree = "<group>"; };
 		002CC9B71D12A442003A1203 /* VTStringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTStringHelper.m; sourceTree = "<group>"; };
+		007F58ED1D41FBF500937DBE /* VTTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTheme.h; sourceTree = "<group>"; };
+		007F58EE1D41FBF500937DBE /* VTTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTheme.m; sourceTree = "<group>"; };
+		007F58F11D41FD6100937DBE /* UIColor+VTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VTColor.h"; sourceTree = "<group>"; };
+		007F58F21D41FD6100937DBE /* UIColor+VTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VTColor.m"; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -715,6 +723,10 @@
 				E5C25FF01D26382E0012BCC8 /* VTViewController.m */,
 				E5C25FF31D2639B40012BCC8 /* VTBackBarButtonItem.h */,
 				E5C25FF41D2639B40012BCC8 /* VTBackBarButtonItem.m */,
+				007F58ED1D41FBF500937DBE /* VTTheme.h */,
+				007F58EE1D41FBF500937DBE /* VTTheme.m */,
+				007F58F11D41FD6100937DBE /* UIColor+VTColor.h */,
+				007F58F21D41FD6100937DBE /* UIColor+VTColor.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -1037,8 +1049,10 @@
 				E5C25FF11D26382E0012BCC8 /* VTViewController.h in Headers */,
 				30E713221C859D6100AFB7B4 /* MBXPageViewController_vt.h in Headers */,
 				E502249E1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h in Headers */,
+				007F58EF1D41FBF500937DBE /* VTTheme.h in Headers */,
 				E578DD171CFC1BD50091760A /* VTToast.h in Headers */,
 				E5EF82731C8C0814007B6585 /* VTCCFrontView.h in Headers */,
+				007F58F31D41FD6100937DBE /* UIColor+VTColor.h in Headers */,
 				E56455031D23A5DB00CE5FA4 /* VTNextStepButton.h in Headers */,
 				E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */,
 				E50438B91D1A679400710470 /* VTGuideView.h in Headers */,
@@ -1314,6 +1328,7 @@
 				30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */,
 				E50D86081D0ECBC500F26D2E /* VTIndomaretSuccessController.m in Sources */,
 				3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */,
+				007F58F01D41FBF500937DBE /* VTTheme.m in Sources */,
 				00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */,
 				30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */,
 				E578DD101CFBFA980091760A /* VTBillpaySuccessController.m in Sources */,
@@ -1363,6 +1378,7 @@
 				00F61B271D14825100C93DA0 /* VTPaymentDirectView.m in Sources */,
 				E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */,
 				E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */,
+				007F58F41D41FD6100937DBE /* UIColor+VTColor.m in Sources */,
 				E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */,
 				E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */,
 				E516DA2D1D24CFE600FA1CD7 /* VTFontSource.m in Sources */,

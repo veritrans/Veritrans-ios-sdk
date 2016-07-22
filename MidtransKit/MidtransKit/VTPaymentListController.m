@@ -71,27 +71,31 @@
                                                          customerCreditCardToken:nil
                                                                       completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
                                                                           if (!error) {
-                                                                              [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
-                                                                                  [self hideLoadingHud];
-                                                                                  if (!error) {
-                                                                                      NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-                                                                                      self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                                                      self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                                                      
-                                                                                      if (response.transactionData.enabledPayments.count) {
-                                                                                          for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-                                                                                              for (int i = 0; i<paymentList.count; i++) {
-                                                                                                  VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-                                                                                                  if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-                                                                                                      [self.paymentMethodList addObject:paymentmodel];
-                                                                                                  }
-                                                                                              }
-                                                                                          }
-                                                                                      }
-                                                                                      self.dataSource.paymentList = self.paymentMethodList;
-                                                                                      [self.view.tableView reloadData];
-                                                                                  }
-                                                                              }];
+                                                                              if (token.tokenId.length > 0) {
+                                                                                  [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId
+                                                                                                                                    completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
+                                                                                                                                        [self hideLoadingHud];
+                                                                                                                                        if (!error) {
+                                                                                                                                            NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+                                                                                                                                            self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+                                                                                                                                            self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+                                                                                                                                            
+                                                                                                                                            if (response.transactionData.enabledPayments.count) {
+                                                                                                                                                for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+                                                                                                                                                    for (int i = 0; i<paymentList.count; i++) {
+                                                                                                                                                        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                                                                                                                                                        if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+                                                                                                                                                            [self.paymentMethodList addObject:paymentmodel];
+                                                                                                                                                        }
+                                                                                                                                                    }
+                                                                                                                                                }
+                                                                                                                                            }
+                                                                                                                                            self.dataSource.paymentList = self.paymentMethodList;
+                                                                                                                                            [self.view.tableView reloadData];
+                                                                                                                                        }
+                                                                                                                                    }];
+                                                                              }
+                                                                              
                                                                           }
                                                                           else {
                                                                               [self hideLoadingHud];

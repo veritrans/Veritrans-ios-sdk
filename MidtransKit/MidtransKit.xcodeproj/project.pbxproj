@@ -276,6 +276,7 @@
 		007F58EE1D41FBF500937DBE /* VTTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTheme.m; sourceTree = "<group>"; };
 		007F58F11D41FD6100937DBE /* UIColor+VTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VTColor.h"; sourceTree = "<group>"; };
 		007F58F21D41FD6100937DBE /* UIColor+VTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VTColor.m"; sourceTree = "<group>"; };
+		007F58F51D4207BF00937DBE /* VTKITConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTKITConstant.h; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -655,6 +656,7 @@
 			isa = PBXGroup;
 			children = (
 				3054948E1C75A43800938C17 /* MidtransKit.h */,
+				007F58F51D4207BF00937DBE /* VTKITConstant.h */,
 				E503AEDC1C8E8C7200F097FF /* View */,
 				3056A21F1C7EA36E0015B3CC /* View Model */,
 				3056A2141C7E98490015B3CC /* Kit */,

@@ -22,6 +22,8 @@
  *  set default font for theme
  */
 @property(nonatomic, copy, null_resettable)UIFont  *font;
+@property(nonatomic, copy, null_resettable)UIFont  *smallFont;
+@property(nonatomic, copy, null_resettable)UIFont  *largeFont;
 @property(nonatomic, copy, null_resettable)UIColor *errorColor;
 @property(nonatomic, copy, null_resettable)UIColor *themeColor;
 @property(nonatomic, copy, null_resettable)UIImage *logo;

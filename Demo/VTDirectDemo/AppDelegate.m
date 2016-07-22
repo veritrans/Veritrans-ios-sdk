@@ -25,7 +25,8 @@
     // Override point for customization after application launch.
     
     [Fabric with:@[[Crashlytics class]]];
-    
+    [[VTTheme defaultTheme] setThemeColor:[UIColor redColor]];
+    [[VTTheme defaultTheme] setFont:[UIFont fontWithName:@"Helvetica-Neue" size:14]];
 #ifdef RELEASE
     [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
          merchantServerURL:@"https://demo.veritrans.co.id"
@@ -35,7 +36,6 @@
          merchantServerURL:@"https://demo.veritrans.co.id"
          serverEnvironment:VTServerEnvironmentSandbox];
 #endif
-    
     BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
     [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
     

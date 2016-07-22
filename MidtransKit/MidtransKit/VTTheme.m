@@ -44,6 +44,12 @@ static UIImage  *VTThemeDefaultLogo;
     });
     return VTThemeDefaultTheme;
 }
+- (UIColor *)themeColor {
+    return _themeColor ?_themeColor: VTThemeDefaultThemeColor;
+}
+- (UIFont *)font {
+    return _font ?_font: VTThemeDefaultFont;
+}
 - (instancetype)init {
     self = [super init];
     if (self) {

@@ -26,12 +26,6 @@
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
                      transactionDetails:(VTTransactionDetails *)transactionDetails;
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                             themeColor:(UIColor *)themeColor
-                             fontSource:(VTFontSource *)fontSource;
-
 @property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 
 @end

@@ -56,37 +56,37 @@
     
     self.itemDetails = [self generateItemDetails];
     
-    NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
-    if (clientAuth != nil) {
-        [CONFIG setMerchantClientData:clientAuth];
-        self.navigationController.view.userInteractionEnabled = YES;
-    } else {
-        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-            if (response) {
-                [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                [CONFIG setMerchantClientData:response];
-                self.navigationController.view.userInteractionEnabled = YES;
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                [alert show];
-            }
-        }];
-    }
-    
-    if ([CONFIG merchantClientData]) {
-        self.navigationController.view.userInteractionEnabled = YES;
-    } else {
-        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-            if (response) {
-                [CONFIG setMerchantClientData:response];
-                self.navigationController.view.userInteractionEnabled = YES;
-            } else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                [alert show];
-            }
-        }];
-    }
+    //    NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
+    //    if (clientAuth != nil) {
+    //        [CONFIG setMerchantClientData:clientAuth];
+    //        self.navigationController.view.userInteractionEnabled = YES;
+    //    } else {
+    //        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
+    //            if (response) {
+    //                [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
+    //                [[NSUserDefaults standardUserDefaults] synchronize];
+    //                [CONFIG setMerchantClientData:response];
+    //                self.navigationController.view.userInteractionEnabled = YES;
+    //            } else {
+    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    //                [alert show];
+    //            }
+    //        }];
+    //    }
+    //    
+    //    if ([CONFIG merchantClientData]) {
+    //        self.navigationController.view.userInteractionEnabled = YES;
+    //    } else {
+    //        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
+    //            if (response) {
+    //                [CONFIG setMerchantClientData:response];
+    //                self.navigationController.view.userInteractionEnabled = YES;
+    //            } else {
+    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    //                [alert show];
+    //            }
+    //        }];
+    //    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -122,14 +122,12 @@
                 fontNameLight = fontName;
             }
         }
-        
-        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-        
+        //        
+        //        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+        //        
         VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails
                                                                                    itemDetails:self.itemDetails
-                                                                            transactionDetails:transactionDetails
-                                                                                    themeColor:themeColor
-                                                                                    fontSource:fontSource];
+                                                                            transactionDetails:transactionDetails];
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
     } else {

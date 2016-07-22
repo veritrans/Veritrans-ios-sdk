@@ -27,10 +27,11 @@
 		002CC9A91D12639F003A1203 /* klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A81D12639F003A1203 /* klikbca@2x.png */; };
 		002CC9B81D12A442003A1203 /* VTStringHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9B61D12A442003A1203 /* VTStringHelper.h */; };
 		002CC9B91D12A442003A1203 /* VTStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* VTStringHelper.m */; };
-		007F58EF1D41FBF500937DBE /* VTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 007F58ED1D41FBF500937DBE /* VTTheme.h */; };
+		007F58EF1D41FBF500937DBE /* VTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = 007F58ED1D41FBF500937DBE /* VTTheme.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		007F58F01D41FBF500937DBE /* VTTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F58EE1D41FBF500937DBE /* VTTheme.m */; };
 		007F58F31D41FD6100937DBE /* UIColor+VTColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 007F58F11D41FD6100937DBE /* UIColor+VTColor.h */; };
 		007F58F41D41FD6100937DBE /* UIColor+VTColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 007F58F21D41FD6100937DBE /* UIColor+VTColor.m */; };
+		007F58F91D42480200937DBE /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 007F58F81D42480200937DBE /* logo@2x.png */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -277,6 +278,7 @@
 		007F58F11D41FD6100937DBE /* UIColor+VTColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+VTColor.h"; sourceTree = "<group>"; };
 		007F58F21D41FD6100937DBE /* UIColor+VTColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+VTColor.m"; sourceTree = "<group>"; };
 		007F58F51D4207BF00937DBE /* VTKITConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VTKITConstant.h; sourceTree = "<group>"; };
+		007F58F81D42480200937DBE /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				007F58F81D42480200937DBE /* logo@2x.png */,
 				E503AEC31C8E85C500F097FF /* atm@2x.png */,
 				E503AEC11C8E85C500F097FF /* vabca@2x.png */,
 				E503AEC21C8E85C500F097FF /* vamandiri@2x.png */,
@@ -1219,6 +1222,7 @@
 				30E8798E1C897E7D000C0F4B /* cc@2x.png in Resources */,
 				E5D23C881D1D3D0B0069B5F9 /* VTCardCell.xib in Resources */,
 				E503AEC51C8E85C500F097FF /* vabca@2x.png in Resources */,
+				007F58F91D42480200937DBE /* logo@2x.png in Resources */,
 				E578DD061CFBED7A0091760A /* vaother@2x.png in Resources */,
 				E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */,
 				E503AEEE1C8EC69800F097FF /* ecash@2x.png in Resources */,

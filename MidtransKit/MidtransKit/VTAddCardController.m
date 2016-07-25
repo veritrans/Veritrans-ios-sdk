@@ -185,10 +185,17 @@
         BOOL shouldChange = [textField filterCreditCardWithString:string range:range];
         
         if (shouldChange == NO) {
-            _cardFrontView.numberLabel.text = _cardNumber.text;
-            NSString *originNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-            _cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
-            _cardFrontView.iconView.image = [self iconWithNumber:originNumber];
+            if (_cardNumber.text.length<1) {
+                _cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
+                _cardFrontView.iconView.image = nil;
+                _cardNumber.infoIcon = nil;
+            }
+            else {
+                _cardFrontView.numberLabel.text = _cardNumber.text;
+                NSString *originNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+                _cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
+                _cardFrontView.iconView.image = [self iconWithNumber:originNumber];
+            }
         }
         
         return shouldChange;

@@ -49,6 +49,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBar.translucent = false;
+    // to remove 1 px border below nav bar
+    [self.navigationBar setBackgroundImage:[UIImage new]
+                            forBarPosition:UIBarPositionAny
+                                barMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    
+    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
     self.navigationBar.tintColor = [[VTThemeManager shared] themeColor];
     self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTThemeManager shared].themeFont fontRegularWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
     self.navigationBar.barTintColor = [UIColor whiteColor];

@@ -37,11 +37,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //self.title =  UILocalizedString(@"payment.list.title", nil);
-    UIImageView *logo =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-    logo.contentMode = UIViewContentModeCenter;
-    logo.layer.masksToBounds = YES;
-    self.navigationItem.titleView = logo;
+    self.title =  UILocalizedString(@"payment.list.title", nil);
+    //    UIImageView *logo =[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"logo" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+    //    logo.contentMode = UIViewContentModeCenter;
+    //    logo.layer.masksToBounds = YES;
+    //    self.navigationItem.titleView = logo;
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];

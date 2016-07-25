@@ -26,7 +26,8 @@
     
     [Fabric with:@[[Crashlytics class]]];
     [[VTTheme defaultTheme] setThemeColor:[UIColor redColor]];
-    [[VTTheme defaultTheme] setFont:[UIFont fontWithName:@"Helvetica-Neue" size:14]];
+    [[VTTheme defaultTheme] setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
+    
 #ifdef RELEASE
     [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
          merchantServerURL:@"https://demo.veritrans.co.id"

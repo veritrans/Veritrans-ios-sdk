@@ -39,7 +39,9 @@
     self.theme = [VTTheme defaultTheme];
     self.navigationBar.translucent = false;
     self.navigationBar.tintColor = self.theme.themeColor;
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:self.theme.font, NSForegroundColorAttributeName:self.theme.themeColor};
+    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:self.theme.font,
+                                               NSForegroundColorAttributeName:self.theme.themeColor};
+    
     self.navigationBar.barTintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];

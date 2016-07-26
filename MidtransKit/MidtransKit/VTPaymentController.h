@@ -31,4 +31,5 @@
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(VTTransactionResult *)result;
 -(void)showGuideViewController;
+-(void)showToastInviewWithMessage:(NSString *)message;
 @end

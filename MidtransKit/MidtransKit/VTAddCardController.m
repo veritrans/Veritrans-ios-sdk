@@ -46,9 +46,7 @@
     self.infoButton.tintColor = [[VTThemeManager shared] themeColor];
     [self addNavigationToTextFields:@[self.cardNumber, self.cardExpiryDate, self.cardCvv]];
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
-    
     [self.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
-    
     self.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 

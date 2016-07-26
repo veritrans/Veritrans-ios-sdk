@@ -70,6 +70,7 @@
                                                                  customerDetails:self.customerDetails
                                                          customerCreditCardToken:nil
                                                                       completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
+                                                                          
                                                                           if (!error) {
                                                                               [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
                                                                                   [self hideLoadingHud];

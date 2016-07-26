@@ -32,22 +32,23 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setHeaderWithTitle:_model.title subTitle:NSLocalizedString(@"Payment Instructions", nil)];
+    [self setHeaderWithTitle:_model.title
+                    subTitle:NSLocalizedString(@"Payment Instructions", nil)];
     
-    _guideViewControllers = [NSMutableArray new];
+    self.guideViewControllers = [NSMutableArray new];
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *guideList = [NSArray arrayWithContentsOfFile:guidePath];
     for (int i=0; i<[guideList count]; i++) {
         NSDictionary *guide = guideList[i];
         
         if (i>1) {
-            [_segmentController insertSegmentWithTitle:guide[@"name"] atIndex:i animated:NO];
+            [self.segmentController insertSegmentWithTitle:guide[@"name"] atIndex:i animated:NO];
         } else {
-            [_segmentController setTitle:guide[@"name"] forSegmentAtIndex:i];
+            [self.segmentController setTitle:guide[@"name"] forSegmentAtIndex:i];
         }
         
         VTSubGuideController *vc = [[VTSubGuideController alloc] initWithList:guide[@"guides"]];
-        [_guideViewControllers addObject:vc];
+        [self.guideViewControllers addObject:vc];
     }
     
     // Initiate MBXPageController
@@ -73,7 +74,7 @@
 }
 
 - (NSArray *)MBXPageControllers {
-    return _guideViewControllers;
+    return self.guideViewControllers;
 }
 
 #pragma mark - MBXPageViewController Delegate

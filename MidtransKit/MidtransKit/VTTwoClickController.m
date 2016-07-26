@@ -51,7 +51,7 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [_cvvTextField becomeFirstResponder];
+    [self.cvvTextField becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -78,14 +78,18 @@
 
 - (IBAction)paymentPressed:(UIButton *)sender {
     [self showLoadingHud];
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_maskeCard.savedTokenId cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        if (error) {
-            [self handleTransactionError:error];
-        } else {
-            [self payWithToken:token];
-        }
-    }];
+    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
+                                                                                   cvv:self.cvvTextField.text
+                                                                           grossAmount:self.transactionDetails.grossAmount];
+    
+    [[VTClient sharedClient] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
@@ -101,8 +105,10 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isEqual:_cvvTextField]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:_maskeCard.maskedNumber];
+    if ([textField isEqual:self.cvvTextField]) {
+        return [textField filterCvvNumber:string
+                                    range:range
+                           withCardNumber:self.maskeCard.maskedNumber];
     } else {
         return YES;
     }
@@ -112,7 +118,10 @@
 
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick token:token];
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
+                                                            transactionDetails:self.transactionDetails
+                                                               customerDetails:self.customerDetails
+                                                                   itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

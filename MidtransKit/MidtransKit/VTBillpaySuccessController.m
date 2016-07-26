@@ -9,7 +9,6 @@
 #import "VTBillpaySuccessController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
-#import "VTToast.h"
 
 @interface VTBillpaySuccessController ()
 @property (strong, nonatomic) IBOutlet UILabel *billCodeLabel;
@@ -62,7 +61,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:_statusModel.billpayCode];
-    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+    [self showToastInviewWithMessage:@"Copied to clipboard"];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

@@ -49,22 +49,22 @@
     
     [self.navigationItem setHidesBackButton:YES];
     
-    _amountLabel.text = _statusModel.totalAmount;
-    _orderIdLabel.text = _statusModel.orderId;
-    _transactionTimeLabel.text = _statusModel.transactionTime;
+    self.amountLabel.text = self.statusModel.totalAmount;
+    self.orderIdLabel.text = self.statusModel.orderId;
+    self.transactionTimeLabel.text = self.statusModel.transactionTime;
     
-    switch (_statusModel.vaType) {
+    switch (self.statusModel.vaType) {
         case VTVATypeBCA: {
-            _vaNumberLabel.text = _statusModel.vaNumber;
+            self.vaNumberLabel.text = self.statusModel.vaNumber;
             self.title = UILocalizedString(@"BCA Bank Transfer",nil);
             break;
         } case VTVATypePermata: {
-            _vaNumberLabel.text = _statusModel.vaNumber;
+            self.vaNumberLabel.text = self.statusModel.vaNumber;
             self.title = UILocalizedString(@"Permata Bank Transfer",nil);
             break;
         } case VTVATypeMandiri: {
         } case VTVATypeOther: {
-            _vaNumberLabel.text = _statusModel.vaNumber;
+            self.vaNumberLabel.text = self.statusModel.vaNumber;
             self.title = UILocalizedString(@"Other Bank Transfer",nil);
             break;
         }
@@ -72,7 +72,7 @@
 }
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
-    [[UIPasteboard generalPasteboard] setString:_statusModel.vaNumber];
+    [[UIPasteboard generalPasteboard] setString:self.statusModel.vaNumber];
     [VTToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 
@@ -81,7 +81,7 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"tr_result":_statusModel.transactionResult};
+    NSDictionary *userInfo = @{@"trself.result":self.statusModel.transactionResult};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];

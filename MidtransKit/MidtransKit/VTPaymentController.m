@@ -9,6 +9,7 @@
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
 #import "VTHudView.h"
+#import "VTToast.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
 #import "VTSingleGuideController.h"
@@ -84,5 +85,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
+-(void)showToastInviewWithMessage:(NSString *)message {
+    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+}
 @end

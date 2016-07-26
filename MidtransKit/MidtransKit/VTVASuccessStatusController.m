@@ -27,8 +27,16 @@
 
 @implementation VTVASuccessStatusController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTVATransactionStatusViewModel *)statusModel {
-    self = [[VTVASuccessStatusController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:paymentMethod];
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray<VTItemDetail *> *)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                      paymentMethodName:(VTPaymentListModel *)paymentMethod
+                            statusModel:(VTVATransactionStatusViewModel *)statusModel {
+    
+    self = [[VTVASuccessStatusController alloc] initWithCustomerDetails:customerDetails
+                                                            itemDetails:itemDetails
+                                                     transactionDetails:transactionDetails
+                                                      paymentMethodName:paymentMethod];
     if (self) {
         self.statusModel = statusModel;
     }

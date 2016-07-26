@@ -10,5 +10,9 @@
 #import "VTVATransactionStatusViewModel.h"
 
 @interface VTBillpaySuccessController : VTPaymentController
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTVATransactionStatusViewModel *)statusModel;
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray<VTItemDetail *> *)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                      paymentMethodName:(VTPaymentListModel *)paymentMethod
+                            statusModel:(VTVATransactionStatusViewModel *)statusModel;
 @end

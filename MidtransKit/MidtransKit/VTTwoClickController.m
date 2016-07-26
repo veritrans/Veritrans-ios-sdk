@@ -42,13 +42,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
-    
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
-    
     [self addNavigationToTextFields:@[self.cvvTextField]];
-    
     self.navigationController.delegate = self;
 }
 
@@ -82,9 +78,7 @@
 
 - (IBAction)paymentPressed:(UIButton *)sender {
     [self showLoadingHud];
-    
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_maskeCard.savedTokenId cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
-    
     [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
         if (error) {
             [self handleTransactionError:error];

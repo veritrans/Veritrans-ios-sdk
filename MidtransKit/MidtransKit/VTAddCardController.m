@@ -43,20 +43,17 @@
     [super viewDidLoad];
     
     self.title = UILocalizedString(@"creditcard.input.title", nil);
-    
     self.infoButton.tintColor = [[VTThemeManager shared] themeColor];
+    [self addNavigationToTextFields:@[self.cardNumber, self.cardExpiryDate, self.cardCvv]];
+    [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
     
-    [self addNavigationToTextFields:@[_cardNumber, _cardExpiryDate, _cardCvv]];
+    [self.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
-    [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
-    
-    [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
-    
-    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (void)dealloc {
-    [_cardExpiryDate removeObserver:self forKeyPath:@"text"];
+    [self.cardExpiryDate removeObserver:self forKeyPath:@"text"];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
@@ -71,15 +68,15 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"text"] &&
-        [object isEqual:_cardExpiryDate]) {
-        _cardFrontView.expiryLabel.text = _cardExpiryDate.text;
+        [object isEqual:self.cardExpiryDate]) {
+        self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
     }
 }
 
 - (IBAction)textFieldChanged:(id)sender {
-    if ([sender isEqual:_cardNumber]) {
-        _cardFrontView.iconView.image = [self iconWithNumber:_cardNumber.text];
-        _cardFrontView.numberLabel.text = _cardNumber.text;
+    if ([sender isEqual:self.cardNumber]) {
+        self.cardFrontView.iconView.image = [self iconWithNumber:self.cardNumber.text];
+        self.cardFrontView.numberLabel.text = self.cardNumber.text;
     }
 }
 
@@ -119,15 +116,15 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    NSString *cardNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSArray *dates = [_cardExpiryDate.text componentsSeparatedByString:@"/"];
+    NSString *cardNumber = [self.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSArray *dates = [self.cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
     NSString *expYear = dates.count == 2 ? dates[1] : nil;
     
     VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber
                                                         expiryMonth:expMonth
                                                          expiryYear:expYear
-                                                                cvv:_cardCvv.text];
+                                                                cvv:self.cardCvv.text];
     
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
@@ -157,13 +154,13 @@
     [self hideLoadingHud];
     if (error.code == -20) {
         //number invalid
-        _cardNumber.warning = error.localizedDescription;
+        self.cardNumber.warning = error.localizedDescription;
     } else if (error.code == -21) {
         //expiry date invalid
-        _cardExpiryDate.warning = error.localizedDescription;
+        self.cardExpiryDate.warning = error.localizedDescription;
     } else if (error.code == -22) {
         //cvv number invalid
-        _cardCvv.warning = error.localizedDescription;
+        self.cardCvv.warning = error.localizedDescription;
     } else {
         //other error
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
@@ -178,30 +175,30 @@
         ((VTTextField *) textField).warning = nil;
     }
     
-    if ([textField isEqual:_cardExpiryDate]) {
+    if ([textField isEqual:self.cardExpiryDate]) {
         return [textField filterCreditCardExpiryDate:string range:range];
-    } else if ([textField isEqual:_cardNumber]) {
+    } else if ([textField isEqual:self.cardNumber]) {
         
         BOOL shouldChange = [textField filterCreditCardWithString:string range:range];
         
         if (shouldChange == NO) {
-            if (_cardNumber.text.length<1) {
-                _cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
-                _cardFrontView.iconView.image = nil;
-                _cardNumber.infoIcon = nil;
+            if (self.cardNumber.text.length<1) {
+                self.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
+                self.cardFrontView.iconView.image = nil;
+                self.cardNumber.infoIcon = nil;
             }
             else {
-                _cardFrontView.numberLabel.text = _cardNumber.text;
-                NSString *originNumber = [_cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-                _cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
-                _cardFrontView.iconView.image = [self iconWithNumber:originNumber];
+                self.cardFrontView.numberLabel.text = self.cardNumber.text;
+                NSString *originNumber = [self.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+                self.cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
+                self.cardFrontView.iconView.image = [self iconWithNumber:originNumber];
             }
         }
         
         return shouldChange;
         
-    } else if ([textField isEqual:_cardCvv]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:_cardNumber.text];
+    } else if ([textField isEqual:self.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.cardNumber.text];
     } else {
         return YES;
     }
@@ -212,9 +209,7 @@
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
     paymentDetail.saveToken = _saveCardSwitch.on;
-    
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
-    
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

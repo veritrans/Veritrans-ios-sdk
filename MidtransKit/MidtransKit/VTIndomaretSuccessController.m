@@ -25,8 +25,16 @@
 
 @implementation VTIndomaretSuccessController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTPaymentStatusViewModel *)statusModel {
-    self = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:paymentMethod];
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray<VTItemDetail *> *)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                      paymentMethodName:(VTPaymentListModel *)paymentMethod
+                            statusModel:(VTPaymentStatusViewModel *)statusModel {
+    
+    self = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:customerDetails
+                                                             itemDetails:itemDetails
+                                                      transactionDetails:transactionDetails
+                                                       paymentMethodName:paymentMethod];
     if (self) {
         self.statusModel = statusModel;
     }
@@ -42,7 +50,7 @@
     _transactionTimeLabel.text = _statusModel.transactionTime;
     _paymentCodeLabel.text = _statusModel.transactionResult.indomaretPaymentCode;
     
-   self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
+    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
 }
 
 - (IBAction)copyCodePressed:(UIButton *)sender {

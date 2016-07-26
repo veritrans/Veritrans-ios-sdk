@@ -30,7 +30,6 @@
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.text = self.headerTitle;
     
-    
     descLabel = [UILabel new];
     descLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:11];
     descLabel.textColor = [UIColor blackColor];
@@ -53,7 +52,7 @@
     [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"          " style:UIBarButtonItemStylePlain target:nil action:nil]];
     
     self.navigationItem.titleView.frame = CGRectMake(0, 20, 500, 44);
-
+    
 }
 
 - (void)setHeaderDescription:(NSString *)headerDescription {
@@ -72,13 +71,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

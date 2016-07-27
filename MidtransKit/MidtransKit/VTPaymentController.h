@@ -32,4 +32,5 @@
 -(void)handleTransactionSuccess:(VTTransactionResult *)result;
 -(void)showGuideViewController;
 -(void)showToastInviewWithMessage:(NSString *)message;
+-(void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message andButtonTitle:(NSString *)buttonTitle;
 @end

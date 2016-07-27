@@ -64,7 +64,9 @@ static NSString* const ClickpayAPPLI = @"3";
     
     [self showLoadingHud];
     
-    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text grossAmount:self.transactionDetails.grossAmount token:self.tokenTextField.text];
+    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
+                                                                                        grossAmount:self.transactionDetails.grossAmount
+                                                                                              token:self.tokenTextField.text];
     
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
                                                             transactionDetails:self.transactionDetails

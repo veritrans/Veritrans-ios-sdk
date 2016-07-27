@@ -160,9 +160,9 @@
         //cvv number invalid
         self.cardCvv.warning = error.localizedDescription;
     } else {
-        //other error
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-        [alert show];
+        [self showAlertViewWithTitle:@"Error"
+                          andMessage:error.localizedDescription
+                      andButtonTitle:@"Close"];
     }
 }
 
@@ -207,7 +207,10 @@
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
     paymentDetail.saveToken = _saveCardSwitch.on;
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
+                                                            transactionDetails:self.transactionDetails
+                                                               customerDetails:self.customerDetails
+                                                                   itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

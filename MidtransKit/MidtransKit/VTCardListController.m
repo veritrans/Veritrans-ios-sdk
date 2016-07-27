@@ -85,12 +85,9 @@
         if (maskedCards) {
             weakSelf.cards = [NSMutableArray arrayWithArray:maskedCards];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:error.localizedDescription
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Close"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            [self showAlertViewWithTitle:@"Error"
+                              andMessage:error.localizedDescription
+                          andButtonTitle:@"Close"];
         }
         
         [self updateView];
@@ -174,14 +171,18 @@
     VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
     
     if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
-        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber grossAmount:self.transactionDetails.grossAmount];
+        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber
+                                                                                    grossAmount:self.transactionDetails.grossAmount];
         [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
             if (selectedIndex == 1) {
                 [self payWithToken:maskedCard.savedTokenId];
             }
         }];
     } else {
-        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails maskedCard:maskedCard];
+        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails
+                                                                             itemDetails:self.itemDetails
+                                                                      transactionDetails:self.transactionDetails
+                                                                              maskedCard:maskedCard];
         [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -232,12 +233,9 @@
             self.editingCell = false;
             
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                            message:error.localizedDescription
-                                                           delegate:nil
-                                                  cancelButtonTitle:@"Close"
-                                                  otherButtonTitles:nil];
-            [alert show];
+            [self showAlertViewWithTitle:@"Error"
+                              andMessage:error.localizedDescription
+                          andButtonTitle:@"Close"];
         }
         
         [self updateView];

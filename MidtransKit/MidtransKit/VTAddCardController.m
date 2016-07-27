@@ -11,47 +11,40 @@
 #import "VTTextField.h"
 #import "VTCvvInfoController.h"
 #import "VTCCFrontView.h"
+#import "VTCCBackView.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "UIViewController+Modal.h"
 #import "VTCardControllerConfig.h"
 #import "VTThemeManager.h"
-
+#import "VTCCBackView.h"
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTTransactionDetails.h>
 #import <MidtransCoreKit/VTCreditCardHelper.h>
-
+#import "VTAddCardView.h"
 @interface VTAddCardController ()
-
-@property (strong, nonatomic) IBOutlet VTTextField *cardNumber;
-@property (strong, nonatomic) IBOutlet VTTextField *cardExpiryDate;
-@property (strong, nonatomic) IBOutlet VTTextField *cardCvv;
-@property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
-@property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
-@property (strong, nonatomic) IBOutlet UILabel *amountLabel;
-@property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
-@property (strong, nonatomic) IBOutlet UIButton *infoButton;
+@property (strong, nonatomic) IBOutlet VTAddCardView *view;
 
 @end
 
 @implementation VTAddCardController
+@dynamic view;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = UILocalizedString(@"creditcard.input.title", nil);
-    self.infoButton.tintColor = [[VTThemeManager shared] themeColor];
-    [self addNavigationToTextFields:@[self.cardNumber, self.cardExpiryDate, self.cardCvv]];
-    [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
-    [self.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
-    self.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.view.infoButton.tintColor = [[VTThemeManager shared] themeColor];
+    [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
+    [IHKeyboardAvoiding_vt setAvoidingView:self.view.fieldScrollView];
+    [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
+    self.view.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (void)dealloc {
-    [self.cardExpiryDate removeObserver:self forKeyPath:@"text"];
+    [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
@@ -66,15 +59,15 @@
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"text"] &&
-        [object isEqual:self.cardExpiryDate]) {
-        self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
+        [object isEqual:self.view.cardExpiryDate]) {
+        self.view.cardFrontView.expiryLabel.text = self.view.cardExpiryDate.text;
     }
 }
 
 - (IBAction)textFieldChanged:(id)sender {
-    if ([sender isEqual:self.cardNumber]) {
-        self.cardFrontView.iconView.image = [self iconWithNumber:self.cardNumber.text];
-        self.cardFrontView.numberLabel.text = self.cardNumber.text;
+    if ([sender isEqual:self.view.cardNumber]) {
+        self.view.cardFrontView.iconView.image = [self iconWithNumber:self.view.cardNumber.text];
+        self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
     }
 }
 
@@ -114,15 +107,15 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    NSString *cardNumber = [self.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSArray *dates = [self.cardExpiryDate.text componentsSeparatedByString:@"/"];
+    NSString *cardNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSArray *dates = [self.view.cardExpiryDate.text componentsSeparatedByString:@"/"];
     NSString *expMonth = dates[0];
     NSString *expYear = dates.count == 2 ? dates[1] : nil;
     
     VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber
                                                         expiryMonth:expMonth
                                                          expiryYear:expYear
-                                                                cvv:self.cardCvv.text];
+                                                                cvv:self.view.cardCvv.text];
     
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
@@ -137,28 +130,29 @@
                                                                         grossAmount:self.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
     
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        if (error) {
-            
-            [self hideLoadingHud];
-            [self handleTransactionError:error];
-        } else {
-            [self payWithToken:token];
-        }
-    }];
+    [[VTClient sharedClient] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        
+                                        [self hideLoadingHud];
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
     [self hideLoadingHud];
     if (error.code == -20) {
         //number invalid
-        self.cardNumber.warning = error.localizedDescription;
+        self.view.cardNumber.warning = error.localizedDescription;
     } else if (error.code == -21) {
         //expiry date invalid
-        self.cardExpiryDate.warning = error.localizedDescription;
+        self.view.cardExpiryDate.warning = error.localizedDescription;
     } else if (error.code == -22) {
         //cvv number invalid
-        self.cardCvv.warning = error.localizedDescription;
+        self.view.cardCvv.warning = error.localizedDescription;
     } else {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
@@ -166,6 +160,29 @@
     }
 }
 
+#pragma mark - Flip The card
+//- (void)flipCreditCardToBack:(BOOL)backView {
+//    if (backView) {
+//        [UIView transitionFromView:self.view.cardBackView
+//                            toView:self.view.cardFrontView
+//                          duration:1
+//                           options:UIViewAnimationOptionTransitionFlipFromRight
+//                        completion:^(BOOL finished)
+//         {
+//             
+//         }];
+//    }
+//    else {
+//        [UIView transitionFromView:self.view.cardFrontView
+//                            toView:self.view.cardBackView
+//                          duration:1
+//                           options:UIViewAnimationOptionTransitionFlipFromRight
+//                        completion:^(BOOL finished)
+//         {
+//             
+//         }];
+//    }
+//}
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -173,30 +190,30 @@
         ((VTTextField *) textField).warning = nil;
     }
     
-    if ([textField isEqual:self.cardExpiryDate]) {
+    if ([textField isEqual:self.view.cardExpiryDate]) {
         return [textField filterCreditCardExpiryDate:string range:range];
-    } else if ([textField isEqual:self.cardNumber]) {
+    } else if ([textField isEqual:self.view.cardNumber]) {
         
         BOOL shouldChange = [textField filterCreditCardWithString:string range:range];
         
         if (shouldChange == NO) {
-            if (self.cardNumber.text.length<1) {
-                self.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
-                self.cardFrontView.iconView.image = nil;
-                self.cardNumber.infoIcon = nil;
+            if (self.view.cardNumber.text.length < 1) {
+                self.view.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
+                self.view.cardFrontView.iconView.image = nil;
+                self.view.cardNumber.infoIcon = nil;
             }
             else {
-                self.cardFrontView.numberLabel.text = self.cardNumber.text;
-                NSString *originNumber = [self.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-                self.cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
-                self.cardFrontView.iconView.image = [self iconWithNumber:originNumber];
+                self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
+                NSString *originNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+                self.view.cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
+                self.view.cardFrontView.iconView.image = [self iconWithNumber:originNumber];
             }
         }
         
         return shouldChange;
         
-    } else if ([textField isEqual:self.cardCvv]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:self.cardNumber.text];
+    } else if ([textField isEqual:self.view.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.view.cardNumber.text];
     } else {
         return YES;
     }
@@ -206,7 +223,7 @@
 
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
-    paymentDetail.saveToken = _saveCardSwitch.on;
+    paymentDetail.saveToken = self.view.saveCardSwitch.on;
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
                                                             transactionDetails:self.transactionDetails
                                                                customerDetails:self.customerDetails

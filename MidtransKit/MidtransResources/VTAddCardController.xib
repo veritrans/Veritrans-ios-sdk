@@ -18,19 +18,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTAddCardController">
             <connections>
-                <outlet property="amountLabel" destination="89S-8I-cU7" id="Tec-3t-gL2"/>
-                <outlet property="cardCvv" destination="8Nn-gz-tW4" id="IjJ-vK-Rza"/>
-                <outlet property="cardExpiryDate" destination="8Bd-E9-a7J" id="Qza-f1-g9L"/>
-                <outlet property="cardFrontView" destination="MK6-3w-vo5" id="TAG-9I-Ozc"/>
-                <outlet property="cardNumber" destination="UXS-76-jqp" id="e4T-WH-yrZ"/>
-                <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="Ykg-yx-xoZ"/>
-                <outlet property="infoButton" destination="Tr6-0Q-o3N" id="KVv-oL-uLT"/>
-                <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="1r9-vR-L2l"/>
-                <outlet property="view" destination="1nQ-9Y-DIG" id="djS-fV-t4E"/>
+                <outlet property="view" destination="1nQ-9Y-DIG" id="AYI-Q1-7gN"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="1nQ-9Y-DIG">
+        <view contentMode="scaleToFill" id="1nQ-9Y-DIG" customClass="VTAddCardView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -40,12 +32,33 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-Nt-p2f">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="501"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-3w-vo5" customClass="VTCCFrontView">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-3w-vo5">
                                     <rect key="frame" x="0.0" y="10" width="320" height="200"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pt-iP-bMO" customClass="VTCCBackView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="VTCCFrontView">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
+                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="width" secondItem="MK6-3w-vo5" secondAttribute="width" id="9v5-sS-zvj"/>
+                                        <constraint firstAttribute="trailing" secondItem="0pt-iP-bMO" secondAttribute="trailing" id="EiW-VC-QUN"/>
+                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="top" id="VUp-mH-seg"/>
+                                        <constraint firstAttribute="bottom" secondItem="0pt-iP-bMO" secondAttribute="bottom" id="bBm-rd-tgi"/>
+                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="leading" secondItem="MK6-3w-vo5" secondAttribute="leading" id="bJD-Zw-KqS"/>
                                         <constraint firstAttribute="height" constant="200" id="eVx-tB-x2x"/>
+                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="height" secondItem="MK6-3w-vo5" secondAttribute="height" id="zWK-CS-fbT"/>
                                     </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="zWK-CS-fbT"/>
+                                        </mask>
+                                    </variation>
                                 </view>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXS-76-jqp" customClass="VTTextField">
                                     <rect key="frame" x="15" y="218" width="290" height="50"/>
@@ -61,8 +74,8 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <action selector="textFieldChanged:" destination="-1" eventType="editingChanged" id="DLg-PV-p0f"/>
-                                        <outlet property="delegate" destination="-1" id="V0g-Km-jrD"/>
+                                        <action selector="textFieldChanged:" destination="-1" eventType="editingDidEnd" id="le3-TH-xQ2"/>
+                                        <outlet property="delegate" destination="-1" id="cUN-8P-e2P"/>
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-E9-a7J" customClass="VTTextField">
@@ -226,7 +239,7 @@
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                     <state key="normal" title="Finish Payment"/>
                     <connections>
-                        <action selector="registerPressed:" destination="-1" eventType="touchUpInside" id="hdA-cb-OPu"/>
+                        <action selector="registerPressed:" destination="-1" eventType="touchUpInside" id="Kw1-U4-fAq"/>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="H5b-Gk-6GB">
@@ -286,6 +299,18 @@
                 <constraint firstAttribute="bottom" secondItem="RcJ-63-gQW" secondAttribute="bottom" id="vif-k3-0Ae"/>
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
+            <connections>
+                <outlet property="amountLabel" destination="G5o-vj-Rom" id="8Xh-rQ-Uyf"/>
+                <outlet property="cardBackView" destination="0pt-iP-bMO" id="LQQ-b4-taK"/>
+                <outlet property="cardCvv" destination="8Nn-gz-tW4" id="77R-by-odN"/>
+                <outlet property="cardExpiryDate" destination="8Bd-E9-a7J" id="bvg-4t-JcC"/>
+                <outlet property="cardFrontView" destination="6y0-gM-5VU" id="iCI-ea-dNP"/>
+                <outlet property="cardNumber" destination="UXS-76-jqp" id="dyt-iD-TOI"/>
+                <outlet property="cardView" destination="MK6-3w-vo5" id="mi3-IM-rUf"/>
+                <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
+                <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
+                <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
+            </connections>
         </view>
     </objects>
     <resources>

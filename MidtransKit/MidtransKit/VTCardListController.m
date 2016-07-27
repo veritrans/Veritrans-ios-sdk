@@ -19,12 +19,10 @@
 #import "VTHudView.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTCardControllerConfig.h"
-
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
@@ -34,12 +32,10 @@
 
 @interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate/*, CardIOPaymentViewControllerDelegate*/>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
-
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *addCardButton;
-
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 
 @property (nonatomic) NSMutableArray *cards;

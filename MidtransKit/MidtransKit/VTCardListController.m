@@ -69,8 +69,7 @@
 }
 
 - (void)setEditingCell:(BOOL)editingCell {
-    self.editingCell = editingCell;
-    
+    _editingCell = editingCell;
     [self.collectionView reloadData];
 }
 
@@ -118,7 +117,7 @@
 }
 
 - (void)setCards:(NSMutableArray *)cards {
-    self.cards = cards;
+    _cards = cards;
     
     [self.pageControl setNumberOfPages:[cards count]];
     [self.collectionView reloadData];

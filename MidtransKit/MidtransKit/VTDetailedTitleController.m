@@ -20,8 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view.
     UIView *headerView = [UIView new];
     titleLabel = [UILabel new];
     titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:15];

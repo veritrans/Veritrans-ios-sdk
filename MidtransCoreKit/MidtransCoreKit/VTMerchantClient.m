@@ -84,7 +84,7 @@
 - (void)fetchMaskedCardsWithCompletion:(void(^)(NSArray *maskedCards, NSError *error))completion {
     //    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card"];
     //    [[VTNetworking sharedInstance] getFromURL:URL header:[CONFIG merchantClientData]  parameters:nil callback:^(id response, NSError *error) {
-    //        
+    //
     //        NSMutableArray *result;
     //        if (response) {
     //            result = [NSMutableArray new];
@@ -95,7 +95,7 @@
     //            }
     //        }
     //        if (completion) completion(result, error);
-    //        
+    //
     //    }];
 }
 
@@ -138,12 +138,13 @@
                                   parameters:dictionaryParameters
                                     callback:^(id response, NSError *error) {
                                         if (!error) {
-                                            TransactionTokenResponse *token = [[TransactionTokenResponse alloc] initWithDictionary:(NSDictionary *) response];
+                                            TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response transactionDetails:transactionDetails customerDetails:customerDetails itemDetails:itemDetails];
+                                            
                                             if (completion) {
                                                 completion(token,NULL);
                                             }
                                         }
-                                        else{
+                                        else {
                                             if (completion) {
                                                 completion(NULL,error);
                                             }

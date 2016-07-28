@@ -25,6 +25,14 @@ NSString *const kSnapresponseTokenId = @"token_id";
     return [[self alloc] initWithDictionary:dict];
 }
 
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails {
+    TransactionTokenResponse *response = [self modelObjectWithDictionary:dict];
+    response.transactionDetails = transactionDetails;
+    response.customerDetails = customerDetails;
+    response.itemDetails = itemDetails;
+    return response;
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     

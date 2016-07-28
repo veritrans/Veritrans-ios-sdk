@@ -122,9 +122,10 @@
                 fontNameLight = fontName;
             }
         }
+        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
         
+        [VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
         
-        //        NSURL *merchantURL = [NSURL URLWithString:@"https://app.stg.veritrans.co.id/snap/v1/charge"];
         NSURL *merchantURL = [NSURL URLWithString:@"https://demo.veritrans.co.id/charge"];
         [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                                 transactionDetails:transactionDetails
@@ -132,13 +133,9 @@
                                                                    customerDetails:customerDetails
                                                            customerCreditCardToken:@"" completion:^(TransactionTokenResponse *token, NSError * error) {
                                                                if (!error) {
-                                                                   
-                                                                   //                                                                   VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-                                                                   
                                                                    VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
                                                                    vc.delegate = self;
                                                                    [self presentViewController:vc animated:YES completion:nil];
-                                                                   
                                                                }
                                                                else {
                                                                    NSLog(@"error-->%@",error);

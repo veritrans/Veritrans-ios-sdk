@@ -178,7 +178,7 @@
 		E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */; };
 		E546D1DE1CEACBBB00D65252 /* nextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */; };
 		E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */; };
-		E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTThemeManager.h */; };
+		E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTThemeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E54AC3FF1D16487800BA4603 /* VTThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* VTThemeManager.m */; };
 		E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */; };
 		E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */; };

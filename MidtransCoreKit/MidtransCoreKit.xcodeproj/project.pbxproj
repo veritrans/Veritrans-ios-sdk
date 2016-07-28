@@ -24,8 +24,8 @@
 /* Begin PBXBuildFile section */
 		002CC9981D125604003A1203 /* VTPaymentKlikBCA.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9961D125604003A1203 /* VTPaymentKlikBCA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		002CC9AA1D127618003A1203 /* VTPaymentKlikBCA.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9971D125604003A1203 /* VTPaymentKlikBCA.m */; };
-		006DB7B91D3DE294001C9A71 /* SnapTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB7B71D3DE294001C9A71 /* SnapTokenResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		006DB7BA1D3DE294001C9A71 /* SnapTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB7B81D3DE294001C9A71 /* SnapTokenResponse.m */; };
+		006DB7B91D3DE294001C9A71 /* TransactionTokenResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB7B71D3DE294001C9A71 /* TransactionTokenResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		006DB7BA1D3DE294001C9A71 /* TransactionSnapTokenResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB7B81D3DE294001C9A71 /* TransactionSnapTokenResponse.m */; };
 		006DB8131D3E1050001C9A71 /* PaymentRequestBankTransfer.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8021D3E1050001C9A71 /* PaymentRequestBankTransfer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		006DB8141D3E1050001C9A71 /* PaymentRequestBankTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 006DB8031D3E1050001C9A71 /* PaymentRequestBankTransfer.m */; };
 		006DB8151D3E1050001C9A71 /* PaymentRequestCustomerDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 006DB8041D3E1050001C9A71 /* PaymentRequestCustomerDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -131,8 +131,8 @@
 /* Begin PBXFileReference section */
 		002CC9961D125604003A1203 /* VTPaymentKlikBCA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentKlikBCA.h; sourceTree = "<group>"; };
 		002CC9971D125604003A1203 /* VTPaymentKlikBCA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentKlikBCA.m; sourceTree = "<group>"; };
-		006DB7B71D3DE294001C9A71 /* SnapTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SnapTokenResponse.h; sourceTree = "<group>"; };
-		006DB7B81D3DE294001C9A71 /* SnapTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SnapTokenResponse.m; sourceTree = "<group>"; };
+		006DB7B71D3DE294001C9A71 /* TransactionTokenResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransactionTokenResponse.h; sourceTree = "<group>"; };
+		006DB7B81D3DE294001C9A71 /* TransactionSnapTokenResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TransactionSnapTokenResponse.m; sourceTree = "<group>"; };
 		006DB8021D3E1050001C9A71 /* PaymentRequestBankTransfer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestBankTransfer.h; sourceTree = "<group>"; };
 		006DB8031D3E1050001C9A71 /* PaymentRequestBankTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentRequestBankTransfer.m; sourceTree = "<group>"; };
 		006DB8041D3E1050001C9A71 /* PaymentRequestCustomerDetails.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentRequestCustomerDetails.h; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 		006DB7B61D3DE27D001C9A71 /* Token Request */ = {
 			isa = PBXGroup;
 			children = (
-				006DB7B71D3DE294001C9A71 /* SnapTokenResponse.h */,
-				006DB7B81D3DE294001C9A71 /* SnapTokenResponse.m */,
+				006DB7B71D3DE294001C9A71 /* TransactionTokenResponse.h */,
+				006DB7B81D3DE294001C9A71 /* TransactionSnapTokenResponse.m */,
 			);
 			name = "Token Request";
 			sourceTree = "<group>";
@@ -509,7 +509,7 @@
 				E525E1211CFD402D009448A5 /* VTPrivateConfig.h in Headers */,
 				E5DACA921D034E7000F5BE0A /* VTLuhn.h in Headers */,
 				E55DB9421C912ED300813B81 /* VTCustomerDetails.h in Headers */,
-				006DB7B91D3DE294001C9A71 /* SnapTokenResponse.h in Headers */,
+				006DB7B91D3DE294001C9A71 /* TransactionTokenResponse.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,7 +614,7 @@
 				E5E436101CE31B3600F688ED /* VTItemDetail.m in Sources */,
 				0089B5FA1D13D5D6009C0059 /* NSString+VTValidation.m in Sources */,
 				E5E436181CE31C9C00F688ED /* VTClient.m in Sources */,
-				006DB7BA1D3DE294001C9A71 /* SnapTokenResponse.m in Sources */,
+				006DB7BA1D3DE294001C9A71 /* TransactionSnapTokenResponse.m in Sources */,
 				30D9ABFD1C76FD1D00F858AE /* VTNetworkOperation.m in Sources */,
 				00EA7E691D12D10D00A6CA53 /* VTPaymentMandiriClickpay.m in Sources */,
 				E5E436381CE31E6500F688ED /* VTMaskedCreditCard.m in Sources */,

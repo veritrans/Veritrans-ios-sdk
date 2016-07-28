@@ -28,12 +28,10 @@
     
 #ifdef RELEASE
     [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-         merchantServerURL:@"https://demo.veritrans.co.id"
-         serverEnvironment:VTServerEnvironmentProduction];
+      andServerEnvironment:VTServerEnvironmentProduction];
 #else
     [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
-         merchantServerURL:@"https://demo.veritrans.co.id"
-         serverEnvironment:VTServerEnvironmentSandbox];
+      andServerEnvironment:VTServerEnvironmentSandbox];
 #endif
     
     BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];

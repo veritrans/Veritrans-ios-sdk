@@ -39,11 +39,11 @@
     self.title = UILocalizedString(@"payment.success",nil);
     [self.navigationItem setHidesBackButton:YES];
     
-    _amountLabel.text = _successViewModel.totalAmount;
-    _orderIdLabel.text = _successViewModel.orderId;
-    _transactionTimeLabel.text = _successViewModel.transactionTime;
-    _paymentTypeLabel.text = _successViewModel.paymentType;
-    if ([_successViewModel.paymentType isEqualToString:@"Bca Klikbca"]) {
+    self.amountLabel.text = self.successViewModel.totalAmount;
+    self.orderIdLabel.text = self.successViewModel.orderId;
+    self.transactionTimeLabel.text = self.successViewModel.transactionTime;
+    self.paymentTypeLabel.text = self.successViewModel.paymentType;
+    if ([self.successViewModel.paymentType isEqualToString:@"Bca Klikbca"]) {
         [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title",nil), @"KlikBCA"] forState:UIControlStateNormal];
     }
 }
@@ -54,7 +54,7 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"tr_result":_successViewModel.transactionResult};
+    NSDictionary *userInfo = @{@"trself.result":self.successViewModel.transactionResult};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -13,7 +13,6 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     self.tintColor = [[VTThemeManager shared] themeColor];
 }
 

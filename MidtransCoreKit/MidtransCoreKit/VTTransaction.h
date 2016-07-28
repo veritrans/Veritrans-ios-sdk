@@ -12,6 +12,7 @@
 #import "VTTransactionDetails.h"
 #import "VTCustomerDetails.h"
 #import "VTItemDetail.h"
+#import "TransactionTokenResponse.h"
 
 /**
  VTTransaction contains aggregated data needed to do a transaction.
@@ -26,19 +27,9 @@
 @property (nonatomic, readonly) id<VTPaymentDetails> paymentDetails;
 
 /**
- The transaction's data/information.
+ The snap token for transaction.
  */
-@property (nonatomic, readonly) VTTransactionDetails *transactionDetails;
-
-/**
- The information about the credit card's owner.
- */
-@property (nonatomic) VTCustomerDetails *customerDetails;
-
-/**
- The details about purchased items.
- */
-@property (nonatomic) NSArray<VTItemDetail*> *itemDetails;
+@property (nonatomic, readonly) TransactionTokenResponse *token;
 
 /**
  Set the value for the first custom field. The label for this field can be set in MAP.
@@ -56,12 +47,7 @@
 @property (nonatomic) NSString *customField3;
 
 - (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails
-                    transactionDetails:(VTTransactionDetails *)transactionDetails;
-
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails
-                    transactionDetails:(VTTransactionDetails *)transactionDetails
-                       customerDetails:(VTCustomerDetails *)customerDetails
-                           itemDetails:(NSArray<VTItemDetail*> *)itemDetails;
+                                 token:(TransactionTokenResponse *)token;
 
 - (NSDictionary *)dictionaryValue;
 

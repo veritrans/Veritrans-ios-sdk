@@ -14,13 +14,11 @@
 @property (nonatomic, readonly) UIColor *themeColor;
 @property (nonatomic, readonly) VTFontSource *themeFont;
 
-
 + (instancetype)shared;
 
 /**
  * Call it once before presenting UI Flow
  */
 + (void)applyCustomThemeColor:(UIColor *)themeColor themeFont:(VTFontSource *)themeFont;
-+ (void)applyStandardTheme;
 
 @end

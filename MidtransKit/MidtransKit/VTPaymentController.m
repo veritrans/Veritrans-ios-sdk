@@ -9,6 +9,7 @@
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
 #import "VTHudView.h"
+#import "VTToast.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
 #import "VTSingleGuideController.h"
@@ -21,11 +22,7 @@
 
 @implementation VTPaymentController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail*>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                      paymentMethodName:(VTPaymentListModel *)paymentMethod; {
-    
+-(instancetype)initWithToken:(TransactionTokenResponse *)token {
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
         self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
@@ -34,10 +31,22 @@
     }
     
     if (self) {
+        self.token = token;
+    }
+    return self;
+}
+
+-(instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod {
+    @try {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+        self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+    } @catch (NSException *exception) {
+        self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    }
+    
+    if (self) {
+        self.token = token;
         self.paymentMethod = paymentMethod;
-        self.customerDetails = customerDetails;
-        self.itemDetails = itemDetails;
-        self.transactionDetails = transactionDetails;
     }
     return self;
 }
@@ -47,7 +56,13 @@
     
     self.hudView = [[VTHudView alloc] init];
 }
-
+-(void)showAlertViewWithTitle:(NSString *)title
+                   andMessage:(NSString *)message
+               andButtonTitle:(NSString *)buttonTitle {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:buttonTitle otherButtonTitles:nil];
+    [alert show];
+}
 - (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];
 }
@@ -84,5 +99,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
+-(void)showToastInviewWithMessage:(NSString *)message {
+    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+}
 @end

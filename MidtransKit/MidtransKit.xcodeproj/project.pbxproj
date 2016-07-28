@@ -27,6 +27,8 @@
 		002CC9A91D12639F003A1203 /* klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A81D12639F003A1203 /* klikbca@2x.png */; };
 		002CC9B81D12A442003A1203 /* VTStringHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9B61D12A442003A1203 /* VTStringHelper.h */; };
 		002CC9B91D12A442003A1203 /* VTStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* VTStringHelper.m */; };
+		008859531D488950003105F1 /* VTAddCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 008859511D488950003105F1 /* VTAddCardView.h */; };
+		008859541D488950003105F1 /* VTAddCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008859521D488950003105F1 /* VTAddCardView.m */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -176,7 +178,7 @@
 		E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */; };
 		E546D1DE1CEACBBB00D65252 /* nextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */; };
 		E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */; };
-		E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTThemeManager.h */; };
+		E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* VTThemeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E54AC3FF1D16487800BA4603 /* VTThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* VTThemeManager.m */; };
 		E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */; };
 		E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */; };
@@ -268,6 +270,8 @@
 		002CC9A81D12639F003A1203 /* klikbca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klikbca@2x.png"; sourceTree = "<group>"; };
 		002CC9B61D12A442003A1203 /* VTStringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTStringHelper.h; sourceTree = "<group>"; };
 		002CC9B71D12A442003A1203 /* VTStringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTStringHelper.m; sourceTree = "<group>"; };
+		008859511D488950003105F1 /* VTAddCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardView.h; sourceTree = "<group>"; };
+		008859521D488950003105F1 /* VTAddCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardView.m; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -534,6 +538,17 @@
 				E50438B81D1A679400710470 /* VTGuideView.m */,
 			);
 			name = Guide;
+			sourceTree = "<group>";
+		};
+		008859501D48892C003105F1 /* Add Card */ = {
+			isa = PBXGroup;
+			children = (
+				3005E2751C7C175000064169 /* VTAddCardController.h */,
+				3005E2761C7C175000064169 /* VTAddCardController.m */,
+				008859511D488950003105F1 /* VTAddCardView.h */,
+				008859521D488950003105F1 /* VTAddCardView.m */,
+			);
+			name = "Add Card";
 			sourceTree = "<group>";
 		};
 		00F61AE61D1459F300C93DA0 /* Payment List */ = {
@@ -831,14 +846,13 @@
 		30E713101C85749F00AFB7B4 /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
+				008859501D48892C003105F1 /* Add Card */,
 				E517C2C41C967C5D009AE6AA /* Alerts */,
 				E517C2E51C96C319009AE6AA /* Animators */,
 				300F5CA41C7C0EB200DA6E13 /* VTCardListController.h */,
 				300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */,
 				30E879851C88EDE1000C0F4B /* VTTwoClickController.h */,
 				30E879861C88EDE1000C0F4B /* VTTwoClickController.m */,
-				3005E2751C7C175000064169 /* VTAddCardController.h */,
-				3005E2761C7C175000064169 /* VTAddCardController.m */,
 				E525E1231CFD6654009448A5 /* VTCardControllerConfig.h */,
 				E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */,
 			);
@@ -1020,6 +1034,7 @@
 				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
 				30E879871C88EDE1000C0F4B /* VTTwoClickController.h in Headers */,
 				E50D86071D0ECBC500F26D2E /* VTIndomaretSuccessController.h in Headers */,
+				008859531D488950003105F1 /* VTAddCardView.h in Headers */,
 				30E713261C859EE100AFB7B4 /* VTButton.h in Headers */,
 				00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */,
 				00F61B1A1D14703100C93DA0 /* VTPaymentGeneralView.h in Headers */,
@@ -1339,6 +1354,7 @@
 				00F61B161D146F7100C93DA0 /* VTPaymentGeneralViewController.m in Sources */,
 				E517C2D91C96B610009AE6AA /* VTHudView.m in Sources */,
 				E578DD181CFC1BD50091760A /* VTToast.m in Sources */,
+				008859541D488950003105F1 /* VTAddCardView.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,
 				E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */,
 				E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */,

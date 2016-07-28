@@ -35,41 +35,41 @@ static NSString* const ClickpayAPPLI = @"3";
     
     self.title = @"Mandiri Clickpay";
     
-    [self addNavigationToTextFields:@[_debitNumberTextField, _tokenTextField]];
+    [self addNavigationToTextFields:@[self.debitNumberTextField, self.tokenTextField]];
     
-    _debitNumberTextField.delegate = self;
-    _tokenTextField.delegate = self;
+    self.debitNumberTextField.delegate = self;
+    self.tokenTextField.delegate = self;
     
-    _appliLabel.text = ClickpayAPPLI;
-    _input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:_debitNumberTextField.text];
-    _input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.transactionDetails.grossAmount];
-    _input3Label.text = [VTMandiriClickpayHelper generateInput3];
+    self.appliLabel.text = ClickpayAPPLI;
+    self.input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
+    self.input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
+    self.input3Label.text = [VTMandiriClickpayHelper generateInput3];
     
-    _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
-    _tokenTextField.warning = nil;
-    _debitNumberTextField.warning = nil;
+    self.tokenTextField.warning = nil;
+    self.debitNumberTextField.warning = nil;
     
-    if ([_debitNumberTextField.text isValidClickpayNumber] == NO) {
-        _debitNumberTextField.warning = UILocalizedString(@"clickpay.invalid-number", nil);
+    if ([self.debitNumberTextField.text isValidClickpayNumber] == NO) {
+        self.debitNumberTextField.warning = UILocalizedString(@"clickpay.invalid-number", nil);
         return;
     }
     
-    if ([_tokenTextField.text isValidClickpayToken] == NO) {
-        _tokenTextField.warning = UILocalizedString(@"clickpay.invalid-token", nil);
+    if ([self.tokenTextField.text isValidClickpayToken] == NO) {
+        self.tokenTextField.warning = UILocalizedString(@"clickpay.invalid-token", nil);
         return;
     }
     
     [self showLoadingHud];
     
-    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:_debitNumberTextField.text grossAmount:self.transactionDetails.grossAmount token:_tokenTextField.text];
+    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
+                                                                                        grossAmount:self.token.transactionDetails.grossAmount
+                                                                                              token:self.tokenTextField.text];
     
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                            transactionDetails:self.transactionDetails
-                                                               customerDetails:self.customerDetails
-                                                                   itemDetails:self.itemDetails];
+                                                            token:self.token];
     
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [self hideLoadingHud];
@@ -89,13 +89,13 @@ static NSString* const ClickpayAPPLI = @"3";
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isEqual:_debitNumberTextField]) {
+    if ([textField isEqual:self.debitNumberTextField]) {
         NSMutableString *mstring = [NSMutableString stringWithString:textField.text];
         [mstring replaceCharactersInRange:range withString:string];
-        _input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:_debitNumberTextField.text];
+        self.input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
         
         return [textField filterCreditCardWithString:string range:range];
-    } else if ([textField isEqual:_tokenTextField]) {
+    } else if ([textField isEqual:self.tokenTextField]) {
         NSInteger clickpayTokenLenth = 6;
         return [textField filterNumericWithString:string range:range length:clickpayTokenLenth];
     }

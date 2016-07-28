@@ -32,8 +32,8 @@
 
 @implementation VTTwoClickController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails maskedCard:(VTMaskedCreditCard *)maskedCard {
-    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil];
+- (instancetype)initWithToken:(TransactionTokenResponse *)token maskedCard:(VTMaskedCreditCard *)maskedCard {
+    self = [super initWithToken:token];
     if (self) {
         self.maskeCard = maskedCard;
     }
@@ -42,20 +42,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
-    
     [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
-    
     [self addNavigationToTextFields:@[self.cvvTextField]];
-    
     self.navigationController.delegate = self;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    [_cvvTextField becomeFirstResponder];
+    [self.cvvTextField becomeFirstResponder];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -82,16 +78,18 @@
 
 - (IBAction)paymentPressed:(UIButton *)sender {
     [self showLoadingHud];
+    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
+                                                                                   cvv:self.cvvTextField.text
+                                                                           grossAmount:self.token.transactionDetails.grossAmount];
     
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:_maskeCard.savedTokenId cvv:_cvvTextField.text grossAmount:self.transactionDetails.grossAmount];
-    
-    [[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        if (error) {
-            [self handleTransactionError:error];
-        } else {
-            [self payWithToken:token];
-        }
-    }];
+    [[VTClient sharedClient] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
@@ -107,8 +105,10 @@
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isEqual:_cvvTextField]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:_maskeCard.maskedNumber];
+    if ([textField isEqual:self.cvvTextField]) {
+        return [textField filterCvvNumber:string
+                                    range:range
+                           withCardNumber:self.maskeCard.maskedNumber];
     } else {
         return YES;
     }
@@ -118,7 +118,8 @@
 
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick token:token];
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail transactionDetails:self.transactionDetails customerDetails:self.customerDetails itemDetails:self.itemDetails];
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
+                                                                         token:self.token];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

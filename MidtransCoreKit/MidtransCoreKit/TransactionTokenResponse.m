@@ -5,24 +5,32 @@
 //  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
 //
 
-#import "SnapTokenResponse.h"
+#import "TransactionTokenResponse.h"
 
 
 NSString *const kSnapresponseTokenId = @"token_id";
 
-@interface SnapTokenResponse ()
+@interface TransactionTokenResponse ()
 
 - (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 
 @end
 
-@implementation SnapTokenResponse
+@implementation TransactionTokenResponse
 
 @synthesize tokenId = _tokenId;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict {
     return [[self alloc] initWithDictionary:dict];
+}
+
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails {
+    TransactionTokenResponse *response = [self modelObjectWithDictionary:dict];
+    response.transactionDetails = transactionDetails;
+    response.customerDetails = customerDetails;
+    response.itemDetails = itemDetails;
+    return response;
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
@@ -57,8 +65,7 @@ NSString *const kSnapresponseTokenId = @"token_id";
 
 #pragma mark - NSCoding Methods
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     
     self.tokenId = [aDecoder decodeObjectForKey:kSnapresponseTokenId];
@@ -71,8 +78,7 @@ NSString *const kSnapresponseTokenId = @"token_id";
 }
 
 - (id)copyWithZone:(NSZone *)zone {
-    SnapTokenResponse *copy = [[SnapTokenResponse alloc] init];
-    
+    TransactionTokenResponse *copy = [[TransactionTokenResponse alloc] init];
     if (copy) {
         
         copy.tokenId = [self.tokenId copyWithZone:zone];

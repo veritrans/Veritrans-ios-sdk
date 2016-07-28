@@ -11,5 +11,6 @@
 
 #import "VTPaymentViewController.h"
 #import "VTCardControllerConfig.h"
+#import "VTThemeManager.h"
 
 #endif /* MidtransKit_h */

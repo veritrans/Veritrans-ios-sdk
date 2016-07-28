@@ -19,20 +19,14 @@
 
 @implementation VTConfig
 
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment {
++ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment {
     [[VTConfig sharedInstance] setClientKey:clientKey];
-    [[VTConfig sharedInstance] setMerchantServerURL:merchantServerURL];
     [[VTConfig sharedInstance] setEnvironment:environment];
 }
 
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData {
-    [VTConfig setClientKey:clientKey merchantServerURL:merchantServerURL serverEnvironment:environment];
++ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData {
+    [VTConfig setClientKey:clientKey andServerEnvironment:environment];
     [[VTConfig sharedInstance] setMerchantClientData:merchantClientData];
-}
-
-- (NSString *)merchantServerURL {
-    NSAssert(_merchantServerURL, VT_MESSAGE_MERCHANT_SERVER_NOT_SET);
-    return _merchantServerURL;
 }
 
 - (NSString *)clientKey {
@@ -48,7 +42,6 @@
     });
     return shared;
 }
-
 - (void)setEnvironment:(VTServerEnvironment)environment {
     [VTPrivateConfig setServerEnvironment:environment];    
 }

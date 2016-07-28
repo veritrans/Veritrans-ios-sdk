@@ -44,11 +44,9 @@
     if (selectedIndex == _fields.count) {
         _selectedIndex = _fields.count - 1;
     }
-    
     if (selectedIndex < 0) {
         _selectedIndex = 0;
     }
-    
     _nextButton.enabled = _selectedIndex != _fields.count-1;
     _prevButton.enabled = _selectedIndex != 0;
     
@@ -77,7 +75,6 @@
 
 - (void)setFields:(NSArray *)fields {
     _fields = fields;
-    
     for (UITextField *field in fields) {
         field.inputAccessoryView = self;
         [field addTarget:self action:@selector(editingBegin:) forControlEvents:UIControlEventEditingDidBegin];

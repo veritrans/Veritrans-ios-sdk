@@ -9,7 +9,6 @@
 #import "VTBillpaySuccessController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
-#import "VTToast.h"
 
 @interface VTBillpaySuccessController ()
 @property (strong, nonatomic) IBOutlet UILabel *billCodeLabel;
@@ -24,8 +23,12 @@
 
 @implementation VTBillpaySuccessController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTVATransactionStatusViewModel *)statusModel {
-    self = [[VTBillpaySuccessController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:paymentMethod];
+- (instancetype)initWithToken:(TransactionTokenResponse *)token
+            paymentMethodName:(VTPaymentListModel *)paymentMethod
+                  statusModel:(VTVATransactionStatusViewModel *)statusModel {
+    
+    self = [[VTBillpaySuccessController alloc] initWithToken:token
+                                           paymentMethodName:paymentMethod];
     if (self) {
         self.statusModel = statusModel;
     }
@@ -54,7 +57,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:_statusModel.billpayCode];
-    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+    [self showToastInviewWithMessage:@"Copied to clipboard"];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

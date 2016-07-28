@@ -12,26 +12,17 @@
 
 @property (nonatomic, readwrite) id paymentDetails;
 @property (nonatomic, readwrite) VTTransactionDetails *transactionDetails;
+@property (nonatomic, readwrite) TransactionTokenResponse *token;
 
 @end
 
 @implementation VTTransaction
 
-- (instancetype)initWithPaymentDetails:(id <VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails
+                                 token:(TransactionTokenResponse *)token {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
-        self.transactionDetails = transactionDetails;
-    }
-    
-    return self;
-}
-
-- (instancetype)initWithPaymentDetails:(id <VTPaymentDetails>)paymentDetails transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *> *)itemDetails {
-    if (self = [super init]) {
-        self.paymentDetails = paymentDetails;
-        self.transactionDetails = transactionDetails;
-        self.customerDetails = customerDetails;
-        self.itemDetails = itemDetails;
+        self.token = token;
     }
     return self;
 }
@@ -45,16 +36,16 @@
     
     // Fill-in mandatory fields.
     [result setValue:[self.transactionDetails dictionaryValue] forKey:@"transaction_details"];
-    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];    
+    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];
     if ([self.paymentDetails dictionaryValue]) {
         [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
     }
     
     // Fill-in optional fields.
-    if (self.customerDetails) {
-        [result setValue:[self.customerDetails dictionaryValue] forKey:@"customer_details"];
+    if (self.token.customerDetails) {
+        [result setValue:[self.token.customerDetails dictionaryValue] forKey:@"customer_details"];
     }
-    if (self.itemDetails) {
+    if (self.token.itemDetails) {
         [result setValue:[self itemsArrayValue] forKey:@"item_details"];
     }
     if (self.customField1) {
@@ -72,7 +63,7 @@
 
 - (NSArray *)itemsArrayValue {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    [self.itemDetails enumerateObjectsUsingBlock:^(VTItemDetail * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self.token.itemDetails enumerateObjectsUsingBlock:^(VTItemDetail * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [result addObject:[obj dictionaryValue]];
     }];
     return result;

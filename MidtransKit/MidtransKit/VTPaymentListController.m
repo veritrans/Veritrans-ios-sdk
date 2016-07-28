@@ -39,16 +39,12 @@
     
     self.title =  UILocalizedString(@"payment.list.title", nil);
     
-    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
-    
     
     self.paymentMethodList = [NSMutableArray new];
     self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
@@ -63,41 +59,34 @@
     self.view.footer.amountLabel.text = @"-";
     self.view.header.amountLabel.text = @"-";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self showLoadingHud];
-        [[VTMerchantClient sharedClient] generateSnapTokenWithTransactionDetails:self.transactionDetails
-                                                                     itemDetails:self.itemDetails
-                                                                 customerDetails:self.customerDetails
-                                                         customerCreditCardToken:nil
-                                                                      completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
-                                                                          if (!error) {
-                                                                              [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
-                                                                                  [self hideLoadingHud];
-                                                                                  if (!error) {
-                                                                                      NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-                                                                                      self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                                                      self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                                                      
-                                                                                      if (response.transactionData.enabledPayments.count) {
-                                                                                          for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-                                                                                              for (int i = 0; i<paymentList.count; i++) {
-                                                                                                  VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-                                                                                                  if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-                                                                                                      [self.paymentMethodList addObject:paymentmodel];
-                                                                                                  }
-                                                                                              }
-                                                                                          }
-                                                                                      }
-                                                                                      self.dataSource.paymentList = self.paymentMethodList;
-                                                                                      [self.view.tableView reloadData];
-                                                                                  }
-                                                                              }];
-                                                                          }
-                                                                          else {
-                                                                              [self hideLoadingHud];
-                                                                          }
-                                                                      }];
-    });
+    
+    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+    
+    [self showLoadingHud];
+    
+    [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
+        [self hideLoadingHud];
+        
+        if (response) {
+            NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+            self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+            self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+            
+            if (response.transactionData.enabledPayments.count) {
+                for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+                    for (int i = 0; i<paymentList.count; i++) {
+                        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                        if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+                            [self.paymentMethodList addObject:paymentmodel];
+                        }
+                    }
+                }
+            }
+            self.dataSource.paymentList = self.paymentMethodList;
+            [self.view.tableView reloadData];
+        }
+    }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -139,26 +128,31 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CREDIT_CARD_IDENTIFIER]) {
-        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
+        VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+                                                             paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
-        VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
+        VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
+                                                         paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER] ||
                [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER] ||
                [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER] ||
                [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
-        VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
+        VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token
+                                                                                 paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER] ||
                [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER]) {
-        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
+        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
+                                                                               paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
         
     } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {
-        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];
+        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
+                                                                           paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
         
     }

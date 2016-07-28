@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
     self.navigationItem.backBarButtonItem = [[VTBackBarButtonItem alloc] initWithTitle:UILocalizedString(@"Back", nil)];
 }
 

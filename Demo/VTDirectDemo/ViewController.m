@@ -122,28 +122,28 @@
                 fontNameLight = fontName;
             }
         }
-        [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:[NSURL URLWithString:@"https://app.stg.veritrans.co.id/snap/v1/charge"]
+        
+        
+        //        NSURL *merchantURL = [NSURL URLWithString:@"https://app.stg.veritrans.co.id/snap/v1/charge"];
+        NSURL *merchantURL = [NSURL URLWithString:@"https://demo.veritrans.co.id/charge"];
+        [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                                 transactionDetails:transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:customerDetails
                                                            customerCreditCardToken:@"" completion:^(TransactionTokenResponse *token, NSError * error) {
                                                                if (!error) {
-                                                                   self.isDone = YES;
-                                                                   self.transactionToken = token.tokenId;
+                                                                   
+                                                                   //                                                                   VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+                                                                   
+                                                                   VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
+                                                                   vc.delegate = self;
+                                                                   [self presentViewController:vc animated:YES completion:nil];
+                                                                   
                                                                }
                                                                else {
                                                                    NSLog(@"error-->%@",error);
                                                                }
                                                            }];
-        
-        //        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-        //        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails
-        //                                                                                   itemDetails:self.itemDetails
-        //                                                                            transactionDetails:transactionDetails
-        //                                                                                    themeColor:themeColor
-        //                                                                                    fontSource:fontSource];
-        //        vc.delegate = self;
-        //        [self presentViewController:vc animated:YES completion:nil];
     } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         [self.navigationController pushViewController:option animated:YES];

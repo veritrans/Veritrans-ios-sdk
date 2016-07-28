@@ -15,9 +15,7 @@
 @interface VTTwoClickController : VTPaymentController
 @property (weak, nonatomic) IBOutlet VTCCBackView *backView;
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray<VTItemDetail *> *)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                             maskedCard:(VTMaskedCreditCard *)maskedCard;
+- (instancetype)initWithToken:(TransactionTokenResponse *)token
+                   maskedCard:(VTMaskedCreditCard *)maskedCard;
 
 @end

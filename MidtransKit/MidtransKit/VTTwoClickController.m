@@ -32,8 +32,8 @@
 
 @implementation VTTwoClickController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails maskedCard:(VTMaskedCreditCard *)maskedCard {
-    self = [super initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:nil];
+- (instancetype)initWithToken:(TransactionTokenResponse *)token maskedCard:(VTMaskedCreditCard *)maskedCard {
+    self = [super initWithToken:token];
     if (self) {
         self.maskeCard = maskedCard;
     }
@@ -80,7 +80,7 @@
     [self showLoadingHud];
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
                                                                                    cvv:self.cvvTextField.text
-                                                                           grossAmount:self.transactionDetails.grossAmount];
+                                                                           grossAmount:self.token.transactionDetails.grossAmount];
     
     [[VTClient sharedClient] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -119,9 +119,7 @@
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick token:token];
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
-                                                            transactionDetails:self.transactionDetails
-                                                               customerDetails:self.customerDetails
-                                                                   itemDetails:self.itemDetails];
+                                                                         token:self.token];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

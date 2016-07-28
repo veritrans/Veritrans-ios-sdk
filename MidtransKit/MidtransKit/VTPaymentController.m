@@ -22,11 +22,7 @@
 
 @implementation VTPaymentController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail*>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                      paymentMethodName:(VTPaymentListModel *)paymentMethod; {
-    
+-(instancetype)initWithToken:(TransactionTokenResponse *)token {
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
         self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
@@ -35,10 +31,22 @@
     }
     
     if (self) {
+        self.token = token;
+    }
+    return self;
+}
+
+-(instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod {
+    @try {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+        self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
+    } @catch (NSException *exception) {
+        self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    }
+    
+    if (self) {
+        self.token = token;
         self.paymentMethod = paymentMethod;
-        self.customerDetails = customerDetails;
-        self.itemDetails = itemDetails;
-        self.transactionDetails = transactionDetails;
     }
     return self;
 }

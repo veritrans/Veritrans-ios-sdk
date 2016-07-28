@@ -51,7 +51,7 @@
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
-    self.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self updateView];
     [self reloadMaskedCards];
     [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
@@ -117,10 +117,7 @@
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails
-                                                                       itemDetails:self.itemDetails
-                                                                transactionDetails:self.transactionDetails
-                                                                 paymentMethodName:nil];
+    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -168,17 +165,15 @@
     
     if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
         VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber
-                                                                                    grossAmount:self.transactionDetails.grossAmount];
+                                                                                    grossAmount:self.token.transactionDetails.grossAmount];
         [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
             if (selectedIndex == 1) {
                 [self payWithToken:maskedCard.savedTokenId];
             }
         }];
     } else {
-        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails
-                                                                             itemDetails:self.itemDetails
-                                                                      transactionDetails:self.transactionDetails
-                                                                              maskedCard:maskedCard];
+        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
+                                                                    maskedCard:maskedCard];
         [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -194,9 +189,7 @@
                                            token:token];
     VTTransaction *transaction =
     [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
-                               transactionDetails:self.transactionDetails
-                                  customerDetails:self.customerDetails
-                                      itemDetails:self.itemDetails];
+                                            token:self.token];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [_hudView hide];
         

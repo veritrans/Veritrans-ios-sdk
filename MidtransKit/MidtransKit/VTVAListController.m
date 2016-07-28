@@ -33,7 +33,7 @@
     }
     self.vaList = vaListM;
     self.tableView.tableFooterView = [UIView new];
-    self.totalAmountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 #pragma mark - UITableViewDataSource
@@ -52,10 +52,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *vaTypeModel = (VTPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
-    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithCustomerDetails:self.customerDetails
-                                                                                           itemDetails:self.itemDetails
-                                                                                    transactionDetails:self.transactionDetails
-                                                                                     paymentMethodName:vaTypeModel];
+    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

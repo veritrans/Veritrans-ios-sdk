@@ -14,16 +14,13 @@
 #import "VTSuccessStatusController.h"
 
 @interface VTPaymentController : VTViewController
-@property (nonatomic,strong) VTCustomerDetails *customerDetails;
-@property (nonatomic,strong) NSArray *itemDetails;
+@property (nonatomic,strong) TransactionTokenResponse *token;
 @property (nonatomic,strong) VTPaymentListModel *paymentMethod;
-@property (nonatomic) VTTransactionDetails *transactionDetails;
 
 
--(instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                           itemDetails:(NSArray <VTItemDetail*>*)itemDetails
-                    transactionDetails:(VTTransactionDetails *)transactionDetails
-                     paymentMethodName:(VTPaymentListModel *)paymentMethod;
+-(instancetype)initWithToken:(TransactionTokenResponse *)token;
+-(instancetype)initWithToken:(TransactionTokenResponse *)token
+           paymentMethodName:(VTPaymentListModel *)paymentMethod;
 
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
 -(void)showLoadingHud;

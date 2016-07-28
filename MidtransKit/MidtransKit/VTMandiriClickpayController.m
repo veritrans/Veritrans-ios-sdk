@@ -42,10 +42,10 @@ static NSString* const ClickpayAPPLI = @"3";
     
     self.appliLabel.text = ClickpayAPPLI;
     self.input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
-    self.input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.transactionDetails.grossAmount];
+    self.input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
     self.input3Label.text = [VTMandiriClickpayHelper generateInput3];
     
-    self.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
@@ -65,13 +65,11 @@ static NSString* const ClickpayAPPLI = @"3";
     [self showLoadingHud];
     
     VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
-                                                                                        grossAmount:self.transactionDetails.grossAmount
+                                                                                        grossAmount:self.token.transactionDetails.grossAmount
                                                                                               token:self.tokenTextField.text];
     
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                            transactionDetails:self.transactionDetails
-                                                               customerDetails:self.customerDetails
-                                                                   itemDetails:self.itemDetails];
+                                                            token:self.token];
     
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [self hideLoadingHud];

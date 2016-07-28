@@ -40,7 +40,7 @@
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     [IHKeyboardAvoiding_vt setAvoidingView:self.view.fieldScrollView];
     [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
-    self.view.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 - (void)dealloc {
@@ -127,7 +127,7 @@
     
     BOOL enable3Ds = [[VTCardControllerConfig sharedInstance] enable3DSecure];
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                        grossAmount:self.transactionDetails.grossAmount
+                                                                        grossAmount:self.token.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
     
     [[VTClient sharedClient] generateToken:tokenRequest
@@ -169,7 +169,7 @@
 //                           options:UIViewAnimationOptionTransitionFlipFromRight
 //                        completion:^(BOOL finished)
 //         {
-//             
+//
 //         }];
 //    }
 //    else {
@@ -179,7 +179,7 @@
 //                           options:UIViewAnimationOptionTransitionFlipFromRight
 //                        completion:^(BOOL finished)
 //         {
-//             
+//
 //         }];
 //    }
 //}
@@ -225,9 +225,7 @@
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
     paymentDetail.saveToken = self.view.saveCardSwitch.on;
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
-                                                            transactionDetails:self.transactionDetails
-                                                               customerDetails:self.customerDetails
-                                                                   itemDetails:self.itemDetails];
+                                                                         token:self.token];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

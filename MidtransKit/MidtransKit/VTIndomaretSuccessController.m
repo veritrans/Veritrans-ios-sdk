@@ -24,16 +24,12 @@
 
 @implementation VTIndomaretSuccessController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray<VTItemDetail *> *)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                      paymentMethodName:(VTPaymentListModel *)paymentMethod
-                            statusModel:(VTPaymentStatusViewModel *)statusModel {
+- (instancetype)initWithToken:(TransactionTokenResponse *)token
+            paymentMethodName:(VTPaymentListModel *)paymentMethod
+                  statusModel:(VTPaymentStatusViewModel *)statusModel {
     
-    self = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:customerDetails
-                                                             itemDetails:itemDetails
-                                                      transactionDetails:transactionDetails
-                                                       paymentMethodName:paymentMethod];
+    self = [[VTIndomaretSuccessController alloc] initWithToken:token
+                                             paymentMethodName:paymentMethod];
     if (self) {
         self.statusModel = statusModel;
     }
@@ -42,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    
+    // Do any additional setup after loading the view.
     
     self.amountLabel.text = self.statusModel.totalAmount;
     self.orderIdLabel.text = self.statusModel.orderId;

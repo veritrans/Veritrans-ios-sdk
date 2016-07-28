@@ -19,29 +19,9 @@
 
 @dynamic delegate;
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithToken:(TransactionTokenResponse *)token {
     [VTThemeManager applyStandardTheme];
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
-                                                                               itemDetails:itemDetails
-                                                                        transactionDetails:transactionDetails
-                                                                         paymentMethodName:nil];
-    self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
-    return self;
-}
-
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                             themeColor:(UIColor *)themeColor
-                             fontSource:(VTFontSource *)fontSource {
-    
-    [VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
-                                                                               itemDetails:itemDetails
-                                                                        transactionDetails:transactionDetails
-                                                                         paymentMethodName:nil];
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }

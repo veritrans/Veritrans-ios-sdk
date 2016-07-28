@@ -12,7 +12,7 @@
 #import "VTTransactionResult.h"
 #import "VTMaskedCreditCard.h"
 #import "VTTransactionResult.h"
-@class SnapTokenResponse,PaymentRequestResponse;
+@class TransactionTokenResponse,PaymentRequestResponse;
 /**
  `VTMerchant` wraps operation that offered by the Merchant Server. Note that data format is tightly-coupled with the merchant server implementation. Please refer to the Merchant Server documentation for further information.
  */
@@ -56,9 +56,12 @@
 /*
  * updated method, snapping
  */
-- (void)fetchPaymentListWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                   itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
-                               customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                    completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
+- (void)requestTransactionTokenWithclientTokenURL:(nonnull NSURL*)clientTokenUrl
+                               transactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                      itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                  customerDetails:(nullable VTCustomerDetails *)customerDetails
+                          customerCreditCardToken:(nullable NSString *)creditCardToken
+                                       completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
+- (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
 @end

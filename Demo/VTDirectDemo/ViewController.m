@@ -9,9 +9,8 @@
 #import "ViewController.h"
 #import "TableViewCell.h"
 #import "OptionViewController.h"
-
 #import <MidtransKit/MidtransKit.h>
-
+#import <MidtransCoreKit/MidtransCoreKit.h>
 @implementation NSString (random)
 
 + (NSString *)randomWithLength:(NSUInteger)length {
@@ -29,13 +28,15 @@
 @interface ViewController () <VTPaymentViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <VTItemDetail*>* itemDetails;
+@property (nonatomic) BOOL isDone;
+@property (nonatomic,strong) NSString *transactionToken;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.isDone = 0;
     //set default font
     NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
     if (!fontNames) {
@@ -88,7 +89,6 @@
         }];
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -122,16 +122,28 @@
                 fontNameLight = fontName;
             }
         }
+        [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:[NSURL URLWithString:@"https://app.stg.veritrans.co.id/snap/v1/charge"]
+                                                                transactionDetails:transactionDetails
+                                                                       itemDetails:self.itemDetails
+                                                                   customerDetails:customerDetails
+                                                           customerCreditCardToken:@"" completion:^(TransactionTokenResponse *token, NSError * error) {
+                                                               if (!error) {
+                                                                   self.isDone = YES;
+                                                                   self.transactionToken = token.tokenId;
+                                                               }
+                                                               else {
+                                                                   NSLog(@"error-->%@",error);
+                                                               }
+                                                           }];
         
-        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-        
-        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails
-                                                                                   itemDetails:self.itemDetails
-                                                                            transactionDetails:transactionDetails
-                                                                                    themeColor:themeColor
-                                                                                    fontSource:fontSource];
-        vc.delegate = self;
-        [self presentViewController:vc animated:YES completion:nil];
+        //        VTFontSource *fontSource = [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+        //        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails
+        //                                                                                   itemDetails:self.itemDetails
+        //                                                                            transactionDetails:transactionDetails
+        //                                                                                    themeColor:themeColor
+        //                                                                                    fontSource:fontSource];
+        //        vc.delegate = self;
+        //        [self presentViewController:vc animated:YES completion:nil];
     } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         [self.navigationController pushViewController:option animated:YES];

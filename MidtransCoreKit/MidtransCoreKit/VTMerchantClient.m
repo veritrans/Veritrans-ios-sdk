@@ -14,7 +14,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTTrackingManager.h"
 #import "VTPaymentWebController.h"
-#import "SnapTokenResponse.h"
+#import "TransactionTokenResponse.h"
 #import "PaymentRequestDataModels.h"
 @implementation VTMerchantClient
 
@@ -30,14 +30,11 @@
     return instance;
 }
 
-#pragma - PUBLIC
-
 - (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(VTTransactionResult *result, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL],@"pay"];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
-    
     [[VTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         NSString *paymentType = response[@"payment_type"];
         if (response) {
@@ -80,72 +77,68 @@
 }
 
 - (void)saveRegisteredCard:(VTMaskedCreditCard *)savedCard completion:(void(^)(id result, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card/register"];
-    [[VTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:savedCard.dictionaryValue callback:completion];
+    //    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card/register"];
+    //    [[VTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:savedCard.dictionaryValue callback:completion];
 }
 
 - (void)fetchMaskedCardsWithCompletion:(void(^)(NSArray *maskedCards, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card"];
-    [[VTNetworking sharedInstance] getFromURL:URL header:[CONFIG merchantClientData]  parameters:nil callback:^(id response, NSError *error) {
-        
-        NSMutableArray *result;
-        if (response) {
-            result = [NSMutableArray new];
-            NSArray *rawCards = response[@"data"];
-            for (id rawCard in rawCards) {
-                VTMaskedCreditCard *card = [[VTMaskedCreditCard alloc] initWithData:rawCard];
-                [result addObject:card];
-            }
-        }
-        if (completion) completion(result, error);
-        
-    }];
+    //    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"card"];
+    //    [[VTNetworking sharedInstance] getFromURL:URL header:[CONFIG merchantClientData]  parameters:nil callback:^(id response, NSError *error) {
+    //        
+    //        NSMutableArray *result;
+    //        if (response) {
+    //            result = [NSMutableArray new];
+    //            NSArray *rawCards = response[@"data"];
+    //            for (id rawCard in rawCards) {
+    //                VTMaskedCreditCard *card = [[VTMaskedCreditCard alloc] initWithData:rawCard];
+    //                [result addObject:card];
+    //            }
+    //        }
+    //        if (completion) completion(result, error);
+    //        
+    //    }];
 }
 
 - (void)deleteMaskedCard:(VTMaskedCreditCard *)maskedCard completion:(void(^)(BOOL success, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@/%@", [CONFIG merchantServerURL], @"card", maskedCard.savedTokenId];
-    [[VTNetworking sharedInstance] deleteFromURL:URL header:[CONFIG merchantClientData] parameters:nil callback:^(id response, NSError *error) {
-        if (response) {
-            if (completion) completion(true, error);
-        } else {
-            if (completion) completion(false, error);
-        }
-    }];
+    //    NSString *URL = [NSString stringWithFormat:@"%@/%@/%@", [CONFIG merchantServerURL], @"card", maskedCard.savedTokenId];
+    //    [[VTNetworking sharedInstance] deleteFromURL:URL header:[CONFIG merchantClientData] parameters:nil callback:^(id response, NSError *error) {
+    //        if (response) {
+    //            if (completion) completion(true, error);
+    //        } else {
+    //            if (completion) completion(false, error);
+    //        }
+    //    }];
 }
 
 - (void)fetchMerchantAuthDataWithCompletion:(void(^)(id response, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/auth", [CONFIG merchantServerURL]];
-    [[VTNetworking sharedInstance] postToURL:URL parameters:nil callback:completion];
+    //    NSString *URL = [NSString stringWithFormat:@"%@/auth", [CONFIG merchantServerURL]];
+    //    [[VTNetworking sharedInstance] postToURL:URL parameters:nil callback:completion];
 }
 
-- (void)fetchPaymentListWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                   itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
-                               customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                    completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
-    [self fetchSnapTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
-        if (token) {
-            [self fetchPaymentListWithToken:token.tokenId completion:completion];
-        } else {
-            if (completion) completion(nil, error);
-        }
-    }];
+#pragma mark - Helper
+
+- (BOOL)isWebPaymentType:(NSString *)paymentType {
+    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
+    [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
+    [paymentType isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
+    [paymentType isEqualToString:VT_PAYMENT_BRI_EPAY];
 }
 
-#pragma - PRIVATE
-
-- (void)fetchSnapTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                 itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
-                             customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                  completion:(void (^_Nullable)(SnapTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+- (void)requestTransactionTokenWithclientTokenURL:(nonnull NSURL*)clientTokenUrl
+                               transactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                      itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                  customerDetails:(nullable VTCustomerDetails *)customerDetails
+                          customerCreditCardToken:(nullable NSString *)creditCardToken
+                                       completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
     
-    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL],VT_CORE_SNAP_MERCHANT_SERVER_CHARGE]
+    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@",clientTokenUrl]
                                       header:nil
                                   parameters:dictionaryParameters
                                     callback:^(id response, NSError *error) {
                                         if (!error) {
-                                            SnapTokenResponse *token = [[SnapTokenResponse alloc] initWithDictionary:(NSDictionary *) response];
+                                            TransactionTokenResponse *token = [[TransactionTokenResponse alloc] initWithDictionary:(NSDictionary *) response];
                                             if (completion) {
                                                 completion(token,NULL);
                                             }
@@ -157,9 +150,8 @@
                                         }
                                     }];
 }
-
-- (void)fetchPaymentListWithToken:(NSString * _Nonnull )token
-                       completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
+- (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
+                         completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
     
     [[VTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@",[PRIVATECONFIG snapURL],token] parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
@@ -174,14 +166,5 @@
             }
         }
     }];
-}
-
-#pragma mark - Helper
-
-- (BOOL)isWebPaymentType:(NSString *)paymentType {
-    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
-    [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
-    [paymentType isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
-    [paymentType isEqualToString:VT_PAYMENT_BRI_EPAY];
 }
 @end

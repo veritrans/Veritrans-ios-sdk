@@ -18,23 +18,12 @@
 @interface VTConfig : NSObject
 
 + (id)sharedInstance;
-
-///------------------------------
-/// @name Veritrans Configuration
-///------------------------------
-
 /**
- The Veritrans' client key for this app.
+ *  The Veritrans' client key for this app.
  */
 @property (nonatomic, readonly) NSString *clientKey;
-
 /**
- The merchant server URL. This URL will be used by `VTMerchantClient`.
- */
-@property (nonatomic, readonly) NSString *merchantServerURL;
-
-/**
- The payment environment this app will use.
+ * The Veritrans' evnirontment key for this app.
  */
 @property (nonatomic, readonly) VTServerEnvironment environment;
 
@@ -46,7 +35,7 @@
 @property (nonatomic) NSDictionary *merchantClientData;
 @property (nonatomic) NSDictionary *merchantDefaultHeader;
 
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment;
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData;
++ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment;
++ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData;
 
 @end

@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SnapTokenResponse : NSObject <NSCoding, NSCopying>
+@interface TransactionTokenResponse : NSObject <NSCoding, NSCopying>
 @property (nonatomic, strong) NSString *tokenId;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

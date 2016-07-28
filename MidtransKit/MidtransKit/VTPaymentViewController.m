@@ -20,7 +20,6 @@
 @dynamic delegate;
 
 - (instancetype)initWithToken:(TransactionTokenResponse *)token {
-    [VTThemeManager applyStandardTheme];
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return self;

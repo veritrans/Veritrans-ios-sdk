@@ -56,11 +56,9 @@
 /*
  * updated method, snapping
  */
-- (void)generateSnapTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                    itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
-                                customerDetails:(nullable VTCustomerDetails *)customerDetails
-                        customerCreditCardToken:(nullable NSString *)creditCardToken
-                                     completion:(void (^_Nullable)(SnapTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+- (void)fetchPaymentListWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                   itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                               customerDetails:(nullable VTCustomerDetails *)customerDetails
+                                    completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
 
-- (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
 @end

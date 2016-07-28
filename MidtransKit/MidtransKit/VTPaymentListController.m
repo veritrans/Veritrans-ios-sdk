@@ -63,42 +63,34 @@
     self.view.footer.amountLabel.text = @"-";
     self.view.header.amountLabel.text = @"-";
     
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self showLoadingHud];
-        [[VTMerchantClient sharedClient] generateSnapTokenWithTransactionDetails:self.transactionDetails
-                                                                     itemDetails:self.itemDetails
-                                                                 customerDetails:self.customerDetails
-                                                         customerCreditCardToken:nil
-                                                                      completion:^(SnapTokenResponse * _Nullable token, NSError * _Nullable error) {
-                                                                          if (!error) {
-                                                                              [[VTMerchantClient sharedClient] requestPaymentlistWithToken:token.tokenId
-                                                                                                                                completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
-                                                                                                                                    [self hideLoadingHud];
-                                                                                                                                    if (!error) {
-                                                                                                                                        NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-                                                                                                                                        self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                                                                                                        self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                                                                                                        
-                                                                                                                                        if (response.transactionData.enabledPayments.count) {
-                                                                                                                                            for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-                                                                                                                                                for (int i = 0; i<paymentList.count; i++) {
-                                                                                                                                                    VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-                                                                                                                                                    if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-                                                                                                                                                        [self.paymentMethodList addObject:paymentmodel];
-                                                                                                                                                    }
-                                                                                                                                                }
-                                                                                                                                            }
-                                                                                                                                        }
-                                                                                                                                        self.dataSource.paymentList = self.paymentMethodList;
-                                                                                                                                        [self.view.tableView reloadData];
-                                                                                                                                    }
-                                                                                                                                }];
-                                                                          }
-                                                                          else {
-                                                                              [self hideLoadingHud];
-                                                                          }
-                                                                      }];
-    });
+    [self showLoadingHud];
+    [[VTMerchantClient sharedClient] fetchPaymentListWithTransactionDetails:self.transactionDetails
+                                                                itemDetails:self.itemDetails
+                                                            customerDetails:self.customerDetails
+                                                                 completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+     {
+         [self hideLoadingHud];
+         
+         if (response) {
+             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+             self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+             self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+             
+             if (response.transactionData.enabledPayments.count) {
+                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+                     for (int i = 0; i<paymentList.count; i++) {
+                         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                         if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+                             [self.paymentMethodList addObject:paymentmodel];
+                         }
+                     }
+                 }
+             }
+             self.dataSource.paymentList = self.paymentMethodList;
+             [self.view.tableView reloadData];
+         }
+         
+     }];
 }
 
 - (void)didReceiveMemoryWarning {

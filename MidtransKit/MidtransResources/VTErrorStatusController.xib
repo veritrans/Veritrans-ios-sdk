@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+            <string>SourceSansPro-Regular</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTErrorStatusController">
+            <connections>
+                <outlet property="view" destination="fTn-JL-gpj" id="EXJ-pK-Pas"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="fTn-JL-gpj">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F93-t7-8ab" customClass="VTNextStepButton">
+                    <rect key="frame" x="0.0" y="544" width="600" height="56"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="56" id="vjy-Je-cOs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <state key="normal" title="Close"/>
+                    <connections>
+                        <action selector="finishPressed:" destination="-1" eventType="touchUpInside" id="KzX-uN-JAJ"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nGa-SA-zFe">
+                    <rect key="frame" x="0.0" y="69" width="600" height="110"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ouch!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfh-RL-sZQ">
+                            <rect key="frame" x="279" y="44" width="43" height="22"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your payment can’t be processed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcj-KD-46L">
+                            <rect key="frame" x="211" y="66" width="180" height="17"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.21960784310000001" blue="0.14117647059999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="110" id="COA-cV-bMU"/>
+                        <constraint firstItem="qfh-RL-sZQ" firstAttribute="centerX" secondItem="nGa-SA-zFe" secondAttribute="centerX" id="CPg-IM-zIh"/>
+                        <constraint firstItem="rcj-KD-46L" firstAttribute="top" secondItem="qfh-RL-sZQ" secondAttribute="bottom" id="FfM-rP-rkT"/>
+                        <constraint firstItem="qfh-RL-sZQ" firstAttribute="centerY" secondItem="nGa-SA-zFe" secondAttribute="centerY" id="I19-nx-72c"/>
+                        <constraint firstItem="rcj-KD-46L" firstAttribute="centerX" secondItem="qfh-RL-sZQ" secondAttribute="centerX" id="w67-te-YJi"/>
+                    </constraints>
+                </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="errorIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="v9S-Qh-IM9">
+                    <rect key="frame" x="275" y="44" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="9mz-US-9AB"/>
+                        <constraint firstAttribute="width" constant="50" id="cNd-kG-qUe"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="v9S-Qh-IM9" firstAttribute="top" secondItem="fTn-JL-gpj" secondAttribute="top" constant="44" id="1Ay-df-K9M"/>
+                <constraint firstItem="F93-t7-8ab" firstAttribute="leading" secondItem="fTn-JL-gpj" secondAttribute="leading" id="BtL-E2-bAG"/>
+                <constraint firstItem="v9S-Qh-IM9" firstAttribute="centerX" secondItem="fTn-JL-gpj" secondAttribute="centerX" id="LvI-Ba-gtX"/>
+                <constraint firstAttribute="trailing" secondItem="nGa-SA-zFe" secondAttribute="trailing" id="MdZ-8Q-0Gu"/>
+                <constraint firstItem="nGa-SA-zFe" firstAttribute="leading" secondItem="fTn-JL-gpj" secondAttribute="leading" id="NmJ-4U-bO4"/>
+                <constraint firstAttribute="bottom" secondItem="F93-t7-8ab" secondAttribute="bottom" id="Ntm-ud-XN7"/>
+                <constraint firstItem="nGa-SA-zFe" firstAttribute="top" secondItem="v9S-Qh-IM9" secondAttribute="bottom" constant="-25" id="Sq7-1l-1Wk"/>
+                <constraint firstAttribute="trailing" secondItem="F93-t7-8ab" secondAttribute="trailing" id="wDX-u6-EN5"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="errorIcon.png" width="52" height="52"/>
+    </resources>
+</document>

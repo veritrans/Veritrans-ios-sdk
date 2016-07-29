@@ -26,3 +26,5 @@
 "creditcard.input.title" = "Card Details";
 "creditcard.list.title" = "Choose Card";
 "creditcard.twoclick.title" = "Pay With Credit Card";
+
+"va.list.title" = "Select Bank";

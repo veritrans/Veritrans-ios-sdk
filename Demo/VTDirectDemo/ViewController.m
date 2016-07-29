@@ -106,41 +106,52 @@
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
-        NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
-        UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
+        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        NSString *fontNameBold;
-        NSString *fontNameRegular;
-        NSString *fontNameLight;
-        NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
-        for (NSString *fontName in fontNames) {
-            if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-                fontNameBold = fontName;
-            } else if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-                fontNameRegular = fontName;
-            } else if ([fontName rangeOfString:@"-light" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-                fontNameLight = fontName;
-            }
-        }
         NSURL *merchantURL = [NSURL URLWithString:@"https://demo.veritrans.co.id/charge"];
         [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                                 transactionDetails:transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:customerDetails
-                                                           customerCreditCardToken:@"" completion:^(TransactionTokenResponse *token, NSError * error) {
-                                                               if (!error) {
-                                                                   VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
-                                                                   vc.delegate = self;
-                                                                   [self presentViewController:vc animated:YES completion:nil];
-                                                                   
-                                                               }
-                                                               else {
-                                                               }
-                                                           }];
-    } else {
+                                                           customerCreditCardToken:@""
+                                                                        completion:^(TransactionTokenResponse *token, NSError * error)
+         {
+             if (!error) {
+                 VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
+                 vc.delegate = self;
+                 [self presentViewController:vc animated:YES completion:nil];
+             }
+             else {
+                 NSLog(@"error-->%@",error);
+             }
+         }];
+    }
+    else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         [self.navigationController pushViewController:option animated:YES];
     }
+}
+
+- (UIColor *)myThemeColor {
+    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
+}
+
+- (VTFontSource *)myFontSource {
+    NSString *fontNameBold;
+    NSString *fontNameRegular;
+    NSString *fontNameLight;
+    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+    for (NSString *fontName in fontNames) {
+        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameBold = fontName;
+        } else if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameRegular = fontName;
+        } else if ([fontName rangeOfString:@"-light" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameLight = fontName;
+        }
+    }
+    return [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
 }
 
 #pragma mark - VTPaymentViewControllerDelegate

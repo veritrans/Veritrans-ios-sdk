@@ -23,13 +23,7 @@
 @implementation VTPaymentController
 
 -(instancetype)initWithToken:(TransactionTokenResponse *)token {
-    @try {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-        self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
-    } @catch (NSException *exception) {
-        self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
-    }
-    
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
         self.token = token;
     }
@@ -37,13 +31,7 @@
 }
 
 -(instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod {
-    @try {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-        self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
-    } @catch (NSException *exception) {
-        self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
-    }
-    
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
         self.token = token;
         self.paymentMethod = paymentMethod;

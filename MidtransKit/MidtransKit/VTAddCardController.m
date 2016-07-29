@@ -160,29 +160,6 @@
     }
 }
 
-#pragma mark - Flip The card
-//- (void)flipCreditCardToBack:(BOOL)backView {
-//    if (backView) {
-//        [UIView transitionFromView:self.view.cardBackView
-//                            toView:self.view.cardFrontView
-//                          duration:1
-//                           options:UIViewAnimationOptionTransitionFlipFromRight
-//                        completion:^(BOOL finished)
-//         {
-//
-//         }];
-//    }
-//    else {
-//        [UIView transitionFromView:self.view.cardFrontView
-//                            toView:self.view.cardBackView
-//                          duration:1
-//                           options:UIViewAnimationOptionTransitionFlipFromRight
-//                        completion:^(BOOL finished)
-//         {
-//
-//         }];
-//    }
-//}
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {

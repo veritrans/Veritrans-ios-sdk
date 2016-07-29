@@ -31,6 +31,7 @@
 }
 
 - (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(VTTransactionResult *result, NSError *error))completion {
+    
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL],@"pay"];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
@@ -138,8 +139,10 @@
                                   parameters:dictionaryParameters
                                     callback:^(id response, NSError *error) {
                                         if (!error) {
-                                            TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response transactionDetails:transactionDetails customerDetails:customerDetails itemDetails:itemDetails];
-                                            
+                                            TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response
+                                                                                                               transactionDetails:transactionDetails
+                                                                                                                  customerDetails:customerDetails
+                                                                                                                      itemDetails:itemDetails];
                                             if (completion) {
                                                 completion(token,NULL);
                                             }

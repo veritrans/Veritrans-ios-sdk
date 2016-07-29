@@ -26,8 +26,7 @@
 @implementation VTSuccessStatusController
 
 - (instancetype)initWithSuccessViewModel:(VTPaymentStatusViewModel *)viewModel {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    self = [storyboard instantiateViewControllerWithIdentifier:@"VTSuccessStatusController"];
+    self = [[VTSuccessStatusController alloc] initWithNibName:@"VTSuccessStatusController" bundle:VTBundle];
     if (self) {
         self.successViewModel = viewModel;
     }

@@ -16,8 +16,7 @@
 @implementation VTErrorStatusController
 
 - (instancetype _Nonnull)initWithError:(NSError *_Nonnull)error {
-    UIStoryboard *storybaord = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-    self = [storybaord instantiateViewControllerWithIdentifier:@"VTErrorStatusController"];
+    self = [[VTErrorStatusController alloc] initWithNibName:@"VTErrorStatusController" bundle:VTBundle];
     if (self) {
         self.error = error;
     }

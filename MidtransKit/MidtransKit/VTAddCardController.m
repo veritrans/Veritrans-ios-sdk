@@ -199,7 +199,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
+    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithToken:token];
     paymentDetail.saveToken = self.view.saveCardSwitch.on;
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
                                                                          token:self.token];

@@ -100,7 +100,7 @@
             return;
         }
         
-        VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
+        VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text token:self.token.tokenId];
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
                                                                              token:self.token];
         

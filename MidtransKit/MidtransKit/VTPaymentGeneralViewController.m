@@ -38,7 +38,7 @@
     [self showLoadingHud];
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER]) {
-        VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithDescription:@"klikpay bca description"];
+        VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.token.tokenId];
         VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
                                                                              token:self.token];
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {

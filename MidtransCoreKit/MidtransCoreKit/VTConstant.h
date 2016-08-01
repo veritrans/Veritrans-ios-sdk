@@ -79,6 +79,8 @@ static NSString * const VT_AMEX_REGEX         = @"^3[47][0-9]{0,}$";
 
 static NSString * const ENDPOINT_PAYMENT_PAGES = @"payment_pages";
 static NSString * const ENDPOINT_CHARGE_CC = @"pay_with_credit_card";
+static NSString * const ENDPOINT_CHARGE_BCA_KLIKPAY = @"pay_with_bca_klikpay";
+static NSString * const ENDPOINT_CHARGE_KLIKBCA = @"pay_with_bca_klikbca";
 
 /**
  *  MESSAGE CONSTANT

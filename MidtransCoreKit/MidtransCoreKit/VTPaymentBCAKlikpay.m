@@ -8,25 +8,40 @@
 
 #import "VTPaymentBCAKlikpay.h"
 #import "VTHelper.h"
+#import "VTConstant.h"
 
 @interface VTPaymentBCAKlikpay()
 @property (nonatomic) NSString *klikpayDescription;
+
+@property (nonatomic) NSString *token;
 @end
 
 @implementation VTPaymentBCAKlikpay
 
-- (instancetype _Nonnull) initWithDescription:(NSString *_Nonnull)description {
+//- (instancetype _Nonnull) initWithDescription:(NSString *_Nonnull)description {
+//    if (self = [super init]) {
+//        self.klikpayDescription = description;
+//    }
+//    return self;
+//}
+
+- (instancetype _Nonnull) initWithToken:(NSString *_Nonnull)token {
     if (self = [super init]) {
-        self.klikpayDescription = description;
+        self.token = token;
     }
     return self;
 }
+
 - (NSString *)paymentType {
     return VT_PAYMENT_BCA_KLIKPAY;
 }
+
 - (NSDictionary *)dictionaryValue {
-    return @{@"type":@1,
-             @"description":_klikpayDescription};
+    return @{@"transaction_id":self.token};
+}
+
+- (NSString *)chargeURL {
+    return ENDPOINT_CHARGE_BCA_KLIKPAY;
 }
 
 @end

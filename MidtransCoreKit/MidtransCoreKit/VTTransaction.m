@@ -39,8 +39,8 @@
     return result;
 }
 
-- (NSString *)chargeEndpoint {
-    return self.paymentDetails.chargeEndpoint;
+- (NSString *)chargeURL {
+    return self.paymentDetails.chargeURL;
 }
 
 - (NSArray *)itemsArrayValue {

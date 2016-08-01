@@ -43,7 +43,7 @@
     return @{@"token_id":self.token};
 }
 
-- (NSString *)chargeEndpoint {
+- (NSString *)chargeURL {
     return ENDPOINT_CHARGE_CC;
 }
 

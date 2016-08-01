@@ -24,6 +24,6 @@
  */
 - (NSDictionary *_Nullable)dictionaryValue;
 
-- (NSString *_Nonnull)chargeEndpoint;
+- (NSString *_Nonnull)chargeURL;
 
 @end

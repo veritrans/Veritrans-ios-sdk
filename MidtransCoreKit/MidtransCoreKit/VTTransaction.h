@@ -51,6 +51,6 @@
 
 - (NSDictionary *)dictionaryValue;
 
-- (NSString *)chargeEndpoint;
+- (NSString *)chargeURL;
 
 @end

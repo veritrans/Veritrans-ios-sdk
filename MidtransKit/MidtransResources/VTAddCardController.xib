@@ -300,7 +300,7 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outlet property="amountLabel" destination="G5o-vj-Rom" id="8Xh-rQ-Uyf"/>
+                <outlet property="amountLabel" destination="89S-8I-cU7" id="JBc-pv-DD0"/>
                 <outlet property="cardBackView" destination="0pt-iP-bMO" id="LQQ-b4-taK"/>
                 <outlet property="cardCvv" destination="8Nn-gz-tW4" id="77R-by-odN"/>
                 <outlet property="cardExpiryDate" destination="8Bd-E9-a7J" id="bvg-4t-JcC"/>

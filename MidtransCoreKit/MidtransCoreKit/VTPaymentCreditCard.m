@@ -27,29 +27,24 @@
     return self;
 }
 
+- (instancetype)initWithToken:(NSString *)token {
+    if (self = [super init]) {
+        self.token = token;
+        self.type = @"authorize";
+    }
+    return self;
+}
+
 - (NSString *)paymentType {
     return VT_PAYMENT_CREDIT_CARD;
 }
 
 - (NSDictionary *)dictionaryValue {
-    switch (_creditCardPaymentFeature) {
-        case VTCreditCardPaymentFeatureNormal:
-            return @{@"token_id":_token,
-                     @"bank":[VTHelper nullifyIfNil:_bank],
-                     @"installment_term":[VTHelper nullifyIfNil:_installmentTerm],
-                     @"bins":[VTHelper nullifyIfNil:_bins],
-                     @"save_token_id":_saveToken?@"true":@"false"};
-        case VTCreditCardPaymentFeatureOneClick:
-            return @{@"token_id":_token,
-                     @"recurring":@"true"};
-        case VTCreditCardPaymentFeatureTwoClick:
-            return @{@"token_id":_token};
-        case VTCreditCardPaymentFeatureUnknown:
-            NSAssert(false, @"Unknown feature credit card payment");
-            break;
-    }
-    
-    return nil;
+    return @{@"token_id":self.token};
+}
+
+- (NSString *)chargeEndpoint {
+    return ENDPOINT_CHARGE_CC;
 }
 
 @end

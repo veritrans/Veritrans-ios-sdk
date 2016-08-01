@@ -62,4 +62,6 @@
 - (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
                           token:(NSString *)token;
 
+- (instancetype)initWithToken:(NSString *)token;
+
 @end

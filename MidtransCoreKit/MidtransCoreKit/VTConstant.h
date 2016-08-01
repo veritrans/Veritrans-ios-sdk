@@ -116,6 +116,11 @@ static NSString *const VT_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
 static NSString *const VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";
 static NSString *const VT_CORE_SNAP_PARAMETER_ITEM_DETAILS = @"item_details";
 static NSString *const VT_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS = @"customer_details";
+
+static NSString *const VT_CORE_STATUS_CODE = @"status_code";
+static NSString *const VT_CORE_SAVED_ID_TOKEN = @"saved_token_id";
+static NSString *const VT_CORE_TRANSACTION_ID = @"transaction_id";
+
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

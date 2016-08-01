@@ -32,7 +32,7 @@
     NSAssert(self.token.transactionDetails, @"Unspecified transactionDetails.");
     
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-    [result setObject:self.token.tokenId forKey:@"transaction_id"];
+    [result setObject:self.token.tokenId forKey:VT_CORE_TRANSACTION_ID];
     [result addEntriesFromDictionary:self.token.customerDetails.snapDictionaryValue];
     [result addEntriesFromDictionary:self.paymentDetails.dictionaryValue];
     

@@ -60,7 +60,7 @@
                 
                 //save token to merchant server
                 //i'm not set callback until save card finished because save card is optional
-                BOOL isSavedToken = response[@"saved_token_id"] != nil;
+                BOOL isSavedToken = response[VT_CORE_SAVED_ID_TOKEN] != nil;
                 if (isSavedToken) {
                     VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
                     [self saveRegisteredCard:savedCard completion:nil];

@@ -11,7 +11,6 @@
 @interface VTTransaction()
 
 @property (nonatomic, readwrite) id paymentDetails;
-@property (nonatomic, readwrite) VTTransactionDetails *transactionDetails;
 @property (nonatomic, readwrite) TransactionTokenResponse *token;
 
 @end
@@ -30,35 +29,18 @@
 - (NSDictionary *)dictionaryValue {
     // Check for mandatory fields.
     NSAssert(self.paymentDetails, @"Unspecified paymentDetails.");
-    NSAssert(self.transactionDetails, @"Unspecified transactionDetails.");
+    NSAssert(self.token.transactionDetails, @"Unspecified transactionDetails.");
     
     NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-    
-    // Fill-in mandatory fields.
-    [result setValue:[self.transactionDetails dictionaryValue] forKey:@"transaction_details"];
-    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];
-    if ([self.paymentDetails dictionaryValue]) {
-        [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
-    }
-    
-    // Fill-in optional fields.
-    if (self.token.customerDetails) {
-        [result setValue:[self.token.customerDetails dictionaryValue] forKey:@"customer_details"];
-    }
-    if (self.token.itemDetails) {
-        [result setValue:[self itemsArrayValue] forKey:@"item_details"];
-    }
-    if (self.customField1) {
-        [result setValue:self.customField1 forKey:@"custom_field1"];
-    }
-    if (self.customField2) {
-        [result setValue:self.customField2 forKey:@"custom_field2"];
-    }
-    if (self.customField3) {
-        [result setValue:self.customField3 forKey:@"custom_field3"];
-    }
+    [result setObject:self.token.tokenId forKey:@"transaction_id"];
+    [result addEntriesFromDictionary:self.token.customerDetails.snapDictionaryValue];
+    [result addEntriesFromDictionary:self.paymentDetails.dictionaryValue];
     
     return result;
+}
+
+- (NSString *)chargeEndpoint {
+    return self.paymentDetails.chargeEndpoint;
 }
 
 - (NSArray *)itemsArrayValue {

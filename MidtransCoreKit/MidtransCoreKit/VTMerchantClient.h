@@ -42,7 +42,8 @@
 - (void)performTransaction:(VTTransaction *_Nonnull)transaction completion:(void(^_Nullable)(VTTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 
 /**
- Save credit card partial information to the Merchant Server. The partial credit card information is modeled using `VTMaskedCreditCard`. This `VTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.
+ Save credit card partial information to the Merchant Server. The partial
+ credit card information is modeled using `VTMaskedCreditCard`. This `VTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.
  */
 - (void)saveRegisteredCard:(VTMaskedCreditCard *_Nonnull)savedCard completion:(void(^_Nullable)(id _Nullable result, NSError *_Nullable error))completion;
 

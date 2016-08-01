@@ -340,6 +340,7 @@
 		3014E0C21C7AD6E4003EB203 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				E5E4360B1CE31AED00F688ED /* VTPaymentDetails.h */,
 				E53BD03B1D14322B001FADDE /* VTPaymentEpayBRI.h */,
 				E53BD03C1D14322B001FADDE /* VTPaymentEpayBRI.m */,
 				00EA7E661D12D10D00A6CA53 /* VTPaymentMandiriClickpay.h */,
@@ -352,7 +353,6 @@
 				E50D85E61D0ECB7000F26D2E /* VTPaymentCStore.m */,
 				E50D85D21D0EC64E00F26D2E /* VTPaymentMandiriECash.h */,
 				E50D85D31D0EC64E00F26D2E /* VTPaymentMandiriECash.m */,
-				E5E4360B1CE31AED00F688ED /* VTPaymentDetails.h */,
 				E5E4362B1CE31DED00F688ED /* VTPaymentCreditCard.h */,
 				E5E4362C1CE31DED00F688ED /* VTPaymentCreditCard.m */,
 				E55DB9341C912ED300813B81 /* VTPaymentBankTransfer.h */,

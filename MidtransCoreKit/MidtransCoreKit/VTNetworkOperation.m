@@ -99,8 +99,8 @@
                                                         options:NSJSONReadingMutableContainers
                                                           error:nil];
     
-    if (responseObject[@"status_code"]) {
-        NSInteger code = [responseObject[@"status_code"] integerValue];
+    if (responseObject[VT_CORE_STATUS_CODE]) {
+        NSInteger code = [responseObject[VT_CORE_STATUS_CODE] integerValue];
         if (code/100 == 2) {
             if (self.callback) self.callback(responseObject, nil);
         } else {

@@ -189,7 +189,7 @@
     NSError *error;
     id _response;
     
-    NSInteger code = [response[@"status_code"] integerValue];
+    NSInteger code = [response[VT_CORE_STATUS_CODE] integerValue];
     NSString *message = response[@"status_message"];
     
     if (code == 200) {

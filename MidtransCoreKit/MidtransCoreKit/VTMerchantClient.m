@@ -32,7 +32,7 @@
 
 - (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(VTTransactionResult *result, NSError *error))completion {
     
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL],@"pay"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL], [transaction chargeEndpoint]];
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
@@ -133,6 +133,8 @@
                                        completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
+    [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
+    [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_ITEM_DETAILS];
     
     [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@",clientTokenUrl]
                                       header:nil
@@ -157,7 +159,7 @@
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
                          completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
     
-    [[VTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@",[PRIVATECONFIG snapURL],token] parameters:nil callback:^(id response, NSError *error) {
+    [[VTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@/%@",[PRIVATECONFIG snapURL], ENDPOINT_PAYMENT_PAGES, token] parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
             PaymentRequestResponse *paymentRequest = [[PaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
             if (completion) {

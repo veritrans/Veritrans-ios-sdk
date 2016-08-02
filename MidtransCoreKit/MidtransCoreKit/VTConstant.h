@@ -81,6 +81,19 @@ static NSString * const ENDPOINT_PAYMENT_PAGES = @"payment_pages";
 static NSString * const ENDPOINT_CHARGE_CC = @"pay_with_credit_card";
 static NSString * const ENDPOINT_CHARGE_BCA_KLIKPAY = @"pay_with_bca_klikpay";
 static NSString * const ENDPOINT_CHARGE_KLIKBCA = @"pay_with_bca_klikbca";
+static NSString * const ENDPOINT_CHARGE_BRI_EPAY = @"pay_with_bri_epay";
+static NSString * const ENDPOINT_CHARGE_MANDIRI_CLICKPAY = @"pay_with_mandiri_clickpay";
+static NSString * const ENDPOINT_CHARGE_CIMB_CLICKS = @"pay_with_cimb_clicks";
+static NSString * const ENDPOINT_CHARGE_PERMATA_VA = @"pay_with_permata";
+static NSString * const ENDPOINT_CHARGE_BCA_VA = @"pay_with_bank_transfer_bca";
+static NSString * const ENDPOINT_CHARGE_MANDIRI_VA = @"pay_with_mandiri_billpayment";
+static NSString * const ENDPOINT_CHARGE_MANDIRI_ECASH = @"pay_with_mandiri_ecash";
+static NSString * const ENDPOINT_CHARGE_TELKOMSEL_CASH = @"pay_with_telkomsel_cash";
+static NSString * const ENDPOINT_CHARGE_XL_TUNAI = @"pay_with_xl_tunai";
+static NSString * const ENDPOINT_CHARGE_INDOSAT_DOMPETKU = @"pay_with_indosat_dompetku";
+static NSString * const ENDPOINT_CHARGE_KIOS_ON = @"pay_with_kioson";
+static NSString * const ENDPOINT_CHARGE_INDOMARET = @"pay_with_indomaret";
+
 
 /**
  *  MESSAGE CONSTANT

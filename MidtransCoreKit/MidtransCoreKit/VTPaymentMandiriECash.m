@@ -7,24 +7,32 @@
 //
 
 #import "VTPaymentMandiriECash.h"
+#import "VTConstant.h"
 
 @interface VTPaymentMandiriECash()
-@property (nonatomic) NSString *ecashDescription;
+@property (nonatomic) TransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentMandiriECash
 
-- (instancetype _Nonnull)initWithDescription:(NSString * _Nonnull)description {
+- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
-        self.ecashDescription = description;
+        self.token = token;
     }
     return self;
 }
+
 - (NSString *)paymentType {
     return VT_PAYMENT_MANDIRI_ECASH;
 }
 - (NSDictionary *)dictionaryValue {
-    return @{@"description":_ecashDescription};
+    return @{@"transaction_id":self.token.tokenId};
 }
 
+- (NSString *)chargeURL {
+    return ENDPOINT_CHARGE_MANDIRI_ECASH;
+}
+- (TransactionTokenResponse *)snapToken {
+    return self.token;
+}
 @end

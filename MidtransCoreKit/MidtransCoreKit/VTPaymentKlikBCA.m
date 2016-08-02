@@ -10,12 +10,12 @@
 #import "VTConstant.h"
 @interface VTPaymentKlikBCA()
 @property (nonatomic) NSString *klikBCAUserId;
-@property (nonatomic) NSString *token;
+@property (nonatomic) TransactionTokenResponse *token;
 @end;
 
 @implementation VTPaymentKlikBCA
 
-- (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(NSString *_Nonnull)token {
+- (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(TransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.klikBCAUserId = userId;
         self.token = token;
@@ -28,9 +28,12 @@
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"user_id" : self.klikBCAUserId,
-             @"transaction_id" : self.token};
+             @"transaction_id" : self.token.tokenId};
 }
 - (NSString *)chargeURL {
     return ENDPOINT_CHARGE_KLIKBCA;
+}
+- (TransactionTokenResponse *)snapToken {
+    return self.token;
 }
 @end

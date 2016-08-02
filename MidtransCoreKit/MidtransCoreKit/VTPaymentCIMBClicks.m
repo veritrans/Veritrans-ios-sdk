@@ -7,16 +7,17 @@
 //
 
 #import "VTPaymentCIMBClicks.h"
+#import "VTConstant.h"
 
 @interface VTPaymentCIMBClicks()
-@property (nonatomic) NSString *cimbClicksCescription;
+@property (nonatomic) TransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentCIMBClicks
 
-- (instancetype _Nonnull)initWithDescription:(NSString * _Nonnull)description {
+- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
-        self.cimbClicksCescription = description;
+        self.token = token;
     }
     return self;
 }
@@ -26,7 +27,15 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"description":_cimbClicksCescription};
+    return @{@"transaction_id":self.token.tokenId};
+}
+
+- (NSString *)chargeURL {
+    return ENDPOINT_CHARGE_CIMB_CLICKS;
+}
+
+- (TransactionTokenResponse *)snapToken {
+    return self.token;
 }
 
 @end

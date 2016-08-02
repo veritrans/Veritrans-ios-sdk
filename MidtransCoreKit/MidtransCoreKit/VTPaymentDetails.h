@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VTConstant.h"
+#import "TransactionTokenResponse.h"
 
 /**
  Protocol that needs to be implemented for each payment type.
@@ -25,5 +26,7 @@
 - (NSDictionary *_Nullable)dictionaryValue;
 
 - (NSString *_Nonnull)chargeURL;
+
+- (TransactionTokenResponse *_Nonnull)snapToken;
 
 @end

@@ -38,9 +38,8 @@
     [self showLoadingHud];
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER]) {
-        VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.token.tokenId];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];
             if (error) {
@@ -52,9 +51,8 @@
         
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER]) {
-        VTPaymentMandiriECash *paymentDetails = [[VTPaymentMandiriECash alloc] initWithDescription:@"mandiri ecash description"];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTPaymentMandiriECash *paymentDetails = [[VTPaymentMandiriECash alloc] initWithToken:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];
@@ -67,9 +65,8 @@
         }];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
-        VTPaymentEpayBRI *paymentDetails = [[VTPaymentEpayBRI alloc] init];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTPaymentEpayBRI *paymentDetails = [[VTPaymentEpayBRI alloc] initWithToken:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];
@@ -83,9 +80,8 @@
         
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER]) {
-        VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithDescription:@"dummy_description"];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithToken:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];

@@ -186,10 +186,9 @@
     
     VTPaymentCreditCard *paymentDetail =
     [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
-                                           token:token];
+                                 creditCardToken:token token:self.token];
     VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
-                                            token:self.token];
+    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [_hudView hide];
         

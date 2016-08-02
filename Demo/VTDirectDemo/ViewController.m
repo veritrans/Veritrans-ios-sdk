@@ -108,7 +108,7 @@
     if (customerDetails!=nil) {
         [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        NSURL *merchantURL = [NSURL URLWithString:@"https://demo.veritrans.co.id/charge"];
+        NSURL *merchantURL = [NSURL URLWithString:@"https://veritrans-sample-store.herokuapp.com/charge"];
         [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                                 transactionDetails:transactionDetails
                                                                        itemDetails:self.itemDetails

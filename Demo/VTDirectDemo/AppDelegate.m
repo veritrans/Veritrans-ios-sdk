@@ -32,7 +32,7 @@
 #else
 //    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
 //      andServerEnvironment:VTServerEnvironmentSandbox];
-    [VTConfig setClientKey:@"VT-client-Blc2CzR_VFF__Gyo" andServerEnvironment:VTServerEnvironmentSandbox];
+    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" andServerEnvironment:VTServerEnvironmentSandbox];
 #endif
     
     BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];

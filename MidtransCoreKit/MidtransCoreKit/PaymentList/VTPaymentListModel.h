@@ -7,7 +7,14 @@
 
 #import <Foundation/Foundation.h>
 
-
+typedef NS_ENUM(NSInteger, APIHelperRequestType) {
+    APIHelperRequestTypeInterview,
+    APIHelperRequestTypeCandidateCompleteProfile,
+    APIHelperRequestTypeCandidateTips,
+    APIHelperRequestTypeUploadVideo,
+    APIHelperRequestTypeUploadVideoData,
+    APIHelperRequestTypeCVFlowStart
+};
 
 @interface VTPaymentListModel : NSObject <NSCoding, NSCopying>
 

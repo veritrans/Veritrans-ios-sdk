@@ -53,7 +53,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self updateView];
-    [self reloadMaskedCards];
+    // [self reloadMaskedCards];
     [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
     [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
@@ -186,10 +186,9 @@
     
     VTPaymentCreditCard *paymentDetail =
     [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
-                                           token:token];
+                                 creditCardToken:token token:self.token];
     VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
-                                            token:self.token];
+    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [_hudView hide];
         

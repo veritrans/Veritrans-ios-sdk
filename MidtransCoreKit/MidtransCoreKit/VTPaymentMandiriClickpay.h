@@ -11,5 +11,5 @@
 #import "VTMandiriClickpayHelper.h"
 
 @interface VTPaymentMandiriClickpay : NSObject <VTPaymentDetails>
-- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber grossAmount:(NSNumber *_Nonnull)grossAmount token:(NSString *_Nonnull)token;
+- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken token:(TransactionTokenResponse *_Nonnull)token;
 @end

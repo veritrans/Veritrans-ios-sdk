@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@interface NSArray (VTITemDetail)
+- (NSArray *)itemDetailsDictionaryValue;
+@end
+
 @interface VTItemDetail : NSObject
 
 @property(nonatomic, readonly) NSString *itemId;

@@ -12,14 +12,18 @@
 @interface VTPaymentBankTransfer()
 
 @property (nonatomic, readwrite) VTVAType type;
+@property (nonatomic) NSString *email;
+@property (nonatomic) TransactionTokenResponse *token;
 
 @end
 
 @implementation VTPaymentBankTransfer
 
-- (instancetype)initWithBankTransferType:(VTVAType)type {
+- (instancetype _Nonnull)initWithBankTransferType:(VTVAType)type token:(TransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
     if (self = [super init]) {
         self.type = type;
+        self.email = email;
+        self.token = token;
     }
     
     return self;
@@ -41,24 +45,24 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    // The format MUST BE compatible with JSON that described in
-    // http://docs.veritrans.co.id/en/api/methods.html#bank_transfer_attr
-    
-    switch (_type) {
-        case VTVATypeMandiri: {
-            return @{@"bill_info1":@"demo_label",
-                     @"bill_info2":@"demo_value"};
-        }
-        case VTVATypePermata: {
-            return @{@"bank": @"permata"};
-        }
-        case VTVATypeBCA: {
-            return @{@"bank": @"bca"};
-        }
-        case VTVATypeOther: {
-            return @{@"bank": @"unknown"};
-        }
+    return @{@"transaction_id":self.token.tokenId,
+             @"email_address":self.email};
+}
+
+- (NSString *)chargeURL {
+    switch (self.type) {
+        case VTVATypeBCA:
+            return ENDPOINT_CHARGE_BCA_VA;
+        case VTVATypeMandiri:
+            return ENDPOINT_CHARGE_MANDIRI_VA;
+        case VTVATypePermata:
+            return ENDPOINT_CHARGE_PERMATA_VA;
+        default:
+            return nil;
     }
 }
 
+- (TransactionTokenResponse *)snapToken {
+    return self.token;
+}
 @end

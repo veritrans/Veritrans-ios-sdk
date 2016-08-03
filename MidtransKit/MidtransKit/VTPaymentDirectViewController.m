@@ -79,10 +79,9 @@
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
         
-        VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType];
+        VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType token:self.token email:self.view.directPaymentTextField.text];
         self.token.customerDetails.email = self.view.directPaymentTextField.text;
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];
@@ -100,9 +99,8 @@
             return;
         }
         
-        VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text token:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];
@@ -114,11 +112,10 @@
         }];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
-        VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithStoreName:VT_PAYMENT_INDOMARET message:@""];
+        VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithToken:self.token];
         self.token.customerDetails.email = self.view.directPaymentTextField.text;
         
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                             token:self.token];
+        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
         
         [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
             [self hideLoadingHud];

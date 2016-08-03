@@ -10,5 +10,5 @@
 #import "VTPaymentDetails.h"
 
 @interface VTPaymentBCAKlikpay : NSObject <VTPaymentDetails>
-- (instancetype _Nonnull) initWithDescription:(NSString *_Nonnull)description;
+- (instancetype _Nonnull) initWithToken:(TransactionTokenResponse *_Nonnull)token;
 @end

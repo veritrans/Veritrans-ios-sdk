@@ -23,6 +23,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.title = UILocalizedString(@"va.list.title", nil);
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];

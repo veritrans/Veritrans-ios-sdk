@@ -11,62 +11,24 @@
 @interface VTTransaction()
 
 @property (nonatomic, readwrite) id paymentDetails;
-@property (nonatomic, readwrite) VTTransactionDetails *transactionDetails;
-@property (nonatomic, readwrite) TransactionTokenResponse *token;
 
 @end
 
 @implementation VTTransaction
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails
-                                 token:(TransactionTokenResponse *)token {
+- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
-        self.token = token;
     }
     return self;
 }
 
 - (NSDictionary *)dictionaryValue {
-    // Check for mandatory fields.
-    NSAssert(self.paymentDetails, @"Unspecified paymentDetails.");
-    NSAssert(self.transactionDetails, @"Unspecified transactionDetails.");
-    
-    NSMutableDictionary *result = [[NSMutableDictionary alloc] init];
-    
-    // Fill-in mandatory fields.
-    [result setValue:[self.transactionDetails dictionaryValue] forKey:@"transaction_details"];
-    [result setValue:[self.paymentDetails paymentType] forKey:@"payment_type"];
-    if ([self.paymentDetails dictionaryValue]) {
-        [result setValue:[self.paymentDetails dictionaryValue] forKey:[self.paymentDetails paymentType]];
-    }
-    
-    // Fill-in optional fields.
-    if (self.token.customerDetails) {
-        [result setValue:[self.token.customerDetails dictionaryValue] forKey:@"customer_details"];
-    }
-    if (self.token.itemDetails) {
-        [result setValue:[self itemsArrayValue] forKey:@"item_details"];
-    }
-    if (self.customField1) {
-        [result setValue:self.customField1 forKey:@"custom_field1"];
-    }
-    if (self.customField2) {
-        [result setValue:self.customField2 forKey:@"custom_field2"];
-    }
-    if (self.customField3) {
-        [result setValue:self.customField3 forKey:@"custom_field3"];
-    }
-    
-    return result;
+    return self.paymentDetails.dictionaryValue;
 }
 
-- (NSArray *)itemsArrayValue {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    [self.token.itemDetails enumerateObjectsUsingBlock:^(VTItemDetail * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [result addObject:[obj dictionaryValue]];
-    }];
-    return result;
+- (NSString *)chargeURL {
+    return self.paymentDetails.chargeURL;
 }
 
 @end

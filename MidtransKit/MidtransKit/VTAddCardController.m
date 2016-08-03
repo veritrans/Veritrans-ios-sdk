@@ -160,29 +160,6 @@
     }
 }
 
-#pragma mark - Flip The card
-//- (void)flipCreditCardToBack:(BOOL)backView {
-//    if (backView) {
-//        [UIView transitionFromView:self.view.cardBackView
-//                            toView:self.view.cardFrontView
-//                          duration:1
-//                           options:UIViewAnimationOptionTransitionFlipFromRight
-//                        completion:^(BOOL finished)
-//         {
-//
-//         }];
-//    }
-//    else {
-//        [UIView transitionFromView:self.view.cardFrontView
-//                            toView:self.view.cardBackView
-//                          duration:1
-//                           options:UIViewAnimationOptionTransitionFlipFromRight
-//                        completion:^(BOOL finished)
-//         {
-//
-//         }];
-//    }
-//}
 #pragma mark - UITextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
@@ -222,10 +199,9 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureNormal token:token];
+    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithCreditCardToken:token token:self.token];
     paymentDetail.saveToken = self.view.saveCardSwitch.on;
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
-                                                                         token:self.token];
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

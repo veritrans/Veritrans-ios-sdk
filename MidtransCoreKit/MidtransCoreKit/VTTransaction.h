@@ -26,10 +26,6 @@
  */
 @property (nonatomic, readonly) id<VTPaymentDetails> paymentDetails;
 
-/**
- The snap token for transaction.
- */
-@property (nonatomic, readonly) TransactionTokenResponse *token;
 
 /**
  Set the value for the first custom field. The label for this field can be set in MAP.
@@ -46,9 +42,10 @@
  */
 @property (nonatomic) NSString *customField3;
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails
-                                 token:(TransactionTokenResponse *)token;
+- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails;
 
 - (NSDictionary *)dictionaryValue;
+
+- (NSString *)chargeURL;
 
 @end

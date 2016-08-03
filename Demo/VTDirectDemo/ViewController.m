@@ -113,10 +113,10 @@
                                                                 transactionDetails:transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:customerDetails
-                                                           customerCreditCardToken:@""
                                                                         completion:^(TransactionTokenResponse *token, NSError * error)
          {
              if (!error) {
+                 
                  VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
                  vc.delegate = self;
                  [self presentViewController:vc animated:YES completion:nil];

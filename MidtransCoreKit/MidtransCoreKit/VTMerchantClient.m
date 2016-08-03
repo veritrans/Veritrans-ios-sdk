@@ -129,7 +129,6 @@
                                transactionDetails:(nonnull VTTransactionDetails *)transactionDetails
                                       itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
                                   customerDetails:(nullable VTCustomerDetails *)customerDetails
-                          customerCreditCardToken:(nullable NSString *)creditCardToken
                                        completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];

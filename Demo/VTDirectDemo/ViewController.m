@@ -11,6 +11,8 @@
 #import "OptionViewController.h"
 #import <MidtransKit/MidtransKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import <MBProgressHUD.h>
+
 @implementation NSString (random)
 
 + (NSString *)randomWithLength:(NSUInteger)length {
@@ -100,12 +102,13 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
         [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
         NSURL *merchantURL = [NSURL URLWithString:@"https://veritrans-sample-store.herokuapp.com/charge"];
@@ -115,6 +118,8 @@
                                                                    customerDetails:customerDetails
                                                                         completion:^(TransactionTokenResponse *token, NSError * error)
          {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             
              if (!error) {
                  
                  VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];

@@ -18,6 +18,54 @@ We provide an API-only implementation for all payment types, This allows users t
 8. Mandiri Clickpay
 9. BRI E-Pay
 
+# Setup
+
+[![Join the chat at https://gitter.im/veritrans/Veritrans-ios-sdk](https://badges.gitter.im/veritrans/Veritrans-ios-sdk.svg)](https://gitter.im/veritrans/Veritrans-ios-sdk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
+### Requirement
+
+[Cococapods](https://cocoapods.org/) version 1.0.0
+
+### Installation
+Navigate to your project's root directory and run `pod init` to create a `Podfile`. 
+
+```
+pod init
+```
+
+Open up the `Podfile` and add `MidtransKit` to your project's target.
+
+```
+platform :ios, '7.0'
+
+def shared_pods
+    pod 'MidtransCoreKit'
+end
+
+target 'MyBeautifulApp' do
+    shared_pods
+end
+```
+
+Save the file and run the following to install `MidtransKit`.
+
+```
+pod install --verbose
+```
+
+Cocoapods will download and install `MidtransKit` and also create a .xcworkspace project.
+
+# Integration
+
+Once you have completed installation of MidtransKit, configure it with your `clientKey` and `environment` in your `AppDelegate.h`
+
+```
+//AppDelegate.m
+#import <MidtransKit/MidtransKit.h>
+
+[VTConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
+```
+
 # Generate Transaction Token
 
 Before you can do the payment, you need to generate a `transaction_token` as representation of you credentials data.

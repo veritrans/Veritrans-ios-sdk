@@ -17,6 +17,12 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
     VTCreditCardTypeUnknown
 };
 
+@interface NSString (CreditCard)
+- (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber error:(NSError **)error;
+- (BOOL)isValidExpiryDate:(NSError **)error;
+- (BOOL)isValidCreditCardNumber:(NSError **)error;
+@end
+
 @interface VTCreditCardHelper : NSObject
 + (VTCreditCardType)typeFromString:(NSString *)string;
 + (NSString *)nameFromString:(NSString *)string;

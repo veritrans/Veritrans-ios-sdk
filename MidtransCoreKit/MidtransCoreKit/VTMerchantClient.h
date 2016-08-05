@@ -61,7 +61,6 @@
                                transactionDetails:(nonnull VTTransactionDetails *)transactionDetails
                                       itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
                                   customerDetails:(nullable VTCustomerDetails *)customerDetails
-                          customerCreditCardToken:(nullable NSString *)creditCardToken
                                        completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;

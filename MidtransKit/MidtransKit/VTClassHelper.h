@@ -8,19 +8,26 @@
 
 #define VTBundle [VTClassHelper kitBundle]
 
-#define UILocalizedString(key, comment) \
-[VTBundle localizedStringForKey:(key) value:@"" table:nil]
-
 #define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
 #import <MidtransCoreKit/VTHelper.h>
 
+extern NSString *const VTCreditCardIdentifier;
+extern NSString *const VTVAIdentifier;
+extern NSString *const VTPermataVAIdentifier;
+extern NSString *const VTBCAVAIdentifier;
+extern NSString *const VTMandiriVAIdentifier;
+extern NSString *const VTOtherVAIdentifier;
+extern NSString *const VTKlikBCAIdentifier;
+extern NSString *const VTKlikpayIdentifier;
+extern NSString *const VTClickpayIdentifier;
+extern NSString *const VTClicksIdentifier;
+extern NSString *const VTEpayIdentifier;
+extern NSString *const VTTelkomselIdentifier;
+extern NSString *const VTIndomaretIdentifier;
+
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
-@end
-
-@interface NSNumber (formatter)
-- (NSString *)formattedCurrencyNumber;
 @end
 
 @interface NSString (utilities)
@@ -30,8 +37,7 @@
 
 @interface UITextField (helper)
 
-- (BOOL)filterNumericWithString:(NSString *)string range:(NSRange)range length:(NSInteger)length;
-- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber;
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range ;
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
 - (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range;
 

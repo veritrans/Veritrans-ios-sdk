@@ -9,11 +9,8 @@
 #import "VTClient.h"
 #import "VTConfig.h"
 #import "VTNetworking.h"
-#import "VTTrackingManager.h"
 #import "VTHelper.h"
 #import "VTPrivateConfig.h"
-#import "VTCreditCardHelper.h"
-#import "VT3DSController.h"
 
 @interface VTClient ()
 
@@ -22,6 +19,7 @@
 @implementation VTClient
 
 + (id)sharedClient {
+    // Idea stolen from http://www.galloway.me.uk/tutorials/singleton-classes/
     static VTClient *instance = nil;
     @synchronized(self) {
         if (instance == nil) {
@@ -32,51 +30,28 @@
     return instance;
 }
 
-- (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
-           completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
+- (void)generateToken:(VTTokenizeRequest *)tokenizeRequest
+           completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"token"];
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
-            [[VTTrackingManager sharedInstance] trackAppFailGenerateToken:nil
-                                                           secureProtocol:NO
-                                                       withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
-            if (completion) completion(nil, error);
+            if (completion) completion(nil, nil, error);
         } else {
-            NSString *redirectURL = response[@"redirect_url"];
-            NSString *token = response[@"token_id"];
-            if (redirectURL) {
-                [[VTTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
-                                                                  secureProtocol:YES
-                                                              withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
-                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
-                                                                                 secureURL:[NSURL URLWithString:redirectURL]];
-                [secureController showWithCompletion:^(NSError *error) {
-                    if (error) {
-                        if (completion) completion(nil, error);
-                    } else {
-                        if (completion) completion(token, error);
-                    }
-                }];
-            } else {
-                [[VTTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
-                                                                  secureProtocol:NO
-                                                              withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
-                if (completion) completion(token, nil);
-            }
+            if (completion) completion(response[@"token_id"], response[@"redirect_url"], nil);
         }
     }];
 }
 
-- (void)registerCreditCard:(VTCreditCard *_Nonnull)creditCard
-                completion:(void (^_Nullable)(VTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion {
-    NSError *error = nil;
-    if ([creditCard isValidCreditCard:&error] == NO) {
-        if (completion) completion(nil, error);
-        return;
-    }
+- (void)registerCreditCard:(VTCreditCard *)creditCard
+                completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"card/register"];
-    [[VTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
+    NSDictionary *param = @{@"client_key":[CONFIG clientKey],
+                            @"card_number":creditCard.number,
+                            @"card_exp_month":creditCard.expiryMonth,
+                            @"card_exp_year":creditCard.expiryYear};
+    
+    [[VTNetworking sharedInstance] getFromURL:URL parameters:param callback:^(id response, NSError *error) {
         if (response) {
             VTMaskedCreditCard *maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:response];
             if (completion) completion(maskedCreditCard, error);

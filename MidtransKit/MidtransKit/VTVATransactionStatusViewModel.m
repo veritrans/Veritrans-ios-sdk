@@ -14,15 +14,17 @@
         self.vaType = vaType;
         
         switch (vaType) {
-            case VTVATypeMandiri: {
-                self.billpayCode = transactionResult.mandiriBillpayCode;
-                self.companyCode = transactionResult.mandiriBillpayCompanyCode;
+            case VTVATypeBCA: {
+                NSDictionary *vaData = transactionResult.additionalData[@"va_numbers"][0];
+                self.vaNumber = vaData[@"va_number"];
                 break;
             }
-            case VTVATypeBCA:
             case VTVATypePermata:
+            case VTVATypeMandiri:
+                self.billpayCode = transactionResult.additionalData[@"bill_key"];
+                self.companyCode = transactionResult.additionalData[@"biller_code"];
             case  VTVATypeOther:
-                self.vaNumber = transactionResult.virtualAccountNumber;
+                self.vaNumber = transactionResult.additionalData[@"permata_va_number"];
                 break;
         }
         

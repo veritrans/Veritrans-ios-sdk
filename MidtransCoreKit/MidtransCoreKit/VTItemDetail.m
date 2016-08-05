@@ -9,23 +9,11 @@
 #import "VTItemDetail.h"
 #import "VTHelper.h"
 
-@implementation NSArray (VTITemDetail)
-
-- (NSArray *)itemDetailsDictionaryValue {
-    NSMutableArray *result = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(VTItemDetail * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        [result addObject:[obj dictionaryValue]];
-    }];
-    return result;
-}
-
-@end
-
 @interface VTItemDetail ()
-@property(nonatomic, readwrite) NSString *itemId;
+@property(nonatomic, readwrite) NSString* itemId;
 @property(nonatomic, readwrite) NSNumber *price;
 @property(nonatomic, readwrite) NSNumber *quantity;
-@property(nonatomic, readwrite) NSString *name;
+@property(nonatomic, readwrite) NSString* name;
 @end
 
 @implementation VTItemDetail

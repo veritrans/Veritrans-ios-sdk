@@ -9,7 +9,8 @@
 #import "VTNetworking.h"
 #import "VTConfig.h"
 #import "VTNetworkOperation.h"
-#import "VTConstant.h"
+
+#define ErrorDomain @"error.veritrans.co.id"
 
 @implementation NSData (decode)
 
@@ -52,7 +53,7 @@
                 escapedValue = @"";
             else
                 escapedValue = [value URLEncodedString];
-            
+
             [pairs addObject:[NSString stringWithFormat:@"%@=%@", key, escapedValue]];
         }
     }
@@ -102,15 +103,13 @@
 }
 
 - (void)deleteFromURL:(NSString *)URL
-               header:(NSDictionary *)header
-           parameters:(NSDictionary *)parameters
-             callback:(void(^)(id response, NSError *error))callback
+            header:(NSDictionary *)header
+        parameters:(NSDictionary *)parameters
+          callback:(void(^)(id response, NSError *error))callback
 {
     NSString *params = [parameters queryStringValue];
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
-                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                           timeoutInterval:60];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
     [request setHTTPMethod:@"DELETE"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
@@ -124,9 +123,7 @@
 }
 
 - (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(NSDictionary *)parameters callback:(void (^)(id response, NSError *error))callback {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:URL]
-                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                           timeoutInterval:60];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:URL]];
     
     if (parameters) {
         NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
@@ -160,9 +157,8 @@
 {
     NSString *params = [parameters queryStringValue];
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
-                                                               cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                           timeoutInterval:60];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL];
+    
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }
@@ -189,13 +185,13 @@
     NSError *error;
     id _response;
     
-    NSInteger code = [response[VT_CORE_STATUS_CODE] integerValue];
+    NSInteger code = [response[@"status_code"] integerValue];
     NSString *message = response[@"status_message"];
     
     if (code == 200) {
         _response = response;
     } else {
-        error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN code:code userInfo:@{NSLocalizedDescriptionKey:message}];
+        error = [[NSError alloc] initWithDomain:ErrorDomain code:code userInfo:@{NSLocalizedDescriptionKey:message}];
     }
     
     if (callback) {

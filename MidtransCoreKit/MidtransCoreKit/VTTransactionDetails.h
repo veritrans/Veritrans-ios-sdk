@@ -15,8 +15,8 @@
  */
 @interface VTTransactionDetails : NSObject
 
-@property (nonatomic, readonly) NSString *orderId;
-@property (nonatomic, readonly) NSNumber *grossAmount;
+@property (nonatomic, readonly) NSString* orderId;
+@property (nonatomic, readonly) NSNumber* grossAmount;
 
 - (instancetype)initWithOrderID:(NSString *)orderID andGrossAmount:(NSNumber *)grossAmount;
 

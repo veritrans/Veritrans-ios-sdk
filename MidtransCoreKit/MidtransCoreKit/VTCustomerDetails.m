@@ -72,10 +72,4 @@
              @"billing_address": [self.billingAddress dictionaryValue]};
 }
 
-- (NSDictionary *)snapDictionaryValue {
-    return @{@"payment_detail":@{@"full_name":[NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName],
-                                 @"phone":[VTHelper nullifyIfNil:self.phone],
-                                 @"email":[VTHelper nullifyIfNil:self.email]}};
-}
-
 @end

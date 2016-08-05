@@ -28,6 +28,4 @@
 
 - (NSDictionary *)dictionaryValue;
 
-- (NSDictionary *)snapDictionaryValue;
-
 @end

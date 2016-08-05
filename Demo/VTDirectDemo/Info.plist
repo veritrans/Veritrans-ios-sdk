@@ -19,11 +19,11 @@
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>25</string>
+	<string>13</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
-		<string>9c3548eaa37c57b1cdd980bc882bad96410b970a</string>
+		<string>86217d547d82adb1c9a91e7b4a9507ddb81b943d</string>
 		<key>Kits</key>
 		<array>
 			<dict>
@@ -41,24 +41,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>ArimaMadurai-Bold.ttf</string>
-		<string>ArimaMadurai-Light.ttf</string>
-		<string>ArimaMadurai-Regular.ttf</string>
-		<string>Changa-Bold.ttf</string>
-		<string>Changa-Light.ttf</string>
-		<string>Changa-Regular.ttf</string>
-		<string>Lato-Bold.ttf</string>
-		<string>Lato-Light.ttf</string>
-		<string>Lato-Regular.ttf</string>
-		<string>TitilliumWeb-Bold.ttf</string>
-		<string>TitilliumWeb-Light.ttf</string>
-		<string>TitilliumWeb-Regular.ttf</string>
-		<string>YanoneKaffeesatz-Bold.ttf</string>
-		<string>YanoneKaffeesatz-Light.ttf</string>
-		<string>YanoneKaffeesatz-Regular.ttf</string>
-	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
@@ -70,6 +52,8 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>

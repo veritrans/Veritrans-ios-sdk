@@ -11,7 +11,6 @@
 #import "VTCreditCard.h"
 #import "VTTokenizeRequest.h"
 #import "VTMaskedCreditCard.h"
-#import "VTTransactionResult.h"
 
 /**
  `VTClient` wraps various services offered by Veritrans server. Note that Veritrans offers many payment services, but not all of wrapped by this object because most the of service are supposed to be executed server-side.
@@ -25,7 +24,7 @@
 /**
  Return a shared instance of `VTClient`.
  */
-+ (id _Nonnull)sharedClient;
++ (id)sharedClient;
 
 
 ///---------------------------
@@ -39,8 +38,8 @@
  
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the generated token will be passed as `token` variable.
  */
-- (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
-           completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion;
+- (void)generateToken:(VTTokenizeRequest *)tokenizeRequest
+           completion:(void (^)(NSString *token, NSString *redirectURL, NSError *error))completion;
 
 /**
  Register a credit card to be stored in Veritrans server.
@@ -49,7 +48,8 @@
  
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain registered credit card object.
  */
-- (void)registerCreditCard:(VTCreditCard *_Nonnull)creditCard
-                completion:(void (^_Nullable)(VTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
+- (void)registerCreditCard:(VTCreditCard *)creditCard
+                completion:(void (^)(VTMaskedCreditCard *maskedCreditCard, NSError *error))completion;
+
 
 @end

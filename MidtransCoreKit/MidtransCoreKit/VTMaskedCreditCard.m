@@ -7,7 +7,7 @@
 //
 
 #import "VTMaskedCreditCard.h"
-#import "VTConstant.h"
+
 @interface VTMaskedCreditCard()
 @property (nonatomic, readwrite) NSString *maskedNumber;
 @property (nonatomic, readwrite) NSString *savedTokenId;
@@ -21,15 +21,16 @@
 - (instancetype)initWithData:(NSDictionary *)data {
     if (self = [super init]) {
         self.maskedNumber = [data[@"masked_card"] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
-        self.savedTokenId = data[VT_CORE_SAVED_ID_TOKEN];
-        self.statusCode = [data[VT_CORE_STATUS_CODE] integerValue];
+        self.savedTokenId = data[@"saved_token_id"];
+        self.statusCode = [data[@"status_code"] integerValue];
         self.transactionId = data[@"transaction_id"];
         self.dictionaryValue = data;
     }
     return self;
 }
 
-- (NSString *)description {
+- (NSString *)description
+{
     return [NSString stringWithFormat:@"Masked Number: %@\n Saved Token ID: %@", _maskedNumber, _savedTokenId];
 }
 @end

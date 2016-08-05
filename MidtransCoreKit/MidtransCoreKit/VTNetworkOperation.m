@@ -7,8 +7,8 @@
 //
 
 #import "VTNetworkOperation.h"
-#import "VTConstant.h"
 
+NSString *const ErrorDomain = @"error.veritrans.co.id";
 
 @implementation NSData (decode)
 
@@ -34,7 +34,10 @@
 
 @end
 
-@interface VTNetworkOperation() <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
+@interface VTNetworkOperation() <
+NSURLConnectionDataDelegate,
+NSURLConnectionDelegate
+>
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, copy) void (^callback)(id response, NSError *error);
 @end
@@ -87,6 +90,7 @@
     [_responseData setLength:0];
 }
 
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     [_responseData appendData:data];
 }
@@ -99,12 +103,12 @@
                                                         options:NSJSONReadingMutableContainers
                                                           error:nil];
     
-    if (responseObject[VT_CORE_STATUS_CODE]) {
-        NSInteger code = [responseObject[VT_CORE_STATUS_CODE] integerValue];
+    if (responseObject[@"status_code"]) {
+        NSInteger code = [responseObject[@"status_code"] integerValue];
         if (code/100 == 2) {
             if (self.callback) self.callback(responseObject, nil);
         } else {
-            NSError *error = [NSError errorWithDomain:VT_ERROR_DOMAIN
+            NSError *error = [NSError errorWithDomain:ErrorDomain
                                                  code:code
                                              userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"]}];
             if (self.callback) self.callback(nil, error);

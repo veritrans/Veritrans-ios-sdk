@@ -14,7 +14,7 @@
 
 @interface VTCardCell : UICollectionViewCell
 @property (nonatomic) VTMaskedCreditCard *maskedCard;
-@property (nonatomic, weak) id<VTCardCellDelegate>delegate;
+@property (nonatomic, assign) id<VTCardCellDelegate>delegate;
 @property (nonatomic) BOOL editing;
 @end
 

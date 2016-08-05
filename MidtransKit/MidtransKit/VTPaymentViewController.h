@@ -9,21 +9,8 @@
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-#import "VTFontSource.h"
-
-@class VTPaymentViewController;
-
-@protocol VTPaymentViewControllerDelegate;
-
-@protocol VTPaymentViewControllerDelegate <UINavigationControllerDelegate>
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result;
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error;
-@end
-
 @interface VTPaymentViewController : UINavigationController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token;
-
-@property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails;
 
 @end

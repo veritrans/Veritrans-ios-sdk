@@ -8,24 +8,36 @@
 
 #import "VTCvvInfoController.h"
 #import "UIViewController+Modal.h"
-#import "VTClassHelper.h"
 
 @interface VTCvvInfoController ()
 @property (strong, nonatomic) IBOutlet UIImageView *backgroundView;
+
 @end
 
 @implementation VTCvvInfoController
 
-- (instancetype)init {
-    self = [[VTCvvInfoController alloc] initWithNibName:@"VTCvvInfoController" bundle:VTBundle];
-    if (self) {
-        self.modalSize = CGSizeMake(270, 300);
-    }
-    return self;
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    // Do any additional setup after loading the view.
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (IBAction)okPressed:(id)sender {
     [self dismissCustomViewController:nil];
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

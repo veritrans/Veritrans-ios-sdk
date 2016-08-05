@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 extern NSString *const VTMaskedCardsUpdated;
+extern NSString *const ErrorDomain;
 
 @interface VTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
@@ -31,10 +32,4 @@ extern NSString *const VTMaskedCardsUpdated;
 @interface NSObject (utilities)
 + (NSNumberFormatter *)indonesianCurrencyFormatter;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
-@end
-
-@interface NSDictionary (SafeObject)
-- (id)safeObjectForKey:(id)key;
-- (id)safeValueForKeyPath:(NSString*)keyPath;
-- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
 @end

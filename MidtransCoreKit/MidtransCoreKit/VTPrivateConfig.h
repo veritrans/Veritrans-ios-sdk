@@ -15,7 +15,6 @@
 
 @property (nonatomic, readonly) NSString *baseUrl;
 @property (nonatomic, readonly) NSString *mixpanelToken;
-@property (nonatomic, readonly) NSString *snapURL;
 
 + (void)setServerEnvironment:(VTServerEnvironment)environment;
 + (id)sharedInstance;

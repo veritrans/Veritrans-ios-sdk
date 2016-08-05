@@ -7,11 +7,10 @@
 //
 
 #import "VTPrivateConfig.h"
-#import "VTConstant.h"
+
 @interface VTPrivateConfig()
 @property (nonatomic) NSString *baseUrl;
 @property (nonatomic) NSString *mixpanelToken;
-@property (nonatomic) NSString *snapURL;
 @end
 
 @implementation VTPrivateConfig
@@ -26,16 +25,12 @@
 }
 
 + (void)setServerEnvironment:(VTServerEnvironment)environment {
-    
     if (environment == VTServerEnvironmentProduction) {
-        [[VTPrivateConfig sharedInstance] setBaseUrl: VT_PRODUCTION_API_URL];
-        [[VTPrivateConfig sharedInstance] setMixpanelToken: VT_PRODUCTION_MIXPANEL];
-        [[VTPrivateConfig sharedInstance] setSnapURL: VT_PROD_SNAP];
+        [[VTPrivateConfig sharedInstance] setBaseUrl: @"https://api.veritrans.co.id/v2"];
+        [[VTPrivateConfig sharedInstance] setMixpanelToken:@"cc005b296ca4ce612fe3939177c668bb"];
     } else {
-        [[VTPrivateConfig sharedInstance] setBaseUrl: VT_SANDBOX_API_URL];
-        [[VTPrivateConfig sharedInstance] setMixpanelToken:VT_SANDBOX_MIXPANEL];
-        [[VTPrivateConfig sharedInstance] setSnapURL: VT_SANDBOX_SNAP];
+        [[VTPrivateConfig sharedInstance] setBaseUrl: @"https://api.sandbox.veritrans.co.id/v2"];
+        [[VTPrivateConfig sharedInstance] setMixpanelToken:@"0269722c477a0e085fde32e0248c6003"];
     }
-    
 }
 @end

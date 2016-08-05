@@ -7,15 +7,12 @@
 //
 
 #import "VTKeyboardAccessoryView.h"
-#import "VTThemeManager.h"
-#import "VTClassHelper.h"
 
 @interface VTKeyboardAccessoryView ()
 @property (nonatomic) NSArray *fields;
 @property (nonatomic) NSInteger selectedIndex;
 @property (strong, nonatomic) IBOutlet UIButton *nextButton;
 @property (strong, nonatomic) IBOutlet UIButton *prevButton;
-@property (strong, nonatomic) IBOutlet UIButton *doneButton;
 @end
 
 @implementation VTKeyboardAccessoryView
@@ -24,19 +21,17 @@
     if (self = [super initWithFrame:frame]) {
         self.fields = fields;
         
-        UIColor *themedColor = [[VTThemeManager shared] themeColor];
-        [self.doneButton setTitleColor:themedColor forState:UIControlStateNormal];
-        
-        UIImage *buttonImage = [[UIImage imageNamed:@"nextIcon" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self.nextButton setImage:buttonImage forState:UIControlStateNormal];
-        self.nextButton.tintColor = themedColor;
-        
-        buttonImage = [[UIImage imageNamed:@"prevIcon" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
-        [self.prevButton setImage:buttonImage forState:UIControlStateNormal];
-        self.prevButton.tintColor = themedColor;
     }
     return self;
 }
+
+/*
+// Only override drawRect: if you perform custom drawing.
+// An empty implementation adversely affects performance during animation.
+- (void)drawRect:(CGRect)rect {
+    // Drawing code
+}
+*/
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex {
     _selectedIndex = selectedIndex;
@@ -44,9 +39,11 @@
     if (selectedIndex == _fields.count) {
         _selectedIndex = _fields.count - 1;
     }
+    
     if (selectedIndex < 0) {
         _selectedIndex = 0;
-    }
+    }    
+    
     _nextButton.enabled = _selectedIndex != _fields.count-1;
     _prevButton.enabled = _selectedIndex != 0;
     
@@ -75,6 +72,7 @@
 
 - (void)setFields:(NSArray *)fields {
     _fields = fields;
+    
     for (UITextField *field in fields) {
         field.inputAccessoryView = self;
         [field addTarget:self action:@selector(editingBegin:) forControlEvents:UIControlEventEditingDidBegin];

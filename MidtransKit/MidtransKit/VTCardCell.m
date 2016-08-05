@@ -19,12 +19,12 @@
 @implementation VTCardCell
 
 - (void)awakeFromNib {
-    [self.frontCardView.deleteButton addTarget:self action:@selector(deletePressed:) forControlEvents:UIControlEventTouchUpInside];
+    [_frontCardView.deleteButton addTarget:self action:@selector(deletePressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setEditing:(BOOL)editing {
     _editing = editing;
-    self.frontCardView.deleteButton.hidden = !editing;
+    _frontCardView.deleteButton.hidden = !editing;
 }
 
 - (void)deletePressed:(id)sender {
@@ -34,14 +34,16 @@
 }
 
 - (void)setMaskedCard:(VTMaskedCreditCard *)maskedCard {
+    if (!maskedCard) return;
+    
     _maskedCard = maskedCard;
     
-    self.frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
+    _frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
     
-    NSString *iconName = [VTCreditCardHelper nameFromString:maskedCard.maskedNumber];
-    self.frontCardView.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
+    NSString *iconName = [VTCreditCardHelper typeStringWithNumber:maskedCard.maskedNumber];
+    _frontCardView.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
     
-    self.frontCardView.expiryLabel.text = @"XX/XX";
+    _frontCardView.expiryLabel.text = @"XX/XX";
 }
 
 @end

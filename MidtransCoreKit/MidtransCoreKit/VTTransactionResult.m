@@ -11,19 +11,16 @@
 
 @interface VTTransactionResult()
 
-@property (nonatomic, readwrite) NSInteger statusCode;
-@property (nonatomic, readwrite) NSString *statusMessage;
-@property (nonatomic, readwrite) NSString *transactionId;
-@property (nonatomic, readwrite) NSString *transactionStatus;
-@property (nonatomic, readwrite) NSString *orderId;
-@property (nonatomic, readwrite) NSString *paymentType;
-@property (nonatomic, readwrite) NSDictionary *additionalData;
-@property (nonatomic, readwrite) NSDate *transactionTime;
-@property (nonatomic, readwrite) NSNumber *grossAmount;
-@property (nonatomic, readwrite) NSString *indomaretPaymentCode;
-@property (nonatomic, readwrite) NSString *mandiriBillpayCode;
-@property (nonatomic, readwrite) NSString *mandiriBillpayCompanyCode;
-@property (nonatomic, readwrite) NSString *virtualAccountNumber;
+@property(nonatomic, readwrite) NSInteger statusCode;
+@property(nonatomic, readwrite) NSString *statusMessage;
+@property(nonatomic, readwrite) NSString *transactionId;
+@property(nonatomic, readwrite) NSString *transactionStatus;
+@property(nonatomic, readwrite) NSString *orderId;
+@property(nonatomic, readwrite) NSString *paymentType;
+@property(nonatomic, readwrite) NSDictionary *additionalData;
+@property(nonatomic, readwrite) NSDate *transactionTime;
+@property(nonatomic, readwrite) NSNumber *grossAmount;
+
 @end
 
 @implementation VTTransactionResult
@@ -57,24 +54,6 @@
                                                @"status_code":response[@"status_code"],
                                                @"transaction_id":response[@"transaction_id"]};
             _maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:maskedCardObject];
-        }
-        
-        if (response[@"payment_code"]) {
-            self.indomaretPaymentCode = response[@"payment_code"];
-        }
-        
-        if (response[@"bill_kay"]) {
-            self.mandiriBillpayCode = response[@"bill_key"];
-            self.mandiriBillpayCompanyCode = response[@"biller_code"];
-        }
-        
-        if (response[@"va_numbers"]) {
-            NSDictionary *vaData = response[@"va_numbers"][0];
-            self.virtualAccountNumber = vaData[@"va_number"];
-        }
-        
-        if (response[@"permata_va_number"]) {
-            self.virtualAccountNumber = response[@"permata_va_number"];
         }
         
         self.additionalData = mResponse;

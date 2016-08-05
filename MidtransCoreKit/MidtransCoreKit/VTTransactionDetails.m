@@ -11,8 +11,8 @@
 
 @interface VTTransactionDetails()
 
-@property (nonatomic, readwrite) NSString *orderId;
-@property (nonatomic, readwrite) NSNumber *grossAmount;
+@property (nonatomic, readwrite) NSString* orderId;
+@property (nonatomic, readwrite) NSNumber* grossAmount;
 
 @end
 

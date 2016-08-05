@@ -11,28 +11,16 @@
 #import "VTConfig.h"
 
 @interface VTPaymentCreditCard()
-@property (nonatomic) VTCreditCardPaymentFeature creditCardPaymentFeature;
-@property (nonatomic) TransactionTokenResponse *_Nonnull token;
-@property (nonatomic) NSString *_Nonnull creditCardToken;
+@property (nonatomic, readwrite) NSString *token;
+@property (nonatomic, readwrite) VTCreditCardPaymentFeature creditCardPaymentFeature;
 @end
 
 @implementation VTPaymentCreditCard
 
 - (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
-                creditCardToken:(NSString *_Nonnull)creditCardToken
-                          token:(TransactionTokenResponse *_Nonnull)token {
+                          token:(NSString *)token {
     if (self = [super init]) {
         self.creditCardPaymentFeature = feature;
-        self.token = token;
-        self.creditCardToken = creditCardToken;
-        self.type = @"authorize";
-    }
-    return self;
-}
-
-- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken token:(TransactionTokenResponse *_Nonnull)token {
-    if (self = [super init]) {
-        self.creditCardToken = creditCardToken;
         self.token = token;
         self.type = @"authorize";
     }
@@ -40,27 +28,28 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_CREDIT_CARD;
+    return @"credit_card";
 }
 
 - (NSDictionary *)dictionaryValue {
+    switch (_creditCardPaymentFeature) {
+        case VTCreditCardPaymentFeatureNormal:
+            return @{@"token_id":_tokenId,
+                     @"bank":[VTHelper nullifyIfNil:_bank],
+                     @"installment_term":[VTHelper nullifyIfNil:_installmentTerm],
+                     @"bins":[VTHelper nullifyIfNil:_bins],
+                     @"save_token_id":_saveTokenId ? @"true":@"false"};
+        case VTCreditCardPaymentFeatureOneClick:
+            return @{@"token_id":_tokenId,
+                     @"recurring":@"true"};
+        case VTCreditCardPaymentFeatureTwoClick:
+            return @{@"token_id":_tokenId};
+        case VTCreditCardPaymentFeatureUnknown:
+            NSAssert(false, @"Unknown feature credit card payment");
+            break;
+    }
     
-    NSDictionary *paymentDetail =
-    @{@"full_name":[NSString stringWithFormat:@"%@ %@", self.token.customerDetails.firstName, self.token.customerDetails.lastName],
-      @"phone":self.token.customerDetails.phone,
-      @"email":self.token.customerDetails.email};
-    
-    return @{@"transaction_id":self.token.tokenId,
-             @"token_id":self.creditCardToken,
-             @"payment_detail":paymentDetail};
-}
-
-- (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_CC;
-}
-
-- (TransactionTokenResponse *)snapToken {
-    return self.token;
+    return nil;
 }
 
 @end

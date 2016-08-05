@@ -7,8 +7,10 @@
 //
 
 #import "VTBillpaySuccessController.h"
+#import "VTVAGuideController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
+#import "VTToast.h"
 
 @interface VTBillpaySuccessController ()
 @property (strong, nonatomic) IBOutlet UILabel *billCodeLabel;
@@ -18,19 +20,15 @@
 @property (strong, nonatomic) IBOutlet UILabel *companyCodeLabel;
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 
-@property (nonatomic) VTVATransactionStatusViewModel *statusModel;
+@property (nonatomic) VTVATransactionStatusViewModel *viewModel;
 @end
 
 @implementation VTBillpaySuccessController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
-                  statusModel:(VTVATransactionStatusViewModel *)statusModel {
-    
-    self = [[VTBillpaySuccessController alloc] initWithToken:token
-                                           paymentMethodName:paymentMethod];
+- (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel {
+    self = [[VTBillpaySuccessController alloc] initWithNibName:@"VTBillpaySuccessController" bundle:VTBundle];
     if (self) {
-        self.statusModel = statusModel;
+        self.viewModel = viewModel;
     }
     return self;
 }
@@ -41,11 +39,11 @@
     
     self.navigationItem.hidesBackButton = YES;
     
-    _amountLabel.text = _statusModel.totalAmount;
-    _orderIdLabel.text = _statusModel.orderId;
-    _transactionTimeLabel.text = _statusModel.transactionTime;
-    _billCodeLabel.text = _statusModel.billpayCode;
-    _companyCodeLabel.text = _statusModel.companyCode;
+    _amountLabel.text = _viewModel.totalAmount;
+    _orderIdLabel.text = _viewModel.orderId;
+    _transactionTimeLabel.text = _viewModel.transactionTime;
+    _billCodeLabel.text = _viewModel.billpayCode;
+    _companyCodeLabel.text = _viewModel.companyCode;
     
     self.title = @"Mandiri Billpay";
 }
@@ -56,12 +54,13 @@
 }
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
-    [[UIPasteboard generalPasteboard] setString:_statusModel.billpayCode];
-    [self showToastInviewWithMessage:@"Copied to clipboard"];
+    [[UIPasteboard generalPasteboard] setString:_viewModel.billpayCode];
+    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {
-    [self showGuideViewController];
+    VTVAGuideController *vc = [VTVAGuideController controllerWithVAType:_viewModel.vaType];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {

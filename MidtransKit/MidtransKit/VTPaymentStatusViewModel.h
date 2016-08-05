@@ -15,7 +15,6 @@
 @property (nonatomic) NSString *orderId;
 @property (nonatomic) NSString *transactionTime;
 @property (nonatomic) NSString *paymentType;
-@property (nonatomic, readonly) VTTransactionResult *transactionResult;
 
 - (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult;
 

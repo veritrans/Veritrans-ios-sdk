@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTViewController.h"
+#import <UIKit/UIKit.h>
 
-@interface VTCvvInfoController : VTViewController
-- (instancetype)init;
+@interface VTCvvInfoController : UIViewController
+
 @end

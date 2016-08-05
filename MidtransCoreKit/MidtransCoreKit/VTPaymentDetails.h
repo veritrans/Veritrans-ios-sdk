@@ -7,8 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTConstant.h"
-#import "TransactionTokenResponse.h"
 
 /**
  Protocol that needs to be implemented for each payment type.
@@ -18,15 +16,11 @@
 /**
  The payment type identifier. Must be one of "credit_card", "bank_transfer", "mandiri_clickpay", "cimb_clicks", "bca_klikpay", "bri_epay", "telkomsel_cash", "xl_tunai", "echannel", "mandiri_ecash", "bbm_money", "cstore" or "indosat_dompetku".
  */
-- (NSString *_Nonnull)paymentType;
+- (NSString *)paymentType;
 
 /**
  The `NSDictionary` representaion of the payment type. Please consult to http://docs.veritrans.co.id/en/api/methods.html#charge-transaction to know what key-value pair that needs to be included.
  */
-- (NSDictionary *_Nullable)dictionaryValue;
-
-- (NSString *_Nonnull)chargeURL;
-
-- (TransactionTokenResponse *_Nonnull)snapToken;
+- (NSDictionary *)dictionaryValue;
 
 @end

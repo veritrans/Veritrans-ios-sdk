@@ -9,18 +9,12 @@
 #import "VTPaymentStatusViewModel.h"
 #import "VTClassHelper.h"
 
-
-@interface VTPaymentStatusViewModel()
-@property (nonatomic) VTTransactionResult *transactionResult;
-@end
-
 @implementation VTPaymentStatusViewModel
 
 - (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult {
     if (self = [super init]) {
-        self.transactionResult = transactionResult;
-        
-        self.totalAmount = transactionResult.grossAmount.formattedCurrencyNumber;
+        NSNumberFormatter *nformatter = [NSObject indonesianCurrencyFormatter];
+        self.totalAmount = [nformatter stringFromNumber:transactionResult.grossAmount];
         
         self.orderId = transactionResult.orderId;
         

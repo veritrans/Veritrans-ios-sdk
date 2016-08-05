@@ -7,35 +7,40 @@
 //
 
 #import "VTErrorStatusController.h"
-#import "VTClassHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+
 @interface VTErrorStatusController ()
-@property (nonatomic) NSError *error;
+
 @end
 
 @implementation VTErrorStatusController
 
-- (instancetype _Nonnull)initWithError:(NSError *_Nonnull)error {
-    self = [[VTErrorStatusController alloc] initWithNibName:@"VTErrorStatusController" bundle:VTBundle];
-    if (self) {
-        self.error = error;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = UILocalizedString(@"payment.failed",nil);
+    
+    [self setTitle:@"Payment Failed"];
     [self.navigationItem setHidesBackButton:YES];
     
 }
 
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"tr_error":_error};
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

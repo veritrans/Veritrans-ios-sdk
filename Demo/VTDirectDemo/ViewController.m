@@ -9,9 +9,8 @@
 #import "ViewController.h"
 #import "TableViewCell.h"
 #import "OptionViewController.h"
+
 #import <MidtransKit/MidtransKit.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MBProgressHUD.h>
 
 @implementation NSString (random)
 
@@ -27,40 +26,23 @@
 @end
 
 
-@interface ViewController () <VTPaymentViewControllerDelegate>
+@interface ViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <VTItemDetail*>* itemDetails;
-@property (nonatomic) BOOL isDone;
-@property (nonatomic,strong) NSString *transactionToken;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.isDone = 0;
-    //set default font
-    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
-    if (!fontNames) {
-        [[NSUserDefaults standardUserDefaults] setObject:[UIFont fontNamesForFamilyName:@"Changa"] forKey:@"custom_font"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
+    // Do any additional setup after loading the view, typically from a nib.
     
-    //set default theme color
-    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
-    if (!themeColorData) {
-        UIColor *themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
-        themeColorData = [NSKeyedArchiver archivedDataWithRootObject:themeColor];
-        [[NSUserDefaults standardUserDefaults] setObject:themeColorData forKey:@"theme_color"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
-    
-    self.navigationController.view.userInteractionEnabled = YES;
+    self.navigationController.view.userInteractionEnabled = NO;
     
     self.itemDetails = [self generateItemDetails];
     
     NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
-    if (clientAuth != nil) {
+    if (clientAuth) {
         [CONFIG setMerchantClientData:clientAuth];
         self.navigationController.view.userInteractionEnabled = YES;
     } else {
@@ -91,6 +73,7 @@
         }];
     }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -102,71 +85,18 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
+    
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
-    if (customerDetails!=nil) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        
-        NSURL *merchantURL = [NSURL URLWithString:@"https://veritrans-sample-store.herokuapp.com/charge"];
-        [[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
-                                                                transactionDetails:transactionDetails
-                                                                       itemDetails:self.itemDetails
-                                                                   customerDetails:customerDetails
-                                                                        completion:^(TransactionTokenResponse *token, NSError * error)
-         {
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
-             
-             if (!error) {
-                 
-                 VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
-                 vc.delegate = self;
-                 [self presentViewController:vc animated:YES completion:nil];
-             }
-             else {
-                 NSLog(@"error-->%@",error);
-             }
-         }];
-    }
-    else {
+    if (customerDetails) {
+        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+        [self presentViewController:vc animated:YES completion:nil];
+    } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         [self.navigationController pushViewController:option animated:YES];
     }
-}
-
-- (UIColor *)myThemeColor {
-    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
-    return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
-}
-
-- (VTFontSource *)myFontSource {
-    NSString *fontNameBold;
-    NSString *fontNameRegular;
-    NSString *fontNameLight;
-    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
-    for (NSString *fontName in fontNames) {
-        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            fontNameBold = fontName;
-        } else if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            fontNameRegular = fontName;
-        } else if ([fontName rangeOfString:@"-light" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            fontNameLight = fontName;
-        }
-    }
-    return [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-}
-
-#pragma mark - VTPaymentViewControllerDelegate
-
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
-    NSLog(@"success: %@", result);
-}
-
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
-    NSLog(@"error: %@", error);
 }
 
 #pragma mark - UITableViewDataSource

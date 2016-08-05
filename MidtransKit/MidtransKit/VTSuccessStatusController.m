@@ -8,7 +8,6 @@
 
 #import "VTSuccessStatusController.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTSuccessStatusController ()
 @property (weak, nonatomic) IBOutlet UIImageView *statusIconView;
@@ -18,33 +17,29 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentTypeLabel;
-@property (weak, nonatomic) IBOutlet UIButton *finishButton;
 
 @property (nonatomic) VTPaymentStatusViewModel *successViewModel;
 @end
 
 @implementation VTSuccessStatusController
 
-- (instancetype)initWithSuccessViewModel:(VTPaymentStatusViewModel *)viewModel {
-    self = [[VTSuccessStatusController alloc] initWithNibName:@"VTSuccessStatusController" bundle:VTBundle];
-    if (self) {
-        self.successViewModel = viewModel;
-    }
-    return self;
++ (instancetype)controllerWithSuccessViewModel:(VTPaymentStatusViewModel *)viewModel {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
+    VTSuccessStatusController *vc = [storyboard instantiateViewControllerWithIdentifier:@"VTSuccessStatusController"];
+    vc.successViewModel = viewModel;
+    return vc;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = UILocalizedString(@"payment.success",nil);
+    // Do any additional setup after loading the view.
+    [self setTitle:@"Payment Successful"];
     [self.navigationItem setHidesBackButton:YES];
     
-    self.amountLabel.text = self.successViewModel.totalAmount;
-    self.orderIdLabel.text = self.successViewModel.orderId;
-    self.transactionTimeLabel.text = self.successViewModel.transactionTime;
-    self.paymentTypeLabel.text = self.successViewModel.paymentType;
-    if ([self.successViewModel.paymentType isEqualToString:@"Bca Klikbca"]) {
-        [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title",nil), @"KlikBCA"] forState:UIControlStateNormal];
-    }
+    _amountLabel.text = _successViewModel.totalAmount;
+    _orderIdLabel.text = _successViewModel.orderId;
+    _transactionTimeLabel.text = _successViewModel.transactionTime;
+    _paymentTypeLabel.text = _successViewModel.paymentType;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,10 +48,18 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"trself.result":self.successViewModel.transactionResult};
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

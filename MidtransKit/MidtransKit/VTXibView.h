@@ -10,5 +10,4 @@
 
 @interface VTXibView : UIView
 @property (nonatomic, strong) UIView *customView;
-- (id)initWithFrame:(CGRect)frame;
 @end

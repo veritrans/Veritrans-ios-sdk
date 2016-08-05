@@ -9,54 +9,82 @@
 #import "VTVAListController.h"
 #import "VTClassHelper.h"
 #import "VTListCell.h"
-#import "VTPaymentDirectViewController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "VTVAController.h"
 
 @interface VTVAListController ()
 @property (nonatomic) VTCustomerDetails *customer;
+
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) NSArray *vaList;
 @end
 
-@implementation VTVAListController
+@implementation VTVAListController {
+    NSArray *_banks;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    // Do any additional setup after loading the view.
     
-    self.title = UILocalizedString(@"va.list.title", nil);
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back"
+                                                                             style:UIBarButtonItemStylePlain
+                                                                            target:nil
+                                                                            action:nil];
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
-    NSMutableArray *vaListM = [NSMutableArray new];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    for (int i = 0; i<paymentList.count; i++) {
-        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-        [vaListM addObject:paymentmodel];
-    }
-    self.vaList = vaListM;
-    self.tableView.tableFooterView = [UIView new];
-    self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    _banks = [NSArray arrayWithContentsOfFile:path];
+    
+    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
+    _totalAmountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_vaList count];
+    return [_banks count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
-    [cell configurePaymetnList:self.vaList[indexPath.row]];
+    cell.item = _banks[indexPath.row];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *vaTypeModel = (VTPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
-    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    NSString *identifier = _banks[indexPath.row][@"id"];
+    VTVAType vaType;
+    
+    if ([identifier isEqualToString:VTBCAVAIdentifier]) {
+        vaType = VTVATypeBCA;
+    } else if ([identifier isEqualToString:VTMandiriVAIdentifier]) {
+        vaType = VTVATypeMandiri;
+    } else if ([identifier isEqualToString:VTPermataVAIdentifier]) {
+        vaType = VTVATypePermata;
+    } else {
+        vaType = VTVATypeOther;
+    }
+    
+    VTVAController *vc = [[VTVAController alloc] initWithVAType:vaType customerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
     [self.navigationController pushViewController:vc animated:YES];
 }
+
+/*
+#pragma mark - Navigation
+
+// In a storyboard-based application, you will often want to do a little preparation before navigation
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Get the new view controller using [segue destinationViewController].
+    // Pass the selected object to the new view controller.
+}
+*/
 
 @end

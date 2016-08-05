@@ -19,23 +19,27 @@
 #import "VTHudView.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTCardControllerConfig.h"
+
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
+
 #import <MidtransCoreKit/VTClient.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTTransactionDetails.h>
 
-//#import <CardIO.h>
+#import <CardIO.h>
 
-@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate/*, CardIOPaymentViewControllerDelegate*/>
+@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate, CardIOPaymentViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *addCardButton;
+
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 
 @property (nonatomic) NSMutableArray *cards;
@@ -48,14 +52,23 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = UILocalizedString(@"creditcard.list.title", nil);
-    [self.pageControl setNumberOfPages:0];
+    // Do any additional setup after loading the view.
+    
+    _hudView = [[VTHudView alloc] init];
+    
+    [_pageControl setNumberOfPages:0];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
-    self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    
+    NSNumberFormatter *formatter = [NSObject indonesianCurrencyFormatter];
+    _amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
+    
     [self updateView];
-    // [self reloadMaskedCards];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
-    [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
+    
+    [self reloadMaskedCards];
+    
+    //cell editing
+    [_collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
 }
 
@@ -66,7 +79,8 @@
 
 - (void)setEditingCell:(BOOL)editingCell {
     _editingCell = editingCell;
-    [self.collectionView reloadData];
+    
+    [_collectionView reloadData];
 }
 
 - (void)startEditing:(id)sender {
@@ -74,16 +88,21 @@
 }
 
 - (void)reloadMaskedCards {
-    [self showLoadingHud];
-    __weak VTCardListController *weakSelf = self;
+    [_hudView showOnView:self.view];
+    
+    __weak VTCardListController *wself = self;
     [[VTMerchantClient sharedClient] fetchMaskedCardsWithCompletion:^(NSArray *maskedCards, NSError *error) {
-        [self hideLoadingHud];
+        [_hudView hide];
+        
         if (maskedCards) {
-            weakSelf.cards = [NSMutableArray arrayWithArray:maskedCards];
+            wself.cards = [NSMutableArray arrayWithArray:maskedCards];
         } else {
-            [self showAlertViewWithTitle:@"Error"
-                              andMessage:error.localizedDescription
-                          andButtonTitle:@"Close"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Close"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
         
         [self updateView];
@@ -93,15 +112,15 @@
 
 - (void)updateView {
     if (self.cards.count) {
-        self.addCardButton.hidden = true;
-        self.addCardButtonHeight.constant = 0;
-        self.emptyCardView.hidden = true;
-        self.cardsView.hidden = false;
+        _addCardButton.hidden = true;
+        _addCardButtonHeight.constant = 0;
+        _emptyCardView.hidden = true;
+        _cardsView.hidden = false;
     } else {
-        self.addCardButton.hidden = false;
-        self.addCardButtonHeight.constant = 50.;
-        self.emptyCardView.hidden = false;
-        self.cardsView.hidden = true;
+        _addCardButton.hidden = false;
+        _addCardButtonHeight.constant = 50.;
+        _emptyCardView.hidden = false;
+        _cardsView.hidden = true;
     }
 }
 
@@ -112,20 +131,20 @@
 - (void)setCards:(NSMutableArray *)cards {
     _cards = cards;
     
-    [self.pageControl setNumberOfPages:[cards count]];
-    [self.collectionView reloadData];
+    [_pageControl setNumberOfPages:[cards count]];
+    [_collectionView reloadData];
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token];
-    vc.delegate = self;
-    [self.navigationController pushViewController:vc animated:YES];
+    UIActionSheet *inputSheet = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Input Manual", @"Scan With Camera", nil];
+    [inputSheet showInView:self.navigationController.view];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
                                   animationControllerForOperation:(UINavigationControllerOperation)operation
                                                fromViewController:(UIViewController*)fromVC
-                                                 toViewController:(UIViewController*)toVC {
+                                                 toViewController:(UIViewController*)toVC
+{
     if (operation == UINavigationControllerOperationPush) {
         return [PushAnimator new];;
     }
@@ -136,7 +155,7 @@
 #pragma mark - UICollectionViewDataSource
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return [self.cards count];
+    return [_cards count];
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -164,16 +183,14 @@
     VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
     
     if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
-        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber
-                                                                                    grossAmount:self.token.transactionDetails.grossAmount];
-        [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
+        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber grossAmount:self.transactionDetails.grossAmount];
+        [vc showOnViewController:self clickedButtonsCompletion:^(NSUInteger selectedIndex) {
             if (selectedIndex == 1) {
                 [self payWithToken:maskedCard.savedTokenId];
             }
         }];
     } else {
-        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
-                                                                    maskedCard:maskedCard];
+        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails savedToken:maskedCard.savedTokenId];
         [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -186,9 +203,12 @@
     
     VTPaymentCreditCard *paymentDetail =
     [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
-                                 creditCardToken:token token:self.token];
+                                           token:token];
     VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
+    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail
+                               transactionDetails:self.transactionDetails
+                                  customerDetails:self.customerDetails
+                                      itemDetails:self.itemDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         [_hudView hide];
         
@@ -221,9 +241,12 @@
             self.editingCell = false;
             
         } else {
-            [self showAlertViewWithTitle:@"Error"
-                              andMessage:error.localizedDescription
-                          andButtonTitle:@"Close"];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                            message:error.localizedDescription
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Close"
+                                                  otherButtonTitles:nil];
+            [alert show];
         }
         
         [self updateView];
@@ -234,6 +257,69 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     return CGSizeMake(self.view.frame.size.width, 200);
+}
+
+/*
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 0) {
+        VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        vc.delegate = self;
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if (buttonIndex == 1) {
+        CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+        //        scanViewController.modalPresentationStyle = UIModalPresentationFormSheet;
+        [self presentViewController:scanViewController animated:YES completion:nil];
+    }
+}
+
+#pragma mark - CardIOPaymentViewControllerDelegate
+
+/// This method will be called if the user cancels the scan. You MUST dismiss paymentViewController.
+/// @param paymentViewController The active CardIOPaymentViewController.
+- (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+/// This method will be called when there is a successful scan (or manual entry). You MUST dismiss paymentViewController.
+/// @param cardInfo The results of the scan.
+/// @param paymentViewController The active CardIOPaymentViewController.
+- (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+    
+    NSString *year = cardInfo.expiryYear < 10 ? [NSString stringWithFormat:@"0%lu", (unsigned long)cardInfo.expiryYear] : [NSString stringWithFormat:@"%lu", (unsigned long)cardInfo.expiryYear];
+    NSString *month = cardInfo.expiryMonth < 10 ? [NSString stringWithFormat:@"0%lu", (unsigned long)cardInfo.expiryMonth] : [NSString stringWithFormat:@"%lu", (unsigned long)cardInfo.expiryMonth];
+    
+    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardInfo.cardNumber
+                                                        expiryMonth:month
+                                                         expiryYear:year
+                                                                cvv:cardInfo.cvv];
+    
+    [[VTClient sharedClient] registerCreditCard:creditCard completion:^(VTMaskedCreditCard *maskedCreditCard, NSError *error) {
+        [_hudView hide];
+        
+        if (error) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+            [alert show];
+        } else {
+            [[VTMerchantClient sharedClient] saveRegisteredCard:maskedCreditCard completion:^(id result, NSError *error) {
+                if (error) {
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+                    [alert show];
+                } else {
+                    [self reloadMaskedCards];
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            }];
+        }
+    }];
 }
 
 @end

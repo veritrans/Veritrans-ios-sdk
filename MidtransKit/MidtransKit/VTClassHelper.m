@@ -7,21 +7,16 @@
 //
 
 #import "VTClassHelper.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
-NSString *const VTCreditCardIdentifier = @"cc";
-NSString *const VTVAIdentifier = @"atm";
-NSString *const VTPermataVAIdentifier = @"vapermata";
-NSString *const VTBCAVAIdentifier = @"vabca";
-NSString *const VTMandiriVAIdentifier = @"vamandiri";
-NSString *const VTOtherVAIdentifier = @"vaother";
-NSString *const VTKlikBCAIdentifier = @"klikbca";
-NSString *const VTKlikpayIdentifier = @"klikpay";
-NSString *const VTClickpayIdentifier = @"clickpay";
-NSString *const VTClicksIdentifier = @"clicks";
-NSString *const VTEpayIdentifier = @"epay";
-NSString *const VTTelkomselIdentifier = @"tcash";
-NSString *const VTIndomaretIdentifier = @"indomaret";
+@implementation NSNumber (formatter)
 
+- (NSString *)formattedCurrencyNumber {
+    NSNumberFormatter *nf = [NSNumberFormatter indonesianCurrencyFormatter];
+    return [@"Rp " stringByAppendingString:[nf stringFromNumber:self]];
+}
+
+@end
 
 @implementation VTClassHelper
 
@@ -30,7 +25,7 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
     static NSBundle *kitBundle = nil;
     dispatch_once(&onceToken, ^{
         @try {
-            kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MidtransResources" withExtension:@"bundle"]];
+            kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MidtransKit" withExtension:@"bundle"]];
         }
         @catch (NSException *exception) {
             kitBundle = [NSBundle mainBundle];
@@ -68,6 +63,16 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
 
 @implementation UITextField (helper)
 
+- (BOOL)filterNumericWithString:(NSString *)string range:(NSRange)range length:(NSInteger)length {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    return [mstring length] <= length;
+}
+
 - (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range {
     NSString *text = self.text;
     
@@ -91,7 +96,7 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
     }
     
     newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
-    
+
     if (newString.length >= 20) {
         return NO;
     }
@@ -101,14 +106,20 @@ NSString *const VTIndomaretIdentifier = @"indomaret";
     return NO;
 }
 
-- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range {
-    if ([string isNumeric] == NO) {
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber {
+    if ([self.text isNumeric] == NO)
         return NO;
-    }
+    
+    BOOL isAmex = [VTCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
+    NSInteger cvvLength = isAmex ? 4 : 3;
     
     NSMutableString *mstring = self.text.mutableCopy;
     [mstring replaceCharactersInRange:range withString:string];
-    return [mstring length] <= 3;
+    
+    if ([mstring length] <= cvvLength) {
+        self.text = mstring;
+    }
+    return NO;
 }
 
 - (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {

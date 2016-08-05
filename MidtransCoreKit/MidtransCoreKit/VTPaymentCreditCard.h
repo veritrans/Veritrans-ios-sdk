@@ -15,38 +15,33 @@
  
  This class is modeled after http://docs.veritrans.co.id/en/api/methods.html#credit_card_attr
  */
-@interface VTPaymentCreditCard : NSObject<VTPaymentDetails>
-
-/**
- The representation token of the real credit card data which securely stored in Veritrans server.
- */
-@property (nonatomic, readonly) NSString *tokenId;
+@interface VTPaymentCreditCard : NSObject <VTPaymentDetails>
 
 /**
  The name of the bank.
  */
-@property (nonatomic) NSString *bank;
+@property (nonatomic) NSString *_Nullable bank;
 
 /**
  The monthly term of the payment.
  */
-@property (nonatomic) NSNumber *installmentTerm;
+@property (nonatomic) NSNumber *_Nullable installmentTerm;
 
 /**
  List of credit card's BIN (Bank Identification Number) that is allowed for transaction.
  All BIN can have 1 to 8 digits.
  */
-@property (nonatomic) NSArray *bins;
+@property (nonatomic) NSArray *_Nullable bins;
 
 /**
  The feature to be used during pre-authorization. Valid value: "authorize".
  */
-@property (nonatomic) NSString *type;
+@property (nonatomic) NSString *_Nullable type;
 
 /**
  Flag to determine whether Veritrans server should keep record of this payment attribute to used in future transaction. To use `one-click` and `two-clicks` feature, this feature must be enabled.
  */
-@property (nonatomic) BOOL saveTokenId;
+@property (nonatomic) BOOL saveToken;
 
 
 ///--------------------
@@ -59,7 +54,11 @@
  @param feature The feature of the payment.
  @param tokenId The specified token ID.
  */
-- (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
-                          token:(NSString *)token;
+- (instancetype _Nonnull)initWithFeature:(VTCreditCardPaymentFeature)feature
+                         creditCardToken:(NSString *_Nonnull)creditCardToken
+                                   token:(TransactionTokenResponse *_Nonnull)token;
+
+- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken
+                                           token:(TransactionTokenResponse *_Nonnull)token;
 
 @end

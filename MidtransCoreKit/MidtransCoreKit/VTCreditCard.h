@@ -20,4 +20,13 @@
                     expiryYear:(NSString *)expiryYear
                            cvv:(NSString *)cvv;
 
+/**
+ * expiryDate format should be 00/00 (month/year)
+ */
+- (instancetype)initWithNumber:(NSString *)number
+                    expiryDate:(NSString *)expiryDate
+                           cvv:(NSString *)cvv;
+
+- (NSDictionary *)dictionaryValue;
+
 @end

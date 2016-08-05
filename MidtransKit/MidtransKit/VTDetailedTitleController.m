@@ -7,6 +7,7 @@
 //
 
 #import "VTDetailedTitleController.h"
+#import "VTThemeManager.h"
 
 @interface VTDetailedTitleController ()
 
@@ -19,19 +20,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Do any additional setup after loading the view.
     UIView *headerView = [UIView new];
     titleLabel = [UILabel new];
-    titleLabel.font = [UIFont systemFontOfSize:15];
+    titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:15];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.text = self.headerTitle;
     
-    
     descLabel = [UILabel new];
-    descLabel.font = [UIFont systemFontOfSize:11];
+    descLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:11];
     descLabel.textColor = [UIColor blackColor];
     descLabel.textAlignment = NSTextAlignmentCenter;
     descLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -49,10 +47,10 @@
     
     [self.navigationItem setTitleView:headerView];
     
-    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"          " style:UIBarButtonItemStyleBordered target:nil action:nil]];
+    [self.navigationItem setRightBarButtonItem:[[UIBarButtonItem alloc] initWithTitle:@"          " style:UIBarButtonItemStylePlain target:nil action:nil]];
     
     self.navigationItem.titleView.frame = CGRectMake(0, 20, 500, 44);
-
+    
 }
 
 - (void)setHeaderDescription:(NSString *)headerDescription {
@@ -64,20 +62,5 @@
     _headerTitle = headerTitle;
     titleLabel.text = headerTitle;
 }
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

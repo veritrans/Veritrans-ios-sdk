@@ -28,9 +28,11 @@
     VTCardListController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     fromViewController.view.layer.zPosition = -1000;
     
+    toViewController.view.frame = fromViewController.view.frame;
     
     UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.collectionView.frame fromView:fromViewController.collectionView.superview];
+    CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.collectionView.frame
+                                                          fromView:fromViewController.collectionView.superview];
     
     VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
     VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame];

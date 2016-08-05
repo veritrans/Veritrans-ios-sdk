@@ -11,60 +11,88 @@
 #import "VTListCell.h"
 #import "VTPaymentHeader.h"
 #import "VTCardListController.h"
-#import "VTClickpayController.h"
-#import "VTVAController.h"
-#import "VTClicksController.h"
+#import "VTMandiriClickpayController.h"
+#import "VTPaymentGeneralViewController.h"
+#import "VTMandiriClickpayController.h"
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
 #import "VTPaymentListFooter.h"
 #import "VTPaymentListHeader.h"
+#import "VTPaymentDirectViewController.h"
+#import "VTPaymentListView.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+#import <MidtransCoreKit/VTPaymentListModel.h>
+#import <MidtransCoreKit/PaymentRequestDataModels.h>
+#import "VTPaymentListDataSource.h"
 
-@interface VTPaymentListController ()
-@property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) VTPaymentListFooter *footer;
-@property (nonatomic) VTPaymentListHeader *header;
+@interface VTPaymentListController () <UITableViewDelegate>
+@property (strong, nonatomic) IBOutlet VTPaymentListView *view;
+@property (nonatomic,strong) NSMutableArray *paymentMethodList;
+@property (nonatomic,strong) VTPaymentListDataSource *dataSource;
 @end
 
-@implementation VTPaymentListController {
-    NSArray *_payments;
-}
+@implementation VTPaymentListController;
+@dynamic view;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    self.title = @"Select Payment";
-    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Back" style:UIBarButtonItemStylePlain target:nil action:nil];    
+    self.title =  UILocalizedString(@"payment.list.title", nil);
     
+    self.dataSource = [[VTPaymentListDataSource alloc] init];
+    self.view.tableView.dataSource = self.dataSource;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    _footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];    
-    _header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
+    [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
+    self.paymentMethodList = [NSMutableArray new];
+    self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
+    self.view.footer.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.view.header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
+    self.view.header.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
+    self.view.tableView.tableFooterView = self.view.footer;
+    self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 80);
+    self.view.tableView.tableHeaderView = self.view.header;
+    self.view.footer.amountLabel.text = @"-";
+    self.view.header.amountLabel.text = @"-";
+    
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
-    _payments = [NSArray arrayWithContentsOfFile:path];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     
-    NSNumberFormatter *formatter = [NSNumberFormatter indonesianCurrencyFormatter];
-    _footer.amountLabel.text = [formatter stringFromNumber:self.transactionDetails.grossAmount];
-    _header.amountLabel.text = _footer.amountLabel.text;
-}
-
-- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
+    [self showLoadingHud];
     
-    _footer.frame = CGRectMake(0, 0, CGRectGetWidth(_tableView.frame), 45);
-    _tableView.tableFooterView = _footer;
-    _header.frame = CGRectMake(0, 0, CGRectGetWidth(_tableView.frame), 80);
-    _tableView.tableHeaderView = _header;
+    [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
+                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
+                                                          [self hideLoadingHud];
+                                                          if (response) {
+                                                              NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+                                                              self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+                                                              self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+                                                              if (response.transactionData.enabledPayments.count) {
+                                                                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+                                                                      for (int i = 0; i<paymentList.count; i++) {
+                                                                          VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                                                                          if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+                                                                              [self.paymentMethodList addObject:paymentmodel];
+                                                                          }
+                                                                      }
+                                                                  }
+                                                              }
+                                                              self.dataSource.paymentList = self.paymentMethodList;
+                                                              [self.view.tableView reloadData];
+                                                          }
+                                                          else {
+                                                              //todo what should happens when payment request is failed;
+                                                          }
+                                                      }];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)closePressed:(id)sender {
@@ -72,38 +100,69 @@
 }
 
 #pragma mark - UITableViewDataSource
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_payments count];
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (IS_IOS8_OR_ABOVE) {
+        return UITableViewAutomaticDimension;
+    }
+    else {
+        UITableViewCell *cell = (UITableViewCell *) [self.dataSource tableView:self.view.tableView cellForRowAtIndexPath:indexPath];
+        [cell updateConstraintsIfNeeded];
+        [cell layoutIfNeeded];
+        CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        return height;
+    }
 }
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
-    cell.item = _payments[indexPath.row];
-    return cell;
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (IS_IOS8_OR_ABOVE) {
+        return UITableViewAutomaticDimension;
+    }
+    else {
+        UITableViewCell *cell = (UITableViewCell *) [self.dataSource tableView:self.view.tableView cellForRowAtIndexPath :indexPath];
+        [cell updateConstraintsIfNeeded];
+        [cell layoutIfNeeded];
+        CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        return height;
+    }
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    NSString *identifier = _payments[indexPath.row][@"id"];
+    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
-    if ([identifier isEqualToString:VTCreditCardIdentifier]) {
-        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CREDIT_CARD_IDENTIFIER]) {
+        VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([identifier isEqualToString:VTVAIdentifier]) {
-        VTVAListController *vc = [[VTVAListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails];
+        
+        //        VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+        //                                                             paymentMethodName:paymentMethod];
+        //        [self.navigationController pushViewController:vc animated:YES];
+        
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
+        VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
+                                                         paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
+        
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER] ||
+               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER] ||
+               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER] ||
+               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
+        VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token
+                                                                                 paymentMethodName:paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER] ||
+               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER]) {
+        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
+                                                                               paymentMethodName:paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+        
+    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {
+        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
+                                                                           paymentMethodName:paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
+        
     }
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

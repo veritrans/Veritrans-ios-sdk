@@ -7,6 +7,7 @@
 //
 
 #import "VTConfig.h"
+#import "VTConstant.h"
 #import "VTMerchantClient.h"
 #import "VTPrivateConfig.h"
 
@@ -18,24 +19,18 @@
 
 @implementation VTConfig
 
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment {
++ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment {
     [[VTConfig sharedInstance] setClientKey:clientKey];
-    [[VTConfig sharedInstance] setMerchantServerURL:merchantServerURL];
     [[VTConfig sharedInstance] setEnvironment:environment];
 }
 
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData {
-    [VTConfig setClientKey:clientKey merchantServerURL:merchantServerURL serverEnvironment:environment];
++ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData {
+    [VTConfig setClientKey:clientKey andServerEnvironment:environment];
     [[VTConfig sharedInstance] setMerchantClientData:merchantClientData];
 }
 
-- (NSString *)merchantServerURL {
-    NSAssert(_merchantServerURL, @"Please set your merchant server URL in VTConfig");
-    return _merchantServerURL;
-}
-
 - (NSString *)clientKey {
-    NSAssert(_clientKey, @"Please set your Veritrans Client Key in VTConfig");
+    NSAssert(_clientKey, VT_MESSAGE_CLIENT_KEY_NOT_SET);
     return _clientKey;
 }
 
@@ -47,7 +42,6 @@
     });
     return shared;
 }
-
 - (void)setEnvironment:(VTServerEnvironment)environment {
     [VTPrivateConfig setServerEnvironment:environment];    
 }

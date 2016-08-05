@@ -6,10 +6,11 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-#import "VTClassHelper.h"
+#import "VTPaymentController.h"
 #import "VTVATransactionStatusViewModel.h"
 
-@interface VTBillpaySuccessController : UIViewController
-- (instancetype)initWithViewModel:(VTVATransactionStatusViewModel *)viewModel;
+@interface VTBillpaySuccessController : VTPaymentController
+- (instancetype)initWithToken:(TransactionTokenResponse *)token
+            paymentMethodName:(VTPaymentListModel *)paymentMethod
+                  statusModel:(VTVATransactionStatusViewModel *)statusModel;
 @end

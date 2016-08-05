@@ -19,14 +19,27 @@
 
 @implementation AppDelegate
 
+//#define RELEASE
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [Fabric with:@[[Crashlytics class]]];
     
-    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
-         merchantServerURL:@"https://vt-merchant.coralshop.top/api"
-         serverEnvironment:VTServerEnvironmentSandbox];
+#ifdef RELEASE
+    [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
+      andServerEnvironment:VTServerEnvironmentProduction];
+#else
+//    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
+//      andServerEnvironment:VTServerEnvironmentSandbox];
+    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" andServerEnvironment:VTServerEnvironmentSandbox];
+#endif
+    
+    BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
+    
+    BOOL enable3ds = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_3ds"] boolValue];
+    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:enable3ds];
     
     return YES;
 }

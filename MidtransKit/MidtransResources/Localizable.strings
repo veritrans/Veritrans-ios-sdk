@@ -1,0 +1,30 @@
+/* 
+  Localizable.strings
+  MidtransKit
+
+  Created by Nanang Rafsanjani on 6/22/16.
+  Copyright © 2016 Veritrans. All rights reserved.
+*/
+
+"payment.failed" = "Payment Failed";
+"payment.pay-at" = "Pay at %@";
+"clickpay.invalid-number" = "Invalid Debit Number";
+"clickpay.invalid-token" = "Invalid Clickpay Token";
+"name.other-bank" = "Other Bank";
+"payment.how" = "How can i Pay Via %@";
+"payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
+"payment.email-placeholder" = "Email Address (optional)";
+"payment.email-note" = "Just in case, we can send you the payment instructions to your email address.";
+"payment.klikbca.userid-warning" = "KlikBCA User ID should not be empty";
+"guide.header-subtitle" = "Payment Instructions";
+"payment.list.title" = "Select Payment";
+"payment.success" = "Payment Successful";
+"payment.finish-button-title" = "Complete Payment At %@";
+"payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
+"toast.copy-text" = "Copied to clipboard";
+
+"creditcard.input.title" = "Card Details";
+"creditcard.list.title" = "Choose Card";
+"creditcard.twoclick.title" = "Pay With Credit Card";
+
+"va.list.title" = "Select Bank";

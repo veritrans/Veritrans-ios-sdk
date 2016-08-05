@@ -39,19 +39,22 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="VTCCFrontView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="VTCCFrontView">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="width" secondItem="MK6-3w-vo5" secondAttribute="width" id="9v5-sS-zvj"/>
+                                        <constraint firstAttribute="bottom" secondItem="6y0-gM-5VU" secondAttribute="bottom" id="ClE-5y-ywd"/>
                                         <constraint firstAttribute="trailing" secondItem="0pt-iP-bMO" secondAttribute="trailing" id="EiW-VC-QUN"/>
+                                        <constraint firstItem="6y0-gM-5VU" firstAttribute="leading" secondItem="MK6-3w-vo5" secondAttribute="leading" id="JnY-ur-HWF"/>
+                                        <constraint firstAttribute="trailing" secondItem="6y0-gM-5VU" secondAttribute="trailing" id="Rns-25-2an"/>
                                         <constraint firstItem="0pt-iP-bMO" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="top" id="VUp-mH-seg"/>
                                         <constraint firstAttribute="bottom" secondItem="0pt-iP-bMO" secondAttribute="bottom" id="bBm-rd-tgi"/>
                                         <constraint firstItem="0pt-iP-bMO" firstAttribute="leading" secondItem="MK6-3w-vo5" secondAttribute="leading" id="bJD-Zw-KqS"/>
                                         <constraint firstAttribute="height" constant="200" id="eVx-tB-x2x"/>
+                                        <constraint firstItem="6y0-gM-5VU" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="top" id="lH0-6v-Fj4"/>
                                         <constraint firstItem="0pt-iP-bMO" firstAttribute="height" secondItem="MK6-3w-vo5" secondAttribute="height" id="zWK-CS-fbT"/>
                                     </constraints>
                                     <variation key="default">
@@ -142,7 +145,7 @@
                                             <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vertrans securely manages your credit cards for all our merchants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="VNA-Qs-tHa">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veritrans securely manages your credit cards for all our merchants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="VNA-Qs-tHa">
                                             <rect key="frame" x="0.0" y="13" width="233" height="33"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>

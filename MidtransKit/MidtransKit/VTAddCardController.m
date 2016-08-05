@@ -107,16 +107,10 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    NSString *cardNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    NSArray *dates = [self.view.cardExpiryDate.text componentsSeparatedByString:@"/"];
-    NSString *expMonth = dates[0];
-    NSString *expYear = dates.count == 2 ? dates[1] : nil;
     
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:cardNumber
-                                                        expiryMonth:expMonth
-                                                         expiryYear:expYear
+    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:self.view.cardNumber.text
+                                                         expiryDate:self.view.cardExpiryDate.text
                                                                 cvv:self.view.cardCvv.text];
-    
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         [self handleRegisterCreditCardError:error];
@@ -161,6 +155,18 @@
 }
 
 #pragma mark - UITextFieldDelegate
+
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
+    
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        [textField.text isValidExpiryDate:&error];
+    }
+    
+    if (error) {
+        [self handleRegisterCreditCardError:error];
+    }
+}
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isKindOfClass:[VTTextField class]]) {

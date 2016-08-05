@@ -24,18 +24,68 @@
     return [myTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber {
+- (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber error:(NSError **)error {
     BOOL isAmex = [VTCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
-    NSInteger cvvLegth = isAmex ? 4 : 3;    
-    return [self isNumeric] && ([self length] == cvvLegth);
+    NSInteger cvvLegth = isAmex ? 4 : 3;
+    BOOL valid = [self isNumeric] && ([self length] == cvvLegth);
+    
+    if (valid) {
+        return YES;
+    } else {
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_CVV_INVALID, nil);
+        NSInteger cvvInvalidCode = -22;
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        return NO;
+    }
 }
 
-- (BOOL)isValidCreditCardExpiryDate {
-    return ([self length] == 2) || ([self length] == 4);
+- (BOOL)isValidYearExpiryDate:(NSError **)error {
+    BOOL valid = ([self length] == 2) || ([self length] == 4);
+    if (valid) {
+        return YES;
+    } else {
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_DATE_INVALID, nil);
+        NSInteger expiryDateInvalidCode = -21;
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        return NO;
+    }
 }
 
-- (BOOL)isValidCreditCardNumber {
-    return [VTLuhn validateString:self];
+- (BOOL)isValidMonthExpiryDate:(NSError **)error {
+    BOOL valid = ([self length] == 2) || ([self length] == 4);
+    if (valid) {
+        return YES;
+    } else {
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_MONTH_INVALID, nil);
+        NSInteger expiryDateInvalidCode = -21;
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        return NO;
+    }
+}
+
+- (BOOL)isValidExpiryDate:(NSError **)error {
+    NSArray *dates = [self componentsSeparatedByString:@"/"];
+    NSString *expMonth = dates[0];
+    NSString *expYear = dates.count == 2 ? dates[1] : @"";
+    
+    if ([expMonth isValidMonthExpiryDate:error] == NO) {
+        return NO;
+    } else if ([expYear isValidYearExpiryDate:error] == NO) {
+        return NO;
+    } else {
+        return YES;
+    }
+}
+
+- (BOOL)isValidCreditCardNumber:(NSError **)error {
+    if ([VTLuhn validateString:self]) {
+        return YES;
+    } else {
+        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_INVALID, nil);
+        NSInteger numberInvalideCode = -20;
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        return NO;
+    }
 }
 
 @end
@@ -43,32 +93,19 @@
 @implementation VTCreditCard (Validation)
 
 - (BOOL)isValidCreditCard:(NSError **)error {
-    if ([self.number isValidCreditCardNumber] == NO) {
-        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_INVALID, nil);
-        NSInteger numberInvalideCode = -20;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+    if ([self.number isValidCreditCardNumber:error] == NO) {
         return NO;
     }
     
-    
-    if ([self.expiryYear isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_DATE_INVALID, nil);
-        NSInteger expiryDateInvalidCode = -21;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+    if ([self.expiryYear isValidYearExpiryDate:error] == NO) {
         return NO;
     }
     
-    if ([self.expiryMonth isValidCreditCardExpiryDate] == NO) {
-        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_MONTH_INVALID, nil);
-        NSInteger expiryDateInvalidCode = -21;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+    if ([self.expiryMonth isValidMonthExpiryDate:error] == NO) {
         return NO;
     }
     
-    if ([self.cvv isValidCVVWithCreditCardNumber:self.number] == NO) {
-        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_CVV_INVALID, nil);
-        NSInteger cvvInvalidCode = -22;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+    if ([self.cvv isValidCVVWithCreditCardNumber:self.number error:error] == NO) {
         return NO;
     }
     

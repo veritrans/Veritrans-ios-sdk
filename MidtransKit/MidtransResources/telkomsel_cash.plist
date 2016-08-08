@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <string>Send a text message to Telkomsel, type TOKEN &lt;PIN&gt;, send to 2828</string>
+        <string>Input the token sent from Telkomsel's reply into T-CASH TOKEN field below</string>
+        <string>Your transaction will expire unless you complete your payment in 30 minutes</string>
+    </array>
+</plist>

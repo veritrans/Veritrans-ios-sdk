@@ -10,5 +10,5 @@
 #import "VTPaymentDetails.h"
 
 @interface VTPaymentIndosatDompetku : NSObject <VTPaymentDetails>
-- (instancetype _Nonnull)initWithMsisdn:(NSString *_Nonnull)msisdn token:(TransactionTokenResponse *_Nonnull)token;
+- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(TransactionTokenResponse *_Nonnull)token;
 @end

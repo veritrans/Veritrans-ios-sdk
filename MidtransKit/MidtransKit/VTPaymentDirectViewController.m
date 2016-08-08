@@ -123,7 +123,7 @@
             [self hideLoadingHud];
             return;
         }
-        paymentDetails = [[VTPaymentIndosatDompetku alloc] initWithMsisdn:self.view.directPaymentTextField.text
+        paymentDetails = [[VTPaymentIndosatDompetku alloc] initWithMSISDN:self.view.directPaymentTextField.text
                                                                     token:self.token];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH]) {
@@ -132,7 +132,7 @@
             [self hideLoadingHud];
             return;
         }
-        paymentDetails = [[VTPaymentTelkomselCash alloc] initWithMsisdn:self.view.directPaymentTextField.text
+        paymentDetails = [[VTPaymentTelkomselCash alloc] initWithMSISDN:self.view.directPaymentTextField.text
                                                                   token:self.token];
     }
     

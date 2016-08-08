@@ -15,7 +15,7 @@
 
 @implementation VTPaymentTelkomselCash
 
-- (instancetype _Nonnull)initWithMsisdn:(NSString *_Nonnull)msisdn token:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(TransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.msisdn = msisdn;
         self.token = token;

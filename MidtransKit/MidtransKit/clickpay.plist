@@ -2,12 +2,12 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<string>Active your Mandiri token by pressing *</string>
+	<string>Active your Mandiri token by pressing [token_button]</string>
 	<string>Enter your Mandiri token password</string>
 	<string>Press 3 when it displays APPLI</string>
-	<string>Enter ‘Input 1’ and press * for 3 seconds</string>
-	<string>Enter ‘Input 2’ and press * for 3 seconds</string>
-	<string>Enter ‘Input 3’ and press * for 3 seconds</string>
+	<string>Enter ‘Input 1’ and press [token_button] for 3 seconds</string>
+	<string>Enter ‘Input 2’ and press [token_button] for 3 seconds</string>
+	<string>Enter ‘Input 3’ and press [token_button] for 3 seconds</string>
 	<string>Put the response code on your Mandiri token into the challenge token field</string>
 </array>
 </plist>

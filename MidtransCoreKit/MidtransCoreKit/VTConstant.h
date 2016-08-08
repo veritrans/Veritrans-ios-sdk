@@ -43,6 +43,9 @@ static NSString * const VT_PAYMENT_CREDIT_CARD = @"credit_card";
 static NSString * const VT_PAYMENT_BANK_TRANSFER = @"bank_transfer";
 static NSString * const VT_PAYMENT_ECHANNEL = @"echannel";
 static NSString * const VT_PAYMENT_BRI_EPAY = @"bri_epay";
+static NSString * const VT_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";
+static NSString * const VT_PAYMENT_INDOSAT_DOMPETKU = @"indosat_dompetku";
+static NSString * const VT_PAYMENT_XL_TUNAI = @"xl_tunai";
 
 static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
 static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
@@ -61,9 +64,7 @@ static NSString *const VT_MANDIRI_CLICKPAY_IDENTIFIER = @"clickpay";
 static NSString *const VT_CIMB_CLIKS_IDENTIFIER = @"clicks";
 static NSString *const VT_ECASH_IDENTIFIER = @"ecash";
 static NSString *const VT_EPAY_IDENTIFIER = @"epay";
-static NSString *const VT_TELKOMSEL_TCASH_IDENTIFIER = @"tcash";
 static NSString *const VT_INDOMARET_IDENTIFIER = @"indomaret";
-
 
 /**
  *  CONSTANT REGEX
@@ -93,7 +94,6 @@ static NSString * const ENDPOINT_CHARGE_XL_TUNAI = @"pay_with_xl_tunai";
 static NSString * const ENDPOINT_CHARGE_INDOSAT_DOMPETKU = @"pay_with_indosat_dompetku";
 static NSString * const ENDPOINT_CHARGE_KIOS_ON = @"pay_with_kioson";
 static NSString * const ENDPOINT_CHARGE_INDOMARET = @"pay_with_indomaret";
-
 
 /**
  *  MESSAGE CONSTANT

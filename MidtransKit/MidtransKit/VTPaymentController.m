@@ -13,6 +13,7 @@
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
 #import "VTSingleGuideController.h"
+#import "VTXLTunaiSuccessController.h"
 #import "VTThemeManager.h"
 
 @interface VTPaymentController ()
@@ -69,8 +70,24 @@
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
-    VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-    VTSuccessStatusController *vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
+    UIViewController *vc;
+    
+    if ([result.transactionStatus isEqualToString:VT_TRANSACTION_STATUS_DENY]) {
+        NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN
+                                                    code:result.statusCode
+                                                userInfo:@{NSLocalizedDescriptionKey:result.statusMessage}];
+        vc = [[VTErrorStatusController alloc] initWithError:error];
+    }
+    else {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
+            VTPaymentStatusXLTunaiViewModel *viewModel = [[VTPaymentStatusXLTunaiViewModel alloc] initWithTransactionResult:result];
+            vc = [[VTXLTunaiSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod statusModel:viewModel];
+        } else {
+            VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
+            vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
+        }
+    }
+    
     [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
 }
 

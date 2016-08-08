@@ -125,10 +125,10 @@
 		E503AEE51C8EC50E00F097FF /* epay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE11C8EC50E00F097FF /* epay@2x.png */; };
 		E503AEE61C8EC50E00F097FF /* klikpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE21C8EC50E00F097FF /* klikpay@2x.png */; };
 		E503AEEC1C8EC69800F097FF /* bbm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE71C8EC69800F097FF /* bbm@2x.png */; };
-		E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE81C8EC69800F097FF /* dompetku@2x.png */; };
+		E503AEED1C8EC69800F097FF /* indosat_dompetku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE81C8EC69800F097FF /* indosat_dompetku@2x.png */; };
 		E503AEEE1C8EC69800F097FF /* ecash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEE91C8EC69800F097FF /* ecash@2x.png */; };
-		E503AEEF1C8EC69800F097FF /* tcash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEA1C8EC69800F097FF /* tcash@2x.png */; };
-		E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEB1C8EC69800F097FF /* xltunai@2x.png */; };
+		E503AEEF1C8EC69800F097FF /* telkomsel_cash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEA1C8EC69800F097FF /* telkomsel_cash@2x.png */; };
+		E503AEF01C8EC69800F097FF /* xl_tunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEEB1C8EC69800F097FF /* xl_tunai@2x.png */; };
 		E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEF11C8EC81000F097FF /* indomaret@2x.png */; };
 		E504386F1D1A4A2100710470 /* VTMultiGuideController.h in Headers */ = {isa = PBXBuildFile; fileRef = E504386D1D1A4A2100710470 /* VTMultiGuideController.h */; };
 		E50438701D1A4A2100710470 /* VTMultiGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = E504386E1D1A4A2100710470 /* VTMultiGuideController.m */; };
@@ -210,6 +210,14 @@
 		E578DD2C1CFC40480091760A /* VTPaymentListFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD2A1CFC40480091760A /* VTPaymentListFooter.m */; };
 		E578DD2E1CFC406F0091760A /* VTPaymentListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E578DD2D1CFC406F0091760A /* VTPaymentListHeader.xib */; };
 		E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E578DD2F1CFC407B0091760A /* VTPaymentListFooter.xib */; };
+		E58017E41D585AEF007D2DEC /* telkomsel_cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58017E31D585AEF007D2DEC /* telkomsel_cash.plist */; };
+		E58017E61D585B03007D2DEC /* indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58017E51D585B03007D2DEC /* indosat_dompetku.plist */; };
+		E58017E81D585B0E007D2DEC /* xl_tunai.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58017E71D585B0E007D2DEC /* xl_tunai.plist */; };
+		E58017EB1D5868E1007D2DEC /* VTXLTunaiSuccessController.h in Headers */ = {isa = PBXBuildFile; fileRef = E58017E91D5868E1007D2DEC /* VTXLTunaiSuccessController.h */; };
+		E58017EC1D5868E1007D2DEC /* VTXLTunaiSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = E58017EA1D5868E1007D2DEC /* VTXLTunaiSuccessController.m */; };
+		E58017EF1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E58017ED1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.h */; };
+		E58017F01D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E58017EE1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m */; };
+		E58017F21D586E36007D2DEC /* VTXLTunaiSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E58017F11D586E36007D2DEC /* VTXLTunaiSuccessController.xib */; };
 		E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E583AFDD1C8D575600C04512 /* errorIcon@2x.png */; };
 		E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E583AFDE1C8D575600C04512 /* pendingIcon@2x.png */; };
 		E583AFE21C8D575600C04512 /* successIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E583AFDF1C8D575600C04512 /* successIcon@2x.png */; };
@@ -373,10 +381,10 @@
 		E503AEE11C8EC50E00F097FF /* epay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "epay@2x.png"; sourceTree = "<group>"; };
 		E503AEE21C8EC50E00F097FF /* klikpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "klikpay@2x.png"; sourceTree = "<group>"; };
 		E503AEE71C8EC69800F097FF /* bbm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bbm@2x.png"; sourceTree = "<group>"; };
-		E503AEE81C8EC69800F097FF /* dompetku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dompetku@2x.png"; sourceTree = "<group>"; };
+		E503AEE81C8EC69800F097FF /* indosat_dompetku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indosat_dompetku@2x.png"; sourceTree = "<group>"; };
 		E503AEE91C8EC69800F097FF /* ecash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ecash@2x.png"; sourceTree = "<group>"; };
-		E503AEEA1C8EC69800F097FF /* tcash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "tcash@2x.png"; sourceTree = "<group>"; };
-		E503AEEB1C8EC69800F097FF /* xltunai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xltunai@2x.png"; sourceTree = "<group>"; };
+		E503AEEA1C8EC69800F097FF /* telkomsel_cash@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "telkomsel_cash@2x.png"; sourceTree = "<group>"; };
+		E503AEEB1C8EC69800F097FF /* xl_tunai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xl_tunai@2x.png"; sourceTree = "<group>"; };
 		E503AEF11C8EC81000F097FF /* indomaret@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "indomaret@2x.png"; sourceTree = "<group>"; };
 		E504386D1D1A4A2100710470 /* VTMultiGuideController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTMultiGuideController.h; sourceTree = "<group>"; };
 		E504386E1D1A4A2100710470 /* VTMultiGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTMultiGuideController.m; sourceTree = "<group>"; };
@@ -468,6 +476,14 @@
 		E578DD2A1CFC40480091760A /* VTPaymentListFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListFooter.m; sourceTree = "<group>"; };
 		E578DD2D1CFC406F0091760A /* VTPaymentListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTPaymentListHeader.xib; sourceTree = "<group>"; };
 		E578DD2F1CFC407B0091760A /* VTPaymentListFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTPaymentListFooter.xib; sourceTree = "<group>"; };
+		E58017E31D585AEF007D2DEC /* telkomsel_cash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = telkomsel_cash.plist; sourceTree = "<group>"; };
+		E58017E51D585B03007D2DEC /* indosat_dompetku.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = indosat_dompetku.plist; sourceTree = "<group>"; };
+		E58017E71D585B0E007D2DEC /* xl_tunai.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = xl_tunai.plist; sourceTree = "<group>"; };
+		E58017E91D5868E1007D2DEC /* VTXLTunaiSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTXLTunaiSuccessController.h; sourceTree = "<group>"; };
+		E58017EA1D5868E1007D2DEC /* VTXLTunaiSuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTXLTunaiSuccessController.m; sourceTree = "<group>"; };
+		E58017ED1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentStatusXLTunaiViewModel.h; sourceTree = "<group>"; };
+		E58017EE1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentStatusXLTunaiViewModel.m; sourceTree = "<group>"; };
+		E58017F11D586E36007D2DEC /* VTXLTunaiSuccessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTXLTunaiSuccessController.xib; sourceTree = "<group>"; };
 		E583AFDD1C8D575600C04512 /* errorIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "errorIcon@2x.png"; sourceTree = "<group>"; };
 		E583AFDE1C8D575600C04512 /* pendingIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pendingIcon@2x.png"; sourceTree = "<group>"; };
 		E583AFDF1C8D575600C04512 /* successIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "successIcon@2x.png"; sourceTree = "<group>"; };
@@ -747,6 +763,8 @@
 				E583AFE91C8D5C1600C04512 /* VTPaymentStatusViewModel.m */,
 				E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */,
 				E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */,
+				E58017ED1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.h */,
+				E58017EE1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m */,
 			);
 			name = "View Model";
 			sourceTree = "<group>";
@@ -768,6 +786,9 @@
 				E503AEC91C8E860700F097FF /* virtualAccount.plist */,
 				E5F4AA8B1CF6D2C70059DDF8 /* paymentMethods.plist */,
 				002CC9A61D125BFF003A1203 /* klikbca.plist */,
+				E58017E31D585AEF007D2DEC /* telkomsel_cash.plist */,
+				E58017E51D585B03007D2DEC /* indosat_dompetku.plist */,
+				E58017E71D585B0E007D2DEC /* xl_tunai.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -809,10 +830,10 @@
 				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
 				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
-				E503AEE81C8EC69800F097FF /* dompetku@2x.png */,
+				E503AEE81C8EC69800F097FF /* indosat_dompetku@2x.png */,
 				E503AEE91C8EC69800F097FF /* ecash@2x.png */,
-				E503AEEA1C8EC69800F097FF /* tcash@2x.png */,
-				E503AEEB1C8EC69800F097FF /* xltunai@2x.png */,
+				E503AEEA1C8EC69800F097FF /* telkomsel_cash@2x.png */,
+				E503AEEB1C8EC69800F097FF /* xl_tunai@2x.png */,
 				E503AEDF1C8EC50E00F097FF /* clickpay@2x.png */,
 				E503AEE01C8EC50E00F097FF /* clicks@2x.png */,
 				E503AEE11C8EC50E00F097FF /* epay@2x.png */,
@@ -965,6 +986,7 @@
 				E578DD0E1CFBFA980091760A /* VTBillpaySuccessController.xib */,
 				E517FE721D4AF5580083B136 /* VTErrorStatusController.xib */,
 				E517FE741D4AF5F80083B136 /* VTSuccessStatusController.xib */,
+				E58017F11D586E36007D2DEC /* VTXLTunaiSuccessController.xib */,
 			);
 			name = Status;
 			sourceTree = "<group>";
@@ -1005,6 +1027,8 @@
 			children = (
 				E578DD0C1CFBFA980091760A /* VTBillpaySuccessController.h */,
 				E578DD0D1CFBFA980091760A /* VTBillpaySuccessController.m */,
+				E58017E91D5868E1007D2DEC /* VTXLTunaiSuccessController.h */,
+				E58017EA1D5868E1007D2DEC /* VTXLTunaiSuccessController.m */,
 				E50D85FD1D0ECBC500F26D2E /* VTIndomaretSuccessController.h */,
 				E50D85FE1D0ECBC500F26D2E /* VTIndomaretSuccessController.m */,
 				E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */,
@@ -1037,6 +1061,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E58017EF1D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.h in Headers */,
 				3054948F1C75A43800938C17 /* MidtransKit.h in Headers */,
 				30E879871C88EDE1000C0F4B /* VTTwoClickController.h in Headers */,
 				E50D86071D0ECBC500F26D2E /* VTIndomaretSuccessController.h in Headers */,
@@ -1086,6 +1111,7 @@
 				E503AED81C8E8AF800F097FF /* VTListCell.h in Headers */,
 				E517C2BC1C9672BA009AE6AA /* VTConfirmPaymentController.h in Headers */,
 				E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */,
+				E58017EB1D5868E1007D2DEC /* VTXLTunaiSuccessController.h in Headers */,
 				E516DA2C1D24CFE600FA1CD7 /* VTFontSource.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
 				00F61B261D14825100C93DA0 /* VTPaymentDirectView.h in Headers */,
@@ -1215,7 +1241,7 @@
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				00F61B231D1481FD00C93DA0 /* VTPaymentDirectViewController.xib in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
-				E503AEF01C8EC69800F097FF /* xltunai@2x.png in Resources */,
+				E503AEF01C8EC69800F097FF /* xl_tunai@2x.png in Resources */,
 				E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */,
 				E517FE711D4AF3990083B136 /* VTVAListController.xib in Resources */,
 				E503AEEC1C8EC69800F097FF /* bbm@2x.png in Resources */,
@@ -1260,18 +1286,22 @@
 				E578DD301CFC407B0091760A /* VTPaymentListFooter.xib in Resources */,
 				E5D23C791D1D096A0069B5F9 /* OCRAEXT.TTF in Resources */,
 				00F61B171D146F8C00C93DA0 /* VTPaymentGeneralViewController.xib in Resources */,
+				E58017F21D586E36007D2DEC /* VTXLTunaiSuccessController.xib in Resources */,
 				E5D23C7D1D1D104A0069B5F9 /* MasterCardDark@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
+				E58017E81D585B0E007D2DEC /* xl_tunai.plist in Resources */,
 				E50438BD1D1A999700710470 /* Localizable.strings in Resources */,
+				E58017E61D585B03007D2DEC /* indosat_dompetku.plist in Resources */,
 				E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */,
-				E503AEED1C8EC69800F097FF /* dompetku@2x.png in Resources */,
+				E503AEED1C8EC69800F097FF /* indosat_dompetku@2x.png in Resources */,
 				30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */,
 				E503AEC61C8E85C500F097FF /* vamandiri@2x.png in Resources */,
 				00F61AFF1D145B4600C93DA0 /* SourceSansPro-Bold.ttf in Resources */,
 				E503AEF21C8EC81000F097FF /* indomaret@2x.png in Resources */,
 				E50D85F61D0ECB9C00F26D2E /* klikpay.plist in Resources */,
+				E58017E41D585AEF007D2DEC /* telkomsel_cash.plist in Resources */,
 				30E8798C1C894718000C0F4B /* BackBarIcon@2x.png in Resources */,
-				E503AEEF1C8EC69800F097FF /* tcash@2x.png in Resources */,
+				E503AEEF1C8EC69800F097FF /* telkomsel_cash@2x.png in Resources */,
 				E503AEE31C8EC50E00F097FF /* clickpay@2x.png in Resources */,
 				E583AFE21C8D575600C04512 /* successIcon@2x.png in Resources */,
 				00F61B061D145B4600C93DA0 /* SourceSansPro-Regular.ttf in Resources */,
@@ -1341,6 +1371,7 @@
 				30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */,
 				E578DD101CFBFA980091760A /* VTBillpaySuccessController.m in Sources */,
 				302BAA451C881FA200AE68CC /* VTCardCell.m in Sources */,
+				E58017F01D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m in Sources */,
 				E50438781D1A4A7C00710470 /* VTSubGuideController.m in Sources */,
 				30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */,
 				E5C25FEE1D2615950012BCC8 /* UIFont+IBCustomFonts.m in Sources */,
@@ -1361,6 +1392,7 @@
 				E50438701D1A4A2100710470 /* VTMultiGuideController.m in Sources */,
 				00F61B161D146F7100C93DA0 /* VTPaymentGeneralViewController.m in Sources */,
 				E517C2D91C96B610009AE6AA /* VTHudView.m in Sources */,
+				E58017EC1D5868E1007D2DEC /* VTXLTunaiSuccessController.m in Sources */,
 				E578DD181CFC1BD50091760A /* VTToast.m in Sources */,
 				008859541D488950003105F1 /* VTAddCardView.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,

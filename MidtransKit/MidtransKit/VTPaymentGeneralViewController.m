@@ -29,70 +29,37 @@
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
     [self showLoadingHud];
     
+    id<VTPaymentDetails>paymentDetails;
+    
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER]) {
-        VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.token];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
-        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-            [self hideLoadingHud];
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self handleTransactionSuccess:result];
-            }
-        }];
-        
+        paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.token];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER]) {
-        VTPaymentMandiriECash *paymentDetails = [[VTPaymentMandiriECash alloc] initWithToken:self.token];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
-        
-        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-            [self hideLoadingHud];
-            
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self handleTransactionSuccess:result];
-            }
-        }];
+        paymentDetails = [[VTPaymentMandiriECash alloc] initWithToken:self.token];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
-        VTPaymentEpayBRI *paymentDetails = [[VTPaymentEpayBRI alloc] initWithToken:self.token];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
-        
-        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-            [self hideLoadingHud];
-            
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self handleTransactionSuccess:result];
-            }
-        }];
-        
+        paymentDetails = [[VTPaymentEpayBRI alloc] initWithToken:self.token];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER]) {
-        VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithToken:self.token];
-        VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
-        
-        [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
-            [self hideLoadingHud];
-            
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self handleTransactionSuccess:result];
-            }
-        }];
+        paymentDetails = [[VTPaymentCIMBClicks alloc] initWithToken:self.token];
     }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
+        paymentDetails = [[VTPaymentXLTunai alloc] initWithToken:self.token];
+    }
+    
+    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+        [self hideLoadingHud];
+        
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
 }
 
 @end

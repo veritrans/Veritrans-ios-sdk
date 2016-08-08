@@ -44,4 +44,8 @@
 #import "NSString+VTValidation.h"
 #import "TransactionTokenResponse.h"
 #import "PaymentRequestDataModels.h"
+#import "VTPaymentIndosatDompetku.h"
+#import "VTPaymentXLTunai.h"
+#import "VTPaymentTelkomselCash.h"
+
 #endif /* MidtransCoreKit_h */

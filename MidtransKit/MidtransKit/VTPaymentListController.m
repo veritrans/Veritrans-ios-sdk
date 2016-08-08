@@ -138,29 +138,34 @@
         //                                                             paymentMethodName:paymentMethod];
         //        [self.navigationController pushViewController:vc animated:YES];
         
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-        
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER] ||
-               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER] ||
-               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER] ||
-               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI])
+    {
         VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token
                                                                                  paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER] ||
-               [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER]) {
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_INDOMARET_IDENTIFIER] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_KLIK_BCA_IDENTIFIER] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU]) {
         VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
                                                                                paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-        
-    } else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
                                                                            paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-        
     }
 }
 

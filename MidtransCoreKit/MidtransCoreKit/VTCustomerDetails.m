@@ -10,6 +10,7 @@
 #import "VTHelper.h"
 
 @interface VTCustomerDetails ()
+@property (nonatomic, readwrite) NSString *customerIdentifier;
 @property (nonatomic, readwrite) NSString *firstName;
 @property (nonatomic, readwrite) NSString *lastName;
 @property (nonatomic, readwrite) NSString *phone;
@@ -21,6 +22,7 @@
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
+    [encoder encodeObject:self.customerIdentifier forKey:@"customerIdentifier"];
     [encoder encodeObject:self.firstName forKey:@"firstName"];
     [encoder encodeObject:self.lastName forKey:@"lastName"];
     [encoder encodeObject:self.phone forKey:@"phone"];
@@ -32,6 +34,7 @@
 - (id)initWithCoder:(NSCoder *)decoder {
     if((self = [super init])) {
         //decode properties, other class vars
+        self.customerIdentifier = [decoder decodeObjectForKey:@"customerIdentifier"];
         self.firstName = [decoder decodeObjectForKey:@"firstName"];
         self.lastName = [decoder decodeObjectForKey:@"lastName"];
         self.phone = [decoder decodeObjectForKey:@"phone"];
@@ -50,6 +53,7 @@
                   shippingAddress:(VTAddress *)shippingAddress
                    billingAddress:(VTAddress *)billingAddress {
     if (self = [super init]) {
+        self.customerIdentifier = [[NSUUID UUID] UUIDString];
         self.firstName = firstName;
         self.lastName = lastName;
         self.email = email;

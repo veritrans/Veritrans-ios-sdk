@@ -166,8 +166,6 @@
 		E517FE711D4AF3990083B136 /* VTVAListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517FE701D4AF3990083B136 /* VTVAListController.xib */; };
 		E517FE731D4AF5580083B136 /* VTErrorStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517FE721D4AF5580083B136 /* VTErrorStatusController.xib */; };
 		E517FE751D4AF5F80083B136 /* VTSuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E517FE741D4AF5F80083B136 /* VTSuccessStatusController.xib */; };
-		E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E1231CFD6654009448A5 /* VTCardControllerConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */; };
 		E525E12A1CFD75D1009448A5 /* UIViewController+Modal.h in Headers */ = {isa = PBXBuildFile; fileRef = E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */; };
 		E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */ = {isa = PBXBuildFile; fileRef = E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */; };
 		E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52831FE1D2116EF00F4F8F0 /* VTCvvInfoController.xib */; };
@@ -422,8 +420,6 @@
 		E517FE701D4AF3990083B136 /* VTVAListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTVAListController.xib; sourceTree = "<group>"; };
 		E517FE721D4AF5580083B136 /* VTErrorStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTErrorStatusController.xib; sourceTree = "<group>"; };
 		E517FE741D4AF5F80083B136 /* VTSuccessStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTSuccessStatusController.xib; sourceTree = "<group>"; };
-		E525E1231CFD6654009448A5 /* VTCardControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCardControllerConfig.h; sourceTree = "<group>"; };
-		E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardControllerConfig.m; sourceTree = "<group>"; };
 		E525E1281CFD75D1009448A5 /* UIViewController+Modal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Modal.h"; sourceTree = "<group>"; };
 		E525E1291CFD75D1009448A5 /* UIViewController+Modal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Modal.m"; sourceTree = "<group>"; };
 		E52831FE1D2116EF00F4F8F0 /* VTCvvInfoController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTCvvInfoController.xib; sourceTree = "<group>"; };
@@ -878,8 +874,6 @@
 				300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */,
 				30E879851C88EDE1000C0F4B /* VTTwoClickController.h */,
 				30E879861C88EDE1000C0F4B /* VTTwoClickController.m */,
-				E525E1231CFD6654009448A5 /* VTCardControllerConfig.h */,
-				E525E1241CFD6654009448A5 /* VTCardControllerConfig.m */,
 			);
 			name = "Credit Card";
 			sourceTree = "<group>";
@@ -1088,7 +1082,6 @@
 				E56455031D23A5DB00CE5FA4 /* VTNextStepButton.h in Headers */,
 				E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */,
 				E50438B91D1A679400710470 /* VTGuideView.h in Headers */,
-				E525E1251CFD6654009448A5 /* VTCardControllerConfig.h in Headers */,
 				E50438731D1A4A5000710470 /* VTSingleGuideController.h in Headers */,
 				E578DD2B1CFC40480091760A /* VTPaymentListFooter.h in Headers */,
 				E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */,
@@ -1418,7 +1411,6 @@
 				E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */,
 				00F61B271D14825100C93DA0 /* VTPaymentDirectView.m in Sources */,
 				E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */,
-				E525E1261CFD6654009448A5 /* VTCardControllerConfig.m in Sources */,
 				E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */,
 				E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */,
 				E516DA2D1D24CFE600FA1CD7 /* VTFontSource.m in Sources */,

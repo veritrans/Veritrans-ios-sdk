@@ -18,7 +18,6 @@
 #import "VTCCFrontView.h"
 #import "VTHudView.h"
 #import "VTPaymentStatusViewModel.h"
-#import "VTCardControllerConfig.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
@@ -48,12 +47,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.cards = [[NSMutableArray alloc] init];
+    
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self updateView];
-    // [self reloadMaskedCards];
+    [self reloadMaskedCards];
     [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
     [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
@@ -75,23 +77,26 @@
 
 - (void)reloadMaskedCards {
     [self showLoadingHud];
-    __weak VTCardListController *weakSelf = self;
-    [[VTMerchantClient sharedClient] fetchMaskedCardsWithCompletion:^(NSArray *maskedCards, NSError *error) {
-        [self hideLoadingHud];
-        if (maskedCards) {
-            weakSelf.cards = [NSMutableArray arrayWithArray:maskedCards];
-        } else {
-            [self showAlertViewWithTitle:@"Error"
-                              andMessage:error.localizedDescription
-                          andButtonTitle:@"Close"];
-        }
-        
-        [self updateView];
-    }];
+    [[VTMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                   completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
+     {
+         [self hideLoadingHud];
+         if (maskedCards) {
+             [self.cards setArray:maskedCards];
+             [self.collectionView reloadData];
+         } else {
+             [self showAlertViewWithTitle:@"Error"
+                               andMessage:error.localizedDescription
+                           andButtonTitle:@"Close"];
+         }
+         [self updateView];
+     }];
 }
 
 
 - (void)updateView {
+    [self.pageControl setNumberOfPages:[_cards count]];
+    
     if (self.cards.count) {
         self.addCardButton.hidden = true;
         self.addCardButtonHeight.constant = 0;
@@ -117,7 +122,7 @@
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token];
+    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token maskedCards:self.cards];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -161,19 +166,21 @@
         self.editingCell = false; return;
     }
     
-    VTMaskedCreditCard *maskedCard = _cards[indexPath.row];
+    self.selectedMaskedCard = _cards[indexPath.row];
     
-    if ([[VTCardControllerConfig sharedInstance] enableOneClick]) {
-        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:maskedCard.maskedNumber
-                                                                                    grossAmount:self.token.transactionDetails.grossAmount];
+    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
+        VTConfirmPaymentController *vc =
+        [[VTConfirmPaymentController alloc] initWithCardNumber:self.selectedMaskedCard.maskedNumber
+                                                   grossAmount:self.token.transactionDetails.grossAmount];
         [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
             if (selectedIndex == 1) {
-                [self payWithToken:maskedCard.savedTokenId];
+                [self payWithToken:self.selectedMaskedCard.savedTokenId];
             }
         }];
-    } else {
+    }
+    else {
         VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
-                                                                    maskedCard:maskedCard];
+                                                                    maskedCard:self.selectedMaskedCard];
         [self.navigationController setDelegate:self];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -210,24 +217,28 @@
 #pragma mark - VTCardCellDelegate
 
 - (void)cardCellShouldRemoveCell:(VTCardCell *)cell {
+    [self showLoadingHud];
+    
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
-    VTMaskedCreditCard *card = _cards[indexPath.row];
-    [[VTMerchantClient sharedClient] deleteMaskedCard:card completion:^(BOOL success, NSError *error) {
-        if (success) {
-            [_cards removeObjectAtIndex:indexPath.row];
-            [_collectionView deleteItemsAtIndexPaths:@[indexPath]];
-            [_pageControl setNumberOfPages:[_cards count]];
-            
-            self.editingCell = false;
-            
-        } else {
-            [self showAlertViewWithTitle:@"Error"
-                              andMessage:error.localizedDescription
-                          andButtonTitle:@"Close"];
-        }
-        
-        [self updateView];
-    }];
+    
+    [[VTMerchantClient sharedClient] saveMaskedCards:self.cards
+                                            customer:self.token.customerDetails
+                                          completion:^(id  _Nullable result, NSError * _Nullable error)
+     {
+         [self hideLoadingHud];
+         
+         if (!error) {
+             [self.cards removeObjectAtIndex:indexPath.row];
+             [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+             self.editingCell = false;
+         } else {
+             [self showAlertViewWithTitle:@"Error"
+                               andMessage:error.localizedDescription
+                           andButtonTitle:@"Close"];
+         }
+         
+         [self updateView];
+     }];
 }
 
 #pragma MARK - UICollectionViewDelegateFlowLayout

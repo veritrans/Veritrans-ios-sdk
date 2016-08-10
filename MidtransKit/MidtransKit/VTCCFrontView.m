@@ -7,6 +7,7 @@
 //
 
 #import "VTCCFrontView.h"
+#import "VTClassHelper.h"
 
 @implementation VTCCFrontView
 
@@ -25,6 +26,16 @@
     return self;
 }
 
+- (instancetype)initWithFrame:(CGRect)frame maskedCard:(VTMaskedCreditCard *)maskedCard {
+    if (self = [super initWithFrame:frame]) {
+        self.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
+        NSString *iconName = [VTCreditCardHelper nameFromString:maskedCard.maskedNumber];
+        self.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.expiryLabel.text = @"XX/XX";
+        self.deleteButton.hidden = YES;
+    }
+    return self;
+}
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.deleteButton.hidden = YES;

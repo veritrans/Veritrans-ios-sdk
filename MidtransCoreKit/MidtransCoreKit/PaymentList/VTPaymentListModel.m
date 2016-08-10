@@ -9,6 +9,7 @@
 
 
 NSString *const kVTPaymentListModelId = @"id";
+NSString *const kVTPaymentListModelLocalIdentifier = @"identifier";
 NSString *const kVTPaymentListModelTitle = @"title";
 NSString *const kVTPaymentListModelDescription = @"description";
 
@@ -23,6 +24,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
 
 @synthesize internalBaseClassIdentifier = _internalBaseClassIdentifier;
 @synthesize title = _title;
+@synthesize localPaymentIdentifier = _localPaymentIdentifier;
 @synthesize internalBaseClassDescription = _internalBaseClassDescription;
 
 
@@ -38,6 +40,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
         self.internalBaseClassIdentifier = [self objectOrNilForKey:kVTPaymentListModelId fromDictionary:dict];
         self.title = [self objectOrNilForKey:kVTPaymentListModelTitle fromDictionary:dict];
+        self.localPaymentIdentifier = [self objectOrNilForKey:kVTPaymentListModelLocalIdentifier fromDictionary:dict];
         self.internalBaseClassDescription = [self objectOrNilForKey:kVTPaymentListModelDescription fromDictionary:dict];
         
     }
@@ -73,6 +76,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
     
     self.internalBaseClassIdentifier = [aDecoder decodeObjectForKey:kVTPaymentListModelId];
     self.title = [aDecoder decodeObjectForKey:kVTPaymentListModelTitle];
+    self.localPaymentIdentifier = [aDecoder decodeObjectForKey:kVTPaymentListModelLocalIdentifier];
     self.internalBaseClassDescription = [aDecoder decodeObjectForKey:kVTPaymentListModelDescription];
     return self;
 }

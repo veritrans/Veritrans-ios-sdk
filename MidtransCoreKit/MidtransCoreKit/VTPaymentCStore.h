@@ -11,6 +11,5 @@
 
 @interface VTPaymentCStore : NSObject <VTPaymentDetails>
 
-- (instancetype _Nonnull)initWithStoreName:(NSString *_Nonnull)storeName message:(NSString *_Nonnull)message;
-
+- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse *_Nonnull)token;
 @end

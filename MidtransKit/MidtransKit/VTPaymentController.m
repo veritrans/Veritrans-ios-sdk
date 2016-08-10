@@ -9,9 +9,11 @@
 #import "VTPaymentController.h"
 #import "VTClassHelper.h"
 #import "VTHudView.h"
+#import "VTToast.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
 #import "VTSingleGuideController.h"
+#import "VTXLTunaiSuccessController.h"
 #import "VTThemeManager.h"
 
 @interface VTPaymentController ()
@@ -21,30 +23,35 @@
 
 @implementation VTPaymentController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod; {
-    
-    @try {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
-        self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
-    } @catch (NSException *exception) {
-        self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
-    }
-    
+-(instancetype)initWithToken:(TransactionTokenResponse *)token {
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
+        self.token = token;
+    }
+    return self;
+}
+
+-(instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod {
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    if (self) {
+        self.token = token;
         self.paymentMethod = paymentMethod;
-        self.customerDetails = customerDetails;
-        self.itemDetails = itemDetails;
-        self.transactionDetails = transactionDetails;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.hudView = [[VTHudView alloc] init];
 }
-
+-(void)showAlertViewWithTitle:(NSString *)title
+                   andMessage:(NSString *)message
+               andButtonTitle:(NSString *)buttonTitle {
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:nil cancelButtonTitle:buttonTitle otherButtonTitles:nil];
+    [alert show];
+}
 - (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];
 }
@@ -63,8 +70,24 @@
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
-    VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-    VTSuccessStatusController *vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
+    UIViewController *vc;
+    
+    if ([result.transactionStatus isEqualToString:VT_TRANSACTION_STATUS_DENY]) {
+        NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN
+                                                    code:result.statusCode
+                                                userInfo:@{NSLocalizedDescriptionKey:result.statusMessage}];
+        vc = [[VTErrorStatusController alloc] initWithError:error];
+    }
+    else {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
+            VTPaymentStatusXLTunaiViewModel *viewModel = [[VTPaymentStatusXLTunaiViewModel alloc] initWithTransactionResult:result];
+            vc = [[VTXLTunaiSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod statusModel:viewModel];
+        } else {
+            VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
+            vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
+        }
+    }
+    
     [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
 }
 
@@ -81,5 +104,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-
+-(void)showToastInviewWithMessage:(NSString *)message {
+    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+}
 @end

@@ -7,8 +7,12 @@
 //
 
 #import "VTXibView.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTCCFrontView : VTXibView
+
+- (instancetype)initWithFrame:(CGRect)frame maskedCard:(VTMaskedCreditCard *)maskedCard;
+
 @property (nonatomic) IBOutlet UIImageView *iconView;
 @property (nonatomic) IBOutlet UILabel *numberLabel;
 @property (nonatomic) IBOutlet UILabel *expiryLabel;

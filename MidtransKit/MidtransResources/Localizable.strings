@@ -26,3 +26,15 @@
 "creditcard.input.title" = "Card Details";
 "creditcard.list.title" = "Choose Card";
 "creditcard.twoclick.title" = "Pay With Credit Card";
+
+"va.list.title" = "Select Bank";
+
+"payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
+"payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";
+"payment.telkomsel-cash.header-title" = "Telkomsel Cash";
+"payment.telkomsel-cash.warning" = "Token should not be empty";
+
+"payment.indosat-dompetku.token-placeholder" = "Indosat Phone Number";
+"payment.indosat-dompetku.token-note" = "This payment must use a phone number that registered with Indosat Dompetku.";
+"payment.indosat-dompetku.header-title" = "Indosat Dompetku";
+"payment.indosat-dompetku.warning" = "Phone number should not be empty";

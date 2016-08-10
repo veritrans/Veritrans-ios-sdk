@@ -73,7 +73,7 @@
     }
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:[points componentsJoinedByString:@"\n"]];
     mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
-    [mutableAttributedString replaceCharacterString:@"*" withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+    [mutableAttributedString replaceCharacterString:@"[token_button]" withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
     return mutableAttributedString;
 }
 
@@ -95,7 +95,7 @@
     }
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:[points componentsJoinedByString:@"\n"]];
     mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
-    [mutableAttributedString replaceCharacterString:@"*" withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+    [mutableAttributedString replaceCharacterString:@"[token_button]" withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
     return mutableAttributedString;
 }
 @end

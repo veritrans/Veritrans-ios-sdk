@@ -11,7 +11,6 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <QuartzCore/QuartzCore.h>
 #import "VTClassHelper.h"
-#import "VTToast.h"
 
 @interface VTIndomaretSuccessController ()
 @property (nonatomic) VTPaymentStatusViewModel *statusModel;
@@ -25,8 +24,12 @@
 
 @implementation VTIndomaretSuccessController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray<VTItemDetail *> *)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod statusModel:(VTPaymentStatusViewModel *)statusModel {
-    self = [[VTIndomaretSuccessController alloc] initWithCustomerDetails:customerDetails itemDetails:itemDetails transactionDetails:transactionDetails paymentMethodName:paymentMethod];
+- (instancetype)initWithToken:(TransactionTokenResponse *)token
+            paymentMethodName:(VTPaymentListModel *)paymentMethod
+                  statusModel:(VTPaymentStatusViewModel *)statusModel {
+    
+    self = [[VTIndomaretSuccessController alloc] initWithToken:token
+                                             paymentMethodName:paymentMethod];
     if (self) {
         self.statusModel = statusModel;
     }
@@ -35,19 +38,20 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.    
+    // Do any additional setup after loading the view.
     
-    _amountLabel.text = _statusModel.totalAmount;
-    _orderIdLabel.text = _statusModel.orderId;
-    _transactionTimeLabel.text = _statusModel.transactionTime;
-    _paymentCodeLabel.text = _statusModel.transactionResult.indomaretPaymentCode;
+    self.amountLabel.text = self.statusModel.totalAmount;
+    self.orderIdLabel.text = self.statusModel.orderId;
+    self.transactionTimeLabel.text = self.statusModel.transactionTime;
+    self.paymentCodeLabel.text = self.statusModel.transactionResult.indomaretPaymentCode;
     
-   self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
+    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
 }
 
 - (IBAction)copyCodePressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:_paymentCodeLabel.text];
-    [VTToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+    [self showToastInviewWithMessage:@"Copied to clipboard"];
+    
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

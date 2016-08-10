@@ -22,15 +22,7 @@
 
 @interface VTPaymentViewController : UINavigationController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails;
-
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails
-                             themeColor:(UIColor *)themeColor
-                             fontSource:(VTFontSource *)fontSource;
+- (instancetype)initWithToken:(TransactionTokenResponse *)token;
 
 @property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 

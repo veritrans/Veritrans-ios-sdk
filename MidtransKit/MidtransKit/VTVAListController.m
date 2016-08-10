@@ -24,8 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [_tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    self.title = UILocalizedString(@"va.list.title", nil);
     
+    [self.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
@@ -33,9 +34,9 @@
         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
         [vaListM addObject:paymentmodel];
     }
-    _vaList = vaListM;
-    
-    _totalAmountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.vaList = vaListM;
+    self.tableView.tableFooterView = [UIView new];
+    self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
 #pragma mark - UITableViewDataSource
@@ -46,7 +47,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
-    [cell configurePaymetnList:_vaList[indexPath.row]];
+    [cell configurePaymetnList:self.vaList[indexPath.row]];
     return cell;
 }
 
@@ -54,8 +55,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *vaTypeModel = (VTPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
-    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:vaTypeModel];
-    
+    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

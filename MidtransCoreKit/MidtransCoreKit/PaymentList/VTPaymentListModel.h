@@ -7,11 +7,19 @@
 
 #import <Foundation/Foundation.h>
 
-
+typedef NS_ENUM(NSInteger, APIHelperRequestType) {
+    APIHelperRequestTypeInterview,
+    APIHelperRequestTypeCandidateCompleteProfile,
+    APIHelperRequestTypeCandidateTips,
+    APIHelperRequestTypeUploadVideo,
+    APIHelperRequestTypeUploadVideoData,
+    APIHelperRequestTypeCVFlowStart
+};
 
 @interface VTPaymentListModel : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *internalBaseClassIdentifier;
+@property (nonatomic, strong) NSString *localPaymentIdentifier;
 @property (nonatomic, strong) NSString *title;
 @property (nonatomic, strong) NSString *internalBaseClassDescription;
 

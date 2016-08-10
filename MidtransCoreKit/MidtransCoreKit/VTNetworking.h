@@ -18,7 +18,7 @@
              callback:(void(^)(id response, NSError *error))callback;
 
 - (void)postToURL:(NSString *)URL
-       parameters:(NSDictionary *)parameters
+       parameters:(id)parameters
          callback:(void(^)(id response, NSError *error))callback;
 
 - (void)getFromURL:(NSString *)URL
@@ -27,7 +27,7 @@
 
 - (void)postToURL:(NSString *)URL
            header:(NSDictionary *)header
-       parameters:(NSDictionary *)parameters
+       parameters:(id)parameters
          callback:(void (^)(id response, NSError *errpr))callback;
 
 - (void)getFromURL:(NSString *)URL

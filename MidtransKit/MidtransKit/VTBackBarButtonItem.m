@@ -14,7 +14,7 @@
 
 - (instancetype)initWithTitle:(NSString *)title {
     if (self = [super initWithTitle:title style:UIBarButtonItemStylePlain target:nil action:nil]) {
-        NSDictionary* barButtonItemAttributes = @{NSFontAttributeName:[[VTThemeManager shared].themeFont fontRegularWithSize:17],
+        NSDictionary *barButtonItemAttributes = @{NSFontAttributeName:[[VTThemeManager shared].themeFont fontRegularWithSize:17],
                                                   NSForegroundColorAttributeName:[VTThemeManager shared].themeColor};
         [self setTitleTextAttributes:barButtonItemAttributes forState:UIControlStateNormal];
     }

@@ -14,7 +14,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];    
     [self setBackgroundColor:[[VTThemeManager shared] themeColor]];
-    
     self.titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }
 @end

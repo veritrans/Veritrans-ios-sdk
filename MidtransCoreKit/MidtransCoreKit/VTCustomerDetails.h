@@ -11,6 +11,7 @@
 
 @interface VTCustomerDetails : NSObject
 
+@property (nonatomic, readonly) NSString *customerIdentifier;
 @property (nonatomic, readonly) NSString *firstName;
 @property (nonatomic, readonly) NSString *lastName;
 @property (nonatomic, readonly) NSString *phone;
@@ -27,5 +28,7 @@
                    billingAddress:(VTAddress *)billingAddress;
 
 - (NSDictionary *)dictionaryValue;
+
+- (NSDictionary *)snapDictionaryValue;
 
 @end

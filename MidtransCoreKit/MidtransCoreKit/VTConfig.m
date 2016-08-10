@@ -13,26 +13,16 @@
 
 @interface VTConfig ()
 @property (nonatomic) NSString *clientKey;
-@property (nonatomic) NSString *merchantServerURL;
+@property (nonatomic) NSString *merchantURL;
 @property (nonatomic) VTServerEnvironment environment;
 @end
 
 @implementation VTConfig
 
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment {
++ (void)setClientKey:(NSString *)clientKey serverEnvironment:(VTServerEnvironment)environment merchantURL:(NSString *)merchantURL {
     [[VTConfig sharedInstance] setClientKey:clientKey];
-    [[VTConfig sharedInstance] setMerchantServerURL:merchantServerURL];
     [[VTConfig sharedInstance] setEnvironment:environment];
-}
-
-+ (void)setClientKey:(NSString *)clientKey merchantServerURL:(NSString *)merchantServerURL serverEnvironment:(VTServerEnvironment)environment merchantClientData:(id)merchantClientData {
-    [VTConfig setClientKey:clientKey merchantServerURL:merchantServerURL serverEnvironment:environment];
-    [[VTConfig sharedInstance] setMerchantClientData:merchantClientData];
-}
-
-- (NSString *)merchantServerURL {
-    NSAssert(_merchantServerURL, VT_MESSAGE_MERCHANT_SERVER_NOT_SET);
-    return _merchantServerURL;
+    [[VTConfig sharedInstance] setMerchantURL:merchantURL];
 }
 
 - (NSString *)clientKey {
@@ -48,9 +38,8 @@
     });
     return shared;
 }
-
 - (void)setEnvironment:(VTServerEnvironment)environment {
-    [VTPrivateConfig setServerEnvironment:environment];    
+    [VTPrivateConfig setServerEnvironment:environment];
 }
 
 @end

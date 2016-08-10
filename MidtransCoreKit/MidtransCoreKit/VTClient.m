@@ -15,6 +15,9 @@
 #import "VTCreditCardHelper.h"
 #import "VT3DSController.h"
 
+NSString *const GENERATE_TOKEN_URL = @"token";
+NSString *const REGISTER_CARD_URL = @"card/register";
+
 @interface VTClient ()
 
 @end
@@ -34,7 +37,7 @@
 
 - (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"token"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];
     
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
@@ -75,7 +78,7 @@
         if (completion) completion(nil, error);
         return;
     }
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], @"card/register"];
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], REGISTER_CARD_URL];
     [[VTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
         if (response) {
             VTMaskedCreditCard *maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:response];

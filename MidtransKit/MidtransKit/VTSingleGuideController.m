@@ -30,7 +30,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setHeaderWithTitle:_model.title subTitle:NSLocalizedString(@"Payment Instructions",nil)];
+    [self setHeaderWithTitle:self.model.title
+                    subTitle:NSLocalizedString(@"Payment Instructions",nil)];
     
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *guideList = [NSArray arrayWithContentsOfFile:guidePath];

@@ -28,7 +28,6 @@
         [tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     }
     [cell configurePaymetnList:paymentMethod];
-    //[cell configureCellWithPromo:promoResponseAtIndex];
     [cell updateConstraintsIfNeeded];
     [cell layoutIfNeeded];
     return cell;

@@ -17,6 +17,10 @@
 #import "TransactionTokenResponse.h"
 #import "PaymentRequestDataModels.h"
 
+NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
+NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
+NSString *const CHARGE_TRANSACTION_URL = @"charge";
+
 @interface NSArray (MaskedCard)
 
 - (NSArray *)requestBodyValues;
@@ -88,13 +92,13 @@
 }
 
 - (void)saveMaskedCards:(NSArray <VTMaskedCreditCard*>*)maskedCards customer:(VTCustomerDetails *)customer completion:(void(^)(id result, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:@"%@/users/%@/tokens", [CONFIG merchantURL], customer.customerIdentifier];
+    NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
     NSArray *parameters = maskedCards.requestBodyValues;
     [[VTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
 }
 
 - (void)fetchMaskedCardsCustomer:(VTCustomerDetails *)customer completion:(void(^)(NSArray *maskedCards, NSError *error))completion {
-    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@/tokens", [CONFIG merchantURL], customer.customerIdentifier]];
+    NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:FETCH_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
     [NSURLConnection sendAsynchronousRequest:request
@@ -142,7 +146,7 @@
     
     [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
     
-    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/charge", [CONFIG merchantURL]]
+    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
                                       header:nil
                                   parameters:dictionaryParameters
                                     callback:^(id response, NSError *error) {

@@ -30,16 +30,24 @@
     [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
       andServerEnvironment:VTServerEnvironmentProduction];
 #else
-//    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
-//      andServerEnvironment:VTServerEnvironmentSandbox];
-    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" andServerEnvironment:VTServerEnvironmentSandbox];
+    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" serverEnvironment:VTServerEnvironmentSandbox merchantURL:@"https://mobile-snap-sandbox.herokuapp.com"];
 #endif
     
-    BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
+    //set credit card config
+    VTCreditCardPaymentType paymentType;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"cc_payment_type"]) {
+        paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:@"cc_payment_type"] unsignedIntegerValue];
+    }
+    else {
+        paymentType = VTCreditCardPaymentTypeNormal;
+    }
     
-    BOOL enable3ds = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_3ds"] boolValue];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:enable3ds];
+    BOOL cardSecure = NO;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"cc_secure"]) {
+        cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:@"cc_secure"] boolValue];
+    }
+    
+    [VTCreditCardConfig setPaymentType:paymentType secure:cardSecure];
     
     return YES;
 }

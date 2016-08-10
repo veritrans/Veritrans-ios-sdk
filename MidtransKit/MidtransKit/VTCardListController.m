@@ -95,7 +95,7 @@
 
 
 - (void)updateView {
-    [self.pageControl setNumberOfPages:[_cards count]];
+    [self.pageControl setNumberOfPages:[self.cards count]];
     
     if (self.cards.count) {
         self.addCardButton.hidden = true;
@@ -147,7 +147,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     VTCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VTCardCell" forIndexPath:indexPath];
     cell.delegate = self;
-    cell.maskedCard = _cards[indexPath.row];
+    cell.maskedCard = self.cards[indexPath.row];
     cell.editing = self.editingCell;
     return cell;
 }
@@ -166,7 +166,7 @@
         self.editingCell = false; return;
     }
     
-    self.selectedMaskedCard = _cards[indexPath.row];
+    self.selectedMaskedCard = self.cards[indexPath.row];
     
     if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
         VTConfirmPaymentController *vc =

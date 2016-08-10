@@ -131,13 +131,16 @@
     VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CREDIT_CARD_IDENTIFIER]) {
-        VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
-        [self.navigationController pushViewController:vc animated:YES];
-        
-        //        VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-        //                                                             paymentMethodName:paymentMethod];
-        //        [self.navigationController pushViewController:vc animated:YES];
-        
+        if ([CC_CONFIG saveCard]) {
+            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+                                                                 paymentMethodName:paymentMethod];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
+                                                               paymentMethodName:paymentMethod];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token

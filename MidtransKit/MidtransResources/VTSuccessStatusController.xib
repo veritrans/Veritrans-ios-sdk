@@ -86,14 +86,17 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fXj-MH-Ia3" customClass="VTBorderedView">
                     <rect key="frame" x="0.0" y="239" width="600" height="45"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ve8-cX-PTq">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ve8-cX-PTq">
                             <rect key="frame" x="545" y="12" width="40" height="22"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZbZ-ky-Yoq">
-                            <rect key="frame" x="15" y="14" width="46" height="17"/>
+                            <rect key="frame" x="15" y="14" width="55" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="55" id="DJd-o6-uxf"/>
+                            </constraints>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -103,6 +106,7 @@
                     <constraints>
                         <constraint firstItem="ZbZ-ky-Yoq" firstAttribute="centerY" secondItem="fXj-MH-Ia3" secondAttribute="centerY" id="DQA-Zs-re9"/>
                         <constraint firstAttribute="trailing" secondItem="Ve8-cX-PTq" secondAttribute="trailing" constant="15" id="O2N-he-IUc"/>
+                        <constraint firstItem="Ve8-cX-PTq" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="ZbZ-ky-Yoq" secondAttribute="trailing" constant="8" id="PRd-oi-QzD"/>
                         <constraint firstAttribute="height" constant="45" id="RGF-04-khh"/>
                         <constraint firstItem="ZbZ-ky-Yoq" firstAttribute="leading" secondItem="fXj-MH-Ia3" secondAttribute="leading" constant="15" id="XqV-8U-Nxg"/>
                         <constraint firstItem="Ve8-cX-PTq" firstAttribute="centerY" secondItem="fXj-MH-Ia3" secondAttribute="centerY" id="slD-Ob-qfr"/>

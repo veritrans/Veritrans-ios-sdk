@@ -32,7 +32,8 @@
     CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.backView.frame fromView:fromViewController.backView.superview];
     
     VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
-    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame];
+    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame
+                                                         maskedCard:toViewController.selectedMaskedCard];
     
     [containerView insertSubview:toViewController.view belowSubview:fromViewController.view];
     [containerView addSubview:frontView];

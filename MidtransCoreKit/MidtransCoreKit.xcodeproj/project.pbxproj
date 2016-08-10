@@ -91,6 +91,8 @@
 		E58017DE1D584264007D2DEC /* VTPaymentXLTunai.m in Sources */ = {isa = PBXBuildFile; fileRef = E58017DC1D584264007D2DEC /* VTPaymentXLTunai.m */; };
 		E58017E11D584271007D2DEC /* VTPaymentIndosatDompetku.h in Headers */ = {isa = PBXBuildFile; fileRef = E58017DF1D584271007D2DEC /* VTPaymentIndosatDompetku.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E58017E21D584271007D2DEC /* VTPaymentIndosatDompetku.m in Sources */ = {isa = PBXBuildFile; fileRef = E58017E01D584271007D2DEC /* VTPaymentIndosatDompetku.m */; };
+		E5C2329A1D5AAEBF00A0A486 /* VTCreditCardConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C232981D5AAEBF00A0A486 /* VTCreditCardConfig.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5C2329B1D5AAEBF00A0A486 /* VTCreditCardConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C232991D5AAEBF00A0A486 /* VTCreditCardConfig.m */; };
 		E5DACA921D034E7000F5BE0A /* VTLuhn.h in Headers */ = {isa = PBXBuildFile; fileRef = E5DACA901D034E7000F5BE0A /* VTLuhn.h */; };
 		E5DACA931D034E7000F5BE0A /* VTLuhn.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DACA911D034E7000F5BE0A /* VTLuhn.m */; };
 		E5E436071CE31ACE00F688ED /* VTTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436031CE31ACE00F688ED /* VTTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -206,6 +208,8 @@
 		E58017DC1D584264007D2DEC /* VTPaymentXLTunai.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentXLTunai.m; sourceTree = "<group>"; };
 		E58017DF1D584271007D2DEC /* VTPaymentIndosatDompetku.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentIndosatDompetku.h; sourceTree = "<group>"; };
 		E58017E01D584271007D2DEC /* VTPaymentIndosatDompetku.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentIndosatDompetku.m; sourceTree = "<group>"; };
+		E5C232981D5AAEBF00A0A486 /* VTCreditCardConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCreditCardConfig.h; sourceTree = "<group>"; };
+		E5C232991D5AAEBF00A0A486 /* VTCreditCardConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCreditCardConfig.m; sourceTree = "<group>"; };
 		E5DACA901D034E7000F5BE0A /* VTLuhn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTLuhn.h; sourceTree = "<group>"; };
 		E5DACA911D034E7000F5BE0A /* VTLuhn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTLuhn.m; sourceTree = "<group>"; };
 		E5E436031CE31ACE00F688ED /* VTTransaction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTTransaction.h; sourceTree = "<group>"; };
@@ -422,6 +426,8 @@
 				E5E436291CE31DB700F688ED /* VTEnvironment.h */,
 				E5E436251CE31DA100F688ED /* VTConfig.h */,
 				E5E436261CE31DA100F688ED /* VTConfig.m */,
+				E5C232981D5AAEBF00A0A486 /* VTCreditCardConfig.h */,
+				E5C232991D5AAEBF00A0A486 /* VTCreditCardConfig.m */,
 				E525E11F1CFD402D009448A5 /* VTPrivateConfig.h */,
 				E525E1201CFD402D009448A5 /* VTPrivateConfig.m */,
 				3054946D1C75A0ED00938C17 /* VTHelper.h */,
@@ -496,6 +502,7 @@
 				006DB8131D3E1050001C9A71 /* PaymentRequestBankTransfer.h in Headers */,
 				305494571C75A08900938C17 /* VTAddress.h in Headers */,
 				E5E436171CE31C9C00F688ED /* VTClient.h in Headers */,
+				E5C2329A1D5AAEBF00A0A486 /* VTCreditCardConfig.h in Headers */,
 				E5E4360C1CE31AED00F688ED /* VTPaymentDetails.h in Headers */,
 				E5E4362D1CE31DED00F688ED /* VTPaymentCreditCard.h in Headers */,
 				E5E436371CE31E6500F688ED /* VTMaskedCreditCard.h in Headers */,
@@ -648,6 +655,7 @@
 				E5504E0D1D0E58BE00137655 /* VTPaymentCIMBClicks.m in Sources */,
 				E5E4360A1CE31ACE00F688ED /* VTTransactionDetails.m in Sources */,
 				006DB81D1D3E1050001C9A71 /* PaymentRequestPaymentOptions.m in Sources */,
+				E5C2329B1D5AAEBF00A0A486 /* VTCreditCardConfig.m in Sources */,
 				E5DACA931D034E7000F5BE0A /* VTLuhn.m in Sources */,
 				305494581C75A08900938C17 /* VTAddress.m in Sources */,
 				002CC9AA1D127618003A1203 /* VTPaymentKlikBCA.m in Sources */,

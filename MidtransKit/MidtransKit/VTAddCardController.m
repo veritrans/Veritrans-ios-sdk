@@ -16,7 +16,6 @@
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "UIViewController+Modal.h"
-#import "VTCardControllerConfig.h"
 #import "VTThemeManager.h"
 #import "VTCCBackView.h"
 #import <MidtransCoreKit/VTClient.h>
@@ -25,13 +24,21 @@
 #import <MidtransCoreKit/VTTransactionDetails.h>
 #import <MidtransCoreKit/VTCreditCardHelper.h>
 #import "VTAddCardView.h"
+
 @interface VTAddCardController ()
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
-
+@property (nonatomic) NSMutableArray *maskedCards;
 @end
 
 @implementation VTAddCardController
 @dynamic view;
+
+- (instancetype)initWithToken:(TransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
+    if (self = [super initWithToken:token]) {
+        self.maskedCards = maskedCards;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -119,7 +126,7 @@
     
     [self showLoadingHud];
     
-    BOOL enable3Ds = [[VTCardControllerConfig sharedInstance] enable3DSecure];
+    BOOL enable3Ds = [CC_CONFIG secure];
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                         grossAmount:self.token.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
@@ -211,7 +218,15 @@
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
-        } else {
+        }
+        else {
+            //save masked cards
+            if (result.maskedCreditCard) {
+                [self.maskedCards addObject:result.maskedCreditCard];
+                [[VTMerchantClient sharedClient] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
+            }
+            
+            //transaction finished
             [self handleTransactionSuccess:result];
         }
     }];

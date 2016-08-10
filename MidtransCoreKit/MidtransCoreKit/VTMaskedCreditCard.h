@@ -16,19 +16,19 @@
 /**
  Partial number of the credit card.
  */
-@property (nonatomic, readonly) NSString *maskedNumber;
+@property (nonatomic, readonly, nonnull) NSString *maskedNumber;
 
 /**
  The Token ID that represent saved credit card stored in the Merchant Server.
  */
-@property (nonatomic, readonly) NSString *savedTokenId;
+@property (nonatomic, readonly, nonnull) NSString *savedTokenId;
 
-@property (nonatomic, readonly) NSInteger statusCode;
+@property (nonatomic, readonly, nonnull) NSString *type;
 
-@property (nonatomic, readonly) NSString *transactionId;
+@property (nonatomic, readonly, nullable) NSDictionary *dictionaryValue;
 
-@property (nonatomic, readonly) NSDictionary *dictionaryValue;
+- (instancetype _Nonnull)initWithDictionary:(NSDictionary *_Nonnull)dictionary;
 
-- (instancetype)initWithData:(NSDictionary *)data;
+- (instancetype _Nonnull)initWithData:(NSDictionary *_Nonnull)data;
 
 @end

@@ -45,23 +45,21 @@
  Save credit card partial information to the Merchant Server. The partial
  credit card information is modeled using `VTMaskedCreditCard`. This `VTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.
  */
-- (void)saveRegisteredCard:(VTMaskedCreditCard *_Nonnull)savedCard completion:(void(^_Nullable)(id _Nullable result, NSError *_Nullable error))completion;
+- (void)saveMaskedCards:(NSArray <VTMaskedCreditCard*>*_Nonnull)maskedCards customer:(VTCustomerDetails *_Nonnull)customer completion:(void(^_Nullable)(id _Nullable result, NSError *_Nullable error))completion;
 
 /**
  Fetch saved partial information about credit cards from Merchant Server.
  */
-- (void)fetchMaskedCardsWithCompletion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
-- (void)fetchMerchantAuthDataWithCompletion:(void(^_Nullable)(id _Nullable response, NSError *_Nullable error))completion;
-- (void)deleteMaskedCard:(VTMaskedCreditCard *_Nonnull)maskedCard completion:(void(^_Nullable)(BOOL success, NSError *_Nullable error))completion;
+
+- (void)fetchMaskedCardsCustomer:(VTCustomerDetails *_Nonnull)customer completion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
 
 /*
  * updated method, snapping
  */
-- (void)requestTransactionTokenWithclientTokenURL:(nonnull NSURL*)clientTokenUrl
-                               transactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                      itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
-                                  customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                       completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                          itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                      customerDetails:(nullable VTCustomerDetails *)customerDetails
+                                           completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
 @end

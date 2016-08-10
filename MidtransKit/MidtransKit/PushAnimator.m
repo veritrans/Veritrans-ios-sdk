@@ -35,7 +35,9 @@
                                                           fromView:fromViewController.collectionView.superview];
     
     VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
-    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame];
+    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame
+                                                         maskedCard:fromViewController.selectedMaskedCard];
+    
     
     [container addSubview:toViewController.view];
     [container addSubview:backView];

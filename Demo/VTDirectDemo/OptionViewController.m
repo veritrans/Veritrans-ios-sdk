@@ -11,7 +11,6 @@
 #import "FontListViewController.h"
 
 #import <MidtransKit/VTPaymentViewController.h>
-#import <MidtransKit/VTCardControllerConfig.h>
 #import <MidtransCoreKit/VTConfig.h>
 #import <MidtransCoreKit/VTMerchantClient.h>
 
@@ -19,8 +18,8 @@
 
 @interface OptionViewController () <FCColorPickerViewControllerDelegate>
 
-@property (nonatomic) IBOutlet UISwitch *oneClickSwitch;
-@property (nonatomic) IBOutlet UISwitch *secureSwitch;
+@property (strong, nonatomic) IBOutlet UISegmentedControl *ccOptionSegment;
+@property (strong, nonatomic) IBOutlet UISwitch *secureSwitch;
 @property (strong, nonatomic) IBOutlet UIButton *chooseColorButton;
 @property (strong, nonatomic) IBOutlet UIButton *chooseFontButton;
 
@@ -46,6 +45,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *shipLastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *shipPhoneTextField;
 
+@property (nonatomic) VTCreditCardPaymentType ccPaymentType;
+@property (nonatomic) BOOL cardSecure;
+
 @end
 
 @implementation OptionViewController
@@ -61,11 +63,23 @@
     self.chooseColorButton.layer.cornerRadius = 5;
     self.chooseFontButton.layer.cornerRadius = 5;
     self.chooseFontButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    self.chooseFontButton.layer.borderWidth = 1.0;
+    self.chooseFontButton.layer.borderWidth = 1.0f;
     
+    self.cardSecure = [CC_CONFIG secure];
+    self.ccPaymentType = [CC_CONFIG paymentType];
     
-    [_oneClickSwitch setOn:[[VTCardControllerConfig sharedInstance] enableOneClick]];
-    [_secureSwitch setOn:[[VTCardControllerConfig sharedInstance] enable3DSecure]];
+    self.secureSwitch.on = self.cardSecure;
+    switch (self.ccPaymentType) {
+        case VTCreditCardPaymentTypeNormal:
+            self.ccOptionSegment.selectedSegmentIndex = 0;
+            break;
+        case VTCreditCardPaymentTypeTwoclick:
+            self.ccOptionSegment.selectedSegmentIndex = 1;
+            break;
+        case VTCreditCardPaymentTypeOneclick:
+            self.ccOptionSegment.selectedSegmentIndex = 2;
+            break;
+    }
     
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
@@ -119,22 +133,6 @@
     [self presentViewController:colorPicker animated:YES completion:nil];
 }
 
-- (IBAction)resetMerchantAuth:(id)sender {
-    [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-        if (response) {
-            [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [[VTConfig sharedInstance] setMerchantClientData:response];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Reset merchant authentication success!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-        }
-    }];
-}
-
 - (IBAction)chooseFontPressed:(UIButton *)sender {
     FontListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FontListViewController"];
     [self.navigationController pushViewController:vc animated:YES];
@@ -148,19 +146,31 @@
     //save to NSUserDefaults
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:customer];
     [[NSUserDefaults standardUserDefaults] setObject:encoded forKey:@"vt_customer"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.ccPaymentType) forKey:kOptionViewControllerCCType];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.cardSecure) forKey:kOptionViewControllerCCSecure];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [VTCreditCardConfig setPaymentType:self.ccPaymentType secure:self.cardSecure];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)oneClickSwitchChanged:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_oneclick"];
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:sender.on];
+- (IBAction)paymentTypeSegmentChanged:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        self.ccPaymentType = VTCreditCardPaymentTypeNormal;
+    }
+    else if (sender.selectedSegmentIndex == 1) {
+        self.ccPaymentType = VTCreditCardPaymentTypeTwoclick;
+    }
+    else if (sender.selectedSegmentIndex == 2) {
+        self.ccPaymentType = VTCreditCardPaymentTypeOneclick;
+    }
 }
 
 - (IBAction)secureSwitchChanged:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_3ds"];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:sender.on];
+    self.cardSecure = sender.on;
 }
 
 #pragma mark - FCColorPickerViewControllerDelegate Methods

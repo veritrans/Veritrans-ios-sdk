@@ -47,5 +47,6 @@
 #import "VTPaymentIndosatDompetku.h"
 #import "VTPaymentXLTunai.h"
 #import "VTPaymentTelkomselCash.h"
+#import "VTCreditCardConfig.h"
 
 #endif /* MidtransCoreKit_h */

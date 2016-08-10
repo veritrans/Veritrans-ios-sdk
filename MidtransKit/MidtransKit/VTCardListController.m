@@ -27,9 +27,7 @@
 #import <MidtransCoreKit/VTPaymentCreditCard.h>
 #import <MidtransCoreKit/VTTransactionDetails.h>
 
-//#import <CardIO.h>
-
-@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate/*, CardIOPaymentViewControllerDelegate*/>
+@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -48,7 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.cards = [[NSMutableArray alloc] init];
+    self.cards = [NSMutableArray new];
     
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
@@ -59,11 +57,6 @@
     [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
     [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 - (void)setEditingCell:(BOOL)editingCell {
@@ -81,13 +74,14 @@
                                                    completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
      {
          [self hideLoadingHud];
-         if (maskedCards) {
-             [self.cards setArray:maskedCards];
-             [self.collectionView reloadData];
-         } else {
+         if (!maskedCards) {
              [self showAlertViewWithTitle:@"Error"
                                andMessage:error.localizedDescription
                            andButtonTitle:@"Close"];
+             return;
+         } else {
+             [self.cards setArray:maskedCards];
+             [self.collectionView reloadData];
          }
          [self updateView];
      }];

@@ -13,6 +13,8 @@
 
 #import <MidtransKit/MidtransKit.h>
 
+#import "OptionViewController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -35,16 +37,16 @@
     
     //set credit card config
     VTCreditCardPaymentType paymentType;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"cc_payment_type"]) {
-        paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:@"cc_payment_type"] unsignedIntegerValue];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType]) {
+        paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType] unsignedIntegerValue];
     }
     else {
         paymentType = VTCreditCardPaymentTypeNormal;
     }
     
     BOOL cardSecure = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"cc_secure"]) {
-        cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:@"cc_secure"] boolValue];
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure]) {
+        cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure] boolValue];
     }
     
     [VTCreditCardConfig setPaymentType:paymentType secure:cardSecure];

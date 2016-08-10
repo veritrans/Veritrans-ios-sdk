@@ -63,7 +63,7 @@
     self.chooseColorButton.layer.cornerRadius = 5;
     self.chooseFontButton.layer.cornerRadius = 5;
     self.chooseFontButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
-    self.chooseFontButton.layer.borderWidth = 1.0;
+    self.chooseFontButton.layer.borderWidth = 1.0f;
     
     self.cardSecure = [CC_CONFIG secure];
     self.ccPaymentType = [CC_CONFIG paymentType];
@@ -147,8 +147,8 @@
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:customer];
     [[NSUserDefaults standardUserDefaults] setObject:encoded forKey:@"vt_customer"];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.ccPaymentType) forKey:@"cc_payment_type"];
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.cardSecure) forKey:@"cc_secure"];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.ccPaymentType) forKey:kOptionViewControllerCCType];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.cardSecure) forKey:kOptionViewControllerCCSecure];
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     

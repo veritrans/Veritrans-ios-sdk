@@ -57,38 +57,6 @@
     self.navigationController.view.userInteractionEnabled = YES;
     
     self.itemDetails = [self generateItemDetails];
-    
-    //    NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
-    //    if (clientAuth != nil) {
-    //        [CONFIG setMerchantClientData:clientAuth];
-    //        self.navigationController.view.userInteractionEnabled = YES;
-    //    } else {
-    //        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-    //            if (response) {
-    //                [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
-    //                [[NSUserDefaults standardUserDefaults] synchronize];
-    //                [CONFIG setMerchantClientData:response];
-    //                self.navigationController.view.userInteractionEnabled = YES;
-    //            } else {
-    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    //                [alert show];
-    //            }
-    //        }];
-    //    }
-    
-    //    if ([CONFIG merchantClientData]) {
-    //        self.navigationController.view.userInteractionEnabled = YES;
-    //    } else {
-    //        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-    //            if (response) {
-    //                [CONFIG setMerchantClientData:response];
-    //                self.navigationController.view.userInteractionEnabled = YES;
-    //            } else {
-    //                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-    //                [alert show];
-    //            }
-    //        }];
-    //    }
 }
 
 - (IBAction)settingPressed:(UIBarButtonItem *)sender {

@@ -123,13 +123,14 @@
     [_operationQueue addOperation:op];
 }
 
-- (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(NSDictionary *)parameters callback:(void (^)(id response, NSError *error))callback {
+- (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(id)parameters callback:(void (^)(id response, NSError *error))callback {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:URL]
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:60];
     
     if (parameters) {
         NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
+        NSLog(@"url: %@\nbody: %@", URL, [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding]);
         [request setHTTPBody:body];
     }
     

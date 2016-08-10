@@ -9,6 +9,7 @@
 #import "VTPaymentCreditCard.h"
 #import "VTHelper.h"
 #import "VTConfig.h"
+#import "VTCreditCardConfig.h"
 
 @interface VTPaymentCreditCard()
 @property (nonatomic) VTCreditCardPaymentFeature creditCardPaymentFeature;
@@ -44,14 +45,15 @@
 }
 
 - (NSDictionary *)dictionaryValue {
+    NSString *fullName = [NSString stringWithFormat:@"%@ %@", self.token.customerDetails.firstName, self.token.customerDetails.lastName];
     
-    NSDictionary *paymentDetail =
-    @{@"full_name":[NSString stringWithFormat:@"%@ %@", self.token.customerDetails.firstName, self.token.customerDetails.lastName],
-      @"phone":self.token.customerDetails.phone,
-      @"email":self.token.customerDetails.email};
+    NSDictionary *paymentDetail = @{@"full_name":fullName,
+                                    @"phone":self.token.customerDetails.phone,
+                                    @"email":self.token.customerDetails.email};
     
     return @{@"transaction_id":self.token.tokenId,
              @"token_id":self.creditCardToken,
+             @"save_card":@([CC_CONFIG saveCard]),
              @"payment_detail":paymentDetail};
 }
 

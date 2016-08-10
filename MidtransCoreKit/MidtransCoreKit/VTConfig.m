@@ -19,11 +19,6 @@
 
 @implementation VTConfig
 
-+ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment {
-    [[VTConfig sharedInstance] setClientKey:clientKey];
-    [[VTConfig sharedInstance] setEnvironment:environment];
-}
-
 + (void)setClientKey:(NSString *)clientKey serverEnvironment:(VTServerEnvironment)environment merchantURL:(NSString *)merchantURL {
     [[VTConfig sharedInstance] setClientKey:clientKey];
     [[VTConfig sharedInstance] setEnvironment:environment];
@@ -44,7 +39,7 @@
     return shared;
 }
 - (void)setEnvironment:(VTServerEnvironment)environment {
-    [VTPrivateConfig setServerEnvironment:environment];    
+    [VTPrivateConfig setServerEnvironment:environment];
 }
 
 @end

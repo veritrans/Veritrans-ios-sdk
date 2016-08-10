@@ -94,7 +94,6 @@
 }
 
 - (void)fetchMaskedCardsCustomer:(VTCustomerDetails *)customer completion:(void(^)(NSArray *maskedCards, NSError *error))completion {
-    //    NSString *URL = [NSString stringWithFormat:@"%@/users/%@/tokens", [CONFIG merchantURL], customer.customerIdentifier];/
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@/users/%@/tokens", [CONFIG merchantURL], customer.customerIdentifier]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
@@ -112,31 +111,14 @@
                      VTMaskedCreditCard *card = [[VTMaskedCreditCard alloc] initWithDictionary:dictionary];
                      [result addObject:card];
                  }
-                 if (completion) completion(result, nil);
              }
-             else {
-                 if (completion) completion(nil, error);
-             }
+             
+             if (completion) completion(result, nil);
          }
          else {
              if (completion) completion(nil, error);
          }
      }];
-    
-    //    [[VTNetworking sharedInstance] getFromURL:URL header:[CONFIG merchantClientData]  parameters:nil callback:^(id response, NSError *error) {
-    //        if (response) {
-    //            NSMutableArray *result = [[NSMutableArray alloc] init];
-    //            for (NSDictionary *dictionary in response) {
-    //                VTMaskedCreditCard *card = [[VTMaskedCreditCard alloc] initWithDictionary:dictionary];
-    //                [result addObject:card];
-    //            }
-    //            if (completion) completion(result, nil);
-    //        }
-    //        else {
-    //            if (completion) completion(nil, error);
-    //        }
-    //
-    //    }];
 }
 
 #pragma mark - Helper
@@ -158,7 +140,7 @@
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_ITEM_DETAILS];
     
-    [dictionaryParameters setObject:@{@"save_card":@YES} forKey:@"credit_card"];
+    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
     
     [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/charge", [CONFIG merchantURL]]
                                       header:nil

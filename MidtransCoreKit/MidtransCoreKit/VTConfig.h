@@ -37,7 +37,6 @@
 @property (nonatomic) NSDictionary *merchantClientData;
 @property (nonatomic) NSDictionary *merchantDefaultHeader;
 
-+ (void)setClientKey:(NSString *)clientKey andServerEnvironment:(VTServerEnvironment)environment;
 + (void)setClientKey:(NSString *)clientKey serverEnvironment:(VTServerEnvironment)environment merchantURL:(NSString *)merchantURL;
 
 @end

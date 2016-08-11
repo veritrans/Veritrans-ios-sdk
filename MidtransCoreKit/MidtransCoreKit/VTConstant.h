@@ -133,7 +133,7 @@ static NSString *const VT_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS = @"customer_deta
 static NSString *const VT_CORE_STATUS_CODE = @"status_code";
 static NSString *const VT_CORE_SAVED_ID_TOKEN = @"saved_token_id";
 static NSString *const VT_CORE_TRANSACTION_ID = @"transaction_id";
-
+static NSString *const VT_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

@@ -48,5 +48,6 @@
 #import "VTPaymentXLTunai.h"
 #import "VTPaymentTelkomselCash.h"
 #import "VTCreditCardConfig.h"
+#import "VTImageManager.h"
 
 #endif /* MidtransCoreKit_h */

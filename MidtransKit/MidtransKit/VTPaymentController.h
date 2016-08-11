@@ -17,14 +17,13 @@
 @property (nonatomic,strong) TransactionTokenResponse *token;
 @property (nonatomic,strong) VTPaymentListModel *paymentMethod;
 
-
 -(instancetype)initWithToken:(TransactionTokenResponse *)token;
 -(instancetype)initWithToken:(TransactionTokenResponse *)token
            paymentMethodName:(VTPaymentListModel *)paymentMethod;
-
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
 -(void)showLoadingHud;
 -(void)hideLoadingHud;
+- (void)showMerchantLogo:(BOOL)merchantLogo;
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(VTTransactionResult *)result;
 -(void)showGuideViewController;

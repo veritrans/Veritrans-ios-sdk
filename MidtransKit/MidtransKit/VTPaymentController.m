@@ -55,7 +55,13 @@
 - (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];
 }
-
+- (void)showMerchantLogo:(BOOL)merchantLogo {
+    if (merchantLogo) {
+    }
+    else {
+        self.title = self.title;
+    }
+}
 - (void)showLoadingHud {
     [self.hudView showOnView:self.navigationController.view];
 }

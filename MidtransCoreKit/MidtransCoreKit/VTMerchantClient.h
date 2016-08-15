@@ -12,7 +12,7 @@
 #import "VTTransactionResult.h"
 #import "VTMaskedCreditCard.h"
 #import "VTTransactionResult.h"
-@class TransactionTokenResponse,PaymentRequestResponse;
+@class SnapTokenResponse,PaymentRequestResponse;
 /**
  `VTMerchant` wraps operation that offered by the Merchant Server. Note that data format is tightly-coupled with the merchant server implementation. Please refer to the Merchant Server documentation for further information.
  */
@@ -42,24 +42,25 @@
 - (void)performTransaction:(VTTransaction *_Nonnull)transaction completion:(void(^_Nullable)(VTTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 
 /**
- Save credit card partial information to the Merchant Server. The partial
- credit card information is modeled using `VTMaskedCreditCard`. This `VTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.
+ Save credit card partial information to the Merchant Server. The partial credit card information is modeled using `VTMaskedCreditCard`. This `VTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.
  */
-- (void)saveMaskedCards:(NSArray <VTMaskedCreditCard*>*_Nonnull)maskedCards customer:(VTCustomerDetails *_Nonnull)customer completion:(void(^_Nullable)(id _Nullable result, NSError *_Nullable error))completion;
+- (void)saveRegisteredCard:(VTMaskedCreditCard *_Nonnull)savedCard completion:(void(^_Nullable)(id _Nullable result, NSError *_Nullable error))completion;
 
 /**
  Fetch saved partial information about credit cards from Merchant Server.
  */
-
-- (void)fetchMaskedCardsCustomer:(VTCustomerDetails *_Nonnull)customer completion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
+- (void)fetchMaskedCardsWithCompletion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
+- (void)fetchMerchantAuthDataWithCompletion:(void(^_Nullable)(id _Nullable response, NSError *_Nullable error))completion;
+- (void)deleteMaskedCard:(VTMaskedCreditCard *_Nonnull)maskedCard completion:(void(^_Nullable)(BOOL success, NSError *_Nullable error))completion;
 
 /*
  * updated method, snapping
  */
-- (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                          itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
-                                      customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                           completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+- (void)generateSnapTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+                                    itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                customerDetails:(nullable VTCustomerDetails *)customerDetails
+                        customerCreditCardToken:(nullable NSString *)creditCardToken
+                                     completion:(void (^_Nullable)(SnapTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
 @end

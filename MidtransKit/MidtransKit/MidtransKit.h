@@ -10,7 +10,6 @@
 #define MidtransKit_h
 
 #import "VTPaymentViewController.h"
-#import "VTCustomerInputViewController.h"
-#import "VTThemeManager.h"
-
+#import "VTCardControllerConfig.h"
+#import "VTTheme.h"
 #endif /* MidtransKit_h */

@@ -92,35 +92,5 @@
 		<key>identifier</key>
 		<string>bri_epay</string>
 	</dict>
-    <dict>
-        <key>title</key>
-        <string>Indosat Dompetku</string>
-        <key>description</key>
-        <string>Pay with Indosat Dompetku</string>
-        <key>id</key>
-        <string>indosat_dompetku</string>
-        <key>identifier</key>
-        <string>indosat_dompetku</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>XL Tunai</string>
-        <key>description</key>
-        <string>Pay with XL Tunai</string>
-        <key>id</key>
-        <string>xl_tunai</string>
-        <key>identifier</key>
-        <string>xl_tunai</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>Telkomsel Cash</string>
-        <key>description</key>
-        <string>Pay through you Telkomsel Cash account</string>
-        <key>id</key>
-        <string>telkomsel_cash</string>
-        <key>identifier</key>
-        <string>telkomsel_cash</string>
-    </dict>
 </array>
 </plist>

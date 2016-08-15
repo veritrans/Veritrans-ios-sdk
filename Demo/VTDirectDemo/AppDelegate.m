@@ -13,8 +13,6 @@
 
 #import <MidtransKit/MidtransKit.h>
 
-#import "OptionViewController.h"
-
 @interface AppDelegate ()
 
 @end
@@ -27,29 +25,23 @@
     // Override point for customization after application launch.
     
     [Fabric with:@[[Crashlytics class]]];
+    [[VTTheme defaultTheme] setThemeColor:[UIColor redColor]];
+    [[VTTheme defaultTheme] setFont:[UIFont fontWithName:@"HelveticaNeue" size:14]];
     
 #ifdef RELEASE
     [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-      andServerEnvironment:VTServerEnvironmentProduction];
+         merchantServerURL:@"https://demo.veritrans.co.id"
+         serverEnvironment:VTServerEnvironmentProduction];
 #else
-    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" serverEnvironment:VTServerEnvironmentSandbox merchantURL:@"https://mobile-snap-sandbox.herokuapp.com"];
+    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
+         merchantServerURL:@"https://demo.veritrans.co.id"
+         serverEnvironment:VTServerEnvironmentSandbox];
 #endif
+    BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
     
-    //set credit card config
-    VTCreditCardPaymentType paymentType;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType]) {
-        paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType] unsignedIntegerValue];
-    }
-    else {
-        paymentType = VTCreditCardPaymentTypeNormal;
-    }
-    
-    BOOL cardSecure = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure]) {
-        cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure] boolValue];
-    }
-    
-    [VTCreditCardConfig setPaymentType:paymentType secure:cardSecure];
+    BOOL enable3ds = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_3ds"] boolValue];
+    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:enable3ds];
     
     return YES;
 }

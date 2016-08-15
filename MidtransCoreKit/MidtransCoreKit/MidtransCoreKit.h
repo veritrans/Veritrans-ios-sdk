@@ -42,12 +42,6 @@
 #import "VirtualAccountModel.h"
 #import "VTTrackingManager.h"
 #import "NSString+VTValidation.h"
-#import "TransactionTokenResponse.h"
+#import "SnapTokenResponse.h"
 #import "PaymentRequestDataModels.h"
-#import "VTPaymentIndosatDompetku.h"
-#import "VTPaymentXLTunai.h"
-#import "VTPaymentTelkomselCash.h"
-#import "VTCreditCardConfig.h"
-#import "VTImageManager.h"
-
 #endif /* MidtransCoreKit_h */

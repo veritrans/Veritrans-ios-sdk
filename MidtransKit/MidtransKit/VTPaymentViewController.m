@@ -12,31 +12,36 @@
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
 #import "VTThemeManager.h"
+#import "VTTheme.h"
 @interface VTPaymentViewController ()
+@property(nonatomic) VTTheme *theme;
 @end
 
 @implementation VTPaymentViewController
 
 @dynamic delegate;
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token {
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
+                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
+                     transactionDetails:(VTTransactionDetails *)transactionDetails {
+    [VTThemeManager applyStandardTheme];
+    
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
+                                                                               itemDetails:itemDetails
+                                                                        transactionDetails:transactionDetails
+                                                                         paymentMethodName:nil];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.theme = [VTTheme defaultTheme];
     self.navigationBar.translucent = false;
-    // to remove 1 px border below nav bar
-    [self.navigationBar setBackgroundImage:[UIImage new]
-                            forBarPosition:UIBarPositionAny
-                                barMetrics:UIBarMetricsDefault];
-    [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.tintColor = self.theme.themeColor;
+    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:self.theme.font,
+                                               NSForegroundColorAttributeName:self.theme.themeColor};
     
-    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
-    self.navigationBar.tintColor = [[VTThemeManager shared] themeColor];
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[VTThemeManager shared].themeFont fontRegularWithSize:17], NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
     self.navigationBar.barTintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];

@@ -9,6 +9,7 @@
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
 #import "VTThemeManager.h"
+#import "VTTheme.h"
 
 const static NSString* IBCustomFontsKey = @"IBCustomFonts";
 
@@ -61,7 +62,7 @@ void standard_swizzle(Class cls, SEL original, SEL replacement) {
     return [self new_fontWithName:[self mapSystemFontWithName:fontName size:fontSize] size:fontSize];
 }
 +(UIFont*)new_fontWithName:(NSString*)fontName size:(CGFloat)fontSize traits:(int)traits {
-	return [self new_fontWithName:[self mapSystemFontWithName:fontName size:fontSize] size:fontSize traits:traits];
+    return [self new_fontWithName:[self mapSystemFontWithName:fontName size:fontSize] size:fontSize traits:traits];
 }
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000

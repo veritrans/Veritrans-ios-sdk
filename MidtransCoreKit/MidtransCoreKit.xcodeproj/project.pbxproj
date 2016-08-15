@@ -529,6 +529,7 @@
 				E53BD03D1D14322B001FADDE /* VTPaymentEpayBRI.h in Headers */,
 				00EA7E681D12D10D00A6CA53 /* VTPaymentMandiriClickpay.h in Headers */,
 				00C95DB71D196589001EC6B7 /* VirtualAccountDataModels.h in Headers */,
+				00D166521D5C6AEF001BB5C2 /* VTImageManager.h in Headers */,
 				006DB8201D3E1050001C9A71 /* PaymentRequestTransactionData.h in Headers */,
 				006DB81E1D3E1050001C9A71 /* PaymentRequestResponse.h in Headers */,
 				00F61B0E1D145D0E00C93DA0 /* VTPaymentListDataModel.h in Headers */,

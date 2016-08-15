@@ -17,7 +17,6 @@
 @property (nonatomic,strong) TransactionTokenResponse *token;
 @property (nonatomic,strong) VTPaymentListModel *paymentMethod;
 
-
 -(instancetype)initWithToken:(TransactionTokenResponse *)token;
 -(instancetype)initWithToken:(TransactionTokenResponse *)token
            paymentMethodName:(VTPaymentListModel *)paymentMethod;

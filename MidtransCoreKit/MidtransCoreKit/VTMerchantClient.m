@@ -146,33 +146,50 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     
     [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
     
-    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
-                                      header:nil
-                                  parameters:dictionaryParameters
-                                    callback:^(id response, NSError *error) {
-                                        if (!error) {
-                                            TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response
-                                                                                                               transactionDetails:transactionDetails
-                                                                                                                  customerDetails:customerDetails
-                                                                                                                      itemDetails:itemDetails];
-                                            if (completion) {
-                                                completion(token,NULL);
+    if (customerDetails.email.isEmpty || customerDetails.phone.isEmpty || customerDetails.firstName.isEmpty || customerDetails.lastName.isEmpty) {
+        if (completion) {
+            NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN
+                                                        code:513
+                                                    userInfo:@{NSLocalizedDescriptionKey:@"Missing customer credentials"}];
+            completion(NULL,error);
+            return;
+        }
+        
+    }
+    else {
+        [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+                                          header:nil
+                                      parameters:dictionaryParameters
+                                        callback:^(id response, NSError *error) {
+                                            if (!error) {
+                                                TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response
+                                                                                                                   transactionDetails:transactionDetails
+                                                                                                                      customerDetails:customerDetails
+                                                                                                                          itemDetails:itemDetails];
+                                                if (completion) {
+                                                    completion(token,NULL);
+                                                }
                                             }
-                                        }
-                                        else {
-                                            if (completion) {
-                                                completion(NULL,error);
+                                            else {
+                                                if (completion) {
+                                                    completion(NULL,error);
+                                                }
                                             }
-                                        }
-                                    }];
+                                        }];
+    }
 }
+
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
                          completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
     
     [[VTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@/%@",[PRIVATECONFIG snapURL], ENDPOINT_PAYMENT_PAGES, token] parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
             PaymentRequestResponse *paymentRequest = [[PaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
+            
             if (completion) {
+                if (!paymentRequest.merchantData.logoUrl.isEmpty) {
+                    [VTImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
+                }
                 completion(paymentRequest,NULL);
             }
         }
@@ -183,4 +200,5 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         }
     }];
 }
+
 @end

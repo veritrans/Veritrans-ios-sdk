@@ -130,7 +130,6 @@
     
     if (parameters) {
         NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
-        NSLog(@"url: %@\nbody: %@", URL, [[NSString alloc] initWithData:body encoding:NSUTF8StringEncoding]);
         [request setHTTPBody:body];
     }
     

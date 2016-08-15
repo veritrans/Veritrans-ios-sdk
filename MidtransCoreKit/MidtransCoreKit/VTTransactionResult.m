@@ -63,7 +63,7 @@
             self.indomaretPaymentCode = response[@"payment_code"];
         }
         
-        if (response[@"bill_kay"]) {
+        if (response[@"bill_key"]) {
             self.mandiriBillpayCode = response[@"bill_key"];
             self.mandiriBillpayCompanyCode = response[@"biller_code"];
         }

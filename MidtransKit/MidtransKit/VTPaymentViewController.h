@@ -22,9 +22,7 @@
 
 @interface VTPaymentViewController : UINavigationController
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
-                            itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails;
+- (instancetype)initWithToken:(TransactionTokenResponse *)token;
 
 @property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 

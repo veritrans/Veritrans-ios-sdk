@@ -448,6 +448,7 @@
 					};
 					302F71BD1C73163C00FE73FE = {
 						CreatedOnToolsVersion = 7.2;
+						DevelopmentTeam = 36T5DNWZL4;
 					};
 				};
 			};

@@ -58,7 +58,7 @@
         case VTVATypePermata:
             return ENDPOINT_CHARGE_PERMATA_VA;
         default:
-            return nil;
+            return ENDPOINT_CHARGE_OTHER_VA;
     }
 }
 

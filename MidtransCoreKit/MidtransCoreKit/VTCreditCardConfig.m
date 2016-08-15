@@ -41,5 +41,9 @@
     }
 }
 
++ (void)enableSaveCard:(BOOL)enabled {
+    [[VTCreditCardConfig sharedInstance] setSaveCard:enabled];
+}
+
 @end
 

@@ -67,7 +67,7 @@
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[[NSUUID UUID] UUIDString] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];

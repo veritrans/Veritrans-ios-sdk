@@ -100,7 +100,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
-
+-(void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    UIView *view = self.view.tableView.tableHeaderView.subviews[0];
+    CGRect rect = view.bounds;
+    rect.origin.y = MAX(0, -scrollView.contentOffset.y);
+    self.view.tableView.tableHeaderView.bounds = rect;
+}
 - (void)closePressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }

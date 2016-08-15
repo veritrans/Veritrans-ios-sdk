@@ -23,6 +23,7 @@ typedef NS_ENUM(NSUInteger, VTCreditCardPaymentType) {
 @property (nonatomic, readonly) BOOL saveCard;
 
 + (void)setPaymentType:(VTCreditCardPaymentType)paymentType secure:(BOOL)secure;
++ (void)enableSaveCard:(BOOL)enabled;
 + (instancetype)sharedInstance;
 
 @end

@@ -43,7 +43,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
-    [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
     [self addNavigationToTextFields:@[self.cvvTextField]];
     self.navigationController.delegate = self;
 }
@@ -52,6 +51,8 @@
     [super viewDidAppear:animated];
     
     [self.cvvTextField becomeFirstResponder];
+    
+    [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {

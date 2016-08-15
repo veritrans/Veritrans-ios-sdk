@@ -40,15 +40,22 @@
 }
 
 - (BOOL)isValidYearExpiryDate:(NSError **)error {
-    BOOL valid = ([self length] == 2) || ([self length] == 4);
-    if (valid) {
+    BOOL formatValid = ([self length] == 2) || ([self length] == 4);
+    
+    NSDateFormatter *df = [[NSDateFormatter alloc] init];
+    df.dateFormat = @"yy";
+    NSInteger currentYear = [[df stringFromDate:[NSDate date]] integerValue];
+    BOOL yearExpired = [self integerValue] < currentYear;
+    
+    if (formatValid && !yearExpired) {
         return YES;
-    } else {
-        NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_DATE_INVALID, nil);
-        NSInteger expiryDateInvalidCode = -21;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
-        return NO;
     }
+    
+    NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_DATE_INVALID, nil);
+    NSInteger expiryDateInvalidCode = -21;
+    *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+    
+    return NO;
 }
 
 - (BOOL)isValidMonthExpiryDate:(NSError **)error {

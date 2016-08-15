@@ -36,14 +36,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title =  UILocalizedString(@"payment.list.title", nil);
-    if ([VTImageManager merchantLogo]!=nil) {
-        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:self.navigationController.navigationBar.frame];
-        titleImage.image = [VTImageManager merchantLogo];
-        titleImage.contentMode =UIViewContentModeScaleAspectFit;
-        titleImage.layer.masksToBounds = YES;
-        self.navigationItem.titleView = titleImage;
-    }    
+    
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
@@ -64,37 +59,36 @@
     self.view.footer.amountLabel.text = @"-";
     self.view.header.amountLabel.text = @"-";
     
-    
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     
     [self showLoadingHud];
     
     [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
-                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error) {
-                                                          [self hideLoadingHud];
-                                                          if (response) {
-                                                              NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-                                                              self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                              self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-                                                              if (response.transactionData.enabledPayments.count) {
-                                                                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-                                                                      for (int i = 0; i<paymentList.count; i++) {
-                                                                          VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-                                                                          if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-                                                                              [self.paymentMethodList addObject:paymentmodel];
-                                                                          }
-                                                                      }
-                                                                  }
-                                                              }
-                                                              self.dataSource.paymentList = self.paymentMethodList;
-                                                              [self.view.tableView reloadData];
-                                                          }
-                                                          else {
-                                                              //todo what should happens when payment request is failed;
-                                                          }
-                                                      }];
-    
+                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+     {
+         [self hideLoadingHud];
+         if (response) {
+             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+             self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+             self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+             if (response.transactionData.enabledPayments.count) {
+                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+                     for (int i = 0; i<paymentList.count; i++) {
+                         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                         if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+                             [self.paymentMethodList addObject:paymentmodel];
+                         }
+                     }
+                 }
+             }
+             self.dataSource.paymentList = self.paymentMethodList;
+             [self.view.tableView reloadData];
+         }
+         else {
+             //todo what should happens when payment request is failed;
+         }
+     }];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -111,6 +105,7 @@
 }
 
 #pragma mark - UITableViewDataSource
+
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IS_IOS8_OR_ABOVE) {
         return UITableViewAutomaticDimension;

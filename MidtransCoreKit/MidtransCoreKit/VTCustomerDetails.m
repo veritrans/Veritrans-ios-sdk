@@ -10,6 +10,7 @@
 #import "VTHelper.h"
 
 @interface VTCustomerDetails ()
+
 @end
 
 @implementation VTCustomerDetails

@@ -232,7 +232,7 @@
 		E5B6151D1D0A9F0C009F40EF /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */; };
 		E5C00EE21D61B9E5008DD9C5 /* VTCustomerInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */; };
 		E5C00EE31D61B9E5008DD9C5 /* VTCustomerInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */; };
-		E5C00EE41D61B9E5008DD9C5 /* VTCustomerInputViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDC1D61B9E5008DD9C5 /* VTCustomerInputViewController.h */; };
+		E5C00EE41D61B9E5008DD9C5 /* VTCustomerInputViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDC1D61B9E5008DD9C5 /* VTCustomerInputViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5C00EE51D61B9E5008DD9C5 /* VTCustomerInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EDD1D61B9E5008DD9C5 /* VTCustomerInputViewController.m */; };
 		E5C00EE61D61B9E5008DD9C5 /* VTKITConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDF1D61B9E5008DD9C5 /* VTKITConstant.h */; };
 		E5C00EE71D61B9E5008DD9C5 /* VTTheme.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EE01D61B9E5008DD9C5 /* VTTheme.h */; };

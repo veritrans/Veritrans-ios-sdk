@@ -29,11 +29,6 @@
 		002CC9B91D12A442003A1203 /* VTStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* VTStringHelper.m */; };
 		008859531D488950003105F1 /* VTAddCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 008859511D488950003105F1 /* VTAddCardView.h */; };
 		008859541D488950003105F1 /* VTAddCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008859521D488950003105F1 /* VTAddCardView.m */; };
-		00C5F3F61D5AFCCD009D2FBA /* VTCustomerInputViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C5F3F31D5AFCCD009D2FBA /* VTCustomerInputViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		00C5F3F71D5AFCCD009D2FBA /* VTCustomerInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5F3F41D5AFCCD009D2FBA /* VTCustomerInputViewController.m */; };
-		00C5F3F91D5AFCCD009D2FBA /* VTCustomerInputViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C5F3F51D5AFCCD009D2FBA /* VTCustomerInputViewController.xib */; };
-		00C5F3FC1D5AFD06009D2FBA /* VTCustomerInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C5F3FA1D5AFD06009D2FBA /* VTCustomerInputView.h */; };
-		00C5F3FD1D5AFD06009D2FBA /* VTCustomerInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C5F3FB1D5AFD06009D2FBA /* VTCustomerInputView.m */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -285,11 +280,6 @@
 		002CC9B71D12A442003A1203 /* VTStringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTStringHelper.m; sourceTree = "<group>"; };
 		008859511D488950003105F1 /* VTAddCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardView.h; sourceTree = "<group>"; };
 		008859521D488950003105F1 /* VTAddCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardView.m; sourceTree = "<group>"; };
-		00C5F3F31D5AFCCD009D2FBA /* VTCustomerInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerInputViewController.h; sourceTree = "<group>"; };
-		00C5F3F41D5AFCCD009D2FBA /* VTCustomerInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCustomerInputViewController.m; sourceTree = "<group>"; };
-		00C5F3F51D5AFCCD009D2FBA /* VTCustomerInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTCustomerInputViewController.xib; path = ../MidtransKit/VTCustomerInputViewController.xib; sourceTree = "<group>"; };
-		00C5F3FA1D5AFD06009D2FBA /* VTCustomerInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerInputView.h; sourceTree = "<group>"; };
-		00C5F3FB1D5AFD06009D2FBA /* VTCustomerInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCustomerInputView.m; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -577,24 +567,6 @@
 			name = "Add Card";
 			sourceTree = "<group>";
 		};
-		00C5F3F21D5AFC65009D2FBA /* Customer */ = {
-			isa = PBXGroup;
-			children = (
-				00C5F3F31D5AFCCD009D2FBA /* VTCustomerInputViewController.h */,
-				00C5F3F41D5AFCCD009D2FBA /* VTCustomerInputViewController.m */,
-				00C5F3FA1D5AFD06009D2FBA /* VTCustomerInputView.h */,
-				00C5F3FB1D5AFD06009D2FBA /* VTCustomerInputView.m */,
-			);
-			name = Customer;
-			sourceTree = "<group>";
-		};
-		00D1664A1D5C685E001BB5C2 /* Image Downloader */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Image Downloader";
-			sourceTree = "<group>";
-		};
 		00F61AE61D1459F300C93DA0 /* Payment List */ = {
 			isa = PBXGroup;
 			children = (
@@ -665,7 +637,6 @@
 		3005E29D1C7C1C6B00064169 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				00D1664A1D5C685E001BB5C2 /* Image Downloader */,
 				E578DD071CFBF6480091760A /* Toast */,
 				E502249B1CE97EC60010C0ED /* IHKeyboardAvoiding */,
 				30E7131F1C859D6100AFB7B4 /* MBXPageViewController */,
@@ -821,7 +792,6 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				00C5F3F51D5AFCCD009D2FBA /* VTCustomerInputViewController.xib */,
 				E5D23C801D1D31CA0069B5F9 /* Credit Card */,
 				E50438BB1D1A718700710470 /* Status */,
 				E50438B01D1A653500710470 /* Guide */,
@@ -938,7 +908,6 @@
 		30E77E821C8401C40090D228 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				00C5F3F21D5AFC65009D2FBA /* Customer */,
 				3068387F1C7EE7220064A305 /* VTPaymentViewController.h */,
 				306838801C7EE7220064A305 /* VTPaymentViewController.m */,
 				30E77E831C8401DC0090D228 /* Payment */,
@@ -1138,7 +1107,6 @@
 				E58017EB1D5868E1007D2DEC /* VTXLTunaiSuccessController.h in Headers */,
 				E516DA2C1D24CFE600FA1CD7 /* VTFontSource.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
-				00C5F3F61D5AFCCD009D2FBA /* VTCustomerInputViewController.h in Headers */,
 				00F61B261D14825100C93DA0 /* VTPaymentDirectView.h in Headers */,
 				E504386F1D1A4A2100710470 /* VTMultiGuideController.h in Headers */,
 				E517C2C11C9673B4009AE6AA /* VTAlertBackgroundView.h in Headers */,
@@ -1154,7 +1122,6 @@
 				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,
 				E54AC3FE1D16487800BA4603 /* VTThemeManager.h in Headers */,
 				E5E436471CE3290900F688ED /* VTPaymentController.h in Headers */,
-				00C5F3FC1D5AFD06009D2FBA /* VTCustomerInputView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1333,7 +1300,6 @@
 				00F61B061D145B4600C93DA0 /* SourceSansPro-Regular.ttf in Resources */,
 				E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */,
 				E546D1DE1CEACBBB00D65252 /* nextIcon@2x.png in Resources */,
-				00C5F3F91D5AFCCD009D2FBA /* VTCustomerInputViewController.xib in Resources */,
 				E52F72B81C996103009D7BA4 /* Visa@2x.png in Resources */,
 				E517FE751D4AF5F80083B136 /* VTSuccessStatusController.xib in Resources */,
 			);
@@ -1400,7 +1366,6 @@
 				302BAA451C881FA200AE68CC /* VTCardCell.m in Sources */,
 				E58017F01D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m in Sources */,
 				E50438781D1A4A7C00710470 /* VTSubGuideController.m in Sources */,
-				00C5F3F71D5AFCCD009D2FBA /* VTCustomerInputViewController.m in Sources */,
 				30E77E811C83FE570090D228 /* VTBorderedView.m in Sources */,
 				E5C25FEE1D2615950012BCC8 /* UIFont+IBCustomFonts.m in Sources */,
 				E583AFEB1C8D5C1600C04512 /* VTPaymentStatusViewModel.m in Sources */,
@@ -1424,7 +1389,6 @@
 				E578DD181CFC1BD50091760A /* VTToast.m in Sources */,
 				008859541D488950003105F1 /* VTAddCardView.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,
-				00C5F3FD1D5AFD06009D2FBA /* VTCustomerInputView.m in Sources */,
 				E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */,
 				E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */,
 				00F61AEF1D145A6200C93DA0 /* VTPaymentListDataSource.m in Sources */,

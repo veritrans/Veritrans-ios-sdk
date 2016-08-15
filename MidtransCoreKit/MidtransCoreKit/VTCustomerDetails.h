@@ -11,12 +11,12 @@
 
 @interface VTCustomerDetails : NSObject
 
-@property (nonatomic, strong) NSString *customerIdentifier;
-@property (nonatomic, strong) NSString *firstName;
-@property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) VTAddress *shippingAddress;
-@property (nonatomic, strong) VTAddress *billingAddress;
+@property (nonatomic, readonly) NSString *customerIdentifier;
+@property (nonatomic, readonly) NSString *firstName;
+@property (nonatomic, readonly) NSString *lastName;
+@property (nonatomic, readonly) NSString *phone;
+@property (nonatomic, readonly) VTAddress *shippingAddress;
+@property (nonatomic, readonly) VTAddress *billingAddress;
 
 @property (nonatomic) NSString *email;
 

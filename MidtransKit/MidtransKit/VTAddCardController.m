@@ -48,6 +48,8 @@
     [IHKeyboardAvoiding_vt setAvoidingView:self.view.fieldScrollView];
     [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    
+    self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
 }
 
 - (void)dealloc {
@@ -106,6 +108,10 @@
         default:
             return nil;
     }
+}
+
+- (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
+    [VTCreditCardConfig enableSaveCard:sender.on];
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {

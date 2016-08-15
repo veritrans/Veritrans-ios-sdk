@@ -96,7 +96,7 @@
     }
     
     newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
-
+    
     if (newString.length >= 20) {
         return NO;
     }
@@ -132,16 +132,18 @@
     
     if ([mstring length] == 1 && [mstring integerValue] > 1) {
         self.text = [NSString stringWithFormat:@"0%@/", mstring];
-    } else if ([mstring length] == 2) {
-        if ([mstring integerValue] < 13) {
+    }
+    else if ([mstring length] == 2) {
+        if ([string length]) {
+            if ([mstring integerValue] < 13) {
+                self.text = [NSString stringWithFormat:@"%@/", mstring];;
+            }
+        }
+        else {
             self.text = mstring;
         }
-    } else if ([mstring length] == 3) {
-        if ([string length]) {
-            [mstring insertString:@"/" atIndex:2];
-        }
-        self.text = mstring;
-    } else if ([mstring length] < 6) {
+    }
+    else if ([mstring length] < 6) {
         self.text = mstring;
     }
     return NO;

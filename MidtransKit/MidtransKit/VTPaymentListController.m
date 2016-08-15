@@ -38,6 +38,13 @@
     [super viewDidLoad];
     
     self.title =  UILocalizedString(@"payment.list.title", nil);
+    if ([VTImageManager merchantLogo]!=nil) {
+        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:self.navigationController.navigationBar.frame];
+        titleImage.image = [VTImageManager merchantLogo];
+        titleImage.contentMode =UIViewContentModeScaleAspectFit;
+        titleImage.layer.masksToBounds = YES;
+        self.navigationItem.titleView = titleImage;
+    }
     
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;

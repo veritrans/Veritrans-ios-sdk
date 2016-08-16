@@ -24,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_KLIK_BCA_IDENTIFIER;
+    return VT_PAYMENT_KLIK_BCA;
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"user_id" : self.klikBCAUserId,

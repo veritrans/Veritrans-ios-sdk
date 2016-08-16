@@ -12,6 +12,8 @@
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
 #import "VTThemeManager.h"
+#import "VTKITConstant.h"
+
 @interface VTPaymentViewController ()
 @end
 
@@ -48,13 +50,13 @@
 
 - (void)transactionSuccess:(NSNotification *)sender {
     if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
-        [self.delegate paymentViewController:self paymentSuccess:sender.userInfo[@"tr_result"]];
+        [self.delegate paymentViewController:self paymentSuccess:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
     if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
-        [self.delegate paymentViewController:self paymentFailed:sender.userInfo[@"tr_error"]];
+        [self.delegate paymentViewController:self paymentFailed:sender.userInfo[TRANSACTION_ERROR_KEY]];
     }
 }
 

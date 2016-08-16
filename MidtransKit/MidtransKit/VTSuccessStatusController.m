@@ -8,6 +8,8 @@
 
 #import "VTSuccessStatusController.h"
 #import "VTClassHelper.h"
+#import "VTKITConstant.h"
+
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTSuccessStatusController ()
@@ -47,13 +49,8 @@
     }
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"trself.result":self.successViewModel.transactionResult};
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.successViewModel.transactionResult};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];

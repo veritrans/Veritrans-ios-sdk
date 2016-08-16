@@ -12,6 +12,7 @@
 #import "VTClassHelper.h"
 #import "VTToast.h"
 #import "VTMultiGuideController.h"
+#import "VTKITConstant.h"
 
 #import <QuartzCore/QuartzCore.h>
 
@@ -76,7 +77,7 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"trself.result":self.statusModel.transactionResult};
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.statusModel.transactionResult};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];

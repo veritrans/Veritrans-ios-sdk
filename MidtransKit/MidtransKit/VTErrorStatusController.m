@@ -8,6 +8,8 @@
 
 #import "VTErrorStatusController.h"
 #import "VTClassHelper.h"
+#import "VTKITConstant.h"
+
 #import <MidtransCoreKit/MidtransCoreKit.h>
 @interface VTErrorStatusController ()
 @property (nonatomic) NSError *error;
@@ -32,7 +34,7 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{@"tr_error":_error};
+    NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:_error};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];

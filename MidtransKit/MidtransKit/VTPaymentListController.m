@@ -24,11 +24,13 @@
 #import <MidtransCoreKit/VTPaymentListModel.h>
 #import <MidtransCoreKit/PaymentRequestDataModels.h>
 #import "VTPaymentListDataSource.h"
-
+#define DEFAULT_HEADER_HEIGHT 80;
+#define SMALL_HEADER_HEIGHT 40;
 @interface VTPaymentListController () <UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) VTPaymentListDataSource *dataSource;
+@property (nonatomic) CGFloat tableHeaderHeight;
 @end
 
 @implementation VTPaymentListController;
@@ -36,7 +38,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
     self.title =  UILocalizedString(@"payment.list.title", nil);
     if ([VTImageManager merchantLogo]!=nil) {
         UIImageView *titleImage = [[UIImageView alloc]initWithFrame:self.navigationController.navigationBar.frame];
@@ -61,8 +63,7 @@
     
     self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
     self.view.tableView.tableFooterView = self.view.footer;
-    self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 80);
-    self.view.tableView.tableHeaderView = self.view.header;
+    self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), self.tableHeaderHeight);
     self.view.footer.amountLabel.text = @"-";
     self.view.header.amountLabel.text = @"-";
     
@@ -74,6 +75,7 @@
     [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
+         self.title = response.merchantData.displayName;
          [self hideLoadingHud];
          if (response) {
              NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
@@ -101,11 +103,12 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    UIView *view = self.view.tableView.tableHeaderView.subviews[0];
-    CGRect rect = view.bounds;
-    rect.origin.y = MAX(0, -scrollView.contentOffset.y);
-    self.view.tableView.tableHeaderView.bounds = rect;
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return self.tableHeaderHeight;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return self.view.header;
 }
 - (void)closePressed:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

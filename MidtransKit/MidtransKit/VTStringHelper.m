@@ -11,29 +11,7 @@
 #import "VTThemeManager.h"
 #import "VTClassHelper.h"
 
-@interface NSMutableAttributedString (Helper)
-@end
-@implementation NSMutableAttributedString (Helper)
 
-- (void)replaceCharacterString:(NSString *)characterString withIcon:(UIImage *)icon {
-    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
-    attachment.image = icon;
-    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
-    
-    NSString *string = self.string;
-    NSRange foundRange = [string rangeOfString:characterString];
-    
-    while (foundRange.location != NSNotFound) {
-        [self replaceCharactersInRange:foundRange withAttributedString:attachmentString];
-        
-        NSRange rangeToSearch;
-        rangeToSearch.location = foundRange.location + foundRange.length;
-        rangeToSearch.length = string.length - rangeToSearch.location;
-        foundRange = [string rangeOfString:characterString options:0 range:rangeToSearch];
-    }
-}
-
-@end
 
 @implementation VTStringHelper
 
@@ -74,6 +52,7 @@
     NSMutableAttributedString *mutableAttributedString = [[NSMutableAttributedString alloc] initWithString:[points componentsJoinedByString:@"\n"]];
     mutableAttributedString = [self indentTextWithDefaultStyle:mutableAttributedString];
     [mutableAttributedString replaceCharacterString:@"[token_button]" withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+    
     return mutableAttributedString;
 }
 

@@ -14,9 +14,17 @@
 #define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
 #import <MidtransCoreKit/VTHelper.h>
+#import "VTInstruction.h"
+#import "VTGroupedInstruction.h"
+
+@interface NSMutableAttributedString (Helper)
+- (void)replaceCharacterString:(NSString *)characterString withIcon:(UIImage *)icon;
+@end
 
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
++ (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath;
++ (NSArray <VTGroupedInstruction*>*)groupedInstructionsFromFilePath:(NSString *)filePath;
 @end
 
 @interface NSNumber (formatter)
@@ -26,6 +34,7 @@
 @interface NSString (utilities)
 - (BOOL)isNumeric;
 - (NSString *)formattedCreditCardNumber;
+- (CGSize)sizeWithFont:(UIFont *)font constraint:(CGSize)constraint;
 @end
 
 @interface UITextField (helper)

@@ -1,5 +1,5 @@
 //
-//  VTGuideView.h
+//  VTGuideCell.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 8/16/16.
@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "VTInstruction.h"
 
-@interface VTGuideView : UIView
-@property (nonatomic, strong) NSArray <VTInstruction*>* instructions;
+@interface VTGuideCell : UITableViewCell
+- (void)setInstruction:(VTInstruction *)instruction number:(NSInteger)number;
 @end

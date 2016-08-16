@@ -75,6 +75,7 @@
     [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
+         self.title = response.merchantData.displayName;
          [self hideLoadingHud];
          if (response) {
              NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
@@ -102,22 +103,7 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
--(void)scrollViewDidScroll:(UIScrollView *)scrollView {
-    [self changeHeight:scrollView.contentOffset.y];
-}
-- (void)changeHeight:(CGFloat)height{
-    if (height > 70) {
-        [self.view.tableView beginUpdates];
-        self.tableHeaderHeight = SMALL_HEADER_HEIGHT;
-        [self.view.tableView endUpdates];
-    }
-    else {
-        [self.view.tableView beginUpdates];
-        self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
-        [self.view.tableView endUpdates];
-    }
-    
-}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return self.tableHeaderHeight;
 }

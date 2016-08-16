@@ -12,6 +12,7 @@
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+
 @interface VTPaymentGeneralViewController ()
 @property (strong, nonatomic) IBOutlet VTPaymentGeneralView *view;
 
@@ -24,7 +25,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self setHeaderWithTitle:self.paymentMethod.title subTitle:@"Payment Instructions"];
-    self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithLocalizedStringPath:self.paymentMethod.internalBaseClassIdentifier objectAtIndex:0];
+    
+    
+    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
+    
+    self.view.guideView.instructions = instructions;
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
 }

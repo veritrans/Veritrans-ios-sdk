@@ -7,7 +7,8 @@
 //
 
 #import "VTViewController.h"
+#import "VTInstruction.h"
 
 @interface VTSubGuideController : VTViewController
-- (instancetype)initWithList:(NSArray *)list;
+- (instancetype)initWithInstructions:(NSArray <VTInstruction*>*)instructions;
 @end

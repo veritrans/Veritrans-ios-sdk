@@ -7,23 +7,27 @@
 //
 
 #import "VTSubGuideController.h"
-#import "VTGuideView.h"
 #import "VTStringHelper.h"
 #import "VTClassHelper.h"
+#import "VTGuideView.h"
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTSubGuideController ()
+
+@property (strong, nonatomic) NSArray <VTInstruction*>*instructions;
 @property (strong, nonatomic) IBOutlet VTGuideView *view;
-@property (strong, nonatomic) NSArray *guideList;
+
 @end
 
 @implementation VTSubGuideController
 
 @dynamic view;
 
-- (instancetype)initWithList:(NSArray *)list {
+- (instancetype)initWithInstructions:(NSArray <VTInstruction*>*)instructions {
     self = [super initWithNibName:[self.class description] bundle:VTBundle];
     if (self) {
-        self.guideList = list;
+        self.instructions = instructions;        
     }
     return self;
 }
@@ -31,6 +35,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.guideTextView.attributedText = [VTStringHelper numberingTextWithList:_guideList];
+    self.view.instructions = self.instructions;
 }
+
+
+
 @end

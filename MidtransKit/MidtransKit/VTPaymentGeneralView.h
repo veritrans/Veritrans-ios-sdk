@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTGuideView.h"
 
 @interface VTPaymentGeneralView : UIView
-@property (weak, nonatomic) IBOutlet UITextView *guideTextView;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
+@property (strong, nonatomic) IBOutlet VTGuideView *guideView;
 @end

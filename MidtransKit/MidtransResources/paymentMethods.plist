@@ -58,7 +58,7 @@
 		<key>description</key>
 		<string>Pay using KlikBCA</string>
 		<key>id</key>
-		<string>klikbca</string>
+		<string>bca_klikbca</string>
 		<key>identifier</key>
 		<string>bca_klikbca</string>
 	</dict>

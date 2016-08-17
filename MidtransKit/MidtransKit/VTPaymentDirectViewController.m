@@ -14,6 +14,7 @@
 #import "VTBillpaySuccessController.h"
 #import "VTVASuccessStatusController.h"
 #import "VTIndomaretSuccessController.h"
+#import "VTKlikbcaSuccessController.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -42,7 +43,7 @@
     else {
         self.view.directPaymentTextField.keyboardType = UIKeyboardTypeDefault;
         
-        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA]) {
             self.view.directPaymentTextField.placeholder = UILocalizedString(@"KlikBCA User ID", nil);
             self.view.vtInformationLabel.text = UILocalizedString(@"payment.klikbca.userid-note", nil);
             paymentName  =  UILocalizedString(@"KlikBCA",nil);
@@ -105,7 +106,7 @@
                                                                            email:self.view.directPaymentTextField.text];
         self.token.customerDetails.email = self.view.directPaymentTextField.text;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA_IDENTIFIER2]){
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA]){
         if (self.view.directPaymentTextField.text.length == 0) {
             self.view.directPaymentTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
             [self hideLoadingHud];
@@ -164,7 +165,8 @@
                                                                              paymentMethodName:self.paymentMethod
                                                                                    statusModel:vm];
             [self.navigationController pushViewController:vc animated:YES];
-        } else {
+        }
+        else {
             VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithToken:self.token
                                                                                paymentMethodName:self.paymentMethod
                                                                                      statusModel:vm];
@@ -176,6 +178,11 @@
         VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithToken:self.token
                                                                              paymentMethodName:self.paymentMethod
                                                                                    statusModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA]) {
+        VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
+        VTKlikbcaSuccessController *vc = [[VTKlikbcaSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod viewModel:vm];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {

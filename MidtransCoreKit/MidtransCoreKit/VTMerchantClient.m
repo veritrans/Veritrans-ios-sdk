@@ -77,16 +77,22 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
                 }];
                 
             } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
-                [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:VT_PAYMENT_CREDIT_CARD value:0];
+                [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:VT_PAYMENT_CREDIT_CARD value:0];
                 //transaction finished here
-                if (completion) completion(chargeResult, error);
+                if (completion){
+                    completion(chargeResult, error);
+                }
             } else {
-                [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
-                if (completion) completion(chargeResult, error);
+                [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+                if (completion){
+                    completion(chargeResult, error);
+                }
             }
         } else {
             [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
-            if (completion) completion(nil, error);
+            if (completion) {
+                completion(nil, error);
+            }
         }
     }];
 }

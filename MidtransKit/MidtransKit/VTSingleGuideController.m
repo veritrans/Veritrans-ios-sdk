@@ -34,8 +34,8 @@
                     subTitle:NSLocalizedString(@"Payment Instructions",nil)];
     
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
-    NSArray *guideList = [NSArray arrayWithContentsOfFile:guidePath];
-    VTSubGuideController *vc = [[VTSubGuideController alloc] initWithList:guideList];
+    NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
+    VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
     [self addSubViewController:vc toView:self.containerView];
 }
 

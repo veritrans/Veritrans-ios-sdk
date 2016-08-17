@@ -11,6 +11,8 @@
 #import "VTClassHelper.h"
 #import "VTSubGuideController.h"
 #import "UIViewController+HeaderSubtitle.h"
+#import "VTInstruction.h"
+#import "VTGroupedInstruction.h"
 
 @interface VTMultiGuideController ()<MBXPageControllerDataSource_vt, MBXPageControllerDataDelegate_vt>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
@@ -37,17 +39,18 @@
     
     self.guideViewControllers = [NSMutableArray new];
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
-    NSArray *guideList = [NSArray arrayWithContentsOfFile:guidePath];
-    for (int i=0; i<[guideList count]; i++) {
-        NSDictionary *guide = guideList[i];
+    NSArray *groupedInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
+    
+    for (int i=0; i<[groupedInstructions count]; i++) {
+        VTGroupedInstruction *groupedIns = groupedInstructions[i];
         
         if (i>1) {
-            [self.segmentController insertSegmentWithTitle:guide[@"name"] atIndex:i animated:NO];
+            [self.segmentController insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
         } else {
-            [self.segmentController setTitle:guide[@"name"] forSegmentAtIndex:i];
+            [self.segmentController setTitle:groupedIns.name forSegmentAtIndex:i];
         }
         
-        VTSubGuideController *vc = [[VTSubGuideController alloc] initWithList:guide[@"guides"]];
+        VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:groupedIns.instructions];
         [self.guideViewControllers addObject:vc];
     }
     

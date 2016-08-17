@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -113,68 +113,23 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R9M-fZ-y7e">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhN-9s-kLY" customClass="VTGuideView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="414"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QSl-6u-pyL">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="293"/>
-                            <subviews>
-                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" editable="NO" usesAttributedText="YES" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fEH-S2-TKe">
-                                    <rect key="frame" x="8" y="8" width="304" height="265"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <attributedString key="attributedText">
-                                        <fragment>
-                                            <string key="content">1.	Jumlah yang ditransfer harus sesuai dengan harga total yang tertera, sampai ke 3 (tiga) angka terakhir.
-2.	Masukkan No. Pesanan Anda sebagai referensi di ATM atau berita di e-banking/m-banking.
-3.	Traveloka tidak akan menerbitkan e-tiket apabila jumlah transfer tidak sesuai harga total.
-4.	Untuk pemesanan yang dibatalkan karena kesalahan jumlah transfer atau melewati batas waktu pembayaran, refund membutuhkan 5 hari kerja.</string>
-                                            <attributes>
-                                                <color key="NSColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
-                                                <font key="NSFont" size="14" name="HelveticaNeue"/>
-                                                <integer key="NSLigature" value="0"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" paragraphSpacing="2" paragraphSpacingBefore="2" headIndent="28" defaultTabInterval="2" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
-                                                    <tabStops>
-                                                        <textTab alignment="left" location="26.450000762939453">
-                                                            <options/>
-                                                        </textTab>
-                                                    </tabStops>
-                                                </paragraphStyle>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                </textView>
-                            </subviews>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <constraints>
-                                <constraint firstItem="fEH-S2-TKe" firstAttribute="leading" secondItem="QSl-6u-pyL" secondAttribute="leading" constant="8" id="BY5-ci-ggF"/>
-                                <constraint firstAttribute="trailing" secondItem="fEH-S2-TKe" secondAttribute="trailing" constant="8" id="D6a-Sz-Blg"/>
-                                <constraint firstAttribute="bottom" secondItem="fEH-S2-TKe" secondAttribute="bottom" constant="20" id="OqJ-nD-kVy"/>
-                                <constraint firstItem="fEH-S2-TKe" firstAttribute="top" secondItem="QSl-6u-pyL" secondAttribute="top" constant="8" id="UZw-pk-2uK"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="QSl-6u-pyL" firstAttribute="top" secondItem="R9M-fZ-y7e" secondAttribute="top" id="8JX-01-xEs"/>
-                        <constraint firstAttribute="bottom" secondItem="QSl-6u-pyL" secondAttribute="bottom" id="fXa-e5-zLI"/>
-                        <constraint firstAttribute="trailing" secondItem="QSl-6u-pyL" secondAttribute="trailing" id="rl1-dK-Shg"/>
-                        <constraint firstItem="QSl-6u-pyL" firstAttribute="width" secondItem="R9M-fZ-y7e" secondAttribute="width" id="sku-at-76e"/>
-                        <constraint firstItem="QSl-6u-pyL" firstAttribute="leading" secondItem="R9M-fZ-y7e" secondAttribute="leading" id="vWX-yu-gct"/>
-                    </constraints>
-                </scrollView>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="sZp-ii-eEw" firstAttribute="top" secondItem="qMY-Ax-9OI" secondAttribute="bottom" constant="8" id="4Wv-L0-Kvl"/>
+                <constraint firstAttribute="trailing" secondItem="HhN-9s-kLY" secondAttribute="trailing" id="7mj-hO-akh"/>
                 <constraint firstItem="caE-g5-XQM" firstAttribute="centerY" secondItem="sZp-ii-eEw" secondAttribute="centerY" id="98G-q7-MXI"/>
                 <constraint firstItem="caE-g5-XQM" firstAttribute="trailing" secondItem="sZp-ii-eEw" secondAttribute="trailing" constant="-15" id="C7V-lo-L6a"/>
+                <constraint firstItem="HhN-9s-kLY" firstAttribute="top" secondItem="Fth-eH-mzp" secondAttribute="top" id="ExC-va-0O5"/>
                 <constraint firstAttribute="trailing" secondItem="qMY-Ax-9OI" secondAttribute="trailing" id="L48-OK-MVq"/>
                 <constraint firstItem="sZp-ii-eEw" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="Lnq-Ak-mLy"/>
-                <constraint firstItem="R9M-fZ-y7e" firstAttribute="top" secondItem="Fth-eH-mzp" secondAttribute="top" id="XzG-V1-1kM"/>
+                <constraint firstItem="HhN-9s-kLY" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="Uww-Xr-uWK"/>
                 <constraint firstAttribute="trailing" secondItem="qr2-Lo-cXi" secondAttribute="trailing" id="b6R-sz-dSe"/>
-                <constraint firstAttribute="trailing" secondItem="R9M-fZ-y7e" secondAttribute="trailing" id="eeu-dH-z8U"/>
-                <constraint firstItem="qr2-Lo-cXi" firstAttribute="top" secondItem="R9M-fZ-y7e" secondAttribute="bottom" id="lB8-bj-RfF"/>
-                <constraint firstItem="R9M-fZ-y7e" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="oUa-yA-lFt"/>
+                <constraint firstItem="qr2-Lo-cXi" firstAttribute="top" secondItem="HhN-9s-kLY" secondAttribute="bottom" id="gft-Rf-cB3"/>
                 <constraint firstItem="qMY-Ax-9OI" firstAttribute="top" secondItem="qr2-Lo-cXi" secondAttribute="bottom" id="pE3-AM-0jm"/>
                 <constraint firstItem="qr2-Lo-cXi" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="t0Q-WT-kgr"/>
                 <constraint firstItem="qMY-Ax-9OI" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="utU-Ih-wel"/>
@@ -183,7 +138,7 @@
             </constraints>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
             <connections>
-                <outlet property="guideTextView" destination="fEH-S2-TKe" id="Lfv-KV-O9d"/>
+                <outlet property="guideView" destination="HhN-9s-kLY" id="RjU-dG-swV"/>
                 <outlet property="orderIdLabel" destination="jVf-Gi-8eJ" id="HaP-Uh-n8J"/>
                 <outlet property="totalAmountLabel" destination="Kwn-Q0-eSx" id="a9w-jN-lmB"/>
             </connections>

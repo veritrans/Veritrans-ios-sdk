@@ -9,6 +9,28 @@
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
+@implementation NSMutableAttributedString (Helper)
+
+- (void)replaceCharacterString:(NSString *)characterString withIcon:(UIImage *)icon {
+    NSTextAttachment *attachment = [[NSTextAttachment alloc] init];
+    attachment.image = icon;
+    NSAttributedString *attachmentString = [NSAttributedString attributedStringWithAttachment:attachment];
+    
+    NSString *string = self.string.copy;
+    NSRange foundRange = [string rangeOfString:characterString];
+    
+    while (foundRange.location != NSNotFound) {
+        [self replaceCharactersInRange:foundRange withAttributedString:attachmentString];
+        
+        NSRange rangeToSearch;
+        rangeToSearch.location = foundRange.location + foundRange.length;
+        rangeToSearch.length = string.length - rangeToSearch.location;
+        foundRange = [string rangeOfString:characterString options:0 range:rangeToSearch];
+    }
+}
+
+@end
+
 @implementation NSNumber (formatter)
 
 - (NSString *)formattedCurrencyNumber {
@@ -34,6 +56,26 @@
     return kitBundle;
 }
 
++ (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {
+    NSArray *guideList = [NSArray arrayWithContentsOfFile:filePath];
+    NSMutableArray *instructions = [NSMutableArray new];
+    for (NSDictionary *guideData in guideList) {
+        VTInstruction *instruction = [VTInstruction modelObjectWithDictionary:guideData];
+        [instructions addObject:instruction];
+    }
+    return instructions;
+}
+
++ (NSArray <VTGroupedInstruction*>*)groupedInstructionsFromFilePath:(NSString *)filePath {
+    NSArray *guideList = [NSArray arrayWithContentsOfFile:filePath];
+    NSMutableArray *groupedInstructions = [NSMutableArray new];
+    for (NSDictionary *groupedInstructionData in guideList) {
+        VTGroupedInstruction *groupedIns = [VTGroupedInstruction modelObjectWithDictionary:groupedInstructionData];
+        [groupedInstructions addObject:groupedIns];
+    }
+    return groupedInstructions;
+}
+
 @end
 
 @implementation NSString (utilities)
@@ -57,6 +99,15 @@
         cardNumber = [cardNumber substringFromIndex:MIN(cardNumber.length, 4)];
     }
     return result;
+}
+
+- (CGSize)sizeWithFont:(UIFont *)font constraint:(CGSize)constraint {
+    NSDictionary *attributes = @{NSFontAttributeName: font};
+    CGRect rect = [self boundingRectWithSize:constraint
+                                     options:NSStringDrawingUsesLineFragmentOrigin
+                                  attributes:attributes
+                                     context:nil];
+    return CGSizeMake(ceilf(rect.size.width), ceilf(rect.size.height));
 }
 
 @end

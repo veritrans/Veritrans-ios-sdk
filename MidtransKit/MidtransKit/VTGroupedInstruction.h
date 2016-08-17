@@ -9,7 +9,7 @@
 
 @class VTInstruction;
 
-@interface VTGroupedInstruction : NSObject <NSCoding, NSCopying>
+@interface VTGroupedInstruction : NSObject
 
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSArray<VTInstruction*>*instructions;

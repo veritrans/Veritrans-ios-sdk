@@ -66,37 +66,4 @@ NSString *const kVTInstructionImage = @"image";
     return [object isEqual:[NSNull null]] ? nil : object;
 }
 
-
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-
-    self.content = [aDecoder decodeObjectForKey:kVTInstructionContent];
-    self.image = [aDecoder decodeObjectForKey:kVTInstructionImage];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-
-    [aCoder encodeObject:_content forKey:kVTInstructionContent];
-    [aCoder encodeObject:_image forKey:kVTInstructionImage];
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    VTInstruction *copy = [[VTInstruction alloc] init];
-    
-    if (copy) {
-
-        copy.content = [self.content copyWithZone:zone];
-        copy.image = [self.image copyWithZone:zone];
-    }
-    
-    return copy;
-}
-
-
 @end

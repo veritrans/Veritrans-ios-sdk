@@ -73,37 +73,4 @@ NSString *const kVTGroupedInstructionGuides = @"guides";
     return [object isEqual:[NSNull null]] ? nil : object;
 }
 
-
-#pragma mark - NSCoding Methods
-
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
-    self = [super init];
-    
-    self.name = [aDecoder decodeObjectForKey:kVTGroupedInstructionName];
-    self.instructions = [aDecoder decodeObjectForKey:kVTGroupedInstructionGuides];
-    return self;
-}
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    
-    [aCoder encodeObject:_name forKey:kVTGroupedInstructionName];
-    [aCoder encodeObject:_instructions forKey:kVTGroupedInstructionGuides];
-}
-
-- (id)copyWithZone:(NSZone *)zone
-{
-    VTGroupedInstruction *copy = [[VTGroupedInstruction alloc] init];
-    
-    if (copy) {
-        
-        copy.name = [self.name copyWithZone:zone];
-        copy.instructions = [self.instructions copyWithZone:zone];
-    }
-    
-    return copy;
-}
-
-
 @end

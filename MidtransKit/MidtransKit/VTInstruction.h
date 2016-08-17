@@ -9,7 +9,7 @@
 
 
 
-@interface VTInstruction : NSObject <NSCoding, NSCopying>
+@interface VTInstruction : NSObject
 
 @property (nonatomic, strong) NSString *content;
 @property (nonatomic, strong) NSString *image;

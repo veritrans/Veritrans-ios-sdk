@@ -16,6 +16,8 @@
 #define VTJCBRegex          @"^(?:2131|1800|35\d{3})\d{11}$"
 #define VTAmexRegex         @"^3[47][0-9]{13}$"
 
+static NSString * const ExpiryDateSeparator = @" / ";
+
 @implementation NSString (CreditCard)
 
 - (BOOL)isNumeric {
@@ -71,7 +73,7 @@
 }
 
 - (BOOL)isValidExpiryDate:(NSError **)error {
-    NSArray *dates = [self componentsSeparatedByString:@"/"];
+    NSArray *dates = [self componentsSeparatedByString:ExpiryDateSeparator];
     NSString *expMonth = dates[0];
     NSString *expYear = dates.count == 2 ? dates[1] : @"";
     
@@ -175,4 +177,91 @@
     }
     return [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
 }
+@end
+
+@implementation UITextField (helper)
+
+- (BOOL)filterNumericWithString:(NSString *)string range:(NSRange)range length:(NSInteger)length {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    return [mstring length] <= length;
+}
+
+- (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range {
+    NSString *text = self.text;
+    
+    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789\b"];
+    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([string rangeOfCharacterFromSet:[characterSet invertedSet]].location != NSNotFound) {
+        return NO;
+    }
+    
+    text = [text stringByReplacingCharactersInRange:range withString:string];
+    text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    NSString *newString = @"";
+    while (text.length > 0) {
+        NSString *subString = [text substringToIndex:MIN(text.length, 4)];
+        newString = [newString stringByAppendingString:subString];
+        if (subString.length == 4) {
+            newString = [newString stringByAppendingString:@" "];
+        }
+        text = [text substringFromIndex:MIN(text.length, 4)];
+    }
+    
+    newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
+    
+    if (newString.length >= 20) {
+        return NO;
+    }
+    
+    [self setText:newString];
+    
+    return NO;
+}
+
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber {
+    if ([self.text isNumeric] == NO)
+        return NO;
+    
+    BOOL isAmex = [VTCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
+    NSInteger cvvLength = isAmex ? 4 : 3;
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    
+    if ([mstring length] <= cvvLength) {
+        self.text = mstring;
+    }
+    return NO;
+}
+
+- (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range {
+    if ([string isNumeric] == NO) {
+        return NO;
+    }
+    
+    NSMutableString *mstring = self.text.mutableCopy;
+    [mstring replaceCharactersInRange:range withString:string];
+    
+    if (mstring.length == 1 && mstring.integerValue > 1) {
+        self.text = [NSString stringWithFormat:@"0%@", mstring];
+    }
+    else if (self.text.length == 2 && string.length) {
+        self.text = [NSString stringWithFormat:@"%@%@%@", self.text, ExpiryDateSeparator, string];
+    }
+    else if ([self.text hasSuffix:ExpiryDateSeparator] && string.length == 0) {
+        self.text = [self.text stringByReplacingOccurrencesOfString:ExpiryDateSeparator withString:@""];
+    }
+    else if (mstring.length < 8) {
+        self.text = mstring;
+    }
+    
+    return NO;
+}
+
 @end

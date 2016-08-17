@@ -6,7 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
 #import "VTCreditCard.h"
 
 typedef NS_ENUM(NSInteger, VTCreditCardType) {
@@ -30,4 +31,13 @@ typedef NS_ENUM(NSInteger, VTCreditCardType) {
 
 @interface VTCreditCard (Validation)
 - (BOOL)isValidCreditCard:(NSError **)error;
+@end
+
+@interface UITextField (helper)
+
+- (BOOL)filterNumericWithString:(NSString *)string range:(NSRange)range length:(NSInteger)length;
+- (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber;
+- (BOOL)filterCreditCardExpiryDate:(NSString *)string range:(NSRange)range;
+- (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range;
+
 @end

@@ -48,6 +48,7 @@ static NSString * const VT_PAYMENT_INDOSAT_DOMPETKU = @"indosat_dompetku";
 static NSString * const VT_PAYMENT_XL_TUNAI = @"xl_tunai";
 
 static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
+static NSString *const TRANSACTION_PENDING = @"vtTRANSACTION_PENDING";
 static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
 
 static NSString *const VT_CREDIT_CARD_IDENTIFIER = @"cc";
@@ -56,11 +57,7 @@ static NSString *const VT_VA_PERMATA_IDENTIFIER = @"vapermata";
 static NSString *const VT_VA_BCA_IDENTIFIER = @"vabca";
 static NSString *const VT_VA_MANDIRI_IDENTIFIER = @"vamandiri";
 static NSString *const VT_VA_OTHER_IDENTIFIER = @"vaother";
-static NSString *const VT_BCA_KLIKPAY_IDENTIFIER = @"klikpay";
 static NSString *const VT_MANDIRI_CLICKPAY_IDENTIFIER = @"clickpay";
-static NSString *const VT_CIMB_CLIKS_IDENTIFIER = @"clicks";
-static NSString *const VT_ECASH_IDENTIFIER = @"ecash";
-static NSString *const VT_EPAY_IDENTIFIER = @"epay";
 static NSString *const VT_INDOMARET_IDENTIFIER = @"indomaret";
 
 /**

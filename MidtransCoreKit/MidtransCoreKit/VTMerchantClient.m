@@ -60,35 +60,27 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
     [[VTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
-        NSString *paymentType = response[@"payment_type"];
+        
+        NSString *paymentType = transaction.paymentDetails.paymentType;
+        
         if (response) {
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
-            if ([self isWebPaymentType:paymentType]) {
-                NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
-                VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithRedirectURL:redirectURL paymentType:paymentType];
-                [vc showPageWithCallback:^(NSError * _Nullable error) {
-                    if (error) {
-                        [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
-                        if (completion) completion(nil, error);
-                    } else {
-                        [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
-                        if (completion) completion(chargeResult, nil);
-                    }
-                }];
-                
-            } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+            
+            if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
                 [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:VT_PAYMENT_CREDIT_CARD value:0];
                 //transaction finished here
                 if (completion){
                     completion(chargeResult, error);
                 }
-            } else {
+            }
+            else {
                 [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
-        } else {
+        }
+        else {
             [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
             if (completion) {
                 completion(nil, error);

@@ -42,11 +42,19 @@
     self.navigationBar.barTintColor = [UIColor whiteColor];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
 }
 
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
+
+- (void)transactionPending:(NSNotification *)sender {
+    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
+        [self.delegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
+    }
+}
+
 
 - (void)transactionSuccess:(NSNotification *)sender {
     if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {

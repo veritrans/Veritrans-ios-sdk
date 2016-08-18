@@ -24,6 +24,8 @@
 @property (nonatomic, readwrite) NSString *mandiriBillpayCode;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCompanyCode;
 @property (nonatomic, readwrite) NSString *virtualAccountNumber;
+
+@property (nonatomic, readwrite) NSURL *redirectURL;
 @end
 
 @implementation VTTransactionResult
@@ -75,6 +77,10 @@
         
         if (response[@"permata_va_number"]) {
             self.virtualAccountNumber = response[@"permata_va_number"];
+        }
+        
+        if (response[@"redirect_url"]) {
+            self.redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
         }
         
         self.additionalData = mResponse;

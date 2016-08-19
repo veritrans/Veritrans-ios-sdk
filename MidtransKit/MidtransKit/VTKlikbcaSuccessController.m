@@ -37,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = UILocalizedString(@"payment.success",nil);
+    self.title = UILocalizedString(@"payment.pending",nil);
     [self.navigationItem setHidesBackButton:YES];
     
     self.amountLabel.text = self.successViewModel.totalAmount;

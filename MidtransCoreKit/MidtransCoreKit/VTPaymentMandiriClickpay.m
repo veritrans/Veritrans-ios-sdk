@@ -28,7 +28,7 @@
 }
 
 - (NSString *)paymentType {
-    return @"mandiri_clickpay";
+    return VT_PAYMENT_MANDIRI_CLICKPAY;
 }
 
 - (NSDictionary *)dictionaryValue {

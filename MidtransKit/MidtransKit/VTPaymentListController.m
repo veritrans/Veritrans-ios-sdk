@@ -193,7 +193,7 @@
                                                                                paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_MANDIRI_CLICKPAY_IDENTIFIER]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_CLICKPAY]) {
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
                                                                            paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];

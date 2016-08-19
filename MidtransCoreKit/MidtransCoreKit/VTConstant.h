@@ -56,7 +56,6 @@ static NSString *const VT_VA_PERMATA_IDENTIFIER = @"vapermata";
 static NSString *const VT_VA_BCA_IDENTIFIER = @"vabca";
 static NSString *const VT_VA_MANDIRI_IDENTIFIER = @"vamandiri";
 static NSString *const VT_VA_OTHER_IDENTIFIER = @"vaother";
-static NSString *const VT_INDOMARET_IDENTIFIER = @"indomaret";
 
 /**
  *  CONSTANT REGEX

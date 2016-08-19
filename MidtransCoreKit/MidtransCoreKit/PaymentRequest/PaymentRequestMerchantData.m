@@ -48,15 +48,15 @@ NSString *const kPaymentRequestMerchantDataColorScheme = @"colorScheme";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.locale = [self objectOrNilForKey:kPaymentRequestMerchantDataLocale fromDictionary:dict];
-            self.clientKey = [self objectOrNilForKey:kPaymentRequestMerchantDataClientKey fromDictionary:dict];
-            self.displayName = [self objectOrNilForKey:kPaymentRequestMerchantDataDisplayName fromDictionary:dict];
-            self.logoUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataLogoUrl fromDictionary:dict];
-            self.unFinishUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataUnFinishUrl fromDictionary:dict];
-            self.errorUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataErrorUrl fromDictionary:dict];
-            self.finishUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataFinishUrl fromDictionary:dict];
-            self.colorScheme = [self objectOrNilForKey:kPaymentRequestMerchantDataColorScheme fromDictionary:dict];
-
+        self.locale = [self objectOrNilForKey:kPaymentRequestMerchantDataLocale fromDictionary:dict];
+        self.clientKey = [self objectOrNilForKey:kPaymentRequestMerchantDataClientKey fromDictionary:dict];
+        self.displayName = [self objectOrNilForKey:kPaymentRequestMerchantDataDisplayName fromDictionary:dict];
+        self.logoUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataLogoUrl fromDictionary:dict];
+        self.unFinishUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataUnFinishUrl fromDictionary:dict];
+        self.errorUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataErrorUrl fromDictionary:dict];
+        self.finishUrl = [self objectOrNilForKey:kPaymentRequestMerchantDataFinishUrl fromDictionary:dict];
+        self.colorScheme = [self objectOrNilForKey:kPaymentRequestMerchantDataColorScheme fromDictionary:dict];
+        
     }
     
     return self;
@@ -74,7 +74,7 @@ NSString *const kPaymentRequestMerchantDataColorScheme = @"colorScheme";
     [mutableDict setValue:self.errorUrl forKey:kPaymentRequestMerchantDataErrorUrl];
     [mutableDict setValue:self.finishUrl forKey:kPaymentRequestMerchantDataFinishUrl];
     [mutableDict setValue:self.colorScheme forKey:kPaymentRequestMerchantDataColorScheme];
-
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
@@ -96,7 +96,7 @@ NSString *const kPaymentRequestMerchantDataColorScheme = @"colorScheme";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    
     self.locale = [aDecoder decodeObjectForKey:kPaymentRequestMerchantDataLocale];
     self.clientKey = [aDecoder decodeObjectForKey:kPaymentRequestMerchantDataClientKey];
     self.displayName = [aDecoder decodeObjectForKey:kPaymentRequestMerchantDataDisplayName];
@@ -110,7 +110,7 @@ NSString *const kPaymentRequestMerchantDataColorScheme = @"colorScheme";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    
     [aCoder encodeObject:_locale forKey:kPaymentRequestMerchantDataLocale];
     [aCoder encodeObject:_clientKey forKey:kPaymentRequestMerchantDataClientKey];
     [aCoder encodeObject:_displayName forKey:kPaymentRequestMerchantDataDisplayName];
@@ -126,7 +126,7 @@ NSString *const kPaymentRequestMerchantDataColorScheme = @"colorScheme";
     PaymentRequestMerchantData *copy = [[PaymentRequestMerchantData alloc] init];
     
     if (copy) {
-
+        
         copy.locale = [self.locale copyWithZone:zone];
         copy.clientKey = [self.clientKey copyWithZone:zone];
         copy.displayName = [self.displayName copyWithZone:zone];
@@ -139,6 +139,8 @@ NSString *const kPaymentRequestMerchantDataColorScheme = @"colorScheme";
     
     return copy;
 }
-
+- (NSString *)merchantName {
+    return self.displayName;
+}
 
 @end

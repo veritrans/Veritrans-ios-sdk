@@ -9,6 +9,7 @@
 #import "VTTrackingManager.h"
 #import "VTPrivateConfig.h"
 #import "VTConstant.h"
+#import "PaymentRequestDataModels.h"
 #import "VTNetworking.h"
 #import "VTCreditCardPaymentFeature.h"
 
@@ -48,6 +49,8 @@
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
+    [parameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:VT_CORE_MERCHANT_NAME] forKey:@"merchant"];
+    [parameters setObject:paymentMethod forKey:@"Payment Type"];
     parameters  = [parameters addDefaultParameter];
     NSDictionary *event = @{@"event":isSuccess?VT_TRACKING_APP_TRANSACTION_SUCCESS:VT_TRACKING_APP_TRANSACTION_ERROR,
                             @"properties":parameters};
@@ -83,6 +86,7 @@
     [self sendTrackingData:event];
 }
 - (void)sendTrackingData:(NSDictionary *)dictionary {
+    
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
     NSString *base64String = [decoded base64EncodedStringWithOptions:0];
     

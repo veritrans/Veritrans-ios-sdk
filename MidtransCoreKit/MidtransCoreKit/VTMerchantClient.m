@@ -187,6 +187,8 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
             if (completion) {
                 if (!paymentRequest.merchantData.logoUrl.isEmpty) {
                     [VTImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequest.merchantData.merchantName forKey:VT_CORE_MERCHANT_NAME];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
                 }
                 completion(paymentRequest,NULL);
             }

@@ -1035,13 +1035,9 @@
 		30E77E821C8401C40090D228 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E5C00EDC1D61B9E5008DD9C5 /* VTCustomerInputViewController.h */,
-				E5C00EDD1D61B9E5008DD9C5 /* VTCustomerInputViewController.m */,
-				E5C00EDE1D61B9E5008DD9C5 /* VTCustomerInputViewController.xib */,
-				E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */,
-				E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */,
 				3068387F1C7EE7220064A305 /* VTPaymentViewController.h */,
 				306838801C7EE7220064A305 /* VTPaymentViewController.m */,
+				E59A79401D66E3CC0080E399 /* Input Customer */,
 				30E77E831C8401DC0090D228 /* Payment */,
 				00F61AE61D1459F300C93DA0 /* Payment List */,
 			);
@@ -1217,6 +1213,18 @@
 				E57202E71D63233D006B9265 /* VTKlikbcaSuccessController.m */,
 			);
 			name = Status;
+			sourceTree = "<group>";
+		};
+		E59A79401D66E3CC0080E399 /* Input Customer */ = {
+			isa = PBXGroup;
+			children = (
+				E5C00EDC1D61B9E5008DD9C5 /* VTCustomerInputViewController.h */,
+				E5C00EDD1D61B9E5008DD9C5 /* VTCustomerInputViewController.m */,
+				E5C00EDE1D61B9E5008DD9C5 /* VTCustomerInputViewController.xib */,
+				E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */,
+				E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */,
+			);
+			name = "Input Customer";
 			sourceTree = "<group>";
 		};
 		E5D23C801D1D31CA0069B5F9 /* Credit Card */ = {

@@ -30,6 +30,7 @@
 		E52940841CFEC6FD000180D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940831CFEC6FD000180D3 /* OpenGLES.framework */; };
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
+		E553BA801D66AF530091E403 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E553BA7F1D66AF530091E403 /* Settings.bundle */; };
 		E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
 		E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */; };
 		E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */; };
@@ -137,6 +138,7 @@
 		E52940831CFEC6FD000180D3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E52940851CFEC705000180D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E52940871CFEC70B000180D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E553BA7F1D66AF530091E403 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransCoreKit.xcodeproj; path = ../../MidtransCoreKit/MidtransCoreKit.xcodeproj; sourceTree = "<group>"; };
 		E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
 		E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Bold.ttf"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				302F71CF1C73163C00FE73FE /* LaunchScreen.storyboard */,
 				302F71D21C73163C00FE73FE /* Info.plist */,
 				302F71C21C73163C00FE73FE /* main.m */,
+				E553BA7F1D66AF530091E403 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -521,6 +524,7 @@
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
 				E5C25FE41D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf in Resources */,
 				E5C25FC71D25DE520012BCC8 /* Changa-Regular.ttf in Resources */,
+				E553BA801D66AF530091E403 /* Settings.bundle in Resources */,
 				E5C25FC21D25DE520012BCC8 /* Changa-Bold.ttf in Resources */,
 				302F71CE1C73163C00FE73FE /* Assets.xcassets in Resources */,
 				E5C25FE51D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf in Resources */,

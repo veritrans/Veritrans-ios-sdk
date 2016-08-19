@@ -105,7 +105,7 @@
 		30E879881C88EDE1000C0F4B /* VTTwoClickController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E879861C88EDE1000C0F4B /* VTTwoClickController.m */; };
 		30E8798A1C88EF4A000C0F4B /* CreditCardBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E879891C88EF4A000C0F4B /* CreditCardBack@2x.png */; };
 		30E8798C1C894718000C0F4B /* BackBarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8798B1C894718000C0F4B /* BackBarIcon@2x.png */; };
-		30E8798E1C897E7D000C0F4B /* cc@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8798D1C897E7D000C0F4B /* cc@2x.png */; };
+		30E8798E1C897E7D000C0F4B /* credit_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 30E8798D1C897E7D000C0F4B /* credit_card@2x.png */; };
 		30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */; };
 		30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */; };
 		E502249E1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E502249C1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h */; };
@@ -417,7 +417,7 @@
 		30E879861C88EDE1000C0F4B /* VTTwoClickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTTwoClickController.m; sourceTree = "<group>"; };
 		30E879891C88EF4A000C0F4B /* CreditCardBack@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "CreditCardBack@2x.png"; sourceTree = "<group>"; };
 		30E8798B1C894718000C0F4B /* BackBarIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "BackBarIcon@2x.png"; sourceTree = "<group>"; };
-		30E8798D1C897E7D000C0F4B /* cc@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc@2x.png"; sourceTree = "<group>"; };
+		30E8798D1C897E7D000C0F4B /* credit_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credit_card@2x.png"; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
 		E502249C1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding_vt.h; sourceTree = "<group>"; };
@@ -946,7 +946,7 @@
 				E503AEC21C8E85C500F097FF /* vamandiri@2x.png */,
 				E503AEC41C8E85C500F097FF /* vapermata@2x.png */,
 				E578DD051CFBED7A0091760A /* vaother@2x.png */,
-				30E8798D1C897E7D000C0F4B /* cc@2x.png */,
+				30E8798D1C897E7D000C0F4B /* credit_card@2x.png */,
 				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
 				002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */,
@@ -1444,7 +1444,7 @@
 				E503AEC81C8E85C500F097FF /* vapermata@2x.png in Resources */,
 				309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */,
 				E5F4AA8C1CF6D2C70059DDF8 /* paymentMethods.plist in Resources */,
-				30E8798E1C897E7D000C0F4B /* cc@2x.png in Resources */,
+				30E8798E1C897E7D000C0F4B /* credit_card@2x.png in Resources */,
 				E5D23C881D1D3D0B0069B5F9 /* VTCardCell.xib in Resources */,
 				E5387D4D1D62BE7E004CCF3D /* other_prima_3@2x.png in Resources */,
 				E5387D371D62BE7E004CCF3D /* mandiri_atm_1@2x.png in Resources */,

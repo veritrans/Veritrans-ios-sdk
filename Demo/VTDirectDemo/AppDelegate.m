@@ -15,25 +15,45 @@
 
 #import "OptionViewController.h"
 
+static NSString * const kClientKey = @"client_key";
+static NSString * const kMerchantURL = @"merchant_url";
+static NSString * const kEnvironment = @"environment";
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-//#define RELEASE
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [Fabric with:@[[Crashlytics class]]];
     
-#ifdef RELEASE
-    [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-      andServerEnvironment:VTServerEnvironmentProduction];
-#else
-    [VTConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" serverEnvironment:VTServerEnvironmentSandbox merchantURL:@"https://mobile-snap-sandbox.herokuapp.com"];
-#endif
+    id environment = [[NSUserDefaults standardUserDefaults] valueForKey:kEnvironment];
+    if (!environment) {
+        environment = @"0";
+        [[NSUserDefaults standardUserDefaults] setObject:environment forKey:kEnvironment];
+    }
+    
+    id clientKey = [[NSUserDefaults standardUserDefaults] valueForKey:kClientKey];
+    if (!clientKey) {
+        clientKey = @"VT-client-6_dY49SlR_Ph32_1";
+        [[NSUserDefaults standardUserDefaults] setObject:clientKey forKey:kClientKey];
+    }
+    
+    id merchantURL = [[NSUserDefaults standardUserDefaults] valueForKey:kMerchantURL];
+    if (!merchantURL) {
+        merchantURL = @"https://mobile-snap-sandbox.herokuapp.com";
+        [[NSUserDefaults standardUserDefaults] setObject:merchantURL forKey:kMerchantURL];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [VTConfig setClientKey:clientKey serverEnvironment:[environment integerValue] merchantURL:merchantURL];
+    
+    
+    
     
     //set credit card config
     VTCreditCardPaymentType paymentType;

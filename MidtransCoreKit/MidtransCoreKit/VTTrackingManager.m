@@ -52,6 +52,7 @@
     [parameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:VT_CORE_MERCHANT_NAME] forKey:@"merchant"];
     [parameters setObject:paymentMethod forKey:@"Payment Type"];
     parameters  = [parameters addDefaultParameter];
+    NSLog(@"parameters-->%@",parameters);
     NSDictionary *event = @{@"event":isSuccess?VT_TRACKING_APP_TRANSACTION_SUCCESS:VT_TRACKING_APP_TRANSACTION_ERROR,
                             @"properties":parameters};
     

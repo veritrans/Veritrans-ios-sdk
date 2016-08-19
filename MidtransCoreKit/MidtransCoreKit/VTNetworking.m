@@ -110,7 +110,7 @@
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                           timeoutInterval:60];
+                                                           timeoutInterval:20];
     [request setHTTPMethod:@"DELETE"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     
@@ -126,7 +126,7 @@
 - (void)postToURL:(NSString *)URL header:(NSDictionary *)header parameters:(id)parameters callback:(void (^)(id response, NSError *error))callback {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:[NSURL URLWithString:URL]
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                           timeoutInterval:60];
+                                                           timeoutInterval:20];
     
     if (parameters) {
         NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
@@ -162,7 +162,7 @@
     NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
-                                                           timeoutInterval:60];
+                                                           timeoutInterval:20];
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }

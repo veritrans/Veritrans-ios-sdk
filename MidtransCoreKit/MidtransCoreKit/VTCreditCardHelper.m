@@ -16,7 +16,7 @@
 #define VTJCBRegex          @"^(?:2131|1800|35\d{3})\d{11}$"
 #define VTAmexRegex         @"^3[47][0-9]{13}$"
 
-static NSString * const ExpiryDateSeparator = @" / ";
+
 
 @implementation NSString (CreditCard)
 

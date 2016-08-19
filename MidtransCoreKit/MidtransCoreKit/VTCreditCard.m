@@ -9,6 +9,7 @@
 #import "VTCreditCard.h"
 #import "VTHelper.h"
 #import "VTConfig.h"
+#import "VTCreditCardHelper.h"
 
 @interface VTCreditCard ()
 @property (nonatomic, readwrite) NSString *expiryYear;
@@ -41,7 +42,7 @@
         
         self.cvv = cvv;
         
-        NSArray *dates = [expiryDate componentsSeparatedByString:@"/"];
+        NSArray *dates = [expiryDate componentsSeparatedByString:ExpiryDateSeparator];
         NSString *expMonth = dates[0];
         NSString *expYear = dates.count == 2 ? dates[1] : nil;
         self.expiryMonth = expMonth;

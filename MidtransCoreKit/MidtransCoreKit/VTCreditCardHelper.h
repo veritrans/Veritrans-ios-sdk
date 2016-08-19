@@ -10,6 +10,8 @@
 
 #import "VTCreditCard.h"
 
+static NSString * const ExpiryDateSeparator = @" / ";
+
 typedef NS_ENUM(NSInteger, VTCreditCardType) {
     VTCreditCardTypeVisa,
     VTCreditCardTypeMasterCard,

@@ -170,7 +170,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_IDENTIFIER]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BANK_TRANSFER]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];

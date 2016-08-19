@@ -112,7 +112,7 @@
 		E502249F1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = E502249D1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m */; };
 		E503AEC51C8E85C500F097FF /* vabca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC11C8E85C500F097FF /* vabca@2x.png */; };
 		E503AEC61C8E85C500F097FF /* vamandiri@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC21C8E85C500F097FF /* vamandiri@2x.png */; };
-		E503AEC71C8E85C500F097FF /* atm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC31C8E85C500F097FF /* atm@2x.png */; };
+		E503AEC71C8E85C500F097FF /* bank_transfer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC31C8E85C500F097FF /* bank_transfer@2x.png */; };
 		E503AEC81C8E85C500F097FF /* vapermata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC41C8E85C500F097FF /* vapermata@2x.png */; };
 		E503AECA1C8E860700F097FF /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC91C8E860700F097FF /* virtualAccount.plist */; };
 		E503AECD1C8E889C00F097FF /* VTVAListController.h in Headers */ = {isa = PBXBuildFile; fileRef = E503AECB1C8E889C00F097FF /* VTVAListController.h */; };
@@ -424,7 +424,7 @@
 		E502249D1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding_vt.m; sourceTree = "<group>"; };
 		E503AEC11C8E85C500F097FF /* vabca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vabca@2x.png"; sourceTree = "<group>"; };
 		E503AEC21C8E85C500F097FF /* vamandiri@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vamandiri@2x.png"; sourceTree = "<group>"; };
-		E503AEC31C8E85C500F097FF /* atm@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm@2x.png"; sourceTree = "<group>"; };
+		E503AEC31C8E85C500F097FF /* bank_transfer@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bank_transfer@2x.png"; sourceTree = "<group>"; };
 		E503AEC41C8E85C500F097FF /* vapermata@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vapermata@2x.png"; sourceTree = "<group>"; };
 		E503AEC91C8E860700F097FF /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = virtualAccount.plist; sourceTree = "<group>"; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVAListController.h; sourceTree = "<group>"; };
@@ -941,7 +941,7 @@
 			isa = PBXGroup;
 			children = (
 				E5387D081D62BE6D004CCF3D /* instructions */,
-				E503AEC31C8E85C500F097FF /* atm@2x.png */,
+				E503AEC31C8E85C500F097FF /* bank_transfer@2x.png */,
 				E503AEC11C8E85C500F097FF /* vabca@2x.png */,
 				E503AEC21C8E85C500F097FF /* vamandiri@2x.png */,
 				E503AEC41C8E85C500F097FF /* vapermata@2x.png */,
@@ -1472,7 +1472,7 @@
 				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,
 				30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */,
 				309CC0F31C86C72200C058BE /* MasterCard@2x.png in Resources */,
-				E503AEC71C8E85C500F097FF /* atm@2x.png in Resources */,
+				E503AEC71C8E85C500F097FF /* bank_transfer@2x.png in Resources */,
 				309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */,
 				3056A2131C7E95E20015B3CC /* padlock1@2x.png in Resources */,
 				E57202D91D62F029006B9265 /* VTGuideView.xib in Resources */,

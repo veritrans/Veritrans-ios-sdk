@@ -8,14 +8,18 @@
 
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTThemeManager.h"
+#import "VTClassHelper.h"
+
 @implementation UIViewController (HeaderSubtitle)
 
 - (void)setHeaderWithTitle:(NSString *)title subTitle:(NSString *)subTitle {
     // Do any additional setup after loading the view.
     UILabel *titleLabel;
-    UILabel *descLabel;
+    UILabel *subTitleLabel;
     
-    UIView *headerView = [UIView new];
+    UIView *contentView = [UIView new];
+    contentView.translatesAutoresizingMaskIntoConstraints = NO;
+    
     titleLabel = [UILabel new];
     titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:15];
     titleLabel.textColor = [UIColor blackColor];
@@ -23,23 +27,28 @@
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.text = title;
     
+    subTitleLabel = [UILabel new];
+    subTitleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:11];
+    subTitleLabel.textColor = [UIColor blackColor];
+    subTitleLabel.textAlignment = NSTextAlignmentCenter;
+    subTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    subTitleLabel.text = subTitle;
     
-    descLabel = [UILabel new];
-    descLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:11];
-    descLabel.textColor = [UIColor blackColor];
-    descLabel.textAlignment = NSTextAlignmentCenter;
-    descLabel.translatesAutoresizingMaskIntoConstraints = NO;
-    descLabel.text = subTitle;
+    [contentView addSubview:titleLabel];
+    [contentView addSubview:subTitleLabel];
     
-    [headerView addSubview:titleLabel];
-    [headerView addSubview:descLabel];
+    CGSize constraint = CGSizeMake(500, CGFLOAT_MAX);
+    NSDictionary *metrics = @{@"tHeight":@([title sizeWithFont:titleLabel.font constraint:constraint].height),
+                              @"dHeight":@([subTitle sizeWithFont:subTitleLabel.font constraint:constraint].height)};
+    NSDictionary *views = @{@"title":titleLabel, @"desc":subTitleLabel};
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[title]|" options:0 metrics:0 views:views]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[desc]|" options:0 metrics:0 views:views]];
+    [contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[title(tHeight)]-0-[desc(dHeight)]-0-|" options:0 metrics:metrics views:views]];
     
-    NSDictionary *views = @{@"title":titleLabel, @"desc":descLabel};
-    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[title]|" options:0 metrics:0 views:views]];
-    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[desc]|" options:0 metrics:0 views:views]];
-    [headerView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[title]-0-[desc]" options:0 metrics:0 views:views]];
-    
-    [headerView addConstraint:[NSLayoutConstraint constraintWithItem:titleLabel attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:headerView attribute:NSLayoutAttributeCenterY multiplier:1 constant:-6]];
+    UIView *headerView = [UIView new];
+    [headerView addSubview:contentView];
+    [headerView addConstraint:[NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:headerView attribute:NSLayoutAttributeCenterX multiplier:1 constant:0]];
+    [headerView addConstraint:[NSLayoutConstraint constraintWithItem:contentView attribute:NSLayoutAttributeCenterY relatedBy:NSLayoutRelationEqual toItem:headerView attribute:NSLayoutAttributeCenterY multiplier:1 constant:0]];
     
     [self.navigationItem setTitleView:headerView];
     

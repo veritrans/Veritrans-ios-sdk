@@ -18,7 +18,7 @@
 		<key>description</key>
 		<string>Pay from ATM Bersama, Prima or Alto</string>
 		<key>id</key>
-		<string>atm</string>
+		<string>bank_transfer</string>
 		<key>identifier</key>
 		<string>bank_transfer</string>
 	</dict>
@@ -78,7 +78,7 @@
 		<key>description</key>
 		<string>Pay through your Mandiri Clickpay account</string>
 		<key>id</key>
-		<string>clickpay</string>
+		<string>mandiri_clickpay</string>
 		<key>identifier</key>
 		<string>mandiri_clickpay</string>
 	</dict>

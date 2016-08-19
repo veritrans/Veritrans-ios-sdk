@@ -27,6 +27,7 @@
 
 @interface VTAddCardController ()
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
+@property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (nonatomic) NSMutableArray *maskedCards;
 @end
 
@@ -49,7 +50,7 @@
     [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     
-    self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
+    self.saveCardView.hidden = [CC_CONFIG saveCard] == NO;
 }
 
 - (void)dealloc {
@@ -219,7 +220,11 @@
 
 - (void)payWithToken:(NSString *)token {
     VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithCreditCardToken:token token:self.token];
-    paymentDetail.saveToken = self.view.saveCardSwitch.on;
+    
+    if ([CC_CONFIG saveCard]) {
+        paymentDetail.saveToken = self.view.saveCardSwitch.on;
+    }
+    
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
         if (error) {

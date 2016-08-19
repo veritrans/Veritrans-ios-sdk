@@ -8,7 +8,7 @@
 		<key>description</key>
 		<string>Pay with Visa, MasterCard, or JCB</string>
 		<key>id</key>
-		<string>cc</string>
+		<string>credit_card</string>
 		<key>identifier</key>
 		<string>credit_card</string>
 	</dict>

@@ -26,6 +26,7 @@
 -(void)hideLoadingHud;
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(VTTransactionResult *)result;
+-(void)handleTransactionPending:(VTTransactionResult *)result;
 -(void)showGuideViewController;
 -(void)showToastInviewWithMessage:(NSString *)message;
 -(void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message andButtonTitle:(NSString *)buttonTitle;

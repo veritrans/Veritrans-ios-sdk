@@ -15,6 +15,7 @@
 #import "VTSingleGuideController.h"
 #import "VTXLTunaiSuccessController.h"
 #import "VTThemeManager.h"
+#import "VTKITConstant.h"
 
 @interface VTPaymentController ()
 @property (nonatomic) VTHudView *hudView;
@@ -73,6 +74,12 @@
 - (void)handleTransactionError:(NSError *)error {
     VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
     [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
+}
+
+- (void)handleTransactionPending:(VTTransactionResult *)result {
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {

@@ -28,7 +28,7 @@
 		<key>description</key>
 		<string>Pay using CIMB Clicks account</string>
 		<key>id</key>
-		<string>clicks</string>
+		<string>cimb_clicks</string>
 		<key>identifier</key>
 		<string>cimb_clicks</string>
 	</dict>
@@ -48,7 +48,7 @@
 		<key>description</key>
 		<string>Pay with BCA KlikPay</string>
 		<key>id</key>
-		<string>klikpay</string>
+		<string>bca_klikpay</string>
 		<key>identifier</key>
 		<string>bca_klikpay</string>
 	</dict>
@@ -68,7 +68,7 @@
 		<key>description</key>
 		<string>Pay with Mandiri e-Cash</string>
 		<key>id</key>
-		<string>ecash</string>
+		<string>mandiri_ecash</string>
 		<key>identifier</key>
 		<string>mandiri_ecash</string>
 	</dict>
@@ -88,7 +88,7 @@
 		<key>description</key>
 		<string>Pay using e-Pay BRI account</string>
 		<key>id</key>
-		<string>epay</string>
+		<string>bri_epay</string>
 		<key>identifier</key>
 		<string>bri_epay</string>
 	</dict>

@@ -13,7 +13,7 @@
 #import "VTStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTPaymentGeneralViewController ()
+@interface VTPaymentGeneralViewController () <VTPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentGeneralView *view;
 
 @end
@@ -40,16 +40,16 @@
     
     id<VTPaymentDetails>paymentDetails;
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY]) {
         paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.token];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER]) {
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH]) {
         paymentDetails = [[VTPaymentMandiriECash alloc] initWithToken:self.token];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER]) {
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY]) {
         paymentDetails = [[VTPaymentEpayBRI alloc] initWithToken:self.token];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER]) {
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS]) {
         paymentDetails = [[VTPaymentCIMBClicks alloc] initWithToken:self.token];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
@@ -62,10 +62,34 @@
         
         if (error) {
             [self handleTransactionError:error];
-        } else {
-            [self handleTransactionSuccess:result];
+        }
+        else {
+            if (result.redirectURL) {
+                VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithTransactionResult:result
+                                                                                     paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
+                vc.delegate = self;
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                [self handleTransactionSuccess:result];
+            }
         }
     }];
+}
+
+#pragma mark - VTPaymentWebControllerDelegate
+
+- (void)webPaymentController_transactionFinished:(VTPaymentWebController *)webPaymentController {
+    [self.navigationController popToViewController:self animated:NO];
+    [self handleTransactionSuccess:webPaymentController.result];
+}
+
+- (void)webPaymentController_transactionPending:(VTPaymentWebController *)webPaymentController {
+    [self handleTransactionPending:webPaymentController.result];
+}
+
+- (void)webPaymentController:(VTPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+    [self handleTransactionError:error];
 }
 
 @end

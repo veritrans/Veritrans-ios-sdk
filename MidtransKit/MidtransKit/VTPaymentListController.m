@@ -40,13 +40,7 @@
     [super viewDidLoad];
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
     self.title =  UILocalizedString(@"payment.list.title", nil);
-    if ([VTImageManager merchantLogo]!=nil) {
-        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:self.navigationController.navigationBar.frame];
-        titleImage.image = [VTImageManager merchantLogo];
-        titleImage.contentMode =UIViewContentModeScaleAspectFit;
-        titleImage.layer.masksToBounds = YES;
-        self.navigationItem.titleView = titleImage;
-    }
+    
     
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
@@ -54,6 +48,24 @@
     self.navigationItem.leftBarButtonItem = closeButton;
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    
+    UIImage *logo = [VTImageManager merchantLogo];
+    if (logo != nil) {
+        const CGFloat barHeight = 44;
+        const CGFloat statusBarHeigt = 20;
+        CGFloat factoredLogoWidth = logo.size.width * (barHeight / logo.size.height);
+        
+        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:CGRectMake(0,
+                                                                               statusBarHeigt,
+                                                                               factoredLogoWidth,
+                                                                               barHeight
+                                                                               )];
+        
+        titleImage.image = [VTImageManager merchantLogo];
+        titleImage.contentMode = UIViewContentModeScaleAspectFit;
+        titleImage.layer.masksToBounds = YES;
+        self.navigationItem.titleView = titleImage;
+    }
     
     self.paymentMethodList = [NSMutableArray new];
     self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
@@ -163,10 +175,10 @@
                                                          paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CIMB_CLIKS_IDENTIFIER] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_ECASH_IDENTIFIER] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_BCA_KLIKPAY_IDENTIFIER] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_EPAY_IDENTIFIER] ||
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI])
     {
         VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token

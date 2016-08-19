@@ -126,6 +126,10 @@
     NSLog(@"error: %@", error);
 }
 
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(VTTransactionResult *)result {
+    NSLog(@"pending: %@", result);
+}
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

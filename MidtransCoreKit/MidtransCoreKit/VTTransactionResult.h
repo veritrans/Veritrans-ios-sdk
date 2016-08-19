@@ -80,6 +80,8 @@
  */
 @property (nonatomic, readonly) NSString *virtualAccountNumber;
 
+@property (nonatomic, readonly) NSURL *redirectURL;
+
 
 ///---------------------
 /// @name Initialization

@@ -10,25 +10,37 @@
 #import "VTHelper.h"
 #import "VTConstant.h"
 
-@interface VTPaymentWebController () <UIWebViewDelegate>
+@interface VTPaymentWebController () <UIWebViewDelegate, UIAlertViewDelegate>
 @property (nonatomic) UIWebView *webView;
-@property (nonatomic) NSURL *redirectURL;
-@property (nonatomic) NSString *paymentType;
-@property (nonatomic, copy) void (^_Nullable callback)(NSError *_Nullable error);
+@property (nonatomic) NSString *paymentIdentifier;
+@property (nonatomic, readwrite) VTTransactionResult *result;
 @end
 
 @implementation VTPaymentWebController
 
-- (instancetype _Nonnull)initWithRedirectURL:(NSURL * _Nonnull)redirectURL paymentType:(NSString *_Nonnull)paymentType {
+- (instancetype _Nonnull)initWithTransactionResult:(VTTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier {
     if (self = [super init]) {
-        self.redirectURL = redirectURL;
-        self.paymentType = paymentType;
+        self.result = result;
+        self.paymentIdentifier = paymentIdentifier;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([self.paymentIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY]) {
+        self.title = @"BRI E-Pay";
+    }
+    else if ([self.paymentIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY]) {
+        self.title = @"BCA KlikPay";
+    }
+    else if ([self.paymentIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH]) {
+        self.title = @"Mandiri E-Cash";
+    }
+    else if ([self.paymentIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS]) {
+        self.title = @"CIMB Clicks";
+    }
     
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
@@ -37,16 +49,22 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
+    
     [self.view addSubview:self.webView];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-20-[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:_redirectURL]];
+    [self.webView loadRequest:[NSURLRequest requestWithURL:self.result.redirectURL]];
 }
 
-- (void)showPageWithCallback:(void(^_Nullable)(NSError *_Nullable error))callback {
-    [[UIApplication rootViewController] presentViewController:self animated:YES completion:nil];
-    self.callback = callback;
+- (void)closePressed:(id)sender {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Konfirmasi Navigasi"
+                                                    message:@"Apakah anda yakin akan meninggalkan halaman ini?"
+                                                   delegate:self
+                                          cancelButtonTitle:@"Tidak"
+                                          otherButtonTitles:@"Ya", nil];
+    [alert show];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -59,9 +77,9 @@
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
-    if (self.callback) self.callback(error);
-    
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
+        [self.delegate webPaymentController:self transactionError:error];
+    }
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
@@ -69,13 +87,15 @@
     
     NSURLRequest *request = webView.request;
     
-    if ([_paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY]) {
+    if ([self.paymentIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY]) {
         NSDictionary *params = [self dictionaryFromQueryString:request.URL.query];
         if (params && params[@"id"]) {
-            if (self.callback) self.callback(nil);
-            [self dismissViewControllerAnimated:YES completion:nil];
+            if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionFinished:)]) {
+                [self.delegate webPaymentController_transactionFinished:self];
+            }
         }
-    } else {
+    }
+    else {
         NSString *requestBodyString = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
         requestBodyString = [[requestBodyString stringByReplacingOccurrencesOfString:@"+"
                                                                           withString:@" "]
@@ -87,13 +107,17 @@
             NSData *data = [body[@"response"] dataUsingEncoding:NSUTF8StringEncoding];
             id response = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
             
-            NSError *error;
             if ([response[@"transaction_status"] isEqualToString:VT_TRANSACTION_STATUS_DENY]) {
-                error = [self transactionError];
+                NSError *error = [self transactionError];
+                if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
+                    [self.delegate webPaymentController:self transactionError:error];
+                }
             }
-            
-            if (self.callback) self.callback(error);
-            [self dismissViewControllerAnimated:YES completion:nil];
+            else {
+                if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionFinished:)]) {
+                    [self.delegate webPaymentController_transactionFinished:self];
+                }
+            }
         }
     }
 }
@@ -115,4 +139,15 @@
     }
     return queryStringDictionary;
 }
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
+            [self.delegate webPaymentController_transactionPending:self];
+        }
+    }
+}
+
 @end

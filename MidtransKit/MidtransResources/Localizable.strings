@@ -19,6 +19,7 @@
 "guide.header-subtitle" = "Payment Instructions";
 "payment.list.title" = "Select Payment";
 "payment.success" = "Payment Successful";
+"payment.pending" = "Payment Pending";
 "payment.finish-button-title" = "Complete Payment At %@";
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
 "toast.copy-text" = "Copied to clipboard";

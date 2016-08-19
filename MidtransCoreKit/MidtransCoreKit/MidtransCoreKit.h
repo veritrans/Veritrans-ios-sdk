@@ -49,5 +49,6 @@
 #import "VTPaymentTelkomselCash.h"
 #import "VTCreditCardConfig.h"
 #import "VTImageManager.h"
+#import "VTPaymentWebController.h"
 
 #endif /* MidtransCoreKit_h */

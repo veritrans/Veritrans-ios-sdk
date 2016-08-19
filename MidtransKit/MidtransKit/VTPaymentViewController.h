@@ -16,6 +16,7 @@
 @protocol VTPaymentViewControllerDelegate;
 
 @protocol VTPaymentViewControllerDelegate <UINavigationControllerDelegate>
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(VTTransactionResult *)result;
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result;
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error;
 @end

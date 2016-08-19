@@ -44,7 +44,9 @@ void standard_swizzle(Class cls, SEL original, SEL replacement) {
     } else if ([fontName isEqualToString:@"SourceSansPro-Semibold"]) {
         return [[VTThemeManager shared].themeFont fontNameRegular];
     } else {
-        return fontName;
+        //it should be nil
+        //it can cause terrible bug if not nil
+        return nil;
     }
 }
 + (void)initialize {
@@ -66,6 +68,7 @@ void standard_swizzle(Class cls, SEL original, SEL replacement) {
 }
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
+
 +(UIFont*)new_fontWithDescriptor:(UIFontDescriptor*)descriptor size:(CGFloat)fontSize {
     NSString *fontName = [descriptor.fontAttributes objectForKey:UIFontDescriptorNameAttribute];
     NSString* newName = [self mapSystemFontWithName:fontName size:fontSize];

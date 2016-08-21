@@ -275,7 +275,7 @@
 		00F61B251D14825100C93DA0 /* VTPaymentDirectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentDirectView.m; sourceTree = "<group>"; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
-		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		3005E2871C7C17A200064169 /* MidtransResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2891C7C17A200064169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3005E2A61C7C239A00064169 /* VTClassHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClassHelper.h; sourceTree = "<group>"; };
 		3005E2A71C7C239A00064169 /* VTClassHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTClassHelper.m; sourceTree = "<group>"; };
@@ -609,7 +609,7 @@
 			isa = PBXGroup;
 			children = (
 				3054941B1C759EDF00938C17 /* libMidtransKit.a */,
-				3005E2871C7C17A200064169 /* MidtransKit.bundle */,
+				3005E2871C7C17A200064169 /* MidtransResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1057,7 +1057,7 @@
 			);
 			name = MidtransResources;
 			productName = MidtransResources;
-			productReference = 3005E2871C7C17A200064169 /* MidtransKit.bundle */;
+			productReference = 3005E2871C7C17A200064169 /* MidtransResources.bundle */;
 			productType = "com.apple.product-type.bundle";
 		};
 		3054941A1C759EDF00938C17 /* MidtransKit */ = {
@@ -1353,7 +1353,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.MidtransResources;
-				PRODUCT_NAME = MidtransKit;
+				PRODUCT_NAME = MidtransResources;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1379,7 +1379,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.MidtransResources;
-				PRODUCT_NAME = MidtransKit;
+				PRODUCT_NAME = MidtransResources;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";

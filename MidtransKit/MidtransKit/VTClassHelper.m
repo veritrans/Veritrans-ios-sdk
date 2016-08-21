@@ -25,7 +25,12 @@
     static NSBundle *kitBundle = nil;
     dispatch_once(&onceToken, ^{
         @try {
-            kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MidtransResources" withExtension:@"bundle"]];
+            if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+                kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Frameworks/MidtransKit.framework/MidtransResources" withExtension:@"bundle"]];
+            }
+            else {
+                kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MidtransResources" withExtension:@"bundle"]];
+            }
         }
         @catch (NSException *exception) {
             kitBundle = [NSBundle mainBundle];

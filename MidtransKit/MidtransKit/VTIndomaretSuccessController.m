@@ -46,6 +46,8 @@
     self.paymentCodeLabel.text = self.statusModel.transactionResult.indomaretPaymentCode;
     
     self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
+    
+    [self.navigationItem setHidesBackButton:YES];
 }
 
 - (IBAction)copyCodePressed:(UIButton *)sender {

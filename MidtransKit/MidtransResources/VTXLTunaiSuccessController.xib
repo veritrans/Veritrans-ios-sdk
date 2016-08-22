@@ -220,7 +220,7 @@
                                         <constraint firstItem="Djp-En-AaC" firstAttribute="centerX" secondItem="ayW-cO-Fm1" secondAttribute="centerX" id="y6s-80-1og"/>
                                     </constraints>
                                 </view>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="InfoIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="4eX-0Y-o7b">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VASuccessIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="4eX-0Y-o7b">
                                     <rect key="frame" x="135" y="0.0" width="50" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="0Bz-Hp-5Ht"/>
@@ -284,6 +284,6 @@
     </objects>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
-        <image name="InfoIcon.png" width="52" height="52"/>
+        <image name="VASuccessIcon.png" width="52" height="52"/>
     </resources>
 </document>

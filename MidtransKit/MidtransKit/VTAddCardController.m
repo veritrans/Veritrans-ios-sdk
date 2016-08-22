@@ -32,6 +32,7 @@
 @property (strong, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
+@property (strong, nonatomic) IBOutlet UIView *saveOptionView;
 
 @end
 
@@ -49,6 +50,13 @@
     [_cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     
     _amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    
+    if ([CONFIG merchantClientData]) {
+        self.saveOptionView.hidden = NO;
+    }
+    else {
+        self.saveOptionView.hidden = YES;
+    }
 }
 
 - (void)dealloc {

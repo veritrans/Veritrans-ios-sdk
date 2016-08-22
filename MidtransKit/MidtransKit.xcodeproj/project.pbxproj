@@ -293,6 +293,8 @@
 		E5C25FF21D26382E0012BCC8 /* VTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FF01D26382E0012BCC8 /* VTViewController.m */; };
 		E5C25FF51D2639B40012BCC8 /* VTBackBarButtonItem.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C25FF31D2639B40012BCC8 /* VTBackBarButtonItem.h */; };
 		E5C25FF61D2639B40012BCC8 /* VTBackBarButtonItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FF41D2639B40012BCC8 /* VTBackBarButtonItem.m */; };
+		E5CA54BC1D6AF76400EC2A51 /* VTCardFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CA54BA1D6AF76400EC2A51 /* VTCardFormatter.h */; };
+		E5CA54BD1D6AF76400EC2A51 /* VTCardFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = E5CA54BB1D6AF76400EC2A51 /* VTCardFormatter.m */; };
 		E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */; };
 		E5D23C791D1D096A0069B5F9 /* OCRAEXT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C781D1D096A0069B5F9 /* OCRAEXT.TTF */; };
 		E5D23C7C1D1D104A0069B5F9 /* AmexDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C7A1D1D104A0069B5F9 /* AmexDark@2x.png */; };
@@ -616,6 +618,8 @@
 		E5C25FF01D26382E0012BCC8 /* VTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTViewController.m; sourceTree = "<group>"; };
 		E5C25FF31D2639B40012BCC8 /* VTBackBarButtonItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBackBarButtonItem.h; sourceTree = "<group>"; };
 		E5C25FF41D2639B40012BCC8 /* VTBackBarButtonItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTBackBarButtonItem.m; sourceTree = "<group>"; };
+		E5CA54BA1D6AF76400EC2A51 /* VTCardFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCardFormatter.h; sourceTree = "<group>"; };
+		E5CA54BB1D6AF76400EC2A51 /* VTCardFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCardFormatter.m; sourceTree = "<group>"; };
 		E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emptyCardIcon@2x.png"; sourceTree = "<group>"; };
 		E5D23C781D1D096A0069B5F9 /* OCRAEXT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = OCRAEXT.TTF; sourceTree = "<group>"; };
 		E5D23C7A1D1D104A0069B5F9 /* AmexDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "AmexDark@2x.png"; sourceTree = "<group>"; };
@@ -774,6 +778,8 @@
 				E516DA2A1D24CFE600FA1CD7 /* VTFontSource.h */,
 				E516DA2B1D24CFE600FA1CD7 /* VTFontSource.m */,
 				E5C25FED1D2615950012BCC8 /* UIFont+IBCustomFonts.m */,
+				E5CA54BA1D6AF76400EC2A51 /* VTCardFormatter.h */,
+				E5CA54BB1D6AF76400EC2A51 /* VTCardFormatter.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1299,6 +1305,7 @@
 				3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */,
 				E583AFF51C8D6DD300C04512 /* VTSuccessStatusController.h in Headers */,
 				30E7130D1C856B0D00AFB7B4 /* VTRoundedLabel.h in Headers */,
+				E5CA54BC1D6AF76400EC2A51 /* VTCardFormatter.h in Headers */,
 				306838721C7EDA0A0064A305 /* VTPaymentHeader.h in Headers */,
 				E5C00EE41D61B9E5008DD9C5 /* VTCustomerInputViewController.h in Headers */,
 				E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */,
@@ -1655,6 +1662,7 @@
 				E50438741D1A4A5000710470 /* VTSingleGuideController.m in Sources */,
 				E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */,
 				E5C00EE51D61B9E5008DD9C5 /* VTCustomerInputViewController.m in Sources */,
+				E5CA54BD1D6AF76400EC2A51 /* VTCardFormatter.m in Sources */,
 				E517C2D21C969110009AE6AA /* UICollectionView+Empty.m in Sources */,
 				30E879881C88EDE1000C0F4B /* VTTwoClickController.m in Sources */,
 				E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */,

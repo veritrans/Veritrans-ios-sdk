@@ -59,11 +59,11 @@
 }
 
 - (void)closePressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Konfirmasi Navigasi"
-                                                    message:@"Apakah anda yakin akan meninggalkan halaman ini?"
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm Navigation", nil)
+                                                    message:NSLocalizedString(@"Are you sure want to leave this page?", nil)
                                                    delegate:self
-                                          cancelButtonTitle:@"Tidak"
-                                          otherButtonTitles:@"Ya", nil];
+                                          cancelButtonTitle:NSLocalizedString(@"NO", nil)
+                                          otherButtonTitles:NSLocalizedString(@"YES", nil), nil];
     [alert show];
 }
 

@@ -46,11 +46,11 @@
     static dispatch_once_t onceToken;
     static NSBundle *kitBundle = nil;
     dispatch_once(&onceToken, ^{
-        @try {
-            kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MidtransKit" withExtension:@"bundle"]];
+        if (SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(@"8.0")) {
+            kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"Frameworks/MidtransKit.framework/MidtransKit" withExtension:@"bundle"]];
         }
-        @catch (NSException *exception) {
-            kitBundle = [NSBundle mainBundle];
+        else {
+            kitBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"MidtransKit" withExtension:@"bundle"]];
         }
     });
     return kitBundle;

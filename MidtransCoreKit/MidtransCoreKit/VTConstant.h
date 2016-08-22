@@ -128,6 +128,7 @@ static NSString *const VT_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const VT_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const VT_CORE_MERCHANT_NAME = @"merchant_name";
 
+
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

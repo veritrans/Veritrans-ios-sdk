@@ -44,7 +44,7 @@ static NSString * const kEnvironment = @"environment";
     
     id merchantURL = [[NSUserDefaults standardUserDefaults] valueForKey:kMerchantURL];
     if (!merchantURL) {
-        merchantURL = @"https://mobile-snap-sandbox.herokuapp.com";
+        merchantURL = @"http://mobile-snap-sandbox.herokuapp.com";
         [[NSUserDefaults standardUserDefaults] setObject:merchantURL forKey:kMerchantURL];
     }
     

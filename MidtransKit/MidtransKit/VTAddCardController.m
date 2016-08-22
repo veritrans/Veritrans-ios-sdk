@@ -189,8 +189,8 @@
     
     if ([textField isEqual:self.view.cardExpiryDate]) {
         return [textField filterCreditCardExpiryDate:string range:range];
-    } else if ([textField isEqual:self.view.cardNumber]) {
-        
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
         BOOL shouldChange = [textField filterCreditCardWithString:string range:range];
         
         if (shouldChange == NO) {
@@ -208,10 +208,11 @@
         }
         
         return shouldChange;
-        
-    } else if ([textField isEqual:self.view.cardCvv]) {
+    }
+    else if ([textField isEqual:self.view.cardCvv]) {
         return [textField filterCvvNumber:string range:range withCardNumber:self.view.cardNumber.text];
-    } else {
+    }
+    else {
         return YES;
     }
 }

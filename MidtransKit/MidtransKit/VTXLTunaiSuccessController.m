@@ -36,6 +36,8 @@
     
     self.title = self.paymentMethod.title;
     
+    [self.navigationItem setHidesBackButton:YES];
+    
     self.orderIDLabel.text = self.viewModel.xlOrderID;
     self.merchantCodeLabel.text = self.viewModel.xlMerchantID;
     self.expirationLabel.text = self.viewModel.xlExpiration;

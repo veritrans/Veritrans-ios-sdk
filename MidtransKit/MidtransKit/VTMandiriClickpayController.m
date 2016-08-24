@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTTextField.h"
 #import "VTHudView.h"
+#import "VTCardFormatter.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -25,6 +26,8 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 
+@property (nonatomic) VTCardFormatter *ccFormatter;
+
 @end
 
 @implementation VTMandiriClickpayController
@@ -33,7 +36,7 @@ static NSString* const ClickpayAPPLI = @"3";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Mandiri Clickpay";
+    self.title = self.paymentMethod.title;
     
     [self addNavigationToTextFields:@[self.debitNumberTextField, self.tokenTextField]];
     
@@ -46,6 +49,9 @@ static NSString* const ClickpayAPPLI = @"3";
     self.input3Label.text = [VTMandiriClickpayHelper generateInput3];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    
+    self.ccFormatter = [[VTCardFormatter alloc] initWithTextField:self.debitNumberTextField];
+    self.ccFormatter.numberLimit = 16;
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
@@ -87,11 +93,7 @@ static NSString* const ClickpayAPPLI = @"3";
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isEqual:self.debitNumberTextField]) {
-        NSMutableString *mstring = [NSMutableString stringWithString:textField.text];
-        [mstring replaceCharactersInRange:range withString:string];
-        self.input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
-        
-        return [textField filterCreditCardWithString:string range:range];
+        return [self.ccFormatter updateTextFieldContentAndPosition];
     } else if ([textField isEqual:self.tokenTextField]) {
         NSInteger clickpayTokenLenth = 6;
         return [textField filterNumericWithString:string range:range length:clickpayTokenLenth];

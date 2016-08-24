@@ -77,10 +77,6 @@
                                             <real key="value" value="30"/>
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="textFieldChanged:" destination="-1" eventType="editingDidEnd" id="le3-TH-xQ2"/>
-                                        <outlet property="delegate" destination="-1" id="cUN-8P-e2P"/>
-                                    </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-E9-a7J" customClass="VTTextField">
                                     <rect key="frame" x="15" y="273" width="175" height="50"/>
@@ -92,9 +88,6 @@
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="vWj-4r-36O"/>
-                                    </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Nn-gz-tW4" customClass="VTTextField">
                                     <rect key="frame" x="205" y="273" width="100" height="50"/>
@@ -110,9 +103,6 @@
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                     </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <outlet property="delegate" destination="-1" id="QOC-ov-NGW"/>
-                                    </connections>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-0Q-o3N">
                                     <rect key="frame" x="283" y="282" width="22" height="22"/>

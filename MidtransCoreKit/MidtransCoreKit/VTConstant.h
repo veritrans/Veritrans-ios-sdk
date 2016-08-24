@@ -61,8 +61,8 @@ static NSString *const VT_VA_OTHER_IDENTIFIER = @"vaother";
  *  CONSTANT REGEX
  */
 static NSString * const VT_VISA_REGEX         = @"^4[0-9]{0,}$";
-static NSString * const VT_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{1,}$";
-static NSString * const VT_JCB_REGEX          = @"^35(2[89]|[3-8][0-9]){0,}$";
+static NSString * const VT_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{0,}$";
+static NSString * const VT_JCB_REGEX          = @"^(?:2131|1800|35[0-9]{3})[0-9]{0,}";
 static NSString * const VT_AMEX_REGEX         = @"^3[47][0-9]{0,}$";
 
 /**

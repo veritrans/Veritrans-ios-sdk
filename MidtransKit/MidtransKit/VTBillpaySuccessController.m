@@ -38,8 +38,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    self.navigationItem.hidesBackButton = YES;
+
+    [self.navigationItem setHidesBackButton:YES];
     
     _amountLabel.text = _statusModel.totalAmount;
     _orderIdLabel.text = _statusModel.orderId;

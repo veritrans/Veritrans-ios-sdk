@@ -11,13 +11,6 @@
 #import "VTHelper.h"
 #import "VTConstant.h"
 
-#define VTVisaRegex         @"^4[0-9]{12}(?:[0-9]{3})?$"
-#define VTMasterCardRegex   @"^5[1-5][0-9]{14}$"
-#define VTJCBRegex          @"^(?:2131|1800|35\d{3})\d{11}$"
-#define VTAmexRegex         @"^3[47][0-9]{13}$"
-
-
-
 @implementation NSString (CreditCard)
 
 - (BOOL)isNumeric {
@@ -189,39 +182,6 @@
     NSMutableString *mstring = self.text.mutableCopy;
     [mstring replaceCharactersInRange:range withString:string];
     return [mstring length] <= length;
-}
-
-- (BOOL)filterCreditCardWithString:(NSString *)string range:(NSRange)range {
-    NSString *text = self.text;
-    
-    NSCharacterSet *characterSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789\b"];
-    string = [string stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if ([string rangeOfCharacterFromSet:[characterSet invertedSet]].location != NSNotFound) {
-        return NO;
-    }
-    
-    text = [text stringByReplacingCharactersInRange:range withString:string];
-    text = [text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    NSString *newString = @"";
-    while (text.length > 0) {
-        NSString *subString = [text substringToIndex:MIN(text.length, 4)];
-        newString = [newString stringByAppendingString:subString];
-        if (subString.length == 4) {
-            newString = [newString stringByAppendingString:@" "];
-        }
-        text = [text substringFromIndex:MIN(text.length, 4)];
-    }
-    
-    newString = [newString stringByTrimmingCharactersInSet:[characterSet invertedSet]];
-    
-    if (newString.length >= 20) {
-        return NO;
-    }
-    
-    [self setText:newString];
-    
-    return NO;
 }
 
 - (BOOL)filterCvvNumber:(NSString *)string range:(NSRange)range withCardNumber:(NSString *)cardNumber {

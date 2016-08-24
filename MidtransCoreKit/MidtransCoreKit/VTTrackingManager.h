@@ -28,5 +28,5 @@
       withPaymentFeature:(NSInteger)paymentFeature
            paymentMethod:(NSString *)paymentMethod
                    value:(NSNumber *)value;
-
+- (void)trackGeneratedSnapToken:(BOOL)success;
 @end

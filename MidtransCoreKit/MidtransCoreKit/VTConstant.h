@@ -114,6 +114,9 @@ static NSString *const VT_TRACKING_SECURE_PROTOCOL = @"secure";
 static NSString *const VT_TRACKING_APP_TOKENIZER_SUCCESS = @"Tokenize Success";
 static NSString *const VT_TRACKING_APP_TOKENIZER_ERROR = @"Tokenize Failed";
 
+static NSString *const VT_TRACKING_APP_GET_SNAP_TOKEN_SUCCESS = @"Success Getting Snap Transaction";
+static NSString *const VT_TRACKING_APP_GET_SNAP_TOKEN_FAIL = @"Fail Getting Snap Transaction";
+
 static NSString *const VT_TRACKING_APP_TRANSACTION_SUCCESS = @"Transaction Success";
 static NSString *const VT_TRACKING_APP_TRANSACTION_ERROR = @"Transaction Failed";
 

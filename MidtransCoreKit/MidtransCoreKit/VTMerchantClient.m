@@ -165,11 +165,13 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
                                                                                                                       customerDetails:customerDetails
                                                                                                                           itemDetails:itemDetails];
                                                 if (completion) {
+                                                    [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
                                                     completion(token,NULL);
                                                 }
                                             }
                                             else {
                                                 if (completion) {
+                                                    [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:NO];
                                                     completion(NULL,error);
                                                 }
                                             }

@@ -34,7 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = self.paymentMethod.title;
+    self.title = UILocalizedString(@"payment.pending",nil);
     
     [self.navigationItem setHidesBackButton:YES];
     

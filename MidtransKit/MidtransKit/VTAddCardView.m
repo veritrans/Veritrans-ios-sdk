@@ -24,6 +24,7 @@
     
     self.ccFormatter = [[VTCardFormatter alloc] initWithTextField:self.cardNumber];
     self.ccFormatter.delegate = self;
+    self.ccFormatter.numberLimit = 16;
     
     self.cardNumber.delegate = self;
     self.cardExpiryDate.delegate = self;

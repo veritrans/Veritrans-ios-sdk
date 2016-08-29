@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet VTButton *howToPaymentButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmPaymentButton;
+@property (strong, nonatomic) IBOutlet UILabel *noteLabel;
 
 @end

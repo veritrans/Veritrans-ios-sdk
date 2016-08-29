@@ -188,7 +188,8 @@
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU]) {
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
         VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
                                                                                paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];

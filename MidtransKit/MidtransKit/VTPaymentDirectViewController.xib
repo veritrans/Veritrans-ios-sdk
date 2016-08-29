@@ -224,6 +224,7 @@
                 <outlet property="confirmPaymentButton" destination="2AF-lH-6ld" id="E4L-OC-ega"/>
                 <outlet property="directPaymentTextField" destination="ltQ-Rg-4pD" id="c9j-Q1-kad"/>
                 <outlet property="howToPaymentButton" destination="ZmT-QA-caE" id="mTh-E8-vG7"/>
+                <outlet property="noteLabel" destination="3h7-dn-gen" id="31h-yU-pFq"/>
                 <outlet property="orderIdLabel" destination="MlU-a7-unk" id="N2s-2h-Rg4"/>
                 <outlet property="totalAmountLabel" destination="BCL-Uh-jUh" id="sAG-jF-A48"/>
                 <outlet property="vtInformationLabel" destination="bjL-2z-Sni" id="Lbr-0E-vda"/>

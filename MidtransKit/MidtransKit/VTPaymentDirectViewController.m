@@ -15,6 +15,7 @@
 #import "VTVASuccessStatusController.h"
 #import "VTIndomaretSuccessController.h"
 #import "VTKlikbcaSuccessController.h"
+#import "VTPendingStatusController.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -31,59 +32,50 @@
     
     [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
     
-    NSString *paymentName;
-    
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU]) {
         self.view.directPaymentTextField.keyboardType = UIKeyboardTypePhonePad;
-        
         self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.indosat-dompetku.token-placeholder", nil);
         self.view.vtInformationLabel.text = UILocalizedString(@"payment.indosat-dompetku.token-note", nil);
-        paymentName = UILocalizedString(@"payment.indosat-dompetku.header-title", nil);
     }
     else {
-        self.view.directPaymentTextField.keyboardType = UIKeyboardTypeDefault;
+        self.view.directPaymentTextField.keyboardType = UIKeyboardTypeEmailAddress;
         
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA]) {
             self.view.directPaymentTextField.placeholder = UILocalizedString(@"KlikBCA User ID", nil);
             self.view.vtInformationLabel.text = UILocalizedString(@"payment.klikbca.userid-note", nil);
-            paymentName  =  UILocalizedString(@"KlikBCA",nil);
         }
         else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH]) {
             self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.telkomsel-cash.token-placeholder", nil);
             self.view.vtInformationLabel.text = UILocalizedString(@"payment.telkomsel-cash.token-note", nil);
-            paymentName = UILocalizedString(@"payment.telkomsel-cash.header-title", nil);
         }
         else {
             self.view.directPaymentTextField.text = self.token.customerDetails.email;
             self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.email-placeholder", nil);
             self.view.vtInformationLabel.text = UILocalizedString(@"payment.email-note", nil);
             
-            if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET]) {
-                paymentName  = UILocalizedString(@"Indomaret",nil);
+            if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+                self.view.noteLabel.text = UILocalizedString(@"payment.kioson.note", nil);
             }
-            else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER]) {
-                self.paymentType = VTVATypeBCA;
-                paymentName  =  UILocalizedString(@"BCA ATM",nil);
-            }
-            else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER]) {
-                self.paymentType = VTVATypeMandiri;
-                paymentName  =  UILocalizedString(@"Mandiri ATM",nil);
-            }
-            else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER]) {
-                self.paymentType = VTVATypePermata;
-                paymentName  =  UILocalizedString(@"Permata ATM",nil);
-            }
-            else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
-                self.paymentType = VTVATypeOther;
-                paymentName  =  UILocalizedString(@"name.other-bank",nil);
+            else {
+                if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER]) {
+                    self.paymentType = VTVATypeBCA;
+                }
+                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER]) {
+                    self.paymentType = VTVATypeMandiri;
+                }
+                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER]) {
+                    self.paymentType = VTVATypePermata;
+                }
+                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
+                    self.paymentType = VTVATypeOther;
+                }
             }
         }
     }
     
+    self.title = self.paymentMethod.title;
     
-    
-    self.title = paymentName;
-    [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.how",nil) ,paymentName]
+    [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.how",nil), self.title]
                                   forState:UIControlStateNormal];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
@@ -136,6 +128,9 @@
         paymentDetails = [[VTPaymentTelkomselCash alloc] initWithMSISDN:self.view.directPaymentTextField.text
                                                                   token:self.token];
     }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+        paymentDetails = [[VTPaymentKiosOn alloc] initWithToken:self.token];
+    }
     
     VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
     [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
@@ -183,6 +178,10 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA]) {
         VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
         VTKlikbcaSuccessController *vc = [[VTKlikbcaSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod viewModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+        VTPendingStatusController *vc = [[VTPendingStatusController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod result:result];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {

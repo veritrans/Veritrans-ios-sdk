@@ -205,23 +205,50 @@
         return NO;
     }
     
-    NSMutableString *mstring = self.text.mutableCopy;
-    [mstring replaceCharactersInRange:range withString:string];
+    NSMutableString *mstring = [NSMutableString stringWithString:self.text];
+    if (!string.length && [mstring hasSuffix:ExpiryDateSeparator]) {
+        [mstring deleteCharactersInRange:[mstring rangeOfString:ExpiryDateSeparator]];
+        [mstring deleteCharactersInRange:NSMakeRange(mstring.length-1, 1)];
+    }
+    else {
+        [mstring replaceCharactersInRange:range withString:string];
+    }
     
-    if (mstring.length == 1 && mstring.integerValue > 1) {
-        self.text = [NSString stringWithFormat:@"0%@", mstring];
+    [mstring setString:[self removeNonDigits:mstring]];
+    
+    if (mstring.length > 1 && mstring.length < 5) {
+        [mstring insertString:ExpiryDateSeparator atIndex:2];
+        self.text = mstring;
     }
-    else if (self.text.length == 2 && string.length) {
-        self.text = [NSString stringWithFormat:@"%@%@%@", self.text, ExpiryDateSeparator, string];
-    }
-    else if ([self.text hasSuffix:ExpiryDateSeparator] && string.length == 0) {
-        self.text = [self.text stringByReplacingOccurrencesOfString:ExpiryDateSeparator withString:@""];
-    }
-    else if (mstring.length < 8) {
+    else if (mstring.length < 2) {
         self.text = mstring;
     }
     
     return NO;
+}
+
+- (NSString *)removeNonDigits:(NSString *)string
+{
+    if (string.length) {
+        NSString *firstChar = [string substringToIndex:1];
+        if (firstChar.integerValue > 1) {
+            string = [NSString stringWithFormat:@"0%@", string];
+        }
+    }
+    
+    NSMutableString *digitsOnlyString = [NSMutableString new];
+    for (NSUInteger i=0; i<[string length]; i++) {
+        unichar characterToAdd = [string characterAtIndex:i];
+        if (isdigit(characterToAdd)) {
+            NSString *stringToAdd =
+            [NSString stringWithCharacters:&characterToAdd
+                                    length:1];
+            
+            [digitsOnlyString appendString:stringToAdd];
+        }
+    }
+    
+    return digitsOnlyString;
 }
 
 @end

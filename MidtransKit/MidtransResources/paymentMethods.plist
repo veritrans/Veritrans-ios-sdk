@@ -12,6 +12,16 @@
 		<key>identifier</key>
 		<string>credit_card</string>
 	</dict>
+    <dict>
+        <key>title</key>
+        <string>Kioson</string>
+        <key>description</key>
+        <string>Pay from Kioson Outlet</string>
+        <key>id</key>
+        <string>kioson</string>
+        <key>identifier</key>
+        <string>kioson</string>
+    </dict>
 	<dict>
 		<key>title</key>
 		<string>ATM/Bank Transfer</string>

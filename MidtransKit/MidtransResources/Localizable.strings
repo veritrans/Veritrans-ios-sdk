@@ -39,3 +39,5 @@
 "payment.indosat-dompetku.token-note" = "This payment must use a phone number that registered with Indosat Dompetku.";
 "payment.indosat-dompetku.header-title" = "Indosat Dompetku";
 "payment.indosat-dompetku.warning" = "Phone number should not be empty";
+
+"payment.kioson.note" = "Kioson payment must be completed through a Kioson Outlet";

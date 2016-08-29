@@ -280,6 +280,8 @@
 		E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */; };
 		E5A35FA01D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */; };
 		E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */; };
+		E5AB97611D7414A900466A44 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97601D7414A900466A44 /* kioson.plist */; };
+		E5AB97631D74192300466A44 /* kioson@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97621D74192300466A44 /* kioson@2x.png */; };
 		E5B6151D1D0A9F0C009F40EF /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */; };
 		E5C00EE21D61B9E5008DD9C5 /* VTCustomerInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */; };
 		E5C00EE31D61B9E5008DD9C5 /* VTCustomerInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */; };
@@ -605,6 +607,8 @@
 		E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VASuccessIcon@2x.png"; sourceTree = "<group>"; };
 		E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVATransactionStatusViewModel.h; sourceTree = "<group>"; };
 		E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVATransactionStatusViewModel.m; sourceTree = "<group>"; };
+		E5AB97601D7414A900466A44 /* kioson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kioson.plist; sourceTree = "<group>"; };
+		E5AB97621D74192300466A44 /* kioson@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kioson@2x.png"; sourceTree = "<group>"; };
 		E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerInputView.h; sourceTree = "<group>"; };
 		E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCustomerInputView.m; sourceTree = "<group>"; };
 		E5C00EDC1D61B9E5008DD9C5 /* VTCustomerInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerInputViewController.h; sourceTree = "<group>"; };
@@ -917,6 +921,7 @@
 				E58017E31D585AEF007D2DEC /* telkomsel_cash.plist */,
 				E58017E51D585B03007D2DEC /* indosat_dompetku.plist */,
 				E58017E71D585B0E007D2DEC /* xl_tunai.plist */,
+				E5AB97601D7414A900466A44 /* kioson.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -958,6 +963,7 @@
 				002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */,
 				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
+				E5AB97621D74192300466A44 /* kioson@2x.png */,
 				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
 				E503AEE81C8EC69800F097FF /* indosat_dompetku@2x.png */,
 				E503AEE91C8EC69800F097FF /* mandiri_ecash@2x.png */,
@@ -1426,6 +1432,7 @@
 				E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */,
 				00F61B071D145B4600C93DA0 /* SourceSansPro-Semibold.ttf in Resources */,
 				E52832011D2116FB00F4F8F0 /* VTConfirmPaymentController.xib in Resources */,
+				E5AB97631D74192300466A44 /* kioson@2x.png in Resources */,
 				E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */,
 				E5387D521D62BE7E004CCF3D /* permata_atm_1@2x.png in Resources */,
 				E5387D341D62BE7E004CCF3D /* bca_atm_4@2x.png in Resources */,
@@ -1444,6 +1451,7 @@
 				E5387D461D62BE7E004CCF3D /* other_atm_3@2x.png in Resources */,
 				E50D85F51D0ECB9C00F26D2E /* indomaret.plist in Resources */,
 				E578DD1C1CFC3F250091760A /* VTPaymentListController.xib in Resources */,
+				E5AB97611D7414A900466A44 /* kioson.plist in Resources */,
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
 				E5387D3A1D62BE7E004CCF3D /* mandiri_atm_4@2x.png in Resources */,
 				E5387D5A1D62C15D004CCF3D /* VTGuideCell.xib in Resources */,

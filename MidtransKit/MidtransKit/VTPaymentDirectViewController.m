@@ -15,6 +15,7 @@
 #import "VTVASuccessStatusController.h"
 #import "VTIndomaretSuccessController.h"
 #import "VTKlikbcaSuccessController.h"
+#import "VTPendingStatusController.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -177,6 +178,10 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA]) {
         VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
         VTKlikbcaSuccessController *vc = [[VTKlikbcaSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod viewModel:vm];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+        VTPendingStatusController *vc = [[VTPendingStatusController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod result:result];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {

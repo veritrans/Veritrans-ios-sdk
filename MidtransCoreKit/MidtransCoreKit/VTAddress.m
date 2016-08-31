@@ -8,6 +8,8 @@
 
 #import "VTAddress.h"
 #import "VTHelper.h"
+#import "NSString+VTValidation.h"
+#import "VTConstant.h"
 
 @interface VTAddress ()
 
@@ -74,6 +76,16 @@
              @"city":[VTHelper nullifyIfNil:_city],
              @"postal_code":[VTHelper nullifyIfNil:_postalCode],
              @"country_code":[VTHelper nullifyIfNil:_countryCode]};
+}
+
+- (BOOL)validCustomerData:(NSError **)error {
+    if (!self.phone.isEmpty && self.phone.isValidPhoneNumber) {
+        return YES;
+    }
+    else {
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
+        return NO;
+    }
 }
 
 @end

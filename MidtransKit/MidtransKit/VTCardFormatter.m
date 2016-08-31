@@ -7,6 +7,9 @@
 //
 
 #import "VTCardFormatter.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+
+NSInteger const amexLimit = 15;
 
 @interface VTCardFormatter()
 
@@ -43,10 +46,12 @@
                        toPosition:textField.selectedTextRange.start];
     
     NSString *cardNumberWithoutSpaces =
-    [self removeNonDigits:textField.text
-andPreserveCursorPosition:&targetCursorPosition];
+    [self removeNonDigits:textField.text andPreserveCursorPosition:&targetCursorPosition];
+        
+    VTCreditCardType cctype = [VTCreditCardHelper typeFromString:cardNumberWithoutSpaces];
+    NSInteger cardLimit = cctype == VTCreditCardTypeAmex ? amexLimit : self.numberLimit;
     
-    if ([cardNumberWithoutSpaces length] > self.numberLimit) {
+    if ([cardNumberWithoutSpaces length] > cardLimit) {
         // If the user is trying to enter more than 19 digits, we prevent
         // their change, leaving the text field in  its previous state.
         // While 16 digits is usual, credit card numbers have a hard

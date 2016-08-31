@@ -112,7 +112,11 @@
     if ([textField isEqual:self.cardExpiryDate]) {
         [textField.text isValidExpiryDate:&error];
     }
+    else if ([textField isEqual:self.cardNumber]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
     
+    //show warning if error
     if (error) {
         [self isViewError:error];
     }

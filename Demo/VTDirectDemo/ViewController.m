@@ -123,6 +123,9 @@
 }
 
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+    [alert show];
+    
     NSLog(@"error: %@", error);
 }
 

@@ -58,8 +58,7 @@
 }
 
 - (void)closePressed:(id)sender {
-    NSInteger canceled3DSecureErrorCode = -30;
-    NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN code:canceled3DSecureErrorCode userInfo:@{NSLocalizedDescriptionKey:@"3D Secure transaction canceled by user"}];
+    NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_3DSECURE userInfo:@{NSLocalizedDescriptionKey:@"3D Secure transaction canceled by user"}];
     if (self.completion) self.completion(error);
     [self dismissViewControllerAnimated:YES completion:nil];
 }

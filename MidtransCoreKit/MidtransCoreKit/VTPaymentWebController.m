@@ -123,8 +123,7 @@
 }
 
 - (NSError *)transactionError {
-    NSInteger canceledDirectDebitErrorCode = -31;
-    NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN code:canceledDirectDebitErrorCode userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Transaction canceled by user", nil)}];
+    NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_CANCELED_WEBPAYMENT userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Transaction canceled by user", nil)}];
     return error;
 }
 

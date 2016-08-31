@@ -79,6 +79,15 @@
     return groupedInstructions;
 }
 
++ (BOOL)hasKindOfController:(UIViewController *)controller onControllers:(NSArray<UIViewController*>*)controllers {
+    for (UIViewController *c in controllers) {
+        if ([c isKindOfClass:controller.class]) {
+            return YES;
+        }
+    }
+    return NO;
+}
+
 @end
 
 @implementation NSString (utilities)

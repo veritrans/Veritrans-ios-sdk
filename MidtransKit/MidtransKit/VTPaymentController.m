@@ -73,7 +73,9 @@
 
 - (void)handleTransactionError:(NSError *)error {
     VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
-    [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
+    if ([VTClassHelper hasKindOfController:vc onControllers:self.navigationController.viewControllers] == NO) {
+        [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
+    }
 }
 
 - (void)handleTransactionPending:(VTTransactionResult *)result {
@@ -95,13 +97,16 @@
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
             VTPaymentStatusXLTunaiViewModel *viewModel = [[VTPaymentStatusXLTunaiViewModel alloc] initWithTransactionResult:result];
             vc = [[VTXLTunaiSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod statusModel:viewModel];
-        } else {
+        }
+        else {
             VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
             vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
         }
     }
     
-    [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
+    if ([VTClassHelper hasKindOfController:vc onControllers:self.navigationController.viewControllers] == NO) {
+        [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
+    }
 }
 
 - (void)showGuideViewController {

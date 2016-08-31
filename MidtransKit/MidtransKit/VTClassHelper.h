@@ -25,6 +25,7 @@
 + (NSBundle*)kitBundle;
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath;
 + (NSArray <VTGroupedInstruction*>*)groupedInstructionsFromFilePath:(NSString *)filePath;
++ (BOOL)hasKindOfController:(UIViewController *)controller onControllers:(NSArray<UIViewController*>*)controllers;
 @end
 
 @interface NSNumber (formatter)

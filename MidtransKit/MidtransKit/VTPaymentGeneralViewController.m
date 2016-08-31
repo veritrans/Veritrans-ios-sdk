@@ -79,9 +79,8 @@
 
 #pragma mark - VTPaymentWebControllerDelegate
 
-- (void)webPaymentController_transactionFinished:(VTPaymentWebController *)webPaymentController {
-    [self.navigationController popToViewController:self animated:NO];
-    [self handleTransactionSuccess:webPaymentController.result];
+- (void)webPaymentController_transactionFinished:(VTPaymentWebController *)webPaymentController {    
+    [super handleTransactionSuccess:webPaymentController.result];
 }
 
 - (void)webPaymentController_transactionPending:(VTPaymentWebController *)webPaymentController {
@@ -89,7 +88,6 @@
 }
 
 - (void)webPaymentController:(VTPaymentWebController *)webPaymentController transactionError:(NSError *)error {
-    [self.navigationController popToViewController:self animated:NO];
     [self handleTransactionError:error];
 }
 

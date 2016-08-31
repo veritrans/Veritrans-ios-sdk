@@ -26,6 +26,8 @@
     [defaultParameters setObject:[PRIVATECONFIG mixpanelToken] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];
     [defaultParameters setObject:VERSION forKey:@"sdkVersion"];
+    [defaultParameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:VT_CORE_MERCHANT_NAME] forKey:@"merchant"];
+    
     return defaultParameters;
 }
 
@@ -49,7 +51,6 @@
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
-    [parameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:VT_CORE_MERCHANT_NAME] forKey:@"merchant"];
     [parameters setObject:paymentMethod forKey:@"Payment Type"];
     parameters  = [parameters addDefaultParameter];
     NSDictionary *event = @{@"event":isSuccess?VT_TRACKING_APP_TRANSACTION_SUCCESS:VT_TRACKING_APP_TRANSACTION_ERROR,
@@ -65,6 +66,7 @@
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
+    [parameters setObject:paymentMethod forKey:@"Payment Type"];
     parameters  = [parameters addDefaultParameter];
     NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_SUCCESS,
                             @"properties":parameters};
@@ -79,6 +81,7 @@
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     [parameters setObject:secureProtocol forKey:VT_TRACKING_SECURE_PROTOCOL];
+    [parameters setObject:paymentMethod forKey:@"Payment Type"];
     parameters  = [parameters addDefaultParameter];
     NSDictionary *event = @{@"event":VT_TRACKING_APP_TOKENIZER_ERROR,
                             @"properties":parameters};

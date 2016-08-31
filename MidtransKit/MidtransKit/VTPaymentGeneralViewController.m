@@ -89,6 +89,7 @@
 }
 
 - (void)webPaymentController:(VTPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+    [self.navigationController popToViewController:self animated:NO];
     [self handleTransactionError:error];
 }
 

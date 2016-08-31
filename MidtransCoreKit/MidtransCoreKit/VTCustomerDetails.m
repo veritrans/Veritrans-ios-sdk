@@ -8,6 +8,8 @@
 
 #import "VTCustomerDetails.h"
 #import "VTHelper.h"
+#import "NSString+VTValidation.h"
+#import "VTConstant.h"
 
 @interface VTCustomerDetails ()
 
@@ -75,6 +77,20 @@
     return @{@"payment_detail":@{@"full_name":[NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName],
                                  @"phone":[VTHelper nullifyIfNil:self.phone],
                                  @"email":[VTHelper nullifyIfNil:self.email]}};
+}
+
+- (BOOL)isValidCustomerData:(NSError **)error {
+    if (self.email.isEmpty ||
+        !self.email.isValidEmail ||
+        self.phone.isEmpty ||
+        !self.phone.isValidPhoneNumber)
+    {
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
+        return NO;
+    }
+    else {
+        return YES;
+    }
 }
 
 @end

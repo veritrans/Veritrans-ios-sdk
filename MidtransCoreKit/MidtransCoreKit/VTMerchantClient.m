@@ -144,39 +144,35 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     
     [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
     
-    if (customerDetails.email.isEmpty || customerDetails.phone.isEmpty || customerDetails.firstName.isEmpty || customerDetails.lastName.isEmpty) {
-        if (completion) {
-            NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN
-                                                        code:513
-                                                    userInfo:@{NSLocalizedDescriptionKey:@"Missing customer credentials"}];
-            completion(NULL,error);
-            return;
-        }
-        
+    NSError *error;
+    if (![customerDetails isValidCustomerData:&error]) {
+        if (completion) completion (nil, error);
+        return;
     }
-    else {
-        [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
-                                          header:nil
-                                      parameters:dictionaryParameters
-                                        callback:^(id response, NSError *error) {
-                                            if (!error) {
-                                                TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response
-                                                                                                                   transactionDetails:transactionDetails
-                                                                                                                      customerDetails:customerDetails
-                                                                                                                          itemDetails:itemDetails];
-                                                if (completion) {
-                                                    [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
-                                                    completion(token,NULL);
-                                                }
-                                            }
-                                            else {
-                                                if (completion) {
-                                                    [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:NO];
-                                                    completion(NULL,error);
-                                                }
-                                            }
-                                        }];
-    }
+    
+    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+                                      header:nil
+                                  parameters:dictionaryParameters
+                                    callback:^(id response, NSError *error)
+     {
+         if (!error) {
+             TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response
+                                                                                transactionDetails:transactionDetails
+                                                                                   customerDetails:customerDetails
+                                                                                       itemDetails:itemDetails];
+             if (completion) {
+                 [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
+                 completion(token,NULL);
+             }
+         }
+         else {
+             if (completion) {
+                 [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:NO];
+                 completion(NULL,error);
+             }
+         }
+     }];
+    //    }
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

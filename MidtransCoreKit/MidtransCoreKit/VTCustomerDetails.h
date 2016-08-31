@@ -31,4 +31,6 @@
 
 - (NSDictionary *)snapDictionaryValue;
 
+- (BOOL)isValidCustomerData:(NSError **)error;
+
 @end

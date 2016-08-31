@@ -133,6 +133,15 @@ static NSString *const VT_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const VT_CORE_MERCHANT_NAME = @"merchant_name";
 
 
+static NSInteger const VT_ERROR_CODE_3DSECURE = -30;
+static NSInteger const VT_ERROR_CODE_CANCELED_WEBPAYMENT = -31;
+
+static NSInteger const VT_ERROR_CODE_INVALIDCVV = -22;
+static NSInteger const VT_ERROR_CODE_INVALID_EXPIRY_DATE = -21;
+static NSInteger const VT_ERROR_CODE_INVALID_CC_NUMBER = -20;
+
+static NSInteger const VT_ERROR_CODE_INVALID_CUSTOMER_DETAILS = -40;
+
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

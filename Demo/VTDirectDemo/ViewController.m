@@ -84,7 +84,7 @@
                  [self presentViewController:vc animated:YES completion:nil];
              }
              else {
-                 NSLog(@"error-->%@",error);
+                 [self showAlertError:error];
              }
          }];
     }
@@ -116,6 +116,16 @@
     return [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
 }
 
+- (void)showAlertError:(NSError *)error {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                    message:error.localizedDescription
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Close"
+                                          otherButtonTitles:nil];
+    [alert show];
+    NSLog(@"error: %@", error);
+}
+
 #pragma mark - VTPaymentViewControllerDelegate
 
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
@@ -123,10 +133,7 @@
 }
 
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-    [alert show];
-    
-    NSLog(@"error: %@", error);
+    [self showAlertError:error];
 }
 
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(VTTransactionResult *)result {

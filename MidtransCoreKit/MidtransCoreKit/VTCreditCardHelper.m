@@ -28,8 +28,7 @@
         return YES;
     } else {
         NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_CVV_INVALID, nil);
-        NSInteger cvvInvalidCode = -22;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:cvvInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALIDCVV userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
 }
@@ -47,8 +46,7 @@
     }
     
     NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_DATE_INVALID, nil);
-    NSInteger expiryDateInvalidCode = -21;
-    *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+    *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALID_EXPIRY_DATE userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
     
     return NO;
 }
@@ -59,8 +57,7 @@
         return YES;
     } else {
         NSString *errorMessage = NSLocalizedString(VT_MESSAGE_EXPIRE_MONTH_INVALID, nil);
-        NSInteger expiryDateInvalidCode = -21;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:expiryDateInvalidCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALID_EXPIRY_DATE userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
 }
@@ -84,8 +81,7 @@
         return YES;
     } else {
         NSString *errorMessage = NSLocalizedString(VT_MESSAGE_CARD_INVALID, nil);
-        NSInteger numberInvalideCode = -20;
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:numberInvalideCode userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALID_CC_NUMBER userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }
 }

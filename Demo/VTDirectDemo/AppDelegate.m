@@ -18,6 +18,7 @@
 static NSString * const kClientKey = @"client_key";
 static NSString * const kMerchantURL = @"merchant_url";
 static NSString * const kEnvironment = @"environment";
+static NSString * const kTimeoutInterval = @"timeout_interval";
 
 @interface AppDelegate ()
 
@@ -46,6 +47,12 @@ static NSString * const kEnvironment = @"environment";
     if (!merchantURL) {
         merchantURL = @"http://mobile-snap-sandbox.herokuapp.com";
         [[NSUserDefaults standardUserDefaults] setObject:merchantURL forKey:kMerchantURL];
+    }
+    
+    NSNumber *timeout = [[NSUserDefaults standardUserDefaults] valueForKey:kTimeoutInterval];
+    if (!timeout) {
+        timeout = @20;
+        [[NSUserDefaults standardUserDefaults] setObject:timeout forKey:kTimeoutInterval];
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];

@@ -62,6 +62,18 @@
 				<string>Production</string>
 			</array>
 		</dict>
+        <dict>
+            <key>Type</key>
+            <string>PSTextFieldSpecifier</string>
+            <key>Title</key>
+            <string>Timeout Interval :</string>
+            <key>DefaultValue</key>
+            <string>20</string>
+            <key>Key</key>
+            <string>timeout_interval</string>
+            <key>KeyboardType</key>
+            <string>NumberPad</string>
+        </dict>
 	</array>
 </dict>
 </plist>

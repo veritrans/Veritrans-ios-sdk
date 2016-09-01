@@ -9,7 +9,6 @@
 #import "VTNetworkOperation.h"
 #import "VTConstant.h"
 
-
 @implementation NSData (decode)
 
 - (NSData*)validateUTF8 {

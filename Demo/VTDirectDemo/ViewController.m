@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "SamplePaymentListViewController.h"
 #import "TableViewCell.h"
 #import "OptionViewController.h"
 #import <MidtransKit/MidtransKit.h>
@@ -65,6 +66,63 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
+    UIAlertController * view=   [UIAlertController
+                                 alertControllerWithTitle:@"Select Demo you want to see"
+                                 message:@""
+                                 preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction* uiFlow = [UIAlertAction
+                             actionWithTitle:@"UI-FLOW Demo"
+                             style:UIAlertActionStyleDefault
+                             handler:^(UIAlertAction * action)
+                             {
+                                 //Do some thing here
+                                 [self initUIFlow];
+                                 [view dismissViewControllerAnimated:YES completion:nil];
+                                 
+                             }];
+    UIAlertAction* coreFlow = [UIAlertAction
+                               actionWithTitle:@"CORE-FLOW Demo"
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction * action)
+                               {
+                                   [self initCoreFlow];
+                                   [view dismissViewControllerAnimated:YES completion:nil];
+                                   
+                               }];
+    [view addAction:uiFlow];
+    [view addAction:coreFlow];
+    [self presentViewController:view animated:YES completion:nil];
+    
+}
+- (void)initCoreFlow {
+    NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
+    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    
+    if (customerDetails!=nil) {
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        
+        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
+        
+        [[VTMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(TransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+         {
+             [MBProgressHUD hideHUDForView:self.view animated:YES];
+             if (!error) {
+                 SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
+                 sampleController.transactionToken = token;
+                 UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];
+                 [self presentViewController:sampleNavigationcontroller animated:YES completion:nil];
+             }
+             else {
+             }
+         }];
+    }
+    else {
+        OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+        [self.navigationController pushViewController:option animated:YES];
+    }
+}
+- (void)initUIFlow {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
@@ -93,7 +151,6 @@
         [self.navigationController pushViewController:option animated:YES];
     }
 }
-
 - (UIColor *)myThemeColor {
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];

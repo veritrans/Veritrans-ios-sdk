@@ -38,8 +38,17 @@
     });
     return shared;
 }
+
 - (void)setEnvironment:(VTServerEnvironment)environment {
     [VTPrivateConfig setServerEnvironment:environment];
+}
+
+- (double)timeoutInterval {
+    if (_timeoutInterval == 0) {
+        //default timeout
+        _timeoutInterval = 20;
+    }
+    return _timeoutInterval;
 }
 
 @end

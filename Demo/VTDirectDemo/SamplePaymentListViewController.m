@@ -7,6 +7,7 @@
 //
 
 #import "SamplePaymentListViewController.h"
+#import "PaymentCreditCardViewController.h"
 #import <MBProgressHUD.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/VTPaymentListModel.h>
@@ -85,6 +86,55 @@
     [cell configurePaymetnList:paymentMethod];
     return cell;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
+    
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+        PaymentCreditCardViewController *paymentCC = [[PaymentCreditCardViewController alloc] initWithNibName:@"PaymentCreditCardViewController" bundle:nil];
+        paymentCC.transactionToken = self.transactionToken;
+        [self.navigationController pushViewController:paymentCC animated:YES];
+        //        if ([CC_CONFIG saveCard]) {
+        //            //            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+        //            //                                                                 paymentMethodName:paymentMethod];
+        //            //            [self.navigationController pushViewController:vc animated:YES];
+        //        }
+        //        else {
+        //            //            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
+        //            //                                                               paymentMethodName:paymentMethod];
+        //            //            [self.navigationController pushViewController:vc animated:YES];
+        //        }
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BANK_TRANSFER]) {
+        //        VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
+        //                                                         paymentMethodName:paymentMethod];
+        //        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI])
+    {
+        //        VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token
+        //                                                                                 paymentMethodName:paymentMethod];
+        //        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+        //        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
+        //                                                                               paymentMethodName:paymentMethod];
+        //        [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_CLICKPAY]) {
+        //        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
+        //                                                                           paymentMethodName:paymentMethod];
+        //        [self.navigationController pushViewController:vc animated:YES];
+    }
+}
+
 /*
  
  #pragma mark - Navigation

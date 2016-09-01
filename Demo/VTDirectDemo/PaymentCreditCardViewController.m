@@ -47,7 +47,6 @@
     VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                         grossAmount:self.transactionToken.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
-    UIAlertView *alertView = [[UIAlertView alloc] init];
     [[VTClient sharedClient] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -67,7 +66,6 @@
                                 }];
 }
 - (void)payWithToken:(NSString *)token {
-    UIAlertView *alertView = [[UIAlertView alloc] init];
     VTPaymentCreditCard *paymentDetail =
     [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
                                  creditCardToken:token token:self.transactionToken];

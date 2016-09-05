@@ -26,4 +26,7 @@
     NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
     self.paymentLogo.image = [UIImage imageNamed:imagePath];
 }
+- (void)configureBankTransafer:(NSString *)bankTransfer {
+    self.paymentName.text = bankTransfer;
+}
 @end

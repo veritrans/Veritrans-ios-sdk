@@ -55,28 +55,28 @@ NSString *const kPaymentRequestTransactionDataBankTransfer = @"bankTransfer";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.enabledPayments = [self objectOrNilForKey:kPaymentRequestTransactionDataEnabledPayments fromDictionary:dict];
-    NSObject *receivedPaymentRequestItemDetails = [dict objectForKey:kPaymentRequestTransactionDataItemDetails];
-    NSMutableArray *parsedPaymentRequestItemDetails = [NSMutableArray array];
-    if ([receivedPaymentRequestItemDetails isKindOfClass:[NSArray class]]) {
-        for (NSDictionary *item in (NSArray *)receivedPaymentRequestItemDetails) {
-            if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedPaymentRequestItemDetails addObject:[PaymentRequestItemDetails modelObjectWithDictionary:item]];
+        self.enabledPayments = [self objectOrNilForKey:kPaymentRequestTransactionDataEnabledPayments fromDictionary:dict];
+        NSObject *receivedPaymentRequestItemDetails = [dict objectForKey:kPaymentRequestTransactionDataItemDetails];
+        NSMutableArray *parsedPaymentRequestItemDetails = [NSMutableArray array];
+        if ([receivedPaymentRequestItemDetails isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *item in (NSArray *)receivedPaymentRequestItemDetails) {
+                if ([item isKindOfClass:[NSDictionary class]]) {
+                    [parsedPaymentRequestItemDetails addObject:[PaymentRequestItemDetails modelObjectWithDictionary:item]];
+                }
             }
-       }
-    } else if ([receivedPaymentRequestItemDetails isKindOfClass:[NSDictionary class]]) {
-       [parsedPaymentRequestItemDetails addObject:[PaymentRequestItemDetails modelObjectWithDictionary:(NSDictionary *)receivedPaymentRequestItemDetails]];
-    }
-
-    self.itemDetails = [NSArray arrayWithArray:parsedPaymentRequestItemDetails];
-            self.customerDetails = [PaymentRequestCustomerDetails modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataCustomerDetails]];
-            self.transactionDataIdentifier = [self objectOrNilForKey:kPaymentRequestTransactionDataId fromDictionary:dict];
-            self.transactionDetails = [PaymentRequestTransactionDetails modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataTransactionDetails]];
-            self.paymentOptions = [PaymentRequestPaymentOptions modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataPaymentOptions]];
-            self.transactionId = [self objectOrNilForKey:kPaymentRequestTransactionDataTransactionId fromDictionary:dict];
-            self.kind = [self objectOrNilForKey:kPaymentRequestTransactionDataKind fromDictionary:dict];
-            self.bankTransfer = [PaymentRequestBankTransfer modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataBankTransfer]];
-
+        } else if ([receivedPaymentRequestItemDetails isKindOfClass:[NSDictionary class]]) {
+            [parsedPaymentRequestItemDetails addObject:[PaymentRequestItemDetails modelObjectWithDictionary:(NSDictionary *)receivedPaymentRequestItemDetails]];
+        }
+        
+        self.itemDetails = [NSArray arrayWithArray:parsedPaymentRequestItemDetails];
+        self.customerDetails = [PaymentRequestCustomerDetails modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataCustomerDetails]];
+        self.transactionDataIdentifier = [self objectOrNilForKey:kPaymentRequestTransactionDataId fromDictionary:dict];
+        self.transactionDetails = [PaymentRequestTransactionDetails modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataTransactionDetails]];
+        self.paymentOptions = [PaymentRequestPaymentOptions modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataPaymentOptions]];
+        self.transactionId = [self objectOrNilForKey:kPaymentRequestTransactionDataTransactionId fromDictionary:dict];
+        self.kind = [self objectOrNilForKey:kPaymentRequestTransactionDataKind fromDictionary:dict];
+        self.bankTransfer = [PaymentRequestBankTransfer modelObjectWithDictionary:[dict objectForKey:kPaymentRequestTransactionDataBankTransfer]];
+        
     }
     
     return self;
@@ -115,7 +115,7 @@ NSString *const kPaymentRequestTransactionDataBankTransfer = @"bankTransfer";
     [mutableDict setValue:self.transactionId forKey:kPaymentRequestTransactionDataTransactionId];
     [mutableDict setValue:self.kind forKey:kPaymentRequestTransactionDataKind];
     [mutableDict setValue:[self.bankTransfer dictionaryRepresentation] forKey:kPaymentRequestTransactionDataBankTransfer];
-
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
@@ -137,7 +137,7 @@ NSString *const kPaymentRequestTransactionDataBankTransfer = @"bankTransfer";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    
     self.enabledPayments = [aDecoder decodeObjectForKey:kPaymentRequestTransactionDataEnabledPayments];
     self.itemDetails = [aDecoder decodeObjectForKey:kPaymentRequestTransactionDataItemDetails];
     self.customerDetails = [aDecoder decodeObjectForKey:kPaymentRequestTransactionDataCustomerDetails];
@@ -152,7 +152,7 @@ NSString *const kPaymentRequestTransactionDataBankTransfer = @"bankTransfer";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    
     [aCoder encodeObject:_enabledPayments forKey:kPaymentRequestTransactionDataEnabledPayments];
     [aCoder encodeObject:_itemDetails forKey:kPaymentRequestTransactionDataItemDetails];
     [aCoder encodeObject:_customerDetails forKey:kPaymentRequestTransactionDataCustomerDetails];
@@ -169,7 +169,7 @@ NSString *const kPaymentRequestTransactionDataBankTransfer = @"bankTransfer";
     PaymentRequestTransactionData *copy = [[PaymentRequestTransactionData alloc] init];
     
     if (copy) {
-
+        
         copy.enabledPayments = [self.enabledPayments copyWithZone:zone];
         copy.itemDetails = [self.itemDetails copyWithZone:zone];
         copy.customerDetails = [self.customerDetails copyWithZone:zone];

@@ -13,4 +13,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *paymentName;
 @property (weak, nonatomic) IBOutlet UILabel *paymentDescription;
 - (void)configurePaymetnList:(VTPaymentListModel *)paymentList;
+- (void)configureBankTransafer:(NSString *)bankTransfer;
 @end

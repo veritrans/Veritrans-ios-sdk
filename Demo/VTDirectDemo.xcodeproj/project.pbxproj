@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		00598E911D76AB39006241BF /* SamplePaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00598E8F1D76AB39006241BF /* SamplePaymentListViewController.m */; };
 		00598E9A1D76AFBA006241BF /* SamplePaymentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00598E901D76AB39006241BF /* SamplePaymentListViewController.xib */; };
+		00EC17921D7D297300D076D2 /* BankTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC17901D7D297300D076D2 /* BankTransferViewController.m */; };
+		00EC17931D7D297300D076D2 /* BankTransferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00EC17911D7D297300D076D2 /* BankTransferViewController.xib */; };
+		00EC17981D7D407400D076D2 /* EpaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC17961D7D407400D076D2 /* EpaymentViewController.m */; };
+		00EC17991D7D407400D076D2 /* EpaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00EC17971D7D407400D076D2 /* EpaymentViewController.xib */; };
 		00F0DA8A1D76BFF6005B117E /* SamplePaymentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F0DA881D76BFF6005B117E /* SamplePaymentListTableViewCell.m */; };
 		00F0DA8B1D76BFF6005B117E /* SamplePaymentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA891D76BFF6005B117E /* SamplePaymentListTableViewCell.xib */; };
 		00F0DA8D1D76D823005B117E /* paymentlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA8C1D76D823005B117E /* paymentlist.plist */; };
@@ -116,6 +120,12 @@
 		00598E8E1D76AB39006241BF /* SamplePaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListViewController.h; sourceTree = "<group>"; };
 		00598E8F1D76AB39006241BF /* SamplePaymentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePaymentListViewController.m; sourceTree = "<group>"; };
 		00598E901D76AB39006241BF /* SamplePaymentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SamplePaymentListViewController.xib; sourceTree = "<group>"; };
+		00EC178F1D7D297300D076D2 /* BankTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransferViewController.h; sourceTree = "<group>"; };
+		00EC17901D7D297300D076D2 /* BankTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransferViewController.m; sourceTree = "<group>"; };
+		00EC17911D7D297300D076D2 /* BankTransferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransferViewController.xib; sourceTree = "<group>"; };
+		00EC17951D7D407400D076D2 /* EpaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EpaymentViewController.h; sourceTree = "<group>"; };
+		00EC17961D7D407400D076D2 /* EpaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EpaymentViewController.m; sourceTree = "<group>"; };
+		00EC17971D7D407400D076D2 /* EpaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EpaymentViewController.xib; sourceTree = "<group>"; };
 		00F0DA871D76BFF6005B117E /* SamplePaymentListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListTableViewCell.h; sourceTree = "<group>"; };
 		00F0DA881D76BFF6005B117E /* SamplePaymentListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePaymentListTableViewCell.m; sourceTree = "<group>"; };
 		00F0DA891D76BFF6005B117E /* SamplePaymentListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SamplePaymentListTableViewCell.xib; sourceTree = "<group>"; };
@@ -216,6 +226,8 @@
 		00598E7F1D769739006241BF /* Core-flow sample */ = {
 			isa = PBXGroup;
 			children = (
+				00EC17941D7D405A00D076D2 /* E Payment */,
+				00EC178C1D7D295B00D076D2 /* Bank Transfer */,
 				00598E871D76980B006241BF /* Payment list */,
 				00F0DA8C1D76D823005B117E /* paymentlist.plist */,
 			);
@@ -232,6 +244,26 @@
 				00598E901D76AB39006241BF /* SamplePaymentListViewController.xib */,
 			);
 			name = "Payment list";
+			sourceTree = "<group>";
+		};
+		00EC178C1D7D295B00D076D2 /* Bank Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				00EC178F1D7D297300D076D2 /* BankTransferViewController.h */,
+				00EC17901D7D297300D076D2 /* BankTransferViewController.m */,
+				00EC17911D7D297300D076D2 /* BankTransferViewController.xib */,
+			);
+			name = "Bank Transfer";
+			sourceTree = "<group>";
+		};
+		00EC17941D7D405A00D076D2 /* E Payment */ = {
+			isa = PBXGroup;
+			children = (
+				00EC17951D7D407400D076D2 /* EpaymentViewController.h */,
+				00EC17961D7D407400D076D2 /* EpaymentViewController.m */,
+				00EC17971D7D407400D076D2 /* EpaymentViewController.xib */,
+			);
+			name = "E Payment";
 			sourceTree = "<group>";
 		};
 		00F0DA841D76BFDA005B117E /* PaymentList Cell */ = {
@@ -579,10 +611,12 @@
 				E5C25FD71D25DE520012BCC8 /* TitilliumWeb-Bold.ttf in Resources */,
 				00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */,
 				E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */,
+				00EC17931D7D297300D076D2 /* BankTransferViewController.xib in Resources */,
 				E5C25FCC1D25DE520012BCC8 /* Lato-Bold.ttf in Resources */,
 				E5C25FDC1D25DE520012BCC8 /* TitilliumWeb-Light.ttf in Resources */,
 				E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */,
 				00F0DA8F1D76DCBF005B117E /* Media.xcassets in Resources */,
+				00EC17991D7D407400D076D2 /* EpaymentViewController.xib in Resources */,
 				00F0DA8D1D76D823005B117E /* paymentlist.plist in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
 				E5C25FE41D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf in Resources */,
@@ -745,7 +779,9 @@
 				00598E911D76AB39006241BF /* SamplePaymentListViewController.m in Sources */,
 				00F0DA8A1D76BFF6005B117E /* SamplePaymentListTableViewCell.m in Sources */,
 				302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */,
+				00EC17981D7D407400D076D2 /* EpaymentViewController.m in Sources */,
 				302F71C31C73163C00FE73FE /* main.m in Sources */,
+				00EC17921D7D297300D076D2 /* BankTransferViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

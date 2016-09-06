@@ -10,7 +10,7 @@
 #import "VTVATransactionStatusViewModel.h"
 
 @interface VTVASuccessStatusController : VTPaymentController
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                   statusModel:(VTVATransactionStatusViewModel *)statusModel;
 @end

@@ -33,21 +33,21 @@ static NSString * const CREDIT_CARD_TYPE_VISA    = @"Visa";
 /**
  *  PAYMENT TYPE
  */
-static NSString * const VT_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
+static NSString * const MIDTRANS_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
 static NSString * const VT_PAYMENT_KLIK_BCA = @"bca_klikbca";
 static NSString * const VT_PAYMENT_INDOMARET = @"indomaret";
-static NSString * const VT_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
+static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const VT_PAYMENT_CSTORE = @"cstore";
-static NSString * const VT_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
+static NSString * const MIDTRANS_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
 static NSString * const VT_PAYMENT_CREDIT_CARD = @"credit_card";
 static NSString * const VT_PAYMENT_BANK_TRANSFER = @"bank_transfer";
 static NSString * const VT_PAYMENT_ECHANNEL = @"echannel";
-static NSString * const VT_PAYMENT_BRI_EPAY = @"bri_epay";
-static NSString * const VT_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";
+static NSString * const MIDTRANS_PAYMENT_BRI_EPAY = @"bri_epay";
+static NSString * const MIDTRANS_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";
 static NSString * const VT_PAYMENT_INDOSAT_DOMPETKU = @"indosat_dompetku";
-static NSString * const VT_PAYMENT_XL_TUNAI = @"xl_tunai";
+static NSString * const MIDTRANS_PAYMENT_XL_TUNAI = @"xl_tunai";
 static NSString * const VT_PAYMENT_MANDIRI_CLICKPAY = @"mandiri_clickpay";
-static NSString * const VT_PAYMENT_KIOS_ON = @"kioson";
+static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
 
 static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
 static NSString *const TRANSACTION_PENDING = @"vtTRANSACTION_PENDING";

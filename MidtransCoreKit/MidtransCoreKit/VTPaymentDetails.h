@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "VTConstant.h"
-#import "TransactionTokenResponse.h"
+#import "MidtransTransactionTokenResponse.h"
 
 /**
  Protocol that needs to be implemented for each payment type.
@@ -27,6 +27,6 @@
 
 - (NSString *_Nonnull)chargeURL;
 
-- (TransactionTokenResponse *_Nonnull)snapToken;
+- (MidtransTransactionTokenResponse *_Nonnull)snapToken;
 
 @end

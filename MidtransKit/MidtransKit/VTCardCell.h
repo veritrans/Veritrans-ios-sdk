@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTMaskedCreditCard.h>
+#import <MidtransCoreKit/MidtransMaskedCreditCard.h>
 
 
 @protocol VTCardCellDelegate;
 
 @interface VTCardCell : UICollectionViewCell
-@property (nonatomic) VTMaskedCreditCard *maskedCard;
+@property (nonatomic) MidtransMaskedCreditCard *maskedCard;
 @property (nonatomic, weak) id<VTCardCellDelegate>delegate;
 @property (nonatomic) BOOL editing;
 @end

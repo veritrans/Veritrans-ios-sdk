@@ -13,13 +13,13 @@
 
 @interface VTSingleGuideController ()
 @property (strong, nonatomic) IBOutlet UIView *containerView;
-@property (strong, nonatomic) VTPaymentListModel *model;
+@property (strong, nonatomic) MidtransPaymentListModel *model;
 @end
 
 @implementation VTSingleGuideController
 @dynamic view;
 
-- (instancetype)initWithPaymentMethodModel:(VTPaymentListModel *)model {
+- (instancetype)initWithPaymentMethodModel:(MidtransPaymentListModel *)model {
     self = [super initWithNibName:[self.class description] bundle:VTBundle];
     if (self) {
         self.model = model;

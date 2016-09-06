@@ -70,11 +70,11 @@ static NSString* const ClickpayAPPLI = @"3";
     
     [self showLoadingHud];
    
-    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text token:self.token];
+    MidtransPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text token:self.token];
     
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoadingHud];
         
         if (error) {

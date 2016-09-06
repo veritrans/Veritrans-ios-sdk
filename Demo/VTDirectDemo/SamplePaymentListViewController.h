@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TransactionTokenResponse;
+@class MidtransTransactionTokenResponse;
 @interface SamplePaymentListViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic, strong) TransactionTokenResponse *transactionToken;
+@property (nonatomic, strong) MidtransTransactionTokenResponse *transactionToken;
 
 @end

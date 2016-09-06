@@ -49,7 +49,7 @@
 }
 
 - (UIImage *)iconDarkWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeFromString:number]) {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
@@ -64,7 +64,7 @@
 }
 
 - (UIImage *)iconWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeFromString:number]) {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
@@ -78,7 +78,7 @@
     }
 }
 
-- (void)setToken:(TransactionTokenResponse *)token {
+- (void)setToken:(MidtransTransactionTokenResponse *)token {
     self.amountLabel.text = token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 

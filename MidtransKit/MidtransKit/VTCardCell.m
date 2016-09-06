@@ -33,7 +33,7 @@
     }
 }
 
-- (void)setMaskedCard:(VTMaskedCreditCard *)maskedCard {
+- (void)setMaskedCard:(MidtransMaskedCreditCard *)maskedCard {
     _maskedCard = maskedCard;
     
     self.frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];

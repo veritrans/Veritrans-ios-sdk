@@ -26,13 +26,13 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 @property (strong, nonatomic) IBOutlet VTButton *codeCopyButton;
 @property (strong, nonatomic) IBOutlet VTNextStepButton *finishButton;
 
-@property (nonatomic) VTTransactionResult *result;
+@property (nonatomic) MidtransTransactionResult *result;
 @end
 
 @implementation VTPendingStatusController
 
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod result:(VTTransactionResult *)result {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod result:(MidtransTransactionResult *)result {
     if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.result = result;
     }

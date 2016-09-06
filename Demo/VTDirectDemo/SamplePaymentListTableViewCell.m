@@ -20,7 +20,7 @@
     
     // Configure the view for the selected state
 }
-- (void)configurePaymetnList:(VTPaymentListModel *)paymentList {
+- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList {
     self.paymentName.text = paymentList.title;
     self.paymentDescription.text = paymentList.internalBaseClassDescription;
     NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];

@@ -57,7 +57,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [VTConfig setClientKey:clientKey serverEnvironment:[environment integerValue] merchantURL:merchantURL];
+    [MidtransConfig setClientKey:clientKey serverEnvironment:[environment integerValue] merchantURL:merchantURL];
     
     
     
@@ -76,7 +76,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
         cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure] boolValue];
     }
     
-    [VTCreditCardConfig setPaymentType:paymentType secure:cardSecure];
+    [MidtransCreditCardConfig setPaymentType:paymentType secure:cardSecure];
     
     return YES;
 }

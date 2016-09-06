@@ -11,8 +11,8 @@
 
 @interface VTXLTunaiSuccessController : VTPaymentController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                   statusModel:(VTPaymentStatusXLTunaiViewModel *)statusModel;
 
 @end

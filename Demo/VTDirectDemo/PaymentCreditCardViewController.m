@@ -29,7 +29,7 @@
 }
 - (IBAction)payNowDidTapped:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:self.cardNumberTextField.text
+    MidtransCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:self.cardNumberTextField.text
                                                         expiryMonth:self.cardExpireMonthTextfield.text expiryYear:self.cardExpireYeartextField.text                                                                cvv:self.cvvTextField.text];
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
@@ -44,10 +44,10 @@
         return;
     }
     BOOL enable3Ds = [CC_CONFIG secure];
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                         grossAmount:self.transactionToken.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
-    [[VTClient sharedClient] generateToken:tokenRequest
+    [[MidtransClient sharedClient] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     [MBProgressHUD hideHUDForView:self.view animated:YES];
                                     if (error) {
@@ -66,12 +66,12 @@
                                 }];
 }
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail =
-    [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
+    MidtransPaymentCreditCard *paymentDetail =
+    [[MidtransPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
                                  creditCardToken:token token:self.transactionToken];
-    VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction =
+    [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             // create an alert view with three buttons
             UIAlertView *alertView = [[UIAlertView alloc]

@@ -49,7 +49,7 @@
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
-    UIImage *logo = [VTImageManager merchantLogo];
+    UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
         const CGFloat barHeight = 44;
         const CGFloat statusBarHeigt = 20;
@@ -84,8 +84,8 @@
     
     [self showLoadingHud];
     
-    [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
-                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
+                                                      completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchantData.displayName;
          [self hideLoadingHud];
@@ -96,7 +96,7 @@
              if (response.transactionData.enabledPayments.count) {
                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
                      for (int i = 0; i<paymentList.count; i++) {
-                         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[i]];
                          if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
                              [self.paymentMethodList addObject:paymentmodel];
                          }
@@ -156,7 +156,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
+    MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG saveCard]) {

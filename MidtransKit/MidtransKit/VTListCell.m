@@ -18,7 +18,7 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 }
-- (void)configurePaymetnList:(VTPaymentListModel *)paymentList {
+- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList {
     self.paymentMethodNameLabel.text = paymentList.title;
     self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
     NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];

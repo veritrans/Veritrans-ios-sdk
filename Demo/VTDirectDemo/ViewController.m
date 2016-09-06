@@ -96,15 +96,15 @@
 }
 - (void)initCoreFlow {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    MidtransCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        [[VTMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(TransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
@@ -124,15 +124,15 @@
 }
 - (void)initUIFlow {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    MidtransCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        [[VTMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(TransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
@@ -185,7 +185,7 @@
 
 #pragma mark - VTPaymentViewControllerDelegate
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);
 }
 
@@ -193,7 +193,7 @@
     [self showAlertError:error];
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(VTTransactionResult *)result {
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
     NSLog(@"pending: %@", result);
 }
 
@@ -212,7 +212,7 @@
 
 - (NSNumber *)grossAmountOfItemDetails:(NSArray<VTItemDetail*>*)itemDetails {
     double totalPrice = 0;
-    for (VTItemDetail *itemDetail in itemDetails) {
+    for (MidtransItemDetail *itemDetail in itemDetails) {
         totalPrice += (itemDetail.price.doubleValue * itemDetail.quantity.integerValue);
     }
     return @(totalPrice);
@@ -221,7 +221,7 @@
 - (NSArray *)generateItemDetails {
     NSMutableArray *result = [NSMutableArray new];
     for (int i=0; i<6; i++) {
-        VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@1000 quantity:@3];
+        MidtransItemDetail *itemDetail = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@1000 quantity:@3];
         itemDetail.imageURL = [NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41blp4ePe8L._AC_UL246_SR190,246_.jpg"];
         [result addObject:itemDetail];
     }

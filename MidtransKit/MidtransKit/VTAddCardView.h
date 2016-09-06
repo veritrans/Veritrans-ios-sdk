@@ -25,7 +25,7 @@
 @property (weak, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;
 
-- (void)setToken:(TransactionTokenResponse *)token;
+- (void)setToken:(MidtransTransactionTokenResponse *)token;
 - (BOOL)isViewError:(NSError *)error;
 
 @end

@@ -29,7 +29,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setItem:(VTItemDetail *)item {
+- (void)setItem:(MidtransItemDetail *)item {
     _item = item;
     
     NSNumber *totalPrice = @(item.price.doubleValue * item.quantity.doubleValue);

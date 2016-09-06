@@ -32,7 +32,7 @@
 
 @dynamic view;
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
     if (self = [super initWithToken:token]) {
         self.maskedCards = maskedCards;
     }
@@ -51,7 +51,7 @@
     [self.view setToken:self.token];
 }
 
-- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
     [self hideLoadingHud];
 }
@@ -72,7 +72,7 @@
 
 - (IBAction)registerPressed:(UIButton *)sender {
     
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:self.view.cardNumber.text
+    MidtransCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:self.view.cardNumber.text
                                                          expiryDate:self.view.cardExpiryDate.text
                                                                 cvv:self.view.cardCvv.text];
     NSError *error = nil;
@@ -84,11 +84,11 @@
     [self showLoadingHud];
     
     BOOL enable3Ds = [CC_CONFIG secure];
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                         grossAmount:self.token.transactionDetails.grossAmount
                                                                              secure:enable3Ds];
     
-    [[VTClient sharedClient] generateToken:tokenRequest
+    [[MidtransClient sharedClient] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
                                         
@@ -113,14 +113,14 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithCreditCardToken:token token:self.token];
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token token:self.token];
     
     if ([CC_CONFIG saveCard]) {
         paymentDetail.saveToken = self.view.saveCardSwitch.on;
     }
     
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
         }
@@ -128,7 +128,7 @@
             //save masked cards
             if (result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
-                [[VTMerchantClient sharedClient] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
+                [[MidtransMerchantClient sharedClient] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
             }
             
             //transaction finished

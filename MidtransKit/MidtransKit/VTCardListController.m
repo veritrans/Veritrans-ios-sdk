@@ -70,7 +70,7 @@
 
 - (void)reloadMaskedCards {
     [self showLoadingHud];
-    [[VTMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
+    [[MidtransMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
                                                    completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
      {
          [self hideLoadingHud];
@@ -185,12 +185,12 @@
 - (void)payWithToken:(NSString *)token {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentCreditCard *paymentDetail =
-    [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
+    MidtransPaymentCreditCard *paymentDetail =
+    [[MidtransPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
                                  creditCardToken:token token:self.token];
-    VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction =
+    [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [_hudView hide];
         
         if (error) {
@@ -203,7 +203,7 @@
 
 #pragma mark - VTAddCardControllerDelegate
 
-- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(VTMaskedCreditCard *)registeredCard {
+- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
     [self.navigationController popViewControllerAnimated:YES];
     [self reloadMaskedCards];
 }
@@ -215,7 +215,7 @@
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
-    [[VTMerchantClient sharedClient] saveMaskedCards:self.cards
+    [[MidtransMerchantClient sharedClient] saveMaskedCards:self.cards
                                             customer:self.token.customerDetails
                                           completion:^(id  _Nullable result, NSError * _Nullable error)
      {

@@ -26,13 +26,13 @@
 
 @property (nonatomic) IBOutlet VTTextField *cvvTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
-@property (nonatomic) VTMaskedCreditCard *maskeCard;
+@property (nonatomic) MidtransMaskedCreditCard *maskeCard;
 
 @end
 
 @implementation VTTwoClickController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token maskedCard:(VTMaskedCreditCard *)maskedCard {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCard:(MidtransMaskedCreditCard *)maskedCard {
     self = [super initWithToken:token];
     if (self) {
         self.maskeCard = maskedCard;
@@ -93,7 +93,7 @@
                                 }];
 }
 
-- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
     [self hideLoadingHud];
 }

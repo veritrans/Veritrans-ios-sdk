@@ -21,7 +21,7 @@
 
 @dynamic delegate;
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     return self;

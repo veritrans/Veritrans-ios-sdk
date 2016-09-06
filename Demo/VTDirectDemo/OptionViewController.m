@@ -84,7 +84,7 @@
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     
     _firstNameTextField.text = customer.firstName;
     _lastNameTextField.text = customer.lastName;
@@ -139,9 +139,9 @@
 }
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {
-    VTAddress *shipAddr = [VTAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
-    VTAddress *billAddr = [VTAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
-    VTCustomerDetails *customer = [[VTCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
+    MidtransAddress *shipAddr = [MidtransAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
+    MidtransAddress *billAddr = [MidtransAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
+    MidtransCustomerDetails *customer = [[MidtransCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
     
     //save to NSUserDefaults
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:customer];

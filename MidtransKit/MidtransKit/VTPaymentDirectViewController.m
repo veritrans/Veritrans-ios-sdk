@@ -21,7 +21,7 @@
 
 @interface VTPaymentDirectViewController ()
 @property (strong, nonatomic) IBOutlet VTPaymentDirectView *view;
-@property (nonatomic) VTVAType paymentType;
+@property (nonatomic) MidtransVAType paymentType;
 @end
 
 @implementation VTPaymentDirectViewController
@@ -147,7 +147,7 @@
     [self showGuideViewController];
 }
 
-- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||

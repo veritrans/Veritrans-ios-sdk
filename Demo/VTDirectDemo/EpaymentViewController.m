@@ -83,6 +83,6 @@
  *  @param webPaymentController webPaymentController description
  *  @param error                error description
  */
-- (void)webPaymentController:(VTPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+- (void)webPaymentController:(MidtransPaymentWebController *)webPaymentController transactionError:(NSError *)error {
 }
 @end

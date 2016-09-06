@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (VTValidation)
+@interface NSString (MidtransValidation)
 - (BOOL)isEmpty;
 - (BOOL)isValidEmail;
 - (BOOL)isValidCommonName;

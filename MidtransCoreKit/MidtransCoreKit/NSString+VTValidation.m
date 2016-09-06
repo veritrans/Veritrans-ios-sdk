@@ -8,7 +8,7 @@
 
 #import "NSString+VTValidation.h"
 
-@implementation NSString (VTValidation)
+@implementation NSString (MidtransValidation)
 
 - (BOOL)isEmpty {
     NSString *string = [self stringByReplacingOccurrencesOfString:@" " withString:@""];

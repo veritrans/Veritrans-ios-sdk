@@ -10,12 +10,12 @@
 #import "VTClassHelper.h"
 
 @interface VTItemViewModel()
-@property (nonatomic) VTItemDetail *item;
+@property (nonatomic) MidtransItemDetail *item;
 @end
 
 @implementation VTItemViewModel
 
-+ (instancetype)viewModelWithItem:(VTItemDetail *)item {
++ (instancetype)viewModelWithItem:(MidtransItemDetail *)item {
     VTItemViewModel *mv = [VTItemViewModel new];
     mv.item =  item;
     return mv;

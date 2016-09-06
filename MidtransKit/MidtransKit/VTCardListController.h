@@ -11,6 +11,6 @@
 #import "VTPaymentController.h"
 
 @interface VTCardListController : VTPaymentController
-@property (nonatomic) VTMaskedCreditCard *selectedMaskedCard;
+@property (nonatomic) MidtransMaskedCreditCard *selectedMaskedCard;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @end

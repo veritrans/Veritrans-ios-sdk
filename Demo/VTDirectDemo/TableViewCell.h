@@ -10,5 +10,5 @@
 #import <MidtransKit/VTPaymentViewController.h>
 
 @interface TableViewCell : UITableViewCell
-@property (nonatomic, strong) VTItemDetail *item;
+@property (nonatomic, strong) MidtransItemDetail *item;
 @end

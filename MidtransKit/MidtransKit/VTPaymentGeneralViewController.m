@@ -13,7 +13,7 @@
 #import "VTStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTPaymentGeneralViewController () <VTPaymentWebControllerDelegate>
+@interface VTPaymentGeneralViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentGeneralView *view;
 
 @end
@@ -65,7 +65,7 @@
         }
         else {
             if (result.redirectURL) {
-                VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithTransactionResult:result
+                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result
                                                                                      paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
                 vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
@@ -79,15 +79,15 @@
 
 #pragma mark - VTPaymentWebControllerDelegate
 
-- (void)webPaymentController_transactionFinished:(VTPaymentWebController *)webPaymentController {    
+- (void)webPaymentController_transactionFinished:(MidtransPaymentWebController *)webPaymentController {    
     [super handleTransactionSuccess:webPaymentController.result];
 }
 
-- (void)webPaymentController_transactionPending:(VTPaymentWebController *)webPaymentController {
+- (void)webPaymentController_transactionPending:(MidtransPaymentWebController *)webPaymentController {
     [self handleTransactionPending:webPaymentController.result];
 }
 
-- (void)webPaymentController:(VTPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+- (void)webPaymentController:(MidtransPaymentWebController *)webPaymentController transactionError:(NSError *)error {
     [self handleTransactionError:error];
 }
 

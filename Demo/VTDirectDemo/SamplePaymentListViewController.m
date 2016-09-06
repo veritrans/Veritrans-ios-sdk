@@ -17,7 +17,7 @@
 #import "SamplePaymentListTableViewCell.h"
 @interface SamplePaymentListViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSArray *paymentList;
-@property (nonatomic, strong) PaymentRequestResponse *paymentRequestResponse;
+@property (nonatomic, strong) MidtransPaymentRequestResponse *paymentRequestResponse;
 @property (nonatomic,strong)NSMutableArray *paymentMethodList;
 @end
 
@@ -37,8 +37,8 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"paymentlist" ofType:@"plist"];
     self.paymentList = [NSArray arrayWithContentsOfFile:path];
     
-    [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
-                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
+                                                      completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          self.title = response.merchantData.displayName;
@@ -49,7 +49,7 @@
              if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
                      for (int i = 0; i<self.paymentList.count; i++) {
-                         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
+                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
                          if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
                              [self.paymentMethodList addObject:paymentmodel];
                          }
@@ -81,7 +81,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = self.paymentMethodList[indexPath.row];
+    MidtransPaymentListModel *paymentMethod = self.paymentMethodList[indexPath.row];
     SamplePaymentListTableViewCell *cell = (SamplePaymentListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SamplePaymentListTableViewCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SamplePaymentListTableViewCell" owner:self options:nil] firstObject];
@@ -91,7 +91,7 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
+    MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
         PaymentCreditCardViewController *paymentCC = [[PaymentCreditCardViewController alloc] initWithNibName:@"PaymentCreditCardViewController" bundle:nil];

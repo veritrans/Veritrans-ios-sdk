@@ -11,7 +11,7 @@
 
 @interface VTCCFrontView : VTXibView
 
-- (instancetype)initWithFrame:(CGRect)frame maskedCard:(VTMaskedCreditCard *)maskedCard;
+- (instancetype)initWithFrame:(CGRect)frame maskedCard:(MidtransMaskedCreditCard *)maskedCard;
 
 @property (nonatomic) IBOutlet UIImageView *iconView;
 @property (nonatomic) IBOutlet UILabel *numberLabel;

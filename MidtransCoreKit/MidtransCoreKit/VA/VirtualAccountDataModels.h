@@ -5,4 +5,4 @@
 //  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
 //
 
-#import "VirtualAccountModel.h"
+#import "MidtransVirtualAccountModel.h"

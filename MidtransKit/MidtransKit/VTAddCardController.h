@@ -16,12 +16,12 @@
 
 @property (nonatomic, assign, nonnull) id<VTAddCardControllerDelegate>delegate;
 
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse *_Nonnull)token maskedCards:(NSMutableArray *_Nonnull)maskedCards;
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token maskedCards:(NSMutableArray *_Nonnull)maskedCards;
 
 @end
 
 @protocol VTAddCardControllerDelegate <NSObject>
 
-- (void)viewController:(VTAddCardController *_Nonnull)viewController didRegisterCard:(VTMaskedCreditCard *_Nonnull)registeredCard;
+- (void)viewController:(VTAddCardController *_Nonnull)viewController didRegisterCard:(MidtransMaskedCreditCard *_Nonnull)registeredCard;
 
 @end

@@ -9,7 +9,7 @@
 #import "VTVATransactionStatusViewModel.h"
 
 @implementation VTVATransactionStatusViewModel
-- (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult vaType:(VTVAType)vaType {
+- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult vaType:(MidtransVAType)vaType {
     if (self = [super initWithTransactionResult:transactionResult]) {
         self.vaType = vaType;
         

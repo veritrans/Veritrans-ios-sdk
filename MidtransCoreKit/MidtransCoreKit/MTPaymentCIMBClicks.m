@@ -1,22 +1,21 @@
 //
-//  VTPaymentBCAKlikpay.m
+//  VTPaymentCIMBClicks.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentBCAKlikpay.h"
-#import "VTHelper.h"
+#import "MTPaymentCIMBClicks.h"
 #import "MTConstant.h"
 
-@interface VTPaymentBCAKlikpay()
+@interface MTPaymentCIMBClicks()
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentBCAKlikpay
+@implementation MTPaymentCIMBClicks
 
-- (instancetype _Nonnull) initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -24,7 +23,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_BCA_KLIKPAY;
+    return MT_PAYMENT_CIMB_CLICKS;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -32,10 +31,11 @@
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_BCA_KLIKPAY;
+    return ENDPOINT_CHARGE_CIMB_CLICKS;
 }
 
 - (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
+
 @end

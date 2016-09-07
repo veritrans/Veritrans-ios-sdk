@@ -6,17 +6,17 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentMandiriClickpay.h"
+#import "MTPaymentMandiriClickpay.h"
 #import "MTConstant.h"
 
-@interface VTPaymentMandiriClickpay()
+@interface MTPaymentMandiriClickpay()
 @property (nonatomic) NSString *cardNumber;
 @property (nonatomic) MTTransactionTokenResponse *token;
 @property (nonatomic) NSString *clickpayToken;
 @property (nonatomic) NSNumber *grossAmount;
 @end
 
-@implementation VTPaymentMandiriClickpay
+@implementation MTPaymentMandiriClickpay
 
 - (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken token:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
@@ -34,7 +34,7 @@
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id":self.token.tokenId,
              @"mandiri_card_no":self.cardNumber,
-             @"input3":[VTMandiriClickpayHelper generateInput3],
+             @"input3":[MTMandiriClickpayHelper generateInput3],
              @"token_response":self.clickpayToken};
 }
 

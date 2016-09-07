@@ -14,7 +14,7 @@
 #import "VTCreditCardPaymentFeature.h"
 
 @interface VTTokenizeRequest()
-@property (nonatomic, readwrite) VTCreditCard *creditCard;
+@property (nonatomic, readwrite) MTCreditCard *creditCard;
 @property (nonatomic, readwrite) NSString *bank;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 @property (nonatomic, readwrite) BOOL installment;
@@ -29,7 +29,7 @@
 
 @implementation VTTokenizeRequest
 
-- (instancetype)initWithCreditCard:(VTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
+- (instancetype)initWithCreditCard:(MTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;

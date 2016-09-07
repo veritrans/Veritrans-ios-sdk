@@ -16,7 +16,7 @@
 
 @implementation VTTransaction
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails {
+- (instancetype)initWithPaymentDetails:(id<MTPaymentDetails>)paymentDetails {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
     }

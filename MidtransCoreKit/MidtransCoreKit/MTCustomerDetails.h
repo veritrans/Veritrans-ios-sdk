@@ -1,5 +1,5 @@
 //
-//  VTCustomerDetails.h
+//  MTCustomerDetails.h
 //  MidtransCoreKit
 //
 //  Created by Akbar Taufiq Herlangga on 3/2/16.
@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MTAddress.h"
 
-@interface VTCustomerDetails : NSObject
+@interface MTCustomerDetails : NSObject
 
 @property (nonatomic, strong) NSString *customerIdentifier;
 @property (nonatomic, strong) NSString *firstName;

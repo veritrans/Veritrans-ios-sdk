@@ -1,35 +1,35 @@
 //
-//  VTMaskedCreditCard.m
+//  MTMaskedCreditCard.m
 //  iossdk-gojek
 //
 //  Created by Nanang Rafsanjani on 3/10/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTMaskedCreditCard.h"
+#import "MTMaskedCreditCard.h"
 #import "MTConstant.h"
 #import "MTCreditCardHelper.h"
 
-NSString *const kVTMaskedCreditCard = @"masked_card";
-NSString *const kVTMaskedCreditCardToken = @"saved_token_id";
+NSString *const kMTMaskedCreditCard = @"masked_card";
+NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
 
-NSString *const kVTMaskedCreditCardTokenIdentifier = @"token_id";
-NSString *const kVTMaskedCreditCardTokenCardhash = @"cardhash";
-NSString *const kVTMaskedCreditCardTokenType = @"type";
+NSString *const kMTMaskedCreditCardTokenIdentifier = @"token_id";
+NSString *const kMTMaskedCreditCardTokenCardhash = @"cardhash";
+NSString *const kMTMaskedCreditCardTokenType = @"type";
 
-@interface VTMaskedCreditCard()
+@interface MTMaskedCreditCard()
 @property (nonatomic, readwrite) NSString *maskedNumber;
 @property (nonatomic, readwrite) NSString *savedTokenId;
 @property (nonatomic, readwrite) NSString *type;
 @property (nonatomic, readwrite) NSDictionary *data;
 @end
 
-@implementation VTMaskedCreditCard
+@implementation MTMaskedCreditCard
 
 - (instancetype)initWithData:(NSDictionary *)data {
     if (self = [super init]) {
-        self.maskedNumber = [data[kVTMaskedCreditCard] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
-        self.savedTokenId = data[kVTMaskedCreditCardToken];
+        self.maskedNumber = [data[kMTMaskedCreditCard] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
+        self.savedTokenId = data[kMTMaskedCreditCardToken];
         self.type = [MTCreditCardHelper nameFromString:self.maskedNumber];
         self.data = data;
     }
@@ -38,17 +38,17 @@ NSString *const kVTMaskedCreditCardTokenType = @"type";
 
 - (instancetype _Nonnull)initWithDictionary:(NSDictionary *_Nonnull)dictionary {
     if (self = [super init]) {
-        self.savedTokenId = dictionary[kVTMaskedCreditCardTokenIdentifier];
-        self.maskedNumber = dictionary[kVTMaskedCreditCardTokenCardhash];
-        self.type = dictionary[kVTMaskedCreditCardTokenType];
+        self.savedTokenId = dictionary[kMTMaskedCreditCardTokenIdentifier];
+        self.maskedNumber = dictionary[kMTMaskedCreditCardTokenCardhash];
+        self.type = dictionary[kMTMaskedCreditCardTokenType];
     }
     return self;
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{kVTMaskedCreditCardTokenIdentifier:self.savedTokenId,
-             kVTMaskedCreditCardTokenCardhash:self.maskedNumber,
-             kVTMaskedCreditCardTokenType:self.type};
+    return @{kMTMaskedCreditCardTokenIdentifier:self.savedTokenId,
+             kMTMaskedCreditCardTokenCardhash:self.maskedNumber,
+             kMTMaskedCreditCardTokenType:self.type};
 }
 
 - (NSString *)description {

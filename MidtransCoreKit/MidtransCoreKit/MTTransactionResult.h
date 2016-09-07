@@ -1,5 +1,5 @@
 //
-//  VTTransactionResult
+//  MTTransactionResult
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/15/16.
@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTMaskedCreditCard.h"
+#import "MTMaskedCreditCard.h"
 
 /**
  Object that represent the successful transaction.
  */
-@interface VTTransactionResult : NSObject
+@interface MTTransactionResult : NSObject
 
 /**
  The HTTP status code received from server.
@@ -62,7 +62,7 @@
 /**
  Masked card object, will not be nil if doing charge with save card feature enabled
  */
-@property(nonatomic, readonly) VTMaskedCreditCard *maskedCreditCard;
+@property(nonatomic, readonly) MTMaskedCreditCard *maskedCreditCard;
 
 /**
  Payment code for Indomaret transaction, will not be nil if use Indomaret transaction

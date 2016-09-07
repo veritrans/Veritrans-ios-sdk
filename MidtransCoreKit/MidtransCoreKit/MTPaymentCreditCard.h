@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTPaymentDetails.h"
+#import "MTPaymentDetails.h"
 #import "VTCreditCardPaymentFeature.h"
 
 /**
@@ -15,7 +15,7 @@
  
  This class is modeled after http://docs.veritrans.co.id/en/api/methods.html#credit_card_attr
  */
-@interface VTPaymentCreditCard : NSObject <VTPaymentDetails>
+@interface MTPaymentCreditCard : NSObject <MTPaymentDetails>
 
 /**
  The name of the bank.

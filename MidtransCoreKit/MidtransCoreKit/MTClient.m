@@ -6,7 +6,7 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTClient.h"
+#import "MTClient.h"
 #import "MTConfig.h"
 #import "MTNetworking.h"
 #import "MTTrackingManager.h"
@@ -18,14 +18,14 @@
 NSString *const GENERATE_TOKEN_URL = @"token";
 NSString *const REGISTER_CARD_URL = @"card/register";
 
-@interface VTClient ()
+@interface MTClient ()
 
 @end
 
-@implementation VTClient
+@implementation MTClient
 
 + (id)sharedClient {
-    static VTClient *instance = nil;
+    static MTClient *instance = nil;
     @synchronized(self) {
         if (instance == nil) {
             instance = [[self alloc] init];
@@ -71,8 +71,8 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     }];
 }
 
-- (void)registerCreditCard:(VTCreditCard *_Nonnull)creditCard
-                completion:(void (^_Nullable)(VTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion {
+- (void)registerCreditCard:(MTCreditCard *_Nonnull)creditCard
+                completion:(void (^_Nullable)(MTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion {
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         if (completion) completion(nil, error);
@@ -81,7 +81,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], REGISTER_CARD_URL];
     [[MTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
         if (response) {
-            VTMaskedCreditCard *maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:response];
+            MTMaskedCreditCard *maskedCreditCard = [[MTMaskedCreditCard alloc] initWithData:response];
             if (completion) completion(maskedCreditCard, error);
         } else {
             if (completion) completion(nil, error);

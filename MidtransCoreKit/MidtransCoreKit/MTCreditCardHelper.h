@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-#import "VTCreditCard.h"
+#import "MTCreditCard.h"
 
 static NSString * const ExpiryDateSeparator = @" / ";
 
@@ -31,7 +31,7 @@ typedef NS_ENUM(NSInteger, MTCreditCardType) {
 + (NSString *)nameFromString:(NSString *)string;
 @end
 
-@interface VTCreditCard (Validation)
+@interface MTCreditCard (Validation)
 - (BOOL)isValidCreditCard:(NSError **)error;
 @end
 

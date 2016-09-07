@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTPaymentDetails.h"
+#import "MTPaymentDetails.h"
 
-@interface VTPaymentIndosatDompetku : NSObject <VTPaymentDetails>
+@interface VTPaymentIndosatDompetku : NSObject <MTPaymentDetails>
 - (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MTTransactionTokenResponse *_Nonnull)token;
 @end

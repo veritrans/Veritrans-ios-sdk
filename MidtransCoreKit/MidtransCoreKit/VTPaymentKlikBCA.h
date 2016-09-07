@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTPaymentDetails.h"
-@interface VTPaymentKlikBCA : NSObject<VTPaymentDetails>
+#import "MTPaymentDetails.h"
+@interface VTPaymentKlikBCA : NSObject<MTPaymentDetails>
 - (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(MTTransactionTokenResponse *_Nonnull)token;
 @end

@@ -1,20 +1,21 @@
 //
-//  VTPaymentCStore.m
+//  VTPaymentMandiriECash.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentCStore.h"
+#import "MTPaymentMandiriECash.h"
+#import "MTConstant.h"
 
-@interface VTPaymentCStore()
+@interface MTPaymentMandiriECash()
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentCStore
+@implementation MTPaymentMandiriECash
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,19 +23,16 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_CSTORE;
+    return MT_PAYMENT_MANDIRI_ECASH;
 }
-
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id":self.token.tokenId};
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_INDOMARET;
+    return ENDPOINT_CHARGE_MANDIRI_ECASH;
 }
-
 - (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
-
 @end

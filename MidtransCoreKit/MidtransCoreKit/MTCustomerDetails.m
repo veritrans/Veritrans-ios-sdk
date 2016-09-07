@@ -1,21 +1,21 @@
 //
-//  VTCustomerDetails.m
+//  MTCustomerDetails.m
 //  MidtransCoreKit
 //
 //  Created by Akbar Taufiq Herlangga on 3/2/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCustomerDetails.h"
+#import "MTCustomerDetails.h"
 #import "VTHelper.h"
 #import "NSString+MTValidation.h"
 #import "MTConstant.h"
 
-@interface VTCustomerDetails ()
+@interface MTCustomerDetails ()
 
 @end
 
-@implementation VTCustomerDetails
+@implementation MTCustomerDetails
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc

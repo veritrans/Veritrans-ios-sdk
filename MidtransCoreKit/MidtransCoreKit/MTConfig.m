@@ -8,7 +8,7 @@
 
 #import "MTConfig.h"
 #import "MTConstant.h"
-#import "VTMerchantClient.h"
+#import "MTMerchantClient.h"
 #import "MTPrivateConfig.h"
 
 @interface MTConfig ()

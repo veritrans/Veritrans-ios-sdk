@@ -6,19 +6,19 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCreditCard.h"
+#import "MTCreditCard.h"
 #import "VTHelper.h"
 #import "MTConfig.h"
 #import "MTCreditCardHelper.h"
 
-@interface VTCreditCard ()
+@interface MTCreditCard ()
 @property (nonatomic, readwrite) NSString *expiryYear;
 @property (nonatomic, readwrite) NSString *expiryMonth;
 @property (nonatomic, readwrite) NSString *number;
 @property (nonatomic, readwrite) NSString *cvv;
 @end
 
-@implementation VTCreditCard
+@implementation MTCreditCard
 
 - (instancetype)initWithNumber:(NSString *)number
                    expiryMonth:(NSString *)expiryMonth

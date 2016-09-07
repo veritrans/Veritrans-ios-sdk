@@ -7,16 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTTransactionResult.h"
+#import "MTTransactionResult.h"
 
 @protocol MTPaymentWebControllerDelegate;
 
 @interface MTPaymentWebController : UIViewController
 
-@property (nonatomic, readonly, nonnull) VTTransactionResult *result;
+@property (nonatomic, readonly, nonnull) MTTransactionResult *result;
 @property (nonatomic, assign, nullable) id<MTPaymentWebControllerDelegate>delegate;
 
-- (instancetype _Nonnull)initWithTransactionResult:(VTTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier;
+- (instancetype _Nonnull)initWithTransactionResult:(MTTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier;
 
 @end
 

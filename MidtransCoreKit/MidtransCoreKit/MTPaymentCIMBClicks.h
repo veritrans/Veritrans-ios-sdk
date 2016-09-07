@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTPaymentDetails.h"
+#import "MTPaymentDetails.h"
 
-@interface VTPaymentCIMBClicks : NSObject <VTPaymentDetails>
+@interface MTPaymentCIMBClicks : NSObject <MTPaymentDetails>
 - (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token;
 @end

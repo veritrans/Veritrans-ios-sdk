@@ -1,20 +1,18 @@
 //
-//  VTPaymentEpayBRI.m
+//  VTPaymentCStore.m
 //  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 6/14/16.
+//  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentEpayBRI.h"
-#import "VTHelper.h"
-#import "MTConstant.h"
+#import "MTPaymentCStore.h"
 
-@interface VTPaymentEpayBRI()
+@interface MTPaymentCStore()
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentEpayBRI
+@implementation MTPaymentCStore
 
 - (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
@@ -22,8 +20,9 @@
     }
     return self;
 }
+
 - (NSString *)paymentType {
-    return MT_PAYMENT_BRI_EPAY;
+    return MT_PAYMENT_CSTORE;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -31,7 +30,7 @@
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_BRI_EPAY;
+    return ENDPOINT_CHARGE_INDOMARET;
 }
 
 - (MTTransactionTokenResponse *)snapToken {

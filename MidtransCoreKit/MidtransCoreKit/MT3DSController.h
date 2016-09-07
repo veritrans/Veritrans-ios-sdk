@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTTransactionResult.h"
+#import "MTTransactionResult.h"
 
 @interface MT3DSController : UIViewController
 @property (nonatomic, strong) UIWebView *webView;

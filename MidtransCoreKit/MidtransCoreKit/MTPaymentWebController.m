@@ -13,12 +13,12 @@
 @interface MTPaymentWebController () <UIWebViewDelegate, UIAlertViewDelegate>
 @property (nonatomic) UIWebView *webView;
 @property (nonatomic) NSString *paymentIdentifier;
-@property (nonatomic, readwrite) VTTransactionResult *result;
+@property (nonatomic, readwrite) MTTransactionResult *result;
 @end
 
 @implementation MTPaymentWebController
 
-- (instancetype _Nonnull)initWithTransactionResult:(VTTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier {
+- (instancetype _Nonnull)initWithTransactionResult:(MTTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier {
     if (self = [super init]) {
         self.result = result;
         self.paymentIdentifier = paymentIdentifier;

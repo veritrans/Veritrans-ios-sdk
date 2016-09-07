@@ -6,7 +6,7 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTMerchantClient.h"
+#import "MTMerchantClient.h"
 #import "MTConfig.h"
 #import "MTNetworking.h"
 #import "MTPrivateConfig.h"
@@ -31,7 +31,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 - (NSArray *)requestBodyValues {
     NSMutableArray *parameter = [[NSMutableArray alloc] init];
-    for (VTMaskedCreditCard *maskedCard in self) {
+    for (MTMaskedCreditCard *maskedCard in self) {
         [parameter addObject:maskedCard.dictionaryValue];
     }
     return parameter;
@@ -39,11 +39,11 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 @end
 
-@implementation VTMerchantClient
+@implementation MTMerchantClient
 
 + (id)sharedClient {
     // Idea stolen from http://www.galloway.me.uk/tutorials/singleton-classes/
-    static VTMerchantClient *instance = nil;
+    static MTMerchantClient *instance = nil;
     @synchronized(self) {
         if (instance == nil) {
             instance = [[self alloc] init];
@@ -53,7 +53,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     return instance;
 }
 
-- (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(VTTransactionResult *result, NSError *error))completion {
+- (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(MTTransactionResult *result, NSError *error))completion {
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL], [transaction chargeURL]];
     
@@ -64,7 +64,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         NSString *paymentType = transaction.paymentDetails.paymentType;
         
         if (response) {
-            VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
+            MTTransactionResult *chargeResult = [[MTTransactionResult alloc] initWithTransactionResponse:response];
             
             if ([paymentType isEqualToString:MT_PAYMENT_CREDIT_CARD]) {
                 [[MTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MT_PAYMENT_CREDIT_CARD value:0];
@@ -89,13 +89,13 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     }];
 }
 
-- (void)saveMaskedCards:(NSArray <VTMaskedCreditCard*>*)maskedCards customer:(VTCustomerDetails *)customer completion:(void(^)(id result, NSError *error))completion {
+- (void)saveMaskedCards:(NSArray <MTMaskedCreditCard*>*)maskedCards customer:(MTCustomerDetails *)customer completion:(void(^)(id result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
     NSArray *parameters = maskedCards.requestBodyValues;
     [[MTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
 }
 
-- (void)fetchMaskedCardsCustomer:(VTCustomerDetails *)customer completion:(void(^)(NSArray *maskedCards, NSError *error))completion {
+- (void)fetchMaskedCardsCustomer:(MTCustomerDetails *)customer completion:(void(^)(NSArray *maskedCards, NSError *error))completion {
     NSURL *URL = [NSURL URLWithString:[NSString stringWithFormat:FETCH_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier]];
     NSURLRequest *request = [NSURLRequest requestWithURL:URL];
     
@@ -110,7 +110,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
              
              if (!error) {
                  for (NSDictionary *dictionary in requestResponse) {
-                     VTMaskedCreditCard *card = [[VTMaskedCreditCard alloc] initWithDictionary:dictionary];
+                     MTMaskedCreditCard *card = [[MTMaskedCreditCard alloc] initWithDictionary:dictionary];
                      [result addObject:card];
                  }
              }
@@ -134,7 +134,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MTItemDetail*> *)itemDetails
-                                      customerDetails:(nullable VTCustomerDetails *)customerDetails
+                                      customerDetails:(nullable MTCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MTTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
 {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];

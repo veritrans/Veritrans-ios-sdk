@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-#import "VTPaymentDetails.h"
+#import "MTPaymentDetails.h"
 #import "VTTransactionDetails.h"
-#import "VTCustomerDetails.h"
+#import "MTCustomerDetails.h"
 #import "MTItemDetail.h"
 #import "MTTransactionTokenResponse.h"
 
@@ -24,7 +24,7 @@
 /**
  The payment details. This object contains payment-specific data. Each payment type has its own data structure.
  */
-@property (nonatomic, readonly) id<VTPaymentDetails> paymentDetails;
+@property (nonatomic, readonly) id<MTPaymentDetails> paymentDetails;
 
 
 /**
@@ -42,7 +42,7 @@
  */
 @property (nonatomic) NSString *customField3;
 
-- (instancetype)initWithPaymentDetails:(id<VTPaymentDetails>)paymentDetails;
+- (instancetype)initWithPaymentDetails:(id<MTPaymentDetails>)paymentDetails;
 
 - (NSDictionary *)dictionaryValue;
 

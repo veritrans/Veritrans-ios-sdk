@@ -1,29 +1,29 @@
 //
-//  VTPaymentCIMBClicks.m
+//  VTPaymentEpayBRI.m
 //  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 6/13/16.
+//  Created by Nanang Rafsanjani on 6/14/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentCIMBClicks.h"
+#import "MTPaymentEpayBRI.h"
+#import "VTHelper.h"
 #import "MTConstant.h"
 
-@interface VTPaymentCIMBClicks()
+@interface MTPaymentEpayBRI()
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentCIMBClicks
+@implementation MTPaymentEpayBRI
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
     return self;
 }
-
 - (NSString *)paymentType {
-    return MT_PAYMENT_CIMB_CLICKS;
+    return MT_PAYMENT_BRI_EPAY;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -31,7 +31,7 @@
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_CIMB_CLICKS;
+    return ENDPOINT_CHARGE_BRI_EPAY;
 }
 
 - (MTTransactionTokenResponse *)snapToken {

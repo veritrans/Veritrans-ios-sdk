@@ -1,15 +1,15 @@
 //
-//  VTTransactionResult.m
+//  MTTransactionResult.m
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/15/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTTransactionResult.h"
+#import "MTTransactionResult.h"
 #import "VTHelper.h"
 
-@interface VTTransactionResult()
+@interface MTTransactionResult()
 
 @property (nonatomic, readwrite) NSInteger statusCode;
 @property (nonatomic, readwrite) NSString *statusMessage;
@@ -28,7 +28,7 @@
 @property (nonatomic, readwrite) NSURL *redirectURL;
 @end
 
-@implementation VTTransactionResult
+@implementation MTTransactionResult
 
 - (instancetype)initWithTransactionResponse:(NSDictionary *)response {
     self = [super init];
@@ -58,7 +58,7 @@
                                                @"saved_token_id":response[@"saved_token_id"],
                                                @"status_code":response[@"status_code"],
                                                @"transaction_id":response[@"transaction_id"]};
-            _maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:maskedCardObject];
+            _maskedCreditCard = [[MTMaskedCreditCard alloc] initWithData:maskedCardObject];
         }
         
         if (response[@"payment_code"]) {

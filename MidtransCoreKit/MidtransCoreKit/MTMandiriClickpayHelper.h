@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VTMandiriClickpayHelper : NSObject
+@interface MTMandiriClickpayHelper : NSObject
 
 + (NSString *_Nonnull)generateInput1FromCardNumber:(NSString *_Nonnull)cardNumber;
 + (NSString *_Nonnull)generateInput2FromGrossAmount:(NSNumber *_Nonnull)grossAmount;

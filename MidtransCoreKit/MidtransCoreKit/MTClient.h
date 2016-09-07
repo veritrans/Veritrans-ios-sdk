@@ -8,15 +8,15 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "VTCreditCard.h"
+#import "MTCreditCard.h"
 #import "VTTokenizeRequest.h"
-#import "VTMaskedCreditCard.h"
-#import "VTTransactionResult.h"
+#import "MTMaskedCreditCard.h"
+#import "MTTransactionResult.h"
 
 /**
  `VTClient` wraps various services offered by Veritrans server. Note that Veritrans offers many payment services, but not all of wrapped by this object because most the of service are supposed to be executed server-side.
  */
-@interface VTClient : NSObject
+@interface MTClient : NSObject
 
 ///--------------------
 /// @name Instantiation
@@ -49,7 +49,7 @@
  
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain registered credit card object.
  */
-- (void)registerCreditCard:(VTCreditCard *_Nonnull)creditCard
-                completion:(void (^_Nullable)(VTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
+- (void)registerCreditCard:(MTCreditCard *_Nonnull)creditCard
+                completion:(void (^_Nullable)(MTMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
 
 @end

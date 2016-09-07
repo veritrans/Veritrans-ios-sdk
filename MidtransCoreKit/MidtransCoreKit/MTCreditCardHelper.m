@@ -88,7 +88,7 @@
 
 @end
 
-@implementation VTCreditCard (Validation)
+@implementation MTCreditCard (Validation)
 
 - (BOOL)isValidCreditCard:(NSError **)error {
     if ([self.number isValidCreditCardNumber:error] == NO) {

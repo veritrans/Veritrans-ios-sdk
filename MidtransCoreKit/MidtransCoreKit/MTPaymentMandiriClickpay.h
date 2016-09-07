@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTPaymentDetails.h"
-#import "VTMandiriClickpayHelper.h"
+#import "MTPaymentDetails.h"
+#import "MTMandiriClickpayHelper.h"
 
-@interface VTPaymentMandiriClickpay : NSObject <VTPaymentDetails>
+@interface MTPaymentMandiriClickpay : NSObject <MTPaymentDetails>
 - (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken token:(MTTransactionTokenResponse *_Nonnull)token;
 @end

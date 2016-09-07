@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VTCreditCard : NSObject
+@interface MTCreditCard : NSObject
 
 @property (nonatomic, readonly) NSString *expiryYear;
 @property (nonatomic, readonly) NSString *expiryMonth;

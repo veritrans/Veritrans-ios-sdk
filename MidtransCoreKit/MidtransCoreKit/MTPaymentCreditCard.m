@@ -1,23 +1,23 @@
 //
-//  VTPaymentCreditCard.m
+//  MTPaymentCreditCard.m
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/10/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentCreditCard.h"
+#import "MTPaymentCreditCard.h"
 #import "VTHelper.h"
 #import "MTConfig.h"
 #import "MTCreditCardConfig.h"
 
-@interface VTPaymentCreditCard()
+@interface MTPaymentCreditCard()
 @property (nonatomic) VTCreditCardPaymentFeature creditCardPaymentFeature;
 @property (nonatomic) MTTransactionTokenResponse *_Nonnull token;
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @end
 
-@implementation VTPaymentCreditCard
+@implementation MTPaymentCreditCard
 
 - (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
                 creditCardToken:(NSString *_Nonnull)creditCardToken

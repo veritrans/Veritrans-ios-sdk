@@ -1,5 +1,5 @@
 //
-//  VTMaskedCreditCard.h
+//  MTMaskedCreditCard.h
 //  iossdk-gojek
 //
 //  Created by Nanang Rafsanjani on 3/10/16.
@@ -11,7 +11,7 @@
 /**
  Object that represent partially saved credit card information.
  */
-@interface VTMaskedCreditCard : NSObject
+@interface MTMaskedCreditCard : NSObject
 
 /**
  Partial number of the credit card.

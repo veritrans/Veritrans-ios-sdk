@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTMandiriClickpayHelper.h"
+#import "MTMandiriClickpayHelper.h"
 
-@implementation VTMandiriClickpayHelper
+@implementation MTMandiriClickpayHelper
 
 + (NSString *_Nonnull)generateInput1FromCardNumber:(NSString *_Nonnull)cardNumber {
     if ([cardNumber length] == 0) {

@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
 
-@interface MTPaymentIndosatDompetku : NSObject <MidtransPaymentDetails>
+@interface MidtransPaymentIndosatDompetku : NSObject <MidtransPaymentDetails>
 - (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MidtransTransactionTokenResponse *_Nonnull)token;
 @end

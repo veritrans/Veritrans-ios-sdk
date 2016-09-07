@@ -1,22 +1,21 @@
 //
-//  VTPaymentBCAKlikpay.m
+//  VTPaymentMandiriECash.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentBCAKlikpay.h"
-#import "MidtransHelper.h"
+#import "MidtransPaymentMandiriECash.h"
 #import "MidtransConstant.h"
 
-@interface MTPaymentBCAKlikpay()
+@interface MidtransPaymentMandiriECash()
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentBCAKlikpay
+@implementation MidtransPaymentMandiriECash
 
-- (instancetype _Nonnull) initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -24,17 +23,15 @@
 }
 
 - (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_BCA_KLIKPAY;
+    return MIDTRANS_PAYMENT_MANDIRI_ECASH;
 }
-
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id":self.token.tokenId};
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_BCA_KLIKPAY;
+    return ENDPOINT_CHARGE_MANDIRI_ECASH;
 }
-
 - (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }

@@ -11,7 +11,7 @@
 #import "MidtransConstant.h"
 #import "MTPaymentRequestDataModels.h"
 #import "MidtransNetworking.h"
-#import "MTCreditCardPaymentFeature.h"
+#import "MidtransCreditCardPaymentFeature.h"
 
 @implementation NSDictionary (TrackingManager)
 

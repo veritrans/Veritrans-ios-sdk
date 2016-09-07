@@ -12,7 +12,7 @@
 /**
  `VTTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
  */
-@interface MTTokenizeRequest : NSObject
+@interface MidtransTokenizeRequest : NSObject
 
 @property (nonatomic, readonly) MidtransCreditCard *creditCard;
 @property (nonatomic, readonly) NSString *bank;

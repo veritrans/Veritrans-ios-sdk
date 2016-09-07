@@ -1,5 +1,5 @@
 //
-//  VTPaymentCStore.h
+//  VTPaymentCIMBClicks.h
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
 
-@interface MTPaymentCStore : NSObject <MidtransPaymentDetails>
-
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token;
+@interface MidtransPaymentCIMBClicks : NSObject <MidtransPaymentDetails>
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token;
 @end

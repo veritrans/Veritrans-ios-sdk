@@ -6,14 +6,14 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentTelkomselCash.h"
+#import "MidtransPaymentTelkomselCash.h"
 
-@interface MTPaymentTelkomselCash()
+@interface MidtransPaymentTelkomselCash()
 @property (nonatomic) NSString *msisdn;
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentTelkomselCash
+@implementation MidtransPaymentTelkomselCash
 
 - (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

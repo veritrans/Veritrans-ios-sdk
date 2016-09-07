@@ -8,14 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
-#import "MTCreditCardPaymentFeature.h"
+#import "MidtransCreditCardPaymentFeature.h"
 
 /**
  `VTPaymentCreditCard` contains all the data needed to perform transaction againts Veritrans Server using credit card.
  
  This class is modeled after http://docs.veritrans.co.id/en/api/methods.html#credit_card_attr
  */
-@interface MTPaymentCreditCard : NSObject <MidtransPaymentDetails>
+@interface MidtransPaymentCreditCard : NSObject <MidtransPaymentDetails>
 
 /**
  The name of the bank.
@@ -54,7 +54,7 @@
  @param feature The feature of the payment.
  @param tokenId The specified token ID.
  */
-- (instancetype _Nonnull)initWithFeature:(MTCreditCardPaymentFeature)feature
+- (instancetype _Nonnull)initWithFeature:(MidtransCreditCardPaymentFeature)feature
                          creditCardToken:(NSString *_Nonnull)creditCardToken
                                    token:(MidtransTransactionTokenResponse *_Nonnull)token;
 

@@ -6,14 +6,14 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentKlikBCA.h"
+#import "MidtransPaymentKlikBCA.h"
 #import "MidtransConstant.h"
-@interface MTPaymentKlikBCA()
+@interface MidtransPaymentKlikBCA()
 @property (nonatomic) NSString *klikBCAUserId;
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end;
 
-@implementation MTPaymentKlikBCA
+@implementation MidtransPaymentKlikBCA
 
 - (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

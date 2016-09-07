@@ -1,14 +1,16 @@
 //
-//  VTPaymentXLTunai.h
+//  VTPaymentKiosOn.h
 //  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 8/8/16.
+//  Created by Nanang Rafsanjani on 8/29/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
 
-@interface MTPaymentXLTunai : NSObject <MidtransPaymentDetails>
+@interface MidtransPaymentKiosOn : NSObject <MidtransPaymentDetails>
+
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token;
+
 @end

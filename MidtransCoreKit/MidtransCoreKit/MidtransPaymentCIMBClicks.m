@@ -1,19 +1,19 @@
 //
-//  VTPaymentMandiriECash.m
+//  VTPaymentCIMBClicks.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentMandiriECash.h"
+#import "MidtransPaymentCIMBClicks.h"
 #import "MidtransConstant.h"
 
-@interface MTPaymentMandiriECash()
+@interface MidtransPaymentCIMBClicks()
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentMandiriECash
+@implementation MidtransPaymentCIMBClicks
 
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
@@ -23,16 +23,19 @@
 }
 
 - (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_MANDIRI_ECASH;
+    return MIDTRANS_PAYMENT_CIMB_CLICKS;
 }
+
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id":self.token.tokenId};
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_MANDIRI_ECASH;
+    return ENDPOINT_CHARGE_CIMB_CLICKS;
 }
+
 - (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
+
 @end

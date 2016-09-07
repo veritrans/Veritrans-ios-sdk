@@ -1,21 +1,20 @@
 //
-//  VTPaymentCIMBClicks.m
+//  VTPaymentCStore.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentCIMBClicks.h"
-#import "MidtransConstant.h"
+#import "MidtransPaymentCStore.h"
 
-@interface MTPaymentCIMBClicks()
+@interface MidtransPaymentCStore()
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentCIMBClicks
+@implementation MidtransPaymentCStore
 
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -23,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_CIMB_CLICKS;
+    return MIDTRANS_PAYMENT_CSTORE;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -31,7 +30,7 @@
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_CIMB_CLICKS;
+    return ENDPOINT_CHARGE_INDOMARET;
 }
 
 - (MidtransTransactionTokenResponse *)snapToken {

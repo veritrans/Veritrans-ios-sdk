@@ -1,18 +1,18 @@
 //
-//  VTPaymentKiosOn.m
+//  VTPaymentXLTunai.m
 //  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 8/29/16.
+//  Created by Nanang Rafsanjani on 8/8/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentKiosOn.h"
+#import "MidtransPaymentXLTunai.h"
 
-@interface MTPaymentKiosOn()
+@interface MidtransPaymentXLTunai()
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentKiosOn
+@implementation MidtransPaymentXLTunai
 
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
@@ -22,17 +22,14 @@
 }
 
 - (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_KIOS_ON;
+    return MIDTRANS_PAYMENT_XL_TUNAI;
 }
-
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id" : self.token.tokenId};
 }
-
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_KIOS_ON;
+    return ENDPOINT_CHARGE_XL_TUNAI;
 }
-
 - (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }

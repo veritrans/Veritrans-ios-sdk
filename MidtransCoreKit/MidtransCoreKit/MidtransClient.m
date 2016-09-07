@@ -35,7 +35,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     return instance;
 }
 
-- (void)generateToken:(MTTokenizeRequest *_Nonnull)tokenizeRequest
+- (void)generateToken:(MidtransTokenizeRequest *_Nonnull)tokenizeRequest
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];
     

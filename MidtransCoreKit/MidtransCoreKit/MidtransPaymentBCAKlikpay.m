@@ -1,20 +1,22 @@
 //
-//  VTPaymentCStore.m
+//  VTPaymentBCAKlikpay.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 6/13/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentCStore.h"
+#import "MidtransPaymentBCAKlikpay.h"
+#import "MidtransHelper.h"
+#import "MidtransConstant.h"
 
-@interface MTPaymentCStore()
+@interface MidtransPaymentBCAKlikpay()
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentCStore
+@implementation MidtransPaymentBCAKlikpay
 
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull) initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_CSTORE;
+    return MIDTRANS_PAYMENT_BCA_KLIKPAY;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -30,11 +32,10 @@
 }
 
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_INDOMARET;
+    return ENDPOINT_CHARGE_BCA_KLIKPAY;
 }
 
 - (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
-
 @end

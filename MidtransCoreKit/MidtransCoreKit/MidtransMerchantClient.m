@@ -90,7 +90,9 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     }];
 }
 
-- (void)saveMaskedCards:(NSArray <MTPaymentCreditCard*>*)maskedCards customer:(MidtransCustomerDetails *)customer completion:(void(^)(id result, NSError *error))completion {
+- (void)saveMaskedCards:(NSArray <MidtransPaymentCreditCard*>*)maskedCards
+               customer:(MidtransCustomerDetails *)customer
+             completion:(void(^)(id result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
     NSArray *parameters = maskedCards.requestBodyValues;
     [[MidtransNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];

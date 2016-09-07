@@ -6,14 +6,14 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentIndosatDompetku.h"
+#import "MidtransPaymentIndosatDompetku.h"
 
-@interface MTPaymentIndosatDompetku()
+@interface MidtransPaymentIndosatDompetku()
 @property (nonatomic) NSString *msisdn;
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
-@implementation MTPaymentIndosatDompetku
+@implementation MidtransPaymentIndosatDompetku
 
 - (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

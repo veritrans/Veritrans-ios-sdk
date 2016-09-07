@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
-@interface MTPaymentKlikBCA : NSObject<MidtransPaymentDetails>
+@interface MidtransPaymentKlikBCA : NSObject<MidtransPaymentDetails>
 - (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(MidtransTransactionTokenResponse *_Nonnull)token;
 @end

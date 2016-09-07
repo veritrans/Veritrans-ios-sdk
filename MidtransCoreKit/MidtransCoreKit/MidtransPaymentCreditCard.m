@@ -6,20 +6,20 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentCreditCard.h"
+#import "MidtransPaymentCreditCard.h"
 #import "MidtransHelper.h"
 #import "MidtransConfig.h"
 #import "MidtransCreditCardConfig.h"
 
-@interface MTPaymentCreditCard()
-@property (nonatomic) MTCreditCardPaymentFeature creditCardPaymentFeature;
+@interface MidtransPaymentCreditCard()
+@property (nonatomic) MidtransCreditCardPaymentFeature creditCardPaymentFeature;
 @property (nonatomic) MidtransTransactionTokenResponse *_Nonnull token;
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @end
 
-@implementation MTPaymentCreditCard
+@implementation MidtransPaymentCreditCard
 
-- (instancetype)initWithFeature:(MTCreditCardPaymentFeature)feature
+- (instancetype)initWithFeature:(MidtransCreditCardPaymentFeature)feature
                 creditCardToken:(NSString *_Nonnull)creditCardToken
                           token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

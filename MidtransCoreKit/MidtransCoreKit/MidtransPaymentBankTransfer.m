@@ -6,20 +6,20 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MTPaymentBankTransfer.h"
+#import "MidtransPaymentBankTransfer.h"
 #import "MidtransHelper.h"
 
-@interface MTPaymentBankTransfer()
+@interface MidtransPaymentBankTransfer()
 
-@property (nonatomic, readwrite) MTVAType type;
+@property (nonatomic, readwrite) MidtrasVAType type;
 @property (nonatomic) NSString *email;
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 
 @end
 
-@implementation MTPaymentBankTransfer
+@implementation MidtransPaymentBankTransfer
 
-- (instancetype _Nonnull)initWithBankTransferType:(MTVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
+- (instancetype _Nonnull)initWithBankTransferType:(MidtrasVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
     if (self = [super init]) {
         self.type = type;
         self.email = email;

@@ -56,8 +56,8 @@
 		2ED4518E1D09C4D7008BAED8 /* MTConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* MTConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EDAA3A31D0A7601009EC90D /* MTTrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDAA3A11D0A7601009EC90D /* MTTrackingManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EDAA3A41D0A7601009EC90D /* MTTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAA3A21D0A7601009EC90D /* MTTrackingManager.m */; };
-		305494571C75A08900938C17 /* VTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* VTAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		305494581C75A08900938C17 /* VTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944C1C75A08900938C17 /* VTAddress.m */; };
+		305494571C75A08900938C17 /* MTAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* MTAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		305494581C75A08900938C17 /* MTAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944C1C75A08900938C17 /* MTAddress.m */; };
 		3054945D1C75A08900938C17 /* MTNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494511C75A08900938C17 /* MTNetworking.h */; };
 		3054945E1C75A08900938C17 /* MTNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = 305494521C75A08900938C17 /* MTNetworking.m */; };
 		3054946F1C75A0ED00938C17 /* VTHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054946D1C75A0ED00938C17 /* VTHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -177,8 +177,8 @@
 		2EDAA3A21D0A7601009EC90D /* MTTrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTrackingManager.m; sourceTree = "<group>"; };
 		3054943A1C759FF800938C17 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305494461C75A01900938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3054944B1C75A08900938C17 /* VTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddress.h; sourceTree = "<group>"; };
-		3054944C1C75A08900938C17 /* VTAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddress.m; sourceTree = "<group>"; };
+		3054944B1C75A08900938C17 /* MTAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAddress.h; sourceTree = "<group>"; };
+		3054944C1C75A08900938C17 /* MTAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTAddress.m; sourceTree = "<group>"; };
 		305494511C75A08900938C17 /* MTNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTNetworking.h; sourceTree = "<group>"; };
 		305494521C75A08900938C17 /* MTNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTNetworking.m; sourceTree = "<group>"; };
 		3054946D1C75A0ED00938C17 /* VTHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTHelper.h; sourceTree = "<group>"; };
@@ -412,8 +412,8 @@
 				00F61B0A1D145D0E00C93DA0 /* PaymentList */,
 				E5E4360D1CE31B3600F688ED /* MTItemDetail.h */,
 				E5E4360E1CE31B3600F688ED /* MTItemDetail.m */,
-				3054944B1C75A08900938C17 /* VTAddress.h */,
-				3054944C1C75A08900938C17 /* VTAddress.m */,
+				3054944B1C75A08900938C17 /* MTAddress.h */,
+				3054944C1C75A08900938C17 /* MTAddress.m */,
 				E55DB9301C912ED300813B81 /* VTCustomerDetails.h */,
 				E55DB9311C912ED300813B81 /* VTCustomerDetails.m */,
 				E5E436311CE31E4200F688ED /* VTCreditCard.h */,
@@ -512,7 +512,7 @@
 				E5E4361B1CE31CD800F688ED /* VTTokenizeRequest.h in Headers */,
 				E5E4362A1CE31DB700F688ED /* MTEnvironment.h in Headers */,
 				006DB8131D3E1050001C9A71 /* MTPaymentRequestBankTransfer.h in Headers */,
-				305494571C75A08900938C17 /* VTAddress.h in Headers */,
+				305494571C75A08900938C17 /* MTAddress.h in Headers */,
 				E5E436171CE31C9C00F688ED /* VTClient.h in Headers */,
 				E5C2329A1D5AAEBF00A0A486 /* MTCreditCardConfig.h in Headers */,
 				E5AB975C1D7403AC00466A44 /* VTPaymentKiosOn.h in Headers */,
@@ -671,7 +671,7 @@
 				006DB81D1D3E1050001C9A71 /* MTPaymentRequestPaymentOptions.m in Sources */,
 				E5C2329B1D5AAEBF00A0A486 /* MTCreditCardConfig.m in Sources */,
 				E5DACA931D034E7000F5BE0A /* MTLuhn.m in Sources */,
-				305494581C75A08900938C17 /* VTAddress.m in Sources */,
+				305494581C75A08900938C17 /* MTAddress.m in Sources */,
 				002CC9AA1D127618003A1203 /* VTPaymentKlikBCA.m in Sources */,
 				E5E436281CE31DA100F688ED /* MTConfig.m in Sources */,
 				E5E436341CE31E4200F688ED /* VTCreditCard.m in Sources */,

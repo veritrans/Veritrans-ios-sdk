@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface VTAddress : NSObject
+@interface MTAddress : NSObject
 
 @property (nonatomic, readonly) NSString *firstName;
 @property (nonatomic, readonly) NSString *lastName;

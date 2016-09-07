@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTAddress.h"
+#import "MTAddress.h"
 
 @interface VTCustomerDetails : NSObject
 
@@ -15,8 +15,8 @@
 @property (nonatomic, strong) NSString *firstName;
 @property (nonatomic, strong) NSString *lastName;
 @property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) VTAddress *shippingAddress;
-@property (nonatomic, strong) VTAddress *billingAddress;
+@property (nonatomic, strong) MTAddress *shippingAddress;
+@property (nonatomic, strong) MTAddress *billingAddress;
 
 @property (nonatomic) NSString *email;
 
@@ -24,8 +24,8 @@
                          lastName:(NSString *)lastName
                             email:(NSString *)email
                             phone:(NSString *)phone
-                  shippingAddress:(VTAddress *)shippingAddress
-                   billingAddress:(VTAddress *)billingAddress;
+                  shippingAddress:(MTAddress *)shippingAddress
+                   billingAddress:(MTAddress *)billingAddress;
 
 - (NSDictionary *)dictionaryValue;
 

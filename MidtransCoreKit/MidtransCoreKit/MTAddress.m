@@ -6,12 +6,12 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTAddress.h"
+#import "MTAddress.h"
 #import "VTHelper.h"
 #import "NSString+MTValidation.h"
 #import "MTConstant.h"
 
-@interface VTAddress ()
+@interface MTAddress ()
 
 @property (nonatomic, readwrite) NSString *firstName;
 @property (nonatomic, readwrite) NSString *lastName;
@@ -23,7 +23,7 @@
 
 @end
 
-@implementation VTAddress
+@implementation MTAddress
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     //Encode properties, other class variables, etc
@@ -57,7 +57,7 @@
                                 city:(NSString *)city
                           postalCode:(NSString *)postalCode
                          countryCode:(NSString *)countryCode {
-    VTAddress *addr = [[VTAddress alloc] init];
+    MTAddress *addr = [[MTAddress alloc] init];
     addr.firstName = firstName;
     addr.lastName = lastName;
     addr.phone = phone;

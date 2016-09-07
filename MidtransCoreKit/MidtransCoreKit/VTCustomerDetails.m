@@ -47,8 +47,8 @@
                          lastName:(NSString *)lastName
                             email:(NSString *)email
                             phone:(NSString *)phone
-                  shippingAddress:(VTAddress *)shippingAddress
-                   billingAddress:(VTAddress *)billingAddress {
+                  shippingAddress:(MTAddress *)shippingAddress
+                   billingAddress:(MTAddress *)billingAddress {
     if (self = [super init]) {
         self.customerIdentifier = [[NSUUID UUID] UUIDString];
         self.firstName = firstName;

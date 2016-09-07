@@ -16,7 +16,7 @@
 #import "MTConfig.h"
 #import "VTTokenizeRequest.h"
 #import "MTEnvironment.h"
-#import "VTAddress.h"
+#import "MTAddress.h"
 #import "VTClient.h"
 #import "MTConstant.h"
 #import "VTPaymentDetails.h"

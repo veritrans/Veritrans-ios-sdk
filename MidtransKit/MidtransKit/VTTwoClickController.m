@@ -26,13 +26,13 @@
 
 @property (nonatomic) IBOutlet VTTextField *cvvTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
-@property (nonatomic) VTMaskedCreditCard *maskeCard;
+@property (nonatomic) MidtransMaskedCreditCard *maskeCard;
 
 @end
 
 @implementation VTTwoClickController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token maskedCard:(VTMaskedCreditCard *)maskedCard {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCard:(MidtransMaskedCreditCard *)maskedCard {
     self = [super initWithToken:token];
     if (self) {
         self.maskeCard = maskedCard;
@@ -79,21 +79,21 @@
 
 - (IBAction)paymentPressed:(UIButton *)sender {
     [self showLoadingHud];
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
-                                                                                   cvv:self.cvvTextField.text
-                                                                           grossAmount:self.token.transactionDetails.grossAmount];
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
+                                                                                               cvv:self.cvvTextField.text
+                                                                                       grossAmount:self.token.transactionDetails.grossAmount];
     
-    [[VTClient sharedClient] generateToken:tokenRequest
-                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                    if (error) {
-                                        [self handleTransactionError:error];
-                                    } else {
-                                        [self payWithToken:token];
-                                    }
-                                }];
+    [[MidtransClient sharedClient] generateToken:tokenRequest
+                                      completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                          if (error) {
+                                              [self handleTransactionError:error];
+                                          } else {
+                                              [self payWithToken:token];
+                                          }
+                                      }];
 }
 
-- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
     [self hideLoadingHud];
 }
@@ -118,9 +118,9 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick creditCardToken:token token:self.token];
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithFeature:MidtransCreditCardPaymentFeatureOneClick creditCardToken:token token:self.token];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
         } else {

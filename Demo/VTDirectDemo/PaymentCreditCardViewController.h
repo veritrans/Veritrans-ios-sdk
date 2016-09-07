@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TransactionTokenResponse;
+@class MidtransTransactionTokenResponse;
 @interface PaymentCreditCardViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITextField *userEmailTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cardNumberTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cardExpireMonthTextfield;
 @property (weak, nonatomic) IBOutlet UITextField *cvvTextField;
 @property (weak, nonatomic) IBOutlet UITextField *cardExpireYeartextField;
-@property (nonatomic, strong) TransactionTokenResponse *transactionToken;
+@property (nonatomic, strong) MidtransTransactionTokenResponse *transactionToken;
 @end

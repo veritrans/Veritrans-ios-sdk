@@ -22,12 +22,13 @@
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTTransactionDetails.h>
+#import <MidtransCoreKit/MidtransClient.h>
+#import <MidtransCoreKit/MidtransHelper.h>
+#import <MidtransCoreKit/MidtransMerchantClient.h>
+#import <MidtransCoreKit/MidtransPaymentCreditCard.h>
+#import <MidtransCoreKit/MidtransTransactionDetails.h>
 
-@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface VTCardListController () <MidtransCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -50,7 +51,14 @@
     
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
+    /**
+     *  need to revisit
+     *
+     *  @param cardsUpdated: cardsUpdated: description
+     *
+     *  @return return value description
+     */
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:MidtransMaskedCardsUpdated object:nil];
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self updateView];
     [self reloadMaskedCards];
@@ -70,8 +78,8 @@
 
 - (void)reloadMaskedCards {
     [self showLoadingHud];
-    [[VTMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
-                                                   completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                         completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
      {
          [self hideLoadingHud];
          if (!maskedCards) {
@@ -185,12 +193,11 @@
 - (void)payWithToken:(NSString *)token {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentCreditCard *paymentDetail =
-    [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
-                                 creditCardToken:token token:self.token];
-    VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithFeature:MidtransCreditCardPaymentFeatureOneClick
+                                                                                  creditCardToken:token token:self.token];
+    MidtransTransaction *transaction =
+    [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [_hudView hide];
         
         if (error) {
@@ -203,7 +210,7 @@
 
 #pragma mark - VTAddCardControllerDelegate
 
-- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(VTMaskedCreditCard *)registeredCard {
+- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
     [self.navigationController popViewControllerAnimated:YES];
     [self reloadMaskedCards];
 }
@@ -215,9 +222,9 @@
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
-    [[VTMerchantClient sharedClient] saveMaskedCards:self.cards
-                                            customer:self.token.customerDetails
-                                          completion:^(id  _Nullable result, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] saveMaskedCards:self.cards
+                                                  customer:self.token.customerDetails
+                                                completion:^(id  _Nullable result, NSError * _Nullable error)
      {
          [self hideLoadingHud];
          

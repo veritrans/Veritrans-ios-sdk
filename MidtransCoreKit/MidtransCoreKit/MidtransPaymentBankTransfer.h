@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
 
-typedef NS_ENUM(NSUInteger, MidtrasVAType) {
+typedef NS_ENUM(NSUInteger, MidtransVAType) {
     VTVATypeBCA,
     VTVATypeMandiri,
     VTVATypePermata,
@@ -17,8 +17,8 @@ typedef NS_ENUM(NSUInteger, MidtrasVAType) {
 };
 @interface MidtransPaymentBankTransfer : NSObject<MidtransPaymentDetails>
 
-@property (nonatomic, readonly) MidtrasVAType type;
+@property (nonatomic, readonly) MidtransVAType type;
 
-- (instancetype _Nonnull)initWithBankTransferType:(MidtrasVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
+- (instancetype _Nonnull)initWithBankTransferType:(MidtransVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
 
 @end

@@ -18,12 +18,12 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSMutableArray *guideViewControllers;
-@property (strong, nonatomic) VTPaymentListModel *model;
+@property (strong, nonatomic) MidtransPaymentListModel *model;
 @end
 
 @implementation VTMultiGuideController
 
-- (instancetype)initWithPaymentMethodModel:(VTPaymentListModel *)model {
+- (instancetype)initWithPaymentMethodModel:(MidtransPaymentListModel *)model {
     self = [super initWithNibName:[self.class description] bundle:VTBundle];
     if (self) {
         self.model = model;

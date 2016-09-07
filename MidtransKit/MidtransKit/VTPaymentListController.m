@@ -21,8 +21,7 @@
 #import "VTPaymentDirectViewController.h"
 #import "VTPaymentListView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/VTPaymentListModel.h>
-#import <MidtransCoreKit/PaymentRequestDataModels.h>
+
 #import "VTPaymentListDataSource.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
@@ -49,7 +48,7 @@
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
     
-    UIImage *logo = [VTImageManager merchantLogo];
+    UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
         const CGFloat barHeight = 44;
         const CGFloat statusBarHeigt = 20;
@@ -61,7 +60,7 @@
                                                                                barHeight
                                                                                )];
         
-        titleImage.image = [VTImageManager merchantLogo];
+        titleImage.image = [MidtransImageManager merchantLogo];
         titleImage.contentMode = UIViewContentModeScaleAspectFit;
         titleImage.layer.masksToBounds = YES;
         self.navigationItem.titleView = titleImage;
@@ -84,8 +83,8 @@
     
     [self showLoadingHud];
     
-    [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
-                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
+                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchantData.displayName;
          [self hideLoadingHud];
@@ -96,7 +95,7 @@
              if (response.transactionData.enabledPayments.count) {
                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
                      for (int i = 0; i<paymentList.count; i++) {
-                         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[i]];
                          if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
                              [self.paymentMethodList addObject:paymentmodel];
                          }
@@ -156,9 +155,9 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
+    MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
-    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG saveCard]) {
             VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
                                                                  paymentMethodName:paymentMethod];
@@ -170,31 +169,31 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BANK_TRANSFER]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BANK_TRANSFER]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI])
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     {
         VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token
                                                                                  paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
         VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
                                                                                paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_CLICKPAY]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_CLICKPAY]) {
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
                                                                            paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];

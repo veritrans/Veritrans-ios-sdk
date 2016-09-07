@@ -1,5 +1,5 @@
 //
-//  VTCreditCardHelper.h
+//  MIdtransCreditCardHelper.h
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/23/16.

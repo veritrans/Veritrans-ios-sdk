@@ -9,8 +9,8 @@
 #import "VTCardCell.h"
 #import "VTCCFrontView.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTCreditCard.h>
-#import <MidtransCoreKit/VTCreditCardHelper.h>
+#import <MidtransCoreKit/MidtransCreditCard.h>
+#import <MidtransCoreKit/MidtransCreditCardHelper.h>
 
 @interface VTCardCell ()
 @property (nonatomic) IBOutlet VTCCFrontView *frontCardView;
@@ -33,12 +33,12 @@
     }
 }
 
-- (void)setMaskedCard:(VTMaskedCreditCard *)maskedCard {
+- (void)setMaskedCard:(MidtransMaskedCreditCard *)maskedCard {
     _maskedCard = maskedCard;
     
     self.frontCardView.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
     
-    NSString *iconName = [VTCreditCardHelper nameFromString:maskedCard.maskedNumber];
+    NSString *iconName = [MidtransCreditCardHelper nameFromString:maskedCard.maskedNumber];
     self.frontCardView.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     self.frontCardView.expiryLabel.text = @"XX/XX";

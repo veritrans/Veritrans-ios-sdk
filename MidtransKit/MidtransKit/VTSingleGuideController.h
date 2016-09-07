@@ -10,5 +10,5 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTSingleGuideController : VTViewController
-- (instancetype)initWithPaymentMethodModel:(VTPaymentListModel *)model;
+- (instancetype)initWithPaymentMethodModel:(MidtransPaymentListModel *)model;
 @end

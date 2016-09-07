@@ -24,7 +24,7 @@
 
 @implementation VTPaymentController
 
--(instancetype)initWithToken:(TransactionTokenResponse *)token {
+-(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
         self.token = token;
@@ -32,7 +32,7 @@
     return self;
 }
 
--(instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod {
+-(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
         self.token = token;
@@ -78,23 +78,23 @@
     }
 }
 
-- (void)handleTransactionPending:(VTTransactionResult *)result {
+- (void)handleTransactionPending:(MidtransTransactionResult *)result {
     NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (void)handleTransactionSuccess:(VTTransactionResult *)result {
+- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     UIViewController *vc;
     
-    if ([result.transactionStatus isEqualToString:VT_TRANSACTION_STATUS_DENY]) {
-        NSError *error = [[NSError alloc] initWithDomain:VT_ERROR_DOMAIN
+    if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY]) {
+        NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN
                                                     code:result.statusCode
                                                 userInfo:@{NSLocalizedDescriptionKey:result.statusMessage}];
         vc = [[VTErrorStatusController alloc] initWithError:error];
     }
     else {
-        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
             VTPaymentStatusXLTunaiViewModel *viewModel = [[VTPaymentStatusXLTunaiViewModel alloc] initWithTransactionResult:result];
             vc = [[VTXLTunaiSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod statusModel:viewModel];
         }
@@ -110,10 +110,10 @@
 }
 
 - (void)showGuideViewController {
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_PERMATA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_OTHER_IDENTIFIER]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_BCA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_MANDIRI_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_PERMATA_IDENTIFIER] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_OTHER_IDENTIFIER]) {
         VTMultiGuideController *vc = [[VTMultiGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }

@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class VTPaymentListModel;
+@class MidtransPaymentListModel;
 @interface SamplePaymentListTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *paymentLogo;
 @property (weak, nonatomic) IBOutlet UILabel *paymentName;
 @property (weak, nonatomic) IBOutlet UILabel *paymentDescription;
-- (void)configurePaymetnList:(VTPaymentListModel *)paymentList;
+- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList;
 - (void)configureBankTransafer:(NSString *)bankTransfer;
 @end

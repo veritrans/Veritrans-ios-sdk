@@ -47,8 +47,8 @@ NSInteger const amexLimit = 15;
     
     NSString *cardNumberWithoutSpaces =
     [self removeNonDigits:textField.text andPreserveCursorPosition:&targetCursorPosition];
-        
-    VTCreditCardType cctype = [VTCreditCardHelper typeFromString:cardNumberWithoutSpaces];
+    
+    MidtransCreditCardType cctype = [MidtransCreditCardHelper typeFromString:cardNumberWithoutSpaces];
     NSInteger cardLimit = cctype == VTCreditCardTypeAmex ? amexLimit : self.numberLimit;
     
     if ([cardNumberWithoutSpaces length] > cardLimit) {

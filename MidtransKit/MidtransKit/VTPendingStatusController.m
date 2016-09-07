@@ -26,13 +26,13 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 @property (strong, nonatomic) IBOutlet VTButton *codeCopyButton;
 @property (strong, nonatomic) IBOutlet VTNextStepButton *finishButton;
 
-@property (nonatomic) VTTransactionResult *result;
+@property (nonatomic) MidtransTransactionResult *result;
 @end
 
 @implementation VTPendingStatusController
 
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod result:(VTTransactionResult *)result {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod result:(MidtransTransactionResult *)result {
     if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.result = result;
     }
@@ -50,7 +50,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
     self.expiryDateLabel.text = self.result.additionalData[kVTPendingStatusControllerKiosonExpireTime];
     self.paymentCodeLabel.text = self.result.additionalData[kVTPendingStatusControllerPaymentCode];
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
         self.paymentCodeTitleLabel.text = UILocalizedString(@"kioson.pending.code-title", nil);
         [self.paymentGuideButton setTitle:UILocalizedString(@"kioson.pending.howto-title", nil) forState:UIControlStateNormal];
         [self.codeCopyButton setTitle:UILocalizedString(@"kioson.pending.copy-title", nil) forState:UIControlStateNormal];

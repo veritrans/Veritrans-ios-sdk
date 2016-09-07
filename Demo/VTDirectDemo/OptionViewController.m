@@ -11,8 +11,8 @@
 #import "FontListViewController.h"
 
 #import <MidtransKit/VTPaymentViewController.h>
-#import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransCoreKit/MidtransConfig.h>
+#import <MidtransCoreKit/MidtransMerchantClient.h>
 
 #import <FCColorPickerViewController.h>
 
@@ -45,7 +45,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *shipLastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *shipPhoneTextField;
 
-@property (nonatomic) VTCreditCardPaymentType ccPaymentType;
+@property (nonatomic) MTCreditCardPaymentType ccPaymentType;
 @property (nonatomic) BOOL cardSecure;
 
 @end
@@ -84,7 +84,7 @@
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     
     _firstNameTextField.text = customer.firstName;
     _lastNameTextField.text = customer.lastName;
@@ -139,9 +139,9 @@
 }
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {
-    VTAddress *shipAddr = [VTAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
-    VTAddress *billAddr = [VTAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
-    VTCustomerDetails *customer = [[VTCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
+    MidtransAddress *shipAddr = [MidtransAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
+    MidtransAddress *billAddr = [MidtransAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
+    MidtransCustomerDetails *customer = [[MidtransCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
     
     //save to NSUserDefaults
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:customer];
@@ -152,7 +152,7 @@
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [VTCreditCardConfig setPaymentType:self.ccPaymentType secure:self.cardSecure];
+    [MidtransCreditCardConfig setPaymentType:self.ccPaymentType secure:self.cardSecure];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

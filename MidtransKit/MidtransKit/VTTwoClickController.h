@@ -15,7 +15,7 @@
 @interface VTTwoClickController : VTPaymentController
 @property (weak, nonatomic) IBOutlet VTCCBackView *backView;
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-                   maskedCard:(VTMaskedCreditCard *)maskedCard;
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+                   maskedCard:(MidtransMaskedCreditCard *)maskedCard;
 
 @end

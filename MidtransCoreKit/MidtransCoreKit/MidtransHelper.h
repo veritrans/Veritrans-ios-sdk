@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-extern NSString *const MIdtransMaskedCardsUpdated;
+extern NSString *const MidtransMaskedCardsUpdated;
 
 @interface MidtransHelper : NSObject
 + (id)nullifyIfNil:(id)object;

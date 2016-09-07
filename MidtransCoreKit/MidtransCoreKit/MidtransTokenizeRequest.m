@@ -1,5 +1,5 @@
 //
-//  VTTokenizeRequest.m
+//  MidtransTokenizeRequest.m
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/10/16.

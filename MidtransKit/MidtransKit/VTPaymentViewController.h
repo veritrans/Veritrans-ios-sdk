@@ -16,14 +16,14 @@
 @protocol VTPaymentViewControllerDelegate;
 
 @protocol VTPaymentViewControllerDelegate <UINavigationControllerDelegate>
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(VTTransactionResult *)result;
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result;
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
+- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error;
 @end
 
 @interface VTPaymentViewController : UINavigationController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token;
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
 
 @property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 

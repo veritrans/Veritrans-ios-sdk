@@ -12,12 +12,11 @@
 #import "EpaymentViewController.h"
 #import "BankTransferViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/VTPaymentListModel.h>
-#import <MidtransCoreKit/PaymentRequestDataModels.h>
+#import <MidtransCoreKit/MidtransPaymentListModel.h>
 #import "SamplePaymentListTableViewCell.h"
 @interface SamplePaymentListViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSArray *paymentList;
-@property (nonatomic, strong) PaymentRequestResponse *paymentRequestResponse;
+@property (nonatomic, strong) MidtransPaymentRequestResponse *paymentRequestResponse;
 @property (nonatomic,strong)NSMutableArray *paymentMethodList;
 @end
 
@@ -37,8 +36,8 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"paymentlist" ofType:@"plist"];
     self.paymentList = [NSArray arrayWithContentsOfFile:path];
     
-    [[VTMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
-                                                      completion:^(PaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
+                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          self.title = response.merchantData.displayName;
@@ -49,7 +48,7 @@
              if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
                      for (int i = 0; i<self.paymentList.count; i++) {
-                         VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
+                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
                          if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
                              [self.paymentMethodList addObject:paymentmodel];
                          }
@@ -81,7 +80,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = self.paymentMethodList[indexPath.row];
+    MidtransPaymentListModel *paymentMethod = self.paymentMethodList[indexPath.row];
     SamplePaymentListTableViewCell *cell = (SamplePaymentListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SamplePaymentListTableViewCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SamplePaymentListTableViewCell" owner:self options:nil] firstObject];
@@ -91,24 +90,24 @@
     return cell;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
+    MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
-    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         PaymentCreditCardViewController *paymentCC = [[PaymentCreditCardViewController alloc] initWithNibName:@"PaymentCreditCardViewController" bundle:nil];
         paymentCC.transactionToken = self.transactionToken;
         [self.navigationController pushViewController:paymentCC animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BANK_TRANSFER]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BANK_TRANSFER]) {
         BankTransferViewController *vc = [[BankTransferViewController alloc] initWithNibName:@"BankTransferViewController" bundle:nil];
         vc.transactionToken = self.transactionToken;
         vc.bankList = self.paymentRequestResponse.transactionData.bankTransfer;
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI])
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     {
         EpaymentViewController *vc = [[EpaymentViewController alloc] initWithNibName:@"EpaymentViewController" bundle:nil];
         vc.transactionToken = self.transactionToken;
@@ -116,16 +115,16 @@
         [self.navigationController pushViewController:vc animated:YES];
         
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOMARET] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KLIK_BCA] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_TELKOMSEL_CASH] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_INDOSAT_DOMPETKU] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
         //        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
         //                                                                               paymentMethodName:paymentMethod];
         //        [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_CLICKPAY]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_CLICKPAY]) {
         //        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
         //                                                                           paymentMethodName:paymentMethod];
         //        [self.navigationController pushViewController:vc animated:YES];

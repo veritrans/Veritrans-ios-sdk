@@ -39,7 +39,7 @@
  
  @param completion A callback that will be executed when the transaction finishes. If the transaction succeeded, the `result` variable will contain all the information provided from the server.
  */
-- (void)performTransaction:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionDetails *_Nullable result, NSError *_Nullable error))completion;
+- (void)performTransaction:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 
 /**
  Save credit card partial information to the Merchant Server. The partial

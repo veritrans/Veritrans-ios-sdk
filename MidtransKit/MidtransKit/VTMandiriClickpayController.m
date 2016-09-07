@@ -44,9 +44,9 @@ static NSString* const ClickpayAPPLI = @"3";
     self.tokenTextField.delegate = self;
     
     self.appliLabel.text = ClickpayAPPLI;
-    self.input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
-    self.input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
-    self.input3Label.text = [VTMandiriClickpayHelper generateInput3];
+    self.input1Label.text = [MidtransMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
+    self.input2Label.text = [MidtransMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
+    self.input3Label.text = [MidtransMandiriClickpayHelper generateInput3];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     
@@ -69,12 +69,12 @@ static NSString* const ClickpayAPPLI = @"3";
     }
     
     [self showLoadingHud];
-   
-    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text token:self.token];
     
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+    MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text token:self.token];
     
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
+    
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoadingHud];
         
         if (error) {

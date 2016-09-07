@@ -26,7 +26,7 @@
 
 @implementation VTKlikbcaSuccessController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod viewModel:(VTPaymentStatusViewModel *)viewModel {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod viewModel:(VTPaymentStatusViewModel *)viewModel {
     self = [super initWithToken:token paymentMethodName:paymentMethod];
     if (self) {
         self.successViewModel = viewModel;

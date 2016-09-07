@@ -1,5 +1,5 @@
 //
-//  VTTokenizeRequest.h
+//  MidtransTokenizeRequest.h
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/10/16.
@@ -10,7 +10,7 @@
 #import "MidtransCreditCard.h"
 
 /**
- `VTTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
+ `MidtransTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
  */
 @interface MidtransTokenizeRequest : NSObject
 
@@ -29,7 +29,7 @@
 ///----------------
 
 /**
- Get a `VTTokenizeRequest` object based on a credit card data. The resulting `VTTokenizeRequest` can be used to request token for normal credit card transaction.
+ Get a `MidtransTokenizeRequest` object based on a credit card data. The resulting `MidtransTokenizeRequest` can be used to request token for normal credit card transaction.
  
  @param creditCard The credit card to be tokenized.
  @param grossAmount The amount to charge.

@@ -11,7 +11,7 @@
 
 @interface MidtransPaymentBankTransfer()
 
-@property (nonatomic, readwrite) MidtrasVAType type;
+@property (nonatomic, readwrite) MidtransVAType type;
 @property (nonatomic) NSString *email;
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 
@@ -19,7 +19,7 @@
 
 @implementation MidtransPaymentBankTransfer
 
-- (instancetype _Nonnull)initWithBankTransferType:(MidtrasVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
+- (instancetype _Nonnull)initWithBankTransferType:(MidtransVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
     if (self = [super init]) {
         self.type = type;
         self.email = email;

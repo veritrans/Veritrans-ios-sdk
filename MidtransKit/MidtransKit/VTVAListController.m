@@ -13,7 +13,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTVAListController ()
-@property (nonatomic) VTCustomerDetails *customer;
+@property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *vaList;
@@ -31,7 +31,7 @@
     NSMutableArray *vaListM = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     for (int i = 0; i<paymentList.count; i++) {
-        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+        MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[i]];
         [vaListM addObject:paymentmodel];
     }
     self.vaList = vaListM;
@@ -54,7 +54,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *vaTypeModel = (VTPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
+    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
     VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }

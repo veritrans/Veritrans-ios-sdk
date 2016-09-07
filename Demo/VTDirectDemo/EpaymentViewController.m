@@ -8,9 +8,8 @@
 
 #import "EpaymentViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/VTPaymentListModel.h>
-#import <MidtransCoreKit/PaymentRequestDataModels.h>
-@interface EpaymentViewController () <VTPaymentWebControllerDelegate>
+#import <MidtransCoreKit/MidtransPaymentListModel.h>
+@interface EpaymentViewController () <MidtransPaymentWebControllerDelegate>
 
 @end
 @implementation NSNumber (formatter)
@@ -38,34 +37,34 @@
 }
 - (IBAction)payNowButtonDidTapped:(id)sender {
     
-    id<VTPaymentDetails>paymentDetails;
+    id<MidtransPaymentDetails>paymentDetails;
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BCA_KLIKPAY]) {
-        paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:self.transactionToken];
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
+        paymentDetails = [[MidtransPaymentBCAKlikpay alloc] initWithToken:self.transactionToken];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_MANDIRI_ECASH]) {
-        paymentDetails = [[VTPaymentMandiriECash alloc] initWithToken:self.transactionToken];
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH]) {
+        paymentDetails = [[MidtransPaymentMandiriECash alloc] initWithToken:self.transactionToken];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_BRI_EPAY]) {
-        paymentDetails = [[VTPaymentEpayBRI alloc] initWithToken:self.transactionToken];
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY]) {
+        paymentDetails = [[MidtransPaymentEpayBRI alloc] initWithToken:self.transactionToken];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_CIMB_CLICKS]) {
-        paymentDetails = [[VTPaymentCIMBClicks alloc] initWithToken:self.transactionToken];
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
+        paymentDetails = [[MidtransPaymentCIMBClicks alloc] initWithToken:self.transactionToken];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_XL_TUNAI]) {
-        paymentDetails = [[VTPaymentXLTunai alloc] initWithToken:self.transactionToken];
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
+        paymentDetails = [[MidtransPaymentXLTunai alloc] initWithToken:self.transactionToken];
     }
     
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         
         if (error) {
             
         }
         else {
             if (result.redirectURL) {
-                VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithTransactionResult:result
-                                                                                     paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
+                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result
+                                                                                                 paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
                 vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
             }
@@ -83,6 +82,6 @@
  *  @param webPaymentController webPaymentController description
  *  @param error                error description
  */
-- (void)webPaymentController:(VTPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+- (void)webPaymentController:(MidtransPaymentWebController *)webPaymentController transactionError:(NSError *)error {
 }
 @end

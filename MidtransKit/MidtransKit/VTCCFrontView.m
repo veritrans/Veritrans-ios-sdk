@@ -26,10 +26,10 @@
     return self;
 }
 
-- (instancetype)initWithFrame:(CGRect)frame maskedCard:(VTMaskedCreditCard *)maskedCard {
+- (instancetype)initWithFrame:(CGRect)frame maskedCard:(MidtransMaskedCreditCard *)maskedCard {
     if (self = [super initWithFrame:frame]) {
         self.numberLabel.text = [maskedCard.maskedNumber formattedCreditCardNumber];
-        NSString *iconName = [VTCreditCardHelper nameFromString:maskedCard.maskedNumber];
+        NSString *iconName = [MidtransCreditCardHelper nameFromString:maskedCard.maskedNumber];
         self.iconView.image = [UIImage imageNamed:iconName inBundle:VTBundle compatibleWithTraitCollection:nil];
         self.expiryLabel.text = @"XX/XX";
         self.deleteButton.hidden = YES;

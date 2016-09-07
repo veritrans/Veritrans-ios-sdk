@@ -7,8 +7,8 @@
 //
 
 #import "VTMaskedCreditCard.h"
-#import "VTConstant.h"
-#import "VTCreditCardHelper.h"
+#import "MTConstant.h"
+#import "MTCreditCardHelper.h"
 
 NSString *const kVTMaskedCreditCard = @"masked_card";
 NSString *const kVTMaskedCreditCardToken = @"saved_token_id";
@@ -30,7 +30,7 @@ NSString *const kVTMaskedCreditCardTokenType = @"type";
     if (self = [super init]) {
         self.maskedNumber = [data[kVTMaskedCreditCard] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
         self.savedTokenId = data[kVTMaskedCreditCardToken];
-        self.type = [VTCreditCardHelper nameFromString:self.maskedNumber];
+        self.type = [MTCreditCardHelper nameFromString:self.maskedNumber];
         self.data = data;
     }
     return self;

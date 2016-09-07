@@ -7,18 +7,18 @@
 //
 
 #import "VTPaymentMandiriClickpay.h"
-#import "VTConstant.h"
+#import "MTConstant.h"
 
 @interface VTPaymentMandiriClickpay()
 @property (nonatomic) NSString *cardNumber;
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @property (nonatomic) NSString *clickpayToken;
 @property (nonatomic) NSNumber *grossAmount;
 @end
 
 @implementation VTPaymentMandiriClickpay
 
-- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken token:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken token:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.cardNumber = [cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
         self.token = token;
@@ -28,7 +28,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_MANDIRI_CLICKPAY;
+    return MT_PAYMENT_MANDIRI_CLICKPAY;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -42,7 +42,7 @@
     return ENDPOINT_CHARGE_MANDIRI_CLICKPAY;
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

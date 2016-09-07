@@ -9,12 +9,12 @@
 #import "VTPaymentXLTunai.h"
 
 @interface VTPaymentXLTunai()
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentXLTunai
 
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_XL_TUNAI;
+    return MT_PAYMENT_XL_TUNAI;
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id" : self.token.tokenId};
@@ -30,7 +30,7 @@
 - (NSString *)chargeURL {
     return ENDPOINT_CHARGE_XL_TUNAI;
 }
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

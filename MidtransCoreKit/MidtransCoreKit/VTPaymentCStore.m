@@ -9,12 +9,12 @@
 #import "VTPaymentCStore.h"
 
 @interface VTPaymentCStore()
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentCStore
 
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_CSTORE;
+    return MT_PAYMENT_CSTORE;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -33,7 +33,7 @@
     return ENDPOINT_CHARGE_INDOMARET;
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

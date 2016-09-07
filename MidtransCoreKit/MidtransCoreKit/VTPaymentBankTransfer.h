@@ -19,6 +19,6 @@ typedef NS_ENUM(NSUInteger, VTVAType) {
 
 @property (nonatomic, readonly) VTVAType type;
 
-- (instancetype _Nonnull)initWithBankTransferType:(VTVAType)type token:(TransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
+- (instancetype _Nonnull)initWithBankTransferType:(VTVAType)type token:(MTTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
 
 @end

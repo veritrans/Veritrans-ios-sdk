@@ -8,22 +8,22 @@
 
 #import "VTPaymentEpayBRI.h"
 #import "VTHelper.h"
-#import "VTConstant.h"
+#import "MTConstant.h"
 
 @interface VTPaymentEpayBRI()
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentEpayBRI
 
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
     return self;
 }
 - (NSString *)paymentType {
-    return VT_PAYMENT_BRI_EPAY;
+    return MT_PAYMENT_BRI_EPAY;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -34,7 +34,7 @@
     return ENDPOINT_CHARGE_BRI_EPAY;
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

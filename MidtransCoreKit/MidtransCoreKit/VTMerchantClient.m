@@ -7,15 +7,15 @@
 //
 
 #import "VTMerchantClient.h"
-#import "VTConfig.h"
-#import "VTNetworking.h"
-#import "VTPrivateConfig.h"
+#import "MTConfig.h"
+#import "MTNetworking.h"
+#import "MTPrivateConfig.h"
 #import "VTHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import "VTTrackingManager.h"
-#import "VTPaymentWebController.h"
-#import "TransactionTokenResponse.h"
-#import "PaymentRequestDataModels.h"
+#import "MTTrackingManager.h"
+#import "MTPaymentWebController.h"
+#import "MTTransactionTokenResponse.h"
+#import "MTPaymentRequestDataModels.h"
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
@@ -59,29 +59,29 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
-    [[VTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
+    [[MTNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         NSString *paymentType = transaction.paymentDetails.paymentType;
         
         if (response) {
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
             
-            if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
-                [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:VT_PAYMENT_CREDIT_CARD value:0];
+            if ([paymentType isEqualToString:MT_PAYMENT_CREDIT_CARD]) {
+                [[MTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MT_PAYMENT_CREDIT_CARD value:0];
                 //transaction finished here
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
             else {
-                [[VTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+                [[MTTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
         }
         else {
-            [[VTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+            [[MTTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
             if (completion) {
                 completion(nil, error);
             }
@@ -92,7 +92,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 - (void)saveMaskedCards:(NSArray <VTMaskedCreditCard*>*)maskedCards customer:(VTCustomerDetails *)customer completion:(void(^)(id result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
     NSArray *parameters = maskedCards.requestBodyValues;
-    [[VTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
+    [[MTNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
 }
 
 - (void)fetchMaskedCardsCustomer:(VTCustomerDetails *)customer completion:(void(^)(NSArray *maskedCards, NSError *error))completion {
@@ -126,21 +126,21 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 #pragma mark - Helper
 
 - (BOOL)isWebPaymentType:(NSString *)paymentType {
-    return [paymentType isEqualToString:VT_PAYMENT_CIMB_CLICKS] ||
-    [paymentType isEqualToString:VT_PAYMENT_BCA_KLIKPAY] ||
-    [paymentType isEqualToString:VT_PAYMENT_MANDIRI_ECASH] ||
-    [paymentType isEqualToString:VT_PAYMENT_BRI_EPAY];
+    return [paymentType isEqualToString:MT_PAYMENT_CIMB_CLICKS] ||
+    [paymentType isEqualToString:MT_PAYMENT_BCA_KLIKPAY] ||
+    [paymentType isEqualToString:MT_PAYMENT_MANDIRI_ECASH] ||
+    [paymentType isEqualToString:MT_PAYMENT_BRI_EPAY];
 }
 
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
                                       customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                           completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
+                                           completion:(void (^_Nullable)(MTTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
 {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
-    [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
-    [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
-    [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:VT_CORE_SNAP_PARAMETER_ITEM_DETAILS];
+    [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MT_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
+    [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MT_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
+    [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MT_CORE_SNAP_PARAMETER_ITEM_DETAILS];
     
     [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
     
@@ -150,24 +150,24 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         return;
     }
     
-    [[VTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+    [[MTNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
                                       header:nil
                                   parameters:dictionaryParameters
                                     callback:^(id response, NSError *error)
      {
          if (!error) {
-             TransactionTokenResponse *token = [TransactionTokenResponse modelObjectWithDictionary:response
+             MTTransactionTokenResponse *token = [MTTransactionTokenResponse modelObjectWithDictionary:response
                                                                                 transactionDetails:transactionDetails
                                                                                    customerDetails:customerDetails
                                                                                        itemDetails:itemDetails];
              if (completion) {
-                 [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
+                 [[MTTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
                  completion(token,NULL);
              }
          }
          else {
              if (completion) {
-                 [[VTTrackingManager sharedInstance] trackGeneratedSnapToken:NO];
+                 [[MTTrackingManager sharedInstance] trackGeneratedSnapToken:NO];
                  completion(NULL,error);
              }
          }
@@ -176,16 +176,16 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
-                         completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
+                         completion:(void (^_Nullable)(MTPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
     
-    [[VTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@/%@",[PRIVATECONFIG snapURL], ENDPOINT_PAYMENT_PAGES, token] parameters:nil callback:^(id response, NSError *error) {
+    [[MTNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@/%@",[PRIVATECONFIG snapURL], ENDPOINT_PAYMENT_PAGES, token] parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
-            PaymentRequestResponse *paymentRequest = [[PaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
+            MTPaymentRequestResponse *paymentRequest = [[MTPaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
             
             if (completion) {
                 if (!paymentRequest.merchantData.logoUrl.isEmpty) {
-                    [VTImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
-                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequest.merchantData.merchantName forKey:VT_CORE_MERCHANT_NAME];
+                    [MTImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequest.merchantData.merchantName forKey:MT_CORE_MERCHANT_NAME];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
                 completion(paymentRequest,NULL);

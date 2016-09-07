@@ -7,13 +7,13 @@
 //
 
 #import "VTClient.h"
-#import "VTConfig.h"
-#import "VTNetworking.h"
-#import "VTTrackingManager.h"
+#import "MTConfig.h"
+#import "MTNetworking.h"
+#import "MTTrackingManager.h"
 #import "VTHelper.h"
-#import "VTPrivateConfig.h"
-#import "VTCreditCardHelper.h"
-#import "VT3DSController.h"
+#import "MTPrivateConfig.h"
+#import "MTCreditCardHelper.h"
+#import "MT3DSController.h"
 
 NSString *const GENERATE_TOKEN_URL = @"token";
 NSString *const REGISTER_CARD_URL = @"card/register";
@@ -39,9 +39,9 @@ NSString *const REGISTER_CARD_URL = @"card/register";
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];
     
-    [[VTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
+    [[MTNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
-            [[VTTrackingManager sharedInstance] trackAppFailGenerateToken:nil
+            [[MTTrackingManager sharedInstance] trackAppFailGenerateToken:nil
                                                            secureProtocol:NO
                                                        withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
             if (completion) completion(nil, error);
@@ -49,10 +49,10 @@ NSString *const REGISTER_CARD_URL = @"card/register";
             NSString *redirectURL = response[@"redirect_url"];
             NSString *token = response[@"token_id"];
             if (redirectURL) {
-                [[VTTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
+                [[MTTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
                                                                   secureProtocol:YES
                                                               withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
-                VT3DSController *secureController = [[VT3DSController alloc] initWithToken:token
+                MT3DSController *secureController = [[MT3DSController alloc] initWithToken:token
                                                                                  secureURL:[NSURL URLWithString:redirectURL]];
                 [secureController showWithCompletion:^(NSError *error) {
                     if (error) {
@@ -62,7 +62,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                     }
                 }];
             } else {
-                [[VTTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
+                [[MTTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
                                                                   secureProtocol:NO
                                                               withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
                 if (completion) completion(token, nil);
@@ -79,7 +79,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
         return;
     }
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], REGISTER_CARD_URL];
-    [[VTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
+    [[MTNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
         if (response) {
             VTMaskedCreditCard *maskedCreditCard = [[VTMaskedCreditCard alloc] initWithData:response];
             if (completion) completion(maskedCreditCard, error);

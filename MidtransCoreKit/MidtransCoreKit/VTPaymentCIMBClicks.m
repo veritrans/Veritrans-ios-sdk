@@ -7,15 +7,15 @@
 //
 
 #import "VTPaymentCIMBClicks.h"
-#import "VTConstant.h"
+#import "MTConstant.h"
 
 @interface VTPaymentCIMBClicks()
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentCIMBClicks
 
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse * _Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -23,7 +23,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_CIMB_CLICKS;
+    return MT_PAYMENT_CIMB_CLICKS;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -34,7 +34,7 @@
     return ENDPOINT_CHARGE_CIMB_CLICKS;
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

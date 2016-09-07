@@ -8,8 +8,8 @@
 
 #import "VTAddress.h"
 #import "VTHelper.h"
-#import "NSString+VTValidation.h"
-#import "VTConstant.h"
+#import "NSString+MTValidation.h"
+#import "MTConstant.h"
 
 @interface VTAddress ()
 
@@ -83,7 +83,7 @@
         return YES;
     }
     else {
-        *error = [NSError errorWithDomain:VT_ERROR_DOMAIN code:VT_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
+        *error = [NSError errorWithDomain:MT_ERROR_DOMAIN code:MT_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
         return NO;
     }
 }

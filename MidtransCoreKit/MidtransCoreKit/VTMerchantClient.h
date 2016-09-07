@@ -12,7 +12,7 @@
 #import "VTTransactionResult.h"
 #import "VTMaskedCreditCard.h"
 #import "VTTransactionResult.h"
-@class TransactionTokenResponse,PaymentRequestResponse;
+@class MTTransactionTokenResponse,MTPaymentRequestResponse;
 /**
  `VTMerchant` wraps operation that offered by the Merchant Server. Note that data format is tightly-coupled with the merchant server implementation. Please refer to the Merchant Server documentation for further information.
  */
@@ -59,7 +59,7 @@
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
                                       customerDetails:(nullable VTCustomerDetails *)customerDetails
-                                           completion:(void (^_Nullable)(TransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+                                           completion:(void (^_Nullable)(MTTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
-- (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(PaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
+- (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(MTPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion;
 @end

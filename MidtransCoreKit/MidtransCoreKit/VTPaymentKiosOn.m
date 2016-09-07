@@ -9,12 +9,12 @@
 #import "VTPaymentKiosOn.h"
 
 @interface VTPaymentKiosOn()
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentKiosOn
 
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_KIOS_ON;
+    return MT_PAYMENT_KIOS_ON;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -33,7 +33,7 @@
     return ENDPOINT_CHARGE_KIOS_ON;
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

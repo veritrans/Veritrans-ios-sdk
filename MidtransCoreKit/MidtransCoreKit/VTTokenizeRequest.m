@@ -7,10 +7,10 @@
 //
 
 #import "VTTokenizeRequest.h"
-#import "VTConfig.h"
+#import "MTConfig.h"
 #import "VTHelper.h"
-#import "VTTrackingManager.h"
-#import "VTCreditCardHelper.h"
+#import "MTTrackingManager.h"
+#import "MTCreditCardHelper.h"
 #import "VTCreditCardPaymentFeature.h"
 
 @interface VTTokenizeRequest()
@@ -69,7 +69,7 @@
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
-                                    @"card_type":[VTCreditCardHelper nameFromString: self.creditCard.number],
+                                    @"card_type":[MTCreditCardHelper nameFromString: self.creditCard.number],
                                     @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
                                     @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount]}];
@@ -79,7 +79,7 @@
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
-                                    @"card_type":[VTCreditCardHelper nameFromString: self.creditCard.number],
+                                    @"card_type":[MTCreditCardHelper nameFromString: self.creditCard.number],
                                     @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
                                     @"bank":[VTHelper nullifyIfNil:self.bank],
                                     @"secure":_secure ? @"true":@"false",
@@ -92,7 +92,7 @@
         }
     }
     
-    if ([CONFIG environment] == VTServerEnvironmentProduction) {
+    if ([CONFIG environment] == MTServerEnvironmentProduction) {
         [result setObject:@"migs" forKey:@"channel"];
     }
     

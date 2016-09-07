@@ -8,15 +8,15 @@
 
 #import "VTPaymentBCAKlikpay.h"
 #import "VTHelper.h"
-#import "VTConstant.h"
+#import "MTConstant.h"
 
 @interface VTPaymentBCAKlikpay()
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
 @implementation VTPaymentBCAKlikpay
 
-- (instancetype _Nonnull) initWithToken:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull) initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -24,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_BCA_KLIKPAY;
+    return MT_PAYMENT_BCA_KLIKPAY;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -35,7 +35,7 @@
     return ENDPOINT_CHARGE_BCA_KLIKPAY;
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 @end

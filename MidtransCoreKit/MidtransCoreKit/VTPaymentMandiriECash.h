@@ -10,5 +10,5 @@
 #import "VTPaymentDetails.h"
 
 @interface VTPaymentMandiriECash : NSObject<VTPaymentDetails>
-- (instancetype _Nonnull)initWithToken:(TransactionTokenResponse * _Nonnull)token;
+- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token;
 @end

@@ -7,15 +7,15 @@
 //
 
 #import "VTPaymentKlikBCA.h"
-#import "VTConstant.h"
+#import "MTConstant.h"
 @interface VTPaymentKlikBCA()
 @property (nonatomic) NSString *klikBCAUserId;
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 @end;
 
 @implementation VTPaymentKlikBCA
 
-- (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(TransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithKlikBCAUserId:(NSString * _Nonnull)userId token:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.klikBCAUserId = userId;
         self.token = token;
@@ -24,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return VT_PAYMENT_KLIK_BCA;
+    return MT_PAYMENT_KLIK_BCA;
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"user_id" : self.klikBCAUserId,
@@ -33,7 +33,7 @@
 - (NSString *)chargeURL {
     return ENDPOINT_CHARGE_KLIKBCA;
 }
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 @end

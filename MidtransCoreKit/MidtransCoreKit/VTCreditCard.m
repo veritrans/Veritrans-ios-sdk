@@ -8,8 +8,8 @@
 
 #import "VTCreditCard.h"
 #import "VTHelper.h"
-#import "VTConfig.h"
-#import "VTCreditCardHelper.h"
+#import "MTConfig.h"
+#import "MTCreditCardHelper.h"
 
 @interface VTCreditCard ()
 @property (nonatomic, readwrite) NSString *expiryYear;

@@ -12,7 +12,7 @@
 #import "VTTransactionDetails.h"
 #import "VTCustomerDetails.h"
 #import "VTItemDetail.h"
-#import "TransactionTokenResponse.h"
+#import "MTTransactionTokenResponse.h"
 
 /**
  VTTransaction contains aggregated data needed to do a transaction.

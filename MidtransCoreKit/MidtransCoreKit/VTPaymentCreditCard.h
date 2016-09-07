@@ -56,9 +56,9 @@
  */
 - (instancetype _Nonnull)initWithFeature:(VTCreditCardPaymentFeature)feature
                          creditCardToken:(NSString *_Nonnull)creditCardToken
-                                   token:(TransactionTokenResponse *_Nonnull)token;
+                                   token:(MTTransactionTokenResponse *_Nonnull)token;
 
 - (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken
-                                           token:(TransactionTokenResponse *_Nonnull)token;
+                                           token:(MTTransactionTokenResponse *_Nonnull)token;
 
 @end

@@ -13,13 +13,13 @@
 
 @property (nonatomic, readwrite) VTVAType type;
 @property (nonatomic) NSString *email;
-@property (nonatomic) TransactionTokenResponse *token;
+@property (nonatomic) MTTransactionTokenResponse *token;
 
 @end
 
 @implementation VTPaymentBankTransfer
 
-- (instancetype _Nonnull)initWithBankTransferType:(VTVAType)type token:(TransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
+- (instancetype _Nonnull)initWithBankTransferType:(VTVAType)type token:(MTTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
     if (self = [super init]) {
         self.type = type;
         self.email = email;
@@ -33,12 +33,12 @@
     NSString *typeString;
     switch (_type) {
         case VTVATypeMandiri:
-            typeString = VT_PAYMENT_ECHANNEL;
+            typeString = MT_PAYMENT_ECHANNEL;
             break;
         case VTVATypeBCA:
         case VTVATypePermata:
         case VTVATypeOther:
-            typeString = VT_PAYMENT_BANK_TRANSFER;
+            typeString = MT_PAYMENT_BANK_TRANSFER;
             break;
     }
     return typeString;
@@ -62,7 +62,7 @@
     }
 }
 
-- (TransactionTokenResponse *)snapToken {
+- (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
 @end

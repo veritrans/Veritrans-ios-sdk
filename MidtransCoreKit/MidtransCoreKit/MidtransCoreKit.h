@@ -10,7 +10,7 @@
 #define MidtransCoreKit_h
 
 #import "VTTransactionResult.h"
-#import "VTItemDetail.h"
+#import "MTItemDetail.h"
 #import "VTTransaction.h"
 #import "VTTransactionDetails.h"
 #import "MTConfig.h"

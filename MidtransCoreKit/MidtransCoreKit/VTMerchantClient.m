@@ -133,7 +133,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 }
 
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
-                                          itemDetails:(nullable NSArray<VTItemDetail*> *)itemDetails
+                                          itemDetails:(nullable NSArray<MTItemDetail*> *)itemDetails
                                       customerDetails:(nullable VTCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MTTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
 {

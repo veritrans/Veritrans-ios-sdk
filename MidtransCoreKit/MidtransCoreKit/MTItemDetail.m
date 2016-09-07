@@ -6,14 +6,14 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTItemDetail.h"
+#import "MTItemDetail.h"
 #import "VTHelper.h"
 
 @implementation NSArray (VTITemDetail)
 
 - (NSArray *)itemDetailsDictionaryValue {
     NSMutableArray *result = [[NSMutableArray alloc] init];
-    [self enumerateObjectsUsingBlock:^(VTItemDetail * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [self enumerateObjectsUsingBlock:^(MTItemDetail * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         [result addObject:[obj dictionaryValue]];
     }];
     return result;
@@ -21,14 +21,14 @@
 
 @end
 
-@interface VTItemDetail ()
+@interface MTItemDetail ()
 @property(nonatomic, readwrite) NSString *itemId;
 @property(nonatomic, readwrite) NSNumber *price;
 @property(nonatomic, readwrite) NSNumber *quantity;
 @property(nonatomic, readwrite) NSString *name;
 @end
 
-@implementation VTItemDetail
+@implementation MTItemDetail
 
 - (instancetype)initWithItemID:(NSString *)itemID
                           name:(NSString *)name

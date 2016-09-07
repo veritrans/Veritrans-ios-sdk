@@ -6,7 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTItemDetail.h"
+#import "MTItemDetail.h"
 #import "VTTransactionDetails.h"
 #import "VTCustomerDetails.h"
 
@@ -14,10 +14,10 @@
 @property (nonatomic, strong) NSString *tokenId;
 @property (nonatomic, strong) VTTransactionDetails *transactionDetails;
 @property (nonatomic, strong) VTCustomerDetails *customerDetails;
-@property (nonatomic, strong) NSArray <VTItemDetail *>*itemDetails;
+@property (nonatomic, strong) NSArray <MTItemDetail *>*itemDetails;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
-+ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails;
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict transactionDetails:(VTTransactionDetails *)transactionDetails customerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <MTItemDetail*>*)itemDetails;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)dictionaryRepresentation;
 

@@ -12,7 +12,7 @@
 - (NSArray *)itemDetailsDictionaryValue;
 @end
 
-@interface VTItemDetail : NSObject
+@interface MTItemDetail : NSObject
 
 @property(nonatomic, readonly) NSString *itemId;
 @property(nonatomic, readonly) NSNumber *price;

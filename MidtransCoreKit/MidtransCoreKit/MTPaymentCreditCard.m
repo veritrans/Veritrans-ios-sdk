@@ -7,13 +7,13 @@
 //
 
 #import "MTPaymentCreditCard.h"
-#import "MTHelper.h"
-#import "MTConfig.h"
-#import "MTCreditCardConfig.h"
+#import "MidtransHelper.h"
+#import "MidtransConfig.h"
+#import "MidtransCreditCardConfig.h"
 
 @interface MTPaymentCreditCard()
 @property (nonatomic) MTCreditCardPaymentFeature creditCardPaymentFeature;
-@property (nonatomic) MTTransactionTokenResponse *_Nonnull token;
+@property (nonatomic) MidtransTransactionTokenResponse *_Nonnull token;
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @end
 
@@ -21,7 +21,7 @@
 
 - (instancetype)initWithFeature:(MTCreditCardPaymentFeature)feature
                 creditCardToken:(NSString *_Nonnull)creditCardToken
-                          token:(MTTransactionTokenResponse *_Nonnull)token {
+                          token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.creditCardPaymentFeature = feature;
         self.token = token;
@@ -31,7 +31,7 @@
     return self;
 }
 
-- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken token:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.creditCardToken = creditCardToken;
         self.token = token;
@@ -41,7 +41,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_CREDIT_CARD;
+    return MIDTRANS_PAYMENT_CREDIT_CARD;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -61,7 +61,7 @@
     return ENDPOINT_CHARGE_CC;
 }
 
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

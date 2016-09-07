@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTPaymentDetails.h"
+#import "MidtransPaymentDetails.h"
 
 typedef NS_ENUM(NSUInteger, MTVAType) {
     VTVATypeBCA,
@@ -15,10 +15,10 @@ typedef NS_ENUM(NSUInteger, MTVAType) {
     VTVATypePermata,
     VTVATypeOther
 };
-@interface MTPaymentBankTransfer : NSObject<MTPaymentDetails>
+@interface MTPaymentBankTransfer : NSObject<MidtransPaymentDetails>
 
 @property (nonatomic, readonly) MTVAType type;
 
-- (instancetype _Nonnull)initWithBankTransferType:(MTVAType)type token:(MTTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
+- (instancetype _Nonnull)initWithBankTransferType:(MTVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
 
 @end

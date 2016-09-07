@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTPaymentDetails.h"
+#import "MidtransPaymentDetails.h"
 
-@interface MTPaymentKiosOn : NSObject <MTPaymentDetails>
+@interface MTPaymentKiosOn : NSObject <MidtransPaymentDetails>
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token;
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token;
 
 @end

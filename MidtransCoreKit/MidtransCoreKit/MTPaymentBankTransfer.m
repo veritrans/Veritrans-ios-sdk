@@ -7,19 +7,19 @@
 //
 
 #import "MTPaymentBankTransfer.h"
-#import "MTHelper.h"
+#import "MidtransHelper.h"
 
 @interface MTPaymentBankTransfer()
 
 @property (nonatomic, readwrite) MTVAType type;
 @property (nonatomic) NSString *email;
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 
 @end
 
 @implementation MTPaymentBankTransfer
 
-- (instancetype _Nonnull)initWithBankTransferType:(MTVAType)type token:(MTTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
+- (instancetype _Nonnull)initWithBankTransferType:(MTVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
     if (self = [super init]) {
         self.type = type;
         self.email = email;
@@ -33,12 +33,12 @@
     NSString *typeString;
     switch (_type) {
         case VTVATypeMandiri:
-            typeString = MT_PAYMENT_ECHANNEL;
+            typeString = MIDTRANS_PAYMENT_ECHANNEL;
             break;
         case VTVATypeBCA:
         case VTVATypePermata:
         case VTVATypeOther:
-            typeString = MT_PAYMENT_BANK_TRANSFER;
+            typeString = MIDTRANS_PAYMENT_BANK_TRANSFER;
             break;
     }
     return typeString;
@@ -62,7 +62,7 @@
     }
 }
 
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 @end

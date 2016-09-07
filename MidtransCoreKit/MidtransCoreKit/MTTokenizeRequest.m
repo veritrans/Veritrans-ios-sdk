@@ -7,14 +7,14 @@
 //
 
 #import "MTTokenizeRequest.h"
-#import "MTConfig.h"
-#import "MTHelper.h"
-#import "MTTrackingManager.h"
-#import "MTCreditCardHelper.h"
+#import "MidtransConfig.h"
+#import "MidtransHelper.h"
+#import "MidtransTrackingManager.h"
+#import "MidtransCreditCardHelper.h"
 #import "MTCreditCardPaymentFeature.h"
 
 @interface MTTokenizeRequest()
-@property (nonatomic, readwrite) MTCreditCard *creditCard;
+@property (nonatomic, readwrite) MidtransCreditCard *creditCard;
 @property (nonatomic, readwrite) NSString *bank;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 @property (nonatomic, readwrite) BOOL installment;
@@ -29,7 +29,7 @@
 
 @implementation MTTokenizeRequest
 
-- (instancetype)initWithCreditCard:(MTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;
@@ -58,41 +58,41 @@
     switch (_creditCardPaymentFeature) {
         case MTCreditCardPaymentFeatureTwoClick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
-                                    @"card_cvv":[MTHelper nullifyIfNil:self.cvv],
+                                    @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
-                                    @"gross_amount":[MTHelper nullifyIfNil:self.grossAmount],
+                                    @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
-                                    @"token_id":[MTHelper nullifyIfNil:self.token]}];
+                                    @"token_id":[MidtransHelper nullifyIfNil:self.token]}];
             break;
         } case MTCreditCardPaymentFeatureNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
-                                    @"card_type":[MTCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"card_cvv":[MTHelper nullifyIfNil:self.cvv],
+                                    @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
+                                    @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
-                                    @"gross_amount":[MTHelper nullifyIfNil:self.grossAmount]}];
+                                    @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount]}];
             break;
         } default: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
-                                    @"card_type":[MTCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"card_cvv":[MTHelper nullifyIfNil:self.cvv],
-                                    @"bank":[MTHelper nullifyIfNil:self.bank],
+                                    @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
+                                    @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
+                                    @"bank":[MidtransHelper nullifyIfNil:self.bank],
                                     @"secure":_secure ? @"true":@"false",
-                                    @"gross_amount":[MTHelper nullifyIfNil:self.grossAmount],
+                                    @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"installment":self.installment? @"true":@"false",
-                                    @"installment_term":[MTHelper nullifyIfNil:self.installmentTerm],
+                                    @"installment_term":[MidtransHelper nullifyIfNil:self.installmentTerm],
                                     @"two_click":self.twoClick? @"true":@"false",
-                                    @"type":[MTHelper nullifyIfNil:self.type]}];
+                                    @"type":[MidtransHelper nullifyIfNil:self.type]}];
             break;
         }
     }
     
-    if ([CONFIG environment] == MTServerEnvironmentProduction) {
+    if ([CONFIG environment] == MIdtransServerEnvironmentProduction) {
         [result setObject:@"migs" forKey:@"channel"];
     }
     

@@ -10,12 +10,12 @@
 
 @interface MTPaymentIndosatDompetku()
 @property (nonatomic) NSString *msisdn;
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MTPaymentIndosatDompetku
 
-- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.msisdn = msisdn;
         self.token = token;
@@ -24,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_INDOSAT_DOMPETKU;
+    return MIDTRANS_PAYMENT_INDOSAT_DOMPETKU;
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"msisdn" : self.msisdn,
@@ -33,7 +33,7 @@
 - (NSString *)chargeURL {
     return ENDPOINT_CHARGE_INDOSAT_DOMPETKU;
 }
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

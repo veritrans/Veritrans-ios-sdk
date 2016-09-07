@@ -7,14 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTCreditCard.h"
+#import "MidtransCreditCard.h"
 
 /**
  `VTTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
  */
 @interface MTTokenizeRequest : NSObject
 
-@property (nonatomic, readonly) MTCreditCard *creditCard;
+@property (nonatomic, readonly) MidtransCreditCard *creditCard;
 @property (nonatomic, readonly) NSString *bank;
 @property (nonatomic, readonly) NSNumber *grossAmount;
 @property (nonatomic, readonly) BOOL installment;
@@ -35,7 +35,7 @@
  @param grossAmount The amount to charge.
  @param secure To activate 3D secure payment.
  */
-- (instancetype)initWithCreditCard:(MTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure;
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure;
 
 /**
  Get a `VTTokenizeReqeust` for two-clicks transaction.

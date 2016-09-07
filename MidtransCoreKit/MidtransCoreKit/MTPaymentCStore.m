@@ -9,12 +9,12 @@
 #import "MTPaymentCStore.h"
 
 @interface MTPaymentCStore()
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MTPaymentCStore
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_CSTORE;
+    return MIDTRANS_PAYMENT_CSTORE;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -33,7 +33,7 @@
     return ENDPOINT_CHARGE_INDOMARET;
 }
 
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

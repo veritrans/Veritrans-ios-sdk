@@ -7,16 +7,16 @@
 //
 
 #import "MTPaymentBCAKlikpay.h"
-#import "MTHelper.h"
-#import "MTConstant.h"
+#import "MidtransHelper.h"
+#import "MidtransConstant.h"
 
 @interface MTPaymentBCAKlikpay()
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MTPaymentBCAKlikpay
 
-- (instancetype _Nonnull) initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull) initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -24,7 +24,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_BCA_KLIKPAY;
+    return MIDTRANS_PAYMENT_BCA_KLIKPAY;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -35,7 +35,7 @@
     return ENDPOINT_CHARGE_BCA_KLIKPAY;
 }
 
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 @end

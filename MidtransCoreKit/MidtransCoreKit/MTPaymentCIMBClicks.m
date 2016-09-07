@@ -7,15 +7,15 @@
 //
 
 #import "MTPaymentCIMBClicks.h"
-#import "MTConstant.h"
+#import "MidtransConstant.h"
 
 @interface MTPaymentCIMBClicks()
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MTPaymentCIMBClicks
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -23,7 +23,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_CIMB_CLICKS;
+    return MIDTRANS_PAYMENT_CIMB_CLICKS;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -34,7 +34,7 @@
     return ENDPOINT_CHARGE_CIMB_CLICKS;
 }
 
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

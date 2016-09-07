@@ -9,12 +9,12 @@
 #import "MTPaymentKiosOn.h"
 
 @interface MTPaymentKiosOn()
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MTPaymentKiosOn
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -22,7 +22,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_KIOS_ON;
+    return MIDTRANS_PAYMENT_KIOS_ON;
 }
 
 - (NSDictionary *)dictionaryValue {
@@ -33,7 +33,7 @@
     return ENDPOINT_CHARGE_KIOS_ON;
 }
 
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 

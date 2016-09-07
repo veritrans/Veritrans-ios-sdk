@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTPaymentDetails.h"
+#import "MidtransPaymentDetails.h"
 #import "MTCreditCardPaymentFeature.h"
 
 /**
@@ -15,7 +15,7 @@
  
  This class is modeled after http://docs.veritrans.co.id/en/api/methods.html#credit_card_attr
  */
-@interface MTPaymentCreditCard : NSObject <MTPaymentDetails>
+@interface MTPaymentCreditCard : NSObject <MidtransPaymentDetails>
 
 /**
  The name of the bank.
@@ -56,9 +56,9 @@
  */
 - (instancetype _Nonnull)initWithFeature:(MTCreditCardPaymentFeature)feature
                          creditCardToken:(NSString *_Nonnull)creditCardToken
-                                   token:(MTTransactionTokenResponse *_Nonnull)token;
+                                   token:(MidtransTransactionTokenResponse *_Nonnull)token;
 
 - (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken
-                                           token:(MTTransactionTokenResponse *_Nonnull)token;
+                                           token:(MidtransTransactionTokenResponse *_Nonnull)token;
 
 @end

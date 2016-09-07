@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MTPaymentDetails.h"
+#import "MidtransPaymentDetails.h"
 
-@interface MTPaymentBCAKlikpay : NSObject <MTPaymentDetails>
-- (instancetype _Nonnull) initWithToken:(MTTransactionTokenResponse *_Nonnull)token;
+@interface MTPaymentBCAKlikpay : NSObject <MidtransPaymentDetails>
+- (instancetype _Nonnull) initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token;
 @end

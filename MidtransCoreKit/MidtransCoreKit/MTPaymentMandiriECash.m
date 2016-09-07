@@ -7,15 +7,15 @@
 //
 
 #import "MTPaymentMandiriECash.h"
-#import "MTConstant.h"
+#import "MidtransConstant.h"
 
 @interface MTPaymentMandiriECash()
-@property (nonatomic) MTTransactionTokenResponse *token;
+@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MTPaymentMandiriECash
 
-- (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse * _Nonnull)token {
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token {
     if (self = [super init]) {
         self.token = token;
     }
@@ -23,7 +23,7 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_MANDIRI_ECASH;
+    return MIDTRANS_PAYMENT_MANDIRI_ECASH;
 }
 - (NSDictionary *)dictionaryValue {
     return @{@"transaction_id":self.token.tokenId};
@@ -32,7 +32,7 @@
 - (NSString *)chargeURL {
     return ENDPOINT_CHARGE_MANDIRI_ECASH;
 }
-- (MTTransactionTokenResponse *)snapToken {
+- (MidtransTransactionTokenResponse *)snapToken {
     return self.token;
 }
 @end

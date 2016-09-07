@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
 #import "MTCreditCard.h"
-#import "VTTokenizeRequest.h"
+#import "MTTokenizeRequest.h"
 #import "MTMaskedCreditCard.h"
 #import "MTTransactionResult.h"
 
@@ -39,7 +39,7 @@
  
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the generated token will be passed as `token` variable.
  */
-- (void)generateToken:(VTTokenizeRequest *_Nonnull)tokenizeRequest
+- (void)generateToken:(MTTokenizeRequest *_Nonnull)tokenizeRequest
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion;
 
 /**

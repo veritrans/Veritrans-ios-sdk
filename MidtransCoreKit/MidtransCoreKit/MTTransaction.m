@@ -6,15 +6,15 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTTransaction.h"
+#import "MTTransaction.h"
 
-@interface VTTransaction()
+@interface MTTransaction()
 
 @property (nonatomic, readwrite) id paymentDetails;
 
 @end
 
-@implementation VTTransaction
+@implementation MTTransaction
 
 - (instancetype)initWithPaymentDetails:(id<MTPaymentDetails>)paymentDetails {
     if (self = [super init]) {

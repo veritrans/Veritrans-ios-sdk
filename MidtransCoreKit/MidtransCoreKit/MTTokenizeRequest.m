@@ -6,14 +6,14 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTTokenizeRequest.h"
+#import "MTTokenizeRequest.h"
 #import "MTConfig.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "MTTrackingManager.h"
 #import "MTCreditCardHelper.h"
-#import "VTCreditCardPaymentFeature.h"
+#import "MTCreditCardPaymentFeature.h"
 
-@interface VTTokenizeRequest()
+@interface MTTokenizeRequest()
 @property (nonatomic, readwrite) MTCreditCard *creditCard;
 @property (nonatomic, readwrite) NSString *bank;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
@@ -24,17 +24,17 @@
 @property (nonatomic, readwrite) NSString *type;
 @property (nonatomic, readwrite) NSString *cvv;
 @property (nonatomic, readwrite) BOOL secure;
-@property (nonatomic, readwrite) VTCreditCardPaymentFeature creditCardPaymentFeature;
+@property (nonatomic, readwrite) MTCreditCardPaymentFeature creditCardPaymentFeature;
 @end
 
-@implementation VTTokenizeRequest
+@implementation MTTokenizeRequest
 
 - (instancetype)initWithCreditCard:(MTCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;
         self.grossAmount = grossAmount;
-        self.creditCardPaymentFeature = VTCreditCardPaymentFeatureNormal;
+        self.creditCardPaymentFeature = MTCreditCardPaymentFeatureNormal;
         self.secure = secure;
     }
     return self;
@@ -48,7 +48,7 @@
         self.token = token;
         self.cvv = cvv;
         self.secure = YES;
-        self.creditCardPaymentFeature = VTCreditCardPaymentFeatureTwoClick;
+        self.creditCardPaymentFeature = MTCreditCardPaymentFeatureTwoClick;
     }
     return self;
 }
@@ -56,23 +56,23 @@
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary new];
     switch (_creditCardPaymentFeature) {
-        case VTCreditCardPaymentFeatureTwoClick: {
+        case MTCreditCardPaymentFeatureTwoClick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
-                                    @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
+                                    @"card_cvv":[MTHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
-                                    @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount],
+                                    @"gross_amount":[MTHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
-                                    @"token_id":[VTHelper nullifyIfNil:self.token]}];
+                                    @"token_id":[MTHelper nullifyIfNil:self.token]}];
             break;
-        } case VTCreditCardPaymentFeatureNormal: {
+        } case MTCreditCardPaymentFeatureNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MTCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
+                                    @"card_cvv":[MTHelper nullifyIfNil:self.cvv],
                                     @"secure":_secure ? @"true":@"false",
-                                    @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount]}];
+                                    @"gross_amount":[MTHelper nullifyIfNil:self.grossAmount]}];
             break;
         } default: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
@@ -80,14 +80,14 @@
                                     @"card_exp_month":self.creditCard.expiryMonth,
                                     @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MTCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"card_cvv":[VTHelper nullifyIfNil:self.cvv],
-                                    @"bank":[VTHelper nullifyIfNil:self.bank],
+                                    @"card_cvv":[MTHelper nullifyIfNil:self.cvv],
+                                    @"bank":[MTHelper nullifyIfNil:self.bank],
                                     @"secure":_secure ? @"true":@"false",
-                                    @"gross_amount":[VTHelper nullifyIfNil:self.grossAmount],
+                                    @"gross_amount":[MTHelper nullifyIfNil:self.grossAmount],
                                     @"installment":self.installment? @"true":@"false",
-                                    @"installment_term":[VTHelper nullifyIfNil:self.installmentTerm],
+                                    @"installment_term":[MTHelper nullifyIfNil:self.installmentTerm],
                                     @"two_click":self.twoClick? @"true":@"false",
-                                    @"type":[VTHelper nullifyIfNil:self.type]}];
+                                    @"type":[MTHelper nullifyIfNil:self.type]}];
             break;
         }
     }

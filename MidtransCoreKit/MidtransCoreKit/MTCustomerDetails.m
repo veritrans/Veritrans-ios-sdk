@@ -7,7 +7,7 @@
 //
 
 #import "MTCustomerDetails.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "NSString+MTValidation.h"
 #import "MTConstant.h"
 
@@ -65,18 +65,18 @@
     // Format MUST BE compatible with
     // http://docs.veritrans.co.id/en/api/methods.html#customer_details_attr
     
-    return @{@"first_name": [VTHelper nullifyIfNil:self.firstName],
-             @"last_name": [VTHelper nullifyIfNil:self.lastName],
-             @"email": [VTHelper nullifyIfNil:self.email],
-             @"phone": [VTHelper nullifyIfNil:self.phone],
+    return @{@"first_name": [MTHelper nullifyIfNil:self.firstName],
+             @"last_name": [MTHelper nullifyIfNil:self.lastName],
+             @"email": [MTHelper nullifyIfNil:self.email],
+             @"phone": [MTHelper nullifyIfNil:self.phone],
              @"shipping_address": [self.shippingAddress dictionaryValue],
              @"billing_address": [self.billingAddress dictionaryValue]};
 }
 
 - (NSDictionary *)snapDictionaryValue {
     return @{@"payment_detail":@{@"full_name":[NSString stringWithFormat:@"%@ %@", self.firstName, self.lastName],
-                                 @"phone":[VTHelper nullifyIfNil:self.phone],
-                                 @"email":[VTHelper nullifyIfNil:self.email]}};
+                                 @"phone":[MTHelper nullifyIfNil:self.phone],
+                                 @"email":[MTHelper nullifyIfNil:self.email]}};
 }
 
 - (BOOL)isValidCustomerData:(NSError **)error {

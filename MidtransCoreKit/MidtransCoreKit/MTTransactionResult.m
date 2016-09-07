@@ -7,7 +7,7 @@
 //
 
 #import "MTTransactionResult.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 
 @interface MTTransactionResult()
 

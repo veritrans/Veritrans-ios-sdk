@@ -7,7 +7,7 @@
 //
 
 #import "MTCreditCard.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "MTConfig.h"
 #import "MTCreditCardHelper.h"
 
@@ -53,8 +53,8 @@
 
 - (NSDictionary *)dictionaryValue {
     return @{@"client_key":[CONFIG clientKey],
-             @"card_number":[VTHelper nullifyIfNil:self.number],
-             @"card_exp_month":[VTHelper nullifyIfNil:self.expiryMonth],
-             @"card_exp_year":[VTHelper nullifyIfNil:self.expiryYear]};
+             @"card_number":[MTHelper nullifyIfNil:self.number],
+             @"card_exp_month":[MTHelper nullifyIfNil:self.expiryMonth],
+             @"card_exp_year":[MTHelper nullifyIfNil:self.expiryYear]};
 }
 @end

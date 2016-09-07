@@ -10,7 +10,7 @@
 #import "MTConfig.h"
 #import "MTNetworking.h"
 #import "MTPrivateConfig.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MTTrackingManager.h"
 #import "MTPaymentWebController.h"
@@ -53,7 +53,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     return instance;
 }
 
-- (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(MTTransactionResult *result, NSError *error))completion {
+- (void)performTransaction:(MTTransaction *)transaction completion:(void(^)(MTTransactionResult *result, NSError *error))completion {
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL], [transaction chargeURL]];
     
@@ -132,7 +132,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     [paymentType isEqualToString:MT_PAYMENT_BRI_EPAY];
 }
 
-- (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull MTTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MTItemDetail*> *)itemDetails
                                       customerDetails:(nullable MTCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MTTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
@@ -157,9 +157,9 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
      {
          if (!error) {
              MTTransactionTokenResponse *token = [MTTransactionTokenResponse modelObjectWithDictionary:response
-                                                                                transactionDetails:transactionDetails
-                                                                                   customerDetails:customerDetails
-                                                                                       itemDetails:itemDetails];
+                                                                                    transactionDetails:transactionDetails
+                                                                                       customerDetails:customerDetails
+                                                                                           itemDetails:itemDetails];
              if (completion) {
                  [[MTTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
                  completion(token,NULL);

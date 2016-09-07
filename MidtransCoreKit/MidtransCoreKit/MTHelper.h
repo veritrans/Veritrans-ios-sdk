@@ -1,5 +1,5 @@
 //
-//  VTHelper.h
+//  MTHelper.h
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 2/18/16.
@@ -11,7 +11,7 @@
 
 extern NSString *const VTMaskedCardsUpdated;
 
-@interface VTHelper : NSObject
+@interface MTHelper : NSObject
 + (id)nullifyIfNil:(id)object;
 @end
 

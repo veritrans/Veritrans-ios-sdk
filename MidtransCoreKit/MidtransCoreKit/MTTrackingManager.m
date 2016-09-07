@@ -11,7 +11,7 @@
 #import "MTConstant.h"
 #import "MTPaymentRequestDataModels.h"
 #import "MTNetworking.h"
-#import "VTCreditCardPaymentFeature.h"
+#import "MTCreditCardPaymentFeature.h"
 
 @implementation NSDictionary (TrackingManager)
 

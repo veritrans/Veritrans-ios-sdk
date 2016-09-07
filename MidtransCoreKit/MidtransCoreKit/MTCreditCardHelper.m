@@ -8,7 +8,7 @@
 
 #import "MTCreditCardHelper.h"
 #import "MTLuhn.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "MTConstant.h"
 
 @implementation NSString (CreditCard)

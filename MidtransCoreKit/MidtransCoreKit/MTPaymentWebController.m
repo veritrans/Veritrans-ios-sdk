@@ -7,7 +7,7 @@
 //
 
 #import "MTPaymentWebController.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "MTConstant.h"
 
 @interface MTPaymentWebController () <UIWebViewDelegate, UIAlertViewDelegate>

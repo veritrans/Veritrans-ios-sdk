@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MTPaymentDetails.h"
 
-@interface VTPaymentKiosOn : NSObject <MTPaymentDetails>
+@interface MTPaymentKiosOn : NSObject <MTPaymentDetails>
 
 - (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token;
 

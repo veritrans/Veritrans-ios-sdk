@@ -6,13 +6,13 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentXLTunai.h"
+#import "MTPaymentXLTunai.h"
 
-@interface VTPaymentXLTunai()
+@interface MTPaymentXLTunai()
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentXLTunai
+@implementation MTPaymentXLTunai
 
 - (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

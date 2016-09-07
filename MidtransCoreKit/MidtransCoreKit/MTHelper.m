@@ -1,17 +1,17 @@
 //
-//  VTHelper.m
+//  MTHelper.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 2/18/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTHelper.h"
+#import "MTHelper.h"
 
 NSString *const VTMaskedCardsUpdated = @"vt_masked_cards_updated";
 
 
-@implementation VTHelper
+@implementation MTHelper
 
 + (id)nullifyIfNil:(id)object {
     if (object) {

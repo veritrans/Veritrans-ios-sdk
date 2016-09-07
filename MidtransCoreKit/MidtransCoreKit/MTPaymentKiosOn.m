@@ -6,13 +6,13 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentKiosOn.h"
+#import "MTPaymentKiosOn.h"
 
-@interface VTPaymentKiosOn()
+@interface MTPaymentKiosOn()
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentKiosOn
+@implementation MTPaymentKiosOn
 
 - (instancetype _Nonnull)initWithToken:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

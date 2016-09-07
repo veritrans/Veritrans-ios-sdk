@@ -7,8 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "VTTransaction.h"
-#import "VTTransactionDetails.h"
+#import "MTTransaction.h"
+#import "MTTransactionDetails.h"
 #import "MTTransactionResult.h"
 #import "MTMaskedCreditCard.h"
 #import "MTTransactionResult.h"
@@ -39,7 +39,7 @@
  
  @param completion A callback that will be executed when the transaction finishes. If the transaction succeeded, the `result` variable will contain all the information provided from the server.
  */
-- (void)performTransaction:(VTTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MTTransactionResult *_Nullable result, NSError *_Nullable error))completion;
+- (void)performTransaction:(MTTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MTTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 
 /**
  Save credit card partial information to the Merchant Server. The partial
@@ -56,7 +56,7 @@
 /*
  * updated method, snapping
  */
-- (void)requestTransactionTokenWithTransactionDetails:(nonnull VTTransactionDetails *)transactionDetails
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull MTTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MTItemDetail*> *)itemDetails
                                       customerDetails:(nullable MTCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MTTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;

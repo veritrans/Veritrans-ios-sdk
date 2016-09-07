@@ -7,19 +7,19 @@
 //
 
 #import "MTPaymentCreditCard.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "MTConfig.h"
 #import "MTCreditCardConfig.h"
 
 @interface MTPaymentCreditCard()
-@property (nonatomic) VTCreditCardPaymentFeature creditCardPaymentFeature;
+@property (nonatomic) MTCreditCardPaymentFeature creditCardPaymentFeature;
 @property (nonatomic) MTTransactionTokenResponse *_Nonnull token;
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @end
 
 @implementation MTPaymentCreditCard
 
-- (instancetype)initWithFeature:(VTCreditCardPaymentFeature)feature
+- (instancetype)initWithFeature:(MTCreditCardPaymentFeature)feature
                 creditCardToken:(NSString *_Nonnull)creditCardToken
                           token:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {

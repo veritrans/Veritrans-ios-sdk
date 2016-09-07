@@ -7,7 +7,7 @@
 //
 
 #import "MTItemDetail.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 
 @implementation NSArray (VTITemDetail)
 
@@ -44,10 +44,10 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"id":[VTHelper nullifyIfNil:_itemId],
-             @"price":[VTHelper nullifyIfNil:_price],
-             @"quantity":[VTHelper nullifyIfNil:_quantity],
-             @"name":[VTHelper nullifyIfNil:_name]};
+    return @{@"id":[MTHelper nullifyIfNil:_itemId],
+             @"price":[MTHelper nullifyIfNil:_price],
+             @"quantity":[MTHelper nullifyIfNil:_quantity],
+             @"name":[MTHelper nullifyIfNil:_name]};
 }
 
 @end

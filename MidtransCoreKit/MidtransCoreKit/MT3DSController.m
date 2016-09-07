@@ -7,7 +7,7 @@
 //
 
 #import "MT3DSController.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "MTConstant.h"
 
 @interface MT3DSController() <UIWebViewDelegate, UIAlertViewDelegate>

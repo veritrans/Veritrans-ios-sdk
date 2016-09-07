@@ -7,7 +7,7 @@
 //
 
 #import "MTPaymentBankTransfer.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 
 @interface MTPaymentBankTransfer()
 

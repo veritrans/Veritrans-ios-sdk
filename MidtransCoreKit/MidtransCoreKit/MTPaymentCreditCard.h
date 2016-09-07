@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MTPaymentDetails.h"
-#import "VTCreditCardPaymentFeature.h"
+#import "MTCreditCardPaymentFeature.h"
 
 /**
  `VTPaymentCreditCard` contains all the data needed to perform transaction againts Veritrans Server using credit card.
@@ -54,7 +54,7 @@
  @param feature The feature of the payment.
  @param tokenId The specified token ID.
  */
-- (instancetype _Nonnull)initWithFeature:(VTCreditCardPaymentFeature)feature
+- (instancetype _Nonnull)initWithFeature:(MTCreditCardPaymentFeature)feature
                          creditCardToken:(NSString *_Nonnull)creditCardToken
                                    token:(MTTransactionTokenResponse *_Nonnull)token;
 

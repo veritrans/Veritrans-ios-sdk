@@ -13,7 +13,7 @@
  The content of this object is adapted from
  http://docs.veritrans.co.id/en/api/methods.html#transaction_details_attr
  */
-@interface VTTransactionDetails : NSObject
+@interface MTTransactionDetails : NSObject
 
 @property (nonatomic, readonly) NSString *orderId;
 @property (nonatomic, readonly) NSNumber *grossAmount;

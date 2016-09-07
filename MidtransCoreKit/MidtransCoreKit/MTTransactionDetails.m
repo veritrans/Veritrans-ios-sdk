@@ -6,17 +6,17 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTTransactionDetails.h"
-#import "VTHelper.h"
+#import "MTTransactionDetails.h"
+#import "MTHelper.h"
 
-@interface VTTransactionDetails()
+@interface MTTransactionDetails()
 
 @property (nonatomic, readwrite) NSString *orderId;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 
 @end
 
-@implementation VTTransactionDetails
+@implementation MTTransactionDetails
 
 - (instancetype)initWithOrderID:(NSString *)orderID andGrossAmount:(NSNumber *)grossAmount {
     if (self = [super init]) {

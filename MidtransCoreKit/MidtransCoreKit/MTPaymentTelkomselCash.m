@@ -1,19 +1,19 @@
 //
-//  VTPaymentIndosatDompetku.m
+//  VTPaymentTelkomselCash.m
 //  MidtransCoreKit
 //
 //  Created by Nanang Rafsanjani on 8/8/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentIndosatDompetku.h"
+#import "MTPaymentTelkomselCash.h"
 
-@interface VTPaymentIndosatDompetku()
+@interface MTPaymentTelkomselCash()
 @property (nonatomic) NSString *msisdn;
 @property (nonatomic) MTTransactionTokenResponse *token;
 @end
 
-@implementation VTPaymentIndosatDompetku
+@implementation MTPaymentTelkomselCash
 
 - (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MTTransactionTokenResponse *_Nonnull)token {
     if (self = [super init]) {
@@ -24,18 +24,17 @@
 }
 
 - (NSString *)paymentType {
-    return MT_PAYMENT_INDOSAT_DOMPETKU;
+    return MT_PAYMENT_TELKOMSEL_CASH;
 }
 - (NSDictionary *)dictionaryValue {
-    return @{@"msisdn" : self.msisdn,
+    return @{@"customer" : self.msisdn,
              @"transaction_id" : self.token.tokenId};
 }
 - (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_INDOSAT_DOMPETKU;
+    return ENDPOINT_CHARGE_TELKOMSEL_CASH;
 }
 - (MTTransactionTokenResponse *)snapToken {
     return self.token;
 }
-
 
 @end

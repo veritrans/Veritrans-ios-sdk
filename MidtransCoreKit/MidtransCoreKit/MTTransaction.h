@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 #import "MTPaymentDetails.h"
-#import "VTTransactionDetails.h"
+#import "MTTransactionDetails.h"
 #import "MTCustomerDetails.h"
 #import "MTItemDetail.h"
 #import "MTTransactionTokenResponse.h"
@@ -19,7 +19,7 @@
  
  There are two mandatory fields here: `paymentDetails` and `transactionDetails`. The rest are optional.
  */
-@interface VTTransaction : NSObject
+@interface MTTransaction : NSObject
 
 /**
  The payment details. This object contains payment-specific data. Each payment type has its own data structure.

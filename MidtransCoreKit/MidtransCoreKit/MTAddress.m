@@ -7,7 +7,7 @@
 //
 
 #import "MTAddress.h"
-#import "VTHelper.h"
+#import "MTHelper.h"
 #import "NSString+MTValidation.h"
 #import "MTConstant.h"
 
@@ -69,13 +69,13 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"first_name":[VTHelper nullifyIfNil:_firstName],
-             @"last_name":[VTHelper nullifyIfNil:_lastName],
-             @"phone":[VTHelper nullifyIfNil:_phone],
-             @"address":[VTHelper nullifyIfNil:_address],
-             @"city":[VTHelper nullifyIfNil:_city],
-             @"postal_code":[VTHelper nullifyIfNil:_postalCode],
-             @"country_code":[VTHelper nullifyIfNil:_countryCode]};
+    return @{@"first_name":[MTHelper nullifyIfNil:_firstName],
+             @"last_name":[MTHelper nullifyIfNil:_lastName],
+             @"phone":[MTHelper nullifyIfNil:_phone],
+             @"address":[MTHelper nullifyIfNil:_address],
+             @"city":[MTHelper nullifyIfNil:_city],
+             @"postal_code":[MTHelper nullifyIfNil:_postalCode],
+             @"country_code":[MTHelper nullifyIfNil:_countryCode]};
 }
 
 - (BOOL)validCustomerData:(NSError **)error {

@@ -8,6 +8,6 @@
 
 #import "MidtransUIXibView.h"
 
-@interface VTPaymentListFooter : MidtransUIXibView
+@interface MidtransUIPaymentListFooter : MidtransUIXibView
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @end

@@ -6,12 +6,12 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentListFooter.h"
+#import "MidtransUIPaymentListFooter.h"
 
-@interface VTPaymentListFooter()
+@interface MidtransUIPaymentListFooter()
 
 @end
 
-@implementation VTPaymentListFooter
+@implementation MidtransUIPaymentListFooter
 
 @end

@@ -1,15 +1,15 @@
 //
-//  VTCCFrontView.m
+//  MidtransUICCFrontView.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/6/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCCFrontView.h"
+#import "MidtransUICCFrontView.h"
 #import "VTClassHelper.h"
 
-@implementation VTCCFrontView
+@implementation MidtransUICCFrontView
 
 /*
  // Only override drawRect: if you perform custom drawing.

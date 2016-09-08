@@ -10,7 +10,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 #import "MidtransUITextField.h"
-#import "VTCCFrontView.h"
+#import "MidtransUICCFrontView.h"
 #import "VTCCBackView.h"
 
 @interface VTAddCardView : UIView
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UISwitch *saveCardSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
-@property (weak, nonatomic) IBOutlet VTCCFrontView *cardFrontView;
+@property (weak, nonatomic) IBOutlet MidtransUICCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;
 
 - (void)setToken:(MidtransTransactionTokenResponse *)token;

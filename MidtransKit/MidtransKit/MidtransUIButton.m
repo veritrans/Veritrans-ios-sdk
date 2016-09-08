@@ -1,15 +1,15 @@
 //
-//  VTButton.m
+//  MidtransUIButton.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/1/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTButton.h"
+#import "MidtransUIButton.h"
 #import "MidtransUIThemeManager.h"
 
-@implementation VTButton {
+@implementation MidtransUIButton {
     UIView *_bottomBorder;
     UIView *_leftBorder;
 }

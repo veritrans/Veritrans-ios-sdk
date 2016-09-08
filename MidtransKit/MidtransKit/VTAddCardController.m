@@ -10,7 +10,7 @@
 #import "VTClassHelper.h"
 #import "MidtransUITextField.h"
 #import "VTCvvInfoController.h"
-#import "VTCCFrontView.h"
+#import "MidtransUICCFrontView.h"
 #import "VTCCBackView.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"

@@ -8,7 +8,7 @@
 
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
-#import "VTListCell.h"
+#import "MidtransUIListCell.h"
 #import "VTPaymentHeader.h"
 #import "VTCardListController.h"
 #import "VTMandiriClickpayController.h"
@@ -16,8 +16,8 @@
 #import "VTMandiriClickpayController.h"
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
-#import "VTPaymentListFooter.h"
-#import "VTPaymentListHeader.h"
+#import "MidtransUIPaymentListFooter.h"
+#import "MidtransUIPaymentListHeader.h"
 #import "MidtransUIPaymentDirectViewController.h"
 #import "VTPaymentListView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -46,7 +46,7 @@
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
-    [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    [self.view.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     
     UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
@@ -67,9 +67,9 @@
     }
     
     self.paymentMethodList = [NSMutableArray new];
-    self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
+    self.view.footer = [[MidtransUIPaymentListFooter alloc] initWithFrame:CGRectZero];
     self.view.footer.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    self.view.header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
+    self.view.header = [[MidtransUIPaymentListHeader alloc] initWithFrame:CGRectZero];
     self.view.header.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
@@ -181,7 +181,7 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     {
         MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithToken:self.token
-                                                                                 paymentMethodName:paymentMethod];
+                                                                                                 paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
@@ -190,7 +190,7 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
         MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token
-                                                                               paymentMethodName:paymentMethod];
+                                                                                               paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_CLICKPAY]) {

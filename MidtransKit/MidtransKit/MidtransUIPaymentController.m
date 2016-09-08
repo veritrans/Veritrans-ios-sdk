@@ -8,7 +8,7 @@
 
 #import "MidtransUIPaymentController.h"
 #import "VTClassHelper.h"
-#import "VTHudView.h"
+#import "MidtransUIHudView.h"
 #import "MidtransUIToast.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
@@ -18,7 +18,7 @@
 #import "VTKITConstant.h"
 
 @interface MidtransUIPaymentController ()
-@property (nonatomic) VTHudView *hudView;
+@property (nonatomic) MidtransUIHudView *hudView;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @end
 
@@ -44,7 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.hudView = [[VTHudView alloc] init];
+    self.hudView = [[MidtransUIHudView alloc] init];
 }
 -(void)showAlertViewWithTitle:(NSString *)title
                    andMessage:(NSString *)message

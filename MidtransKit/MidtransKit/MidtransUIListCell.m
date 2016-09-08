@@ -1,15 +1,15 @@
 //
-//  VTListCell.m
+//  MidtransUIListCell.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/8/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTListCell.h"
+#import "MidtransUIListCell.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransPaymentListModel.h>
-@implementation VTListCell
+@implementation MidtransUIListCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

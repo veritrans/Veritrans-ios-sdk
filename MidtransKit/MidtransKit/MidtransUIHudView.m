@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTHudView.h"
+#import "MidtransUIHudView.h"
 
-@implementation VTHudView {
+@implementation MidtransUIHudView {
     UIView *_roundedView;
     UIActivityIndicatorView *_indicatorView;
 }

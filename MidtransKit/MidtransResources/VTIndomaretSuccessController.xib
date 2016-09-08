@@ -30,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZf-S0-dXY" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZf-S0-dXY" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -42,7 +42,7 @@
                         <action selector="finishPressed:" destination="-1" eventType="touchUpInside" id="kRn-Dv-e7b"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3B-An-4eK" customClass="VTButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v3B-An-4eK" customClass="MidtransUIButton">
                     <rect key="frame" x="0.0" y="477" width="320" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="es2-lu-iA1"/>
@@ -67,7 +67,7 @@
                         <constraint firstAttribute="height" constant="13" id="uFL-6o-w1i"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYh-nV-lDi" customClass="VTButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYh-nV-lDi" customClass="MidtransUIButton">
                     <rect key="frame" x="0.0" y="442" width="320" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="9KF-a9-BoT"/>

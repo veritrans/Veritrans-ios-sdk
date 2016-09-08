@@ -52,7 +52,7 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </textField>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKi-iq-5yb" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qKi-iq-5yb" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -71,7 +71,7 @@
                         <constraint firstAttribute="height" constant="13" id="qcV-XM-DGa"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-cI-XDn" customClass="VTButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LfL-cI-XDn" customClass="MidtransUIButton">
                     <rect key="frame" x="0.0" y="468" width="320" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="Ihm-18-8hE"/>

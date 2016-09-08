@@ -1,5 +1,5 @@
 //
-//  VTCardCell.h
+//  MIdtransUICardCell.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/3/16.
@@ -10,14 +10,14 @@
 #import <MidtransCoreKit/MidtransMaskedCreditCard.h>
 
 
-@protocol MidtransCardCellDelegate;
+@protocol MidtransUICardCellDelegate;
 
-@interface VTCardCell : UICollectionViewCell
+@interface MIdtransUICardCell : UICollectionViewCell
 @property (nonatomic) MidtransMaskedCreditCard *maskedCard;
-@property (nonatomic, weak) id<MidtransCardCellDelegate>delegate;
+@property (nonatomic, weak) id<MidtransUICardCellDelegate>delegate;
 @property (nonatomic) BOOL editing;
 @end
 
-@protocol MidtransCardCellDelegate <NSObject>
-- (void)cardCellShouldRemoveCell:(VTCardCell *)cell;
+@protocol MidtransUICardCellDelegate <NSObject>
+- (void)cardCellShouldRemoveCell:(MIdtransUICardCell *)cell;
 @end

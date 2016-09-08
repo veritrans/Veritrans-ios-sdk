@@ -21,11 +21,11 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view contentMode="scaleToFill" id="Fth-eH-mzp" customClass="VTPaymentGeneralView">
+        <view contentMode="scaleToFill" id="Fth-eH-mzp" customClass="MidtransUIPaymentGeneralView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZp-ii-eEw" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sZp-ii-eEw" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

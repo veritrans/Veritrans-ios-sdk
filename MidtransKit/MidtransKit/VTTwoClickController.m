@@ -11,7 +11,7 @@
 #import "MidtransUITextField.h"
 #import "VTClassHelper.h"
 #import "VTCCBackView.h"
-#import "VTCCFrontView.h"
+#import "MidtransUICCFrontView.h"
 
 #import "PopAnimator.h"
 

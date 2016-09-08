@@ -9,7 +9,7 @@
 #import "VTMandiriClickpayController.h"
 #import "VTClassHelper.h"
 #import "MidtransUITextField.h"
-#import "VTHudView.h"
+#import "MidtransUIHudView.h"
 #import "MidtransUICardFormatter.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>

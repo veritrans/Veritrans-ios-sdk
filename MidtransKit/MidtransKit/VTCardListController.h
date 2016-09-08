@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTCardCell.h"
+#import "MIdtransUICardCell.h"
 #import "MidtransUIPaymentController.h"
 
 @interface VTCardListController : MidtransUIPaymentController

@@ -8,7 +8,7 @@
 
 #import "VTVASuccessStatusController.h"
 #import "VTPaymentStatusViewModel.h"
-#import "VTButton.h"
+#import "MidtransUIButton.h"
 #import "VTClassHelper.h"
 #import "MidtransUIToast.h"
 #import "VTMultiGuideController.h"

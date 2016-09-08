@@ -1,5 +1,5 @@
 //
-//  VTCCFrontView.h
+//  MidtransUICCFrontView.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/6/16.
@@ -9,7 +9,7 @@
 #import "MidtransUIXibView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTCCFrontView : MidtransUIXibView
+@interface MidtransUICCFrontView : MidtransUIXibView
 
 - (instancetype)initWithFrame:(CGRect)frame maskedCard:(MidtransMaskedCreditCard *)maskedCard;
 

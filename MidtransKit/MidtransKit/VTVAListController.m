@@ -8,7 +8,7 @@
 
 #import "VTVAListController.h"
 #import "VTClassHelper.h"
-#import "VTListCell.h"
+#import "MidtransUIListCell.h"
 #import "MidtransUIPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -26,7 +26,7 @@
     
     self.title = UILocalizedString(@"va.list.title", nil);
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
@@ -46,7 +46,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
+    MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
     [cell configurePaymetnList:self.vaList[indexPath.row]];
     return cell;
 }

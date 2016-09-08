@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTHudView : UIView
+@interface MidtransUIHudView : UIView
 
 - (void)showOnView:(UIView *)presenterView;
 - (void)hide;

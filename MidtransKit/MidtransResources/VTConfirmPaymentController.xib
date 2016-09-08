@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="270" height="250"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-7S-OtE" customClass="VTButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-7S-OtE" customClass="MidtransUIButton">
                     <rect key="frame" x="0.0" y="203" width="135" height="47"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="dhF-bR-WET"/>
@@ -54,7 +54,7 @@
                     <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzT-QR-Kgb" customClass="VTButton">
+                <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QzT-QR-Kgb" customClass="MidtransUIButton">
                     <rect key="frame" x="135" y="203" width="135" height="47"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="47" id="LXz-Jh-mU5"/>

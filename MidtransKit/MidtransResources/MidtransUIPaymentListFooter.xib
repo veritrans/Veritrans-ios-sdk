@@ -10,7 +10,7 @@
         </mutableArray>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTPaymentListFooter">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransUIPaymentListFooter">
             <connections>
                 <outlet property="amountLabel" destination="cfW-w5-svK" id="2gm-mF-sgl"/>
             </connections>

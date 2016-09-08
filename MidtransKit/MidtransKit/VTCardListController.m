@@ -15,8 +15,8 @@
 #import "VTTwoClickController.h"
 #import "MidtransUITextField.h"
 #import "VTCCBackView.h"
-#import "VTCCFrontView.h"
-#import "VTHudView.h"
+#import "MidtransUICCFrontView.h"
+#import "MidtransUIHudView.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
@@ -28,7 +28,7 @@
 #import <MidtransCoreKit/MidtransPaymentCreditCard.h>
 #import <MidtransCoreKit/MidtransTransactionDetails.h>
 
-@interface VTCardListController () <MidtransCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface VTCardListController () <MidtransUICardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -41,7 +41,7 @@
 @end
 
 @implementation VTCardListController {
-    VTHudView *_hudView;
+    MidtransUIHudView *_hudView;
 }
 
 - (void)viewDidLoad {
@@ -62,7 +62,7 @@
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self updateView];
     [self reloadMaskedCards];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
 }
@@ -147,7 +147,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    VTCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VTCardCell" forIndexPath:indexPath];
+    MIdtransUICardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MIdtransUICardCell" forIndexPath:indexPath];
     cell.delegate = self;
     cell.maskedCard = self.cards[indexPath.row];
     cell.editing = self.editingCell;
@@ -215,9 +215,9 @@
     [self reloadMaskedCards];
 }
 
-#pragma mark - VTCardCellDelegate
+#pragma mark - MIdtransUICardCellDelegate
 
-- (void)cardCellShouldRemoveCell:(VTCardCell *)cell {
+- (void)cardCellShouldRemoveCell:(MIdtransUICardCell *)cell {
     [self showLoadingHud];
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];

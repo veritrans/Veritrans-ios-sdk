@@ -1,5 +1,5 @@
 //
-//  VTPaymentListHeader.h
+//  MidtransUIPaymentListHeader.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 5/30/16.
@@ -8,6 +8,6 @@
 
 #import "MidtransUIXibView.h"
 
-@interface VTPaymentListHeader : MidtransUIXibView
+@interface MidtransUIPaymentListHeader : MidtransUIXibView
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @end

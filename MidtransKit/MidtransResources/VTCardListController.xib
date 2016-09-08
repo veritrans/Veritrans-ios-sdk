@@ -235,7 +235,7 @@ be used for every transactions.</string>
                         <constraint firstAttribute="bottom" secondItem="14m-CR-X1Q" secondAttribute="bottom" id="ySJ-hB-EgK"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzh-9l-Msm" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzh-9l-Msm" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="518" width="320" height="50"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <gestureRecognizers/>

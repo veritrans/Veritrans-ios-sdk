@@ -39,7 +39,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="VTCCFrontView">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="MidtransUICCFrontView">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </view>
@@ -238,7 +238,7 @@
                         <constraint firstItem="N7k-Nt-p2f" firstAttribute="top" secondItem="CLS-0L-w3p" secondAttribute="top" id="mWo-8P-glm"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcJ-63-gQW" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcJ-63-gQW" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

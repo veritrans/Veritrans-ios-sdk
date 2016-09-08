@@ -77,7 +77,7 @@
                         <constraint firstAttribute="bottom" secondItem="Euh-lf-MT6" secondAttribute="bottom" id="yAP-9l-K5H"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPm-aO-9Zh" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPm-aO-9Zh" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="545" width="600" height="55"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

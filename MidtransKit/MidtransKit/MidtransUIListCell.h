@@ -1,5 +1,5 @@
 //
-//  VTListCell.h
+//  MidtransUIListCell.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/8/16.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class VTPaymentListModel;
-@interface VTListCell : UITableViewCell
+@interface MidtransUIListCell : UITableViewCell
 @property (nonatomic) NSDictionary *item;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodDescriptionLabel;

@@ -1,5 +1,5 @@
 //
-//  VTNextStepButton.h
+//  MidtransUINextStepButton.h
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 6/29/16.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VTNextStepButton : UIButton
+@interface MidtransUINextStepButton : UIButton
 
 @end

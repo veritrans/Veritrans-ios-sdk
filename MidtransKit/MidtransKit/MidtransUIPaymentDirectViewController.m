@@ -9,7 +9,7 @@
 #import "MidtransUIPaymentDirectViewController.h"
 #import "MidtransUIPaymentDirectView.h"
 #import "MidtransUITextField.h"
-#import "VTButton.h"
+#import "MidtransUIButton.h"
 #import "VTVATransactionStatusViewModel.h"
 #import "VTBillpaySuccessController.h"
 #import "VTVASuccessStatusController.h"

@@ -1,22 +1,22 @@
 //
-//  VTCardCell.m
+//  MIdtransUICardCell.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 3/3/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTCardCell.h"
-#import "VTCCFrontView.h"
+#import "MIdtransUICardCell.h"
+#import "MidtransUICCFrontView.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCreditCard.h>
 #import <MidtransCoreKit/MidtransCreditCardHelper.h>
 
-@interface VTCardCell ()
-@property (nonatomic) IBOutlet VTCCFrontView *frontCardView;
+@interface MIdtransUICardCell ()
+@property (nonatomic) IBOutlet MidtransUICCFrontView *frontCardView;
 @end
 
-@implementation VTCardCell
+@implementation MIdtransUICardCell
 
 - (void)awakeFromNib {
     [self.frontCardView.deleteButton addTarget:self action:@selector(deletePressed:) forControlEvents:UIControlEventTouchUpInside];

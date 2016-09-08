@@ -7,11 +7,11 @@
 //
 
 #import "VTPendingStatusController.h"
-#import "VTButton.h"
+#import "MidtransUIButton.h"
 #import "VTClassHelper.h"
 #import "MidtransUIToast.h"
 #import "VTKITConstant.h"
-#import "VTNextStepButton.h"
+#import "MidtransUINextStepButton.h"
 
 NSString *const kVTPendingStatusControllerPaymentCode = @"payment_code";
 NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_time";
@@ -22,9 +22,9 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 @property (strong, nonatomic) IBOutlet UILabel *expiryDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIDLabel;
-@property (strong, nonatomic) IBOutlet VTButton *paymentGuideButton;
-@property (strong, nonatomic) IBOutlet VTButton *codeCopyButton;
-@property (strong, nonatomic) IBOutlet VTNextStepButton *finishButton;
+@property (strong, nonatomic) IBOutlet MidtransUIButton *paymentGuideButton;
+@property (strong, nonatomic) IBOutlet MidtransUIButton *codeCopyButton;
+@property (strong, nonatomic) IBOutlet MidtransUINextStepButton *finishButton;
 
 @property (nonatomic) MidtransTransactionResult *result;
 @end

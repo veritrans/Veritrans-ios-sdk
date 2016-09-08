@@ -1,19 +1,19 @@
 //
-//  VTPaymentListHeader.m
+//  MidtransUIPaymentListHeader.m
 //  MidtransKit
 //
 //  Created by Nanang Rafsanjani on 5/30/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentListHeader.h"
+#import "MidtransUIPaymentListHeader.h"
 #import "MidtransUIThemeManager.h"
 
-@interface VTPaymentListHeader()
+@interface MidtransUIPaymentListHeader()
 
 @end
 
-@implementation VTPaymentListHeader
+@implementation MidtransUIPaymentListHeader
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

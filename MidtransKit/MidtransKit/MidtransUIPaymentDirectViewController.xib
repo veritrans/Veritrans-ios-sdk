@@ -48,7 +48,7 @@
                     <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AF-lH-6ld" customClass="VTNextStepButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AF-lH-6ld" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -60,7 +60,7 @@
                         <action selector="confirmPaymentDidTapped:" destination="-1" eventType="touchUpInside" id="gkj-Ot-TMq"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmT-QA-caE" customClass="VTButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZmT-QA-caE" customClass="MidtransUIButton">
                     <rect key="frame" x="0.0" y="469" width="320" height="43"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="43" id="ObQ-Sx-O17"/>

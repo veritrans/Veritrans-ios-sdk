@@ -63,7 +63,7 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 //AppDelegate.m
 #import <MidtransKit/MidtransKit.h>
 
-[VTConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
+[MidtransConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
 ```
 
 # Generate Transaction Token
@@ -73,19 +73,19 @@ Before you can do the payment, you need to generate a `transaction_token` as rep
 ```
 //ViewController.m
 
-VTTransactionDetails *transactionDetails =
-[[VTTransactionDetails alloc] initWithOrderID:@"random_string"
+MidtransTransactionDetails *transactionDetails =
+[[MidtransTransactionDetails alloc] initWithOrderID:@"random_string"
                                andGrossAmount:gross_amount];
                                
-VTItemDetail *itemDetail =
-[[VTItemDetail alloc] initWithItemID:@"your_item_id"
+MidtransItemDetail *itemDetail =
+[[MidtransItemDetail alloc] initWithItemID:@"your_item_id"
                                 name:@"item_name"
                                price:item_price
                             quantity:item_qty];
 NSArray *itemDetails = @[itemDetail];
 
-VTCustomerDetails *customerDetails =
-[[VTCustomerDetails alloc] initWithFirstName:@"first_name"
+MidtransCustomerDetails *customerDetails =
+[[MidtransCustomerDetails alloc] initWithFirstName:@"first_name"
                                     lastName:@"last_name"
                                        email:@"email"
                                        phone:@"phone_number"
@@ -93,7 +93,7 @@ VTCustomerDetails *customerDetails =
                               billingAddress:billing_address]
                               
 NSURL *merchantURL = [NSURL URLWithString:@"merchant-url"];
-[[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
+[[MidtransMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                         transactionDetails:transactionDetails
                                                                itemDetails:itemDetails
                                                            customerDetails:customerDetails
@@ -120,8 +120,8 @@ In Credit Card transaction there are two main steps to make transaction
 Use following code as a template
 
 ```
-VTCreditCard *card =
-[[VTCreditCard alloc] initWithNumber:@"card_number"
+MidtransCreditCard *card =
+[[MidtransCreditCard alloc] initWithNumber:@"card_number"
                          expiryMonth:@"card_expiry_month"
                           expiryYear:@"card_expiry_year"
                                  cvv:card_cvv];
@@ -129,12 +129,12 @@ VTCreditCard *card =
 //Set 3D secure enable or not by set the secure parameter
 BOOL enable3DSecure = YES;
 
-VTTokenizeRequest *tokenRequest =
-[[VTTokenizeRequest alloc] initWithCreditCard:card
+MidtransTokenizeRequest *tokenRequest =
+[[MidtransTokenizeRequest alloc] initWithCreditCard:card
                                   grossAmount:transactionDetails.grossAmount
                                        secure:enable3DSecure];
 
-[[VTClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+[[MidtransClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
     if (error) {
     	//handle error
     } else {
@@ -150,11 +150,11 @@ After you have a valid `card_token`, you can continue to the final step of payme
 Use following code as a template.
 
 ```
-VTPaymentCreditCard *paymentDetail = [[VTPaymentCreditCard alloc] initWithCreditCardToken:card_token token:transaction_token];
+MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:card_token token:transaction_token];
 
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
 
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -168,27 +168,27 @@ You will have `result` if the transaction is success, and `error` if the transac
 ## 5. VA / Bank Transfer
 
 ### 5.1 Preparing Payment Details
-You need to create `paymentDetail` as object of **VTPaymentBankTransfer** and set the bank transfer type with **VTVAType** values
+You need to create `paymentDetail` as object of **MidtransPaymentBankTransfer** and set the bank transfer type with **MidtransVAType** values
 
-* VTVATypeBCA
-* VTVATypeMandiri
-* VTVATypePermata
-* VTVATypeOther
+* MidtransVATypeBCA
+* MidtransVATypeMandiri
+* MidtransVATypePermata
+* MidtransVATypeOther
 
 ```
-VTPaymentBankTransfer *paymentDetails = [[VTPaymentBankTransfer alloc] initWithBankTransferType:<va_type>
+MidtransPaymentBankTransfer *paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:<va_type>
                                                                                                   token:transaction_token
                                                                                                   email:@"email"];
                                                                                                   
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     //handle transaction result
 }];
 ```
 
 ### 5.2 Handle Transaction Result
-After **charge transaction** was successful, you'll get `VTTransactionResult` object, which have **codes** that needed to continue the transaction via ATM etc.
+After **charge transaction** was successful, you'll get `MidtransTransactionResult` object, which have **codes** that needed to continue the transaction via ATM etc.
 
 ```
 if (result) {
@@ -205,10 +205,10 @@ if (result) {
 
 ## 6. CIMB Clicks
 ```
-VTPaymentCIMBClicks *paymentDetails = [[VTPaymentCIMBClicks alloc] initWithToken:transaction_token];
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransPaymentCIMBClicks *paymentDetails = [[MidtransPaymentCIMBClicks alloc] initWithToken:transaction_token];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {    
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {    
     if (error) {
         //handle error
     } else {
@@ -219,11 +219,11 @@ VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:payme
 
 ## 7. Indomaret
 ```
-VTPaymentCStore *paymentDetails = [[VTPaymentCStore alloc] initWithToken:transaction_token];
+MidtransPaymentCStore *paymentDetails = [[MidtransPaymentCStore alloc] initWithToken:transaction_token];
 
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -234,11 +234,11 @@ VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:payme
 
 ## 8. BCA KlikPay
 ```
-VTPaymentBCAKlikpay *paymentDetails = [[VTPaymentBCAKlikpay alloc] initWithToken:transaction_token];
+MidtransPaymentBCAKlikpay *paymentDetails = [[MidtransPaymentBCAKlikpay alloc] initWithToken:transaction_token];
 
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
 
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -249,12 +249,12 @@ VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:payme
 
 ## 9. KlikBCA
 ```
-VTPaymentKlikBCA *paymentDetails = [[VTPaymentKlikBCA alloc] initWithKlikBCAUserId:@"klikbca_userid"
+MidtransPaymentKlikBCA *paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:@"klikbca_userid"
                                                                                      token:transaction_token];
         
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -265,10 +265,10 @@ VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:payme
 
 ## 10. Mandiri E-Cash
 ```
-VTPaymentMandiriECash *paymentDetails = [[VTPaymentMandiriECash alloc] initWithToken:transaction_token];
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransPaymentMandiriECash *paymentDetails = [[MidtransPaymentMandiriECash alloc] initWithToken:transaction_token];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -279,13 +279,13 @@ VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:payme
 
 ## 11. Mandiri Clickpay
 ```
-VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:@"debit_number"
+MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:@"debit_number"
                                                                                       clickpayToken:@"token_number"
                                                                                               token:transaction_token];
     
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -297,11 +297,11 @@ VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:payme
 ## 12. BRI E-Pay
 
 ```
-VTPaymentEpayBRI *paymentDetails = [[VTPaymentEpayBRI alloc] initWithToken:transaction_token];
+MidtransPaymentEpayBRI *paymentDetails = [[MidtransPaymentEpayBRI alloc] initWithToken:transaction_token];
 
-VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
     
-[[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {

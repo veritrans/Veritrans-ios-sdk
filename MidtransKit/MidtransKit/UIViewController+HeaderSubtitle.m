@@ -7,7 +7,7 @@
 //
 
 #import "UIViewController+HeaderSubtitle.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 #import "VTClassHelper.h"
 
 @implementation UIViewController (HeaderSubtitle)
@@ -21,14 +21,14 @@
     contentView.translatesAutoresizingMaskIntoConstraints = NO;
     
     titleLabel = [UILabel new];
-    titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:15];
+    titleLabel.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:15];
     titleLabel.textColor = [UIColor blackColor];
     titleLabel.textAlignment = NSTextAlignmentCenter;
     titleLabel.translatesAutoresizingMaskIntoConstraints = NO;
     titleLabel.text = title;
     
     subTitleLabel = [UILabel new];
-    subTitleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:11];
+    subTitleLabel.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:11];
     subTitleLabel.textColor = [UIColor blackColor];
     subTitleLabel.textAlignment = NSTextAlignmentCenter;
     subTitleLabel.translatesAutoresizingMaskIntoConstraints = NO;

@@ -9,10 +9,10 @@
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 #import "VTCCBackView.h"
 
-@interface VTTwoClickController : VTPaymentController
+@interface VTTwoClickController : MidtransUIPaymentController
 @property (weak, nonatomic) IBOutlet VTCCBackView *backView;
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token

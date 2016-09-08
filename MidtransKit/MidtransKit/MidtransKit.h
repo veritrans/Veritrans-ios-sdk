@@ -9,8 +9,8 @@
 #ifndef MidtransKit_h
 #define MidtransKit_h
 
-#import "VTPaymentViewController.h"
+#import "MidtransUIPaymentViewController.h"
 #import "VTCustomerInputViewController.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 #endif /* MidtransKit_h */

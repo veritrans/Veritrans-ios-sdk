@@ -7,13 +7,13 @@
 //
 
 #import "VTNoteTitleLabel.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 @implementation VTNoteTitleLabel
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.textColor = [[VTThemeManager shared] themeColor];
+    self.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 @end

@@ -8,7 +8,7 @@
 
 #import "VTAddCardController.h"
 #import "VTClassHelper.h"
-#import "VTTextField.h"
+#import "MidtransUITextField.h"
 #import "VTCvvInfoController.h"
 #import "VTCCFrontView.h"
 #import "VTCCBackView.h"
@@ -16,7 +16,7 @@
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "UIViewController+Modal.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 #import "VTCCBackView.h"
 #import "VTAddCardView.h"
 

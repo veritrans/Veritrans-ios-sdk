@@ -9,7 +9,7 @@
 #import "VTPendingStatusController.h"
 #import "VTButton.h"
 #import "VTClassHelper.h"
-#import "VTToast.h"
+#import "MidtransUIToast.h"
 #import "VTKITConstant.h"
 #import "VTNextStepButton.h"
 
@@ -63,7 +63,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 
 - (void)copyCodePressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.paymentCodeLabel.text];
-    [VTToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 
 - (void)guidePressed:(UIButton *)sender {

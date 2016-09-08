@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 
 
 @protocol VTAddCardControllerDelegate;
 
-@interface VTAddCardController : VTPaymentController
+@interface VTAddCardController : MidtransUIPaymentController
 
 @property (nonatomic, assign, nonnull) id<VTAddCardControllerDelegate>delegate;
 

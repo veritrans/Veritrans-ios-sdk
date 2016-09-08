@@ -8,9 +8,9 @@
 
 #import "VTMandiriClickpayController.h"
 #import "VTClassHelper.h"
-#import "VTTextField.h"
+#import "MidtransUITextField.h"
 #import "VTHudView.h"
-#import "VTCardFormatter.h"
+#import "MidtransUICardFormatter.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -18,15 +18,15 @@ static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet VTTextField *debitNumberTextField;
-@property (strong, nonatomic) IBOutlet VTTextField *tokenTextField;
+@property (strong, nonatomic) IBOutlet MidtransUITextField *debitNumberTextField;
+@property (strong, nonatomic) IBOutlet MidtransUITextField *tokenTextField;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *appliLabel;
 @property (strong, nonatomic) IBOutlet UILabel *input1Label;
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 
-@property (nonatomic) VTCardFormatter *ccFormatter;
+@property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
 @end
 
@@ -50,7 +50,7 @@ static NSString* const ClickpayAPPLI = @"3";
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     
-    self.ccFormatter = [[VTCardFormatter alloc] initWithTextField:self.debitNumberTextField];
+    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;
 }
 

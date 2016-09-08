@@ -7,7 +7,7 @@
 //
 
 #import "VTPaymentListHeader.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 @interface VTPaymentListHeader()
 
@@ -17,7 +17,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = [[VTThemeManager shared] themeColor];
+        self.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
     }
     return self;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "VTSubGuideController.h"
-#import "VTStringHelper.h"
+#import "MidtransUIStringHelper.h"
 #import "VTClassHelper.h"
 #import "VTGuideView.h"
 

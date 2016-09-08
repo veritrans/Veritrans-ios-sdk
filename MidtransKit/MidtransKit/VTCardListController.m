@@ -13,7 +13,7 @@
 #import "VTClassHelper.h"
 #import "VTAddCardController.h"
 #import "VTTwoClickController.h"
-#import "VTTextField.h"
+#import "MidtransUITextField.h"
 #import "VTCCBackView.h"
 #import "VTCCFrontView.h"
 #import "VTHudView.h"

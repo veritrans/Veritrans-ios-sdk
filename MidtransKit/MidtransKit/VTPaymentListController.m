@@ -12,13 +12,13 @@
 #import "VTPaymentHeader.h"
 #import "VTCardListController.h"
 #import "VTMandiriClickpayController.h"
-#import "VTPaymentGeneralViewController.h"
+#import "MidtransUIPaymentGeneralViewController.h"
 #import "VTMandiriClickpayController.h"
 #import "VTAddCardController.h"
 #import "VTVAListController.h"
 #import "VTPaymentListFooter.h"
 #import "VTPaymentListHeader.h"
-#import "VTPaymentDirectViewController.h"
+#import "MidtransUIPaymentDirectViewController.h"
 #import "VTPaymentListView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -180,7 +180,7 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     {
-        VTPaymentGeneralViewController *vc = [[VTPaymentGeneralViewController alloc] initWithToken:self.token
+        MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithToken:self.token
                                                                                  paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
@@ -189,7 +189,7 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-        VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token
+        MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token
                                                                                paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }

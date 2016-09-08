@@ -7,14 +7,14 @@
 //
 
 #import "VTAddCardView.h"
-#import "VTCardFormatter.h"
+#import "MidtransUICardFormatter.h"
 #import "VTClassHelper.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 #import <IHKeyboardAvoiding_vt.h>
 
-@interface VTAddCardView()<UITextFieldDelegate, VTCardFormatterDelegate>
-@property (nonatomic) VTCardFormatter *ccFormatter;
+@interface VTAddCardView()<UITextFieldDelegate, MidtransUICardFormatterDelegate>
+@property (nonatomic) MidtransUICardFormatter *ccFormatter;
 @end
 
 @implementation VTAddCardView
@@ -22,7 +22,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.ccFormatter = [[VTCardFormatter alloc] initWithTextField:self.cardNumber];
+    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;
     
@@ -30,7 +30,7 @@
     self.cardExpiryDate.delegate = self;
     self.cardCvv.delegate = self;
     
-    self.infoButton.tintColor = [[VTThemeManager shared] themeColor];
+    self.infoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
     
@@ -123,8 +123,8 @@
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isKindOfClass:[VTTextField class]]) {
-        ((VTTextField *) textField).warning = nil;
+    if ([textField isKindOfClass:[MidtransUITextField class]]) {
+        ((MidtransUITextField *) textField).warning = nil;
     }
     
     if ([textField isEqual:self.cardExpiryDate]) {
@@ -143,7 +143,7 @@
 
 #pragma mark - VTCardFormatterDelegate
 
-- (void)formatter_didTextFieldChange:(VTCardFormatter *)formatter {
+- (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     if (self.cardNumber.text.length < 1) {
         self.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
         self.cardFrontView.iconView.image = nil;

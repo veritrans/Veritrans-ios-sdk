@@ -9,14 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-#import "VTTextField.h"
+#import "MidtransUITextField.h"
 #import "VTCCFrontView.h"
 #import "VTCCBackView.h"
 
 @interface VTAddCardView : UIView
-@property (weak, nonatomic) IBOutlet VTTextField *cardNumber;
-@property (weak, nonatomic) IBOutlet VTTextField *cardExpiryDate;
-@property (weak, nonatomic) IBOutlet VTTextField *cardCvv;
+@property (weak, nonatomic) IBOutlet MidtransUITextField *cardNumber;
+@property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpiryDate;
+@property (weak, nonatomic) IBOutlet MidtransUITextField *cardCvv;
 @property (weak, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;

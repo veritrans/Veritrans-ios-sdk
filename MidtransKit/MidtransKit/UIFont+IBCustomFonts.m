@@ -8,8 +8,8 @@
 
 #import <objc/runtime.h>
 #import <UIKit/UIKit.h>
-#import "VTThemeManager.h"
-#import "VTTheme.h"
+#import "MidtransUIThemeManager.h"
+#import "MidtransUITheme.h"
 
 const static NSString* IBCustomFontsKey = @"IBCustomFonts";
 
@@ -36,13 +36,13 @@ void standard_swizzle(Class cls, SEL original, SEL replacement) {
 
 + (NSString *)mapSystemFontWithName:(NSString *)fontName size:(CGFloat)fontSize{
     if ([fontName isEqualToString:@"SourceSansPro-Regular"]) {
-        return [[VTThemeManager shared].themeFont fontNameRegular];
+        return [[MidtransUIThemeManager shared].themeFont fontNameRegular];
     } else if ([fontName isEqualToString:@"SourceSansPro-Bold"]) {
-        return [[VTThemeManager shared].themeFont fontNameBold];
+        return [[MidtransUIThemeManager shared].themeFont fontNameBold];
     } else if ([fontName isEqualToString:@"SourceSansPro-Light"]) {
-        return [[VTThemeManager shared].themeFont fontNameLight];
+        return [[MidtransUIThemeManager shared].themeFont fontNameLight];
     } else if ([fontName isEqualToString:@"SourceSansPro-Semibold"]) {
-        return [[VTThemeManager shared].themeFont fontNameRegular];
+        return [[MidtransUIThemeManager shared].themeFont fontNameRegular];
     } else {
         //it should be nil
         //it can cause terrible bug if not nil

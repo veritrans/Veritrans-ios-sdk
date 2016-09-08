@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTXibView.h"
+#import "MidtransUIXibView.h"
 
-@interface VTPaymentListFooter : VTXibView
+@interface VTPaymentListFooter : MidtransUIXibView
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @end

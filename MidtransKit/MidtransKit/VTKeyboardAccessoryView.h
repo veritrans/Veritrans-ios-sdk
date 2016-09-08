@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTXibView.h"
+#import "MidtransUIXibView.h"
 
-@interface VTKeyboardAccessoryView : VTXibView
+@interface VTKeyboardAccessoryView : MidtransUIXibView
 - (id)initWithFrame:(CGRect)frame fields:(NSArray *)fields;
 @end

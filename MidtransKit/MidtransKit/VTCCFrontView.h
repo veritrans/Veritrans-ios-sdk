@@ -6,10 +6,10 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTXibView.h"
+#import "MidtransUIXibView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTCCFrontView : VTXibView
+@interface VTCCFrontView : MidtransUIXibView
 
 - (instancetype)initWithFrame:(CGRect)frame maskedCard:(MidtransMaskedCreditCard *)maskedCard;
 

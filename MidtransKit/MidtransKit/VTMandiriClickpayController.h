@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 
-@interface VTMandiriClickpayController : VTPaymentController
+@interface VTMandiriClickpayController : MidtransUIPaymentController
 
 @end

@@ -27,7 +27,7 @@
 
 @end
 
-@interface ViewController () <VTPaymentViewControllerDelegate>
+@interface ViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <MidtransItemDetail*>* itemDetails;
 @property (nonatomic) BOOL isDone;
@@ -102,7 +102,7 @@
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
+        [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
         [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
@@ -130,14 +130,14 @@
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
+        [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
         [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
                  
-                 VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
+                 MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token];
                  vc.delegate = self;
                  [self presentViewController:vc animated:YES completion:nil];
              }
@@ -156,7 +156,7 @@
     return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
 }
 
-- (VTFontSource *)myFontSource {
+- (MidtransUIFontSource *)myFontSource {
     NSString *fontNameBold;
     NSString *fontNameRegular;
     NSString *fontNameLight;
@@ -170,7 +170,7 @@
             fontNameLight = fontName;
         }
     }
-    return [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+    return [[MidtransUIFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
 }
 
 - (void)showAlertError:(NSError *)error {
@@ -185,15 +185,15 @@
 
 #pragma mark - VTPaymentViewControllerDelegate
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
     [self showAlertError:error];
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
     NSLog(@"pending: %@", result);
 }
 

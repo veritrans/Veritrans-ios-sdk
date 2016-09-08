@@ -8,7 +8,7 @@
 
 #import "VTTwoClickController.h"
 #import "VTCardListController.h"
-#import "VTTextField.h"
+#import "MidtransUITextField.h"
 #import "VTClassHelper.h"
 #import "VTCCBackView.h"
 #import "VTCCFrontView.h"
@@ -24,7 +24,7 @@
 
 @interface VTTwoClickController () <UINavigationControllerDelegate>
 
-@property (nonatomic) IBOutlet VTTextField *cvvTextField;
+@property (nonatomic) IBOutlet MidtransUITextField *cvvTextField;
 @property (strong, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (nonatomic) MidtransMaskedCreditCard *maskeCard;
 

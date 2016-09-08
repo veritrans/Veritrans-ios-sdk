@@ -10,7 +10,7 @@
 #import "VTPaymentStatusViewModel.h"
 #import "VTButton.h"
 #import "VTClassHelper.h"
-#import "VTToast.h"
+#import "MidtransUIToast.h"
 #import "VTMultiGuideController.h"
 #import "VTKITConstant.h"
 
@@ -69,7 +69,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.statusModel.vaNumber];
-    [VTToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

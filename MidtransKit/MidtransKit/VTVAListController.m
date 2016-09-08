@@ -9,7 +9,7 @@
 #import "VTVAListController.h"
 #import "VTClassHelper.h"
 #import "VTListCell.h"
-#import "VTPaymentDirectViewController.h"
+#import "MidtransUIPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTVAListController ()
@@ -55,7 +55,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
-    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

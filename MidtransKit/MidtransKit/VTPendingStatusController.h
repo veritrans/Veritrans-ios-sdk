@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTPendingStatusController : VTPaymentController
+@interface VTPendingStatusController : MidtransUIPaymentController
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod result:(MidtransTransactionResult *)result;
 @end

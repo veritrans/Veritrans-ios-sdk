@@ -7,7 +7,7 @@
 //
 
 #import "VTButton.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 @implementation VTButton {
     UIView *_bottomBorder;
@@ -17,7 +17,7 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self setTitleColor:[[VTThemeManager shared] themeColor] forState:UIControlStateNormal];
+    [self setTitleColor:[[MidtransUIThemeManager shared] themeColor] forState:UIControlStateNormal];
     
     if (self.topLine) {
         _bottomBorder = [[UIView alloc] init];
@@ -31,7 +31,7 @@
         [self addSubview:_leftBorder];
     }
     
-    self.titleLabel.font = [[VTThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
+    self.titleLabel.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {

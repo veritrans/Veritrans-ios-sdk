@@ -6,10 +6,10 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 #import "VTPaymentStatusXLTunaiViewModel.h"
 
-@interface VTXLTunaiSuccessController : VTPaymentController
+@interface VTXLTunaiSuccessController : MidtransUIPaymentController
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod

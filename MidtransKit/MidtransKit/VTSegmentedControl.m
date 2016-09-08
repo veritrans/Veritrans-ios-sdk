@@ -7,13 +7,13 @@
 //
 
 #import "VTSegmentedControl.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 @implementation VTSegmentedControl
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.tintColor = [[VTThemeManager shared] themeColor];
+    self.tintColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 @end

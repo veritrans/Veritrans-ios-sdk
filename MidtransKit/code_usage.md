@@ -7,7 +7,7 @@
 [Cococapods](https://cocoapods.org/) version 1.0.0
 
 ### Installation
-Navigate to your project's root directory and run `pod init` to create a `Podfile`. 
+Navigate to your project's root directory and run `pod init` to create a `Podfile`.
 
 ```
 pod init
@@ -19,6 +19,7 @@ Open up the `Podfile` and add `MidtransKit` to your project's target.
 platform :ios, '7.0'
 
 def shared_pods
+    pod 'MidtransCoreKit'
     pod 'MidtransKit'
 end
 
@@ -46,7 +47,7 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 [VTConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
 ```
 
-# Payment 
+# Payment
 
 ##### Generate `TransactionTokenResponse` object
 
@@ -59,14 +60,14 @@ VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:@"item_id"
                                                           price:item_price
                                                        quantity:item_quantiry];
 
-VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"user_firstname" 
-    										                                    lastName:@"user_lastname" 
-    										                                       email:@"user_email" 
-    										                                       phone:@"user_phone" 
-    										                             shippingAddress:ship_address 
+VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"user_firstname"
+    										                                    lastName:@"user_lastname"
+    										                                       email:@"user_email"
+    										                                       phone:@"user_phone"
+    										                             shippingAddress:ship_address
     										                              billingAddress:bill_address];
 
-VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:@"order_id" 
+VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:@"order_id"
                                                                           andGrossAmount:items_gross_amount];
 
 NSURL *merchantURL = [NSURL URLWithString:@"merchant-url-for-generating-token"];
@@ -106,7 +107,7 @@ Set your view controller to conform with **VTPaymentViewControllerDelegate**
 //other code
 ```
 
-Set the delegate of VTPaymentViewController 
+Set the delegate of VTPaymentViewController
 
 ```
 //ViewController.m
@@ -134,11 +135,11 @@ Add two methods to your view controller, these methods are from VTPaymentViewCon
 
 # Customise Theme Color & Font
 
-We've created `VTThemeManager` to configure the theme color and font of the veritrans payment UI. 
+We've created `VTThemeManager` to configure the theme color and font of the veritrans payment UI.
 
 ```
-VTFontSource fontSource = [[VTFontSource alloc] initWithFontNameBold:font_name 
-												             fontNameRegular:font_name 
+VTFontSource fontSource = [[VTFontSource alloc] initWithFontNameBold:font_name
+												             fontNameRegular:font_name
 												               fontNameLight:font_name];
 [VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
 ```

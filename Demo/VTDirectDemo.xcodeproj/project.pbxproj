@@ -65,6 +65,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		0058BBFC1D9266CF007D9AAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0058BBF81D9266CF007D9AAF /* MIdtransWidget.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 00AEB02A1D9264E700090D8B;
+			remoteInfo = MIdtransWidget;
+		};
 		2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 302F71B61C73163C00FE73FE /* Project object */;
@@ -117,6 +124,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0058BBF81D9266CF007D9AAF /* MIdtransWidget.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MIdtransWidget.xcodeproj; path = ../../MIdtransWidget/MIdtransWidget.xcodeproj; sourceTree = "<group>"; };
 		00598E8E1D76AB39006241BF /* SamplePaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListViewController.h; sourceTree = "<group>"; };
 		00598E8F1D76AB39006241BF /* SamplePaymentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePaymentListViewController.m; sourceTree = "<group>"; };
 		00598E901D76AB39006241BF /* SamplePaymentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SamplePaymentListViewController.xib; sourceTree = "<group>"; };
@@ -223,6 +231,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0058BBF91D9266CF007D9AAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0058BBFD1D9266CF007D9AAF /* libMIdtransWidget.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		00598E7F1D769739006241BF /* Core-flow sample */ = {
 			isa = PBXGroup;
 			children = (
@@ -320,6 +336,7 @@
 		302F71C01C73163C00FE73FE /* VTDirectDemo */ = {
 			isa = PBXGroup;
 			children = (
+				0058BBF81D9266CF007D9AAF /* MIdtransWidget.xcodeproj */,
 				E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */,
 				E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */,
 				302F71C11C73163C00FE73FE /* Supporting Files */,
@@ -558,6 +575,10 @@
 					ProductGroup = E5AEB20D1C8C83E20043A027 /* Products */;
 					ProjectRef = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
 				},
+				{
+					ProductGroup = 0058BBF91D9266CF007D9AAF /* Products */;
+					ProjectRef = 0058BBF81D9266CF007D9AAF /* MIdtransWidget.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -568,6 +589,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		0058BBFD1D9266CF007D9AAF /* libMIdtransWidget.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMIdtransWidget.a;
+			remoteRef = 0058BBFC1D9266CF007D9AAF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E5AEB20B1C8C83DC0043A027 /* libMidtransCoreKit.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;

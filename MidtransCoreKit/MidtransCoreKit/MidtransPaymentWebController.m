@@ -74,7 +74,7 @@
     
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {

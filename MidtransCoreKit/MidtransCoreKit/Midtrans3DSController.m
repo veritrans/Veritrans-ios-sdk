@@ -76,7 +76,7 @@
     [self scaleTo3DSSize];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(nullable NSError *)error {
+- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self dismissViewControllerAnimated:YES completion:^{

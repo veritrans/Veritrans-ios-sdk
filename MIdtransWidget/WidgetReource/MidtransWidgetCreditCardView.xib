@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="181"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9er-iP-TZE" customClass="MidtransUITextField">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="JTz-S6-HR2"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
+                            <real key="value" value="30"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nx7-KC-mDB" customClass="MidtransUITextField">
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="eZ1-ar-bGQ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="n62-5e-fUo" customClass="MidtransUITextField">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="NH8-xL-TTL"/>
+                        <constraint firstAttribute="height" constant="50" id="fyn-H7-vzH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
+                            <real key="value" value="20"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C19-f5-KKu">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="G4B-Sh-6Xl"/>
+                        <constraint firstAttribute="height" constant="22" id="ixq-h9-01V"/>
+                    </constraints>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rSP-nm-Oqw">
+                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="172-pD-jQO"/>
+                    </constraints>
+                    <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="SAVE CREDIT CARD">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="rSP-nm-Oqw" secondAttribute="bottom" constant="12" id="0nc-rw-AoM"/>
+                <constraint firstItem="rSP-nm-Oqw" firstAttribute="top" secondItem="nx7-KC-mDB" secondAttribute="bottom" constant="10" id="6ie-Ly-LOm"/>
+                <constraint firstItem="n62-5e-fUo" firstAttribute="leading" secondItem="nx7-KC-mDB" secondAttribute="trailing" constant="15" id="7HW-Lr-uS4"/>
+                <constraint firstAttribute="trailing" secondItem="9er-iP-TZE" secondAttribute="trailing" constant="15" id="7lJ-O0-Tbl"/>
+                <constraint firstItem="9er-iP-TZE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="10" id="8Z5-UH-ipg"/>
+                <constraint firstItem="9er-iP-TZE" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="BZt-Th-QE0"/>
+                <constraint firstItem="n62-5e-fUo" firstAttribute="trailing" secondItem="9er-iP-TZE" secondAttribute="trailing" id="EVS-KV-gO5"/>
+                <constraint firstItem="nx7-KC-mDB" firstAttribute="top" secondItem="9er-iP-TZE" secondAttribute="bottom" constant="5" id="HA1-s0-GEM"/>
+                <constraint firstItem="rSP-nm-Oqw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="WYO-wi-iKy"/>
+                <constraint firstItem="C19-f5-KKu" firstAttribute="centerY" secondItem="n62-5e-fUo" secondAttribute="centerY" constant="-5" id="YGR-s8-FHZ"/>
+                <constraint firstAttribute="trailing" secondItem="rSP-nm-Oqw" secondAttribute="trailing" constant="15" id="nfX-V4-Lds"/>
+                <constraint firstItem="C19-f5-KKu" firstAttribute="trailing" secondItem="n62-5e-fUo" secondAttribute="trailing" id="tKa-BD-hp8"/>
+                <constraint firstItem="nx7-KC-mDB" firstAttribute="leading" secondItem="9er-iP-TZE" secondAttribute="leading" id="v1H-dv-A0H"/>
+                <constraint firstItem="n62-5e-fUo" firstAttribute="centerY" secondItem="nx7-KC-mDB" secondAttribute="centerY" id="zwK-4N-az3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="-250" y="-82.5"/>
+        </view>
+    </objects>
+</document>

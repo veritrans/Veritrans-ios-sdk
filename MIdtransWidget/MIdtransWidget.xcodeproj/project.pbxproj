@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		00259E831D94DE0100A9E24F /* BaseWidgetViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00259E821D94DE0100A9E24F /* BaseWidgetViewController.m */; };
+		003AC75C1D95123E00567C9F /* MidtransUITextField.m in Sources */ = {isa = PBXBuildFile; fileRef = 003AC75B1D95123E00567C9F /* MidtransUITextField.m */; };
+		003AC75F1D9512A800567C9F /* NSString+TextDirectionally.m in Sources */ = {isa = PBXBuildFile; fileRef = 003AC75E1D9512A800567C9F /* NSString+TextDirectionally.m */; };
+		00A09F581D94F8EE00F64FD3 /* MidtransWidgetHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A09F571D94F8EE00F64FD3 /* MidtransWidgetHelper.m */; };
+		00A09F5D1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A09F5C1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.m */; };
+		00A09F5F1D94FA6200F64FD3 /* MidtransWidgetCreditCardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00A09F5E1D94FA6200F64FD3 /* MidtransWidgetCreditCardView.xib */; };
 		00AEB02F1D9264E700090D8B /* MIdtransWidget.m in Sources */ = {isa = PBXBuildFile; fileRef = 00AEB02E1D9264E700090D8B /* MIdtransWidget.m */; };
 		00AEB0301D9264E700090D8B /* MIdtransWidget.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 00AEB02D1D9264E700090D8B /* MIdtransWidget.h */; };
 /* End PBXBuildFile section */
@@ -25,12 +31,32 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		00259E811D94DE0100A9E24F /* BaseWidgetViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseWidgetViewController.h; sourceTree = "<group>"; };
+		00259E821D94DE0100A9E24F /* BaseWidgetViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseWidgetViewController.m; sourceTree = "<group>"; };
+		00259E8C1D94E3FC00A9E24F /* WidgetReource.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WidgetReource.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		00259E8E1D94E3FC00A9E24F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		003AC75A1D95123E00567C9F /* MidtransUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUITextField.h; sourceTree = "<group>"; };
+		003AC75B1D95123E00567C9F /* MidtransUITextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUITextField.m; sourceTree = "<group>"; };
+		003AC75D1D9512A800567C9F /* NSString+TextDirectionally.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionally.h"; sourceTree = "<group>"; };
+		003AC75E1D9512A800567C9F /* NSString+TextDirectionally.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionally.m"; sourceTree = "<group>"; };
+		00A09F561D94F8EE00F64FD3 /* MidtransWidgetHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransWidgetHelper.h; sourceTree = "<group>"; };
+		00A09F571D94F8EE00F64FD3 /* MidtransWidgetHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransWidgetHelper.m; sourceTree = "<group>"; };
+		00A09F5B1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransWidgetCreditCardView.h; sourceTree = "<group>"; };
+		00A09F5C1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransWidgetCreditCardView.m; sourceTree = "<group>"; };
+		00A09F5E1D94FA6200F64FD3 /* MidtransWidgetCreditCardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransWidgetCreditCardView.xib; sourceTree = "<group>"; };
 		00AEB02A1D9264E700090D8B /* libMIdtransWidget.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMIdtransWidget.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		00AEB02D1D9264E700090D8B /* MIdtransWidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIdtransWidget.h; sourceTree = "<group>"; };
 		00AEB02E1D9264E700090D8B /* MIdtransWidget.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIdtransWidget.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		00259E891D94E3FC00A9E24F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00AEB0271D9264E700090D8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -41,18 +67,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		00259E8D1D94E3FC00A9E24F /* WidgetReource */ = {
+			isa = PBXGroup;
+			children = (
+				003AC7591D94FCB300567C9F /* View */,
+				00259E8E1D94E3FC00A9E24F /* Info.plist */,
+			);
+			path = WidgetReource;
+			sourceTree = "<group>";
+		};
+		003AC7591D94FCB300567C9F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				00A09F5E1D94FA6200F64FD3 /* MidtransWidgetCreditCardView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 		0058BBFE1D926773007D9AAF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				00259E811D94DE0100A9E24F /* BaseWidgetViewController.h */,
+				00259E821D94DE0100A9E24F /* BaseWidgetViewController.m */,
 			);
 			name = Controller;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		00A09F541D94E5D300F64FD3 /* Credit Card */ = {
+			isa = PBXGroup;
+			children = (
+				00A09F5A1D94F9AE00F64FD3 /* Common */,
+				00A09F591D94F9A700F64FD3 /* Charge */,
+			);
+			name = "Credit Card";
+			sourceTree = "<group>";
+		};
+		00A09F551D94F87300F64FD3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				00A09F561D94F8EE00F64FD3 /* MidtransWidgetHelper.h */,
+				00A09F571D94F8EE00F64FD3 /* MidtransWidgetHelper.m */,
+			);
+			name = Common;
+			sourceTree = "<group>";
+		};
+		00A09F591D94F9A700F64FD3 /* Charge */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Charge;
+			sourceTree = "<group>";
+		};
+		00A09F5A1D94F9AE00F64FD3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				00A09F5B1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.h */,
+				00A09F5C1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.m */,
+				003AC75A1D95123E00567C9F /* MidtransUITextField.h */,
+				003AC75B1D95123E00567C9F /* MidtransUITextField.m */,
+				003AC75D1D9512A800567C9F /* NSString+TextDirectionally.h */,
+				003AC75E1D9512A800567C9F /* NSString+TextDirectionally.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 		00AEB0211D9264E700090D8B = {
 			isa = PBXGroup;
 			children = (
 				00AEB02C1D9264E700090D8B /* MIdtransWidget */,
+				00259E8D1D94E3FC00A9E24F /* WidgetReource */,
 				00AEB02B1D9264E700090D8B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -61,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				00AEB02A1D9264E700090D8B /* libMIdtransWidget.a */,
+				00259E8C1D94E3FC00A9E24F /* WidgetReource.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -68,6 +153,8 @@
 		00AEB02C1D9264E700090D8B /* MIdtransWidget */ = {
 			isa = PBXGroup;
 			children = (
+				00A09F551D94F87300F64FD3 /* Common */,
+				00A09F541D94E5D300F64FD3 /* Credit Card */,
 				0058BBFE1D926773007D9AAF /* Controller */,
 				00AEB02D1D9264E700090D8B /* MIdtransWidget.h */,
 				00AEB02E1D9264E700090D8B /* MIdtransWidget.m */,
@@ -78,6 +165,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		00259E8B1D94E3FC00A9E24F /* WidgetReource */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00259E911D94E3FC00A9E24F /* Build configuration list for PBXNativeTarget "WidgetReource" */;
+			buildPhases = (
+				00259E881D94E3FC00A9E24F /* Sources */,
+				00259E891D94E3FC00A9E24F /* Frameworks */,
+				00259E8A1D94E3FC00A9E24F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WidgetReource;
+			productName = WidgetReource;
+			productReference = 00259E8C1D94E3FC00A9E24F /* WidgetReource.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		00AEB0291D9264E700090D8B /* MIdtransWidget */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00AEB0331D9264E700090D8B /* Build configuration list for PBXNativeTarget "MIdtransWidget" */;
@@ -104,6 +208,10 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Arie;
 				TargetAttributes = {
+					00259E8B1D94E3FC00A9E24F = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
 					00AEB0291D9264E700090D8B = {
 						CreatedOnToolsVersion = 8.0;
 						ProvisioningStyle = Automatic;
@@ -123,22 +231,78 @@
 			projectRoot = "";
 			targets = (
 				00AEB0291D9264E700090D8B /* MIdtransWidget */,
+				00259E8B1D94E3FC00A9E24F /* WidgetReource */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXResourcesBuildPhase section */
+		00259E8A1D94E3FC00A9E24F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00A09F5F1D94FA6200F64FD3 /* MidtransWidgetCreditCardView.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		00259E881D94E3FC00A9E24F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		00AEB0261D9264E700090D8B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				003AC75F1D9512A800567C9F /* NSString+TextDirectionally.m in Sources */,
+				003AC75C1D95123E00567C9F /* MidtransUITextField.m in Sources */,
 				00AEB02F1D9264E700090D8B /* MIdtransWidget.m in Sources */,
+				00A09F581D94F8EE00F64FD3 /* MidtransWidgetHelper.m in Sources */,
+				00259E831D94DE0100A9E24F /* BaseWidgetViewController.m in Sources */,
+				00A09F5D1D94FA4700F64FD3 /* MidtransWidgetCreditCardView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		00259E8F1D94E3FC00A9E24F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = WidgetReource/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netra.netra.WidgetReource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		00259E901D94E3FC00A9E24F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = WidgetReource/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.netra.netra.WidgetReource;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		00AEB0311D9264E700090D8B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -248,6 +412,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		00259E911D94E3FC00A9E24F /* Build configuration list for PBXNativeTarget "WidgetReource" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00259E8F1D94E3FC00A9E24F /* Debug */,
+				00259E901D94E3FC00A9E24F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		00AEB0251D9264E700090D8B /* Build configuration list for PBXProject "MIdtransWidget" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

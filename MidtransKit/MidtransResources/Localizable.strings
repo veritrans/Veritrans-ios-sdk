@@ -14,7 +14,7 @@
 "payment.how" = "How can i Pay Via %@";
 "payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
 "payment.email-placeholder" = "Email Address (optional)";
-"payment.email-note" = "Just in case, we can send you the payment instructions to your email address.";
+"payment.email-note" = "We will send you the payment code along with payment instructions to your email address";
 "payment.klikbca.userid-warning" = "KlikBCA User ID should not be empty";
 "guide.header-subtitle" = "Payment Instructions";
 "payment.list.title" = "Select Payment";

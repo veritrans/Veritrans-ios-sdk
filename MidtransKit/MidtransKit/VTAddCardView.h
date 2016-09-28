@@ -24,6 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet MidtransUICCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;
+@property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
+@property (weak, nonatomic) IBOutlet UIView *scanCardViewWrapper;
 
 - (void)setToken:(MidtransTransactionTokenResponse *)token;
 - (BOOL)isViewError:(NSError *)error;

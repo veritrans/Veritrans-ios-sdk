@@ -495,7 +495,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F71D51C73163C00FE73FE /* Build configuration list for PBXNativeTarget "VTDirectDemo" */;
 			buildPhases = (
-				DC5A1E998407154B6CC4F24C /* 📦 Check Pods Manifest.lock */,
+				DC5A1E998407154B6CC4F24C /* [CP] Check Pods Manifest.lock */,
 				E9FA244A27BCADA6547F7E20 /* [CP] Check Pods Manifest.lock */,
 				7115CC24ABEFDD8D2D4136B1 /* [CP] Check Pods Manifest.lock */,
 				302F71BA1C73163C00FE73FE /* Sources */,
@@ -534,7 +534,7 @@
 					};
 					302F71BD1C73163C00FE73FE = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 36T5DNWZL4;
+						DevelopmentTeam = W68EVN637H;
 					};
 				};
 			};
@@ -710,14 +710,14 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		DC5A1E998407154B6CC4F24C /* 📦 Check Pods Manifest.lock */ = {
+		DC5A1E998407154B6CC4F24C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "📦 Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -948,6 +948,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W68EVN637H;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -982,6 +983,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = W68EVN637H;
 				ENABLE_BITCODE = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",

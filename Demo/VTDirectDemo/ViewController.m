@@ -27,7 +27,7 @@
 
 @end
 
-@interface ViewController () <MidtransPaymentWebControllerDelegate>
+@interface ViewController () <MidtransPaymentWebControllerDelegate,MidtransUIPaymentViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <MidtransItemDetail*>* itemDetails;
 @property (nonatomic) BOOL isDone;
@@ -129,16 +129,14 @@
     
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        
         [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
-                 
-                 MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                 MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token andUsingScanCardMethod:YES];
                  vc.delegate = self;
+
                  [self presentViewController:vc animated:YES completion:nil];
              }
              else {
@@ -184,7 +182,9 @@
 }
 
 #pragma mark - VTPaymentViewControllerDelegate
-
+- (void)addCardButtonDidTapped {
+    
+}
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);
 }

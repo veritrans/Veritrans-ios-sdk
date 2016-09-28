@@ -19,11 +19,12 @@
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error;
+- (void)addCardButtonDidTapped;
 @end
 
 @interface MidtransUIPaymentViewController : UINavigationController
-
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
+-(void)scanCardDidTapped;
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andUsingScanCardMethod:(BOOL)cardScanner;
 
 @property (nonatomic, weak) id<MidtransUIPaymentViewControllerDelegate> delegate;
 

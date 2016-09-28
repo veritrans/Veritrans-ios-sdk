@@ -131,6 +131,7 @@ static NSString *const MIDTRANS_CORE_SAVED_ID_TOKEN = @"saved_token_id";
 static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
+static NSString *const MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER = @"credit.card.scanner";
 
 
 static NSInteger const MIDTRANS_ERROR_CODE_3DSECURE = -30;

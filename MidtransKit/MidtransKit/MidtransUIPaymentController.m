@@ -7,6 +7,7 @@
 //
 
 #import "MidtransUIPaymentController.h"
+#import "MidtransUIPaymentViewController.h"
 #import "VTClassHelper.h"
 #import "MidtransUIHudView.h"
 #import "MidtransUIToast.h"
@@ -124,5 +125,10 @@
 }
 -(void)showToastInviewWithMessage:(NSString *)message {
     [MidtransUIToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+}
+- (void)scanButtonDidTappedFromAddCardViewController {
+    MidtransUIPaymentViewController *nav = [[MidtransUIPaymentViewController alloc] init];
+    [nav scanCardDidTapped];
+
 }
 @end

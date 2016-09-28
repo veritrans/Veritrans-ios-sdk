@@ -25,7 +25,7 @@
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;
-    
+    self.scanCardButton.layer.cornerRadius = 2.0f;
     self.cardNumber.delegate = self;
     self.cardExpiryDate.delegate = self;
     self.cardCvv.delegate = self;

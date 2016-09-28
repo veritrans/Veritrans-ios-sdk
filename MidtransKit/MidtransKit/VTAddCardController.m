@@ -19,7 +19,6 @@
 #import "MidtransUIThemeManager.h"
 #import "VTCCBackView.h"
 #import "VTAddCardView.h"
-
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTAddCardController ()
@@ -41,13 +40,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = UILocalizedString(@"creditcard.input.title", nil);
-    
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
-    
     self.saveCardView.hidden = [CC_CONFIG saveCard] == NO;
-    
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER] boolValue]) {
+         self.view.scanCardViewWrapper.hidden = NO;
+    }
     [self.view setToken:self.token];
 }
 
@@ -135,6 +133,9 @@
             [self handleTransactionSuccess:result];
         }
     }];
+}
+- (IBAction)scanCardDidTapped:(id)sender {
+    [self scanButtonDidTappedFromAddCardViewController];
 }
 
 @end

@@ -23,5 +23,4 @@
 @protocol VTAddCardControllerDelegate <NSObject>
 
 - (void)viewController:(VTAddCardController *_Nonnull)viewController didRegisterCard:(MidtransMaskedCreditCard *_Nonnull)registeredCard;
-
 @end

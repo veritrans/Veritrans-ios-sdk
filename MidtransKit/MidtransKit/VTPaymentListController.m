@@ -25,7 +25,7 @@
 #import "VTPaymentListDataSource.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
-@interface VTPaymentListController () <UITableViewDelegate>
+@interface VTPaymentListController () <UITableViewDelegate,VTAddCardControllerDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) VTPaymentListDataSource *dataSource;
@@ -166,6 +166,7 @@
         else {
             VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
                                                                paymentMethodName:paymentMethod];
+            vc.delegate = self;
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
@@ -199,6 +200,7 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
+- (void)scanCardButtonDidTapped {
 
-
+}
 @end

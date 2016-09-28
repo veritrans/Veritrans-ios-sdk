@@ -23,7 +23,7 @@
 @end
 
 @interface MidtransUIPaymentViewController : UINavigationController
--(void)scanCardDidTapped;
+- (void)scanCardDidTapped;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andUsingScanCardMethod:(BOOL)cardScanner;
 
 @property (nonatomic, weak) id<MidtransUIPaymentViewControllerDelegate> delegate;

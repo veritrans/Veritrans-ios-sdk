@@ -10,7 +10,7 @@
 #define MidtransKit_h
 
 #import "MidtransUIPaymentViewController.h"
-#import "VTCustomerInputViewController.h"
+#import "MidtransUICustomerInputViewController.h"
 #import "MidtransUIThemeManager.h"
 
 #endif /* MidtransKit_h */

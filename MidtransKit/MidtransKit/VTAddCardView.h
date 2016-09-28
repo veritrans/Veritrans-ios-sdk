@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
+#import "MidtransUICardFormatter.h"
 #import "MidtransUITextField.h"
 #import "MidtransUICCFrontView.h"
 #import "VTCCBackView.h"
@@ -26,8 +26,10 @@
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;
 @property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
 @property (weak, nonatomic) IBOutlet UIView *scanCardViewWrapper;
-
+@property (nonatomic) MidtransUICardFormatter *ccFormatter;
 - (void)setToken:(MidtransTransactionTokenResponse *)token;
 - (BOOL)isViewError:(NSError *)error;
-
+- (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter;
+- (UIImage *)iconDarkWithNumber:(NSString *)number;
+- (UIImage *)iconWithNumber:(NSString *)number;
 @end

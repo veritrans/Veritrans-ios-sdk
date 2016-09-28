@@ -10,7 +10,7 @@
 #import "IHKeyboardAvoiding.h"
 #import "FontListViewController.h"
 
-#import <MidtransKit/VTPaymentViewController.h>
+#import <MidtransKit/MidtransUIPaymentViewController.h>
 #import <MidtransCoreKit/MidtransConfig.h>
 #import <MidtransCoreKit/MidtransMerchantClient.h>
 

@@ -13,7 +13,7 @@
 #import <MidtransKit/MidtransKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MBProgressHUD.h>
-
+#import <CardIO/CardIO.h>
 @implementation NSString (random)
 
 + (NSString *)randomWithLength:(NSUInteger)length {
@@ -27,15 +27,20 @@
 
 @end
 
-@interface ViewController () <MidtransPaymentWebControllerDelegate,MidtransUIPaymentViewControllerDelegate>
+@interface ViewController () <MidtransPaymentWebControllerDelegate,MidtransUIPaymentViewControllerDelegate,CardIOPaymentViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <MidtransItemDetail*>* itemDetails;
 @property (nonatomic) BOOL isDone;
+@property (nonatomic,strong)MidtransUIPaymentViewController *paymentVC;
 @property (nonatomic,strong) NSString *transactionToken;
 @end
+#define ROOTVIEW [[[UIApplication sharedApplication] keyWindow] rootViewController]
 
 @implementation ViewController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [CardIOUtilities preloadCardIO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isDone = 0;
@@ -134,10 +139,10 @@
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
-                 MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token andUsingScanCardMethod:YES];
-                 vc.delegate = self;
+                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andUsingScanCardMethod:YES];
+                 self.paymentVC.delegate = self;
 
-                 [self presentViewController:vc animated:YES completion:nil];
+                 [self presentViewController:self.paymentVC animated:YES completion:nil];
              }
              else {
                  [self showAlertError:error];
@@ -149,6 +154,7 @@
         [self.navigationController pushViewController:option animated:YES];
     }
 }
+
 - (UIColor *)myThemeColor {
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
@@ -183,7 +189,31 @@
 
 #pragma mark - VTPaymentViewControllerDelegate
 - (void)addCardButtonDidTapped {
-    
+    CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    scanViewController.collectCVV = NO;
+    scanViewController.hideCardIOLogo = YES;
+    [self.paymentVC presentViewController:scanViewController animated:YES completion:nil];
+}
+// SomeViewController.m
+
+- (void)cardIOView:(CardIOView *)cardIOView didScanCard:(CardIOCreditCardInfo *)info {
+    if (info) {
+        // The full card number is available as info.cardNumber, but don't log that!
+        NSLog(@"Received card info. Number: %@, expiry: %02i/%i, cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv);
+        // Use the card info...
+    }
+    else {
+        NSLog(@"User canceled payment info");
+        // Handle user cancellation here...
+    }
+
+    cardIOView.hidden = YES;
+}
+- (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+     [paymentViewController dismissViewControllerAnimated:YES completion:^{
+         NSDictionary *cardInformation =@{MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER:cardInfo.cardNumber,MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR:[NSNumber numberWithInteger:cardInfo.expiryYear],MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH:[NSNumber numberWithInteger:cardInfo.expiryMonth]};
+         [[NSNotificationCenter defaultCenter]postNotificationName:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:cardInformation];
+     }];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);

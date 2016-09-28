@@ -12,6 +12,7 @@
 #import "VTCvvInfoController.h"
 #import "MidtransUICCFrontView.h"
 #import "VTCCBackView.h"
+#import "MidtransUICardFormatter.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
@@ -21,7 +22,7 @@
 #import "VTAddCardView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTAddCardController ()
+@interface VTAddCardController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (nonatomic) NSMutableArray *maskedCards;
@@ -40,6 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scanCardInformationFromNotification:) name:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:nil];
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     self.saveCardView.hidden = [CC_CONFIG saveCard] == NO;
@@ -48,6 +50,56 @@
     }
     [self.view setToken:self.token];
 }
+- (void)scanCardInformationFromNotification:(NSNotification *)notification {
+    NSDictionary *dict = notification.object;
+    self.view.cardNumber.text = @"";
+    [self.view.cardNumber setText:[dict objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
+    [self.view.ccFormatter updateTextFieldContentAndPosition];
+    NSString *expiredDate = [NSString stringWithFormat:@"%02d",[[dict valueForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH] intValue]];
+}
+
+#pragma mark - UITextFieldDelegate
+-(void)textFieldDidChange :(UITextField *) textField{
+    if ([textField isEqual:self.view.cardNumber]) {
+        [self.view.ccFormatter updateTextFieldContentAndPosition];
+    }
+    //your code
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
+
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        [textField.text isValidExpiryDate:&error];
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
+
+    //show warning if error
+    if (error) {
+        [self.view isViewError:error];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isKindOfClass:[MidtransUITextField class]]) {
+        ((MidtransUITextField *) textField).warning = nil;
+    }
+
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        return [textField filterCreditCardExpiryDate:string range:range];
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
+        return [self.view.ccFormatter updateTextFieldContentAndPosition];
+    }
+    else if ([textField isEqual:self.view.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.view.cardNumber.text];
+    }
+    else {
+        return YES;
+    }
+}
+
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];

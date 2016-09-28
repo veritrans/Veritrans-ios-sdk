@@ -28,9 +28,7 @@
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }
-- (void)addCardButtonDidTapped {
 
-}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationBar.translucent = false;
@@ -49,7 +47,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
 }
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

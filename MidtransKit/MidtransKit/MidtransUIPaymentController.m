@@ -127,8 +127,8 @@
     [MidtransUIToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
 }
 - (void)scanButtonDidTappedFromAddCardViewController {
-    MidtransUIPaymentViewController *nav = [[MidtransUIPaymentViewController alloc] init];
-    [nav scanCardDidTapped];
+    MidtransUIPaymentViewController *navigationController = (MidtransUIPaymentViewController *)self.navigationController;
+    [navigationController scanCardDidTapped];
 
 }
 @end

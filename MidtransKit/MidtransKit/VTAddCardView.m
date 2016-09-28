@@ -14,7 +14,7 @@
 #import <IHKeyboardAvoiding_vt.h>
 
 @interface VTAddCardView()<UITextFieldDelegate, MidtransUICardFormatterDelegate>
-@property (nonatomic) MidtransUICardFormatter *ccFormatter;
+
 @end
 
 @implementation VTAddCardView
@@ -44,6 +44,10 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"text"] &&
         [object isEqual:self.cardExpiryDate]) {
+        self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
+    }
+    else if ([keyPath isEqualToString:@"text"] &&
+        [object isEqual:self.cardNumber]) {
         self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
     }
 }
@@ -104,42 +108,6 @@
 }
 
 
-#pragma mark - UITextFieldDelegate
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSError *error;
-    
-    if ([textField isEqual:self.cardExpiryDate]) {
-        [textField.text isValidExpiryDate:&error];
-    }
-    else if ([textField isEqual:self.cardNumber]) {
-        [textField.text isValidCreditCardNumber:&error];
-    }
-    
-    //show warning if error
-    if (error) {
-        [self isViewError:error];
-    }
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isKindOfClass:[MidtransUITextField class]]) {
-        ((MidtransUITextField *) textField).warning = nil;
-    }
-    
-    if ([textField isEqual:self.cardExpiryDate]) {
-        return [textField filterCreditCardExpiryDate:string range:range];
-    }
-    else if ([textField isEqual:self.cardNumber]) {
-        return [self.ccFormatter updateTextFieldContentAndPosition];
-    }
-    else if ([textField isEqual:self.cardCvv]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:self.cardNumber.text];
-    }
-    else {
-        return YES;
-    }
-}
 
 #pragma mark - VTCardFormatterDelegate
 

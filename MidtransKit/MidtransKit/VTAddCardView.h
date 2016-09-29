@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
 @property (weak, nonatomic) IBOutlet UIView *scanCardViewWrapper;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
+- (void)setCardNumberFromCardIOSDK:(NSDictionary *)cardInformation;
 - (void)setToken:(MidtransTransactionTokenResponse *)token;
 - (BOOL)isViewError:(NSError *)error;
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter;

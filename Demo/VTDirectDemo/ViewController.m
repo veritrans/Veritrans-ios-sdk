@@ -191,6 +191,7 @@
 - (void)addCardButtonDidTapped {
     CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
     scanViewController.collectCVV = NO;
+    scanViewController.collectExpiry = NO;
     scanViewController.hideCardIOLogo = YES;
     [self.paymentVC presentViewController:scanViewController animated:YES completion:nil];
 }
@@ -214,6 +215,10 @@
          NSDictionary *cardInformation =@{MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER:cardInfo.cardNumber,MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR:[NSNumber numberWithInteger:cardInfo.expiryYear],MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH:[NSNumber numberWithInteger:cardInfo.expiryMonth]};
          [[NSNotificationCenter defaultCenter]postNotificationName:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:cardInformation];
      }];
+}
+- (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+    [paymentViewController dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);

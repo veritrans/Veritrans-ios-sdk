@@ -81,6 +81,60 @@
             return nil;
     }
 }
+- (void)setCardNumberFromCardIOSDK:(NSDictionary *)cardInformation {
+    NSString *cardNumber = [cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER];
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+    self.cardNumber.text = formatted;
+    self.cardNumber.infoIcon = [self iconDarkWithNumber:[cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
+    self.cardFrontView.iconView.image = [self iconWithNumber:[cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
+    self.cardFrontView.numberLabel.text = formatted;
+    NSString *expiredDate = [NSString stringWithFormat:@"%02d",[[cardInformation valueForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH] intValue]];
+}
+#pragma mark - UITextFieldDelegate
+-(void)textFieldDidChange :(UITextField *) textField{
+    if ([textField isEqual:self.cardNumber]) {
+        [self.ccFormatter updateTextFieldContentAndPosition];
+    }
+    //your code
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
+
+    if ([textField isEqual:self.cardExpiryDate]) {
+        [textField.text isValidExpiryDate:&error];
+    }
+    else if ([textField isEqual:self.cardNumber]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
+
+    //show warning if error
+    if (error) {
+        [self isViewError:error];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isKindOfClass:[MidtransUITextField class]]) {
+        ((MidtransUITextField *) textField).warning = nil;
+    }
+
+    if ([textField isEqual:self.cardExpiryDate]) {
+        return [textField filterCreditCardExpiryDate:string range:range];
+    }
+    else if ([textField isEqual:self.cardNumber]) {
+        return [self.ccFormatter updateTextFieldContentAndPosition];
+    }
+    else if ([textField isEqual:self.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.cardNumber.text];
+    }
+    else {
+        return YES;
+    }
+}
 
 - (void)setToken:(MidtransTransactionTokenResponse *)token {
     self.amountLabel.text = token.transactionDetails.grossAmount.formattedCurrencyNumber;

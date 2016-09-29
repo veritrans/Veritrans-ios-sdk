@@ -22,7 +22,7 @@
 #import "VTAddCardView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
-@interface VTAddCardController ()<UITextFieldDelegate>
+@interface VTAddCardController ()
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (nonatomic) NSMutableArray *maskedCards;
@@ -52,53 +52,10 @@
 }
 - (void)scanCardInformationFromNotification:(NSNotification *)notification {
     NSDictionary *dict = notification.object;
-    self.view.cardNumber.text = @"";
-    [self.view.cardNumber setText:[dict objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
-    [self.view.ccFormatter updateTextFieldContentAndPosition];
-    NSString *expiredDate = [NSString stringWithFormat:@"%02d",[[dict valueForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH] intValue]];
+    [self.view setCardNumberFromCardIOSDK:dict];
+    
 }
 
-#pragma mark - UITextFieldDelegate
--(void)textFieldDidChange :(UITextField *) textField{
-    if ([textField isEqual:self.view.cardNumber]) {
-        [self.view.ccFormatter updateTextFieldContentAndPosition];
-    }
-    //your code
-}
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSError *error;
-
-    if ([textField isEqual:self.view.cardExpiryDate]) {
-        [textField.text isValidExpiryDate:&error];
-    }
-    else if ([textField isEqual:self.view.cardNumber]) {
-        [textField.text isValidCreditCardNumber:&error];
-    }
-
-    //show warning if error
-    if (error) {
-        [self.view isViewError:error];
-    }
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isKindOfClass:[MidtransUITextField class]]) {
-        ((MidtransUITextField *) textField).warning = nil;
-    }
-
-    if ([textField isEqual:self.view.cardExpiryDate]) {
-        return [textField filterCreditCardExpiryDate:string range:range];
-    }
-    else if ([textField isEqual:self.view.cardNumber]) {
-        return [self.view.ccFormatter updateTextFieldContentAndPosition];
-    }
-    else if ([textField isEqual:self.view.cardCvv]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:self.view.cardNumber.text];
-    }
-    else {
-        return YES;
-    }
-}
 
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {

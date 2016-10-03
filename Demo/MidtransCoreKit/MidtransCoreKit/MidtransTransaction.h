@@ -26,6 +26,8 @@
  */
 @property (nonatomic, readonly) id<MidtransPaymentDetails> paymentDetails;
 
+@property (nonatomic, readonly) MidtransTransactionTokenResponse *token;
+
 
 /**
  Set the value for the first custom field. The label for this field can be set in MAP.
@@ -42,9 +44,11 @@
  */
 @property (nonatomic) NSString *customField3;
 
-- (instancetype)initWithPaymentDetails:(id<MidtransPaymentDetails>)paymentDetails;
+- (instancetype)initWithPaymentDetails:(id<MidtransPaymentDetails>)paymentDetails token:(MidtransTransactionTokenResponse *)token;
 
 - (NSDictionary *)dictionaryValue;
+
+- (NSString *)paymentType;
 
 - (NSString *)chargeURL;
 

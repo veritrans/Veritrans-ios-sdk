@@ -11,14 +11,16 @@
 @interface MidtransTransaction()
 
 @property (nonatomic, readwrite) id paymentDetails;
+@property (nonatomic, readwrite) MidtransTransactionTokenResponse *token;
 
 @end
 
 @implementation MidtransTransaction
 
-- (instancetype)initWithPaymentDetails:(id<MidtransPaymentDetails>)paymentDetails {
+- (instancetype)initWithPaymentDetails:(id<MidtransPaymentDetails>)paymentDetails token:(MidtransTransactionTokenResponse *)token {
     if (self = [super init]) {
         self.paymentDetails = paymentDetails;
+        self.token = token;
     }
     return self;
 }
@@ -27,8 +29,12 @@
     return self.paymentDetails.dictionaryValue;
 }
 
+- (NSString *)paymentType {
+    return self.dictionaryValue[@"payment_type"];
+}
+
 - (NSString *)chargeURL {
-    return self.paymentDetails.chargeURL;
+    return [NSString stringWithFormat:ENDPOINT_CHARGE, self.token.tokenId];
 }
 
 @end

@@ -57,16 +57,16 @@
                 self.view.noteLabel.text = UILocalizedString(@"payment.kioson.note", nil);
             }
             else {
-                if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_BCA_IDENTIFIER]) {
+                if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
                     self.paymentType = VTVATypeBCA;
                 }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_MANDIRI_IDENTIFIER]) {
+                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
                     self.paymentType = VTVATypeMandiri;
                 }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_PERMATA_IDENTIFIER]) {
+                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
                     self.paymentType = VTVATypePermata;
                 }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_OTHER_IDENTIFIER]) {
+                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
                     self.paymentType = VTVATypeOther;
                 }
             }
@@ -88,13 +88,12 @@
     
     id<MidtransPaymentDetails> paymentDetails;
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_BCA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_MANDIRI_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_PERMATA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_OTHER_IDENTIFIER]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
         
         paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType
-                                                                                 token:self.token
                                                                                  email:self.view.directPaymentTextField.text];
         self.token.customerDetails.email = self.view.directPaymentTextField.text;
     }
@@ -104,10 +103,10 @@
             [self hideLoadingHud];
             return;
         }
-        paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text token:self.token];
+        paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
-        paymentDetails = [[MidtransPaymentCStore alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentIndomaret alloc] init];
         self.token.customerDetails.email = self.view.directPaymentTextField.text;
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
@@ -116,8 +115,7 @@
             [self hideLoadingHud];
             return;
         }
-        paymentDetails = [[MidtransPaymentIndosatDompetku alloc] initWithMSISDN:self.view.directPaymentTextField.text
-                                                                          token:self.token];
+        paymentDetails = [[MidtransPaymentIndosatDompetku alloc] initWithMSISDN:self.view.directPaymentTextField.text];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
         if (self.view.directPaymentTextField.text.length == 0) {
@@ -125,14 +123,14 @@
             [self hideLoadingHud];
             return;
         }
-        paymentDetails = [[MidtransPaymentTelkomselCash alloc] initWithMSISDN:self.view.directPaymentTextField.text
-                                                                        token:self.token];
+        paymentDetails = [[MidtransPaymentTelkomselCash alloc] initWithMSISDN:self.view.directPaymentTextField.text];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-        paymentDetails = [[MidtransPaymentKiosOn alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentKiosOn alloc] init];
     }
     
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
+    
     [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoadingHud];
         if (error) {
@@ -148,10 +146,10 @@
 }
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_BCA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_MANDIRI_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_PERMATA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_OTHER_IDENTIFIER])
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA])
     {
         VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result
                                                                                                         vaType:self.paymentType];

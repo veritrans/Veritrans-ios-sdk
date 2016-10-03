@@ -193,10 +193,10 @@
 - (void)payWithToken:(NSString *)token {
     [_hudView showOnView:self.navigationController.view];
     
-    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithFeature:MidtransCreditCardPaymentFeatureOneClick
-                                                                                  creditCardToken:token token:self.token];
-    MidtransTransaction *transaction =
-    [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
+    
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
+    
     [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [_hudView hide];
         

@@ -111,10 +111,10 @@
 }
 
 - (void)showGuideViewController {
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_BCA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_MANDIRI_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_PERMATA_IDENTIFIER] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_VA_OTHER_IDENTIFIER]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
         VTMultiGuideController *vc = [[VTMultiGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }

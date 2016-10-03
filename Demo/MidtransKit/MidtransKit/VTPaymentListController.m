@@ -92,16 +92,20 @@
              NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
              self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
              self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-             if (response.transactionData.enabledPayments.count) {
-                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-                     for (int i = 0; i<paymentList.count; i++) {
-                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[i]];
-                         if ([response.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-                             [self.paymentMethodList addObject:paymentmodel];
-                         }
-                     }
+             
+             NSArray *enabledPayments = response.transactionData.enabledPayments;
+             
+             for (NSString *enabledPayment in enabledPayments) {
+                 NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                     return [obj[@"id"] isEqualToString:enabledPayment];
+                 }];
+                 
+                 if (index != NSNotFound) {
+                     MidtransPaymentListModel *model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                     [self.paymentMethodList addObject:model];
                  }
              }
+             
              self.dataSource.paymentList = self.paymentMethodList;
              [self.view.tableView reloadData];
          }
@@ -170,7 +174,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BANK_TRANSFER]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
@@ -198,9 +202,13 @@
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
                                                                            paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
+    }    
+    else {
+        MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
     }
 }
 - (void)scanCardButtonDidTapped {
-
+    
 }
 @end

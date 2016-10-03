@@ -28,9 +28,9 @@
 		<key>description</key>
 		<string>Pay from ATM Bersama, Prima or Alto</string>
 		<key>id</key>
-		<string>bank_transfer</string>
+		<string>va</string>
 		<key>identifier</key>
-		<string>bank_transfer</string>
+		<string>va</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -131,6 +131,38 @@
         <string>telkomsel_cash</string>
         <key>identifier</key>
         <string>telkomsel_cash</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>BCA</string>
+        <key>description</key>
+        <string>Pay from BCA ATMs or internet banking</string>
+        <key>id</key>
+        <string>bca_va</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>Mandiri</string>
+        <key>description</key>
+        <string>Pay from Mandiri ATMs or internet banking</string>
+        <key>id</key>
+        <string>echannel</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>Permata</string>
+        <key>description</key>
+        <string>Pay from Permata ATMs or internet banking</string>
+        <key>id</key>
+        <string>permata_va</string>
+    </dict>
+    <dict>
+        <key>title</key>
+        <string>Other Bank</string>
+        <key>description</key>
+        <string>Pay from ATMs or internet banking</string>
+        <key>id</key>
+        <string>all_va</string>
     </dict>
 </array>
 </plist>

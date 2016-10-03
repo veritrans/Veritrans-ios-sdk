@@ -41,22 +41,23 @@
     id<MidtransPaymentDetails>paymentDetails;
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
-        paymentDetails = [[MidtransPaymentBCAKlikpay alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentBCAKlikpay alloc] init];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH]) {
-        paymentDetails = [[MidtransPaymentMandiriECash alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentMandiriECash alloc] init];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY]) {
-        paymentDetails = [[MidtransPaymentEpayBRI alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentEpayBRI alloc] init];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
-        paymentDetails = [[MidtransPaymentCIMBClicks alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
-        paymentDetails = [[MidtransPaymentXLTunai alloc] initWithToken:self.token];
+        paymentDetails = [[MidtransPaymentXLTunai alloc] init];
     }
     
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
+    
     [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoadingHud];
         

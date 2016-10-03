@@ -43,7 +43,6 @@
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
 		E553BA801D66AF530091E403 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E553BA7F1D66AF530091E403 /* Settings.bundle */; };
 		E5AA566A1DA2333F00DAD851 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AA56691DA2333F00DAD851 /* libMidtransKit.a */; };
-		E5AA566C1DA2334600DAD851 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AA566B1DA2334600DAD851 /* libMidtransCoreKit.a */; };
 		E5AA56721DA2396B00DAD851 /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AA56711DA2396B00DAD851 /* MidtransKit.bundle */; };
 		E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */; };
 		E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */; };
@@ -163,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AA566C1DA2334600DAD851 /* libMidtransCoreKit.a in Frameworks */,
 				E5AA566A1DA2333F00DAD851 /* libMidtransKit.a in Frameworks */,
 				E52940881CFEC70B000180D3 /* Security.framework in Frameworks */,
 				E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */,
@@ -802,7 +800,7 @@
 					"-ObjC",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";
@@ -842,7 +840,7 @@
 					"-ObjC",
 				);
 				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.VTDemo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				USER_HEADER_SEARCH_PATHS = "";

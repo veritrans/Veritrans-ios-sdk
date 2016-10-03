@@ -11,41 +11,13 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
+            buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "305494391C759FF800938C17"
                BuildableName = "libMidtransCoreKit.a"
                BlueprintName = "MidtransCoreKit"
-               ReferencedContainer = "container:MidtransCoreKit/MidtransCoreKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3054941A1C759EDF00938C17"
-               BuildableName = "libMidtransKit.a"
-               BlueprintName = "MidtransKit"
-               ReferencedContainer = "container:MidtransKit/MidtransKit.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "3005E2861C7C17A100064169"
-               BuildableName = "MidtransKit.bundle"
-               BlueprintName = "MidtransResources"
-               ReferencedContainer = "container:MidtransKit/MidtransKit.xcodeproj">
+               ReferencedContainer = "container:../MidtransCoreKit/MidtransCoreKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -56,10 +28,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "302F71BD1C73163C00FE73FE"
-               BuildableName = "VTDirectDemo.app"
-               BlueprintName = "VTDirectDemo"
-               ReferencedContainer = "container:VTDirectDemo.xcodeproj">
+               BlueprintIdentifier = "3054941A1C759EDF00938C17"
+               BuildableName = "libMidtransKit.a"
+               BlueprintName = "MidtransKit"
+               ReferencedContainer = "container:MidtransKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -70,24 +42,14 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "2E6BFAA01D01391E002C8E85"
-               BuildableName = "VTDirectDemoUITests.xctest"
-               BlueprintName = "VTDirectDemoUITests"
-               ReferencedContainer = "container:VTDirectDemo.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "302F71BD1C73163C00FE73FE"
-            BuildableName = "VTDirectDemo.app"
-            BlueprintName = "VTDirectDemo"
-            ReferencedContainer = "container:VTDirectDemo.xcodeproj">
+            BlueprintIdentifier = "3054941A1C759EDF00938C17"
+            BuildableName = "libMidtransKit.a"
+            BlueprintName = "MidtransKit"
+            ReferencedContainer = "container:MidtransKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -103,16 +65,15 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "302F71BD1C73163C00FE73FE"
-            BuildableName = "VTDirectDemo.app"
-            BlueprintName = "VTDirectDemo"
-            ReferencedContainer = "container:VTDirectDemo.xcodeproj">
+            BlueprintIdentifier = "3054941A1C759EDF00938C17"
+            BuildableName = "libMidtransKit.a"
+            BlueprintName = "MidtransKit"
+            ReferencedContainer = "container:MidtransKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -122,16 +83,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "302F71BD1C73163C00FE73FE"
-            BuildableName = "VTDirectDemo.app"
-            BlueprintName = "VTDirectDemo"
-            ReferencedContainer = "container:VTDirectDemo.xcodeproj">
+            BlueprintIdentifier = "3054941A1C759EDF00938C17"
+            BuildableName = "libMidtransKit.a"
+            BlueprintName = "MidtransKit"
+            ReferencedContainer = "container:MidtransKit.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

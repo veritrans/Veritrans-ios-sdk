@@ -14,6 +14,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MBProgressHUD.h>
 #import <CardIO/CardIO.h>
+
 @implementation NSString (random)
 
 + (NSString *)randomWithLength:(NSUInteger)length {

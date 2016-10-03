@@ -172,6 +172,7 @@
 		00F61B0B1D145D0E00C93DA0 /* MidtransPaymentListDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentListDataModel.h; sourceTree = "<group>"; };
 		00F61B0C1D145D0E00C93DA0 /* MidtransPaymentListModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentListModel.h; sourceTree = "<group>"; };
 		00F61B0D1D145D0E00C93DA0 /* MidtransPaymentListModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentListModel.m; sourceTree = "<group>"; };
+		0305BBA9D855C25D35187BBB /* Pods-MidtransCoreKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransCoreKit/Pods-MidtransCoreKit.debug.xcconfig"; sourceTree = "<group>"; };
 		2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransConstant.h; sourceTree = "<group>"; };
 		2EDAA3A11D0A7601009EC90D /* MidtransTrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransTrackingManager.h; sourceTree = "<group>"; };
 		2EDAA3A21D0A7601009EC90D /* MidtransTrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransTrackingManager.m; sourceTree = "<group>"; };
@@ -186,6 +187,8 @@
 		3054948C1C75A40900938C17 /* MidtransCoreKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransCoreKit.h; sourceTree = "<group>"; };
 		30D9ABFA1C76FD1D00F858AE /* MidtransNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransNetworkOperation.h; sourceTree = "<group>"; };
 		30D9ABFB1C76FD1D00F858AE /* MidtransNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransNetworkOperation.m; sourceTree = "<group>"; };
+		5160F2CFA6F236107A534C7B /* Pods-MidtransCoreKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransCoreKit/Pods-MidtransCoreKit.release.xcconfig"; sourceTree = "<group>"; };
+		6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransCoreKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50D85D21D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentMandiriECash.h; sourceTree = "<group>"; };
 		E50D85D31D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentMandiriECash.m; sourceTree = "<group>"; };
 		E50D85E31D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentBCAKlikpay.h; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				3054943C1C759FF800938C17 /* MidtransCoreKit */,
 				3054943B1C759FF800938C17 /* Products */,
 				305494461C75A01900938C17 /* Foundation.framework */,
+				C81F67B7B68722E328BF93D7 /* Pods */,
+				A0C9D60C2D536437D42CFD0A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -486,6 +491,23 @@
 				E5E436141CE31C9C00F688ED /* MidtransClient.m */,
 			);
 			path = MidtransCoreKit;
+			sourceTree = "<group>";
+		};
+		A0C9D60C2D536437D42CFD0A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C81F67B7B68722E328BF93D7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0305BBA9D855C25D35187BBB /* Pods-MidtransCoreKit.debug.xcconfig */,
+				5160F2CFA6F236107A534C7B /* Pods-MidtransCoreKit.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -562,10 +584,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 305494431C759FF800938C17 /* Build configuration list for PBXNativeTarget "MidtransCoreKit" */;
 			buildPhases = (
+				A0252E08069E823A9E97211C /* [CP] Check Pods Manifest.lock */,
 				305494361C759FF800938C17 /* Sources */,
 				305494371C759FF800938C17 /* Frameworks */,
 				305494481C75A04F00938C17 /* Headers */,
 				E525E12C1CFD7765009448A5 /* ShellScript */,
+				7B81C2B93162D4C1921B9E05 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -626,6 +650,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\n# If we're already inside this script then die\nif [ -n \"$RW_MULTIPLATFORM_BUILD_IN_PROGRESS\" ]; then\nexit 0\nfi\nexport RW_MULTIPLATFORM_BUILD_IN_PROGRESS=1\n\nRW_FRAMEWORK_NAME=${PROJECT_NAME}\nRW_INPUT_STATIC_LIB=\"lib${PROJECT_NAME}.a\"\nRW_FRAMEWORK_LOCATION=\"${BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework\"\n\nfunction build_static_library {\n    # Will rebuild the static library as specified\n    #     build_static_library sdk\n    xcrun xcodebuild -project \"${PROJECT_FILE_PATH}\" \\\n    -target \"${TARGET_NAME}\" \\\n    -configuration \"${CONFIGURATION}\" \\\n    -sdk \"${1}\" \\\n    ONLY_ACTIVE_ARCH=NO \\\n    BUILD_DIR=\"${BUILD_DIR}\" \\\n    OBJROOT=\"${OBJROOT}\" \\\n    BUILD_ROOT=\"${BUILD_ROOT}\" \\\n    SYMROOT=\"${SYMROOT}\" $ACTION\n}\n\nfunction make_fat_library {\n    # Will smash 2 static libs together\n    #     make_fat_library in1 in2 out\n    xcrun lipo -create \"${1}\" \"${2}\" -output \"${3}\"\n}\n\n# 1 - Extract the platform (iphoneos/iphonesimulator) from the SDK name\nif [[ \"$SDK_NAME\" =~ ([A-Za-z]+) ]]; then\nRW_SDK_PLATFORM=${BASH_REMATCH[1]}\nelse\necho \"Could not find platform name from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 2 - Extract the version from the SDK\nif [[ \"$SDK_NAME\" =~ ([0-9]+.*$) ]]; then\nRW_SDK_VERSION=${BASH_REMATCH[1]}\nelse\necho \"Could not find sdk version from SDK_NAME: $SDK_NAME\"\nexit 1\nfi\n\n# 3 - Determine the other platform\nif [ \"$RW_SDK_PLATFORM\" == \"iphoneos\" ]; then\nRW_OTHER_PLATFORM=iphonesimulator\nelse\nRW_OTHER_PLATFORM=iphoneos\nfi\n\n# 4 - Find the build directory\nif [[ \"$BUILT_PRODUCTS_DIR\" =~ (.*)$RW_SDK_PLATFORM$ ]]; then\nRW_OTHER_BUILT_PRODUCTS_DIR=\"${BASH_REMATCH[1]}${RW_OTHER_PLATFORM}\"\nelse\necho \"Could not find other platform build directory.\"\nexit 1\nfi\n\n# Build the other platform.\nbuild_static_library \"${RW_OTHER_PLATFORM}${RW_SDK_VERSION}\"\n\n# If we're currently building for iphonesimulator, then need to rebuild\n#   to ensure that we get both i386 and x86_64\nif [ \"$RW_SDK_PLATFORM\" == \"iphonesimulator\" ]; then\nbuild_static_library \"${SDK_NAME}\"\nfi\n\n# Join the 2 static libs into 1 and push into the .framework\nmake_fat_library \"${BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_INPUT_STATIC_LIB}\" \\\n\"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Ensure that the framework is present in both platform's build directories\ncp -a \"${RW_FRAMEWORK_LOCATION}/Versions/A/${RW_FRAMEWORK_NAME}\" \\\n\"${RW_OTHER_BUILT_PRODUCTS_DIR}/${RW_FRAMEWORK_NAME}.framework/Versions/A/${RW_FRAMEWORK_NAME}\"\n\n# Copy the framework to the user's desktop\nditto \"${RW_FRAMEWORK_LOCATION}\" \"${HOME}/Desktop/${RW_FRAMEWORK_NAME}.framework\"\n";
+		};
+		7B81C2B93162D4C1921B9E05 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransCoreKit/Pods-MidtransCoreKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A0252E08069E823A9E97211C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
 		};
 		E525E12C1CFD7765009448A5 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -792,6 +846,7 @@
 		};
 		305494441C759FF800938C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0305BBA9D855C25D35187BBB /* Pods-MidtransCoreKit.debug.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_VERSION = 0.1.0;
 				ONLY_ACTIVE_ARCH = NO;
@@ -805,6 +860,7 @@
 		};
 		305494451C759FF800938C17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5160F2CFA6F236107A534C7B /* Pods-MidtransCoreKit.release.xcconfig */;
 			buildSettings = {
 				FRAMEWORK_VERSION = 0.1.0;
 				ONLY_ACTIVE_ARCH = NO;

@@ -285,7 +285,6 @@
 		E5AB97651D741C4100466A44 /* VTPendingStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97641D741C4100466A44 /* VTPendingStatusController.xib */; };
 		E5AB976C1D741C8D00466A44 /* VTPendingStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AB976A1D741C8D00466A44 /* VTPendingStatusController.h */; };
 		E5AB976D1D741C8D00466A44 /* VTPendingStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AB976B1D741C8D00466A44 /* VTPendingStatusController.m */; };
-		E5B6151D1D0A9F0C009F40EF /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */; };
 		E5C00EE21D61B9E5008DD9C5 /* VTCustomerInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */; };
 		E5C00EE31D61B9E5008DD9C5 /* VTCustomerInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */; };
 		E5C00EE41D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDC1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -363,6 +362,7 @@
 		00F61B1F1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUIPaymentDirectViewController.xib; path = ../MidtransKit/MidtransUIPaymentDirectViewController.xib; sourceTree = "<group>"; };
 		00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentDirectView.h; sourceTree = "<group>"; };
 		00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentDirectView.m; sourceTree = "<group>"; };
+		15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -427,6 +427,8 @@
 		30E8798D1C897E7D000C0F4B /* credit_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credit_card@2x.png"; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
+		9EDC029D4B329E43C63EFA57 /* Pods-MidtransKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit.release.xcconfig"; sourceTree = "<group>"; };
+		DDFE46D3ACB5BE7579ACA027 /* Pods-MidtransKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit.debug.xcconfig"; sourceTree = "<group>"; };
 		E502249C1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding_vt.h; sourceTree = "<group>"; };
 		E502249D1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding_vt.m; sourceTree = "<group>"; };
 		E503AEC11C8E85C500F097FF /* vabca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "vabca@2x.png"; sourceTree = "<group>"; };
@@ -605,7 +607,6 @@
 		E583AFEF1C8D6DC500C04512 /* VTErrorStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTErrorStatusController.m; sourceTree = "<group>"; };
 		E583AFF31C8D6DD300C04512 /* VTSuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTSuccessStatusController.h; sourceTree = "<group>"; };
 		E583AFF41C8D6DD300C04512 /* VTSuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSuccessStatusController.m; sourceTree = "<group>"; };
-		E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-eqxrxkxsbvdjcldqnpylvbluulfl/Build/Products/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		E59BD7411D05B288004AE009 /* Amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Amex@2x.png"; sourceTree = "<group>"; };
 		E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VASuccessIcon@2x.png"; sourceTree = "<group>"; };
 		E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVATransactionStatusViewModel.h; sourceTree = "<group>"; };
@@ -663,7 +664,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5B6151D1D0A9F0C009F40EF /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
 			);
@@ -801,6 +801,7 @@
 				3005E2881C7C17A200064169 /* MidtransResources */,
 				3054941C1C759EDF00938C17 /* Products */,
 				305494991C75A4E700938C17 /* Frameworks */,
+				69F128C84CBEF42C847CFCC6 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -829,7 +830,6 @@
 		305494991C75A4E700938C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E59BD73F1D05AC8A004AE009 /* libMidtransCoreKit.a */,
 				E52940701CFEC69A000180D3 /* Security.framework */,
 				E529406E1CFEC691000180D3 /* QuartzCore.framework */,
 				E529406C1CFEC68B000180D3 /* OpenGLES.framework */,
@@ -842,6 +842,7 @@
 				E529405D1CFEC639000180D3 /* AVFoundation.framework */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
+				15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1076,6 +1077,15 @@
 				E583AFED1C8D6DB000C04512 /* Status */,
 			);
 			name = Payment;
+			sourceTree = "<group>";
+		};
+		69F128C84CBEF42C847CFCC6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DDFE46D3ACB5BE7579ACA027 /* Pods-MidtransKit.debug.xcconfig */,
+				9EDC029D4B329E43C63EFA57 /* Pods-MidtransKit.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E502249B1CE97EC60010C0ED /* IHKeyboardAvoiding */ = {
@@ -1372,10 +1382,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 305494241C759EDF00938C17 /* Build configuration list for PBXNativeTarget "MidtransKit" */;
 			buildPhases = (
+				EE1E58506974E40D72C356CE /* [CP] Check Pods Manifest.lock */,
 				305494171C759EDF00938C17 /* Sources */,
 				305494181C759EDF00938C17 /* Frameworks */,
 				3054942E1C759F3100938C17 /* Headers */,
 				E568F1EE1D02ADB200A8531D /* ShellScript */,
+				FFF40CDA6A7F24553AA82FA2 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1603,6 +1615,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport FRAMEWORK_LOCN=\"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.framework\"\n\n# Create the path to the real Headers die\nmkdir -p \"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n\n# Create the required symlinks\n/bin/ln -sfh A \"${FRAMEWORK_LOCN}/Versions/Current\"\n/bin/ln -sfh Versions/Current/Headers \"${FRAMEWORK_LOCN}/Headers\"\n/bin/ln -sfh \"Versions/Current/${PRODUCT_NAME}\" \\\n\"${FRAMEWORK_LOCN}/${PRODUCT_NAME}\"\n\n# Copy the public headers into the framework\n/bin/cp -a \"${TARGET_BUILD_DIR}/${PUBLIC_HEADERS_FOLDER_PATH}/\" \\\n\"${FRAMEWORK_LOCN}/Versions/A/Headers\"\n";
+		};
+		EE1E58506974E40D72C356CE /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FFF40CDA6A7F24553AA82FA2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1852,6 +1894,7 @@
 		};
 		305494251C759EDF00938C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDFE46D3ACB5BE7579ACA027 /* Pods-MidtransKit.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEAD_CODE_STRIPPING = NO;
@@ -1874,6 +1917,7 @@
 		};
 		305494261C759EDF00938C17 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EDC029D4B329E43C63EFA57 /* Pods-MidtransKit.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				DEAD_CODE_STRIPPING = NO;

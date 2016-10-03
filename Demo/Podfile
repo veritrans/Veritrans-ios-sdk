@@ -1,11 +1,28 @@
 platform :ios, '7.0'
 
+workspace 'VTDirectDemo.xcworkspace'
+
+project 'VTDirectDemo.xcodeproj'
+project 'MidtransKit/MidtransKit.xcodeproj'
+project 'MidtransCoreKit/MidtransCoreKit.xcodeproj'
+
 def shared_pods
     pod 'SDWebImage', '~>3.7'
     pod 'iOS-Color-Picker'
-    pod 'MBProgressHUD'
-    pod 'CardIO', '~> 5.4'
+    pod 'MBProgressHUD'   
+    pod 'CardIO', '~> 5.4' 
 end
+
 target 'VTDirectDemo' do
+    project 'VTDirectDemo.xcodeproj'
     shared_pods
+end
+
+target 'MidtransKit' do
+    project 'MidtransKit/MidtransKit.xcodeproj'
+end
+
+target 'MidtransCoreKit' do
+    project 'MidtransCoreKit/MidtransCoreKit.xcodeproj'
+    pod 'CardIO', '~> 5.4'
 end

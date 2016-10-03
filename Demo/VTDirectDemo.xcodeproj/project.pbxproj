@@ -28,9 +28,9 @@
 		302F71CC1C73163C00FE73FE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302F71CA1C73163C00FE73FE /* Main.storyboard */; };
 		302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302F71CF1C73163C00FE73FE /* LaunchScreen.storyboard */; };
 		30FDCC411C8002B400CEFED3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCC401C8002B400CEFED3 /* TableViewCell.m */; };
+		6234634FED1ECF4816474263 /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E1FEEA275882E70CF3DBA664 /* libPods-VTDirectDemo.a */; };
 		E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */; };
 		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
-		E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AEB2131C8C83E20043A027 /* libMidtransKit.a */; };
 		E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940721CFEC6C4000180D3 /* AVFoundation.framework */; };
 		E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940771CFEC6D4000180D3 /* Accelerate.framework */; };
 		E529407A1CFEC6DB000180D3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940791CFEC6DB000180D3 /* AudioToolbox.framework */; };
@@ -42,7 +42,8 @@
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
 		E553BA801D66AF530091E403 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E553BA7F1D66AF530091E403 /* Settings.bundle */; };
-		E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */; };
+		E5AA566A1DA2333F00DAD851 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AA56691DA2333F00DAD851 /* libMidtransKit.a */; };
+		E5AA566C1DA2334600DAD851 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AA566B1DA2334600DAD851 /* libMidtransCoreKit.a */; };
 		E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */; };
 		E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */; };
 		E5C25FBF1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25F8E1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf */; };
@@ -61,7 +62,6 @@
 		E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
-		ED85FEDA87A535F97555511B /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,49 +72,20 @@
 			remoteGlobalIDString = 302F71BD1C73163C00FE73FE;
 			remoteInfo = VTDirectDemo;
 		};
-		E5AEB20A1C8C83DC0043A027 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3054943A1C759FF800938C17;
-			remoteInfo = MidtransCoreKit;
-		};
-		E5AEB2121C8C83E20043A027 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3054941B1C759EDF00938C17;
-			remoteInfo = MidtransKit;
-		};
-		E5AEB2141C8C83E20043A027 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3005E2871C7C17A200064169;
-			remoteInfo = MidtransResources;
-		};
-		E5B615171D0A9EBB009F40EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3054941A1C759EDF00938C17;
-			remoteInfo = MidtransKit;
-		};
-		E5B615191D0A9EBB009F40EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 3005E2861C7C17A100064169;
-			remoteInfo = MidtransResources;
-		};
-		E5B6151B1D0A9EBB009F40EF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 305494391C759FF800938C17;
-			remoteInfo = MidtransCoreKit;
-		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5AA56681DA22F3B00DAD851 /* Embed PlugIns */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed PlugIns";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00598E8E1D76AB39006241BF /* SamplePaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListViewController.h; sourceTree = "<group>"; };
@@ -134,6 +105,7 @@
 		00F0DA971D76EB9D005B117E /* PaymentCreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentCreditCardViewController.h; sourceTree = "<group>"; };
 		00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardViewController.m; sourceTree = "<group>"; };
 		00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentCreditCardViewController.xib; sourceTree = "<group>"; };
+		0D0706D746B411469770D1A9 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
 		2E357EA01D016900009DD985 /* testCreditCard3DS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCreditCard3DS.m; sourceTree = "<group>"; };
 		2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VTDirectDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2E6BFAA51D01391E002C8E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -150,7 +122,8 @@
 		302F71D21C73163C00FE73FE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30FDCC3F1C8002B400CEFED3 /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
 		30FDCC401C8002B400CEFED3 /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
-		5C7BC7E3B9A69FA13F448CF8 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
+		79E700F397C224F602931923 /* Pods-VTDirectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		E1FEEA275882E70CF3DBA664 /* libPods-VTDirectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTDirectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50224981CE975D30010C0ED /* IHKeyboardAvoiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding.h; sourceTree = "<group>"; };
 		E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
 		E5154AB91C980EAD001A69E2 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
@@ -166,8 +139,8 @@
 		E52940851CFEC705000180D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E52940871CFEC70B000180D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		E553BA7F1D66AF530091E403 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
-		E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransCoreKit.xcodeproj; path = ../../MidtransCoreKit/MidtransCoreKit.xcodeproj; sourceTree = "<group>"; };
-		E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
+		E5AA56691DA2333F00DAD851 /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-fgcjdwnqwitkoyctqedzbpnlobvx/Build/Products/Debug-iphonesimulator/libMidtransKit.a"; sourceTree = "<group>"; };
+		E5AA566B1DA2334600DAD851 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-fgcjdwnqwitkoyctqedzbpnlobvx/Build/Products/Debug-iphonesimulator/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		E5C25F891D25DE520012BCC8 /* ArimaMadurai-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Bold.ttf"; sourceTree = "<group>"; };
 		E5C25F8C1D25DE520012BCC8 /* ArimaMadurai-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Light.ttf"; sourceTree = "<group>"; };
 		E5C25F8E1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ArimaMadurai-Regular.ttf"; sourceTree = "<group>"; };
@@ -187,8 +160,6 @@
 		E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
 		E5C32B321C8E789200C8EB92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		E5C32B331C8E789200C8EB92 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTDirectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F59A3DE31B8EB29F88805587 /* Pods-VTDirectDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +174,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5AA566C1DA2334600DAD851 /* libMidtransCoreKit.a in Frameworks */,
+				E5AA566A1DA2333F00DAD851 /* libMidtransKit.a in Frameworks */,
 				E52940881CFEC70B000180D3 /* Security.framework in Frameworks */,
 				E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */,
 				E52940841CFEC6FD000180D3 /* OpenGLES.framework in Frameworks */,
@@ -213,10 +186,9 @@
 				E529407A1CFEC6DB000180D3 /* AudioToolbox.framework in Frameworks */,
 				E52940781CFEC6D4000180D3 /* Accelerate.framework in Frameworks */,
 				E52940731CFEC6C4000180D3 /* AVFoundation.framework in Frameworks */,
-				E51FBCDD1C8C8A21008D240A /* libMidtransKit.a in Frameworks */,
 				E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */,
 				E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */,
-				ED85FEDA87A535F97555511B /* libPods-VTDirectDemo.a in Frameworks */,
+				6234634FED1ECF4816474263 /* libPods-VTDirectDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,7 +276,7 @@
 				2E6BFAA21D01391E002C8E85 /* VTDirectDemoUITests */,
 				302F71BF1C73163C00FE73FE /* Products */,
 				60DE1F59509B50552B10D5AE /* Frameworks */,
-				4D1E0DCF787971764604B0C9 /* Pods */,
+				6856154754E7A35C15BD3D91 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -320,8 +292,6 @@
 		302F71C01C73163C00FE73FE /* VTDirectDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */,
-				E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */,
 				302F71C11C73163C00FE73FE /* Supporting Files */,
 				E5C25FE91D25FFCD0012BCC8 /* Classes */,
 			);
@@ -341,18 +311,11 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4D1E0DCF787971764604B0C9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				F59A3DE31B8EB29F88805587 /* Pods-VTDirectDemo.debug.xcconfig */,
-				5C7BC7E3B9A69FA13F448CF8 /* Pods-VTDirectDemo.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		60DE1F59509B50552B10D5AE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5AA566B1DA2334600DAD851 /* libMidtransCoreKit.a */,
+				E5AA56691DA2333F00DAD851 /* libMidtransKit.a */,
 				E52940871CFEC70B000180D3 /* Security.framework */,
 				E52940851CFEC705000180D3 /* QuartzCore.framework */,
 				E52940831CFEC6FD000180D3 /* OpenGLES.framework */,
@@ -365,9 +328,18 @@
 				E52940721CFEC6C4000180D3 /* AVFoundation.framework */,
 				E5C32B321C8E789200C8EB92 /* Fabric.framework */,
 				E5C32B331C8E789200C8EB92 /* Crashlytics.framework */,
-				E97DBB6667636421B2F69346 /* libPods-VTDirectDemo.a */,
+				E1FEEA275882E70CF3DBA664 /* libPods-VTDirectDemo.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6856154754E7A35C15BD3D91 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				79E700F397C224F602931923 /* Pods-VTDirectDemo.debug.xcconfig */,
+				0D0706D746B411469770D1A9 /* Pods-VTDirectDemo.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		E522A2A21D2500C300788BBE /* Font */ = {
@@ -380,23 +352,6 @@
 				E5C25FB31D25DE520012BCC8 /* Yanone_Kaffeesatz */,
 			);
 			name = Font;
-			sourceTree = "<group>";
-		};
-		E5AEB2061C8C83DC0043A027 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E5AEB20B1C8C83DC0043A027 /* libMidtransCoreKit.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		E5AEB20D1C8C83E20043A027 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E5AEB2131C8C83E20043A027 /* libMidtransKit.a */,
-				E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		E5C25F871D25DE520012BCC8 /* Arima_Madurai */ = {
@@ -495,24 +450,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F71D51C73163C00FE73FE /* Build configuration list for PBXNativeTarget "VTDirectDemo" */;
 			buildPhases = (
-				DC5A1E998407154B6CC4F24C /* [CP] Check Pods Manifest.lock */,
-				E9FA244A27BCADA6547F7E20 /* [CP] Check Pods Manifest.lock */,
-				7115CC24ABEFDD8D2D4136B1 /* [CP] Check Pods Manifest.lock */,
+				C135DF2D821C5F134BF9BB77 /* [CP] Check Pods Manifest.lock */,
 				302F71BA1C73163C00FE73FE /* Sources */,
 				302F71BB1C73163C00FE73FE /* Frameworks */,
 				302F71BC1C73163C00FE73FE /* Resources */,
 				E5C32B2F1C8E787700C8EB92 /* ShellScript */,
-				944850F48D49DA165E16F4B5 /* [CP] Embed Pods Frameworks */,
-				28E8FD411DA6854FC313A362 /* [CP] Copy Pods Resources */,
-				B788AC2A415A004543DEB06E /* 📦 Embed Pods Frameworks */,
-				DBDB9CAF938C2A67FC55AE02 /* 📦 Copy Pods Resources */,
+				E5AA56681DA22F3B00DAD851 /* Embed PlugIns */,
+				CBEBD26E3D3CAB03673440F5 /* [CP] Embed Pods Frameworks */,
+				C615128B26E376B796DE0E83 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E5B615181D0A9EBB009F40EF /* PBXTargetDependency */,
-				E5B6151A1D0A9EBB009F40EF /* PBXTargetDependency */,
-				E5B6151C1D0A9EBB009F40EF /* PBXTargetDependency */,
 			);
 			name = VTDirectDemo;
 			productName = VTDirectDemo;
@@ -549,16 +498,6 @@
 			mainGroup = 302F71B51C73163C00FE73FE;
 			productRefGroup = 302F71BF1C73163C00FE73FE /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E5AEB2061C8C83DC0043A027 /* Products */;
-					ProjectRef = E5AEB2051C8C83DC0043A027 /* MidtransCoreKit.xcodeproj */;
-				},
-				{
-					ProductGroup = E5AEB20D1C8C83E20043A027 /* Products */;
-					ProjectRef = E5AEB20C1C8C83E20043A027 /* MidtransKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				302F71BD1C73163C00FE73FE /* VTDirectDemo */,
@@ -566,30 +505,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E5AEB20B1C8C83DC0043A027 /* libMidtransCoreKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMidtransCoreKit.a;
-			remoteRef = E5AEB20A1C8C83DC0043A027 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E5AEB2131C8C83E20043A027 /* libMidtransKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMidtransKit.a;
-			remoteRef = E5AEB2121C8C83E20043A027 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E5AEB2151C8C83E20043A027 /* MidtransKit.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MidtransKit.bundle;
-			remoteRef = E5AEB2141C8C83E20043A027 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		2E6BFA9F1D01391E002C8E85 /* Resources */ = {
@@ -610,7 +525,6 @@
 				00F0DA8B1D76BFF6005B117E /* SamplePaymentListTableViewCell.xib in Resources */,
 				E5C25FD71D25DE520012BCC8 /* TitilliumWeb-Bold.ttf in Resources */,
 				00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */,
-				E556AB431D07C708002CB50B /* MidtransKit.bundle in Resources */,
 				00EC17931D7D297300D076D2 /* BankTransferViewController.xib in Resources */,
 				E5C25FCC1D25DE520012BCC8 /* Lato-Bold.ttf in Resources */,
 				E5C25FDC1D25DE520012BCC8 /* TitilliumWeb-Light.ttf in Resources */,
@@ -635,7 +549,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		28E8FD411DA6854FC313A362 /* [CP] Copy Pods Resources */ = {
+		C135DF2D821C5F134BF9BB77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C615128B26E376B796DE0E83 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -650,22 +579,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		7115CC24ABEFDD8D2D4136B1 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		944850F48D49DA165E16F4B5 /* [CP] Embed Pods Frameworks */ = {
+		CBEBD26E3D3CAB03673440F5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -680,51 +594,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		B788AC2A415A004543DEB06E /* 📦 Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DBDB9CAF938C2A67FC55AE02 /* 📦 Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "📦 Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC5A1E998407154B6CC4F24C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
 		E5C32B2F1C8E787700C8EB92 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -737,21 +606,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "./Fabric.framework/run 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
-		};
-		E9FA244A27BCADA6547F7E20 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -792,21 +646,6 @@
 			isa = PBXTargetDependency;
 			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
 			targetProxy = 2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */;
-		};
-		E5B615181D0A9EBB009F40EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MidtransKit;
-			targetProxy = E5B615171D0A9EBB009F40EF /* PBXContainerItemProxy */;
-		};
-		E5B6151A1D0A9EBB009F40EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MidtransResources;
-			targetProxy = E5B615191D0A9EBB009F40EF /* PBXContainerItemProxy */;
-		};
-		E5B6151C1D0A9EBB009F40EF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = MidtransCoreKit;
-			targetProxy = E5B6151B1D0A9EBB009F40EF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -942,7 +781,7 @@
 		};
 		302F71D61C73163C00FE73FE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F59A3DE31B8EB29F88805587 /* Pods-VTDirectDemo.debug.xcconfig */;
+			baseConfigurationReference = 79E700F397C224F602931923 /* Pods-VTDirectDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -963,6 +802,11 @@
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = (
 					$inherited,
 					"-ObjC",
@@ -977,7 +821,7 @@
 		};
 		302F71D71C73163C00FE73FE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5C7BC7E3B9A69FA13F448CF8 /* Pods-VTDirectDemo.release.xcconfig */;
+			baseConfigurationReference = 0D0706D746B411469770D1A9 /* Pods-VTDirectDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
@@ -998,6 +842,11 @@
 				INFOPLIST_FILE = VTDirectDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
+					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
+				);
 				OTHER_LDFLAGS = (
 					$inherited,
 					"-ObjC",

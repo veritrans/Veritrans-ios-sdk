@@ -31,7 +31,7 @@
 #import "NSString+MidtransValidation.h"
 #import "MidtransPaymentCIMBClicks.h"
 #import "MidtransPaymentMandiriECash.h"
-#import "MidtransPaymentCStore.h"
+#import "MidtransPaymentIndomaret.h"
 #import "MidtransPaymentBCAKlikpay.h"
 #import "MidtransPaymentKlikBCA.h"
 #import "MidtransPaymentMandiriClickpay.h"

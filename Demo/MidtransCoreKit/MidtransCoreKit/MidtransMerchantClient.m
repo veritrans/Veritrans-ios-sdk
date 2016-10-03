@@ -62,7 +62,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
     [[MidtransNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
-        NSString *paymentType = transaction.paymentDetails.paymentType;
+        NSString *paymentType = transaction.paymentType;
         
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
@@ -175,7 +175,6 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
              }
          }
      }];
-    //    }
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

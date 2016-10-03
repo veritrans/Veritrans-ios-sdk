@@ -10,5 +10,5 @@
 #import "MidtransPaymentDetails.h"
 
 @interface MidtransPaymentTelkomselCash : NSObject <MidtransPaymentDetails>
-- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MidtransTransactionTokenResponse *_Nonnull)token;
+- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn;
 @end

@@ -10,5 +10,4 @@
 #import "MidtransPaymentDetails.h"
 
 @interface MidtransPaymentCIMBClicks : NSObject <MidtransPaymentDetails>
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse * _Nonnull)token;
 @end

@@ -9,32 +9,12 @@
 #import "MidtransPaymentKiosOn.h"
 
 @interface MidtransPaymentKiosOn()
-@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MidtransPaymentKiosOn
 
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token {
-    if (self = [super init]) {
-        self.token = token;
-    }
-    return self;
-}
-
-- (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_KIOS_ON;
-}
-
 - (NSDictionary *)dictionaryValue {
-    return @{@"transaction_id" : self.token.tokenId};
-}
-
-- (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_KIOS_ON;
-}
-
-- (MidtransTransactionTokenResponse *)snapToken {
-    return self.token;
+    return @{@"payment_type" : MIDTRANS_PAYMENT_KIOS_ON};
 }
 
 @end

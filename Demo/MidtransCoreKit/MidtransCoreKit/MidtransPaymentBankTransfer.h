@@ -15,10 +15,11 @@ typedef NS_ENUM(NSUInteger, MidtransVAType) {
     VTVATypePermata,
     VTVATypeOther
 };
+
 @interface MidtransPaymentBankTransfer : NSObject<MidtransPaymentDetails>
 
 @property (nonatomic, readonly) MidtransVAType type;
 
-- (instancetype _Nonnull)initWithBankTransferType:(MidtransVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email;
+- (instancetype _Nonnull)initWithBankTransferType:(MidtransVAType)type email:(NSString *_Nullable)email;
 
 @end

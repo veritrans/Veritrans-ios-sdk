@@ -13,19 +13,16 @@
 
 @property (nonatomic, readwrite) MidtransVAType type;
 @property (nonatomic) NSString *email;
-@property (nonatomic) MidtransTransactionTokenResponse *token;
 
 @end
 
 @implementation MidtransPaymentBankTransfer
 
-- (instancetype _Nonnull)initWithBankTransferType:(MidtransVAType)type token:(MidtransTransactionTokenResponse *_Nonnull)token email:(NSString *_Nullable)email {
+- (instancetype _Nonnull)initWithBankTransferType:(MidtransVAType)type email:(NSString *_Nullable)email {
     if (self = [super init]) {
         self.type = type;
         self.email = email;
-        self.token = token;
     }
-    
     return self;
 }
 
@@ -36,33 +33,21 @@
             typeString = MIDTRANS_PAYMENT_ECHANNEL;
             break;
         case VTVATypeBCA:
+            typeString = MIDTRANS_PAYMENT_BCA_VA;
+            break;
         case VTVATypePermata:
+            typeString = MIDTRANS_PAYMENT_PERMATA_VA;
+            break;
         case VTVATypeOther:
-            typeString = MIDTRANS_PAYMENT_BANK_TRANSFER;
+            typeString = MIDTRANS_PAYMENT_ALL_VA;
             break;
     }
     return typeString;
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"transaction_id":self.token.tokenId,
-             @"email_address":self.email};
+    return @{@"payment_type":[self paymentType],
+             @"customer_details":@{@"email":self.email}};
 }
 
-- (NSString *)chargeURL {
-    switch (self.type) {
-        case VTVATypeBCA:
-            return ENDPOINT_CHARGE_BCA_VA;
-        case VTVATypeMandiri:
-            return ENDPOINT_CHARGE_MANDIRI_VA;
-        case VTVATypePermata:
-            return ENDPOINT_CHARGE_PERMATA_VA;
-        default:
-            return ENDPOINT_CHARGE_OTHER_VA;
-    }
-}
-
-- (MidtransTransactionTokenResponse *)snapToken {
-    return self.token;
-}
 @end

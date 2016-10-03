@@ -54,11 +54,6 @@
  @param feature The feature of the payment.
  @param tokenId The specified token ID.
  */
-- (instancetype _Nonnull)initWithFeature:(MidtransCreditCardPaymentFeature)feature
-                         creditCardToken:(NSString *_Nonnull)creditCardToken
-                                   token:(MidtransTransactionTokenResponse *_Nonnull)token;
-
-- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken
-                                           token:(MidtransTransactionTokenResponse *_Nonnull)token;
+- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken customerDetails:(MidtransCustomerDetails *_Nonnull)customerDetails;
 
 @end

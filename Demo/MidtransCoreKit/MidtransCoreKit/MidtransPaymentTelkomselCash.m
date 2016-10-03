@@ -10,31 +10,20 @@
 
 @interface MidtransPaymentTelkomselCash()
 @property (nonatomic) NSString *msisdn;
-@property (nonatomic) MidtransTransactionTokenResponse *token;
 @end
 
 @implementation MidtransPaymentTelkomselCash
 
-- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn token:(MidtransTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithMSISDN:(NSString *_Nonnull)msisdn {
     if (self = [super init]) {
         self.msisdn = msisdn;
-        self.token = token;
     }
     return self;
 }
 
-- (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_TELKOMSEL_CASH;
-}
 - (NSDictionary *)dictionaryValue {
-    return @{@"customer" : self.msisdn,
-             @"transaction_id" : self.token.tokenId};
-}
-- (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_TELKOMSEL_CASH;
-}
-- (MidtransTransactionTokenResponse *)snapToken {
-    return self.token;
+    return @{@"payment_type":MIDTRANS_PAYMENT_TELKOMSEL_CASH,
+             @"payment_params":@{@"customer":self.msisdn}};
 }
 
 @end

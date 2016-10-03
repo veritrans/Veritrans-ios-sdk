@@ -10,5 +10,5 @@
 #import "MidtransPaymentDetails.h"
 
 @interface MidtransPaymentEpayBRI : NSObject <MidtransPaymentDetails>
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token;
+
 @end

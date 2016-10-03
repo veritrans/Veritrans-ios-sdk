@@ -18,32 +18,19 @@
 
 @implementation MidtransPaymentMandiriClickpay
 
-- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken token:(MidtransTransactionTokenResponse *_Nonnull)token {
+- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken {
     if (self = [super init]) {
         self.cardNumber = [cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
-        self.token = token;
         self.clickpayToken = clickpayToken;
     }
     return self;
 }
 
-- (NSString *)paymentType {
-    return MIDTRANS_PAYMENT_MANDIRI_CLICKPAY;
-}
-
 - (NSDictionary *)dictionaryValue {
-    return @{@"transaction_id":self.token.tokenId,
-             @"mandiri_card_no":self.cardNumber,
-             @"input3":[MidtransMandiriClickpayHelper generateInput3],
-             @"token_response":self.clickpayToken};
-}
-
-- (NSString *)chargeURL {
-    return ENDPOINT_CHARGE_MANDIRI_CLICKPAY;
-}
-
-- (MidtransTransactionTokenResponse *)snapToken {
-    return self.token;
+    return @{@"payment_type":MIDTRANS_PAYMENT_MANDIRI_CLICKPAY,
+             @"payment_params":@{@"mandiri_card_no":self.cardNumber,
+                                 @"input3":[MidtransMandiriClickpayHelper generateInput3],
+                                 @"token_response":self.clickpayToken}};
 }
 
 @end

@@ -45,6 +45,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSCameraUsageDescription</key>
+	<string>Used to scan credit card</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>ArimaMadurai-Bold.ttf</string>
@@ -82,7 +84,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>Used to scan credit card</string>
 </dict>
 </plist>

@@ -29,6 +29,7 @@
 		002CC9B91D12A442003A1203 /* MidtransUIStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* MidtransUIStringHelper.m */; };
 		008859531D488950003105F1 /* VTAddCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 008859511D488950003105F1 /* VTAddCardView.h */; };
 		008859541D488950003105F1 /* VTAddCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008859521D488950003105F1 /* VTAddCardView.m */; };
+		008CBE031DA386D900696F4E /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CBE021DA386D900696F4E /* libMidtransCoreKit.a */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -280,7 +281,6 @@
 		E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */; };
 		E5A35FA01D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */; };
 		E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */; };
-		E5AA56741DA2679C00DAD851 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AA56731DA2679C00DAD851 /* libMidtransCoreKit.a */; };
 		E5AB97611D7414A900466A44 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97601D7414A900466A44 /* kioson.plist */; };
 		E5AB97631D74192300466A44 /* kioson@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97621D74192300466A44 /* kioson@2x.png */; };
 		E5AB97651D741C4100466A44 /* VTPendingStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97641D741C4100466A44 /* VTPendingStatusController.xib */; };
@@ -345,6 +345,7 @@
 		002CC9B71D12A442003A1203 /* MidtransUIStringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIStringHelper.m; sourceTree = "<group>"; };
 		008859511D488950003105F1 /* VTAddCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardView.h; sourceTree = "<group>"; };
 		008859521D488950003105F1 /* VTAddCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardView.m; sourceTree = "<group>"; };
+		008CBE021DA386D900696F4E /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../MidtransCoreKit/build/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -666,7 +667,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5AA56741DA2679C00DAD851 /* libMidtransCoreKit.a in Frameworks */,
+				008CBE031DA386D900696F4E /* libMidtransCoreKit.a in Frameworks */,
 				3054942A1C759F0100938C17 /* Foundation.framework in Frameworks */,
 				305494281C759EFC00938C17 /* UIKit.framework in Frameworks */,
 			);
@@ -833,6 +834,7 @@
 		305494991C75A4E700938C17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				008CBE021DA386D900696F4E /* libMidtransCoreKit.a */,
 				E5AA56731DA2679C00DAD851 /* libMidtransCoreKit.a */,
 				E52940701CFEC69A000180D3 /* Security.framework */,
 				E529406E1CFEC691000180D3 /* QuartzCore.framework */,

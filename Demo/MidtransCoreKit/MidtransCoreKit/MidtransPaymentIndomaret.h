@@ -11,5 +11,4 @@
 
 @interface MidtransPaymentIndomaret : NSObject <MidtransPaymentDetails>
 
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token;
 @end

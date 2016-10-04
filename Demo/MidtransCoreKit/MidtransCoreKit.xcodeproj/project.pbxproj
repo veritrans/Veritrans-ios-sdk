@@ -460,7 +460,6 @@
 			children = (
 				3054943C1C759FF800938C17 /* MidtransCoreKit */,
 				3054943B1C759FF800938C17 /* Products */,
-				305494461C75A01900938C17 /* Foundation.framework */,
 				C81F67B7B68722E328BF93D7 /* Pods */,
 				A0C9D60C2D536437D42CFD0A /* Frameworks */,
 			);
@@ -496,6 +495,7 @@
 		A0C9D60C2D536437D42CFD0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				305494461C75A01900938C17 /* Foundation.framework */,
 				6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */,
 			);
 			name = Frameworks;

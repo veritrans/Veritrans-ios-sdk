@@ -289,11 +289,11 @@
 			isa = PBXGroup;
 			children = (
 				00F0DA8E1D76DCBF005B117E /* Media.xcassets */,
+				E553BA7F1D66AF530091E403 /* Settings.bundle */,
 				E522A2A21D2500C300788BBE /* Font */,
 				302F71CF1C73163C00FE73FE /* LaunchScreen.storyboard */,
 				302F71D21C73163C00FE73FE /* Info.plist */,
 				302F71C21C73163C00FE73FE /* main.m */,
-				E553BA7F1D66AF530091E403 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";

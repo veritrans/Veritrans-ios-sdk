@@ -14,5 +14,4 @@
     return @{@"payment_type":MIDTRANS_PAYMENT_INDOMARET};
 }
 
-
 @end

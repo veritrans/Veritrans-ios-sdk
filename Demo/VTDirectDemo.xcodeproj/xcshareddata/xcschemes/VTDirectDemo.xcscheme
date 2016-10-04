@@ -11,6 +11,48 @@
             buildForRunning = "YES"
             buildForProfiling = "YES"
             buildForArchiving = "YES"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "305494391C759FF800938C17"
+               BuildableName = "libMidtransCoreKit.a"
+               BlueprintName = "MidtransCoreKit"
+               ReferencedContainer = "container:MidtransCoreKit/MidtransCoreKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3054941A1C759EDF00938C17"
+               BuildableName = "libMidtransKit.a"
+               BlueprintName = "MidtransKit"
+               ReferencedContainer = "container:MidtransKit/MidtransKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3005E2861C7C17A100064169"
+               BuildableName = "MidtransKit.bundle"
+               BlueprintName = "MidtransResources"
+               ReferencedContainer = "container:MidtransKit/MidtransKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"

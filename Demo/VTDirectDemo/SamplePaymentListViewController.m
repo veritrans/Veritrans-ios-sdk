@@ -97,7 +97,7 @@
         paymentCC.transactionToken = self.transactionToken;
         [self.navigationController pushViewController:paymentCC animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BANK_TRANSFER]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
         BankTransferViewController *vc = [[BankTransferViewController alloc] initWithNibName:@"BankTransferViewController" bundle:nil];
         vc.transactionToken = self.transactionToken;
         vc.bankList = self.paymentRequestResponse.transactionData.bankTransfer;

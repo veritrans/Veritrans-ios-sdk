@@ -65,10 +65,10 @@
                                       }];
 }
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithFeature:MidtransCreditCardPaymentFeatureOneClick
-                                                                                  creditCardToken:token token:self.transactionToken];
-    MidtransTransaction *transaction =
-    [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail];
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.transactionToken.customerDetails];
+
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.transactionToken];
+    
     [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             // create an alert view with three buttons

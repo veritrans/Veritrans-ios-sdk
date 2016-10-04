@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>content</key>
+            <string>Please make sure that you have a User ID for CIMB Clicks and have registered your mPIN before going through with the payment</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        
+        <dict>
+            <key>content</key>
+            <string>Transaction will be cancelled if payment is not completed within 2 hours</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        
+        <dict>
+            <key>content</key>
+            <string>Please make sure that there is no pop-up blocker on your browser</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+    </array>
+</plist>

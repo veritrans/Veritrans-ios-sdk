@@ -92,18 +92,42 @@
              NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
              self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
              self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-             
              NSArray *enabledPayments = response.transactionData.enabledPayments;
-             
+             //need fix it in the future;
+
+             NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
+                                                   @"id":@"va",
+                                                   @"identifier":@"va",
+                                                   @"title":@"ATM/Bank Transfer"
+                                                   };
+             bool vaAlreadyAdded = 0;
+             NSInteger mainIndex = 0;
              for (NSString *enabledPayment in enabledPayments) {
                  NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                      return [obj[@"id"] isEqualToString:enabledPayment];
                  }];
-                 
                  if (index != NSNotFound) {
-                     MidtransPaymentListModel *model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
-                     [self.paymentMethodList addObject:model];
+                     MidtransPaymentListModel *model;
+                     if ([enabledPayment isEqualToString:@"permata_va"] ||
+                         [enabledPayment isEqualToString:@"all_va"] ||
+                         [enabledPayment isEqualToString:@"echannel"] ||
+                         [enabledPayment isEqualToString:@"bca_va"] ) {
+                         if (!vaAlreadyAdded) {
+                             if (mainIndex!=0) {
+                                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                 [self.paymentMethodList insertObject:model atIndex:1];
+                                 vaAlreadyAdded = YES;
+                             }
+
+                         }
+                     }
+                     else {
+                           model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                         [self.paymentMethodList addObject:model];
+                     }
+
                  }
+                  mainIndex++;
              }
              
              self.dataSource.paymentList = self.paymentMethodList;

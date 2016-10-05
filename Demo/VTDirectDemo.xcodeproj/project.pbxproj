@@ -795,10 +795,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = (
-					$inherited,
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = $inherited;
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -835,10 +832,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				OTHER_LDFLAGS = (
-					$inherited,
-					"-ObjC",
-				);
+				OTHER_LDFLAGS = $inherited;
 				OTHER_LIBTOOLFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

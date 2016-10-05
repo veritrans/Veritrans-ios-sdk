@@ -26,7 +26,7 @@
     [defaultParameters setObject:[PRIVATECONFIG mixpanelToken] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];
     [defaultParameters setObject:VERSION forKey:@"sdkVersion"];
-    // [defaultParameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME] forKey:@"merchant"];
+    [defaultParameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME] forKey:@"merchant"];
     
     return defaultParameters;
 }

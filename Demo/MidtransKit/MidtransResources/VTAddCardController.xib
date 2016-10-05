@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -19,7 +19,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="1nQ-9Y-DIG" customClass="VTAddCardView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLS-0L-w3p">
@@ -181,39 +181,27 @@
                                         <constraint firstAttribute="trailing" secondItem="e93-3E-0PY" secondAttribute="trailing" id="k3L-cl-bCF"/>
                                     </constraints>
                                 </view>
-                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J5o-aN-Bfm">
-                                    <subviews>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ZW-xk-rzF">
-                                            <color key="backgroundColor" red="0.1058823529" green="0.56470588239999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="274" id="K1a-Zd-v6p"/>
-                                                <constraint firstAttribute="height" constant="45" id="osP-ia-iOP"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                            <state key="normal" title="SCAN YOUR CARD">
-                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="scanCardDidTapped:" destination="-1" eventType="touchUpInside" id="RAz-7y-6mW"/>
-                                            </connections>
-                                        </button>
-                                    </subviews>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aD-D5-Isf">
+                                    <color key="backgroundColor" red="0.1058823529" green="0.56470588239999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="86" id="844-uD-9hd"/>
-                                        <constraint firstItem="2ZW-xk-rzF" firstAttribute="centerX" secondItem="J5o-aN-Bfm" secondAttribute="centerX" id="cL9-fh-bop"/>
-                                        <constraint firstItem="2ZW-xk-rzF" firstAttribute="leading" secondItem="J5o-aN-Bfm" secondAttribute="leading" constant="8" id="nqc-8Q-Wdr"/>
-                                        <constraint firstItem="2ZW-xk-rzF" firstAttribute="top" secondItem="J5o-aN-Bfm" secondAttribute="top" constant="21" id="qCM-yT-Nq8"/>
-                                        <constraint firstAttribute="trailing" secondItem="2ZW-xk-rzF" secondAttribute="trailing" constant="8" id="xqv-xf-oVa"/>
+                                        <constraint firstAttribute="height" constant="45" id="4DK-a4-Jy6"/>
+                                        <constraint firstAttribute="width" constant="274" id="vaq-or-jqz"/>
                                     </constraints>
-                                </view>
+                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                    <state key="normal" title="SCAN YOUR CARD">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="scanCardDidTapped:" destination="-1" eventType="touchUpInside" id="fFM-gt-qhj"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="centerY" secondItem="8Nn-gz-tW4" secondAttribute="centerY" constant="-5" id="10f-jS-9Kl"/>
-                                <constraint firstItem="J5o-aN-Bfm" firstAttribute="top" secondItem="8Bd-E9-a7J" secondAttribute="bottom" constant="13" id="14B-t3-ISq"/>
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="bottom" constant="8" id="2Jd-KC-LlA"/>
                                 <constraint firstItem="MK6-3w-vo5" firstAttribute="top" secondItem="N7k-Nt-p2f" secondAttribute="top" constant="10" id="7Lu-0L-eRk"/>
+                                <constraint firstItem="1aD-D5-Isf" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="8" id="8ps-og-cwj"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="centerY" secondItem="8Bd-E9-a7J" secondAttribute="centerY" id="ALP-u3-uvl"/>
                                 <constraint firstItem="MK6-3w-vo5" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" id="C4H-Js-O7D"/>
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="trailing" secondItem="8Nn-gz-tW4" secondAttribute="trailing" id="Dp8-f7-D84"/>
@@ -221,18 +209,17 @@
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="top" secondItem="UXS-76-jqp" secondAttribute="bottom" constant="5" id="Jfm-cr-euI"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="MVh-xl-P7l"/>
                                 <constraint firstItem="SZx-vb-Nch" firstAttribute="leading" secondItem="Uzf-Kh-uPN" secondAttribute="trailing" constant="15" id="P14-AN-XOS"/>
-                                <constraint firstItem="Uzf-Kh-uPN" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="25" id="SrL-nu-f6E"/>
                                 <constraint firstAttribute="trailing" secondItem="ANX-Es-v2p" secondAttribute="trailing" constant="15" id="TBy-6c-4Ab"/>
                                 <constraint firstItem="Uzf-Kh-uPN" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="VY0-9D-voL"/>
                                 <constraint firstAttribute="bottom" secondItem="Uzf-Kh-uPN" secondAttribute="bottom" constant="8" id="bNp-SH-RBm"/>
+                                <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="8" id="hi5-PU-7sz"/>
+                                <constraint firstItem="ANX-Es-v2p" firstAttribute="centerX" secondItem="1aD-D5-Isf" secondAttribute="centerX" id="hz9-fK-hmH"/>
                                 <constraint firstItem="SZx-vb-Nch" firstAttribute="centerY" secondItem="Uzf-Kh-uPN" secondAttribute="centerY" id="ic2-RT-lUo"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" id="jqb-EC-ngL"/>
-                                <constraint firstItem="J5o-aN-Bfm" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="nBS-wl-PGx"/>
+                                <constraint firstItem="Uzf-Kh-uPN" firstAttribute="top" secondItem="1aD-D5-Isf" secondAttribute="bottom" constant="25" id="k1Q-d3-doa"/>
                                 <constraint firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" constant="15" id="qez-2N-6Gy"/>
                                 <constraint firstAttribute="trailing" secondItem="MK6-3w-vo5" secondAttribute="trailing" id="wDL-Oe-HXc"/>
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="xzg-JW-c81"/>
-                                <constraint firstAttribute="trailing" secondItem="J5o-aN-Bfm" secondAttribute="trailing" constant="15" id="yNR-ve-Pxo"/>
-                                <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="8" id="z4b-hZ-H50"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="leading" secondItem="8Bd-E9-a7J" secondAttribute="trailing" constant="15" id="zu6-V5-1s1"/>
                             </constraints>
                         </view>
@@ -319,8 +306,6 @@
                 <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
                 <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
-                <outlet property="scanCardButton" destination="2ZW-xk-rzF" id="UmS-rA-7cG"/>
-                <outlet property="scanCardViewWrapper" destination="J5o-aN-Bfm" id="wKc-IF-b2l"/>
             </connections>
         </view>
     </objects>

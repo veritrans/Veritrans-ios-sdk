@@ -39,26 +39,26 @@
     
     self.itemDetails = [self generateItemDetails];
     
-    self.navigationController.view.userInteractionEnabled = NO;    
-    NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
-    if (clientAuth) {
-        [CONFIG setMerchantClientData:clientAuth];
-        self.navigationController.view.userInteractionEnabled = YES;
-    }
-    else {
-        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-            if (response) {
-                [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
-                [[NSUserDefaults standardUserDefaults] synchronize];
-                [CONFIG setMerchantClientData:response];
-                self.navigationController.view.userInteractionEnabled = YES;
-            }
-            else {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-                [alert show];
-            }
-        }];
-    }
+//    self.navigationController.view.userInteractionEnabled = NO;    
+//    NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
+//    if (clientAuth) {
+//        [CONFIG setMerchantClientData:clientAuth];
+//        self.navigationController.view.userInteractionEnabled = YES;
+//    }
+//    else {
+//        [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
+//            if (response) {
+//                [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
+//                [[NSUserDefaults standardUserDefaults] synchronize];
+//                [CONFIG setMerchantClientData:response];
+//                self.navigationController.view.userInteractionEnabled = YES;
+//            }
+//            else {
+//                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+//                [alert show];
+//            }
+//        }];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,18 +73,41 @@
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
     
-    NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+//    NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
+//    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+//    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
-    if (customerDetails) {
-        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+//    [[VTConfig sharedInstance] setMerchantClientData:nil];
+    
+//    if (customerDetails) {
+        [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
+        [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
+        
+        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+        f.numberStyle = NSNumberFormatterDecimalStyle;
+        NSNumber *productPriceNumber = [f numberFromString:@"100000"];
+        NSNumber *quantityNumber = [f numberFromString:@"1"];
+        // itemDetail is an item for sale
+        VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:quantityNumber name:@"ayopop" price:productPriceNumber quantity:quantityNumber];
+        
+        VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
+        
+        VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
+        
+        // customerDetails is customer object
+        VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"gaurang@ayopop.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
+        
+        // transactionDetails is the detail of transaction including the orderID and gross amount
+        VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:quantityNumber andGrossAmount:productPriceNumber];
+        
+        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:@[itemDetail] transactionDetails:transactionDetails];
         vc.delegate = self;
         [self presentViewController:vc animated:YES completion:nil];
-    } else {
-        OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
-        [self.navigationController pushViewController:option animated:YES];
-    }
+    
+//    } else {
+//        OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+//        [self.navigationController pushViewController:option animated:YES];
+//    }
 }
 
 #pragma mark - VTPaymentViewControllerDelegate

@@ -27,8 +27,15 @@
 }
 
 - (NSDictionary *)dictionaryValue {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionaryWithDictionary:@{@"card_token":self.creditCardToken}];
+    if (self.saveToken) {
+        [parameters setObject:@YES forKey:@"save_card"];
+    }
+    
+    NSLog(@"parameter %@", parameters);
+    
     return @{@"payment_type":MIDTRANS_PAYMENT_CREDIT_CARD,
-             @"payment_params":@{@"card_token":self.creditCardToken},
+             @"payment_params":parameters,
              @"customer_details":@{@"email":self.customerDetails.email,
                                    @"phone":self.customerDetails.phone}};
 }

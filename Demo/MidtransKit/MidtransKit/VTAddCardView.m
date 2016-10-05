@@ -110,6 +110,9 @@
     else if ([textField isEqual:self.cardNumber]) {
         [textField.text isValidCreditCardNumber:&error];
     }
+    else if ([textField isEqual:self.cardCvv]) {
+        [textField.text isValidCVVWithCreditCardNumber:self.cardNumber.text error:&error];
+    }
 
     //show warning if error
     if (error) {

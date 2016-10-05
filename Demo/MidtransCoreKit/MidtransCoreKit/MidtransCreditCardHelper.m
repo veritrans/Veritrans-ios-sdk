@@ -20,9 +20,7 @@
 }
 
 - (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber error:(NSError **)error {
-    BOOL isAmex = [MidtransCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
-    NSInteger cvvLegth = isAmex ? 4 : 3;
-    BOOL valid = [self isNumeric] && ([self length] == cvvLegth);
+    BOOL valid = [self isNumeric] && [self length] <= 6 && [self length] >= 3;
     
     if (valid) {
         return YES;
@@ -184,13 +182,10 @@
     if ([self.text isNumeric] == NO)
         return NO;
     
-    BOOL isAmex = [MidtransCreditCardHelper typeFromString:[cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""]] == VTCreditCardTypeAmex;
-    NSInteger cvvLength = isAmex ? 4 : 3;
-    
     NSMutableString *mstring = self.text.mutableCopy;
     [mstring replaceCharactersInRange:range withString:string];
     
-    if ([mstring length] <= cvvLength) {
+    if ([mstring length] <= 6) {
         self.text = mstring;
     }
     return NO;

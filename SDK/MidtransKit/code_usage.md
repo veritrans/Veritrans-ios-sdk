@@ -1,4 +1,5 @@
 # Setup
+Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
 
 ### Requirement
 

@@ -89,7 +89,7 @@ static NSString *const MIDTRANS_SANDBOX_API_URL = @"https://api.sandbox.veritran
 static NSString *const MIDTRANS_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
 static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1";
 static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
-static NSString *const MIDTRANS_PROD_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1/payment_pages/";
+static NSString *const MIDTRANS_PROD_SNAP = @"https://app.midtrans.com/snap/v1";
 static NSString *const MIDTRANS_PRODUCTION_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
 
 static NSString *const MIDTRANS_TRACKING_CC_TOKEN = @"token";

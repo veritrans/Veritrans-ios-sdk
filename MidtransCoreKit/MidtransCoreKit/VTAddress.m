@@ -17,6 +17,10 @@
 @property (nonatomic, readwrite) NSString *address;
 @property (nonatomic, readwrite) NSString *city;
 @property (nonatomic, readwrite) NSString *postalCode;
+
+/**
+ Country code required to have ISO 3166-1 alpha-3 standard
+ */
 @property (nonatomic, readwrite) NSString *countryCode;
 
 @end

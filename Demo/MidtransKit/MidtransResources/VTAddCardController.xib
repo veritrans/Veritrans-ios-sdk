@@ -14,6 +14,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTAddCardController">
             <connections>
                 <outlet property="saveCardView" destination="ANX-Es-v2p" id="fPV-yT-Rld"/>
+                <outlet property="saveCardViewHeight" destination="Cha-Cg-uRP" id="hM7-Fd-RZt"/>
                 <outlet property="view" destination="1nQ-9Y-DIG" id="AYI-Q1-7gN"/>
             </connections>
         </placeholder>
@@ -176,7 +177,6 @@
                                         <constraint firstItem="e93-3E-0PY" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" id="Dos-pl-vRP"/>
                                         <constraint firstAttribute="trailing" secondItem="C3M-pA-1BZ" secondAttribute="trailing" id="SZy-2s-uhg"/>
                                         <constraint firstItem="C3M-pA-1BZ" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="a6D-eG-4w3"/>
-                                        <constraint firstItem="C3M-pA-1BZ" firstAttribute="top" secondItem="e93-3E-0PY" secondAttribute="bottom" constant="8" id="aiK-Nj-KXP"/>
                                         <constraint firstAttribute="bottom" secondItem="C3M-pA-1BZ" secondAttribute="bottom" id="b5Q-9X-kKq"/>
                                         <constraint firstAttribute="trailing" secondItem="e93-3E-0PY" secondAttribute="trailing" id="k3L-cl-bCF"/>
                                     </constraints>

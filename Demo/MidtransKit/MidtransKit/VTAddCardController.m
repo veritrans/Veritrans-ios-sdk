@@ -26,6 +26,7 @@
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (nonatomic) NSMutableArray *maskedCards;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
 @end
 
 @implementation VTAddCardController
@@ -44,7 +45,16 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scanCardInformationFromNotification:) name:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:nil];
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
-    self.saveCardView.hidden = [CC_CONFIG saveCard] == NO;
+    
+    if ([CC_CONFIG saveCard] == NO) {
+        self.saveCardView.hidden = YES;
+        self.saveCardViewHeight.constant = 0;
+    }
+    else {
+        self.saveCardView.hidden = NO;
+        self.saveCardViewHeight.constant = 86;
+    }
+    
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER] boolValue]) {
          self.view.scanCardViewWrapper.hidden = NO;
     }

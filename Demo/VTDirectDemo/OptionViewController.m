@@ -8,16 +8,20 @@
 
 #import "OptionViewController.h"
 #import "IHKeyboardAvoiding.h"
+#import "FontListViewController.h"
 
-#import <MidtransKit/VTPaymentViewController.h>
-#import <MidtransKit/VTCardControllerConfig.h>
-#import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
+#import <MidtransKit/MidtransUIPaymentViewController.h>
+#import <MidtransCoreKit/MidtransConfig.h>
+#import <MidtransCoreKit/MidtransMerchantClient.h>
 
-@interface OptionViewController ()
+#import <FCColorPickerViewController.h>
 
-@property (nonatomic) IBOutlet UISwitch *oneClickSwitch;
-@property (nonatomic) IBOutlet UISwitch *secureSwitch;
+@interface OptionViewController () <FCColorPickerViewControllerDelegate>
+
+@property (strong, nonatomic) IBOutlet UISegmentedControl *ccOptionSegment;
+@property (strong, nonatomic) IBOutlet UISwitch *secureSwitch;
+@property (strong, nonatomic) IBOutlet UIButton *chooseColorButton;
+@property (strong, nonatomic) IBOutlet UIButton *chooseFontButton;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -41,21 +45,46 @@
 @property (strong, nonatomic) IBOutlet UITextField *shipLastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *shipPhoneTextField;
 
+@property (nonatomic) MTCreditCardPaymentType ccPaymentType;
+@property (nonatomic) BOOL cardSecure;
+
 @end
 
 @implementation OptionViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
-    [_oneClickSwitch setOn:[[VTCardControllerConfig sharedInstance] enableOneClick]];
-    [_secureSwitch setOn:[[VTCardControllerConfig sharedInstance] enable3DSecure]];
+    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+    UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
+    [self.chooseColorButton setBackgroundColor:themeColor];
+    
+    
+    self.chooseColorButton.layer.cornerRadius = 5;
+    self.chooseFontButton.layer.cornerRadius = 5;
+    self.chooseFontButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
+    self.chooseFontButton.layer.borderWidth = 1.0f;
+    
+    self.cardSecure = [CC_CONFIG secure];
+    self.ccPaymentType = [CC_CONFIG paymentType];
+    
+    self.secureSwitch.on = self.cardSecure;
+    switch (self.ccPaymentType) {
+        case VTCreditCardPaymentTypeNormal:
+            self.ccOptionSegment.selectedSegmentIndex = 0;
+            break;
+        case VTCreditCardPaymentTypeTwoclick:
+            self.ccOptionSegment.selectedSegmentIndex = 1;
+            break;
+        case VTCreditCardPaymentTypeOneclick:
+            self.ccOptionSegment.selectedSegmentIndex = 2;
+            break;
+    }
     
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     
     _firstNameTextField.text = customer.firstName;
     _lastNameTextField.text = customer.lastName;
@@ -79,52 +108,84 @@
     _shipPostCodeTextField.text = customer.shippingAddress.postalCode;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 - (NSString *)countryCode {
     return @"IDN";
 }
 
-- (IBAction)resetMerchantAuth:(id)sender {
-    [[VTMerchantClient sharedClient] fetchMerchantAuthDataWithCompletion:^(id response, NSError *error) {
-        if (response) {
-            [[NSUserDefaults standardUserDefaults] setObject:response forKey:@"clientAuth"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            [[VTConfig sharedInstance] setMerchantClientData:response];
-            
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Success" message:@"Reset merchant authentication success!" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
-        } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Error loading merchant authentication data, please restart the App" delegate:nil cancelButtonTitle:@"Okay" otherButtonTitles:nil];
-            [alert show];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    NSString *fontNameBold;
+    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+    for (NSString *fontName in fontNames) {
+        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameBold = fontName;
         }
-    }];
+    }
+    self.chooseFontButton.titleLabel.font = [UIFont fontWithName:fontNameBold size:self.chooseFontButton.titleLabel.font.pointSize];
+    [self.chooseFontButton setTitle:fontNameBold forState:UIControlStateNormal];
+}
+
+- (IBAction)chooseColorPressed:(UIButton *)sender {
+    FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPicker];
+    colorPicker.color = sender.backgroundColor;
+    colorPicker.delegate = self;
+    [self presentViewController:colorPicker animated:YES completion:nil];
+}
+
+- (IBAction)chooseFontPressed:(UIButton *)sender {
+    FontListViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"FontListViewController"];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {
-    VTAddress *shipAddr = [VTAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
-    VTAddress *billAddr = [VTAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
-    VTCustomerDetails *customer = [[VTCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
+    MidtransAddress *shipAddr = [MidtransAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
+    MidtransAddress *billAddr = [MidtransAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
+    MidtransCustomerDetails *customer = [[MidtransCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
     
     //save to NSUserDefaults
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:customer];
     [[NSUserDefaults standardUserDefaults] setObject:encoded forKey:@"vt_customer"];
+    
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.ccPaymentType) forKey:kOptionViewControllerCCType];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.cardSecure) forKey:kOptionViewControllerCCSecure];
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [MidtransCreditCardConfig setPaymentType:self.ccPaymentType secure:self.cardSecure];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
-- (IBAction)oneClickSwitchChanged:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_oneclick"];
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:sender.on];
+- (IBAction)paymentTypeSegmentChanged:(UISegmentedControl *)sender {
+    if (sender.selectedSegmentIndex == 0) {
+        self.ccPaymentType = VTCreditCardPaymentTypeNormal;
+    }
+    else if (sender.selectedSegmentIndex == 1) {
+        self.ccPaymentType = VTCreditCardPaymentTypeTwoclick;
+    }
+    else if (sender.selectedSegmentIndex == 2) {
+        self.ccPaymentType = VTCreditCardPaymentTypeOneclick;
+    }
 }
 
 - (IBAction)secureSwitchChanged:(UISwitch *)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"enable_3ds"];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:sender.on];
+    self.cardSecure = sender.on;
+}
+
+#pragma mark - FCColorPickerViewControllerDelegate Methods
+
+-(void)colorPickerViewController:(FCColorPickerViewController *)colorPicker didSelectColor:(UIColor *)color {
+    NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject:color];
+    [[NSUserDefaults standardUserDefaults] setObject:colorData forKey:@"theme_color"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.chooseColorButton setBackgroundColor:color];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+-(void)colorPickerViewControllerDidCancel:(FCColorPickerViewController *)colorPicker {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

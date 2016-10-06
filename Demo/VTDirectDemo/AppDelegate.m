@@ -13,34 +13,70 @@
 
 #import <MidtransKit/MidtransKit.h>
 
+#import "OptionViewController.h"
+
+static NSString * const kClientKey = @"client_key";
+static NSString * const kMerchantURL = @"merchant_url";
+static NSString * const kEnvironment = @"environment";
+static NSString * const kTimeoutInterval = @"timeout_interval";
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
 
-//#define RELEASE
-
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     [Fabric with:@[[Crashlytics class]]];
     
-#ifdef RELEASE
-    [VTConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-         merchantServerURL:@"https://vt-merchant.coralshop.top/api-prod"
-         serverEnvironment:VTServerEnvironmentProduction];
-#else
-    [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
-         merchantServerURL:@"https://vt-merchant.coralshop.top/api"
-         serverEnvironment:VTServerEnvironmentSandbox];
-#endif
+    id environment = [[NSUserDefaults standardUserDefaults] valueForKey:kEnvironment];
+    if (!environment) {
+        environment = @"0";
+        [[NSUserDefaults standardUserDefaults] setObject:environment forKey:kEnvironment];
+    }
     
-    BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:enableOneclick];
+    id clientKey = [[NSUserDefaults standardUserDefaults] valueForKey:kClientKey];
+    if (!clientKey) {
+        clientKey = @"VT-client-6_dY49SlR_Ph32_1";
+        [[NSUserDefaults standardUserDefaults] setObject:clientKey forKey:kClientKey];
+    }
     
-    BOOL enable3ds = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_3ds"] boolValue];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:enable3ds];
+    id merchantURL = [[NSUserDefaults standardUserDefaults] valueForKey:kMerchantURL];
+    if (!merchantURL) {
+        merchantURL = @"http://mobile-snap-sandbox.herokuapp.com";
+        [[NSUserDefaults standardUserDefaults] setObject:merchantURL forKey:kMerchantURL];
+    }
+    
+    NSNumber *timeout = [[NSUserDefaults standardUserDefaults] valueForKey:kTimeoutInterval];
+    if (!timeout) {
+        timeout = @20;
+        [[NSUserDefaults standardUserDefaults] setObject:timeout forKey:kTimeoutInterval];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [MidtransConfig setClientKey:clientKey serverEnvironment:[environment integerValue] merchantURL:merchantURL];
+    
+    
+    
+    
+    //set credit card config
+    MTCreditCardPaymentType paymentType;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType]) {
+        paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType] unsignedIntegerValue];
+    }
+    else {
+        paymentType = VTCreditCardPaymentTypeNormal;
+    }
+    
+    BOOL cardSecure = NO;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure]) {
+        cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure] boolValue];
+    }
+    
+    [MidtransCreditCardConfig setPaymentType:paymentType secure:cardSecure];
     
     return YES;
 }

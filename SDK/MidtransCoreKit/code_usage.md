@@ -1,6 +1,6 @@
 
 # Overview
-We provide an API-only implementation for all payment types, This allows users to bring your own UI to the mobile App.
+We provide an API-only implementation for all payment types, This allows users to bring your own UI to the mobile App. Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
 
 # Prerequsites
 

@@ -1,6 +1,6 @@
 
 # Overview
-We provide an API-only implementation for all payment types, This allows users to bring your own UI to the mobile App. Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
+We provide an API-only implementation for all payment types. This allows users to bring your own UI to the mobile App. Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
 
 # Prerequsites
 
@@ -23,8 +23,6 @@ We provide an API-only implementation for all payment types, This allows users t
 13. Kios ON
 
 # Setup
-
-[![Join the chat at https://gitter.im/veritrans/Veritrans-ios-sdk](https://badges.gitter.im/veritrans/Veritrans-ios-sdk.svg)](https://gitter.im/veritrans/Veritrans-ios-sdk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 ### Requirement
 
@@ -374,7 +372,7 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 13. Kios ON
+## 13. Kioson
 
 ```
 MidtransPaymentKiosOn *paymentDetails = [[MidtransPaymentKiosOn alloc] init];

@@ -13,6 +13,7 @@
 #import <MidtransKit/MidtransKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MBProgressHUD.h>
+#import <CardIO/CardIO.h>
 
 @implementation NSString (random)
 
@@ -27,15 +28,20 @@
 
 @end
 
-@interface ViewController () <VTPaymentViewControllerDelegate>
+@interface ViewController () <MidtransPaymentWebControllerDelegate,MidtransUIPaymentViewControllerDelegate,CardIOPaymentViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) NSArray <VTItemDetail*>* itemDetails;
+@property (nonatomic) NSArray <MidtransItemDetail*>* itemDetails;
 @property (nonatomic) BOOL isDone;
+@property (nonatomic,strong)MidtransUIPaymentViewController *paymentVC;
 @property (nonatomic,strong) NSString *transactionToken;
 @end
+#define ROOTVIEW [[[UIApplication sharedApplication] keyWindow] rootViewController]
 
 @implementation ViewController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    [CardIOUtilities preloadCardIO];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isDone = 0;
@@ -96,15 +102,15 @@
 }
 - (void)initCoreFlow {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    MidtransCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
-        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
+        [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        [[VTMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(TransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
@@ -124,22 +130,20 @@
 }
 - (void)initUIFlow {
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
-    VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    MidtransCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
+    MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        
-        [VTThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        
-        [[VTMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(TransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
+        [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
-                 
-                 VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
-                 vc.delegate = self;
-                 [self presentViewController:vc animated:YES completion:nil];
+                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andUsingScanCardMethod:YES];
+                 self.paymentVC.delegate = self;
+
+                 [self presentViewController:self.paymentVC animated:YES completion:nil];
              }
              else {
                  [self showAlertError:error];
@@ -151,12 +155,13 @@
         [self.navigationController pushViewController:option animated:YES];
     }
 }
+
 - (UIColor *)myThemeColor {
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
 }
 
-- (VTFontSource *)myFontSource {
+- (MidtransUIFontSource *)myFontSource {
     NSString *fontNameBold;
     NSString *fontNameRegular;
     NSString *fontNameLight;
@@ -170,7 +175,7 @@
             fontNameLight = fontName;
         }
     }
-    return [[VTFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+    return [[MidtransUIFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
 }
 
 - (void)showAlertError:(NSError *)error {
@@ -184,16 +189,47 @@
 }
 
 #pragma mark - VTPaymentViewControllerDelegate
+- (void)addCardButtonDidTapped {
+    CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    scanViewController.collectCVV = NO;
+    scanViewController.collectExpiry = NO;
+    scanViewController.hideCardIOLogo = YES;
+    [self.paymentVC presentViewController:scanViewController animated:YES completion:nil];
+}
+// SomeViewController.m
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+- (void)cardIOView:(CardIOView *)cardIOView didScanCard:(CardIOCreditCardInfo *)info {
+    if (info) {
+        // The full card number is available as info.cardNumber, but don't log that!
+        NSLog(@"Received card info. Number: %@, expiry: %02i/%i, cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv);
+        // Use the card info...
+    }
+    else {
+        NSLog(@"User canceled payment info");
+        // Handle user cancellation here...
+    }
+
+    cardIOView.hidden = YES;
+}
+- (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+     [paymentViewController dismissViewControllerAnimated:YES completion:^{
+         NSDictionary *cardInformation =@{MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER:cardInfo.cardNumber,MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR:[NSNumber numberWithInteger:cardInfo.expiryYear],MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH:[NSNumber numberWithInteger:cardInfo.expiryMonth]};
+         [[NSNotificationCenter defaultCenter]postNotificationName:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:cardInformation];
+     }];
+}
+- (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+    [paymentViewController dismissViewControllerAnimated:YES completion:^{
+    }];
+}
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
     [self showAlertError:error];
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentPending:(VTTransactionResult *)result {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
     NSLog(@"pending: %@", result);
 }
 
@@ -210,9 +246,9 @@
 
 #pragma mark - Helper
 
-- (NSNumber *)grossAmountOfItemDetails:(NSArray<VTItemDetail*>*)itemDetails {
+- (NSNumber *)grossAmountOfItemDetails:(NSArray<MidtransItemDetail*>*)itemDetails {
     double totalPrice = 0;
-    for (VTItemDetail *itemDetail in itemDetails) {
+    for (MidtransItemDetail *itemDetail in itemDetails) {
         totalPrice += (itemDetail.price.doubleValue * itemDetail.quantity.integerValue);
     }
     return @(totalPrice);
@@ -221,7 +257,7 @@
 - (NSArray *)generateItemDetails {
     NSMutableArray *result = [NSMutableArray new];
     for (int i=0; i<6; i++) {
-        VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@1000 quantity:@3];
+        MidtransItemDetail *itemDetail = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@1000 quantity:@3];
         itemDetail.imageURL = [NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41blp4ePe8L._AC_UL246_SR190,246_.jpg"];
         [result addObject:itemDetail];
     }

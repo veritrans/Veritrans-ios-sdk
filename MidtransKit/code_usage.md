@@ -1,13 +1,12 @@
 # Setup
-
-[![Join the chat at https://gitter.im/veritrans/Veritrans-ios-sdk](https://badges.gitter.im/veritrans/Veritrans-ios-sdk.svg)](https://gitter.im/veritrans/Veritrans-ios-sdk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
 
 ### Requirement
 
 [Cococapods](https://cocoapods.org/) version 1.0.0
 
 ### Installation
-Navigate to your project's root directory and run `pod init` to create a `Podfile`. 
+Navigate to your project's root directory and run `pod init` to create a `Podfile`.
 
 ```
 pod init
@@ -19,6 +18,7 @@ Open up the `Podfile` and add `MidtransKit` to your project's target.
 platform :ios, '7.0'
 
 def shared_pods
+    pod 'MidtransCoreKit'
     pod 'MidtransKit'
 end
 
@@ -43,34 +43,34 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 //AppDelegate.m
 #import <MidtransKit/MidtransKit.h>
 
-[VTConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
+[MidtransConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
 ```
 
-# Payment 
+# Payment
 
 ##### Generate `TransactionTokenResponse` object
 
-To create this object, you need to prepare required objects like `VTItemDetail` as an item representation etc.
+To create this object, you need to prepare required objects like `MidtransItemDetail` as an item representation etc.
 
 ```
 //ViewController.m
-VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:@"item_id"
+MidtransItemDetail *itemDetail = [[MidtransItemDetail alloc] initWithItemID:@"item_id"
                                                            name:@"item_name"
                                                           price:item_price
                                                        quantity:item_quantiry];
 
-VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"user_firstname" 
-    										                                    lastName:@"user_lastname" 
-    										                                       email:@"user_email" 
-    										                                       phone:@"user_phone" 
-    										                             shippingAddress:ship_address 
+MidtransCustomerDetails *customerDetails = [[MidtransCustomerDetails alloc] initWithFirstName:@"user_firstname"
+    										                                    lastName:@"user_lastname"
+    										                                       email:@"user_email"
+    										                                       phone:@"user_phone"
+    										                             shippingAddress:ship_address
     										                              billingAddress:bill_address];
 
-VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:@"order_id" 
+MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:@"order_id"
                                                                           andGrossAmount:items_gross_amount];
 
 NSURL *merchantURL = [NSURL URLWithString:@"merchant-url-for-generating-token"];
-[[VTMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
+[[MidtransMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                         transactionDetails:transactionDetails
                                                                itemDetails:@[itemDetail]
                                                            customerDetails:customerDetails
@@ -84,62 +84,62 @@ NSURL *merchantURL = [NSURL URLWithString:@"merchant-url-for-generating-token"];
  }];
 ```
 
-##### Present the `VTPaymentViewController`
+##### Present the `MidtransUIPaymentViewController`
 
-We provide you a `VTPaymentViewController` to handle all the payment, it's basically a `UINavigtionViewController` so you need to use `presentViewController:_ animated:_ completion:_` to present it.
+We provide you a `MidtransUIPaymentViewController` to handle all the payment, it's basically a `UINavigtionViewController` so you need to use `presentViewController:_ animated:_ completion:_` to present it.
 
 ```
-VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
+MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token];
 [self presentViewController:vc animated:YES completion:nil];
 ```
 
 # Get Notified
 
-Set your view controller to conform with **VTPaymentViewControllerDelegate**
+Set your view controller to conform with **MidtransUIPaymentViewControllerDelegate**
 
 ```
 //ViewController.m
 
 #import <MidtransKit/MidtransKit.h>
 
-@interface ViewController () <VTPaymentViewControllerDelegate>
+@interface ViewController () <MidtransUIPaymentViewControllerDelegate>
 //other code
 ```
 
-Set the delegate of VTPaymentViewController 
+Set the delegate of MidtransUIPaymentViewController
 
 ```
 //ViewController.m
 
-VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithToken:token];
+MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token];
 //set the delegate
 vc.delegate = self;
 ```
 
-Add two methods to your view controller, these methods are from VTPaymentViewControllerDelegate protocol
+Add two methods to your view controller, these methods are from MidtransUIPaymentViewControllerDelegate protocol
 
 ```
 //ViewController.m
 
-#pragma mark - VTPaymentViewControllerDelegate
+#pragma mark - MidtransUIPaymentViewControllerDelegate
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
     NSLog(@"success: %@", result);
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
     NSLog(@"error: %@", error);
 }
 ```
 
 # Customise Theme Color & Font
 
-We've created `VTThemeManager` to configure the theme color and font of the veritrans payment UI. 
+We've created `MidtransUIThemeManager` to configure the theme color and font of the veritrans payment UI.
 
 ```
-VTFontSource fontSource = [[VTFontSource alloc] initWithFontNameBold:font_name 
-												             fontNameRegular:font_name 
+MidtransUIFontSource fontSource = [[MidtransUIFontSource alloc] initWithFontNameBold:font_name
+												             fontNameRegular:font_name
 												               fontNameLight:font_name];
-[VTThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
+[MidtransUIThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
 ```
-Put this code before you present the `VTPaymentViewController`
+Put this code before you present the `MidtransUIPaymentViewController`

@@ -9,7 +9,7 @@
 #import "TableViewCell.h"
 #import "UIImageView+WebCache.h"
 
-#import <MidtransCoreKit/VTHelper.h>
+#import <MidtransCoreKit/MidtransHelper.h>
 
 @implementation TableViewCell {
     IBOutlet UILabel *_quantityLabel;
@@ -29,7 +29,7 @@
     // Configure the view for the selected state
 }
 
-- (void)setItem:(VTItemDetail *)item {
+- (void)setItem:(MidtransItemDetail *)item {
     _item = item;
     
     NSNumber *totalPrice = @(item.price.doubleValue * item.quantity.doubleValue);

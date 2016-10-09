@@ -8,12 +8,12 @@
 
 #import "VTVAListController.h"
 #import "VTClassHelper.h"
-#import "VTListCell.h"
-#import "VTPaymentDirectViewController.h"
+#import "MidtransUIListCell.h"
+#import "MidtransUIPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTVAListController ()
-@property (nonatomic) VTCustomerDetails *customer;
+@property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *vaList;
@@ -26,12 +26,12 @@
     
     self.title = UILocalizedString(@"va.list.title", nil);
     
-    [self.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     for (int i = 0; i<paymentList.count; i++) {
-        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+        MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[i]];
         [vaListM addObject:paymentmodel];
     }
     self.vaList = vaListM;
@@ -46,7 +46,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
+    MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
     [cell configurePaymetnList:self.vaList[indexPath.row]];
     return cell;
 }
@@ -54,8 +54,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *vaTypeModel = (VTPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
-    VTPaymentDirectViewController *vc = [[VTPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
+    MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

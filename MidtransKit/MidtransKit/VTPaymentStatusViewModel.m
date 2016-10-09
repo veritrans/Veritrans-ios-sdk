@@ -11,12 +11,12 @@
 
 
 @interface VTPaymentStatusViewModel()
-@property (nonatomic) VTTransactionResult *transactionResult;
+@property (nonatomic) MidtransTransactionResult *transactionResult;
 @end
 
 @implementation VTPaymentStatusViewModel
 
-- (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult {
+- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult {
     if (self = [super init]) {
         self.transactionResult = transactionResult;
         

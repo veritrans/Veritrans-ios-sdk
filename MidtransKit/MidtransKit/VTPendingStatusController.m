@@ -7,11 +7,11 @@
 //
 
 #import "VTPendingStatusController.h"
-#import "VTButton.h"
+#import "MidtransUIButton.h"
 #import "VTClassHelper.h"
-#import "VTToast.h"
+#import "MidtransUIToast.h"
 #import "VTKITConstant.h"
-#import "VTNextStepButton.h"
+#import "MidtransUINextStepButton.h"
 
 NSString *const kVTPendingStatusControllerPaymentCode = @"payment_code";
 NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_time";
@@ -22,17 +22,17 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 @property (strong, nonatomic) IBOutlet UILabel *expiryDateLabel;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *orderIDLabel;
-@property (strong, nonatomic) IBOutlet VTButton *paymentGuideButton;
-@property (strong, nonatomic) IBOutlet VTButton *codeCopyButton;
-@property (strong, nonatomic) IBOutlet VTNextStepButton *finishButton;
+@property (strong, nonatomic) IBOutlet MidtransUIButton *paymentGuideButton;
+@property (strong, nonatomic) IBOutlet MidtransUIButton *codeCopyButton;
+@property (strong, nonatomic) IBOutlet MidtransUINextStepButton *finishButton;
 
-@property (nonatomic) VTTransactionResult *result;
+@property (nonatomic) MidtransTransactionResult *result;
 @end
 
 @implementation VTPendingStatusController
 
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token paymentMethodName:(VTPaymentListModel *)paymentMethod result:(VTTransactionResult *)result {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod result:(MidtransTransactionResult *)result {
     if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.result = result;
     }
@@ -50,7 +50,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
     self.expiryDateLabel.text = self.result.additionalData[kVTPendingStatusControllerKiosonExpireTime];
     self.paymentCodeLabel.text = self.result.additionalData[kVTPendingStatusControllerPaymentCode];
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_PAYMENT_KIOS_ON]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
         self.paymentCodeTitleLabel.text = UILocalizedString(@"kioson.pending.code-title", nil);
         [self.paymentGuideButton setTitle:UILocalizedString(@"kioson.pending.howto-title", nil) forState:UIControlStateNormal];
         [self.codeCopyButton setTitle:UILocalizedString(@"kioson.pending.copy-title", nil) forState:UIControlStateNormal];
@@ -63,7 +63,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 
 - (void)copyCodePressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.paymentCodeLabel.text];
-    [VTToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 
 - (void)guidePressed:(UIButton *)sender {

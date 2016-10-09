@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTViewController.h"
+#import "MidtransUIBaseViewController.h"
 
-@interface VTCvvInfoController : VTViewController
+@interface VTCvvInfoController : MidtransUIBaseViewController
 - (instancetype)init;
 @end

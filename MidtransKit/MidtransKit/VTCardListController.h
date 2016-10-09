@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTCardCell.h"
-#import "VTPaymentController.h"
+#import "MIdtransUICardCell.h"
+#import "MidtransUIPaymentController.h"
 
-@interface VTCardListController : VTPaymentController
-@property (nonatomic) VTMaskedCreditCard *selectedMaskedCard;
+@interface VTCardListController : MidtransUIPaymentController
+@property (nonatomic) MidtransMaskedCreditCard *selectedMaskedCard;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @end

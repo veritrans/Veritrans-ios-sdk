@@ -8,9 +8,9 @@
 
 #import "VTVASuccessStatusController.h"
 #import "VTPaymentStatusViewModel.h"
-#import "VTButton.h"
+#import "MidtransUIButton.h"
 #import "VTClassHelper.h"
-#import "VTToast.h"
+#import "MidtransUIToast.h"
 #import "VTMultiGuideController.h"
 #import "VTKITConstant.h"
 
@@ -28,8 +28,8 @@
 
 @implementation VTVASuccessStatusController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                   statusModel:(VTVATransactionStatusViewModel *)statusModel
 {
     self = [[VTVASuccessStatusController alloc] initWithToken:token paymentMethodName:paymentMethod];
@@ -69,7 +69,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.statusModel.vaNumber];
-    [VTToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

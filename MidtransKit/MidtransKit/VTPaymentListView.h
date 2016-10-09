@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTPaymentListFooter.h"
-#import "VTPaymentListHeader.h"
+#import "MidtransUIPaymentListFooter.h"
+#import "MidtransUIPaymentListHeader.h"
 @interface VTPaymentListView : UIView
-@property (nonatomic) VTPaymentListFooter *footer;
-@property (nonatomic) VTPaymentListHeader *header;
+@property (nonatomic) MidtransUIPaymentListFooter *footer;
+@property (nonatomic) MidtransUIPaymentListHeader *header;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end

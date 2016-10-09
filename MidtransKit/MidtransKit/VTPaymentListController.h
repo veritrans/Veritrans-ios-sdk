@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "VTItemViewModel.h"
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 
-@interface VTPaymentListController : VTPaymentController
+@interface VTPaymentListController : MidtransUIPaymentController
 
 @end

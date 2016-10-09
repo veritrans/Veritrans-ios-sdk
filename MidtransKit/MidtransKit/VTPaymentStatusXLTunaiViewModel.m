@@ -20,7 +20,7 @@ NSString *const kXLTunaiOrderID = @"xl_tunai_order_id";
 
 @implementation VTPaymentStatusXLTunaiViewModel
 
-- (instancetype)initWithTransactionResult:(VTTransactionResult *)transactionResult {
+- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult {
     if (self = [super initWithTransactionResult:transactionResult]) {
         self.xlOrderID = transactionResult.additionalData[kXLTunaiOrderID];
         self.xlMerchantID = transactionResult.additionalData[kXLTunaiMerchantID];

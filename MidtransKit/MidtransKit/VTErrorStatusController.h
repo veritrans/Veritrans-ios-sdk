@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTViewController.h"
+#import "MidtransUIBaseViewController.h"
 
-@interface VTErrorStatusController : VTViewController
+@interface VTErrorStatusController : MidtransUIBaseViewController
 - (instancetype _Nonnull)initWithError:(NSError *_Nonnull)error;
 @end

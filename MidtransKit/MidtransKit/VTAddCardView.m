@@ -7,14 +7,14 @@
 //
 
 #import "VTAddCardView.h"
-#import "VTCardFormatter.h"
+#import "MidtransUICardFormatter.h"
 #import "VTClassHelper.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 
 #import <IHKeyboardAvoiding_vt.h>
 
-@interface VTAddCardView()<UITextFieldDelegate, VTCardFormatterDelegate>
-@property (nonatomic) VTCardFormatter *ccFormatter;
+@interface VTAddCardView()<UITextFieldDelegate, MidtransUICardFormatterDelegate>
+
 @end
 
 @implementation VTAddCardView
@@ -22,15 +22,15 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    self.ccFormatter = [[VTCardFormatter alloc] initWithTextField:self.cardNumber];
+    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;
-    
+    self.scanCardButton.layer.cornerRadius = 2.0f;
     self.cardNumber.delegate = self;
     self.cardExpiryDate.delegate = self;
     self.cardCvv.delegate = self;
     
-    self.infoButton.tintColor = [[VTThemeManager shared] themeColor];
+    self.infoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
     
@@ -46,10 +46,14 @@
         [object isEqual:self.cardExpiryDate]) {
         self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
     }
+    else if ([keyPath isEqualToString:@"text"] &&
+        [object isEqual:self.cardNumber]) {
+        self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
+    }
 }
 
 - (UIImage *)iconDarkWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeFromString:number]) {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
@@ -64,7 +68,7 @@
 }
 
 - (UIImage *)iconWithNumber:(NSString *)number {
-    switch ([VTCreditCardHelper typeFromString:number]) {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:
             return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
         case VTCreditCardTypeJCB:
@@ -77,8 +81,65 @@
             return nil;
     }
 }
+- (void)setCardNumberFromCardIOSDK:(NSDictionary *)cardInformation {
+    NSString *cardNumber = [cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER];
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+    self.cardNumber.text = formatted;
+    self.cardNumber.infoIcon = [self iconDarkWithNumber:[cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
+    self.cardFrontView.iconView.image = [self iconWithNumber:[cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
+    self.cardFrontView.numberLabel.text = formatted;
+    NSString *expiredDate = [NSString stringWithFormat:@"%02d",[[cardInformation valueForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH] intValue]];
+}
+#pragma mark - UITextFieldDelegate
+-(void)textFieldDidChange :(UITextField *) textField{
+    if ([textField isEqual:self.cardNumber]) {
+        [self.ccFormatter updateTextFieldContentAndPosition];
+    }
+    //your code
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
 
-- (void)setToken:(TransactionTokenResponse *)token {
+    if ([textField isEqual:self.cardExpiryDate]) {
+        [textField.text isValidExpiryDate:&error];
+    }
+    else if ([textField isEqual:self.cardNumber]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
+    else if ([textField isEqual:self.cardCvv]) {
+        [textField.text isValidCVVWithCreditCardNumber:self.cardNumber.text error:&error];
+    }
+
+    //show warning if error
+    if (error) {
+        [self isViewError:error];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isKindOfClass:[MidtransUITextField class]]) {
+        ((MidtransUITextField *) textField).warning = nil;
+    }
+
+    if ([textField isEqual:self.cardExpiryDate]) {
+        return [textField filterCreditCardExpiryDate:string range:range];
+    }
+    else if ([textField isEqual:self.cardNumber]) {
+        return [self.ccFormatter updateTextFieldContentAndPosition];
+    }
+    else if ([textField isEqual:self.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.cardNumber.text];
+    }
+    else {
+        return YES;
+    }
+}
+
+- (void)setToken:(MidtransTransactionTokenResponse *)token {
     self.amountLabel.text = token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
@@ -104,46 +165,10 @@
 }
 
 
-#pragma mark - UITextFieldDelegate
-
-- (void)textFieldDidEndEditing:(UITextField *)textField {
-    NSError *error;
-    
-    if ([textField isEqual:self.cardExpiryDate]) {
-        [textField.text isValidExpiryDate:&error];
-    }
-    else if ([textField isEqual:self.cardNumber]) {
-        [textField.text isValidCreditCardNumber:&error];
-    }
-    
-    //show warning if error
-    if (error) {
-        [self isViewError:error];
-    }
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if ([textField isKindOfClass:[VTTextField class]]) {
-        ((VTTextField *) textField).warning = nil;
-    }
-    
-    if ([textField isEqual:self.cardExpiryDate]) {
-        return [textField filterCreditCardExpiryDate:string range:range];
-    }
-    else if ([textField isEqual:self.cardNumber]) {
-        return [self.ccFormatter updateTextFieldContentAndPosition];
-    }
-    else if ([textField isEqual:self.cardCvv]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:self.cardNumber.text];
-    }
-    else {
-        return YES;
-    }
-}
 
 #pragma mark - VTCardFormatterDelegate
 
-- (void)formatter_didTextFieldChange:(VTCardFormatter *)formatter {
+- (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     if (self.cardNumber.text.length < 1) {
         self.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
         self.cardFrontView.iconView.image = nil;

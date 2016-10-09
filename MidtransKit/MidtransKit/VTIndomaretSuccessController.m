@@ -24,8 +24,8 @@
 
 @implementation VTIndomaretSuccessController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                   statusModel:(VTPaymentStatusViewModel *)statusModel {
     
     self = [[VTIndomaretSuccessController alloc] initWithToken:token
@@ -45,7 +45,7 @@
     self.transactionTimeLabel.text = self.statusModel.transactionTime;
     self.paymentCodeLabel.text = self.statusModel.transactionResult.indomaretPaymentCode;
     
-    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [VT_PAYMENT_INDOMARET capitalizedString]];
+    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [MIDTRANS_PAYMENT_INDOMARET capitalizedString]];
     
     [self.navigationItem setHidesBackButton:YES];
 }

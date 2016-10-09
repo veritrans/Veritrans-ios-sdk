@@ -7,7 +7,7 @@
 //
 
 #import "VTKeyboardAccessoryView.h"
-#import "VTThemeManager.h"
+#import "MidtransUIThemeManager.h"
 #import "VTClassHelper.h"
 
 @interface VTKeyboardAccessoryView ()
@@ -24,7 +24,7 @@
     if (self = [super initWithFrame:frame]) {
         self.fields = fields;
         
-        UIColor *themedColor = [[VTThemeManager shared] themeColor];
+        UIColor *themedColor = [[MidtransUIThemeManager shared] themeColor];
         [self.doneButton setTitleColor:themedColor forState:UIControlStateNormal];
         
         UIImage *buttonImage = [[UIImage imageNamed:@"nextIcon" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];

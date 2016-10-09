@@ -22,8 +22,8 @@
 
 @implementation VTXLTunaiSuccessController
 
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                   statusModel:(VTPaymentStatusXLTunaiViewModel *)statusModel {
     if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.viewModel = statusModel;

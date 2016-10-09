@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-@class TransactionTokenResponse,PaymentRequestBankTransfer;
+@class MidtransTransactionTokenResponse,MidtransPaymentRequestBankTransfer;
 @interface BankTransferViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic,strong) TransactionTokenResponse *transactionToken;
-@property (nonatomic,strong) PaymentRequestBankTransfer *bankList;
+@property (nonatomic,strong) MidtransTransactionTokenResponse *transactionToken;
+@property (nonatomic,strong) MidtransPaymentRequestBankTransfer *bankList;
 @end

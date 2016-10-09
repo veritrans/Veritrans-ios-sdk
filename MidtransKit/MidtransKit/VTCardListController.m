@@ -13,21 +13,22 @@
 #import "VTClassHelper.h"
 #import "VTAddCardController.h"
 #import "VTTwoClickController.h"
-#import "VTTextField.h"
+#import "MidtransUITextField.h"
 #import "VTCCBackView.h"
-#import "VTCCFrontView.h"
-#import "VTHudView.h"
+#import "MidtransUICCFrontView.h"
+#import "MidtransUIHudView.h"
 #import "VTPaymentStatusViewModel.h"
 #import "VTSuccessStatusController.h"
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTTransactionDetails.h>
+#import <MidtransCoreKit/MidtransClient.h>
+#import <MidtransCoreKit/MidtransHelper.h>
+#import <MidtransCoreKit/MidtransMerchantClient.h>
+#import <MidtransCoreKit/MidtransPaymentCreditCard.h>
+#import <MidtransCoreKit/MidtransTransactionDetails.h>
 
-@interface VTCardListController () <VTCardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface VTCardListController () <MidtransUICardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -40,7 +41,7 @@
 @end
 
 @implementation VTCardListController {
-    VTHudView *_hudView;
+    MidtransUIHudView *_hudView;
 }
 
 - (void)viewDidLoad {
@@ -50,11 +51,18 @@
     
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:VTMaskedCardsUpdated object:nil];
+    /**
+     *  need to revisit
+     *
+     *  @param cardsUpdated: cardsUpdated: description
+     *
+     *  @return return value description
+     */
+    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:MidtransMaskedCardsUpdated object:nil];
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self updateView];
     [self reloadMaskedCards];
-    [self.collectionView registerNib:[UINib nibWithNibName:@"VTCardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"VTCardCell"];
+    [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     self.editingCell = false;
 }
@@ -70,8 +78,8 @@
 
 - (void)reloadMaskedCards {
     [self showLoadingHud];
-    [[VTMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
-                                                   completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                         completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
      {
          [self hideLoadingHud];
          if (!maskedCards) {
@@ -139,7 +147,7 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    VTCardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"VTCardCell" forIndexPath:indexPath];
+    MIdtransUICardCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"MIdtransUICardCell" forIndexPath:indexPath];
     cell.delegate = self;
     cell.maskedCard = self.cards[indexPath.row];
     cell.editing = self.editingCell;
@@ -185,12 +193,11 @@
 - (void)payWithToken:(NSString *)token {
     [_hudView showOnView:self.navigationController.view];
     
-    VTPaymentCreditCard *paymentDetail =
-    [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
-                                 creditCardToken:token token:self.token];
-    VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
+    
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
+    
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [_hudView hide];
         
         if (error) {
@@ -203,21 +210,21 @@
 
 #pragma mark - VTAddCardControllerDelegate
 
-- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(VTMaskedCreditCard *)registeredCard {
+- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
     [self.navigationController popViewControllerAnimated:YES];
     [self reloadMaskedCards];
 }
 
-#pragma mark - VTCardCellDelegate
+#pragma mark - MIdtransUICardCellDelegate
 
-- (void)cardCellShouldRemoveCell:(VTCardCell *)cell {
+- (void)cardCellShouldRemoveCell:(MIdtransUICardCell *)cell {
     [self showLoadingHud];
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
-    [[VTMerchantClient sharedClient] saveMaskedCards:self.cards
-                                            customer:self.token.customerDetails
-                                          completion:^(id  _Nullable result, NSError * _Nullable error)
+    [[MidtransMerchantClient sharedClient] saveMaskedCards:self.cards
+                                                  customer:self.token.customerDetails
+                                                completion:^(id  _Nullable result, NSError * _Nullable error)
      {
          [self hideLoadingHud];
          

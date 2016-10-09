@@ -6,9 +6,9 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTViewController.h"
+#import "MidtransUIBaseViewController.h"
 #import "VTInstruction.h"
 
-@interface VTSubGuideController : VTViewController
+@interface VTSubGuideController : MidtransUIBaseViewController
 - (instancetype)initWithInstructions:(NSArray <VTInstruction*>*)instructions;
 @end

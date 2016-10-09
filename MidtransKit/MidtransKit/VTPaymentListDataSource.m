@@ -7,9 +7,9 @@
 //
 
 #import "VTPaymentListDataSource.h"
-#import "VTListCell.h"
+#import "MidtransUIListCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTPaymentListModel.h>
+#import <MidtransCoreKit/MidtransPaymentListModel.h>
 
 @implementation VTPaymentListDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -22,10 +22,10 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *paymentMethod = self.paymentList[indexPath.row];
-    VTListCell *cell = (VTListCell *)[tableView dequeueReusableCellWithIdentifier:@"VTListCell"];
+    MidtransUIListCell *cell = (MidtransUIListCell *)[tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
     if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"VTListCell" owner:self options:nil] firstObject];
-        [tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"MidtransUIListCell" owner:self options:nil] firstObject];
+        [tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     }
     [cell configurePaymetnList:paymentMethod];
     [cell updateConstraintsIfNeeded];

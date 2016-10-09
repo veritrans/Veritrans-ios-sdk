@@ -6,11 +6,11 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTPaymentController.h"
+#import "MidtransUIPaymentController.h"
 #import "VTPaymentStatusViewModel.h"
 
-@interface VTKlikbcaSuccessController : VTPaymentController
-- (instancetype)initWithToken:(TransactionTokenResponse *)token
-            paymentMethodName:(VTPaymentListModel *)paymentMethod
+@interface VTKlikbcaSuccessController : MidtransUIPaymentController
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                     viewModel:(VTPaymentStatusViewModel *)viewModel;
 @end

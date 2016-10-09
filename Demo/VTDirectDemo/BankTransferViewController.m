@@ -9,8 +9,7 @@
 #import "BankTransferViewController.h"
 #import "SamplePaymentListTableViewCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/VTPaymentListModel.h>
-#import <MidtransCoreKit/PaymentRequestDataModels.h>
+#import <MidtransCoreKit/MidtransPaymentListModel.h>
 @interface BankTransferViewController () <UITableViewDelegate,UITableViewDataSource>
 
 @end
@@ -38,7 +37,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = self.bankList.banks[indexPath.row];
+    MidtransPaymentListModel *paymentMethod = self.bankList.banks[indexPath.row];
     SamplePaymentListTableViewCell *cell = (SamplePaymentListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SamplePaymentListTableViewCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SamplePaymentListTableViewCell" owner:self options:nil] firstObject];

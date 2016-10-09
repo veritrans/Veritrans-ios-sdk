@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "VTXibView.h"
+#import "MidtransUIXibView.h"
 
-@interface VTCCBackView : VTXibView
+@interface VTCCBackView : MidtransUIXibView
 @property (nonatomic) IBOutlet UILabel *cvvLabel;
 @end

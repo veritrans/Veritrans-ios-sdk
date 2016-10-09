@@ -8,9 +8,9 @@
 
 #import "VTMandiriClickpayController.h"
 #import "VTClassHelper.h"
-#import "VTTextField.h"
-#import "VTHudView.h"
-#import "VTCardFormatter.h"
+#import "MidtransUITextField.h"
+#import "MidtransUIHudView.h"
+#import "MidtransUICardFormatter.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -18,15 +18,15 @@ static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet VTTextField *debitNumberTextField;
-@property (strong, nonatomic) IBOutlet VTTextField *tokenTextField;
+@property (strong, nonatomic) IBOutlet MidtransUITextField *debitNumberTextField;
+@property (strong, nonatomic) IBOutlet MidtransUITextField *tokenTextField;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UILabel *appliLabel;
 @property (strong, nonatomic) IBOutlet UILabel *input1Label;
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 
-@property (nonatomic) VTCardFormatter *ccFormatter;
+@property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
 @end
 
@@ -44,13 +44,13 @@ static NSString* const ClickpayAPPLI = @"3";
     self.tokenTextField.delegate = self;
     
     self.appliLabel.text = ClickpayAPPLI;
-    self.input1Label.text = [VTMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
-    self.input2Label.text = [VTMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
-    self.input3Label.text = [VTMandiriClickpayHelper generateInput3];
+    self.input1Label.text = [MidtransMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
+    self.input2Label.text = [MidtransMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
+    self.input3Label.text = [MidtransMandiriClickpayHelper generateInput3];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     
-    self.ccFormatter = [[VTCardFormatter alloc] initWithTextField:self.debitNumberTextField];
+    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;
 }
 
@@ -69,12 +69,12 @@ static NSString* const ClickpayAPPLI = @"3";
     }
     
     [self showLoadingHud];
-   
-    VTPaymentMandiriClickpay *paymentDetails = [[VTPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text token:self.token];
     
-    VTTransaction *transaction = [[VTTransaction alloc] initWithPaymentDetails:paymentDetails];
+    MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text];
     
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
+    
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoadingHud];
         
         if (error) {

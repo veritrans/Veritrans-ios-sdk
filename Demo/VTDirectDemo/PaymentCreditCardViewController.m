@@ -9,8 +9,7 @@
 #import "PaymentCreditCardViewController.h"
 #import <MBProgressHUD.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/VTPaymentListModel.h>
-#import <MidtransCoreKit/PaymentRequestDataModels.h>
+#import <MidtransCoreKit/MidtransPaymentListModel.h>
 @interface PaymentCreditCardViewController ()
 
 @end
@@ -29,8 +28,8 @@
 }
 - (IBAction)payNowDidTapped:(id)sender {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    VTCreditCard *creditCard = [[VTCreditCard alloc] initWithNumber:self.cardNumberTextField.text
-                                                        expiryMonth:self.cardExpireMonthTextfield.text expiryYear:self.cardExpireYeartextField.text                                                                cvv:self.cvvTextField.text];
+    MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.cardNumberTextField.text
+                                                                    expiryMonth:self.cardExpireMonthTextfield.text expiryYear:self.cardExpireYeartextField.text                                                                cvv:self.cvvTextField.text];
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -44,34 +43,33 @@
         return;
     }
     BOOL enable3Ds = [CC_CONFIG secure];
-    VTTokenizeRequest *tokenRequest = [[VTTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                        grossAmount:self.transactionToken.transactionDetails.grossAmount
-                                                                             secure:enable3Ds];
-    [[VTClient sharedClient] generateToken:tokenRequest
-                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                    [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                    if (error) {
-                                        // create an alert view with three buttons
-                                        UIAlertView *alertView = [[UIAlertView alloc]
-                                                                  initWithTitle:@"ERROR"
-                                                                  message:error.description
-                                                                  delegate:self
-                                                                  cancelButtonTitle:@"OK"
-                                                                  otherButtonTitles:nil];
-                                        [alertView show];
-                                        
-                                    } else {
-                                        [self payWithToken:token];
-                                    }
-                                }];
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
+                                                                                    grossAmount:self.transactionToken.transactionDetails.grossAmount
+                                                                                         secure:enable3Ds];
+    [[MidtransClient sharedClient] generateToken:tokenRequest
+                                      completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                          [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                          if (error) {
+                                              // create an alert view with three buttons
+                                              UIAlertView *alertView = [[UIAlertView alloc]
+                                                                        initWithTitle:@"ERROR"
+                                                                        message:error.description
+                                                                        delegate:self
+                                                                        cancelButtonTitle:@"OK"
+                                                                        otherButtonTitles:nil];
+                                              [alertView show];
+                                              
+                                          } else {
+                                              [self payWithToken:token];
+                                          }
+                                      }];
 }
 - (void)payWithToken:(NSString *)token {
-    VTPaymentCreditCard *paymentDetail =
-    [[VTPaymentCreditCard alloc] initWithFeature:VTCreditCardPaymentFeatureOneClick
-                                 creditCardToken:token token:self.transactionToken];
-    VTTransaction *transaction =
-    [[VTTransaction alloc] initWithPaymentDetails:paymentDetail];
-    [[VTMerchantClient sharedClient] performTransaction:transaction completion:^(VTTransactionResult *result, NSError *error) {
+    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.transactionToken.customerDetails];
+
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.transactionToken];
+    
+    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             // create an alert view with three buttons
             UIAlertView *alertView = [[UIAlertView alloc]

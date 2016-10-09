@@ -9,7 +9,7 @@
 #import "PushAnimator.h"
 #import "VTTwoClickController.h"
 #import "VTCardListController.h"
-#import "VTCCFrontView.h"
+#import "MidtransUICCFrontView.h"
 #import "VTCCBackView.h"
 
 @implementation PushAnimator
@@ -35,7 +35,7 @@
                                                           fromView:fromViewController.collectionView.superview];
     
     VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
-    VTCCFrontView *frontView = [[VTCCFrontView alloc] initWithFrame:cardFrame
+    MidtransUICCFrontView *frontView = [[MidtransUICCFrontView alloc] initWithFrame:cardFrame
                                                          maskedCard:fromViewController.selectedMaskedCard];
     
     

@@ -48,6 +48,7 @@
 		00F61B231D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F61B1F1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib */; };
 		00F61B261D14825100C93DA0 /* MidtransUIPaymentDirectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */; };
 		00F61B271D14825100C93DA0 /* MidtransUIPaymentDirectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */; };
+		056212273E8DFC1352A5EA43 /* libPods-MidtransResources.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E62E273C4E3628FCB0B4FCCB /* libPods-MidtransResources.a */; };
 		3005E2771C7C175000064169 /* VTAddCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTAddCardController.h */; };
 		3005E2781C7C175000064169 /* VTAddCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTAddCardController.m */; };
 		3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2A61C7C239A00064169 /* VTClassHelper.h */; };
@@ -366,6 +367,7 @@
 		00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentDirectView.h; sourceTree = "<group>"; };
 		00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentDirectView.m; sourceTree = "<group>"; };
 		15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		19E2A63707E52D5CB2367BAC /* Pods-MidtransResources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransResources.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransResources/Pods-MidtransResources.release.xcconfig"; sourceTree = "<group>"; };
 		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
 		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -430,6 +432,7 @@
 		30E8798D1C897E7D000C0F4B /* credit_card@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "credit_card@2x.png"; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
+		51C01ACF65A34D5C2094EAAE /* Pods-MidtransResources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransResources.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransResources/Pods-MidtransResources.debug.xcconfig"; sourceTree = "<group>"; };
 		9EDC029D4B329E43C63EFA57 /* Pods-MidtransKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit.release.xcconfig"; sourceTree = "<group>"; };
 		DDFE46D3ACB5BE7579ACA027 /* Pods-MidtransKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransKit/Pods-MidtransKit.debug.xcconfig"; sourceTree = "<group>"; };
 		E502249C1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding_vt.h; sourceTree = "<group>"; };
@@ -654,6 +657,7 @@
 		E5EF827B1C8C0837007B6585 /* MidtransUICCFrontView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUICCFrontView.xib; path = ../MidtransKit/MidtransUICCFrontView.xib; sourceTree = "<group>"; };
 		E5EF827D1C8C0841007B6585 /* VTCCBackView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTCCBackView.xib; path = ../MidtransKit/VTCCBackView.xib; sourceTree = "<group>"; };
 		E5F4AA8B1CF6D2C70059DDF8 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentMethods.plist; sourceTree = "<group>"; };
+		E62E273C4E3628FCB0B4FCCB /* libPods-MidtransResources.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransResources.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -661,6 +665,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				056212273E8DFC1352A5EA43 /* libPods-MidtransResources.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -851,6 +856,7 @@
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
 				15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */,
+				E62E273C4E3628FCB0B4FCCB /* libPods-MidtransResources.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1092,6 +1098,8 @@
 			children = (
 				DDFE46D3ACB5BE7579ACA027 /* Pods-MidtransKit.debug.xcconfig */,
 				9EDC029D4B329E43C63EFA57 /* Pods-MidtransKit.release.xcconfig */,
+				51C01ACF65A34D5C2094EAAE /* Pods-MidtransResources.debug.xcconfig */,
+				19E2A63707E52D5CB2367BAC /* Pods-MidtransResources.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -1373,9 +1381,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3005E28A1C7C17A200064169 /* Build configuration list for PBXNativeTarget "MidtransResources" */;
 			buildPhases = (
+				F2F0C2D77521A104F7F469F1 /* [CP] Check Pods Manifest.lock */,
 				3005E2831C7C17A100064169 /* Sources */,
 				3005E2841C7C17A100064169 /* Frameworks */,
 				3005E2851C7C17A100064169 /* Resources */,
+				F5CA3146C754EE98167A30BF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1639,6 +1649,36 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
+		F2F0C2D77521A104F7F469F1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F5CA3146C754EE98167A30BF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransResources/Pods-MidtransResources-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FFF40CDA6A7F24553AA82FA2 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1765,6 +1805,7 @@
 /* Begin XCBuildConfiguration section */
 		3005E28B1C7C17A200064169 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51C01ACF65A34D5C2094EAAE /* Pods-MidtransResources.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "-";
@@ -1774,12 +1815,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MidtransResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.MidtransResources;
 				PRODUCT_NAME = MidtransKit;
 				SDKROOT = iphoneos;
@@ -1791,6 +1830,7 @@
 		};
 		3005E28C1C7C17A200064169 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19E2A63707E52D5CB2367BAC /* Pods-MidtransResources.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CODE_SIGN_IDENTITY = "-";
@@ -1800,12 +1840,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = MidtransResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = id.co.veritrans.MidtransResources;
 				PRODUCT_NAME = MidtransKit;
 				SDKROOT = iphoneos;
@@ -1911,10 +1949,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
-				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
@@ -1934,10 +1970,8 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				HEADER_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = NO;
-				OTHER_LDFLAGS = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;

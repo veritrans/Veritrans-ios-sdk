@@ -6,7 +6,11 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
+<<<<<<< Updated upstream
 #define VERSION @"0.1"
+=======
+#define VERSION @"1.0.0"
+>>>>>>> Stashed changes
 
 /**
  The payment server types.

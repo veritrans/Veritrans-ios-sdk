@@ -123,7 +123,7 @@ Add two methods to your view controller, these methods are from MidtransUIPaymen
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
 
-- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);
 }
 

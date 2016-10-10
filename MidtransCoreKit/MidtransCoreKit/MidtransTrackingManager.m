@@ -24,12 +24,12 @@
 - (NSMutableDictionary*)addDefaultParameter{
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:[PRIVATECONFIG mixpanelToken] forKey:@"token"];
-    [defaultParameters setObject:@"iOS" forKey:@"platform"];
-    [defaultParameters setObject:VERSION forKey:@"sdkVersion"];
+    [defaultParameters setObject:@"iOS" forKey:@"Platform"];
+    [defaultParameters setObject:VERSION forKey:@"SDK Version"];
     
     id merchant = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     if (merchant) {
-        [defaultParameters setObject:merchant forKey:@"merchant"];
+        [defaultParameters setObject:merchant forKey:@"Merchant"];
     }
     
     return defaultParameters;

@@ -13,5 +13,7 @@ To see the implementation guides please read [here](https://github.com/veritrans
 To see the implementation guides please read [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransCoreKit/code_usage.md)
 ###3. Sample / Demo App
 To see the sample app (contais UI flow), you can clone this project then run `pod install` to install all dependencies
+###4. Backend (merchant server) implmentation
+Please refer to [this wiki](https://github.com/veritrans/veritrans-android/wiki/Implementation-for-Merchant-Server)
 
 

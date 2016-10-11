@@ -16,6 +16,6 @@ before_install:
   - brew install gflags
 install:
   - pod install
-  - popd
+  - pod update
 notifications:
   email: true

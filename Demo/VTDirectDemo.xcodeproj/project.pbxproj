@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		00598E911D76AB39006241BF /* SamplePaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00598E8F1D76AB39006241BF /* SamplePaymentListViewController.m */; };
 		00598E9A1D76AFBA006241BF /* SamplePaymentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00598E901D76AB39006241BF /* SamplePaymentListViewController.xib */; };
+		0064A1BC1DAC9A7F00A2ABDA /* .travis.yml in Resources */ = {isa = PBXBuildFile; fileRef = 0064A1BB1DAC9A7F00A2ABDA /* .travis.yml */; };
 		00EC17921D7D297300D076D2 /* BankTransferViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC17901D7D297300D076D2 /* BankTransferViewController.m */; };
 		00EC17931D7D297300D076D2 /* BankTransferViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00EC17911D7D297300D076D2 /* BankTransferViewController.xib */; };
 		00EC17981D7D407400D076D2 /* EpaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EC17961D7D407400D076D2 /* EpaymentViewController.m */; };
@@ -19,9 +20,6 @@
 		00F0DA8F1D76DCBF005B117E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA8E1D76DCBF005B117E /* Media.xcassets */; };
 		00F0DA9A1D76EB9D005B117E /* PaymentCreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */; };
 		00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */; };
-		2E357EA11D016900009DD985 /* testCreditCard3DS.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E357EA01D016900009DD985 /* testCreditCard3DS.m */; };
-		2E6BFAB61D013D29002C8E85 /* MandiriPaymentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E6BFAB51D013D29002C8E85 /* MandiriPaymentTest.m */; };
-		2EF9D9501D0166C200298D3A /* BCAPaymentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EF9D94F1D0166C200298D3A /* BCAPaymentTest.m */; };
 		302F71C31C73163C00FE73FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C21C73163C00FE73FE /* main.m */; };
 		302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C51C73163C00FE73FE /* AppDelegate.m */; };
 		302F71C91C73163C00FE73FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C81C73163C00FE73FE /* ViewController.m */; };
@@ -78,6 +76,7 @@
 		00598E8E1D76AB39006241BF /* SamplePaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListViewController.h; sourceTree = "<group>"; };
 		00598E8F1D76AB39006241BF /* SamplePaymentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePaymentListViewController.m; sourceTree = "<group>"; };
 		00598E901D76AB39006241BF /* SamplePaymentListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SamplePaymentListViewController.xib; sourceTree = "<group>"; };
+		0064A1BB1DAC9A7F00A2ABDA /* .travis.yml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .travis.yml; sourceTree = "<group>"; };
 		00EC178F1D7D297300D076D2 /* BankTransferViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransferViewController.h; sourceTree = "<group>"; };
 		00EC17901D7D297300D076D2 /* BankTransferViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransferViewController.m; sourceTree = "<group>"; };
 		00EC17911D7D297300D076D2 /* BankTransferViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransferViewController.xib; sourceTree = "<group>"; };
@@ -93,11 +92,7 @@
 		00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardViewController.m; sourceTree = "<group>"; };
 		00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentCreditCardViewController.xib; sourceTree = "<group>"; };
 		18A2FDE89D2B5AA6DDA21506 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
-		2E357EA01D016900009DD985 /* testCreditCard3DS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testCreditCard3DS.m; sourceTree = "<group>"; };
 		2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VTDirectDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E6BFAA51D01391E002C8E85 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2E6BFAB51D013D29002C8E85 /* MandiriPaymentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MandiriPaymentTest.m; sourceTree = "<group>"; };
-		2EF9D94F1D0166C200298D3A /* BCAPaymentTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCAPaymentTest.m; sourceTree = "<group>"; };
 		302F71BE1C73163C00FE73FE /* VTDirectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTDirectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71C21C73163C00FE73FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		302F71C41C73163C00FE73FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -245,22 +240,11 @@
 			name = "Payment Creditcard";
 			sourceTree = "<group>";
 		};
-		2E6BFAA21D01391E002C8E85 /* VTDirectDemoUITests */ = {
-			isa = PBXGroup;
-			children = (
-				2E6BFAA51D01391E002C8E85 /* Info.plist */,
-				2E6BFAB51D013D29002C8E85 /* MandiriPaymentTest.m */,
-				2EF9D94F1D0166C200298D3A /* BCAPaymentTest.m */,
-				2E357EA01D016900009DD985 /* testCreditCard3DS.m */,
-			);
-			path = VTDirectDemoUITests;
-			sourceTree = "<group>";
-		};
 		302F71B51C73163C00FE73FE = {
 			isa = PBXGroup;
 			children = (
+				0064A1BB1DAC9A7F00A2ABDA /* .travis.yml */,
 				302F71C01C73163C00FE73FE /* VTDirectDemo */,
-				2E6BFAA21D01391E002C8E85 /* VTDirectDemoUITests */,
 				302F71BF1C73163C00FE73FE /* Products */,
 				60DE1F59509B50552B10D5AE /* Frameworks */,
 				6856154754E7A35C15BD3D91 /* Pods */,
@@ -461,7 +445,7 @@
 		302F71B61C73163C00FE73FE /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0720;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Veritrans;
 				TargetAttributes = {
 					2E6BFAA01D01391E002C8E85 = {
@@ -517,6 +501,7 @@
 				E5C25FDC1D25DE520012BCC8 /* TitilliumWeb-Light.ttf in Resources */,
 				E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */,
 				00F0DA8F1D76DCBF005B117E /* Media.xcassets in Resources */,
+				0064A1BC1DAC9A7F00A2ABDA /* .travis.yml in Resources */,
 				00EC17991D7D407400D076D2 /* EpaymentViewController.xib in Resources */,
 				00F0DA8D1D76D823005B117E /* paymentlist.plist in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
@@ -603,9 +588,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2E6BFAB61D013D29002C8E85 /* MandiriPaymentTest.m in Sources */,
-				2E357EA11D016900009DD985 /* testCreditCard3DS.m in Sources */,
-				2EF9D9501D0166C200298D3A /* BCAPaymentTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,8 +681,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -722,7 +706,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -743,8 +727,10 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -760,7 +746,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

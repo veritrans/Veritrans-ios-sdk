@@ -27,12 +27,16 @@
 }
 
 - (void)postTransactionSuccessObserver:(VTTransactionResult *)result {
-    NSDictionary *userInfo = @{VT_TRANSACTION_RESULT:result};
+    NSDictionary *userInfo;
+    if (result)
+        userInfo = @{VT_TRANSACTION_RESULT:result};
     [[NSNotificationCenter defaultCenter] postNotificationName:VTTransactionDidSuccess object:nil userInfo:userInfo];
 }
 
 - (void)postTransactionFailedObserver:(NSError *)error {
-    NSDictionary *userInfo = @{VT_TRANSACTION_ERROR:error};
+    NSDictionary *userInfo;
+    if (error)
+        userInfo = @{VT_TRANSACTION_ERROR:error};
     [[NSNotificationCenter defaultCenter] postNotificationName:VTTransactionDidFailed object:nil userInfo:userInfo];
 }
 

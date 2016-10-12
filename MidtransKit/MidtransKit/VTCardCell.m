@@ -9,8 +9,7 @@
 #import "VTCardCell.h"
 #import "VTCCFrontView.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTCreditCard.h>
-#import <MidtransCoreKit/VTCreditCardHelper.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTCardCell ()
 @property (nonatomic) IBOutlet VTCCFrontView *frontCardView;

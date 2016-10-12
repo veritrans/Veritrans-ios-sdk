@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <MidtransCoreKit/VTTransactionResult.h>
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTPaymentStatusViewModel : NSObject
 

@@ -11,8 +11,8 @@
 
 #import <MidtransKit/VTPaymentViewController.h>
 #import <MidtransKit/VTCardControllerConfig.h>
-#import <MidtransCoreKit/VTConfig.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface OptionViewController ()
 

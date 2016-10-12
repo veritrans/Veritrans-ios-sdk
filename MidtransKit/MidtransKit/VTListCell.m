@@ -8,7 +8,8 @@
 
 #import "VTListCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTPaymentListModel.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
+
 @implementation VTListCell
 
 - (void)awakeFromNib {

@@ -20,9 +20,9 @@
 #import "VTPaymentListHeader.h"
 #import "VTPaymentDirectViewController.h"
 #import "VTPaymentListView.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/VTPaymentListModel.h>
 #import "VTPaymentListDataSource.h"
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTPaymentListController () <UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;

@@ -9,7 +9,8 @@
 #import "VTPaymentListDataSource.h"
 #import "VTListCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/VTPaymentListModel.h>
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @implementation VTPaymentListDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {

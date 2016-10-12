@@ -13,7 +13,7 @@
 
 #define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
-#import <MidtransCoreKit/VTHelper.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;

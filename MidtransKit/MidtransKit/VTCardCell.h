@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/VTMaskedCreditCard.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 
 @protocol VTCardCellDelegate;

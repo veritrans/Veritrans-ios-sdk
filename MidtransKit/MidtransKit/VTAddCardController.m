@@ -17,11 +17,7 @@
 #import "UIViewController+Modal.h"
 #import "VTCardControllerConfig.h"
 
-#import <MidtransCoreKit/VTClient.h>
-#import <MidtransCoreKit/VTMerchantClient.h>
-#import <MidtransCoreKit/VTPaymentCreditCard.h>
-#import <MidtransCoreKit/VTTransactionDetails.h>
-#import <MidtransCoreKit/VTCreditCardHelper.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTAddCardController ()
     

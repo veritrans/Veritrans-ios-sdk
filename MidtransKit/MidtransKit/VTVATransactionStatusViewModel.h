@@ -9,7 +9,7 @@
 #import "VTPaymentStatusViewModel.h"
 #import "VTClassHelper.h"
 
-#import <MidtransCoreKit/VTPaymentBankTransfer.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTVATransactionStatusViewModel : VTPaymentStatusViewModel
 @property (nonatomic) NSString *vaNumber;

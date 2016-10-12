@@ -9,7 +9,7 @@
 #import "TableViewCell.h"
 #import "UIImageView+WebCache.h"
 
-#import <MidtransCoreKit/VTHelper.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @implementation TableViewCell {
     IBOutlet UILabel *_quantityLabel;

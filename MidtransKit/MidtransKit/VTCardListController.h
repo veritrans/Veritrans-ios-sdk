@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTCardCell.h"
 #import "VTPaymentController.h"
 
 @interface VTCardListController : VTPaymentController
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, assign) BOOL hideCloseButton;
+
+- (void)presentOnViewController:(UIViewController *)viewController;
 @end

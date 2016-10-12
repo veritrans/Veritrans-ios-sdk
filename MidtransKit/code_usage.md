@@ -34,3 +34,24 @@ VTPaymentViewController *paymentController = [VTPaymentViewController controller
 VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
 [vc presentOnViewController:self];
 ```
+
+//Get Notified
+
+```
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:VTTransactionDidSuccess object:nil];
+[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:VTTransactionDidFailed object:nil];
+```
+
+//Get the transaction result or error, assume you already have declared the observer above
+
+```
+- (void)transactionSuccess:(NSNotification *)sender {
+    VTTransactionResult *result = sender.userInfo[VT_TRANSACTION_RESULT];
+    NSLog(@"success: %@", result);
+}
+
+- (void)transactionFailed:(NSNotification *)sender {
+    NSError *error = sender.userInfo[VT_TRANSACTION_ERROR];
+    NSLog(@"error: %@", error);
+}
+```

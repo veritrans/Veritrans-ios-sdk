@@ -14,6 +14,8 @@
 }
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
     if (self.topLine) {
         _bottomBorder = [[UIView alloc] init];
         _bottomBorder.backgroundColor = self.topLineColor;

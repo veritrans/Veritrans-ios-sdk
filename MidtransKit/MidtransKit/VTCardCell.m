@@ -19,6 +19,8 @@
 @implementation VTCardCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
     [self.frontCardView.deleteButton addTarget:self action:@selector(deletePressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 

@@ -44,8 +44,10 @@ static NSString * const VT_PAYMENT_BANK_TRANSFER = @"bank_transfer";
 static NSString * const VT_PAYMENT_ECHANNEL = @"echannel";
 static NSString * const VT_PAYMENT_BRI_EPAY = @"bri_epay";
 
-static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
-static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
+static NSString *const VTTransactionDidSuccess = @"vt_transaction_did_success";
+static NSString *const VTTransactionDidFailed = @"vt_transaction_did_failed";
+static NSString *const VT_TRANSACTION_RESULT = @"tr_result";
+static NSString *const VT_TRANSACTION_ERROR = @"tr_error";
 
 static NSString *const VT_CREDIT_CARD_IDENTIFIER = @"cc";
 static NSString *const VT_VA_IDENTIFIER = @"atm";

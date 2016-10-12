@@ -26,7 +26,7 @@
 @end
 
 
-@interface ViewController () <VTPaymentViewControllerDelegate>
+@interface ViewController ()
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray <VTItemDetail*>* itemDetails;
 @end
@@ -59,6 +59,9 @@
             }
         }];
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:VTTransactionDidSuccess object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:VTTransactionDidFailed object:nil];
 }
 
 - (IBAction)settingPressed:(UIBarButtonItem *)sender {
@@ -109,11 +112,13 @@
 
 #pragma mark - VTPaymentViewControllerDelegate
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentSuccess:(VTTransactionResult *)result {
+- (void)transactionSuccess:(NSNotification *)sender {
+    VTTransactionResult *result = sender.userInfo[VT_TRANSACTION_RESULT];
     NSLog(@"success: %@", result);
 }
 
-- (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error {
+- (void)transactionFailed:(NSNotification *)sender {
+    NSError *error = sender.userInfo[VT_TRANSACTION_ERROR];
     NSLog(@"error: %@", error);
 }
 

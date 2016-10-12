@@ -26,6 +26,16 @@
     return instance;
 }
 
+- (void)postTransactionSuccessObserver:(VTTransactionResult *)result {
+    NSDictionary *userInfo = @{VT_TRANSACTION_RESULT:result};
+    [[NSNotificationCenter defaultCenter] postNotificationName:VTTransactionDidSuccess object:nil userInfo:userInfo];
+}
+
+- (void)postTransactionFailedObserver:(NSError *)error {
+    NSDictionary *userInfo = @{VT_TRANSACTION_ERROR:error};
+    [[NSNotificationCenter defaultCenter] postNotificationName:VTTransactionDidFailed object:nil userInfo:userInfo];
+}
+
 - (void)performTransaction:(VTTransaction *)transaction completion:(void(^)(VTTransactionResult *result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantServerURL], @"charge"];
     
@@ -36,21 +46,26 @@
         
         if (response) {
             VTTransactionResult *chargeResult = [[VTTransactionResult alloc] initWithTransactionResponse:response];
+            
             NSString *paymentType = response[@"payment_type"];
             
             if ([self isWebPaymentType:paymentType]) {
-                
                 NSURL *redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
                 VTPaymentWebController *vc = [[VTPaymentWebController alloc] initWithRedirectURL:redirectURL paymentType:paymentType];
+                
                 [vc showPageWithCallback:^(NSError * _Nullable error) {
                     if (error) {
+                        [self postTransactionFailedObserver:error];
                         if (completion) completion(nil, error);
-                    } else {
+                    }
+                    else {
+                        [self postTransactionSuccessObserver:chargeResult];
                         if (completion) completion(chargeResult, nil);
                     }
                 }];
-                
-            } else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+            }
+            else if ([paymentType isEqualToString:VT_PAYMENT_CREDIT_CARD]) {
+                [self postTransactionSuccessObserver:chargeResult];
                 
                 //transaction finished here
                 if (completion) completion(chargeResult, error);
@@ -62,11 +77,15 @@
                     VTMaskedCreditCard *savedCard = [[VTMaskedCreditCard alloc] initWithData:response];
                     [self saveRegisteredCard:savedCard completion:nil];
                 }
-                
-            } else {
+            }
+            else {
+                [self postTransactionSuccessObserver:chargeResult];
                 if (completion) completion(chargeResult, error);
             }
-        } else {
+        }
+        else {
+            [self postTransactionFailedObserver:error];
+            
             if (completion) completion(nil, error);
         }
     }];

@@ -18,5 +18,6 @@
 #import "VTErrorStatusController.h"
 #import "VTPaymentViewController.h"
 #import "VTPaymentController.h"
+#import "VTAddCardController.h"
 
 #endif /* MidtransKit_h */

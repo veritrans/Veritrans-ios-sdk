@@ -76,8 +76,8 @@
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails) {
-        
-        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+        VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+        //        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
         [vc presentOnViewController:self];
         
         //        [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];

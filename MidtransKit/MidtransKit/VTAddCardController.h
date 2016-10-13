@@ -14,6 +14,9 @@
 
 @interface VTAddCardController : VTPaymentController
 @property (nonatomic, assign) id<VTAddCardControllerDelegate>delegate;
+
+- (void)presentOnViewController:(UIViewController *)viewController;
+
 @end
 
 @protocol VTAddCardControllerDelegate <NSObject>

@@ -34,6 +34,10 @@
     [VTConfig setClientKey:@"VT-client-wRhLUazn8LGHLP6Q"
          merchantServerURL:@"https://vt-merchant.coralshop.top/api"
          serverEnvironment:VTServerEnvironmentSandbox];
+    
+//    [VTConfig setClientKey:@"VT-client-wCSALF27ZAHMVa2U"
+//         merchantServerURL:@"http://tapri.ayopop.com/payments/ccPayment"
+//         serverEnvironment:VTServerEnvironmentSandbox];
 #endif
     
     BOOL enableOneclick = [[[NSUserDefaults standardUserDefaults] objectForKey:@"enable_oneclick"] boolValue];

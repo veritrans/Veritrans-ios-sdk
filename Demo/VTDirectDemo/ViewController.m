@@ -70,14 +70,16 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
+    [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
+    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
     VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
     
     if (customerDetails) {
-        VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
-        //        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+//        VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+                VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
         [vc presentOnViewController:self];
         
         //        [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];

@@ -14,12 +14,12 @@
 #import "VTSingleGuideController.h"
 
 @interface VTPaymentController ()
-    @property (nonatomic) VTHudView *hudView;
-    @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
-    @end
+@property (nonatomic) VTHudView *hudView;
+@property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
+@end
 
 @implementation VTPaymentController
-    
+
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail*>*)itemDetails
                      transactionDetails:(VTTransactionDetails *)transactionDetails {
@@ -37,7 +37,7 @@
     }
     return self;
 }
-    
+
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod; {
     
     @try {
@@ -55,9 +55,13 @@
     }
     return self;
 }
-    
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle: UILocalizedString(@"Back", nil)
                                                                              style:UIBarButtonItemStylePlain
@@ -66,30 +70,30 @@
     
     self.hudView = [[VTHudView alloc] init];
 }
-    
+
 - (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];
 }
-    
+
 - (void)showLoadingHud {
     [self.hudView showOnView:self.navigationController.view];
 }
-    
+
 - (void)hideLoadingHud {
     [self.hudView hide];
 }
-    
+
 - (void)handleTransactionError:(NSError *)error {
     VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
     [self.navigationController pushViewController:vc animated:YES];
 }
-    
+
 - (void)handleTransactionSuccess:(VTTransactionResult *)result {
     VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
     VTSuccessStatusController *vc = [VTSuccessStatusController controllerWithSuccessViewModel:vm];
     [self.navigationController pushViewController:vc animated:YES];
 }
-    
+
 - (void)showGuideViewController {
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_BCA_IDENTIFIER] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:VT_VA_MANDIRI_IDENTIFIER] ||
@@ -103,5 +107,5 @@
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-    
-    @end
+
+@end

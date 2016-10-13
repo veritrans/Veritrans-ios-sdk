@@ -12,6 +12,7 @@
 #import "VTCvvInfoController.h"
 #import "VTCCFrontView.h"
 #import "VTSuccessStatusController.h"
+#import "VTNavigationViewController.h"
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "UIViewController+Modal.h"
@@ -60,7 +61,7 @@
 }
 
 - (void)presentOnViewController:(UIViewController *)viewController {
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:self];
+    VTNavigationViewController *nvc = [[VTNavigationViewController alloc] initWithRootViewController:self];
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     [viewController presentViewController:nvc animated:YES completion:nil];
 }

@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "VTNavigationViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @class VTPaymentViewController;
@@ -18,7 +19,7 @@
 - (void)paymentViewController:(VTPaymentViewController *)viewController paymentFailed:(NSError *)error;
 @end
 
-@interface VTPaymentViewController : UINavigationController
+@interface VTPaymentViewController : VTNavigationViewController
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails

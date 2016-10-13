@@ -182,6 +182,8 @@
 		E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */; };
 		E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */; };
 		E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */; };
+		E573CE451DAF75B5007531E0 /* VTNavigationViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E573CE431DAF75B5007531E0 /* VTNavigationViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E573CE461DAF75B5007531E0 /* VTNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E573CE441DAF75B5007531E0 /* VTNavigationViewController.m */; };
 		E578DD061CFBED7A0091760A /* vaother@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E578DD051CFBED7A0091760A /* vaother@2x.png */; };
 		E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = E578DD081CFBF6480091760A /* UIView+Toast.h */; };
 		E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD091CFBF6480091760A /* UIView+Toast.m */; };
@@ -423,6 +425,8 @@
 		E5591A451CEF0DB0005A2DB1 /* VTVASuccessStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVASuccessStatusController.h; sourceTree = "<group>"; };
 		E5591A461CEF0DB0005A2DB1 /* VTVASuccessStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVASuccessStatusController.m; sourceTree = "<group>"; };
 		E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTVASuccessStatusController.xib; sourceTree = "<group>"; };
+		E573CE431DAF75B5007531E0 /* VTNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTNavigationViewController.h; sourceTree = "<group>"; };
+		E573CE441DAF75B5007531E0 /* VTNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTNavigationViewController.m; sourceTree = "<group>"; };
 		E578DD051CFBED7A0091760A /* vaother@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "vaother@2x.png"; path = "../MidtransResources/vaother@2x.png"; sourceTree = "<group>"; };
 		E578DD081CFBF6480091760A /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		E578DD091CFBF6480091760A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
@@ -838,6 +842,8 @@
 			children = (
 				3068387F1C7EE7220064A305 /* VTPaymentViewController.h */,
 				306838801C7EE7220064A305 /* VTPaymentViewController.m */,
+				E573CE431DAF75B5007531E0 /* VTNavigationViewController.h */,
+				E573CE441DAF75B5007531E0 /* VTNavigationViewController.m */,
 				30E77E831C8401DC0090D228 /* Payment */,
 				00F61AE61D1459F300C93DA0 /* Payment List */,
 			);
@@ -1013,6 +1019,7 @@
 				E525E12A1CFD75D1009448A5 /* UIViewController+Modal.h in Headers */,
 				E503AECD1C8E889C00F097FF /* VTVAListController.h in Headers */,
 				E517C2D81C96B610009AE6AA /* VTHudView.h in Headers */,
+				E573CE451DAF75B5007531E0 /* VTNavigationViewController.h in Headers */,
 				30BB9C811C7DA6410012BB2A /* VTTextField.h in Headers */,
 				3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */,
 				E583AFF51C8D6DD300C04512 /* VTSuccessStatusController.h in Headers */,
@@ -1267,6 +1274,7 @@
 				30E713231C859D6100AFB7B4 /* MBXPageViewController_vt.m in Sources */,
 				30BB9C821C7DA6410012BB2A /* VTTextField.m in Sources */,
 				E50D86081D0ECBC500F26D2E /* VTIndomaretSuccessController.m in Sources */,
+				E573CE461DAF75B5007531E0 /* VTNavigationViewController.m in Sources */,
 				3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */,
 				00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */,
 				30E7131A1C85816B00AFB7B4 /* VTDetailedTitleController.m in Sources */,

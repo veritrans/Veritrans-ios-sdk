@@ -90,16 +90,16 @@
                 NSNumber *productPriceNumber = [f numberFromString:@"100000"];
                 NSNumber *quantityNumber = [f numberFromString:@"1"];
                 // itemDetail is an item for sale
-                VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:quantityNumber name:@"ayopop" price:productPriceNumber quantity:quantityNumber];
+                VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:[NSString randomWithLength:100] name:@"ayopop" price:productPriceNumber quantity:quantityNumber];
                 VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
         
                 VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
         
                 // customerDetails is customer object
-                VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"gaurang@ayopop.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
+                VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"new@mailinator.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
         
                 // transactionDetails is the detail of transaction including the orderID and gross amount
-                VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:quantityNumber andGrossAmount:productPriceNumber];
+                VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:productPriceNumber];
         
                 VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:@[itemDetail] transactionDetails:transactionDetails withPaymentMethodList:@[@"cc",@"atm",@"epay"]];
                 vc.delegate = self;

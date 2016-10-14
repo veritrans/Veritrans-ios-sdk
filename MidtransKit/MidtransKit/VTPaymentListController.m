@@ -64,7 +64,6 @@
                 if (index != NSNotFound) {
                     VTPaymentListModel *model= [[VTPaymentListModel alloc] initWithDictionary:paymentList[index]];
                     [self.paymentMethodListDefault addObject:model];
-                    NSLog(@"model-->%@",model);
                     self.dataSource.paymentList = self.paymentMethodListDefault;
                 }
             }
@@ -129,7 +128,6 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodListDefault objectAtIndex:indexPath.row];
-    NSLog(@"payment method-->%@",[paymentMethod dictionaryRepresentation]);
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CREDIT_CARD_IDENTIFIER]) {
         if ([CONFIG merchantClientData]) {
             VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];

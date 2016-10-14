@@ -18,6 +18,7 @@
     @property (nonatomic,strong) NSArray *itemDetails;
     @property (nonatomic,strong) VTPaymentListModel *paymentMethod;
     @property (nonatomic) VTTransactionDetails *transactionDetails;
+    @property (nonatomic,strong)NSArray *paymentMethodList;
     
     
 -(instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
@@ -27,7 +28,8 @@
     
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail*>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails;
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                  withPaymentMethodList:(NSArray *)paymentMethodList;
     
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
 -(void)showLoadingHud;

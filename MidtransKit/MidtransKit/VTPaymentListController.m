@@ -26,7 +26,7 @@
 
 @interface VTPaymentListController () <UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
-@property (nonatomic,strong) NSMutableArray *paymentMethodList;
+@property (nonatomic,strong) NSMutableArray *paymentMethodListDefault;
 @property (nonatomic,strong) VTPaymentListDataSource *dataSource;
 @end
 
@@ -45,28 +45,43 @@
     self.navigationItem.leftBarButtonItem = closeButton;
     
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTListCell" bundle:VTBundle] forCellReuseIdentifier:@"VTListCell"];
-    
-    
+
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
-    self.paymentMethodList = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    for (int i = 0; i<paymentList.count; i++) {
-        VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
-        [self.paymentMethodList addObject:paymentmodel];
+    self.paymentMethodListDefault = [NSMutableArray new];
+    if (!self.paymentMethodList.count) {
+        for (int i = 0; i<paymentList.count; i++) {
+            VTPaymentListModel *paymentmodel= [[VTPaymentListModel alloc]initWithDictionary:paymentList[i]];
+            [self.paymentMethodListDefault addObject:paymentmodel];
+        }
+        self.dataSource.paymentList = self.paymentMethodListDefault;
     }
-    self.dataSource.paymentList = self.paymentMethodList;
-    
-    self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
-    self.view.footer.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    else {
+            for (NSString *enabledPayment in self.paymentMethodList) {
+                NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                    return [obj[@"id"] isEqualToString:enabledPayment];
+                }];
+                if (index != NSNotFound) {
+                    VTPaymentListModel *model= [[VTPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                    [self.paymentMethodListDefault addObject:model];
+                    NSLog(@"model-->%@",model);
+                    self.dataSource.paymentList = self.paymentMethodListDefault;
+                }
+            }
+           self.dataSource.paymentList = self.paymentMethodListDefault;
+    }
+
+    //self.view.footer = [[VTPaymentListFooter alloc] initWithFrame:CGRectZero];
+    //self.view.footer.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     self.view.header = [[VTPaymentListHeader alloc] initWithFrame:CGRectZero];
     self.view.header.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
-    self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
+    //self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
     self.view.tableView.tableFooterView = self.view.footer;
     self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 80);
     self.view.tableView.tableHeaderView = self.view.header;
     
-    self.view.footer.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
+    //self.view.footer.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.header.amountLabel.text = self.transactionDetails.grossAmount.formattedCurrencyNumber;
     [self.view.tableView reloadData];
 }
@@ -113,7 +128,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
+    VTPaymentListModel *paymentMethod = (VTPaymentListModel *)[self.paymentMethodListDefault objectAtIndex:indexPath.row];
+    NSLog(@"payment method-->%@",[paymentMethod dictionaryRepresentation]);
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:VT_CREDIT_CARD_IDENTIFIER]) {
         if ([CONFIG merchantClientData]) {
             VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:self.customerDetails itemDetails:self.itemDetails transactionDetails:self.transactionDetails paymentMethodName:paymentMethod];

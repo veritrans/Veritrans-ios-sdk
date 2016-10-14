@@ -22,7 +22,7 @@
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail*>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails {
+                     transactionDetails:(VTTransactionDetails *)transactionDetails withPaymentMethodList:(NSArray *)paymentMethodList {
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];
         self = [storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([self class])];
@@ -31,6 +31,7 @@
     }
     
     if (self) {
+        self.paymentMethodList =paymentMethodList;
         self.customerDetails = customerDetails;
         self.itemDetails = itemDetails;
         self.transactionDetails = transactionDetails;
@@ -38,7 +39,7 @@
     return self;
 }
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod; {
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail*>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails paymentMethodName:(VTPaymentListModel *)paymentMethod {
     
     @try {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Midtrans" bundle:VTBundle];

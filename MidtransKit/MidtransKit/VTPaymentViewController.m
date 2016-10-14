@@ -21,11 +21,11 @@
 
 @dynamic delegate;
 
-- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails {
+- (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails itemDetails:(NSArray <VTItemDetail *>*)itemDetails transactionDetails:(VTTransactionDetails *)transactionDetails withPaymentMethodList:(NSArray *)paymentList {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithCustomerDetails:customerDetails
                                                                                itemDetails:itemDetails
                                                                         transactionDetails:transactionDetails
-                                                                         paymentMethodName:nil];
+                                                                         withPaymentMethodList:paymentList];
     self = [[VTPaymentViewController alloc] initWithRootViewController:vc];
     if (self) {
         [VTFontManager registerSourceSansProFonts];

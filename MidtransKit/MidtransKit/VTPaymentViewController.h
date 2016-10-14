@@ -23,7 +23,8 @@
 
 - (instancetype)initWithCustomerDetails:(VTCustomerDetails *)customerDetails
                             itemDetails:(NSArray <VTItemDetail *>*)itemDetails
-                     transactionDetails:(VTTransactionDetails *)transactionDetails;
+                     transactionDetails:(VTTransactionDetails *)transactionDetails
+                  withPaymentMethodList:(NSArray *)paymentList;
 
 @property (nonatomic, weak) id<VTPaymentViewControllerDelegate> delegate;
 

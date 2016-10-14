@@ -79,33 +79,32 @@
     
     if (customerDetails) {
 //        VTAddCardController *vc = [[VTAddCardController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
-                VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
-        [vc presentOnViewController:self];
+//                VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails];
+//        [vc presentOnViewController:self];
+
+                [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
+                [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
         
-        //        [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
-        //        [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
-        //
-        //        NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-        //        f.numberStyle = NSNumberFormatterDecimalStyle;
-        //        NSNumber *productPriceNumber = [f numberFromString:@"100000"];
-        //        NSNumber *quantityNumber = [f numberFromString:@"1"];
-        //        // itemDetail is an item for sale
-        //        VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:quantityNumber name:@"ayopop" price:productPriceNumber quantity:quantityNumber];
-        //
-        //        VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
-        //
-        //        VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
-        //
-        //        // customerDetails is customer object
-        //        VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"gaurang@ayopop.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
-        //
-        //        // transactionDetails is the detail of transaction including the orderID and gross amount
-        //        VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:quantityNumber andGrossAmount:productPriceNumber];
-        //
-        //        VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:@[itemDetail] transactionDetails:transactionDetails];
-        //        vc.delegate = self;
-        //        [self presentViewController:vc animated:YES completion:nil];
+                NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+                f.numberStyle = NSNumberFormatterDecimalStyle;
+                NSNumber *productPriceNumber = [f numberFromString:@"100000"];
+                NSNumber *quantityNumber = [f numberFromString:@"1"];
+                // itemDetail is an item for sale
+                VTItemDetail *itemDetail = [[VTItemDetail alloc] initWithItemID:quantityNumber name:@"ayopop" price:productPriceNumber quantity:quantityNumber];
+                VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
         
+                VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
+        
+                // customerDetails is customer object
+                VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"gaurang@ayopop.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
+        
+                // transactionDetails is the detail of transaction including the orderID and gross amount
+                VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:quantityNumber andGrossAmount:productPriceNumber];
+        
+                VTPaymentViewController *vc = [[VTPaymentViewController alloc] initWithCustomerDetails:customerDetails itemDetails:@[itemDetail] transactionDetails:transactionDetails withPaymentMethodList:@[@"cc",@"atm",@"epay"]];
+                vc.delegate = self;
+                [self presentViewController:vc animated:YES completion:nil];
+
     } else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
         [self.navigationController pushViewController:option animated:YES];

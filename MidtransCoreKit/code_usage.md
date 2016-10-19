@@ -1,13 +1,12 @@
-
-# Overview
+### Overview
 We provide an API-only implementation for all payment types. This allows users to bring your own UI to the mobile App. Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
 
-# Prerequsites
+### Prerequsites
 
 1. Create a merchant account in MAP
 2. Setup your merchant accounts settings, in particular Notification URL.
 
-# Supported Payments
+### Supported Payments
 1. Credit Card
 2. Telkomsel Cash
 3. XL Tunai
@@ -22,14 +21,14 @@ We provide an API-only implementation for all payment types. This allows users t
 12. BRI E-Pay
 13. Kios ON
 
-# Setup
+### Setup
 
-### Requirement
+#### Requirement
 
 [Cococapods](https://cocoapods.org/) version 1.0.0
 
-### Installation
-Navigate to your project's root directory and run `pod init` to create a `Podfile`. 
+#### Installation
+Navigate to your project's root directory and run `pod init` to create a `Podfile`.
 
 ```
 pod init
@@ -57,7 +56,7 @@ pod install --verbose
 
 Cocoapods will download and install `MidtransKit` and also create a .xcworkspace project.
 
-# Integration
+#### Integration
 
 Once you have completed installation of MidtransKit, configure it with your `clientKey` and `environment` in your `AppDelegate.h`
 
@@ -68,7 +67,7 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 [MidtransConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
 ```
 
-# Generate Transaction Token
+#### Generate Transaction Token
 
 Before you can do the payment, you need to generate a `transaction_token` as representation of you credentials data.
 
@@ -78,7 +77,7 @@ Before you can do the payment, you need to generate a `transaction_token` as rep
 MidtransTransactionDetails *transactionDetails =
 [[MidtransTransactionDetails alloc] initWithOrderID:@"random_string"
                                andGrossAmount:gross_amount];
-                               
+
 MidtransItemDetail *itemDetail =
 [[MidtransItemDetail alloc] initWithItemID:@"your_item_id"
                                 name:@"item_name"
@@ -93,7 +92,7 @@ MidtransCustomerDetails *customerDetails =
                                        phone:@"phone_number"
                              shippingAddress:shipping_address
                               billingAddress:billing_address]
-                              
+
 NSURL *merchantURL = [NSURL URLWithString:@"merchant-url"];
 [[MidtransMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
                                                         transactionDetails:transactionDetails
@@ -109,7 +108,7 @@ NSURL *merchantURL = [NSURL URLWithString:@"merchant-url"];
  }];
 ```
 
-## 1. Credit Card
+### 1. Credit Card
 
 In Credit Card transaction there are two main steps to make transaction
 
@@ -117,7 +116,7 @@ In Credit Card transaction there are two main steps to make transaction
 * Charge transaction with generated and valid `card_token`
 
 
-### 1.1 Generate Card Token
+#### 1.1 Generate Card Token
 
 Use following code as a template
 
@@ -127,7 +126,7 @@ MidtransCreditCard *card =
                          expiryMonth:@"card_expiry_month"
                           expiryYear:@"card_expiry_year"
                                  cvv:card_cvv];
-                                 
+
 //Set 3D secure enable or not by set the secure parameter
 BOOL enable3DSecure = YES;
 
@@ -138,37 +137,37 @@ MidtransTokenizeRequest *tokenRequest =
 
 [[MidtransClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
     if (error) {
-    	//handle error
+        //handle error
     } else {
-    	//use the card token 
+        //use the card token
     }
 }];
-                                       
+
 ```
 
-### 1.2 <a name="charge-normal-transaction"></a>Charge Transaction
-After you have a valid `card_token`, you can continue to the final step of payment and your credit card will be charged. 
+#### 1.2 <a name="charge-normal-transaction"></a>Charge Transaction
+After you have a valid `card_token`, you can continue to the final step of payment and your credit card will be charged.
 
 Use following code as a template.
 
 ```
 MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:card_token customerDetails:transaction_token.customerDetails];
-    
-//set this if you want to save card    
+
+//set this if you want to save card
 paymentDetail.saveToken = self.view.saveCardSwitch.on;
-    
+
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:transaction_token];
 ```
 
 You will have `result` if the transaction is success, and `error` if the transaction is failed.
 
-## 2. Telkomsel Cash
+### 2. Telkomsel Cash
 ```
 MidtransPaymentTelkomselCash *paymentDetails = [[MidtransPaymentTelkomselCash alloc] initWithMSISDN:<phone number>];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {    
+
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -177,17 +176,17 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 3. XL Tunai
+### 3. XL Tunai
 ```
 MidtransPaymentXLTunai *paymentDetails = [[MidtransPaymentXLTunai alloc] init];
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {    
+
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
         if (result.redirectURL) {
-        	  //transaction need to continue via webcontainer
+              //transaction need to continue via webcontainer
             MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result paymentIdentifier:@"xl_tunai"];
             vc.delegate = self;
             //present the web container
@@ -197,13 +196,13 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 4. Indosat Dompetku
+### 4. Indosat Dompetku
 ```
 MidtransPaymentIndosatDompetku *paymentDetails = [[MidtransPaymentIndosatDompetku alloc] initWithMSISDN:<phone number>];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {    
+
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -212,9 +211,9 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 5. VA / Bank Transfer
+### 5. VA / Bank Transfer
 
-### 5.1 Preparing Payment Details
+#### 5.1 Preparing Payment Details
 You need to create `paymentDetail` as object of **MidtransPaymentBankTransfer** and set the bank transfer type with **MidtransVAType** values
 
 * MidtransVATypeBCA
@@ -224,37 +223,37 @@ You need to create `paymentDetail` as object of **MidtransPaymentBankTransfer** 
 
 ```
 MidtransPaymentBankTransfer *paymentDetails = paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:<va type> email:<email>];
-                                                                                                  
+
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails];
 ```
 
-### 5.2 Handle Transaction Result
+#### 5.2 Handle Transaction Result
 After **charge transaction** was successful, you'll get `MidtransTransactionResult` object, which have **codes** that needed to continue the transaction via ATM etc.
 
 ```
 if (result) {
-	<for Mandiri VA>
-	NSString *billpayCode = transactionResult.mandiriBillpayCode;
-	NSString *companyCode = transactionResult.mandiriBillpayCompanyCode;
-	
-	<for Others VA>
-	NSString *virtualAccountNumber = transactionResult.virtualAccountNumber;
+    <for Mandiri VA>
+    NSString *billpayCode = transactionResult.mandiriBillpayCode;
+    NSString *companyCode = transactionResult.mandiriBillpayCompanyCode;
+
+    <for Others VA>
+    NSString *virtualAccountNumber = transactionResult.virtualAccountNumber;
 } else {
-	//error
+    //error
 }
 ```
 
-## 6. CIMB Clicks
+### 6. CIMB Clicks
 ```
 MidtransPaymentCIMBClicks *paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {    
+
+[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
         if (result.redirectURL) {
-        	  //transaction need to continue via webcontainer
+              //transaction need to continue via webcontainer
             MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result paymentIdentifier:@"cimb_clicks"];
             vc.delegate = self;
             //present the web container
@@ -264,12 +263,12 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 7. Indomaret
+### 7. Indomaret
 ```
 MidtransPaymentCStore *paymentDetails = [[MidtransPaymentCStore alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
+
 [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
@@ -279,7 +278,7 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 8. BCA KlikPay
+### 8. BCA KlikPay
 ```
 MidtransPaymentBCAKlikpay *paymentDetails = [[MidtransPaymentBCAKlikpay alloc] init];
 
@@ -290,7 +289,7 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
         //handle error
     } else {
         if (result.redirectURL) {
-        	  //transaction need to continue via webcontainer
+              //transaction need to continue via webcontainer
             MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result paymentIdentifier:@"bca_klikpay"];
             vc.delegate = self;
             //present the web container
@@ -300,12 +299,12 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 9. KlikBCA
+### 9. KlikBCA
 ```
 MidtransPaymentKlikBCA *paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:<klikbca userid>];
-        
+
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
+
 [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
@@ -315,17 +314,17 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 10. Mandiri E-Cash
+### 10. Mandiri E-Cash
 ```
 MidtransPaymentMandiriECash *paymentDetails = [[MidtransPaymentMandiriECash alloc] init];
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
+
 [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
         if (result.redirectURL) {
-       		//transaction need to continue via webcontainer
+            //transaction need to continue via webcontainer
             MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result paymentIdentifier:@"mandiri_ecash"];
             vc.delegate = self;
             //present the web container
@@ -335,12 +334,12 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 11. Mandiri Clickpay
+### 11. Mandiri Clickpay
 ```
 MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:<clickpay number> clickpayToken:<clickpay token>];
-    
+
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
+
 [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
@@ -350,19 +349,19 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 12. BRI E-Pay
+### 12. BRI E-Pay
 
 ```
 MidtransPaymentEpayBRI *paymentDetails = [[MidtransPaymentEpayBRI alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
+
 [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
         if (result.redirectURL) {
-       		//transaction need to continue via webcontainer
+            //transaction need to continue via webcontainer
             MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result paymentIdentifier:@"bri_epay"];
             vc.delegate = self;
             //present the web container
@@ -372,13 +371,13 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 }];
 ```
 
-## 13. Kioson
+### 13. Kioson
 
 ```
 MidtransPaymentKiosOn *paymentDetails = [[MidtransPaymentKiosOn alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
-    
+
 [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error

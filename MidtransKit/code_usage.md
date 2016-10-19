@@ -1,4 +1,4 @@
-# Setup
+### Setup
 Please read [this section](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK) first before walking through the implementation guide
 
 ### Requirement
@@ -35,7 +35,7 @@ pod install --verbose
 
 Cocoapods will download and install `MidtransKit` and also create a .xcworkspace project.
 
-# Integration
+### Integration
 
 Once you have completed installation of MidtransKit, configure it with your `clientKey` and `environment` in your `AppDelegate.h`
 
@@ -46,7 +46,7 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 [MidtransConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
 ```
 
-# Payment
+### Payment
 
 ##### Generate `TransactionTokenResponse` object
 
@@ -60,11 +60,11 @@ MidtransItemDetail *itemDetail = [[MidtransItemDetail alloc] initWithItemID:@"it
                                                        quantity:item_quantiry];
 
 MidtransCustomerDetails *customerDetails = [[MidtransCustomerDetails alloc] initWithFirstName:@"user_firstname"
-    										                                    lastName:@"user_lastname"
-    										                                       email:@"user_email"
-    										                                       phone:@"user_phone"
-    										                             shippingAddress:ship_address
-    										                              billingAddress:bill_address];
+                                                                                lastName:@"user_lastname"
+                                                                                   email:@"user_email"
+                                                                                   phone:@"user_phone"
+                                                                         shippingAddress:ship_address
+                                                                          billingAddress:bill_address];
 
 MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:@"order_id"
                                                                           andGrossAmount:items_gross_amount];
@@ -79,7 +79,7 @@ NSURL *merchantURL = [NSURL URLWithString:@"merchant-url-for-generating-token"];
      if (token) {
          //present token
      } else {
-     	  //generate token error       
+          //generate token error
      }
  }];
 ```
@@ -93,7 +93,7 @@ MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] i
 [self presentViewController:vc animated:YES completion:nil];
 ```
 
-# Get Notified
+### Get Notified
 
 Set your view controller to conform with **MidtransUIPaymentViewControllerDelegate**
 
@@ -132,14 +132,14 @@ Add two methods to your view controller, these methods are from MidtransUIPaymen
 }
 ```
 
-# Customise Theme Color & Font
+### Customise Theme Color & Font
 
 We've created `MidtransUIThemeManager` to configure the theme color and font of the veritrans payment UI.
 
 ```
 MidtransUIFontSource fontSource = [[MidtransUIFontSource alloc] initWithFontNameBold:font_name
-												             fontNameRegular:font_name
-												               fontNameLight:font_name];
+                                                             fontNameRegular:font_name
+                                                               fontNameLight:font_name];
 [MidtransUIThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
 ```
 Put this code before you present the `MidtransUIPaymentViewController`

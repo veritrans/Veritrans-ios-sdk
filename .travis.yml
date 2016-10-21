@@ -18,3 +18,4 @@ install:
   - pod update
 notifications:
   email: true
+  slack: midtrans:0RQSD3O4kPhQy9KxlPZsFYXp

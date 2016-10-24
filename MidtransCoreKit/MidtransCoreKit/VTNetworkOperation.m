@@ -104,7 +104,14 @@
         NSInteger code = [responseObject[@"status_code"] integerValue];
         if (code/100 == 2) {
             if (self.callback) self.callback(responseObject, nil);
-        } else {
+        }
+        else if (code == 400) {
+            NSError *error = [NSError errorWithDomain:VT_ERROR_DOMAIN
+                                                 code:code
+                                             userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"], NSLocalizedFailureReasonErrorKey:responseObject[@"validation_messages"]}];
+            if (self.callback) self.callback(nil, error);
+        }
+        else {
             NSError *error = [NSError errorWithDomain:VT_ERROR_DOMAIN
                                                  code:code
                                              userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"]}];
@@ -112,7 +119,7 @@
         }
     } else {
         if (self.callback) self.callback(responseObject, nil);
-    }    
+    }
     
     [self finish];
 }

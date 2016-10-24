@@ -45,7 +45,7 @@
     
     self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
     
-    [IHKeyboardAvoiding_vt setAvoidingView:_fieldScrollView];
+    [IHKeyboardAvoiding_vt setAvoidingView:self.cvvTextField.superview];
     
     [self addNavigationToTextFields:@[self.cvvTextField]];
     

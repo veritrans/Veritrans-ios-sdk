@@ -129,7 +129,7 @@
         _cardsView.hidden = false;
     } else {
         _addCardButton.hidden = false;
-        _addCardButtonHeight.constant = 50.;
+        _addCardButtonHeight.constant = 56.;
         _emptyCardView.hidden = false;
         _cardsView.hidden = true;
     }

@@ -70,26 +70,34 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
+    //    [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
+    //    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
     
-    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-    f.numberStyle = NSNumberFormatterDecimalStyle;
-    NSNumber *productPriceNumber = [f numberFromString:@"100000"];
-    NSNumber *quantityNumber = [f numberFromString:@"1"];
-    // itemDetail is an item for sale
-    VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
-    VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"Test" countryCode:@"Test"];
-    // customerDetails is customer object
-    VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"new@mailinator.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
-    // transactionDetails is the detail of transaction including the orderID and gross amount
-    VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:productPriceNumber];
-    VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails withPaymentMethodList:@[]];
+    //    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    //    f.numberStyle = NSNumberFormatterDecimalStyle;
+    //    NSNumber *productPriceNumber = [f numberFromString:@"100000"];
     
-    [vc presentOnViewController:self];
-
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
+    //    NSNumber *quantityNumber = [f numberFromString:@"1"];
+    //    // itemDetail is an item for sale
+    //    VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"46112" countryCode:@"IDN"];
+    //    VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"46112" countryCode:@"IDN"];
+    //    // customerDetails is customer object
+    //    VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"new@mailinator.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
+    
+    NSData *customer = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
+    if (customer) {
+        NSArray *itemDetails = [self generateItemDetails];
+        
+        VTCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:customer];
+        VTTransactionDetails *transactionDetails = [[VTTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:itemDetails]];
+        VTCardListController *vc = [[VTCardListController alloc] initWithCustomerDetails:customerDetails itemDetails:self.itemDetails transactionDetails:transactionDetails withPaymentMethodList:@[]];
+        
+        [vc presentOnViewController:self];
+    }
+    else {
+        OptionViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - VTPaymentViewControllerDelegate

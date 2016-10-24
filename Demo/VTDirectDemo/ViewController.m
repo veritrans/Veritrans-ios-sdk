@@ -41,6 +41,7 @@
     
     self.navigationController.view.userInteractionEnabled = NO;
     NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
+    NSLog(@"data-->%@",clientAuth);
     if (clientAuth) {
         [CONFIG setMerchantClientData:clientAuth];
         self.navigationController.view.userInteractionEnabled = YES;
@@ -70,8 +71,7 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
-    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
+
     
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     f.numberStyle = NSNumberFormatterDecimalStyle;

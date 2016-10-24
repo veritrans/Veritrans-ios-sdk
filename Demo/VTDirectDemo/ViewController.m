@@ -41,6 +41,7 @@
     
     self.navigationController.view.userInteractionEnabled = NO;
     NSDictionary *clientAuth = [[NSUserDefaults standardUserDefaults] objectForKey:@"clientAuth"];
+    
     if (clientAuth) {
         [CONFIG setMerchantClientData:clientAuth];
         self.navigationController.view.userInteractionEnabled = YES;
@@ -70,20 +71,6 @@
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
-    //    [[VTCardControllerConfig sharedInstance] setEnableOneClick:YES];
-    //    [[VTCardControllerConfig sharedInstance] setEnable3DSecure:YES];
-    
-    //    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
-    //    f.numberStyle = NSNumberFormatterDecimalStyle;
-    //    NSNumber *productPriceNumber = [f numberFromString:@"100000"];
-    
-    //    NSNumber *quantityNumber = [f numberFromString:@"1"];
-    //    // itemDetail is an item for sale
-    //    VTAddress *shipAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"46112" countryCode:@"IDN"];
-    //    VTAddress *billAddr = [VTAddress addressWithFirstName:@"Guru" lastName:@"Test" phone:@"1234567890" address:@"Test" city:@"Test" postalCode:@"46112" countryCode:@"IDN"];
-    //    // customerDetails is customer object
-    //    VTCustomerDetails *customerDetails = [[VTCustomerDetails alloc] initWithFirstName:@"Guru" lastName:@"Test" email:@"new@mailinator.com" phone:@"1234567890" shippingAddress:shipAddr billingAddress:billAddr];
-    
     NSData *customer = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     if (customer) {
         NSArray *itemDetails = [self generateItemDetails];

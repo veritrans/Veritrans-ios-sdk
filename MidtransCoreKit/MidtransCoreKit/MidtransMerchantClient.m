@@ -56,11 +56,9 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 - (void)performTransaction:(MidtransTransaction *)transaction
                 completion:(void(^)(MidtransTransactionResult *result, NSError *error))completion {
     
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL], [transaction chargeURL]];
-    
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
-    [[MidtransNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
+    [[MidtransNetworking sharedInstance] postToURL:[transaction chargeURL] header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         NSString *paymentType = transaction.paymentType;
         
@@ -179,10 +177,10 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
                          completion:(void (^_Nullable)(MidtransPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
-    
-    [[MidtransNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@/%@",[PRIVATECONFIG snapURL], ENDPOINT_PAYMENT_PAGES, token] parameters:nil callback:^(id response, NSError *error) {
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
+    [[MidtransNetworking sharedInstance] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
-            MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
+            MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:response];
             
             if (completion) {
                 if (!paymentRequest.merchantData.logoUrl.isEmpty) {

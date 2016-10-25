@@ -10,7 +10,7 @@
 
 @interface MidtransNetworking : NSObject
 
-+ (id)sharedInstance;
++ (MidtransNetworking *)shared;
 
 - (void)deleteFromURL:(NSString *)URL
                header:(NSDictionary *)header

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 @interface MidtransTrackingManager : NSObject
 
-+ (MidtransTrackingManager *)sharedInstance;
++ (MidtransTrackingManager *)shared;
 
 - (void)trackAppSuccessGenerateToken:(NSString *)token
                       secureProtocol:(BOOL)secure

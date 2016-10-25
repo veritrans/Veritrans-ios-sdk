@@ -14,7 +14,7 @@
 @property (nonatomic, readonly) UIColor *themeColor;
 @property (nonatomic, readonly) MidtransUIFontSource *themeFont;
 
-+ (instancetype)shared;
++ (MidtransUIThemeManager *)shared;
 
 /**
  * Call it once before presenting UI Flow

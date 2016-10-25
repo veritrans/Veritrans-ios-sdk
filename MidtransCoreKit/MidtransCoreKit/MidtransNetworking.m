@@ -85,7 +85,7 @@
 
 @implementation MidtransNetworking
 
-+ (id)sharedInstance {
++ (MidtransNetworking *)shared {
     static MidtransNetworking *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

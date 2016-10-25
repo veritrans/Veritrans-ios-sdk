@@ -126,9 +126,5 @@
 -(void)showToastInviewWithMessage:(NSString *)message {
     [MidtransUIToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
 }
-- (void)scanButtonDidTappedFromAddCardViewController {
-    MidtransUIPaymentViewController *navigationController = (MidtransUIPaymentViewController *)self.navigationController;
-    [navigationController scanCardDidTapped];
 
-}
 @end

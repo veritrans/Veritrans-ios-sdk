@@ -14,14 +14,11 @@
 #import "MidtransUIThemeManager.h"
 #import "VTKITConstant.h"
 
-@interface MidtransUIPaymentViewController ()
-@end
-
 @implementation MidtransUIPaymentViewController
 
 @dynamic delegate;
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andUsingScanCardMethod:(BOOL)cardScanner {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;
@@ -31,7 +28,7 @@
     [super viewDidLoad];
     self.navigationBar.translucent = false;
     // to remove 1 px border below nav bar
-
+    
     [self.navigationBar setBackgroundImage:[UIImage new]
                             forBarPosition:UIBarPositionAny
                                 barMetrics:UIBarMetricsDefault];

@@ -139,7 +139,7 @@
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
-                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andUsingScanCardMethod:YES];
+                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
                  self.paymentVC.delegate = self;
                  
                  [self presentViewController:self.paymentVC animated:YES completion:nil];

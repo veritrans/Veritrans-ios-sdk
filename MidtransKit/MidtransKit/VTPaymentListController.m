@@ -28,6 +28,7 @@
 @interface VTPaymentListController () <UITableViewDelegate,VTAddCardControllerDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
+@property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
 @property (nonatomic,strong) VTPaymentListDataSource *dataSource;
 @property (nonatomic) CGFloat tableHeaderHeight;
 @end
@@ -90,6 +91,7 @@
          self.title = response.merchant.preference.displayName;
          [self hideLoadingHud];
          if (response) {
+             self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
@@ -178,9 +180,9 @@
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-        if ([CC_CONFIG saveCard]) {
+        if ([CC_CONFIG saveCard] || self.responsePayment.creditCard.savedTokens > 0) {
             VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                 paymentMethodName:paymentMethod];
+                                                                 paymentMethodName:paymentMethod andCreditCardData:self.responsePayment.creditCard];
             [self.navigationController pushViewController:vc animated:YES];
         }
         else {

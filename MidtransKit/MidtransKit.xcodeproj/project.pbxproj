@@ -111,7 +111,7 @@
 		30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */ = {isa = PBXBuildFile; fileRef = 30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */; };
 		30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */; };
 		D9E0D0EC058179A2EE04D2A0 /* libPods-MidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */; };
-		E502249E1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E502249C1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h */; };
+		E502249E1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E502249C1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E502249F1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = E502249D1CE97EC60010C0ED /* IHKeyboardAvoiding_vt.m */; };
 		E503AEC51C8E85C500F097FF /* bca_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC11C8E85C500F097FF /* bca_va@2x.png */; };
 		E503AEC61C8E85C500F097FF /* echannel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC21C8E85C500F097FF /* echannel@2x.png */; };

@@ -13,4 +13,7 @@
 @interface VTCardListController : MidtransUIPaymentController
 @property (nonatomic) MidtransMaskedCreditCard *selectedMaskedCard;
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
+-(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+           paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard;
 @end

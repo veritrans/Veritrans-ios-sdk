@@ -35,7 +35,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *addCardButton;
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
-
+@property (nonatomic, strong) MidtransPaymentRequestV2CreditCard *creditCard;
 @property (nonatomic) NSMutableArray *cards;
 @property (nonatomic) BOOL editingCell;
 @end
@@ -43,7 +43,18 @@
 @implementation VTCardListController {
     MidtransUIHudView *_hudView;
 }
+-(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+           paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    if (self) {
+        self.token = token;
+        self.paymentMethod = paymentMethod;
+        self.creditCard = creditCard;
+    }
+    return self;
 
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -51,6 +62,8 @@
     
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
+
+    NSLog(@"credit cards-->%@",self.creditCard);
     /**
      *  need to revisit
      *

@@ -23,8 +23,6 @@
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andUsingScanCardMethod:(BOOL)cardScanner {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
-    [[NSUserDefaults standardUserDefaults] setBool:cardScanner forKey:MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }
@@ -73,11 +71,7 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return UIInterfaceOrientationPortrait;
 }
-- (void)scanCardDidTapped {
-    if ([self.delegate respondsToSelector:@selector(addCardButtonDidTapped)]) {
-        [self.delegate addCardButtonDidTapped];
-    }
-}
+
 - (BOOL)shouldAutorotate {
     return NO;
 }

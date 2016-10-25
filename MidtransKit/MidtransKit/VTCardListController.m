@@ -28,6 +28,8 @@
 #import <MidtransCoreKit/MidtransPaymentCreditCard.h>
 #import <MidtransCoreKit/MidtransTransactionDetails.h>
 
+CGFloat const ButtonHeight = 56;
+
 @interface VTCardListController () <MidtransUICardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
@@ -106,7 +108,7 @@
         self.cardsView.hidden = false;
     } else {
         self.addCardButton.hidden = false;
-        self.addCardButtonHeight.constant = 50.;
+        self.addCardButtonHeight.constant = ButtonHeight;
         self.emptyCardView.hidden = false;
         self.cardsView.hidden = true;
     }

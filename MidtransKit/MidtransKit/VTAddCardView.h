@@ -24,10 +24,12 @@
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet MidtransUICCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;
-@property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
-@property (weak, nonatomic) IBOutlet UIView *scanCardViewWrapper;
+
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
-- (void)setCardNumberFromCardIOSDK:(NSDictionary *)cardInformation;
+
+- (void)hideScanCardButton:(BOOL)hide;
+- (void)reformatCardNumber;
+
 - (void)setToken:(MidtransTransactionTokenResponse *)token;
 - (BOOL)isViewError:(NSError *)error;
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter;

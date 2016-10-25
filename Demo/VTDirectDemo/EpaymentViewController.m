@@ -78,12 +78,18 @@
     
 }
 
-/**
- *  if there is payment opening the webview please using this as handler
- *
- *  @param webPaymentController webPaymentController description
- *  @param error                error description
- */
-- (void)webPaymentController:(MidtransPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+#pragma mark - VTPaymentWebControllerDelegate
+
+- (void)webPaymentController_transactionFinished:(MidtransPaymentWebController *)webPaymentController {
+    
 }
+
+- (void)webPaymentController_transactionPending:(MidtransPaymentWebController *)webPaymentController {
+    
+}
+
+- (void)webPaymentController:(MidtransPaymentWebController *)webPaymentController transactionError:(NSError *)error {
+    
+}
+
 @end

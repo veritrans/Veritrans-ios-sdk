@@ -64,7 +64,6 @@
 		3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948C1C75A40900938C17 /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30D9ABFC1C76FD1D00F858AE /* MidtransNetworkOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D9ABFA1C76FD1D00F858AE /* MidtransNetworkOperation.h */; };
 		30D9ABFD1C76FD1D00F858AE /* MidtransNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9ABFB1C76FD1D00F858AE /* MidtransNetworkOperation.m */; };
-		6470D1D14E5F9E527690DFAA /* libPods-MidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */; };
 		E50D85D41D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85D21D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E50D85D51D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85D31D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m */; };
 		E50D85E71D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85E31D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -258,7 +257,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6470D1D14E5F9E527690DFAA /* libPods-MidtransCoreKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

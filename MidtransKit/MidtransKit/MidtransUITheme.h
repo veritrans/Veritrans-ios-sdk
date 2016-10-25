@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MidtransUITheme : NSObject
-+ (MidtransUITheme *)defaultTheme;
+
++ (MidtransUITheme *_Nonnull)defaultTheme;
 /**
  *  set primary background color, will use it as primary color scheme;
  */

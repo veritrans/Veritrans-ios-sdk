@@ -42,8 +42,7 @@
          [MBProgressHUD hideHUDForView:self.view animated:YES];
          self.title = response.merchantData.displayName;
          if (response) {
-             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-             // [self.tableView reloadData];
+
              self.paymentRequestResponse = response;
              if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
                  for (int x=0; x<response.transactionData.enabledPayments.count; x++) {

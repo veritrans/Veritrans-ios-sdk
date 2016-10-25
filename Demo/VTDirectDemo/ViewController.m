@@ -201,7 +201,7 @@
 - (void)cardIOView:(CardIOView *)cardIOView didScanCard:(CardIOCreditCardInfo *)info {
     if (info) {
         // The full card number is available as info.cardNumber, but don't log that!
-        NSLog(@"Received card info. Number: %@, expiry: %02i/%i, cvv: %@.", info.redactedCardNumber, info.expiryMonth, info.expiryYear, info.cvv);
+        NSLog(@"Received card info. Number: %@, expiry: %02lu/%i, cvv: %@.", info.redactedCardNumber, (unsigned long)info.expiryMonth, info.expiryYear, info.cvv);
         // Use the card info...
     }
     else {

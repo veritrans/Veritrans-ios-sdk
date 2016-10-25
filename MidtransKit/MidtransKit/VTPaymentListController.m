@@ -43,6 +43,7 @@
     
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
+    self.view.tableView.tableFooterView = [UIView new];
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
@@ -73,7 +74,7 @@
     self.view.header.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
-    self.view.tableView.tableFooterView = self.view.footer;
+    //self.view.tableView.tableFooterView = self.view.footer;
     self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), self.tableHeaderHeight);
     self.view.footer.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.header.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
@@ -84,57 +85,48 @@
     [self showLoadingHud];
     
     [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
-                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+                                                            completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
-         self.title = response.merchantData.displayName;
+         self.title = response.merchant.preference.displayName;
          [self hideLoadingHud];
          if (response) {
-             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-             self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-             self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-             NSArray *enabledPayments = response.transactionData.enabledPayments;
-             //need fix it in the future;
-
+             bool vaAlreadyAdded = 0;
+             NSInteger mainIndex = 0;
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
-             bool vaAlreadyAdded = 0;
-             NSInteger mainIndex = 0;
-             for (NSString *enabledPayment in enabledPayments) {
+             NSInteger grandTotalAmount = [response.transactionDetails.grossAmount integerValue];
+             self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+              NSArray *paymentAvailable = response.enabledPayments;
+             for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                     return [obj[@"id"] isEqualToString:enabledPayment];
-                 }];
+                                          return [obj[@"id"] isEqualToString:enabledPayment.type];
+                                      }];
                  if (index != NSNotFound) {
-                     MidtransPaymentListModel *model;
-                     if ([enabledPayment isEqualToString:@"permata_va"] ||
-                         [enabledPayment isEqualToString:@"all_va"] ||
-                         [enabledPayment isEqualToString:@"echannel"] ||
-                         [enabledPayment isEqualToString:@"bca_va"] ) {
-                         if (!vaAlreadyAdded) {
-                             if (mainIndex!=0) {
-                                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                                 [self.paymentMethodList insertObject:model atIndex:1];
-                                 vaAlreadyAdded = YES;
-                             }
-
-                         }
-                     }
-                     else {
-                           model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
-                         [self.paymentMethodList addObject:model];
-                     }
-
-                 }
-                  mainIndex++;
+                                          MidtransPaymentListModel *model;
+                                          if ([enabledPayment.category isEqualToString:@"bank_transfer"]) {
+                                              if (!vaAlreadyAdded) {
+                                                  if (mainIndex!=0) {
+                                                      model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                                      [self.paymentMethodList insertObject:model atIndex:1];
+                                                      vaAlreadyAdded = YES;
+                                                  }
+                     
+                                              }
+                                          }
+                                          else {
+                                                model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                                              [self.paymentMethodList addObject:model];
+                                          }
+                     mainIndex++;
+                                      }
+                 self.dataSource.paymentList = self.paymentMethodList;
+                     [self.view.tableView reloadData];
              }
-             
-             self.dataSource.paymentList = self.paymentMethodList;
-             [self.view.tableView reloadData];
          }
          else {
-             //todo what should happens when payment request is failed;
          }
      }];
 }

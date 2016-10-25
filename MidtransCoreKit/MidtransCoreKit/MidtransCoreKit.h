@@ -44,6 +44,7 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MTPaymentRequestDataModels.h"
+#import "MidtransPaymentRequestV2DataModels.h"
 #import "MidtransPaymentIndosatDompetku.h"
 #import "MidtransPaymentXLTunai.h"
 #import "MidtransPaymentTelkomselCash.h"

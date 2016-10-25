@@ -36,32 +36,32 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"paymentlist" ofType:@"plist"];
     self.paymentList = [NSArray arrayWithContentsOfFile:path];
     
-    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
-                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
-     {
-         [MBProgressHUD hideHUDForView:self.view animated:YES];
-         self.title = response.merchantData.displayName;
-         if (response) {
-             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-             // [self.tableView reloadData];
-             self.paymentRequestResponse = response;
-             if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
-                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-                     for (int i = 0; i<self.paymentList.count; i++) {
-                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
-                         if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-                             [self.paymentMethodList addObject:paymentmodel];
-                         }
-                     }
-                 }
-             }
-             [self.tableView reloadData];
-             
-         }
-         else {
-             //todo what should happens when payment request is failed;
-         }
-     }];
+//    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
+//                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+//     {
+//         [MBProgressHUD hideHUDForView:self.view animated:YES];
+//         self.title = response.merchantData.displayName;
+//         if (response) {
+//             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+//             // [self.tableView reloadData];
+//             self.paymentRequestResponse = response;
+//             if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
+//                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+//                     for (int i = 0; i<self.paymentList.count; i++) {
+//                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
+//                         if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+//                             [self.paymentMethodList addObject:paymentmodel];
+//                         }
+//                     }
+//                 }
+//             }
+//             [self.tableView reloadData];
+//             
+//         }
+//         else {
+//             //todo what should happens when payment request is failed;
+//         }
+//     }];
     // Do any additional setup after loading the view from its nib.
 }
 

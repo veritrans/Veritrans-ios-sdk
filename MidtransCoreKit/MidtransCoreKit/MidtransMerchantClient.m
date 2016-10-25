@@ -16,6 +16,7 @@
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MTPaymentRequestDataModels.h"
+#import "MidtransPaymentRequestV2DataModels.h"
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
@@ -176,19 +177,20 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
-                         completion:(void (^_Nullable)(MidtransPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
+                         completion:(void (^_Nullable)(MidtransPaymentRequestV2Response *_Nullable response, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
     [[MidtransNetworking sharedInstance] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
             MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:response];
-            
+            MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
+
             if (completion) {
-                if (!paymentRequest.merchantData.logoUrl.isEmpty) {
-                    [MidtransImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
-                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequest.merchantData.merchantName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+                if (!paymentRequestV2.merchant.preference.logoUrl.isEmpty) {
+                    [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
-                completion(paymentRequest,NULL);
+                completion(paymentRequestV2,NULL);
             }
         }
         else{

@@ -83,7 +83,7 @@
     
     [self showLoadingHud];
     
-    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
+    [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                             completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchantData.displayName;

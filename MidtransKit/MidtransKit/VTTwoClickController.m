@@ -72,7 +72,7 @@
                                                  toViewController:(UIViewController*)toVC
 {
     if (operation == UINavigationControllerOperationPop)
-        return [[PopAnimator alloc] init];
+    return [[PopAnimator alloc] init];
     
     return nil;
 }
@@ -83,14 +83,14 @@
                                                                                                cvv:self.cvvTextField.text
                                                                                        grossAmount:self.token.transactionDetails.grossAmount];
     
-    [[MidtransClient sharedClient] generateToken:tokenRequest
-                                      completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                          if (error) {
-                                              [self handleTransactionError:error];
-                                          } else {
-                                              [self payWithToken:token];
-                                          }
-                                      }];
+    [[MidtransClient shared] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
 }
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
@@ -120,7 +120,7 @@
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
-    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
         } else {

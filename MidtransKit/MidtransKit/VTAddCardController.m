@@ -112,16 +112,16 @@
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
                                                                                          secure:enable3Ds];
     
-    [[MidtransClient sharedClient] generateToken:tokenRequest
-                                      completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                          if (error) {
-                                              
-                                              [self hideLoadingHud];
-                                              [self handleTransactionError:error];
-                                          } else {
-                                              [self payWithToken:token];
-                                          }
-                                      }];
+    [[MidtransClient shared] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        
+                                        [self hideLoadingHud];
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
@@ -145,7 +145,7 @@
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
-    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
         }
@@ -153,7 +153,7 @@
             //save masked cards
             if (result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
-                [[MidtransMerchantClient sharedClient] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
+                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
             }
             
             //transaction finished

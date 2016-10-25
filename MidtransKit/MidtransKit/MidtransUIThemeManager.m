@@ -18,7 +18,7 @@
 
 @implementation MidtransUIThemeManager
 
-+ (instancetype)shared {
++ (MidtransUIThemeManager *)shared {
     static MidtransUIThemeManager *sharedMyManager = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

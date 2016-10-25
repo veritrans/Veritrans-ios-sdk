@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MidtransEnvironment.h"
 
-#define PRIVATECONFIG (MidtransPrivateConfig *)[MidtransPrivateConfig sharedInstance]
+#define PRIVATECONFIG (MidtransPrivateConfig *)[MidtransPrivateConfig shared]
 
 @interface MidtransPrivateConfig : NSObject
 
@@ -18,6 +18,6 @@
 @property (nonatomic, readonly) NSString *snapURL;
 
 + (void)setServerEnvironment:(MIdtransServerEnvironment)environment;
-+ (id)sharedInstance;
++ (MidtransPrivateConfig *)shared;
 
 @end

@@ -39,7 +39,7 @@
 
 @implementation MidtransTrackingManager
 
-+ (MidtransTrackingManager *)sharedInstance {
++ (MidtransTrackingManager *)shared {
     static MidtransTrackingManager *sharedInstance;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
@@ -99,7 +99,7 @@
     
     NSString *URL = @"https://api.mixpanel.com/track";
     NSDictionary *parameter = @{@"data":base64String};
-    [[MidtransNetworking sharedInstance] getFromURL:URL parameters:parameter callback:nil];
+    [[MidtransNetworking shared] getFromURL:URL parameters:parameter callback:nil];
     
 }
 - (void)trackGeneratedSnapToken:(BOOL)success {

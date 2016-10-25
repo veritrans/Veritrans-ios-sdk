@@ -10,14 +10,14 @@
 #import <UIKit/UIKit.h>
 #import "MidtransEnvironment.h"
 
-#define CONFIG (MidtransConfig *)[MidtransConfig sharedInstance]
+#define CONFIG (MidtransConfig *)[MidtransConfig shared]
 
 /**
  Object that holds configuration information.
  */
 @interface MidtransConfig : NSObject
 
-+ (id)sharedInstance;
++ (MidtransConfig *)shared;
 /**
  *  The Veritrans' client key for this app.
  */

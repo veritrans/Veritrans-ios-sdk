@@ -16,7 +16,7 @@
 
 @implementation MidtransPrivateConfig
 
-+ (id)sharedInstance {
++ (MidtransPrivateConfig *)shared {
     static MidtransPrivateConfig *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -28,13 +28,13 @@
 + (void)setServerEnvironment:(MIdtransServerEnvironment)environment {
     
     if (environment == MIdtransServerEnvironmentProduction) {
-        [[MidtransPrivateConfig sharedInstance] setBaseUrl: MIDTRANS_PRODUCTION_API_URL];
-        [[MidtransPrivateConfig sharedInstance] setMixpanelToken: MIDTRANS_PRODUCTION_MIXPANEL];
-        [[MidtransPrivateConfig sharedInstance] setSnapURL: MIDTRANS_PROD_SNAP];
+        [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_PRODUCTION_API_URL];
+        [[MidtransPrivateConfig shared] setMixpanelToken: MIDTRANS_PRODUCTION_MIXPANEL];
+        [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_PROD_SNAP];
     } else {
-        [[MidtransPrivateConfig sharedInstance] setBaseUrl: MIDTRANS_SANDBOX_API_URL];
-        [[MidtransPrivateConfig sharedInstance] setMixpanelToken:MIDTRANS_SANDBOX_MIXPANEL];
-        [[MidtransPrivateConfig sharedInstance] setSnapURL: MIDTRANS_SANDBOX_SNAP];
+        [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_SANDBOX_API_URL];
+        [[MidtransPrivateConfig shared] setMixpanelToken:MIDTRANS_SANDBOX_MIXPANEL];
+        [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_SANDBOX_SNAP];
     }
     
 }

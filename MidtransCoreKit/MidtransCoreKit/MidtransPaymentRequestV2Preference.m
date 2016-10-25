@@ -12,10 +12,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceLocale = @"locale";
 NSString *const kMidtransPaymentRequestV2PreferenceFinishUrl = @"finish_url";
 NSString *const kMidtransPaymentRequestV2PreferenceColorSchemeUrl = @"color_scheme_url";
 NSString *const kMidtransPaymentRequestV2PreferencePendingUrl = @"pending_url";
-NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
+NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme";
 NSString *const kMidtransPaymentRequestV2PreferenceDisplayName = @"display_name";
 NSString *const kMidtransPaymentRequestV2PreferenceErrorUrl = @"error_url";
-NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme";
+NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
 
 
 @interface MidtransPaymentRequestV2Preference ()
@@ -30,10 +30,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
 @synthesize finishUrl = _finishUrl;
 @synthesize colorSchemeUrl = _colorSchemeUrl;
 @synthesize pendingUrl = _pendingUrl;
-@synthesize logoUrl = _logoUrl;
+@synthesize colorScheme = _colorScheme;
 @synthesize displayName = _displayName;
 @synthesize errorUrl = _errorUrl;
-@synthesize colorScheme = _colorScheme;
+@synthesize logoUrl = _logoUrl;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -52,11 +52,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
             self.finishUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceFinishUrl fromDictionary:dict];
             self.colorSchemeUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl fromDictionary:dict];
             self.pendingUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferencePendingUrl fromDictionary:dict];
-            self.logoUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLogoUrl fromDictionary:dict];
+            self.colorScheme = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorScheme fromDictionary:dict];
             self.displayName = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceDisplayName fromDictionary:dict];
             self.errorUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceErrorUrl fromDictionary:dict];
-            self.colorScheme = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorScheme fromDictionary:dict];
-
+        self.errorUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLogoUrl fromDictionary:dict];
     }
     
     return self;
@@ -70,10 +69,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
     [mutableDict setValue:self.finishUrl forKey:kMidtransPaymentRequestV2PreferenceFinishUrl];
     [mutableDict setValue:self.colorSchemeUrl forKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl];
     [mutableDict setValue:self.pendingUrl forKey:kMidtransPaymentRequestV2PreferencePendingUrl];
-    [mutableDict setValue:self.logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
+    [mutableDict setValue:self.colorScheme forKey:kMidtransPaymentRequestV2PreferenceColorScheme];
     [mutableDict setValue:self.displayName forKey:kMidtransPaymentRequestV2PreferenceDisplayName];
     [mutableDict setValue:self.errorUrl forKey:kMidtransPaymentRequestV2PreferenceErrorUrl];
-    [mutableDict setValue:self.colorScheme forKey:kMidtransPaymentRequestV2PreferenceColorScheme];
+     [mutableDict setValue:self.logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -101,10 +100,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
     self.finishUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceFinishUrl];
     self.colorSchemeUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl];
     self.pendingUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferencePendingUrl];
-    self.logoUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
+    self.colorScheme = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceColorScheme];
     self.displayName = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceDisplayName];
     self.errorUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceErrorUrl];
-    self.colorScheme = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceColorScheme];
+    self.logoUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
     return self;
 }
 
@@ -115,10 +114,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
     [aCoder encodeObject:_finishUrl forKey:kMidtransPaymentRequestV2PreferenceFinishUrl];
     [aCoder encodeObject:_colorSchemeUrl forKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl];
     [aCoder encodeObject:_pendingUrl forKey:kMidtransPaymentRequestV2PreferencePendingUrl];
-    [aCoder encodeObject:_logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
+    [aCoder encodeObject:_colorScheme forKey:kMidtransPaymentRequestV2PreferenceColorScheme];
     [aCoder encodeObject:_displayName forKey:kMidtransPaymentRequestV2PreferenceDisplayName];
     [aCoder encodeObject:_errorUrl forKey:kMidtransPaymentRequestV2PreferenceErrorUrl];
-    [aCoder encodeObject:_colorScheme forKey:kMidtransPaymentRequestV2PreferenceColorScheme];
+    [aCoder encodeObject:_logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -131,10 +130,10 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
         copy.finishUrl = [self.finishUrl copyWithZone:zone];
         copy.colorSchemeUrl = [self.colorSchemeUrl copyWithZone:zone];
         copy.pendingUrl = [self.pendingUrl copyWithZone:zone];
-        copy.logoUrl = [self.logoUrl copyWithZone:zone];
+        copy.colorScheme = [self.colorScheme copyWithZone:zone];
         copy.displayName = [self.displayName copyWithZone:zone];
         copy.errorUrl = [self.errorUrl copyWithZone:zone];
-        copy.colorScheme = [self.colorScheme copyWithZone:zone];
+        copy.logoUrl = [self.logoUrl copyWithZone:zone];
     }
     
     return copy;

@@ -7,15 +7,14 @@
 
 #import <Foundation/Foundation.h>
 
-@class MidtransPaymentRequestV2BillingAddress, MidtransPaymentRequestV2ShippingAddress;
+@class MidtransPaymentRequestV2ShippingAddress, MidtransPaymentRequestV2BillingAddress;
 
 @interface MidtransPaymentRequestV2CustomerDetails : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *email;
 @property (nonatomic, strong) NSString *phone;
-@property (nonatomic, strong) NSString *lastName;
-@property (nonatomic, strong) MidtransPaymentRequestV2BillingAddress *billingAddress;
 @property (nonatomic, strong) MidtransPaymentRequestV2ShippingAddress *shippingAddress;
+@property (nonatomic, strong) MidtransPaymentRequestV2BillingAddress *billingAddress;
 @property (nonatomic, strong) NSString *firstName;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

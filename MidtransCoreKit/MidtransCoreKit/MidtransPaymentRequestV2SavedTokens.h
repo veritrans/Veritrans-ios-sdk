@@ -1,5 +1,5 @@
 //
-//  MidtransPaymentRequestV2CreditCard.h
+//  MidtransPaymentRequestV2SavedTokens.h
 //
 //  Created by Ratna Kumalasari on 10/25/16
 //  Copyright (c) 2016 __MyCompanyName__. All rights reserved.
@@ -9,12 +9,11 @@
 
 
 
-@interface MidtransPaymentRequestV2CreditCard : NSObject <NSCoding, NSCopying>
+@interface MidtransPaymentRequestV2SavedTokens : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, strong) NSArray *savedTokens;
-@property (nonatomic, strong) NSArray *whitelistBins;
-@property (nonatomic, assign) BOOL saveCard;
-@property (nonatomic, assign) BOOL secure;
+@property (nonatomic, strong) NSString *tokenType;
+@property (nonatomic, strong) NSString *expiresAt;
+@property (nonatomic, strong) NSString *maskedCard;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

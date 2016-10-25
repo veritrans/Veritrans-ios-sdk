@@ -9,6 +9,10 @@
 
 
 NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_code";
+NSString *const kMidtransPaymentRequestV2BillingAddressPhone = @"phone";
+NSString *const kMidtransPaymentRequestV2BillingAddressCity = @"city";
+NSString *const kMidtransPaymentRequestV2BillingAddressFirstName = @"first_name";
+NSString *const kMidtransPaymentRequestV2BillingAddressPostalCode = @"postal_code";
 
 
 @interface MidtransPaymentRequestV2BillingAddress ()
@@ -20,6 +24,10 @@ NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_c
 @implementation MidtransPaymentRequestV2BillingAddress
 
 @synthesize countryCode = _countryCode;
+@synthesize phone = _phone;
+@synthesize city = _city;
+@synthesize firstName = _firstName;
+@synthesize postalCode = _postalCode;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -35,6 +43,10 @@ NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_c
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
             self.countryCode = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressCountryCode fromDictionary:dict];
+            self.phone = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressPhone fromDictionary:dict];
+            self.city = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressCity fromDictionary:dict];
+            self.firstName = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressFirstName fromDictionary:dict];
+            self.postalCode = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressPostalCode fromDictionary:dict];
 
     }
     
@@ -46,6 +58,10 @@ NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_c
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.countryCode forKey:kMidtransPaymentRequestV2BillingAddressCountryCode];
+    [mutableDict setValue:self.phone forKey:kMidtransPaymentRequestV2BillingAddressPhone];
+    [mutableDict setValue:self.city forKey:kMidtransPaymentRequestV2BillingAddressCity];
+    [mutableDict setValue:self.firstName forKey:kMidtransPaymentRequestV2BillingAddressFirstName];
+    [mutableDict setValue:self.postalCode forKey:kMidtransPaymentRequestV2BillingAddressPostalCode];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -70,6 +86,10 @@ NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_c
     self = [super init];
 
     self.countryCode = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2BillingAddressCountryCode];
+    self.phone = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2BillingAddressPhone];
+    self.city = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2BillingAddressCity];
+    self.firstName = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2BillingAddressFirstName];
+    self.postalCode = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2BillingAddressPostalCode];
     return self;
 }
 
@@ -77,6 +97,10 @@ NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_c
 {
 
     [aCoder encodeObject:_countryCode forKey:kMidtransPaymentRequestV2BillingAddressCountryCode];
+    [aCoder encodeObject:_phone forKey:kMidtransPaymentRequestV2BillingAddressPhone];
+    [aCoder encodeObject:_city forKey:kMidtransPaymentRequestV2BillingAddressCity];
+    [aCoder encodeObject:_firstName forKey:kMidtransPaymentRequestV2BillingAddressFirstName];
+    [aCoder encodeObject:_postalCode forKey:kMidtransPaymentRequestV2BillingAddressPostalCode];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -86,6 +110,10 @@ NSString *const kMidtransPaymentRequestV2BillingAddressCountryCode = @"country_c
     if (copy) {
 
         copy.countryCode = [self.countryCode copyWithZone:zone];
+        copy.phone = [self.phone copyWithZone:zone];
+        copy.city = [self.city copyWithZone:zone];
+        copy.firstName = [self.firstName copyWithZone:zone];
+        copy.postalCode = [self.postalCode copyWithZone:zone];
     }
     
     return copy;

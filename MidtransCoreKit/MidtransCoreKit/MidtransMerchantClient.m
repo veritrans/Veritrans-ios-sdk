@@ -9,6 +9,7 @@
 #import "MidtransMerchantClient.h"
 #import "MidtransConfig.h"
 #import "MidtransNetworking.h"
+#import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -20,7 +21,7 @@
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
-NSString *const CHARGE_TRANSACTION_URL = @"charge";
+
 
 @interface NSArray (MaskedCard)
 
@@ -152,7 +153,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         return;
     }
     
-    [[MidtransNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+    [[MidtransNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE]
                                             header:nil
                                         parameters:dictionaryParameters
                                           callback:^(id response, NSError *error)
@@ -185,7 +186,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
             MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
 
             if (completion) {
-                if (!paymentRequestV2.merchant.preference.logoUrl.isEmpty) {
+                if (!paymentRequestV2.merchant.preference) {
                     [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
                     [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
                     [[NSUserDefaults standardUserDefaults] synchronize];

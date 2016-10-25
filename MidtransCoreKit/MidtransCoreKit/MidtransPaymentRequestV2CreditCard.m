@@ -6,11 +6,13 @@
 //
 
 #import "MidtransPaymentRequestV2CreditCard.h"
+#import "MidtransPaymentRequestV2SavedTokens.h"
 
 
-NSString *const kMidtransPaymentRequestV2CreditCardSecure = @"secure";
+NSString *const kMidtransPaymentRequestV2CreditCardSavedTokens = @"saved_tokens";
 NSString *const kMidtransPaymentRequestV2CreditCardWhitelistBins = @"whitelist_bins";
 NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
+NSString *const kMidtransPaymentRequestV2CreditCardSecure = @"secure";
 
 
 @interface MidtransPaymentRequestV2CreditCard ()
@@ -21,9 +23,10 @@ NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
 
 @implementation MidtransPaymentRequestV2CreditCard
 
-@synthesize secure = _secure;
+@synthesize savedTokens = _savedTokens;
 @synthesize whitelistBins = _whitelistBins;
 @synthesize saveCard = _saveCard;
+@synthesize secure = _secure;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -38,9 +41,22 @@ NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.secure = [[self objectOrNilForKey:kMidtransPaymentRequestV2CreditCardSecure fromDictionary:dict] boolValue];
+    NSObject *receivedMidtransPaymentRequestV2SavedTokens = [dict objectForKey:kMidtransPaymentRequestV2CreditCardSavedTokens];
+    NSMutableArray *parsedMidtransPaymentRequestV2SavedTokens = [NSMutableArray array];
+    if ([receivedMidtransPaymentRequestV2SavedTokens isKindOfClass:[NSArray class]]) {
+        for (NSDictionary *item in (NSArray *)receivedMidtransPaymentRequestV2SavedTokens) {
+            if ([item isKindOfClass:[NSDictionary class]]) {
+                [parsedMidtransPaymentRequestV2SavedTokens addObject:[MidtransPaymentRequestV2SavedTokens modelObjectWithDictionary:item]];
+            }
+       }
+    } else if ([receivedMidtransPaymentRequestV2SavedTokens isKindOfClass:[NSDictionary class]]) {
+       [parsedMidtransPaymentRequestV2SavedTokens addObject:[MidtransPaymentRequestV2SavedTokens modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2SavedTokens]];
+    }
+
+    self.savedTokens = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2SavedTokens];
             self.whitelistBins = [self objectOrNilForKey:kMidtransPaymentRequestV2CreditCardWhitelistBins fromDictionary:dict];
             self.saveCard = [[self objectOrNilForKey:kMidtransPaymentRequestV2CreditCardSaveCard fromDictionary:dict] boolValue];
+            self.secure = [[self objectOrNilForKey:kMidtransPaymentRequestV2CreditCardSecure fromDictionary:dict] boolValue];
 
     }
     
@@ -51,7 +67,17 @@ NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
 - (NSDictionary *)dictionaryRepresentation
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:[NSNumber numberWithBool:self.secure] forKey:kMidtransPaymentRequestV2CreditCardSecure];
+    NSMutableArray *tempArrayForSavedTokens = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.savedTokens) {
+        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            // This class is a model object
+            [tempArrayForSavedTokens addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            // Generic object
+            [tempArrayForSavedTokens addObject:subArrayObject];
+        }
+    }
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForSavedTokens] forKey:kMidtransPaymentRequestV2CreditCardSavedTokens];
     NSMutableArray *tempArrayForWhitelistBins = [NSMutableArray array];
     for (NSObject *subArrayObject in self.whitelistBins) {
         if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
@@ -64,6 +90,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
     }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForWhitelistBins] forKey:kMidtransPaymentRequestV2CreditCardWhitelistBins];
     [mutableDict setValue:[NSNumber numberWithBool:self.saveCard] forKey:kMidtransPaymentRequestV2CreditCardSaveCard];
+    [mutableDict setValue:[NSNumber numberWithBool:self.secure] forKey:kMidtransPaymentRequestV2CreditCardSecure];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -87,18 +114,20 @@ NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
 {
     self = [super init];
 
-    self.secure = [aDecoder decodeBoolForKey:kMidtransPaymentRequestV2CreditCardSecure];
+    self.savedTokens = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2CreditCardSavedTokens];
     self.whitelistBins = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2CreditCardWhitelistBins];
     self.saveCard = [aDecoder decodeBoolForKey:kMidtransPaymentRequestV2CreditCardSaveCard];
+    self.secure = [aDecoder decodeBoolForKey:kMidtransPaymentRequestV2CreditCardSecure];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
 
-    [aCoder encodeBool:_secure forKey:kMidtransPaymentRequestV2CreditCardSecure];
+    [aCoder encodeObject:_savedTokens forKey:kMidtransPaymentRequestV2CreditCardSavedTokens];
     [aCoder encodeObject:_whitelistBins forKey:kMidtransPaymentRequestV2CreditCardWhitelistBins];
     [aCoder encodeBool:_saveCard forKey:kMidtransPaymentRequestV2CreditCardSaveCard];
+    [aCoder encodeBool:_secure forKey:kMidtransPaymentRequestV2CreditCardSecure];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -107,9 +136,10 @@ NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
     
     if (copy) {
 
-        copy.secure = self.secure;
+        copy.savedTokens = [self.savedTokens copyWithZone:zone];
         copy.whitelistBins = [self.whitelistBins copyWithZone:zone];
         copy.saveCard = self.saveCard;
+        copy.secure = self.secure;
     }
     
     return copy;

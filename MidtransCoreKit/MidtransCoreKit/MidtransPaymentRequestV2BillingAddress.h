@@ -12,6 +12,10 @@
 @interface MidtransPaymentRequestV2BillingAddress : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *countryCode;
+@property (nonatomic, strong) NSString *phone;
+@property (nonatomic, strong) NSString *city;
+@property (nonatomic, strong) NSString *firstName;
+@property (nonatomic, strong) NSString *postalCode;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

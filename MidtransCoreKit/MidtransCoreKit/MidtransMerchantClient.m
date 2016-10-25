@@ -177,7 +177,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
                          completion:(void (^_Nullable)(MidtransPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
-    NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_PAYMENT_PAGES, [PRIVATECONFIG snapURL], token];
     [[MidtransNetworking sharedInstance] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
             MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:response];

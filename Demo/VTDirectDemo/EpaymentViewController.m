@@ -65,10 +65,9 @@
         }
         else {
             if (result.redirectURL) {
-                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result
-                                                                                                 paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
-                vc.delegate = self;
-                [self.navigationController pushViewController:vc animated:YES];
+//                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initwith
+//                vc.delegate = self;
+//                [self.navigationController pushViewController:vc animated:YES];
             }
             else {
                 

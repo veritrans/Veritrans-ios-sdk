@@ -15,11 +15,18 @@
 
 @interface MidtransUIPaymentGeneralViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentGeneralView *view;
-
+@property (nonatomic) MidtransPaymentRequestV2Merchant *merchant;
 @end
 
 @implementation MidtransUIPaymentGeneralViewController
 @dynamic view;
+
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod merchant:(MidtransPaymentRequestV2Merchant *)merchant {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
+        self.merchant = merchant;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -66,8 +73,7 @@
         }
         else {
             if (result.redirectURL) {
-                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result
-                                                                                                 paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
+                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithMerchant:self.merchant result:result identifier:self.paymentMethod.internalBaseClassIdentifier];
                 vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
             }

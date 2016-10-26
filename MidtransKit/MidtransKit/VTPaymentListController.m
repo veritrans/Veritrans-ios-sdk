@@ -204,7 +204,8 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     {
         MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithToken:self.token
-                                                                                                 paymentMethodName:paymentMethod];
+                                                                                                 paymentMethodName:paymentMethod
+                                                                                                          merchant:self.responsePayment.merchant];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||

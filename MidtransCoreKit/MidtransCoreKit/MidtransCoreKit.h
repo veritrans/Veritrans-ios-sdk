@@ -52,4 +52,9 @@
 #import "MidtransImageManager.h"
 #import "MidtransPaymentWebController.h"
 
+#import "MidtransPaymentRequestV2Merchant.h"
+#import "MidtransPaymentRequestV2Response.h"
+#import "MidtransPaymentRequestV2CreditCard.h"
+#import "MidtransPaymentRequestV2EnabledPayments.h"
+
 #endif /* MidtransCoreKit_h */

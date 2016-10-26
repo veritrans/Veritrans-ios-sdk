@@ -6,8 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-@class MidtransPaymentRequestV2Preference;
+#import "MidtransPaymentRequestV2Preference.h"
 
 @interface MidtransPaymentRequestV2Merchant : NSObject <NSCoding, NSCopying>
 

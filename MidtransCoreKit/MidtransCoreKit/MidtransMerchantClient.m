@@ -9,6 +9,7 @@
 #import "MidtransMerchantClient.h"
 #import "MidtransConfig.h"
 #import "MidtransNetworking.h"
+#import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -16,10 +17,11 @@
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MTPaymentRequestDataModels.h"
+#import "MidtransPaymentRequestV2DataModels.h"
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
-NSString *const CHARGE_TRANSACTION_URL = @"charge";
+
 
 @interface NSArray (MaskedCard)
 
@@ -151,7 +153,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         return;
     }
     
-    [[MidtransNetworking shared] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+    [[MidtransNetworking shared] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE]
                                     header:nil
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)
@@ -176,19 +178,19 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
-                         completion:(void (^_Nullable)(MidtransPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
-    NSString *URL = [NSString stringWithFormat:ENDPOINT_PAYMENT_PAGES, [PRIVATECONFIG snapURL], token];
+                         completion:(void (^_Nullable)(MidtransPaymentRequestV2Response *_Nullable response, NSError *_Nullable error))completion {
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
     [[MidtransNetworking shared] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
-            MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:response];
+            MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
             
             if (completion) {
-                if (!paymentRequest.merchantData.logoUrl.isEmpty) {
-                    [MidtransImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
-                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequest.merchantData.merchantName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+                if (!paymentRequestV2.merchant.preference) {
+                    [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
-                completion(paymentRequest,NULL);
+                completion(paymentRequestV2,NULL);
             }
         }
         else{

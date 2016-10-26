@@ -138,11 +138,10 @@
 
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
-    paymentDetail.saveToken = YES;
-//    if ([CC_CONFIG saveCard]) {
-//        paymentDetail.saveToken = YES;
-//    }
-
+    if ([CC_CONFIG saveCard]) {
+        paymentDetail.saveToken = YES;
+    }
+    
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {

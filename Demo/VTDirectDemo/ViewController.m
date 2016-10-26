@@ -109,7 +109,10 @@
         
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
+                                                                           itemDetails:self.itemDetails
+                                                                       customerDetails:customerDetails
+                                                                            completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
@@ -187,7 +190,7 @@
     NSLog(@"error: %@", error);
 }
 
-#pragma mark - VTPaymentViewControllerDelegate
+#pragma mark - MidtransUIPaymentViewControllerDelegate
 
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);

@@ -26,7 +26,7 @@ target 'MyBeautifulApp' do
 end
 ```
 
-If you want to support CardIO, update the `Podfile` to this
+If you want to support [CardIO](https://www.card.io/), update the `Podfile` to this
 
 ```
 platform :ios, '7.0'
@@ -82,17 +82,16 @@ MidtransCustomerDetails *customerDetails = [[MidtransCustomerDetails alloc] init
 MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:@"order_id"
                                                                           andGrossAmount:items_gross_amount];
 
-NSURL *merchantURL = [NSURL URLWithString:@"merchant-url-for-generating-token"];
-[[MidtransMerchantClient shared] requestTransactionTokenWithclientTokenURL:merchantURL
-                                                        transactionDetails:transactionDetails
-                                                               itemDetails:@[itemDetail]
-                                                           customerDetails:customerDetails
-                                                                completion:^(TransactionTokenResponse *token, NSError * error)
- {
+[[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
+                                                                           itemDetails:self.itemDetails
+                                                                       customerDetails:customerDetails
+                                                                            completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+         {
      if (token) {
-         //present token
-     } else {
-          //generate token error
+     
+     }
+     else {
+     
      }
  }];
 ```
@@ -141,7 +140,11 @@ Add two methods to your view controller, these methods are from MidtransUIPaymen
 }
 
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
-    NSLog(@"error: %@", error);
+    [self showAlertError:error];
+}
+
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
+    NSLog(@"pending: %@", result);
 }
 ```
 

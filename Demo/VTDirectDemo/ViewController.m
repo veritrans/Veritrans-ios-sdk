@@ -110,7 +110,10 @@
         
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
+                                                                           itemDetails:self.itemDetails
+                                                                       customerDetails:customerDetails
+                                                                            completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
@@ -188,15 +191,8 @@
     NSLog(@"error: %@", error);
 }
 
-#pragma mark - VTPaymentViewControllerDelegate
-- (void)addCardButtonDidTapped {
-    CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
-    scanViewController.collectCVV = NO;
-    scanViewController.collectExpiry = NO;
-    scanViewController.hideCardIOLogo = YES;
-    [self.paymentVC presentViewController:scanViewController animated:YES completion:nil];
-}
-// SomeViewController.m
+
+#pragma mark - MidtransUIPaymentViewControllerDelegate
 
 - (void)cardIOView:(CardIOView *)cardIOView didScanCard:(CardIOCreditCardInfo *)info {
     if (info) {

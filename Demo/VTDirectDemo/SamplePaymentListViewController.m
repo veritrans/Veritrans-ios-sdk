@@ -16,7 +16,7 @@
 #import "SamplePaymentListTableViewCell.h"
 @interface SamplePaymentListViewController () <UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSArray *paymentList;
-@property (nonatomic, strong) MidtransPaymentRequestResponse *paymentRequestResponse;
+@property (nonatomic, strong) MidtransPaymentRequestV2Response *paymentRequestResponse;
 @property (nonatomic,strong)NSMutableArray *paymentMethodList;
 @end
 
@@ -33,35 +33,81 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"paymentlist" ofType:@"plist"];
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"paymentMethods" ofType:@"plist"];
     self.paymentList = [NSArray arrayWithContentsOfFile:path];
     
-//    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
-//                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
-//     {
-//         [MBProgressHUD hideHUDForView:self.view animated:YES];
-//         self.title = response.merchantData.displayName;
-//         if (response) {
-//             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-//             // [self.tableView reloadData];
-//             self.paymentRequestResponse = response;
-//             if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
-//                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-//                     for (int i = 0; i<self.paymentList.count; i++) {
-//                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
-//                         if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-//                             [self.paymentMethodList addObject:paymentmodel];
-//                         }
-//                     }
-//                 }
-//             }
-//             [self.tableView reloadData];
-//             
-//         }
-//         else {
-//             //todo what should happens when payment request is failed;
-//         }
-//     }];
+    [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.transactionToken.tokenId
+                                                      completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
+     {
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         self.title = response.merchant.preference.displayName;
+         
+         if (response) {
+             self.paymentRequestResponse = response;
+             
+             bool vaAlreadyAdded = 0;
+             NSInteger mainIndex = 0;
+             NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
+                                                   @"id":@"va",
+                                                   @"identifier":@"va",
+                                                   @"title":@"ATM/Bank Transfer"
+                                                   };
+             
+             NSArray *paymentAvailable = response.enabledPayments;
+             for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
+                 NSInteger index = [self.paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                     return [obj[@"id"] isEqualToString:enabledPayment.type];
+                 }];
+                 if (index != NSNotFound) {
+                     MidtransPaymentListModel *model;
+                     if ([enabledPayment.category isEqualToString:@"bank_transfer"]) {
+                         if (!vaAlreadyAdded) {
+                             if (mainIndex!=0) {
+                                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                 [self.paymentMethodList insertObject:model atIndex:1];
+                                 vaAlreadyAdded = YES;
+                             }
+                         }
+                     }
+                     else {
+                         model = [[MidtransPaymentListModel alloc] initWithDictionary:self.paymentList[index]];
+                         [self.paymentMethodList addObject:model];
+                     }
+                     mainIndex++;
+                 }
+                 [self.tableView reloadData];
+             }
+         }
+         else {
+         }
+     }];
+    
+    //    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
+    //                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+    //     {
+    //         [MBProgressHUD hideHUDForView:self.view animated:YES];
+    //         self.title = response.merchantData.displayName;
+    //         if (response) {
+    //             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
+    //             // [self.tableView reloadData];
+    //             self.paymentRequestResponse = response;
+    //             if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
+    //                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
+    //                     for (int i = 0; i<self.paymentList.count; i++) {
+    //                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
+    //                         if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
+    //                             [self.paymentMethodList addObject:paymentmodel];
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //             [self.tableView reloadData];
+    //
+    //         }
+    //         else {
+    //             //todo what should happens when payment request is failed;
+    //         }
+    //     }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -94,7 +140,6 @@
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
         BankTransferViewController *vc = [[BankTransferViewController alloc] initWithNibName:@"BankTransferViewController" bundle:nil];
         vc.transactionToken = self.transactionToken;
-        vc.bankList = self.paymentRequestResponse.transactionData.bankTransfer;
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||

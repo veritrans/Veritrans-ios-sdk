@@ -15,7 +15,6 @@
 		00EC17991D7D407400D076D2 /* EpaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00EC17971D7D407400D076D2 /* EpaymentViewController.xib */; };
 		00F0DA8A1D76BFF6005B117E /* SamplePaymentListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F0DA881D76BFF6005B117E /* SamplePaymentListTableViewCell.m */; };
 		00F0DA8B1D76BFF6005B117E /* SamplePaymentListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA891D76BFF6005B117E /* SamplePaymentListTableViewCell.xib */; };
-		00F0DA8D1D76D823005B117E /* paymentlist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA8C1D76D823005B117E /* paymentlist.plist */; };
 		00F0DA8F1D76DCBF005B117E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA8E1D76DCBF005B117E /* Media.xcassets */; };
 		00F0DA9A1D76EB9D005B117E /* PaymentCreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */; };
 		00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */; };
@@ -59,6 +58,8 @@
 		E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
+		E5DB43CE1DC0833C001C7B99 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */; };
+		E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,7 +85,6 @@
 		00F0DA871D76BFF6005B117E /* SamplePaymentListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListTableViewCell.h; sourceTree = "<group>"; };
 		00F0DA881D76BFF6005B117E /* SamplePaymentListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePaymentListTableViewCell.m; sourceTree = "<group>"; };
 		00F0DA891D76BFF6005B117E /* SamplePaymentListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SamplePaymentListTableViewCell.xib; sourceTree = "<group>"; };
-		00F0DA8C1D76D823005B117E /* paymentlist.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentlist.plist; sourceTree = "<group>"; };
 		00F0DA8E1D76DCBF005B117E /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 		00F0DA971D76EB9D005B117E /* PaymentCreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentCreditCardViewController.h; sourceTree = "<group>"; };
 		00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardViewController.m; sourceTree = "<group>"; };
@@ -141,6 +141,8 @@
 		E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
 		E5C32B321C8E789200C8EB92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		E5C32B331C8E789200C8EB92 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = virtualAccount.plist; sourceTree = "<group>"; };
+		E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentMethods.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,7 +183,8 @@
 				00EC17941D7D405A00D076D2 /* E Payment */,
 				00EC178C1D7D295B00D076D2 /* Bank Transfer */,
 				00598E871D76980B006241BF /* Payment list */,
-				00F0DA8C1D76D823005B117E /* paymentlist.plist */,
+				E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */,
+				E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */,
 			);
 			name = "Core-flow sample";
 			sourceTree = "<group>";
@@ -499,8 +502,9 @@
 				E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */,
 				00F0DA8F1D76DCBF005B117E /* Media.xcassets in Resources */,
 				00EC17991D7D407400D076D2 /* EpaymentViewController.xib in Resources */,
-				00F0DA8D1D76D823005B117E /* paymentlist.plist in Resources */,
 				302F71D11C73163C00FE73FE /* LaunchScreen.storyboard in Resources */,
+				E5DB43CE1DC0833C001C7B99 /* virtualAccount.plist in Resources */,
+				E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */,
 				E5C25FE41D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf in Resources */,
 				E5C25FC71D25DE520012BCC8 /* Changa-Regular.ttf in Resources */,
 				E553BA801D66AF530091E403 /* Settings.bundle in Resources */,

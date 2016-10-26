@@ -11,5 +11,4 @@
 @interface BankTransferViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) MidtransTransactionTokenResponse *transactionToken;
-@property (nonatomic,strong) MidtransPaymentRequestBankTransfer *bankList;
 @end

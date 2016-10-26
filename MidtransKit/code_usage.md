@@ -18,8 +18,21 @@ Open up the `Podfile` and add `MidtransKit` to your project's target.
 platform :ios, '7.0'
 
 def shared_pods
-    pod 'MidtransCoreKit'
     pod 'MidtransKit'
+end
+
+target 'MyBeautifulApp' do
+    shared_pods
+end
+```
+
+If you want to support CardIO, update the `Podfile` to this
+
+```
+platform :ios, '7.0'
+
+def shared_pods
+    pod 'MidtransKit/CardIO'
 end
 
 target 'MyBeautifulApp' do
@@ -70,7 +83,7 @@ MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails al
                                                                           andGrossAmount:items_gross_amount];
 
 NSURL *merchantURL = [NSURL URLWithString:@"merchant-url-for-generating-token"];
-[[MidtransMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
+[[MidtransMerchantClient shared] requestTransactionTokenWithclientTokenURL:merchantURL
                                                         transactionDetails:transactionDetails
                                                                itemDetails:@[itemDetail]
                                                            customerDetails:customerDetails

@@ -94,7 +94,7 @@ MidtransCustomerDetails *customerDetails =
                               billingAddress:billing_address]
 
 NSURL *merchantURL = [NSURL URLWithString:@"merchant-url"];
-[[MidtransMerchantClient sharedClient] requestTransactionTokenWithclientTokenURL:merchantURL
+[[MidtransMerchantClient shared] requestTransactionTokenWithclientTokenURL:merchantURL
                                                         transactionDetails:transactionDetails
                                                                itemDetails:itemDetails
                                                            customerDetails:customerDetails
@@ -135,7 +135,7 @@ MidtransTokenizeRequest *tokenRequest =
                                   grossAmount:transactionDetails.grossAmount
                                        secure:enable3DSecure];
 
-[[MidtransClient sharedClient] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
+[[MidtransClient shared] generateToken:tokenRequest completion:^(NSString *token, NSString *redirectURL, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -167,7 +167,7 @@ MidtransPaymentTelkomselCash *paymentDetails = [[MidtransPaymentTelkomselCash al
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -181,7 +181,7 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 MidtransPaymentXLTunai *paymentDetails = [[MidtransPaymentXLTunai alloc] init];
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -202,7 +202,7 @@ MidtransPaymentIndosatDompetku *paymentDetails = [[MidtransPaymentIndosatDompetk
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -248,7 +248,7 @@ if (result) {
 MidtransPaymentCIMBClicks *paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -269,7 +269,7 @@ MidtransPaymentCStore *paymentDetails = [[MidtransPaymentCStore alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -284,7 +284,7 @@ MidtransPaymentBCAKlikpay *paymentDetails = [[MidtransPaymentBCAKlikpay alloc] i
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -305,7 +305,7 @@ MidtransPaymentKlikBCA *paymentDetails = [[MidtransPaymentKlikBCA alloc] initWit
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -319,7 +319,7 @@ MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentD
 MidtransPaymentMandiriECash *paymentDetails = [[MidtransPaymentMandiriECash alloc] init];
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -340,7 +340,7 @@ MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpa
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -356,7 +356,7 @@ MidtransPaymentEpayBRI *paymentDetails = [[MidtransPaymentEpayBRI alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {
@@ -378,7 +378,7 @@ MidtransPaymentKiosOn *paymentDetails = [[MidtransPaymentKiosOn alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
-[[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error
     } else {

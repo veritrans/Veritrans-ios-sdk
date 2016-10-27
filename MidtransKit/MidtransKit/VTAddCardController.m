@@ -145,7 +145,7 @@
             [self handleTransactionError:error];
         }
         else {
-            if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
             }

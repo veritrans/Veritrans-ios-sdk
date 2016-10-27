@@ -24,7 +24,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet MidtransUICCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;
-
+@property (strong, nonatomic) IBOutlet UIView *saveCardView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
 - (void)hideScanCardButton:(BOOL)hide;

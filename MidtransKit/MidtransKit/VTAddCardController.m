@@ -32,9 +32,8 @@
 #endif
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
-@property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (nonatomic) NSMutableArray *maskedCards;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
+
 @end
 
 @implementation VTAddCardController
@@ -56,12 +55,12 @@
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     
     if ([CC_CONFIG saveCard] == NO) {
-        self.saveCardView.hidden = YES;
-        self.saveCardViewHeight.constant = 0;
+        self.view.saveCardView.hidden = YES;
+        self.view.saveCardViewHeight.constant = 0;
     }
     else {
-        self.saveCardView.hidden = NO;
-        self.saveCardViewHeight.constant = 86;
+        self.view.saveCardView.hidden = NO;
+        self.view.saveCardViewHeight.constant = 86;
     }
     
     [self.view setToken:self.token];

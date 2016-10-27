@@ -21,7 +21,6 @@
 #import "MidtransConstant.h"
 #import "MidtransPaymentDetails.h"
 #import "MidtransPaymentCreditCard.h"
-#import "MidtransMaskedCreditCard.h"
 #import "MidtransHelper.h"
 #import "MidtransPaymentBankTransfer.h"
 #import "MidtransCreditCardPaymentFeature.h"
@@ -52,9 +51,6 @@
 #import "MidtransImageManager.h"
 #import "MidtransPaymentWebController.h"
 
-#import "MidtransPaymentRequestV2Merchant.h"
-#import "MidtransPaymentRequestV2Response.h"
-#import "MidtransPaymentRequestV2CreditCard.h"
-#import "MidtransPaymentRequestV2EnabledPayments.h"
+#import "MidtransPaymentRequestV2DataModels.h"
 
 #endif /* MidtransCoreKit_h */

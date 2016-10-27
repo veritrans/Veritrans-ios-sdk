@@ -48,12 +48,8 @@
 /// @name Instantiation
 ///--------------------
 
-/**
- Returns an instance of `VTPaymentCreditCard` for specified token ID. The token ID can be generated using `VTClient generateToken:completion:`.
- 
- @param feature The feature of the payment.
- @param tokenId The specified token ID.
- */
-- (instancetype _Nonnull)initWithCreditCardToken:(NSString *_Nonnull)creditCardToken customerDetails:(MidtransCustomerDetails *_Nonnull)customerDetails;
++ (instancetype _Nonnull)paymentOneClickWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer;
++ (instancetype _Nonnull)paymentTwoClicksWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer;
++ (instancetype _Nonnull)paymentWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer;
 
 @end

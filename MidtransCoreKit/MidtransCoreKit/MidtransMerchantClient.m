@@ -12,12 +12,12 @@
 #import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTrackingManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MTPaymentRequestDataModels.h"
-#import "MidtransPaymentRequestV2DataModels.h"
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
@@ -144,8 +144,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
+    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
     
-    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
+    BOOL secure = [CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
+    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard]),
+                                      @"secure":@(secure)}
+                             forKey:@"credit_card"];
     
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {
@@ -153,7 +157,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         return;
     }
     
-    [[MidtransNetworking shared] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE]
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+    
+    [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)

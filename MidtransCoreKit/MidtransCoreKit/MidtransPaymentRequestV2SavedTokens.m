@@ -11,6 +11,7 @@
 NSString *const kMidtransPaymentRequestV2SavedTokensTokenType = @"token_type";
 NSString *const kMidtransPaymentRequestV2SavedTokensExpiresAt = @"expires_at";
 NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
+NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
 
 
 @interface MidtransPaymentRequestV2SavedTokens ()
@@ -24,7 +25,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
 @synthesize tokenType = _tokenType;
 @synthesize expiresAt = _expiresAt;
 @synthesize maskedCard = _maskedCard;
-
+@synthesize token = _token;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
@@ -38,10 +39,10 @@ NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.tokenType = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensTokenType fromDictionary:dict];
-            self.expiresAt = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensExpiresAt fromDictionary:dict];
-            self.maskedCard = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensMaskedCard fromDictionary:dict];
-
+        self.tokenType = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensTokenType fromDictionary:dict];
+        self.expiresAt = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensExpiresAt fromDictionary:dict];
+        self.maskedCard = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensMaskedCard fromDictionary:dict];
+        self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensToken fromDictionary:dict];
     }
     
     return self;
@@ -54,11 +55,11 @@ NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
     [mutableDict setValue:self.tokenType forKey:kMidtransPaymentRequestV2SavedTokensTokenType];
     [mutableDict setValue:self.expiresAt forKey:kMidtransPaymentRequestV2SavedTokensExpiresAt];
     [mutableDict setValue:self.maskedCard forKey:kMidtransPaymentRequestV2SavedTokensMaskedCard];
-
+    [mutableDict setValue:self.token forKey:kMidtransPaymentRequestV2SavedTokensToken];
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
-- (NSString *)description 
+- (NSString *)description
 {
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
@@ -76,19 +77,20 @@ NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    
     self.tokenType = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensTokenType];
     self.expiresAt = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensExpiresAt];
     self.maskedCard = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensMaskedCard];
+    self.token = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensToken];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
     [aCoder encodeObject:_tokenType forKey:kMidtransPaymentRequestV2SavedTokensTokenType];
     [aCoder encodeObject:_expiresAt forKey:kMidtransPaymentRequestV2SavedTokensExpiresAt];
     [aCoder encodeObject:_maskedCard forKey:kMidtransPaymentRequestV2SavedTokensMaskedCard];
+    [aCoder encodeObject:_token forKey:kMidtransPaymentRequestV2SavedTokensToken];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -96,7 +98,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
     MidtransPaymentRequestV2SavedTokens *copy = [[MidtransPaymentRequestV2SavedTokens alloc] init];
     
     if (copy) {
-
+        copy.token = [self.token copyWithZone:zone];
         copy.tokenType = [self.tokenType copyWithZone:zone];
         copy.expiresAt = [self.expiresAt copyWithZone:zone];
         copy.maskedCard = [self.maskedCard copyWithZone:zone];

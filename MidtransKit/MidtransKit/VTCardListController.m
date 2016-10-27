@@ -22,11 +22,8 @@
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-#import <MidtransCoreKit/MidtransClient.h>
-#import <MidtransCoreKit/MidtransHelper.h>
-#import <MidtransCoreKit/MidtransMerchantClient.h>
-#import <MidtransCoreKit/MidtransPaymentCreditCard.h>
-#import <MidtransCoreKit/MidtransTransactionDetails.h>
+
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 CGFloat const ButtonHeight = 56;
 
@@ -42,9 +39,8 @@ CGFloat const ButtonHeight = 56;
 @property (nonatomic) BOOL editingCell;
 @end
 
-@implementation VTCardListController {
-    MidtransUIHudView *_hudView;
-}
+@implementation VTCardListController
+
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
            andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
@@ -55,7 +51,7 @@ CGFloat const ButtonHeight = 56;
         self.creditCard = creditCard;
     }
     return self;
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -64,22 +60,34 @@ CGFloat const ButtonHeight = 56;
     
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
-
-    NSLog(@"credit cards-->%@",self.creditCard);
-    /**
-     *  need to revisit
-     *
-     *  @param cardsUpdated: cardsUpdated: description
-     *
-     *  @return return value description
-     */
-    //[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cardsUpdated:) name:MidtransMaskedCardsUpdated object:nil];
+    
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    
     [self updateView];
-    [self reloadMaskedCards];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
-    [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
+    
     self.editingCell = false;
+    [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
+    
+    [self reloadMaskedCards];
+}
+
+- (NSArray <MidtransMaskedCreditCard*>*)convertV2ModelCards:(NSArray <MidtransPaymentRequestV2SavedTokens*>*)cards {
+    NSMutableArray *formattedCards = [NSMutableArray new];
+    for (MidtransPaymentRequestV2SavedTokens *card in cards) {
+        NSMutableDictionary *dict = [NSMutableDictionary new];
+        dict[kMTMaskedCreditCardCardhash] = card.maskedCard;
+        dict[kMTMaskedCreditCardExpiresAt] = card.expiresAt;
+        dict[kMTMaskedCreditCardTokenType] = card.tokenType;
+        
+        if ([card.tokenType isEqualToString:TokenTypeTwoClicks] && card.token) {
+            dict[kMTMaskedCreditCardIdentifier] = card.token;
+        }
+        
+        MidtransMaskedCreditCard *newCard = [[MidtransMaskedCreditCard alloc] initWithDictionary:dict];
+        [formattedCards addObject:newCard];
+    }
+    return formattedCards;
 }
 
 - (void)setEditingCell:(BOOL)editingCell {
@@ -92,22 +100,30 @@ CGFloat const ButtonHeight = 56;
 }
 
 - (void)reloadMaskedCards {
-    [self showLoadingHud];
-    [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
-                                                   completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
-     {
-         [self hideLoadingHud];
-         if (!maskedCards) {
-             [self showAlertViewWithTitle:@"Error"
-                               andMessage:error.localizedDescription
-                           andButtonTitle:@"Close"];
-             return;
-         } else {
-             [self.cards setArray:maskedCards];
-             [self.collectionView reloadData];
-         }
-         [self updateView];
-     }];
+    if ([CC_CONFIG tokenStorageEnabled]) {
+        NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
+        [self.cards setArray:savedTokens];
+        [self.collectionView reloadData];
+        [self updateView];
+    }
+    else {
+        [self showLoadingHud];
+        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                       completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
+         {
+             [self hideLoadingHud];
+             if (!maskedCards) {
+                 [self showAlertViewWithTitle:@"Error"
+                                   andMessage:error.localizedDescription
+                               andButtonTitle:@"Close"];
+                 return;
+             } else {
+                 [self.cards setArray:maskedCards];
+                 [self.collectionView reloadData];
+             }
+             [self updateView];
+         }];
+    }
 }
 
 
@@ -185,42 +201,53 @@ CGFloat const ButtonHeight = 56;
     
     self.selectedMaskedCard = self.cards[indexPath.row];
     
-    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
-        VTConfirmPaymentController *vc =
-        [[VTConfirmPaymentController alloc] initWithCardNumber:self.selectedMaskedCard.maskedNumber
-                                                   grossAmount:self.token.transactionDetails.grossAmount];
-        [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
-            if (selectedIndex == 1) {
-                [self payWithToken:self.selectedMaskedCard.savedTokenId];
-            }
-        }];
+    if ([CC_CONFIG tokenStorageEnabled]) {
+        if ([self.selectedMaskedCard.tokenType isEqualToString:TokenTypeOneClick]) {
+            [self performOneClick];
+        }
+        else {
+            [self performTwoClicks];
+        }
     }
     else {
-        VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
-                                                                    maskedCard:self.selectedMaskedCard];
-        [self.navigationController setDelegate:self];
-        [self.navigationController pushViewController:vc animated:YES];
+        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
+            [self performOneClick];
+        }
+        else {
+            [self performTwoClicks];
+        }
     }
 }
 
-#pragma mark - Helper
-
-- (void)payWithToken:(NSString *)token {
-    [_hudView showOnView:self.navigationController.view];
-    
-    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
-    
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
-    
-    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-        [_hudView hide];
-        
-        if (error) {
-            [self handleTransactionError:error];
-        } else {
-            [self handleTransactionSuccess:result];
+- (void)performOneClick {
+    VTConfirmPaymentController *vc =
+    [[VTConfirmPaymentController alloc] initWithCardNumber:self.selectedMaskedCard.maskedNumber
+                                               grossAmount:self.token.transactionDetails.grossAmount];
+    [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
+        if (selectedIndex == 1) {
+            [self showLoadingHud];
+            
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentOneClickWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails];
+            MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
+            
+            [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+                [self hideLoadingHud];
+                
+                if (error) {
+                    [self handleTransactionError:error];
+                } else {
+                    [self handleTransactionSuccess:result];
+                }
+            }];
         }
     }];
+}
+
+- (void)performTwoClicks {
+    VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
+                                                                maskedCard:self.selectedMaskedCard];
+    [self.navigationController setDelegate:self];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - VTAddCardControllerDelegate

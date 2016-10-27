@@ -136,10 +136,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
-    if ([CC_CONFIG saveCard]) {
-        paymentDetail.saveToken = YES;
-    }
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.token.customerDetails];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
@@ -148,8 +145,7 @@
             [self handleTransactionError:error];
         }
         else {
-            //save masked cards
-            if (result.maskedCreditCard) {
+            if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
             }

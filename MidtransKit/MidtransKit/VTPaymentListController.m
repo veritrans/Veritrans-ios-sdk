@@ -182,7 +182,8 @@
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG saveCard] || self.responsePayment.creditCard.savedTokens > 0) {
             VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                 paymentMethodName:paymentMethod andCreditCardData:self.responsePayment.creditCard];
+                                                                 paymentMethodName:paymentMethod
+                                                                 andCreditCardData:self.responsePayment.creditCard];
             [self.navigationController pushViewController:vc animated:YES];
         }
         else {

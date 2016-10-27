@@ -54,7 +54,7 @@
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     
-    if ([CC_CONFIG saveCard] == NO) {
+    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
         self.view.saveCardView.hidden = YES;
         self.view.saveCardViewHeight.constant = 0;
     }
@@ -64,6 +64,8 @@
     }
     
     [self.view setToken:self.token];
+    
+    self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
     
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];

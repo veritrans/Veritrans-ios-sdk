@@ -57,15 +57,22 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
                                    @"phone":self.customerDetails.phone}};
 }
 
+- (id)saveCard {
+    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
+        return @NO;
+    }
+    else {
+        return @([CC_CONFIG saveCard]);
+    }
+}
+
 - (NSDictionary *)paymentParameter {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    
-    BOOL saveCard = [CC_CONFIG saveCard]; //[CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
     
     switch (self.paymentType) {
         case MidtransPaymentCreditCardTypeNormal:
             [parameters setObject:self.creditCardToken forKey:@"card_token"];
-            [parameters setObject:@(saveCard) forKey:@"save_card"];
+            [parameters setObject:[self saveCard] forKey:@"save_card"];
             break;
         case MidtransPaymentCreditCardTypeTwoClicks:
             [parameters setObject:self.creditCardToken forKey:@"card_token"];

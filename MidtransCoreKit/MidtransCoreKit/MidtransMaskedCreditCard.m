@@ -13,14 +13,12 @@
 NSString *const kMTMaskedCreditCard = @"masked_card";
 NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
 
-NSString *const kMTMaskedCreditCardTokenIdentifier = @"token_id";
-NSString *const kMTMaskedCreditCardTokenCardhash = @"cardhash";
-NSString *const kMTMaskedCreditCardTokenType = @"type";
-
 @interface MidtransMaskedCreditCard()
 @property (nonatomic, readwrite) NSString *maskedNumber;
 @property (nonatomic, readwrite) NSString *savedTokenId;
 @property (nonatomic, readwrite) NSString *type;
+@property (nonatomic, readwrite) NSString *tokenType;
+@property (nonatomic, readwrite) NSString *expiresAt;
 @property (nonatomic, readwrite) NSDictionary *data;
 @end
 
@@ -38,17 +36,18 @@ NSString *const kMTMaskedCreditCardTokenType = @"type";
 
 - (instancetype _Nonnull)initWithDictionary:(NSDictionary *_Nonnull)dictionary {
     if (self = [super init]) {
-        self.savedTokenId = dictionary[kMTMaskedCreditCardTokenIdentifier];
-        self.maskedNumber = dictionary[kMTMaskedCreditCardTokenCardhash];
-        self.type = dictionary[kMTMaskedCreditCardTokenType];
+        self.savedTokenId = dictionary[kMTMaskedCreditCardIdentifier];
+        self.maskedNumber = dictionary[kMTMaskedCreditCardCardhash];
+        self.type = dictionary[kMTMaskedCreditCardType];
+        self.tokenType = dictionary[kMTMaskedCreditCardTokenType];
+        self.expiresAt = dictionary[kMTMaskedCreditCardExpiresAt];
     }
     return self;
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{kMTMaskedCreditCardTokenIdentifier:self.savedTokenId,
-             kMTMaskedCreditCardTokenCardhash:self.maskedNumber,
-             kMTMaskedCreditCardTokenType:self.type};
+    return @{kMTMaskedCreditCardIdentifier:self.savedTokenId,
+             kMTMaskedCreditCardCardhash:self.maskedNumber};
 }
 
 - (NSString *)description {

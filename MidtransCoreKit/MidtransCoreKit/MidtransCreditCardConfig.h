@@ -21,9 +21,11 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
 @property (nonatomic, readonly) MTCreditCardPaymentType paymentType;
 @property (nonatomic, readonly) BOOL secure;
 @property (nonatomic, readonly) BOOL saveCard;
+@property (nonatomic) BOOL tokenStorageEnabled;
 
 + (void)setPaymentType:(MTCreditCardPaymentType)paymentType secure:(BOOL)secure;
 + (void)enableSaveCard:(BOOL)enabled;
++ (void)enableTokenStorage:(BOOL)enabled;
 + (MidtransCreditCardConfig *)shared;
 
 @end

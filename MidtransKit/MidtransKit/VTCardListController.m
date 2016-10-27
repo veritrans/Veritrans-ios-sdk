@@ -67,7 +67,10 @@ CGFloat const ButtonHeight = 56;
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     
     self.editingCell = false;
-    [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
+    
+    if (![CC_CONFIG tokenStorageEnabled]) {
+        [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
+    }
     
     [self reloadMaskedCards];
 }

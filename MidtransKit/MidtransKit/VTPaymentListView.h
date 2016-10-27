@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MidtransUIPaymentListFooter.h"
 #import "MidtransUIPaymentListHeader.h"
+#import "MidtransLoadingView.h"
 @interface VTPaymentListView : UIView
+@property (weak, nonatomic) IBOutlet MidtransLoadingView *loadingView;
 @property (nonatomic) MidtransUIPaymentListFooter *footer;
 @property (nonatomic) MidtransUIPaymentListHeader *header;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

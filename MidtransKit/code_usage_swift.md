@@ -136,38 +136,4 @@ MidtransUIThemeManager.applyCustomThemeColor(theme_color, themeFont: fontSource)
 ```
 Put this code before you present the `MidtransUIPaymentViewController`
 
-### Want Support [CardIO](https://www.card.io/) ?
-
-CardIO enables user to scan their credit card instead of manually typing the details. To support it, update the `Podfile` to this
-
-```
-use_frameworks!
-
-def shared_pods
-    pod 'MidtransKit/CardIO'
-end
-
-target 'MyBeautifulApp' do
-    shared_pods
-end
-```
-
-Then because CardIO not support dynamic framework, your project need to implement **Bridging Header**, here is how you can implement it
-
-1. Add a new file to Xcode (File > New > File), then select “Source” and click “Header File“.
-2. Name your file “YourProjectName-Bridging-Header.h”.  Example: In my app Station, the file is named “Station-Bridging-Header”.
-3. Create the file.
-4. Navigate to your project build settings and find the “Swift Compiler – Code Generation” section.  You may find it faster to type in “Swift Compiler” into the search box to narrow down the results.  Note: If you don’t have a “Swift Compiler – Code Generation” section, this means you probably don’t have any Swift classes added to your project yet.  Add a Swift file, then try again.
-5. Next to “Objective-C Bridging Header” you will need to add the name/path of your header file.  If your file resides in your project’s root folder simply put the name of the header file there.  Examples:  “ProjectName/ProjectName-Bridging-Header.h” or simply “ProjectName-Bridging-Header.h”.
-6. Open up your newly created bridging header and import your Objective-C classes using #import statements.  Any class listed in this file will be able to be accessed from your swift classes.
-
-Then insert this
-
-```
-#import <MidtransKit/MidtransKit.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
-```
-
-to the bridging header file, now you can the SDK anywhere inside your project without importing **MidtransKit** inside your class
-
 

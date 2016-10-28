@@ -138,7 +138,7 @@ Put this code before you present the `MidtransUIPaymentViewController`
 
 ### Want Support [CardIO](https://www.card.io/) ?
 
-Update the `Podfile` to this
+CardIO enables user to scan their credit card instead of manually typing the details. To support it, update the `Podfile` to this
 
 ```
 use_frameworks!

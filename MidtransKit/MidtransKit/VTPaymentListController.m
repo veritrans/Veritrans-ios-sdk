@@ -83,7 +83,7 @@
     
     [self showLoadingHud];
     
-    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.token.tokenId
+    [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                             completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchantData.displayName;
@@ -186,15 +186,15 @@
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:indexPath.row];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-        if ([CC_CONFIG saveCard]) {
-            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                 paymentMethodName:paymentMethod];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else {
+        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
             VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
                                                                paymentMethodName:paymentMethod];
             vc.delegate = self;
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else {
+            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+                                                                 paymentMethodName:paymentMethod];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }

@@ -36,7 +36,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:@"paymentlist" ofType:@"plist"];
     self.paymentList = [NSArray arrayWithContentsOfFile:path];
     
-    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
+    [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.transactionToken.tokenId
                                                             completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
      {
          [MBProgressHUD hideHUDForView:self.view animated:YES];

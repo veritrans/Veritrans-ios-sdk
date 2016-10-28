@@ -57,7 +57,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [MidtransConfig setClientKey:clientKey serverEnvironment:[environment integerValue] merchantURL:merchantURL];
+    [MidtransConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" serverEnvironment:MIdtransServerEnvironmentSandbox merchantURL:@"http://mobile-snap-sandbox.herokuapp.com"];
     
     
     

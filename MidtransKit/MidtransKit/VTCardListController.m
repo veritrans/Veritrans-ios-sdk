@@ -78,8 +78,8 @@
 
 - (void)reloadMaskedCards {
     [self showLoadingHud];
-    [[MidtransMerchantClient sharedClient] fetchMaskedCardsCustomer:self.token.customerDetails
-                                                         completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
+    [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                   completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
      {
          [self hideLoadingHud];
          if (!maskedCards) {
@@ -106,7 +106,7 @@
         self.cardsView.hidden = false;
     } else {
         self.addCardButton.hidden = false;
-        self.addCardButtonHeight.constant = 50.;
+        self.addCardButtonHeight.constant = 56.;
         self.emptyCardView.hidden = false;
         self.cardsView.hidden = true;
     }
@@ -197,7 +197,7 @@
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
-    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [_hudView hide];
         
         if (error) {
@@ -222,9 +222,9 @@
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
-    [[MidtransMerchantClient sharedClient] saveMaskedCards:self.cards
-                                                  customer:self.token.customerDetails
-                                                completion:^(id  _Nullable result, NSError * _Nullable error)
+    [[MidtransMerchantClient shared] saveMaskedCards:self.cards
+                                            customer:self.token.customerDetails
+                                          completion:^(id  _Nullable result, NSError * _Nullable error)
      {
          [self hideLoadingHud];
          

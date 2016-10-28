@@ -24,14 +24,13 @@ NSString *const REGISTER_CARD_URL = @"card/register";
 
 @implementation MidtransClient
 
-+ (id)sharedClient {
++ (MidtransClient *)shared {
     static MidtransClient *instance = nil;
     @synchronized(self) {
         if (instance == nil) {
             instance = [[self alloc] init];
         }
-    }
-    
+    }    
     return instance;
 }
 
@@ -39,9 +38,9 @@ NSString *const REGISTER_CARD_URL = @"card/register";
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];
     
-    [[MidtransNetworking sharedInstance] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
+    [[MidtransNetworking shared] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
-            [[MidtransTrackingManager sharedInstance] trackAppFailGenerateToken:nil
+            [[MidtransTrackingManager shared] trackAppFailGenerateToken:nil
                                                                  secureProtocol:NO
                                                              withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
             if (completion) completion(nil, error);
@@ -49,7 +48,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
             NSString *redirectURL = response[@"redirect_url"];
             NSString *token = response[@"token_id"];
             if (redirectURL) {
-                [[MidtransTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
+                [[MidtransTrackingManager shared] trackAppSuccessGenerateToken:token
                                                                         secureProtocol:YES
                                                                     withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
                 Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:token
@@ -62,7 +61,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                     }
                 }];
             } else {
-                [[MidtransTrackingManager sharedInstance] trackAppSuccessGenerateToken:token
+                [[MidtransTrackingManager shared] trackAppSuccessGenerateToken:token
                                                                         secureProtocol:NO
                                                                     withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
                 if (completion) completion(token, nil);
@@ -79,7 +78,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
         return;
     }
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], REGISTER_CARD_URL];
-    [[MidtransNetworking sharedInstance] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
+    [[MidtransNetworking shared] getFromURL:URL parameters:[creditCard dictionaryValue] callback:^(id response, NSError *error) {
         if (response) {
             MidtransMaskedCreditCard *maskedCreditCard = [[MidtransMaskedCreditCard alloc] initWithData:response];
             if (completion) completion(maskedCreditCard, error);

@@ -25,7 +25,7 @@
 /**
  Return a shared instance of `VTClient`.
  */
-+ (id _Nonnull)sharedClient;
++ (MidtransClient *_Nonnull)shared;
 
 
 ///---------------------------

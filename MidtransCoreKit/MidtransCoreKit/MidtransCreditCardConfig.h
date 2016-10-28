@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define CC_CONFIG (MidtransCreditCardConfig *)[MidtransCreditCardConfig sharedInstance]
+#define CC_CONFIG (MidtransCreditCardConfig *)[MidtransCreditCardConfig shared]
 
 typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
     VTCreditCardPaymentTypeOneclick,
@@ -24,6 +24,6 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
 
 + (void)setPaymentType:(MTCreditCardPaymentType)paymentType secure:(BOOL)secure;
 + (void)enableSaveCard:(BOOL)enabled;
-+ (instancetype)sharedInstance;
++ (MidtransCreditCardConfig *)shared;
 
 @end

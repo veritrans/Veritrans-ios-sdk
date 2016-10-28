@@ -16,7 +16,7 @@
 
 @implementation MidtransCreditCardConfig
 
-+ (id)sharedInstance {
++ (MidtransCreditCardConfig *)shared {
     static MidtransCreditCardConfig *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -26,15 +26,16 @@
 }
 
 + (void)setPaymentType:(MTCreditCardPaymentType)paymentType secure:(BOOL)secure {
-    [[MidtransCreditCardConfig sharedInstance] setSecure:secure];
-    [[MidtransCreditCardConfig sharedInstance] setPaymentType:paymentType];
+    [[MidtransCreditCardConfig shared] setSecure:secure];
+    [[MidtransCreditCardConfig shared] setPaymentType:paymentType];
     
     switch (paymentType) {
-        case VTCreditCardPaymentTypeNormal:
-            [[MidtransCreditCardConfig sharedInstance] setSaveCard:NO];
-            break;
+            case VTCreditCardPaymentTypeNormal: {
+                [[MidtransCreditCardConfig shared] setSaveCard:NO];
+                break;
+            }
         default: {
-            [[MidtransCreditCardConfig sharedInstance] setSaveCard:YES];
+            [[MidtransCreditCardConfig shared] setSaveCard:YES];
             break;
         }
             
@@ -42,7 +43,7 @@
 }
 
 + (void)enableSaveCard:(BOOL)enabled {
-    [[MidtransCreditCardConfig sharedInstance] setSaveCard:enabled];
+    [[MidtransCreditCardConfig shared] setSaveCard:enabled];
 }
 
 @end

@@ -20,9 +20,9 @@
 @implementation MidtransConfig
 
 + (void)setClientKey:(NSString *)clientKey serverEnvironment:(MIdtransServerEnvironment)environment merchantURL:(NSString *)merchantURL {
-    [[MidtransConfig sharedInstance] setClientKey:clientKey];
-    [[MidtransConfig sharedInstance] setEnvironment:environment];
-    [[MidtransConfig sharedInstance] setMerchantURL:merchantURL];
+    [[MidtransConfig shared] setClientKey:clientKey];
+    [[MidtransConfig shared] setEnvironment:environment];
+    [[MidtransConfig shared] setMerchantURL:merchantURL];
 }
 
 - (NSString *)clientKey {
@@ -30,7 +30,7 @@
     return _clientKey;
 }
 
-+ (id)sharedInstance {
++ (MidtransConfig *)shared {
     static MidtransConfig *shared = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{

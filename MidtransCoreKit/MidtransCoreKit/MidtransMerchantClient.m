@@ -41,7 +41,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 @implementation MidtransMerchantClient
 
-+ (id)sharedClient {
++ (MidtransMerchantClient *)shared {
     // Idea stolen from http://www.galloway.me.uk/tutorials/singleton-classes/
     static MidtransMerchantClient *instance = nil;
     @synchronized(self) {
@@ -60,7 +60,8 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
-    [[MidtransNetworking sharedInstance] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
+
+    [[MidtransNetworking shared] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         NSString *paymentType = transaction.paymentType;
         
@@ -68,21 +69,21 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-                [[MidtransTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MIDTRANS_PAYMENT_CREDIT_CARD value:0];
+                [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MIDTRANS_PAYMENT_CREDIT_CARD value:0];
                 //transaction finished here
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
             else {
-                [[MidtransTrackingManager sharedInstance]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+                [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
         }
         else {
-            [[MidtransTrackingManager sharedInstance]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+            [[MidtransTrackingManager shared]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
             if (completion) {
                 completion(nil, error);
             }
@@ -95,7 +96,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
              completion:(void(^)(id result, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
     NSArray *parameters = maskedCards.requestBodyValues;
-    [[MidtransNetworking sharedInstance] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
+    [[MidtransNetworking shared] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
 }
 
 - (void)fetchMaskedCardsCustomer:(MidtransCustomerDetails *)customer completion:(void(^)(NSArray *maskedCards, NSError *error))completion {
@@ -153,10 +154,10 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         return;
     }
     
-    [[MidtransNetworking sharedInstance] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
-                                            header:nil
-                                        parameters:dictionaryParameters
-                                          callback:^(id response, NSError *error)
+    [[MidtransNetworking shared] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+                                    header:nil
+                                parameters:dictionaryParameters
+                                  callback:^(id response, NSError *error)
      {
          if (!error) {
              MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:response
@@ -164,13 +165,13 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
                                                                                                    customerDetails:customerDetails
                                                                                                        itemDetails:itemDetails];
              if (completion) {
-                 [[MidtransTrackingManager sharedInstance] trackGeneratedSnapToken:YES];
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
                  completion(token,NULL);
              }
          }
          else {
              if (completion) {
-                 [[MidtransTrackingManager sharedInstance] trackGeneratedSnapToken:NO];
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
                  completion(NULL,error);
              }
          }
@@ -179,8 +180,8 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
                          completion:(void (^_Nullable)(MidtransPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
-    
-    [[MidtransNetworking sharedInstance] getFromURL:[NSString stringWithFormat:@"%@/%@/%@",[PRIVATECONFIG snapURL], ENDPOINT_PAYMENT_PAGES, token] parameters:nil callback:^(id response, NSError *error) {
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_PAYMENT_PAGES, [PRIVATECONFIG snapURL], token];
+    [[MidtransNetworking shared] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
             MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
             

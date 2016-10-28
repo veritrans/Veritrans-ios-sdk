@@ -25,7 +25,7 @@
 /**
  Get the only instance of this object.
  */
-+ (id _Nonnull)sharedClient;
++ (MidtransMerchantClient *_Nonnull)shared;
 
 
 ///--------------------------

@@ -61,7 +61,7 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
 
-    [[MidtransNetworking shared] postToURL:[transaction chargeURL] header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
+    [[MidtransNetworking shared] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         NSString *paymentType = transaction.paymentType;
         

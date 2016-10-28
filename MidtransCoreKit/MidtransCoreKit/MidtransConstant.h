@@ -70,7 +70,7 @@ static NSString * const MIDTRANS_AMEX_REGEX         = @"^3[47][0-9]{0,}$";
  * CONSTANT ENDPOINT
  */
 
-static NSString * const ENDPOINT_PAYMENT_PAGES = @"payment_pages";
+static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
 static NSString * const ENDPOINT_CHARGE = @"transactions/%@/pay";
 
 

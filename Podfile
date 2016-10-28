@@ -24,5 +24,4 @@ end
 
 target 'MidtransCoreKit' do
     project 'MidtransCoreKit/MidtransCoreKit.xcodeproj'
-    pod 'CardIO', '~> 5.4'
 end

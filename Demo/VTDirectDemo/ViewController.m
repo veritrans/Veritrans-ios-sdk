@@ -110,7 +110,7 @@
         
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
         
-        [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
@@ -136,13 +136,13 @@
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        [[MidtransMerchantClient sharedClient] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
          {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
                  self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andUsingScanCardMethod:YES];
                  self.paymentVC.delegate = self;
-
+                 
                  [self presentViewController:self.paymentVC animated:YES completion:nil];
              }
              else {
@@ -208,14 +208,14 @@
         NSLog(@"User canceled payment info");
         // Handle user cancellation here...
     }
-
+    
     cardIOView.hidden = YES;
 }
 - (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
-     [paymentViewController dismissViewControllerAnimated:YES completion:^{
-         NSDictionary *cardInformation =@{MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER:cardInfo.cardNumber,MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR:[NSNumber numberWithInteger:cardInfo.expiryYear],MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH:[NSNumber numberWithInteger:cardInfo.expiryMonth]};
-         [[NSNotificationCenter defaultCenter]postNotificationName:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:cardInformation];
-     }];
+    [paymentViewController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *cardInformation =@{MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER:cardInfo.cardNumber,MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR:[NSNumber numberWithInteger:cardInfo.expiryYear],MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH:[NSNumber numberWithInteger:cardInfo.expiryMonth]};
+        [[NSNotificationCenter defaultCenter]postNotificationName:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:cardInformation];
+    }];
 }
 - (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
     [paymentViewController dismissViewControllerAnimated:YES completion:^{

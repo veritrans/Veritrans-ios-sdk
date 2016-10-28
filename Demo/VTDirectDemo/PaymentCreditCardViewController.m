@@ -46,7 +46,7 @@
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.transactionToken.transactionDetails.grossAmount
                                                                                          secure:enable3Ds];
-    [[MidtransClient sharedClient] generateToken:tokenRequest
+    [[MidtransClient shared] generateToken:tokenRequest
                                       completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                           [MBProgressHUD hideHUDForView:self.view animated:YES];
                                           if (error) {
@@ -69,7 +69,7 @@
 
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.transactionToken];
     
-    [[MidtransMerchantClient sharedClient] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             // create an alert view with three buttons
             UIAlertView *alertView = [[UIAlertView alloc]

@@ -106,7 +106,7 @@
         self.cardsView.hidden = false;
     } else {
         self.addCardButton.hidden = false;
-        self.addCardButtonHeight.constant = 50.;
+        self.addCardButtonHeight.constant = 56.;
         self.emptyCardView.hidden = false;
         self.cardsView.hidden = true;
     }

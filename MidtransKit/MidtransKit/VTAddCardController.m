@@ -46,7 +46,7 @@
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     
-    if ([CC_CONFIG saveCard] == NO) {
+    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
         self.saveCardView.hidden = YES;
         self.saveCardViewHeight.constant = 0;
     }

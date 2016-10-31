@@ -75,7 +75,10 @@
     [self.view hideScanCardButton:YES];
 #endif
 }
-
+- (void)handleTransactionResult:(MidtransTransactionResult *)result {
+    [super handleTransactionResult:result];
+    [self hideLoadingHud];
+}
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
     [self hideLoadingHud];
@@ -151,9 +154,12 @@
                 [self.maskedCards addObject:result.maskedCreditCard];
                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
             }
-            
-            //transaction finished
-            [self handleTransactionSuccess:result];
+            if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
+                [self handleTransactionResult:result];
+            }
+            else {
+                [self handleTransactionSuccess:result];
+            }
         }
     }];
 }

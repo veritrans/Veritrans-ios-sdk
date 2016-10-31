@@ -7,6 +7,7 @@
 */
 
 "payment.failed" = "Payment Failed";
+"payment.pending" = "Payment Pending";
 "payment.pay-at" = "Pay at %@";
 "clickpay.invalid-number" = "Invalid Debit Number";
 "clickpay.invalid-token" = "Invalid Clickpay Token";

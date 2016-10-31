@@ -11,12 +11,14 @@
 #import "VTClassHelper.h"
 #import "MidtransUIHudView.h"
 #import "MidtransUIToast.h"
+#import "MidtransPaymentStatusViewController.h"
 #import "VTKeyboardAccessoryView.h"
 #import "VTMultiGuideController.h"
 #import "VTSingleGuideController.h"
 #import "VTXLTunaiSuccessController.h"
 #import "MidtransUIThemeManager.h"
 #import "VTKITConstant.h"
+#import "MidtransPaymentStatusViewController.h"
 
 @interface MidtransUIPaymentController ()
 @property (nonatomic) MidtransUIHudView *hudView;
@@ -78,7 +80,13 @@
         [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
     }
 }
-
+#pragma new method handle transaction
+- (void)handleTransactionResult:(MidtransTransactionResult *)result {
+    MidtransPaymentStatusViewController *paymentStatusVC = [[MidtransPaymentStatusViewController alloc] initWithTransactionResult:result];
+    if ([VTClassHelper hasKindOfController:paymentStatusVC onControllers:self.navigationController.viewControllers] == NO) {
+        [self.navigationController pushViewController:(UIViewController *)paymentStatusVC animated:YES];
+    }
+}
 - (void)handleTransactionPending:(MidtransTransactionResult *)result {
     NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];

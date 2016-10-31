@@ -35,6 +35,11 @@
 		0093D8B51DC1EC7D00393334 /* MidtransLoadingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0093D8B31DC1EC7D00393334 /* MidtransLoadingView.h */; };
 		0093D8B61DC1EC7D00393334 /* MidtransLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0093D8B41DC1EC7D00393334 /* MidtransLoadingView.m */; };
 		0093D8B81DC1EC8F00393334 /* MidtransLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0093D8B71DC1EC8F00393334 /* MidtransLoadingView.xib */; };
+		00C685581DC701910008D08F /* MidtransPaymentStatusViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C685551DC701910008D08F /* MidtransPaymentStatusViewController.h */; };
+		00C685591DC701910008D08F /* MidtransPaymentStatusViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C685561DC701910008D08F /* MidtransPaymentStatusViewController.m */; };
+		00C6855B1DC701910008D08F /* MidtransPaymentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C685571DC701910008D08F /* MidtransPaymentStatusViewController.xib */; };
+		00C6855E1DC701B50008D08F /* MIdtransPaymentStatusView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C6855C1DC701B50008D08F /* MIdtransPaymentStatusView.h */; };
+		00C6855F1DC701B50008D08F /* MIdtransPaymentStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C6855D1DC701B50008D08F /* MIdtransPaymentStatusView.m */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -357,6 +362,11 @@
 		0093D8B31DC1EC7D00393334 /* MidtransLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransLoadingView.h; sourceTree = "<group>"; };
 		0093D8B41DC1EC7D00393334 /* MidtransLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransLoadingView.m; sourceTree = "<group>"; };
 		0093D8B71DC1EC8F00393334 /* MidtransLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransLoadingView.xib; sourceTree = "<group>"; };
+		00C685551DC701910008D08F /* MidtransPaymentStatusViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentStatusViewController.h; sourceTree = "<group>"; };
+		00C685561DC701910008D08F /* MidtransPaymentStatusViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentStatusViewController.m; sourceTree = "<group>"; };
+		00C685571DC701910008D08F /* MidtransPaymentStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransPaymentStatusViewController.xib; path = ../MidtransKit/MidtransPaymentStatusViewController.xib; sourceTree = "<group>"; };
+		00C6855C1DC701B50008D08F /* MIdtransPaymentStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentStatusView.h; sourceTree = "<group>"; };
+		00C6855D1DC701B50008D08F /* MIdtransPaymentStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransPaymentStatusView.m; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -719,6 +729,17 @@
 				008859521D488950003105F1 /* VTAddCardView.m */,
 			);
 			name = "Add Card";
+			sourceTree = "<group>";
+		};
+		00C685541DC701660008D08F /* Payment Status Result */ = {
+			isa = PBXGroup;
+			children = (
+				00C685551DC701910008D08F /* MidtransPaymentStatusViewController.h */,
+				00C685561DC701910008D08F /* MidtransPaymentStatusViewController.m */,
+				00C6855C1DC701B50008D08F /* MIdtransPaymentStatusView.h */,
+				00C6855D1DC701B50008D08F /* MIdtransPaymentStatusView.m */,
+			);
+			name = "Payment Status Result";
 			sourceTree = "<group>";
 		};
 		00F61AE61D1459F300C93DA0 /* Payment List */ = {
@@ -1158,6 +1179,7 @@
 		E50438BB1D1A718700710470 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				00C685571DC701910008D08F /* MidtransPaymentStatusViewController.xib */,
 				E57202E41D632315006B9265 /* VTKlikbcaSuccessController.xib */,
 				E50D85EE1D0ECB9000F26D2E /* VTIndomaretSuccessController.xib */,
 				E5591A471CEF0DB0005A2DB1 /* VTVASuccessStatusController.xib */,
@@ -1251,6 +1273,7 @@
 		E583AFED1C8D6DB000C04512 /* Status */ = {
 			isa = PBXGroup;
 			children = (
+				00C685541DC701660008D08F /* Payment Status Result */,
 				E578DD0C1CFBFA980091760A /* VTBillpaySuccessController.h */,
 				E578DD0D1CFBFA980091760A /* VTBillpaySuccessController.m */,
 				E58017E91D5868E1007D2DEC /* VTXLTunaiSuccessController.h */,
@@ -1349,6 +1372,7 @@
 				00F61B151D146F7100C93DA0 /* MidtransUIPaymentGeneralViewController.h in Headers */,
 				302BAA401C8816C400AE68CC /* VTCvvInfoController.h in Headers */,
 				E525E12A1CFD75D1009448A5 /* UIViewController+Modal.h in Headers */,
+				00C685581DC701910008D08F /* MidtransPaymentStatusViewController.h in Headers */,
 				E503AECD1C8E889C00F097FF /* VTVAListController.h in Headers */,
 				E57202DE1D62FB27006B9265 /* VTGroupedInstruction.h in Headers */,
 				E517C2D81C96B610009AE6AA /* MidtransUIHudView.h in Headers */,
@@ -1368,6 +1392,7 @@
 				E58017EB1D5868E1007D2DEC /* VTXLTunaiSuccessController.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
 				00F61B261D14825100C93DA0 /* MidtransUIPaymentDirectView.h in Headers */,
+				00C6855E1DC701B50008D08F /* MIdtransPaymentStatusView.h in Headers */,
 				E504386F1D1A4A2100710470 /* VTMultiGuideController.h in Headers */,
 				E517C2C11C9673B4009AE6AA /* VTAlertBackgroundView.h in Headers */,
 				E583AFF01C8D6DC500C04512 /* VTErrorStatusController.h in Headers */,
@@ -1577,6 +1602,7 @@
 				E5387D381D62BE7E004CCF3D /* mandiri_atm_2@2x.png in Resources */,
 				E5387D541D62BE7E004CCF3D /* permata_atm_3@2x.png in Resources */,
 				00F61B171D146F8C00C93DA0 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
+				00C6855B1DC701910008D08F /* MidtransPaymentStatusViewController.xib in Resources */,
 				E58017F21D586E36007D2DEC /* VTXLTunaiSuccessController.xib in Resources */,
 				E5D23C7D1D1D104A0069B5F9 /* MasterCardDark@2x.png in Resources */,
 				E5387D361D62BE7E004CCF3D /* bca_atm_6@2x.png in Resources */,
@@ -1710,6 +1736,7 @@
 				30E77E811C83FE570090D228 /* MIdtransUIBorderedView.m in Sources */,
 				E5C25FEE1D2615950012BCC8 /* UIFont+IBCustomFonts.m in Sources */,
 				E57202E91D63233D006B9265 /* VTKlikbcaSuccessController.m in Sources */,
+				00C6855F1DC701B50008D08F /* MIdtransPaymentStatusView.m in Sources */,
 				E583AFEB1C8D5C1600C04512 /* VTPaymentStatusViewModel.m in Sources */,
 				E517C2BD1C9672BA009AE6AA /* VTConfirmPaymentController.m in Sources */,
 				3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */,
@@ -1760,6 +1787,7 @@
 				E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */,
 				00F61B271D14825100C93DA0 /* MidtransUIPaymentDirectView.m in Sources */,
 				E57202E11D62FB27006B9265 /* VTInstruction.m in Sources */,
+				00C685591DC701910008D08F /* MidtransPaymentStatusViewController.m in Sources */,
 				E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */,
 				E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */,
 				E583AFF11C8D6DC500C04512 /* VTErrorStatusController.m in Sources */,

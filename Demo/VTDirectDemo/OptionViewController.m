@@ -20,6 +20,9 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *ccOptionSegment;
 @property (strong, nonatomic) IBOutlet UISwitch *secureSwitch;
+@property (strong, nonatomic) IBOutlet UIView *shippingAddressView;
+@property (strong, nonatomic) IBOutlet NSLayoutConstraint *shippingAddressHeight;
+@property (strong, nonatomic) IBOutlet UISwitch *sameAsBillingSwitch;
 @property (strong, nonatomic) IBOutlet UIButton *chooseColorButton;
 @property (strong, nonatomic) IBOutlet UIButton *chooseFontButton;
 
@@ -106,6 +109,9 @@
     _shipLastNameTextField.text = customer.shippingAddress.lastName;
     _shipPhoneTextField.text = customer.shippingAddress.phone;
     _shipPostCodeTextField.text = customer.shippingAddress.postalCode;
+    
+    self.sameAsBillingSwitch.on = [[[NSUserDefaults standardUserDefaults] objectForKey:@"same_as_billing_address"] boolValue];
+    [self updateShippingAddressView];
 }
 
 - (NSString *)countryCode {
@@ -126,6 +132,29 @@
     [self.chooseFontButton setTitle:fontNameBold forState:UIControlStateNormal];
 }
 
+- (void)updateShippingAddressView {
+    if (self.sameAsBillingSwitch.on) {
+        self.shippingAddressView.hidden = YES;
+        self.shippingAddressHeight.constant = 0;
+    }
+    else {
+        self.shippingAddressView.hidden = NO;
+        self.shippingAddressHeight.constant = 260;
+    }
+}
+
+- (IBAction)autoFillShippingAddressSwitchChanged:(UISwitch *)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:@(sender.on) forKey:@"same_as_billing_address"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self updateShippingAddressView];
+    
+    //scroll 
+    [self.view layoutIfNeeded];
+    CGPoint bottomOffset = CGPointMake(0, self.scrollView.contentSize.height - self.scrollView.bounds.size.height);
+    [self.scrollView setContentOffset:bottomOffset animated:YES];
+}
+
 - (IBAction)chooseColorPressed:(UIButton *)sender {
     FCColorPickerViewController *colorPicker = [FCColorPickerViewController colorPicker];
     colorPicker.color = sender.backgroundColor;
@@ -139,8 +168,34 @@
 }
 
 - (IBAction)savePressed:(UIBarButtonItem *)sender {
-    MidtransAddress *shipAddr = [MidtransAddress addressWithFirstName:_shipFirstNameTextField.text lastName:_shipLastNameTextField.text phone:_shipPhoneTextField.text address:_shipAddressTextField.text city:_shipCityTextField.text postalCode:_shipPostCodeTextField.text countryCode:[self countryCode]];
-    MidtransAddress *billAddr = [MidtransAddress addressWithFirstName:_billFirstNameTextField.text lastName:_billLastNameTextField.text phone:_billPhoneTextField.text address:_addressTextField.text city:_cityTextField.text postalCode:_postCodeTextField.text countryCode:[self countryCode]];
+    MidtransAddress *billAddr = [MidtransAddress addressWithFirstName:_billFirstNameTextField.text
+                                                             lastName:_billLastNameTextField.text
+                                                                phone:_billPhoneTextField.text
+                                                              address:_addressTextField.text
+                                                                 city:_cityTextField.text
+                                                           postalCode:_postCodeTextField.text
+                                                          countryCode:[self countryCode]];
+    MidtransAddress *shipAddr;
+    
+    if (self.sameAsBillingSwitch.on) {
+        shipAddr = [MidtransAddress addressWithFirstName:billAddr.firstName
+                                                lastName:billAddr.lastName
+                                                   phone:billAddr.phone
+                                                 address:billAddr.address
+                                                    city:billAddr.city
+                                              postalCode:billAddr.postalCode
+                                             countryCode:billAddr.countryCode];
+    }
+    else {
+        shipAddr = [MidtransAddress addressWithFirstName:_shipFirstNameTextField.text
+                                                lastName:_shipLastNameTextField.text
+                                                   phone:_shipPhoneTextField.text
+                                                 address:_shipAddressTextField.text
+                                                    city:_shipCityTextField.text
+                                              postalCode:_shipPostCodeTextField.text
+                                             countryCode:[self countryCode]];
+    }
+    
     MidtransCustomerDetails *customer = [[MidtransCustomerDetails alloc] initWithFirstName:_firstNameTextField.text lastName:_lastNameTextField.text email:_emailTextField.text phone:_phoneTextField.text shippingAddress:shipAddr billingAddress:billAddr];
     
     //save to NSUserDefaults

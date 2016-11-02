@@ -8,6 +8,8 @@ We provide two implementation modes on this SDK:
 ##### 1. UI Flow
 To see the implementation guides please read [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransKit/code_usage.md)
 
+If you are using Swift, please read the integration guide [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransKit/code_usage_swift.md)
+
 ##### 2. Core Flow
 To see the implementation guides please read [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransCoreKit/code_usage.md)
 

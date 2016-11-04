@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/veritrans/Veritrans-ios-sdk.svg?branch=development)](https://travis-ci.org/veritrans/Veritrans-ios-sdk)
+
 ### Overview
 To see the overview of Veritrans SDK, please read [here](https://github.com/veritrans/Veritrans-ios-sdk/wiki/Getting-started-with-the-Veritrans-SDK)
 

@@ -34,21 +34,43 @@ void standard_swizzle(Class cls, SEL original, SEL replacement) {
 
 @implementation UIFont (IBCustomFonts)
 
-+ (NSString *)mapSystemFontWithName:(NSString *)fontName size:(CGFloat)fontSize{
-    if ([fontName isEqualToString:@"SourceSansPro-Regular"]) {
-        return [[MidtransUIThemeManager shared].themeFont fontNameRegular];
-    } else if ([fontName isEqualToString:@"SourceSansPro-Bold"]) {
-        return [[MidtransUIThemeManager shared].themeFont fontNameBold];
-    } else if ([fontName isEqualToString:@"SourceSansPro-Light"]) {
-        return [[MidtransUIThemeManager shared].themeFont fontNameLight];
-    } else if ([fontName isEqualToString:@"SourceSansPro-Semibold"]) {
-        return [[MidtransUIThemeManager shared].themeFont fontNameRegular];
-    } else {
-        //it should be nil
-        //it can cause terrible bug if not nil
-        return nil;
+static NSString *const SSRegular = @"SourceSansPro-Regular";
+static NSString *const SSBold = @"SourceSansPro-Bold";
+static NSString *const SSLight = @"SourceSansPro-Light";
+static NSString *const SSSemibold = @"SourceSansPro-Semibold";
+
++ (UIFontDescriptor *)mapSystemFontWithDescriptor:(UIFontDescriptor *)descriptor size:(CGFloat)size {
+    NSString *fontName = [descriptor.fontAttributes objectForKey:UIFontDescriptorNameAttribute];
+    NSString *thisFontName = [self mapSystemFontWithName:fontName];
+    if ([thisFontName isEqualToString:SSRegular] ||
+        [thisFontName isEqualToString:SSBold] ||
+        [thisFontName isEqualToString:SSLight] ||
+        [thisFontName isEqualToString:SSSemibold]) {
+        return [UIFontDescriptor fontDescriptorWithName:thisFontName size:size];
+    }
+    else {
+        return descriptor;
     }
 }
+
++ (NSString *)mapSystemFontWithName:(NSString *)fontName {
+    if ([fontName isEqualToString:SSRegular]) {
+        return [[MidtransUIThemeManager shared].themeFont fontNameRegular];
+    }
+    else if ([fontName isEqualToString:SSBold]) {
+        return [[MidtransUIThemeManager shared].themeFont fontNameBold];
+    }
+    else if ([fontName isEqualToString:SSLight]) {
+        return [[MidtransUIThemeManager shared].themeFont fontNameLight];
+    }
+    else if ([fontName isEqualToString:SSSemibold]) {
+        return [[MidtransUIThemeManager shared].themeFont fontNameRegular];
+    }
+    else {
+        return fontName;
+    }
+}
+
 + (void)initialize {
     if (self == [UIFont class]) {
         static dispatch_once_t onceToken;
@@ -60,19 +82,19 @@ void standard_swizzle(Class cls, SEL original, SEL replacement) {
         });
     }
 }
+
 +(UIFont*)new_fontWithName:(NSString*)fontName size:(CGFloat)fontSize {
-    return [self new_fontWithName:[self mapSystemFontWithName:fontName size:fontSize] size:fontSize];
+    return [self new_fontWithName:[self mapSystemFontWithName:fontName] size:fontSize];
 }
+
 +(UIFont*)new_fontWithName:(NSString*)fontName size:(CGFloat)fontSize traits:(int)traits {
-    return [self new_fontWithName:[self mapSystemFontWithName:fontName size:fontSize] size:fontSize traits:traits];
+    return [self new_fontWithName:[self mapSystemFontWithName:fontName] size:fontSize traits:traits];
 }
 
 #if __IPHONE_OS_VERSION_MAX_ALLOWED >= 70000
 
 +(UIFont*)new_fontWithDescriptor:(UIFontDescriptor*)descriptor size:(CGFloat)fontSize {
-    NSString *fontName = [descriptor.fontAttributes objectForKey:UIFontDescriptorNameAttribute];
-    NSString* newName = [self mapSystemFontWithName:fontName size:fontSize];
-    return [self new_fontWithDescriptor: newName ? [UIFontDescriptor fontDescriptorWithName:newName size:fontSize] : descriptor size:fontSize];
+    return [self new_fontWithDescriptor:[self mapSystemFontWithDescriptor:descriptor size:fontSize] size:fontSize];
 }
 #endif
 @end

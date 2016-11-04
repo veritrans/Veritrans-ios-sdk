@@ -14,17 +14,12 @@
 #import "MidtransUIThemeManager.h"
 #import "VTKITConstant.h"
 
-@interface MidtransUIPaymentViewController ()
-@end
-
 @implementation MidtransUIPaymentViewController
 
 @dynamic delegate;
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andUsingScanCardMethod:(BOOL)cardScanner {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
-    [[NSUserDefaults standardUserDefaults] setBool:cardScanner forKey:MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER];
-    [[NSUserDefaults standardUserDefaults] synchronize];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }
@@ -33,7 +28,7 @@
     [super viewDidLoad];
     self.navigationBar.translucent = false;
     // to remove 1 px border below nav bar
-
+    
     [self.navigationBar setBackgroundImage:[UIImage new]
                             forBarPosition:UIBarPositionAny
                                 barMetrics:UIBarMetricsDefault];
@@ -73,11 +68,7 @@
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return UIInterfaceOrientationPortrait;
 }
-- (void)scanCardDidTapped {
-    if ([self.delegate respondsToSelector:@selector(addCardButtonDidTapped)]) {
-        [self.delegate addCardButtonDidTapped];
-    }
-}
+
 - (BOOL)shouldAutorotate {
     return NO;
 }

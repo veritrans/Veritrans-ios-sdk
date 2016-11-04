@@ -21,14 +21,15 @@
 #import "MidtransUIPaymentDirectViewController.h"
 #import "VTPaymentListView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
 #import "VTPaymentListDataSource.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
-@interface VTPaymentListController () <UITableViewDelegate,VTAddCardControllerDelegate>
+@interface VTPaymentListController () <UITableViewDelegate, VTAddCardControllerDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
+@property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
 @property (nonatomic,strong) VTPaymentListDataSource *dataSource;
+
 @property (nonatomic) CGFloat tableHeaderHeight;
 @end
 
@@ -43,6 +44,7 @@
     
     self.dataSource = [[VTPaymentListDataSource alloc] init];
     self.view.tableView.dataSource = self.dataSource;
+    self.view.tableView.tableFooterView = [UIView new];
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
@@ -73,7 +75,7 @@
     self.view.header.customView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
     
     self.view.footer.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), 45);
-    self.view.tableView.tableFooterView = self.view.footer;
+    //self.view.tableView.tableFooterView = self.view.footer;
     self.view.header.frame = CGRectMake(0, 0, CGRectGetWidth(self.view.tableView.frame), self.tableHeaderHeight);
     self.view.footer.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.header.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
@@ -81,60 +83,52 @@
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     
-    [self showLoadingHud];
-    
+    //[self showLoadingHud];
+    [self.view.loadingView show];
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
-                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
+                                                      completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
-         self.title = response.merchantData.displayName;
+         self.title = response.merchant.preference.displayName;
          [self hideLoadingHud];
          if (response) {
-             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-             self.view.footer.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-             self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
-             NSArray *enabledPayments = response.transactionData.enabledPayments;
-             //need fix it in the future;
-
+             self.responsePayment = response;
+             bool vaAlreadyAdded = 0;
+             NSInteger mainIndex = 0;
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
-             bool vaAlreadyAdded = 0;
-             NSInteger mainIndex = 0;
-             for (NSString *enabledPayment in enabledPayments) {
+             NSInteger grandTotalAmount = [response.transactionDetails.grossAmount integerValue];
+             self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
+             NSArray *paymentAvailable = response.enabledPayments;
+             for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                     return [obj[@"id"] isEqualToString:enabledPayment];
+                     return [obj[@"id"] isEqualToString:enabledPayment.type];
                  }];
                  if (index != NSNotFound) {
                      MidtransPaymentListModel *model;
-                     if ([enabledPayment isEqualToString:@"permata_va"] ||
-                         [enabledPayment isEqualToString:@"all_va"] ||
-                         [enabledPayment isEqualToString:@"echannel"] ||
-                         [enabledPayment isEqualToString:@"bca_va"] ) {
+                     if ([enabledPayment.category isEqualToString:@"bank_transfer"]) {
                          if (!vaAlreadyAdded) {
                              if (mainIndex!=0) {
                                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
                                  [self.paymentMethodList insertObject:model atIndex:1];
                                  vaAlreadyAdded = YES;
                              }
-
+                             
                          }
                      }
                      else {
-                           model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                         model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          [self.paymentMethodList addObject:model];
                      }
-
+                     mainIndex++;
                  }
-                  mainIndex++;
+                 self.dataSource.paymentList = self.paymentMethodList;
+                 [self.view.tableView reloadData];
              }
-             
-             self.dataSource.paymentList = self.paymentMethodList;
-             [self.view.tableView reloadData];
          }
          else {
-             //todo what should happens when payment request is failed;
          }
      }];
 }
@@ -194,7 +188,8 @@
         }
         else {
             VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                 paymentMethodName:paymentMethod];
+                                                                 paymentMethodName:paymentMethod
+                                                                 andCreditCardData:self.responsePayment.creditCard];
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
@@ -210,7 +205,8 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     {
         MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithToken:self.token
-                                                                                                 paymentMethodName:paymentMethod];
+                                                                                                 paymentMethodName:paymentMethod
+                                                                                                          merchant:self.responsePayment.merchant];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
@@ -226,13 +222,17 @@
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
                                                                            paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-    }    
+    }
     else {
         MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }
-- (void)scanCardButtonDidTapped {
+
+#pragma mark - VTAddCardControllerDelegate
+
+- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
     
 }
+
 @end

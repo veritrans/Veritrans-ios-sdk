@@ -14,14 +14,16 @@
 @property (nonatomic) UIWebView *webView;
 @property (nonatomic) NSString *paymentIdentifier;
 @property (nonatomic, readwrite) MidtransTransactionResult *result;
+@property (nonatomic) MidtransPaymentRequestV2Merchant *merchant;
 @end
 
 @implementation MidtransPaymentWebController
 
-- (instancetype _Nonnull)initWithTransactionResult:(MidtransTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier {
+- (instancetype)initWithMerchant:(MidtransPaymentRequestV2Merchant *)merchant result:(MidtransTransactionResult *)result identifier:(NSString *)identifier {
     if (self = [super init]) {
         self.result = result;
-        self.paymentIdentifier = paymentIdentifier;
+        self.paymentIdentifier = identifier;
+        self.merchant = merchant;
     }
     return self;
 }
@@ -70,8 +72,26 @@
 #pragma mark - UIWebViewDelegate
 
 - (void)webViewDidStartLoad:(UIWebView *)webView {
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    NSString *requestURL = webView.request.URL.absoluteString;
     
+    if ([requestURL containsString:self.merchant.preference.finishUrl]) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionFinished:)]) {
+            [self.delegate webPaymentController_transactionFinished:self];
+        }
+    }
+    else if ([requestURL containsString:self.merchant.preference.pendingUrl]) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
+            [self.delegate webPaymentController_transactionPending:self];
+        }
+    }
+    else if ([requestURL containsString:self.merchant.preference.errorUrl]) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
+            [self.delegate webPaymentController:self transactionError:nil];
+        }
+    }
+    else {
+        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+    }
 }
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
@@ -84,59 +104,11 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
-    NSURLRequest *request = webView.request;
-    
-    if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
-        NSDictionary *params = [self dictionaryFromQueryString:request.URL.query];
-        if (params && params[@"id"]) {
-            if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionFinished:)]) {
-                [self.delegate webPaymentController_transactionFinished:self];
-            }
-        }
-    }
-    else {
-        NSString *requestBodyString = [[NSString alloc] initWithData:[request HTTPBody] encoding:NSUTF8StringEncoding];
-        requestBodyString = [[requestBodyString stringByReplacingOccurrencesOfString:@"+"
-                                                                          withString:@" "]
-                             stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-        
-        NSDictionary *body = [self dictionaryFromQueryString:requestBodyString];
-        
-        if (body[@"response"]) {
-            NSData *data = [body[@"response"] dataUsingEncoding:NSUTF8StringEncoding];
-            id response = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-            
-            if ([response[@"transaction_status"] isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY]) {
-                NSError *error = [self transactionError];
-                if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
-                    [self.delegate webPaymentController:self transactionError:error];
-                }
-            }
-            else {
-                if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionFinished:)]) {
-                    [self.delegate webPaymentController_transactionFinished:self];
-                }
-            }
-        }
-    }
 }
 
 - (NSError *)transactionError {
     NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_CANCELED_WEBPAYMENT userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Transaction canceled by user", nil)}];
     return error;
-}
-
-- (NSDictionary *)dictionaryFromQueryString:(NSString *)queryString {
-    NSArray *urlComponents = [queryString componentsSeparatedByString:@"&"];
-    NSMutableDictionary *queryStringDictionary = [NSMutableDictionary new];
-    for (NSString *keyValuePair in urlComponents) {
-        NSArray *pairComponents = [keyValuePair componentsSeparatedByString:@"="];
-        NSString *key = [[pairComponents firstObject] stringByRemovingPercentEncoding];
-        NSString *value = [[pairComponents lastObject] stringByRemovingPercentEncoding];
-        [queryStringDictionary setObject:value forKey:key];
-    }
-    return queryStringDictionary;
 }
 
 #pragma mark - UIAlertViewDelegate

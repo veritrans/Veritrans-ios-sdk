@@ -8,6 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
+static NSString * _Nonnull const kMTMaskedCreditCardIdentifier = @"token_id";
+static NSString * _Nonnull const kMTMaskedCreditCardCardhash = @"cardhash";
+static NSString * _Nonnull const kMTMaskedCreditCardType = @"type";
+static NSString * _Nonnull const kMTMaskedCreditCardTokenType = @"token_type";
+static NSString * _Nonnull const kMTMaskedCreditCardExpiresAt = @"expires_at";
+
 /**
  Object that represent partially saved credit card information.
  */
@@ -23,7 +29,11 @@
  */
 @property (nonatomic, readonly, nonnull) NSString *savedTokenId;
 
-@property (nonatomic, readonly, nonnull) NSString *type;
+@property (nonatomic, readonly, nullable) NSString *type;
+
+@property (nonatomic, readonly, nullable) NSString *tokenType;
+
+@property (nonatomic, readonly, nullable) NSString *expiresAt;
 
 @property (nonatomic, readonly, nullable) NSDictionary *dictionaryValue;
 

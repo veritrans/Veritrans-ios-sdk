@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MidtransPaymentRequestV2Merchant.h"
 #import "MidtransTransactionResult.h"
 
 @protocol MidtransPaymentWebControllerDelegate;
@@ -16,7 +17,7 @@
 @property (nonatomic, readonly, nonnull) MidtransTransactionResult *result;
 @property (nonatomic, assign, nullable) id<MidtransPaymentWebControllerDelegate>delegate;
 
-- (instancetype _Nonnull)initWithTransactionResult:(MidtransTransactionResult * _Nonnull)result paymentIdentifier:(NSString *_Nonnull)paymentIdentifier;
+- (instancetype _Nonnull)initWithMerchant:(MidtransPaymentRequestV2Merchant *_Nonnull)merchant result:(MidtransTransactionResult * _Nonnull)result identifier:(NSString *_Nonnull)identifier;
 
 @end
 
@@ -25,6 +26,6 @@
 
 - (void)webPaymentController_transactionFinished:(MidtransPaymentWebController *_Nonnull)webPaymentController;
 - (void)webPaymentController_transactionPending:(MidtransPaymentWebController *_Nonnull)webPaymentController;
-- (void)webPaymentController:(MidtransPaymentWebController *_Nonnull)webPaymentController transactionError:(NSError *_Nonnull)error;
+- (void)webPaymentController:(MidtransPaymentWebController *_Nonnull)webPaymentController transactionError:(NSError *_Nullable)error;
 
 @end

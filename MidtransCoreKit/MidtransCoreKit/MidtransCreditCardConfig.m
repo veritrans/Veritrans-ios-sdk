@@ -46,5 +46,8 @@
     [[MidtransCreditCardConfig shared] setSaveCard:enabled];
 }
 
++ (void)enableTokenStorage:(BOOL)enabled {
+    [[MidtransCreditCardConfig shared] setTokenStorageEnabled:enabled];
+}
 @end
 

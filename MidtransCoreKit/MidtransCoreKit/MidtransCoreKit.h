@@ -50,7 +50,7 @@
 #import "MidtransCreditCardConfig.h"
 #import "MidtransImageManager.h"
 #import "MidtransPaymentWebController.h"
-
+#import "MidtransTransactionExpire.h"
 #import "MidtransPaymentRequestV2DataModels.h"
 
 #endif /* MidtransCoreKit_h */

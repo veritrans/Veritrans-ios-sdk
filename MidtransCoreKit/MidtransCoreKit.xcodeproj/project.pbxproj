@@ -22,6 +22,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		001FCBF01DCC44040023408D /* MidtransTransactionExpire.h in Headers */ = {isa = PBXBuildFile; fileRef = 001FCBEE1DCC44040023408D /* MidtransTransactionExpire.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		001FCBF11DCC44040023408D /* MidtransTransactionExpire.m in Sources */ = {isa = PBXBuildFile; fileRef = 001FCBEF1DCC44040023408D /* MidtransTransactionExpire.m */; };
 		002CC9981D125604003A1203 /* MidtransPaymentKlikBCA.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9961D125604003A1203 /* MidtransPaymentKlikBCA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		002CC9AA1D127618003A1203 /* MidtransPaymentKlikBCA.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9971D125604003A1203 /* MidtransPaymentKlikBCA.m */; };
 		005204171D7FEFD6006C497D /* MidtransPaymentRequestTransactionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 005204161D7FEFD6006C497D /* MidtransPaymentRequestTransactionDetails.m */; };
@@ -165,6 +167,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		001FCBEE1DCC44040023408D /* MidtransTransactionExpire.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransTransactionExpire.h; sourceTree = "<group>"; };
+		001FCBEF1DCC44040023408D /* MidtransTransactionExpire.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransTransactionExpire.m; sourceTree = "<group>"; };
 		002CC9961D125604003A1203 /* MidtransPaymentKlikBCA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentKlikBCA.h; sourceTree = "<group>"; };
 		002CC9971D125604003A1203 /* MidtransPaymentKlikBCA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentKlikBCA.m; sourceTree = "<group>"; };
 		005204161D7FEFD6006C497D /* MidtransPaymentRequestTransactionDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestTransactionDetails.m; sourceTree = "<group>"; };
@@ -313,9 +317,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		001FCBED1DCC44040023408D /* Expire Time */ = {
+			isa = PBXGroup;
+			children = (
+				001FCBEE1DCC44040023408D /* MidtransTransactionExpire.h */,
+				001FCBEF1DCC44040023408D /* MidtransTransactionExpire.m */,
+			);
+			path = "Expire Time";
+			sourceTree = "<group>";
+		};
 		006DB7B51D3DE279001C9A71 /* Snap */ = {
 			isa = PBXGroup;
 			children = (
+				001FCBED1DCC44040023408D /* Expire Time */,
 				009A7E501DBF06C300049358 /* PaymentRequestV2 */,
 				006DB8011D3E1050001C9A71 /* PaymentRequest */,
 				006DB7B61D3DE27D001C9A71 /* Token Request */,
@@ -643,6 +657,7 @@
 				009A7E811DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h in Headers */,
 				2ED4518E1D09C4D7008BAED8 /* MidtransConstant.h in Headers */,
 				009A7E7B1DBF06E600049358 /* MidtransPaymentRequestV2ShippingAddress.h in Headers */,
+				001FCBF01DCC44040023408D /* MidtransTransactionExpire.h in Headers */,
 				3054945D1C75A08900938C17 /* MidtransNetworking.h in Headers */,
 				E53BD0261D128F4C001FADDE /* MidtransMandiriClickpayHelper.h in Headers */,
 				009A7E7D1DBF06E600049358 /* MidtransPaymentRequestV2TransactionDetails.h in Headers */,
@@ -822,6 +837,7 @@
 				E5DACA931D034E7000F5BE0A /* MidtransLuhn.m in Sources */,
 				305494581C75A08900938C17 /* MidtransAddress.m in Sources */,
 				002CC9AA1D127618003A1203 /* MidtransPaymentKlikBCA.m in Sources */,
+				001FCBF11DCC44040023408D /* MidtransTransactionExpire.m in Sources */,
 				E5E436281CE31DA100F688ED /* MidtransConfig.m in Sources */,
 				E5E436341CE31E4200F688ED /* MidtransCreditCard.m in Sources */,
 				00CCECB51D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m in Sources */,

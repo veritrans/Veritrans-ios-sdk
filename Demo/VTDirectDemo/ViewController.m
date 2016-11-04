@@ -108,22 +108,35 @@
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        
-        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
-                                                                           itemDetails:self.itemDetails
-                                                                       customerDetails:customerDetails
-                                                                            completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
-         {
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
-             if (!error) {
-                 SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
-                 sampleController.transactionToken = token;
-                 UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];
-                 [self presentViewController:sampleNavigationcontroller animated:YES completion:nil];
-             }
-             else {
-             }
-         }];
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:nil completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
+            [MBProgressHUD hideHUDForView:self.view animated:YES];
+            if (!error) {
+                NSLog(@"token==>%@",token);
+                SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
+                sampleController.transactionToken = token;
+                UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];
+                [self presentViewController:sampleNavigationcontroller animated:YES completion:nil];
+            }
+            else {
+            }
+
+        }];
+
+        //[[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
+          //                                                                 itemDetails:self.itemDetails
+            //                                                           customerDetails:customerDetails
+              //                                                              completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+       //  {
+         //    [MBProgressHUD hideHUDForView:self.view animated:YES];
+           //  if (!error) {
+           //      SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
+           //      sampleController.transactionToken = token;
+            //     UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];
+            //     [self presentViewController:sampleNavigationcontroller animated:YES completion:nil];
+           //  }
+           //  else {
+           //  }
+        // }];
     }
     else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
@@ -141,19 +154,36 @@
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
-         {
+        MidtransTransactionExpire *expire = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date] expireDuration:1 withUnitTime:MindtransTimeUnitTypeMinute];
+
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:expire completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
+            NSLog(@"token-->%@",token);
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
                  self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
                  self.paymentVC.delegate = self;
-                 
+
                  [self presentViewController:self.paymentVC animated:YES completion:nil];
              }
              else {
                  [self showAlertError:error];
              }
          }];
+       // [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+         //{
+           //  [MBProgressHUD hideHUDForView:self.view animated:YES];
+             //if (!error) {
+               //  self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                 //self.paymentVC.delegate = self;
+                 
+                 //[self presentViewController:self.paymentVC animated:YES completion:nil];
+             //}
+             //else {
+               //  [self showAlertError:error];
+             //}
+         //}];
+
+
     }
     else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];

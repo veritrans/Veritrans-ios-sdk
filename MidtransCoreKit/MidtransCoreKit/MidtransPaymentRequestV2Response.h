@@ -7,7 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-@class MidtransPaymentRequestV2TransactionDetails, MidtransPaymentRequestV2CreditCard, MidtransPaymentRequestV2Merchant, MidtransPaymentRequestV2CustomerDetails, MidtransPaymentRequestV2Callbacks;
+@class MidtransPaymentRequestV2TransactionDetails, MidtransPaymentRequestV2CreditCard, MidtransPaymentRequestV2Merchant, MidtransPaymentRequestV2CustomerDetails, MidtransPaymentRequestV2Callbacks,MidtransTransactionExpire;
 
 @interface MidtransPaymentRequestV2Response : NSObject <NSCoding, NSCopying>
 
@@ -19,6 +19,8 @@
 @property (nonatomic, strong) NSArray *itemDetails;
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) MidtransPaymentRequestV2Callbacks *callbacks;
+@property (nonatomic, strong) MidtransTransactionExpire *expire;
+@property (nonatomic, strong) NSDictionary *custom;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

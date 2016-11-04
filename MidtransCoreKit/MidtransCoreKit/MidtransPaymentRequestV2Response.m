@@ -13,7 +13,7 @@
 #import "MidtransPaymentRequestV2CustomerDetails.h"
 #import "MidtransPaymentRequestV2ItemDetails.h"
 #import "MidtransPaymentRequestV2Callbacks.h"
-
+#import "MidtransTransactionExpire.h"
 
 NSString *const kMidtransPaymentRequestV2ResponseTransactionDetails = @"transaction_details";
 NSString *const kMidtransPaymentRequestV2ResponseEnabledPayments = @"enabled_payments";
@@ -23,7 +23,8 @@ NSString *const kMidtransPaymentRequestV2ResponseCustomerDetails = @"customer_de
 NSString *const kMidtransPaymentRequestV2ResponseItemDetails = @"item_details";
 NSString *const kMidtransPaymentRequestV2ResponseToken = @"token";
 NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
-
+NSString *const kMIdtransPaymentRequestV2ResponseExpire  = @"expiry";
+NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
 
 @interface MidtransPaymentRequestV2Response ()
 
@@ -87,7 +88,8 @@ NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
     self.itemDetails = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2ItemDetails];
             self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2ResponseToken fromDictionary:dict];
             self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
-
+        self.expire = [MidtransTransactionExpire modelObjectWithDictionary:[dict objectForKey:kMIdtransPaymentRequestV2ResponseExpire]];
+        self.custom  = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseCustomField fromDictionary:dict];
     }
     
     return self;
@@ -156,6 +158,8 @@ NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
     self.itemDetails = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseItemDetails];
     self.token = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseToken];
     self.callbacks = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseCallbacks];
+    self.expire = [aDecoder decodeObjectForKey:kMIdtransPaymentRequestV2ResponseExpire];
+    self.custom = [aDecoder decodeObjectForKey:KMidtransPaymentRequestV2ResponseCustomField];
     return self;
 }
 

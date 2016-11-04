@@ -138,6 +138,64 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
+                                          customField:(NSDictionary *)customField
+                                transactionExpireTime:(MidtransTransactionExpire *)expireTime
+                                           completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+    NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
+    [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
+    [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
+    [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
+    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
+    NSLog(@"data-->%@",[expireTime dictionaryRepresentation]);
+    if ([customField count] || [customField isEqual:[NSNull null]]) {
+        [dictionaryParameters setObject:customField forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOM];
+    }
+    if ([[expireTime dictionaryRepresentation] count] || [expireTime isEqual:[NSNull null]]) {
+        [dictionaryParameters setObject:[expireTime dictionaryRepresentation] forKey:MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME];
+    }
+
+    BOOL secure = [CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
+    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard]),
+                                      @"secure":@(secure)}
+                             forKey:@"credit_card"];
+
+    NSError *error;
+    if (![customerDetails isValidCustomerData:&error]) {
+        if (completion) completion (nil, error);
+        return;
+    }
+
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+
+    [[MidtransNetworking shared] postToURL:URL
+                                    header:nil
+                                parameters:dictionaryParameters
+                                  callback:^(id response, NSError *error)
+     {
+         if (!error) {
+             
+             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:response
+                                                                                                transactionDetails:transactionDetails
+                                                                                                   customerDetails:customerDetails
+                                                                                                       itemDetails:itemDetails];
+             if (completion) {
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
+                 completion(token,NULL);
+             }
+         }
+         else {
+             if (completion) {
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
+                 completion(NULL,error);
+             }
+         }
+     }];
+
+
+}
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
+                                          itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
+                                      customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
 {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];

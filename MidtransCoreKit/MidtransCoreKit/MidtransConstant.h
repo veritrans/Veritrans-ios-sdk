@@ -110,6 +110,8 @@ static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_ERROR = @"Transaction F
 static NSString *const MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS = @"item_details";
+static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_CUSTOM = @"custom";
+static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME = @"expiry";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS = @"customer_details";
 
 static NSString *const MIDTRANS_CORE_STATUS_CODE = @"status_code";

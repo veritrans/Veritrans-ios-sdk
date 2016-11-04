@@ -11,6 +11,7 @@
 #import "MidtransTransactionDetails.h"
 #import "MidtransTransactionResult.h"
 #import "MidtransMaskedCreditCard.h"
+#import "MidtransTransactionExpire.h"
 #import "MidtransTransactionResult.h"
 @class MidtransTransactionTokenResponse,MidtransPaymentRequestV2Response;
 /**
@@ -61,5 +62,13 @@
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
+                                          itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
+                                      customerDetails:(nullable MidtransCustomerDetails *)customerDetails
+                                          customField:(nullable NSDictionary *)customField
+                                transactionExpireTime:(nullable MidtransTransactionExpire *)expireTime
+                                           completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(MidtransPaymentRequestV2Response *_Nullable response, NSError *_Nullable error))completion;
+
 @end

@@ -30,7 +30,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = UILocalizedString(@"payment.pending",nil);
-    [self.navigationItem setHidesBackButton:YES];
+    [self showDismissButton:YES];
+    [self showBackButton:NO];
     [self.view configureWithTransactionResult:self.result];
     // Do any additional setup after loading the view from its nib.
 }

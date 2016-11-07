@@ -20,7 +20,8 @@
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod;
-
+-(void)showBackButton:(BOOL)show;
+-(void)showDismissButton:(BOOL)show;
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
 -(void)showLoadingHud;
 -(void)hideLoadingHud;

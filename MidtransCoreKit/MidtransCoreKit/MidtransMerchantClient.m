@@ -146,7 +146,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
     [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
-    NSLog(@"data-->%@",[expireTime dictionaryRepresentation]);
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         [dictionaryParameters setObject:customField forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOM];
     }

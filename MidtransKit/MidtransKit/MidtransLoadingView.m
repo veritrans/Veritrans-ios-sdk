@@ -22,6 +22,13 @@
     }
     return self;
 }
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self initLoadingView];
+    }
+    return self;
+}
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     if (self) {
@@ -30,16 +37,21 @@
     return self;
 }
 - (void)initLoadingView {
-    UIView *nibView = [[VTBundle loadNibNamed:@"MidtransLoadingView" owner:self options:nil] firstObject];
-    [self addSubview:nibView];
+    UIView *view = [[VTBundle loadNibNamed:@"MidtransLoadingView" owner:self options:nil] firstObject];
+    [self addSubview:view];
+    view.translatesAutoresizingMaskIntoConstraints = false;
     self.alpha = 0.0f;
+    NSDictionary *views = NSDictionaryOfVariableBindings(view);
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:views]];
+    [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:NSLayoutFormatAlignAllBaseline metrics:nil views:views]];
     [self.loadingIndicator startAnimating];
+
+    self.backgroundColor = [UIColor whiteColor];
 }
 - (void)show {
     if (self.superview) {
         [self.superview bringSubviewToFront:self];
     }
-
     self.loadingIndicator.hidden = NO;
 
     [UIView animateWithDuration:0.15f animations:^{

@@ -111,7 +111,6 @@
         [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:nil completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
             if (!error) {
-                NSLog(@"token==>%@",token);
                 SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
                 sampleController.transactionToken = token;
                 UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];

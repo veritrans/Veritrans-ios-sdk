@@ -23,6 +23,7 @@
 @interface MidtransUIPaymentController ()
 @property (nonatomic) MidtransUIHudView *hudView;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
+@property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @end
 
 @implementation MidtransUIPaymentController
@@ -44,9 +45,50 @@
     return self;
 }
 
+-(void)showBackButton:(BOOL)show  {
+    if (show) {
+        if (!self.backBarButton) {
+            UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f,
+                                                                              0.0f,
+                                                                              24.0f,
+                                                                              24.0f)];
+            [backButton setImage:[UIImage imageNamed:@"back" inBundle:VTBundle compatibleWithTraitCollection:nil]
+                        forState:UIControlStateNormal];
+            [backButton addTarget:self
+                           action:@selector(backButtonDidTapped:)
+                 forControlEvents:UIControlEventTouchUpInside];
+            self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+        }
+
+        self.navigationItem.leftBarButtonItem = self.backBarButton;
+    }
+    else {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
+- (void)backButtonDidTapped:(UIButton *)button {
+    [self.navigationController popViewControllerAnimated:YES];
+}
+- (void)showDismissButton:(BOOL)show {
+    if (show) {
+        if (!self.backBarButton) {
+            self.backBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissButtonDidTapped:)];
+        }
+
+        self.navigationItem.leftBarButtonItem = self.backBarButton;
+    }
+    else {
+        self.navigationItem.leftBarButtonItem = nil;
+    }
+}
+- (void)dismissButtonDidTapped:(id)sender {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if (self.navigationController.viewControllers.count > 1) {
+        [self showBackButton:YES];
+    }
     self.hudView = [[MidtransUIHudView alloc] init];
 }
 -(void)showAlertViewWithTitle:(NSString *)title

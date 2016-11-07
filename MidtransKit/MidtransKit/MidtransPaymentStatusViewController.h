@@ -6,8 +6,8 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MidtransUIBaseViewController.h"
+#import "MidtransUIPaymentController.h"
 @class MidtransTransactionResult;
-@interface MidtransPaymentStatusViewController : MidtransUIBaseViewController
+@interface MidtransPaymentStatusViewController : MidtransUIPaymentController
 - (instancetype)initWithTransactionResult:(MidtransTransactionResult *)result;
 @end

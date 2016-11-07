@@ -18,14 +18,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYT-FT-6GO" customClass="MidtransLoadingIndicator">
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="16" id="Frf-s8-CVs"/>
-                        <constraint firstAttribute="width" constant="80" id="qdh-mu-QX7"/>
+                        <constraint firstAttribute="width" constant="40" id="C0W-hU-a1r"/>
+                        <constraint firstAttribute="height" constant="10" id="Pea-F8-OhC"/>
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading payment page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcB-Mj-47a">
@@ -36,12 +36,12 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="qYT-FT-6GO" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="2Lm-hI-wNJ"/>
-                <constraint firstItem="qYT-FT-6GO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="UZd-QV-L6k"/>
-                <constraint firstItem="EcB-Mj-47a" firstAttribute="top" secondItem="qYT-FT-6GO" secondAttribute="bottom" constant="16" id="XM7-mC-cKY"/>
+                <constraint firstItem="qYT-FT-6GO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DLc-mB-25O"/>
+                <constraint firstAttribute="bottom" secondItem="EcB-Mj-47a" secondAttribute="bottom" constant="290" id="FQd-ob-rBI"/>
+                <constraint firstItem="EcB-Mj-47a" firstAttribute="top" secondItem="qYT-FT-6GO" secondAttribute="bottom" constant="16" id="VTz-sx-sun"/>
                 <constraint firstItem="EcB-Mj-47a" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sWk-D8-du9"/>
             </constraints>
-            <point key="canvasLocation" x="-184" y="-7"/>
+            <point key="canvasLocation" x="-184.5" y="-7.5"/>
         </view>
     </objects>
 </document>

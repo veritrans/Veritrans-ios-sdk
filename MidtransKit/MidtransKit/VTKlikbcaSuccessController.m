@@ -39,7 +39,8 @@
     
     self.title = UILocalizedString(@"payment.pending",nil);
     [self.navigationItem setHidesBackButton:YES];
-    
+    [self showDismissButton:YES];
+    [self showBackButton:NO];
     self.amountLabel.text = self.successViewModel.totalAmount;
     self.orderIdLabel.text = self.successViewModel.orderId;
     self.transactionTimeLabel.text = self.successViewModel.transactionTime;

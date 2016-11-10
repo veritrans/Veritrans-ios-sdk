@@ -20,7 +20,7 @@
 #import "MidtransUIThemeManager.h"
 #import "VTCCBackView.h"
 #import "VTAddCardView.h"
-
+#import "MidtransLoadingView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 
@@ -77,16 +77,16 @@
 }
 - (void)handleTransactionResult:(MidtransTransactionResult *)result {
     [super handleTransactionResult:result];
-    [self hideLoadingHud];
+    [self.view.loadingView hide];
 }
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
-    [self hideLoadingHud];
+ [self.view.loadingView hide];
 }
 
 - (void)handleTransactionError:(NSError *)error {
     [super handleTransactionError:error];
-    [self hideLoadingHud];
+                                        [self.view.loadingView hide];
 }
 
 - (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
@@ -99,7 +99,6 @@
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    
     MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.view.cardNumber.text
                                                                      expiryDate:self.view.cardExpiryDate.text
                                                                             cvv:self.view.cardCvv.text];
@@ -109,7 +108,7 @@
         return;
     }
     
-    [self showLoadingHud];
+      [self.view.loadingView showWithTitle:@"Processing your transaction"];
     
     BOOL enable3Ds = [CC_CONFIG secure];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
@@ -119,8 +118,6 @@
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
-                                        
-                                        [self hideLoadingHud];
                                         [self handleTransactionError:error];
                                     } else {
                                         [self payWithToken:token];
@@ -129,7 +126,7 @@
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
-    [self hideLoadingHud];
+    [self.view.loadingView hide];
     
     if ([self.view isViewError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"

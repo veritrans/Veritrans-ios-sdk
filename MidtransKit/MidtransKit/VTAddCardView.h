@@ -12,7 +12,7 @@
 #import "MidtransUITextField.h"
 #import "MidtransUICCFrontView.h"
 #import "VTCCBackView.h"
-
+@class MidtransLoadingView;
 @interface VTAddCardView : UIView
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardNumber;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpiryDate;
@@ -27,6 +27,7 @@
 @property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
+@property (weak, nonatomic) IBOutlet MidtransLoadingView *loadingView;
 
 - (void)hideScanCardButton:(BOOL)hide;
 - (void)reformatCardNumber;

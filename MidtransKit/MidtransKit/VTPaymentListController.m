@@ -84,7 +84,7 @@
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-     [self.view.loadingView show];
+     [self.view.loadingView showWithTitle:@"Loading payment list"];
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {

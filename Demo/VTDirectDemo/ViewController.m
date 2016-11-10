@@ -153,34 +153,34 @@
     if (customerDetails!=nil) {
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        MidtransTransactionExpire *expire = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date] expireDuration:1 withUnitTime:MindtransTimeUnitTypeMinute];
+       // MidtransTransactionExpire *expire = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date] expireDuration:1 withUnitTime:MindtransTimeUnitTypeMinute];
 
-        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:expire completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
-            NSLog(@"token-->%@",token);
+//        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:expire completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
+//            NSLog(@"token-->%@",token);
+//             [MBProgressHUD hideHUDForView:self.view animated:YES];
+//             if (!error) {
+//                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+//                 self.paymentVC.delegate = self;
+//
+//                 [self presentViewController:self.paymentVC animated:YES completion:nil];
+//             }
+//             else {
+//                 [self showAlertError:error];
+//             }
+//         }];
+        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+         {
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
                  self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
                  self.paymentVC.delegate = self;
-
+                 
                  [self presentViewController:self.paymentVC animated:YES completion:nil];
              }
              else {
                  [self showAlertError:error];
              }
          }];
-       // [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
-         //{
-           //  [MBProgressHUD hideHUDForView:self.view animated:YES];
-             //if (!error) {
-               //  self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-                 //self.paymentVC.delegate = self;
-                 
-                 //[self presentViewController:self.paymentVC animated:YES completion:nil];
-             //}
-             //else {
-               //  [self showAlertError:error];
-             //}
-         //}];
 
 
     }

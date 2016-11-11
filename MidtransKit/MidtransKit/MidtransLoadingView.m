@@ -48,6 +48,18 @@
 
     self.backgroundColor = [UIColor whiteColor];
 }
+- (void)showWithTitle:(NSString *)title {
+    self.loadingTitleLabel.text = title?title:@"Loading";
+    if (self.superview) {
+        [self.superview bringSubviewToFront:self];
+    }
+    self.loadingIndicator.hidden = NO;
+
+    [UIView animateWithDuration:0.15f animations:^{
+        self.alpha = 1.0f;
+    }];
+
+}
 - (void)show {
     if (self.superview) {
         [self.superview bringSubviewToFront:self];

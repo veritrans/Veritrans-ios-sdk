@@ -47,6 +47,7 @@
     });
     return sharedInstance;
 }
+
 - (void)trackTransaction:(BOOL)isSuccess
           secureProtocol:(BOOL)secure
       withPaymentFeature:(NSInteger)paymentFeature

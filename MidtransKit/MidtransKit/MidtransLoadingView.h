@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MidtransLoadingView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *loadingTitleLabel;
 - (void)show;
+- (void)showWithTitle:(NSString *)title;
 - (void)hide;
 @end

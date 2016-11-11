@@ -12,7 +12,7 @@
 "clickpay.invalid-number" = "Invalid Debit Number";
 "clickpay.invalid-token" = "Invalid Clickpay Token";
 "name.other-bank" = "Other Bank";
-"payment.how" = "How can i Pay Via %@";
+"payment.how" = "How can I Pay Via %@";
 "payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
 "payment.email-placeholder" = "Email Address (optional)";
 "payment.email-note" = "We will send you the payment code along with payment instructions to your email address";

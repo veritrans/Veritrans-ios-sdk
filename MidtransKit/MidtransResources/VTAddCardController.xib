@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,16 +24,25 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EO3-Ls-GVp" customClass="MidtransLoadingView">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CLS-0L-w3p">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-Nt-p2f">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="554"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-3w-vo5">
+                                    <rect key="frame" x="0.0" y="10" width="375" height="200"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pt-iP-bMO" customClass="VTCCBackView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="MidtransUICCFrontView">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </view>
                                     </subviews>
@@ -54,6 +66,7 @@
                                     </variation>
                                 </view>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXS-76-jqp" customClass="MidtransUITextField">
+                                    <rect key="frame" x="15" y="218" width="345" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="3jF-nK-LoE"/>
                                     </constraints>
@@ -67,6 +80,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-E9-a7J" customClass="MidtransUITextField">
+                                    <rect key="frame" x="15" y="273" width="230" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="wMA-K4-agy"/>
                                     </constraints>
@@ -77,6 +91,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Nn-gz-tW4" customClass="MidtransUITextField">
+                                    <rect key="frame" x="260" y="273" width="100" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="100" id="hmI-zz-IJ3"/>
                                         <constraint firstAttribute="height" constant="50" id="wUO-jY-oFV"/>
@@ -91,6 +106,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-0Q-o3N">
+                                    <rect key="frame" x="338" y="282" width="22" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="G09-mS-nqF"/>
                                         <constraint firstAttribute="width" constant="22" id="awi-Qx-R4O"/>
@@ -100,19 +116,23 @@
                                     </connections>
                                 </button>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="padlock1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Uzf-Kh-uPN">
+                                    <rect key="frame" x="15" y="495" width="42" height="51"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="42" id="aaD-lX-eg2"/>
                                         <constraint firstAttribute="height" constant="51" id="bKs-oi-ZJk"/>
                                     </constraints>
                                 </imageView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZx-vb-Nch">
+                                    <rect key="frame" x="72" y="498.5" width="212.5" height="46"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="qFp-Ap-fY5" customClass="VTNoteTitleLabel">
+                                            <rect key="frame" x="0.0" y="0.0" width="212.5" height="13"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="10"/>
                                             <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Veritrans securely manages your credit cards for all our merchants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="VNA-Qs-tHa">
+                                            <rect key="frame" x="0.0" y="13" width="212.5" height="33"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -130,15 +150,19 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-Es-v2p">
+                                    <rect key="frame" x="15" y="331" width="345" height="86"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e93-3E-0PY" customClass="MIdtransUIBorderedView">
+                                            <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
+                                                    <rect key="frame" x="0.0" y="12.5" width="147" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CPH-p7-dQb">
+                                                    <rect key="frame" x="294" y="7" width="51" height="31"/>
                                                     <connections>
                                                         <action selector="saveCardSwitchChanged:" destination="-1" eventType="valueChanged" id="62t-dC-pZC"/>
                                                     </connections>
@@ -163,6 +187,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to ease your transactions." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="290" translatesAutoresizingMaskIntoConstraints="NO" id="C3M-pA-1BZ">
+                                            <rect key="frame" x="0.0" y="53" width="345" height="33"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -180,6 +205,7 @@
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aD-D5-Isf">
+                                    <rect key="frame" x="50.5" y="425" width="274" height="45"/>
                                     <color key="backgroundColor" red="0.1058823529" green="0.56470588239999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="4DK-a4-Jy6"/>
@@ -231,6 +257,7 @@
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RcJ-63-gQW" customClass="MidtransUINextStepButton">
+                    <rect key="frame" x="0.0" y="611" width="375" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="HcA-dN-EEZ"/>
@@ -242,19 +269,23 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="H5b-Gk-6GB">
+                    <rect key="frame" x="352" y="632.5" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="5pN-as-To3"/>
                         <constraint firstAttribute="width" constant="8" id="xIa-S0-1wR"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m7b-l4-Xll" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="567" width="375" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
+                            <rect key="frame" x="15" y="14" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8I-cU7">
+                            <rect key="frame" x="351.5" y="12" width="8.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -281,17 +312,22 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="H5b-Gk-6GB" firstAttribute="centerY" secondItem="RcJ-63-gQW" secondAttribute="centerY" id="0tK-FZ-3mj"/>
+                <constraint firstItem="EO3-Ls-GVp" firstAttribute="top" secondItem="1nQ-9Y-DIG" secondAttribute="top" id="1BE-1o-vmN"/>
                 <constraint firstAttribute="trailing" secondItem="CLS-0L-w3p" secondAttribute="trailing" id="5Cm-6O-c7I"/>
                 <constraint firstItem="RcJ-63-gQW" firstAttribute="leading" secondItem="1nQ-9Y-DIG" secondAttribute="leading" id="9Nk-WW-XWs"/>
                 <constraint firstItem="RcJ-63-gQW" firstAttribute="top" secondItem="m7b-l4-Xll" secondAttribute="bottom" id="AwH-0s-6KQ"/>
                 <constraint firstItem="CLS-0L-w3p" firstAttribute="leading" secondItem="1nQ-9Y-DIG" secondAttribute="leading" id="Ht3-DM-sOa"/>
                 <constraint firstItem="m7b-l4-Xll" firstAttribute="top" secondItem="CLS-0L-w3p" secondAttribute="bottom" id="Imk-bW-VgU"/>
+                <constraint firstAttribute="bottom" secondItem="EO3-Ls-GVp" secondAttribute="bottom" id="KCn-i0-SBk"/>
                 <constraint firstItem="H5b-Gk-6GB" firstAttribute="trailing" secondItem="RcJ-63-gQW" secondAttribute="trailing" constant="-15" id="NI0-GV-QKH"/>
                 <constraint firstItem="CLS-0L-w3p" firstAttribute="top" secondItem="1nQ-9Y-DIG" secondAttribute="top" id="SLH-bq-VEW"/>
                 <constraint firstAttribute="trailing" secondItem="m7b-l4-Xll" secondAttribute="trailing" id="Zkq-zW-42B"/>
+                <constraint firstItem="EO3-Ls-GVp" firstAttribute="leading" secondItem="1nQ-9Y-DIG" secondAttribute="leading" id="aw5-aB-CFY"/>
+                <constraint firstAttribute="trailing" secondItem="EO3-Ls-GVp" secondAttribute="trailing" id="dNi-Xl-HNH"/>
                 <constraint firstItem="m7b-l4-Xll" firstAttribute="leading" secondItem="1nQ-9Y-DIG" secondAttribute="leading" id="mi8-Pw-gin"/>
                 <constraint firstAttribute="trailing" secondItem="RcJ-63-gQW" secondAttribute="trailing" id="rv9-37-QAv"/>
                 <constraint firstAttribute="bottom" secondItem="RcJ-63-gQW" secondAttribute="bottom" id="vif-k3-0Ae"/>
+                <constraint firstItem="EO3-Ls-GVp" firstAttribute="width" secondItem="1nQ-9Y-DIG" secondAttribute="width" id="xLG-Uk-IO4"/>
             </constraints>
             <connections>
                 <outlet property="amountLabel" destination="89S-8I-cU7" id="r28-0A-UXo"/>
@@ -303,12 +339,14 @@
                 <outlet property="cardView" destination="MK6-3w-vo5" id="mi3-IM-rUf"/>
                 <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
+                <outlet property="loadingView" destination="EO3-Ls-GVp" id="3HD-U1-Ppj"/>
                 <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
                 <outlet property="saveCardView" destination="ANX-Es-v2p" id="ITP-Uv-Q1Z"/>
                 <outlet property="saveCardViewHeight" destination="Cha-Cg-uRP" id="PKd-be-RJh"/>
                 <outlet property="scanCardButton" destination="1aD-D5-Isf" id="qYi-yU-D4R"/>
                 <outlet property="scanCardHeight" destination="4DK-a4-Jy6" id="fbg-9m-U3D"/>
             </connections>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
         </view>
     </objects>
     <resources>

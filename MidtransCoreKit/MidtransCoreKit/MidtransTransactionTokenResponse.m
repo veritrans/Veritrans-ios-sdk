@@ -8,6 +8,7 @@
 #import "MidtransTransactionTokenResponse.h"
 
 NSString *const kSnapresponseToken = @"token";
+NSString *const kSnapresponseTokenId = @"token_id";
 
 @interface MidtransTransactionTokenResponse ()
 
@@ -36,7 +37,7 @@ NSString *const kSnapresponseToken = @"token";
     self = [super init];
     
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-        self.tokenId = [self objectOrNilForKey:kSnapresponseToken fromDictionary:dict];
+        self.tokenId = [self objectOrNilForKey:kSnapresponseToken fromDictionary:dict]?[self objectOrNilForKey:kSnapresponseToken fromDictionary:dict]:[self objectOrNilForKey:kSnapresponseTokenId fromDictionary:dict];
     }
     
     return self;

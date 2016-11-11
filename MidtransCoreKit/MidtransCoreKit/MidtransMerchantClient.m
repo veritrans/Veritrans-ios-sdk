@@ -177,7 +177,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
      {
          if (!error) {
              
-             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:response
+             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
                                                                                                 transactionDetails:transactionDetails
                                                                                                    customerDetails:customerDetails
                                                                                                        itemDetails:itemDetails];
@@ -219,17 +219,22 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
-    
+    if ([URL rangeOfString:@"//"].location != NSNotFound) {
+        ///sanitize //
+        URL = [URL stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+    }
+
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)
      {
          if (!error) {
-             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:response
+             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
                                                                                                 transactionDetails:transactionDetails
                                                                                                    customerDetails:customerDetails
                                                                                                        itemDetails:itemDetails];
+             NSLog(@"token-->%@",token);
              if (completion) {
                  [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
                  completion(token,NULL);

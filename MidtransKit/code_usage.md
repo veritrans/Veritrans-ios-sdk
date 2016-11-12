@@ -95,6 +95,16 @@ MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails al
      }
  }];
 ```
+##### Using Time Limit on transaction
+we provide method to handle transaction limitation time, to set it you just need  following this code
+```
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
+                                          itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
+                                      customerDetails:(nullable MidtransCustomerDetails *)customerDetails
+                                          customField:(nullable NSDictionary *)customField
+                                transactionExpireTime:(nullable MidtransTransactionExpire *)expireTime
+                                           completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+```
 
 ##### Present the `MidtransUIPaymentViewController`
 

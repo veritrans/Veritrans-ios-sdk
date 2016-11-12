@@ -20,13 +20,20 @@
 #import "MidtransUIThemeManager.h"
 #import "VTCCBackView.h"
 #import "VTAddCardView.h"
+
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
+
+#if __has_include(<CardIO/CardIO.h>)
+#import <CardIO/CardIO.h>
+@interface VTAddCardController () <CardIOPaymentViewControllerDelegate>
+#else
 @interface VTAddCardController ()
+#endif
+
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
-@property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (nonatomic) NSMutableArray *maskedCards;
-@property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
+
 @end
 
 @implementation VTAddCardController
@@ -42,32 +49,36 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(scanCardInformationFromNotification:) name:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT object:nil];
+    
     self.title = UILocalizedString(@"creditcard.input.title", nil);
+    
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     
     if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
-        self.saveCardView.hidden = YES;
-        self.saveCardViewHeight.constant = 0;
+        self.view.saveCardView.hidden = YES;
+        self.view.saveCardViewHeight.constant = 0;
     }
     else {
-        self.saveCardView.hidden = NO;
-        self.saveCardViewHeight.constant = 86;
+        self.view.saveCardView.hidden = NO;
+        self.view.saveCardViewHeight.constant = 86;
     }
     
-    if ([[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER] boolValue]) {
-         self.view.scanCardViewWrapper.hidden = NO;
-    }
     [self.view setToken:self.token];
-}
-- (void)scanCardInformationFromNotification:(NSNotification *)notification {
-    NSDictionary *dict = notification.object;
-    [self.view setCardNumberFromCardIOSDK:dict];
     
+    self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
+    
+#if __has_include(<CardIO/CardIO.h>)
+    [self.view hideScanCardButton:NO];
+    //speedup cardio launch
+    [CardIOUtilities preloadCardIO];
+#else
+    [self.view hideScanCardButton:YES];
+#endif
 }
-
-
-
+- (void)handleTransactionResult:(MidtransTransactionResult *)result {
+    [super handleTransactionResult:result];
+    [self hideLoadingHud];
+}
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
     [self hideLoadingHud];
@@ -130,11 +141,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [[MidtransPaymentCreditCard alloc] initWithCreditCardToken:token customerDetails:self.token.customerDetails];
-    
-    if ([CC_CONFIG saveCard]) {
-        paymentDetail.saveToken = self.view.saveCardSwitch.on;
-    }
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.token.customerDetails];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
@@ -143,19 +150,47 @@
             [self handleTransactionError:error];
         }
         else {
-            //save masked cards
-            if (result.maskedCreditCard) {
+            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
             }
-            
-            //transaction finished
-            [self handleTransactionSuccess:result];
+            if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
+                [self handleTransactionResult:result];
+            }
+            else {
+                [self handleTransactionSuccess:result];
+            }
         }
     }];
 }
+
+#if __has_include(<CardIO/CardIO.h>)
+
 - (IBAction)scanCardDidTapped:(id)sender {
-    [self scanButtonDidTappedFromAddCardViewController];
+    CardIOPaymentViewController *scanViewController = [[CardIOPaymentViewController alloc] initWithPaymentDelegate:self];
+    scanViewController.collectCVV = NO;
+    scanViewController.collectExpiry = NO;
+    scanViewController.hideCardIOLogo = YES;
+    [self.navigationController presentViewController:scanViewController animated:YES completion:nil];
 }
+
+#pragma mark - CardIOPaymentViewControllerDelegate
+
+- (void)userDidCancelPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+    [paymentViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)userDidProvideCreditCardInfo:(CardIOCreditCardInfo *)cardInfo inPaymentViewController:(CardIOPaymentViewController *)paymentViewController {
+    [paymentViewController dismissViewControllerAnimated:YES completion:nil];
+    
+    self.view.cardNumber.text = cardInfo.cardNumber;
+    [self.view reformatCardNumber];
+    
+    self.view.cardCvv.text = cardInfo.cvv;
+    
+    self.view.cardExpiryDate.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)cardInfo.expiryMonth, (unsigned long)cardInfo.expiryYear];
+}
+
+#endif
 
 @end

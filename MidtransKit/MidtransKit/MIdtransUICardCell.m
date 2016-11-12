@@ -19,6 +19,8 @@
 @implementation MIdtransUICardCell
 
 - (void)awakeFromNib {
+    [super awakeFromNib];
+    
     [self.frontCardView.deleteButton addTarget:self action:@selector(deletePressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 

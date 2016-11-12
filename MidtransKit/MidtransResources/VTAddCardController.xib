@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
@@ -13,8 +13,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTAddCardController">
             <connections>
-                <outlet property="saveCardView" destination="ANX-Es-v2p" id="fPV-yT-Rld"/>
-                <outlet property="saveCardViewHeight" destination="Cha-Cg-uRP" id="hM7-Fd-RZt"/>
                 <outlet property="view" destination="1nQ-9Y-DIG" id="AYI-Q1-7gN"/>
             </connections>
         </placeholder>
@@ -59,7 +57,7 @@
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="3jF-nK-LoE"/>
                                     </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
@@ -306,6 +304,10 @@
                 <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
                 <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
+                <outlet property="saveCardView" destination="ANX-Es-v2p" id="ITP-Uv-Q1Z"/>
+                <outlet property="saveCardViewHeight" destination="Cha-Cg-uRP" id="PKd-be-RJh"/>
+                <outlet property="scanCardButton" destination="1aD-D5-Isf" id="qYi-yU-D4R"/>
+                <outlet property="scanCardHeight" destination="4DK-a4-Jy6" id="fbg-9m-U3D"/>
             </connections>
         </view>
     </objects>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransLoadingView">
+            <connections>
+                <outlet property="loadingIndicator" destination="qYT-FT-6GO" id="mvq-yR-F1I"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qYT-FT-6GO" customClass="MidtransLoadingIndicator">
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="C0W-hU-a1r"/>
+                        <constraint firstAttribute="height" constant="10" id="Pea-F8-OhC"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading payment page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcB-Mj-47a">
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="qYT-FT-6GO" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="DLc-mB-25O"/>
+                <constraint firstAttribute="bottom" secondItem="EcB-Mj-47a" secondAttribute="bottom" constant="290" id="FQd-ob-rBI"/>
+                <constraint firstItem="EcB-Mj-47a" firstAttribute="top" secondItem="qYT-FT-6GO" secondAttribute="bottom" constant="16" id="VTz-sx-sun"/>
+                <constraint firstItem="EcB-Mj-47a" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sWk-D8-du9"/>
+            </constraints>
+            <point key="canvasLocation" x="-184.5" y="-7.5"/>
+        </view>
+    </objects>
+</document>

@@ -13,8 +13,11 @@
 
 #import <IHKeyboardAvoiding_vt.h>
 
-@interface VTAddCardView()<UITextFieldDelegate, MidtransUICardFormatterDelegate>
+CGFloat const ScanButtonHeight = 45;
 
+@interface VTAddCardView()<UITextFieldDelegate, MidtransUICardFormatterDelegate>
+@property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *scanCardHeight;
 @end
 
 @implementation VTAddCardView
@@ -44,10 +47,6 @@
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if ([keyPath isEqualToString:@"text"] &&
         [object isEqual:self.cardExpiryDate]) {
-        self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
-    }
-    else if ([keyPath isEqualToString:@"text"] &&
-        [object isEqual:self.cardNumber]) {
         self.cardFrontView.expiryLabel.text = self.cardExpiryDate.text;
     }
 }
@@ -81,20 +80,9 @@
             return nil;
     }
 }
-- (void)setCardNumberFromCardIOSDK:(NSDictionary *)cardInformation {
-    NSString *cardNumber = [cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER];
-    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
-                           [cardNumber substringWithRange:NSMakeRange(0,4)],
-                           [cardNumber substringWithRange:NSMakeRange(4,4)],
-                           [cardNumber substringWithRange:NSMakeRange(8,4)],
-                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
-    self.cardNumber.text = formatted;
-    self.cardNumber.infoIcon = [self iconDarkWithNumber:[cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
-    self.cardFrontView.iconView.image = [self iconWithNumber:[cardInformation objectForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER]];
-    self.cardFrontView.numberLabel.text = formatted;
-    NSString *expiredDate = [NSString stringWithFormat:@"%02d",[[cardInformation valueForKey:MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH] intValue]];
-}
+
 #pragma mark - UITextFieldDelegate
+
 -(void)textFieldDidChange :(UITextField *) textField{
     if ([textField isEqual:self.cardNumber]) {
         [self.ccFormatter updateTextFieldContentAndPosition];
@@ -103,7 +91,7 @@
 }
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSError *error;
-
+    
     if ([textField isEqual:self.cardExpiryDate]) {
         [textField.text isValidExpiryDate:&error];
     }
@@ -113,7 +101,7 @@
     else if ([textField isEqual:self.cardCvv]) {
         [textField.text isValidCVVWithCreditCardNumber:self.cardNumber.text error:&error];
     }
-
+    
     //show warning if error
     if (error) {
         [self isViewError:error];
@@ -124,7 +112,7 @@
     if ([textField isKindOfClass:[MidtransUITextField class]]) {
         ((MidtransUITextField *) textField).warning = nil;
     }
-
+    
     if ([textField isEqual:self.cardExpiryDate]) {
         return [textField filterCreditCardExpiryDate:string range:range];
     }
@@ -164,7 +152,31 @@
     }
 }
 
+- (void)hideScanCardButton:(BOOL)hide {
+    if (hide) {
+        self.scanCardButton.hidden = YES;
+        self.scanCardHeight.constant = 0;
+    }
+    else {
+        self.scanCardButton.hidden = NO;
+        self.scanCardHeight.constant = ScanButtonHeight;
+    }
+}
 
+- (void)reformatCardNumber {
+    NSString *cardNumber = self.cardNumber.text;
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+    
+    self.cardNumber.text = formatted;
+    self.cardNumber.infoIcon = [self iconDarkWithNumber:self.cardNumber.text];
+    
+    self.cardFrontView.iconView.image = [self iconWithNumber:self.cardNumber.text];
+    self.cardFrontView.numberLabel.text = formatted;
+}
 
 #pragma mark - VTCardFormatterDelegate
 

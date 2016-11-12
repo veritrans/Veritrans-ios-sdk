@@ -9,17 +9,19 @@
 #import "MidtransMerchantClient.h"
 #import "MidtransConfig.h"
 #import "MidtransNetworking.h"
+#import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTrackingManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MTPaymentRequestDataModels.h"
 
+#import <MidtransCoreKit/MidtransCoreKit.h>
+
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
-NSString *const CHARGE_TRANSACTION_URL = @"charge";
+
 
 @interface NSArray (MaskedCard)
 
@@ -56,12 +58,9 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 - (void)performTransaction:(MidtransTransaction *)transaction
                 completion:(void(^)(MidtransTransactionResult *result, NSError *error))completion {
     
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG snapURL], [transaction chargeURL]];
-    
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
-
-    [[MidtransNetworking shared] postToURL:URL header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
+    [[MidtransNetworking shared] postToURL:[transaction chargeURL] header:headers parameters:[transaction dictionaryValue] callback:^(id response, NSError *error) {
         
         NSString *paymentType = transaction.paymentType;
         
@@ -139,14 +138,79 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
+                                          customField:(NSDictionary *)customField
+                                transactionExpireTime:(MidtransTransactionExpire *)expireTime
+                                           completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+    NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
+    [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
+    [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
+    [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
+    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
+    if ([customField count] || [customField isEqual:[NSNull null]]) {
+        [dictionaryParameters setObject:customField forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOM];
+    }
+    if ([[expireTime dictionaryRepresentation] count] || [expireTime isEqual:[NSNull null]]) {
+        [dictionaryParameters setObject:[expireTime dictionaryRepresentation] forKey:MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME];
+    }
+
+    BOOL secure = [CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
+    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard]),
+                                      @"secure":@(secure)}
+                             forKey:@"credit_card"];
+
+    NSError *error;
+    if (![customerDetails isValidCustomerData:&error]) {
+        if (completion) completion (nil, error);
+        return;
+    }
+
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+    if ([URL rangeOfString:@"//"].location != NSNotFound) {
+        ///sanitize //
+        URL = [URL stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
+    }
+
+    [[MidtransNetworking shared] postToURL:URL
+                                    header:nil
+                                parameters:dictionaryParameters
+                                  callback:^(id response, NSError *error)
+     {
+         if (!error) {
+             
+             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:response
+                                                                                                transactionDetails:transactionDetails
+                                                                                                   customerDetails:customerDetails
+                                                                                                       itemDetails:itemDetails];
+             if (completion) {
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
+                 completion(token,NULL);
+             }
+         }
+         else {
+             if (completion) {
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
+                 completion(NULL,error);
+             }
+         }
+     }];
+
+
+}
+- (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
+                                          itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
+                                      customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
 {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
+    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
     
-    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard])} forKey:@"credit_card"];
+    BOOL secure = [CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
+    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard]),
+                                      @"secure":@(secure)}
+                             forKey:@"credit_card"];
     
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {
@@ -154,7 +218,9 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
         return;
     }
     
-    [[MidtransNetworking shared] postToURL:[NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], CHARGE_TRANSACTION_URL]
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+    
+    [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)
@@ -179,19 +245,19 @@ NSString *const CHARGE_TRANSACTION_URL = @"charge";
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
-                         completion:(void (^_Nullable)(MidtransPaymentRequestResponse *_Nullable response, NSError *_Nullable error))completion {
-    NSString *URL = [NSString stringWithFormat:ENDPOINT_PAYMENT_PAGES, [PRIVATECONFIG snapURL], token];
+                         completion:(void (^_Nullable)(MidtransPaymentRequestV2Response *_Nullable response, NSError *_Nullable error))completion {
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
     [[MidtransNetworking shared] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
-            MidtransPaymentRequestResponse *paymentRequest = [[MidtransPaymentRequestResponse alloc] initWithDictionary:(NSDictionary *) response];
+            MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
             
             if (completion) {
-                if (!paymentRequest.merchantData.logoUrl.isEmpty) {
-                    [MidtransImageManager getImageFromURLwithUrl:paymentRequest.merchantData.logoUrl];
-                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequest.merchantData.merchantName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+                if (!paymentRequestV2.merchant.preference) {
+                    [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
-                completion(paymentRequest,NULL);
+                completion(paymentRequestV2,NULL);
             }
         }
         else{

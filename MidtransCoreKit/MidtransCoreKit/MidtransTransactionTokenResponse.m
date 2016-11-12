@@ -7,8 +7,7 @@
 
 #import "MidtransTransactionTokenResponse.h"
 
-
-NSString *const kSnapresponseTokenId = @"token_id";
+NSString *const kSnapresponseToken = @"token";
 
 @interface MidtransTransactionTokenResponse ()
 
@@ -37,8 +36,7 @@ NSString *const kSnapresponseTokenId = @"token_id";
     self = [super init];
     
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-        self.tokenId = [self objectOrNilForKey:kSnapresponseTokenId fromDictionary:dict];
-        
+        self.tokenId = [self objectOrNilForKey:kSnapresponseToken fromDictionary:dict];
     }
     
     return self;
@@ -47,7 +45,7 @@ NSString *const kSnapresponseTokenId = @"token_id";
 
 - (NSDictionary *)dictionaryRepresentation {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
-    [mutableDict setValue:self.tokenId forKey:kSnapresponseTokenId];
+    [mutableDict setValue:self.tokenId forKey:kSnapresponseToken];
     
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -68,13 +66,13 @@ NSString *const kSnapresponseTokenId = @"token_id";
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     
-    self.tokenId = [aDecoder decodeObjectForKey:kSnapresponseTokenId];
+    self.tokenId = [aDecoder decodeObjectForKey:kSnapresponseToken];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder {
     
-    [aCoder encodeObject:_tokenId forKey:kSnapresponseTokenId];
+    [aCoder encodeObject:_tokenId forKey:kSnapresponseToken];
 }
 
 - (id)copyWithZone:(NSZone *)zone {

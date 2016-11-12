@@ -39,7 +39,7 @@
     [super viewDidLoad];
     self.title = UILocalizedString(@"payment.success",nil);
     [self.navigationItem setHidesBackButton:YES];
-    
+
     self.amountLabel.text = self.successViewModel.totalAmount;
     self.orderIdLabel.text = self.successViewModel.orderId;
     self.transactionTimeLabel.text = self.successViewModel.transactionTime;

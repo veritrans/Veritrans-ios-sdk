@@ -70,9 +70,9 @@ static NSString * const MIDTRANS_AMEX_REGEX         = @"^3[47][0-9]{0,}$";
  * CONSTANT ENDPOINT
  */
 
+static NSString * const ENDPOINT_CHARGE = @"%@/transactions/%@/pay";
+static NSString * const ENDPOINT_TRANSACTION_DETAIL = @"%@/transactions/%@";
 static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
-static NSString * const ENDPOINT_CHARGE = @"transactions/%@/pay";
-
 
 /**
  *  MESSAGE CONSTANT
@@ -110,6 +110,8 @@ static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_ERROR = @"Transaction F
 static NSString *const MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS = @"item_details";
+static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_CUSTOM = @"custom";
+static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME = @"expiry";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS = @"customer_details";
 
 static NSString *const MIDTRANS_CORE_STATUS_CODE = @"status_code";
@@ -117,11 +119,11 @@ static NSString *const MIDTRANS_CORE_SAVED_ID_TOKEN = @"saved_token_id";
 static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
-static NSString *const MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER = @"credit.card.scanner";
-static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT = @"credit.card.scanner.output";
-static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER = @"credit_card_result_scan";
-static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR = @"credit_card_result_scan_expired_year";
-static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH = @"credit_card_result_scan_expired_month";
+//static NSString *const MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER = @"credit.card.scanner";
+//static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT = @"credit.card.scanner.output";
+//static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER = @"credit_card_result_scan";
+//static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR = @"credit_card_result_scan_expired_year";
+//static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH = @"credit_card_result_scan_expired_month";
 
 
 static NSInteger const MIDTRANS_ERROR_CODE_3DSECURE = -30;

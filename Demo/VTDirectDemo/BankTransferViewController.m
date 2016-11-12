@@ -11,13 +11,24 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentListModel.h>
 @interface BankTransferViewController () <UITableViewDelegate,UITableViewDataSource>
-
+@property (nonatomic) NSArray *bankList;
 @end
 
 @implementation BankTransferViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"virtualAccount" ofType:@"plist"];
+    NSMutableArray *vaListM = [NSMutableArray new];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+    for (int i = 0; i<paymentList.count; i++) {
+        MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[i]];
+        [vaListM addObject:paymentmodel];
+    }
+    self.bankList = vaListM;
+    
+    
     [self.tableView reloadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -33,11 +44,11 @@
     return 60;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.bankList.banks.count;
+    return self.bankList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MidtransPaymentListModel *paymentMethod = self.bankList.banks[indexPath.row];
+    MidtransPaymentListModel *paymentMethod = self.bankList[indexPath.row];
     SamplePaymentListTableViewCell *cell = (SamplePaymentListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SamplePaymentListTableViewCell"];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"SamplePaymentListTableViewCell" owner:self options:nil] firstObject];

@@ -23,6 +23,25 @@ static UIImage  *VTThemeDefaultLogo;
 
 @implementation MidtransUITheme
 
+- (void)setSmallFont:(UIFont *)smallFont {
+    _smallFont = smallFont;
+}
+- (void)setLargeFont:(UIFont *)largeFont {
+    _largeFont = largeFont;
+}
+- (void)setPrimaryBackgroundColor:(UIColor *)primaryBackgroundColor {
+    _primaryBackgroundColor = primaryBackgroundColor;
+}
+- (void)setSecondaryBackgroundColor:(UIColor *)secondaryBackgroundColor {
+    _secondaryBackgroundColor = secondaryBackgroundColor;
+}
+- (void)setErrorColor:(UIColor *)errorColor {
+    _errorColor = errorColor;
+}
+- (void)setLogo:(UIImage *)logo {
+    _logo = logo;
+}
+
 +(void)initialize {
     VTThemeDefaultPrimaryBackgroundColor = [UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:245.0f/255.0f alpha:1];
     VTThemeDefaultSecondaryBackgroundColor = [UIColor whiteColor];

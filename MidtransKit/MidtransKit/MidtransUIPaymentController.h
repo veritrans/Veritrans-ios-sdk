@@ -20,15 +20,17 @@
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod;
-
+-(void)showBackButton:(BOOL)show;
+-(void)showDismissButton:(BOOL)show;
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
 -(void)showLoadingHud;
 -(void)hideLoadingHud;
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(MidtransTransactionResult *)result;
 -(void)handleTransactionPending:(MidtransTransactionResult *)result;
+-(void)handleTransactionResult:(MidtransTransactionResult *)result;
 -(void)showGuideViewController;
 -(void)showToastInviewWithMessage:(NSString *)message;
 -(void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message andButtonTitle:(NSString *)buttonTitle;
--(void)scanButtonDidTappedFromAddCardViewController;
+
 @end

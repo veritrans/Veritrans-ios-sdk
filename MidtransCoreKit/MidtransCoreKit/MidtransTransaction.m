@@ -7,6 +7,7 @@
 //
 
 #import "MidtransTransaction.h"
+#import "MidtransPrivateConfig.h"
 
 @interface MidtransTransaction()
 
@@ -34,7 +35,7 @@
 }
 
 - (NSString *)chargeURL {
-    return [NSString stringWithFormat:ENDPOINT_CHARGE, self.token.tokenId];
+    return [NSString stringWithFormat:ENDPOINT_CHARGE, [PRIVATECONFIG snapURL], self.token.tokenId];
 }
 
 @end

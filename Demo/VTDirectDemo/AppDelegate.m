@@ -39,13 +39,13 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     id clientKey = [[NSUserDefaults standardUserDefaults] valueForKey:kClientKey];
     if (!clientKey) {
-        clientKey = @"VT-client-6_dY49SlR_Ph32_1";
+        clientKey = @"VT-client-E4f1bsi1LpL1p5cF";
         [[NSUserDefaults standardUserDefaults] setObject:clientKey forKey:kClientKey];
     }
     
     id merchantURL = [[NSUserDefaults standardUserDefaults] valueForKey:kMerchantURL];
     if (!merchantURL) {
-        merchantURL = @"http://mobile-snap-sandbox.herokuapp.com";
+        merchantURL = @"https://rakawm-snap.herokuapp.com/";
         [[NSUserDefaults standardUserDefaults] setObject:merchantURL forKey:kMerchantURL];
     }
     
@@ -57,10 +57,8 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [MidtransConfig setClientKey:@"VT-client-6_dY49SlR_Ph32_1" serverEnvironment:MIdtransServerEnvironmentSandbox merchantURL:@"http://mobile-snap-sandbox.herokuapp.com"];
-    
-    
-    
+
+    [MidtransConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b" serverEnvironment:MIdtransServerEnvironmentProduction merchantURL:@"https://midtrans-mobile-snap.herokuapp.com"];
     
     //set credit card config
     MTCreditCardPaymentType paymentType;

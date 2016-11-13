@@ -59,6 +59,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
 
     [MidtransConfig setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b" serverEnvironment:MIdtransServerEnvironmentProduction merchantURL:@"https://midtrans-mobile-snap.herokuapp.com"];
+//    [MidtransConfig setClientKey:@"VT-client-E4f1bsi1LpL1p5cF" serverEnvironment:MIdtransServerEnvironmentProduction merchantURL:@"https://rakawm-snap.herokuapp.com"];
     
     //set credit card config
     MTCreditCardPaymentType paymentType;
@@ -75,7 +76,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     }
     
     [MidtransCreditCardConfig setPaymentType:paymentType secure:cardSecure];
-    
+
     return YES;
 }
 

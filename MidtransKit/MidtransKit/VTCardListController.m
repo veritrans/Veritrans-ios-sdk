@@ -68,7 +68,7 @@ CGFloat const ButtonHeight = 56;
     
     self.editingCell = false;
     
-    if (![CC_CONFIG tokenStorageEnabled]) {
+    if ([CC_CONFIG tokenStorageDisabled]) {
         [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     }
     
@@ -103,13 +103,7 @@ CGFloat const ButtonHeight = 56;
 }
 
 - (void)reloadMaskedCards {
-    if ([CC_CONFIG tokenStorageEnabled]) {
-        NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
-        [self.cards setArray:savedTokens];
-        [self.collectionView reloadData];
-        [self updateView];
-    }
-    else {
+    if ([CC_CONFIG tokenStorageDisabled]) {
         [self showLoadingHud];
         [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
                                                        completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
@@ -126,6 +120,12 @@ CGFloat const ButtonHeight = 56;
              }
              [self updateView];
          }];
+    }
+    else {
+        NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
+        [self.cards setArray:savedTokens];
+        [self.collectionView reloadData];
+        [self updateView];
     }
 }
 
@@ -204,8 +204,8 @@ CGFloat const ButtonHeight = 56;
     
     self.selectedMaskedCard = self.cards[indexPath.row];
     
-    if ([CC_CONFIG tokenStorageEnabled]) {
-        if ([self.selectedMaskedCard.tokenType isEqualToString:TokenTypeOneClick]) {
+    if ([CC_CONFIG tokenStorageDisabled]) {
+        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
             [self performOneClick];
         }
         else {
@@ -213,7 +213,7 @@ CGFloat const ButtonHeight = 56;
         }
     }
     else {
-        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
+        if ([self.selectedMaskedCard.tokenType isEqualToString:TokenTypeOneClick]) {
             [self performOneClick];
         }
         else {

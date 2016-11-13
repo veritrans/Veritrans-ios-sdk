@@ -143,7 +143,7 @@
     }
 }
 - (void)initUIFlow {
-    [CC_CONFIG setTokenStorageEnabled:YES];
+//    [CC_CONFIG setTokenStorageEnabled:YES];
     
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];

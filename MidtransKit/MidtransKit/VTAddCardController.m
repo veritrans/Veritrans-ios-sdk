@@ -150,9 +150,11 @@
             [self handleTransactionError:error];
         }
         else {
-            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+            if ([CC_CONFIG tokenStorageDisabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
-                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:nil];
+                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:^(id  _Nullable result, NSError * _Nullable error) {
+                    
+                }];
             }
             if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
                 [self handleTransactionResult:result];

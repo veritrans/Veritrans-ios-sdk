@@ -76,6 +76,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     }
     
     [MidtransCreditCardConfig setPaymentType:paymentType secure:cardSecure];
+    [MidtransCreditCardConfig disableTokenStorage:YES];
 
     return YES;
 }

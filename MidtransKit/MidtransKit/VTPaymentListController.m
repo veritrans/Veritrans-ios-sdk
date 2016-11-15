@@ -121,6 +121,7 @@
                          else {
                              model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                              [self.paymentMethodList addObject:model];
+
                          }
                          mainIndex++;
                      }

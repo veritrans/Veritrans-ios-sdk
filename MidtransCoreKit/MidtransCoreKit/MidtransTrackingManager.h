@@ -29,4 +29,5 @@
            paymentMethod:(NSString *)paymentMethod
                    value:(NSNumber *)value;
 - (void)trackGeneratedSnapToken:(BOOL)success;
+- (void)trackPaymentlistGenerated:(NSArray *)paymentList;
 @end

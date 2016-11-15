@@ -97,11 +97,15 @@ static NSString *const MIDTRANS_TRACKING_PAYMENT_METHOD = @"payment_method";
 static NSString *const MIDTRANS_TRACKING_PAYMENT_AMOUNT = @"amount";
 static NSString *const MIDTRANS_TRACKING_PAYMENT_FEATURE = @"payment_feature";
 static NSString *const MIDTRANS_TRACKING_SECURE_PROTOCOL = @"secure";
-
+static NSString *const MIDTRANS_TRACKING_DEVICE_ID = @"Device ID";
+static NSString *const MIDTRANS_TRACKING_SNAP_TOKEN_ID = @"Snap Token";
+static NSString *const MIDTRANS_TRACKING_DEVICE_MODEL = @"Device Model";
+static NSString *const MIDTRANS_TRACKING_DEVICE_LANGUAGE = @"Device Language";
 static NSString *const MIDTRANS_TRACKING_APP_TOKENIZER_SUCCESS = @"Tokenize Success";
 static NSString *const MIDTRANS_TRACKING_APP_TOKENIZER_ERROR = @"Tokenize Failed";
 
 static NSString *const MIDTRANS_TRACKING_APP_GET_SNAP_TOKEN_SUCCESS = @"Success Getting Snap Transaction";
+static NSString *const MIDTRANS_TRACKING_APP_GET_SNAP_PAYMENT_LIST = @"Success Getting Payment List";
 static NSString *const MIDTRANS_TRACKING_APP_GET_SNAP_TOKEN_FAIL = @"Fail Getting Snap Transaction";
 
 static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_SUCCESS = @"Transaction Success";

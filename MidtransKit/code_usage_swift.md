@@ -123,6 +123,11 @@ func paymentViewController(_ viewController: MidtransUIPaymentViewController!, p
 func paymentViewController(_ viewController: MidtransUIPaymentViewController!, paymentSuccess result: MidtransTransactionResult!) {
     
 }
+
+func paymentViewController_paymentCanceled(_ viewController: MidtransUIPaymentViewController!) {
+    
+}
+
 ```
 
 ### Customise Theme Color & Font

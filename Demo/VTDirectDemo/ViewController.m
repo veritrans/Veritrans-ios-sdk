@@ -225,6 +225,10 @@
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
 
+- (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
+    NSLog(@"canceled");
+}
+
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"success: %@", result);
 }

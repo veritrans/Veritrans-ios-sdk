@@ -157,6 +157,10 @@ Add two methods to your view controller, these methods are from MidtransUIPaymen
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
     NSLog(@"pending: %@", result);
 }
+
+- (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
+    NSLog(@"canceled");
+}
 ```
 
 ### Customise Theme Color & Font

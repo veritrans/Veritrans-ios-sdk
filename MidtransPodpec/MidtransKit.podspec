@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "MidtransKit"
-s.version          = "1.0.6"
+s.version          = "1.0.7"
 s.summary          = "Veritrans mobile SDK beta version"
 s.homepage         = "https://veritrans.co.id/"
 s.license          = 'MIT'
@@ -15,7 +15,7 @@ s.subspec 'UI' do |sp|
     sp.resource_bundles = {
         'MidtransKit' => ['MidtransKit/**/*.{png,plist,xib,storyboard,strings,ttf}']
     }
-    sp.dependency 'MidtransCoreKit', '~> 1.0.6'
+    sp.dependency 'MidtransCoreKit', '~> 1.0.7'
 end
 
 s.subspec 'CardIO' do |sp|

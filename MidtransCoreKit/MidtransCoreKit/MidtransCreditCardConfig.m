@@ -30,7 +30,7 @@
     [[MidtransCreditCardConfig shared] setPaymentType:paymentType];
     
     switch (paymentType) {
-            case VTCreditCardPaymentTypeNormal: {
+            case MTCreditCardPaymentTypeNormal: {
                 [[MidtransCreditCardConfig shared] setSaveCard:NO];
                 break;
             }

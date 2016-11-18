@@ -59,6 +59,9 @@ static NSString *const TRANSACTION_PENDING = @"vtTRANSACTION_PENDING";
 static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
 static NSString *const TRANSACTION_CANCELED = @"vtTRANSACTION_CANCELED";
 
+static NSString * const TRANSACTION_RESULT_KEY = @"tr_result";
+static NSString * const TRANSACTION_ERROR_KEY = @"tr_error";
+
 /**
  *  CONSTANT REGEX
  */

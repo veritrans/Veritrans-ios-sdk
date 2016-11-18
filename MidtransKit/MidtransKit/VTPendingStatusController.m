@@ -71,8 +71,6 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 }
 
 - (void)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

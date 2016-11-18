@@ -192,7 +192,7 @@
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
 
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
+        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
             VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
                                                                paymentMethodName:paymentMethod];
             [vc showDismissButton:self.singlePayment];

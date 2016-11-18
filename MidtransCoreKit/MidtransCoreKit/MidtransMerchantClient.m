@@ -67,9 +67,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             
-            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:chargeResult};
-            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
-            
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
                 [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MIDTRANS_PAYMENT_CREDIT_CARD value:0];
                 //transaction finished here
@@ -85,9 +82,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             }
         }
         else {
-            NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
-            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
-            
             [[MidtransTrackingManager shared]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
             if (completion) {
                 completion(nil, error);

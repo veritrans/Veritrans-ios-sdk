@@ -241,6 +241,7 @@
                                           cancelButtonTitle:@"Close"
                                           otherButtonTitles:nil];
     [alert show];
+    NSLog(@"success: %@", result);
 }
 
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
@@ -254,10 +255,7 @@
                                           cancelButtonTitle:@"Close"
                                           otherButtonTitles:nil];
     [alert show];
-}
-
-- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    NSLog(@"will show %@", viewController);
+    NSLog(@"pending: %@", result);
 }
 
 #pragma mark - UITableViewDataSource
@@ -265,6 +263,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.itemDetails count];
 }
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cartCell"];
     cell.item = self.itemDetails[indexPath.row];

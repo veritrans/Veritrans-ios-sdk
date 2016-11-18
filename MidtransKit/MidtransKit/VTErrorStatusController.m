@@ -33,6 +33,8 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
+    NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:self.error};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

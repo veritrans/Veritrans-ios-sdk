@@ -50,6 +50,8 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.successViewModel.transactionResult};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

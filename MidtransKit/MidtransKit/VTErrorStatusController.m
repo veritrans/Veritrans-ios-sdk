@@ -30,6 +30,8 @@
     // Do any additional setup after loading the view.
     self.title = UILocalizedString(@"payment.failed",nil);
     
+    self.navigationItem.hidesBackButton = YES;
+    
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {

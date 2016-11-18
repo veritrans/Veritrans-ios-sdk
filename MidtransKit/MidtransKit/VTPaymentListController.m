@@ -191,7 +191,8 @@
 }
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
-
+    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_CORE_TRACKING_SELECT_PAYMENT withProperties:@{MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE:paymentMethod.internalBaseClassIdentifier}];
+    
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
             VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token

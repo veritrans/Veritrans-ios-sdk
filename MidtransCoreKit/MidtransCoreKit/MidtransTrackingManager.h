@@ -30,4 +30,5 @@
                    value:(NSNumber *)value;
 - (void)trackGeneratedSnapToken:(BOOL)success;
 - (void)trackPaymentlistGenerated:(NSArray *)paymentList;
+- (void)trackEventWithEvent:(NSString *)eventName withProperties:(NSDictionary *)properties;
 @end

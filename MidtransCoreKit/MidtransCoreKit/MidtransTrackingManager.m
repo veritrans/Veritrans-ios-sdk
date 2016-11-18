@@ -89,7 +89,7 @@
                             value:(NSNumber *)value {
     NSString *secureProtocol = secure ? @"true" : @"false";
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-        parameters  = [parameters addDefaultParameter];
+    parameters  = [parameters addDefaultParameter];
     [parameters setObject:secureProtocol forKey:MIDTRANS_TRACKING_SECURE_PROTOCOL];
     [parameters setObject:paymentMethod forKey:@"Payment Type"];
     NSDictionary *event = @{@"event":MIDTRANS_TRACKING_APP_TOKENIZER_ERROR,
@@ -97,8 +97,16 @@
     
     [self sendTrackingData:event];
 }
+- (void)trackEventWithEvent:(NSString *)eventName
+             withProperties:(NSDictionary *)properties {
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    NSDictionary *defaultParameters = [parameters addDefaultParameter];
+    [parameters addEntriesFromDictionary:defaultParameters];
+    NSDictionary *event = @{@"event":eventName,
+                            @"properties":properties};
+    [self sendTrackingData:event];
+}
 - (void)sendTrackingData:(NSDictionary *)dictionary {
-    
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
     NSString *base64String = [decoded base64EncodedStringWithOptions:0];
     NSString *URL = @"https://api.mixpanel.com/track";

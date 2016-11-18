@@ -55,6 +55,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
+    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_CORE_TRACKING_SELECT_PAYMENT withProperties:@{MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE:vaTypeModel.localPaymentIdentifier}];
     MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }

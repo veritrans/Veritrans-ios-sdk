@@ -152,24 +152,24 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if ([[expireTime dictionaryRepresentation] count] || [expireTime isEqual:[NSNull null]]) {
         [dictionaryParameters setObject:[expireTime dictionaryRepresentation] forKey:MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME];
     }
-
-    BOOL secure = [CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
+    
+    BOOL secure = [CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick;
     [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard]),
                                       @"secure":@(secure)}
                              forKey:@"credit_card"];
-
+    
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {
         if (completion) completion (nil, error);
         return;
     }
-
+    
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
     if ([URL rangeOfString:@"//"].location != NSNotFound) {
         ///sanitize //
         URL = [URL stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
     }
-
+    
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters
@@ -193,8 +193,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
              }
          }
      }];
-
-
+    
+    
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
@@ -207,7 +207,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
     [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
     
-    BOOL secure = [CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick;
+    BOOL secure = [CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick;
     [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCard]),
                                       @"secure":@(secure)}
                              forKey:@"credit_card"];
@@ -223,7 +223,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         ///sanitize //
         URL = [URL stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
     }
-
+    
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters

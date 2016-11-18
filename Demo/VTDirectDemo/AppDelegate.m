@@ -58,6 +58,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 
+
     [MidtransConfig setClientKey:@"VT-client-E4f1bsi1LpL1p5cF" serverEnvironment:MIdtransServerEnvironmentSandbox merchantURL:@"https://rakawm-snap.herokuapp.com/"];
 
     //set credit card config
@@ -66,7 +67,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
         paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType] unsignedIntegerValue];
     }
     else {
-        paymentType = VTCreditCardPaymentTypeNormal;
+        paymentType = MTCreditCardPaymentTypeNormal;
     }
     
     BOOL cardSecure = NO;

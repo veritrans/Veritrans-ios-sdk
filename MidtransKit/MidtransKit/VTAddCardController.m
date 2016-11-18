@@ -54,7 +54,7 @@
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
     
-    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
+    if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
         self.view.saveCardView.hidden = YES;
         self.view.saveCardViewHeight.constant = 0;
     }

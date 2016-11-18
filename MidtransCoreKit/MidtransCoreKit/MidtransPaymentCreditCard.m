@@ -50,15 +50,16 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
     return payment;
 }
 
-- (NSDictionary *)dictionaryValue {
+- (NSDictionary *)dictionaryValue {    
     return @{@"payment_type":MIDTRANS_PAYMENT_CREDIT_CARD,
              @"payment_params":[self paymentParameter],
              @"customer_details":@{@"email":self.customerDetails.email,
-                                   @"phone":self.customerDetails.phone}};
+                                   @"phone":self.customerDetails.phone,
+                                   @"full_name":self.customerDetails.firstName}};
 }
 
 - (id)saveCard {
-    if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
+    if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
         return @NO;
     }
     else {

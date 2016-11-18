@@ -205,7 +205,7 @@ CGFloat const ButtonHeight = 56;
     self.selectedMaskedCard = self.cards[indexPath.row];
     
     if ([CC_CONFIG tokenStorageDisabled]) {
-        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeOneclick) {
+        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
             [self performOneClick];
         }
         else {

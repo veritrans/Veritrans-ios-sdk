@@ -257,7 +257,7 @@
 		E57202E51D632315006B9265 /* VTKlikbcaSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57202E41D632315006B9265 /* VTKlikbcaSuccessController.xib */; };
 		E57202E81D63233D006B9265 /* VTKlikbcaSuccessController.h in Headers */ = {isa = PBXBuildFile; fileRef = E57202E61D63233D006B9265 /* VTKlikbcaSuccessController.h */; };
 		E57202E91D63233D006B9265 /* VTKlikbcaSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57202E71D63233D006B9265 /* VTKlikbcaSuccessController.m */; };
-		E578DD061CFBED7A0091760A /* all_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E578DD051CFBED7A0091760A /* all_va@2x.png */; };
+		E578DD061CFBED7A0091760A /* other_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E578DD051CFBED7A0091760A /* other_va@2x.png */; };
 		E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */ = {isa = PBXBuildFile; fileRef = E578DD081CFBF6480091760A /* UIView+Toast.h */; };
 		E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD091CFBF6480091760A /* UIView+Toast.m */; };
 		E578DD0F1CFBFA980091760A /* VTBillpaySuccessController.h in Headers */ = {isa = PBXBuildFile; fileRef = E578DD0C1CFBFA980091760A /* VTBillpaySuccessController.h */; };
@@ -599,7 +599,7 @@
 		E57202E41D632315006B9265 /* VTKlikbcaSuccessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTKlikbcaSuccessController.xib; sourceTree = "<group>"; };
 		E57202E61D63233D006B9265 /* VTKlikbcaSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKlikbcaSuccessController.h; sourceTree = "<group>"; };
 		E57202E71D63233D006B9265 /* VTKlikbcaSuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTKlikbcaSuccessController.m; sourceTree = "<group>"; };
-		E578DD051CFBED7A0091760A /* all_va@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "all_va@2x.png"; sourceTree = "<group>"; };
+		E578DD051CFBED7A0091760A /* other_va@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "other_va@2x.png"; sourceTree = "<group>"; };
 		E578DD081CFBF6480091760A /* UIView+Toast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Toast.h"; sourceTree = "<group>"; };
 		E578DD091CFBF6480091760A /* UIView+Toast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Toast.m"; sourceTree = "<group>"; };
 		E578DD0C1CFBFA980091760A /* VTBillpaySuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBillpaySuccessController.h; sourceTree = "<group>"; };
@@ -1007,7 +1007,7 @@
 				E503AEC11C8E85C500F097FF /* bca_va@2x.png */,
 				E503AEC21C8E85C500F097FF /* echannel@2x.png */,
 				E503AEC41C8E85C500F097FF /* permata_va@2x.png */,
-				E578DD051CFBED7A0091760A /* all_va@2x.png */,
+				E578DD051CFBED7A0091760A /* other_va@2x.png */,
 				30E8798D1C897E7D000C0F4B /* credit_card@2x.png */,
 				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
@@ -1551,7 +1551,7 @@
 				E5387D371D62BE7E004CCF3D /* mandiri_atm_1@2x.png in Resources */,
 				E5387D4E1D62BE7E004CCF3D /* other_prima_4@2x.png in Resources */,
 				E503AEC51C8E85C500F097FF /* bca_va@2x.png in Resources */,
-				E578DD061CFBED7A0091760A /* all_va@2x.png in Resources */,
+				E578DD061CFBED7A0091760A /* other_va@2x.png in Resources */,
 				E5387D321D62BE7E004CCF3D /* bca_atm_2@2x.png in Resources */,
 				E5387D451D62BE7E004CCF3D /* other_atm_2@2x.png in Resources */,
 				E5CBAA331CB3607900A17AC1 /* emptyCardIcon@2x.png in Resources */,

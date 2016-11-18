@@ -11,9 +11,9 @@
 #define CC_CONFIG (MidtransCreditCardConfig *)[MidtransCreditCardConfig shared]
 
 typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
-    VTCreditCardPaymentTypeOneclick,
-    VTCreditCardPaymentTypeTwoclick,
-    VTCreditCardPaymentTypeNormal
+    MTCreditCardPaymentTypeOneclick,
+    MTCreditCardPaymentTypeTwoclick,
+    MTCreditCardPaymentTypeNormal
 };
 
 @interface MidtransCreditCardConfig : NSObject

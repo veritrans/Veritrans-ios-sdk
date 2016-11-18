@@ -41,11 +41,11 @@ static NSString *const SSSemibold = @"SourceSansPro-Semibold";
 
 + (UIFontDescriptor *)mapSystemFontWithDescriptor:(UIFontDescriptor *)descriptor size:(CGFloat)size {
     NSString *fontName = [descriptor.fontAttributes objectForKey:UIFontDescriptorNameAttribute];
-    NSString *thisFontName = [self mapSystemFontWithName:fontName];
-    if ([thisFontName isEqualToString:SSRegular] ||
-        [thisFontName isEqualToString:SSBold] ||
-        [thisFontName isEqualToString:SSLight] ||
-        [thisFontName isEqualToString:SSSemibold]) {
+    if ([fontName isEqualToString:SSRegular] ||
+        [fontName isEqualToString:SSBold] ||
+        [fontName isEqualToString:SSLight] ||
+        [fontName isEqualToString:SSSemibold]) {
+        NSString *thisFontName = [self mapSystemFontWithName:fontName];
         return [UIFontDescriptor fontDescriptorWithName:thisFontName size:size];
     }
     else {

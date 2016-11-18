@@ -30,12 +30,13 @@
     // Do any additional setup after loading the view.
     self.title = UILocalizedString(@"payment.failed",nil);
     
+    self.navigationItem.hidesBackButton = YES;
+    
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:_error};
+    NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:self.error};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
-    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

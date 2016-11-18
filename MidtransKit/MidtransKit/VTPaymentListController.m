@@ -108,7 +108,7 @@
                      }];
                      if (index != NSNotFound) {
                          MidtransPaymentListModel *model;
-                         if ([enabledPayment.category isEqualToString:@"bank_transfer"]) {
+                         if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                              if (!vaAlreadyAdded) {
                                  if (mainIndex!=0) {
                                      model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
@@ -121,6 +121,7 @@
                          else {
                              model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                              [self.paymentMethodList addObject:model];
+
                          }
                          mainIndex++;
                      }
@@ -190,9 +191,10 @@
 }
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
-
+    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_CORE_TRACKING_SELECT_PAYMENT withProperties:@{MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE:paymentMethod.internalBaseClassIdentifier}];
+    
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-        if ([CC_CONFIG paymentType] == VTCreditCardPaymentTypeNormal) {
+        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
             VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
                                                                paymentMethodName:paymentMethod];
             [vc showDismissButton:self.singlePayment];
@@ -210,6 +212,7 @@
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
+        vc.paymentResponse = self.responsePayment;
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||

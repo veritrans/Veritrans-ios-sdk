@@ -11,7 +11,6 @@
 #import "MidtransUIListCell.h"
 #import "MidtransUIPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
 @interface VTVAListController ()
 @property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
@@ -23,17 +22,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = UILocalizedString(@"va.list.title", nil);
-    
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    for (int i = 0; i<paymentList.count; i++) {
-        MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[i]];
-        [vaListM addObject:paymentmodel];
+
+    NSArray *paymentAvailable = self.paymentResponse.enabledPayments;
+    for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
+        NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj[@"id"] isEqualToString:enabledPayment.type];
+        }];
+        if (index != NSNotFound) {
+            if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
+                 MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[index]];
+                [vaListM addObject:paymentmodel];
+            }
+        }
     }
+
     self.vaList = vaListM;
     self.tableView.tableFooterView = [UIView new];
     self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
@@ -54,7 +61,8 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[_vaList objectAtIndex:indexPath.row];
+    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:indexPath.row];
+//    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_CORE_TRACKING_SELECT_PAYMENT withProperties:@{MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE:vaTypeModel.localPaymentIdentifier}];
     MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }

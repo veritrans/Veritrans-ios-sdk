@@ -149,7 +149,8 @@ Update the `Podfile` to this
 use_frameworks!
 
 def shared_pods
-    pod 'MidtransKit/CardIO'
+	pod 'MidtransKit'
+	pod 'MidtransKit/CardIO'
 end
 
 target 'MyBeautifulApp' do

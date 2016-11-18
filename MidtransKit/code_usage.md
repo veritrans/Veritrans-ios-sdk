@@ -33,7 +33,8 @@ If you want to support [CardIO](https://www.card.io/), update the `Podfile` to t
 platform :ios, '7.0'
 
 def shared_pods
-    pod 'MidtransKit/CardIO'
+	pod 'MidtransKit'
+	pod 'MidtransKit/CardIO'
 end
 
 target 'MyBeautifulApp' do

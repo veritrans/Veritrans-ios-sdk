@@ -19,6 +19,7 @@
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error;
+- (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController;
 @end
 
 @interface MidtransUIPaymentViewController : UINavigationController

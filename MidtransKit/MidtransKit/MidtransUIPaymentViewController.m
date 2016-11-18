@@ -41,6 +41,7 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionCanceled:) name:TRANSACTION_CANCELED object:nil];
 }
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -52,6 +53,11 @@
     }
 }
 
+- (void)transactionCanceled:(NSNotification *)sender {
+    if ([self.delegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
+        [self.delegate paymentViewController_paymentCanceled:self];
+    }
+}
 
 - (void)transactionSuccess:(NSNotification *)sender {
     if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {

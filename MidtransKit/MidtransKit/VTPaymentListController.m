@@ -153,6 +153,7 @@
     return self.view.header;
 }
 - (void)closePressed:(id)sender {
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

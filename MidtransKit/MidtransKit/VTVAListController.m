@@ -34,7 +34,7 @@
             return [obj[@"id"] isEqualToString:enabledPayment.type];
         }];
         if (index != NSNotFound) {
-            if ([enabledPayment.category isEqualToString:@"bank_transfer"]) {
+            if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                  MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[index]];
                 [vaListM addObject:paymentmodel];
             }

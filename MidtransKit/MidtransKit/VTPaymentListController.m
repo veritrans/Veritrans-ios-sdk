@@ -108,7 +108,7 @@
                      }];
                      if (index != NSNotFound) {
                          MidtransPaymentListModel *model;
-                         if ([enabledPayment.category isEqualToString:@"bank_transfer"]) {
+                         if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                              if (!vaAlreadyAdded) {
                                  if (mainIndex!=0) {
                                      model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];

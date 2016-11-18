@@ -73,13 +73,13 @@
     
     self.secureSwitch.on = self.cardSecure;
     switch (self.ccPaymentType) {
-        case VTCreditCardPaymentTypeNormal:
+        case MTCreditCardPaymentTypeNormal:
             self.ccOptionSegment.selectedSegmentIndex = 0;
             break;
-        case VTCreditCardPaymentTypeTwoclick:
+        case MTCreditCardPaymentTypeTwoclick:
             self.ccOptionSegment.selectedSegmentIndex = 1;
             break;
-        case VTCreditCardPaymentTypeOneclick:
+        case MTCreditCardPaymentTypeOneclick:
             self.ccOptionSegment.selectedSegmentIndex = 2;
             break;
     }
@@ -214,13 +214,13 @@
 
 - (IBAction)paymentTypeSegmentChanged:(UISegmentedControl *)sender {
     if (sender.selectedSegmentIndex == 0) {
-        self.ccPaymentType = VTCreditCardPaymentTypeNormal;
+        self.ccPaymentType = MTCreditCardPaymentTypeNormal;
     }
     else if (sender.selectedSegmentIndex == 1) {
-        self.ccPaymentType = VTCreditCardPaymentTypeTwoclick;
+        self.ccPaymentType = MTCreditCardPaymentTypeTwoclick;
     }
     else if (sender.selectedSegmentIndex == 2) {
-        self.ccPaymentType = VTCreditCardPaymentTypeOneclick;
+        self.ccPaymentType = MTCreditCardPaymentTypeOneclick;
     }
 }
 

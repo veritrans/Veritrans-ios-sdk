@@ -234,15 +234,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                                                                                 transactionDetails:transactionDetails
                                                                                                    customerDetails:customerDetails
                                                                                                        itemDetails:itemDetails];
-             NSLog(@"token-->%@",token);
              if (completion) {
-                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
                  completion(token,NULL);
              }
          }
          else {
              if (completion) {
-                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
                  completion(NULL,error);
              }
          }
@@ -255,18 +252,21 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [[MidtransNetworking shared] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
             MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
-            
+
             if (completion) {
-                if (!paymentRequestV2.merchant.preference) {
+                if ([[paymentRequestV2.merchant.preference dictionaryRepresentation] count]) {
                     [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
                     [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+                    [[NSUserDefaults standardUserDefaults] setObject:token forKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
                 completion(paymentRequestV2,NULL);
             }
         }
         else{
             if (completion) {
+                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
                 completion(NULL,error);
             }
         }

@@ -71,6 +71,8 @@
 		009A7E7E1DBF06E600049358 /* MidtransPaymentRequestV2TransactionDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7E671DBF06E600049358 /* MidtransPaymentRequestV2TransactionDetails.m */; };
 		009A7E811DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 009A7E7F1DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		009A7E821DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7E801DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.m */; };
+		00B827781DDAC76800E5AC17 /* MidtransDeviceHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 00B827761DDAC76800E5AC17 /* MidtransDeviceHelper.h */; };
+		00B827791DDAC76800E5AC17 /* MidtransDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B827771DDAC76800E5AC17 /* MidtransDeviceHelper.m */; };
 		00C95DB81D196589001EC6B7 /* MidtransVirtualAccountModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C95DB51D196589001EC6B7 /* MidtransVirtualAccountModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00C95DB91D196589001EC6B7 /* MidtransVirtualAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C95DB61D196589001EC6B7 /* MidtransVirtualAccountModel.m */; };
 		00CCECB51D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCECB41D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m */; };
@@ -91,6 +93,7 @@
 		3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054948C1C75A40900938C17 /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		30D9ABFC1C76FD1D00F858AE /* MidtransNetworkOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 30D9ABFA1C76FD1D00F858AE /* MidtransNetworkOperation.h */; };
 		30D9ABFD1C76FD1D00F858AE /* MidtransNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 30D9ABFB1C76FD1D00F858AE /* MidtransNetworkOperation.m */; };
+		68F51CFF7360999CE0CC78FF /* libPods-MidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */; };
 		E50D85D41D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85D21D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E50D85D51D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85D31D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m */; };
 		E50D85E71D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85E31D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -216,6 +219,8 @@
 		009A7E671DBF06E600049358 /* MidtransPaymentRequestV2TransactionDetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2TransactionDetails.m; sourceTree = "<group>"; };
 		009A7E7F1DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2SavedTokens.h; sourceTree = "<group>"; };
 		009A7E801DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2SavedTokens.m; sourceTree = "<group>"; };
+		00B827761DDAC76800E5AC17 /* MidtransDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransDeviceHelper.h; sourceTree = "<group>"; };
+		00B827771DDAC76800E5AC17 /* MidtransDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransDeviceHelper.m; sourceTree = "<group>"; };
 		00C95DB51D196589001EC6B7 /* MidtransVirtualAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransVirtualAccountModel.h; sourceTree = "<group>"; };
 		00C95DB61D196589001EC6B7 /* MidtransVirtualAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransVirtualAccountModel.m; sourceTree = "<group>"; };
 		00CCECB41D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestBankTransfer.m; sourceTree = "<group>"; };
@@ -311,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68F51CFF7360999CE0CC78FF /* libPods-MidtransCoreKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -545,6 +551,8 @@
 				305494521C75A08900938C17 /* MidtransNetworking.m */,
 				30D9ABFA1C76FD1D00F858AE /* MidtransNetworkOperation.h */,
 				30D9ABFB1C76FD1D00F858AE /* MidtransNetworkOperation.m */,
+				00B827761DDAC76800E5AC17 /* MidtransDeviceHelper.h */,
+				00B827771DDAC76800E5AC17 /* MidtransDeviceHelper.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -670,6 +678,7 @@
 				E50D85E91D0ECB7000F26D2E /* MidtransPaymentIndomaret.h in Headers */,
 				E53BD03D1D14322B001FADDE /* MidtransPaymentEpayBRI.h in Headers */,
 				00EA7E681D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.h in Headers */,
+				00B827781DDAC76800E5AC17 /* MidtransDeviceHelper.h in Headers */,
 				E5C00EEB1D61BC50008DD9C5 /* MidtransImageManager.h in Headers */,
 				006DB8201D3E1050001C9A71 /* MidtransPaymentRequestTransactionData.h in Headers */,
 				006DB81E1D3E1050001C9A71 /* MidtransPaymentRequestResponse.h in Headers */,
@@ -860,6 +869,7 @@
 				E5E436201CE31D1200F688ED /* MidtransTransactionResult.m in Sources */,
 				E53BD0271D128F4C001FADDE /* MidtransMandiriClickpayHelper.m in Sources */,
 				009A7E6F1DBF06E600049358 /* MidtransPaymentRequestV2CustomerDetails.m in Sources */,
+				00B827791DDAC76800E5AC17 /* MidtransDeviceHelper.m in Sources */,
 				009A7E7A1DBF06E600049358 /* MidtransPaymentRequestV2Response.m in Sources */,
 				009A7E721DBF06E600049358 /* MidtransPaymentRequestV2EnabledPayments.m in Sources */,
 				3054945E1C75A08900938C17 /* MidtransNetworking.m in Sources */,

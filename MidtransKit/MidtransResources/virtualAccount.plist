@@ -32,7 +32,7 @@
 		<key>description</key>
 		<string>Pay from ATMs or internet banking</string>
 		<key>id</key>
-		<string>all_va</string>
+		<string>other_va</string>
 	</dict>
 </array>
 </plist>

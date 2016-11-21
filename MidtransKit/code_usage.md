@@ -61,6 +61,24 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 [MidtransConfig setClientKey:@"your_client_key" andServerEnvironment:server_environment];
 ```
 
+### Credit Card Payment Feature
+#### 2-Clicks
+```
+[MidtransCreditCardConfig setPaymentType:MTCreditCardPaymentTypeTwoclick secure:YES];
+[MidtransCreditCardConfig disableTokenStorage:YES];
+```
+Parameter `secure` is for enabling 3D secure transaction, but for 2-clicks, actually it's forced to `true` even if you set it to `false`.
+You cannot use `tokenStorage` feature for 2-Click, so disable it.
+
+
+#### 1-Click
+
+```
+[MidtransCreditCardConfig setPaymentType:MTCreditCardPaymentTypeOneclick secure:<Boolean>];
+[MidtransCreditCardConfig disableTokenStorage:NO];
+```
+Parameter `secure` is for enabling 3D secure transaction, and you need to enable `Token Storage` feature. 
+
 ### Payment
 
 ##### Generate `TransactionTokenResponse` object

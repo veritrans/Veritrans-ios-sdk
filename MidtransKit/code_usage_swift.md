@@ -45,6 +45,24 @@ import MidtransKit
 MidtransConfig.setClientKey(client_key, serverEnvironment: .sandbox OR .production, merchantURL: merchant_url)
 ```
 
+### Credit Card Payment Feature
+#### 2-Clicks
+```
+MidtransCreditCardConfig.setPaymentType(.twoclick, secure: true)
+MidtransCreditCardConfig.disableTokenStorage(true)
+```
+Parameter `secure` is for enabling 3D secure transaction, but for 2-clicks, actually it's forced to `true` even if you set it to `false`.
+You cannot use `tokenStorage` feature for 2-Click, so disable it.
+
+
+#### 1-Click
+
+```
+MidtransCreditCardConfig.setPaymentType(.oneclick, secure: <Boolean>)
+MidtransCreditCardConfig.disableTokenStorage(false)
+```
+Parameter `secure` is for enabling 3D secure transaction, and you need to enable `Token Storage` feature. 
+
 ### Payment
 
 ##### Generate `TransactionTokenResponse` object

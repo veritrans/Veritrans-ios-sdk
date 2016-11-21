@@ -68,7 +68,8 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 [MidtransCreditCardConfig disableTokenStorage:YES];
 ```
 Parameter `secure` is for enabling 3D secure transaction, but for 2-clicks, actually it's forced to `true` even if you set it to `false`.
-You cannot use `tokenStorage` feature for 2-Click, so disable it.
+
+You cannot use `tokenStorage` feature for 2-Click, so disable it and make sure that you're already setup your merchant server to support **save card**. You can see the documentation [here.](https://github.com/veritrans/veritrans-android/wiki/Implementation-for-Merchant-Server)
 
 
 #### 1-Click

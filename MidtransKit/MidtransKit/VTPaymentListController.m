@@ -137,6 +137,7 @@
                      }
                      self.dataSource.paymentList = self.paymentMethodList;
                      if (response.enabledPayments.count>1) {
+                 [self.view.loadingView hide];
                          [self.view.tableView reloadData];
                      }
                      else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<1) {

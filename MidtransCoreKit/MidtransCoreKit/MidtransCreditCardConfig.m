@@ -30,10 +30,9 @@
     [[MidtransCreditCardConfig shared] setPaymentType:paymentType];
     
     switch (paymentType) {
-            case MTCreditCardPaymentTypeNormal: {
-                [[MidtransCreditCardConfig shared] setSaveCard:NO];
-                break;
-            }
+        case MTCreditCardPaymentTypeNormal:
+            [[MidtransCreditCardConfig shared] setSaveCard:NO];
+            break;
         default: {
             [[MidtransCreditCardConfig shared] setSaveCard:YES];
             break;

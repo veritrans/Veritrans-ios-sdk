@@ -32,6 +32,9 @@
         case VTVATypeMandiri:
             typeString = MIDTRANS_PAYMENT_ECHANNEL;
             break;
+        case VTVATypeAll:
+            typeString = MIDTRANS_PAYMENT_ALL_VA;
+            break;
         case VTVATypeBCA:
             typeString = MIDTRANS_PAYMENT_BCA_VA;
             break;
@@ -39,7 +42,7 @@
             typeString = MIDTRANS_PAYMENT_PERMATA_VA;
             break;
         case VTVATypeOther:
-            typeString = MIDTRANS_PAYMENT_ALL_VA;
+            typeString = MIDTRANS_PAYMENT_OTHER_VA;
             break;
     }
     return typeString;

@@ -36,9 +36,12 @@
     
     [self setHeaderWithTitle:_model.title
                     subTitle:NSLocalizedString(@"Payment Instructions", nil)];
-    
+     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
+    if ([_model.title isEqualToString:@"Other Bank"]) {
+        guidePath =[VTBundle pathForResource:@"all_va" ofType:@"plist"];
+    }
     self.guideViewControllers = [NSMutableArray new];
-    NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
+
     NSArray *groupedInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     
     for (int i=0; i<[groupedInstructions count]; i++) {

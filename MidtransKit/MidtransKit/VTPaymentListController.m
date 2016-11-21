@@ -101,11 +101,20 @@
              NSInteger grandTotalAmount = [response.transactionDetails.grossAmount integerValue];
              self.view.header.amountLabel.text = [NSNumber numberWithInteger:grandTotalAmount].formattedCurrencyNumber;
              NSArray *paymentAvailable = response.enabledPayments;
-                  [self.view.loadingView hide];
+
                  for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
-                     NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                         return [obj[@"id"] isEqualToString:enabledPayment.type];
-                     }];
+                     NSInteger index ;
+                     if (self.paymentMethodSelected.length > 0) {
+                         index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                             return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                         }];
+                     }
+                     else {
+                         index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                             return [obj[@"id"] isEqualToString:enabledPayment.type];
+                         }];
+                     }
+
                      if (index != NSNotFound) {
                          MidtransPaymentListModel *model;
                          if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
@@ -118,6 +127,7 @@
 
                              }
                          }
+
                          else {
                              model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                              [self.paymentMethodList addObject:model];
@@ -129,12 +139,16 @@
                      if (response.enabledPayments.count>1) {
                          [self.view.tableView reloadData];
                      }
-                     else {
+                     else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<1) {
                          self.singlePayment = YES;
                          [self redirectToPaymentMethodAtIndex:0];
                      }
 
                  }
+             if (self.paymentMethodSelected.length > 0) {
+                  self.singlePayment = YES;
+                 [self redirectToPaymentMethodAtIndex:0];
+             }
          }
          else {
 
@@ -252,7 +266,7 @@
 #pragma mark - VTAddCardControllerDelegate
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:YES];
-          [self.view.loadingView hide];
+   [self.view.loadingView hide];
 }
 - (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
     

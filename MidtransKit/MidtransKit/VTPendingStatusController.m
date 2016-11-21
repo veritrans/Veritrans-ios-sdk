@@ -41,10 +41,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.title = UILocalizedString(@"payment.pending",nil);
-    [self.navigationItem setHidesBackButton:YES];
-    
     self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
     self.orderIDLabel.text = self.result.orderId;
     self.expiryDateLabel.text = self.result.additionalData[kVTPendingStatusControllerKiosonExpireTime];

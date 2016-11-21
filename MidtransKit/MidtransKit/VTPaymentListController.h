@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "VTItemViewModel.h"
 #import "MidtransUIPaymentController.h"
-
 @interface VTPaymentListController : MidtransUIPaymentController
-
+@property (nonatomic,strong)NSString *paymentMethodSelected;
 @end

@@ -44,7 +44,7 @@
     // Do any additional setup after loading the view from its nib.
     
     [self.navigationItem setHidesBackButton:YES];
-    
+    [self showBackButton:NO];
     self.amountLabel.text = self.statusModel.totalAmount;
     self.orderIdLabel.text = self.statusModel.orderId;
     self.transactionTimeLabel.text = self.statusModel.transactionTime;

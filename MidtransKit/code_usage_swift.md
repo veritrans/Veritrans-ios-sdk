@@ -146,8 +146,6 @@ Put this code before you present the `MidtransUIPaymentViewController`
 Update the `Podfile` to this
 
 ```
-use_frameworks!
-
 def shared_pods
 	pod 'MidtransKit'
 	pod 'MidtransKit/CardIO'

@@ -18,6 +18,7 @@ Open up the `Podfile` and add `MidtransKit` to your project's target.
 platform :ios, '7.0'
 
 def shared_pods
+    pod 'MidtransCoreKit'
     pod 'MidtransKit'
 end
 

@@ -65,7 +65,7 @@
     
     [self.view setToken:self.token];
     
-    self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
+    self.view.saveCardSwitch.on = [CC_CONFIG saveCardEnabled];
     
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];
@@ -81,16 +81,16 @@
 }
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
- [self.view.loadingView hide];
+    [self.view.loadingView hide];
 }
 
 - (void)handleTransactionError:(NSError *)error {
     [super handleTransactionError:error];
-                                        [self.view.loadingView hide];
+    [self.view.loadingView hide];
 }
 
 - (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
-    [MidtransCreditCardConfig enableSaveCard:sender.on];
+    [CC_CONFIG setSaveCardEnabled:sender.on];
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
@@ -108,12 +108,11 @@
         return;
     }
     
-      [self.view.loadingView showWithTitle:@"Processing your transaction"];
+    [self.view.loadingView showWithTitle:@"Processing your transaction"];
     
-    BOOL enable3Ds = [CC_CONFIG secure];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
-                                                                                         secure:enable3Ds];
+                                                                                         secure:[CC_CONFIG secure3DEnabled]];
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -147,7 +146,7 @@
             [self handleTransactionError:error];
         }
         else {
-            if ([CC_CONFIG tokenStorageDisabled] && result.maskedCreditCard) {
+            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:^(id  _Nullable result, NSError * _Nullable error) {
                     

@@ -25,7 +25,7 @@
 /**
  * The Veritrans' evnirontment key for this app.
  */
-@property (nonatomic, readonly) MIdtransServerEnvironment environment;
+@property (nonatomic, readonly) MidtransServerEnvironment environment;
 
 @property (nonatomic, readonly) NSString *merchantURL;
 
@@ -39,6 +39,6 @@
 @property (nonatomic) NSDictionary *merchantClientData;
 @property (nonatomic) NSDictionary *merchantDefaultHeader;
 
-+ (void)setClientKey:(NSString *)clientKey serverEnvironment:(MIdtransServerEnvironment)environment merchantURL:(NSString *)merchantURL;
+- (void)setClientKey:(NSString *)clientKey environment:(MidtransServerEnvironment)env merchantServerURL:(NSString *)merchantServerURL;
 
 @end

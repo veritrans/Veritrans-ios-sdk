@@ -42,26 +42,41 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 //AppDelegate.swift
 import MidtransKit
 
-MidtransConfig.setClientKey(client_key, serverEnvironment: .sandbox OR .production, merchantURL: merchant_url)
+MidtransConfig.shared().setClientKey("client key", environment: .sandbox, merchantServerURL: "merchant server url")
 ```
 
 ### Credit Card Payment Feature
-#### 2-Clicks
+#### Enable 3D Secure
 ```
-MidtransCreditCardConfig.setPaymentType(.twoclick, secure: true)
-MidtransCreditCardConfig.disableTokenStorage(true)
+MidtransCreditCardConfig.shared().secure3DEnabled = true
 ```
-Parameter `secure` is for enabling 3D secure transaction, but for 2-clicks, actually it's forced to `true` even if you set it to `false`.
-You cannot use `tokenStorage` feature for 2-Click, so disable it and make sure that you're already setup your merchant server to support **save card**. You can see the documentation [here.](https://github.com/veritrans/veritrans-android/wiki/Implementation-for-Merchant-Server)
 
+#### Token Storage
+
+```
+MidtransCreditCardConfig.shared().tokenStorageEnabled = true
+```
 
 #### 1-Click
 
 ```
-MidtransCreditCardConfig.setPaymentType(.oneclick, secure: <Boolean>)
-MidtransCreditCardConfig.disableTokenStorage(false)
+MidtransCreditCardConfig.shared().paymentType = .oneclick
+MidtransCreditCardConfig.shared().saveCardEnabled = true
+
+//1-click need 3D secure enabled
+MidtransCreditCardConfig.shared().tokenStorageEnabled = true
+
+//1-click need 3ds enabled
+MidtransCreditCardConfig.shared().secure3DEnabled = true
 ```
-Parameter `secure` is for enabling 3D secure transaction, and you need to enable `Token Storage` feature. 
+
+#### 2-Clicks
+```
+MidtransCreditCardConfig.shared().paymentType = .twoclick
+MidtransCreditCardConfig.shared().saveCardEnabled = true
+```
+
+You cannot use `tokenStorage` feature for 2-Click, so disable it and make sure that you're already setup your merchant server to support **save card**. You can see the documentation [here.](https://github.com/veritrans/veritrans-android/wiki/Implementation-for-Merchant-Server)
 
 ### Payment
 

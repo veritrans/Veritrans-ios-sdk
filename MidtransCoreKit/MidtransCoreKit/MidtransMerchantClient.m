@@ -153,8 +153,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         [dictionaryParameters setObject:[expireTime dictionaryRepresentation] forKey:MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME];
     }
     
-    [dictionaryParameters setObject:@{@"save_card":@([CC_CONFIG saveCardEnabled]),
-                                      @"secure":@([CC_CONFIG secure3DEnabled])}
+    [dictionaryParameters setObject:@{@"save_card":@(CC_CONFIG.saveCardEnabled),
+                                      @"secure":@(CC_CONFIG.secureSnapEnabled)}
                              forKey:@"credit_card"];
     
     NSError *error;
@@ -198,55 +198,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
-                                           completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion
-{
-    NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
-    [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
-    [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
-    [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
-    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
-    
-    NSMutableDictionary *creditCardParams = [NSMutableDictionary new];
-    [creditCardParams setObject:@([CC_CONFIG saveCardEnabled]) forKey:@"save_card"];
-    [creditCardParams setObject:@([CC_CONFIG secure3DEnabled]) forKey:@"secure"];
-    if ([CC_CONFIG bank]) {
-        [creditCardParams setObject:[CC_CONFIG bank] forKey:@"bank"];
-    }
-    
-    [dictionaryParameters setObject:creditCardParams forKey:@"credit_card"];
-    
-    NSError *error;
-    if (![customerDetails isValidCustomerData:&error]) {
-        if (completion) completion (nil, error);
-        return;
-    }
-    
-    NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
-    if ([URL rangeOfString:@"//"].location != NSNotFound) {
-        ///sanitize //
-        URL = [URL stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-    }
-    
-    [[MidtransNetworking shared] postToURL:URL
-                                    header:nil
-                                parameters:dictionaryParameters
-                                  callback:^(id response, NSError *error)
-     {
-         if (!error) {
-             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
-                                                                                                transactionDetails:transactionDetails
-                                                                                                   customerDetails:customerDetails
-                                                                                                       itemDetails:itemDetails];
-             if (completion) {
-                 completion(token,NULL);
-             }
-         }
-         else {
-             if (completion) {
-                 completion(NULL,error);
-             }
-         }
-     }];
+                                           completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+    [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil transactionExpireTime:nil completion:completion];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

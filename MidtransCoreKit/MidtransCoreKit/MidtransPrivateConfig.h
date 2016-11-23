@@ -17,7 +17,7 @@
 @property (nonatomic, readonly) NSString *mixpanelToken;
 @property (nonatomic, readonly) NSString *snapURL;
 
-+ (void)setServerEnvironment:(MIdtransServerEnvironment)environment;
++ (void)setServerEnvironment:(MidtransServerEnvironment)environment;
 + (MidtransPrivateConfig *)shared;
 
 @end

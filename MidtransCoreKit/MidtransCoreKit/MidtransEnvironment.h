@@ -11,20 +11,20 @@
 /**
  The payment server types.
  */
-typedef NS_ENUM(NSUInteger, MIdtransServerEnvironment) {
+typedef NS_ENUM(NSUInteger, MidtransServerEnvironment) {
     /**
      Sandbox payment environment. This server type should be used for testing.
      */
-    MIdtransServerEnvironmentSandbox,
+    MidtransServerEnvironmentSandbox,
     
     /**
      Production payment environment. This server type should be used only when the product ready to be released.
      */
-    MIdtransServerEnvironmentProduction,
+    MidtransServerEnvironmentProduction,
     
     /**
      Unknown payment environment. Internal usage only.
      */
-    MIdtransServerEnvironmentUnknown
+    MidtransServerEnvironmentUnknown
 };
 

@@ -92,7 +92,7 @@
         }
     }
     
-    if ([CONFIG environment] == MIdtransServerEnvironmentProduction) {
+    if ([CONFIG environment] == MidtransServerEnvironmentProduction) {
         [result setObject:@"migs" forKey:@"channel"];
     }
     

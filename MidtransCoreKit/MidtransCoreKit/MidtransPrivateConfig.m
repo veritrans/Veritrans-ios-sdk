@@ -25,9 +25,9 @@
     return shared;
 }
 
-+ (void)setServerEnvironment:(MIdtransServerEnvironment)environment {
++ (void)setServerEnvironment:(MidtransServerEnvironment)environment {
     
-    if (environment == MIdtransServerEnvironmentProduction) {
+    if (environment == MidtransServerEnvironmentProduction) {
         [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_PRODUCTION_API_URL];
         [[MidtransPrivateConfig shared] setMixpanelToken: MIDTRANS_PRODUCTION_MIXPANEL];
         [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_PROD_SNAP];

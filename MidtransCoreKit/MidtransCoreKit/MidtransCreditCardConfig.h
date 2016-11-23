@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define CC_CONFIG (MidtransCreditCardConfig *)[MidtransCreditCardConfig shared]
+#define CC_CONFIG ((MidtransCreditCardConfig *)[MidtransCreditCardConfig shared])
 
 typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
     MTCreditCardPaymentTypeOneclick,
@@ -18,14 +18,12 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
 
 @interface MidtransCreditCardConfig : NSObject
 
-@property (nonatomic, readonly) MTCreditCardPaymentType paymentType;
-@property (nonatomic, readonly) BOOL secure;
-@property (nonatomic, readonly) BOOL saveCard;
-@property (nonatomic, assign) BOOL tokenStorageDisabled;
+@property (nonatomic) MTCreditCardPaymentType paymentType;
+@property (nonatomic) BOOL secure3DEnabled;
+@property (nonatomic) BOOL saveCardEnabled;
+@property (nonatomic) BOOL tokenStorageEnabled;
+@property (nonatomic) NSString *bank;
 
-+ (void)setPaymentType:(MTCreditCardPaymentType)paymentType secure:(BOOL)secure;
-+ (void)enableSaveCard:(BOOL)enabled;
-+ (void)disableTokenStorage:(BOOL)enabled;
 + (MidtransCreditCardConfig *)shared;
 
 @end

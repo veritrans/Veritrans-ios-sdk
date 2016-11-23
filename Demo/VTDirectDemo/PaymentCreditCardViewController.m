@@ -42,10 +42,10 @@
         [alertView show];
         return;
     }
-    BOOL enable3Ds = [CC_CONFIG secure];
+
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.transactionToken.transactionDetails.grossAmount
-                                                                                         secure:enable3Ds];
+                                                                                         secure:[CC_CONFIG secure3DEnabled]];
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     [MBProgressHUD hideHUDForView:self.view animated:YES];

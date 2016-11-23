@@ -20,6 +20,7 @@
 
 @property (strong, nonatomic) IBOutlet UISegmentedControl *ccOptionSegment;
 @property (strong, nonatomic) IBOutlet UISwitch *secureSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *tokenStorageSwitch;
 @property (strong, nonatomic) IBOutlet UIView *shippingAddressView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *shippingAddressHeight;
 @property (strong, nonatomic) IBOutlet UISwitch *sameAsBillingSwitch;
@@ -48,9 +49,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *shipLastNameTextField;
 @property (strong, nonatomic) IBOutlet UITextField *shipPhoneTextField;
 
-@property (nonatomic) MTCreditCardPaymentType ccPaymentType;
-@property (nonatomic) BOOL cardSecure;
-
 @end
 
 @implementation OptionViewController
@@ -62,27 +60,14 @@
     UIColor *themeColor = [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
     [self.chooseColorButton setBackgroundColor:themeColor];
     
-    
     self.chooseColorButton.layer.cornerRadius = 5;
     self.chooseFontButton.layer.cornerRadius = 5;
     self.chooseFontButton.layer.borderColor = [UIColor darkGrayColor].CGColor;
     self.chooseFontButton.layer.borderWidth = 1.0f;
     
-    self.cardSecure = [CC_CONFIG secure];
-    self.ccPaymentType = [CC_CONFIG paymentType];
-    
-    self.secureSwitch.on = self.cardSecure;
-    switch (self.ccPaymentType) {
-        case MTCreditCardPaymentTypeNormal:
-            self.ccOptionSegment.selectedSegmentIndex = 0;
-            break;
-        case MTCreditCardPaymentTypeTwoclick:
-            self.ccOptionSegment.selectedSegmentIndex = 1;
-            break;
-        case MTCreditCardPaymentTypeOneclick:
-            self.ccOptionSegment.selectedSegmentIndex = 2;
-            break;
-    }
+    self.secureSwitch.on = CC_CONFIG.secure3DEnabled;
+    self.tokenStorageSwitch.on = CC_CONFIG.tokenStorageEnabled;
+    self.ccOptionSegment.selectedSegmentIndex = CC_CONFIG.paymentType;
     
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
     
@@ -202,30 +187,24 @@
     NSData *encoded = [NSKeyedArchiver archivedDataWithRootObject:customer];
     [[NSUserDefaults standardUserDefaults] setObject:encoded forKey:@"vt_customer"];
     
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.ccPaymentType) forKey:kOptionViewControllerCCType];
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.cardSecure) forKey:kOptionViewControllerCCSecure];
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.paymentType) forKey:kOptionViewControllerCCType];
+    [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.secure3DEnabled) forKey:kOptionViewControllerCCSecure];
+    [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.tokenStorageEnabled) forKey:kOptionViewControllerCCTokenStorage];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [MidtransCreditCardConfig setPaymentType:self.ccPaymentType secure:self.cardSecure];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)paymentTypeSegmentChanged:(UISegmentedControl *)sender {
-    if (sender.selectedSegmentIndex == 0) {
-        self.ccPaymentType = MTCreditCardPaymentTypeNormal;
-    }
-    else if (sender.selectedSegmentIndex == 1) {
-        self.ccPaymentType = MTCreditCardPaymentTypeTwoclick;
-    }
-    else if (sender.selectedSegmentIndex == 2) {
-        self.ccPaymentType = MTCreditCardPaymentTypeOneclick;
-    }
+    CC_CONFIG.paymentType = sender.selectedSegmentIndex;
 }
 
 - (IBAction)secureSwitchChanged:(UISwitch *)sender {
-    self.cardSecure = sender.on;
+    CC_CONFIG.secure3DEnabled = sender.on;
+}
+
+- (IBAction)tokenStorageSwitchChanged:(UISwitch *)sender {
+    CC_CONFIG.tokenStorageEnabled = sender.on;
 }
 
 #pragma mark - FCColorPickerViewControllerDelegate Methods

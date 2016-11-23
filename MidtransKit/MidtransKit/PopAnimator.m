@@ -28,8 +28,7 @@
     
     UIView *containerView = [transitionContext containerView];
     
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.backView.frame fromView:fromViewController.backView.superview];
+    CGRect cardFrame = [fromViewController.navigationController.view convertRect:fromViewController.backView.frame fromView:fromViewController.view];
     
     VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
     MidtransUICCFrontView *frontView = [[MidtransUICCFrontView alloc] initWithFrame:cardFrame

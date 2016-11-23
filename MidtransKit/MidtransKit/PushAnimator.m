@@ -26,17 +26,15 @@
     VTTwoClickController* toViewController   = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
     toViewController.view.layer.zPosition = -500;
     VTCardListController *fromViewController = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
-    fromViewController.view.layer.zPosition = -1000;
+    fromViewController.view.layer.zPosition = -1000;    
     
     toViewController.view.frame = fromViewController.view.frame;
     
-    UIWindow *window = [[UIApplication sharedApplication] keyWindow];
-    CGRect cardFrame = [window.rootViewController.view convertRect:fromViewController.collectionView.frame
-                                                          fromView:fromViewController.collectionView.superview];
-    
+    CGRect cardFrame = [fromViewController.navigationController.view convertRect:fromViewController.collectionView.frame
+                                                                        fromView:fromViewController.view];
     VTCCBackView *backView = [[VTCCBackView alloc] initWithFrame:cardFrame];
     MidtransUICCFrontView *frontView = [[MidtransUICCFrontView alloc] initWithFrame:cardFrame
-                                                         maskedCard:fromViewController.selectedMaskedCard];
+                                                                         maskedCard:fromViewController.selectedMaskedCard];
     
     
     [container addSubview:toViewController.view];

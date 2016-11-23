@@ -68,14 +68,14 @@ static NSString* const ClickpayAPPLI = @"3";
         return;
     }
     
-    [self showLoadingHud];
+    [self showLoadingWithText:@"Processing your payment"];
     
     MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text clickpayToken:self.tokenTextField.text];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoadingHud];
+        [self hideLoading];
         
         if (error) {
             [self handleTransactionError:error];

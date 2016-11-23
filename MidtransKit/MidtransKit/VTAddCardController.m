@@ -65,8 +65,6 @@
     
     [self.view setToken:self.token];
     
-    self.view.saveCardSwitch.on = [CC_CONFIG saveCardEnabled];
-    
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];
     //speedup cardio launch
@@ -89,10 +87,6 @@
     [self.view.loadingView hide];
 }
 
-- (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
-    [CC_CONFIG setSaveCardEnabled:sender.on];
-}
-
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
     [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
@@ -112,7 +106,7 @@
     
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
-                                                                                         secure:[CC_CONFIG secure3DEnabled]];
+                                                                                         secure:CC_CONFIG.secure3DEnabled];
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -137,7 +131,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.token.customerDetails];
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.token.customerDetails saveCard:self.view.saveCardSwitch.isOn];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     

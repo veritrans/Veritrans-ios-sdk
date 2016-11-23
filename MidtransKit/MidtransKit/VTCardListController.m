@@ -75,6 +75,11 @@ CGFloat const ButtonHeight = 56;
     [self reloadMaskedCards];
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setDelegate:nil];
+}
+
 - (NSArray <MidtransMaskedCreditCard*>*)convertV2ModelCards:(NSArray <MidtransPaymentRequestV2SavedTokens*>*)cards {
     NSMutableArray *formattedCards = [NSMutableArray new];
     for (MidtransPaymentRequestV2SavedTokens *card in cards) {
@@ -110,10 +115,10 @@ CGFloat const ButtonHeight = 56;
         [self updateView];
     }
     else {
-        [self showLoadingHud];
+        [self showLoadingWithText:nil];
         [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
                                                        completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
-                                                           [self hideLoadingHud];
+                                                           [self hideLoading];
                                                            if (!maskedCards) {
                                                                [self showAlertViewWithTitle:@"Error"
                                                                                  andMessage:error.localizedDescription
@@ -228,13 +233,13 @@ CGFloat const ButtonHeight = 56;
                                                grossAmount:self.token.transactionDetails.grossAmount];
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
-            [self showLoadingHud];
+            [self showLoadingWithText:@"Processing your transaction"];
             
-            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentOneClickWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails];
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO];
             MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
             
             [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-                [self hideLoadingHud];
+                [self hideLoading];
                 
                 if (error) {
                     [self handleTransactionError:error];
@@ -263,7 +268,7 @@ CGFloat const ButtonHeight = 56;
 #pragma mark - MIdtransUICardCellDelegate
 
 - (void)cardCellShouldRemoveCell:(MIdtransUICardCell *)cell {
-    [self showLoadingHud];
+    [self showLoadingWithText:nil];
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
@@ -271,7 +276,7 @@ CGFloat const ButtonHeight = 56;
                                             customer:self.token.customerDetails
                                           completion:^(id  _Nullable result, NSError * _Nullable error)
      {
-         [self hideLoadingHud];
+         [self hideLoading];
          
          if (!error) {
              [self.cards removeObjectAtIndex:indexPath.row];

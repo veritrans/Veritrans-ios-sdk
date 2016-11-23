@@ -78,7 +78,7 @@
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    [self showLoadingHud];
+    [self showLoadingWithText:@"Processing your transaction"];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
                                                                                                cvv:self.cvvTextField.text
                                                                                        grossAmount:self.token.transactionDetails.grossAmount];
@@ -95,12 +95,12 @@
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
-    [self hideLoadingHud];
+    [self hideLoading];
 }
 
 - (void)handleTransactionError:(NSError *)error {
     [super handleTransactionError:error];
-    [self hideLoadingHud];
+    [self hideLoading];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -118,7 +118,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentTwoClicksWithToken:token customer:self.token.customerDetails];
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.token.customerDetails saveCard:NO];
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {

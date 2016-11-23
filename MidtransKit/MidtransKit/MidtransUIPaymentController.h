@@ -22,8 +22,8 @@
 -(void)showBackButton:(BOOL)show;
 -(void)showDismissButton:(BOOL)show;
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
--(void)showLoadingHud;
--(void)hideLoadingHud;
+- (void)showLoadingWithText:(NSString *)text;
+-(void)hideLoading;
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(MidtransTransactionResult *)result;
 -(void)handleTransactionPending:(MidtransTransactionResult *)result;

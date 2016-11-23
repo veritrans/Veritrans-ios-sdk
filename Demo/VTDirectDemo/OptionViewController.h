@@ -11,6 +11,7 @@
 static NSString *const kOptionViewControllerCCType = @"cc_payment_type";
 static NSString *const kOptionViewControllerCCSecure = @"cc_secure";
 static NSString *const kOptionViewControllerCCTokenStorage = @"cc_token_storage";
+static NSString *const kOptionViewControllerCCSaveCard = @"cc_save_card";
 
 @interface OptionViewController : UIViewController
 

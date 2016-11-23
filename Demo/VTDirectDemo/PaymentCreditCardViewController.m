@@ -45,7 +45,7 @@
 
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.transactionToken.transactionDetails.grossAmount
-                                                                                         secure:[CC_CONFIG secure3DEnabled]];
+                                                                                         secure:CC_CONFIG.secure3DEnabled];
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -65,7 +65,7 @@
                                 }];
 }
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.transactionToken.customerDetails];
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.transactionToken.customerDetails saveCard:NO];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.transactionToken];
     

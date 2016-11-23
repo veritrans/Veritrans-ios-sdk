@@ -21,6 +21,7 @@
 @property (strong, nonatomic) IBOutlet UISegmentedControl *ccOptionSegment;
 @property (strong, nonatomic) IBOutlet UISwitch *secureSwitch;
 @property (strong, nonatomic) IBOutlet UISwitch *tokenStorageSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *saveCardSwitch;
 @property (strong, nonatomic) IBOutlet UIView *shippingAddressView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *shippingAddressHeight;
 @property (strong, nonatomic) IBOutlet UISwitch *sameAsBillingSwitch;
@@ -67,6 +68,7 @@
     
     self.secureSwitch.on = CC_CONFIG.secure3DEnabled;
     self.tokenStorageSwitch.on = CC_CONFIG.tokenStorageEnabled;
+    self.saveCardSwitch.on = CC_CONFIG.saveCardEnabled;
     self.ccOptionSegment.selectedSegmentIndex = CC_CONFIG.paymentType;
     
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
@@ -190,6 +192,7 @@
     [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.paymentType) forKey:kOptionViewControllerCCType];
     [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.secure3DEnabled) forKey:kOptionViewControllerCCSecure];
     [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.tokenStorageEnabled) forKey:kOptionViewControllerCCTokenStorage];
+    [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.saveCardEnabled) forKey:kOptionViewControllerCCSaveCard];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     [self.navigationController popViewControllerAnimated:YES];
@@ -205,6 +208,10 @@
 
 - (IBAction)tokenStorageSwitchChanged:(UISwitch *)sender {
     CC_CONFIG.tokenStorageEnabled = sender.on;
+}
+
+- (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
+    CC_CONFIG.saveCardEnabled = sender.on;
 }
 
 #pragma mark - FCColorPickerViewControllerDelegate Methods

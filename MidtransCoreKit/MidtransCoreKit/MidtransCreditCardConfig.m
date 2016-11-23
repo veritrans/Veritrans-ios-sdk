@@ -9,7 +9,7 @@
 #import "MidtransCreditCardConfig.h"
 
 @interface MidtransCreditCardConfig()
-
+@property (nonatomic) BOOL secureSnapEnabled;
 @end
 
 @implementation MidtransCreditCardConfig
@@ -21,6 +21,19 @@
         shared = [[self alloc] init];
     });
     return shared;
+}
+
+- (void)setPaymentType:(MTCreditCardPaymentType)paymentType {
+    _paymentType = paymentType;
+    
+    switch (paymentType) {
+        case MTCreditCardPaymentTypeOneclick:
+            self.secureSnapEnabled = YES;
+            break;
+        default:
+            self.secureSnapEnabled = NO;
+            break;
+    }
 }
 
 @end

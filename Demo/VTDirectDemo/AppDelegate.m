@@ -57,10 +57,10 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-
-
-    [MidtransConfig setClientKey:@"VT-client-E4f1bsi1LpL1p5cF" serverEnvironment:MIdtransServerEnvironmentSandbox merchantURL:@"https://rakawm-snap.herokuapp.com/"];
-
+    [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:@"https://rakawm-snap.herokuapp.com/"];
+    
     //set credit card config
     MTCreditCardPaymentType paymentType;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType]) {
@@ -75,9 +75,21 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
         cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure] boolValue];
     }
     
-    [MidtransCreditCardConfig setPaymentType:paymentType secure:cardSecure];
-    [MidtransCreditCardConfig disableTokenStorage:YES];
-
+    BOOL tokenStorageEnabled = NO;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCTokenStorage]) {
+        tokenStorageEnabled = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCTokenStorage] boolValue];
+    }
+    
+    BOOL saveCardEnabled = NO;
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSaveCard]) {
+        saveCardEnabled = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSaveCard] boolValue];
+    }
+    
+    CC_CONFIG.saveCardEnabled = saveCardEnabled;
+    CC_CONFIG.secure3DEnabled = cardSecure;
+    CC_CONFIG.tokenStorageEnabled = tokenStorageEnabled;
+    CC_CONFIG.paymentType = paymentType;
+    
     return YES;
 }
 

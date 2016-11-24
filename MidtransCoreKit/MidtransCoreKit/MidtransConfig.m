@@ -14,21 +14,10 @@
 @interface MidtransConfig ()
 @property (nonatomic) NSString *clientKey;
 @property (nonatomic) NSString *merchantURL;
-@property (nonatomic) MIdtransServerEnvironment environment;
+@property (nonatomic) MidtransServerEnvironment environment;
 @end
 
 @implementation MidtransConfig
-
-+ (void)setClientKey:(NSString *)clientKey serverEnvironment:(MIdtransServerEnvironment)environment merchantURL:(NSString *)merchantURL {
-    [[MidtransConfig shared] setClientKey:clientKey];
-    [[MidtransConfig shared] setEnvironment:environment];
-    [[MidtransConfig shared] setMerchantURL:merchantURL];
-}
-
-- (NSString *)clientKey {
-    NSAssert(_clientKey, MIDTRANS_MESSAGE_CLIENT_KEY_NOT_SET);
-    return _clientKey;
-}
 
 + (MidtransConfig *)shared {
     static MidtransConfig *shared = nil;
@@ -39,8 +28,12 @@
     return shared;
 }
 
-- (void)setEnvironment:(MIdtransServerEnvironment)environment {
-    [MidtransPrivateConfig setServerEnvironment:environment];
+- (void)setClientKey:(NSString *)clientKey
+         environment:(MidtransServerEnvironment)env
+   merchantServerURL:(NSString *)merchantServerURL {
+    self.clientKey = clientKey;
+    self.environment = env;
+    self.merchantURL = merchantServerURL;
 }
 
 - (double)timeoutInterval {

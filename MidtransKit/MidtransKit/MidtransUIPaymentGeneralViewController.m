@@ -43,7 +43,7 @@
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
-    [self showLoadingHud];
+    [self showLoadingWithText:nil];
     
     id<MidtransPaymentDetails>paymentDetails;
     
@@ -66,7 +66,7 @@
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoadingHud];
+        [self hideLoading];
         
         if (error) {
             [self handleTransactionError:error];

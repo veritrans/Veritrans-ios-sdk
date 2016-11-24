@@ -65,8 +65,6 @@
     
     [self.view setToken:self.token];
     
-    self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
-    
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];
     //speedup cardio launch
@@ -81,16 +79,12 @@
 }
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
- [self.view.loadingView hide];
+    [self.view.loadingView hide];
 }
 
 - (void)handleTransactionError:(NSError *)error {
     [super handleTransactionError:error];
-                                        [self.view.loadingView hide];
-}
-
-- (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
-    [MidtransCreditCardConfig enableSaveCard:sender.on];
+    [self.view.loadingView hide];
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
@@ -108,12 +102,11 @@
         return;
     }
     
-      [self.view.loadingView showWithTitle:@"Processing your transaction"];
+    [self.view.loadingView showWithTitle:@"Processing your transaction"];
     
-    BOOL enable3Ds = [CC_CONFIG secure];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
-                                                                                         secure:enable3Ds];
+                                                                                         secure:CC_CONFIG.secure3DEnabled];
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -138,7 +131,7 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.token.customerDetails];
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.token.customerDetails saveCard:self.view.saveCardSwitch.isOn];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
@@ -147,7 +140,7 @@
             [self handleTransactionError:error];
         }
         else {
-            if ([CC_CONFIG tokenStorageDisabled] && result.maskedCreditCard) {
+            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:^(id  _Nullable result, NSError * _Nullable error) {
                     

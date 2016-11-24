@@ -13,4 +13,5 @@
 - (void)show;
 - (void)showWithTitle:(NSString *)title;
 - (void)hide;
+- (void)showInView:(UIView *)view withText:(NSString *)text;
 @end

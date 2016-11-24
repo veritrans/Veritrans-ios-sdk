@@ -68,11 +68,16 @@ CGFloat const ButtonHeight = 56;
     
     self.editingCell = false;
     
-    if ([CC_CONFIG tokenStorageDisabled]) {
+    if (![CC_CONFIG tokenStorageEnabled]) {
         [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     }
     
     [self reloadMaskedCards];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setDelegate:nil];
 }
 
 - (NSArray <MidtransMaskedCreditCard*>*)convertV2ModelCards:(NSArray <MidtransPaymentRequestV2SavedTokens*>*)cards {
@@ -103,29 +108,29 @@ CGFloat const ButtonHeight = 56;
 }
 
 - (void)reloadMaskedCards {
-    if ([CC_CONFIG tokenStorageDisabled]) {
-        [self showLoadingHud];
-        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
-                                                       completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error)
-         {
-             [self hideLoadingHud];
-             if (!maskedCards) {
-                 [self showAlertViewWithTitle:@"Error"
-                                   andMessage:error.localizedDescription
-                               andButtonTitle:@"Close"];
-                 return;
-             } else {
-                 [self.cards setArray:maskedCards];
-                 [self.collectionView reloadData];
-             }
-             [self updateView];
-         }];
-    }
-    else {
+    if (CC_CONFIG.tokenStorageEnabled) {
         NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
         [self.cards setArray:savedTokens];
         [self.collectionView reloadData];
         [self updateView];
+    }
+    else {
+        [self showLoadingWithText:nil];
+        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                       completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
+                                                           [self hideLoading];
+                                                           if (!maskedCards) {
+                                                               [self showAlertViewWithTitle:@"Error"
+                                                                                 andMessage:error.localizedDescription
+                                                                             andButtonTitle:@"Close"];
+                                                               return;
+                                                           }
+                                                           else {
+                                                               [self.cards setArray:maskedCards];
+                                                               [self.collectionView reloadData];
+                                                           }
+                                                           [self updateView];
+                                                       }];
     }
 }
 
@@ -204,8 +209,8 @@ CGFloat const ButtonHeight = 56;
     
     self.selectedMaskedCard = self.cards[indexPath.row];
     
-    if ([CC_CONFIG tokenStorageDisabled]) {
-        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
+    if (CC_CONFIG.tokenStorageEnabled) {
+        if ([self.selectedMaskedCard.tokenType isEqualToString:TokenTypeOneClick]) {
             [self performOneClick];
         }
         else {
@@ -213,7 +218,7 @@ CGFloat const ButtonHeight = 56;
         }
     }
     else {
-        if ([self.selectedMaskedCard.tokenType isEqualToString:TokenTypeOneClick]) {
+        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
             [self performOneClick];
         }
         else {
@@ -228,13 +233,13 @@ CGFloat const ButtonHeight = 56;
                                                grossAmount:self.token.transactionDetails.grossAmount];
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
-            [self showLoadingHud];
+            [self showLoadingWithText:@"Processing your transaction"];
             
-            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentOneClickWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails];
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO];
             MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
             
             [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-                [self hideLoadingHud];
+                [self hideLoading];
                 
                 if (error) {
                     [self handleTransactionError:error];
@@ -263,7 +268,7 @@ CGFloat const ButtonHeight = 56;
 #pragma mark - MIdtransUICardCellDelegate
 
 - (void)cardCellShouldRemoveCell:(MIdtransUICardCell *)cell {
-    [self showLoadingHud];
+    [self showLoadingWithText:nil];
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
@@ -271,7 +276,7 @@ CGFloat const ButtonHeight = 56;
                                             customer:self.token.customerDetails
                                           completion:^(id  _Nullable result, NSError * _Nullable error)
      {
-         [self hideLoadingHud];
+         [self hideLoading];
          
          if (!error) {
              [self.cards removeObjectAtIndex:indexPath.row];

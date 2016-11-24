@@ -87,7 +87,7 @@
     
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
-    [self showLoadingHud];
+    [self showLoadingWithText:nil];
     
     id<MidtransPaymentDetails> paymentDetails;
     
@@ -103,7 +103,7 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]){
         if (self.view.directPaymentTextField.text.length == 0) {
             self.view.directPaymentTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
-            [self hideLoadingHud];
+            [self hideLoading];
             return;
         }
         paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
@@ -115,7 +115,7 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
         if (self.view.directPaymentTextField.text.length == 0) {
             self.view.directPaymentTextField.warning = UILocalizedString(@"payment.indosat-dompetku.warning", nil);
-            [self hideLoadingHud];
+            [self hideLoading];
             return;
         }
         paymentDetails = [[MidtransPaymentIndosatDompetku alloc] initWithMSISDN:self.view.directPaymentTextField.text];
@@ -123,7 +123,7 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
         if (self.view.directPaymentTextField.text.length == 0) {
             self.view.directPaymentTextField.warning = UILocalizedString(@"payment.telkomsel-cash.warning", nil);
-            [self hideLoadingHud];
+            [self hideLoading];
             return;
         }
         paymentDetails = [[MidtransPaymentTelkomselCash alloc] initWithMSISDN:self.view.directPaymentTextField.text];
@@ -135,7 +135,7 @@
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoadingHud];
+        [self hideLoading];
         if (error) {
             [self handleTransactionError:error];
         } else {

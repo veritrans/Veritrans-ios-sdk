@@ -19,11 +19,12 @@
 #import "MidtransUIThemeManager.h"
 #import "VTKITConstant.h"
 #import "MidtransPaymentStatusViewController.h"
+#import "MidtransLoadingView.h"
 
 @interface MidtransUIPaymentController ()
-@property (nonatomic) MidtransUIHudView *hudView;
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
+@property (nonatomic) MidtransLoadingView *loadingView;
 @end
 
 @implementation MidtransUIPaymentController
@@ -89,7 +90,6 @@
     if (self.navigationController.viewControllers.count > 1) {
         [self showBackButton:YES];
     }
-    self.hudView = [[MidtransUIHudView alloc] init];
 }
 -(void)showAlertViewWithTitle:(NSString *)title
                    andMessage:(NSString *)message
@@ -108,12 +108,20 @@
         self.title = self.title;
     }
 }
-- (void)showLoadingHud {
-    [self.hudView showOnView:self.navigationController.view];
+
+- (void)showLoadingWithText:(NSString *)text {
+    [self.loadingView showInView:self.navigationController.view withText:text];
 }
 
-- (void)hideLoadingHud {
-    [self.hudView hide];
+- (void)hideLoading {
+    [self.loadingView hide];
+}
+
+- (MidtransLoadingView *)loadingView {
+    if (!_loadingView) {
+        _loadingView = [[MidtransLoadingView alloc] init];
+    }
+    return _loadingView;
 }
 
 - (void)handleTransactionError:(NSError *)error {

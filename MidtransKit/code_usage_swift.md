@@ -42,8 +42,41 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 //AppDelegate.swift
 import MidtransKit
 
-MidtransConfig.setClientKey(client_key, serverEnvironment: .sandbox OR .production, merchantURL: merchant_url)
+MidtransConfig.shared().setClientKey("client key", environment: .sandbox, merchantServerURL: "merchant server url")
 ```
+
+### Credit Card Payment Feature
+#### Enable 3D Secure
+```
+MidtransCreditCardConfig.shared().secure3DEnabled = true
+```
+
+#### Token Storage
+
+```
+MidtransCreditCardConfig.shared().tokenStorageEnabled = true
+```
+
+#### 1-Click
+
+```
+MidtransCreditCardConfig.shared().paymentType = .oneclick
+MidtransCreditCardConfig.shared().saveCardEnabled = true
+
+//1-click need 3D secure enabled
+MidtransCreditCardConfig.shared().tokenStorageEnabled = true
+
+//1-click need 3ds enabled
+MidtransCreditCardConfig.shared().secure3DEnabled = true
+```
+
+#### 2-Clicks
+```
+MidtransCreditCardConfig.shared().paymentType = .twoclick
+MidtransCreditCardConfig.shared().saveCardEnabled = true
+```
+
+You cannot use `tokenStorage` feature for 2-Click, so disable it and make sure that you're already setup your merchant server to support **save card**. You can see the documentation [here.](https://github.com/veritrans/veritrans-android/wiki/Implementation-for-Merchant-Server)
 
 ### Payment
 

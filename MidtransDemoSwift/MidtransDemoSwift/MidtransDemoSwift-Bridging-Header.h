@@ -4,3 +4,4 @@
 
 
 #import <MidtransKit/MidtransKit.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>

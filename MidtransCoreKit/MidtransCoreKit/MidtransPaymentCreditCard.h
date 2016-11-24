@@ -48,8 +48,7 @@
 /// @name Instantiation
 ///--------------------
 
-+ (instancetype _Nonnull)paymentOneClickWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer;
-+ (instancetype _Nonnull)paymentTwoClicksWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer;
-+ (instancetype _Nonnull)paymentWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer;
++ (instancetype _Nonnull)modelWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard;
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard;
 
 @end

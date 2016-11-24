@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		8BB3826140BEE49BDD952519 /* libPods-MidtransDemoSwift.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE5B5A9DF9E2C1BCA94B310B /* libPods-MidtransDemoSwift.a */; };
+		E52501581DE5AAFA009EB760 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52501561DE5AAFA009EB760 /* libMidtransCoreKit.a */; };
+		E52501591DE5AAFA009EB760 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E52501571DE5AAFA009EB760 /* libMidtransKit.a */; };
+		E525015B1DE5AB37009EB760 /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E525015A1DE5AB37009EB760 /* MidtransKit.bundle */; };
 		E5EBC0221DBF65C7001A43A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBC0211DBF65C7001A43A3 /* AppDelegate.swift */; };
 		E5EBC0241DBF65C7001A43A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5EBC0231DBF65C7001A43A3 /* ViewController.swift */; };
 		E5EBC0271DBF65C7001A43A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5EBC0251DBF65C7001A43A3 /* Main.storyboard */; };
@@ -19,6 +22,9 @@
 		66A5C9128382A6DC8495DB07 /* Pods-MidtransDemoSwift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoSwift.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemoSwift/Pods-MidtransDemoSwift.release.xcconfig"; sourceTree = "<group>"; };
 		89E0B4117B8C8DC0446A59F5 /* Pods-MidtransDemoSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoSwift.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemoSwift/Pods-MidtransDemoSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		AE5B5A9DF9E2C1BCA94B310B /* libPods-MidtransDemoSwift.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemoSwift.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E52501561DE5AAFA009EB760 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../MidtransCoreKit/build/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
+		E52501571DE5AAFA009EB760 /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../MidtransKit/build/Debug-iphoneos/libMidtransKit.a"; sourceTree = "<group>"; };
+		E525015A1DE5AB37009EB760 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E545F4F01DBF665500F97A99 /* MidtransDemoSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MidtransDemoSwift-Bridging-Header.h"; sourceTree = "<group>"; };
 		E5EBC01E1DBF65C7001A43A3 /* MidtransDemoSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidtransDemoSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5EBC0211DBF65C7001A43A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +40,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E52501581DE5AAFA009EB760 /* libMidtransCoreKit.a in Frameworks */,
+				E52501591DE5AAFA009EB760 /* libMidtransKit.a in Frameworks */,
 				8BB3826140BEE49BDD952519 /* libPods-MidtransDemoSwift.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -44,6 +52,8 @@
 		89B2F3A15F5DE89FC0F34705 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E52501561DE5AAFA009EB760 /* libMidtransCoreKit.a */,
+				E52501571DE5AAFA009EB760 /* libMidtransKit.a */,
 				AE5B5A9DF9E2C1BCA94B310B /* libPods-MidtransDemoSwift.a */,
 			);
 			name = Frameworks;
@@ -61,6 +71,7 @@
 		E5EBC0151DBF65C7001A43A3 = {
 			isa = PBXGroup;
 			children = (
+				E525015A1DE5AB37009EB760 /* MidtransKit.bundle */,
 				E5EBC0201DBF65C7001A43A3 /* MidtransDemoSwift */,
 				E5EBC01F1DBF65C7001A43A3 /* Products */,
 				AEC35A233A8F52B70C9E7166 /* Pods */,
@@ -157,6 +168,7 @@
 				E5EBC02C1DBF65C7001A43A3 /* LaunchScreen.storyboard in Resources */,
 				E5EBC0291DBF65C7001A43A3 /* Assets.xcassets in Resources */,
 				E5EBC0271DBF65C7001A43A3 /* Main.storyboard in Resources */,
+				E525015B1DE5AB37009EB760 /* MidtransKit.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

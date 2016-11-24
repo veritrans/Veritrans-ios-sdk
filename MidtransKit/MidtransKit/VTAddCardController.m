@@ -22,24 +22,31 @@
 #import "VTAddCardView.h"
 #import "MidtransLoadingView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
+#import <MidtransCoreKit/MidtransPaymentRequestV2Installment.h>
 
 #if __has_include(<CardIO/CardIO.h>)
 #import <CardIO/CardIO.h>
-@interface VTAddCardController () <CardIOPaymentViewControllerDelegate>
+@interface VTAddCardController () <CardIOPaymentViewControllerDelegate,UICollectionViewDelegate,UICollectionViewDelegate>
 #else
-@interface VTAddCardController ()
+@interface VTAddCardController () <UICollectionViewDelegate,UICollectionViewDelegate>
 #endif
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
-@property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic,strong) NSMutableArray *maskedCards;
+@property (nonatomic) BOOL installmentAvailable;
+@property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCardData;
 
 @end
 
 @implementation VTAddCardController
 
 @dynamic view;
-
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
+        self.creditCardData = creditCard;
+    }
+    return self;
+}
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
     if (self = [super initWithToken:token]) {
         self.maskedCards = maskedCards;
@@ -49,22 +56,29 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.view.installmentWrapperViewHeightConstraints.constant = 0.0f;
+    self.view.installmentWrapperView.hidden = YES;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
-    
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
-    
     if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
         self.view.saveCardView.hidden = YES;
-        self.view.saveCardViewHeight.constant = 0;
+        self.view.saveCardViewHeightConstaints.constant = 0.0f;
     }
     else {
         self.view.saveCardView.hidden = NO;
-        self.view.saveCardViewHeight.constant = 86;
+        self.view.saveCardViewHeightConstaints.constant = 77.0f;
     }
     
     [self.view setToken:self.token];
-    
+    MidtransPaymentRequestV2Installment *installment = self.creditCardData.installments;
+    if (installment.terms) {
+        [[MidtransClient shared] requestCardBINForInstallment:^(MidtransBinResponse * _Nullable response, NSError * _Nullable error) {
+            NSLog(@"response-->%@",response);
+        }];
+        self.installmentAvailable = true;
+        self.view.installmentWrapperViewHeightConstraints.constant = 40.0f;
+        self.view.installmentWrapperView.hidden = NO;
+    }
     self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
     
 #if __has_include(<CardIO/CardIO.h>)

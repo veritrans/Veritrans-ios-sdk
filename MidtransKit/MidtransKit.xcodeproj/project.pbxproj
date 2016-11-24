@@ -42,6 +42,12 @@
 		00C6855B1DC701910008D08F /* MidtransPaymentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00C685571DC701910008D08F /* MidtransPaymentStatusViewController.xib */; };
 		00C6855E1DC701B50008D08F /* MIdtransPaymentStatusView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C6855C1DC701B50008D08F /* MIdtransPaymentStatusView.h */; };
 		00C6855F1DC701B50008D08F /* MIdtransPaymentStatusView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C6855D1DC701B50008D08F /* MIdtransPaymentStatusView.m */; };
+		00D577721DE6B878006B88CF /* icon_btn_min_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5776C1DE6B878006B88CF /* icon_btn_min_@1x.png */; };
+		00D577731DE6B878006B88CF /* icon_btn_min_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5776D1DE6B878006B88CF /* icon_btn_min_@2x.png */; };
+		00D577741DE6B878006B88CF /* icon_btn_min_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5776E1DE6B878006B88CF /* icon_btn_min_@3x.png */; };
+		00D577751DE6B878006B88CF /* icon_btn_plus_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5776F1DE6B878006B88CF /* icon_btn_plus_@1x.png */; };
+		00D577761DE6B878006B88CF /* icon_btn_plus_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D577701DE6B878006B88CF /* icon_btn_plus_@2x.png */; };
+		00D577771DE6B878006B88CF /* icon_btn_plus_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D577711DE6B878006B88CF /* icon_btn_plus_@3x.png */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -369,6 +375,12 @@
 		00C685571DC701910008D08F /* MidtransPaymentStatusViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransPaymentStatusViewController.xib; path = ../MidtransKit/MidtransPaymentStatusViewController.xib; sourceTree = "<group>"; };
 		00C6855C1DC701B50008D08F /* MIdtransPaymentStatusView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentStatusView.h; sourceTree = "<group>"; };
 		00C6855D1DC701B50008D08F /* MIdtransPaymentStatusView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransPaymentStatusView.m; sourceTree = "<group>"; };
+		00D5776C1DE6B878006B88CF /* icon_btn_min_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_min_@1x.png"; sourceTree = "<group>"; };
+		00D5776D1DE6B878006B88CF /* icon_btn_min_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_min_@2x.png"; sourceTree = "<group>"; };
+		00D5776E1DE6B878006B88CF /* icon_btn_min_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_min_@3x.png"; sourceTree = "<group>"; };
+		00D5776F1DE6B878006B88CF /* icon_btn_plus_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_plus_@1x.png"; sourceTree = "<group>"; };
+		00D577701DE6B878006B88CF /* icon_btn_plus_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_plus_@2x.png"; sourceTree = "<group>"; };
+		00D577711DE6B878006B88CF /* icon_btn_plus_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_plus_@3x.png"; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -1002,6 +1014,12 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				00D5776C1DE6B878006B88CF /* icon_btn_min_@1x.png */,
+				00D5776D1DE6B878006B88CF /* icon_btn_min_@2x.png */,
+				00D5776E1DE6B878006B88CF /* icon_btn_min_@3x.png */,
+				00D5776F1DE6B878006B88CF /* icon_btn_plus_@1x.png */,
+				00D577701DE6B878006B88CF /* icon_btn_plus_@2x.png */,
+				00D577711DE6B878006B88CF /* icon_btn_plus_@3x.png */,
 				E5387D081D62BE6D004CCF3D /* instructions */,
 				E503AEC31C8E85C500F097FF /* va@2x.png */,
 				E503AEC11C8E85C500F097FF /* bca_va@2x.png */,
@@ -1504,6 +1522,7 @@
 				E517FE731D4AF5580083B136 /* VTErrorStatusController.xib in Resources */,
 				E5D23C861D1D31FC0069B5F9 /* VTAddCardController.xib in Resources */,
 				E5387D391D62BE7E004CCF3D /* mandiri_atm_3@2x.png in Resources */,
+				00D577751DE6B878006B88CF /* icon_btn_plus_@1x.png in Resources */,
 				0093D8B81DC1EC8F00393334 /* MidtransLoadingView.xib in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
 				309CC0DE1C86B5BD00C058BE /* all_va.plist in Resources */,
@@ -1516,6 +1535,7 @@
 				E5387D341D62BE7E004CCF3D /* bca_atm_4@2x.png in Resources */,
 				309CC0D91C86A53400C058BE /* bca_va.plist in Resources */,
 				E5387D351D62BE7E004CCF3D /* bca_atm_5@2x.png in Resources */,
+				00D577741DE6B878006B88CF /* icon_btn_min_@3x.png in Resources */,
 				E5387D3D1D62BE7E004CCF3D /* other_alto_1@2x.png in Resources */,
 				E5387D4C1D62BE7E004CCF3D /* other_prima_2@2x.png in Resources */,
 				309CC0CC1C868B0100C058BE /* mandiri_clickpay.plist in Resources */,
@@ -1524,6 +1544,7 @@
 				30E7133F1C85AAE600AFB7B4 /* permata_va.plist in Resources */,
 				309CC0DC1C86A68F00C058BE /* echannel.plist in Resources */,
 				E50438B41D1A655500710470 /* VTSingleGuideController.xib in Resources */,
+				00D577771DE6B878006B88CF /* icon_btn_plus_@3x.png in Resources */,
 				309CC0E01C86B88C00C058BE /* cimb_clicks.plist in Resources */,
 				E503AECA1C8E860700F097FF /* virtualAccount.plist in Resources */,
 				E5387D461D62BE7E004CCF3D /* other_atm_3@2x.png in Resources */,
@@ -1542,8 +1563,10 @@
 				E583AFE11C8D575600C04512 /* pendingIcon@2x.png in Resources */,
 				E517FE711D4AF3990083B136 /* VTVAListController.xib in Resources */,
 				E503AEEC1C8EC69800F097FF /* bbm@2x.png in Resources */,
+				00D577731DE6B878006B88CF /* icon_btn_min_@2x.png in Resources */,
 				E503AEC81C8E85C500F097FF /* permata_va@2x.png in Resources */,
 				309CC0EF1C86C72200C058BE /* CreditCardBackSmall@2x.png in Resources */,
+				00D577721DE6B878006B88CF /* icon_btn_min_@1x.png in Resources */,
 				E5F4AA8C1CF6D2C70059DDF8 /* paymentMethods.plist in Resources */,
 				30E8798E1C897E7D000C0F4B /* credit_card@2x.png in Resources */,
 				E5D23C881D1D3D0B0069B5F9 /* MIdtransUICardCell.xib in Resources */,
@@ -1602,6 +1625,7 @@
 				E578DD301CFC407B0091760A /* MidtransUIPaymentListFooter.xib in Resources */,
 				E5D23C791D1D096A0069B5F9 /* OCRAEXT.TTF in Resources */,
 				E5387D481D62BE7E004CCF3D /* other_atm_5@2x.png in Resources */,
+				00D577761DE6B878006B88CF /* icon_btn_plus_@2x.png in Resources */,
 				E5387D4F1D62BE7E004CCF3D /* other_prima_5@2x.png in Resources */,
 				E5387D381D62BE7E004CCF3D /* mandiri_atm_2@2x.png in Resources */,
 				E5387D541D62BE7E004CCF3D /* permata_atm_3@2x.png in Resources */,

@@ -12,7 +12,7 @@
 #import "MidtransTokenizeRequest.h"
 #import "MidtransMaskedCreditCard.h"
 #import "MidtransTransactionResult.h"
-
+@class MidtransBinResponse;
 /**
  `VTClient` wraps various services offered by Veritrans server. Note that Veritrans offers many payment services, but not all of wrapped by this object because most the of service are supposed to be executed server-side.
  */
@@ -49,6 +49,7 @@
  
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain registered credit card object.
  */
+- (void)requestCardBINForInstallment:(void (^_Nullable)(MidtransBinResponse *_Nullable response, NSError *_Nullable error))completion;
 - (void)registerCreditCard:(MidtransCreditCard *_Nonnull)creditCard
                 completion:(void (^_Nullable)(MidtransMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
 

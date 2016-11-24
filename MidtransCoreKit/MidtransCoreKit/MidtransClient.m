@@ -11,10 +11,11 @@
 #import "MidtransNetworking.h"
 #import "MidtransTrackingManager.h"
 #import "MidtransHelper.h"
+#import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransCreditCardHelper.h"
 #import "Midtrans3DSController.h"
-
+#import "MidtransBinResponse.h"
 NSString *const GENERATE_TOKEN_URL = @"token";
 NSString *const REGISTER_CARD_URL = @"card/register";
 
@@ -69,7 +70,19 @@ NSString *const REGISTER_CARD_URL = @"card/register";
         }
     }];
 }
+- (void)requestCardBINForInstallment:(void (^_Nullable)(MidtransBinResponse *_Nullable response, NSError *_Nullable error))completion {
+    [[MidtransNetworking shared] getFromURL:MIDTRANS_BIN_REQUEST_URL parameters:nil callback:^(id response, NSError *error) {
+        if (error) {
+            if (completion) completion(nil, error);
+        } else {
+            NSLog(@"response-->%@",response);
+//            NSDictionary *dictionary = [NSDictionary alloc]
+//            MidtransBinResponse *binResponse = [[MidtransBinResponse alloc] initWithDictionary:response];
+           if (completion) completion(nil, nil);
+        }
+    }];
 
+}
 - (void)registerCreditCard:(MidtransCreditCard *_Nonnull)creditCard
                 completion:(void (^_Nullable)(MidtransMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion {
     NSError *error = nil;

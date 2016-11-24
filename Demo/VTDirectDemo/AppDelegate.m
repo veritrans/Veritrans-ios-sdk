@@ -59,7 +59,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
 
 
-    [MidtransConfig setClientKey:@"VT-client-E4f1bsi1LpL1p5cF" serverEnvironment:MIdtransServerEnvironmentSandbox merchantURL:@"https://rakawm-snap.herokuapp.com/"];
+    [MidtransConfig setClientKey:@"VT-client-E4f1bsi1LpL1p5cF" serverEnvironment:MIdtransServerEnvironmentSandbox merchantURL:@"https://rakawm-snap.herokuapp.com/installment/"];
 
     //set credit card config
     MTCreditCardPaymentType paymentType;

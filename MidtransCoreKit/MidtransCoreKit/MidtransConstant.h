@@ -133,6 +133,7 @@ static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
 
 static NSString *const  MIDTRANS_CORE_TRACKING_SELECT_PAYMENT = @"Select Payment";
 static NSString *const  MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE = @"Payment Type";
+
 //static NSString *const MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER = @"credit.card.scanner";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT = @"credit.card.scanner.output";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER = @"credit_card_result_scan";
@@ -149,6 +150,7 @@ static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CC_NUMBER = -20;
 
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS = -40;
 
+static NSString *const  MIDTRANS_BIN_REQUEST_URL = @"https://checkout1.stg.veritrans.co.id/snap/v1/bank_bins";
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

@@ -13,6 +13,8 @@
 
 @property (nonatomic, strong) MidtransPaymentRequestV2TransactionDetails *transactionDetails;
 @property (nonatomic, strong) NSArray *enabledPayments;
+@property (nonatomic, strong) NSArray *enablePrinciples;
+@property (nonatomic, strong) NSArray *pointBanks;
 @property (nonatomic, strong) MidtransPaymentRequestV2CreditCard *creditCard;
 @property (nonatomic, strong) MidtransPaymentRequestV2Merchant *merchant;
 @property (nonatomic, strong) MidtransPaymentRequestV2CustomerDetails *customerDetails;

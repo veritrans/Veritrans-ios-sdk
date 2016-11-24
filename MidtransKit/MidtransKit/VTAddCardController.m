@@ -68,9 +68,10 @@
     self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
     
 #if __has_include(<CardIO/CardIO.h>)
-    [self.view hideScanCardButton:NO];
+     [self.view hideScanCardButton:YES];
+   // [self.view hideScanCardButton:NO];
     //speedup cardio launch
-    [CardIOUtilities preloadCardIO];
+   // [CardIOUtilities preloadCardIO];
 #else
     [self.view hideScanCardButton:YES];
 #endif
@@ -139,9 +140,7 @@
 
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.token.customerDetails];
-    
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
-    
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];

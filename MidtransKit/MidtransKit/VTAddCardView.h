@@ -27,7 +27,10 @@
 @property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *cardWrapperViewHeightConstraints;
 @property (weak, nonatomic) IBOutlet MidtransLoadingView *loadingView;
+@property (weak, nonatomic) IBOutlet UIView *installmentWrapperView;
+@property (weak, nonatomic) IBOutlet UIView *knowledgeBaseWrapper;
 
 - (void)hideScanCardButton:(BOOL)hide;
 - (void)reformatCardNumber;

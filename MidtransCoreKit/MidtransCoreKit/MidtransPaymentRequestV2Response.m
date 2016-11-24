@@ -25,6 +25,8 @@ NSString *const kMidtransPaymentRequestV2ResponseToken = @"token";
 NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
 NSString *const kMIdtransPaymentRequestV2ResponseExpire  = @"expiry";
 NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
+NSString *const KMidtransPaymentRequestV2ResponseEnablePrinciples =@"enabled_principles";
+NSString *const KMidtransPaymentRequestV2ResponsePointBanks =@"point_banks";
 
 @interface MidtransPaymentRequestV2Response ()
 
@@ -68,8 +70,9 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
     } else if ([receivedMidtransPaymentRequestV2EnabledPayments isKindOfClass:[NSDictionary class]]) {
        [parsedMidtransPaymentRequestV2EnabledPayments addObject:[MidtransPaymentRequestV2EnabledPayments modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2EnabledPayments]];
     }
-
-    self.enabledPayments = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2EnabledPayments];
+                self.enabledPayments = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2EnabledPayments];
+            self.pointBanks = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponsePointBanks fromDictionary:dict];
+            self.enablePrinciples = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseEnablePrinciples fromDictionary:dict];
             self.creditCard = [MidtransPaymentRequestV2CreditCard modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCreditCard]];
             self.merchant = [MidtransPaymentRequestV2Merchant modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseMerchant]];
             self.customerDetails = [MidtransPaymentRequestV2CustomerDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCustomerDetails]];
@@ -86,8 +89,8 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
     }
 
     self.itemDetails = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2ItemDetails];
-            self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2ResponseToken fromDictionary:dict];
-            self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
+     self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2ResponseToken fromDictionary:dict];
+      self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
         self.expire = [MidtransTransactionExpire modelObjectWithDictionary:[dict objectForKey:kMIdtransPaymentRequestV2ResponseExpire]];
         self.custom  = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseCustomField fromDictionary:dict];
     }

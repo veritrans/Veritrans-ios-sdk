@@ -76,6 +76,8 @@
 		00C95DB81D196589001EC6B7 /* MidtransVirtualAccountModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 00C95DB51D196589001EC6B7 /* MidtransVirtualAccountModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00C95DB91D196589001EC6B7 /* MidtransVirtualAccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00C95DB61D196589001EC6B7 /* MidtransVirtualAccountModel.m */; };
 		00CCECB51D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m in Sources */ = {isa = PBXBuildFile; fileRef = 00CCECB41D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m */; };
+		00D577681DE579A2006B88CF /* MidtransPaymentRequestV2Installment.h in Headers */ = {isa = PBXBuildFile; fileRef = 00D577641DE579A2006B88CF /* MidtransPaymentRequestV2Installment.h */; };
+		00D577691DE579A3006B88CF /* MidtransPaymentRequestV2Installment.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D577651DE579A2006B88CF /* MidtransPaymentRequestV2Installment.m */; };
 		00EA7E681D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.h in Headers */ = {isa = PBXBuildFile; fileRef = 00EA7E661D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00EA7E691D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.m in Sources */ = {isa = PBXBuildFile; fileRef = 00EA7E671D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.m */; };
 		00F61B0E1D145D0E00C93DA0 /* MidtransPaymentListDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B0B1D145D0E00C93DA0 /* MidtransPaymentListDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -223,6 +225,8 @@
 		00C95DB51D196589001EC6B7 /* MidtransVirtualAccountModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransVirtualAccountModel.h; sourceTree = "<group>"; };
 		00C95DB61D196589001EC6B7 /* MidtransVirtualAccountModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransVirtualAccountModel.m; sourceTree = "<group>"; };
 		00CCECB41D7FCB510074962E /* MidtransPaymentRequestBankTransfer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestBankTransfer.m; sourceTree = "<group>"; };
+		00D577641DE579A2006B88CF /* MidtransPaymentRequestV2Installment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Installment.h; sourceTree = "<group>"; };
+		00D577651DE579A2006B88CF /* MidtransPaymentRequestV2Installment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment.m; sourceTree = "<group>"; };
 		00EA7E661D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentMandiriClickpay.h; sourceTree = "<group>"; };
 		00EA7E671D12D10D00A6CA53 /* MidtransPaymentMandiriClickpay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentMandiriClickpay.m; sourceTree = "<group>"; };
 		00F61B0B1D145D0E00C93DA0 /* MidtransPaymentListDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentListDataModel.h; sourceTree = "<group>"; };
@@ -386,6 +390,8 @@
 		009A7E501DBF06C300049358 /* PaymentRequestV2 */ = {
 			isa = PBXGroup;
 			children = (
+				00D577641DE579A2006B88CF /* MidtransPaymentRequestV2Installment.h */,
+				00D577651DE579A2006B88CF /* MidtransPaymentRequestV2Installment.m */,
 				009A7E7F1DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h */,
 				009A7E801DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.m */,
 				009A7E511DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.h */,
@@ -631,6 +637,7 @@
 				00C95DB81D196589001EC6B7 /* MidtransVirtualAccountModel.h in Headers */,
 				009A7E681DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.h in Headers */,
 				006DB81A1D3E1050001C9A71 /* MidtransPaymentRequestMerchantData.h in Headers */,
+				00D577681DE579A2006B88CF /* MidtransPaymentRequestV2Installment.h in Headers */,
 				E5E436091CE31ACE00F688ED /* MidtransTransactionDetails.h in Headers */,
 				E5E436271CE31DA100F688ED /* MidtransConfig.h in Headers */,
 				009A7E6A1DBF06E600049358 /* MidtransPaymentRequestV2Callbacks.h in Headers */,
@@ -866,6 +873,7 @@
 				009A7E691DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.m in Sources */,
 				E5E436201CE31D1200F688ED /* MidtransTransactionResult.m in Sources */,
 				E53BD0271D128F4C001FADDE /* MidtransMandiriClickpayHelper.m in Sources */,
+				00D577691DE579A3006B88CF /* MidtransPaymentRequestV2Installment.m in Sources */,
 				009A7E6F1DBF06E600049358 /* MidtransPaymentRequestV2CustomerDetails.m in Sources */,
 				00B827791DDAC76800E5AC17 /* MidtransDeviceHelper.m in Sources */,
 				009A7E7A1DBF06E600049358 /* MidtransPaymentRequestV2Response.m in Sources */,

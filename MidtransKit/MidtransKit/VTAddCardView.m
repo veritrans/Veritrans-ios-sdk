@@ -32,9 +32,8 @@ CGFloat const ScanButtonHeight = 45;
     self.cardNumber.delegate = self;
     self.cardExpiryDate.delegate = self;
     self.cardCvv.delegate = self;
-    
+    self.cardWrapperViewHeightConstraints.constant = 0.0f;
     self.infoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
-    
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
     
     [self.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];

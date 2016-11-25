@@ -215,6 +215,7 @@
                                                                andCreditCardData:(MidtransPaymentRequestV2CreditCard *)self.responsePayment.creditCard];
             [vc showDismissButton:self.singlePayment];
             vc.delegate = self;
+            [vc showBackButton:!self.singlePayment];
             [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
         else {
@@ -222,6 +223,7 @@
                                                                  paymentMethodName:paymentMethod
                                                                  andCreditCardData:(MidtransPaymentRequestV2CreditCard *)self.responsePayment.creditCard];
             [vc showDismissButton:self.singlePayment];
+            [vc showBackButton:!self.singlePayment];
             [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
     }

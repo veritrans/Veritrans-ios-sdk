@@ -38,8 +38,6 @@
 
 - (void)hideScanCardButton:(BOOL)hide;
 - (void)reformatCardNumber;
-
-- (void)setToken:(MidtransTransactionTokenResponse *)token;
 - (BOOL)isViewError:(NSError *)error;
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

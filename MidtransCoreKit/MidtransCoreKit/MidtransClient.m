@@ -70,18 +70,27 @@ NSString *const REGISTER_CARD_URL = @"card/register";
         }
     }];
 }
-- (void)requestCardBINForInstallment:(void (^_Nullable)(MidtransBinResponse *_Nullable response, NSError *_Nullable error))completion {
-    [[MidtransNetworking shared] getFromURL:MIDTRANS_BIN_REQUEST_URL parameters:nil callback:^(id response, NSError *error) {
-        if (error) {
-            if (completion) completion(nil, error);
-        } else {
-            NSLog(@"response-->%@",response);
-//            NSDictionary *dictionary = [NSDictionary alloc]
-//            MidtransBinResponse *binResponse = [[MidtransBinResponse alloc] initWithDictionary:response];
-           if (completion) completion(nil, nil);
-        }
-    }];
+- (void)requestCardBINForInstallmentWithCompletion:(void(^)(MidtransBinResponse *_Nullable binResponse, NSError *_Nullable error))completion {
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:MIDTRANS_BIN_REQUEST_URL];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                if (error){
+                                                    if(completion) {
+                                                        completion(nil,error);
+                                                    }
+                                                }
+                                                else {
+                                                    NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                                    NSLog(@"json->%@",json);
+                                                    MidtransBinResponse *binResponseObject = [[MidtransBinResponse alloc] initWithDictionary:json];
+                                                    if(completion) {
+                                                        completion(binResponseObject,nil);
+                                                    }
 
+                                                }
+                                            }];
+    [dataTask resume];
 }
 - (void)registerCreditCard:(MidtransCreditCard *_Nonnull)creditCard
                 completion:(void (^_Nullable)(MidtransMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion {

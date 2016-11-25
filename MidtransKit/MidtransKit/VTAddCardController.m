@@ -19,23 +19,26 @@
 #import "UIViewController+Modal.h"
 #import "MidtransUIThemeManager.h"
 #import "VTCCBackView.h"
+#import "MidtransUICardFormatter.h"
 #import "VTAddCardView.h"
 #import "MidtransLoadingView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2Installment.h>
-
+static const NSInteger installmentHeigt = 44;
 #if __has_include(<CardIO/CardIO.h>)
 #import <CardIO/CardIO.h>
-@interface VTAddCardController () <CardIOPaymentViewControllerDelegate,UICollectionViewDelegate,UICollectionViewDelegate>
+@interface VTAddCardController () <CardIOPaymentViewControllerDelegate,UICollectionViewDelegate,UICollectionViewDelegate,MidtransUICardFormatterDelegate,UITextFieldDelegate,MidtransUICardFormatterDelegate>
 #else
-@interface VTAddCardController () <UICollectionViewDelegate,UICollectionViewDelegate>
+@interface VTAddCardController () <UICollectionViewDelegate,UICollectionViewDelegate,UITextFieldDelegate,MidtransUICardFormatterDelegate>
 #endif
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (nonatomic,strong) NSMutableArray *maskedCards;
 @property (nonatomic) BOOL installmentAvailable;
-@property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCardData;
-
+@property (nonatomic,strong)MidtransBinResponse *binResponseObject;
+@property (nonatomic,strong)MidtransPaymentRequestV2CreditCard *creditCardData;
+@property (nonatomic,strong)MidtransTransactionTokenResponse *snap_token;
+@property (nonatomic,strong) MidtransPaymentListModel *paymentMethodOveride;
 @end
 
 @implementation VTAddCardController
@@ -43,19 +46,27 @@
 @dynamic view;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
     if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
+        self.snap_token = token;
+        self.paymentMethodOveride = paymentMethod;
         self.creditCardData = creditCard;
     }
     return self;
 }
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
     if (self = [super initWithToken:token]) {
+        self.snap_token = token;
         self.maskedCards = maskedCards;
     }
     return self;
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
+    self.view.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.cardNumber];
+    self.view.ccFormatter.delegate = self;
+    self.view.ccFormatter.numberLimit = 16;
+    [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     self.view.installmentWrapperViewHeightConstraints.constant = 0.0f;
     self.view.installmentWrapperView.hidden = YES;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
@@ -68,26 +79,27 @@
         self.view.saveCardView.hidden = NO;
         self.view.saveCardViewHeightConstaints.constant = 77.0f;
     }
-    
-    [self.view setToken:self.token];
+    self.view.amountLabel.text = self.snap_token.transactionDetails.grossAmount.formattedCurrencyNumber;
     MidtransPaymentRequestV2Installment *installment = self.creditCardData.installments;
+    self.installmentAvailable = NO;
     if (installment.terms) {
-        [[MidtransClient shared] requestCardBINForInstallment:^(MidtransBinResponse * _Nullable response, NSError * _Nullable error) {
-            NSLog(@"response-->%@",response);
+        self.installmentAvailable = YES;
+        [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(MidtransBinResponse *binResponse, NSError * _Nullable error) {
+            if (!error) {
+                self.binResponseObject = [[MidtransBinResponse alloc] initWithDictionary:[binResponse dictionaryRepresentation]];
+            }
+
         }];
-        self.installmentAvailable = true;
-        self.view.installmentWrapperViewHeightConstraints.constant = 40.0f;
-        self.view.installmentWrapperView.hidden = NO;
     }
     self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
     
 #if __has_include(<CardIO/CardIO.h>)
-     [self.view hideScanCardButton:YES];
+     [self hideScanCardButton:YES];
    // [self.view hideScanCardButton:NO];
     //speedup cardio launch
    // [CardIOUtilities preloadCardIO];
 #else
-    [self.view hideScanCardButton:YES];
+    [self hideScanCardButton:YES];
 #endif
 }
 - (void)handleTransactionResult:(MidtransTransactionResult *)result {
@@ -96,7 +108,7 @@
 }
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     [super handleTransactionSuccess:result];
- [self.view.loadingView hide];
+    [self.view.loadingView hide];
 }
 
 - (void)handleTransactionError:(NSError *)error {
@@ -117,6 +129,7 @@
     MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.view.cardNumber.text
                                                                      expiryDate:self.view.cardExpiryDate.text
                                                                             cvv:self.view.cardCvv.text];
+
     NSError *error = nil;
     if ([creditCard isValidCreditCard:&error] == NO) {
         [self handleRegisterCreditCardError:error];
@@ -127,7 +140,7 @@
     
     BOOL enable3Ds = [CC_CONFIG secure];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                                    grossAmount:self.token.transactionDetails.grossAmount
+                                                                                    grossAmount:self.snap_token.transactionDetails.grossAmount
                                                                                          secure:enable3Ds];
     
     [[MidtransClient shared] generateToken:tokenRequest
@@ -143,7 +156,7 @@
 - (void)handleRegisterCreditCardError:(NSError *)error {
     [self.view.loadingView hide];
     
-    if ([self.view isViewError:error] == NO) {
+    if ([self isViewError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
                       andButtonTitle:@"Close"];
@@ -153,8 +166,8 @@
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.token.customerDetails];
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.snap_token.customerDetails];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.snap_token];
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
@@ -162,7 +175,7 @@
         else {
             if ([CC_CONFIG tokenStorageDisabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
-                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:^(id  _Nullable result, NSError * _Nullable error) {
+                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.snap_token.customerDetails completion:^(id  _Nullable result, NSError * _Nullable error) {
                     
                 }];
             }
@@ -196,7 +209,7 @@
     [paymentViewController dismissViewControllerAnimated:YES completion:nil];
     
     self.view.cardNumber.text = cardInfo.cardNumber;
-    [self.view reformatCardNumber];
+    [self reformatCardNumber];
     
     self.view.cardCvv.text = cardInfo.cvv;
     
@@ -204,5 +217,166 @@
 }
 
 #endif
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"text"] &&
+        [object isEqual:self.view.cardExpiryDate]) {
+        self.view.cardFrontView.expiryLabel.text = self.view.cardExpiryDate.text;
+    }
+}
 
+- (UIImage *)iconDarkWithNumber:(NSString *)number {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
+        case VTCreditCardTypeVisa:
+            return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeJCB:
+            return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeMasterCard:
+            return [UIImage imageNamed:@"MasterCardDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"AmexDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
+            return nil;
+    }
+}
+
+- (UIImage *)iconWithNumber:(NSString *)number {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
+        case VTCreditCardTypeVisa:
+            return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeJCB:
+            return [UIImage imageNamed:@"JCB" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeMasterCard:
+            return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
+            return nil;
+    }
+}
+
+#pragma mark - UITextFieldDelegate
+
+-(void)textFieldDidChange :(UITextField *) textField{
+    if ([textField isEqual:self.view.cardNumber]) {
+        [self.view.ccFormatter updateTextFieldContentAndPosition];
+    }
+    //your code
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
+
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        [textField.text isValidExpiryDate:&error];
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
+    else if ([textField isEqual:self.view.cardCvv]) {
+        [textField.text isValidCVVWithCreditCardNumber:self.view.cardNumber.text error:&error];
+    }
+
+    //show warning if error
+    if (error) {
+        [self isViewError:error];
+    }
+}
+- (void)matchBINNumberWithInstallment:(NSString *)binNumber {
+    NSLog(@"bin number-->%@",[self.binResponseObject dictionaryRepresentation]);
+    if (binNumber.length >4) {
+        NSLog(@"data-->%@", [[self.binResponseObject dictionaryRepresentation] allKeysForObject:binNumber]);
+    }
+
+}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isKindOfClass:[MidtransUITextField class]]) {
+        ((MidtransUITextField *) textField).warning = nil;
+    }
+
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        return [textField filterCreditCardExpiryDate:string range:range];
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
+        return [self.view.ccFormatter updateTextFieldContentAndPosition];
+    }
+    else if ([textField isEqual:self.view.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.view.cardNumber.text];
+    }
+    else {
+        return YES;
+    }
+}
+
+
+
+- (BOOL)isViewError:(NSError *)error {
+    if (error.code == -20) {
+        //number invalid
+        self.view.cardNumber.warning = error.localizedDescription;
+        return YES;
+    }
+    else if (error.code == -21) {
+        //expiry date invalid
+        self.view.cardExpiryDate.warning = error.localizedDescription;
+        return YES;
+    }
+    else if (error.code == -22) {
+        //cvv number invalid
+        self.view.cardCvv.warning = error.localizedDescription;
+        return YES;
+    }
+    else {
+        return NO;
+    }
+}
+
+- (void)hideScanCardButton:(BOOL)hide {
+    if (hide) {
+        //self.view.scanCardButton.hidden = YES;
+        //self.view.scanCardHeight.constant = 0;
+    }
+    else {
+//        self.view.scanCardButton.hidden = NO;
+//        self.view.scanCardHeight.constant = ScanButtonHeight;
+    }
+}
+
+- (void)reformatCardNumber {
+    NSString *cardNumber = self.view.cardNumber.text;
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+
+    self.view.cardNumber.text = formatted;
+    self.view.cardNumber.infoIcon = [self iconDarkWithNumber:self.view.cardNumber.text];
+
+    self.view.cardFrontView.iconView.image = [self iconWithNumber:self.view.cardNumber.text];
+    self.view.cardFrontView.numberLabel.text = formatted;
+}
+
+#pragma mark - VTCardFormatterDelegate
+
+- (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
+    if (self.installmentAvailable) {
+        [self matchBINNumberWithInstallment:[self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
+    }
+
+    if (self.view.cardNumber.text.length < 1) {
+        self.view.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
+        self.view.cardFrontView.iconView.image = nil;
+        self.view.cardNumber.infoIcon = nil;
+    }
+    else {
+        self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
+        NSString *originNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        self.view.cardNumber.infoIcon = [self iconDarkWithNumber:originNumber];
+        self.view.cardFrontView.iconView.image = [self iconWithNumber:originNumber];
+    }
+}
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
+
+}
 @end

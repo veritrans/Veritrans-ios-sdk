@@ -16,10 +16,11 @@
 
 @property (nonatomic, assign, nonnull) id<VTAddCardControllerDelegate>delegate;
 
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token maskedCards:(NSMutableArray *_Nonnull)maskedCards;
--(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
-           paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard;
+-(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
+                          maskedCards:(NSMutableArray *_Nonnull)maskedCards;
+-(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
+           paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
+           andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard;
 @end
 
 @protocol VTAddCardControllerDelegate <NSObject>

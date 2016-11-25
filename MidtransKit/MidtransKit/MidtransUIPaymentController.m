@@ -85,11 +85,14 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     if (self.navigationController.viewControllers.count > 1) {
         [self showBackButton:YES];
     }
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
     self.hudView = [[MidtransUIHudView alloc] init];
 }
 -(void)showAlertViewWithTitle:(NSString *)title

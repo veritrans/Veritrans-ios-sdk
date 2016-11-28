@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "MidtransEnvironment.h"
 
-#define PRIVATECONFIG (MidtransPrivateConfig *)[MidtransPrivateConfig shared]
+#define PRIVATECONFIG ((MidtransPrivateConfig *)[MidtransPrivateConfig shared])
 
 @interface MidtransPrivateConfig : NSObject
 
 @property (nonatomic, readonly) NSString *baseUrl;
 @property (nonatomic, readonly) NSString *mixpanelToken;
 @property (nonatomic, readonly) NSString *snapURL;
+@property (nonatomic, assign) MidtransServerEnvironment env;
 
-+ (void)setServerEnvironment:(MidtransServerEnvironment)environment;
 + (MidtransPrivateConfig *)shared;
 
 @end

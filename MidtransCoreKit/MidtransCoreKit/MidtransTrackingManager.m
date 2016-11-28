@@ -13,6 +13,8 @@
 #import "MidtransNetworking.h"
 #import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransDeviceHelper.h"
+#import "MidtransHelper.h"
+
 @implementation NSDictionary (TrackingManager)
 
 - (NSDictionary*)dictionaryByRemovingKey:(NSString *)key {
@@ -22,8 +24,10 @@
 }
 
 - (NSMutableDictionary*)addDefaultParameter{
+    NSString *token = [PRIVATECONFIG mixpanelToken];
+    
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
-    [defaultParameters setObject:[PRIVATECONFIG mixpanelToken] forKey:@"token"];
+    [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"Platform"];
     [defaultParameters setObject:VERSION forKey:@"SDK Version"];
 

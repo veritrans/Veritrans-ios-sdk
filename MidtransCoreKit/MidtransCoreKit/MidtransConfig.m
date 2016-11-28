@@ -44,4 +44,9 @@
     return _timeoutInterval;
 }
 
+- (void)setEnvironment:(MidtransServerEnvironment)environment {
+    _environment = environment;
+    PRIVATECONFIG.env = environment;
+}
+
 @end

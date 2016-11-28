@@ -17,7 +17,7 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
     if (object) {
         return object;
     } else {
-        return [NSNull null];
+        return [NSNull new];
     }
 }
 

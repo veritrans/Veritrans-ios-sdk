@@ -25,17 +25,17 @@
     return shared;
 }
 
-+ (void)setServerEnvironment:(MidtransServerEnvironment)environment {
-    
-    if (environment == MidtransServerEnvironmentProduction) {
+- (void)setEnv:(MidtransServerEnvironment)env {
+    _env = env;
+    if (env == MidtransServerEnvironmentProduction) {
         [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_PRODUCTION_API_URL];
         [[MidtransPrivateConfig shared] setMixpanelToken: MIDTRANS_PRODUCTION_MIXPANEL];
         [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_PROD_SNAP];
-    } else {
+    }
+    else {
         [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_SANDBOX_API_URL];
         [[MidtransPrivateConfig shared] setMixpanelToken:MIDTRANS_SANDBOX_MIXPANEL];
         [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_SANDBOX_SNAP];
     }
-    
 }
 @end

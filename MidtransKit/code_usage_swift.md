@@ -46,6 +46,10 @@ MidtransConfig.shared().setClientKey("client key", environment: .sandbox, mercha
 ```
 
 ### Credit Card Payment Feature
+#### Custom Bank Name
+```
+MidtransCreditCardConfig.shared().bank = "bank name"
+```
 #### Enable 3D Secure
 ```
 MidtransCreditCardConfig.shared().secure3DEnabled = true
@@ -133,7 +137,7 @@ Set the delegate of MidtransUIPaymentViewController
 let vc = MidtransUIPaymentViewController.init(token: response)
 
 //set the delegate
-vc?.delegate = self
+vc?.paymentDelegate = self
 
 self.present(vc!, animated: true, completion: nil)
 ```

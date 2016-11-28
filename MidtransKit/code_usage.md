@@ -65,6 +65,11 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 
 ### Credit Card Payment Feature
 
+#### Custom Bank Name
+```
+CC_CONFIG.bank = @"bank name";
+```
+
 #### Enable 3D Secure
 ```
 CC_CONFIG.secure3DEnabled = YES;
@@ -174,7 +179,7 @@ Set the delegate of MidtransUIPaymentViewController
 
 MidtransUIPaymentViewController *vc = [[MidtransUIPaymentViewController alloc] initWithToken:token];
 //set the delegate
-vc.delegate = self;
+vc.paymentDelegate = self;
 ```
 
 Add two methods to your view controller, these methods are from MidtransUIPaymentViewControllerDelegate protocol

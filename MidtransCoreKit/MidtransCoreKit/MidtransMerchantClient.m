@@ -153,9 +153,13 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         [dictionaryParameters setObject:[expireTime dictionaryRepresentation] forKey:MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME];
     }
     
-    [dictionaryParameters setObject:@{@"save_card":@(CC_CONFIG.saveCardEnabled),
-                                      @"secure":@(CC_CONFIG.secureSnapEnabled)}
-                             forKey:@"credit_card"];
+    NSMutableDictionary *creditCardParameter = [NSMutableDictionary new];
+    [creditCardParameter setObject:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
+    [creditCardParameter setObject:@(CC_CONFIG.secureSnapEnabled) forKey:@"secure"];
+    if (CC_CONFIG.bank)
+        [creditCardParameter setObject:CC_CONFIG.bank forKey:@"bank"];
+    
+    [dictionaryParameters setObject:creditCardParameter forKey:@"credit_card"];
     
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {

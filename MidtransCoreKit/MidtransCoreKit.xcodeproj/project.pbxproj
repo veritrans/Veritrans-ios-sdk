@@ -576,8 +576,8 @@
 		3054943C1C759FF800938C17 /* MidtransCoreKit */ = {
 			isa = PBXGroup;
 			children = (
-				0089B5F61D13D5B7009C0059 /* Common */,
 				3054948C1C75A40900938C17 /* MidtransCoreKit.h */,
+				0089B5F61D13D5B7009C0059 /* Common */,
 				2EDAA3A01D0A7597009EC90D /* Tracking */,
 				2ED4518C1D09C4BB008BAED8 /* Const */,
 				3014E0C41C7AD709003EB203 /* Utils */,

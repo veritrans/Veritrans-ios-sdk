@@ -12,10 +12,10 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransCreditCardHelper.h"
 #import "MidtransCreditCardPaymentFeature.h"
+#import "MidtransCreditCardConfig.h"
 
 @interface MidtransTokenizeRequest()
 @property (nonatomic, readwrite) MidtransCreditCard *creditCard;
-@property (nonatomic, readwrite) NSString *bank;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 @property (nonatomic, readwrite) BOOL installment;
 @property (nonatomic, readwrite) NSNumber *installmentTerm;
@@ -29,7 +29,9 @@
 
 @implementation MidtransTokenizeRequest
 
-- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure {
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
+                       grossAmount:(NSNumber *)grossAmount
+                            secure:(BOOL)secure {
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;
@@ -91,6 +93,9 @@
             break;
         }
     }
+    
+    if (CC_CONFIG.bank)
+        [result setObject:CC_CONFIG.bank forKey:@"bank"];
     
     if ([CONFIG environment] == MidtransServerEnvironmentProduction) {
         [result setObject:@"migs" forKey:@"channel"];

@@ -15,7 +15,6 @@
 @interface MidtransTokenizeRequest : NSObject
 
 @property (nonatomic, readonly) MidtransCreditCard *creditCard;
-@property (nonatomic, readonly) NSString *bank;
 @property (nonatomic, readonly) NSNumber *grossAmount;
 @property (nonatomic, readonly) BOOL installment;
 @property (nonatomic, readonly) NSNumber *installmentTerm;
@@ -23,6 +22,8 @@
 @property (nonatomic, readonly) BOOL twoClick;
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) BOOL secure;
+
+@property (nonatomic) NSString *bank;
 
 ///----------------
 /// @Initialization
@@ -35,7 +36,9 @@
  @param grossAmount The amount to charge.
  @param secure To activate 3D secure payment.
  */
-- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard grossAmount:(NSNumber *)grossAmount secure:(BOOL)secure;
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
+                       grossAmount:(NSNumber *)grossAmount
+                            secure:(BOOL)secure;
 
 /**
  Get a `VTTokenizeReqeust` for two-clicks transaction.

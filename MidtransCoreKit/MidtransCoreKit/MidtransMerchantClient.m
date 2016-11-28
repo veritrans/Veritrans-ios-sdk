@@ -168,10 +168,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
-    if ([URL rangeOfString:@"//"].location != NSNotFound) {
-        ///sanitize //
-        URL = [URL stringByReplacingOccurrencesOfString:@"//" withString:@"/"];
-    }
     
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil

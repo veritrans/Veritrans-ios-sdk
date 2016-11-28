@@ -36,6 +36,14 @@
     self.merchantURL = merchantServerURL;
 }
 
+- (void)setMerchantURL:(NSString *)merchantURL {
+    //sanitize url
+    if ([merchantURL hasSuffix:@"/"]) {
+        merchantURL = [merchantURL substringToIndex:merchantURL.length - 1];
+    }
+    _merchantURL = merchantURL;
+}
+
 - (double)timeoutInterval {
     if (_timeoutInterval == 0) {
         //default timeout

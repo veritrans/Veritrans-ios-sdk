@@ -54,7 +54,7 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
 
 @protocol MidtransUIPaymentViewControllerDelegate;
 
-@protocol MidtransUIPaymentViewControllerDelegate <UINavigationControllerDelegate>
+@protocol MidtransUIPaymentViewControllerDelegate <NSObject>
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error;
@@ -64,6 +64,6 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
 @interface MidtransUIPaymentViewController : UINavigationController
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andPaymentFeature:(MidtransPaymentFeature)paymentFeature;
-@property (nonatomic, weak) id<MidtransUIPaymentViewControllerDelegate> delegate;
+@property (nonatomic, weak) id<MidtransUIPaymentViewControllerDelegate> paymentDelegate;
 
 @end

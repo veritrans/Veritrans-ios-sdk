@@ -101,26 +101,26 @@
 }
 
 - (void)transactionPending:(NSNotification *)sender {
-    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
-        [self.delegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
+        [self.paymentDelegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionCanceled:(NSNotification *)sender {
-    if ([self.delegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
-        [self.delegate paymentViewController_paymentCanceled:self];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
+        [self.paymentDelegate paymentViewController_paymentCanceled:self];
     }
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {
-    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
-        [self.delegate paymentViewController:self paymentSuccess:sender.userInfo[TRANSACTION_RESULT_KEY]];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
+        [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
-    if ([self.delegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
-        [self.delegate paymentViewController:self paymentFailed:sender.userInfo[TRANSACTION_ERROR_KEY]];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
+        [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[TRANSACTION_ERROR_KEY]];
     }
 }
 

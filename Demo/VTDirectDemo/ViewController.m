@@ -174,7 +174,7 @@
              [MBProgressHUD hideHUDForView:self.view animated:YES];
              if (!error) {
                  self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-                 self.paymentVC.delegate = self;
+                 self.paymentVC.paymentDelegate = self;
                  
                  [self presentViewController:self.paymentVC animated:YES completion:nil];
              }
@@ -245,6 +245,7 @@
 }
 
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
+    NSLog(@"error: %@", error);
     [self showAlertError:error];
 }
 

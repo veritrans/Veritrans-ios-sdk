@@ -219,12 +219,24 @@
             [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
         else {
-            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                 paymentMethodName:paymentMethod
-                                                                 andCreditCardData:(MidtransPaymentRequestV2CreditCard *)self.responsePayment.creditCard];
-            [vc showDismissButton:self.singlePayment];
-            [vc showBackButton:!self.singlePayment];
-            [self.navigationController pushViewController:vc animated:!self.singlePayment];
+            if ([self.responsePayment.creditCard.savedTokens count]>0) {
+                VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+                                                                     paymentMethodName:paymentMethod
+                                                                     andCreditCardData:(MidtransPaymentRequestV2CreditCard *)self.responsePayment.creditCard];
+                [vc showDismissButton:self.singlePayment];
+                [vc showBackButton:!self.singlePayment];
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
+            }
+            else {
+                VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
+                                                                   paymentMethodName:paymentMethod
+                                                                   andCreditCardData:(MidtransPaymentRequestV2CreditCard *)self.responsePayment.creditCard];
+                [vc showDismissButton:self.singlePayment];
+                vc.delegate = self;
+                [vc showBackButton:!self.singlePayment];
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
+            }
+
         }
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {

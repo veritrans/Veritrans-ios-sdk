@@ -93,7 +93,7 @@
                                     <rect key="frame" x="15" y="144" width="290" height="77"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save card for future transactions?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
-                                            <rect key="frame" x="8" y="13" width="215" height="18"/>
+                                            <rect key="frame" x="8" y="5" width="215" height="18"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -107,8 +107,8 @@
                                             </connections>
                                         </switch>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Your credit card details will be safely stored by Midtrans" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Irx-lO-Oef">
-                                            <rect key="frame" x="8" y="33" width="215" height="33"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                            <rect key="frame" x="8" y="25" width="215" height="41"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -116,11 +116,13 @@
                                     <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstItem="KGC-Jf-sHt" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" constant="8" id="2p0-I9-acY"/>
+                                        <constraint firstItem="CPH-p7-dQb" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" constant="23" id="FJj-y5-YjB"/>
                                         <constraint firstItem="Irx-lO-Oef" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" constant="8" id="FQt-o3-5WR"/>
                                         <constraint firstItem="Irx-lO-Oef" firstAttribute="top" secondItem="KGC-Jf-sHt" secondAttribute="bottom" constant="2" id="JKa-zM-7V1"/>
                                         <constraint firstItem="CPH-p7-dQb" firstAttribute="leading" secondItem="Irx-lO-Oef" secondAttribute="trailing" constant="10" id="KGX-uJ-7r2"/>
                                         <constraint firstItem="CPH-p7-dQb" firstAttribute="leading" secondItem="KGC-Jf-sHt" secondAttribute="trailing" constant="10" id="R3n-Uz-3a6"/>
                                         <constraint firstAttribute="trailing" secondItem="CPH-p7-dQb" secondAttribute="trailing" constant="8" id="Rl7-bR-4o4"/>
+                                        <constraint firstItem="KGC-Jf-sHt" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" constant="5" id="gqx-Rm-WMx"/>
                                         <constraint firstAttribute="height" constant="77" id="iQs-b9-mDj"/>
                                         <constraint firstItem="CPH-p7-dQb" firstAttribute="centerY" secondItem="ANX-Es-v2p" secondAttribute="centerY" id="lTU-Ai-53o"/>
                                         <constraint firstAttribute="bottom" secondItem="Irx-lO-Oef" secondAttribute="bottom" constant="11" id="w4g-nn-zxL"/>
@@ -277,7 +279,7 @@
                     <rect key="frame" x="0.0" y="380" width="320" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
-                            <rect key="frame" x="15" y="14" width="74" height="17"/>
+                            <rect key="frame" x="15" y="14" width="73.5" height="17"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

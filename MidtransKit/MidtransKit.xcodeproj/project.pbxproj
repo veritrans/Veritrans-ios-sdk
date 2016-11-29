@@ -748,6 +748,13 @@
 			name = Guide;
 			sourceTree = "<group>";
 		};
+		00747D6E1DEDCBD10094C8E3 /* Card List */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Card List";
+			sourceTree = "<group>";
+		};
 		008859501D48892C003105F1 /* Add Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -1112,6 +1119,7 @@
 		30E713101C85749F00AFB7B4 /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
+				00747D6E1DEDCBD10094C8E3 /* Card List */,
 				00E6D1A71DEC115400A9C14B /* Installment */,
 				008859501D48892C003105F1 /* Add Card */,
 				E517C2C41C967C5D009AE6AA /* Alerts */,

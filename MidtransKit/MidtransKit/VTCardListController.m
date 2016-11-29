@@ -56,6 +56,7 @@ CGFloat const ButtonHeight = 56;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    NSLog(@"credit card data-->%@",self.creditCard);
     self.topAddCardButton.layer.borderColor = [UIColor MidtransAquaBlue].CGColor;
     self.topAddCardButton.layer.cornerRadius = 3.0f;
     self.topAddCardButton.layer.borderWidth = 1.1f;
@@ -124,7 +125,7 @@ CGFloat const ButtonHeight = 56;
     }
     else {
         NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
-        [self.cards setArray:savedTokens];
+        self.cards.array = savedTokens;
         [self.collectionView reloadData];
         [self updateView];
     }
@@ -132,11 +133,10 @@ CGFloat const ButtonHeight = 56;
 
 
 - (void)updateView {
-    [self.pageControl setNumberOfPages:[self.cards count]];
-    
+    self.pageControl.numberOfPages = self.cards.count;
     if (self.cards.count) {
         self.addCardButton.hidden = true;
-        self.addCardButtonHeight.constant = 0;
+        self.addCardButtonHeight.constant = 0.0f;
         self.emptyCardView.hidden = true;
         self.cardsView.hidden = false;
     } else {

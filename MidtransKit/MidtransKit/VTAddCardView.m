@@ -26,6 +26,7 @@ CGFloat const ScanButtonHeight = 45;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.saveCardSwitch.transform = CGAffineTransformMakeScale(.6f, .6f);
     self.installmentCollectionView.userInteractionEnabled = NO;
     self.installmentCollectionView.layer.cornerRadius = 2.0f;
     self.installmentCollectionView.layer.masksToBounds = YES;

@@ -431,8 +431,9 @@ static const NSInteger installmentHeight = 44;
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
-    [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
-
+    if ([self.view.cardExpiryDate observationInfo]!=nil) {
+            [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
+    }
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     return self.installmentValueObject.count;

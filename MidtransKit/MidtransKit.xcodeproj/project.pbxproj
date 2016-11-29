@@ -29,6 +29,8 @@
 		002CC9A91D12639F003A1203 /* bca_klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */; };
 		002CC9B81D12A442003A1203 /* MidtransUIStringHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9B61D12A442003A1203 /* MidtransUIStringHelper.h */; };
 		002CC9B91D12A442003A1203 /* MidtransUIStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* MidtransUIStringHelper.m */; };
+		0047C4641DED82C8001EE5D5 /* UIColor+MidtransColor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0047C4621DED82C7001EE5D5 /* UIColor+MidtransColor.h */; };
+		0047C4651DED82C8001EE5D5 /* UIColor+MidtransColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0047C4631DED82C7001EE5D5 /* UIColor+MidtransColor.m */; };
 		008859531D488950003105F1 /* VTAddCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 008859511D488950003105F1 /* VTAddCardView.h */; };
 		008859541D488950003105F1 /* VTAddCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008859521D488950003105F1 /* VTAddCardView.m */; };
 		008CBE031DA386D900696F4E /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CBE021DA386D900696F4E /* libMidtransCoreKit.a */; };
@@ -367,6 +369,8 @@
 		002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_klikbca@2x.png"; sourceTree = "<group>"; };
 		002CC9B61D12A442003A1203 /* MidtransUIStringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIStringHelper.h; sourceTree = "<group>"; };
 		002CC9B71D12A442003A1203 /* MidtransUIStringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIStringHelper.m; sourceTree = "<group>"; };
+		0047C4621DED82C7001EE5D5 /* UIColor+MidtransColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+MidtransColor.h"; sourceTree = "<group>"; };
+		0047C4631DED82C7001EE5D5 /* UIColor+MidtransColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+MidtransColor.m"; sourceTree = "<group>"; };
 		008859511D488950003105F1 /* VTAddCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardView.h; sourceTree = "<group>"; };
 		008859521D488950003105F1 /* VTAddCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardView.m; sourceTree = "<group>"; };
 		008CBE021DA386D900696F4E /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../MidtransCoreKit/build/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
@@ -973,6 +977,8 @@
 				E5C25FF41D2639B40012BCC8 /* VTBackBarButtonItem.m */,
 				00E6D1AE1DEC14B400A9C14B /* VTCollectionViewLayout.h */,
 				00E6D1AF1DEC14B500A9C14B /* VTCollectionViewLayout.m */,
+				0047C4621DED82C7001EE5D5 /* UIColor+MidtransColor.h */,
+				0047C4631DED82C7001EE5D5 /* UIColor+MidtransColor.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -1436,6 +1442,7 @@
 				306838721C7EDA0A0064A305 /* VTPaymentHeader.h in Headers */,
 				0093D8B51DC1EC7D00393334 /* MidtransLoadingView.h in Headers */,
 				E5AB976C1D741C8D00466A44 /* VTPendingStatusController.h in Headers */,
+				0047C4641DED82C8001EE5D5 /* UIColor+MidtransColor.h in Headers */,
 				E5C00EE41D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h in Headers */,
 				E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */,
 				E503AED81C8E8AF800F097FF /* MidtransUIListCell.h in Headers */,
@@ -1793,6 +1800,7 @@
 				00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */,
 				30E7131A1C85816B00AFB7B4 /* MIdtransUIDetailedTitleController.m in Sources */,
 				E578DD101CFBFA980091760A /* VTBillpaySuccessController.m in Sources */,
+				0047C4651DED82C8001EE5D5 /* UIColor+MidtransColor.m in Sources */,
 				302BAA451C881FA200AE68CC /* MIdtransUICardCell.m in Sources */,
 				E58017F01D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m in Sources */,
 				E50438781D1A4A7C00710470 /* VTSubGuideController.m in Sources */,

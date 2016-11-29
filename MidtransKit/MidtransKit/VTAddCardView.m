@@ -26,7 +26,7 @@ CGFloat const ScanButtonHeight = 45;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    //self.installmentCollectionView.userInteractionEnabled = NO;
+    self.installmentCollectionView.userInteractionEnabled = NO;
     self.installmentCollectionView.layer.cornerRadius = 2.0f;
     self.installmentCollectionView.layer.masksToBounds = YES;
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];

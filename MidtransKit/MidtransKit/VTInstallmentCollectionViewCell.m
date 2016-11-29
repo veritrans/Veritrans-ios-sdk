@@ -16,7 +16,7 @@
     // Initialization code
 }
 - (void)configureInstallment:(NSString *)installment {
-        self.installmentTextLabel.text = [NSString stringWithFormat:@"%@ Month Installment",installment];
+        self.installmentTextLabel.text = [NSString stringWithFormat:@"%@ Months Installment",installment];
     if ([installment isEqualToString:@"0"]) {
         self.installmentTextLabel.text = @"No installment";
     }

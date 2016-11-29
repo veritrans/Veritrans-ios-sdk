@@ -22,7 +22,7 @@
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-
+#import "UIColor+MidtransColor.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 CGFloat const ButtonHeight = 56;
@@ -35,6 +35,7 @@ CGFloat const ButtonHeight = 56;
 @property (strong, nonatomic) IBOutlet UIButton *addCardButton;
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 @property (nonatomic, strong) MidtransPaymentRequestV2CreditCard *creditCard;
+@property (weak, nonatomic) IBOutlet UIButton *topAddCardButton;
 @property (nonatomic) NSMutableArray *cards;
 @property (nonatomic) BOOL editingCell;
 @end
@@ -55,12 +56,12 @@ CGFloat const ButtonHeight = 56;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.topAddCardButton.layer.borderColor = [UIColor MidtransAquaBlue].CGColor;
+    self.topAddCardButton.layer.cornerRadius = 3.0f;
+    self.topAddCardButton.layer.borderWidth = 1.1f;
     self.cards = [NSMutableArray new];
-    
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
-    
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     
     [self updateView];

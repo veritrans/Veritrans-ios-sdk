@@ -219,11 +219,18 @@
                                         <constraint firstItem="bSY-q9-na6" firstAttribute="leading" secondItem="lCc-TV-HoV" secondAttribute="leading" constant="9" id="v4J-dv-x5J"/>
                                     </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gd5-KE-5ga">
+                                    <rect key="frame" x="278" y="92" width="22" height="22"/>
+                                    <connections>
+                                        <action selector="cvvInfoPressed:" destination="-1" eventType="touchUpInside" id="qW5-qr-1fQ"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="0IE-Sd-Edj"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="10" id="1Bz-Sx-NHd"/>
+                                <constraint firstItem="Gd5-KE-5ga" firstAttribute="leading" secondItem="8Nn-gz-tW4" secondAttribute="trailing" constant="-27" id="1h4-0e-fBO"/>
                                 <constraint firstAttribute="trailing" secondItem="lCc-TV-HoV" secondAttribute="trailing" constant="15" id="5MT-KW-2rl"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="5YV-I6-RHe"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="top" secondItem="UXS-76-jqp" secondAttribute="bottom" constant="10" id="Dxj-kN-olj"/>
@@ -241,6 +248,7 @@
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="kY9-ae-Yz6"/>
                                 <constraint firstItem="lCc-TV-HoV" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="mU4-wi-XnL"/>
                                 <constraint firstItem="lCc-TV-HoV" firstAttribute="top" secondItem="8Bd-E9-a7J" secondAttribute="bottom" priority="750" id="o4R-xT-Ojf"/>
+                                <constraint firstItem="Gd5-KE-5ga" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="-42" id="oVu-IM-BWE"/>
                                 <constraint firstItem="fCD-od-rfO" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="10" id="pTq-Mh-b8S"/>
                             </constraints>
                         </view>

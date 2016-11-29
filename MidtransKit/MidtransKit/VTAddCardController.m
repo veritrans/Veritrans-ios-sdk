@@ -39,6 +39,7 @@ static const NSInteger installmentHeight = 44;
 @property (nonatomic) BOOL installmentAvailable;
 @property (nonatomic,strong)NSArray *binResponseObject;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
+@property (nonatomic,strong)NSString *installmentBankName;
 @property (nonatomic,strong)MidtransBinResponse *filteredBinObject;
 @property (nonatomic,strong)MidtransPaymentRequestV2CreditCard *creditCardData;
 @property (nonatomic,strong)MidtransTransactionTokenResponse *snap_token;
@@ -71,17 +72,22 @@ static const NSInteger installmentHeight = 44;
     self.installmentCurrentIndex = 0;
     self.installmentValueObject = [NSMutableArray new];
       self.view.installmentCollectionView.collectionViewLayout = [[VTCollectionViewLayout alloc] initWithColumn:1 andHeight:installmentHeight];
+
     [self.view.installmentCollectionView registerNib:[UINib nibWithNibName:@"VTInstallmentCollectionViewCell" bundle:VTBundle]
                forCellWithReuseIdentifier:@"installmentCell"];
     self.view.installmentCollectionView.pagingEnabled = YES;
+
     self.view.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.cardNumber];
     self.view.ccFormatter.delegate = self;
     self.view.ccFormatter.numberLimit = 16;
+
     [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
+
     self.view.installmentWrapperViewHeightConstraints.constant = 0.0f;
     self.view.installmentWrapperView.hidden = YES;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
+
     if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
         self.view.saveCardView.hidden = YES;
         self.view.saveCardViewHeightConstaints.constant = 0.0f;
@@ -90,16 +96,18 @@ static const NSInteger installmentHeight = 44;
         self.view.saveCardView.hidden = NO;
         self.view.saveCardViewHeightConstaints.constant = 77.0f;
     }
+
     self.view.amountLabel.text = self.snap_token.transactionDetails.grossAmount.formattedCurrencyNumber;
     MidtransPaymentRequestV2Installment *installment = self.creditCardData.installments;
+
     self.installmentAvailable = NO;
+
     if (installment.terms) {
         self.installmentAvailable = YES;
         [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
             if (!error) {
                 self.binResponseObject = binResponse;
             }
-
         }];
     }
     self.view.saveCardSwitch.on = [CC_CONFIG saveCard];
@@ -146,9 +154,7 @@ static const NSInteger installmentHeight = 44;
         [self handleRegisterCreditCardError:error];
         return;
     }
-    
       [self.view.loadingView showWithTitle:@"Processing your transaction"];
-    
     BOOL enable3Ds = [CC_CONFIG secure];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.snap_token.transactionDetails.grossAmount
@@ -179,6 +185,9 @@ static const NSInteger installmentHeight = 44;
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.snap_token.customerDetails];
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.snap_token];
+    if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
+        NSLog(@"pay with installment->");
+    }
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
@@ -291,6 +300,11 @@ static const NSInteger installmentHeight = 44;
         [self isViewError:error];
     }
 }
+-(void)paste:(id)sender{
+    /*handle when user paste the  credit card number*/
+    NSLog(@"paste button was pressed do something");
+    [self textFieldDidChange:self.view.cardNumber];
+}
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
     if (binNumber.length >= 6) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
@@ -299,6 +313,7 @@ static const NSInteger installmentHeight = 44;
         if (filtered.count) {
             self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
             if ([[[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank] count]) {
+                self.installmentBankName = self.filteredBinObject.bank;
                 [self.installmentValueObject addObject:@"0"];
                 [self.installmentValueObject addObjectsFromArray:[[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank]];
                 [self.view.installmentCollectionView reloadData];
@@ -316,6 +331,7 @@ static const NSInteger installmentHeight = 44;
 
     }
     else {
+        self.installmentBankName = @"";
         [UIView transitionWithView:self.view.installmentWrapperView
                           duration:1
                            options:UIViewAnimationOptionCurveEaseOut
@@ -423,7 +439,7 @@ static const NSInteger installmentHeight = 44;
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     VTInstallmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"installmentCell" forIndexPath:indexPath];
-    [cell configureInstallment:self.installmentValueObject[indexPath.row]];
+    [cell configureInstallment:[NSString stringWithFormat:@"%@",self.installmentValueObject[indexPath.row]]];
     return cell;
 }
 - (CGFloat)collectionView:(UICollectionView *)collectionView
@@ -440,6 +456,13 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
     }
 
 
+}
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    for (UICollectionViewCell *cell in [self.view.installmentCollectionView visibleCells]) {
+        NSIndexPath *indexPath = [self.view.installmentCollectionView indexPathForCell:cell];
+        NSLog(@"%ld",(long)indexPath.row);
+        self.installmentCurrentIndex = indexPath.row;
+    }
 }
 - (IBAction)nextButtonDidTapped:(id)sender {
 

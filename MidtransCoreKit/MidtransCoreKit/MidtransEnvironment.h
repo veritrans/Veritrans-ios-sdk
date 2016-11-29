@@ -16,7 +16,9 @@ typedef NS_ENUM(NSUInteger, MidtransServerEnvironment) {
      Sandbox payment environment. This server type should be used for testing.
      */
     MidtransServerEnvironmentSandbox,
-    
+
+
+    MidtransServerEnvironmentStaging,
     /**
      Production payment environment. This server type should be used only when the product ready to be released.
      */

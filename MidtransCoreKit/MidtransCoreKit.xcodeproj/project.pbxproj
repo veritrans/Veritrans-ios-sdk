@@ -81,6 +81,7 @@
 		00F61B0E1D145D0E00C93DA0 /* MidtransPaymentListDataModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B0B1D145D0E00C93DA0 /* MidtransPaymentListDataModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00F61B0F1D145D0E00C93DA0 /* MidtransPaymentListModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B0C1D145D0E00C93DA0 /* MidtransPaymentListModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		00F61B101D145D0E00C93DA0 /* MidtransPaymentListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B0D1D145D0E00C93DA0 /* MidtransPaymentListModel.m */; };
+		1DCEE9DDCE466F9E65C0933F /* libPods-MidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */; };
 		2ED4518E1D09C4D7008BAED8 /* MidtransConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EDAA3A31D0A7601009EC90D /* MidtransTrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDAA3A11D0A7601009EC90D /* MidtransTrackingManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EDAA3A41D0A7601009EC90D /* MidtransTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAA3A21D0A7601009EC90D /* MidtransTrackingManager.m */; };
@@ -315,6 +316,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1DCEE9DDCE466F9E65C0933F /* libPods-MidtransCoreKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

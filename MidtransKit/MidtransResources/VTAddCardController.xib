@@ -93,7 +93,7 @@
                                     <rect key="frame" x="15" y="144" width="290" height="77"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save card for future transactions?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
-                                            <rect key="frame" x="8" y="14.5" width="215" height="16.5"/>
+                                            <rect key="frame" x="8" y="13" width="215" height="18"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -136,6 +136,9 @@
                                                 <constraint firstAttribute="height" constant="30" id="nb2-QO-2aa"/>
                                             </constraints>
                                             <state key="normal" image="icon_btn_min_.png"/>
+                                            <connections>
+                                                <action selector="prevButtonDidTapped:" destination="-1" eventType="touchUpInside" id="o7d-it-4qv"/>
+                                            </connections>
                                         </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BVb-x1-Jiy">
                                             <rect key="frame" x="260" y="5" width="30" height="30"/>
@@ -144,28 +147,37 @@
                                                 <constraint firstAttribute="width" constant="30" id="sml-jM-E2P"/>
                                             </constraints>
                                             <state key="normal" image="icon_btn_plus_.png"/>
+                                            <connections>
+                                                <action selector="nextButtonDidTapped:" destination="-1" eventType="touchUpInside" id="5oD-ID-cmH"/>
+                                            </connections>
                                         </button>
                                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="6fw-qF-jpM">
-                                            <rect key="frame" x="30" y="0.0" width="230" height="40"/>
+                                            <rect key="frame" x="38" y="5" width="214" height="29"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="214" id="XmG-4e-9jq"/>
+                                            </constraints>
                                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WrJ-SK-uvn">
                                                 <size key="itemSize" width="50" height="50"/>
                                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                 <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                                 <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                             </collectionViewFlowLayout>
+                                            <connections>
+                                                <outlet property="dataSource" destination="-1" id="m2j-fi-LFE"/>
+                                                <outlet property="delegate" destination="-1" id="XQm-eA-QG5"/>
+                                            </connections>
                                         </collectionView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="40" id="1mH-1B-77R"/>
-                                        <constraint firstAttribute="bottom" secondItem="6fw-qF-jpM" secondAttribute="bottom" id="8eK-ic-SLO"/>
+                                        <constraint firstAttribute="bottom" secondItem="6fw-qF-jpM" secondAttribute="bottom" constant="6" id="8eK-ic-SLO"/>
                                         <constraint firstItem="7vo-4f-nh8" firstAttribute="leading" secondItem="fCD-od-rfO" secondAttribute="leading" id="C2R-aU-ibu"/>
-                                        <constraint firstItem="6fw-qF-jpM" firstAttribute="leading" secondItem="7vo-4f-nh8" secondAttribute="trailing" id="OuQ-Lz-I2E"/>
-                                        <constraint firstItem="6fw-qF-jpM" firstAttribute="top" secondItem="fCD-od-rfO" secondAttribute="top" id="T3a-ph-x3h"/>
-                                        <constraint firstItem="BVb-x1-Jiy" firstAttribute="leading" secondItem="6fw-qF-jpM" secondAttribute="trailing" id="aRK-rA-GdI"/>
+                                        <constraint firstItem="6fw-qF-jpM" firstAttribute="leading" secondItem="7vo-4f-nh8" secondAttribute="trailing" constant="8" id="OuQ-Lz-I2E"/>
+                                        <constraint firstItem="6fw-qF-jpM" firstAttribute="top" secondItem="fCD-od-rfO" secondAttribute="top" constant="5" id="T3a-ph-x3h"/>
+                                        <constraint firstItem="BVb-x1-Jiy" firstAttribute="leading" secondItem="6fw-qF-jpM" secondAttribute="trailing" constant="8" id="aRK-rA-GdI"/>
                                         <constraint firstItem="7vo-4f-nh8" firstAttribute="top" secondItem="fCD-od-rfO" secondAttribute="top" constant="5" id="aWw-RD-YkK"/>
-                                        <constraint firstItem="6fw-qF-jpM" firstAttribute="height" secondItem="fCD-od-rfO" secondAttribute="height" id="vW7-Fv-eAY"/>
                                         <constraint firstItem="BVb-x1-Jiy" firstAttribute="top" secondItem="fCD-od-rfO" secondAttribute="top" constant="5" id="yj9-qB-gud"/>
                                         <constraint firstAttribute="trailing" secondItem="BVb-x1-Jiy" secondAttribute="trailing" id="zeB-xY-qF5"/>
                                     </constraints>
@@ -257,7 +269,7 @@
                     <rect key="frame" x="0.0" y="380" width="320" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
-                            <rect key="frame" x="15" y="14" width="77" height="17"/>
+                            <rect key="frame" x="15" y="14" width="74" height="17"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -317,6 +329,8 @@
                 <outlet property="cardNumber" destination="UXS-76-jqp" id="dyt-iD-TOI"/>
                 <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
                 <outlet property="installmentCollectionView" destination="6fw-qF-jpM" id="Nds-9l-KoU"/>
+                <outlet property="installmentNextButton" destination="BVb-x1-Jiy" id="trh-0S-chK"/>
+                <outlet property="installmentPrevButton" destination="7vo-4f-nh8" id="3Mp-xR-gk6"/>
                 <outlet property="installmentWrapperView" destination="fCD-od-rfO" id="Xk2-2Q-wjq"/>
                 <outlet property="installmentWrapperViewHeightConstraints" destination="1mH-1B-77R" id="hVj-73-NK6"/>
                 <outlet property="knowledbeBaseWrapperViewHeightConstraints" destination="0Ci-33-KC4" id="ySO-gA-i3d"/>
@@ -326,7 +340,7 @@
                 <outlet property="saveCardView" destination="ANX-Es-v2p" id="ITP-Uv-Q1Z"/>
                 <outlet property="saveCardViewHeightConstaints" destination="iQs-b9-mDj" id="s3d-jW-8gL"/>
             </connections>
-            <point key="canvasLocation" x="26.5" y="51.5"/>
+            <point key="canvasLocation" x="26" y="51"/>
         </view>
     </objects>
     <resources>

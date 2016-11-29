@@ -17,6 +17,8 @@ CGFloat const ScanButtonHeight = 45;
 
 @interface VTAddCardView()<MidtransUICardFormatterDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
+@property (weak, nonatomic) IBOutlet UIButton *installmentNextButton;
+@property (weak, nonatomic) IBOutlet UIButton *installmentPrevButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *scanCardHeight;
 @end
 
@@ -24,6 +26,9 @@ CGFloat const ScanButtonHeight = 45;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    //self.installmentCollectionView.userInteractionEnabled = NO;
+    self.installmentCollectionView.layer.cornerRadius = 2.0f;
+    self.installmentCollectionView.layer.masksToBounds = YES;
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
     
 }

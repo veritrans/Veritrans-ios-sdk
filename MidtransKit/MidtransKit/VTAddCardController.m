@@ -22,9 +22,11 @@
 #import "MidtransUICardFormatter.h"
 #import "VTAddCardView.h"
 #import "MidtransLoadingView.h"
+#import "VTCollectionViewLayout.h"
+#import "VTInstallmentCollectionViewCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2Installment.h>
-static const NSInteger installmentHeigt = 44;
+static const NSInteger installmentHeight = 44;
 #if __has_include(<CardIO/CardIO.h>)
 #import <CardIO/CardIO.h>
 @interface VTAddCardController () <CardIOPaymentViewControllerDelegate,UICollectionViewDelegate,UICollectionViewDelegate,MidtransUICardFormatterDelegate,UITextFieldDelegate,MidtransUICardFormatterDelegate>
@@ -35,10 +37,13 @@ static const NSInteger installmentHeigt = 44;
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (nonatomic,strong) NSMutableArray *maskedCards;
 @property (nonatomic) BOOL installmentAvailable;
-@property (nonatomic,strong)MidtransBinResponse *binResponseObject;
+@property (nonatomic,strong)NSArray *binResponseObject;
+@property (nonatomic,strong)NSArray *installmentValueObject;
+@property (nonatomic,strong)MidtransBinResponse *filteredBinObject;
 @property (nonatomic,strong)MidtransPaymentRequestV2CreditCard *creditCardData;
 @property (nonatomic,strong)MidtransTransactionTokenResponse *snap_token;
-@property (nonatomic,strong) MidtransPaymentListModel *paymentMethodOveride;
+@property (nonatomic,strong)MidtransPaymentListModel *paymentMethodOveride;
+@property (nonatomic)NSInteger installmentCurrentIndex;
 @end
 
 @implementation VTAddCardController
@@ -63,6 +68,11 @@ static const NSInteger installmentHeigt = 44;
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    self.installmentCurrentIndex = 0;
+      self.view.installmentCollectionView.collectionViewLayout = [[VTCollectionViewLayout alloc] initWithColumn:1 andHeight:installmentHeight];
+    [self.view.installmentCollectionView registerNib:[UINib nibWithNibName:@"VTInstallmentCollectionViewCell" bundle:VTBundle]
+               forCellWithReuseIdentifier:@"installmentCell"];
+    self.view.installmentCollectionView.pagingEnabled = YES;
     self.view.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.cardNumber];
     self.view.ccFormatter.delegate = self;
     self.view.ccFormatter.numberLimit = 16;
@@ -84,9 +94,9 @@ static const NSInteger installmentHeigt = 44;
     self.installmentAvailable = NO;
     if (installment.terms) {
         self.installmentAvailable = YES;
-        [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(MidtransBinResponse *binResponse, NSError * _Nullable error) {
+        [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
             if (!error) {
-                self.binResponseObject = [[MidtransBinResponse alloc] initWithDictionary:[binResponse dictionaryRepresentation]];
+                self.binResponseObject = binResponse;
             }
 
         }];
@@ -281,9 +291,37 @@ static const NSInteger installmentHeigt = 44;
     }
 }
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
-    NSLog(@"bin number-->%@",[self.binResponseObject dictionaryRepresentation]);
-    if (binNumber.length >4) {
-        NSLog(@"data-->%@", [[self.binResponseObject dictionaryRepresentation] allKeysForObject:binNumber]);
+    if (binNumber.length >= 6) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                          @"SELF['bins'] CONTAINS %@",binNumber];
+        NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
+        if (filtered.count) {
+            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+            if ([[[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank] count]) {
+                self.installmentValueObject = [[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank];
+                [self.view.installmentCollectionView reloadData];
+                [UIView transitionWithView:self.view.installmentWrapperView
+                                  duration:1
+                                   options:UIViewAnimationOptionCurveEaseIn
+                                animations:^{
+                                    self.view.installmentWrapperView.hidden = NO;
+                                    self.view.installmentWrapperViewHeightConstraints.constant = installmentHeight;
+                                }
+                                completion:NULL];
+            }
+
+        }
+
+    }
+    else {
+        [UIView transitionWithView:self.view.installmentWrapperView
+                          duration:1
+                           options:UIViewAnimationOptionCurveEaseOut
+                        animations:^{
+                            self.view.installmentWrapperView.hidden = YES;
+                            self.view.installmentWrapperViewHeightConstraints.constant =  0;
+                        }
+                        completion:NULL];
     }
 
 }
@@ -305,7 +343,6 @@ static const NSInteger installmentHeigt = 44;
         return YES;
     }
 }
-
 
 
 - (BOOL)isViewError:(NSError *)error {
@@ -377,6 +414,40 @@ static const NSInteger installmentHeigt = 44;
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:YES];
     [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
+
+}
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.installmentValueObject.count;
+}
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    VTInstallmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"installmentCell" forIndexPath:indexPath];
+    [cell configureInstallment:self.installmentValueObject[indexPath.row]];
+    return cell;
+}
+- (CGFloat)collectionView:(UICollectionView *)collectionView
+                   layout:(UICollectionViewLayout *)collectionViewLayout
+minimumLineSpacingForSectionAtIndex:(NSInteger)section {
+    return 1;
+
+}
+- (IBAction)prevButtonDidTapped:(id)sender {
+    if (self.installmentCurrentIndex >0) {
+          self.installmentCurrentIndex --;
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
+        [self.view.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }
+
+
+}
+- (IBAction)nextButtonDidTapped:(id)sender {
+
+    if (self.installmentCurrentIndex <self.installmentValueObject.count-1) {
+        self.installmentCurrentIndex ++;
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
+        [self.view.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    }
+
+
 
 }
 @end

@@ -48,6 +48,11 @@
 		00D577751DE6B878006B88CF /* icon_btn_plus_@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D5776F1DE6B878006B88CF /* icon_btn_plus_@1x.png */; };
 		00D577761DE6B878006B88CF /* icon_btn_plus_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D577701DE6B878006B88CF /* icon_btn_plus_@2x.png */; };
 		00D577771DE6B878006B88CF /* icon_btn_plus_@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00D577711DE6B878006B88CF /* icon_btn_plus_@3x.png */; };
+		00E6D1AB1DEC117000A9C14B /* VTInstallmentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E6D1A81DEC117000A9C14B /* VTInstallmentCollectionViewCell.h */; };
+		00E6D1AC1DEC117000A9C14B /* VTInstallmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6D1A91DEC117000A9C14B /* VTInstallmentCollectionViewCell.m */; };
+		00E6D1AD1DEC143300A9C14B /* VTInstallmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E6D1AA1DEC117000A9C14B /* VTInstallmentCollectionViewCell.xib */; };
+		00E6D1B01DEC14B500A9C14B /* VTCollectionViewLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 00E6D1AE1DEC14B400A9C14B /* VTCollectionViewLayout.h */; };
+		00E6D1B11DEC14B500A9C14B /* VTCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E6D1AF1DEC14B500A9C14B /* VTCollectionViewLayout.m */; };
 		00F61AE91D145A2B00C93DA0 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */; };
 		00F61AEE1D145A6200C93DA0 /* VTPaymentListDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -381,6 +386,11 @@
 		00D5776F1DE6B878006B88CF /* icon_btn_plus_@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_plus_@1x.png"; sourceTree = "<group>"; };
 		00D577701DE6B878006B88CF /* icon_btn_plus_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_plus_@2x.png"; sourceTree = "<group>"; };
 		00D577711DE6B878006B88CF /* icon_btn_plus_@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_btn_plus_@3x.png"; sourceTree = "<group>"; };
+		00E6D1A81DEC117000A9C14B /* VTInstallmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTInstallmentCollectionViewCell.h; sourceTree = "<group>"; };
+		00E6D1A91DEC117000A9C14B /* VTInstallmentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTInstallmentCollectionViewCell.m; sourceTree = "<group>"; };
+		00E6D1AA1DEC117000A9C14B /* VTInstallmentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTInstallmentCollectionViewCell.xib; path = ../MidtransKit/VTInstallmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		00E6D1AE1DEC14B400A9C14B /* VTCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCollectionViewLayout.h; sourceTree = "<group>"; };
+		00E6D1AF1DEC14B500A9C14B /* VTCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCollectionViewLayout.m; sourceTree = "<group>"; };
 		00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListView.h; sourceTree = "<group>"; };
 		00F61AE81D145A2B00C93DA0 /* VTPaymentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentListView.m; sourceTree = "<group>"; };
 		00F61AEC1D145A6200C93DA0 /* VTPaymentListDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentListDataSource.h; sourceTree = "<group>"; };
@@ -756,6 +766,23 @@
 			name = "Payment Status Result";
 			sourceTree = "<group>";
 		};
+		00E6D1A41DEC112500A9C14B /* Installment */ = {
+			isa = PBXGroup;
+			children = (
+				00E6D1AA1DEC117000A9C14B /* VTInstallmentCollectionViewCell.xib */,
+			);
+			name = Installment;
+			sourceTree = "<group>";
+		};
+		00E6D1A71DEC115400A9C14B /* Installment */ = {
+			isa = PBXGroup;
+			children = (
+				00E6D1A81DEC117000A9C14B /* VTInstallmentCollectionViewCell.h */,
+				00E6D1A91DEC117000A9C14B /* VTInstallmentCollectionViewCell.m */,
+			);
+			name = Installment;
+			sourceTree = "<group>";
+		};
 		00F61AE61D1459F300C93DA0 /* Payment List */ = {
 			isa = PBXGroup;
 			children = (
@@ -944,6 +971,8 @@
 				E5C25FF01D26382E0012BCC8 /* MidtransUIBaseViewController.m */,
 				E5C25FF31D2639B40012BCC8 /* VTBackBarButtonItem.h */,
 				E5C25FF41D2639B40012BCC8 /* VTBackBarButtonItem.m */,
+				00E6D1AE1DEC14B400A9C14B /* VTCollectionViewLayout.h */,
+				00E6D1AF1DEC14B500A9C14B /* VTCollectionViewLayout.m */,
 			);
 			name = Kit;
 			sourceTree = "<group>";
@@ -991,6 +1020,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				00E6D1A41DEC112500A9C14B /* Installment */,
 				E5D23C801D1D31CA0069B5F9 /* Credit Card */,
 				E50438BB1D1A718700710470 /* Status */,
 				E50438B01D1A653500710470 /* Guide */,
@@ -1076,6 +1106,7 @@
 		30E713101C85749F00AFB7B4 /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
+				00E6D1A71DEC115400A9C14B /* Installment */,
 				008859501D48892C003105F1 /* Add Card */,
 				E517C2C41C967C5D009AE6AA /* Alerts */,
 				E517C2E51C96C319009AE6AA /* Animators */,
@@ -1410,6 +1441,7 @@
 				E503AED81C8E8AF800F097FF /* MidtransUIListCell.h in Headers */,
 				E517C2BC1C9672BA009AE6AA /* VTConfirmPaymentController.h in Headers */,
 				E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */,
+				00E6D1AB1DEC117000A9C14B /* VTInstallmentCollectionViewCell.h in Headers */,
 				E58017EB1D5868E1007D2DEC /* VTXLTunaiSuccessController.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
 				00F61B261D14825100C93DA0 /* MidtransUIPaymentDirectView.h in Headers */,
@@ -1427,6 +1459,7 @@
 				E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */,
 				E57202D61D62F01D006B9265 /* VTGuideView.h in Headers */,
 				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,
+				00E6D1B01DEC14B500A9C14B /* VTCollectionViewLayout.h in Headers */,
 				E5E436471CE3290900F688ED /* MidtransUIPaymentController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1582,6 +1615,7 @@
 				309CC0F11C86C72200C058BE /* JCB@2x.png in Resources */,
 				E50D85E21D0EC93400F26D2E /* mandiri_ecash.plist in Resources */,
 				309CC0F01C86C72200C058BE /* CreditCardFront@2x.png in Resources */,
+				00E6D1AD1DEC143300A9C14B /* VTInstallmentCollectionViewCell.xib in Resources */,
 				002CC9A91D12639F003A1203 /* bca_klikbca@2x.png in Resources */,
 				E503AEE41C8EC50E00F097FF /* cimb_clicks@2x.png in Resources */,
 				E5387D4B1D62BE7E004CCF3D /* other_prima_1@2x.png in Resources */,
@@ -1746,6 +1780,7 @@
 				E564550C1D23AD5000CE5FA4 /* VTSegmentedControl.m in Sources */,
 				E517C2C21C9673B4009AE6AA /* VTAlertBackgroundView.m in Sources */,
 				E57202DF1D62FB27006B9265 /* VTGroupedInstruction.m in Sources */,
+				00E6D1B11DEC14B500A9C14B /* VTCollectionViewLayout.m in Sources */,
 				E578DD2C1CFC40480091760A /* MidtransUIPaymentListFooter.m in Sources */,
 				30E713271C859EE100AFB7B4 /* MidtransUIButton.m in Sources */,
 				E5EF82791C8C081F007B6585 /* VTCCBackView.m in Sources */,
@@ -1801,6 +1836,7 @@
 				3005E2781C7C175000064169 /* VTAddCardController.m in Sources */,
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
 				E54AC3FF1D16487800BA4603 /* MidtransUIThemeManager.m in Sources */,
+				00E6D1AC1DEC117000A9C14B /* VTInstallmentCollectionViewCell.m in Sources */,
 				306838821C7EE7220064A305 /* MidtransUIPaymentViewController.m in Sources */,
 				E5EF82741C8C0814007B6585 /* MidtransUICCFrontView.m in Sources */,
 				0093D8B61DC1EC7D00393334 /* MidtransLoadingView.m in Sources */,

@@ -70,7 +70,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
         }
     }];
 }
-- (void)requestCardBINForInstallmentWithCompletion:(void(^)(MidtransBinResponse *_Nullable binResponse, NSError *_Nullable error))completion {
+- (void)requestCardBINForInstallmentWithCompletion:(void(^)(NSArray *_Nullable binResponse, NSError *_Nullable error))completion {
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:MIDTRANS_BIN_REQUEST_URL];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
@@ -81,11 +81,15 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                                                     }
                                                 }
                                                 else {
-                                                    NSDictionary *json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                                    NSLog(@"json->%@",json);
-                                                    MidtransBinResponse *binResponseObject = [[MidtransBinResponse alloc] initWithDictionary:json];
+                                                    NSArray *json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                                    NSMutableArray *contentData = [NSMutableArray new];
+                                                    for (NSDictionary *response in json) {
+                                                        MidtransBinResponse *binResponseObject = [[MidtransBinResponse alloc] initWithDictionary:response];
+                                                        [contentData addObject:[binResponseObject dictionaryRepresentation]];
+                                                    }
+
                                                     if(completion) {
-                                                        completion(binResponseObject,nil);
+                                                        completion(contentData,nil);
                                                     }
 
                                                 }

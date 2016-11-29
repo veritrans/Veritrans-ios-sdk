@@ -33,9 +33,9 @@
         [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_PROD_SNAP];
     }
     else if (env == MidtransServerEnvironmentStaging) {
-        [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_SANDBOX_API_URL];
-        [[MidtransPrivateConfig shared] setMixpanelToken: MIDTRANS_SANDBOX_MIXPANEL];
-        [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_SANDBOX_SNAP];
+        [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_STAGING_API_URL];
+        [[MidtransPrivateConfig shared] setMixpanelToken: MIDTRANS_STAGING_MIXPANEL];
+        [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_STAGING_SNAP];
     }
     else {
         [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_SANDBOX_API_URL];

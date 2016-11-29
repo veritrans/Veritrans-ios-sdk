@@ -38,7 +38,7 @@ static const NSInteger installmentHeight = 44;
 @property (nonatomic,strong) NSMutableArray *maskedCards;
 @property (nonatomic) BOOL installmentAvailable;
 @property (nonatomic,strong)NSArray *binResponseObject;
-@property (nonatomic,strong)NSArray *installmentValueObject;
+@property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic,strong)MidtransBinResponse *filteredBinObject;
 @property (nonatomic,strong)MidtransPaymentRequestV2CreditCard *creditCardData;
 @property (nonatomic,strong)MidtransTransactionTokenResponse *snap_token;
@@ -69,6 +69,7 @@ static const NSInteger installmentHeight = 44;
 
     [super viewDidLoad];
     self.installmentCurrentIndex = 0;
+    self.installmentValueObject = [NSMutableArray new];
       self.view.installmentCollectionView.collectionViewLayout = [[VTCollectionViewLayout alloc] initWithColumn:1 andHeight:installmentHeight];
     [self.view.installmentCollectionView registerNib:[UINib nibWithNibName:@"VTInstallmentCollectionViewCell" bundle:VTBundle]
                forCellWithReuseIdentifier:@"installmentCell"];
@@ -298,7 +299,8 @@ static const NSInteger installmentHeight = 44;
         if (filtered.count) {
             self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
             if ([[[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank] count]) {
-                self.installmentValueObject = [[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank];
+                [self.installmentValueObject addObject:@"0"];
+                [self.installmentValueObject addObjectsFromArray:[[self.creditCardData.installments terms] objectForKey:self.filteredBinObject.bank]];
                 [self.view.installmentCollectionView reloadData];
                 [UIView transitionWithView:self.view.installmentWrapperView
                                   duration:1

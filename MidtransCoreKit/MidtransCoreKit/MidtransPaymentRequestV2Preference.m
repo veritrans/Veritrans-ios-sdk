@@ -48,14 +48,14 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.locale = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLocale fromDictionary:dict];
-            self.finishUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceFinishUrl fromDictionary:dict];
-            self.colorSchemeUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl fromDictionary:dict];
-            self.pendingUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferencePendingUrl fromDictionary:dict];
-            self.colorScheme = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorScheme fromDictionary:dict];
-            self.displayName = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceDisplayName fromDictionary:dict];
-            self.errorUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceErrorUrl fromDictionary:dict];
-        self.errorUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLogoUrl fromDictionary:dict];
+        self.locale = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLocale fromDictionary:dict];
+        self.finishUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceFinishUrl fromDictionary:dict];
+        self.colorSchemeUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl fromDictionary:dict];
+        self.pendingUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferencePendingUrl fromDictionary:dict];
+        self.colorScheme = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorScheme fromDictionary:dict];
+        self.displayName = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceDisplayName fromDictionary:dict];
+        self.errorUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceErrorUrl fromDictionary:dict];
+        self.logoUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLogoUrl fromDictionary:dict];
     }
     
     return self;
@@ -72,12 +72,12 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
     [mutableDict setValue:self.colorScheme forKey:kMidtransPaymentRequestV2PreferenceColorScheme];
     [mutableDict setValue:self.displayName forKey:kMidtransPaymentRequestV2PreferenceDisplayName];
     [mutableDict setValue:self.errorUrl forKey:kMidtransPaymentRequestV2PreferenceErrorUrl];
-     [mutableDict setValue:self.logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
-
+    [mutableDict setValue:self.logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
-- (NSString *)description 
+- (NSString *)description
 {
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
@@ -95,7 +95,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    
     self.locale = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceLocale];
     self.finishUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceFinishUrl];
     self.colorSchemeUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl];
@@ -109,7 +109,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    
     [aCoder encodeObject:_locale forKey:kMidtransPaymentRequestV2PreferenceLocale];
     [aCoder encodeObject:_finishUrl forKey:kMidtransPaymentRequestV2PreferenceFinishUrl];
     [aCoder encodeObject:_colorSchemeUrl forKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl];
@@ -125,7 +125,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
     MidtransPaymentRequestV2Preference *copy = [[MidtransPaymentRequestV2Preference alloc] init];
     
     if (copy) {
-
+        
         copy.locale = [self.locale copyWithZone:zone];
         copy.finishUrl = [self.finishUrl copyWithZone:zone];
         copy.colorSchemeUrl = [self.colorSchemeUrl copyWithZone:zone];

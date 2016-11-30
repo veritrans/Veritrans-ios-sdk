@@ -71,29 +71,6 @@
 
 #pragma mark - UIWebViewDelegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
-    NSString *requestURL = webView.request.URL.absoluteString;
-    
-    if ([requestURL containsString:self.merchant.preference.finishUrl]) {
-        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionFinished:)]) {
-            [self.delegate webPaymentController_transactionFinished:self];
-        }
-    }
-    else if ([requestURL containsString:self.merchant.preference.pendingUrl]) {
-        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
-            [self.delegate webPaymentController_transactionPending:self];
-        }
-    }
-    else if ([requestURL containsString:self.merchant.preference.errorUrl]) {
-        if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
-            [self.delegate webPaymentController:self transactionError:nil];
-        }
-    }
-    else {
-        [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
-    }
-}
-
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
@@ -103,6 +80,17 @@
 }
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
+    NSString *requestURL = webView.request.URL.absoluteString;
+    
+    if (([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] && [requestURL containsString:@"cimb-clicks/response"]) ||
+        ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] && [requestURL containsString:@"id="]) ||
+        ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
+        ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] && [requestURL containsString:@"briPayment"])) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
+            [self.delegate webPaymentController_transactionPending:self];
+        }
+    }
+    
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 

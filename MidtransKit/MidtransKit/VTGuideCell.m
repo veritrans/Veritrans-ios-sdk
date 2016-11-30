@@ -40,6 +40,9 @@
         self.illustrationView.image = nil;
         self.illustrationWidth.constant = 0;
     }
+    
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 @end

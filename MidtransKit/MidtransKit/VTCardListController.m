@@ -231,7 +231,7 @@ CGFloat const ButtonHeight = 56;
         if (selectedIndex == 1) {
             [self showLoadingHud];
             
-            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentOneClickWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails];
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentOneClickWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails installment:nil];
             MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
             
             [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {

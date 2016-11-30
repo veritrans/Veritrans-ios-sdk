@@ -25,8 +25,8 @@
 /**
  The monthly term of the payment.
  */
-@property (nonatomic) NSNumber *_Nullable installmentTerm;
 
+@property (nonatomic,strong) NSString *_Nullable installmentTerm;
 /**
  List of credit card's BIN (Bank Identification Number) that is allowed for transaction.
  All BIN can have 1 to 8 digits.
@@ -48,8 +48,8 @@
 /// @name Instantiation
 ///--------------------
 
-+ (instancetype _Nonnull)paymentOneClickWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer;
-+ (instancetype _Nonnull)paymentTwoClicksWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer;
-+ (instancetype _Nonnull)paymentWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer;
++ (instancetype _Nonnull)paymentOneClickWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer installment:(NSString *_Nullable)installmentTerm;
++ (instancetype _Nonnull)paymentTwoClicksWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer installment:(NSString *_Nullable)installmentTerm;;
++ (instancetype _Nonnull)paymentWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer installment:(NSString *_Nullable)installmentTerm;
 
 @end

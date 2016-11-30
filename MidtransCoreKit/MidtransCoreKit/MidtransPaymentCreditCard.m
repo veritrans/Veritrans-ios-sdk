@@ -26,24 +26,33 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 
 @implementation MidtransPaymentCreditCard
 
-+ (instancetype)paymentOneClickWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer {
++ (instancetype)paymentOneClickWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer installment:(NSString *_Nullable)installmentTerm{
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
+    if (installmentTerm) {
+        payment.installmentTerm = installmentTerm;
+    }
     payment.customerDetails = customer;
     payment.maskedCard = maskedCard;
     payment.paymentType = MidtransPaymentCreditCardTypeOneclick;
     return payment;
 }
 
-+ (instancetype)paymentTwoClicksWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer {
++ (instancetype)paymentTwoClicksWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer installment:(NSString *_Nullable)installmentTerm{
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
+    if (installmentTerm) {
+        payment.installmentTerm = installmentTerm;
+    }
     payment.customerDetails = customer;
     payment.creditCardToken = token;
     payment.paymentType = MidtransPaymentCreditCardTypeTwoClicks;
     return payment;
 }
 
-+ (instancetype)paymentWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer {
++ (instancetype)paymentWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer installment:(NSString *_Nullable)installmentTerm{
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
+    if (installmentTerm) {
+        payment.installmentTerm = installmentTerm;
+    }
     payment.customerDetails = customer;
     payment.creditCardToken = token;
     payment.paymentType = MidtransPaymentCreditCardTypeNormal;
@@ -69,7 +78,9 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 
 - (NSDictionary *)paymentParameter {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    
+    if (self.installmentTerm.length) {
+                    [parameters setObject:self.installmentTerm forKey:@"installment_term"];
+    }
     switch (self.paymentType) {
         case MidtransPaymentCreditCardTypeNormal:
             [parameters setObject:self.creditCardToken forKey:@"card_token"];

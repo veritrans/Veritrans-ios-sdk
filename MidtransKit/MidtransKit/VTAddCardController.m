@@ -183,11 +183,13 @@ static const NSInteger installmentHeight = 44;
 #pragma mark - Helper
 
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.snap_token.customerDetails];
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.snap_token];
+    NSString *installmentTerms = nil;
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
-        NSLog(@"pay with installment->");
+        installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[[self.creditCardData.installments terms]  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard paymentWithToken:token customer:self.snap_token.customerDetails installment:installmentTerms];
+    NSLog(@"paymentDetail ->%@",[paymentDetail dictionaryValue]);
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.snap_token];
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         if (error) {
             [self handleTransactionError:error];
@@ -331,6 +333,7 @@ static const NSInteger installmentHeight = 44;
 
     }
     else {
+        self.installmentCurrentIndex = 0;
         self.installmentBankName = @"";
         [UIView transitionWithView:self.view.installmentWrapperView
                           duration:1

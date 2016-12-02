@@ -7,26 +7,22 @@
 //
 
 #import "VTVATransactionStatusViewModel.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @implementation VTVATransactionStatusViewModel
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult vaType:(MidtransVAType)vaType {
+
+- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult
+                        paymentIdentifier:(NSString *)paymentIdentifier {
     if (self = [super initWithTransactionResult:transactionResult]) {
-        self.vaType = vaType;
-        
-        switch (vaType) {
-            case VTVATypeMandiri: {
-                self.billpayCode = transactionResult.mandiriBillpayCode;
-                self.companyCode = transactionResult.mandiriBillpayCompanyCode;
-                break;
-            }
-            case VTVATypeBCA:
-            case VTVATypePermata:
-            case  VTVATypeOther:
-                self.vaNumber = transactionResult.virtualAccountNumber;
-                break;
+        if ([paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
+            self.billpayCode = transactionResult.mandiriBillpayCode;
+            self.companyCode = transactionResult.mandiriBillpayCompanyCode;
         }
-        
+        else {
+            self.vaNumber = transactionResult.virtualAccountNumber;
+        }
     }
     return self;
 }
+
 @end

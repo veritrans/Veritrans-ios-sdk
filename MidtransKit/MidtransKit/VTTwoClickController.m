@@ -86,21 +86,12 @@
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
+                                        [self hideLoading];
                                         [self handleTransactionError:error];
                                     } else {
                                         [self payWithToken:token];
                                     }
                                 }];
-}
-
-- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
-    [super handleTransactionSuccess:result];
-    [self hideLoading];
-}
-
-- (void)handleTransactionError:(NSError *)error {
-    [super handleTransactionError:error];
-    [self hideLoading];
 }
 
 #pragma mark - UITextFieldDelegate
@@ -121,6 +112,8 @@
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.token.customerDetails saveCard:NO];
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+        [self hideLoading];
+        
         if (error) {
             [self handleTransactionError:error];
         } else {

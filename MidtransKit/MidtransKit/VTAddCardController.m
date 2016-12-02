@@ -73,19 +73,6 @@
     [self.view hideScanCardButton:YES];
 #endif
 }
-- (void)handleTransactionResult:(MidtransTransactionResult *)result {
-    [super handleTransactionResult:result];
-    [self.view.loadingView hide];
-}
-- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
-    [super handleTransactionSuccess:result];
-    [self.view.loadingView hide];
-}
-
-- (void)handleTransactionError:(NSError *)error {
-    [super handleTransactionError:error];
-    [self.view.loadingView hide];
-}
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
@@ -111,6 +98,7 @@
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
+                                        [self hideLoading];
                                         [self handleTransactionError:error];
                                     } else {
                                         [self payWithToken:token];
@@ -138,6 +126,8 @@
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+        [self hideLoading];
+        
         if (error) {
             [self handleTransactionError:error];
         }

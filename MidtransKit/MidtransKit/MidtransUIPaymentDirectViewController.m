@@ -10,12 +10,7 @@
 #import "MidtransUIPaymentDirectView.h"
 #import "MidtransUITextField.h"
 #import "MidtransUIButton.h"
-#import "VTVATransactionStatusViewModel.h"
-#import "VTBillpaySuccessController.h"
-#import "VTVASuccessStatusController.h"
-#import "VTIndomaretSuccessController.h"
-#import "VTKlikbcaSuccessController.h"
-#import "VTPendingStatusController.h"
+#import "VTClassHelper.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
@@ -146,49 +141,6 @@
 
 - (IBAction)howtoButtonDidTapped:(id)sender {
     [self showGuideViewController];
-}
-
-- (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
-        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA])
-    {
-        VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result
-                                                                                                        vaType:self.paymentType];
-        if (self.paymentType == VTVATypeMandiri) {
-            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithToken:self.token
-                                                                             paymentMethodName:self.paymentMethod
-                                                                                   statusModel:vm];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-        else {
-            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithToken:self.token
-                                                                               paymentMethodName:self.paymentMethod
-                                                                                     statusModel:vm];
-            [self.navigationController pushViewController:vc animated:YES];
-        }
-    }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
-        VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-        VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithToken:self.token
-                                                                             paymentMethodName:self.paymentMethod
-                                                                                   statusModel:vm];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
-        VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-        VTKlikbcaSuccessController *vc = [[VTKlikbcaSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod viewModel:vm];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-        VTPendingStatusController *vc = [[VTPendingStatusController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod result:result];
-        [self.navigationController pushViewController:vc animated:YES];
-    }
-    else {
-        [super handleTransactionSuccess:result];
-    }
 }
 
 @end

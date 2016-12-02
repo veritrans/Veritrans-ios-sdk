@@ -23,8 +23,6 @@
 @property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) BOOL secure;
 
-@property (nonatomic) NSString *bank;
-
 ///----------------
 /// @Initialization
 ///----------------

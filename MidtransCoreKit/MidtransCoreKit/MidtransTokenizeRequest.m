@@ -83,7 +83,6 @@
                                     @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
                                     @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
-                                    @"bank":[MidtransHelper nullifyIfNil:self.bank],
                                     @"secure":_secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"installment":self.installment? @"true":@"false",
@@ -97,9 +96,8 @@
     if (CC_CONFIG.bank)
         [result setObject:CC_CONFIG.bank forKey:@"bank"];
     
-    if ([CONFIG environment] == MidtransServerEnvironmentProduction) {
-        [result setObject:@"migs" forKey:@"channel"];
-    }
+    if (CC_CONFIG.channel)
+        [result setObject:CC_CONFIG.channel forKey:@"channel"];
     
     return result;
 }

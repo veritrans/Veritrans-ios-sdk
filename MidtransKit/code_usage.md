@@ -206,6 +206,11 @@ Add two methods to your view controller, these methods are from MidtransUIPaymen
 }
 ```
 
+### Want to Implement Your Own Status Page
+```
+UICONFIG.hideStatusPage = YES;
+```
+
 ### Customise Theme Color & Font
 
 We've created `MidtransUIThemeManager` to configure the theme color and font of the veritrans payment UI.

@@ -167,6 +167,11 @@ func paymentViewController_paymentCanceled(_ viewController: MidtransUIPaymentVi
 
 ```
 
+### Want to Implement Your Own Status Page
+```
+MidtransUIConfiguration.shared().hideStatusPage = true
+```
+
 ### Customise Theme Color & Font
 
 We've created `MidtransUIThemeManager` to configure the theme color and font of the veritrans payment UI.

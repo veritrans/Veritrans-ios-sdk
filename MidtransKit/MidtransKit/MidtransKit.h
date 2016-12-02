@@ -12,5 +12,6 @@
 #import "MidtransUIPaymentViewController.h"
 #import "MidtransUICustomerInputViewController.h"
 #import "MidtransUIThemeManager.h"
+#import "MidtransUIConfiguration.h"
 
 #endif /* MidtransKit_h */

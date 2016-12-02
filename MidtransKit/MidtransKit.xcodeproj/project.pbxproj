@@ -160,6 +160,8 @@
 		E50D85F61D0ECB9C00F26D2E /* bca_klikpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */; };
 		E50D86071D0ECBC500F26D2E /* VTIndomaretSuccessController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85FD1D0ECBC500F26D2E /* VTIndomaretSuccessController.h */; };
 		E50D86081D0ECBC500F26D2E /* VTIndomaretSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85FE1D0ECBC500F26D2E /* VTIndomaretSuccessController.m */; };
+		E5165C5C1DF12031008334AB /* MidtransUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E5165C5A1DF12031008334AB /* MidtransUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5165C5D1DF12031008334AB /* MidtransUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165C5B1DF12031008334AB /* MidtransUIConfiguration.m */; };
 		E516DA2C1D24CFE600FA1CD7 /* MidtransUIFontSource.h in Headers */ = {isa = PBXBuildFile; fileRef = E516DA2A1D24CFE600FA1CD7 /* MidtransUIFontSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E516DA2D1D24CFE600FA1CD7 /* MidtransUIFontSource.m in Sources */ = {isa = PBXBuildFile; fileRef = E516DA2B1D24CFE600FA1CD7 /* MidtransUIFontSource.m */; };
 		E517C2B91C967284009AE6AA /* alertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E517C2B81C967284009AE6AA /* alertBackground@2x.png */; };
@@ -492,6 +494,8 @@
 		E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bca_klikpay.plist; sourceTree = "<group>"; };
 		E50D85FD1D0ECBC500F26D2E /* VTIndomaretSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTIndomaretSuccessController.h; sourceTree = "<group>"; };
 		E50D85FE1D0ECBC500F26D2E /* VTIndomaretSuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTIndomaretSuccessController.m; sourceTree = "<group>"; };
+		E5165C5A1DF12031008334AB /* MidtransUIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIConfiguration.h; sourceTree = "<group>"; };
+		E5165C5B1DF12031008334AB /* MidtransUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIConfiguration.m; sourceTree = "<group>"; };
 		E516DA2A1D24CFE600FA1CD7 /* MidtransUIFontSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIFontSource.h; sourceTree = "<group>"; };
 		E516DA2B1D24CFE600FA1CD7 /* MidtransUIFontSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIFontSource.m; sourceTree = "<group>"; };
 		E517C2B81C967284009AE6AA /* alertBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alertBackground@2x.png"; sourceTree = "<group>"; };
@@ -830,6 +834,8 @@
 				E5C25FED1D2615950012BCC8 /* UIFont+IBCustomFonts.m */,
 				E5CA54BA1D6AF76400EC2A51 /* MidtransUICardFormatter.h */,
 				E5CA54BB1D6AF76400EC2A51 /* MidtransUICardFormatter.m */,
+				E5165C5A1DF12031008334AB /* MidtransUIConfiguration.h */,
+				E5165C5B1DF12031008334AB /* MidtransUIConfiguration.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1386,6 +1392,7 @@
 				E5CA54BC1D6AF76400EC2A51 /* MidtransUICardFormatter.h in Headers */,
 				306838721C7EDA0A0064A305 /* VTPaymentHeader.h in Headers */,
 				0093D8B51DC1EC7D00393334 /* MidtransLoadingView.h in Headers */,
+				E5165C5C1DF12031008334AB /* MidtransUIConfiguration.h in Headers */,
 				E5AB976C1D741C8D00466A44 /* VTPendingStatusController.h in Headers */,
 				E5C00EE41D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h in Headers */,
 				E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */,
@@ -1792,6 +1799,7 @@
 				E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */,
 				00F61B271D14825100C93DA0 /* MidtransUIPaymentDirectView.m in Sources */,
 				E57202E11D62FB27006B9265 /* VTInstruction.m in Sources */,
+				E5165C5D1DF12031008334AB /* MidtransUIConfiguration.m in Sources */,
 				00C685591DC701910008D08F /* MidtransPaymentStatusViewController.m in Sources */,
 				E525E12B1CFD75D1009448A5 /* UIViewController+Modal.m in Sources */,
 				E517C2E31C96C1C4009AE6AA /* PopAnimator.m in Sources */,

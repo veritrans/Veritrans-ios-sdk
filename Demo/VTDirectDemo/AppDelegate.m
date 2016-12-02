@@ -89,7 +89,9 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     CC_CONFIG.secure3DEnabled = cardSecure;
     CC_CONFIG.tokenStorageEnabled = tokenStorageEnabled;
     CC_CONFIG.paymentType = paymentType;
-//    CC_CONFIG.bank = @"mandiri";
+    CC_CONFIG.bank = @"mandiri";
+    
+    UICONFIG.hideStatusPage = YES;
     
     return YES;
 }

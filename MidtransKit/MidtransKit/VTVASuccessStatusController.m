@@ -48,23 +48,8 @@
     self.amountLabel.text = self.statusModel.totalAmount;
     self.orderIdLabel.text = self.statusModel.orderId;
     self.transactionTimeLabel.text = self.statusModel.transactionTime;
-    
-    switch (self.statusModel.vaType) {
-        case VTVATypeBCA: {
-            self.vaNumberLabel.text = self.statusModel.vaNumber;
-            self.title = UILocalizedString(@"BCA Bank Transfer",nil);
-            break;
-        } case VTVATypePermata: {
-            self.vaNumberLabel.text = self.statusModel.vaNumber;
-            self.title = UILocalizedString(@"Permata Bank Transfer",nil);
-            break;
-        } case VTVATypeMandiri: {
-        } case VTVATypeOther: {
-            self.vaNumberLabel.text = self.statusModel.vaNumber;
-            self.title = UILocalizedString(@"Other Bank Transfer",nil);
-            break;
-        }
-    }
+    self.title = self.paymentMethod.title;
+    self.vaNumberLabel.text = self.statusModel.vaNumber;
 }
 
 - (IBAction)saveVAPressed:(UIButton *)sender {

@@ -12,9 +12,13 @@
 #import <MidtransCoreKit/MidtransPaymentBankTransfer.h>
 
 @interface VTVATransactionStatusViewModel : VTPaymentStatusViewModel
+
 @property (nonatomic) NSString *vaNumber;
 @property (nonatomic) NSString *billpayCode;
 @property (nonatomic) NSString *companyCode;
 @property (nonatomic, assign) MidtransVAType vaType;
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult vaType:(MidtransVAType)vaType;
+
+- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult
+                        paymentIdentifier:(NSString *)paymentIdentifier;
+
 @end

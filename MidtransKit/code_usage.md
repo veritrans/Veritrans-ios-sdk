@@ -70,6 +70,11 @@ Once you have completed installation of MidtransKit, configure it with your `cli
 CC_CONFIG.bank = @"bank name";
 ```
 
+#### Custom Channel
+```
+CC_CONFIG.channel = @"migs";
+```
+
 #### Enable 3D Secure
 ```
 CC_CONFIG.secure3DEnabled = YES;

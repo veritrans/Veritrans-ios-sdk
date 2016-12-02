@@ -50,6 +50,10 @@ MidtransConfig.shared().setClientKey("client key", environment: .sandbox, mercha
 ```
 MidtransCreditCardConfig.shared().bank = "bank name"
 ```
+#### Custom Channel
+```
+MidtransCreditCardConfig.shared().channel = "migs"
+```
 #### Enable 3D Secure
 ```
 MidtransCreditCardConfig.shared().secure3DEnabled = true

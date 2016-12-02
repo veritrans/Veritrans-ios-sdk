@@ -20,6 +20,13 @@
 #import "VTKITConstant.h"
 #import "MidtransPaymentStatusViewController.h"
 #import "MidtransLoadingView.h"
+#import "MidtransUIConfiguration.h"
+#import "VTVATransactionStatusViewModel.h"
+#import "VTBillpaySuccessController.h"
+#import "VTVASuccessStatusController.h"
+#import "VTIndomaretSuccessController.h"
+#import "VTKlikbcaSuccessController.h"
+#import "VTPendingStatusController.h"
 
 @interface MidtransUIPaymentController ()
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
@@ -36,7 +43,7 @@
     }
     return self;
 }
- 
+
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
@@ -60,7 +67,7 @@
                  forControlEvents:UIControlEventTouchUpInside];
             self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
         }
-
+        
         self.navigationItem.leftBarButtonItem = self.backBarButton;
     }
     else {
@@ -75,7 +82,7 @@
         if (!self.backBarButton) {
             self.backBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissButtonDidTapped:)];
         }
-
+        
         self.navigationItem.leftBarButtonItem = self.backBarButton;
     }
     else {
@@ -125,13 +132,27 @@
 }
 
 - (void)handleTransactionError:(NSError *)error {
+    if (UICONFIG.hideStatusPage) {
+        NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
     VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
     if ([VTClassHelper hasKindOfController:vc onControllers:self.navigationController.viewControllers] == NO) {
         [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
     }
 }
-#pragma new method handle transaction
+
 - (void)handleTransactionResult:(MidtransTransactionResult *)result {
+    if (UICONFIG.hideStatusPage) {
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
+    
     MidtransPaymentStatusViewController *paymentStatusVC = [[MidtransPaymentStatusViewController alloc] initWithTransactionResult:result];
     if ([VTClassHelper hasKindOfController:paymentStatusVC onControllers:self.navigationController.viewControllers] == NO) {
         [self.navigationController pushViewController:(UIViewController *)paymentStatusVC animated:YES];
@@ -144,8 +165,14 @@
 }
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
-    UIViewController *vc;
+    if (UICONFIG.hideStatusPage) {
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        return;
+    }
     
+    UIViewController *vc;
     if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY]) {
         NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN
                                                     code:result.statusCode
@@ -153,7 +180,42 @@
         vc = [[VTErrorStatusController alloc] initWithError:error];
     }
     else {
-        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
+            [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
+            [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
+            [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+            VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result
+                                                                                                 paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
+            VTVASuccessStatusController *vc = [[VTVASuccessStatusController alloc] initWithToken:self.token
+                                                                               paymentMethodName:self.paymentMethod
+                                                                                     statusModel:vm];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
+            VTVATransactionStatusViewModel *vm = [[VTVATransactionStatusViewModel alloc] initWithTransactionResult:result
+                                                                                                 paymentIdentifier:self.paymentMethod.internalBaseClassIdentifier];
+            VTBillpaySuccessController *vc = [[VTBillpaySuccessController alloc] initWithToken:self.token
+                                                                             paymentMethodName:self.paymentMethod
+                                                                                   statusModel:vm];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
+            VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
+            VTIndomaretSuccessController *vc = [[VTIndomaretSuccessController alloc] initWithToken:self.token
+                                                                                 paymentMethodName:self.paymentMethod
+                                                                                       statusModel:vm];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
+            VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
+            VTKlikbcaSuccessController *vc = [[VTKlikbcaSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod viewModel:vm];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
+            VTPendingStatusController *vc = [[VTPendingStatusController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod result:result];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
             VTPaymentStatusXLTunaiViewModel *viewModel = [[VTPaymentStatusXLTunaiViewModel alloc] initWithTransactionResult:result];
             vc = [[VTXLTunaiSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod statusModel:viewModel];
         }
@@ -162,7 +224,6 @@
             vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
         }
     }
-    
     if ([VTClassHelper hasKindOfController:vc onControllers:self.navigationController.viewControllers] == NO) {
         [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
     }

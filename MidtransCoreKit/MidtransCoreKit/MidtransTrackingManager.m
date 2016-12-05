@@ -106,14 +106,16 @@
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     NSDictionary *defaultParameters = [parameters addDefaultParameter];
     [parameters addEntriesFromDictionary:defaultParameters];
+    [parameters addEntriesFromDictionary:properties];
     NSDictionary *event = @{@"event":eventName,
-                            @"properties":properties};
+                            @"properties":parameters};
     [self sendTrackingData:event];
 }
+
 - (void)sendTrackingData:(NSDictionary *)dictionary {
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
     NSString *base64String = [decoded base64EncodedStringWithOptions:0];
-    NSString *URL = @"https://api.mixpanel.com/track";
+    NSString *URL = MIDTRANS_CORE_TRACKING_MIXPANEL_URL;
     NSDictionary *parameter = @{@"data":base64String};
     [[MidtransNetworking shared] getFromURL:URL parameters:parameter callback:nil];
     

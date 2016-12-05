@@ -136,10 +136,10 @@ static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
 
+static NSString *const MIDTRANS_CORE_TRACKING_MIXPANEL_URL = @"https://api.mixpanel.com/track";
 
-
-static NSString *const  MIDTRANS_CORE_TRACKING_SELECT_PAYMENT = @"Select Payment";
-static NSString *const  MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE = @"Payment Type";
+static NSString *const  MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT = @"Payment Select";
+static NSString *const  MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE = @"Payment Type";
 //static NSString *const MIDTRANS_CORE_USING_CREDIT_CARD_SCANNER = @"credit.card.scanner";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT = @"credit.card.scanner.output";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER = @"credit_card_result_scan";

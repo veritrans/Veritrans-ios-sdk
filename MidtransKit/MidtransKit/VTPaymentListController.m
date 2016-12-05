@@ -54,19 +54,11 @@
     
     UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
-        const CGFloat barHeight = 44;
-        const CGFloat statusBarHeigt = 20;
-        CGFloat factoredLogoWidth = logo.size.width * (barHeight / logo.size.height);
-        
-        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:CGRectMake(0,
-                                                                               statusBarHeigt,
-                                                                               factoredLogoWidth,
-                                                                               barHeight
-                                                                               )];
+        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 34)];
         
         titleImage.image = [MidtransImageManager merchantLogo];
         titleImage.contentMode = UIViewContentModeScaleAspectFit;
-        titleImage.layer.masksToBounds = YES;
+        titleImage.clipsToBounds = NO;
         self.navigationItem.titleView = titleImage;
     }
     
@@ -206,7 +198,12 @@
 }
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
-    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_CORE_TRACKING_SELECT_PAYMENT withProperties:@{MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE:paymentMethod.internalBaseClassIdentifier}];
+    NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
+    if ([paymentMethodName isEqualToString:@"va"]) {
+        paymentMethodName = @"bank_transfer";
+    }
+    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
+                                           withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:paymentMethodName}];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

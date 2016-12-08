@@ -16,6 +16,15 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
     MTCreditCardPaymentTypeTwoclick
 };
 
+typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
+    MTAcquiringBankUnknown,
+    MTAcquiringBankBCA,
+    MTAcquiringBankBRI,
+    MTAcquiringBankCIMB,
+    MTAcquiringBankMandiri,
+    MTAcquiringBankBNI
+};
+
 @interface MidtransCreditCardConfig : NSObject
 
 @property (nonatomic) MTCreditCardPaymentType paymentType;
@@ -23,8 +32,9 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
 @property (nonatomic) BOOL secure3DEnabled;
 @property (nonatomic) BOOL saveCardEnabled;
 @property (nonatomic) BOOL tokenStorageEnabled;
-@property (nonatomic) NSString *bank;
-@property (nonatomic) NSString *channel;
+@property (nonatomic) MTAcquiringBank acquiringBank;
+@property (nonatomic, readonly) NSString *acquiringBankString;
+@property (nonatomic, readonly) NSString *channel;
 
 + (MidtransCreditCardConfig *)shared;
 

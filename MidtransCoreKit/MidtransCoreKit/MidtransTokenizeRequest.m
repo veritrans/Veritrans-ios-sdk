@@ -93,11 +93,13 @@
         }
     }
     
-    if (CC_CONFIG.bank)
-        [result setObject:CC_CONFIG.bank forKey:@"bank"];
-    
-    if (CC_CONFIG.channel)
+    if (CC_CONFIG.channel) {
         [result setObject:CC_CONFIG.channel forKey:@"channel"];
+    }
+    
+    if (CC_CONFIG.acquiringBankString) {
+        [result setObject:CC_CONFIG.acquiringBankString forKey:@"bank"];
+    }
     
     return result;
 }

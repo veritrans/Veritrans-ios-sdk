@@ -8,6 +8,8 @@
 
 #import "MidtransCreditCardConfig.h"
 
+NSString *const vPaymentGatewayMIGS = @"migs";
+
 @interface MidtransCreditCardConfig()
 @property (nonatomic) BOOL secureSnapEnabled;
 @end
@@ -33,6 +35,37 @@
         default:
             self.secureSnapEnabled = NO;
             break;
+    }
+}
+
+- (NSString *)channel {
+    switch (self.acquiringBank) {
+        case MTAcquiringBankBCA:
+        case MTAcquiringBankBRI:
+            return vPaymentGatewayMIGS;
+        case MTAcquiringBankBNI:
+        case MTAcquiringBankCIMB:
+        case MTAcquiringBankMandiri:
+            return nil;
+        default:
+            return nil;
+    }
+}
+
+- (NSString *)acquiringBankString {
+    switch (self.acquiringBank) {
+        case MTAcquiringBankBCA:
+            return @"bca";
+        case MTAcquiringBankBRI:
+            return @"bri";
+        case MTAcquiringBankBNI:
+            return @"bni";
+        case MTAcquiringBankCIMB:
+            return @"cimb";
+        case MTAcquiringBankMandiri:
+            return @"mandiri";
+        default:
+            return nil;
     }
 }
 

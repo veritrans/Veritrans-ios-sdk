@@ -156,8 +156,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     NSMutableDictionary *creditCardParameter = [NSMutableDictionary new];
     [creditCardParameter setObject:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
     [creditCardParameter setObject:@(CC_CONFIG.secureSnapEnabled) forKey:@"secure"];
-    if (CC_CONFIG.bank)
-        [creditCardParameter setObject:CC_CONFIG.bank forKey:@"bank"];
+    if (CC_CONFIG.acquiringBankString) {
+        [creditCardParameter setObject:CC_CONFIG.acquiringBankString forKey:@"bank"];
+    }
     
     [dictionaryParameters setObject:creditCardParameter forKey:@"credit_card"];
     

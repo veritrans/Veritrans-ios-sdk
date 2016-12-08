@@ -46,6 +46,8 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Used to scan credit card</string>

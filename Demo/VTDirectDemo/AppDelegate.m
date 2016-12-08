@@ -61,6 +61,10 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:@"https://rakawm-snap.herokuapp.com/"];
     
+    //    [CONFIG setClientKey:@"VT-client-EyRaL8UEMwjlCzyW"
+    //             environment:MidtransServerEnvironmentStaging
+    //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];
+    
     //set credit card config
     MTCreditCardPaymentType paymentType;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType]) {
@@ -89,7 +93,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     CC_CONFIG.secure3DEnabled = cardSecure;
     CC_CONFIG.tokenStorageEnabled = tokenStorageEnabled;
     CC_CONFIG.paymentType = paymentType;
-    CC_CONFIG.bank = @"mandiri";
+    CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
     
     UICONFIG.hideStatusPage = YES;
     

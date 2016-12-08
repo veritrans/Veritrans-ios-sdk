@@ -46,14 +46,20 @@ MidtransConfig.shared().setClientKey("client key", environment: .sandbox, mercha
 ```
 
 ### Credit Card Payment Feature
-#### Custom Bank Name
+#### Custom Acquiring Bank
+
 ```
-MidtransCreditCardConfig.shared().bank = "bank name"
+MidtransCreditCardConfig.shared().acquiringBank = acquiringBank
+/*
+these are banks that we've supported
+MTAcquiringBankBCA
+MTAcquiringBankBRI
+MTAcquiringBankCIMB
+MTAcquiringBankMandiri
+MTAcquiringBankBNI
+*/
 ```
-#### Custom Channel
-```
-MidtransCreditCardConfig.shared().channel = "migs"
-```
+
 #### Enable 3D Secure
 ```
 MidtransCreditCardConfig.shared().secure3DEnabled = true

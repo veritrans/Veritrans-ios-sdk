@@ -104,21 +104,38 @@
             if (self.callback) self.callback(responseObject, nil);
         }
         else if (code == 400) {
+            id statusMessage = responseObject[@"status_message"];
+            id validationMessage = responseObject[@"validation_messages"];
+            
+            NSMutableDictionary *userInfo = [NSMutableDictionary new];
+            if (statusMessage) {
+                userInfo[NSLocalizedDescriptionKey] = statusMessage;
+            }
+            
+            if (validationMessage) {
+                userInfo[NSLocalizedFailureReasonErrorKey] = validationMessage;
+            }
+            
             NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
                                                  code:code
-                                             userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"],
-                                                        NSLocalizedFailureReasonErrorKey:responseObject[@"validation_messages"]}];
+                                             userInfo:userInfo];
             if (self.callback) self.callback(nil, error);
         }
         else {
+            id statusMessage = responseObject[@"status_message"];
+            NSMutableDictionary *userInfo = [NSMutableDictionary new];
+            if (statusMessage) {
+                userInfo[NSLocalizedDescriptionKey] = statusMessage;
+            }
+            
             NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
                                                  code:code
-                                             userInfo:@{NSLocalizedDescriptionKey:responseObject[@"status_message"]}];
+                                             userInfo:userInfo];
             if (self.callback) self.callback(nil, error);
         }
     } else {
         if (self.callback) self.callback(responseObject, nil);
-    }    
+    }
     
     [self finish];
 }

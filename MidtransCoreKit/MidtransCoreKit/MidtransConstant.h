@@ -53,6 +53,7 @@ static NSString * const MIDTRANS_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";
 static NSString * const MIDTRANS_PAYMENT_INDOSAT_DOMPETKU = @"indosat_dompetku";
 static NSString * const MIDTRANS_PAYMENT_XL_TUNAI = @"xl_tunai";
 static NSString * const MIDTRANS_PAYMENT_MANDIRI_CLICKPAY = @"mandiri_clickpay";
+static NSString * const MIDTRANS_PAYMENT_GCI = @"gci";
 static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
 
 static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
@@ -84,6 +85,7 @@ static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
  */
 
 static NSString * const MIDTRANS_MESSAGE_CARD_INVALID = @"Card number is invalid";
+static NSString * const MIDTRANS_MESSAGE_INPUT_VALUE_INVALID = @"Input Invalid";
 static NSString * const MIDTRANS_MESSAGE_EXPIRE_DATE_INVALID = @"Expiry Year is invalid";
 static NSString * const MIDTRANS_MESSAGE_EXPIRE_MONTH_INVALID = @"Expiry Month is invalid";
 static NSString * const MIDTRANS_MESSAGE_CARD_CVV_INVALID = @"CVV is invalid";
@@ -155,6 +157,8 @@ static NSInteger const MIDTRANS_ERROR_CODE_INVALID_EXPIRY_DATE = -21;
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CC_NUMBER = -20;
 
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS = -40;
+
+static NSInteger const MIDTRANS_ERROR_CODE_INVALID_VALUE = -50;
 
 /**
  *  if needed we maybe need it as is to detect ios version and also device version

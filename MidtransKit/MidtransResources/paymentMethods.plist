@@ -12,16 +12,16 @@
 		<key>identifier</key>
 		<string>credit_card</string>
 	</dict>
-    <dict>
-        <key>title</key>
-        <string>Kioson</string>
-        <key>description</key>
-        <string>Pay from Kioson Outlet</string>
-        <key>id</key>
-        <string>kioson</string>
-        <key>identifier</key>
-        <string>kioson</string>
-    </dict>
+	<dict>
+		<key>title</key>
+		<string>Kioson</string>
+		<key>description</key>
+		<string>Pay from Kioson Outlet</string>
+		<key>id</key>
+		<string>kioson</string>
+		<key>identifier</key>
+		<string>kioson</string>
+	</dict>
 	<dict>
 		<key>title</key>
 		<string>ATM/Bank Transfer</string>
@@ -102,67 +102,75 @@
 		<key>identifier</key>
 		<string>bri_epay</string>
 	</dict>
-    <dict>
-        <key>title</key>
-        <string>Indosat Dompetku</string>
-        <key>description</key>
-        <string>Pay with Indosat Dompetku</string>
-        <key>id</key>
-        <string>indosat_dompetku</string>
-        <key>identifier</key>
-        <string>indosat_dompetku</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>XL Tunai</string>
-        <key>description</key>
-        <string>Pay with XL Tunai</string>
-        <key>id</key>
-        <string>xl_tunai</string>
-        <key>identifier</key>
-        <string>xl_tunai</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>Telkomsel Cash</string>
-        <key>description</key>
-        <string>Pay through you Telkomsel Cash account</string>
-        <key>id</key>
-        <string>telkomsel_cash</string>
-        <key>identifier</key>
-        <string>telkomsel_cash</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>BCA</string>
-        <key>description</key>
-        <string>Pay from BCA ATMs or internet banking</string>
-        <key>id</key>
-        <string>bca_va</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>Mandiri</string>
-        <key>description</key>
-        <string>Pay from Mandiri ATMs or internet banking</string>
-        <key>id</key>
-        <string>echannel</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>Permata</string>
-        <key>description</key>
-        <string>Pay from Permata ATMs or internet banking</string>
-        <key>id</key>
-        <string>permata_va</string>
-    </dict>
-    <dict>
-        <key>title</key>
-        <string>Other Bank</string>
-        <key>description</key>
-        <string>Pay from ATMs or internet banking</string>
-        <key>id</key>
-        <string>all_va</string>
-    </dict>
+	<dict>
+		<key>title</key>
+		<string>Indosat Dompetku</string>
+		<key>description</key>
+		<string>Pay with Indosat Dompetku</string>
+		<key>id</key>
+		<string>indosat_dompetku</string>
+		<key>identifier</key>
+		<string>indosat_dompetku</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>XL Tunai</string>
+		<key>description</key>
+		<string>Pay with XL Tunai</string>
+		<key>id</key>
+		<string>xl_tunai</string>
+		<key>identifier</key>
+		<string>xl_tunai</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Telkomsel Cash</string>
+		<key>description</key>
+		<string>Pay through you Telkomsel Cash account</string>
+		<key>id</key>
+		<string>telkomsel_cash</string>
+		<key>identifier</key>
+		<string>telkomsel_cash</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>BCA</string>
+		<key>description</key>
+		<string>Pay from BCA ATMs or internet banking</string>
+		<key>id</key>
+		<string>bca_va</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Mandiri</string>
+		<key>description</key>
+		<string>Pay from Mandiri ATMs or internet banking</string>
+		<key>id</key>
+		<string>echannel</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Permata</string>
+		<key>description</key>
+		<string>Pay from Permata ATMs or internet banking</string>
+		<key>id</key>
+		<string>permata_va</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Other Bank</string>
+		<key>description</key>
+		<string>Pay from ATMs or internet banking</string>
+		<key>id</key>
+		<string>all_va</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Gift Card Indonesia</string>
+		<key>description</key>
+		<string>Pay from ATMs or internet banking</string>
+		<key>id</key>
+		<string>gci</string>
+	</dict>
 </array>
 </plist>

@@ -284,7 +284,7 @@
 - (NSArray *)generateItemDetails {
     NSMutableArray *result = [NSMutableArray new];
     for (int i=0; i<6; i++) {
-        MidtransItemDetail *itemDetail = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@1000 quantity:@3];
+        MidtransItemDetail *itemDetail = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20] name:[NSString stringWithFormat:@"Item %i", i] price:@100 quantity:@3];
         itemDetail.imageURL = [NSURL URLWithString:@"http://ecx.images-amazon.com/images/I/41blp4ePe8L._AC_UL246_SR190,246_.jpg"];
         [result addObject:itemDetail];
     }

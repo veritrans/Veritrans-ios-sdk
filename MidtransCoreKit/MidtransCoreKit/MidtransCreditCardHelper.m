@@ -10,7 +10,7 @@
 #import "MidtransLuhn.h"
 #import "MidtransHelper.h"
 #import "MidtransConstant.h"
-
+#import "NSString+MidtransValidation.h"
 @implementation NSString (CreditCard)
 
 - (BOOL)isNumeric {
@@ -73,7 +73,15 @@
         return YES;
     }
 }
-
+- (BOOL)isValidValue:(NSError **)error {
+    if (!self.isEmpty) {
+        return YES;
+    } else {
+        NSString *errorMessage = NSLocalizedString(MIDTRANS_MESSAGE_INPUT_VALUE_INVALID, nil);
+        *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_VALUE userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        return NO;
+    }
+}
 - (BOOL)isValidCreditCardNumber:(NSError **)error {
     if ([MidtransLuhn validateString:self]) {
         return YES;

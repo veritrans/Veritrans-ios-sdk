@@ -22,7 +22,7 @@
 #import "VTAddCardView.h"
 #import "MidtransLoadingView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
+#import "MidtransUIConfiguration.h"
 
 #if __has_include(<CardIO/CardIO.h>)
 #import <CardIO/CardIO.h>
@@ -32,6 +32,7 @@
 #endif
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
+@property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
 
 @end
@@ -72,6 +73,8 @@
 #else
     [self.view hideScanCardButton:YES];
 #endif
+    
+    self.didYouKnowView.hidden = UICONFIG.hideDidYouKnowView;
 }
 
 - (IBAction)cvvInfoPressed:(UIButton *)sender {

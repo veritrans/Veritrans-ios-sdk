@@ -182,6 +182,18 @@ func paymentViewController_paymentCanceled(_ viewController: MidtransUIPaymentVi
 MidtransUIConfiguration.shared().hideStatusPage = true
 ```
 
+### Hide `Did You Know` Label
+If you don't want to show this view
+
+![Did You Know Screenshot](http://s.pictub.club/2016/12/19/s0IYDC.png)
+
+then set `hideDidYouKnowView` to `false`
+
+```
+MidtransUIConfiguration.shared().hideDidYouKnowView = true/false;
+```
+
+
 ### Customise Theme Color & Font
 
 We've created `MidtransUIThemeManager` to configure the theme color and font of the veritrans payment UI.

@@ -15,17 +15,19 @@
 @interface MidtransPaymentGCIViewController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
 @property (strong, nonatomic) IBOutlet MidtransPaymentGCIView *view;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
+@property (nonatomic) NSInteger attemptRetry;
 @end
 
 @implementation MidtransPaymentGCIViewController
 @dynamic view;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.attemptRetry = 0;
     self.title = self.paymentMethod.title;
     self.view.amountTotalLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
-    
-    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:(UITextField *)self.view.gciCardTextField];
+    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.gciCardTextField];
+    self.ccFormatter.numberLimit = 16;
     self.ccFormatter.delegate = self;
     
     
@@ -62,23 +64,46 @@
         return;
     }
      else if (self.view.passwordTextField.text.isEmpty) {
-       self.view.passwordTextField.warning = @"Password cannot be empty";
+       self.view.passwordTextField.warning = @"PIN cannot be empty";
         return;
     }
     [self showLoadingWithText:@"Loading"];
     MIdtransPaymentGCI *paymentDetails = [[MIdtransPaymentGCI alloc] initWithCardNumber:self.view.gciCardTextField.text password:self.view.passwordTextField.text];
-    NSLog(@"data-->%@",[paymentDetails dictionaryValue]);
+
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
-    
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
         
         if (error) {
-            [self handleTransactionError:error];
+            if (self.attemptRetry<2) {
+                self.attemptRetry+=1;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                message:error.localizedDescription
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Close"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else {
+               [self handleTransactionError:error];
+            }
+            
         }
         else {
-            [self handleTransactionSuccess:result];
+            if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
+                  self.attemptRetry+=1;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[result.transactionStatus capitalizedString]
+                                                                message:result.statusMessage
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Close"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else {
+             [self handleTransactionResult:result];
+            }
         }
+
     }];
 
     
@@ -97,14 +122,20 @@
         return YES;
     }
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)reformatCardNumber {
+    NSString *cardNumber = self.view.gciCardTextField.text;
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+    
+    self.view.gciCardTextField.text = formatted;
+    
 }
-*/
 
+#pragma mark - VTCardFormatterDelegate
+
+- (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
+}
 @end

@@ -10,6 +10,7 @@
 #import "MidtransPaymentGCIView.h"
 #import "VTClassHelper.h"
 #import "MidtransUITextField.h"
+#import "IHKeyboardAvoiding_vt.h"
 #import "MidtransUICardFormatter.h"
 #import <MidtransCoreKit/MidtransCorekit.h>
 @interface MidtransPaymentGCIViewController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.attemptRetry = 0;
+     [self addNavigationToTextFields:@[self.view.gciCardTextField,self.view.passwordTextField]];
     self.title = self.paymentMethod.title;
     self.view.amountTotalLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
@@ -117,7 +119,15 @@
     if ([textField isEqual:self.view.gciCardTextField]) {
         return [self.ccFormatter updateTextFieldContentAndPosition];
     }
-
+    else if ([textField isEqual:self.view.passwordTextField]) {
+        if(range.length + range.location > textField.text.length)
+        {
+            return NO;
+        }
+        
+        NSUInteger newLength = [textField.text length] + [string length] - range.length;
+        return newLength <= 6;
+    }
     else {
         return YES;
     }

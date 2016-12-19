@@ -52,5 +52,5 @@
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionExpire.h"
 #import "MidtransPaymentRequestV2DataModels.h"
-
+#import "MIdtransPaymentGCI.h"
 #endif /* MidtransCoreKit_h */

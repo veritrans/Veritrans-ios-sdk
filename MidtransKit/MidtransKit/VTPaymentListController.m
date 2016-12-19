@@ -20,6 +20,7 @@
 #import "MidtransUIPaymentListFooter.h"
 #import "MidtransUIPaymentListHeader.h"
 #import "VTPaymentListView.h"
+#import "MidtransPaymentGCIViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTPaymentListDataSource.h"
 #define DEFAULT_HEADER_HEIGHT 80;
@@ -199,7 +200,7 @@
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
-    if ([paymentMethodName isEqualToString:@"va"]) {
+    if ([paymentMethodName isEqualToString:MIDTRANS_PAYMENT_VA]) {
         paymentMethodName = @"bank_transfer";
     }
     [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
@@ -248,6 +249,10 @@
                                                                                                paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GCI]) {
+        MidtransPaymentGCIViewController *vc = [[MidtransPaymentGCIViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [self.navigationController pushViewController:vc animated:YES];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_CLICKPAY]) {
         VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token

@@ -23,6 +23,7 @@ typedef NS_ENUM(NSInteger, MidtransCreditCardType) {
 @interface NSString (CreditCard)
 - (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber error:(NSError **)error;
 - (BOOL)isValidExpiryDate:(NSError **)error;
+- (BOOL)isValidValue:(NSError **)error;//// just for gift card
 - (BOOL)isValidCreditCardNumber:(NSError **)error;
 @end
 

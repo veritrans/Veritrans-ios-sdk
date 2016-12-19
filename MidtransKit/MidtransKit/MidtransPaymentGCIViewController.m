@@ -102,7 +102,7 @@
                 [alert show];
             }
             else {
-             [self handleTransactionResult:result];
+             [self handleTransactionSuccess:result];
             }
         }
 

@@ -34,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic) NSInteger attemptRetry;
 
 @end
 
@@ -50,7 +51,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.attemptRetry = 0;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
@@ -76,7 +77,10 @@
     
     self.didYouKnowView.hidden = UICONFIG.hideDidYouKnowView;
 }
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    [self.view.loadingView remove];
+}
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
     [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
@@ -101,7 +105,7 @@
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
-                                        [self hideLoading];
+                                        [self.view.loadingView hide];
                                         [self handleTransactionError:error];
                                     } else {
                                         [self payWithToken:token];
@@ -114,7 +118,7 @@
     
     if ([self.view isViewError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
-                          andMessage:error.localizedDescription
+                           andMessage:error.localizedDescription
                       andButtonTitle:@"Close"];
     }
 }
@@ -129,10 +133,21 @@
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoading];
+       [self.view.loadingView hide];
         
         if (error) {
-            [self handleTransactionError:error];
+            if (self.attemptRetry < 2) {
+                self.attemptRetry+=1;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                message:error.localizedDescription
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Close"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else {
+                [self handleTransactionError:error];
+            }
         }
         else {
             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
@@ -145,7 +160,18 @@
                 [self handleTransactionResult:result];
             }
             else {
-                [self handleTransactionSuccess:result];
+                if (self.attemptRetry < 2) {
+                    self.attemptRetry+=1;
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                    message:result.statusMessage
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Close"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                }
+                else {
+                 [self handleTransactionSuccess:result];
+                }
             }
         }
     }];

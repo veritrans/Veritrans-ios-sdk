@@ -55,12 +55,14 @@
     
     UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
-        UIImageView *titleImage = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, 50, 34)];
+        UIView *titleViewWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 50)];
         
-        titleImage.image = [MidtransImageManager merchantLogo];
-        titleImage.contentMode = UIViewContentModeScaleAspectFit;
-        titleImage.clipsToBounds = NO;
-        self.navigationItem.titleView = titleImage;
+        UIImageView *imgView = [[UIImageView alloc] initWithFrame:titleViewWrapper.frame];
+        [imgView setImage:[MidtransImageManager merchantLogo]];
+        imgView.contentMode = UIViewContentModeScaleAspectFit;
+        imgView.clipsToBounds = YES;
+        [titleViewWrapper addSubview:imgView];
+        self.navigationItem.titleView = titleViewWrapper;
     }
     
     self.paymentMethodList = [NSMutableArray new];

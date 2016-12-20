@@ -22,7 +22,7 @@
 #import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
-
+#import "MidtransUIConfiguration.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 CGFloat const ButtonHeight = 56;
@@ -33,6 +33,7 @@ CGFloat const ButtonHeight = 56;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *addCardButton;
+@property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *addCardButtonHeight;
 @property (nonatomic, strong) MidtransPaymentRequestV2CreditCard *creditCard;
 @property (nonatomic) NSMutableArray *cards;
@@ -67,6 +68,8 @@ CGFloat const ButtonHeight = 56;
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     
     self.editingCell = false;
+    
+    self.didYouKnowView.hidden = UICONFIG.hideDidYouKnowView;
     
     if (![CC_CONFIG tokenStorageEnabled]) {
         [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
@@ -272,15 +275,18 @@ CGFloat const ButtonHeight = 56;
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
-    [[MidtransMerchantClient shared] saveMaskedCards:self.cards
+    NSMutableArray *editedCards = self.cards.mutableCopy;
+    [editedCards removeObjectAtIndex:indexPath.row];
+    
+    [[MidtransMerchantClient shared] saveMaskedCards:editedCards
                                             customer:self.token.customerDetails
                                           completion:^(id  _Nullable result, NSError * _Nullable error)
      {
          [self hideLoading];
          
          if (!error) {
-             [self.cards removeObjectAtIndex:indexPath.row];
-             [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+             self.cards = editedCards;
+             [self.collectionView reloadData];
              self.editingCell = false;
          } else {
              [self showAlertViewWithTitle:@"Error"

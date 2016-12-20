@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -77,18 +77,11 @@
                         <action selector="paymentGuideDidTapped:" destination="-1" eventType="touchUpInside" id="QvV-aK-J2P"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="TaK-33-Kde">
-                    <rect key="frame" x="352" y="632" width="8" height="13"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="13" id="IEd-ez-zb1"/>
-                        <constraint firstAttribute="width" constant="8" id="rAd-mv-BPA"/>
-                    </constraints>
-                </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIz-Pp-rKr" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="523" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MlU-a7-unk">
-                            <rect key="frame" x="320" y="12" width="40" height="22"/>
+                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -122,7 +115,7 @@
                     <rect key="frame" x="0.0" y="478" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-Uh-jUh">
-                            <rect key="frame" x="320" y="12" width="40" height="22"/>
+                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -159,7 +152,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="scR-bc-yC0">
-                    <rect key="frame" x="80" y="405" width="280" height="46"/>
+                    <rect key="frame" x="80" y="405.5" width="280" height="46"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Important!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c2V-pB-bEz" customClass="VTNoteTitleLabel">
                             <rect key="frame" x="0.0" y="0.0" width="280" height="13"/>
@@ -192,12 +185,10 @@
                 <constraint firstItem="2AF-lH-6ld" firstAttribute="top" secondItem="ZmT-QA-caE" secondAttribute="bottom" id="2eR-Wg-AXt"/>
                 <constraint firstItem="pIz-Pp-rKr" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" id="3u2-AO-w5K"/>
                 <constraint firstItem="ZmT-QA-caE" firstAttribute="top" secondItem="pIz-Pp-rKr" secondAttribute="bottom" id="9zo-3x-Zch"/>
-                <constraint firstItem="TaK-33-Kde" firstAttribute="trailing" secondItem="2AF-lH-6ld" secondAttribute="trailing" constant="-15" id="C8l-Au-lDp"/>
                 <constraint firstItem="bjL-2z-Sni" firstAttribute="top" secondItem="ltQ-Rg-4pD" secondAttribute="bottom" id="HHT-CV-Og6"/>
                 <constraint firstAttribute="trailing" secondItem="scR-bc-yC0" secondAttribute="trailing" constant="15" id="Jaa-yR-MPW"/>
                 <constraint firstItem="bjL-2z-Sni" firstAttribute="leading" secondItem="ltQ-Rg-4pD" secondAttribute="leading" id="JdR-7T-OpS"/>
                 <constraint firstAttribute="trailing" secondItem="pIz-Pp-rKr" secondAttribute="trailing" id="LCs-Xd-C1o"/>
-                <constraint firstItem="TaK-33-Kde" firstAttribute="centerY" secondItem="2AF-lH-6ld" secondAttribute="centerY" id="RNM-MJ-vAx"/>
                 <constraint firstItem="ZjO-XZ-gBe" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" constant="15" id="Xh3-XE-mfo"/>
                 <constraint firstItem="ltQ-Rg-4pD" firstAttribute="top" secondItem="wPm-rL-6ps" secondAttribute="top" constant="10" id="XuZ-l5-McO"/>
                 <constraint firstItem="scR-bc-yC0" firstAttribute="leading" secondItem="ZjO-XZ-gBe" secondAttribute="trailing" constant="15" id="Y8I-1L-Fft"/>
@@ -229,6 +220,5 @@
     </objects>
     <resources>
         <image name="DetailDisclosure.png" width="50" height="50"/>
-        <image name="DisclosureIndicator.png" width="8" height="13"/>
     </resources>
 </document>

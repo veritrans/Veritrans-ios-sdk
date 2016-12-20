@@ -12,5 +12,11 @@
 
 @interface MidtransUIConfiguration : NSObject
 @property (nonatomic, assign) BOOL hideStatusPage;
+
+/**
+ DidYouKnowView is a view that contains confirmation about Midtrans secure payment
+ */
+@property (nonatomic, assign) BOOL hideDidYouKnowView;
+
 + (MidtransUIConfiguration *_Nonnull)shared;
 @end

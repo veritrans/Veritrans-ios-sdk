@@ -14,7 +14,7 @@
 #import <MidtransKit/MidtransKit.h>
 
 #import "OptionViewController.h"
-
+//40ae30db-319b-4fb3-9753-aa5f0f031bcf
 static NSString * const kClientKey = @"client_key";
 static NSString * const kMerchantURL = @"merchant_url";
 static NSString * const kEnvironment = @"environment";
@@ -57,13 +57,20 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
-             environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:@"https://rakawm-snap.herokuapp.com/"];
+    
+//    [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
+//             environment:MidtransServerEnvironmentSandbox
+//       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com/"];
+    
+        [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+                 environment:MidtransServerEnvironmentSandbox
+           merchantServerURL:@"https://rakawm-snap.herokuapp.com/"];
     
     //    [CONFIG setClientKey:@"VT-client-EyRaL8UEMwjlCzyW"
     //             environment:MidtransServerEnvironmentStaging
     //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];
+    
+//    UICONFIG.hideDidYouKnowView = YES;
     
     //set credit card config
     MTCreditCardPaymentType paymentType;
@@ -93,7 +100,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     CC_CONFIG.secure3DEnabled = cardSecure;
     CC_CONFIG.tokenStorageEnabled = tokenStorageEnabled;
     CC_CONFIG.paymentType = paymentType;
-    CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
+//    CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
     
     UICONFIG.hideStatusPage = YES;
     

@@ -275,15 +275,18 @@ CGFloat const ButtonHeight = 56;
     
     NSIndexPath *indexPath = [_collectionView indexPathForCell:cell];
     
-    [[MidtransMerchantClient shared] saveMaskedCards:self.cards
+    NSMutableArray *editedCards = self.cards.mutableCopy;
+    [editedCards removeObjectAtIndex:indexPath.row];
+    
+    [[MidtransMerchantClient shared] saveMaskedCards:editedCards
                                             customer:self.token.customerDetails
                                           completion:^(id  _Nullable result, NSError * _Nullable error)
      {
          [self hideLoading];
          
          if (!error) {
-             [self.cards removeObjectAtIndex:indexPath.row];
-             [self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+             self.cards = editedCards;
+             [self.collectionView reloadData];
              self.editingCell = false;
          } else {
              [self showAlertViewWithTitle:@"Error"

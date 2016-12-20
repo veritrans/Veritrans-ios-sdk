@@ -20,7 +20,7 @@ We provide an API-only implementation for all payment types. This allows users t
 11. Mandiri Clickpay
 12. BRI E-Pay
 13. Kios ON
-
+14. GCI
 ### Setup
 
 #### Requirement
@@ -378,6 +378,21 @@ MidtransPaymentKiosOn *paymentDetails = [[MidtransPaymentKiosOn alloc] init];
 
 MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    if (error) {
+        //handle error
+    } else {
+        //handle success result
+    }
+}];
+```
+
+### 14. GCI
+
+```
+MIdtransPaymentGCI *paymentDetails = [[MIdtransPaymentGCI alloc] initWithCardNumber:cardNumber password:transaction_token]
+
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
 [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
     if (error) {
         //handle error

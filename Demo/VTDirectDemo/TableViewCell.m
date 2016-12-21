@@ -28,5 +28,7 @@
     
     [_imageView sd_setImageWithURL:item.imageURL];
 }
-
+- (void)configureSampleWithTitle:(NSString *)title {
+  _nameLabel.text = title;
+}
 @end

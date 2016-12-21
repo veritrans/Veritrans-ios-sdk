@@ -28,7 +28,6 @@
     self.title = @"Choose your payment mode";
     self.sampleList = @[@"Normal Payment",@"Specific Payment",@"Payment With Limit Time",@"Custom Theme",@"Custom Field"];
     [self.tableView reloadData];
-    [self initPayment];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -70,6 +69,8 @@
     return cell;
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [self initPayment];
+    
     switch (indexPath.row) {
         case 0:
             [self normalPaymentMode];

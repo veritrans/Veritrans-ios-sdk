@@ -79,10 +79,7 @@
     
     self.didYouKnowView.hidden = UICONFIG.hideDidYouKnowView;
 }
-- (void)viewWillDisappear:(BOOL)animated {
-    [super viewWillDisappear:YES];
-    [self hideLoading];
-}
+
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
     [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
@@ -121,8 +118,6 @@
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
-    [self hideLoading];
-    
     if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
@@ -132,7 +127,7 @@
 
 #pragma mark - Helper
 
-- (void)payWithToken:(NSString *)token {
+- (void)payWithToken:(NSString *)token {    
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.view.saveCardSwitch.isOn];
@@ -167,7 +162,7 @@
                 [self handleTransactionResult:result];
             }
             else {
-                if (self.attemptRetry < 2) {
+                 if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
                     self.attemptRetry+=1;
                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                     message:result.statusMessage

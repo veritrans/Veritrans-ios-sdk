@@ -104,7 +104,7 @@ CGFloat const ScanButtonHeight = 45;
     
     //show warning if error
     if (error) {
-        [self isViewError:error];
+        [self isViewableError:error];
     }
 }
 
@@ -131,7 +131,7 @@ CGFloat const ScanButtonHeight = 45;
     self.amountLabel.text = token.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 
-- (BOOL)isViewError:(NSError *)error {
+- (BOOL)isViewableError:(NSError *)error {
     if (error.code == -20) {
         //number invalid
         self.cardNumber.warning = error.localizedDescription;
@@ -145,6 +145,10 @@ CGFloat const ScanButtonHeight = 45;
     else if (error.code == -22) {
         //cvv number invalid
         self.cardCvv.warning = error.localizedDescription;
+        return YES;
+    }
+    else if (error.code == MIDTRANS_ERROR_CODE_INVALID_BIN) {
+        self.cardNumber.warning = UILocalizedString(@"creditcard.error.invalid-bin", nil);
         return YES;
     }
     else {

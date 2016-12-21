@@ -27,13 +27,12 @@
 @property (strong, nonatomic) IBOutlet UIView *saveCardView;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *saveCardViewHeight;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
-@property (weak, nonatomic) IBOutlet MidtransLoadingView *loadingView;
 
 - (void)hideScanCardButton:(BOOL)hide;
 - (void)reformatCardNumber;
 
 - (void)setToken:(MidtransTransactionTokenResponse *)token;
-- (BOOL)isViewError:(NSError *)error;
+- (BOOL)isViewableError:(NSError *)error;
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;
 - (UIImage *)iconWithNumber:(NSString *)number;

@@ -34,6 +34,7 @@
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic) NSArray *bins;
 
 @end
 
@@ -41,9 +42,10 @@
 
 @dynamic view;
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards bins:(NSArray *)bins {
     if (self = [super initWithToken:token]) {
         self.maskedCards = maskedCards;
+        self.bins = bins;
     }
     return self;
 }
@@ -92,27 +94,34 @@
         return;
     }
     
-    [self.view.loadingView showWithTitle:@"Processing your transaction"];
+    if ([MidtransClient isCard:creditCard eligibleForBins:self.bins error:&error] == NO) {
+        [self handleRegisterCreditCardError:error];
+        return;
+    }
+    
+    [self showLoadingWithText:@"Processing your transaction"];
     
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
                                                                                          secure:CC_CONFIG.secure3DEnabled];
     
-    [[MidtransClient shared] generateToken:tokenRequest
-                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                    if (error) {
-                                        [self hideLoading];
-                                        [self handleTransactionError:error];
-                                    } else {
-                                        [self payWithToken:token];
-                                    }
-                                }];
+    [[MidtransClient shared] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+        if (error) {
+            [self hideLoading];
+            if ([self.view isViewableError:error] == NO) {
+                [self handleTransactionError:error];
+            }
+        }
+        else {
+            [self payWithToken:token];
+        }
+    }];
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
-    [self.view.loadingView hide];
+    [self hideLoading];
     
-    if ([self.view isViewError:error] == NO) {
+    if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
                       andButtonTitle:@"Close"];

@@ -28,6 +28,7 @@
 "creditcard.input.title" = "Card Details";
 "creditcard.list.title" = "Choose Card";
 "creditcard.twoclick.title" = "Pay With Credit Card";
+"creditcard.error.invalid-bin" = "Kartu kredit tidak bisa digunakan, silahkan gunakan kartu kredit lain.";
 
 "va.list.title" = "Select Bank";
 

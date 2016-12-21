@@ -159,7 +159,6 @@
 		E50438B21D1A654B00710470 /* VTMultiGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B11D1A654B00710470 /* VTMultiGuideController.xib */; };
 		E50438B41D1A655500710470 /* VTSingleGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B31D1A655500710470 /* VTSingleGuideController.xib */; };
 		E50438B61D1A656400710470 /* VTSubGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50438B51D1A656400710470 /* VTSubGuideController.xib */; };
-		E50438BD1D1A999700710470 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E50438BC1D1A999700710470 /* Localizable.strings */; };
 		E50D85E21D0EC93400F26D2E /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85E11D0EC93400F26D2E /* mandiri_ecash.plist */; };
 		E50D85F21D0ECB9000F26D2E /* VTIndomaretSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E50D85EE1D0ECB9000F26D2E /* VTIndomaretSuccessController.xib */; };
 		E50D85F51D0ECB9C00F26D2E /* indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85F31D0ECB9C00F26D2E /* indomaret.plist */; };
@@ -330,6 +329,7 @@
 		E5D23C881D1D3D0B0069B5F9 /* MIdtransUICardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D23C871D1D3D0B0069B5F9 /* MIdtransUICardCell.xib */; };
 		E5E436471CE3290900F688ED /* MidtransUIPaymentController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */; };
 		E5E436481CE3290900F688ED /* MidtransUIPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */; };
+		E5EDD4C61E0A7C950006E160 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5EDD4C81E0A7C950006E160 /* Localizable.strings */; };
 		E5EF826D1C8C07AF007B6585 /* MidtransUIXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* MidtransUIXibView.h */; };
 		E5EF826E1C8C07AF007B6585 /* MidtransUIXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EF826C1C8C07AF007B6585 /* MidtransUIXibView.m */; };
 		E5EF82731C8C0814007B6585 /* MidtransUICCFrontView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF82711C8C0814007B6585 /* MidtransUICCFrontView.h */; };
@@ -499,7 +499,6 @@
 		E50438B11D1A654B00710470 /* VTMultiGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTMultiGuideController.xib; sourceTree = "<group>"; };
 		E50438B31D1A655500710470 /* VTSingleGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTSingleGuideController.xib; sourceTree = "<group>"; };
 		E50438B51D1A656400710470 /* VTSubGuideController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTSubGuideController.xib; sourceTree = "<group>"; };
-		E50438BC1D1A999700710470 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		E50D85E11D0EC93400F26D2E /* mandiri_ecash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = mandiri_ecash.plist; sourceTree = "<group>"; };
 		E50D85EE1D0ECB9000F26D2E /* VTIndomaretSuccessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTIndomaretSuccessController.xib; sourceTree = "<group>"; };
 		E50D85F31D0ECB9C00F26D2E /* indomaret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = indomaret.plist; sourceTree = "<group>"; };
@@ -683,6 +682,8 @@
 		E5D23C871D1D3D0B0069B5F9 /* MIdtransUICardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIdtransUICardCell.xib; sourceTree = "<group>"; };
 		E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentController.h; sourceTree = "<group>"; };
 		E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentController.m; sourceTree = "<group>"; };
+		E5EDD4C71E0A7C950006E160 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E5EDD4C91E0A7CC00006E160 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E5EF826B1C8C07AF007B6585 /* MidtransUIXibView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIXibView.h; sourceTree = "<group>"; };
 		E5EF826C1C8C07AF007B6585 /* MidtransUIXibView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIXibView.m; sourceTree = "<group>"; };
 		E5EF82711C8C0814007B6585 /* MidtransUICCFrontView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUICCFrontView.h; sourceTree = "<group>"; };
@@ -983,7 +984,7 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E50438BC1D1A999700710470 /* Localizable.strings */,
+				E5EDD4C81E0A7C950006E160 /* Localizable.strings */,
 				E53BD03F1D143BE8001FADDE /* bri_epay.plist */,
 				E50D85F31D0ECB9C00F26D2E /* indomaret.plist */,
 				E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */,
@@ -1515,6 +1516,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				id,
 			);
 			mainGroup = 305494121C759EDF00938C17;
 			productRefGroup = 3054941C1C759EDF00938C17 /* Products */;
@@ -1651,7 +1653,7 @@
 				E5387D571D62BE7E004CCF3D /* permata_atm_6@2x.png in Resources */,
 				E5387D471D62BE7E004CCF3D /* other_atm_4@2x.png in Resources */,
 				E58017E81D585B0E007D2DEC /* xl_tunai.plist in Resources */,
-				E50438BD1D1A999700710470 /* Localizable.strings in Resources */,
+				E5EDD4C61E0A7C950006E160 /* Localizable.strings in Resources */,
 				E58017E61D585B03007D2DEC /* indosat_dompetku.plist in Resources */,
 				0CD7EA911E03A1B50036C187 /* MidtransPaymentGCIViewController.xib in Resources */,
 				E5591A4A1CEF0DB7005A2DB1 /* VTVASuccessStatusController.xib in Resources */,
@@ -1856,6 +1858,18 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		E5EDD4C81E0A7C950006E160 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5EDD4C71E0A7C950006E160 /* en */,
+				E5EDD4C91E0A7CC00006E160 /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		3005E28B1C7C17A200064169 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -1909,6 +1923,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1954,6 +1969,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;

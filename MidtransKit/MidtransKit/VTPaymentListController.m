@@ -77,12 +77,14 @@
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    [self.view.loadingView showWithTitle:@"Loading payment list"];
+    [self showLoadingWithText:@"Loading payment list"];
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchant.preference.displayName;
          if (response) {
+             [self hideLoading];
+             
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
@@ -130,7 +132,6 @@
                  }
                  self.dataSource.paymentList = self.paymentMethodList;
                  if (response.enabledPayments.count>1) {
-                     [self.view.loadingView hide];
                      [self.view.tableView reloadData];
                  }
                  else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<1) {
@@ -269,7 +270,7 @@
 #pragma mark - VTAddCardControllerDelegate
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:YES];
-    [self.view.loadingView hide];
+    [self hideLoading];
 }
 - (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
     

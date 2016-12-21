@@ -70,7 +70,7 @@
     }];
 }
 
-- (void)hide {
+- (void)remove {
     [UIView animateWithDuration:0.15f animations:^{
         self.alpha = 0.0f;
     } completion:^(BOOL finished) {
@@ -78,6 +78,13 @@
     }];
 }
 
+- (void)hide {
+    [UIView animateWithDuration:0.15f animations:^{
+        self.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+         [self.superview sendSubviewToBack:self];
+    }];
+}
 - (void)showInView:(UIView *)view withText:(NSString *)text {
     self.alpha = 0;
     self.translatesAutoresizingMaskIntoConstraints = NO;

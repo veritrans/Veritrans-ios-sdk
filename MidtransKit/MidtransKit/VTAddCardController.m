@@ -35,6 +35,7 @@
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic) NSArray *bins;
+@property (nonatomic) NSInteger attemptRetry;
 
 @end
 
@@ -52,7 +53,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.attemptRetry = 0;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
@@ -78,7 +79,10 @@
     
     self.didYouKnowView.hidden = UICONFIG.hideDidYouKnowView;
 }
-
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    [self hideLoading];
+}
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
     [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
@@ -105,17 +109,15 @@
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
                                                                                          secure:CC_CONFIG.secure3DEnabled];
     
-    [[MidtransClient shared] generateToken:tokenRequest completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        if (error) {
-            [self hideLoading];
-            if ([self.view isViewableError:error] == NO) {
-                [self handleTransactionError:error];
-            }
-        }
-        else {
-            [self payWithToken:token];
-        }
-    }];
+    [[MidtransClient shared] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        [self hideLoading];
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
@@ -141,7 +143,18 @@
         [self hideLoading];
         
         if (error) {
-            [self handleTransactionError:error];
+            if (self.attemptRetry < 2) {
+                self.attemptRetry+=1;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                message:error.localizedDescription
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Close"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else {
+                [self handleTransactionError:error];
+            }
         }
         else {
             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
@@ -154,7 +167,18 @@
                 [self handleTransactionResult:result];
             }
             else {
-                [self handleTransactionSuccess:result];
+                if (self.attemptRetry < 2) {
+                    self.attemptRetry+=1;
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                    message:result.statusMessage
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Close"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                }
+                else {
+                    [self handleTransactionSuccess:result];
+                }
             }
         }
     }];

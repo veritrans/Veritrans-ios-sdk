@@ -11,4 +11,5 @@
 
 @interface TableViewCell : UITableViewCell
 @property (nonatomic, strong) MidtransItemDetail *item;
+- (void)configureSampleWithTitle:(NSString *)title;
 @end

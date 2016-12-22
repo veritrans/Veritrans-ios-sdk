@@ -94,12 +94,14 @@
         [self handleRegisterCreditCardError:error];
         return;
     }
-    
-    if ([MidtransClient isCard:creditCard eligibleForBins:self.bins error:&error] == NO) {
-        [self handleRegisterCreditCardError:error];
-        return;
+    if (self.bins.count) {
+        if ([MidtransClient isCard:creditCard eligibleForBins:self.bins error:&error] == NO) {
+            [self handleRegisterCreditCardError:error];
+            return;
+        }
+        
     }
-    
+
     [self showLoadingWithText:@"Processing your transaction"];
     
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard

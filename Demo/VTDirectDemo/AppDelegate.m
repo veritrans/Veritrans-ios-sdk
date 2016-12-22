@@ -66,7 +66,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     //             environment:MidtransServerEnvironmentStaging
     //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];
     
-//    UICONFIG.hideDidYouKnowView = YES;
+    UICONFIG.hideDidYouKnowView = NO;
     
     //set credit card config
     MTCreditCardPaymentType paymentType;

@@ -64,7 +64,7 @@
     }
     else {
         self.view.saveCardView.hidden = NO;
-        self.view.saveCardViewHeight.constant = 86;
+        self.view.saveCardViewHeight.constant = 70;
     }
     
     [self.view setToken:self.token];

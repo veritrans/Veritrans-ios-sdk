@@ -24,7 +24,7 @@ CGFloat const ScanButtonHeight = 45;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
+    self.saveCardSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;

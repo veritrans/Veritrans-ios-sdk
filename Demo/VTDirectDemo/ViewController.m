@@ -112,22 +112,6 @@
             }
             
         }];
-        
-        //[[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
-        //                                                                 itemDetails:self.itemDetails
-        //                                                           customerDetails:customerDetails
-        //                                                              completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
-        //  {
-        //    [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //  if (!error) {
-        //      SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
-        //      sampleController.transactionToken = token;
-        //     UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];
-        //     [self presentViewController:sampleNavigationcontroller animated:YES completion:nil];
-        //  }
-        //  else {
-        //  }
-        // }];
     }
     else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];

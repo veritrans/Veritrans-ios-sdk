@@ -57,9 +57,9 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     [[NSUserDefaults standardUserDefaults] synchronize];
 
-        [CONFIG setClientKey:@"VT-client-wCSALF27ZAHMVa2U"
-                 environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:@"http://tapri.ayopop.com/api/payments/ccPayment/v2/"];
+//        [CONFIG setClientKey:@"VT-client-wCSALF27ZAHMVa2U"
+//                 environment:MidtransServerEnvironmentSandbox
+//           merchantServerURL:@"http://tapri.ayopop.com/api/payments/ccPayment/v2/"];
     
     
 //    [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
@@ -104,7 +104,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     CC_CONFIG.secure3DEnabled = cardSecure;
     CC_CONFIG.tokenStorageEnabled = tokenStorageEnabled;
     CC_CONFIG.paymentType = paymentType;
-//    CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
+    CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
     
     UICONFIG.hideStatusPage = YES;
     

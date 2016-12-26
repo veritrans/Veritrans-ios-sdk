@@ -22,7 +22,8 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
     MTAcquiringBankBRI,
     MTAcquiringBankCIMB,
     MTAcquiringBankMandiri,
-    MTAcquiringBankBNI
+    MTAcquiringBankBNI,
+    MTAcquiringBankMaybank
 };
 
 @interface MidtransCreditCardConfig : NSObject

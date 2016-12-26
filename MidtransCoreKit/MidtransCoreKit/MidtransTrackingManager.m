@@ -31,7 +31,14 @@
     [defaultParameters setObject:@"iOS" forKey:@"Platform"];
     [defaultParameters setObject:VERSION forKey:@"SDK Version"];
 
-    [defaultParameters setObject:[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_SAVED_ID_TOKEN]?[[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_SAVED_ID_TOKEN]:@"-" forKey:MIDTRANS_TRACKING_SNAP_TOKEN_ID];
+    id snapToken = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
+    if (snapToken) {
+        [defaultParameters setObject:snapToken forKey:MIDTRANS_TRACKING_DISTINCT_ID];
+    }
+    else {
+        [defaultParameters setObject:@"unknown" forKey:MIDTRANS_TRACKING_DISTINCT_ID];
+    }
+    
     [defaultParameters setObject:[MidtransDeviceHelper deviceToken]?[MidtransDeviceHelper deviceToken]:@"simulator" forKey:MIDTRANS_TRACKING_DEVICE_ID];
     [defaultParameters setObject:[MidtransDeviceHelper deviceModel]?[MidtransDeviceHelper deviceModel]:@"simulator" forKey:MIDTRANS_TRACKING_DEVICE_MODEL];
     [defaultParameters setObject:[MidtransDeviceHelper deviceLanguage] forKey:MIDTRANS_TRACKING_DEVICE_LANGUAGE];

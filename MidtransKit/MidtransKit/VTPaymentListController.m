@@ -211,8 +211,8 @@
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
-            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
-                                                               paymentMethodName:paymentMethod];
+            
+            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:paymentMethod andCreditCardData:self.responsePayment.creditCard];
             [vc showDismissButton:self.singlePayment];
             vc.delegate = self;
             [self.navigationController pushViewController:vc animated:!self.singlePayment];

@@ -10,7 +10,6 @@
 #import "MidtransUICardFormatter.h"
 #import "VTClassHelper.h"
 #import "MidtransUIThemeManager.h"
-
 #import <IHKeyboardAvoiding_vt.h>
 
 CGFloat const ScanButtonHeight = 45;
@@ -24,7 +23,7 @@ CGFloat const ScanButtonHeight = 45;
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.saveCardSwitch.transform = CGAffineTransformMakeScale(0.75, 0.75);
+    self.saveCardSwitch.transform = CGAffineTransformMakeScale(0.65, 0.65);
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;

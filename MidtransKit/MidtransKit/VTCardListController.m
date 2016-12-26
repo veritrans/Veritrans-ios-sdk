@@ -166,9 +166,9 @@ CGFloat const ButtonHeight = 56;
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token maskedCards:self.cards bins:self.creditCard.whitelistBins];
-    vc.delegate = self;
-    [self.navigationController pushViewController:vc animated:YES];
+//    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token maskedCards:self.cards bins:self.creditCard.whitelistBins];
+//    vc.delegate = self;
+//    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController

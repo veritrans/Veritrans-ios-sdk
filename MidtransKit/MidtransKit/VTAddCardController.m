@@ -22,6 +22,7 @@
 #import "VTAddCardView.h"
 #import "MidtransLoadingView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import <MidtransCoreKit/MidtransPaymentRequestV2DataModels.h>
 #import "MidtransUIConfiguration.h"
 
 #if __has_include(<CardIO/CardIO.h>)
@@ -35,6 +36,8 @@
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic) NSArray *bins;
+@property (nonatomic,strong) MidtransPaymentListModel *paymentMethodInfo;
+@property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCardInfo;
 @property (nonatomic) NSInteger attemptRetry;
 
 @end
@@ -42,7 +45,13 @@
 @implementation VTAddCardController
 
 @dynamic view;
-
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
+    if (self = [super initWithToken:token]) {
+        self.creditCardInfo = creditCard;
+        self.paymentMethodInfo = paymentMethod;
+    }
+    return self;
+}
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards bins:(NSArray *)bins {
     if (self = [super initWithToken:token]) {
         self.maskedCards = maskedCards;
@@ -68,6 +77,23 @@
     }
     
     [self.view setToken:self.token];
+   // self.installmentAvailable = NO;
+    NSLog(@"data-->%@",[self.creditCardInfo dictionaryRepresentation]);
+    if ([[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]) {
+        
+    }
+//    MidtransPaymentRequestV2Installment *installment = self.creditCardInfo.installments;
+//    
+//    self.installmentAvailable = NO;
+//    
+//    if (installment.terms) {
+//        self.installmentAvailable = YES;
+//        [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
+//            if (!error) {
+//                self.binResponseObject = binResponse;
+//            }
+//        }];
+//    }
     
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];

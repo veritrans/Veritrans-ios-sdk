@@ -61,10 +61,6 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
                  environment:MidtransServerEnvironmentSandbox
            merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment"];
     
-    //    [CONFIG setClientKey:@"VT-client-EyRaL8UEMwjlCzyW"
-    //             environment:MidtransServerEnvironmentStaging
-    //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];
-    
     UICONFIG.hideDidYouKnowView = NO;
     
     //set credit card config

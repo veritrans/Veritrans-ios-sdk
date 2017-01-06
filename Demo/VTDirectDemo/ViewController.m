@@ -13,7 +13,7 @@
 #import <MidtransKit/MidtransKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MBProgressHUD.h>
-
+#import "UIFlowSampleViewController.h"
 @implementation NSString (random)
 
 + (NSString *)randomWithLength:(NSUInteger)length {
@@ -44,21 +44,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isDone = 0;
-    //set default font
-    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
-    if (!fontNames) {
-        [[NSUserDefaults standardUserDefaults] setObject:[UIFont fontNamesForFamilyName:@"Changa"] forKey:@"custom_font"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
     
-    //set default theme color
-    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
-    if (!themeColorData) {
-        UIColor *themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
-        themeColorData = [NSKeyedArchiver archivedDataWithRootObject:themeColor];
-        [[NSUserDefaults standardUserDefaults] setObject:themeColorData forKey:@"theme_color"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-    }
     
     self.navigationController.view.userInteractionEnabled = YES;
     
@@ -127,21 +113,6 @@
             
         }];
         
-        //[[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails
-        //                                                                 itemDetails:self.itemDetails
-        //                                                           customerDetails:customerDetails
-        //                                                              completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
-        //  {
-        //    [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //  if (!error) {
-        //      SamplePaymentListViewController *sampleController = [[SamplePaymentListViewController alloc] initWithNibName:@"SamplePaymentListViewController" bundle:nil];
-        //      sampleController.transactionToken = token;
-        //     UINavigationController *sampleNavigationcontroller = [[UINavigationController alloc] initWithRootViewController:sampleController];
-        //     [self presentViewController:sampleNavigationcontroller animated:YES completion:nil];
-        //  }
-        //  else {
-        //  }
-        // }];
     }
     else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
@@ -149,53 +120,13 @@
     }
 }
 - (void)initUIFlow {
-    //    [CC_CONFIG setTokenStorageEnabled:YES];
-    
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     MidtransCustomerDetails *customerDetails = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
-    MidtransTransactionDetails *transactionDetails = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20] andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
-    
     if (customerDetails!=nil) {
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        [MidtransUIThemeManager applyCustomThemeColor:[self myThemeColor] themeFont:[self myFontSource]];
-        // MidtransTransactionExpire *expire = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date] expireDuration:1 withUnitTime:MindtransTimeUnitTypeMinute];
-        
-        //        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:expire completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
-        //            NSLog(@"token-->%@",token);
-        //             [MBProgressHUD hideHUDForView:self.view animated:YES];
-        //             if (!error) {
-        //                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-        //                 self.paymentVC.delegate = self;
-        //
-        //                 [self presentViewController:self.paymentVC animated:YES completion:nil];
-        //             }
-        //             else {
-        //                 [self showAlertError:error];
-        //             }
-        //         }];
-        
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
-        
-        NSDate *now = [NSDate date];
-        NSString *iso8601String = [dateFormatter stringFromDate:now];
-        MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:now expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
-        
-        [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:expireTime completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
-             [MBProgressHUD hideHUDForView:self.view animated:YES];
-             if (!error) {
-                 self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-                 self.paymentVC.paymentDelegate = self;
-                 
-                 [self presentViewController:self.paymentVC animated:YES completion:nil];
-             }
-             else {
-                 [self showAlertError:error];
-             }
-         }];
-        
-        
+        UIFlowSampleViewController *sampleVC = [[UIFlowSampleViewController alloc] initWithNibName:@"UIFlowSampleViewController" bundle:nil];
+        sampleVC.customerDetails = customerDetails;
+        [self.navigationController pushViewController:sampleVC animated:YES];
     }
     else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];

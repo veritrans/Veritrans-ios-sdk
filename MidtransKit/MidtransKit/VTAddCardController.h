@@ -16,7 +16,7 @@
 
 @property (nonatomic, assign, nonnull) id<VTAddCardControllerDelegate>delegate;
 
-- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token maskedCards:(NSMutableArray *_Nonnull)maskedCards;
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token maskedCards:(NSMutableArray *_Nullable)maskedCards bins:(NSArray *_Nullable)bins;
 
 @end
 

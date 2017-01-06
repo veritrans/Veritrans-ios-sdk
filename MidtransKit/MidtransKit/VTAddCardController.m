@@ -34,6 +34,8 @@
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic) NSArray *bins;
+@property (nonatomic) NSInteger attemptRetry;
 
 @end
 
@@ -41,16 +43,17 @@
 
 @dynamic view;
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCards:(NSMutableArray *)maskedCards bins:(NSArray *)bins {
     if (self = [super initWithToken:token]) {
         self.maskedCards = maskedCards;
+        self.bins = bins;
     }
     return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.attemptRetry = 0;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];
@@ -91,8 +94,15 @@
         [self handleRegisterCreditCardError:error];
         return;
     }
-    
-    [self.view.loadingView showWithTitle:@"Processing your transaction"];
+    if (self.bins.count) {
+        if ([MidtransClient isCard:creditCard eligibleForBins:self.bins error:&error] == NO) {
+            [self handleRegisterCreditCardError:error];
+            return;
+        }
+        
+    }
+
+    [self showLoadingWithText:@"Processing your transaction"];
     
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
@@ -110,9 +120,7 @@
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {
-    [self.view.loadingView hide];
-    
-    if ([self.view isViewError:error] == NO) {
+    if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
                       andButtonTitle:@"Close"];
@@ -121,7 +129,7 @@
 
 #pragma mark - Helper
 
-- (void)payWithToken:(NSString *)token {
+- (void)payWithToken:(NSString *)token {    
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.view.saveCardSwitch.isOn];
@@ -132,7 +140,18 @@
         [self hideLoading];
         
         if (error) {
-            [self handleTransactionError:error];
+            if (self.attemptRetry < 2) {
+                self.attemptRetry+=1;
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                message:error.localizedDescription
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"Close"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else {
+                [self handleTransactionError:error];
+            }
         }
         else {
             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
@@ -145,7 +164,18 @@
                 [self handleTransactionResult:result];
             }
             else {
-                [self handleTransactionSuccess:result];
+                 if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
+                    self.attemptRetry+=1;
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                    message:result.statusMessage
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"Close"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                }
+                else {
+                    [self handleTransactionSuccess:result];
+                }
             }
         }
     }];

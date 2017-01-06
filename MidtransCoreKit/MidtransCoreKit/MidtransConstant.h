@@ -112,7 +112,7 @@ static NSString *const MIDTRANS_TRACKING_PAYMENT_AMOUNT = @"amount";
 static NSString *const MIDTRANS_TRACKING_PAYMENT_FEATURE = @"payment_feature";
 static NSString *const MIDTRANS_TRACKING_SECURE_PROTOCOL = @"secure";
 static NSString *const MIDTRANS_TRACKING_DEVICE_ID = @"Device ID";
-static NSString *const MIDTRANS_TRACKING_SNAP_TOKEN_ID = @"Snap Token";
+static NSString *const MIDTRANS_TRACKING_DISTINCT_ID = @"distinct_id";
 static NSString *const MIDTRANS_TRACKING_DEVICE_MODEL = @"Device Model";
 static NSString *const MIDTRANS_TRACKING_DEVICE_LANGUAGE = @"Device Language";
 static NSString *const MIDTRANS_TRACKING_APP_TOKENIZER_SUCCESS = @"Tokenize Success";
@@ -155,6 +155,7 @@ static NSInteger const MIDTRANS_ERROR_CODE_CANCELED_WEBPAYMENT = -31;
 static NSInteger const MIDTRANS_ERROR_CODE_INVALIDCVV = -22;
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_EXPIRY_DATE = -21;
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CC_NUMBER = -20;
+static NSInteger const MIDTRANS_ERROR_CODE_INVALID_BIN = -23;
 
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS = -40;
 

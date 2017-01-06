@@ -10,8 +10,6 @@
 #import "VTClassHelper.h"
 #import "MidtransItemCell.h"
 
-static CGFloat const cellItemHeight = 30;
-
 @interface MidtransTransactionDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) IBOutlet UILabel *priceAmountLabel;
 @property (nonatomic) IBOutlet UIView *backgroundView;

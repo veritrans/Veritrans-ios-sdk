@@ -58,6 +58,10 @@
 		00F61B231D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F61B1F1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib */; };
 		00F61B261D14825100C93DA0 /* MidtransUIPaymentDirectView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */; };
 		00F61B271D14825100C93DA0 /* MidtransUIPaymentDirectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */; };
+		0C2B8E4D1E2498F9007901CB /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E491E2498F9007901CB /* cc_badge@2x.png */; };
+		0C2B8E4E1E2498F9007901CB /* cc_badge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E4A1E2498F9007901CB /* cc_badge@3x.png */; };
+		0C2B8E4F1E2498F9007901CB /* midtrans_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E4B1E2498F9007901CB /* midtrans_lock@2x.png */; };
+		0C2B8E501E2498F9007901CB /* midtrans_lock@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E4C1E2498F9007901CB /* midtrans_lock@3x.png */; };
 		0CD7EA8F1E03A1A40036C187 /* MidtransPaymentGCIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */; };
 		0CD7EA901E03A1A40036C187 /* MidtransPaymentGCIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */; };
 		0CD7EA911E03A1B50036C187 /* MidtransPaymentGCIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD7EA8E1E03A1A40036C187 /* MidtransPaymentGCIViewController.xib */; };
@@ -398,6 +402,10 @@
 		00F61B1F1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUIPaymentDirectViewController.xib; path = ../MidtransKit/MidtransUIPaymentDirectViewController.xib; sourceTree = "<group>"; };
 		00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentDirectView.h; sourceTree = "<group>"; };
 		00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentDirectView.m; sourceTree = "<group>"; };
+		0C2B8E491E2498F9007901CB /* cc_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@2x.png"; sourceTree = "<group>"; };
+		0C2B8E4A1E2498F9007901CB /* cc_badge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@3x.png"; sourceTree = "<group>"; };
+		0C2B8E4B1E2498F9007901CB /* midtrans_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "midtrans_lock@2x.png"; sourceTree = "<group>"; };
+		0C2B8E4C1E2498F9007901CB /* midtrans_lock@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "midtrans_lock@3x.png"; sourceTree = "<group>"; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
 		0CD7EA8E1E03A1A40036C187 /* MidtransPaymentGCIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransPaymentGCIViewController.xib; path = ../MidtransKit/MidtransPaymentGCIViewController.xib; sourceTree = "<group>"; };
@@ -1042,6 +1050,10 @@
 				30E8798D1C897E7D000C0F4B /* credit_card@2x.png */,
 				E5CBAA321CB3607900A17AC1 /* emptyCardIcon@2x.png */,
 				0CD7EA921E03A2810036C187 /* gci@2x.png */,
+				0C2B8E491E2498F9007901CB /* cc_badge@2x.png */,
+				0C2B8E4A1E2498F9007901CB /* cc_badge@3x.png */,
+				0C2B8E4B1E2498F9007901CB /* midtrans_lock@2x.png */,
+				0C2B8E4C1E2498F9007901CB /* midtrans_lock@3x.png */,
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
 				002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */,
 				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
@@ -1590,6 +1602,7 @@
 				E5D23C841D1D31F10069B5F9 /* VTTwoClickController.xib in Resources */,
 				30AB739A1C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png in Resources */,
 				E5387D411D62BE7E004CCF3D /* other_alto_5@2x.png in Resources */,
+				0C2B8E501E2498F9007901CB /* midtrans_lock@3x.png in Resources */,
 				00F61B231D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
 				E503AEF01C8EC69800F097FF /* xl_tunai@2x.png in Resources */,
@@ -1617,6 +1630,7 @@
 				002CC9A91D12639F003A1203 /* bca_klikbca@2x.png in Resources */,
 				E503AEE41C8EC50E00F097FF /* cimb_clicks@2x.png in Resources */,
 				E5387D4B1D62BE7E004CCF3D /* other_prima_1@2x.png in Resources */,
+				0C2B8E4F1E2498F9007901CB /* midtrans_lock@2x.png in Resources */,
 				E5387D531D62BE7E004CCF3D /* permata_atm_2@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
@@ -1645,10 +1659,12 @@
 				00F61B041D145B4600C93DA0 /* SourceSansPro-Light.ttf in Resources */,
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				E5387D561D62BE7E004CCF3D /* permata_atm_5@2x.png in Resources */,
+				0C2B8E4E1E2498F9007901CB /* cc_badge@3x.png in Resources */,
 				E578DD1A1CFC1F170091760A /* MidtransUIToast.xib in Resources */,
 				E5387D401D62BE7E004CCF3D /* other_alto_4@2x.png in Resources */,
 				E5387D431D62BE7E004CCF3D /* other_alto_7@2x.png in Resources */,
 				E5387D4A1D62BE7E004CCF3D /* other_atm_7@2x.png in Resources */,
+				0C2B8E4D1E2498F9007901CB /* cc_badge@2x.png in Resources */,
 				002CC9A71D125BFF003A1203 /* bca_klikbca.plist in Resources */,
 				E5D23C821D1D31E60069B5F9 /* VTCardListController.xib in Resources */,
 				E5387D491D62BE7E004CCF3D /* other_atm_6@2x.png in Resources */,

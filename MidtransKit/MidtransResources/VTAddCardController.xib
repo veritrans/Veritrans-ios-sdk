@@ -119,13 +119,24 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc_badge.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zx1-o7-sA4">
                                             <rect key="frame" x="171" y="0.0" width="164" height="51"/>
                                         </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="midtrans_lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="9eO-MS-A71">
+                                            <rect key="frame" x="8" y="10" width="138" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="2He-8I-PJF"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
+                                        <constraint firstItem="Zx1-o7-sA4" firstAttribute="leading" secondItem="9eO-MS-A71" secondAttribute="trailing" constant="25" id="0Sc-Dc-uaU"/>
                                         <constraint firstItem="Zx1-o7-sA4" firstAttribute="width" secondItem="SZx-vb-Nch" secondAttribute="width" multiplier="1/2" constant="-7.5" id="58S-dC-ylL"/>
+                                        <constraint firstItem="9eO-MS-A71" firstAttribute="top" secondItem="SZx-vb-Nch" secondAttribute="top" constant="10" id="A8o-Yh-u6K"/>
                                         <constraint firstItem="Zx1-o7-sA4" firstAttribute="top" secondItem="SZx-vb-Nch" secondAttribute="top" id="Fcs-eW-lJ3"/>
                                         <constraint firstItem="Zx1-o7-sA4" firstAttribute="height" secondItem="SZx-vb-Nch" secondAttribute="height" id="HXa-xz-cln"/>
+                                        <constraint firstItem="9eO-MS-A71" firstAttribute="height" secondItem="SZx-vb-Nch" secondAttribute="height" constant="-20" id="MYw-pb-jQJ"/>
                                         <constraint firstAttribute="trailing" secondItem="Zx1-o7-sA4" secondAttribute="trailing" constant="8" id="Rt9-8O-ix5"/>
+                                        <constraint firstAttribute="bottom" secondItem="9eO-MS-A71" secondAttribute="bottom" constant="10" id="dRL-6o-liv"/>
+                                        <constraint firstItem="9eO-MS-A71" firstAttribute="leading" secondItem="SZx-vb-Nch" secondAttribute="leading" constant="8" id="jV0-rh-cFy"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-Es-v2p">
@@ -322,5 +333,6 @@
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="cc_badge.png" width="178" height="24"/>
+        <image name="midtrans_lock.png" width="109" height="28"/>
     </resources>
 </document>

@@ -54,6 +54,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.attemptRetry = 0;
+    self.didYouKnowView.layer.cornerRadius = 3.0f;
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];

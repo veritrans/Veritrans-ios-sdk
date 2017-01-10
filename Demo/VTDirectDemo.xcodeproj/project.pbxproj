@@ -60,9 +60,20 @@
 		E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
+		E5C72E021E24BDDB0079E463 /* VTDirectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C72E011E24BDDB0079E463 /* VTDirectDemoUITests.m */; };
 		E5DB43CE1DC0833C001C7B99 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */; };
 		E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5C72E041E24BDDB0079E463 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 302F71B61C73163C00FE73FE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302F71BD1C73163C00FE73FE;
+			remoteInfo = VTDirectDemo;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		00598E8E1D76AB39006241BF /* SamplePaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListViewController.h; sourceTree = "<group>"; };
@@ -135,6 +146,9 @@
 		E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
 		E5C32B321C8E789200C8EB92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		E5C32B331C8E789200C8EB92 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		E5C72DFF1E24BDDB0079E463 /* VTDirectDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VTDirectDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C72E011E24BDDB0079E463 /* VTDirectDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTDirectDemoUITests.m; sourceTree = "<group>"; };
+		E5C72E031E24BDDB0079E463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = virtualAccount.plist; sourceTree = "<group>"; };
 		E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentMethods.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -158,6 +172,13 @@
 				E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */,
 				E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */,
 				6234634FED1ECF4816474263 /* libPods-VTDirectDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C72DFC1E24BDDB0079E463 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +264,7 @@
 			isa = PBXGroup;
 			children = (
 				302F71C01C73163C00FE73FE /* VTDirectDemo */,
+				E5C72E001E24BDDB0079E463 /* VTDirectDemoUITests */,
 				302F71BF1C73163C00FE73FE /* Products */,
 				60DE1F59509B50552B10D5AE /* Frameworks */,
 				6856154754E7A35C15BD3D91 /* Pods */,
@@ -253,6 +275,7 @@
 			isa = PBXGroup;
 			children = (
 				302F71BE1C73163C00FE73FE /* VTDirectDemo.app */,
+				E5C72DFF1E24BDDB0079E463 /* VTDirectDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -395,6 +418,15 @@
 			name = Classes;
 			sourceTree = "<group>";
 		};
+		E5C72E001E24BDDB0079E463 /* VTDirectDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5C72E011E24BDDB0079E463 /* VTDirectDemoUITests.m */,
+				E5C72E031E24BDDB0079E463 /* Info.plist */,
+			);
+			path = VTDirectDemoUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -419,6 +451,24 @@
 			productReference = 302F71BE1C73163C00FE73FE /* VTDirectDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
+		E5C72DFE1E24BDDB0079E463 /* VTDirectDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5C72E061E24BDDB0079E463 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */;
+			buildPhases = (
+				E5C72DFB1E24BDDB0079E463 /* Sources */,
+				E5C72DFC1E24BDDB0079E463 /* Frameworks */,
+				E5C72DFD1E24BDDB0079E463 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5C72E051E24BDDB0079E463 /* PBXTargetDependency */,
+			);
+			name = VTDirectDemoUITests;
+			productName = VTDirectDemoUITests;
+			productReference = E5C72DFF1E24BDDB0079E463 /* VTDirectDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -431,6 +481,12 @@
 					302F71BD1C73163C00FE73FE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = G92YEQF267;
+					};
+					E5C72DFE1E24BDDB0079E463 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G92YEQF267;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 302F71BD1C73163C00FE73FE;
 					};
 				};
 			};
@@ -448,6 +504,7 @@
 			projectRoot = "";
 			targets = (
 				302F71BD1C73163C00FE73FE /* VTDirectDemo */,
+				E5C72DFE1E24BDDB0079E463 /* VTDirectDemoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -485,6 +542,13 @@
 				E5C25FBF1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf in Resources */,
 				302F71CC1C73163C00FE73FE /* Main.storyboard in Resources */,
 				E57A161E1DAB012C00324B9C /* MidtransKit.bundle in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C72DFD1E24BDDB0079E463 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +637,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E5C72DFB1E24BDDB0079E463 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5C72E021E24BDDB0079E463 /* VTDirectDemoUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5C72E051E24BDDB0079E463 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
+			targetProxy = E5C72E041E24BDDB0079E463 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		302F71CA1C73163C00FE73FE /* Main.storyboard */ = {
@@ -741,6 +821,34 @@
 			};
 			name = Release;
 		};
+		E5C72E071E24BDDB0079E463 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.VTDirectDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VTDirectDemo;
+			};
+			name = Debug;
+		};
+		E5C72E081E24BDDB0079E463 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.VTDirectDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = VTDirectDemo;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -761,6 +869,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		E5C72E061E24BDDB0079E463 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C72E071E24BDDB0079E463 /* Debug */,
+				E5C72E081E24BDDB0079E463 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

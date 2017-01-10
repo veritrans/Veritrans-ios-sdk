@@ -64,16 +64,6 @@
 		E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 302F71B61C73163C00FE73FE /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 302F71BD1C73163C00FE73FE;
-			remoteInfo = VTDirectDemo;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		00598E8E1D76AB39006241BF /* SamplePaymentListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplePaymentListViewController.h; sourceTree = "<group>"; };
 		00598E8F1D76AB39006241BF /* SamplePaymentListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplePaymentListViewController.m; sourceTree = "<group>"; };
@@ -95,7 +85,6 @@
 		0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowSampleViewController.m; sourceTree = "<group>"; };
 		0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFlowSampleViewController.xib; sourceTree = "<group>"; };
 		18A2FDE89D2B5AA6DDA21506 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
-		2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VTDirectDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71BE1C73163C00FE73FE /* VTDirectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTDirectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71C21C73163C00FE73FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		302F71C41C73163C00FE73FE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -151,13 +140,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		2E6BFA9E1D01391E002C8E85 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		302F71BB1C73163C00FE73FE /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -271,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				302F71BE1C73163C00FE73FE /* VTDirectDemo.app */,
-				2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -417,24 +398,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2E6BFAA01D01391E002C8E85 /* VTDirectDemoUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2E6BFAAD1D01391E002C8E85 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */;
-			buildPhases = (
-				2E6BFA9D1D01391E002C8E85 /* Sources */,
-				2E6BFA9E1D01391E002C8E85 /* Frameworks */,
-				2E6BFA9F1D01391E002C8E85 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2E6BFAA71D01391E002C8E85 /* PBXTargetDependency */,
-			);
-			name = VTDirectDemoUITests;
-			productName = VTDirectDemoUITests;
-			productReference = 2E6BFAA11D01391E002C8E85 /* VTDirectDemoUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		302F71BD1C73163C00FE73FE /* VTDirectDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 302F71D51C73163C00FE73FE /* Build configuration list for PBXNativeTarget "VTDirectDemo" */;
@@ -465,10 +428,6 @@
 				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = Veritrans;
 				TargetAttributes = {
-					2E6BFAA01D01391E002C8E85 = {
-						CreatedOnToolsVersion = 7.3.1;
-						TestTargetID = 302F71BD1C73163C00FE73FE;
-					};
 					302F71BD1C73163C00FE73FE = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = G92YEQF267;
@@ -489,19 +448,11 @@
 			projectRoot = "";
 			targets = (
 				302F71BD1C73163C00FE73FE /* VTDirectDemo */,
-				2E6BFAA01D01391E002C8E85 /* VTDirectDemoUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2E6BFA9F1D01391E002C8E85 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		302F71BC1C73163C00FE73FE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -602,13 +553,6 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2E6BFA9D1D01391E002C8E85 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		302F71BA1C73163C00FE73FE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -631,14 +575,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2E6BFAA71D01391E002C8E85 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
-			targetProxy = 2E6BFAA61D01391E002C8E85 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		302F71CA1C73163C00FE73FE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -659,34 +595,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2E6BFAA81D01391E002C8E85 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtransCoreKit.VTDirectDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6bd17941-d07e-4b30-985c-ad33ade4796c";
-				TEST_TARGET_NAME = VTDirectDemo;
-			};
-			name = Debug;
-		};
-		2E6BFAA91D01391E002C8E85 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CLANG_ANALYZER_NONNULL = YES;
-				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtransCoreKit.VTDirectDemoUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6bd17941-d07e-4b30-985c-ad33ade4796c";
-				TEST_TARGET_NAME = VTDirectDemo;
-			};
-			name = Release;
-		};
 		302F71D31C73163C00FE73FE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -725,7 +633,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -765,7 +673,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -836,15 +744,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2E6BFAAD1D01391E002C8E85 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2E6BFAA81D01391E002C8E85 /* Debug */,
-				2E6BFAA91D01391E002C8E85 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		302F71B91C73163C00FE73FE /* Build configuration list for PBXProject "VTDirectDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

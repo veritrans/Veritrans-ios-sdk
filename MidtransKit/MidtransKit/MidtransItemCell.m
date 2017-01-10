@@ -27,9 +27,9 @@
 
 - (void)setItemDetail:(MidtransItemDetail *)itemDetail {
     _itemDetail = itemDetail;
-    
+    NSInteger grandTotlaPrice = [itemDetail.price intValue] * [itemDetail.quantity intValue];
     self.nameLabel.text = itemDetail.name;
-    self.priceLabel.text = itemDetail.price.formattedCurrencyNumber;
+    self.priceLabel.text = [NSNumber numberWithInteger:grandTotlaPrice].formattedCurrencyNumber;
     self.qtyLabel.text = [NSString stringWithFormat:@"x%@", itemDetail.quantity];
     
     [self.contentView setNeedsLayout];

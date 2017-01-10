@@ -30,91 +30,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="567"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-Nt-p2f">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="533"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="368"/>
                             <subviews>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MK6-3w-vo5">
-                                    <rect key="frame" x="0.0" y="10" width="375" height="200"/>
-                                    <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0pt-iP-bMO" customClass="VTCCBackView">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </view>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6y0-gM-5VU" customClass="MidtransUICCFrontView">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </view>
-                                    </subviews>
-                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="bottom" secondItem="6y0-gM-5VU" secondAttribute="bottom" id="ClE-5y-ywd"/>
-                                        <constraint firstAttribute="trailing" secondItem="0pt-iP-bMO" secondAttribute="trailing" id="EiW-VC-QUN"/>
-                                        <constraint firstItem="6y0-gM-5VU" firstAttribute="leading" secondItem="MK6-3w-vo5" secondAttribute="leading" id="JnY-ur-HWF"/>
-                                        <constraint firstAttribute="trailing" secondItem="6y0-gM-5VU" secondAttribute="trailing" id="Rns-25-2an"/>
-                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="top" id="VUp-mH-seg"/>
-                                        <constraint firstAttribute="bottom" secondItem="0pt-iP-bMO" secondAttribute="bottom" id="bBm-rd-tgi"/>
-                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="leading" secondItem="MK6-3w-vo5" secondAttribute="leading" id="bJD-Zw-KqS"/>
-                                        <constraint firstAttribute="height" constant="200" id="eVx-tB-x2x"/>
-                                        <constraint firstItem="6y0-gM-5VU" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="top" id="lH0-6v-Fj4"/>
-                                        <constraint firstItem="0pt-iP-bMO" firstAttribute="height" secondItem="MK6-3w-vo5" secondAttribute="height" id="zWK-CS-fbT"/>
-                                    </constraints>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="zWK-CS-fbT"/>
-                                        </mask>
-                                    </variation>
-                                </view>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXS-76-jqp" customClass="MidtransUITextField">
-                                    <rect key="frame" x="15" y="218" width="345" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="3jF-nK-LoE"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
-                                            <real key="value" value="30"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-E9-a7J" customClass="MidtransUITextField">
-                                    <rect key="frame" x="15" y="273" width="230" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="wMA-K4-agy"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Nn-gz-tW4" customClass="MidtransUITextField">
-                                    <rect key="frame" x="260" y="273" width="100" height="50"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="100" id="hmI-zz-IJ3"/>
-                                        <constraint firstAttribute="height" constant="50" id="wUO-jY-oFV"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
-                                            <real key="value" value="20"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-0Q-o3N">
-                                    <rect key="frame" x="338" y="282" width="22" height="22"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="22" id="G09-mS-nqF"/>
-                                        <constraint firstAttribute="width" constant="22" id="awi-Qx-R4O"/>
-                                    </constraints>
-                                    <connections>
-                                        <action selector="cvvInfoPressed:" destination="-1" eventType="touchUpInside" id="WJ3-ue-MZd"/>
-                                    </connections>
-                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZx-vb-Nch">
-                                    <rect key="frame" x="16" y="472" width="343" height="51"/>
+                                    <rect key="frame" x="16" y="8" width="343" height="51"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc_badge.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zx1-o7-sA4">
                                             <rect key="frame" x="171" y="0.0" width="164" height="51"/>
@@ -139,8 +58,58 @@
                                         <constraint firstItem="9eO-MS-A71" firstAttribute="leading" secondItem="SZx-vb-Nch" secondAttribute="leading" constant="8" id="jV0-rh-cFy"/>
                                     </constraints>
                                 </view>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UXS-76-jqp" customClass="MidtransUITextField">
+                                    <rect key="frame" x="15" y="69" width="345" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="3jF-nK-LoE"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
+                                            <real key="value" value="30"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-E9-a7J" customClass="MidtransUITextField">
+                                    <rect key="frame" x="15" y="124" width="230" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="wMA-K4-agy"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Nn-gz-tW4" customClass="MidtransUITextField">
+                                    <rect key="frame" x="260" y="124" width="100" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="100" id="hmI-zz-IJ3"/>
+                                        <constraint firstAttribute="height" constant="50" id="wUO-jY-oFV"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
+                                            <real key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-0Q-o3N">
+                                    <rect key="frame" x="338" y="133" width="22" height="22"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="22" id="G09-mS-nqF"/>
+                                        <constraint firstAttribute="width" constant="22" id="awi-Qx-R4O"/>
+                                    </constraints>
+                                    <connections>
+                                        <action selector="cvvInfoPressed:" destination="-1" eventType="touchUpInside" id="WJ3-ue-MZd"/>
+                                    </connections>
+                                </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-Es-v2p">
-                                    <rect key="frame" x="15" y="331" width="345" height="63"/>
+                                    <rect key="frame" x="15" y="182" width="345" height="75"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e93-3E-0PY" customClass="MIdtransUIBorderedView">
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
@@ -186,13 +155,13 @@
                                         <constraint firstItem="e93-3E-0PY" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" id="Dos-pl-vRP"/>
                                         <constraint firstAttribute="trailing" secondItem="C3M-pA-1BZ" secondAttribute="trailing" id="SZy-2s-uhg"/>
                                         <constraint firstItem="C3M-pA-1BZ" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="a6D-eG-4w3"/>
-                                        <constraint firstAttribute="bottom" secondItem="C3M-pA-1BZ" secondAttribute="bottom" id="b5Q-9X-kKq"/>
                                         <constraint firstItem="C3M-pA-1BZ" firstAttribute="top" secondItem="e93-3E-0PY" secondAttribute="bottom" constant="1" id="dR1-9H-c3m"/>
+                                        <constraint firstAttribute="height" constant="75" id="eDD-uq-Vih"/>
                                         <constraint firstAttribute="trailing" secondItem="e93-3E-0PY" secondAttribute="trailing" id="k3L-cl-bCF"/>
                                     </constraints>
                                 </view>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aD-D5-Isf">
-                                    <rect key="frame" x="51" y="402" width="274" height="45"/>
+                                    <rect key="frame" x="51" y="276" width="274" height="45"/>
                                     <color key="backgroundColor" red="0.1058823529" green="0.56470588239999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="45" id="4DK-a4-Jy6"/>
@@ -210,27 +179,22 @@
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="centerY" secondItem="8Nn-gz-tW4" secondAttribute="centerY" constant="-5" id="10f-jS-9Kl"/>
-                                <constraint firstItem="UXS-76-jqp" firstAttribute="top" secondItem="MK6-3w-vo5" secondAttribute="bottom" constant="8" id="2Jd-KC-LlA"/>
-                                <constraint firstItem="MK6-3w-vo5" firstAttribute="top" secondItem="N7k-Nt-p2f" secondAttribute="top" constant="10" id="7Lu-0L-eRk"/>
-                                <constraint firstAttribute="height" constant="533" id="7zw-CB-Ano"/>
-                                <constraint firstItem="1aD-D5-Isf" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="8" id="8ps-og-cwj"/>
-                                <constraint firstAttribute="bottom" secondItem="SZx-vb-Nch" secondAttribute="bottom" constant="10" id="AKd-mZ-iAQ"/>
+                                <constraint firstItem="1aD-D5-Isf" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="19" id="8ps-og-cwj"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="centerY" secondItem="8Bd-E9-a7J" secondAttribute="centerY" id="ALP-u3-uvl"/>
-                                <constraint firstItem="MK6-3w-vo5" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" id="C4H-Js-O7D"/>
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="trailing" secondItem="8Nn-gz-tW4" secondAttribute="trailing" id="Dp8-f7-D84"/>
-                                <constraint firstItem="SZx-vb-Nch" firstAttribute="top" secondItem="1aD-D5-Isf" secondAttribute="bottom" constant="25" id="EvU-Je-see"/>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="leading" secondItem="UXS-76-jqp" secondAttribute="leading" id="F9u-MK-yvB"/>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="top" secondItem="UXS-76-jqp" secondAttribute="bottom" constant="5" id="Jfm-cr-euI"/>
                                 <constraint firstAttribute="trailing" secondItem="SZx-vb-Nch" secondAttribute="trailing" constant="16" id="Klk-sE-fcH"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="MVh-xl-P7l"/>
+                                <constraint firstItem="SZx-vb-Nch" firstAttribute="top" secondItem="N7k-Nt-p2f" secondAttribute="top" constant="8" id="P9F-Es-iBV"/>
                                 <constraint firstItem="SZx-vb-Nch" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="16" id="PiI-tF-KGJ"/>
                                 <constraint firstAttribute="trailing" secondItem="ANX-Es-v2p" secondAttribute="trailing" constant="15" id="TBy-6c-4Ab"/>
+                                <constraint firstItem="UXS-76-jqp" firstAttribute="top" secondItem="SZx-vb-Nch" secondAttribute="bottom" constant="10" id="fC6-Se-nOr"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="8" id="hi5-PU-7sz"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="centerX" secondItem="1aD-D5-Isf" secondAttribute="centerX" id="hz9-fK-hmH"/>
-                                <constraint firstItem="SZx-vb-Nch" firstAttribute="top" secondItem="N7k-Nt-p2f" secondAttribute="top" constant="472" id="idc-Ho-jfU"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" id="jqb-EC-ngL"/>
+                                <constraint firstAttribute="bottom" secondItem="1aD-D5-Isf" secondAttribute="bottom" constant="47" id="l3Q-ow-dQ4"/>
                                 <constraint firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" constant="15" id="qez-2N-6Gy"/>
-                                <constraint firstAttribute="trailing" secondItem="MK6-3w-vo5" secondAttribute="trailing" id="wDL-Oe-HXc"/>
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="xzg-JW-c81"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="leading" secondItem="8Bd-E9-a7J" secondAttribute="trailing" constant="15" id="zu6-V5-1s1"/>
                             </constraints>
@@ -314,12 +278,9 @@
             </constraints>
             <connections>
                 <outlet property="amountLabel" destination="89S-8I-cU7" id="r28-0A-UXo"/>
-                <outlet property="cardBackView" destination="0pt-iP-bMO" id="LQQ-b4-taK"/>
                 <outlet property="cardCvv" destination="8Nn-gz-tW4" id="77R-by-odN"/>
                 <outlet property="cardExpiryDate" destination="8Bd-E9-a7J" id="bvg-4t-JcC"/>
-                <outlet property="cardFrontView" destination="6y0-gM-5VU" id="iCI-ea-dNP"/>
                 <outlet property="cardNumber" destination="UXS-76-jqp" id="dyt-iD-TOI"/>
-                <outlet property="cardView" destination="MK6-3w-vo5" id="mi3-IM-rUf"/>
                 <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
                 <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>

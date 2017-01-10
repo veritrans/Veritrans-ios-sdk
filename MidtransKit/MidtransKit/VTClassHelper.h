@@ -26,6 +26,7 @@
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath;
 + (NSArray <VTGroupedInstruction*>*)groupedInstructionsFromFilePath:(NSString *)filePath;
 + (BOOL)hasKindOfController:(UIViewController *)controller onControllers:(NSArray<UIViewController*>*)controllers;
++ (UIViewController *)rootViewController;
 @end
 
 @interface NSNumber (formatter)
@@ -45,4 +46,8 @@
 @interface UIViewController (Utils)
 - (void)addSubViewController:(UIViewController *)viewController toView:(UIView*)contentView;
 - (void)removeSubViewController:(UIViewController *)viewController;
+@end
+
+@interface NSArray (Item)
+- (NSString *)formattedPriceAmount;
 @end

@@ -200,6 +200,7 @@
                                                                       itemDetails:self.itemDetails
                                                                   customerDetails:self.customerDetails
                                                                        completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
+                                                                           NSLog(@"token->%@",token);
                  [MBProgressHUD hideHUDForView:self.view animated:YES];
                  if (!error) {
                      MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];

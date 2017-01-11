@@ -156,9 +156,11 @@
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
+    
     if ([paymentMethodName isEqualToString:MIDTRANS_PAYMENT_VA]) {
         paymentMethodName = @"bank_transfer";
     }
+    
     [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
                                            withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:paymentMethodName}];
     

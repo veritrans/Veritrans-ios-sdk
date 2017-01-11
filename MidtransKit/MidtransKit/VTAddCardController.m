@@ -81,7 +81,7 @@
     
     [self.view setToken:self.token];
    // self.installmentAvailable = NO;
-    NSLog(@"data-->%@",[self.creditCardInfo dictionaryRepresentation]);
+    NSLog(@"data-->%@",self.creditCardInfo);
     if ([[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]) {
         
     }

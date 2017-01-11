@@ -115,7 +115,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="345" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
-                                                    <rect key="frame" x="0.0" y="12" width="147" height="22"/>
+                                                    <rect key="frame" x="0.0" y="12.5" width="147" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -143,7 +143,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to ease your transactions." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3M-pA-1BZ">
-                                            <rect key="frame" x="0.0" y="46" width="345" height="17"/>
+                                            <rect key="frame" x="0.0" y="46" width="345" height="16.5"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -160,26 +160,10 @@
                                         <constraint firstAttribute="trailing" secondItem="e93-3E-0PY" secondAttribute="trailing" id="k3L-cl-bCF"/>
                                     </constraints>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1aD-D5-Isf">
-                                    <rect key="frame" x="51" y="276" width="274" height="45"/>
-                                    <color key="backgroundColor" red="0.1058823529" green="0.56470588239999997" blue="0.92156862750000001" alpha="1" colorSpace="calibratedRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="4DK-a4-Jy6"/>
-                                        <constraint firstAttribute="width" constant="274" id="vaq-or-jqz"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                    <state key="normal" title="SCAN YOUR CARD">
-                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="scanCardDidTapped:" destination="-1" eventType="touchUpInside" id="fFM-gt-qhj"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="centerY" secondItem="8Nn-gz-tW4" secondAttribute="centerY" constant="-5" id="10f-jS-9Kl"/>
-                                <constraint firstItem="1aD-D5-Isf" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="19" id="8ps-og-cwj"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="centerY" secondItem="8Bd-E9-a7J" secondAttribute="centerY" id="ALP-u3-uvl"/>
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="trailing" secondItem="8Nn-gz-tW4" secondAttribute="trailing" id="Dp8-f7-D84"/>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="leading" secondItem="UXS-76-jqp" secondAttribute="leading" id="F9u-MK-yvB"/>
@@ -191,10 +175,9 @@
                                 <constraint firstAttribute="trailing" secondItem="ANX-Es-v2p" secondAttribute="trailing" constant="15" id="TBy-6c-4Ab"/>
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="top" secondItem="SZx-vb-Nch" secondAttribute="bottom" constant="10" id="fC6-Se-nOr"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="8" id="hi5-PU-7sz"/>
-                                <constraint firstItem="ANX-Es-v2p" firstAttribute="centerX" secondItem="1aD-D5-Isf" secondAttribute="centerX" id="hz9-fK-hmH"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" id="jqb-EC-ngL"/>
-                                <constraint firstAttribute="bottom" secondItem="1aD-D5-Isf" secondAttribute="bottom" constant="47" id="l3Q-ow-dQ4"/>
                                 <constraint firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" constant="15" id="qez-2N-6Gy"/>
+                                <constraint firstAttribute="bottom" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="111" id="s6I-Z4-dqb"/>
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="xzg-JW-c81"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="leading" secondItem="8Bd-E9-a7J" secondAttribute="trailing" constant="15" id="zu6-V5-1s1"/>
                             </constraints>
@@ -231,13 +214,13 @@
                     <rect key="frame" x="0.0" y="567" width="375" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
-                            <rect key="frame" x="15" y="14" width="74" height="17"/>
+                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8I-cU7">
-                            <rect key="frame" x="351" y="11" width="9" height="22"/>
+                            <rect key="frame" x="351" y="11.5" width="9" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -285,8 +268,6 @@
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
                 <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
                 <outlet property="saveCardView" destination="ANX-Es-v2p" id="ITP-Uv-Q1Z"/>
-                <outlet property="scanCardButton" destination="1aD-D5-Isf" id="qYi-yU-D4R"/>
-                <outlet property="scanCardHeight" destination="4DK-a4-Jy6" id="fbg-9m-U3D"/>
             </connections>
             <point key="canvasLocation" x="26.5" y="51.5"/>
         </view>

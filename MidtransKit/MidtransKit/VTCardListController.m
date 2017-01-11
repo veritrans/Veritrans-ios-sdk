@@ -58,7 +58,6 @@ CGFloat const ButtonHeight = 56;
     [super viewDidLoad];
     
     self.cards = [NSMutableArray new];
-    
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
     
@@ -113,6 +112,7 @@ CGFloat const ButtonHeight = 56;
 - (void)reloadMaskedCards {
     if (CC_CONFIG.tokenStorageEnabled) {
         NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
+        NSLog(@"data-->%@",self.creditCard.savedTokens);
         [self.cards setArray:savedTokens];
         [self.collectionView reloadData];
         [self updateView];
@@ -166,9 +166,11 @@ CGFloat const ButtonHeight = 56;
 }
 
 - (IBAction)addCardPressed:(id)sender {
+    
+    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod andCreditCardData:self.creditCard];
 //    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token maskedCards:self.cards bins:self.creditCard.whitelistBins];
 //    vc.delegate = self;
-//    [self.navigationController pushViewController:vc animated:YES];
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController

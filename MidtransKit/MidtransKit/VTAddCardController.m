@@ -23,20 +23,30 @@
 #import "MidtransLoadingView.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2DataModels.h>
+#import <MidtransCoreKit/MidtransBinResponse.h>
+#import <MidtransCoreKit/MidtransPaymentRequestV2Installment.h>
 #import "MidtransUIConfiguration.h"
-
+#import "MidtransUICardFormatter.h"
+#import "MidtransInstallmentView.h"
 #if __has_include(<CardIO/CardIO.h>)
 #import <CardIO/CardIO.h>
-@interface VTAddCardController () <CardIOPaymentViewControllerDelegate>
+@interface VTAddCardController () <CardIOPaymentViewControllerDelegate,UITextFieldDelegate,MidtransUICardFormatterDelegate>
 #else
-@interface VTAddCardController ()
+@interface VTAddCardController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
 #endif
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
+@property (nonatomic) MidtransUICardFormatter *ccFormatter;
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
+@property (nonatomic,strong) MidtransPaymentRequestV2Installment *installment;
+@property (nonatomic,strong) NSArray *binResponseObject;
+@property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
+@property (nonatomic) BOOL installmentAvailable,installmentRequired;
 @property (nonatomic,strong) MidtransPaymentListModel *paymentMethodInfo;
+@property (nonatomic,strong) NSString *installmentBankName;
 @property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCardInfo;
 @property (nonatomic) NSInteger attemptRetry;
 
@@ -63,6 +73,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.attemptRetry = 0;
+    self.installmentBankName = @"";
+    self.view.cardNumber.delegate = self;
+    self.view.cardExpiryDate.delegate = self;
+    self.view.cardCvv.delegate = self;
+    self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.cardNumber];
+    self.ccFormatter.delegate = self;
+    self.ccFormatter.numberLimit = 16;
+//    [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     self.didYouKnowView.layer.cornerRadius = 3.0f;
     self.didYouKnowView.layer.borderWidth = 1.0f;
     self.didYouKnowView.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -73,6 +91,7 @@
     if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
         self.view.saveCardView.hidden = YES;
         self.view.saveCardViewHeight.constant = 0;
+        [self.view updateConstraintsIfNeeded];
     }
     else {
         self.view.saveCardView.hidden = NO;
@@ -80,24 +99,20 @@
     }
     
     [self.view setToken:self.token];
-   // self.installmentAvailable = NO;
-    NSLog(@"data-->%@",self.creditCardInfo);
-    if ([[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]) {
-        
+    self.bins = self.creditCardInfo.whitelistBins;
+    self.installmentAvailable = NO;
+    self.installment =[[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
+
+    if (self.installment.terms) {
+            self.installmentAvailable = YES;
+        self.installmentRequired = self.installment.required;
+                [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
+                    if (!error) {
+                        self.binResponseObject = binResponse;
+                    }
+                }];
+
     }
-//    MidtransPaymentRequestV2Installment *installment = self.creditCardInfo.installments;
-//    
-//    self.installmentAvailable = NO;
-//    
-//    if (installment.terms) {
-//        self.installmentAvailable = YES;
-//        [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
-//            if (!error) {
-//                self.binResponseObject = binResponse;
-//            }
-//        }];
-//    }
-    
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];
     //speedup cardio launch
@@ -236,7 +251,164 @@
     
     self.view.cardExpiryDate.text = [NSString stringWithFormat:@"%lu / %lu", (unsigned long)cardInfo.expiryMonth, (unsigned long)cardInfo.expiryYear];
 }
+- (void)reformatCardNumber {
+    NSString *cardNumber = self.view.cardNumber.text;
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+    
+    self.view.cardNumber.text = formatted;
+    self.view.cardNumber.infoIcon = [self iconDarkWithNumber:self.view.cardNumber.text];
+    
+    self.view.cardFrontView.iconView.image = [self iconWithNumber:self.view.cardNumber.text];
+    self.view.cardFrontView.numberLabel.text = formatted;
+}
 
 #endif
+
+- (void)dealloc {
+    if ([self.view.cardExpiryDate observationInfo]!=nil) {
+        [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
+    }
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:YES];
+    if ([self.view.cardExpiryDate observationInfo]!=nil) {
+        [self.view.cardExpiryDate removeObserver:self forKeyPath:@"text"];
+    }
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"text"] &&
+        [object isEqual:self.view.cardExpiryDate]) {
+        //self.view.cardFrontView.expiryLabel.text = self.view.cardExpiryDate.text;
+    }
+}
+
+#pragma mark - VTCardFormatterDelegate
+
+- (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
+    if (self.installmentAvailable) {
+        [self matchBINNumberWithInstallment:[self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
+    }
+    if (self.view.cardNumber.text.length < 1) {
+        self.view.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
+        self.view.cardFrontView.iconView.image = nil;
+        self.view.cardNumber.infoIcon = nil;
+    }
+    else {
+        self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
+        NSString *originNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+        self.view.cardNumber.infoIcon = [self.view iconDarkWithNumber:originNumber];
+        self.view.cardFrontView.iconView.image = [self.view iconWithNumber:originNumber];
+    }
+}
+
+
+- (void)matchBINNumberWithInstallment:(NSString *)binNumber {
+    if (binNumber.length >= 6) {
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                                  @"SELF['bins'] CONTAINS %@",binNumber];
+        NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
+        if (filtered.count) {
+            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+                        NSLog(@"filtered count-->%@",self.filteredBinObject);
+            if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {
+                self.installmentBankName = self.filteredBinObject.bank;
+                [self.installmentValueObject addObject:@"0"];
+                [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
+                NSLog(@"installment value object->%@",self.installmentValueObject);
+//                [self.view.installmentCollectionView reloadData];
+//                [UIView transitionWithView:self.view.installmentWrapperView
+//                                  duration:1
+//                                   options:UIViewAnimationOptionCurveEaseIn
+//                                animations:^{
+//                                    self.view.installmentWrapperView.hidden = NO;
+//                                    self.view.installmentWrapperViewHeightConstraints.constant = installmentHeight;
+//                                }
+//                                completion:NULL];
+            }
+            
+        }
+        
+    }
+    else {
+//        self.installmentCurrentIndex = 0;
+//        self.installmentBankName = @"";
+//        [UIView transitionWithView:self.view.installmentWrapperView
+//                          duration:1
+//                           options:UIViewAnimationOptionCurveEaseOut
+//                        animations:^{
+//                            self.view.installmentWrapperView.hidden = YES;
+//                            self.view.installmentWrapperViewHeightConstraints.constant =  0;
+//                        }
+//                        completion:NULL];
+    }
+    
+}
+#pragma mark - UITextFieldDelegate
+
+-(void)textFieldDidChange :(UITextField *) textField{
+    if ([textField isEqual:self.view.cardNumber]) {
+        [self.ccFormatter updateTextFieldContentAndPosition];
+    }
+    //your code
+}
+- (void)textFieldDidEndEditing:(UITextField *)textField {
+    NSError *error;
+    
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        [textField.text isValidExpiryDate:&error];
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
+    else if ([textField isEqual:self.view.cardCvv]) {
+        [textField.text isValidCVVWithCreditCardNumber:self.view.cardNumber.text error:&error];
+    }
+    
+    //show warning if error
+    if (error) {
+        [self.view isViewableError:error];
+    }
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if ([textField isKindOfClass:[MidtransUITextField class]]) {
+        ((MidtransUITextField *) textField).warning = nil;
+    }
+    
+    if ([textField isEqual:self.view.cardExpiryDate]) {
+        return [textField filterCreditCardExpiryDate:string range:range];
+    }
+    else if ([textField isEqual:self.view.cardNumber]) {
+        return [self.ccFormatter updateTextFieldContentAndPosition];
+    }
+    else if ([textField isEqual:self.view.cardCvv]) {
+        return [textField filterCvvNumber:string range:range withCardNumber:self.view.cardNumber.text];
+    }
+    else {
+        return YES;
+    }
+}
+
+- (void)reformatCardNumber {
+    NSString *cardNumber = self.view.cardNumber.text;
+    NSString *formatted = [NSString stringWithFormat: @"%@ %@ %@ %@",
+                           [cardNumber substringWithRange:NSMakeRange(0,4)],
+                           [cardNumber substringWithRange:NSMakeRange(4,4)],
+                           [cardNumber substringWithRange:NSMakeRange(8,4)],
+                           [cardNumber substringWithRange:NSMakeRange(12,4)]];
+    
+    self.view.cardNumber.text = formatted;
+    self.view.cardNumber.infoIcon = [self.view iconDarkWithNumber:self.view.cardNumber.text];
+    
+    self.view.cardFrontView.iconView.image = [self.view iconWithNumber:self.view.cardNumber.text];
+    self.view.cardFrontView.numberLabel.text = formatted;
+}
+
 
 @end

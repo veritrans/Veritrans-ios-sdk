@@ -14,6 +14,7 @@
 #import "VTCCBackView.h"
 @class MidtransLoadingView;
 @interface VTAddCardView : UIView
+@property (weak, nonatomic) IBOutlet UIView *installmentView;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardNumber;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpiryDate;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardCvv;

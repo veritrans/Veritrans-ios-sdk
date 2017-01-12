@@ -431,7 +431,6 @@ static const NSInteger installmentHeight = 50;
     self.view.cardFrontView.numberLabel.text = formatted;
 }
 -(void)installmentSelectedIndex:(NSInteger)index {
-    NSLog(@"index selected-->%ld",(long)index);
     self.installmentCurrentIndex = index;
 }
 

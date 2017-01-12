@@ -30,16 +30,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-Nt-p2f">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="337"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZx-vb-Nch">
                                     <rect key="frame" x="16" y="8" width="288" height="51"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc_badge.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zx1-o7-sA4">
-                                            <rect key="frame" x="143.5" y="0.0" width="136.5" height="51"/>
+                                            <rect key="frame" x="144" y="0.0" width="136" height="51"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="midtrans_lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="9eO-MS-A71">
-                                            <rect key="frame" x="8" y="10" width="110.5" height="31"/>
+                                            <rect key="frame" x="8" y="10" width="111" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="31" id="2He-8I-PJF"/>
                                             </constraints>
@@ -115,7 +115,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="290" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
-                                                    <rect key="frame" x="0.0" y="12" width="147" height="21.5"/>
+                                                    <rect key="frame" x="0.0" y="12" width="147" height="22"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -143,7 +143,7 @@
                                             </userDefinedRuntimeAttributes>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to ease your transactions." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3M-pA-1BZ">
-                                            <rect key="frame" x="0.0" y="46" width="290" height="16.5"/>
+                                            <rect key="frame" x="0.0" y="46" width="290" height="33"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -160,11 +160,11 @@
                                         <constraint firstAttribute="trailing" secondItem="e93-3E-0PY" secondAttribute="trailing" id="k3L-cl-bCF"/>
                                     </constraints>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BV-uW-E78">
-                                    <rect key="frame" x="16" y="277" width="288" height="50"/>
-                                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BV-uW-E78">
+                                    <rect key="frame" x="16" y="267" width="288" height="44"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="k96-EF-XDE"/>
+                                        <constraint firstAttribute="height" constant="44" id="k96-EF-XDE"/>
                                     </constraints>
                                 </view>
                             </subviews>
@@ -177,7 +177,7 @@
                                 <constraint firstItem="Tr6-0Q-o3N" firstAttribute="trailing" secondItem="8Nn-gz-tW4" secondAttribute="trailing" id="Dp8-f7-D84"/>
                                 <constraint firstAttribute="bottom" secondItem="8Bd-E9-a7J" secondAttribute="bottom" priority="750" constant="10" id="Emw-B8-lcW"/>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="leading" secondItem="UXS-76-jqp" secondAttribute="leading" id="F9u-MK-yvB"/>
-                                <constraint firstItem="8BV-uW-E78" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="20" id="Hmu-DX-Mvw"/>
+                                <constraint firstItem="8BV-uW-E78" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="10" id="Hmu-DX-Mvw"/>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="top" secondItem="UXS-76-jqp" secondAttribute="bottom" constant="5" id="Jfm-cr-euI"/>
                                 <constraint firstAttribute="trailing" secondItem="SZx-vb-Nch" secondAttribute="trailing" constant="16" id="Klk-sE-fcH"/>
                                 <constraint firstItem="ANX-Es-v2p" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="MVh-xl-P7l"/>
@@ -227,13 +227,13 @@
                     <rect key="frame" x="0.0" y="468" width="320" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
-                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="14" width="74" height="17"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8I-cU7">
-                            <rect key="frame" x="296" y="12" width="9" height="21.5"/>
+                            <rect key="frame" x="296" y="11" width="9" height="22"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -280,6 +280,7 @@
                 <outlet property="fieldScrollView" destination="CLS-0L-w3p" id="k49-0M-wr3"/>
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
                 <outlet property="installmentView" destination="8BV-uW-E78" id="obD-Rc-mZU"/>
+                <outlet property="installmentWrapperViewConstraints" destination="k96-EF-XDE" id="iSv-U4-BHn"/>
                 <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
                 <outlet property="saveCardView" destination="ANX-Es-v2p" id="ITP-Uv-Q1Z"/>
                 <outlet property="saveCardViewHeight" destination="eDD-uq-Vih" id="PhI-Qe-o7r"/>

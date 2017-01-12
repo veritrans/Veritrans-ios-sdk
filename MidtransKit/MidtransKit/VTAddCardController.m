@@ -28,15 +28,17 @@
 #import "MidtransUIConfiguration.h"
 #import "MidtransUICardFormatter.h"
 #import "MidtransInstallmentView.h"
+static const NSInteger installmentHeight = 50;
 #if __has_include(<CardIO/CardIO.h>)
 #import <CardIO/CardIO.h>
 @interface VTAddCardController () <CardIOPaymentViewControllerDelegate,UITextFieldDelegate,MidtransUICardFormatterDelegate>
 #else
-@interface VTAddCardController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
+@interface VTAddCardController () <UITextFieldDelegate,MidtransUICardFormatterDelegate,MidtransInstallmentViewDelegate>
 #endif
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
+@property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
@@ -49,6 +51,7 @@
 @property (nonatomic,strong) NSString *installmentBankName;
 @property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCardInfo;
 @property (nonatomic) NSInteger attemptRetry;
+@property (nonatomic)NSInteger installmentCurrentIndex;
 
 @end
 
@@ -72,7 +75,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.installmentValueObject = [NSMutableArray new];
     self.attemptRetry = 0;
+    self.view.installmentWrapperViewConstraints.constant = 0;
+    self.installmentCurrentIndex = 0;
     self.installmentBankName = @"";
     self.view.cardNumber.delegate = self;
     self.view.cardExpiryDate.delegate = self;
@@ -80,7 +86,6 @@
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;
-//    [self.view.cardExpiryDate addObserver:self forKeyPath:@"text" options:0 context:nil];
     self.didYouKnowView.layer.cornerRadius = 3.0f;
     self.didYouKnowView.layer.borderWidth = 1.0f;
     self.didYouKnowView.layer.borderColor = [UIColor lightGrayColor].CGColor;
@@ -104,11 +109,13 @@
     self.installment =[[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
 
     if (self.installment.terms) {
-            self.installmentAvailable = YES;
+        self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
                 [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
                     if (!error) {
+                        NSLog(@"bin response-->%@",binResponse);
                         self.binResponseObject = binResponse;
+                         [self setupInstallmentView];
                     }
                 }];
 
@@ -123,13 +130,27 @@
     
     self.didYouKnowView.hidden = UICONFIG.hideDidYouKnowView;
 }
+- (void)setupInstallmentView {
+    NSArray *subviewArray = [VTBundle loadNibNamed:@"MidtransInstallmentView" owner:self options:nil];
+    self.installmentsContentView = [subviewArray objectAtIndex:0];
+    self.installmentsContentView.delegate = self;
+    [self.view.installmentView  addSubview:self.installmentsContentView];
+    [self.installmentsContentView setupInstallmentCollection];
 
+}
 - (IBAction)cvvInfoPressed:(UIButton *)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
     [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
+    
+    NSString *installmentTerms = @"";
+    if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
+        installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
+        return ;
+    }
+    
     MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.view.cardNumber.text
                                                                      expiryDate:self.view.cardExpiryDate.text
                                                                             cvv:self.view.cardCvv.text];
@@ -173,7 +194,7 @@
 
 #pragma mark - Helper
 
-- (void)payWithToken:(NSString *)token {    
+- (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.view.saveCardSwitch.isOn];
@@ -315,37 +336,40 @@
         NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
         if (filtered.count) {
             self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-                        NSLog(@"filtered count-->%@",self.filteredBinObject);
+            
             if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {
                 self.installmentBankName = self.filteredBinObject.bank;
                 [self.installmentValueObject addObject:@"0"];
                 [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
-                NSLog(@"installment value object->%@",self.installmentValueObject);
-//                [self.view.installmentCollectionView reloadData];
-//                [UIView transitionWithView:self.view.installmentWrapperView
-//                                  duration:1
-//                                   options:UIViewAnimationOptionCurveEaseIn
-//                                animations:^{
-//                                    self.view.installmentWrapperView.hidden = NO;
-//                                    self.view.installmentWrapperViewHeightConstraints.constant = installmentHeight;
-//                                }
-//                                completion:NULL];
+                //[self.view.installmentCollectionView reloadData];
+                [UIView transitionWithView:self.view.installmentView
+                                  duration:1
+                                   options:UIViewAnimationOptionCurveEaseInOut
+                                animations:^{
+                                    self.view.installmentView.hidden = NO;
+                                    self.view.installmentWrapperViewConstraints.constant = installmentHeight;
+                                    [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
+                                }
+                                completion:NULL];
             }
             
         }
         
     }
     else {
-//        self.installmentCurrentIndex = 0;
-//        self.installmentBankName = @"";
-//        [UIView transitionWithView:self.view.installmentWrapperView
-//                          duration:1
-//                           options:UIViewAnimationOptionCurveEaseOut
-//                        animations:^{
-//                            self.view.installmentWrapperView.hidden = YES;
-//                            self.view.installmentWrapperViewHeightConstraints.constant =  0;
-//                        }
-//                        completion:NULL];
+        if (self.installmentValueObject.count > 0) {
+            self.installmentCurrentIndex = 0;
+            [self.installmentsContentView resetInstallmentIndex];
+        }
+        self.installmentBankName = @"";
+        [UIView transitionWithView:self.view.installmentView
+                          duration:1
+                           options:UIViewAnimationOptionCurveEaseOut
+                        animations:^{
+                            self.view.installmentView.hidden = YES;
+                            self.view.installmentWrapperViewConstraints.constant =  0;
+                        }
+                        completion:NULL];
     }
     
 }
@@ -409,6 +433,9 @@
     self.view.cardFrontView.iconView.image = [self.view iconWithNumber:self.view.cardNumber.text];
     self.view.cardFrontView.numberLabel.text = formatted;
 }
-
+-(void)installmentSelectedIndex:(NSInteger)index {
+    NSLog(@"index selected-->%ld",(long)index);
+    self.installmentCurrentIndex = index;
+}
 
 @end

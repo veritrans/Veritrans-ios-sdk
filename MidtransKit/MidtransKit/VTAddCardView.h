@@ -23,7 +23,7 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *fieldScrollView;
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
-@property (weak, nonatomic) IBOutlet UISwitch *saveCardSwitch;
+@property (weak, nonatomic) IBOutlet UIButton *saveCardSwitch;
 @property (weak, nonatomic) IBOutlet UIButton *infoButton;
 @property (weak, nonatomic) IBOutlet MidtransUICCFrontView *cardFrontView;
 @property (weak, nonatomic) IBOutlet VTCCBackView *cardBackView;

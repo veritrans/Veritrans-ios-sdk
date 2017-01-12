@@ -76,6 +76,17 @@
 		0C2B8E6C1E275928007901CB /* MidtransInstallmentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2B8E691E275928007901CB /* MidtransInstallmentCollectionViewCell.h */; };
 		0C2B8E6D1E275928007901CB /* MidtransInstallmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B8E6A1E275928007901CB /* MidtransInstallmentCollectionViewCell.m */; };
 		0C2B8E6E1E27594B007901CB /* MidtransInstallmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E6B1E275928007901CB /* MidtransInstallmentCollectionViewCell.xib */; };
+		0C2B8E7B1E279263007901CB /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E701E279263007901CB /* checkbox_checked.png */; };
+		0C2B8E7C1E279263007901CB /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E711E279263007901CB /* checkbox_checked@2x.png */; };
+		0C2B8E7D1E279263007901CB /* checkbox_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E721E279263007901CB /* checkbox_checked@3x.png */; };
+		0C2B8E7E1E279263007901CB /* checkbox_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E741E279263007901CB /* checkbox_uncheck.png */; };
+		0C2B8E7F1E279263007901CB /* checkbox_uncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */; };
+		0C2B8E801E279263007901CB /* checkbox_uncheck@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E761E279263007901CB /* checkbox_uncheck@3x.png */; };
+		0C2B8E811E279263007901CB /* hint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E781E279263007901CB /* hint.png */; };
+		0C2B8E821E279263007901CB /* hint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E791E279263007901CB /* hint@2x.png */; };
+		0C2B8E831E279263007901CB /* hint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E7A1E279263007901CB /* hint@3x.png */; };
+		0C2B8E861E2794D4007901CB /* MidtransLineView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2B8E841E2794D4007901CB /* MidtransLineView.h */; };
+		0C2B8E871E2794D4007901CB /* MidtransLineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B8E851E2794D4007901CB /* MidtransLineView.m */; };
 		0CD7EA8F1E03A1A40036C187 /* MidtransPaymentGCIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */; };
 		0CD7EA901E03A1A40036C187 /* MidtransPaymentGCIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */; };
 		0CD7EA911E03A1B50036C187 /* MidtransPaymentGCIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD7EA8E1E03A1A40036C187 /* MidtransPaymentGCIViewController.xib */; };
@@ -434,6 +445,17 @@
 		0C2B8E691E275928007901CB /* MidtransInstallmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransInstallmentCollectionViewCell.h; sourceTree = "<group>"; };
 		0C2B8E6A1E275928007901CB /* MidtransInstallmentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransInstallmentCollectionViewCell.m; sourceTree = "<group>"; };
 		0C2B8E6B1E275928007901CB /* MidtransInstallmentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransInstallmentCollectionViewCell.xib; path = ../MidtransKit/MidtransInstallmentCollectionViewCell.xib; sourceTree = "<group>"; };
+		0C2B8E701E279263007901CB /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
+		0C2B8E711E279263007901CB /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		0C2B8E721E279263007901CB /* checkbox_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@3x.png"; sourceTree = "<group>"; };
+		0C2B8E741E279263007901CB /* checkbox_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_uncheck.png; sourceTree = "<group>"; };
+		0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_uncheck@2x.png"; sourceTree = "<group>"; };
+		0C2B8E761E279263007901CB /* checkbox_uncheck@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_uncheck@3x.png"; sourceTree = "<group>"; };
+		0C2B8E781E279263007901CB /* hint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hint.png; sourceTree = "<group>"; };
+		0C2B8E791E279263007901CB /* hint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint@2x.png"; sourceTree = "<group>"; };
+		0C2B8E7A1E279263007901CB /* hint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint@3x.png"; sourceTree = "<group>"; };
+		0C2B8E841E2794D4007901CB /* MidtransLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransLineView.h; sourceTree = "<group>"; };
+		0C2B8E851E2794D4007901CB /* MidtransLineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransLineView.m; sourceTree = "<group>"; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
 		0CD7EA8E1E03A1A40036C187 /* MidtransPaymentGCIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransPaymentGCIViewController.xib; path = ../MidtransKit/MidtransPaymentGCIViewController.xib; sourceTree = "<group>"; };
@@ -876,6 +898,36 @@
 			name = Installment;
 			sourceTree = "<group>";
 		};
+		0C2B8E6F1E279263007901CB /* Checkbox Checked */ = {
+			isa = PBXGroup;
+			children = (
+				0C2B8E701E279263007901CB /* checkbox_checked.png */,
+				0C2B8E711E279263007901CB /* checkbox_checked@2x.png */,
+				0C2B8E721E279263007901CB /* checkbox_checked@3x.png */,
+			);
+			path = "Checkbox Checked";
+			sourceTree = "<group>";
+		};
+		0C2B8E731E279263007901CB /* Checkbox Uncheck */ = {
+			isa = PBXGroup;
+			children = (
+				0C2B8E741E279263007901CB /* checkbox_uncheck.png */,
+				0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */,
+				0C2B8E761E279263007901CB /* checkbox_uncheck@3x.png */,
+			);
+			path = "Checkbox Uncheck";
+			sourceTree = "<group>";
+		};
+		0C2B8E771E279263007901CB /* Hint */ = {
+			isa = PBXGroup;
+			children = (
+				0C2B8E781E279263007901CB /* hint.png */,
+				0C2B8E791E279263007901CB /* hint@2x.png */,
+				0C2B8E7A1E279263007901CB /* hint@3x.png */,
+			);
+			path = Hint;
+			sourceTree = "<group>";
+		};
 		0CD7EA8B1E03A17E0036C187 /* GCI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1116,6 +1168,9 @@
 				E503AEDF1C8EC50E00F097FF /* mandiri_clickpay@2x.png */,
 				E503AEE01C8EC50E00F097FF /* cimb_clicks@2x.png */,
 				E503AEE11C8EC50E00F097FF /* bri_epay@2x.png */,
+				0C2B8E6F1E279263007901CB /* Checkbox Checked */,
+				0C2B8E731E279263007901CB /* Checkbox Uncheck */,
+				0C2B8E771E279263007901CB /* Hint */,
 				E503AEE21C8EC50E00F097FF /* bca_klikpay@2x.png */,
 				E583AFDD1C8D575600C04512 /* errorIcon@2x.png */,
 				E583AFDE1C8D575600C04512 /* pendingIcon@2x.png */,
@@ -1268,6 +1323,8 @@
 				E57FFC881E125FDA002A875C /* MidtransItemCell.m */,
 				0C2B8E651E275837007901CB /* MidtransCollectionViewLayout.h */,
 				0C2B8E661E275837007901CB /* MidtransCollectionViewLayout.m */,
+				0C2B8E841E2794D4007901CB /* MidtransLineView.h */,
+				0C2B8E851E2794D4007901CB /* MidtransLineView.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -1472,6 +1529,7 @@
 				3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */,
 				E57FFC891E125FDA002A875C /* MidtransItemCell.h in Headers */,
 				E583AFEA1C8D5C1600C04512 /* VTPaymentStatusViewModel.h in Headers */,
+				0C2B8E861E2794D4007901CB /* MidtransLineView.h in Headers */,
 				E578DD0F1CFBFA980091760A /* VTBillpaySuccessController.h in Headers */,
 				002CC9B81D12A442003A1203 /* MidtransUIStringHelper.h in Headers */,
 				0C2B8E671E275837007901CB /* MidtransCollectionViewLayout.h in Headers */,
@@ -1629,10 +1687,12 @@
 				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
 				E5EF827C1C8C0837007B6585 /* MidtransUICCFrontView.xib in Resources */,
 				E517FE731D4AF5580083B136 /* VTErrorStatusController.xib in Resources */,
+				0C2B8E831E279263007901CB /* hint@3x.png in Resources */,
 				E5D23C861D1D31FC0069B5F9 /* VTAddCardController.xib in Resources */,
 				E5387D391D62BE7E004CCF3D /* mandiri_atm_3@2x.png in Resources */,
 				0093D8B81DC1EC8F00393334 /* MidtransLoadingView.xib in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
+				0C2B8E7E1E279263007901CB /* checkbox_uncheck.png in Resources */,
 				309CC0DE1C86B5BD00C058BE /* all_va.plist in Resources */,
 				E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */,
 				0C2B8E601E260FBF007901CB /* icon_btn_min_@2x.png in Resources */,
@@ -1658,6 +1718,7 @@
 				E50D85F51D0ECB9C00F26D2E /* indomaret.plist in Resources */,
 				0C2B8E5F1E260FBF007901CB /* icon_btn_min_@1x.png in Resources */,
 				E578DD1C1CFC3F250091760A /* VTPaymentListController.xib in Resources */,
+				0C2B8E7C1E279263007901CB /* checkbox_checked@2x.png in Resources */,
 				E5AB97611D7414A900466A44 /* kioson.plist in Resources */,
 				E583AFE01C8D575600C04512 /* errorIcon@2x.png in Resources */,
 				E5387D3A1D62BE7E004CCF3D /* mandiri_atm_4@2x.png in Resources */,
@@ -1667,6 +1728,7 @@
 				E5387D411D62BE7E004CCF3D /* other_alto_5@2x.png in Resources */,
 				0C2B8E501E2498F9007901CB /* midtrans_lock@3x.png in Resources */,
 				00F61B231D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib in Resources */,
+				0C2B8E801E279263007901CB /* checkbox_uncheck@3x.png in Resources */,
 				0C2B8E581E260E86007901CB /* MidtransInstallmentView.xib in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
 				E503AEF01C8EC69800F097FF /* xl_tunai@2x.png in Resources */,
@@ -1703,6 +1765,7 @@
 				E59BD7431D05B288004AE009 /* Amex@2x.png in Resources */,
 				E503AEE61C8EC50E00F097FF /* bca_klikpay@2x.png in Resources */,
 				E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */,
+				0C2B8E821E279263007901CB /* hint@2x.png in Resources */,
 				E5387D551D62BE7E004CCF3D /* permata_atm_4@2x.png in Resources */,
 				0C2B8E611E260FBF007901CB /* icon_btn_min_@3x.png in Resources */,
 				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,
@@ -1723,6 +1786,7 @@
 				E503AEE51C8EC50E00F097FF /* bri_epay@2x.png in Resources */,
 				E5387D421D62BE7E004CCF3D /* other_alto_6@2x.png in Resources */,
 				00F61B041D145B4600C93DA0 /* SourceSansPro-Light.ttf in Resources */,
+				0C2B8E811E279263007901CB /* hint.png in Resources */,
 				302BAA481C882D3300AE68CC /* DeleteIcon@2x.png in Resources */,
 				E5387D561D62BE7E004CCF3D /* permata_atm_5@2x.png in Resources */,
 				0C2B8E4E1E2498F9007901CB /* cc_badge@3x.png in Resources */,
@@ -1730,6 +1794,7 @@
 				E5387D401D62BE7E004CCF3D /* other_alto_4@2x.png in Resources */,
 				0C2B8E641E260FC0007901CB /* icon_btn_plus_@3x.png in Resources */,
 				E5387D431D62BE7E004CCF3D /* other_alto_7@2x.png in Resources */,
+				0C2B8E7D1E279263007901CB /* checkbox_checked@3x.png in Resources */,
 				E5387D4A1D62BE7E004CCF3D /* other_atm_7@2x.png in Resources */,
 				0C2B8E6E1E27594B007901CB /* MidtransInstallmentCollectionViewCell.xib in Resources */,
 				0C2B8E4D1E2498F9007901CB /* cc_badge@2x.png in Resources */,
@@ -1772,6 +1837,7 @@
 				30E8798C1C894718000C0F4B /* BackBarIcon@2x.png in Resources */,
 				E503AEEF1C8EC69800F097FF /* telkomsel_cash@2x.png in Resources */,
 				E5387D3E1D62BE7E004CCF3D /* other_alto_2@2x.png in Resources */,
+				0C2B8E7B1E279263007901CB /* checkbox_checked.png in Resources */,
 				E503AEE31C8EC50E00F097FF /* mandiri_clickpay@2x.png in Resources */,
 				E583AFE21C8D575600C04512 /* successIcon@2x.png in Resources */,
 				E5387D3C1D62BE7E004CCF3D /* mandiri_atm_6@2x.png in Resources */,
@@ -1781,6 +1847,7 @@
 				E546D1DB1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib in Resources */,
 				E546D1DE1CEACBBB00D65252 /* nextIcon@2x.png in Resources */,
 				E52F72B81C996103009D7BA4 /* Visa@2x.png in Resources */,
+				0C2B8E7F1E279263007901CB /* checkbox_uncheck@2x.png in Resources */,
 				E517FE751D4AF5F80083B136 /* VTSuccessStatusController.xib in Resources */,
 				E5387D511D62BE7E004CCF3D /* other_prima_7@2x.png in Resources */,
 			);
@@ -1948,6 +2015,7 @@
 				E516DA2D1D24CFE600FA1CD7 /* MidtransUIFontSource.m in Sources */,
 				002CC9B91D12A442003A1203 /* MidtransUIStringHelper.m in Sources */,
 				302BAA411C8816C400AE68CC /* VTCvvInfoController.m in Sources */,
+				0C2B8E871E2794D4007901CB /* MidtransLineView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

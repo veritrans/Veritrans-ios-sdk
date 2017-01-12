@@ -37,6 +37,7 @@
     self.installmentCollectionView.collectionViewLayout = [[MidtransCollectionViewLayout alloc] initWithColumn:1 andHeight:50];
     [self.installmentCollectionView registerNib:[UINib nibWithNibName:@"MidtransInstallmentCollectionViewCell" bundle:VTBundle]
                      forCellWithReuseIdentifier:@"installmentCell"];
+    self.installmentCollectionView.backgroundColor = [UIColor colorWithRed:0.94 green:0.97 blue:0.99 alpha:1.0];
     self.installmentCollectionView.pagingEnabled = YES;
 }
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{

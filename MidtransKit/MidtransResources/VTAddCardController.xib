@@ -30,7 +30,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="468"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7k-Nt-p2f">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="321"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="278"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SZx-vb-Nch">
                                     <rect key="frame" x="16" y="8" width="288" height="51"/>
@@ -98,70 +98,81 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="infoLight" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-0Q-o3N">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr6-0Q-o3N">
                                     <rect key="frame" x="283" y="133" width="22" height="22"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="22" id="G09-mS-nqF"/>
                                         <constraint firstAttribute="width" constant="22" id="awi-Qx-R4O"/>
                                     </constraints>
+                                    <state key="normal" image="hint.png"/>
                                     <connections>
                                         <action selector="cvvInfoPressed:" destination="-1" eventType="touchUpInside" id="WJ3-ue-MZd"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANX-Es-v2p">
-                                    <rect key="frame" x="15" y="182" width="290" height="75"/>
+                                    <rect key="frame" x="0.0" y="174" width="320" height="40"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e93-3E-0PY" customClass="MIdtransUIBorderedView">
-                                            <rect key="frame" x="0.0" y="0.0" width="290" height="45"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save My Card Details" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
-                                                    <rect key="frame" x="0.0" y="12" width="147" height="22"/>
-                                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="CPH-p7-dQb">
-                                                    <rect key="frame" x="239" y="7" width="51" height="31"/>
-                                                </switch>
-                                            </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="CPH-p7-dQb" secondAttribute="trailing" constant="2" id="N0b-Pt-Pbz"/>
-                                                <constraint firstItem="CPH-p7-dQb" firstAttribute="centerY" secondItem="KGC-Jf-sHt" secondAttribute="centerY" id="YoC-5f-nkE"/>
-                                                <constraint firstAttribute="height" constant="45" id="kHe-my-j8f"/>
-                                                <constraint firstItem="KGC-Jf-sHt" firstAttribute="centerY" secondItem="e93-3E-0PY" secondAttribute="centerY" id="uvl-s0-or3"/>
-                                                <constraint firstItem="KGC-Jf-sHt" firstAttribute="leading" secondItem="e93-3E-0PY" secondAttribute="leading" id="wFA-Ji-k9L"/>
-                                            </constraints>
-                                            <userDefinedRuntimeAttributes>
-                                                <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
-                                                    <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                                                    <integer key="value" value="1"/>
-                                                </userDefinedRuntimeAttribute>
-                                                <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
-                                            </userDefinedRuntimeAttributes>
-                                        </view>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Card Details above will be saved to ease your transactions." textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C3M-pA-1BZ">
-                                            <rect key="frame" x="0.0" y="46" width="290" height="33"/>
-                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
-                                            <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save card for later reuse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGC-Jf-sHt">
+                                            <rect key="frame" x="43" y="9" width="228" height="22"/>
+                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XfG-6H-WPt">
+                                            <rect key="frame" x="279" y="2" width="36" height="36"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="36" id="k81-V8-0KO"/>
+                                                <constraint firstAttribute="height" constant="36" id="zIP-yK-IAa"/>
+                                            </constraints>
+                                            <state key="normal" image="hint.png"/>
+                                        </button>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bux-bw-I80" customClass="MidtransLineView">
+                                            <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="1" id="akj-wk-kcH"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                                    <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="dashed" value="NO"/>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="drawOnTop" value="NO"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="phM-g2-PPe">
+                                            <rect key="frame" x="0.0" y="4" width="36" height="33"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="36" id="fGr-dd-Mg6"/>
+                                            </constraints>
+                                            <state key="normal" image="checkbox_uncheck.png"/>
+                                            <state key="selected" image="checkbox_checked.png"/>
+                                            <state key="highlighted" image="checkbox_checked.png"/>
+                                            <connections>
+                                                <action selector="saveCardButtonDidtapped:" destination="-1" eventType="touchUpInside" id="gDd-Wg-y6E"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
-                                        <constraint firstItem="e93-3E-0PY" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="ChQ-dl-kUU"/>
-                                        <constraint firstItem="e93-3E-0PY" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" id="Dos-pl-vRP"/>
-                                        <constraint firstAttribute="trailing" secondItem="C3M-pA-1BZ" secondAttribute="trailing" id="SZy-2s-uhg"/>
-                                        <constraint firstItem="C3M-pA-1BZ" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="a6D-eG-4w3"/>
-                                        <constraint firstItem="C3M-pA-1BZ" firstAttribute="top" secondItem="e93-3E-0PY" secondAttribute="bottom" constant="1" id="dR1-9H-c3m"/>
-                                        <constraint firstAttribute="height" constant="75" id="eDD-uq-Vih"/>
-                                        <constraint firstAttribute="trailing" secondItem="e93-3E-0PY" secondAttribute="trailing" id="k3L-cl-bCF"/>
+                                        <constraint firstItem="phM-g2-PPe" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="498-XE-2yb"/>
+                                        <constraint firstItem="KGC-Jf-sHt" firstAttribute="leading" secondItem="phM-g2-PPe" secondAttribute="trailing" constant="7" id="4mG-aa-HLG"/>
+                                        <constraint firstItem="phM-g2-PPe" firstAttribute="height" secondItem="ANX-Es-v2p" secondAttribute="height" constant="-7" id="77d-lk-mWD"/>
+                                        <constraint firstAttribute="trailing" secondItem="XfG-6H-WPt" secondAttribute="trailing" constant="5" id="8P4-gF-NcH"/>
+                                        <constraint firstAttribute="bottom" secondItem="XfG-6H-WPt" secondAttribute="bottom" constant="2" id="8xC-Tc-g8i"/>
+                                        <constraint firstItem="KGC-Jf-sHt" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" constant="9" id="Ayc-X2-LYR"/>
+                                        <constraint firstAttribute="trailing" secondItem="Bux-bw-I80" secondAttribute="trailing" id="ECV-SN-7WW"/>
+                                        <constraint firstItem="XfG-6H-WPt" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" constant="2" id="YOG-2u-1si"/>
+                                        <constraint firstAttribute="bottom" secondItem="Bux-bw-I80" secondAttribute="bottom" id="Z7F-Kn-tv5"/>
+                                        <constraint firstAttribute="height" constant="40" id="eDD-uq-Vih"/>
+                                        <constraint firstItem="phM-g2-PPe" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="top" constant="4" id="iZr-Cm-rto"/>
+                                        <constraint firstAttribute="bottom" secondItem="KGC-Jf-sHt" secondAttribute="bottom" constant="9" id="kmO-No-NZJ"/>
+                                        <constraint firstItem="Bux-bw-I80" firstAttribute="leading" secondItem="ANX-Es-v2p" secondAttribute="leading" id="wpw-04-d7a"/>
+                                        <constraint firstItem="XfG-6H-WPt" firstAttribute="leading" secondItem="KGC-Jf-sHt" secondAttribute="trailing" constant="8" id="xcN-g9-sdn"/>
                                     </constraints>
                                 </view>
                                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BV-uW-E78">
-                                    <rect key="frame" x="16" y="267" width="288" height="44"/>
+                                    <rect key="frame" x="16" y="224" width="288" height="44"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="k96-EF-XDE"/>
@@ -180,13 +191,13 @@
                                 <constraint firstItem="8BV-uW-E78" firstAttribute="top" secondItem="ANX-Es-v2p" secondAttribute="bottom" constant="10" id="Hmu-DX-Mvw"/>
                                 <constraint firstItem="8Bd-E9-a7J" firstAttribute="top" secondItem="UXS-76-jqp" secondAttribute="bottom" constant="5" id="Jfm-cr-euI"/>
                                 <constraint firstAttribute="trailing" secondItem="SZx-vb-Nch" secondAttribute="trailing" constant="16" id="Klk-sE-fcH"/>
-                                <constraint firstItem="ANX-Es-v2p" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="15" id="MVh-xl-P7l"/>
+                                <constraint firstItem="ANX-Es-v2p" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" id="MVh-xl-P7l"/>
                                 <constraint firstItem="SZx-vb-Nch" firstAttribute="top" secondItem="N7k-Nt-p2f" secondAttribute="top" constant="8" id="P9F-Es-iBV"/>
                                 <constraint firstItem="SZx-vb-Nch" firstAttribute="leading" secondItem="N7k-Nt-p2f" secondAttribute="leading" constant="16" id="PiI-tF-KGJ"/>
-                                <constraint firstAttribute="trailing" secondItem="ANX-Es-v2p" secondAttribute="trailing" constant="15" id="TBy-6c-4Ab"/>
+                                <constraint firstAttribute="trailing" secondItem="ANX-Es-v2p" secondAttribute="trailing" id="TBy-6c-4Ab"/>
                                 <constraint firstAttribute="trailing" secondItem="8BV-uW-E78" secondAttribute="trailing" constant="16" id="X2W-95-A9s"/>
                                 <constraint firstItem="UXS-76-jqp" firstAttribute="top" secondItem="SZx-vb-Nch" secondAttribute="bottom" constant="10" id="fC6-Se-nOr"/>
-                                <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" constant="8" id="hi5-PU-7sz"/>
+                                <constraint firstItem="ANX-Es-v2p" firstAttribute="top" secondItem="8Nn-gz-tW4" secondAttribute="bottom" id="hi5-PU-7sz"/>
                                 <constraint firstItem="8Nn-gz-tW4" firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" id="jqb-EC-ngL"/>
                                 <constraint firstItem="8BV-uW-E78" firstAttribute="top" secondItem="8Bd-E9-a7J" secondAttribute="bottom" priority="750" constant="10" id="oJP-pR-rvR"/>
                                 <constraint firstAttribute="trailing" secondItem="UXS-76-jqp" secondAttribute="trailing" constant="15" id="qez-2N-6Gy"/>
@@ -281,16 +292,19 @@
                 <outlet property="infoButton" destination="Tr6-0Q-o3N" id="08w-MG-shk"/>
                 <outlet property="installmentView" destination="8BV-uW-E78" id="obD-Rc-mZU"/>
                 <outlet property="installmentWrapperViewConstraints" destination="k96-EF-XDE" id="iSv-U4-BHn"/>
-                <outlet property="saveCardSwitch" destination="CPH-p7-dQb" id="OlN-we-JFI"/>
+                <outlet property="saveCardSwitch" destination="phM-g2-PPe" id="nPq-jf-2FS"/>
                 <outlet property="saveCardView" destination="ANX-Es-v2p" id="ITP-Uv-Q1Z"/>
                 <outlet property="saveCardViewHeight" destination="eDD-uq-Vih" id="PhI-Qe-o7r"/>
             </connections>
-            <point key="canvasLocation" x="26.5" y="51.5"/>
+            <point key="canvasLocation" x="26" y="51"/>
         </view>
     </objects>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="cc_badge.png" width="178" height="24"/>
+        <image name="checkbox_checked.png" width="22" height="22"/>
+        <image name="checkbox_uncheck.png" width="22" height="22"/>
+        <image name="hint.png" width="21" height="21"/>
         <image name="midtrans_lock.png" width="109" height="28"/>
     </resources>
 </document>

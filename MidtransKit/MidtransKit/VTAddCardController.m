@@ -38,6 +38,7 @@ static const NSInteger installmentHeight = 50;
 
 @property (strong, nonatomic) IBOutlet VTAddCardView *view;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
+@property (nonatomic) BOOL saveCard;
 @property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
 @property (strong, nonatomic) IBOutlet UIView *didYouKnowView;
 @property (nonatomic) NSMutableArray *maskedCards;
@@ -140,6 +141,9 @@ static const NSInteger installmentHeight = 50;
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
     [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
 }
+- (IBAction)saveCardButtonDidtapped:(id)sender {
+    self.view.saveCardSwitch.selected =!self.view.saveCardSwitch.selected;
+}
 
 - (IBAction)registerPressed:(UIButton *)sender {
     
@@ -194,7 +198,7 @@ static const NSInteger installmentHeight = 50;
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
-                                                                                saveCard:self.view.saveCardSwitch.isOn];
+                                                                                saveCard:self.view.saveCardSwitch.selected];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     

@@ -19,7 +19,7 @@
          self.installmentLabel.text =@"No Installment";
     }
     else {
-    self.installmentLabel.text = [NSString stringWithFormat:@"%@ installments",title];
+        self.installmentLabel.text = [NSString stringWithFormat:@"%@ Month installments",title];
     }
 }
 @end

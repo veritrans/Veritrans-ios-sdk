@@ -72,6 +72,12 @@
         self.nextButton.enabled = NO;
     }
 }
+- (void)resetInstallmentIndex {
+    self.installmentCurrentIndex  = 0;
+    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
+    [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+    [self.installmentCollectionView reloadData];
+}
 - (void)selectedIndex:(NSInteger)indexSelected {
     if ([self.delegate respondsToSelector:@selector(installmentSelectedIndex:)]) {
         [self.delegate installmentSelectedIndex:indexSelected];

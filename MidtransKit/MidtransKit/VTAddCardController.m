@@ -102,7 +102,6 @@ static const NSInteger installmentHeight = 50;
         self.view.saveCardView.hidden = NO;
         self.view.saveCardViewHeight.constant = 70;
     }
-    
     [self.view setToken:self.token];
     self.bins = self.creditCardInfo.whitelistBins;
     self.installmentAvailable = NO;
@@ -113,7 +112,6 @@ static const NSInteger installmentHeight = 50;
         self.installmentRequired = self.installment.required;
                 [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
                     if (!error) {
-                        NSLog(@"bin response-->%@",binResponse);
                         self.binResponseObject = binResponse;
                          [self setupInstallmentView];
                     }
@@ -148,7 +146,6 @@ static const NSInteger installmentHeight = 50;
     NSString *installmentTerms = @"";
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
         installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
-        return ;
     }
     
     MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.view.cardNumber.text

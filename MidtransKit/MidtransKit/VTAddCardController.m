@@ -147,11 +147,11 @@ static const NSInteger installmentHeight = 50;
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-
-
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
+
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
+    
     if (self.installmentRequired && self.installmentCurrentIndex==0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                         message:@"This transaction must use installment"
@@ -209,6 +209,7 @@ static const NSInteger installmentHeight = 50;
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.view.saveCardSwitch.selected
                                                                              installment:self.installmentTerms];
+    
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {

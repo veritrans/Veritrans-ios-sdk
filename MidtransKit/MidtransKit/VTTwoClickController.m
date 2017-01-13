@@ -69,14 +69,17 @@
     [self addNavigationToTextFields:@[self.cvvTextField]];
     self.navigationController.delegate = self;
     self.installment =[[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
-    
     if (self.installment.terms) {
+        [self showLoadingWithText:@"Loading your saved card"];
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
         [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
             if (!error) {
                 self.binResponseObject = binResponse;
                 [self setupInstallmentView];
+            }
+            else{
+                [self hideLoading];
             }
         }];
         
@@ -93,6 +96,7 @@
     [self matchBINNumberWithInstallment:cardNumber];
 }
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
+     [self hideLoading];
     if (binNumber.length >= 6) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"SELF['bins'] CONTAINS %@",binNumber];

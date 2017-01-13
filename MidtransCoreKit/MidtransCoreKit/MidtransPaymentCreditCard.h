@@ -23,6 +23,7 @@
 @property (nonatomic) NSString *_Nullable bank;
 
 
+@property (nonatomic,strong) NSString *_Nullable installmentTerm;
 /**
  List of credit card's BIN (Bank Identification Number) that is allowed for transaction.
  All BIN can have 1 to 8 digits.

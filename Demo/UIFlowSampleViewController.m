@@ -92,11 +92,12 @@
 }
 -(void)customField {
 
+    NSDictionary *customField = @{@"NAMA":@"arie",@"pekerjaan":@"developer",@"skill":@"Objective C"};
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:self.customerDetails
-                                                                       customField:@{@"Some Message":@"Value"}
+                                                                       customField:customField
                                                              transactionExpireTime:nil
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
                                                                             [MBProgressHUD hideHUDForView:self.view animated:YES];

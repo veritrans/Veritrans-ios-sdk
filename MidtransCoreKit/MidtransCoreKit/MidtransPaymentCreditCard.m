@@ -20,7 +20,7 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 @interface MidtransPaymentCreditCard()
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @property (nonatomic) MidtransCustomerDetails *customerDetails;
-@property (nonatomic,strong) NSString *_Nullable installmentTerm;
+@property (nonatomic) NSString *_Nullable installment;
 @property (nonatomic) NSString *maskedCard;
 @property (nonatomic) BOOL saveCard;
 @end
@@ -30,7 +30,7 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 + (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment {
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
     if (installment !=nil) {
-        payment.installmentTerm = installment;
+        payment.installment = installment;
     }
     payment.customerDetails = customer;
     payment.creditCardToken = token;
@@ -41,7 +41,7 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 + (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment {
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
     if (installment !=nil) {
-           payment.installmentTerm = installment;
+           payment.installment = installment;
     }
  
     payment.customerDetails = customer;
@@ -77,8 +77,8 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
         [parameters setObject:@(self.saveCard) forKey:@"save_card"];
     }
     
-    if (self.installmentTerm) {
-        [parameters setObject:self.installmentTerm forKey:@"installment_term"];
+    if (self.installment) {
+        [parameters setObject:self.installment forKey:@"installment_term"];
     }
     
     return parameters;

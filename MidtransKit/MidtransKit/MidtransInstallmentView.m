@@ -54,6 +54,7 @@
 - (IBAction)prevButtonDidtapped:(id)sender {
     if (self.installmentCurrentIndex >0) {
         self.installmentCurrentIndex --;
+        [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
         [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
@@ -65,6 +66,7 @@
 - (IBAction)nextButtonDidTapped:(id)sender {
     if (self.installmentCurrentIndex <self.installmentData.count-1) {
         self.installmentCurrentIndex ++;
+        [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
         [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
@@ -75,6 +77,7 @@
 }
 - (void)resetInstallmentIndex {
     self.installmentCurrentIndex  = 0;
+    [self selectedIndex:0];
     NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
     [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     [self.installmentCollectionView reloadData];

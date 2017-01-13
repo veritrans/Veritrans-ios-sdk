@@ -63,8 +63,8 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.installmentVIew.hidden = YES;
-    
+    self.installmentVIew.hidden = NO;
+    self.installmentValueObject = [NSMutableArray new];
     self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
     [self addNavigationToTextFields:@[self.cvvTextField]];
     self.navigationController.delegate = self;
@@ -89,8 +89,8 @@
     self.installmentsContentView.delegate = self;
     [self.installmentVIew  addSubview:self.installmentsContentView];
     [self.installmentsContentView setupInstallmentCollection];
-    NSArray *creditCardMaskedNumberSeparator = [self.maskeCard.maskedNumber componentsSeparatedByString:@"-"];
-    [self matchBINNumberWithInstallment:[creditCardMaskedNumberSeparator firstObject]];
+    NSString *cardNumber= [[self.maskeCard.maskedNumber componentsSeparatedByString:@"-"] firstObject];
+    [self matchBINNumberWithInstallment:cardNumber];
 }
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
     if (binNumber.length >= 6) {

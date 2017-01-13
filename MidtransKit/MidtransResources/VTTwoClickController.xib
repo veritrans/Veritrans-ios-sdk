@@ -89,7 +89,7 @@
                         <constraint firstItem="Euh-lf-MT6" firstAttribute="leading" secondItem="14z-jT-gWy" secondAttribute="leading" id="TVD-Vc-bBi"/>
                         <constraint firstAttribute="trailing" secondItem="UqR-Va-cW5" secondAttribute="trailing" constant="16" id="bmf-4y-nbb"/>
                         <constraint firstItem="Euh-lf-MT6" firstAttribute="top" secondItem="14z-jT-gWy" secondAttribute="top" id="fJ1-Rh-1lH"/>
-                        <constraint firstAttribute="bottom" secondItem="Euh-lf-MT6" secondAttribute="bottom" constant="203" id="yAP-9l-K5H"/>
+                        <constraint firstAttribute="bottom" secondItem="Euh-lf-MT6" secondAttribute="bottom" id="yAP-9l-K5H"/>
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPm-aO-9Zh" customClass="MidtransUINextStepButton">

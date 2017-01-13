@@ -12,7 +12,6 @@
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
 @property (nonatomic) NSArray *fonts;
-@property (nonatomic) NSArray *selectedFont;
 @property (nonatomic) UIBarButtonItem *doneButton;
 @end
 
@@ -20,11 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.selectedFont = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
-    
-    self.doneButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(donePressed:)];
-    self.navigationItem.rightBarButtonItem = self.doneButton;
     
     self.fonts = @[[UIFont fontNamesForFamilyName:@"Changa"],
                    [UIFont fontNamesForFamilyName:@"Titillium Web"],
@@ -36,26 +30,7 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-    
-    if (self.selectedFont) {
-        NSInteger index = [self.fonts indexOfObject:self.selectedFont];
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:index inSection:0] animated:NO scrollPosition:UITableViewScrollPositionNone];
-    }
-}
 
-- (void)donePressed:(UIBarButtonItem *)sender {
-    [[NSUserDefaults standardUserDefaults] setObject:self.selectedFont forKey:@"custom_font"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    [self.navigationController popViewControllerAnimated:YES];
-}
-
-- (void)setSelectedFont:(NSArray *)selectedFont {
-    if (selectedFont) {
-        self.doneButton.enabled = YES;
-    } else {
-        self.doneButton.enabled = NO;
-    }
-    _selectedFont = selectedFont;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -65,7 +40,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NSString *fontNameBold;
     for (NSString *fontName in self.fonts[indexPath.row]) {
-        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+        if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
             fontNameBold = fontName;
         }
     }
@@ -77,11 +52,9 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedFont = self.fonts[indexPath.row];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    self.selectedFont = nil;
+    if ([self.delegate respondsToSelector:@selector(didSelectFontNames:)]) {
+        [self.delegate didSelectFontNames:self.fonts[indexPath.row]];
+    }
 }
 
 @end

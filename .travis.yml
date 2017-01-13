@@ -19,8 +19,8 @@ install:
   - pod update
 
 script:
-  - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean
-  - xcodebuild test -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 5s,OS=10.0' ONLY_ACTIVE_ARCH=NO
+  - xcodebuild -verbose -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean
+  - xcodebuild -verbose -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' ONLY_ACTIVE_ARCH=NO clean test
 
 notifications:
   email: true

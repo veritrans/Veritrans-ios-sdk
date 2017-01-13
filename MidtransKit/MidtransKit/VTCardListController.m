@@ -112,7 +112,6 @@ CGFloat const ButtonHeight = 56;
 - (void)reloadMaskedCards {
     if (CC_CONFIG.tokenStorageEnabled) {
         NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
-        NSLog(@"data-->%@",self.creditCard.savedTokens);
         [self.cards setArray:savedTokens];
         [self.collectionView reloadData];
         [self updateView];
@@ -168,8 +167,7 @@ CGFloat const ButtonHeight = 56;
 - (IBAction)addCardPressed:(id)sender {
     
     VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod andCreditCardData:self.creditCard];
-//    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token maskedCards:self.cards bins:self.creditCard.whitelistBins];
-//    vc.delegate = self;
+    
   [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -240,7 +238,7 @@ CGFloat const ButtonHeight = 56;
         if (selectedIndex == 1) {
             [self showLoadingWithText:@"Processing your transaction"];
             
-            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO];
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
             MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
             
             [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
@@ -258,7 +256,7 @@ CGFloat const ButtonHeight = 56;
 
 - (void)performTwoClicks {
     VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
-                                                                maskedCard:self.selectedMaskedCard];
+                                                                maskedCard:self.selectedMaskedCard andCreditCardData:self.creditCard];
     [self.navigationController setDelegate:self];
     [self.navigationController pushViewController:vc animated:YES];
 }

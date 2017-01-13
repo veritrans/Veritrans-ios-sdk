@@ -44,6 +44,7 @@ static const NSInteger installmentHeight = 50;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
+@property (nonatomic,strong) NSString *installmentTerms;
 @property (nonatomic,strong) MidtransPaymentRequestV2Installment *installment;
 @property (nonatomic,strong) NSArray *binResponseObject;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
@@ -146,10 +147,10 @@ static const NSInteger installmentHeight = 50;
 }
 
 - (IBAction)registerPressed:(UIButton *)sender {
-    
-    NSString *installmentTerms = @"";
+
+
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
-        installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
+        self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
     if (self.installmentRequired && self.installmentCurrentIndex==0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
@@ -206,8 +207,8 @@ static const NSInteger installmentHeight = 50;
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
-                                                                                saveCard:self.view.saveCardSwitch.selected];
-    
+                                                                                saveCard:self.view.saveCardSwitch.selected
+                                                                             installment:self.installmentTerms];
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
@@ -343,7 +344,6 @@ static const NSInteger installmentHeight = 50;
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"SELF['bins'] CONTAINS %@",binNumber];
         NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
-         NSLog(@"offline installment--> %@",[self.installment.terms objectForKey:@"offline"]);
         if (filtered.count) {
             self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
             if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {

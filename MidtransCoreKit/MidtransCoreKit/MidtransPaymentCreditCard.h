@@ -22,10 +22,6 @@
  */
 @property (nonatomic) NSString *_Nullable bank;
 
-/**
- The monthly term of the payment.
- */
-@property (nonatomic) NSNumber *_Nullable installmentTerm;
 
 /**
  List of credit card's BIN (Bank Identification Number) that is allowed for transaction.
@@ -48,7 +44,7 @@
 /// @name Instantiation
 ///--------------------
 
-+ (instancetype _Nonnull)modelWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard;
-+ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard;
++ (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment;
++ (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment;
 
 @end

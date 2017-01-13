@@ -151,7 +151,15 @@ static const NSInteger installmentHeight = 50;
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
         installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
-    
+    if (self.installmentRequired && self.installmentCurrentIndex==0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                        message:@"This transaction must use installment"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Close"
+                                              otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
     MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.view.cardNumber.text
                                                                      expiryDate:self.view.cardExpiryDate.text
                                                                             cvv:self.view.cardCvv.text];
@@ -335,9 +343,9 @@ static const NSInteger installmentHeight = 50;
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"SELF['bins'] CONTAINS %@",binNumber];
         NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
+         NSLog(@"offline installment--> %@",[self.installment.terms objectForKey:@"offline"]);
         if (filtered.count) {
             self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-            
             if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {
                 self.installmentBankName = self.filteredBinObject.bank;
                 [self.installmentValueObject addObject:@"0"];
@@ -353,7 +361,21 @@ static const NSInteger installmentHeight = 50;
                                 }
                                 completion:NULL];
             }
-            
+        }
+        else if([[self.installment.terms objectForKey:@"offline"] count]){
+            self.installmentBankName = @"offline";
+            [self.installmentValueObject addObject:@"0"];
+            [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
+            //[self.view.installmentCollectionView reloadData];
+            [UIView transitionWithView:self.view.installmentView
+                              duration:1
+                               options:UIViewAnimationOptionCurveEaseInOut
+                            animations:^{
+                                self.view.installmentView.hidden = NO;
+                                self.view.installmentWrapperViewConstraints.constant = installmentHeight;
+                                [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
+                            }
+                            completion:NULL];
         }
         
     }

@@ -91,7 +91,6 @@
     }
 }
 -(void)customField {
-
     NSDictionary *customField = @{@"NAMA":@"arie",@"pekerjaan":@"developer",@"skill":@"Objective C"};
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails

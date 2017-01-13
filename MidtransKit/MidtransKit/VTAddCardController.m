@@ -209,7 +209,7 @@ static const NSInteger installmentHeight = 50;
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.view.saveCardSwitch.selected
                                                                              installment:self.installmentTerms];
-    
+    NSLog(@"payment detail->%@",[paymentDetail dictionaryValue]);
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {

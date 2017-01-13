@@ -66,10 +66,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
-            
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
                 [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MIDTRANS_PAYMENT_CREDIT_CARD value:0];
-                //transaction finished here
                 if (completion){
                     completion(chargeResult, error);
                 }

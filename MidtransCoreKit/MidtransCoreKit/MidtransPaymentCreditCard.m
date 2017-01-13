@@ -78,7 +78,7 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
     }
     
     if (self.installment) {
-        [parameters setObject:self.installment forKey:@"installment_term"];
+        [parameters setObject:self.installment forKey:@"installment"];
     }
     
     return parameters;

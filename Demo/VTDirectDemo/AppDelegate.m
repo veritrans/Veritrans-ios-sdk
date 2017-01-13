@@ -74,39 +74,36 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     //             environment:MidtransServerEnvironmentStaging
     //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];
     
-//    UICONFIG.hideDidYouKnowView = YES;
-    
     //set credit card config
-    MTCreditCardPaymentType paymentType;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType]) {
-        paymentType = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType] unsignedIntegerValue];
+    id ccPaymentType = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType];
+    if (!ccPaymentType) {
+        ccPaymentType = @(MTCreditCardPaymentTypeNormal);
     }
-    else {
-        paymentType = MTCreditCardPaymentTypeNormal;
+    CC_CONFIG.paymentType = [ccPaymentType integerValue];
+    
+    id secureCreditCard = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure];
+    if (!secureCreditCard) {
+        secureCreditCard = @NO;
     }
+    CC_CONFIG.secure3DEnabled = [secureCreditCard boolValue];
     
-    BOOL cardSecure = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure]) {
-        cardSecure = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure] boolValue];
+    id tokenStorage = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCTokenStorage];
+    if (!tokenStorage) {
+        tokenStorage = @NO;
     }
+    CC_CONFIG.tokenStorageEnabled = [tokenStorage boolValue];
     
-    BOOL tokenStorageEnabled = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCTokenStorage]) {
-        tokenStorageEnabled = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCTokenStorage] boolValue];
+    id saveCard = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSaveCard];
+    if (!saveCard) {
+        saveCard = @NO;
     }
+    CC_CONFIG.saveCardEnabled = [saveCard boolValue];
     
-    BOOL saveCardEnabled = NO;
-    if ([[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSaveCard]) {
-        saveCardEnabled = [[[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSaveCard] boolValue];
+    id acquiringBank = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerAcquiringBank];
+    if (!acquiringBank) {
+        acquiringBank = @{@"type":@(MTAcquiringBankMandiri), @"string":@"Mandiri"};
     }
-    
-    CC_CONFIG.saveCardEnabled = saveCardEnabled;
-    CC_CONFIG.secure3DEnabled = cardSecure;
-    CC_CONFIG.tokenStorageEnabled = tokenStorageEnabled;
-    CC_CONFIG.paymentType = paymentType;
-    CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
-    
-    UICONFIG.hideStatusPage = YES;
+    CC_CONFIG.acquiringBank = [acquiringBank[@"type"] integerValue];
     
     return YES;
 }

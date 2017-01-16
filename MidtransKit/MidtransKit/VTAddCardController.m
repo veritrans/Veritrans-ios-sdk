@@ -79,6 +79,7 @@ static const NSInteger installmentHeight = 50;
     [super viewDidLoad];
     self.installmentValueObject = [NSMutableArray new];
     self.attemptRetry = 0;
+
     self.view.installmentWrapperViewConstraints.constant = 0;
     self.installmentCurrentIndex = 0;
     self.installmentBankName = @"";
@@ -88,9 +89,11 @@ static const NSInteger installmentHeight = 50;
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.cardNumber];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;
+
     self.didYouKnowView.layer.cornerRadius = 3.0f;
     self.didYouKnowView.layer.borderWidth = 1.0f;
     self.didYouKnowView.layer.borderColor = [UIColor lightGrayColor].CGColor;
+
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     
     [self addNavigationToTextFields:@[self.view.cardNumber, self.view.cardExpiryDate, self.view.cardCvv]];

@@ -61,7 +61,7 @@
         case MidtransCreditCardPaymentFeatureTwoClick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
-                                    @"secure":_secure ? @"true":@"false",
+                                    @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
                                     @"token_id":[MidtransHelper nullifyIfNil:self.token]}];
@@ -73,7 +73,7 @@
                                     @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
                                     @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
-                                    @"secure":_secure ? @"true":@"false",
+                                    @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount]}];
             break;
         } default: {
@@ -83,7 +83,7 @@
                                     @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
                                     @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
-                                    @"secure":_secure ? @"true":@"false",
+                                    @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"installment":self.installment? @"true":@"false",
                                     @"installment_term":[MidtransHelper nullifyIfNil:self.installmentTerm],

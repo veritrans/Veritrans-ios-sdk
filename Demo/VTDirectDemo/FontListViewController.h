@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FontListViewController : UIViewController
+@protocol FontListViewControllerDelegate <NSObject>
 
+- (void)didSelectFontNames:(NSArray *)fontNames;
+
+@end
+
+@interface FontListViewController : UIViewController
+@property (nonatomic, weak) id<FontListViewControllerDelegate>delegate;
 @end

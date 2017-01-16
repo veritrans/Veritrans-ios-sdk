@@ -20,8 +20,7 @@ install:
 
 script:
   # - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean
-  - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test
-
+  # - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test
 notifications:
   email: true
   slack: midtrans:0RQSD3O4kPhQy9KxlPZsFYXp

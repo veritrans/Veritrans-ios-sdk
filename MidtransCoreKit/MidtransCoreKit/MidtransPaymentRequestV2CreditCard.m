@@ -7,12 +7,13 @@
 
 #import "MidtransPaymentRequestV2CreditCard.h"
 #import "MidtransPaymentRequestV2SavedTokens.h"
-
+#import "MidtransPaymentRequestV2Installment.h"
 
 NSString *const kMidtransPaymentRequestV2CreditCardSavedTokens = @"saved_tokens";
 NSString *const kMidtransPaymentRequestV2CreditCardWhitelistBins = @"whitelist_bins";
 NSString *const kMidtransPaymentRequestV2CreditCardSaveCard = @"save_card";
 NSString *const kMidtransPaymentRequestV2CreditCardSecure = @"secure";
+NSString *const kMidtransPaymentRequestV2CreditCardInstallments = @"installment";
 
 
 @interface MidtransPaymentRequestV2CreditCard ()
@@ -27,6 +28,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardSecure = @"secure";
 @synthesize whitelistBins = _whitelistBins;
 @synthesize saveCard = _saveCard;
 @synthesize secure = _secure;
+@synthesize installments  =_installments;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -52,7 +54,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardSecure = @"secure";
     } else if ([receivedMidtransPaymentRequestV2SavedTokens isKindOfClass:[NSDictionary class]]) {
        [parsedMidtransPaymentRequestV2SavedTokens addObject:[MidtransPaymentRequestV2SavedTokens modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2SavedTokens]];
     }
-
+        self.installments = [MidtransPaymentRequestV2Installment modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2CreditCardInstallments]];
     self.savedTokens = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2SavedTokens];
             self.whitelistBins = [self objectOrNilForKey:kMidtransPaymentRequestV2CreditCardWhitelistBins fromDictionary:dict];
             self.saveCard = [[self objectOrNilForKey:kMidtransPaymentRequestV2CreditCardSaveCard fromDictionary:dict] boolValue];
@@ -88,6 +90,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardSecure = @"secure";
             [tempArrayForWhitelistBins addObject:subArrayObject];
         }
     }
+     [mutableDict setValue:[self.installments dictionaryRepresentation] forKey:kMidtransPaymentRequestV2CreditCardInstallments];
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForWhitelistBins] forKey:kMidtransPaymentRequestV2CreditCardWhitelistBins];
     [mutableDict setValue:[NSNumber numberWithBool:self.saveCard] forKey:kMidtransPaymentRequestV2CreditCardSaveCard];
     [mutableDict setValue:[NSNumber numberWithBool:self.secure] forKey:kMidtransPaymentRequestV2CreditCardSecure];

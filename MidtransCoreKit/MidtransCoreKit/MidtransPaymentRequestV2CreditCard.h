@@ -8,11 +8,12 @@
 #import <Foundation/Foundation.h>
 
 
-
+@class MidtransPaymentRequestV2Installment;
 @interface MidtransPaymentRequestV2CreditCard : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSArray *savedTokens;
 @property (nonatomic, strong) NSArray *whitelistBins;
+@property (nonatomic, strong) MidtransPaymentRequestV2Installment *installments;
 @property (nonatomic, assign) BOOL saveCard;
 @property (nonatomic, assign) BOOL secure;
 

@@ -7,12 +7,13 @@ branches:
     - development
 before_install:
   # Until Travis upgrades from Cocoapods 0.39, we need to do it here.
-  - pod --version
+  # - pod --version
+  - gem install xcpretty
   - gem uninstall cocoapods -a
   - gem install cocoapods -v '1.0.1'
-  - pod --version
+  # - pod --version
   # Recent pods aren't found if we don't explicitly update Cocoapods' repo.
-  - pod repo update
+  # - pod repo update
   - brew install gflags
 install:
   - pod install
@@ -20,7 +21,7 @@ install:
 
 script:
   # - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO clean
-  # - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test
+  - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
 notifications:
   email: true
   slack: midtrans:0RQSD3O4kPhQy9KxlPZsFYXp

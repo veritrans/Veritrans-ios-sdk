@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "XCUIElement+Textfield.h"
 
 @interface MTCreditCardPaymentTests : XCTestCase
 
@@ -39,21 +40,16 @@
     XCUIElementQuery *scrollViewsQuery = app.scrollViews;
     XCUIElementQuery *cardPaymentOptionsElementsQuery = [scrollViewsQuery.otherElements containingType:XCUIElementTypeStaticText identifier:@"Card Payment Options"];
     XCUIElement *firstNameTextField = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"First Name"] elementBoundByIndex:0];
-    [firstNameTextField tap];
-    [firstNameTextField typeText:@"Nanang"];
+    [firstNameTextField clearAndEnterText:@"Nanang"];
     
     XCUIElement *lastNameTextField = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"Last Name"] elementBoundByIndex:0];
-    [lastNameTextField tap];
-    [lastNameTextField typeText:@"Rafsanjani"];
+    [lastNameTextField clearAndEnterText:@"Rafsanjani"];
     
     XCUIElement *emailTextField = scrollViewsQuery.otherElements.textFields[@"Email"];
-    [emailTextField tap];
-    [emailTextField typeText:@"jukiginanjar@rafsanjani.com"];
+    [emailTextField clearAndEnterText:@"jukiginanjar@rafsanjani.com"];
     
     XCUIElement *phoneTextField = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"Phone"] elementBoundByIndex:0];
-    [phoneTextField swipeUp];
-    [phoneTextField tap];
-    [phoneTextField typeText:@"08985999286"];
+    [phoneTextField clearAndEnterText:@"08985999286"];
     [[[[app childrenMatchingType:XCUIElementTypeWindow] elementBoundByIndex:0] childrenMatchingType:XCUIElementTypeOther].element swipeUp];
 }
 

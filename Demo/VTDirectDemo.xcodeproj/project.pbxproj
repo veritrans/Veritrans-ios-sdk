@@ -39,6 +39,7 @@
 		E52940841CFEC6FD000180D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940831CFEC6FD000180D3 /* OpenGLES.framework */; };
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
+		E532D6D81E2C81BB005F8ECB /* XCUIElement+Textfield.m in Sources */ = {isa = PBXBuildFile; fileRef = E532D6D71E2C81BB005F8ECB /* XCUIElement+Textfield.m */; };
 		E542D3331E27378600B9D044 /* AcquiringBankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E542D3321E27378600B9D044 /* AcquiringBankTableViewController.m */; };
 		E553BA801D66AF530091E403 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E553BA7F1D66AF530091E403 /* Settings.bundle */; };
 		E57A161E1DAB012C00324B9C /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E57A161D1DAB012C00324B9C /* MidtransKit.bundle */; };
@@ -124,6 +125,8 @@
 		E52940831CFEC6FD000180D3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E52940851CFEC705000180D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E52940871CFEC70B000180D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E532D6D61E2C81BB005F8ECB /* XCUIElement+Textfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+Textfield.h"; sourceTree = "<group>"; };
+		E532D6D71E2C81BB005F8ECB /* XCUIElement+Textfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+Textfield.m"; sourceTree = "<group>"; };
 		E542D3311E27378600B9D044 /* AcquiringBankTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcquiringBankTableViewController.h; sourceTree = "<group>"; };
 		E542D3321E27378600B9D044 /* AcquiringBankTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcquiringBankTableViewController.m; sourceTree = "<group>"; };
 		E553BA7F1D66AF530091E403 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
@@ -428,6 +431,8 @@
 			children = (
 				E5E15BE71E2876BB0019D329 /* Info.plist */,
 				E5E15BED1E2876E00019D329 /* MTCreditCardPaymentTests.m */,
+				E532D6D61E2C81BB005F8ECB /* XCUIElement+Textfield.h */,
+				E532D6D71E2C81BB005F8ECB /* XCUIElement+Textfield.m */,
 			);
 			path = MidtransSDKUITests;
 			sourceTree = "<group>";
@@ -648,6 +653,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5E15BEE1E2876E00019D329 /* MTCreditCardPaymentTests.m in Sources */,
+				E532D6D81E2C81BB005F8ECB /* XCUIElement+Textfield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

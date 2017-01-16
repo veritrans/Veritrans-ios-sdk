@@ -20,19 +20,36 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 @interface MidtransPaymentCreditCard()
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @property (nonatomic) MidtransCustomerDetails *customerDetails;
+@property (nonatomic) NSString *_Nullable installment;
 @property (nonatomic) NSString *maskedCard;
 @property (nonatomic) BOOL saveCard;
 @end
 
 @implementation MidtransPaymentCreditCard
 
-+ (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard {
++ (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment {
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
+    if (installment !=nil) {
+        payment.installment = installment;
+    }
     payment.customerDetails = customer;
     payment.creditCardToken = token;
     payment.saveCard = saveCard;
     return payment;
 }
+
++ (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment {
+    MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
+    if (installment !=nil) {
+           payment.installment = installment;
+    }
+ 
+    payment.customerDetails = customer;
+    payment.maskedCard = maskedCard;
+    payment.saveCard = saveCard;
+    return payment;
+}
+
 
 + (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard {
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
@@ -59,6 +76,11 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
         [parameters setObject:self.creditCardToken forKey:@"card_token"];
         [parameters setObject:@(self.saveCard) forKey:@"save_card"];
     }
+    
+    if (self.installment) {
+        [parameters setObject:self.installment forKey:@"installment"];
+    }
+    
     return parameters;
 }
 @end

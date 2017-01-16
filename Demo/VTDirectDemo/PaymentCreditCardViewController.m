@@ -65,7 +65,7 @@
                                 }];
 }
 - (void)payWithToken:(NSString *)token {
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.transactionToken.customerDetails saveCard:NO];
+    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token customer:self.transactionToken.customerDetails saveCard:NO installment:nil];
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.transactionToken];
     

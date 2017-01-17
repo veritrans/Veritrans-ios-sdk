@@ -100,10 +100,14 @@ static const NSInteger installmentHeight = 50;
     
     if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
         self.view.saveCardView.hidden = YES;
+
         self.view.saveCardViewHeight.constant = 0;
         [self.view updateConstraintsIfNeeded];
     }
     else {
+        if ([CC_CONFIG setDefaultCreditSaveCardEnabled]) {
+            self.view.saveCardSwitch.selected = YES;
+        }
         self.view.saveCardView.hidden = NO;
         self.view.saveCardViewHeight.constant = 70;
     }

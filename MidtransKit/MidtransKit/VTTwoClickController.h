@@ -17,5 +17,6 @@
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
                    maskedCard:(MidtransMaskedCreditCard *)maskedCard;
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCard:(MidtransMaskedCreditCard *)maskedCard andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard;
 
 @end

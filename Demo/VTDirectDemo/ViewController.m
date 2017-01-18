@@ -53,7 +53,8 @@
 
 - (IBAction)settingPressed:(UIBarButtonItem *)sender {
     OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
-    [self.navigationController pushViewController:option animated:YES];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:option];
+    [self presentViewController:nvc animated:YES completion:nil];
 }
 
 - (IBAction)checkoutPressed:(UIBarButtonItem *)sender {
@@ -98,7 +99,6 @@
         [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
         
         NSDate *now = [NSDate date];
-        NSString *iso8601String = [dateFormatter stringFromDate:now];
         MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:now expireDuration:1 withUnitTime:MindtransTimeUnitTypeMinute];
         [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:self.itemDetails customerDetails:customerDetails customField:@{@"test":@"123"} transactionExpireTime:expireTime completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
             [MBProgressHUD hideHUDForView:self.view animated:YES];
@@ -135,7 +135,7 @@
 }
 
 - (UIColor *)myThemeColor {
-    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerThemeColor];
     return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
 }
 
@@ -143,7 +143,7 @@
     NSString *fontNameBold;
     NSString *fontNameRegular;
     NSString *fontNameLight;
-    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCustomFont];
     for (NSString *fontName in fontNames) {
         if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
             fontNameBold = fontName;
@@ -196,7 +196,7 @@
         [alert show];
         NSLog(@"success: %@", result);
     }
-
+    
 }
 
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {

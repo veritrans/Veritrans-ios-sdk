@@ -15,7 +15,7 @@
 #import "MidtransCreditCardHelper.h"
 #import "Midtrans3DSController.h"
 #import "MidtransConstant.h"
-
+#import "MidtransBinResponse.h"
 NSString *const GENERATE_TOKEN_URL = @"token";
 NSString *const REGISTER_CARD_URL = @"card/register";
 
@@ -48,7 +48,33 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                              userInfo:userInfo];
     return NO;
 }
+- (void)requestCardBINForInstallmentWithCompletion:(void (^_Nullable)(NSArray *_Nullable binResponse, NSError *_Nullable error))completion {
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURL *url = [NSURL URLWithString:[PRIVATECONFIG binURL]];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
+                                            completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
+                                                if (error){
+                                                    if(completion) {
+                                                        completion(nil,error);
+                                                    }
+                                                }
+                                                else {
+                                                    NSArray *json  = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                                    NSMutableArray *contentData = [NSMutableArray new];
+                                                    for (NSDictionary *response in json) {
+                                                        MidtransBinResponse *binResponseObject = [[MidtransBinResponse alloc] initWithDictionary:response];
+                                                        [contentData addObject:[binResponseObject dictionaryRepresentation]];
+                                                    }
+                                                    
+                                                    if(completion) {
+                                                        completion(contentData,nil);
+                                                    }
+                                                    
+                                                }
+                                            }];
+    [dataTask resume];
 
+}
 - (void)generateToken:(MidtransTokenizeRequest *_Nonnull)tokenizeRequest
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];

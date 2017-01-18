@@ -39,6 +39,8 @@
 		E52940841CFEC6FD000180D3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940831CFEC6FD000180D3 /* OpenGLES.framework */; };
 		E52940861CFEC705000180D3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940851CFEC705000180D3 /* QuartzCore.framework */; };
 		E52940881CFEC70B000180D3 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E52940871CFEC70B000180D3 /* Security.framework */; };
+		E532D6D81E2C81BB005F8ECB /* XCUIElement+Textfield.m in Sources */ = {isa = PBXBuildFile; fileRef = E532D6D71E2C81BB005F8ECB /* XCUIElement+Textfield.m */; };
+		E542D3331E27378600B9D044 /* AcquiringBankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E542D3321E27378600B9D044 /* AcquiringBankTableViewController.m */; };
 		E553BA801D66AF530091E403 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E553BA7F1D66AF530091E403 /* Settings.bundle */; };
 		E57A161E1DAB012C00324B9C /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E57A161D1DAB012C00324B9C /* MidtransKit.bundle */; };
 		E5AA566A1DA2333F00DAD851 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5AA56691DA2333F00DAD851 /* libMidtransKit.a */; };
@@ -60,13 +62,13 @@
 		E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */; };
 		E5C32B341C8E789200C8EB92 /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B321C8E789200C8EB92 /* Fabric.framework */; };
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
-		E5C72E021E24BDDB0079E463 /* VTDirectDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C72E011E24BDDB0079E463 /* VTDirectDemoUITests.m */; };
 		E5DB43CE1DC0833C001C7B99 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */; };
 		E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */; };
+		E5E15BEE1E2876E00019D329 /* MTCreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E15BED1E2876E00019D329 /* MTCreditCardPaymentTests.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E5C72E041E24BDDB0079E463 /* PBXContainerItemProxy */ = {
+		E5E15BE81E2876BB0019D329 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 302F71B61C73163C00FE73FE /* Project object */;
 			proxyType = 1;
@@ -123,6 +125,10 @@
 		E52940831CFEC6FD000180D3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		E52940851CFEC705000180D3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		E52940871CFEC70B000180D3 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		E532D6D61E2C81BB005F8ECB /* XCUIElement+Textfield.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XCUIElement+Textfield.h"; sourceTree = "<group>"; };
+		E532D6D71E2C81BB005F8ECB /* XCUIElement+Textfield.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XCUIElement+Textfield.m"; sourceTree = "<group>"; };
+		E542D3311E27378600B9D044 /* AcquiringBankTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcquiringBankTableViewController.h; sourceTree = "<group>"; };
+		E542D3321E27378600B9D044 /* AcquiringBankTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AcquiringBankTableViewController.m; sourceTree = "<group>"; };
 		E553BA7F1D66AF530091E403 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		E57A161D1DAB012C00324B9C /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5AA56691DA2333F00DAD851 /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-fgcjdwnqwitkoyctqedzbpnlobvx/Build/Products/Debug-iphonesimulator/libMidtransKit.a"; sourceTree = "<group>"; };
@@ -146,11 +152,11 @@
 		E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
 		E5C32B321C8E789200C8EB92 /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		E5C32B331C8E789200C8EB92 /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
-		E5C72DFF1E24BDDB0079E463 /* VTDirectDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = VTDirectDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E5C72E011E24BDDB0079E463 /* VTDirectDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VTDirectDemoUITests.m; sourceTree = "<group>"; };
-		E5C72E031E24BDDB0079E463 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = virtualAccount.plist; sourceTree = "<group>"; };
 		E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentMethods.plist; sourceTree = "<group>"; };
+		E5E15BE31E2876BB0019D329 /* MidtransSDKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransSDKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5E15BE71E2876BB0019D329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5E15BED1E2876E00019D329 /* MTCreditCardPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTCreditCardPaymentTests.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +181,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5C72DFC1E24BDDB0079E463 /* Frameworks */ = {
+		E5E15BE01E2876BB0019D329 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -264,7 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				302F71C01C73163C00FE73FE /* VTDirectDemo */,
-				E5C72E001E24BDDB0079E463 /* VTDirectDemoUITests */,
+				E5E15BE41E2876BB0019D329 /* MidtransSDKUITests */,
 				302F71BF1C73163C00FE73FE /* Products */,
 				60DE1F59509B50552B10D5AE /* Frameworks */,
 				6856154754E7A35C15BD3D91 /* Pods */,
@@ -275,7 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				302F71BE1C73163C00FE73FE /* VTDirectDemo.app */,
-				E5C72DFF1E24BDDB0079E463 /* VTDirectDemoUITests.xctest */,
+				E5E15BE31E2876BB0019D329 /* MidtransSDKUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -414,17 +420,21 @@
 				30FDCC401C8002B400CEFED3 /* TableViewCell.m */,
 				E50224981CE975D30010C0ED /* IHKeyboardAvoiding.h */,
 				E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */,
+				E542D3311E27378600B9D044 /* AcquiringBankTableViewController.h */,
+				E542D3321E27378600B9D044 /* AcquiringBankTableViewController.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
 		};
-		E5C72E001E24BDDB0079E463 /* VTDirectDemoUITests */ = {
+		E5E15BE41E2876BB0019D329 /* MidtransSDKUITests */ = {
 			isa = PBXGroup;
 			children = (
-				E5C72E011E24BDDB0079E463 /* VTDirectDemoUITests.m */,
-				E5C72E031E24BDDB0079E463 /* Info.plist */,
+				E5E15BE71E2876BB0019D329 /* Info.plist */,
+				E5E15BED1E2876E00019D329 /* MTCreditCardPaymentTests.m */,
+				E532D6D61E2C81BB005F8ECB /* XCUIElement+Textfield.h */,
+				E532D6D71E2C81BB005F8ECB /* XCUIElement+Textfield.m */,
 			);
-			path = VTDirectDemoUITests;
+			path = MidtransSDKUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -451,22 +461,22 @@
 			productReference = 302F71BE1C73163C00FE73FE /* VTDirectDemo.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E5C72DFE1E24BDDB0079E463 /* VTDirectDemoUITests */ = {
+		E5E15BE21E2876BB0019D329 /* MidtransSDKUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E5C72E061E24BDDB0079E463 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */;
+			buildConfigurationList = E5E15BEA1E2876BB0019D329 /* Build configuration list for PBXNativeTarget "MidtransSDKUITests" */;
 			buildPhases = (
-				E5C72DFB1E24BDDB0079E463 /* Sources */,
-				E5C72DFC1E24BDDB0079E463 /* Frameworks */,
-				E5C72DFD1E24BDDB0079E463 /* Resources */,
+				E5E15BDF1E2876BB0019D329 /* Sources */,
+				E5E15BE01E2876BB0019D329 /* Frameworks */,
+				E5E15BE11E2876BB0019D329 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E5C72E051E24BDDB0079E463 /* PBXTargetDependency */,
+				E5E15BE91E2876BB0019D329 /* PBXTargetDependency */,
 			);
-			name = VTDirectDemoUITests;
-			productName = VTDirectDemoUITests;
-			productReference = E5C72DFF1E24BDDB0079E463 /* VTDirectDemoUITests.xctest */;
+			name = MidtransSDKUITests;
+			productName = MidtransSDKUITests;
+			productReference = E5E15BE31E2876BB0019D329 /* MidtransSDKUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -482,7 +492,7 @@
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = G92YEQF267;
 					};
-					E5C72DFE1E24BDDB0079E463 = {
+					E5E15BE21E2876BB0019D329 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = G92YEQF267;
 						ProvisioningStyle = Automatic;
@@ -504,7 +514,7 @@
 			projectRoot = "";
 			targets = (
 				302F71BD1C73163C00FE73FE /* VTDirectDemo */,
-				E5C72DFE1E24BDDB0079E463 /* VTDirectDemoUITests */,
+				E5E15BE21E2876BB0019D329 /* MidtransSDKUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -545,7 +555,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5C72DFD1E24BDDB0079E463 /* Resources */ = {
+		E5E15BE11E2876BB0019D329 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -626,6 +636,7 @@
 				E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */,
 				E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */,
 				302F71C91C73163C00FE73FE /* ViewController.m in Sources */,
+				E542D3331E27378600B9D044 /* AcquiringBankTableViewController.m in Sources */,
 				30FDCC411C8002B400CEFED3 /* TableViewCell.m in Sources */,
 				00598E911D76AB39006241BF /* SamplePaymentListViewController.m in Sources */,
 				00F0DA8A1D76BFF6005B117E /* SamplePaymentListTableViewCell.m in Sources */,
@@ -637,21 +648,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E5C72DFB1E24BDDB0079E463 /* Sources */ = {
+		E5E15BDF1E2876BB0019D329 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5C72E021E24BDDB0079E463 /* VTDirectDemoUITests.m in Sources */,
+				E5E15BEE1E2876E00019D329 /* MTCreditCardPaymentTests.m in Sources */,
+				E532D6D81E2C81BB005F8ECB /* XCUIElement+Textfield.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E5C72E051E24BDDB0079E463 /* PBXTargetDependency */ = {
+		E5E15BE91E2876BB0019D329 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 302F71BD1C73163C00FE73FE /* VTDirectDemo */;
-			targetProxy = E5C72E041E24BDDB0079E463 /* PBXContainerItemProxy */;
+			targetProxy = E5E15BE81E2876BB0019D329 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -713,7 +725,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -753,7 +765,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -821,29 +833,29 @@
 			};
 			name = Release;
 		};
-		E5C72E071E24BDDB0079E463 /* Debug */ = {
+		E5E15BEB1E2876BB0019D329 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
-				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
+				INFOPLIST_FILE = MidtransSDKUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.VTDirectDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransSDKUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = VTDirectDemo;
 			};
 			name = Debug;
 		};
-		E5C72E081E24BDDB0079E463 /* Release */ = {
+		E5E15BEC1E2876BB0019D329 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
-				INFOPLIST_FILE = VTDirectDemoUITests/Info.plist;
+				INFOPLIST_FILE = MidtransSDKUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.VTDirectDemoUITests;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransSDKUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_TARGET_NAME = VTDirectDemo;
 			};
@@ -870,13 +882,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E5C72E061E24BDDB0079E463 /* Build configuration list for PBXNativeTarget "VTDirectDemoUITests" */ = {
+		E5E15BEA1E2876BB0019D329 /* Build configuration list for PBXNativeTarget "MidtransSDKUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E5C72E071E24BDDB0079E463 /* Debug */,
-				E5C72E081E24BDDB0079E463 /* Release */,
+				E5E15BEB1E2876BB0019D329 /* Debug */,
+				E5E15BEC1E2876BB0019D329 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

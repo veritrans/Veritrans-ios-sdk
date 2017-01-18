@@ -94,7 +94,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
         acquiringBank = @{@"type":@(MTAcquiringBankMandiri), @"string":@"Mandiri"};
     }
     CC_CONFIG.acquiringBank = [acquiringBank[@"type"] integerValue];
-    
+    CC_CONFIG.setDefaultCreditSaveCardEnabled = YES;
     return YES;
 }
 

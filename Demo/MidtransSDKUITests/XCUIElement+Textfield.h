@@ -9,5 +9,5 @@
 #import <XCTest/XCTest.h>
 
 @interface XCUIElement (Textfield)
-- (BOOL)clearAndEnterText:(NSString *)text;
+- (void)enterText:(NSString *)text;
 @end

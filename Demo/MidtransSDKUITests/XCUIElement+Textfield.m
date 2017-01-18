@@ -10,23 +10,24 @@
 
 @implementation XCUIElement (Textfield)
 
-- (BOOL)clearAndEnterText:(NSString *)text {
-    [self tap];
-    
-    if ([self.value isKindOfClass:[NSString class]]) {
-        NSString *stringValue = self.value;
-        NSMutableString *deleteString = [NSMutableString new];
-        for (int i=0; i<stringValue.length; i++) {
-            [deleteString insertString:XCUIKeyboardKeyDelete atIndex:i];
-        }
-        
-        [self typeText:deleteString];
-        [self typeText:text];
-        return YES;
+- (void)enterText:(NSString *)text {
+    if ([self.value length]) {
+        return;
     }
     else {
-        return NO;
+        [self tap];
+        [self typeText:text];
     }
+    
+//    if ([self.value isKindOfClass:[NSString class]]) {
+//        NSString *stringValue = self.value;
+//        NSMutableString *deleteString = [NSMutableString new];
+//        for (int i=0; i<stringValue.length; i++) {
+//            [deleteString insertString:XCUIKeyboardKeyDelete atIndex:i];
+//        }
+//        
+//        [self typeText:deleteString];
+    
 }
 
 @end

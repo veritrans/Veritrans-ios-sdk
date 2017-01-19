@@ -30,7 +30,9 @@ CGFloat const ScanButtonHeight = 45;
     self.infoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     [IHKeyboardAvoiding_vt setAvoidingView:self.fieldScrollView];
 }
-
+- (UIImage *)iconWithBankName:(NSString *)bankName {
+    return [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];
+}
 - (UIImage *)iconDarkWithNumber:(NSString *)number {
     switch ([MidtransCreditCardHelper typeFromString:number]) {
         case VTCreditCardTypeVisa:

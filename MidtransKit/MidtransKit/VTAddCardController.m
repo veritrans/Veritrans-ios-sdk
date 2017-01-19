@@ -121,17 +121,18 @@ static const NSInteger installmentHeight = 50;
     self.installmentAvailable = NO;
     self.installment =[[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
 
-    if (self.installment.terms) {
-        self.installmentAvailable = YES;
-        self.installmentRequired = self.installment.required;
-                [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
-                    if (!error) {
-                        self.binResponseObject = binResponse;
-                         [self setupInstallmentView];
-                    }
-                }];
+    [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
+        if (!error) {
+            if (self.installment.terms) {
+                self.installmentAvailable = YES;
+                self.installmentRequired = self.installment.required;
+                self.binResponseObject = binResponse;
+                [self setupInstallmentView];
 
-    }
+            }
+        }
+    }];
+    
 #if __has_include(<CardIO/CardIO.h>)
     [self.view hideScanCardButton:NO];
     //speedup cardio launch
@@ -221,7 +222,6 @@ static const NSInteger installmentHeight = 50;
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.view.saveCardSwitch.selected
                                                                              installment:self.installmentTerms];
-    NSLog(@"payment detail->%@",[paymentDetail dictionaryValue]);
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
@@ -335,9 +335,7 @@ static const NSInteger installmentHeight = 50;
 #pragma mark - VTCardFormatterDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
-    if (self.installmentAvailable) {
-        [self matchBINNumberWithInstallment:[self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
-    }
+  [self matchBINNumberWithInstallment:[self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
     if (self.view.cardNumber.text.length < 1) {
         self.view.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
         self.view.cardFrontView.iconView.image = nil;
@@ -347,6 +345,9 @@ static const NSInteger installmentHeight = 50;
         self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
         NSString *originNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         self.view.cardNumber.infoIcon = [self.view iconDarkWithNumber:originNumber];
+        if (self.filteredBinObject.bank.length) {
+             self.view.cardNumber.infoBankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
+        }
         self.view.cardFrontView.iconView.image = [self.view iconWithNumber:originNumber];
     }
 }
@@ -357,12 +358,13 @@ static const NSInteger installmentHeight = 50;
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"SELF['bins'] CONTAINS %@",binNumber];
         NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
-        if (filtered.count) {
-            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-            if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {
-                self.installmentBankName = self.filteredBinObject.bank;
-                [self.installmentValueObject addObject:@"0"];
-                [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
+         if (filtered.count) {
+             self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+             if (self.installmentAvailable) {
+                if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {
+                    self.installmentBankName = self.filteredBinObject.bank;
+                    [self.installmentValueObject addObject:@"0"];
+                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
                 //[self.view.installmentCollectionView reloadData];
                 [UIView transitionWithView:self.view.installmentView
                                   duration:1
@@ -373,8 +375,8 @@ static const NSInteger installmentHeight = 50;
                                     [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
                                 }
                                 completion:NULL];
+                }
             }
-        }
         else if([[self.installment.terms objectForKey:@"offline"] count]){
             self.installmentBankName = @"offline";
             [self.installmentValueObject addObject:@"0"];
@@ -407,6 +409,7 @@ static const NSInteger installmentHeight = 50;
                         }
                         completion:NULL];
     }
+         }
     
 }
 #pragma mark - UITextFieldDelegate

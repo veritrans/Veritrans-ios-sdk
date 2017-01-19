@@ -19,6 +19,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     UILabel *_warningLabel;
     UIView *_divView;
     UIImageView *_infoIconView;
+    UIImageView *_infoBankIconView;
 }
 
 - (instancetype)initWithFrame:(CGRect)frame {
@@ -42,6 +43,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     self.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.font.pointSize];
     
     self.floatingLabelActiveTextColor = [[MidtransUIThemeManager shared] themeColor];
+    
+    _infoBankIconView = [UIImageView new];
+    [self addSubview:_infoBankIconView];
     
     _infoIconView = [UIImageView new];
     [self addSubview:_infoIconView];
@@ -312,6 +316,9 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     }
     
     _infoIconView.frame = [self infoIconRect];
+    _infoBankIconView.frame = [self infoBankViewRect];
+    _infoBankIconView.image = _infoBankIcon;
+    
     _infoIconView.image = _infoIcon;
     
     _warningLabel.frame = [self warningLabelRect];
@@ -333,7 +340,12 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 - (CGRect)warningLabelRect {
     return CGRectMake(0, CGRectGetMaxY([self divViewRect]), CGRectGetWidth(self.bounds), 15);
 }
-
+- (CGRect)infoBankViewRect {
+    CGSize size = _infoBankIcon.size;
+    CGFloat width = _infoBankIcon ? size.width : 0;
+    CGRect fieldRect = self.bounds;
+    return CGRectMake(CGRectGetMaxX(fieldRect)-(_infoIcon.size.width*2.5), CGRectGetMidY(fieldRect)-(size.height/2.0), width, size.height);
+}
 - (CGRect)infoIconRect {
     CGSize size = _infoIcon.size;
     CGFloat width = _infoIcon ? size.width : 0;

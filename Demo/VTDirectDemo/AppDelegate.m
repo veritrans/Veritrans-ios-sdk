@@ -56,10 +56,15 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];
-        [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
-                 environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment"];
-
+    
+    [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:@"https://rakawm-snap.herokuapp.com"];
+    
+    //    [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+    //             environment:MidtransServerEnvironmentSandbox
+    //       merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment"];
+    
     //    [CONFIG setClientKey:@"VT-client-EyRaL8UEMwjlCzyW"
     //             environment:MidtransServerEnvironmentStaging
     //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];

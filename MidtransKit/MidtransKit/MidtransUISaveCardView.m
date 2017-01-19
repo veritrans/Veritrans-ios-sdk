@@ -7,15 +7,27 @@
 //
 
 #import "MidtransUISaveCardView.h"
-
+#import "VTClassHelper.h"
 @implementation MidtransUISaveCardView
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)setupView {
+    UIView *view = [[VTBundle loadNibNamed:@"MidtransUISaveCardView" owner:self options:nil] firstObject];
+    [self addSubview:view];
+    [self setFrame:CGRectMake(0.0f, 0.0f, [[UIScreen mainScreen] bounds].size.width, 40)];
 }
-*/
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setupView];
+    }
+    return self;
+}
 
+- (id)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupView];
+    }
+    return self;
+}
 @end

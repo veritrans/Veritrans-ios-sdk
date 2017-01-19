@@ -318,6 +318,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     _infoIconView.frame = [self infoIconRect];
     _infoBankIconView.frame = [self infoBankViewRect];
     _infoBankIconView.image = _infoBankIcon;
+    _infoBankIconView.contentMode = UIViewContentModeScaleAspectFit;
     
     _infoIconView.image = _infoIcon;
     
@@ -344,7 +345,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     CGSize size = _infoBankIcon.size;
     CGFloat width = _infoBankIcon ? size.width : 0;
     CGRect fieldRect = self.bounds;
-    return CGRectMake(CGRectGetMaxX(fieldRect)-(_infoIcon.size.width*2.5), CGRectGetMidY(fieldRect)-(size.height/2.0), width, size.height);
+    return CGRectMake(CGRectGetMaxX(fieldRect)-(_infoIcon.size.width*2.3), CGRectGetMidY(fieldRect)-(size.height/2.0)+1, width, size.height - 2.0f);
 }
 - (CGRect)infoIconRect {
     CGSize size = _infoIcon.size;

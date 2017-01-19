@@ -13,7 +13,6 @@ target 'VTDirectDemo' do
     pod 'SDWebImage', '~>3.7'
     pod 'iOS-Color-Picker'
     pod 'MBProgressHUD'
-#    pod 'CardIO', '~> 5.4'
 end
 
 target 'MidtransDemoSwift' do

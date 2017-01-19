@@ -74,7 +74,7 @@
          self.title = response.merchant.preference.displayName;
          if (response) {
              [self hideLoading];
-             
+ 
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
@@ -85,7 +85,14 @@
                                                    };
              
              NSArray *paymentAvailable = response.enabledPayments;
-             
+             if (self.paymentMethodSelected.length>0) {
+                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
+                 NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
+                 if (!results.count) {
+                     self.view.emptyView.hidden = NO;
+                     return ;
+                 }
+             }
              for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index ;
                  if (self.paymentMethodSelected.length > 0) {
@@ -103,16 +110,14 @@
                      MidtransPaymentListModel *model;
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                          if (!vaAlreadyAdded) {
-                             if (mainIndex!=0) {
-                                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                                 [self.paymentMethodList insertObject:model atIndex:1];
-                                 vaAlreadyAdded = YES;
-                             }
-                             
+                             model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                             [self.paymentMethodList insertObject:model atIndex:mainIndex];
+                             vaAlreadyAdded = YES;
                          }
                      }
                      
                      else {
+                        
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          [self.paymentMethodList addObject:model];
                          
@@ -178,18 +183,15 @@
                                                                      paymentMethodName:paymentMethod
                                                                      andCreditCardData:self.responsePayment.creditCard];
                 [vc showDismissButton:self.singlePayment];
-                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
-
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
+                
             }
             else {
-            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
-                                                               paymentMethodName:paymentMethod];
-            [vc showDismissButton:self.singlePayment];
-            vc.delegate = self;
-                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
+                VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
+                                                                   paymentMethodName:paymentMethod];
+                [vc showDismissButton:self.singlePayment];
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
             }
-           
-            
         }
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {

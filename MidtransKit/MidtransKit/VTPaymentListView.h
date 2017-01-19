@@ -24,6 +24,7 @@
 @property (nonatomic) MidtransUIPaymentListFooter *footer;
 @property (nonatomic) MidtransUIPaymentListHeader *header;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
 @property (nonatomic, weak) id<VTPaymentListViewDelegate>delegate;
 
 - (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items;

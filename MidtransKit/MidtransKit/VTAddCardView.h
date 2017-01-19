@@ -39,4 +39,5 @@
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;
 - (UIImage *)iconWithNumber:(NSString *)number;
+- (UIImage *)iconWithBankName:(NSString *)bankName;
 @end

@@ -25,6 +25,7 @@
 @property (nonatomic, assign) IBInspectable BOOL adjustsClearButtonRect;
 @property (nonatomic, assign) IBInspectable BOOL keepBaseline;
 @property (nonatomic) UIImage *infoIcon;
+@property (nonatomic) UIImage *infoBankIcon;
 
 - (void)setPlaceholder:(NSString *)placeholder floatingTitle:(NSString *)floatingTitle;
 

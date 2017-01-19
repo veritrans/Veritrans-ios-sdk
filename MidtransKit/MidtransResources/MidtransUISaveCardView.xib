@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransUISaveCardView">
+            <connections>
+                <outlet property="saveCardInfoButton" destination="lyj-IK-6Fe" id="qI9-CX-hDg"/>
+                <outlet property="saveCardSelect" destination="oJa-Jx-rTL" id="tZc-dT-mdp"/>
+                <outlet property="saveCardTextLabel" destination="YqV-MH-Mjs" id="U9q-XV-I0S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kYY-dy-pG1">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Save card for later reuse" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YqV-MH-Mjs">
+                    <rect key="frame" x="43" y="9" width="228" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyj-IK-6Fe">
+                    <rect key="frame" x="279" y="2" width="36" height="36"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="99V-GE-Xp9"/>
+                        <constraint firstAttribute="height" constant="36" id="fe5-WL-0gV"/>
+                    </constraints>
+                    <state key="normal" image="hint.png"/>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7Q6-tu-Lf8" customClass="MidtransLineView">
+                    <rect key="frame" x="0.0" y="39" width="320" height="1"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="AGf-xW-eab"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="dashed" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="drawOnTop" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oJa-Jx-rTL">
+                    <rect key="frame" x="5" y="4" width="36" height="33"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="36" id="Btd-Pf-Moe"/>
+                    </constraints>
+                    <state key="normal" image="checkbox_uncheck.png"/>
+                    <state key="selected" image="checkbox_checked.png"/>
+                    <state key="highlighted" image="checkbox_checked.png"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="7Q6-tu-Lf8" firstAttribute="leading" secondItem="kYY-dy-pG1" secondAttribute="leading" id="1Dv-sc-jAm"/>
+                <constraint firstItem="lyj-IK-6Fe" firstAttribute="leading" secondItem="YqV-MH-Mjs" secondAttribute="trailing" constant="8" id="246-mP-GuR"/>
+                <constraint firstItem="oJa-Jx-rTL" firstAttribute="height" secondItem="kYY-dy-pG1" secondAttribute="height" constant="-7" id="Fad-sk-1pI"/>
+                <constraint firstAttribute="trailing" secondItem="7Q6-tu-Lf8" secondAttribute="trailing" id="Gn6-dW-0kJ"/>
+                <constraint firstItem="oJa-Jx-rTL" firstAttribute="top" secondItem="kYY-dy-pG1" secondAttribute="top" constant="4" id="H9q-xd-xd0"/>
+                <constraint firstAttribute="trailing" secondItem="lyj-IK-6Fe" secondAttribute="trailing" constant="5" id="Ixc-on-jdn"/>
+                <constraint firstAttribute="bottom" secondItem="lyj-IK-6Fe" secondAttribute="bottom" constant="2" id="RgK-da-kp1"/>
+                <constraint firstItem="YqV-MH-Mjs" firstAttribute="top" secondItem="kYY-dy-pG1" secondAttribute="top" constant="9" id="YUt-Mf-L19"/>
+                <constraint firstAttribute="bottom" secondItem="YqV-MH-Mjs" secondAttribute="bottom" constant="9" id="YaT-la-PxV"/>
+                <constraint firstAttribute="bottom" secondItem="7Q6-tu-Lf8" secondAttribute="bottom" id="Zgz-Rr-PW2"/>
+                <constraint firstAttribute="height" constant="40" id="aS4-5I-5bX"/>
+                <constraint firstItem="lyj-IK-6Fe" firstAttribute="top" secondItem="kYY-dy-pG1" secondAttribute="top" constant="2" id="eI7-U0-8WZ"/>
+                <constraint firstItem="oJa-Jx-rTL" firstAttribute="leading" secondItem="kYY-dy-pG1" secondAttribute="leading" constant="5" id="mnz-pH-DiF"/>
+                <constraint firstItem="YqV-MH-Mjs" firstAttribute="leading" secondItem="oJa-Jx-rTL" secondAttribute="trailing" constant="2" id="rHz-NB-aTk"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="27" y="-112.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="checkbox_checked.png" width="22" height="22"/>
+        <image name="checkbox_uncheck.png" width="22" height="22"/>
+        <image name="hint.png" width="21" height="21"/>
+    </resources>
+</document>

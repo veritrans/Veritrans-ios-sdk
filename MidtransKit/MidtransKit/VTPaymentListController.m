@@ -183,18 +183,15 @@
                                                                      paymentMethodName:paymentMethod
                                                                      andCreditCardData:self.responsePayment.creditCard];
                 [vc showDismissButton:self.singlePayment];
-                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
-
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
+                
             }
             else {
-            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
-                                                               paymentMethodName:paymentMethod];
-            [vc showDismissButton:self.singlePayment];
-            vc.delegate = self;
-                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
+                VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
+                                                                   paymentMethodName:paymentMethod];
+                [vc showDismissButton:self.singlePayment];
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
             }
-           
-            
         }
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {

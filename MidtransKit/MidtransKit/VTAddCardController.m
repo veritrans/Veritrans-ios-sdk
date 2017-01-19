@@ -77,6 +77,11 @@ static const NSInteger installmentHeight = 50;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    if (!self.maskedCards) {
+        self.maskedCards = [NSMutableArray new];
+    }
+    
     self.installmentValueObject = [NSMutableArray new];
     self.attemptRetry = 0;
 

@@ -12,5 +12,7 @@
 @property (weak, nonatomic) IBOutlet MidtransUITextField *creditCardNumberTextField;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpireTextField;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardCVVNumberTextField;
+@property (weak, nonatomic) IBOutlet UIView *additionalView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *additionalViewHeightConstraints;
 
 @end

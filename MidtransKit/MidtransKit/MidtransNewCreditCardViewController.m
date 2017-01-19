@@ -7,15 +7,18 @@
 //
 
 #import "MidtransNewCreditCardViewController.h"
-
+#import "MidtransNewCreditCardView.h"
 @interface MidtransNewCreditCardViewController ()
+@property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
 
 @end
 
 @implementation MidtransNewCreditCardViewController
+@dynamic view;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.additionalViewHeightConstraints.constant = 1000;
     // Do any additional setup after loading the view from its nib.
 }
 

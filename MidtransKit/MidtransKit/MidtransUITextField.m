@@ -345,7 +345,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     CGSize size = _infoBankIcon.size;
     CGFloat width = _infoBankIcon ? size.width : 0;
     CGRect fieldRect = self.bounds;
-    return CGRectMake(CGRectGetMaxX(fieldRect)-(_infoIcon.size.width*2.3), CGRectGetMidY(fieldRect)-(size.height/2.0)+1, width, size.height - 2.0f);
+    return CGRectMake(CGRectGetMaxX(fieldRect)-(_infoIcon.size.width*2.4), CGRectGetMidY(fieldRect)-(size.height/2.0)+1, width, size.height - 2.0f);
 }
 - (CGRect)infoIconRect {
     CGSize size = _infoIcon.size;

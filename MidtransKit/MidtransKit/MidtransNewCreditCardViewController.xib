@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransNewCreditCardViewController">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="MidtransNewCreditCardView">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZQU-7e-inp">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4B-eL-oyL">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="159"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cjm-Hs-C5V">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc_badge.png" translatesAutoresizingMaskIntoConstraints="NO" id="XcC-Mb-FmX">
+                                            <rect key="frame" x="158" y="0.0" width="152" height="51"/>
+                                        </imageView>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="midtrans_lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="d5l-Fx-dOX">
+                                            <rect key="frame" x="8" y="10" width="125" height="31"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="31" id="jCb-4L-bAS"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="d5l-Fx-dOX" secondAttribute="bottom" constant="10" id="1s0-Sw-Nyc"/>
+                                        <constraint firstItem="d5l-Fx-dOX" firstAttribute="leading" secondItem="Cjm-Hs-C5V" secondAttribute="leading" constant="8" id="2S4-qO-aeK"/>
+                                        <constraint firstItem="d5l-Fx-dOX" firstAttribute="height" secondItem="Cjm-Hs-C5V" secondAttribute="height" constant="-20" id="705-LQ-28Y"/>
+                                        <constraint firstAttribute="trailing" secondItem="XcC-Mb-FmX" secondAttribute="trailing" constant="10" id="712-Sx-441"/>
+                                        <constraint firstItem="XcC-Mb-FmX" firstAttribute="height" secondItem="Cjm-Hs-C5V" secondAttribute="height" id="P5g-Qp-vXi"/>
+                                        <constraint firstItem="XcC-Mb-FmX" firstAttribute="leading" secondItem="d5l-Fx-dOX" secondAttribute="trailing" constant="25" id="PYQ-Ub-WFJ"/>
+                                        <constraint firstItem="XcC-Mb-FmX" firstAttribute="top" secondItem="Cjm-Hs-C5V" secondAttribute="top" id="kIR-05-TLn"/>
+                                        <constraint firstItem="d5l-Fx-dOX" firstAttribute="top" secondItem="Cjm-Hs-C5V" secondAttribute="top" constant="10" id="lA9-ur-hcS"/>
+                                        <constraint firstItem="XcC-Mb-FmX" firstAttribute="width" secondItem="Cjm-Hs-C5V" secondAttribute="width" multiplier="1/2" constant="-7.5" id="xfV-Ro-VFu"/>
+                                    </constraints>
+                                </view>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oTx-Kf-sDk" customClass="MidtransUICustomTextField">
+                                    <rect key="frame" x="8" y="59" width="304" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="JBq-1M-sga"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabelColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HuK-rX-kiI" customClass="MidtransUITextField">
+                                    <rect key="frame" x="8" y="104" width="204" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="xAE-XI-FNK"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
+                                            <real key="value" value="30"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelXPadding">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Odf-ts-h4S" customClass="MidtransUITextField">
+                                    <rect key="frame" x="212" y="104" width="100" height="45"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="Kee-sQ-fXi"/>
+                                        <constraint firstAttribute="width" constant="100" id="lrx-yf-GQr"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="textRightPadding">
+                                            <real key="value" value="30"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelYPadding">
+                                            <integer key="value" value="20"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="floatingLabelXPadding">
+                                            <real key="value" value="16"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                </textField>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKp-h3-XEY">
+                                    <rect key="frame" x="206" y="90" width="1" height="45"/>
+                                    <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="45" id="dxz-t7-Tsk"/>
+                                        <constraint firstAttribute="width" constant="1" id="xD9-XP-wkf"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="dKp-h3-XEY" firstAttribute="top" secondItem="Cjm-Hs-C5V" secondAttribute="bottom" constant="39" id="9W3-53-ZfK"/>
+                                <constraint firstItem="oTx-Kf-sDk" firstAttribute="leading" secondItem="s4B-eL-oyL" secondAttribute="leading" constant="8" id="9eV-Vw-m60"/>
+                                <constraint firstItem="Odf-ts-h4S" firstAttribute="bottom" secondItem="HuK-rX-kiI" secondAttribute="bottom" id="Aca-Gb-B7n"/>
+                                <constraint firstItem="Cjm-Hs-C5V" firstAttribute="top" secondItem="s4B-eL-oyL" secondAttribute="top" id="C2q-du-pTu"/>
+                                <constraint firstAttribute="trailing" secondItem="oTx-Kf-sDk" secondAttribute="trailing" constant="8" id="DYY-aF-1Iq"/>
+                                <constraint firstItem="Odf-ts-h4S" firstAttribute="leading" secondItem="HuK-rX-kiI" secondAttribute="trailing" id="EcV-Lh-YWP"/>
+                                <constraint firstItem="Odf-ts-h4S" firstAttribute="top" secondItem="oTx-Kf-sDk" secondAttribute="bottom" id="H1b-a9-Mcu"/>
+                                <constraint firstAttribute="bottom" secondItem="HuK-rX-kiI" secondAttribute="bottom" constant="10" id="IZL-2a-kNB"/>
+                                <constraint firstItem="HuK-rX-kiI" firstAttribute="leading" secondItem="s4B-eL-oyL" secondAttribute="leading" constant="8" id="KkU-4U-Cuj"/>
+                                <constraint firstItem="HuK-rX-kiI" firstAttribute="leading" secondItem="oTx-Kf-sDk" secondAttribute="leading" id="LIN-WF-1sY"/>
+                                <constraint firstItem="Odf-ts-h4S" firstAttribute="trailing" secondItem="oTx-Kf-sDk" secondAttribute="trailing" id="Rhf-Xq-pej"/>
+                                <constraint firstAttribute="trailing" secondItem="Odf-ts-h4S" secondAttribute="trailing" constant="8" id="UFV-hk-akS"/>
+                                <constraint firstItem="Odf-ts-h4S" firstAttribute="centerY" secondItem="HuK-rX-kiI" secondAttribute="centerY" id="hx2-oN-4WL"/>
+                                <constraint firstAttribute="trailing" secondItem="Cjm-Hs-C5V" secondAttribute="trailing" id="jlV-YH-W7l"/>
+                                <constraint firstItem="oTx-Kf-sDk" firstAttribute="top" secondItem="Cjm-Hs-C5V" secondAttribute="bottom" constant="8" id="lD0-ho-cgG"/>
+                                <constraint firstItem="Cjm-Hs-C5V" firstAttribute="leading" secondItem="s4B-eL-oyL" secondAttribute="leading" id="lve-wD-UWf"/>
+                                <constraint firstItem="Odf-ts-h4S" firstAttribute="leading" secondItem="dKp-h3-XEY" secondAttribute="trailing" constant="5" id="oK3-mQ-wEX"/>
+                                <constraint firstItem="HuK-rX-kiI" firstAttribute="top" secondItem="oTx-Kf-sDk" secondAttribute="bottom" id="rhu-xb-Gta"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="s4B-eL-oyL" secondAttribute="trailing" id="28b-0D-mzM"/>
+                        <constraint firstAttribute="bottom" secondItem="s4B-eL-oyL" secondAttribute="bottom" constant="284" id="O0y-Dd-pNM"/>
+                        <constraint firstItem="s4B-eL-oyL" firstAttribute="leading" secondItem="ZQU-7e-inp" secondAttribute="leading" id="U8K-4E-v2u"/>
+                        <constraint firstItem="s4B-eL-oyL" firstAttribute="width" secondItem="ZQU-7e-inp" secondAttribute="width" id="lgT-fr-C4i"/>
+                        <constraint firstItem="s4B-eL-oyL" firstAttribute="top" secondItem="ZQU-7e-inp" secondAttribute="top" id="wEw-Ws-242"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="ZQU-7e-inp" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="0cp-C1-a9z"/>
+                <constraint firstAttribute="bottom" secondItem="ZQU-7e-inp" secondAttribute="bottom" id="3a2-Wk-JIl"/>
+                <constraint firstItem="ZQU-7e-inp" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Q13-59-hSW"/>
+                <constraint firstAttribute="trailing" secondItem="ZQU-7e-inp" secondAttribute="trailing" id="gRs-Ae-f5S"/>
+                <constraint firstItem="ZQU-7e-inp" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="q6B-gD-b2v"/>
+            </constraints>
+            <connections>
+                <outlet property="cardCVVNumberTextField" destination="Odf-ts-h4S" id="7cr-1c-Eyv"/>
+                <outlet property="cardExpireTextField" destination="HuK-rX-kiI" id="l1H-k8-jkP"/>
+                <outlet property="creditCardNumberTextField" destination="oTx-Kf-sDk" id="lbs-J8-tKx"/>
+            </connections>
+            <point key="canvasLocation" x="-9" y="-160"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cc_badge.png" width="178" height="24"/>
+        <image name="midtrans_lock.png" width="109" height="28"/>
+    </resources>
+</document>

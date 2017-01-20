@@ -119,14 +119,15 @@ static const NSInteger installmentHeight = 50;
     [self.view setToken:self.token];
     self.bins = self.creditCardInfo.whitelistBins;
     self.installmentAvailable = NO;
-    self.installment =[[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
-
+    self.installment = [[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
+    [self showLoadingWithText:@"Loading Credit Card"];
     [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
+        [self hideLoading];
         if (!error) {
+            self.binResponseObject = binResponse;
             if (self.installment.terms) {
                 self.installmentAvailable = YES;
                 self.installmentRequired = self.installment.required;
-                self.binResponseObject = binResponse;
                 [self setupInstallmentView];
 
             }
@@ -345,9 +346,7 @@ static const NSInteger installmentHeight = 50;
         self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
         NSString *originNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         self.view.cardNumber.infoIcon = [self.view iconDarkWithNumber:originNumber];
-        if (self.filteredBinObject.bank.length) {
-             self.view.cardNumber.infoBankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-        }
+        self.view.cardNumber.infoBankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
         self.view.cardFrontView.iconView.image = [self.view iconWithNumber:originNumber];
     }
 }
@@ -395,6 +394,7 @@ static const NSInteger installmentHeight = 50;
         
     }
     else {
+        self.filteredBinObject.bank = nil;
         if (self.installmentValueObject.count > 0) {
             self.installmentCurrentIndex = 0;
             [self.installmentsContentView resetInstallmentIndex];

@@ -208,8 +208,9 @@
         self.shipAddressTextField.text = nil;
         
         self.shippingAddressHeight.constant = 260;
-        [self.scrollView layoutIfNeeded];
     }
+    
+    [self.scrollView layoutIfNeeded];
 }
 
 - (IBAction)autoFillShippingAddressSwitchChanged:(UISwitch *)sender {

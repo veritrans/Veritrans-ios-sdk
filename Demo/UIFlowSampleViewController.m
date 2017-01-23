@@ -40,9 +40,9 @@
     self.itemDetails = [self generateItemDetails];
     
     self.transactionDetails = [[MidtransTransactionDetails alloc]
-                                  initWithOrderID:[NSString randomWithLength:10]
-                                  andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
-
+                               initWithOrderID:[NSString randomWithLength:10]
+                               andGrossAmount:[self grossAmountOfItemDetails:self.itemDetails]];
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -98,18 +98,19 @@
                                                                    customerDetails:self.customerDetails
                                                                        customField:customField
                                                              transactionExpireTime:nil
-                                                                        completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
-                                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                                            if (!error) {
-                                                                                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureCreditCard];
-                                                                                paymentVC.paymentDelegate = self;
-                                                                                
-                                                                                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
-                                                                            }
-                                                                            else {
-                                                                                
-                                                                            }
-                                                                        }];
+                                                                        completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+     {
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         if (!error) {
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureCreditCard];
+             paymentVC.paymentDelegate = self;
+             
+             [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+         }
+         else {
+             
+         }
+     }];
 }
 - (void)customTheme {
     NSString *fontNameBold;
@@ -126,7 +127,7 @@
         }
     }
     MidtransUIFontSource *fontSource= [[MidtransUIFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-
+    
     UIColor *themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
     [MidtransUIThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
@@ -144,14 +145,14 @@
                                                                                 
                                                                             }
                                                                         }];
-
+    
 }
 - (void)limitPaymentTime {
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-        [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZZZZZ"];
     
-        NSDate *now = [NSDate date];
-        MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:now expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
+    NSDate *now = [NSDate date];
+    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:now expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
     
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
@@ -171,7 +172,7 @@
                                                                                 
                                                                             }
                                                                         }];
-
+    
 }
 - (void)specificPaymentMethod {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -190,27 +191,27 @@
                                                                                 
                                                                             }
                                                                         }];
-
-
+    
+    
 }
 - (void)normalPaymentMode {
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-   [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
-                                                                      itemDetails:self.itemDetails
-                                                                  customerDetails:self.customerDetails
-                                                                       completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
-                                                                           NSLog(@"token->%@",token);
-                 [MBProgressHUD hideHUDForView:self.view animated:YES];
-                 if (!error) {
-                     MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-                     paymentVC.paymentDelegate = self;
-    
-                     [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
-                 }
-                 else {
-                   
-                 }
-             }];
+    [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
+                                                                       itemDetails:self.itemDetails
+                                                                   customerDetails:self.customerDetails
+                                                                        completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
+                                                                            NSLog(@"token->%@",token);
+                                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
+                                                                            if (!error) {
+                                                                                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                                                                                paymentVC.paymentDelegate = self;
+                                                                                
+                                                                                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+                                                                            }
+                                                                            else {
+                                                                                
+                                                                            }
+                                                                        }];
 }
 
 
@@ -247,13 +248,13 @@
     
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

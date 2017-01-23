@@ -141,6 +141,7 @@
 		0C7AB5681E310ABD00EB6785 /* MidtransNewCreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */; };
 		0C7AB56C1E310E7800EB6785 /* MidtransNewCreditCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */; };
 		0C7AB56D1E310E7800EB6785 /* MidtransNewCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */; };
+		0CB96A241E35BBB300A15D72 /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CB96A231E35BBB300A15D72 /* bin.json */; };
 		0CD7EA8F1E03A1A40036C187 /* MidtransPaymentGCIViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */; };
 		0CD7EA901E03A1A40036C187 /* MidtransPaymentGCIViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */; };
 		0CD7EA911E03A1B50036C187 /* MidtransPaymentGCIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CD7EA8E1E03A1A40036C187 /* MidtransPaymentGCIViewController.xib */; };
@@ -567,6 +568,7 @@
 		0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransNewCreditCardViewController.m; sourceTree = "<group>"; };
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransNewCreditCardView.m; sourceTree = "<group>"; };
+		0CB96A231E35BBB300A15D72 /* bin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bin.json; sourceTree = "<group>"; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
 		0CD7EA8E1E03A1A40036C187 /* MidtransPaymentGCIViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransPaymentGCIViewController.xib; path = ../MidtransKit/MidtransPaymentGCIViewController.xib; sourceTree = "<group>"; };
@@ -1315,6 +1317,7 @@
 				E58017E51D585B03007D2DEC /* indosat_dompetku.plist */,
 				E58017E71D585B0E007D2DEC /* xl_tunai.plist */,
 				E5AB97601D7414A900466A44 /* kioson.plist */,
+				0CB96A231E35BBB300A15D72 /* bin.json */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -2025,6 +2028,7 @@
 				E5387D501D62BE7E004CCF3D /* other_prima_6@2x.png in Resources */,
 				E5F1754A1E1330F10000C019 /* MidtransTransactionDetailViewController.xib in Resources */,
 				0C7AB5611E309E6800EB6785 /* permata@4x.png in Resources */,
+				0CB96A241E35BBB300A15D72 /* bin.json in Resources */,
 				E5387D3B1D62BE7E004CCF3D /* mandiri_atm_5@2x.png in Resources */,
 				0C7AB5451E309E6800EB6785 /* cimb@1.5x.png in Resources */,
 				E503AEE51C8EC50E00F097FF /* bri_epay@2x.png in Resources */,

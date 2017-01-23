@@ -8,6 +8,8 @@
 
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransNewCreditCardView.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+#import <MidtransCoreKit/MidtransBinResponse.h>
 #import "MidtransUISaveCardView.h"
 @interface MidtransNewCreditCardViewController ()
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
@@ -20,8 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.constraintsInView = [NSMutableArray new];
-    MidtransUISaveCardView *saveCreditCardView = [[MidtransUISaveCardView alloc] init];
-    [self.view.additionalView addSubview:saveCreditCardView];
+    //MidtransUISaveCardView *saveCreditCardView = [[MidtransUISaveCardView alloc] init];
+    //[self.view.additionalView addSubview:saveCreditCardView];
+    NSLog(@"data-->%@",[MidtransBinResponse binListObject]);
     //[self updateConstraints];
     // Do any additional setup after loading the view from its nib.
 }

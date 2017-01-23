@@ -1303,6 +1303,7 @@
 				E53BD03F1D143BE8001FADDE /* bri_epay.plist */,
 				E50D85F31D0ECB9C00F26D2E /* indomaret.plist */,
 				E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */,
+				0CB96A231E35BBB300A15D72 /* bin.json */,
 				E50D85E11D0EC93400F26D2E /* mandiri_ecash.plist */,
 				30E7133E1C85AAE600AFB7B4 /* permata_va.plist */,
 				309CC0D81C86A32000C058BE /* bca_va.plist */,
@@ -1317,7 +1318,6 @@
 				E58017E51D585B03007D2DEC /* indosat_dompetku.plist */,
 				E58017E71D585B0E007D2DEC /* xl_tunai.plist */,
 				E5AB97601D7414A900466A44 /* kioson.plist */,
-				0CB96A231E35BBB300A15D72 /* bin.json */,
 			);
 			name = Data;
 			sourceTree = "<group>";

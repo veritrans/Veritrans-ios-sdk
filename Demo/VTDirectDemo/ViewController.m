@@ -130,7 +130,8 @@
     }
     else {
         OptionViewController *option = [self.storyboard instantiateViewControllerWithIdentifier:@"OptionViewController"];
-        [self.navigationController pushViewController:option animated:YES];
+        UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:option];
+        [self presentViewController:nvc animated:YES completion:nil];
     }
 }
 

@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "XCUIElement+Textfield.h"
+#import "MTTestHelper.h"
 
-@interface MTCreditCardPaymentTests : XCTestCase
+@interface MT1CreditCardPaymentTests : XCTestCase
 
 @end
 
-@implementation MTCreditCardPaymentTests
+@implementation MT1CreditCardPaymentTests
 
 - (void)setUp {
     [super setUp];
@@ -33,58 +33,11 @@
     [super tearDown];
 }
 
-- (void)test1FillingCustomerData {
+- (void)test1CCNormalTransaction {
     XCUIApplication *app = [[XCUIApplication alloc] init];
-    XCUIElementQuery *scrollViewsQuery = app.scrollViews;
-    XCUIElementQuery *other = scrollViewsQuery.otherElements;
     
-    [app.navigationBars[@"Cart"].buttons[@"Setting"] tap];
+    [MTTestHelper configureRequiredData:app];
     
-    XCUIElementQuery *cardPaymentOptionsElementsQuery = [other containingType:XCUIElementTypeStaticText identifier:@"Card Payment Options"];
-    XCUIElement *firstNameTextField = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"First Name"] elementBoundByIndex:0];
-    [firstNameTextField enterText:@"Nanang"];
-    
-    XCUIElement *lastNameTextField = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"Last Name"] elementBoundByIndex:0];
-    [lastNameTextField enterText:@"Rafsanjani"];
-    
-    XCUIElement *emailTextField = other.textFields[@"Email"];
-    [emailTextField enterText:@"jukiginanjar@rafsanjani.com"];
-    
-    XCUIElement *phoneTextField = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"Phone"] elementBoundByIndex:0];
-    [phoneTextField enterText:@"08985999286"];
-    
-    
-    XCUIElement *firstNameBillingTF = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"First Name"] elementBoundByIndex:1];
-    [firstNameBillingTF enterText:@"Nanang"];
-    
-    XCUIElement *lastNameBillingTF = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"Last Name"] elementBoundByIndex:1];
-    [lastNameBillingTF enterText:@"Rafsanjani"];
-    
-    XCUIElement *phoneBillingTF = [[[cardPaymentOptionsElementsQuery childrenMatchingType:XCUIElementTypeTextField] matchingIdentifier:@"Phone"] elementBoundByIndex:1];
-    [phoneBillingTF enterText:@"08985999287"];
-    
-    XCUIElement *countryBillingTF = [[other containingType:XCUIElementTypeStaticText identifier:@"Card Payment Options"] childrenMatchingType:XCUIElementTypeTextField][@"Country"];
-    [countryBillingTF enterText:@"Indonesia"];
-    
-    XCUIElement *cityBillingTF = [[other containingType:XCUIElementTypeStaticText identifier:@"Card Payment Options"] childrenMatchingType:XCUIElementTypeTextField][@"City"];
-    [cityBillingTF enterText:@"Bandung"];
-    
-    XCUIElement *postalBillingTF = [[other containingType:XCUIElementTypeStaticText identifier:@"Card Payment Options"] childrenMatchingType:XCUIElementTypeTextField][@"Postal Code"];
-    [postalBillingTF enterText:@"48448"];
-    
-    XCUIElement *addressBillingTF = [[other containingType:XCUIElementTypeStaticText identifier:@"Card Payment Options"] childrenMatchingType:XCUIElementTypeTextField][@"Address"];
-    [addressBillingTF enterText:@"Lengkong"];
-    
-    XCUIElement *sameShippingAsBillingSwitch = [[other childrenMatchingType:XCUIElementTypeSwitch] elementBoundByIndex:3];
-    if ([sameShippingAsBillingSwitch.value isEqualToString:@"0"]) {
-        [sameShippingAsBillingSwitch tap];
-    }
-    
-    [app.navigationBars[@"Customer Details"].buttons[@"Save"] tap];
-}
-
-- (void)test2CCNormalTransaction {
-    XCUIApplication *app = [[XCUIApplication alloc] init];
     XCUIElementQuery *scrollViewsQuery = app.scrollViews;
     XCUIElementQuery *other = scrollViewsQuery.otherElements;
     
@@ -117,9 +70,7 @@
     [app.tables.staticTexts[@"Normal Payment"] tap];
     
     XCUIElement *creditCardCell = app.tables.staticTexts[@"Pay with Visa, MasterCard, or JCB"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:creditCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:creditCardCell];
     
     [creditCardCell tap];
     
@@ -137,20 +88,16 @@
     [app.buttons[@"Finish Payment"] tap];
     
     XCUIElement *secureTextField = app.secureTextFields[@"112233"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:secureTextField handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:secureTextField];
     [secureTextField enterText:@"112233"];
     [app.buttons[@"OK"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:finishButton handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:finishButton];
     [finishButton tap];
 }
 
-- (void)test3CCTwoClicksTransaction {
+- (void)test2CCTwoClicksTransaction {
     XCUIApplication *app = [[XCUIApplication alloc] init];
     
     [self twoClickInitial:app];
@@ -158,7 +105,7 @@
     [self twoClickFollowing:app];
 }
 
-- (void)test4CCOneClickTransaction {
+- (void)test3CCOneClickTransaction {
     XCUIApplication *app = [[XCUIApplication alloc] init];
     
     [self oneClickInitial:app];
@@ -166,24 +113,17 @@
     [app.tables.staticTexts[@"Normal Payment"] tap];
     
     XCUIElement *creditCardCell = app.tables.staticTexts[@"Pay with Visa, MasterCard, or JCB"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:creditCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:creditCardCell];
     [creditCardCell tap];
     
     XCUIElement *saveCardCell = app.collectionViews.staticTexts[@"4811 11-1 114"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:saveCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:saveCardCell];
     [saveCardCell tap];
     
-    XCUIElement *confirmButton = app.buttons[@"Confirm"];
-    [confirmButton tap];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 0"];
-    [self expectationForPredicate:predicate evaluatedWithObject:confirmButton handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [app.buttons[@"Confirm"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish"];
+    [self waitUntilAvailableForElement:finishButton];
     [finishButton tap];
 }
 
@@ -216,9 +156,7 @@
     [app.tables.staticTexts[@"Normal Payment"] tap];
     
     XCUIElement *creditCardCell = app.tables.staticTexts[@"Pay with Visa, MasterCard, or JCB"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:creditCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:creditCardCell];
     [creditCardCell tap];
     
     XCUIElement *button = [[[[[other containingType:XCUIElementTypeTextField identifier:@"Card Number"] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeButton] elementBoundByIndex:0];
@@ -235,16 +173,12 @@
     [app.buttons[@"Finish Payment"] tap];
     
     XCUIElement *secureTextField = app.secureTextFields[@"112233"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:secureTextField handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:secureTextField];
     [secureTextField enterText:@"112233"];
     [app.buttons[@"OK"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:finishButton handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:finishButton];
     [finishButton tap];
 }
 
@@ -275,9 +209,7 @@
     [app.tables.staticTexts[@"Normal Payment"] tap];
     
     XCUIElement *creditCardCell = app.tables.staticTexts[@"Pay with Visa, MasterCard, or JCB"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:creditCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:creditCardCell];
     [creditCardCell tap];
     
     XCUIElement *button = [[[[[other containingType:XCUIElementTypeTextField identifier:@"Card Number"] childrenMatchingType:XCUIElementTypeOther] elementBoundByIndex:1] childrenMatchingType:XCUIElementTypeButton] elementBoundByIndex:0];
@@ -294,16 +226,12 @@
     [app.buttons[@"Finish Payment"] tap];
     
     XCUIElement *secureTextField = app.secureTextFields[@"112233"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:secureTextField handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:secureTextField];
     [secureTextField enterText:@"112233"];
     [app.buttons[@"OK"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:finishButton handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:finishButton];
     [finishButton tap];
 }
 
@@ -314,15 +242,11 @@
     [app.tables.staticTexts[@"Normal Payment"] tap];
     
     XCUIElement *creditCardCell = app.tables.staticTexts[@"Pay with Visa, MasterCard, or JCB"];
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:creditCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:creditCardCell];
     [creditCardCell tap];
     
     XCUIElement *saveCardCell = app.collectionViews.staticTexts[@"4811 11XX XXXX 1114 "];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:saveCardCell handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:saveCardCell];
     [saveCardCell tap];
     
     XCUIElement *cvvNumberSecureTextField = other.secureTextFields[@"CVV NUMBER"];
@@ -332,16 +256,12 @@
     [app.buttons[@"Finish Payment"] tap];
     
     XCUIElement *secureTextField = app.secureTextFields[@"112233"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:secureTextField handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:secureTextField];
     [secureTextField enterText:@"112233"];
     [app.buttons[@"OK"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish"];
-    predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
-    [self expectationForPredicate:predicate evaluatedWithObject:finishButton handler:nil];
-    [self waitForExpectationsWithTimeout:30 handler:nil];
+    [self waitUntilAvailableForElement:finishButton];
     [finishButton tap];
 }
 

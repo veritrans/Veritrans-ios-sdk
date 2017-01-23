@@ -6,6 +6,7 @@
 //
 
 #import "MidtransBinResponse.h"
+#import "MidtransHelper.h"
 NSString *const kMidtransBinResponseBins = @"bins";
 NSString *const kMidtransBinResponseBank = @"bank";
 
@@ -22,7 +23,7 @@ NSString *const kMidtransBinResponseBank = @"bank";
 @synthesize bank = _bank;
 
 + (NSArray *)binListObject {
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"bin" ofType:@"json"];
+    NSString *filePath = [[MidtransHelper coreBundle] pathForResource:@"bin" ofType:@"json"];
     NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
     return [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
 

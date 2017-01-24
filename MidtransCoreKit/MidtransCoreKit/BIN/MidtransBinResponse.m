@@ -22,13 +22,6 @@ NSString *const kMidtransBinResponseBank = @"bank";
 @synthesize bins = _bins;
 @synthesize bank = _bank;
 
-+ (NSArray *)binListObject {
-    NSString *filePath = [[MidtransHelper coreBundle] pathForResource:@"bin" ofType:@"json"];
-    NSData *content = [[NSData alloc] initWithContentsOfFile:filePath];
-    return [NSJSONSerialization JSONObjectWithData:content options:kNilOptions error:nil];
-
-
-}
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
     return [[self alloc] initWithDictionary:dict];

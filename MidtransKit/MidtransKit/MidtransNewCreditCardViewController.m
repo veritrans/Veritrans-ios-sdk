@@ -8,12 +8,16 @@
 
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransNewCreditCardView.h"
+#import "MidtransPaymentCCAddOnDataSource.h"
+#import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransBinResponse.h>
-#import "MidtransUISaveCardView.h"
-@interface MidtransNewCreditCardViewController ()
+@interface MidtransNewCreditCardViewController () <UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
+@property (strong, nonatomic) MidtransPaymentCCAddOnDataSource *dataSource;
 @property (strong,nonatomic) NSMutableArray *constraintsInView;
+@property (nonatomic) NSInteger constraintsHeight;
+@property (nonatomic,strong)NSArray *bankBinList;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -21,41 +25,44 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.constraintsInView = [NSMutableArray new];
-    //MidtransUISaveCardView *saveCreditCardView = [[MidtransUISaveCardView alloc] init];
-    //[self.view.additionalView addSubview:saveCreditCardView];
-    NSLog(@"data-->%@",[MidtransBinResponse binListObject]);
-    //[self updateConstraints];
-    // Do any additional setup after loading the view from its nib.
+    self.dataSource = [[MidtransPaymentCCAddOnDataSource alloc] init];
+    self.view.addOnTableView.dataSource  = self.dataSource;
+    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]] options:kNilOptions error:nil];
+      [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
+    self.view.addOnTableViewHeightConstraints.constant  = 2*40.0f;
+    
+}
+
+#pragma mark - UITableViewDelegate
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (IS_IOS8_OR_ABOVE) {
+        return UITableViewAutomaticDimension;
+    }
+    else {
+        UITableViewCell *cell = [self.dataSource tableView:self.view.addOnTableView
+                                     cellForRowAtIndexPath:indexPath];
+        [cell updateConstraintsIfNeeded];
+        [cell layoutIfNeeded];
+        float height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+        return height;
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
+        [tableView setLayoutMargins:UIEdgeInsetsZero];
+    }
+    
+    if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
+        [cell setLayoutMargins:UIEdgeInsetsZero];
+    }
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return UITableViewAutomaticDimension;
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-
-    // Dispose of any resources that can be recreated.
 }
-- (void)updateConstraints {
-    [self.view.additionalView removeConstraints:self.constraintsInView];
-    [self.constraintsInView removeAllObjects];
-    
-    if (self.view.additionalView != nil) {
-        UIView *view = self.view.additionalView;
-        NSDictionary *views = NSDictionaryOfVariableBindings(view);
-        
-        [self.constraintsInView addObjectsFromArray: [NSLayoutConstraint constraintsWithVisualFormat:  @"H:|[view]|" options:0 metrics:nil views:views]];
-        [self.constraintsInView addObjectsFromArray: [NSLayoutConstraint constraintsWithVisualFormat:  @"V:|[view]|" options:0 metrics:nil views:views]];
-        
-        [self.view.additionalView addConstraints:self.constraintsInView];
-    }
-}
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

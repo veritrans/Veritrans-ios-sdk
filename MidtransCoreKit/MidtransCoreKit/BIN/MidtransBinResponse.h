@@ -13,7 +13,7 @@
 
 @property (nonatomic, strong) NSArray *bins;
 @property (nonatomic, strong) NSString *bank;
-+ (NSArray *)binListObject;
+
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)dictionaryRepresentation;

@@ -6,8 +6,6 @@
 //  Copyright © 2017 Veritrans. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
-
-@interface MidtransNewCreditCardViewController : UIViewController
-
+#import "MidtransUIPaymentController.h"
+@interface MidtransNewCreditCardViewController : MidtransUIPaymentController
 @end

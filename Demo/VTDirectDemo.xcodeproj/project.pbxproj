@@ -63,6 +63,7 @@
 		E5C32B351C8E789200C8EB92 /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5C32B331C8E789200C8EB92 /* Crashlytics.framework */; };
 		E5D8B6821E35C2E200734AE0 /* MT2VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B6811E35C2E200734AE0 /* MT2VAPaymentTests.m */; };
 		E5D8B6871E35D21300734AE0 /* MTTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B6861E35D21300734AE0 /* MTTestHelper.m */; };
+		E5D8B6891E35ECE000734AE0 /* MT3KlikbcaPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B6881E35ECE000734AE0 /* MT3KlikbcaPaymentTests.m */; };
 		E5DB43CE1DC0833C001C7B99 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */; };
 		E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */; };
 		E5E15BEE1E2876E00019D329 /* MT1CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E15BED1E2876E00019D329 /* MT1CreditCardPaymentTests.m */; };
@@ -154,6 +155,7 @@
 		E5D8B6811E35C2E200734AE0 /* MT2VAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MT2VAPaymentTests.m; sourceTree = "<group>"; };
 		E5D8B6851E35D21300734AE0 /* MTTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTTestHelper.h; sourceTree = "<group>"; };
 		E5D8B6861E35D21300734AE0 /* MTTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MTTestHelper.m; sourceTree = "<group>"; };
+		E5D8B6881E35ECE000734AE0 /* MT3KlikbcaPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MT3KlikbcaPaymentTests.m; sourceTree = "<group>"; };
 		E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = virtualAccount.plist; sourceTree = "<group>"; };
 		E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentMethods.plist; sourceTree = "<group>"; };
 		E5E15BE31E2876BB0019D329 /* MidtransSDKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransSDKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -434,6 +436,7 @@
 				E5E15BE71E2876BB0019D329 /* Info.plist */,
 				E5E15BED1E2876E00019D329 /* MT1CreditCardPaymentTests.m */,
 				E5D8B6811E35C2E200734AE0 /* MT2VAPaymentTests.m */,
+				E5D8B6881E35ECE000734AE0 /* MT3KlikbcaPaymentTests.m */,
 				E5D8B6851E35D21300734AE0 /* MTTestHelper.h */,
 				E5D8B6861E35D21300734AE0 /* MTTestHelper.m */,
 			);
@@ -657,6 +660,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D8B6821E35C2E200734AE0 /* MT2VAPaymentTests.m in Sources */,
+				E5D8B6891E35ECE000734AE0 /* MT3KlikbcaPaymentTests.m in Sources */,
 				E5E15BEE1E2876E00019D329 /* MT1CreditCardPaymentTests.m in Sources */,
 				E5D8B6871E35D21300734AE0 /* MTTestHelper.m in Sources */,
 			);

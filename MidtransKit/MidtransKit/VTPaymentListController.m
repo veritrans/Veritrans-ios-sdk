@@ -176,7 +176,7 @@
                                                                   initWithToken:self.token
                                                                   paymentMethodName:paymentMethod
                                                                   andCreditCardData:self.responsePayment.creditCard];
-            //[vc showDismissButton:self.singlePayment];
+            [creditCardVC showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
         }
         else {
@@ -189,10 +189,12 @@
                 
             }
             else {
-                VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
-                                                                   paymentMethodName:paymentMethod];
-                [vc showDismissButton:self.singlePayment];
-                [self.navigationController pushViewController:vc animated:!self.singlePayment];
+                MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
+                                                                      initWithToken:self.token
+                                                                      paymentMethodName:paymentMethod
+                                                                      andCreditCardData:self.responsePayment.creditCard];
+                [creditCardVC showDismissButton:self.singlePayment];
+                [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
             }
         }
     }

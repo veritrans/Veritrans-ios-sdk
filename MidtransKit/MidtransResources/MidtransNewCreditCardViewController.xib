@@ -72,7 +72,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <outlet property="delegate" destination="-1" id="xiN-h1-z2t"/>
+                                        <outlet property="delegate" destination="-1" id="96b-83-XuZ"/>
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-4m-fM3" customClass="MidtransUITextField">
@@ -95,7 +95,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <outlet property="delegate" destination="-1" id="scx-Ux-Pbd"/>
+                                        <outlet property="delegate" destination="-1" id="N2f-ok-Xob"/>
                                     </connections>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcC-BX-eY2" customClass="MidtransUITextField">
@@ -119,7 +119,7 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                     <connections>
-                                        <outlet property="delegate" destination="-1" id="amD-gJ-R5H"/>
+                                        <outlet property="delegate" destination="-1" id="uA5-zB-Hlt"/>
                                     </connections>
                                 </textField>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ycc-yj-2Yx">
@@ -248,7 +248,7 @@
                 <outlet property="addOnTableViewHeightConstraints" destination="pSo-RR-bwl" id="9Fi-2r-yjb"/>
                 <outlet property="cardCVVNumberTextField" destination="tcC-BX-eY2" id="1Xm-iK-jHJ"/>
                 <outlet property="cardExpireTextField" destination="6qH-4m-fM3" id="xyK-Lp-kBM"/>
-                <outlet property="creditCardNumberTextField" destination="iDR-Mj-7On" id="jmt-CE-PgX"/>
+                <outlet property="creditCardNumberTextField" destination="iDR-Mj-7On" id="wOy-dm-Y16"/>
                 <outlet property="secureBadgeWrapper" destination="SjJ-qN-n3G" id="vSF-ZC-aLk"/>
                 <outlet property="topHeaderContainerView" destination="he9-LD-p6z" id="nbe-Pt-PNq"/>
                 <outlet property="totalAmountLabel" destination="lSW-Xr-dKE" id="928-3l-gVt"/>

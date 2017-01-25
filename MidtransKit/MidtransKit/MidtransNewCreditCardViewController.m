@@ -17,6 +17,7 @@
 #import "MidtransUIConfiguration.h"
 #import "MidtransUICardFormatter.h"
 #import "AddOnConstructor.h"
+#import "MidtransUITextField.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransBinResponse.h>
 @interface MidtransNewCreditCardViewController () <UITableViewDelegate,UITextFieldDelegate,MidtransPaymentCCAddOnDataSourceDelegate,MidtransUICardFormatterDelegate>
@@ -59,9 +60,6 @@
     self.installmentCurrentIndex = 0;
     self.selectedAddOnIndex = [NSMutableArray new];
     self.installmentBankName = @"";
-    self.view.creditCardNumberTextField.delegate = self;
-    self.view.cardExpireTextField.delegate = self;
-    self.view.cardCVVNumberTextField.delegate = self;
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.creditCardNumberTextField];
     self.ccFormatter.delegate = self;
     self.ccFormatter.numberLimit = 16;
@@ -154,13 +152,14 @@
 #pragma mark - VTCardFormatterDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
+    NSString *originNumber = [self.view.cardCVVNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSLog(@"self.view.cardCVVNumberTextField.text-->%@",self.view.cardCVVNumberTextField.text);
     [self matchBINNumberWithInstallment:[self.view.cardCVVNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]];
     if (self.view.cardCVVNumberTextField.text.length < 1) {
         self.view.cardCVVNumberTextField.infoIcon = nil;
     }
     else {
-        NSString *originNumber = [self.view.cardCVVNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-        self.view.cardCVVNumberTextField.infoIcon = [self.view iconDarkWithNumber:originNumber];
+        self.view.cardCVVNumberTextField.infoIcon = [self.view iconWithNumber:originNumber];
     }
     
    
@@ -236,6 +235,7 @@
         return [self.ccFormatter updateTextFieldContentAndPosition];
     }
     else if ([textField isEqual:self.view.cardCVVNumberTextField]) {
+        NSLog(@"data-->%@",self.view.cardCVVNumberTextField.text);
         return [textField filterCvvNumber:string range:range withCardNumber:self.view.creditCardNumberTextField.text];
     }
     else {

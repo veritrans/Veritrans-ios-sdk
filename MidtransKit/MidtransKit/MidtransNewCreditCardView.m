@@ -9,6 +9,7 @@
 #import "MidtransNewCreditCardView.h"
 #import "MidtransUICardFormatter.h"
 #import "VTClassHelper.h"
+#import "MidtransUITextField.h"
 #import "MidtransUIThemeManager.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 @implementation MidtransNewCreditCardView

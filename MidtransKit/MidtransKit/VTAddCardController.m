@@ -380,7 +380,6 @@ static const NSInteger installmentHeight = 50;
             self.installmentBankName = @"offline";
             [self.installmentValueObject addObject:@"0"];
             [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
-            //[self.view.installmentCollectionView reloadData];
             [UIView transitionWithView:self.view.installmentView
                               duration:1
                                options:UIViewAnimationOptionCurveEaseInOut
@@ -439,7 +438,7 @@ static const NSInteger installmentHeight = 50;
     }
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textField:(MidtransUITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isKindOfClass:[MidtransUITextField class]]) {
         ((MidtransUITextField *) textField).warning = nil;
     }

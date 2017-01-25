@@ -24,7 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.attemptRetry = 0;
-     [self addNavigationToTextFields:@[self.view.gciCardTextField,self.view.passwordTextField]];
+    [self addNavigationToTextFields:@[self.view.gciCardTextField,self.view.passwordTextField]];
     self.title = self.paymentMethod.title;
     self.view.amountTotalLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;

@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UIView *secureBadgeWrapper;
 @property (weak, nonatomic) IBOutlet UIView *topHeaderContainerView;
+@property (weak, nonatomic) IBOutlet UIView *installmentView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *installmentWrapperViewConstraints;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

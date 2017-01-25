@@ -75,7 +75,7 @@
         return YES;
     }
     else if (error.code == MIDTRANS_ERROR_CODE_INVALID_BIN) {
-        self.cardExpireTextField.warning = UILocalizedString(@"creditcard.error.invalid-bin", nil);
+        self.creditCardNumberTextField.warning = UILocalizedString(@"creditcard.error.invalid-bin", nil);
         return YES;
     }
     else {

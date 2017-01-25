@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "MidtransUITextField.h"
+@class MidtransUITextField;
 @class MidtransTransactionTokenResponse;
 @interface MidtransNewCreditCardView : UIView
 @property (weak, nonatomic) IBOutlet MidtransUITextField *creditCardNumberTextField;

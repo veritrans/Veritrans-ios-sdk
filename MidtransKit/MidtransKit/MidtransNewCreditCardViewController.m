@@ -87,8 +87,16 @@ static dispatch_once_t * onceToken;
                                                initWithDictionary:@{@"addOnName":@"CREDIT_CARD_SAVE",
                                                                     @"addOnTitle":@"Save card for later use"}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
-            [self.addOnArray addObject:constructSaveCard];
+            [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
+            if ([CC_CONFIG setDefaultCreditSaveCardEnabled]) {
+                self.saveCard = YES;
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
+                [self.view.addOnTableView selectRowAtIndexPath:indexPath
+                                            animated:YES
+                                      scrollPosition:UITableViewScrollPositionNone];
+                [self tableView:self.view.addOnTableView didSelectRowAtIndexPath:indexPath];
+            }
         }
 
     }

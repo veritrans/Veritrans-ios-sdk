@@ -20,7 +20,7 @@
     self.addOnTableView.allowsMultipleSelection = YES;
     self.secureBadgeWrapper.layer.cornerRadius = 3.0f;
     self.secureBadgeWrapper.layer.borderWidth = 1.0f;
-    self.secureBadgeWrapper.layer.borderColor = [UIColor lightGrayColor].CGColor;
+    self.secureBadgeWrapper.layer.borderColor = [UIColor clearColor].CGColor;
 }
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
     self.totalAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;

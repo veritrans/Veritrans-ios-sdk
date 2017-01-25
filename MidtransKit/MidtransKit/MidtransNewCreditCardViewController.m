@@ -196,11 +196,12 @@ static dispatch_once_t * onceToken;
     [self matchBINNumberWithInstallment:originNumber];
     if (self.view.creditCardNumberTextField.text.length < 1) {
         self.view.creditCardNumberTextField.infoIcon = nil;
+        self.view.creditCardNumberTextField.infoBankIcon = nil;
     }
     else {
         self.view.creditCardNumberTextField.infoIcon = [self.view iconDarkWithNumber:originNumber];
         if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
-             self.view.creditCardNumberTextField.infoBankIcon = [UIImage imageNamed:self.installmentBankName];
+            self.view.creditCardNumberTextField.infoBankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
         }
        
     }
@@ -307,6 +308,7 @@ static dispatch_once_t * onceToken;
     else{
          *onceToken = 0;
         self.filteredBinObject.bank = nil;
+        self.view.creditCardNumberTextField.infoBankIcon = nil;
         if (self.installmentValueObject.count > 0) {
             self.installmentCurrentIndex = 0;
             [self.installmentValueObject removeAllObjects];
@@ -384,7 +386,6 @@ static dispatch_once_t * onceToken;
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
-        
         if (error) {
             if (self.attemptRetry < 2) {
                 self.attemptRetry+=1;

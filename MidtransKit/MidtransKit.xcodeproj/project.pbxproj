@@ -63,6 +63,8 @@
 		0C0EADC61E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C0EADC21E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.xib */; };
 		0C0EADC91E371498002C0400 /* MidtransPaymentCCAddOnDataSource.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0EADC71E371498002C0400 /* MidtransPaymentCCAddOnDataSource.h */; };
 		0C0EADCA1E371498002C0400 /* MidtransPaymentCCAddOnDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EADC81E371498002C0400 /* MidtransPaymentCCAddOnDataSource.m */; };
+		0C0EADD21E3787EE002C0400 /* AddOnConstructor.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C0EADD01E3787EE002C0400 /* AddOnConstructor.h */; };
+		0C0EADD31E3787EE002C0400 /* AddOnConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0EADD11E3787EE002C0400 /* AddOnConstructor.m */; };
 		0C2B8E4D1E2498F9007901CB /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E491E2498F9007901CB /* cc_badge@2x.png */; };
 		0C2B8E4E1E2498F9007901CB /* cc_badge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E4A1E2498F9007901CB /* cc_badge@3x.png */; };
 		0C2B8E4F1E2498F9007901CB /* midtrans_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E4B1E2498F9007901CB /* midtrans_lock@2x.png */; };
@@ -494,6 +496,8 @@
 		0C0EADC21E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransCreditCardAddOnComponentCell.xib; sourceTree = "<group>"; };
 		0C0EADC71E371498002C0400 /* MidtransPaymentCCAddOnDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentCCAddOnDataSource.h; sourceTree = "<group>"; };
 		0C0EADC81E371498002C0400 /* MidtransPaymentCCAddOnDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentCCAddOnDataSource.m; sourceTree = "<group>"; };
+		0C0EADD01E3787EE002C0400 /* AddOnConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOnConstructor.h; sourceTree = "<group>"; };
+		0C0EADD11E3787EE002C0400 /* AddOnConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddOnConstructor.m; sourceTree = "<group>"; };
 		0C2B8E491E2498F9007901CB /* cc_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@2x.png"; sourceTree = "<group>"; };
 		0C2B8E4A1E2498F9007901CB /* cc_badge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@3x.png"; sourceTree = "<group>"; };
 		0C2B8E4B1E2498F9007901CB /* midtrans_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "midtrans_lock@2x.png"; sourceTree = "<group>"; };
@@ -1002,6 +1006,15 @@
 			name = "Direct Payment";
 			sourceTree = "<group>";
 		};
+		0C0EADCB1E3785FA002C0400 /* Add On */ = {
+			isa = PBXGroup;
+			children = (
+				0C0EADD01E3787EE002C0400 /* AddOnConstructor.h */,
+				0C0EADD11E3787EE002C0400 /* AddOnConstructor.m */,
+			);
+			name = "Add On";
+			sourceTree = "<group>";
+		};
 		0C2B8E511E260E2B007901CB /* Installment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1114,7 +1127,8 @@
 		0C7AB5631E310A8000EB6785 /* New Credit Card */ = {
 			isa = PBXGroup;
 			children = (
-				0CF976791E315CDA00D2D0D0 /* Save Card */,
+				0C0EADCB1E3785FA002C0400 /* Add On */,
+				0CF976791E315CDA00D2D0D0 /* Add On Payment */,
 				0C7AB5641E310ABD00EB6785 /* MidtransNewCreditCardViewController.h */,
 				0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */,
 				0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */,
@@ -1134,13 +1148,13 @@
 			name = GCI;
 			sourceTree = "<group>";
 		};
-		0CF976791E315CDA00D2D0D0 /* Save Card */ = {
+		0CF976791E315CDA00D2D0D0 /* Add On Payment */ = {
 			isa = PBXGroup;
 			children = (
 				0C0EADC01E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.h */,
 				0C0EADC11E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.m */,
 			);
-			name = "Save Card";
+			name = "Add On Payment";
 			sourceTree = "<group>";
 		};
 		0CF9767B1E315D0300D2D0D0 /* Save Card */ = {
@@ -1769,6 +1783,7 @@
 				E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */,
 				E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */,
 				E578DD271CFC403D0091760A /* MidtransUIPaymentListHeader.h in Headers */,
+				0C0EADD21E3787EE002C0400 /* AddOnConstructor.h in Headers */,
 				3005E2771C7C175000064169 /* VTAddCardController.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
 				0C2B8E541E260E4B007901CB /* MidtransInstallmentView.h in Headers */,
@@ -2216,6 +2231,7 @@
 				30BB9C821C7DA6410012BB2A /* MidtransUITextField.m in Sources */,
 				E50D86081D0ECBC500F26D2E /* VTIndomaretSuccessController.m in Sources */,
 				3056A21E1C7EA3660015B3CC /* VTItemViewModel.m in Sources */,
+				0C0EADD31E3787EE002C0400 /* AddOnConstructor.m in Sources */,
 				E5F1754E1E13334F0000C019 /* MidtransTransactionDetailViewController.m in Sources */,
 				E57202D71D62F01D006B9265 /* VTGuideView.m in Sources */,
 				00F61AEA1D145A2B00C93DA0 /* VTPaymentListView.m in Sources */,

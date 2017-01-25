@@ -92,7 +92,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     if (!saveCard) {
         saveCard = @NO;
     }
-    CC_CONFIG.saveCardEnabled = [saveCard boolValue];
+    CC_CONFIG.saveCardEnabled = YES;
     
     id acquiringBank = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerAcquiringBank];
     if (!acquiringBank) {

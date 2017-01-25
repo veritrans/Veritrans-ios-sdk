@@ -172,15 +172,15 @@
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
-            MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithNibName:@"MidtransNewCreditCardViewController" bundle:VTBundle];
-            
-//            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:paymentMethod andCreditCardData:self.responsePayment.creditCard];
-           //[vc showDismissButton:self.singlePayment];
+            MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
+                                                                  initWithToken:self.token
+                                                                  paymentMethodName:paymentMethod
+                                                                  andCreditCardData:self.responsePayment.creditCard];
+            //[vc showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
         }
         else {
             if (self.responsePayment.creditCard.savedTokens.count) {
-                
                 VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
                                                                      paymentMethodName:paymentMethod
                                                                      andCreditCardData:self.responsePayment.creditCard];

@@ -8,4 +8,7 @@
 
 #import "MidtransUIPaymentController.h"
 @interface MidtransNewCreditCardViewController : MidtransUIPaymentController
+-(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
+                    paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
+                    andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard;
 @end

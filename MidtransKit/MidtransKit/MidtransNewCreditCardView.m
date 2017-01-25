@@ -7,10 +7,78 @@
 //
 
 #import "MidtransNewCreditCardView.h"
-
+#import "MidtransUICardFormatter.h"
+#import "VTClassHelper.h"
+#import "MidtransUIThemeManager.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 @implementation MidtransNewCreditCardView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.addOnTableView.scrollEnabled = false;
+    self.addOnTableView.allowsMultipleSelection = YES;
+    self.secureBadgeWrapper.layer.cornerRadius = 3.0f;
+    self.secureBadgeWrapper.layer.borderWidth = 1.0f;
+    self.secureBadgeWrapper.layer.borderColor = [UIColor lightGrayColor].CGColor;
+}
+- (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
+    self.totalAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+}
+- (UIImage *)iconWithBankName:(NSString *)bankName {
+    return [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];
+}
+- (UIImage *)iconDarkWithNumber:(NSString *)number {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
+        case VTCreditCardTypeVisa:
+            return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeJCB:
+            return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeMasterCard:
+            return [UIImage imageNamed:@"MasterCardDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"AmexDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
+            return nil;
+    }
+}
+
+- (UIImage *)iconWithNumber:(NSString *)number {
+    switch ([MidtransCreditCardHelper typeFromString:number]) {
+        case VTCreditCardTypeVisa:
+            return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeJCB:
+            return [UIImage imageNamed:@"JCB" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeMasterCard:
+            return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
+            return nil;
+    }
+}
+
+- (BOOL)isViewableError:(NSError *)error {
+    if (error.code == -20) {
+        //number invalid
+        self.cardExpireTextField.warning = error.localizedDescription;
+        return YES;
+    }
+    else if (error.code == -21) {
+        //expiry date invalid
+        self.cardExpireTextField.warning = error.localizedDescription;
+        return YES;
+    }
+    else if (error.code == -22) {
+        //cvv number invalid
+        self.cardCVVNumberTextField.warning = error.localizedDescription;
+        return YES;
+    }
+    else if (error.code == MIDTRANS_ERROR_CODE_INVALID_BIN) {
+        self.cardExpireTextField.warning = UILocalizedString(@"creditcard.error.invalid-bin", nil);
+        return YES;
+    }
+    else {
+        return NO;
+    }
 }
 @end

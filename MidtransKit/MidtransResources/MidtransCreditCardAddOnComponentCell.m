@@ -7,18 +7,24 @@
 //
 
 #import "MidtransCreditCardAddOnComponentCell.h"
-
+#import "AddOnConstructor.h"
 @implementation MidtransCreditCardAddOnComponentCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.selectionStyle = UITableViewCellSelectionStyleNone;
     // Initialization code
 }
-
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    self.addOnImageView.highlighted = selected;
 }
-
+- (void)configurePaymentAddOnWithData:(AddOnConstructor *)addOn {
+    self.addOnTitleLabel.text = addOn.addOnTitle;
+}
+- (IBAction)addOnInformationButtonDIdTapped:(id)sender {
+    if ([self.delegate respondsToSelector:@selector(informationButtonDidTappedWithTag:)]) {
+        [self.delegate informationButtonDidTappedWithTag:[sender tag]];
+    }
+}
 @end

@@ -61,7 +61,7 @@
 - (BOOL)isViewableError:(NSError *)error {
     if (error.code == -20) {
         //number invalid
-        self.cardExpireTextField.warning = error.localizedDescription;
+        self.creditCardNumberTextField.warning = error.localizedDescription;
         return YES;
     }
     else if (error.code == -21) {

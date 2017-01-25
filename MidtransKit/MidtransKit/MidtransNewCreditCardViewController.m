@@ -191,6 +191,10 @@ static dispatch_once_t * onceToken;
     }
     else {
         self.view.creditCardNumberTextField.infoIcon = [self.view iconDarkWithNumber:originNumber];
+        if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
+             self.view.creditCardNumberTextField.infoBankIcon = [UIImage imageNamed:self.installmentBankName];
+        }
+       
     }
     
    

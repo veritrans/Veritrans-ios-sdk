@@ -52,4 +52,6 @@
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionExpire.h"
 #import "MIdtransPaymentGCI.h"
+#import "MidtransNetworkLogger.h"
+
 #endif /* MidtransCoreKit_h */

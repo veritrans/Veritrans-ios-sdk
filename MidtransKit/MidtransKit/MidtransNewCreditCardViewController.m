@@ -336,7 +336,7 @@ static dispatch_once_t * onceToken;
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
-    if (self.installmentRequired && self.installmentCurrentIndex==0) {
+    if (self.installmentRequired && self.installmentCurrentIndex == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                         message:@"This transaction must use installment"
                                                        delegate:nil
@@ -362,11 +362,23 @@ static dispatch_once_t * onceToken;
     }
     
     [self showLoadingWithText:@"Processing your transaction"];
-    
-    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                                    grossAmount:self.token.transactionDetails.grossAmount
-                                                                                         secure:CC_CONFIG.secure3DEnabled];
-    
+    MidtransTokenizeRequest *tokenRequest;
+    if (self.installmentTerms && self.installmentCurrentIndex !=0) {
+        NSInteger installment =[[[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1] integerValue];
+        tokenRequest = [[MidtransTokenizeRequest alloc]
+                        initWithCreditCard:creditCard
+                        grossAmount:self.token.transactionDetails.grossAmount
+                        installment:YES
+                        installmentTerm:[NSNumber numberWithInteger:installment]
+                        secure:YES];
+    }
+    else {
+       tokenRequest = [[MidtransTokenizeRequest alloc]
+                       initWithCreditCard:creditCard
+                       grossAmount:self.token.transactionDetails.grossAmount
+                       secure:CC_CONFIG.secure3DEnabled];
+    }
+    NSLog(@"data-->%@",[tokenRequest dictionaryValue]);
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
@@ -382,13 +394,14 @@ static dispatch_once_t * onceToken;
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.saveCard
                                                                              installment:self.installmentTerms];
+    
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
         if (error) {
             if (self.attemptRetry < 2) {
-                self.attemptRetry+=1;
+                self.attemptRetry += 1;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                 message:error.localizedDescription
                                                                delegate:nil

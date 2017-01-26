@@ -38,6 +38,12 @@
                        grossAmount:(NSNumber *)grossAmount
                             secure:(BOOL)secure;
 
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
+                       grossAmount:(NSNumber *)grossAmount
+                       installment:(BOOL)installment
+                   installmentTerm:(NSNumber *)installmentTerm
+                            secure:(BOOL)secure;
+
 /**
  Get a `VTTokenizeReqeust` for two-clicks transaction.
  

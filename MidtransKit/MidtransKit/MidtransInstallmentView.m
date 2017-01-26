@@ -31,7 +31,7 @@
 
 - (void)setupInstallmentCollection {
     self.installmentCurrentIndex = 0;
-    self.prevButton.enabled = NO;
+        self.prevButton.enabled = NO;
     self.installmentCollectionView.delegate = self;
     self.installmentCollectionView.dataSource = self;
     self.installmentCollectionView.collectionViewLayout = [[MidtransCollectionViewLayout alloc] initWithColumn:1 andHeight:50];
@@ -52,31 +52,33 @@
     [self.installmentCollectionView reloadData];
 }
 - (IBAction)prevButtonDidtapped:(id)sender {
-    if (self.installmentCurrentIndex >0) {
+    if (self.installmentCurrentIndex > 0) {
         self.installmentCurrentIndex --;
+        self.nextButton.enabled = YES;
         [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
         [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
     else {
-        self.prevButton.enabled = NO;
-        self.nextButton.enabled = YES;
+       self.prevButton.enabled = NO;
     }
 }
 - (IBAction)nextButtonDidTapped:(id)sender {
-    if (self.installmentCurrentIndex <self.installmentData.count-1) {
+    if (self.installmentCurrentIndex < self.installmentData.count - 1) {
         self.installmentCurrentIndex ++;
+            self.prevButton.enabled = YES;
         [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
         [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
     else {
-        self.prevButton.enabled = YES;
-        self.nextButton.enabled = NO;
+     self.nextButton.enabled = NO;
     }
 }
 - (void)resetInstallmentIndex {
     self.installmentCurrentIndex  = 0;
+    self.prevButton.enabled = NO;
+    self.nextButton.enabled = YES;
     [self selectedIndex:0];
     NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
     [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];

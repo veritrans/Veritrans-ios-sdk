@@ -12,6 +12,7 @@
 
 #import "VTClassHelper.h"
 #import "VTAddCardController.h"
+#import "MidtransNewCreditCardViewController.h"
 #import "VTTwoClickController.h"
 #import "MidtransUITextField.h"
 #import "VTCCBackView.h"
@@ -62,7 +63,7 @@ CGFloat const ButtonHeight = 56;
     [self.pageControl setNumberOfPages:0];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    
+    NSLog(@"pref-->%@",self.creditCard);
     [self updateView];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     
@@ -166,7 +167,7 @@ CGFloat const ButtonHeight = 56;
 
 - (IBAction)addCardPressed:(id)sender {
     
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod andCreditCardData:self.creditCard];
+    MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod andCreditCardData:self.creditCard];
     
   [self.navigationController pushViewController:vc animated:YES];
 }

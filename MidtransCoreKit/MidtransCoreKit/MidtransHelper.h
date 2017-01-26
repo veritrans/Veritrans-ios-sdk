@@ -13,6 +13,7 @@ extern NSString *const MidtransMaskedCardsUpdated;
 
 @interface MidtransHelper : NSObject
 + (id)nullifyIfNil:(id)object;
++ (NSBundle*)coreBundle;
 @end
 
 @interface NSString (random)

@@ -6,8 +6,7 @@
 //
 
 #import "MidtransBinResponse.h"
-
-
+#import "MidtransHelper.h"
 NSString *const kMidtransBinResponseBins = @"bins";
 NSString *const kMidtransBinResponseBank = @"bank";
 
@@ -22,7 +21,6 @@ NSString *const kMidtransBinResponseBank = @"bank";
 
 @synthesize bins = _bins;
 @synthesize bank = _bank;
-
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {

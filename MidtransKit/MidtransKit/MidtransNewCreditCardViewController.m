@@ -21,6 +21,7 @@
 #import "MidtransUITextField.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransBinResponse.h>
+
 static dispatch_once_t * onceToken;
 @interface MidtransNewCreditCardViewController () <UITableViewDelegate,UITextFieldDelegate,MidtransPaymentCCAddOnDataSourceDelegate,MidtransUICardFormatterDelegate,MidtransInstallmentViewDelegate>
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
@@ -61,7 +62,11 @@ static dispatch_once_t * onceToken;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.title = UILocalizedString(@"creditcard.input.title", nil);
+    
+    self.maskedCards = [NSMutableArray new];
+    
     self.installmentCurrentIndex = 0;
     self.installmentAvailable = NO;
     self.installmentValueObject = [NSMutableArray new];
@@ -112,6 +117,7 @@ static dispatch_once_t * onceToken;
     
     [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
 }
+
 - (void)setupInstallmentView {
     self.installmentsContentView = [[VTBundle loadNibNamed:@"MidtransInstallmentView" owner:self options:nil] firstObject];
     self.installmentsContentView.delegate = self;
@@ -149,6 +155,7 @@ static dispatch_once_t * onceToken;
         }
          //[tableView deselectRowAtIndexPath:indexPath animated:YES];
     }
+    
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {

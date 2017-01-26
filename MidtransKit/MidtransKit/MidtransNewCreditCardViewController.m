@@ -15,6 +15,7 @@
 #import "VTCvvInfoController.h"
 #import "MidtransUITextField.h"
 #import "MidtransUIConfiguration.h"
+#import "MidtransUICustomAlertViewController.h"
 #import "MidtransUICardFormatter.h"
 #import "AddOnConstructor.h"
 #import "MidtransInstallmentView.h"
@@ -22,7 +23,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransBinResponse.h>
 static dispatch_once_t * onceToken;
-@interface MidtransNewCreditCardViewController () <UITableViewDelegate,UITextFieldDelegate,MidtransPaymentCCAddOnDataSourceDelegate,MidtransUICardFormatterDelegate,MidtransInstallmentViewDelegate>
+@interface MidtransNewCreditCardViewController () <UITableViewDelegate,UITextFieldDelegate,MidtransPaymentCCAddOnDataSourceDelegate,MidtransUICardFormatterDelegate,MidtransInstallmentViewDelegate,MidtransUICustomAlertViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *bottomButton;
 @property (nonatomic,strong ) MidtransPaymentCCAddOnDataSource *dataSource;
@@ -226,7 +227,14 @@ static dispatch_once_t * onceToken;
 - (void)informationButtonDidTappedWithTag:(NSInteger)index {
     AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:index];
     if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
-        
+        MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
+                                                          initWithTitle:@"save card for later reuse"
+                                                          message:@"We will scurely store your card details so you can reuse theme latter"
+                                                          image:nil
+                                                          delegate:self
+                                                          cancelButtonTitle:nil
+                                                          okButtonTitle:@"OK"];
+         [self.navigationController.view addSubview:alertView.view];
     }
 }
 
@@ -378,7 +386,6 @@ static dispatch_once_t * onceToken;
                        grossAmount:self.token.transactionDetails.grossAmount
                        secure:CC_CONFIG.secure3DEnabled];
     }
-    NSLog(@"data-->%@",[tokenRequest dictionaryValue]);
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {
@@ -448,11 +455,11 @@ static dispatch_once_t * onceToken;
                       andButtonTitle:@"Close"];
     }
 }
-
-
 -(void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
 }
-
+- (void)didSelectOKButtonAlertViewController:(MidtransUICustomAlertViewController *)alertViewVC {
+      [alertViewVC.view removeFromSuperview];
+}
 
 @end

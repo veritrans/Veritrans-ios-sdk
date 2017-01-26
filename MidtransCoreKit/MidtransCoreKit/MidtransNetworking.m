@@ -8,7 +8,6 @@
 
 #import "MidtransNetworking.h"
 #import "MidtransConfig.h"
-#import "MidtransNetworkOperation.h"
 #import "MidtransConstant.h"
 
 @implementation NSData (decode)

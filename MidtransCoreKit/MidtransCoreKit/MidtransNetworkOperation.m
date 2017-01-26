@@ -9,6 +9,24 @@
 #import "MidtransNetworkOperation.h"
 #import "MidtransConstant.h"
 
+NSString *const kMTNetworkOperationResponse = @"mt_response";
+NSString *const kMTNetworkOperationRequest = @"mt_request";
+NSString *const kMTNetworkOperationError = @"mt_error";
+
+@implementation NSObject (Networking)
+
+- (id)networkResponse {
+    return [self valueForKey:kMTNetworkOperationResponse];
+}
+- (NSURLRequest *)networkRequest {
+    return [self valueForKey:kMTNetworkOperationRequest];
+}
+- (NSError *)networkError {
+    return [self valueForKey:kMTNetworkOperationError];
+}
+
+@end
+
 @implementation NSData (decode)
 
 - (NSData*)validateUTF8 {
@@ -34,7 +52,8 @@
 @end
 
 @interface MidtransNetworkOperation() <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
-@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic) NSURLConnection *connection;
+@property (nonatomic) NSURLRequest *request;
 @property (nonatomic, copy) void (^callback)(id response, NSError *error);
 @end
 
@@ -48,6 +67,7 @@
     MidtransNetworkOperation *op = [[MidtransNetworkOperation alloc] init];
     op.callback = callback;
     op.connection = [NSURLConnection connectionWithRequest:request delegate:op];
+    op.request = request;
     return op;
 }
 
@@ -64,6 +84,11 @@
         return;
     
     [self.connection start];
+    
+    NSMutableDictionary *object = [NSMutableDictionary new];
+    if (self.request)
+        [object setObject:self.request forKey:kMTNetworkOperationRequest];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MTNetworkingDidStartRequest object:object];
 }
 
 - (void)cancel {
@@ -97,6 +122,14 @@
     id responseObject = [NSJSONSerialization JSONObjectWithData:[_responseData validateUTF8]
                                                         options:NSJSONReadingMutableContainers
                                                           error:nil];
+    
+    NSMutableDictionary *object = [NSMutableDictionary new];
+    NSURLRequest *request = connection.currentRequest;
+    if (request)
+        [object setObject:request forKey:kMTNetworkOperationRequest];
+    if (_responseData)
+        [object setObject:[_responseData validateUTF8] forKey:kMTNetworkOperationResponse];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MTNetworkingDidFinishRequest object:object];
     
     if (responseObject[MIDTRANS_CORE_STATUS_CODE]) {
         NSInteger code = [responseObject[MIDTRANS_CORE_STATUS_CODE] integerValue];
@@ -133,7 +166,8 @@
                                              userInfo:userInfo];
             if (self.callback) self.callback(nil, error);
         }
-    } else {
+    }
+    else {
         if (self.callback) self.callback(responseObject, nil);
     }
     
@@ -141,6 +175,11 @@
 }
 
 - (BOOL)isAccessTokenError:(NSError *)error {
+    NSMutableDictionary *object = [NSMutableDictionary new];
+    if (error)
+        [object setObject:error forKey:kMTNetworkOperationError];
+    [[NSNotificationCenter defaultCenter] postNotificationName:MTNetworkingDidFinishRequest object:object];
+    
     NSString *errorMessage = error.localizedDescription;
     return [errorMessage containsString:@"access_token"];
 }

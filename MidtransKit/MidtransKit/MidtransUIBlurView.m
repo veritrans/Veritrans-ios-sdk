@@ -9,20 +9,35 @@
 #import "MidtransUIBlurView.h"
 
 @implementation MidtransUIBlurView
-
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    self.backgroundColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.0f alpha:.6];
-}
-
-- (void)didMoveToSuperview {
-    [super didMoveToSuperview];
-    NSDictionary *bindings = @{@"currentView" : self};
-    self.translatesAutoresizingMaskIntoConstraints = NO;
-    if (self.superview) {
-        [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[currentView]|" options:0 metrics:nil views:bindings]];
-        [self.superview addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[currentView]|" options:0 metrics:nil views:bindings]];
+- (instancetype)initWithCoder:(NSCoder *)aDecoder {
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        [self setup];
     }
+    return self;
 }
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setup];
+    }
+    return self;
+}
+
+- (void)setup {
+    self.clipsToBounds = YES;
+    self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.80f];
+
+}
+
 
 @end

@@ -96,12 +96,15 @@ static dispatch_once_t * onceToken;
                 [self.view.addOnTableView selectRowAtIndexPath:indexPath
                                             animated:YES
                                       scrollPosition:UITableViewScrollPositionNone];
+                [self.selectedAddOnIndex addObject:[NSNumber numberWithInteger:indexPath.row]];
                 [self tableView:self.view.addOnTableView didSelectRowAtIndexPath:indexPath];
             }
         }
 
     }
-    self.installment = [[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
+    self.installment = [[MidtransPaymentRequestV2Installment alloc]
+                        initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
+    
     if (self.installment.terms) {
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
@@ -109,7 +112,9 @@ static dispatch_once_t * onceToken;
         
     }
     self.bins = self.creditCardInfo.whitelistBins;
-    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]] options:kNilOptions error:nil];
+    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
+                                                                initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
+                                                       options:kNilOptions error:nil];
     
     [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
 }
@@ -222,8 +227,10 @@ static dispatch_once_t * onceToken;
 
 - (IBAction)cvvInfoDidTapped:(id)sender {
     VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
-    [self.navigationController presentCustomViewController:guide onViewController:self.navigationController completion:nil];
+    [self.navigationController presentCustomViewController:guide
+                                          onViewController:self.navigationController completion:nil];
 }
+
 - (void)informationButtonDidTappedWithTag:(NSInteger)index {
     AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:index];
     if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
@@ -234,7 +241,8 @@ static dispatch_once_t * onceToken;
                                                           delegate:self
                                                           cancelButtonTitle:nil
                                                           okButtonTitle:@"OK"];
-         [self.navigationController.view addSubview:alertView.view];
+        [self.navigationController presentCustomViewController:alertView
+                                              onViewController:self.navigationController completion:nil];
     }
 }
 
@@ -277,7 +285,9 @@ static dispatch_once_t * onceToken;
         return [self.ccFormatter updateTextFieldContentAndPosition];
     }
     else if ([textField isEqual:self.view.cardCVVNumberTextField]) {
-        return [textField filterCvvNumber:string range:range withCardNumber:self.view.creditCardNumberTextField.text];
+        return [textField filterCvvNumber:string
+                                    range:range
+                           withCardNumber:self.view.creditCardNumberTextField.text];
     }
     else {
         return YES;
@@ -340,10 +350,12 @@ static dispatch_once_t * onceToken;
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
+    
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
+    
     if (self.installmentRequired && self.installmentCurrentIndex == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                         message:@"This transaction must use installment"
@@ -366,9 +378,7 @@ static dispatch_once_t * onceToken;
             [self handleRegisterCreditCardError:error];
             return;
         }
-        
     }
-    
     [self showLoadingWithText:@"Processing your transaction"];
     MidtransTokenizeRequest *tokenRequest;
     if (self.installmentTerms && self.installmentCurrentIndex !=0) {
@@ -402,9 +412,11 @@ static dispatch_once_t * onceToken;
                                                                                 saveCard:self.saveCard
                                                                              installment:self.installmentTerms];
     
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc]
+                                        initWithPaymentDetails:paymentDetail token:self.token];
     
-    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient shared] performTransaction:transaction
+                                             completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
         if (error) {
             if (self.attemptRetry < 2) {
@@ -423,7 +435,9 @@ static dispatch_once_t * onceToken;
         else {
             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                 [self.maskedCards addObject:result.maskedCreditCard];
-                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards customer:self.token.customerDetails completion:^(id  _Nullable result, NSError * _Nullable error) {
+                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
+                                                        customer:self.token.customerDetails
+                                                      completion:^(id  _Nullable result, NSError * _Nullable error) {
                     
                 }];
             }
@@ -459,7 +473,6 @@ static dispatch_once_t * onceToken;
     self.installmentCurrentIndex = index;
 }
 - (void)didSelectOKButtonAlertViewController:(MidtransUICustomAlertViewController *)alertViewVC {
-      [alertViewVC.view removeFromSuperview];
 }
 
 @end

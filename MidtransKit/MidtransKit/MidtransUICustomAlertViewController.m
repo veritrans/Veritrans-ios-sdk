@@ -8,6 +8,7 @@
 
 #import "MidtransUICustomAlertViewController.h"
 #import "VTClassHelper.h"
+#import "UIViewController+Modal.h"
 @interface MidtransUICustomAlertViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleAlertLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionAlertLabel;
@@ -93,8 +94,17 @@
 }
 
 - (IBAction)okButtonDidTapped:(id)sender {
-    [self.view removeFromSuperview];
-    [self dismissViewControllerAnimated:YES completion:nil];}
+    [UIView animateWithDuration:0.1f delay:0.0 options:UIViewAnimationOptionCurveEaseInOut animations:^{
+        self.view.alpha = 0;
+    } completion:nil];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(okButtonDidTapped:)]) {
+            [self.delegate didSelectOKButtonAlertViewController:self];
+            [self dismissCustomViewController:nil];
+        }
+    });
+}
 
 
 - (void)didReceiveMemoryWarning {

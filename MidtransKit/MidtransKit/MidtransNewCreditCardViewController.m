@@ -353,6 +353,7 @@ static dispatch_once_t * onceToken;
                        options:UIViewAnimationOptionCurveEaseInOut
                     animations:^{
                         self.view.installmentView.hidden = !show;
+                         [self.installmentsContentView.installmentCollectionView reloadData];
                         [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
                     }
                     completion:NULL];

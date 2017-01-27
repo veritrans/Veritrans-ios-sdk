@@ -226,14 +226,23 @@ static dispatch_once_t * onceToken;
 }
 
 - (IBAction)cvvInfoDidTapped:(id)sender {
-    VTCvvInfoController *guide = [[VTCvvInfoController alloc] init];
-    [self.navigationController presentCustomViewController:guide
-                                          onViewController:self.navigationController completion:nil];
+    MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
+                                                      initWithTitle:@"What is CVV?"
+                                                      message:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"
+                                                      image:@"CreditCardBackSmall"
+                                                      delegate:self
+                                                      cancelButtonTitle:nil
+                                                      okButtonTitle:@"OK"];
+    
+    [self.navigationController presentCustomViewController:alertView
+                                          onViewController:self.navigationController
+                                                completion:nil];
 }
 
 - (void)informationButtonDidTappedWithTag:(NSInteger)index {
     AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:index];
     if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
+        
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"save card for later reuse"
                                                           message:@"We will scurely store your card details so you can reuse theme latter"
@@ -241,8 +250,10 @@ static dispatch_once_t * onceToken;
                                                           delegate:self
                                                           cancelButtonTitle:nil
                                                           okButtonTitle:@"OK"];
+        
         [self.navigationController presentCustomViewController:alertView
-                                              onViewController:self.navigationController completion:nil];
+                                              onViewController:self.navigationController
+                                                    completion:nil];
     }
 }
 

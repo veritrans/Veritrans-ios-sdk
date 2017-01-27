@@ -37,7 +37,6 @@ static dispatch_once_t * onceToken;
 @property (nonatomic) BOOL saveCard;
 @property (nonatomic,strong) NSString *installmentBankName;
 @property (nonatomic) NSMutableArray *maskedCards;
-@property (nonatomic) NSMutableArray *selectedAddOnIndex;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
@@ -71,7 +70,6 @@ static dispatch_once_t * onceToken;
     self.installmentCurrentIndex = 0;
     self.installmentAvailable = NO;
     self.installmentValueObject = [NSMutableArray new];
-    self.selectedAddOnIndex = [NSMutableArray new];
     self.installmentBankName = @"";
     self.view.creditCardNumberTextField.delegate = self;
     self.view.cardCVVNumberTextField.delegate = self;
@@ -88,6 +86,8 @@ static dispatch_once_t * onceToken;
     self.view.addOnTableView.dataSource  = self.dataSource;
     [self.view configureAmountTotal:self.token];
     
+    self.saveCard = NO;
+    
     if ([CC_CONFIG saveCardEnabled]) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":@"CREDIT_CARD_SAVE",
@@ -96,16 +96,13 @@ static dispatch_once_t * onceToken;
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
             if ([CC_CONFIG setDefaultCreditSaveCardEnabled]) {
-                self.saveCard = YES;
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
                 [self.view.addOnTableView selectRowAtIndexPath:indexPath
-                                            animated:YES
-                                      scrollPosition:UITableViewScrollPositionNone];
-                [self.selectedAddOnIndex addObject:[NSNumber numberWithInteger:indexPath.row]];
+                                                      animated:NO
+                                                scrollPosition:UITableViewScrollPositionNone];
                 [self tableView:self.view.addOnTableView didSelectRowAtIndexPath:indexPath];
             }
         }
-
     }
     self.installment = [[MidtransPaymentRequestV2Installment alloc]
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
@@ -146,22 +143,16 @@ static dispatch_once_t * onceToken;
     }
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-            AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:indexPath.row];
-    if (![self.selectedAddOnIndex containsObject:[NSNumber numberWithInteger:indexPath.row]]) {
-        [self.selectedAddOnIndex addObject:[NSNumber numberWithInteger:indexPath.row]];
-        if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
-            self.saveCard = YES;
-        }
-        //saveCard
+    AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:indexPath.row];
+    if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
+        self.saveCard = !self.saveCard;
     }
-    else {
-        [self.selectedAddOnIndex removeObject:[NSNumber numberWithInteger:indexPath.row]];
-        if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
-            self.saveCard = NO;
-        }
-         //[tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:indexPath.row];
+    if ([constructor.addOnName isEqualToString:@"CREDIT_CARD_SAVE"]) {
+        self.saveCard = !self.saveCard;
     }
-    
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
@@ -186,7 +177,7 @@ static dispatch_once_t * onceToken;
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
-
+    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -216,10 +207,10 @@ static dispatch_once_t * onceToken;
         if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
             self.view.creditCardNumberTextField.infoBankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
         }
-       
+        
     }
     
-   
+    
 }
 - (void)reformatCardNumber {
     NSString *cardNumber = self.view.cardCVVNumberTextField.text;
@@ -336,13 +327,13 @@ static dispatch_once_t * onceToken;
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
                     [self showInstallmentView:YES];
                 }
-
+                
             }
         });
         
     }
     else{
-         *onceToken = 0;
+        *onceToken = 0;
         self.filteredBinObject.bank = nil;
         self.view.creditCardNumberTextField.infoBankIcon = nil;
         if (self.installmentValueObject.count > 0) {
@@ -351,7 +342,7 @@ static dispatch_once_t * onceToken;
             [self.installmentsContentView resetInstallmentIndex];
         }
         [self showInstallmentView:NO];
-
+        
     }
     
 }
@@ -409,10 +400,10 @@ static dispatch_once_t * onceToken;
                         secure:YES];
     }
     else {
-       tokenRequest = [[MidtransTokenizeRequest alloc]
-                       initWithCreditCard:creditCard
-                       grossAmount:self.token.transactionDetails.grossAmount
-                       secure:CC_CONFIG.secure3DEnabled];
+        tokenRequest = [[MidtransTokenizeRequest alloc]
+                        initWithCreditCard:creditCard
+                        grossAmount:self.token.transactionDetails.grossAmount
+                        secure:CC_CONFIG.secure3DEnabled];
     }
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -435,49 +426,49 @@ static dispatch_once_t * onceToken;
     
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoading];
-        if (error) {
-            if (self.attemptRetry < 2) {
-                self.attemptRetry += 1;
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                message:error.localizedDescription
-                                                               delegate:nil
-                                                      cancelButtonTitle:@"Close"
-                                                      otherButtonTitles:nil];
-                [alert show];
-            }
-            else {
-                [self handleTransactionError:error];
-            }
-        }
-        else {
-            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
-                [self.maskedCards addObject:result.maskedCreditCard];
-                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
-                                                        customer:self.token.customerDetails
-                                                      completion:^(id  _Nullable result, NSError * _Nullable error) {
-                    
-                }];
-            }
-            if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
-                [self handleTransactionResult:result];
-            }
-            else {
-                if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
-                    self.attemptRetry+=1;
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                    message:result.statusMessage
-                                                                   delegate:nil
-                                                          cancelButtonTitle:@"Close"
-                                                          otherButtonTitles:nil];
-                    [alert show];
-                }
-                else {
-                    [self handleTransactionSuccess:result];
-                }
-            }
-        }
-    }];
+                                                 [self hideLoading];
+                                                 if (error) {
+                                                     if (self.attemptRetry < 2) {
+                                                         self.attemptRetry += 1;
+                                                         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                                                         message:error.localizedDescription
+                                                                                                        delegate:nil
+                                                                                               cancelButtonTitle:@"Close"
+                                                                                               otherButtonTitles:nil];
+                                                         [alert show];
+                                                     }
+                                                     else {
+                                                         [self handleTransactionError:error];
+                                                     }
+                                                 }
+                                                 else {
+                                                     if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+                                                         [self.maskedCards addObject:result.maskedCreditCard];
+                                                         [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
+                                                                                                 customer:self.token.customerDetails
+                                                                                               completion:^(id  _Nullable result, NSError * _Nullable error) {
+                                                                                                   
+                                                                                               }];
+                                                     }
+                                                     if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
+                                                         [self handleTransactionResult:result];
+                                                     }
+                                                     else {
+                                                         if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
+                                                             self.attemptRetry+=1;
+                                                             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
+                                                                                                             message:result.statusMessage
+                                                                                                            delegate:nil
+                                                                                                   cancelButtonTitle:@"Close"
+                                                                                                   otherButtonTitles:nil];
+                                                             [alert show];
+                                                         }
+                                                         else {
+                                                             [self handleTransactionSuccess:result];
+                                                         }
+                                                     }
+                                                 }
+                                             }];
 }
 
 - (void)handleRegisterCreditCardError:(NSError *)error {

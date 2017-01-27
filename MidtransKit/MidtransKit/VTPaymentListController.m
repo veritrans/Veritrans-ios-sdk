@@ -49,7 +49,8 @@
     self.title =  UILocalizedString(@"payment.list.title", nil);
     self.singlePayment = false;
     
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
+                                    initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
     UIImage *logo = [MidtransImageManager merchantLogo];

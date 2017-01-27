@@ -57,6 +57,23 @@
     }
     return self;
 }
+- (instancetype)initWithTwoClickToken:(NSString *)token
+                                  cvv:(NSString *)cvv
+                          grossAmount:(NSNumber *)grossAmount
+                          installment:(BOOL)installment
+                      installmentTerm:(NSNumber *)installmentTerm {
+    if (self = [super init]) {
+        self.grossAmount = grossAmount;
+        self.installment = installment;
+        self.installmentTerm = installmentTerm;
+        self.token = token;
+        self.cvv = cvv;
+        self.secure = YES;
+        self.creditCardPaymentFeature = MidtransCreditCardPaymentFeatureTwoClick;
+    }
+    return self;
+
+}
 
 - (instancetype)initWithTwoClickToken:(NSString *)token
                                   cvv:(NSString *)cvv
@@ -81,6 +98,11 @@
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
                                     @"token_id":[MidtransHelper nullifyIfNil:self.token]}];
+            if (self.installment) {
+                [result setObject:@"true" forKey:@"installment"];
+                [result setObject:self.installmentTerm forKey:@"installment_term"];
+                
+            }
             break;
         } case MidtransCreditCardPaymentFeatureNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],

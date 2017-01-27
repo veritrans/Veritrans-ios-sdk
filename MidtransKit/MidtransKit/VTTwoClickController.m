@@ -31,7 +31,7 @@ static dispatch_once_t * onceToken;
 @property (nonatomic) NSArray *bins;
 @property (nonatomic) NSArray *bankBinList;
 @property (nonatomic,strong) NSString *installmentBankName;
-@property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
+@property (nonatomic,strong) MidtransInstallmentView *installmentsContentView;
 @property (nonatomic,strong) MidtransPaymentRequestV2Installment *installment;
 @property (nonatomic,strong) NSArray *binResponseObject;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
@@ -181,9 +181,20 @@ static dispatch_once_t * onceToken;
 
 - (IBAction)paymentPressed:(UIButton *)sender {
     [self showLoadingWithText:@"Processing your transaction"];
-    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
-                                                                                               cvv:self.cvvTextField.text
-                                                                                       grossAmount:self.token.transactionDetails.grossAmount];
+    
+    MidtransTokenizeRequest *tokenRequest;
+    
+    if (self.installment.terms && self.installmentCurrentIndex !=0) {
+        NSInteger installment =[[[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1] integerValue];
+        tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId cvv:self.cvvTextField.text grossAmount:self.token.transactionDetails.grossAmount installment:YES installmentTerm:[NSNumber numberWithInteger:installment]];
+    }
+    else {
+      tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
+                                                                                                  cvv:self.cvvTextField.text
+                                                                                        grossAmount:self.token.transactionDetails.grossAmount];
+    }
+
+   
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {

@@ -55,11 +55,6 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionCanceled:) name:TRANSACTION_CANCELED object:nil];
-    
-    
-    if ([CONFIG environment] == MidtransServerEnvironmentSandbox) {
-        [[MidtransNetworkLogger shared] startLogging];
-    }
 }
 
 - (void)dealloc {
@@ -67,32 +62,24 @@
 }
 
 - (void)transactionPending:(NSNotification *)sender {
-    [[MidtransNetworkLogger shared] stopLogging];
-    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
         [self.paymentDelegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionCanceled:(NSNotification *)sender {
-    [[MidtransNetworkLogger shared] stopLogging];
-    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
         [self.paymentDelegate paymentViewController_paymentCanceled:self];
     }
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {
-    [[MidtransNetworkLogger shared] stopLogging];
-    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
         [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
-    [[MidtransNetworkLogger shared] stopLogging];
-    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
         [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[TRANSACTION_ERROR_KEY]];
     }

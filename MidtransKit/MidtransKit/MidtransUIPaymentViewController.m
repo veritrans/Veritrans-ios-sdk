@@ -24,46 +24,6 @@
     return self;
 }
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andPaymentFeature:(MidtransPaymentFeature)paymentFeature {
-/*
- static NSString * const MIDTRANS_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
- static NSString * const MIDTRANS_PAYMENT_KLIK_BCA = @"bca_klikbca";
- static NSString * const MIDTRANS_PAYMENT_INDOMARET = @"indomaret";
- static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
- static NSString * const MIDTRANS_PAYMENT_CSTORE = @"cstore";
- static NSString * const MIDTRANS_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
- static NSString * const MIDTRANS_PAYMENT_CREDIT_CARD = @"credit_card";
-
- static NSString * const MIDTRANS_PAYMENT_ECHANNEL = @"echannel";
- static NSString * const MIDTRANS_PAYMENT_PERMATA_VA = @"permata_va";
- static NSString * const MIDTRANS_PAYMENT_BCA_VA = @"bca_va";
- static NSString * const MIDTRANS_PAYMENT_ALL_VA = @"all_va";
- static NSString * const MIDTRANS_PAYMENT_OTHER_VA= @"other_va";
- static NSString * const MIDTRANS_PAYMENT_VA = @"va";
-
- static NSString * const MIDTRANS_PAYMENT_BRI_EPAY = @"bri_epay";
- static NSString * const MIDTRANS_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";
- static NSString * const MIDTRANS_PAYMENT_INDOSAT_DOMPETKU = @"indosat_dompetku";
- static NSString * const MIDTRANS_PAYMENT_XL_TUNAI = @"xl_tunai";
- static NSString * const MIDTRANS_PAYMENT_MANDIRI_CLICKPAY = @"mandiri_clickpay";
- static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
- */
-    /*
-     MidtransPaymentFeatureCreditCard,
-     MidtransPaymentFeatureBankTransfer,///va
-     MidtransPaymentFeatureKlikBCA,
-     MidtransPaymentFeatureIndomaret,
-     MidtransPaymentFeatureCIMBClicks,
-     MidtransPaymentFeatureCStore,
-     MidtransPaymentFeatureMandiriEcash,
-     MidtransPaymentFeatureEchannel,
-     MidtransPaymentFeaturePermataVA,
-     MidtransPaymentFeatureBRIEpay,
-     MidtransPaymentFeatureTelkomselEcash,
-     MidtransPaymentFeatureIndosatDompetku,
-     MidtransPaymentFeatureXLTunai,
-     MidtransPaymentFeatureMandiriClickPay,
-     MidtransPaymentFeatureKiosON
-     */
     NSString *paymentMethodSelected;
     switch (paymentFeature) {
         case MidtransPaymentFeatureCreditCard:
@@ -95,30 +55,44 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionCanceled:) name:TRANSACTION_CANCELED object:nil];
+    
+    
+    if ([CONFIG environment] == MidtransServerEnvironmentSandbox) {
+        [[MidtransNetworkLogger shared] startLogging];
+    }
 }
+
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)transactionPending:(NSNotification *)sender {
+    [[MidtransNetworkLogger shared] stopLogging];
+    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
         [self.paymentDelegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionCanceled:(NSNotification *)sender {
+    [[MidtransNetworkLogger shared] stopLogging];
+    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
         [self.paymentDelegate paymentViewController_paymentCanceled:self];
     }
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {
+    [[MidtransNetworkLogger shared] stopLogging];
+    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
         [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
+    [[MidtransNetworkLogger shared] stopLogging];
+    
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
         [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[TRANSACTION_ERROR_KEY]];
     }

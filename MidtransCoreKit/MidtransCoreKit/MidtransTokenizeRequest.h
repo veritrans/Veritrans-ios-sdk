@@ -38,6 +38,12 @@
                        grossAmount:(NSNumber *)grossAmount
                             secure:(BOOL)secure;
 
+- (instancetype)initWithTwoClickToken:(NSString *)token
+                                  cvv:(NSString *)cvv
+                          grossAmount:(NSNumber *)grossAmount
+                          installment:(BOOL)installment
+                      installmentTerm:(NSNumber *)installmentTerm;
+
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
                        grossAmount:(NSNumber *)grossAmount
                        installment:(BOOL)installment

@@ -12,9 +12,7 @@
 #import "VTClassHelper.h"
 #import "VTCCBackView.h"
 #import "MidtransUICCFrontView.h"
-
 #import "PopAnimator.h"
-
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2DataModels.h>
 #import <MidtransCoreKit/MidtransBinResponse.h>
@@ -24,13 +22,16 @@
 #import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "MidtransInstallmentView.h"
+static dispatch_once_t * onceToken;
+
 @interface VTTwoClickController () <UINavigationControllerDelegate,MidtransInstallmentViewDelegate>
 
 @property (nonatomic) IBOutlet MidtransUITextField *cvvTextField;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
+@property (nonatomic) NSArray *bankBinList;
 @property (nonatomic,strong) NSString *installmentBankName;
-@property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
+@property (nonatomic,strong) MidtransInstallmentView *installmentsContentView;
 @property (nonatomic,strong) MidtransPaymentRequestV2Installment *installment;
 @property (nonatomic,strong) NSArray *binResponseObject;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
@@ -68,24 +69,23 @@
     self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
     [self addNavigationToTextFields:@[self.cvvTextField]];
     self.navigationController.delegate = self;
-    self.installment =[[MidtransPaymentRequestV2Installment alloc] initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
+    
+    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
+                                                                initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
+                                                       options:kNilOptions error:nil];
+    
+    self.installment = [[MidtransPaymentRequestV2Installment alloc]
+                        initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
+    
     if (self.installment.terms) {
-        [self showLoadingWithText:@"Loading your saved card"];
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
-        [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray *binResponse, NSError * _Nullable error) {
-            if (!error) {
-                self.binResponseObject = binResponse;
-                [self setupInstallmentView];
-            }
-            else{
-                [self hideLoading];
-            }
-        }];
+        [self setupInstallmentView];
         
     }
-
+    self.bins = self.creditCardInfo.whitelistBins;
 }
+
 - (void)setupInstallmentView {
     NSArray *subviewArray = [VTBundle loadNibNamed:@"MidtransInstallmentView" owner:self options:nil];
     self.installmentsContentView = [subviewArray objectAtIndex:0];
@@ -95,61 +95,61 @@
     NSString *cardNumber= [[self.maskeCard.maskedNumber componentsSeparatedByString:@"-"] firstObject];
     [self matchBINNumberWithInstallment:cardNumber];
 }
+
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
-     [self hideLoading];
+    static dispatch_once_t once_token;
+    onceToken = &once_token;
     if (binNumber.length >= 6) {
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"SELF['bins'] CONTAINS %@",binNumber];
-        NSArray *filtered  = [self.binResponseObject filteredArrayUsingPredicate:predicate];
-        if (filtered.count) {
-            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-            if ([[self.installment.terms objectForKey:self.filteredBinObject.bank] count]) {
-                self.installmentBankName = self.filteredBinObject.bank;
-                [self.installmentValueObject addObject:@"0"];
-                [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
-                //[self.view.installmentCollectionView reloadData];
-                [UIView transitionWithView:self.installmentVIew
-                                  duration:1
-                                   options:UIViewAnimationOptionCurveEaseInOut
-                                animations:^{
-                                    self.installmentVIew.hidden = NO;
-                                    [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
-                                }
-                                completion:NULL];
+        NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
+        dispatch_once(&once_token, ^{
+            if (filtered.count) {
+                self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+                if (self.installmentAvailable) {
+                    self.installmentBankName = self.filteredBinObject.bank;
+                    [self.installmentValueObject addObject:@"0"];
+                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
+                    [self showInstallmentView:YES];
+                }
             }
-        }
-        else if([[self.installment.terms objectForKey:@"offline"] count]){
-            self.installmentBankName = @"offline";
-            [self.installmentValueObject addObject:@"0"];
-            [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
-            //[self.view.installmentCollectionView reloadData];
-            [UIView transitionWithView:self.installmentVIew
-                              duration:1
-                               options:UIViewAnimationOptionCurveEaseInOut
-                            animations:^{
-                                self.installmentVIew.hidden = NO;
-                                [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
-                            }
-                            completion:NULL];
-        }
+            else {
+                if([[self.installment.terms objectForKey:@"offline"] count]){
+                    self.installmentBankName = @"offline";
+                    [self.installmentValueObject addObject:@"0"];
+                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
+                    [self showInstallmentView:YES];
+                }
+                
+            }
+        });
         
     }
-    else {
+    else{
+        *onceToken = 0;
+        self.filteredBinObject.bank = nil;
         if (self.installmentValueObject.count > 0) {
             self.installmentCurrentIndex = 0;
+            [self.installmentValueObject removeAllObjects];
             [self.installmentsContentView resetInstallmentIndex];
         }
-        self.installmentBankName = @"";
-        [UIView transitionWithView:self.installmentVIew
-                          duration:1
-                           options:UIViewAnimationOptionCurveEaseOut
-                        animations:^{
-                            self.installmentVIew.hidden = YES;
-                        }
-                        completion:NULL];
+        [self showInstallmentView:NO];
+        
     }
     
 }
+- (void)showInstallmentView:(BOOL)show {
+    [UIView transitionWithView:self.installmentVIew
+                      duration:1
+                       options:UIViewAnimationOptionCurveEaseInOut
+                    animations:^{
+                        self.installmentVIew.hidden = !show;
+                        [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
+                    }
+     
+                    completion:NULL];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     [self.cvvTextField becomeFirstResponder];
@@ -181,9 +181,20 @@
 
 - (IBAction)paymentPressed:(UIButton *)sender {
     [self showLoadingWithText:@"Processing your transaction"];
-    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
-                                                                                               cvv:self.cvvTextField.text
-                                                                                       grossAmount:self.token.transactionDetails.grossAmount];
+    
+    MidtransTokenizeRequest *tokenRequest;
+    
+    if (self.installment.terms && self.installmentCurrentIndex !=0) {
+        NSInteger installment =[[[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1] integerValue];
+        tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId cvv:self.cvvTextField.text grossAmount:self.token.transactionDetails.grossAmount installment:YES installmentTerm:[NSNumber numberWithInteger:installment]];
+    }
+    else {
+      tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
+                                                                                                  cvv:self.cvvTextField.text
+                                                                                        grossAmount:self.token.transactionDetails.grossAmount];
+    }
+
+   
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {

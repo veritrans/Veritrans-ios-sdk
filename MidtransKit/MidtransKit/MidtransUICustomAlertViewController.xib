@@ -31,7 +31,7 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="CS6-9t-bCR" customClass="MidtransUIBlurView">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="CS6-9t-bCR">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -106,10 +106,5 @@
             </constraints>
             <point key="canvasLocation" x="221" y="173"/>
         </view>
-        <tapGestureRecognizer id="evj-tc-609">
-            <connections>
-                <action selector="backgroundViewDidTapped:" destination="-1" id="vpo-TC-SJ0"/>
-            </connections>
-        </tapGestureRecognizer>
     </objects>
 </document>

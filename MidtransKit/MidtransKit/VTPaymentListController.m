@@ -105,7 +105,7 @@
                          if (!vaAlreadyAdded) {
                              if (mainIndex!=0) {
                                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                                 [self.paymentMethodList insertObject:model atIndex:1];
+                                 self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
                                  vaAlreadyAdded = YES;
                              }
                              
@@ -120,10 +120,10 @@
                      mainIndex++;
                  }
                  
-                 if (response.enabledPayments.count>1) {
+                 if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<1) {
+                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<2) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }

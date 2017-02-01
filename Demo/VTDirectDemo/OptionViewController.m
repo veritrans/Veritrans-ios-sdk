@@ -287,6 +287,7 @@
     
     [[NSUserDefaults standardUserDefaults] setObject:self.fontNames forKey:kOptionViewControllerCustomFont];
     
+    CC_CONFIG.acquiringBank = [self.acquiringBank[@"type"] integerValue];
     [[NSUserDefaults standardUserDefaults] setObject:self.acquiringBank forKey:kOptionViewControllerAcquiringBank];
     
     [[NSUserDefaults standardUserDefaults] synchronize];

@@ -39,7 +39,7 @@
     [self enterVAPaymentList:app];
     
     [app.tables.staticTexts[@"Pay from BCA ATMs or internet banking"] tap];
-    [app.buttons[@"Confirm Payment"] tap];
+    [app.buttons[@"See Account Number"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish Payment"];
     [self waitUntilAvailableForElement:finishButton];
@@ -52,7 +52,7 @@
     [self enterVAPaymentList:app];
     
     [app.tables.staticTexts[@"Pay from Mandiri ATMs or internet banking"] tap];
-    [app.buttons[@"Confirm Payment"] tap];
+    [app.buttons[@"See Account Number"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish Payment"];
     [self waitUntilAvailableForElement:finishButton];
@@ -65,7 +65,7 @@
     [self enterVAPaymentList:app];
     
     [app.tables.staticTexts[@"Pay from Permata ATMs or internet banking"] tap];
-    [app.buttons[@"Confirm Payment"] tap];
+    [app.buttons[@"See Account Number"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish Payment"];
     [self waitUntilAvailableForElement:finishButton];
@@ -78,7 +78,7 @@
     [self enterVAPaymentList:app];
     
     [app.tables.staticTexts[@"Pay from ATMs or internet banking"] tap];
-    [app.buttons[@"Confirm Payment"] tap];
+    [app.buttons[@"See Account Number"] tap];
     
     XCUIElement *finishButton = app.buttons[@"Finish Payment"];
     [self waitUntilAvailableForElement:finishButton];

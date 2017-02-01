@@ -29,6 +29,12 @@
     self.sampleList = @[@"Normal Payment",@"Specific Payment",@"Payment With Limit Time",@"Custom Theme",@"Custom Field"];
     [self.tableView reloadData];
     // Do any additional setup after loading the view from its nib.
+    
+    [[MidtransNetworkLogger shared] startLogging];
+}
+
+- (void)dealloc {
+    [[MidtransNetworkLogger shared] stopLogging];
 }
 
 - (void)initPayment {

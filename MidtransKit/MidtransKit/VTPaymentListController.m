@@ -20,7 +20,6 @@
 #import "MidtransUIPaymentListFooter.h"
 #import "MidtransUIPaymentListHeader.h"
 #import "VTPaymentListView.h"
-#import "MidtransNewCreditCardViewController.h"
 #import "MidtransPaymentGCIViewController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -49,8 +48,7 @@
     self.title =  UILocalizedString(@"payment.list.title", nil);
     self.singlePayment = false;
     
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
-                                    initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
     UIImage *logo = [MidtransImageManager merchantLogo];
@@ -76,7 +74,7 @@
          self.title = response.merchant.preference.displayName;
          if (response) {
              [self hideLoading];
- 
+             
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
@@ -87,14 +85,7 @@
                                                    };
              
              NSArray *paymentAvailable = response.enabledPayments;
-             if (self.paymentMethodSelected.length>0) {
-                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
-                 NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
-                 if (!results.count) {
-                     self.view.emptyView.hidden = NO;
-                     return ;
-                 }
-             }
+             
              for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index ;
                  if (self.paymentMethodSelected.length > 0) {
@@ -112,14 +103,16 @@
                      MidtransPaymentListModel *model;
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                          if (!vaAlreadyAdded) {
-                             model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                             [self.paymentMethodList insertObject:model atIndex:mainIndex];
-                             vaAlreadyAdded = YES;
+                             if (mainIndex!=0) {
+                                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                 self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
+                                 vaAlreadyAdded = YES;
+                             }
+                             
                          }
                      }
                      
                      else {
-                        
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          [self.paymentMethodList addObject:model];
                          
@@ -127,10 +120,10 @@
                      mainIndex++;
                  }
                  
-                 if (response.enabledPayments.count>1) {
+                 if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<1) {
+                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<2) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -149,7 +142,6 @@
 
 - (void)closePressed:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark - VTPaymentListViewDelegate
@@ -163,40 +155,25 @@
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
-    
     if ([paymentMethodName isEqualToString:MIDTRANS_PAYMENT_VA]) {
         paymentMethodName = @"bank_transfer";
     }
-    
     [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
                                            withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:paymentMethodName}];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
-            MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
-                                                                  initWithToken:self.token
-                                                                  paymentMethodName:paymentMethod
-                                                                  andCreditCardData:self.responsePayment.creditCard];
-            [creditCardVC showDismissButton:self.singlePayment];
-            [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
+            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
+                                                               paymentMethodName:paymentMethod];
+            [vc showDismissButton:self.singlePayment];
+            [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
         else {
-            if (self.responsePayment.creditCard.savedTokens.count) {
-                VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                     paymentMethodName:paymentMethod
-                                                                     andCreditCardData:self.responsePayment.creditCard];
-                [vc showDismissButton:self.singlePayment];
-                [self.navigationController pushViewController:vc animated:!self.singlePayment];
-                
-            }
-            else {
-                MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
-                                                                      initWithToken:self.token
-                                                                      paymentMethodName:paymentMethod
-                                                                      andCreditCardData:self.responsePayment.creditCard];
-                [creditCardVC showDismissButton:self.singlePayment];
-                [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
-            }
+            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
+                                                                 paymentMethodName:paymentMethod
+                                                                 andCreditCardData:self.responsePayment.creditCard];
+            [vc showDismissButton:self.singlePayment];
+            [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {

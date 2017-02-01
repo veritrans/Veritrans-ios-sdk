@@ -22,7 +22,10 @@
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
 "payment.finish-button-title" = "Complete Payment At %@";
+
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
+"payment.va.confirm_button" = "Lihat Nomor Rekening";
+
 "toast.copy-text" = "Copied to clipboard";
 
 "creditcard.input.title" = "Card Details";

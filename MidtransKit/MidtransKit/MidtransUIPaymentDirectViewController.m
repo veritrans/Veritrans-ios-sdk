@@ -78,6 +78,10 @@
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
 }
+- (void)setPaymentType:(MidtransVAType)paymentType {
+    _paymentType = paymentType;
+    [self.view.confirmPaymentButton setTitle:UILocalizedString(@"payment.va.confirm_button", nil) forState:UIControlStateNormal];
+}
 - (IBAction)paymentGuideDidTapped:(id)sender {
     
 }

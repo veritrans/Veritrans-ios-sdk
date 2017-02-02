@@ -12,4 +12,5 @@
 + (NSString *)deviceToken;
 + (NSString *)deviceLanguage;
 + (NSString *)deviceModel;
++ (NSString *)deviceName;
 @end

@@ -161,6 +161,7 @@
 #pragma mark - Helper
 
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
+   
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
     
@@ -168,8 +169,7 @@
         paymentMethodName = @"bank_transfer";
     }
     
-    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
-                                           withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:paymentMethodName}];
+    [[MIDTrackingManager shared] trackEventName:[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

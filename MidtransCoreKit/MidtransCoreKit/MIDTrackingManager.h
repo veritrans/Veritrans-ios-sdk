@@ -10,4 +10,6 @@
 
 @interface MIDTrackingManager : NSObject
 + (MIDTrackingManager *)shared;
+- (void)trackEventName:(NSString *)eventName;
+
 @end

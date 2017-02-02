@@ -30,4 +30,11 @@
 + (NSString *)deviceLanguage {
     return [[NSBundle mainBundle].preferredLocalizations count]?(NSString *)[NSBundle mainBundle].preferredLocalizations:@"ID";
 }
++(NSString *)deviceName {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    
+    return [NSString stringWithCString:systemInfo.machine
+                              encoding:NSUTF8StringEncoding];
+}
 @end

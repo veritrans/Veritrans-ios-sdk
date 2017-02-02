@@ -64,7 +64,12 @@
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:indexPath.row];
     [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
                                            withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:vaTypeModel.internalBaseClassIdentifier}];
-//    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_CORE_TRACKING_SELECT_PAYMENT withProperties:@{MIDTRANS_CORE_TRACKING_SELECT_PAYMENT_TYPE:vaTypeModel.localPaymentIdentifier}];
+    NSString *paymentName  = [vaTypeModel.internalBaseClassIdentifier stringByReplacingOccurrencesOfString:@"_va" withString:@""];
+    if ([paymentName isEqualToString:@"other"]) {
+        paymentName  = @"all";
+    }
+
+    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"atm %@",paymentName]];
     MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }

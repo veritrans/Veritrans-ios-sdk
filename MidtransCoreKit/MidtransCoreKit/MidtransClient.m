@@ -91,7 +91,8 @@ NSString *const REGISTER_CARD_URL = @"card/register";
             if (redirectURL) {
                 [[MidtransTrackingManager shared] trackAppSuccessGenerateToken:token
                                                                 secureProtocol:YES
-                                                            withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
+                                                            withPaymentFeature:0
+                                                                 paymentMethod:@"credit card" value:nil];
                 Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:token
                                                                                              secureURL:[NSURL URLWithString:redirectURL]];
                 [secureController showWithCompletion:^(NSError *error) {

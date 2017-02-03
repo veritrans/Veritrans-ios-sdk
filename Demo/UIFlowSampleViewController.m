@@ -112,23 +112,12 @@
                                                                         }];
 }
 - (void)customTheme {
-    NSString *fontNameBold;
-    NSString *fontNameRegular;
-    NSString *fontNameLight;
-    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
-    for (NSString *fontName in fontNames) {
-        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            fontNameBold = fontName;
-        } else if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            fontNameRegular = fontName;
-        } else if ([fontName rangeOfString:@"-light" options:NSCaseInsensitiveSearch].location != NSNotFound) {
-            fontNameLight = fontName;
-        }
-    }
-    MidtransUIFontSource *fontSource= [[MidtransUIFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
-    
-    UIColor *themeColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
+    MidtransUIFontSource *fontSource = [self myFontSource];
+    UIColor *themeColor = [self myThemeColor];
     [MidtransUIThemeManager applyCustomThemeColor:themeColor themeFont:fontSource];
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:self.customerDetails
@@ -241,14 +230,26 @@
     
 }
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
+- (UIColor *)myThemeColor {
+    NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
+    return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];
+}
+
+- (MidtransUIFontSource *)myFontSource {
+    NSString *fontNameBold;
+    NSString *fontNameRegular;
+    NSString *fontNameLight;
+    NSArray *fontNames = [[NSUserDefaults standardUserDefaults] objectForKey:@"custom_font"];
+    for (NSString *fontName in fontNames) {
+        if ([fontName rangeOfString:@"-bold" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameBold = fontName;
+        } else if ([fontName rangeOfString:@"-regular" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameRegular = fontName;
+        } else if ([fontName rangeOfString:@"-light" options:NSCaseInsensitiveSearch].location != NSNotFound) {
+            fontNameLight = fontName;
+        }
+    }
+    return [[MidtransUIFontSource alloc] initWithFontNameBold:fontNameBold fontNameRegular:fontNameRegular fontNameLight:fontNameLight];
+}
 
 @end

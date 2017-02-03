@@ -87,7 +87,7 @@
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
-    
+    [[MIDTrackingManager shared] trackEventName:@"btn confirm payment"];
     id<MidtransPaymentDetails> paymentDetails;
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||

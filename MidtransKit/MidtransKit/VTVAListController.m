@@ -23,6 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = UILocalizedString(@"va.list.title", nil);
+     [[MIDTrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
@@ -62,14 +63,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:indexPath.row];
-    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
-                                           withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:vaTypeModel.internalBaseClassIdentifier}];
-    NSString *paymentName  = [vaTypeModel.internalBaseClassIdentifier stringByReplacingOccurrencesOfString:@"_va" withString:@""];
-    if ([paymentName isEqualToString:@"other"]) {
-        paymentName  = @"all";
-    }
-
-    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"atm %@",paymentName]];
+    NSString *paymentName  = vaTypeModel.shortName;
+    [[MIDTrackingManager shared] trackEventName:paymentName];
     MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }

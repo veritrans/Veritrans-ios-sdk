@@ -61,17 +61,19 @@
 
 - (BOOL)isViewableError:(NSError *)error {
     if (error.code == -20) {
-        //number invalid
+        [self sendTrackingEvent:@"cc num validation"];
         self.creditCardNumberTextField.warning = error.localizedDescription;
         return YES;
     }
     else if (error.code == -21) {
         //expiry date invalid
+         [self sendTrackingEvent:@"cc expiry validation"];
         self.cardExpireTextField.warning = error.localizedDescription;
         return YES;
     }
     else if (error.code == -22) {
         //cvv number invalid
+         [self sendTrackingEvent:@"cc cvv validation"];
         self.cardCVVNumberTextField.warning = error.localizedDescription;
         return YES;
     }
@@ -82,5 +84,8 @@
     else {
         return NO;
     }
+}
+- (void)sendTrackingEvent:(NSString *)eventName {
+    [[MIDTrackingManager shared] trackEventName:eventName];
 }
 @end

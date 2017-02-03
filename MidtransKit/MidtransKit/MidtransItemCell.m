@@ -22,7 +22,7 @@
     [super awakeFromNib];
     
     self.separatorInset = UIEdgeInsetsMake(0.f, self.bounds.size.width, 0.f, 0.f);
-    self.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
+    self.contentView.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 - (void)setItemDetail:(MidtransItemDetail *)itemDetail {

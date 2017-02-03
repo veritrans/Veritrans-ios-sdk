@@ -9,6 +9,7 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "VTClassHelper.h"
 #import "MidtransItemCell.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransTransactionDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) IBOutlet UILabel *priceAmountLabel;
@@ -39,6 +40,8 @@
     
     [self.backgroundView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
+    
+    self.headerView.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 - (void)backgroundTapped:(id)sender {

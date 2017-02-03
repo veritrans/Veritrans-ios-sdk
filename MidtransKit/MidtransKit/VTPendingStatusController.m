@@ -41,6 +41,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[MIDTrackingManager shared] trackEventName:@"pg pending"];
     self.title = UILocalizedString(@"payment.pending",nil);
     self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
     self.orderIDLabel.text = self.result.orderId;

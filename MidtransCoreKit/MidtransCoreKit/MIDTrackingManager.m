@@ -28,8 +28,8 @@
     NSString *token = [PRIVATECONFIG mixpanelToken];
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
-    [defaultParameters setObject:@"iOS" forKey:@"Platform"];
-    [defaultParameters setObject:VERSION forKey:@"SDK Version"];
+    [defaultParameters setObject:@"iOS" forKey:@"platform"];
+    [defaultParameters setObject:VERSION forKey:@"sdk version"];
     id snapToken = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
     if (snapToken) {
         [defaultParameters setObject:snapToken forKey:MIDTRANS_TRACKING_DISTINCT_ID];
@@ -44,7 +44,7 @@
     [defaultParameters setObject:[MidtransDeviceHelper deviceLanguage] forKey:MIDTRANS_TRACKING_DEVICE_LANGUAGE];
     NSString *merchant = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     if (merchant.length) {
-        [defaultParameters setObject:merchant forKey:@"Merchant"];
+        [defaultParameters setObject:merchant forKey:@"merchant"];
     }
     return defaultParameters;
 }

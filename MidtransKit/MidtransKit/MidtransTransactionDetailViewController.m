@@ -32,7 +32,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[MIDTrackingManager shared] trackEventName:@"pg order summary"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransItemCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransItemCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

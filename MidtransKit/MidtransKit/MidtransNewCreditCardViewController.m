@@ -64,9 +64,8 @@ static dispatch_once_t * onceToken;
     [super viewDidLoad];
     
     self.title = UILocalizedString(@"creditcard.input.title", nil);
-    
     self.maskedCards = [NSMutableArray new];
-    
+    [[MIDTrackingManager shared] trackEventName:@"pg cc card details"];
     self.installmentCurrentIndex = 0;
     self.installmentAvailable = NO;
     self.installmentValueObject = [NSMutableArray new];
@@ -224,6 +223,7 @@ static dispatch_once_t * onceToken;
 }
 
 - (IBAction)cvvInfoDidTapped:(id)sender {
+    
     MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                       initWithTitle:@"What is CVV?"
                                                       message:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"
@@ -261,7 +261,6 @@ static dispatch_once_t * onceToken;
     }
     //your code
 }
-
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSError *error;
     
@@ -360,7 +359,7 @@ static dispatch_once_t * onceToken;
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
-    
+     [[MIDTrackingManager shared] trackEventName:@"btn confirm payment"];
     if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];

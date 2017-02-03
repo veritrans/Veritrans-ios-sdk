@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSString *internalBaseClassIdentifier;
 @property (nonatomic, strong) NSString *localPaymentIdentifier;
 @property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) NSString *shortName;
 @property (nonatomic, strong) NSString *internalBaseClassDescription;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

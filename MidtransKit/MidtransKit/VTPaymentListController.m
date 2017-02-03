@@ -42,7 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+     [[MIDTrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
     
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
@@ -83,6 +83,7 @@
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
+                                                   @"shortName":@"atm transfer",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
              
@@ -130,7 +131,7 @@
                  if (response.enabledPayments.count>1) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<1) {
+                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -161,15 +162,10 @@
 #pragma mark - Helper
 
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
+   
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
-    NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
-    
-    if ([paymentMethodName isEqualToString:MIDTRANS_PAYMENT_VA]) {
-        paymentMethodName = @"bank_transfer";
-    }
-    
-    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
-                                           withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:paymentMethodName}];
+    NSString *paymentMethodName = paymentMethod.shortName;
+    [[MIDTrackingManager shared] trackEventName:[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

@@ -17,6 +17,7 @@
 @property (nonatomic, strong) MidtransPaymentRequestV2Merchant *merchant;
 @property (nonatomic, strong) MidtransPaymentRequestV2CustomerDetails *customerDetails;
 @property (nonatomic, strong) NSArray *itemDetails;
+@property (nonatomic, strong) NSArray *promos;
 @property (nonatomic, strong) NSString *token;
 @property (nonatomic, strong) MidtransPaymentRequestV2Callbacks *callbacks;
 @property (nonatomic, strong) MidtransTransactionExpire *expire;

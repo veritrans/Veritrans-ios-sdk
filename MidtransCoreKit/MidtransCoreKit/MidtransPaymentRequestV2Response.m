@@ -14,6 +14,7 @@
 #import "MidtransPaymentRequestV2ItemDetails.h"
 #import "MidtransPaymentRequestV2Callbacks.h"
 #import "MidtransTransactionExpire.h"
+#import "MidtransPromo.h"
 
 NSString *const kMidtransPaymentRequestV2ResponseTransactionDetails = @"transaction_details";
 NSString *const kMidtransPaymentRequestV2ResponseEnabledPayments = @"enabled_payments";
@@ -25,6 +26,7 @@ NSString *const kMidtransPaymentRequestV2ResponseToken = @"token";
 NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
 NSString *const kMIdtransPaymentRequestV2ResponseExpire  = @"expiry";
 NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
+NSString *const kMidtransCheckoutResponsePromo = @"promos";
 
 @interface MidtransPaymentRequestV2Response ()
 
@@ -56,41 +58,54 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.transactionDetails = [MidtransPaymentRequestV2TransactionDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseTransactionDetails]];
-    NSObject *receivedMidtransPaymentRequestV2EnabledPayments = [dict objectForKey:kMidtransPaymentRequestV2ResponseEnabledPayments];
-    NSMutableArray *parsedMidtransPaymentRequestV2EnabledPayments = [NSMutableArray array];
-    if ([receivedMidtransPaymentRequestV2EnabledPayments isKindOfClass:[NSArray class]]) {
-        for (NSDictionary *item in (NSArray *)receivedMidtransPaymentRequestV2EnabledPayments) {
-            if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedMidtransPaymentRequestV2EnabledPayments addObject:[MidtransPaymentRequestV2EnabledPayments modelObjectWithDictionary:item]];
+        self.transactionDetails = [MidtransPaymentRequestV2TransactionDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseTransactionDetails]];
+        NSObject *receivedMidtransPaymentRequestV2EnabledPayments = [dict objectForKey:kMidtransPaymentRequestV2ResponseEnabledPayments];
+        NSMutableArray *parsedMidtransPaymentRequestV2EnabledPayments = [NSMutableArray array];
+        if ([receivedMidtransPaymentRequestV2EnabledPayments isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *item in (NSArray *)receivedMidtransPaymentRequestV2EnabledPayments) {
+                if ([item isKindOfClass:[NSDictionary class]]) {
+                    [parsedMidtransPaymentRequestV2EnabledPayments addObject:[MidtransPaymentRequestV2EnabledPayments modelObjectWithDictionary:item]];
+                }
             }
-       }
-    } else if ([receivedMidtransPaymentRequestV2EnabledPayments isKindOfClass:[NSDictionary class]]) {
-       [parsedMidtransPaymentRequestV2EnabledPayments addObject:[MidtransPaymentRequestV2EnabledPayments modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2EnabledPayments]];
-    }
-
-    self.enabledPayments = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2EnabledPayments];
-            self.creditCard = [MidtransPaymentRequestV2CreditCard modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCreditCard]];
-            self.merchant = [MidtransPaymentRequestV2Merchant modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseMerchant]];
-            self.customerDetails = [MidtransPaymentRequestV2CustomerDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCustomerDetails]];
-    NSObject *receivedMidtransPaymentRequestV2ItemDetails = [dict objectForKey:kMidtransPaymentRequestV2ResponseItemDetails];
-    NSMutableArray *parsedMidtransPaymentRequestV2ItemDetails = [NSMutableArray array];
-    if ([receivedMidtransPaymentRequestV2ItemDetails isKindOfClass:[NSArray class]]) {
-        for (NSDictionary *item in (NSArray *)receivedMidtransPaymentRequestV2ItemDetails) {
-            if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedMidtransPaymentRequestV2ItemDetails addObject:[MidtransPaymentRequestV2ItemDetails modelObjectWithDictionary:item]];
+        } else if ([receivedMidtransPaymentRequestV2EnabledPayments isKindOfClass:[NSDictionary class]]) {
+            [parsedMidtransPaymentRequestV2EnabledPayments addObject:[MidtransPaymentRequestV2EnabledPayments modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2EnabledPayments]];
+        }
+        
+        self.enabledPayments = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2EnabledPayments];
+        self.creditCard = [MidtransPaymentRequestV2CreditCard modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCreditCard]];
+        self.merchant = [MidtransPaymentRequestV2Merchant modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseMerchant]];
+        self.customerDetails = [MidtransPaymentRequestV2CustomerDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCustomerDetails]];
+        NSObject *receivedMidtransPaymentRequestV2ItemDetails = [dict objectForKey:kMidtransPaymentRequestV2ResponseItemDetails];
+        NSMutableArray *parsedMidtransPaymentRequestV2ItemDetails = [NSMutableArray array];
+        if ([receivedMidtransPaymentRequestV2ItemDetails isKindOfClass:[NSArray class]]) {
+            for (NSDictionary *item in (NSArray *)receivedMidtransPaymentRequestV2ItemDetails) {
+                if ([item isKindOfClass:[NSDictionary class]]) {
+                    [parsedMidtransPaymentRequestV2ItemDetails addObject:[MidtransPaymentRequestV2ItemDetails modelObjectWithDictionary:item]];
+                }
             }
-       }
-    } else if ([receivedMidtransPaymentRequestV2ItemDetails isKindOfClass:[NSDictionary class]]) {
-       [parsedMidtransPaymentRequestV2ItemDetails addObject:[MidtransPaymentRequestV2ItemDetails modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2ItemDetails]];
-    }
-
-    self.itemDetails = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2ItemDetails];
-            self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2ResponseToken fromDictionary:dict];
-            self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
+        } else if ([receivedMidtransPaymentRequestV2ItemDetails isKindOfClass:[NSDictionary class]]) {
+            [parsedMidtransPaymentRequestV2ItemDetails addObject:[MidtransPaymentRequestV2ItemDetails modelObjectWithDictionary:(NSDictionary *)receivedMidtransPaymentRequestV2ItemDetails]];
+        }
+        
+        self.itemDetails = [NSArray arrayWithArray:parsedMidtransPaymentRequestV2ItemDetails];
+        self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2ResponseToken fromDictionary:dict];
+        self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
         self.expire = [MidtransTransactionExpire modelObjectWithDictionary:[dict objectForKey:kMIdtransPaymentRequestV2ResponseExpire]];
         self.custom  = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseCustomField fromDictionary:dict];
     }
+    
+    NSObject *receivedMidtransPromo = [dict objectForKey:kMidtransCheckoutResponsePromo];
+    NSMutableArray *parsedMidtransPromo = [NSMutableArray array];
+    if ([receivedMidtransPromo isKindOfClass:[NSArray class]]) {
+        for (NSDictionary *item in (NSArray *)receivedMidtransPromo) {
+            if ([item isKindOfClass:[NSDictionary class]]) {
+                [parsedMidtransPromo addObject:[MidtransPromo modelObjectWithDictionary:item]];
+            }
+        }
+    } else if ([receivedMidtransPromo isKindOfClass:[NSDictionary class]]) {
+        [parsedMidtransPromo addObject:[MidtransPromo modelObjectWithDictionary:(NSDictionary *)receivedMidtransPromo]];
+    }
+    self.promos = [NSArray arrayWithArray:parsedMidtransPromo];
     
     return self;
     
@@ -127,11 +142,23 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForItemDetails] forKey:kMidtransPaymentRequestV2ResponseItemDetails];
     [mutableDict setValue:self.token forKey:kMidtransPaymentRequestV2ResponseToken];
     [mutableDict setValue:[self.callbacks dictionaryRepresentation] forKey:kMidtransPaymentRequestV2ResponseCallbacks];
-
+    
+    NSMutableArray *tempArrayForPromo = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.promos) {
+        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            // This class is a model object
+            [tempArrayForPromo addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            // Generic object
+            [tempArrayForPromo addObject:subArrayObject];
+        }
+    }
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForPromo] forKey:kMidtransCheckoutResponsePromo];
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
-- (NSString *)description 
+- (NSString *)description
 {
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
@@ -149,7 +176,7 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    self.promos = [aDecoder decodeObjectForKey:kMidtransCheckoutResponsePromo];
     self.transactionDetails = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseTransactionDetails];
     self.enabledPayments = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseEnabledPayments];
     self.creditCard = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseCreditCard];
@@ -165,7 +192,7 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    [aCoder encodeObject:_promos forKey:kMidtransCheckoutResponsePromo];
     [aCoder encodeObject:_transactionDetails forKey:kMidtransPaymentRequestV2ResponseTransactionDetails];
     [aCoder encodeObject:_enabledPayments forKey:kMidtransPaymentRequestV2ResponseEnabledPayments];
     [aCoder encodeObject:_creditCard forKey:kMidtransPaymentRequestV2ResponseCreditCard];
@@ -181,7 +208,7 @@ NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
     MidtransPaymentRequestV2Response *copy = [[MidtransPaymentRequestV2Response alloc] init];
     
     if (copy) {
-
+        copy.promos = [self.promos copyWithZone:zone];
         copy.transactionDetails = [self.transactionDetails copyWithZone:zone];
         copy.enabledPayments = [self.enabledPayments copyWithZone:zone];
         copy.creditCard = [self.creditCard copyWithZone:zone];

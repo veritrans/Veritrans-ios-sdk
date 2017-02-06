@@ -250,6 +250,7 @@
                 <outlet property="cardCVVNumberTextField" destination="tcC-BX-eY2" id="1Xm-iK-jHJ"/>
                 <outlet property="cardExpireTextField" destination="6qH-4m-fM3" id="xyK-Lp-kBM"/>
                 <outlet property="creditCardNumberTextField" destination="iDR-Mj-7On" id="wOy-dm-Y16"/>
+                <outlet property="cvvInfoButton" destination="GqG-gu-Um3" id="GAB-Mn-uBO"/>
                 <outlet property="installmentView" destination="Lfj-Hs-yBs" id="DUG-Ih-LO1"/>
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
                 <outlet property="secureBadgeWrapper" destination="SjJ-qN-n3G" id="vSF-ZC-aLk"/>

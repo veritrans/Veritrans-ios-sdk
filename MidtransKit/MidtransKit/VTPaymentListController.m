@@ -113,9 +113,11 @@
                      MidtransPaymentListModel *model;
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                          if (!vaAlreadyAdded) {
-                             model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                             [self.paymentMethodList insertObject:model atIndex:mainIndex];
-                             vaAlreadyAdded = YES;
+                             if (mainIndex!=0) {
+                                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                 self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
+                                 vaAlreadyAdded = YES;
+                             }
                          }
                      }
                      
@@ -128,10 +130,10 @@
                      mainIndex++;
                  }
                  
-                 if (response.enabledPayments.count>1) {
+                 if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
+               else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -165,7 +167,7 @@
    
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
+[[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

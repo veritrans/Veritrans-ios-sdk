@@ -60,7 +60,9 @@
                                                                               0.0f,
                                                                               24.0f,
                                                                               24.0f)];
-            [backButton setImage:[UIImage imageNamed:@"back" inBundle:VTBundle compatibleWithTraitCollection:nil]
+            
+            UIImage *image = [UIImage imageNamed:@"back" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            [backButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
                         forState:UIControlStateNormal];
             [backButton addTarget:self
                            action:@selector(backButtonDidTapped:)

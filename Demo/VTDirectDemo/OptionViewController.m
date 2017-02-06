@@ -29,6 +29,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *chooseColorButton;
 @property (strong, nonatomic) IBOutlet UIButton *chooseFontButton;
 @property (strong, nonatomic) IBOutlet UIButton *acquiringBankButton;
+@property (strong, nonatomic) IBOutlet UISwitch *promoEngineSwitch;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -55,6 +56,7 @@
 @property (nonatomic) UIColor *themeColor;
 @property (nonatomic) NSArray *fontNames;
 @property (nonatomic) id acquiringBank;
+@property (nonatomic, assign) BOOL promoEngineEnabled;
 
 @end
 
@@ -106,6 +108,9 @@
     self.ccOptionSegment.selectedSegmentIndex = CC_CONFIG.paymentType;
     
     [IHKeyboardAvoiding setAvoidingView:_scrollView];
+    
+    self.promoEngineSwitch.on = CC_CONFIG.promoEnabled;
+    self.promoEngineEnabled = CC_CONFIG.promoEnabled;
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     MidtransCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
@@ -282,6 +287,9 @@
     [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.tokenStorageEnabled) forKey:kOptionViewControllerCCTokenStorage];
     [[NSUserDefaults standardUserDefaults] setObject:@(CC_CONFIG.saveCardEnabled) forKey:kOptionViewControllerCCSaveCard];
     
+    CC_CONFIG.promoEnabled = self.promoEngineEnabled;
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.promoEngineEnabled) forKey:kOptionViewControllerPromoEngine];
+    
     NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject:self.themeColor];
     [[NSUserDefaults standardUserDefaults] setObject:colorData forKey:kOptionViewControllerThemeColor];
     
@@ -301,6 +309,9 @@
 
 - (IBAction)secureSwitchChanged:(UISwitch *)sender {
     CC_CONFIG.secure3DEnabled = sender.on;
+}
+- (IBAction)promoEngineSwitchChanged:(UISwitch *)sender {
+    self.promoEngineEnabled = sender.on;
 }
 
 - (IBAction)tokenStorageSwitchChanged:(UISwitch *)sender {

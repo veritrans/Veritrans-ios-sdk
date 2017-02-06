@@ -7,15 +7,13 @@
 //
 
 #import "MidtransPaymentMethodHeader.h"
+#import "MidtransUIThemeManager.h"
 
 @implementation MidtransPaymentMethodHeader
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
-*/
-
 @end

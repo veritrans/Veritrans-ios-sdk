@@ -10,11 +10,25 @@
 #import "VTClassHelper.h"
 #import "MidtransCollectionViewLayout.h"
 #import "MidtransInstallmentCollectionViewCell.h"
+#import "MidtransUIThemeManager.h"
+
 @interface MidtransInstallmentView()<UICollectionViewDelegate,UICollectionViewDataSource>
 @property (nonatomic) NSInteger installmentCurrentIndex;
 @end;
 @implementation MidtransInstallmentView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    UIImage *image = [UIImage imageNamed:@"icon_btn_min_" inBundle:VTBundle compatibleWithTraitCollection:nil];
+    [self.prevButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    
+    image = [UIImage imageNamed:@"icon_btn_plus_" inBundle:VTBundle compatibleWithTraitCollection:nil];
+    [self.nextButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    
+    self.prevButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
+    self.nextButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
+}
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MidtransInstallmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"installmentCell" forIndexPath:indexPath];
     [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]]];

@@ -22,6 +22,12 @@
     self.secureBadgeWrapper.layer.cornerRadius = 3.0f;
     self.secureBadgeWrapper.layer.borderWidth = 1.0f;
     self.secureBadgeWrapper.layer.borderColor = [UIColor clearColor].CGColor;
+    
+    self.topHeaderContainerView.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
+    
+    self.cvvInfoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
+    UIImage *image = [[UIImage imageNamed:@"hint" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+    [self.cvvInfoButton setImage:image forState:UIControlStateNormal];
 }
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
     self.totalAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;

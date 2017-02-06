@@ -12,15 +12,19 @@
 
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.17f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
+static CGFloat const kInfoPadding = 5;
 
 @implementation MidtransUITextField {
     BOOL _isFloatingLabelFontDefault;
     
     UILabel *_warningLabel;
     UIView *_divView;
-    UIImageView *_infoIconView;
-    UIImageView *_infoBankIconView;
+    UIImageView *_info1View;
+    UIImageView *_info2View;
+    UIImageView *_info3View;
 }
+
+@dynamic delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -38,17 +42,45 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     return self;
 }
 
+- (void)addTapGestureToInfoView:(UIImageView *)infoView {
+    infoView.userInteractionEnabled = YES;
+    [infoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(infoTapped:)]];
+}
+
+- (void)infoTapped:(UIGestureRecognizer *)sender {
+    if ([sender.view isEqual:_info1View]) {
+        if ([self.delegate respondsToSelector:@selector(textField_didInfo1Tap:)]) {
+            [self.delegate textField_didInfo1Tap:self];
+        }
+    }
+    else if ([sender.view isEqual:_info1View]) {
+        if ([self.delegate respondsToSelector:@selector(textField_didInfo2Tap:)]) {
+            [self.delegate textField_didInfo2Tap:self];
+        }
+    }
+    else {
+        if ([self.delegate respondsToSelector:@selector(textField_didInfo3Tap:)]) {
+            [self.delegate textField_didInfo3Tap:self];
+        }
+    }
+}
+
 - (void)commonInit {
     
     self.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.font.pointSize];
     
     self.floatingLabelActiveTextColor = [[MidtransUIThemeManager shared] themeColor];
     
-    _infoBankIconView = [UIImageView new];
-    [self addSubview:_infoBankIconView];
+    _info1View = [UIImageView new];
+    [self addSubview:_info1View];
+    _info2View = [UIImageView new];
+    [self addSubview:_info2View];
+    _info3View = [UIImageView new];
+    [self addSubview:_info3View];
     
-    _infoIconView = [UIImageView new];
-    [self addSubview:_infoIconView];
+    [self addTapGestureToInfoView:_info1View];
+    [self addTapGestureToInfoView:_info2View];
+    [self addTapGestureToInfoView:_info3View];
     
     _divView = [UIView new];
     [self addSubview:_divView];
@@ -276,7 +308,7 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (CGRect)insetRectForBounds:(CGRect)rect {
-    CGFloat rightPadding = CGRectGetWidth([self infoIconRect]);
+    CGFloat rightPadding = CGRectGetWidth([self info1IconRect])+CGRectGetWidth([self info2IconRect])+CGRectGetWidth([self info3IconRect]);
     return CGRectMake(0, 15, rect.size.width-rightPadding, rect.size.height-30);
 }
 
@@ -315,12 +347,13 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
                                                    alpha:1.0f];
     }
     
-    _infoIconView.frame = [self infoIconRect];
-    _infoBankIconView.frame = [self infoBankViewRect];
-    _infoBankIconView.image = _infoBankIcon;
-    _infoBankIconView.contentMode = UIViewContentModeScaleAspectFit;
+    _info1View.frame = [self info1IconRect];
+    _info2View.frame = [self info2IconRect];
+    _info3View.frame = [self info3IconRect];
     
-    _infoIconView.image = _infoIcon;
+    _info1View.image = _info1Icon;
+    _info2View.image = _info2Icon;
+    _info3View.image = _info3Icon;
     
     _warningLabel.frame = [self warningLabelRect];
     
@@ -341,17 +374,36 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 - (CGRect)warningLabelRect {
     return CGRectMake(0, CGRectGetMaxY([self divViewRect]), CGRectGetWidth(self.bounds), 15);
 }
-- (CGRect)infoBankViewRect {
-    CGSize size = _infoBankIcon.size;
-    CGFloat width = _infoBankIcon ? size.width : 0;
-    CGRect fieldRect = self.bounds;
-    return CGRectMake(CGRectGetMaxX(fieldRect)-(_infoIcon.size.width+_infoBankIcon.size.width+5), CGRectGetMidY(fieldRect)-(size.height/2.0)+1, width, size.height - 2.0f);
-}
-- (CGRect)infoIconRect {
-    CGSize size = _infoIcon.size;
-    CGFloat width = _infoIcon ? size.width : 0;
+- (CGRect)info1IconRect {
+    CGSize size = _info1Icon.size;
+    CGFloat width = _info1Icon ? size.width : 0;
     CGRect fieldRect = self.bounds;
     return CGRectMake(CGRectGetMaxX(fieldRect)-size.width, CGRectGetMidY(fieldRect)-(size.height/2.0), width, size.height);
+}
+- (CGRect)info2IconRect {
+    CGSize size = _info2Icon.size;
+    CGFloat width = _info2Icon ? size.width : 0;
+    CGRect fieldRect = self.bounds;
+    
+    CGFloat info1Width = CGRectGetWidth([self info1IconRect]) > 0 ? CGRectGetWidth([self info1IconRect])+kInfoPadding : 0;
+    
+    return CGRectMake(CGRectGetMaxX(fieldRect)-(info1Width + size.width),
+                      CGRectGetMidY(fieldRect)-(size.height/2.0),
+                      width,
+                      size.height);
+}
+- (CGRect)info3IconRect {
+    CGSize size = _info3Icon.size;
+    CGFloat width = _info3Icon ? size.width : 0;
+    CGRect fieldRect = self.bounds;
+    
+    CGFloat info1Width = CGRectGetWidth([self info1IconRect]) > 0 ? CGRectGetWidth([self info1IconRect])+kInfoPadding : 0;
+    CGFloat info2Width = CGRectGetWidth([self info2IconRect]) > 0 ? CGRectGetWidth([self info2IconRect])+kInfoPadding : 0;
+    
+    return CGRectMake(CGRectGetMaxX(fieldRect) - (info1Width + info2Width + size.width),
+                      CGRectGetMidY(fieldRect)-(size.height/2.0),
+                      width,
+                      size.height);
 }
 
 @end

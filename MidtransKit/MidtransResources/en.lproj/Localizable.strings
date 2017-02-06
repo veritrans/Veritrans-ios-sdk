@@ -32,6 +32,8 @@
 "creditcard.list.title" = "Choose Card";
 "creditcard.twoclick.title" = "Pay With Credit Card";
 "creditcard.error.invalid-bin" = "This card is not applicable, please use another one.";
+"creditcard.promo-message" = "With this card, you will get %@ discount from %@";
+"creditcard.promo-title" = "Congratulations";
 
 "va.list.title" = "Select Bank";
 

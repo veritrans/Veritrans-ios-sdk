@@ -7,7 +7,12 @@
 //
 
 #import "MidtransUIPaymentController.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+
 @interface MidtransNewCreditCardViewController : MidtransUIPaymentController
+
+@property (nonatomic, nullable) NSArray <MidtransPromo *>*promos;
+
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
                     paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
                     andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard;

@@ -340,13 +340,13 @@ static const NSInteger installmentHeight = 50;
     if (self.view.cardNumber.text.length < 1) {
         self.view.cardFrontView.numberLabel.text = @"XXXX XXXX XXXX XXXX";
         self.view.cardFrontView.iconView.image = nil;
-        self.view.cardNumber.infoIcon = nil;
+        self.view.cardNumber.info1Icon = nil;
     }
     else {
         self.view.cardFrontView.numberLabel.text = self.view.cardNumber.text;
         NSString *originNumber = [self.view.cardNumber.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-        self.view.cardNumber.infoIcon = [self.view iconDarkWithNumber:originNumber];
-        self.view.cardNumber.infoBankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
+        self.view.cardNumber.info1Icon = [self.view iconDarkWithNumber:originNumber];
+        self.view.cardNumber.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
         self.view.cardFrontView.iconView.image = [self.view iconWithNumber:originNumber];
     }
 }
@@ -466,7 +466,7 @@ static const NSInteger installmentHeight = 50;
                            [cardNumber substringWithRange:NSMakeRange(12,4)]];
     
     self.view.cardNumber.text = formatted;
-    self.view.cardNumber.infoIcon = [self.view iconDarkWithNumber:self.view.cardNumber.text];
+    self.view.cardNumber.info1Icon = [self.view iconDarkWithNumber:self.view.cardNumber.text];
     
     self.view.cardFrontView.iconView.image = [self.view iconWithNumber:self.view.cardNumber.text];
     self.view.cardFrontView.numberLabel.text = formatted;

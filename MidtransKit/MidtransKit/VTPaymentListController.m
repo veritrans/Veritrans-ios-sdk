@@ -133,7 +133,7 @@
                  if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<2) {
+               else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -167,7 +167,7 @@
    
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-    [[MIDTrackingManager shared] trackEventName:[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
+[[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

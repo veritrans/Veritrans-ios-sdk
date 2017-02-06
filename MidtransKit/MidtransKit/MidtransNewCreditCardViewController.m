@@ -74,7 +74,6 @@ MidtransUICustomAlertViewControllerDelegate
     
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     self.maskedCards = [NSMutableArray new];
-    [[MIDTrackingManager shared] trackEventName:@"pg cc card details"];
     self.installmentCurrentIndex = 0;
     self.installmentAvailable = NO;
     self.installmentValueObject = [NSMutableArray new];

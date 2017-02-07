@@ -30,6 +30,7 @@
 @property (strong, nonatomic) IBOutlet UIButton *chooseFontButton;
 @property (strong, nonatomic) IBOutlet UIButton *acquiringBankButton;
 @property (strong, nonatomic) IBOutlet UISwitch *promoEngineSwitch;
+@property (strong, nonatomic) IBOutlet UISwitch *preauthSwitch;
 
 @property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) IBOutlet UITextField *firstNameTextField;
@@ -57,6 +58,7 @@
 @property (nonatomic) NSArray *fontNames;
 @property (nonatomic) id acquiringBank;
 @property (nonatomic, assign) BOOL promoEngineEnabled;
+@property (nonatomic, assign) BOOL preauthEnabled;
 
 @end
 
@@ -111,6 +113,9 @@
     
     self.promoEngineSwitch.on = CC_CONFIG.promoEnabled;
     self.promoEngineEnabled = CC_CONFIG.promoEnabled;
+    
+    self.preauthSwitch.on = CC_CONFIG.preauthEnabled;
+    self.preauthEnabled = CC_CONFIG.preauthEnabled;
     
     NSData *encoded = [[NSUserDefaults standardUserDefaults] objectForKey:@"vt_customer"];
     MidtransCustomerDetails *customer = [NSKeyedUnarchiver unarchiveObjectWithData:encoded];
@@ -290,6 +295,9 @@
     CC_CONFIG.promoEnabled = self.promoEngineEnabled;
     [[NSUserDefaults standardUserDefaults] setObject:@(self.promoEngineEnabled) forKey:kOptionViewControllerPromoEngine];
     
+    CC_CONFIG.preauthEnabled = self.preauthEnabled;
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.preauthEnabled) forKey:kOptionViewControllerPreauth];
+    
     NSData *colorData = [NSKeyedArchiver archivedDataWithRootObject:self.themeColor];
     [[NSUserDefaults standardUserDefaults] setObject:colorData forKey:kOptionViewControllerThemeColor];
     
@@ -320,6 +328,9 @@
 
 - (IBAction)saveCardSwitchChanged:(UISwitch *)sender {
     CC_CONFIG.saveCardEnabled = sender.on;
+}
+- (IBAction)preauthChanged:(UISwitch *)sender {
+    self.preauthEnabled = sender.on;
 }
 
 #pragma mark - Helper

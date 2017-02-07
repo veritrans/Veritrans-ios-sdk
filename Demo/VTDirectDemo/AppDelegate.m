@@ -105,6 +105,12 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
         promoEngine = @NO;
     }
     CC_CONFIG.promoEnabled = [promoEngine boolValue];
+        
+    id preauth = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerPreauth];
+    if (!preauth) {
+        preauth = @NO;
+    }
+    CC_CONFIG.preauthEnabled = [preauth boolValue];
     
     CC_CONFIG.setDefaultCreditSaveCardEnabled = YES;
     

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MidtransCreditCard.h"
+#import "MidtransObtainedPromo.h"
 
 /**
  `MidtransTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
@@ -21,6 +22,8 @@
 @property (nonatomic, readonly) NSString *token;
 @property (nonatomic, readonly) BOOL twoClick;
 @property (nonatomic, readonly) BOOL secure;
+
+@property (nonatomic) MidtransObtainedPromo *obtainedPromo;
 
 ///----------------
 /// @Initialization

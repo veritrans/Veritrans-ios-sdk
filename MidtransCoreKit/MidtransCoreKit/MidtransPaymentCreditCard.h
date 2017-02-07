@@ -40,6 +40,11 @@
  */
 @property (nonatomic) BOOL saveToken;
 
+/*
+ Token to include promo to the credit card transaction
+ */
+@property (nonatomic, nullable) NSString *discountToken;
+
 
 ///--------------------
 /// @name Instantiation

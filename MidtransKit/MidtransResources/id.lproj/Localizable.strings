@@ -50,3 +50,6 @@
 "kioson.pending.code-title" = "Payment Code";
 "kioson.pending.howto-title" = "How Can I Pay via Kioson";
 "kioson.pending.copy-title" = "Copy Payment Code";
+
+"creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
+"creditcard.promo-title" = "Selamat";

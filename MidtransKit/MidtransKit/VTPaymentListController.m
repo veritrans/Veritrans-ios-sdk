@@ -135,7 +135,9 @@
              }
          }
          else {
-             
+             NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
+             [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
+             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
          }
      }];
 }

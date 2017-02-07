@@ -175,6 +175,7 @@
                                                                   initWithToken:self.token
                                                                   paymentMethodName:paymentMethod
                                                                   andCreditCardData:self.responsePayment.creditCard];
+            creditCardVC.promos = self.responsePayment.promos;
             [creditCardVC showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
         }
@@ -192,6 +193,7 @@
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod
                                                                       andCreditCardData:self.responsePayment.creditCard];
+                creditCardVC.promos = self.responsePayment.promos;
                 [creditCardVC showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
             }

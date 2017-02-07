@@ -168,6 +168,15 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
     
+    if (CC_CONFIG.promoEnabled) {
+        NSMutableDictionary *promoParam = [NSMutableDictionary new];
+        promoParam[@"enabled"] = @"YES";
+        if (CC_CONFIG.allowedPromoCodes) {
+            promoParam[@"allowed_promo_codes"] = CC_CONFIG.allowedPromoCodes;
+        }
+        dictionaryParameters[@"promo"] = promoParam;
+    }
+    
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters

@@ -54,5 +54,7 @@
 #import "MidtransTransactionExpire.h"
 #import "MIdtransPaymentGCI.h"
 #import "MidtransNetworkLogger.h"
+#import "MidtransPromo.h"
+#import "MidtransPromoEngine.h"
 
 #endif /* MidtransCoreKit_h */

@@ -144,6 +144,10 @@
         [result setObject:CC_CONFIG.acquiringBankString forKey:@"bank"];
     }
     
+    if (self.obtainedPromo) {
+        result[@"gross_amount"] = @(self.obtainedPromo.paymentAmount);
+    }
+    
     return result;
 }
 

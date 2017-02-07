@@ -259,6 +259,8 @@
 		E50D85F61D0ECB9C00F26D2E /* bca_klikpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */; };
 		E50D86071D0ECBC500F26D2E /* VTIndomaretSuccessController.h in Headers */ = {isa = PBXBuildFile; fileRef = E50D85FD1D0ECBC500F26D2E /* VTIndomaretSuccessController.h */; };
 		E50D86081D0ECBC500F26D2E /* VTIndomaretSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = E50D85FE1D0ECBC500F26D2E /* VTIndomaretSuccessController.m */; };
+		E511CF4F1E486D1000926FC7 /* ccOfferIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E511CF4E1E486D1000926FC7 /* ccOfferIcon@2x.png */; };
+		E511CF511E487C0500926FC7 /* MidtransPromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E511CF501E487C0500926FC7 /* MidtransPromoView.xib */; };
 		E5165C5C1DF12031008334AB /* MidtransUIConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = E5165C5A1DF12031008334AB /* MidtransUIConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5165C5D1DF12031008334AB /* MidtransUIConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = E5165C5B1DF12031008334AB /* MidtransUIConfiguration.m */; };
 		E516DA2C1D24CFE600FA1CD7 /* MidtransUIFontSource.h in Headers */ = {isa = PBXBuildFile; fileRef = E516DA2A1D24CFE600FA1CD7 /* MidtransUIFontSource.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -700,6 +702,8 @@
 		E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = bca_klikpay.plist; sourceTree = "<group>"; };
 		E50D85FD1D0ECBC500F26D2E /* VTIndomaretSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTIndomaretSuccessController.h; sourceTree = "<group>"; };
 		E50D85FE1D0ECBC500F26D2E /* VTIndomaretSuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTIndomaretSuccessController.m; sourceTree = "<group>"; };
+		E511CF4E1E486D1000926FC7 /* ccOfferIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ccOfferIcon@2x.png"; sourceTree = "<group>"; };
+		E511CF501E487C0500926FC7 /* MidtransPromoView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransPromoView.xib; sourceTree = "<group>"; };
 		E5165C5A1DF12031008334AB /* MidtransUIConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIConfiguration.h; sourceTree = "<group>"; };
 		E5165C5B1DF12031008334AB /* MidtransUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIConfiguration.m; sourceTree = "<group>"; };
 		E516DA2A1D24CFE600FA1CD7 /* MidtransUIFontSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIFontSource.h; sourceTree = "<group>"; };
@@ -1446,6 +1450,7 @@
 				0C2B8E5E1E260FBF007901CB /* icon_btn_plus_@3x.png */,
 				30AB73961C7D57AA001F42FE /* DisclosureIndicator@2x.png */,
 				30AB73971C7D57AA001F42FE /* DisclosureIndicatorGray@2x.png */,
+				E511CF4E1E486D1000926FC7 /* ccOfferIcon@2x.png */,
 				30AB73981C7D57AA001F42FE /* ImageOffer@2x.png */,
 				3056A2121C7E95E20015B3CC /* padlock1@2x.png */,
 				E546D1DC1CEACBBB00D65252 /* nextIcon@2x.png */,
@@ -1742,6 +1747,7 @@
 				E5D23C871D1D3D0B0069B5F9 /* MIdtransUICardCell.xib */,
 				E52831FE1D2116EF00F4F8F0 /* VTCvvInfoController.xib */,
 				E52832001D2116FB00F4F8F0 /* VTConfirmPaymentController.xib */,
+				E511CF501E487C0500926FC7 /* MidtransPromoView.xib */,
 			);
 			name = "Credit Card";
 			sourceTree = "<group>";
@@ -1898,9 +1904,9 @@
 		305494131C759EDF00938C17 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = VT;
+				CLASSPREFIX = MID;
 				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = Veritrans;
+				ORGANIZATIONNAME = Midtrans;
 				TargetAttributes = {
 					3005E2861C7C17A100064169 = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -1941,6 +1947,7 @@
 				E503AEDB1C8E8AF800F097FF /* MidtransUIListCell.xib in Resources */,
 				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
 				E5EF827C1C8C0837007B6585 /* MidtransUICCFrontView.xib in Resources */,
+				E511CF4F1E486D1000926FC7 /* ccOfferIcon@2x.png in Resources */,
 				E517FE731D4AF5580083B136 /* VTErrorStatusController.xib in Resources */,
 				0C2B8E831E279263007901CB /* hint@3x.png in Resources */,
 				E5D23C861D1D31FC0069B5F9 /* VTAddCardController.xib in Resources */,
@@ -2113,6 +2120,7 @@
 				0C7AB5351E309E6800EB6785 /* bca.png in Resources */,
 				00C6855B1DC701910008D08F /* MidtransPaymentStatusViewController.xib in Resources */,
 				0C7AB5531E309E6800EB6785 /* maybank.png in Resources */,
+				E511CF511E487C0500926FC7 /* MidtransPromoView.xib in Resources */,
 				0C7AB5541E309E6800EB6785 /* maybank@1.5x.png in Resources */,
 				0C2B8E631E260FC0007901CB /* icon_btn_plus_@2x.png in Resources */,
 				E58017F21D586E36007D2DEC /* VTXLTunaiSuccessController.xib in Resources */,

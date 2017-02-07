@@ -16,6 +16,7 @@ static NSString *const kOptionViewControllerCCAcquiringBank = @"cc_acquiring_ban
 static NSString *const kOptionViewControllerThemeColor = @"theme_color";
 static NSString *const kOptionViewControllerCustomFont = @"custom_font";
 static NSString *const kOptionViewControllerAcquiringBank = @"acquiring_bank";
+static NSString *const kOptionViewControllerPromoEngine = @"cc_promo_engine";
 
 @interface OptionViewController : UIViewController
 

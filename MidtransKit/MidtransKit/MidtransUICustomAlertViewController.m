@@ -9,6 +9,8 @@
 #import "MidtransUICustomAlertViewController.h"
 #import "VTClassHelper.h"
 #import "UIViewController+Modal.h"
+#import "MidtransUIThemeManager.h"
+
 @interface MidtransUICustomAlertViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleAlertLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionAlertLabel;
@@ -65,6 +67,8 @@
     [self.cancelButton setTitle:self.cancelButtonText forState:UIControlStateNormal];
     [self.okButton setTitle:self.okButtonText forState:UIControlStateNormal];
     self.okButton.layer.cornerRadius = self.buttonHeightConstraints.constant/2.0f;
+    [self.okButton setBackgroundColor:[[MidtransUIThemeManager shared] themeColor]];
+    
     CABasicAnimation *scale1 = [CABasicAnimation animation];
     scale1.keyPath = @"transform.scale";
     scale1.toValue = @0.95;
@@ -105,21 +109,5 @@
         }
     });
 }
-
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

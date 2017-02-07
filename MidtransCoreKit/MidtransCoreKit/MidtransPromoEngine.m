@@ -8,16 +8,16 @@
 
 #import "MidtransPromoEngine.h"
 #import "MidtransConfig.h"
+#import "MidtransPrivateConfig.h"
 #import "MidtransNetworking.h"
 
-static NSString *const vPromoEngineBaseURL = @"https://promo.vt-stage.info/v2";
 static NSString *const eObtainPromo = @"promo/obtain_promo";
 
 @implementation MidtransPromoEngine
 
 + (void)obtainPromo:(MidtransPromo *)promo withPaymentAmount:(NSNumber *)amount completion:(void(^)(MidtransObtainedPromo *obtainedPromo, NSError *error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@?promo_id=%@&amount=%@&client_key=%@",
-                     vPromoEngineBaseURL,
+                     PRIVATECONFIG.promoEngineURL,
                      eObtainPromo,
                      @(promo.promoIdentifier),
                      amount,

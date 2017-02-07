@@ -20,7 +20,6 @@
 @property (nonatomic, readonly) NSNumber *installmentTerm;
 @property (nonatomic, readonly) NSString *token;
 @property (nonatomic, readonly) BOOL twoClick;
-@property (nonatomic, readonly) NSString *type;
 @property (nonatomic, readonly) BOOL secure;
 
 ///----------------

@@ -72,7 +72,7 @@
         self.creditCardPaymentFeature = MidtransCreditCardPaymentFeatureTwoClick;
     }
     return self;
-
+    
 }
 
 - (instancetype)initWithTwoClickToken:(NSString *)token
@@ -98,11 +98,6 @@
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
                                     @"token_id":[MidtransHelper nullifyIfNil:self.token]}];
-            if (self.installment) {
-                [result setObject:@"true" forKey:@"installment"];
-                [result setObject:self.installmentTerm forKey:@"installment_term"];
-                
-            }
             break;
         } case MidtransCreditCardPaymentFeatureNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
@@ -113,11 +108,6 @@
                                     @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount]}];
-            if (self.installment) {
-                [result setObject:@"true" forKey:@"installment"];
-                [result setObject:self.installmentTerm forKey:@"installment_term"];
-                
-            }
             break;
         } default: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
@@ -130,8 +120,7 @@
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"installment":self.installment? @"true":@"false",
                                     @"installment_term":[MidtransHelper nullifyIfNil:self.installmentTerm],
-                                    @"two_click":self.twoClick? @"true":@"false",
-                                    @"type":[MidtransHelper nullifyIfNil:self.type]}];
+                                    @"two_click":self.twoClick? @"true":@"false"}];
             break;
         }
     }
@@ -142,6 +131,16 @@
     
     if (CC_CONFIG.acquiringBankString) {
         [result setObject:CC_CONFIG.acquiringBankString forKey:@"bank"];
+    }
+    
+    if (self.installment) {
+        [result setObject:@"true" forKey:@"installment"];
+        [result setObject:self.installmentTerm forKey:@"installment_term"];
+        
+    }
+    
+    if (CC_CONFIG.preauthEnabled) {
+        result[@"type"] = @"authorize";
     }
     
     return result;

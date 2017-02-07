@@ -38,6 +38,11 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
 @property (nonatomic, readonly) NSString *acquiringBankString;
 @property (nonatomic, readonly) NSString *channel;
 
+/*
+ Boolean value to set pre-auth credit card transaction
+ */
+@property (nonatomic, assign) BOOL preauthEnabled;
+
 + (MidtransCreditCardConfig *)shared;
 
 @end

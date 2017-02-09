@@ -65,6 +65,11 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
  */
 @property (nonatomic) NSArray *allowedPromoCodes;
 
+/*
+ Boolean value to set pre-auth credit card transaction
+ */
+@property (nonatomic, assign) BOOL preauthEnabled;
+
 + (MidtransCreditCardConfig *)shared;
 
 @end

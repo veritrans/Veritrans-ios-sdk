@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MTTestHelper.h"
+#import "MIDTestHelper.h"
 
-@interface MT2VAPaymentTests : XCTestCase
+@interface MID2VAPaymentTests : XCTestCase
 
 @end
 
-@implementation MT2VAPaymentTests
+@implementation MID2VAPaymentTests
 
 - (void)setUp {
     [super setUp];

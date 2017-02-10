@@ -6,7 +6,7 @@
 //  Copyright © 2017 Veritrans. All rights reserved.
 //
 
-#import "MTTestHelper.h"
+#import "MIDTestHelper.h"
 
 @implementation XCTestCase (Utils)
 
@@ -43,7 +43,7 @@
 @end
 
 
-@implementation MTTestHelper
+@implementation MIDTestHelper
 
 + (void)configureRequiredData:(XCUIApplication *)app {
     XCUIElementQuery *scrollViewsQuery = app.scrollViews;

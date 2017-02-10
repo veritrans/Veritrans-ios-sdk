@@ -1,23 +1,16 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="MuseoSans-300.otf">
-            <string>MuseoSans-300</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PaymentCreditCardViewController">
             <connections>
-                <outlet property="cardExpireMonthTextfield" destination="LOJ-rS-rcz" id="rcJ-q9-QNH"/>
-                <outlet property="cardExpireYeartextField" destination="Uco-8o-IUc" id="Iz7-dp-q5G"/>
-                <outlet property="cardNumberTextField" destination="te9-bV-wq4" id="jkj-dC-3ib"/>
-                <outlet property="cvvTextField" destination="k5X-FR-dYl" id="gcd-tE-rlS"/>
-                <outlet property="userEmailTextField" destination="VbM-MW-n27" id="YnG-ha-UmL"/>
                 <outlet property="view" destination="hA8-Ad-4ec" id="IXY-gY-j56"/>
             </connections>
         </placeholder>
@@ -25,128 +18,10 @@
         <view contentMode="scaleToFill" id="hA8-Ad-4ec">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n3S-zk-jdB">
-                    <frame key="frameInset" width="320" height="568"/>
-                    <subviews>
-                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="fCB-s5-wuC">
-                            <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Expire Month /MM" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LOJ-rS-rcz">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="10S-Xb-6G8"/>
-                                        <constraint firstAttribute="width" constant="133" id="SjW-z6-n7Q"/>
-                                        <constraint firstAttribute="width" constant="132" id="hcb-aN-Bdh"/>
-                                    </constraints>
-                                    <color key="textColor" red="0.20188479125499725" green="0.20187875628471375" blue="0.20188218355178833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="SjW-z6-n7Q"/>
-                                        </mask>
-                                    </variation>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Card Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="te9-bV-wq4">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="0Ax-BF-QSN"/>
-                                    </constraints>
-                                    <color key="textColor" red="0.20188479125499725" green="0.20187875628471375" blue="0.20188218355178833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                </textField>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oXm-72-VPe">
-                                    <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="290" id="0wy-on-U9R"/>
-                                        <constraint firstAttribute="height" constant="45" id="y3L-ZJ-sSE"/>
-                                    </constraints>
-                                    <state key="normal" title="PAY NOW">
-                                        <color key="titleColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </state>
-                                    <connections>
-                                        <action selector="payNowDidTapped:" destination="-1" eventType="touchUpInside" id="b5f-Vz-gW8"/>
-                                    </connections>
-                                </button>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="CVV 3 Digit" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k5X-FR-dYl" userLabel="CVV Text Field">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="Thm-As-J1d"/>
-                                    </constraints>
-                                    <color key="textColor" red="0.20188479125499725" green="0.20187875628471375" blue="0.20188218355178833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="MuseoSans-300" family="Museo Sans" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad" secureTextEntry="YES"/>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VbM-MW-n27">
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="45" id="DE4-1r-YrG"/>
-                                    </constraints>
-                                    <color key="textColor" red="0.20188479125499725" green="0.20187875628471375" blue="0.20188218355178833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Expire Year/YY" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uco-8o-IUc">
-                                    <constraints>
-                                        <constraint firstAttribute="width" constant="133" id="T2g-Ql-veN"/>
-                                        <constraint firstAttribute="height" constant="45" id="kKn-Rc-CU7"/>
-                                        <constraint firstAttribute="width" constant="132" id="kSU-ON-OtF"/>
-                                    </constraints>
-                                    <color key="textColor" red="0.20188479125499725" green="0.20187875628471375" blue="0.20188218355178833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                    <variation key="default">
-                                        <mask key="constraints">
-                                            <exclude reference="T2g-Ql-veN"/>
-                                        </mask>
-                                    </variation>
-                                </textField>
-                            </subviews>
-                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <constraints>
-                                <constraint firstItem="te9-bV-wq4" firstAttribute="top" secondItem="VbM-MW-n27" secondAttribute="bottom" constant="10" id="7RT-o3-Sc7"/>
-                                <constraint firstItem="k5X-FR-dYl" firstAttribute="leading" secondItem="fCB-s5-wuC" secondAttribute="leading" constant="15" id="A7z-QP-D6E"/>
-                                <constraint firstItem="te9-bV-wq4" firstAttribute="leading" secondItem="fCB-s5-wuC" secondAttribute="leading" constant="15" id="Ccq-T2-nda"/>
-                                <constraint firstItem="te9-bV-wq4" firstAttribute="leading" secondItem="LOJ-rS-rcz" secondAttribute="leading" id="Ek5-2f-Abl"/>
-                                <constraint firstAttribute="trailing" secondItem="oXm-72-VPe" secondAttribute="trailing" constant="15" id="FYl-xs-q9e"/>
-                                <constraint firstItem="LOJ-rS-rcz" firstAttribute="top" secondItem="te9-bV-wq4" secondAttribute="bottom" constant="10" id="I3v-bf-M2L"/>
-                                <constraint firstAttribute="trailing" secondItem="VbM-MW-n27" secondAttribute="trailing" constant="15" id="MK8-b9-QsH"/>
-                                <constraint firstAttribute="trailing" secondItem="Uco-8o-IUc" secondAttribute="trailing" constant="15" id="ONa-PU-OkC"/>
-                                <constraint firstAttribute="width" constant="320" id="PO1-ci-Vl2"/>
-                                <constraint firstItem="VbM-MW-n27" firstAttribute="leading" secondItem="fCB-s5-wuC" secondAttribute="leading" constant="15" id="RWo-HN-NbI"/>
-                                <constraint firstAttribute="trailing" secondItem="k5X-FR-dYl" secondAttribute="trailing" constant="15" id="RjB-c0-pke"/>
-                                <constraint firstAttribute="trailing" secondItem="te9-bV-wq4" secondAttribute="trailing" constant="15" id="XjU-80-jcI"/>
-                                <constraint firstItem="k5X-FR-dYl" firstAttribute="top" secondItem="LOJ-rS-rcz" secondAttribute="bottom" constant="8" symbolic="YES" id="eOj-q3-QP9"/>
-                                <constraint firstItem="oXm-72-VPe" firstAttribute="top" secondItem="k5X-FR-dYl" secondAttribute="bottom" constant="10" id="lGc-CQ-V7r"/>
-                                <constraint firstItem="Uco-8o-IUc" firstAttribute="top" secondItem="te9-bV-wq4" secondAttribute="bottom" constant="10" id="mXb-jX-SGM"/>
-                                <constraint firstItem="oXm-72-VPe" firstAttribute="leading" secondItem="fCB-s5-wuC" secondAttribute="leading" constant="15" id="nTV-sZ-YUd"/>
-                                <constraint firstAttribute="bottom" secondItem="oXm-72-VPe" secondAttribute="bottom" constant="27" id="soP-ts-QcK"/>
-                                <constraint firstItem="LOJ-rS-rcz" firstAttribute="leading" secondItem="fCB-s5-wuC" secondAttribute="leading" constant="15" id="vFz-KP-LkN"/>
-                            </constraints>
-                        </view>
-                    </subviews>
-                    <constraints>
-                        <constraint firstItem="fCB-s5-wuC" firstAttribute="top" secondItem="n3S-zk-jdB" secondAttribute="top" id="Cgh-Xf-HFp"/>
-                        <constraint firstAttribute="width" secondItem="fCB-s5-wuC" secondAttribute="width" id="Cq0-Aa-uNS"/>
-                        <constraint firstItem="fCB-s5-wuC" firstAttribute="leading" secondItem="n3S-zk-jdB" secondAttribute="leading" id="JGh-Wb-8ci"/>
-                        <constraint firstAttribute="bottom" secondItem="fCB-s5-wuC" secondAttribute="bottom" id="OJf-Sr-WMD"/>
-                        <constraint firstAttribute="trailing" secondItem="fCB-s5-wuC" secondAttribute="trailing" id="qMO-dR-qgE"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="Cq0-Aa-uNS"/>
-                        </mask>
-                    </variation>
-                </scrollView>
-            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <gestureRecognizers/>
-            <constraints>
-                <constraint firstItem="VbM-MW-n27" firstAttribute="top" secondItem="hA8-Ad-4ec" secondAttribute="top" constant="78" id="6em-gS-hjf"/>
-                <constraint firstItem="n3S-zk-jdB" firstAttribute="leading" secondItem="hA8-Ad-4ec" secondAttribute="leading" id="GCs-Um-8hu"/>
-                <constraint firstAttribute="bottom" secondItem="n3S-zk-jdB" secondAttribute="bottom" id="Ipo-W6-KWw"/>
-                <constraint firstAttribute="trailing" secondItem="n3S-zk-jdB" secondAttribute="trailing" id="rNw-tq-RJs"/>
-                <constraint firstItem="n3S-zk-jdB" firstAttribute="top" secondItem="hA8-Ad-4ec" secondAttribute="top" id="xrv-jy-CsL"/>
-            </constraints>
             <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-            <point key="canvasLocation" x="307" y="375"/>
+            <point key="canvasLocation" x="144.5" y="371.5"/>
         </view>
     </objects>
 </document>

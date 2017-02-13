@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MTTestHelper.h"
+#import "MIDTestHelper.h"
 
-@interface MT1CreditCardPaymentTests : XCTestCase
+@interface MID1CreditCardPaymentTests : XCTestCase
 
 @end
 
-@implementation MT1CreditCardPaymentTests
+@implementation MID1CreditCardPaymentTests
 
 - (void)setUp {
     [super setUp];
@@ -36,7 +36,7 @@
 - (void)test1CCNormalTransaction {
     XCUIApplication *app = [[XCUIApplication alloc] init];
     
-    [MTTestHelper configureRequiredData:app];
+    [MIDTestHelper configureRequiredData:app];
     
     [self setNormalCreditCardPaymentWithApp:app];
     

@@ -20,6 +20,7 @@
 		00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */; };
 		0C43B4C81E0A4446000A583C /* UIFlowSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */; };
 		0C43B4C91E0A4446000A583C /* UIFlowSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */; };
+		0C88856B1E4D877300E0034E /* PaymentCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C88856A1E4D877300E0034E /* PaymentCreditCardView.m */; };
 		302F71C31C73163C00FE73FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C21C73163C00FE73FE /* main.m */; };
 		302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C51C73163C00FE73FE /* AppDelegate.m */; };
 		302F71C91C73163C00FE73FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C81C73163C00FE73FE /* ViewController.m */; };
@@ -100,6 +101,8 @@
 		0C43B4C51E0A4446000A583C /* UIFlowSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlowSampleViewController.h; sourceTree = "<group>"; };
 		0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowSampleViewController.m; sourceTree = "<group>"; };
 		0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFlowSampleViewController.xib; sourceTree = "<group>"; };
+		0C8885691E4D877300E0034E /* PaymentCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentCreditCardView.h; sourceTree = "<group>"; };
+		0C88856A1E4D877300E0034E /* PaymentCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardView.m; sourceTree = "<group>"; };
 		18A2FDE89D2B5AA6DDA21506 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
 		302F71BE1C73163C00FE73FE /* VTDirectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTDirectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71C21C73163C00FE73FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -257,6 +260,8 @@
 				00F0DA971D76EB9D005B117E /* PaymentCreditCardViewController.h */,
 				00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */,
 				00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */,
+				0C8885691E4D877300E0034E /* PaymentCreditCardView.h */,
+				0C88856A1E4D877300E0034E /* PaymentCreditCardView.m */,
 			);
 			name = "Payment Creditcard";
 			sourceTree = "<group>";
@@ -659,6 +664,7 @@
 				00598E911D76AB39006241BF /* SamplePaymentListViewController.m in Sources */,
 				00F0DA8A1D76BFF6005B117E /* SamplePaymentListTableViewCell.m in Sources */,
 				302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */,
+				0C88856B1E4D877300E0034E /* PaymentCreditCardView.m in Sources */,
 				00EC17981D7D407400D076D2 /* EpaymentViewController.m in Sources */,
 				302F71C31C73163C00FE73FE /* main.m in Sources */,
 				0C43B4C81E0A4446000A583C /* UIFlowSampleViewController.m in Sources */,

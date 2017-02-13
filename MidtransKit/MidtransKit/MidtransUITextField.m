@@ -10,18 +10,33 @@
 #import "NSString+TextDirectionality.h"
 #import "MidtransUIThemeManager.h"
 
+@interface MidtransSmallButton : UIButton
+@end
+
+@implementation MidtransSmallButton
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    CGRect bounds = self.bounds;
+    CGFloat widthDelta = (44. - bounds.size.width) > 0 ? (44. - bounds.size.width) : 0;
+    CGFloat heightDelta = (44. - bounds.size.height) > 0 ? (44. - bounds.size.height) : 0;
+    bounds = CGRectInset(bounds, -(widthDelta/2.), -(heightDelta/2.));
+    return CGRectContainsPoint(bounds, point);
+}
+@end
+
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.17f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 static CGFloat const kInfoPadding = 5;
 
+@interface MidtransUITextField()
+@property (nonatomic) MidtransSmallButton *info1Button;
+@property (nonatomic) MidtransSmallButton *info2Button;
+@property (nonatomic) MidtransSmallButton *info3Button;
+@end
+
 @implementation MidtransUITextField {
     BOOL _isFloatingLabelFontDefault;
-    
     UILabel *_warningLabel;
     UIView *_divView;
-    UIImageView *_info1View;
-    UIImageView *_info2View;
-    UIImageView *_info3View;
 }
 
 @dynamic delegate;
@@ -42,18 +57,18 @@ static CGFloat const kInfoPadding = 5;
     return self;
 }
 
-- (void)addTapGestureToInfoView:(UIImageView *)infoView {
-    infoView.userInteractionEnabled = YES;
-    [infoView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(infoTapped:)]];
+- (void)initInfoButton:(MidtransSmallButton *)button {
+    [self addSubview:button];
+    [button addTarget:self action:@selector(infoPressed:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)infoTapped:(UIGestureRecognizer *)sender {
-    if ([sender.view isEqual:_info1View]) {
+- (void)infoPressed:(MidtransSmallButton *)sender {
+    if ([sender isEqual:self.info1Button]) {
         if ([self.delegate respondsToSelector:@selector(textField_didInfo1Tap:)]) {
             [self.delegate textField_didInfo1Tap:self];
         }
     }
-    else if ([sender.view isEqual:_info1View]) {
+    else if ([sender isEqual:self.info2Button]) {
         if ([self.delegate respondsToSelector:@selector(textField_didInfo2Tap:)]) {
             [self.delegate textField_didInfo2Tap:self];
         }
@@ -71,16 +86,13 @@ static CGFloat const kInfoPadding = 5;
     
     self.floatingLabelActiveTextColor = [[MidtransUIThemeManager shared] themeColor];
     
-    _info1View = [UIImageView new];
-    [self addSubview:_info1View];
-    _info2View = [UIImageView new];
-    [self addSubview:_info2View];
-    _info3View = [UIImageView new];
-    [self addSubview:_info3View];
+    self.info1Button = [MidtransSmallButton new];
+    self.info2Button = [MidtransSmallButton new];
+    self.info3Button = [MidtransSmallButton new];
     
-    [self addTapGestureToInfoView:_info1View];
-    [self addTapGestureToInfoView:_info2View];
-    [self addTapGestureToInfoView:_info3View];
+    [self initInfoButton:self.info1Button];
+    [self initInfoButton:self.info2Button];
+    [self initInfoButton:self.info3Button];
     
     _divView = [UIView new];
     [self addSubview:_divView];
@@ -308,7 +320,10 @@ static CGFloat const kInfoPadding = 5;
 }
 
 - (CGRect)insetRectForBounds:(CGRect)rect {
-    CGFloat rightPadding = CGRectGetWidth([self info1IconRect])+CGRectGetWidth([self info2IconRect])+CGRectGetWidth([self info3IconRect]);
+    CGFloat info1Width = CGRectGetWidth([self info1IconRect]) > 0 ? CGRectGetWidth([self info1IconRect])+kInfoPadding : 0;
+    CGFloat info2Width = CGRectGetWidth([self info2IconRect]) > 0 ? CGRectGetWidth([self info2IconRect])+kInfoPadding : 0;
+    CGFloat info3Width = CGRectGetWidth([self info3IconRect]) > 0 ? CGRectGetWidth([self info3IconRect])+kInfoPadding : 0;
+    CGFloat rightPadding = info1Width+info2Width+info3Width;
     return CGRectMake(0, 15, rect.size.width-rightPadding, rect.size.height-30);
 }
 
@@ -347,13 +362,13 @@ static CGFloat const kInfoPadding = 5;
                                                    alpha:1.0f];
     }
     
-    _info1View.frame = [self info1IconRect];
-    _info2View.frame = [self info2IconRect];
-    _info3View.frame = [self info3IconRect];
+    self.info1Button.frame = [self info1IconRect];
+    self.info2Button.frame = [self info2IconRect];
+    self.info3Button.frame = [self info3IconRect];
     
-    _info1View.image = _info1Icon;
-    _info2View.image = _info2Icon;
-    _info3View.image = _info3Icon;
+    [self.info1Button setBackgroundImage:self.info1Icon forState:UIControlStateNormal];
+    [self.info2Button setBackgroundImage:self.info2Icon forState:UIControlStateNormal];
+    [self.info3Button setBackgroundImage:self.info3Icon forState:UIControlStateNormal];
     
     _warningLabel.frame = [self warningLabelRect];
     

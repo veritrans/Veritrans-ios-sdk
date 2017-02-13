@@ -15,7 +15,6 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
-#import "MTPaymentRequestDataModels.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
 

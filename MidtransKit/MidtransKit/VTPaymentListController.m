@@ -16,7 +16,6 @@
 #import "MidtransUIPaymentDirectViewController.h"
 #import "VTMandiriClickpayController.h"
 #import "VTVAListController.h"
-#import "VTAddCardController.h"
 #import "MidtransUIPaymentListFooter.h"
 #import "MidtransUIPaymentListHeader.h"
 #import "VTPaymentListView.h"

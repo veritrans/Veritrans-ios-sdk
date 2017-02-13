@@ -29,8 +29,6 @@
 		002CC9A91D12639F003A1203 /* bca_klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */; };
 		002CC9B81D12A442003A1203 /* MidtransUIStringHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9B61D12A442003A1203 /* MidtransUIStringHelper.h */; };
 		002CC9B91D12A442003A1203 /* MidtransUIStringHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 002CC9B71D12A442003A1203 /* MidtransUIStringHelper.m */; };
-		008859531D488950003105F1 /* VTAddCardView.h in Headers */ = {isa = PBXBuildFile; fileRef = 008859511D488950003105F1 /* VTAddCardView.h */; };
-		008859541D488950003105F1 /* VTAddCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 008859521D488950003105F1 /* VTAddCardView.m */; };
 		008CBE031DA386D900696F4E /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 008CBE021DA386D900696F4E /* libMidtransCoreKit.a */; };
 		0093D8B11DC1E49A00393334 /* MidtransLoadingIndicator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0093D8AF1DC1E49A00393334 /* MidtransLoadingIndicator.h */; };
 		0093D8B21DC1E49A00393334 /* MidtransLoadingIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0093D8B01DC1E49A00393334 /* MidtransLoadingIndicator.m */; };
@@ -160,8 +158,6 @@
 		0CD7EA961E03C4070036C187 /* MidtransPaymentGCIView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CD7EA941E03C4070036C187 /* MidtransPaymentGCIView.h */; };
 		0CD7EA971E03C4070036C187 /* MidtransPaymentGCIView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CD7EA951E03C4070036C187 /* MidtransPaymentGCIView.m */; };
 		0CF976781E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */; };
-		3005E2771C7C175000064169 /* VTAddCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2751C7C175000064169 /* VTAddCardController.h */; };
-		3005E2781C7C175000064169 /* VTAddCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2761C7C175000064169 /* VTAddCardController.m */; };
 		3005E2A81C7C239A00064169 /* VTClassHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = 3005E2A61C7C239A00064169 /* VTClassHelper.h */; };
 		3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2A71C7C239A00064169 /* VTClassHelper.m */; };
 		300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */ = {isa = PBXBuildFile; fileRef = 300F5CA41C7C0EB200DA6E13 /* VTCardListController.h */; };
@@ -402,10 +398,6 @@
 		E5AB97651D741C4100466A44 /* VTPendingStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97641D741C4100466A44 /* VTPendingStatusController.xib */; };
 		E5AB976C1D741C8D00466A44 /* VTPendingStatusController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AB976A1D741C8D00466A44 /* VTPendingStatusController.h */; };
 		E5AB976D1D741C8D00466A44 /* VTPendingStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AB976B1D741C8D00466A44 /* VTPendingStatusController.m */; };
-		E5C00EE21D61B9E5008DD9C5 /* VTCustomerInputView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */; };
-		E5C00EE31D61B9E5008DD9C5 /* VTCustomerInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */; };
-		E5C00EE41D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDC1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5C00EE51D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EDD1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.m */; };
 		E5C00EE61D61B9E5008DD9C5 /* VTKITConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EDF1D61B9E5008DD9C5 /* VTKITConstant.h */; };
 		E5C00EE71D61B9E5008DD9C5 /* MidtransUITheme.h in Headers */ = {isa = PBXBuildFile; fileRef = E5C00EE01D61B9E5008DD9C5 /* MidtransUITheme.h */; };
 		E5C00EE81D61B9E5008DD9C5 /* MidtransUITheme.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C00EE11D61B9E5008DD9C5 /* MidtransUITheme.m */; };
@@ -467,8 +459,6 @@
 		002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_klikbca@2x.png"; sourceTree = "<group>"; };
 		002CC9B61D12A442003A1203 /* MidtransUIStringHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIStringHelper.h; sourceTree = "<group>"; };
 		002CC9B71D12A442003A1203 /* MidtransUIStringHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIStringHelper.m; sourceTree = "<group>"; };
-		008859511D488950003105F1 /* VTAddCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardView.h; sourceTree = "<group>"; };
-		008859521D488950003105F1 /* VTAddCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardView.m; sourceTree = "<group>"; };
 		008CBE021DA386D900696F4E /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../MidtransCoreKit/build/Debug-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		0093D8AF1DC1E49A00393334 /* MidtransLoadingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransLoadingIndicator.h; sourceTree = "<group>"; };
 		0093D8B01DC1E49A00393334 /* MidtransLoadingIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransLoadingIndicator.m; sourceTree = "<group>"; };
@@ -599,8 +589,6 @@
 		0CD7EA951E03C4070036C187 /* MidtransPaymentGCIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGCIView.m; sourceTree = "<group>"; };
 		0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransNewCreditCardViewController.xib; sourceTree = "<group>"; };
 		15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		3005E2751C7C175000064169 /* VTAddCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTAddCardController.h; sourceTree = "<group>"; };
-		3005E2761C7C175000064169 /* VTAddCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTAddCardController.m; sourceTree = "<group>"; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2891C7C17A200064169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3005E2A61C7C239A00064169 /* VTClassHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTClassHelper.h; sourceTree = "<group>"; };
@@ -857,11 +845,6 @@
 		E5AB97641D741C4100466A44 /* VTPendingStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTPendingStatusController.xib; sourceTree = "<group>"; };
 		E5AB976A1D741C8D00466A44 /* VTPendingStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPendingStatusController.h; sourceTree = "<group>"; };
 		E5AB976B1D741C8D00466A44 /* VTPendingStatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPendingStatusController.m; sourceTree = "<group>"; };
-		E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTCustomerInputView.h; sourceTree = "<group>"; };
-		E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCustomerInputView.m; sourceTree = "<group>"; };
-		E5C00EDC1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUICustomerInputViewController.h; sourceTree = "<group>"; };
-		E5C00EDD1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUICustomerInputViewController.m; sourceTree = "<group>"; };
-		E5C00EDE1D61B9E5008DD9C5 /* VTCustomerInputViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTCustomerInputViewController.xib; sourceTree = "<group>"; };
 		E5C00EDF1D61B9E5008DD9C5 /* VTKITConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTKITConstant.h; sourceTree = "<group>"; };
 		E5C00EE01D61B9E5008DD9C5 /* MidtransUITheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUITheme.h; sourceTree = "<group>"; };
 		E5C00EE11D61B9E5008DD9C5 /* MidtransUITheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUITheme.m; sourceTree = "<group>"; };
@@ -948,10 +931,12 @@
 		008859501D48892C003105F1 /* Add Card */ = {
 			isa = PBXGroup;
 			children = (
-				3005E2751C7C175000064169 /* VTAddCardController.h */,
-				3005E2761C7C175000064169 /* VTAddCardController.m */,
-				008859511D488950003105F1 /* VTAddCardView.h */,
-				008859521D488950003105F1 /* VTAddCardView.m */,
+				0C0EADCB1E3785FA002C0400 /* Add On */,
+				0CF976791E315CDA00D2D0D0 /* Add On Payment */,
+				0C7AB5641E310ABD00EB6785 /* MidtransNewCreditCardViewController.h */,
+				0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */,
+				0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */,
+				0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */,
 			);
 			name = "Add Card";
 			sourceTree = "<group>";
@@ -1141,19 +1126,6 @@
 				0C7AB52F1E309E6800EB6785 /* permata@4x.png */,
 			);
 			path = bank_assets;
-			sourceTree = "<group>";
-		};
-		0C7AB5631E310A8000EB6785 /* New Credit Card */ = {
-			isa = PBXGroup;
-			children = (
-				0C0EADCB1E3785FA002C0400 /* Add On */,
-				0CF976791E315CDA00D2D0D0 /* Add On Payment */,
-				0C7AB5641E310ABD00EB6785 /* MidtransNewCreditCardViewController.h */,
-				0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */,
-				0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */,
-				0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */,
-			);
-			name = "New Credit Card";
 			sourceTree = "<group>";
 		};
 		0CD7EA8B1E03A17E0036C187 /* GCI */ = {
@@ -1506,7 +1478,6 @@
 			children = (
 				3068387F1C7EE7220064A305 /* MidtransUIPaymentViewController.h */,
 				306838801C7EE7220064A305 /* MidtransUIPaymentViewController.m */,
-				E59A79401D66E3CC0080E399 /* Input Customer */,
 				30E77E831C8401DC0090D228 /* Payment */,
 				00F61AE61D1459F300C93DA0 /* Payment List */,
 			);
@@ -1516,7 +1487,6 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				0C7AB5631E310A8000EB6785 /* New Credit Card */,
 				E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */,
 				E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */,
 				00F61B1C1D1481B200C93DA0 /* Direct Payment */,
@@ -1726,18 +1696,6 @@
 			name = Status;
 			sourceTree = "<group>";
 		};
-		E59A79401D66E3CC0080E399 /* Input Customer */ = {
-			isa = PBXGroup;
-			children = (
-				E5C00EDC1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h */,
-				E5C00EDD1D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.m */,
-				E5C00EDE1D61B9E5008DD9C5 /* VTCustomerInputViewController.xib */,
-				E5C00EDA1D61B9E5008DD9C5 /* VTCustomerInputView.h */,
-				E5C00EDB1D61B9E5008DD9C5 /* VTCustomerInputView.m */,
-			);
-			name = "Input Customer";
-			sourceTree = "<group>";
-		};
 		E5D23C801D1D31CA0069B5F9 /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -1769,9 +1727,7 @@
 				E54AC3FE1D16487800BA4603 /* MidtransUIThemeManager.h in Headers */,
 				30E879871C88EDE1000C0F4B /* VTTwoClickController.h in Headers */,
 				E50D86071D0ECBC500F26D2E /* VTIndomaretSuccessController.h in Headers */,
-				008859531D488950003105F1 /* VTAddCardView.h in Headers */,
 				30E713261C859EE100AFB7B4 /* MidtransUIButton.h in Headers */,
-				E5C00EE21D61B9E5008DD9C5 /* VTCustomerInputView.h in Headers */,
 				00F61B1A1D14703100C93DA0 /* MidtransUIPaymentGeneralView.h in Headers */,
 				E57202E81D63233D006B9265 /* VTKlikbcaSuccessController.h in Headers */,
 				E50438771D1A4A7C00710470 /* VTSubGuideController.h in Headers */,
@@ -1807,7 +1763,6 @@
 				E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */,
 				E578DD271CFC403D0091760A /* MidtransUIPaymentListHeader.h in Headers */,
 				0C0EADD21E3787EE002C0400 /* AddOnConstructor.h in Headers */,
-				3005E2771C7C175000064169 /* VTAddCardController.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
 				0C2B8E541E260E4B007901CB /* MidtransInstallmentView.h in Headers */,
 				0CD7EA8F1E03A1A40036C187 /* MidtransPaymentGCIViewController.h in Headers */,
@@ -1830,7 +1785,6 @@
 				0093D8B51DC1EC7D00393334 /* MidtransLoadingView.h in Headers */,
 				E5165C5C1DF12031008334AB /* MidtransUIConfiguration.h in Headers */,
 				E5AB976C1D741C8D00466A44 /* VTPendingStatusController.h in Headers */,
-				E5C00EE41D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.h in Headers */,
 				E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */,
 				0C0EADC31E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.h in Headers */,
 				E503AED81C8E8AF800F097FF /* MidtransUIListCell.h in Headers */,
@@ -2294,11 +2248,9 @@
 				306838731C7EDA0A0064A305 /* VTPaymentHeader.m in Sources */,
 				E50438701D1A4A2100710470 /* VTMultiGuideController.m in Sources */,
 				00F61B161D146F7100C93DA0 /* MidtransUIPaymentGeneralViewController.m in Sources */,
-				E5C00EE31D61B9E5008DD9C5 /* VTCustomerInputView.m in Sources */,
 				E517C2D91C96B610009AE6AA /* MidtransUIHudView.m in Sources */,
 				E58017EC1D5868E1007D2DEC /* VTXLTunaiSuccessController.m in Sources */,
 				E578DD181CFC1BD50091760A /* MidtransUIToast.m in Sources */,
-				008859541D488950003105F1 /* VTAddCardView.m in Sources */,
 				30FC52C01C7D65880094F837 /* NSString+TextDirectionality.m in Sources */,
 				E5591A491CEF0DB0005A2DB1 /* VTVASuccessStatusController.m in Sources */,
 				E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */,
@@ -2308,7 +2260,6 @@
 				E56455041D23A5DB00CE5FA4 /* MidtransUINextStepButton.m in Sources */,
 				E503AED91C8E8AF800F097FF /* MidtransUIListCell.m in Sources */,
 				E578DD281CFC403D0091760A /* MidtransUIPaymentListHeader.m in Sources */,
-				3005E2781C7C175000064169 /* VTAddCardController.m in Sources */,
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
 				E54AC3FF1D16487800BA4603 /* MidtransUIThemeManager.m in Sources */,
 				0C7AB56D1E310E7800EB6785 /* MidtransNewCreditCardView.m in Sources */,
@@ -2319,7 +2270,6 @@
 				300F5CA71C7C0EB200DA6E13 /* VTCardListController.m in Sources */,
 				E50438741D1A4A5000710470 /* VTSingleGuideController.m in Sources */,
 				E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */,
-				E5C00EE51D61B9E5008DD9C5 /* MidtransUICustomerInputViewController.m in Sources */,
 				0C7AB5681E310ABD00EB6785 /* MidtransNewCreditCardViewController.m in Sources */,
 				E5CA54BD1D6AF76400EC2A51 /* MidtransUICardFormatter.m in Sources */,
 				E517C2D21C969110009AE6AA /* UICollectionView+Empty.m in Sources */,

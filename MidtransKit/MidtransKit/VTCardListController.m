@@ -11,7 +11,6 @@
 #import "PushAnimator.h"
 
 #import "VTClassHelper.h"
-#import "VTAddCardController.h"
 #import "MidtransNewCreditCardViewController.h"
 #import "VTTwoClickController.h"
 #import "MidtransUITextField.h"
@@ -28,7 +27,7 @@
 
 CGFloat const ButtonHeight = 56;
 
-@interface VTCardListController () <MidtransUICardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface VTCardListController () <MidtransUICardCellDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -53,7 +52,6 @@ CGFloat const ButtonHeight = 56;
         self.creditCard = creditCard;
     }
     return self;
-    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -260,13 +258,6 @@ CGFloat const ButtonHeight = 56;
                                                                 maskedCard:self.selectedMaskedCard andCreditCardData:self.creditCard];
     [self.navigationController setDelegate:self];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-#pragma mark - VTAddCardControllerDelegate
-
-- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
-    [self.navigationController popViewControllerAnimated:YES];
-    [self reloadMaskedCards];
 }
 
 #pragma mark - MIdtransUICardCellDelegate

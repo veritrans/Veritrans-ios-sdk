@@ -81,12 +81,8 @@
 		0C2B8E6C1E275928007901CB /* MidtransInstallmentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2B8E691E275928007901CB /* MidtransInstallmentCollectionViewCell.h */; };
 		0C2B8E6D1E275928007901CB /* MidtransInstallmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B8E6A1E275928007901CB /* MidtransInstallmentCollectionViewCell.m */; };
 		0C2B8E6E1E27594B007901CB /* MidtransInstallmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E6B1E275928007901CB /* MidtransInstallmentCollectionViewCell.xib */; };
-		0C2B8E7B1E279263007901CB /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E701E279263007901CB /* checkbox_checked.png */; };
 		0C2B8E7C1E279263007901CB /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E711E279263007901CB /* checkbox_checked@2x.png */; };
-		0C2B8E7D1E279263007901CB /* checkbox_checked@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E721E279263007901CB /* checkbox_checked@3x.png */; };
-		0C2B8E7E1E279263007901CB /* checkbox_uncheck.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E741E279263007901CB /* checkbox_uncheck.png */; };
 		0C2B8E7F1E279263007901CB /* checkbox_uncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */; };
-		0C2B8E801E279263007901CB /* checkbox_uncheck@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E761E279263007901CB /* checkbox_uncheck@3x.png */; };
 		0C2B8E811E279263007901CB /* hint.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E781E279263007901CB /* hint.png */; };
 		0C2B8E821E279263007901CB /* hint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E791E279263007901CB /* hint@2x.png */; };
 		0C2B8E831E279263007901CB /* hint@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C2B8E7A1E279263007901CB /* hint@3x.png */; };
@@ -511,12 +507,8 @@
 		0C2B8E691E275928007901CB /* MidtransInstallmentCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransInstallmentCollectionViewCell.h; sourceTree = "<group>"; };
 		0C2B8E6A1E275928007901CB /* MidtransInstallmentCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransInstallmentCollectionViewCell.m; sourceTree = "<group>"; };
 		0C2B8E6B1E275928007901CB /* MidtransInstallmentCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransInstallmentCollectionViewCell.xib; path = ../MidtransKit/MidtransInstallmentCollectionViewCell.xib; sourceTree = "<group>"; };
-		0C2B8E701E279263007901CB /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
-		0C2B8E711E279263007901CB /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@2x.png"; sourceTree = "<group>"; };
-		0C2B8E721E279263007901CB /* checkbox_checked@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@3x.png"; sourceTree = "<group>"; };
-		0C2B8E741E279263007901CB /* checkbox_uncheck.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_uncheck.png; sourceTree = "<group>"; };
-		0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_uncheck@2x.png"; sourceTree = "<group>"; };
-		0C2B8E761E279263007901CB /* checkbox_uncheck@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_uncheck@3x.png"; sourceTree = "<group>"; };
+		0C2B8E711E279263007901CB /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkbox_checked@2x.png"; path = "Checkbox Checked/checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "checkbox_uncheck@2x.png"; path = "Checkbox Uncheck/checkbox_uncheck@2x.png"; sourceTree = "<group>"; };
 		0C2B8E781E279263007901CB /* hint.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hint.png; sourceTree = "<group>"; };
 		0C2B8E791E279263007901CB /* hint@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint@2x.png"; sourceTree = "<group>"; };
 		0C2B8E7A1E279263007901CB /* hint@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "hint@3x.png"; sourceTree = "<group>"; };
@@ -1032,26 +1024,6 @@
 			name = Installment;
 			sourceTree = "<group>";
 		};
-		0C2B8E6F1E279263007901CB /* Checkbox Checked */ = {
-			isa = PBXGroup;
-			children = (
-				0C2B8E701E279263007901CB /* checkbox_checked.png */,
-				0C2B8E711E279263007901CB /* checkbox_checked@2x.png */,
-				0C2B8E721E279263007901CB /* checkbox_checked@3x.png */,
-			);
-			path = "Checkbox Checked";
-			sourceTree = "<group>";
-		};
-		0C2B8E731E279263007901CB /* Checkbox Uncheck */ = {
-			isa = PBXGroup;
-			children = (
-				0C2B8E741E279263007901CB /* checkbox_uncheck.png */,
-				0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */,
-				0C2B8E761E279263007901CB /* checkbox_uncheck@3x.png */,
-			);
-			path = "Checkbox Uncheck";
-			sourceTree = "<group>";
-		};
 		0C2B8E771E279263007901CB /* Hint */ = {
 			isa = PBXGroup;
 			children = (
@@ -1390,8 +1362,8 @@
 				E503AEDF1C8EC50E00F097FF /* mandiri_clickpay@2x.png */,
 				E503AEE01C8EC50E00F097FF /* cimb_clicks@2x.png */,
 				E503AEE11C8EC50E00F097FF /* bri_epay@2x.png */,
-				0C2B8E6F1E279263007901CB /* Checkbox Checked */,
-				0C2B8E731E279263007901CB /* Checkbox Uncheck */,
+				0C2B8E751E279263007901CB /* checkbox_uncheck@2x.png */,
+				0C2B8E711E279263007901CB /* checkbox_checked@2x.png */,
 				0C2B8E771E279263007901CB /* Hint */,
 				E503AEE21C8EC50E00F097FF /* bca_klikpay@2x.png */,
 				E583AFDD1C8D575600C04512 /* errorIcon@2x.png */,
@@ -1909,7 +1881,6 @@
 				0C7AB5501E309E6800EB6785 /* mandiri@2x.png in Resources */,
 				0093D8B81DC1EC8F00393334 /* MidtransLoadingView.xib in Resources */,
 				E5EF827E1C8C0841007B6585 /* VTCCBackView.xib in Resources */,
-				0C2B8E7E1E279263007901CB /* checkbox_uncheck.png in Resources */,
 				309CC0DE1C86B5BD00C058BE /* all_va.plist in Resources */,
 				E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */,
 				0C2B8E601E260FBF007901CB /* icon_btn_min_@2x.png in Resources */,
@@ -1956,7 +1927,6 @@
 				0C2B8E501E2498F9007901CB /* midtrans_lock@3x.png in Resources */,
 				00F61B231D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				0C7AB55F1E309E6800EB6785 /* permata@2x.png in Resources */,
-				0C2B8E801E279263007901CB /* checkbox_uncheck@3x.png in Resources */,
 				0C2B8E581E260E86007901CB /* MidtransInstallmentView.xib in Resources */,
 				0C7AB54C1E309E6800EB6785 /* citi@3x.png in Resources */,
 				E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */,
@@ -2052,7 +2022,6 @@
 				0C2B8E641E260FC0007901CB /* icon_btn_plus_@3x.png in Resources */,
 				0CF976781E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib in Resources */,
 				E5387D431D62BE7E004CCF3D /* other_alto_7@2x.png in Resources */,
-				0C2B8E7D1E279263007901CB /* checkbox_checked@3x.png in Resources */,
 				E5387D4A1D62BE7E004CCF3D /* other_atm_7@2x.png in Resources */,
 				0C2B8E6E1E27594B007901CB /* MidtransInstallmentCollectionViewCell.xib in Resources */,
 				0C2B8E4D1E2498F9007901CB /* cc_badge@2x.png in Resources */,
@@ -2106,7 +2075,6 @@
 				E503AEEF1C8EC69800F097FF /* telkomsel_cash@2x.png in Resources */,
 				0C7AB5601E309E6800EB6785 /* permata@3x.png in Resources */,
 				E5387D3E1D62BE7E004CCF3D /* other_alto_2@2x.png in Resources */,
-				0C2B8E7B1E279263007901CB /* checkbox_checked.png in Resources */,
 				E503AEE31C8EC50E00F097FF /* mandiri_clickpay@2x.png in Resources */,
 				0C7AB54E1E309E6800EB6785 /* mandiri.png in Resources */,
 				E583AFE21C8D575600C04512 /* successIcon@2x.png in Resources */,

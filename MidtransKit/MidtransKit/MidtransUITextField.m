@@ -383,7 +383,7 @@ static CGFloat const kInfoPadding = 5;
 }
 
 - (CGRect)divViewRect {
-    return CGRectMake(0, CGRectGetMaxY([self textRectForBounds:self.bounds])+3, CGRectGetWidth(self.bounds), 1.);
+    return CGRectMake(0, CGRectGetMaxY([self textRectForBounds:self.bounds]), CGRectGetWidth(self.bounds), 1.);
 }
 
 - (CGRect)warningLabelRect {

@@ -131,9 +131,12 @@ MidtransUICustomAlertViewControllerDelegate
 - (void)setupInstallmentView {
     self.installmentsContentView = [[VTBundle loadNibNamed:@"MidtransInstallmentView" owner:self options:nil] firstObject];
     self.installmentsContentView.delegate = self;
-    [self.view.installmentView  addSubview:self.installmentsContentView];
+    self.installmentsContentView.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.view.installmentView addSubview:self.installmentsContentView];
+    NSDictionary *views = @{@"view":self.installmentsContentView};
+    [self.view.installmentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[view]-0-|" options:0 metrics:0 views:views]];
+    [self.view.installmentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[view]-0-|" options:0 metrics:0 views:views]];
     [self.installmentsContentView setupInstallmentCollection];
-    
 }
 
 - (void)setPromos:(NSArray<MidtransPromo *> *)promos {

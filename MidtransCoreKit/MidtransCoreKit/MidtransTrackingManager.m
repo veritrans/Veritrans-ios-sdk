@@ -9,7 +9,6 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransConstant.h"
-#import "MTPaymentRequestDataModels.h"
 #import "MidtransNetworking.h"
 #import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransDeviceHelper.h"

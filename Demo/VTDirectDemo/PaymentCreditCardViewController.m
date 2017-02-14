@@ -97,12 +97,14 @@
             [alertView show];
         } else {
             // create an alert view with three buttons
+            NSLog(@"result-->%@",result);
             UIAlertView *alertView = [[UIAlertView alloc]
-                                      initWithTitle:@"SUCCESS"
-                                      message:result
+                                      initWithTitle:@"Success"
+                                      message:@"Please check your log"
                                       delegate:self
                                       cancelButtonTitle:@"OK"
                                       otherButtonTitles:nil];
+            NSLog(@"data--%@",result);
             [alertView show];
             
         }

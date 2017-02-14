@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.paymentMethodList = [NSMutableArray new];
+    self.paymentMethodList = [[NSMutableArray alloc] initWithCapacity:2];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Close"
                                                                    style:UIBarButtonItemStylePlain target:self
                                                                   action:@selector(dismissModalViewControllerAnimated:)];
@@ -69,19 +69,18 @@
                              }
                          }
                      }
-                     else {
+                     else if([enabledPayment.type isEqualToString:@"credit_card"]) {
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:self.paymentList[index]];
                          [self.paymentMethodList addObject:model];
                      }
                      mainIndex++;
                  }
-                 [self.tableView reloadData];
              }
+               [self.tableView reloadData];
          }
          else {
          }
      }];
-    
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -90,7 +89,7 @@
     return 60;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.paymentMethodList.count>2?2:self.paymentList.count;
+    return self.paymentMethodList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

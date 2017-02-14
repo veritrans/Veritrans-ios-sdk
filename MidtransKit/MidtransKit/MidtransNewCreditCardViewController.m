@@ -290,7 +290,7 @@ MidtransUICustomAlertViewControllerDelegate
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"save card for later reuse"
-                                                          message:@"We will scurely store your card details so you can reuse theme latter"
+                                                          message:@"We will securely store your card details so you can reuse theme latter"
                                                           image:nil
                                                           delegate:self
                                                           cancelButtonTitle:nil

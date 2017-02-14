@@ -135,6 +135,26 @@ MidtransUICustomAlertViewControllerDelegate
     [self.installmentsContentView setupInstallmentCollection];
     
 }
+
+- (void)setPromos:(NSArray<MidtransPromo *> *)promos {
+    _promos = [promos sortedArrayUsingComparator:^NSComparisonResult(MidtransPromo *obj1, MidtransPromo *obj2) {
+        double amount1 = [self calculateDiscountPromo:obj1];
+        double amount2 = [self calculateDiscountPromo:obj2];
+        return amount1 < amount2;
+    }];
+}
+
+- (double)calculateDiscountPromo:(MidtransPromo *)promo {
+    double result = 0;
+    if ([promo.discountType isEqualToString:@"PERCENTED"]) {
+        result = self.token.transactionDetails.grossAmount.doubleValue * (promo.discountAmount/100.);
+    }
+    else {
+        result = promo.discountAmount;
+    }
+    return result;
+}
+
 #pragma mark - UITableViewDelegate
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IS_IOS8_OR_ABOVE) {

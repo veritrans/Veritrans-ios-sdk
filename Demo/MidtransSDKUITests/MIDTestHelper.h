@@ -1,5 +1,5 @@
 //
-//  MTTestHelper.h
+//  MIDTestHelper.h
 //  VTDirectDemo
 //
 //  Created by Nanang Rafsanjani on 1/23/17.
@@ -17,6 +17,6 @@
 - (void)enterText:(NSString *)text;
 @end
 
-@interface MTTestHelper : NSObject
+@interface MIDTestHelper : NSObject
 + (void)configureRequiredData:(XCUIApplication *)app;
 @end

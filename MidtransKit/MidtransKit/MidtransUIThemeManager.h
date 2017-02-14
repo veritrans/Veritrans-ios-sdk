@@ -21,4 +21,9 @@
  */
 + (void)applyCustomThemeColor:(UIColor *)themeColor themeFont:(MidtransUIFontSource *)themeFont;
 
+/*
+ Reset theme configuration
+ */
+- (void)applyStandardTheme;
+
 @end

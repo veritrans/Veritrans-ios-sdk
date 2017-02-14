@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDn-eM-QDh">
-                        <rect key="frame" x="273" y="0.0" width="44" height="44"/>
+                        <rect key="frame" x="271" y="0.0" width="44" height="44"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="44" id="Ahe-Dj-uKK"/>
                             <constraint firstAttribute="height" constant="44" id="mxB-Ue-Jh0"/>
@@ -58,8 +58,8 @@
                     <constraint firstAttribute="topMargin" secondItem="2ag-nm-5G4" secondAttribute="top" constant="-7" id="S6C-ko-e9Z"/>
                     <constraint firstAttribute="bottomMargin" secondItem="xDn-eM-QDh" secondAttribute="bottom" constant="-9" id="a3S-b5-edK"/>
                     <constraint firstAttribute="leadingMargin" secondItem="2ag-nm-5G4" secondAttribute="leading" constant="-4" id="cnr-sL-lOT"/>
-                    <constraint firstItem="xDn-eM-QDh" firstAttribute="leading" secondItem="Mjt-ZA-2iZ" secondAttribute="trailing" constant="-1" id="odd-1g-OeG"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="xDn-eM-QDh" secondAttribute="trailing" constant="-5" id="wvf-gy-ECa"/>
+                    <constraint firstItem="xDn-eM-QDh" firstAttribute="leading" secondItem="Mjt-ZA-2iZ" secondAttribute="trailing" constant="-3" id="odd-1g-OeG"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="xDn-eM-QDh" secondAttribute="trailing" constant="-3" id="wvf-gy-ECa"/>
                     <constraint firstItem="Mjt-ZA-2iZ" firstAttribute="leading" secondItem="2ag-nm-5G4" secondAttribute="trailing" constant="10" id="ywr-s2-Dqg"/>
                 </constraints>
             </tableViewCellContentView>

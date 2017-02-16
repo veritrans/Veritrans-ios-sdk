@@ -15,7 +15,11 @@
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList {
     self.paymentMethodNameLabel.text = paymentList.title;
     self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
-    NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
+      NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
+    if ([paymentList.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
+        imagePath = @"mandiri_va";
+    }
+
     self.paymentMethodLogo.image = [UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     [self.contentView setNeedsLayout];

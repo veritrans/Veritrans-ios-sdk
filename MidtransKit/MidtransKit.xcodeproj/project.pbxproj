@@ -91,6 +91,7 @@
 		0C3998491E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C3998461E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h */; };
 		0C39984A1E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3998471E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m */; };
 		0C39984C1E39DAF300CF5F6D /* MidtransUICustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C3998481E39DAF300CF5F6D /* MidtransUICustomAlertViewController.xib */; };
+		0C5ADAC61E55B94E00F6A7D9 /* mandiri_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C5ADAC51E55B94E00F6A7D9 /* mandiri_va@2x.png */; };
 		0C7AB5301E309E6800EB6785 /* anz.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7AB4FE1E309E6800EB6785 /* anz.png */; };
 		0C7AB5311E309E6800EB6785 /* anz@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7AB4FF1E309E6800EB6785 /* anz@1.5x.png */; };
 		0C7AB5321E309E6800EB6785 /* anz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C7AB5001E309E6800EB6785 /* anz@2x.png */; };
@@ -517,6 +518,7 @@
 		0C3998461E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUICustomAlertViewController.h; sourceTree = "<group>"; };
 		0C3998471E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUICustomAlertViewController.m; sourceTree = "<group>"; };
 		0C3998481E39DAF300CF5F6D /* MidtransUICustomAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUICustomAlertViewController.xib; path = ../MidtransKit/MidtransUICustomAlertViewController.xib; sourceTree = "<group>"; };
+		0C5ADAC51E55B94E00F6A7D9 /* mandiri_va@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandiri_va@2x.png"; path = "../../../../../../Downloads/real_icons/@2x/mandiri_va@2x.png"; sourceTree = "<group>"; };
 		0C7AB4FE1E309E6800EB6785 /* anz.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = anz.png; sourceTree = "<group>"; };
 		0C7AB4FF1E309E6800EB6785 /* anz@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "anz@1.5x.png"; sourceTree = "<group>"; };
 		0C7AB5001E309E6800EB6785 /* anz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "anz@2x.png"; sourceTree = "<group>"; };
@@ -1352,6 +1354,7 @@
 				E517C2B81C967284009AE6AA /* alertBackground@2x.png */,
 				002CC9A81D12639F003A1203 /* bca_klikbca@2x.png */,
 				E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */,
+				0C5ADAC51E55B94E00F6A7D9 /* mandiri_va@2x.png */,
 				E503AEF11C8EC81000F097FF /* indomaret@2x.png */,
 				E5AB97621D74192300466A44 /* kioson@2x.png */,
 				E503AEE71C8EC69800F097FF /* bbm@2x.png */,
@@ -2050,6 +2053,7 @@
 				E5D23C7D1D1D104A0069B5F9 /* MasterCardDark@2x.png in Resources */,
 				E5387D361D62BE7E004CCF3D /* bca_atm_6@2x.png in Resources */,
 				30AB73991C7D57AA001F42FE /* DisclosureIndicator@2x.png in Resources */,
+				0C5ADAC61E55B94E00F6A7D9 /* mandiri_va@2x.png in Resources */,
 				E5387D441D62BE7E004CCF3D /* other_atm_1@2x.png in Resources */,
 				E5387D571D62BE7E004CCF3D /* permata_atm_6@2x.png in Resources */,
 				E5387D471D62BE7E004CCF3D /* other_atm_4@2x.png in Resources */,

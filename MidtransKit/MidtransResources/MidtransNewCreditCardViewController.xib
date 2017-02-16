@@ -70,7 +70,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (mm/yy)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-4m-fM3" customClass="MidtransUITextField">
-                                    <rect key="frame" x="10" y="132" width="208" height="50"/>
+                                    <rect key="frame" x="10" y="132" width="182" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="BZz-ci-2kl"/>
                                     </constraints>
@@ -90,9 +90,9 @@
                                     </userDefinedRuntimeAttributes>
                                 </textField>
                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tcC-BX-eY2" customClass="MidtransUITextField">
-                                    <rect key="frame" x="226" y="132" width="84" height="50"/>
+                                    <rect key="frame" x="200" y="132" width="110" height="50"/>
                                     <constraints>
-                                        <constraint firstAttribute="width" constant="84" id="810-iT-tjr"/>
+                                        <constraint firstAttribute="width" constant="110" id="810-iT-tjr"/>
                                         <constraint firstAttribute="height" constant="50" id="Exq-Hz-1Ho"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>

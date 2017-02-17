@@ -16,13 +16,13 @@
 #import "MidtransUIPaymentDirectViewController.h"
 #import "VTMandiriClickpayController.h"
 #import "VTVAListController.h"
-#import "MidtransUIPaymentListFooter.h"
-#import "MidtransUIPaymentListHeader.h"
 #import "VTPaymentListView.h"
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransPaymentGCIViewController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransUIThemeManager.h"
+#import "UIColor+SNP_HexString.h"
 
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-     [[MIDTrackingManager shared] trackEventName:@"pg select payment"];
+    [[MIDTrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
     
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
@@ -69,13 +69,18 @@
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
+    
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchant.preference.displayName;
          if (response) {
-             [self hideLoading];
- 
+             //applying SNAP color if any
+             UIColor *snapColor = [self colorFromSnapScheme:response.merchant.preference.colorScheme];
+             [MidtransUIThemeManager applySnapThemeColor:snapColor];
+             [self reloadThemeColor];
+             
+             //handle payment list
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
@@ -121,7 +126,7 @@
                      }
                      
                      else {
-                        
+                         
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          [self.paymentMethodList addObject:model];
                          
@@ -132,7 +137,7 @@
                  if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-               else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
+                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -144,14 +149,35 @@
              }
          }
          else {
-             
+             NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
+             [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
          }
+         
+         [self hideLoading];
      }];
 }
 
 - (void)closePressed:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)reloadThemeColor {
+    UIColor *color = [[MidtransUIThemeManager shared] themeColor];
+    self.navigationController.navigationBar.tintColor = color;
+    self.view.headerView.backgroundColor = color;
+}
+
+- (UIColor *)colorFromSnapScheme:(NSString *)scheme {
+    NSString *path = [VTBundle pathForResource:@"snap_colors" ofType:@"plist"];
+    NSDictionary *snapColors = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSString *hex = snapColors[scheme];
+    if (hex) {
+        return [UIColor colorWithSNP_HexString:hex];
+    }
+    else {
+        return nil;
+    }
 }
 
 #pragma mark - VTPaymentListViewDelegate
@@ -163,10 +189,10 @@
 #pragma mark - Helper
 
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
-   
+    
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-[[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
+    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

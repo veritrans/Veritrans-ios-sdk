@@ -32,7 +32,7 @@
     
     [[MidtransNetworkLogger shared] startLogging];
     
-    [[MidtransUIThemeManager shared] applyStandardTheme];
+    [MidtransUIThemeManager applyStandardTheme];
 }
 
 - (void)dealloc {

@@ -41,6 +41,9 @@
 }
 
 - (void)setStandardTheme {
+    self.snapColor = nil;
+    self.customColor = nil;
+    
     //set defaul theme color
     self.defaultColor = [UIColor colorWithRed:25/255. green:163/255. blue:239/255. alpha:1.0];
     

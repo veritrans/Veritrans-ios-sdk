@@ -31,8 +31,6 @@
     // Do any additional setup after loading the view from its nib.
     
     [[MidtransNetworkLogger shared] startLogging];
-    
-    [MidtransUIThemeManager applyStandardTheme];
 }
 
 - (void)dealloc {
@@ -78,6 +76,8 @@
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self initPayment];
+    
+    [MidtransUIThemeManager applyStandardTheme];
     
     switch (indexPath.row) {
         case 0:

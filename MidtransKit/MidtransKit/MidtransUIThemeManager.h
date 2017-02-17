@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "MidtransUIFontSource.h"
 
+static NSString *const MidtransUIDidChangeThemeColor = @"MidtransUIDidChangeThemeColor";
+
 @interface MidtransUIThemeManager : NSObject
 
-@property (nonatomic, readonly) UIColor *themeColor;
 @property (nonatomic, readonly) MidtransUIFontSource *themeFont;
 
 + (MidtransUIThemeManager *)shared;
@@ -24,6 +25,16 @@
 /*
  Reset theme configuration
  */
-- (void)applyStandardTheme;
++ (void)applyStandardTheme;
+
+/*
+ Sync theme color with SNAP theme configuration
+ */
++ (void)applySnapThemeColor:(UIColor *)snapColor;
+
+/*
+ Get theme color
+ */
+- (UIColor *)themeColor;
 
 @end

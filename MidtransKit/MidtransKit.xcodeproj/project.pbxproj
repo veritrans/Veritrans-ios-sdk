@@ -294,6 +294,9 @@
 		E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */; };
 		E54AC3FE1D16487800BA4603 /* MidtransUIThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* MidtransUIThemeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E54AC3FF1D16487800BA4603 /* MidtransUIThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* MidtransUIThemeManager.m */; };
+		E54F5C151E56AFC500B7592E /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54F5C141E56AFC500B7592E /* snap_colors.plist */; };
+		E54F5C181E56C88E00B7592E /* UIColor+SNP_HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = E54F5C161E56C88E00B7592E /* UIColor+SNP_HexString.h */; };
+		E54F5C191E56C88E00B7592E /* UIColor+SNP_HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = E54F5C171E56C88E00B7592E /* UIColor+SNP_HexString.m */; };
 		E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */; };
 		E5504E171D0E64A100137655 /* UIViewController+HeaderSubtitle.m in Sources */ = {isa = PBXBuildFile; fileRef = E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */; };
 		E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */; };
@@ -326,10 +329,6 @@
 		E578DD181CFC1BD50091760A /* MidtransUIToast.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD161CFC1BD50091760A /* MidtransUIToast.m */; };
 		E578DD1A1CFC1F170091760A /* MidtransUIToast.xib in Resources */ = {isa = PBXBuildFile; fileRef = E578DD191CFC1BE00091760A /* MidtransUIToast.xib */; };
 		E578DD1C1CFC3F250091760A /* VTPaymentListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E578DD1B1CFC3F250091760A /* VTPaymentListController.xib */; };
-		E578DD271CFC403D0091760A /* MidtransUIPaymentListHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E578DD251CFC403D0091760A /* MidtransUIPaymentListHeader.h */; };
-		E578DD281CFC403D0091760A /* MidtransUIPaymentListHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD261CFC403D0091760A /* MidtransUIPaymentListHeader.m */; };
-		E578DD2B1CFC40480091760A /* MidtransUIPaymentListFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = E578DD291CFC40480091760A /* MidtransUIPaymentListFooter.h */; };
-		E578DD2C1CFC40480091760A /* MidtransUIPaymentListFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E578DD2A1CFC40480091760A /* MidtransUIPaymentListFooter.m */; };
 		E57FFC841E1256B6002A875C /* MidtransItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E57FFC831E1256B6002A875C /* MidtransItemCell.xib */; };
 		E57FFC891E125FDA002A875C /* MidtransItemCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E57FFC871E125FDA002A875C /* MidtransItemCell.h */; };
 		E57FFC8A1E125FDA002A875C /* MidtransItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E57FFC881E125FDA002A875C /* MidtransItemCell.m */; };
@@ -699,6 +698,9 @@
 		E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prevIcon@2x.png"; sourceTree = "<group>"; };
 		E54AC3FC1D16487800BA4603 /* MidtransUIThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIThemeManager.h; sourceTree = "<group>"; };
 		E54AC3FD1D16487800BA4603 /* MidtransUIThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIThemeManager.m; sourceTree = "<group>"; };
+		E54F5C141E56AFC500B7592E /* snap_colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = snap_colors.plist; sourceTree = "<group>"; };
+		E54F5C161E56C88E00B7592E /* UIColor+SNP_HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SNP_HexString.h"; sourceTree = "<group>"; };
+		E54F5C171E56C88E00B7592E /* UIColor+SNP_HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SNP_HexString.m"; sourceTree = "<group>"; };
 		E5504E141D0E64A100137655 /* UIViewController+HeaderSubtitle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+HeaderSubtitle.h"; sourceTree = "<group>"; };
 		E5504E151D0E64A100137655 /* UIViewController+HeaderSubtitle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+HeaderSubtitle.m"; sourceTree = "<group>"; };
 		E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTMandiriClickpayController.xib; sourceTree = "<group>"; };
@@ -731,10 +733,6 @@
 		E578DD161CFC1BD50091760A /* MidtransUIToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIToast.m; sourceTree = "<group>"; };
 		E578DD191CFC1BE00091760A /* MidtransUIToast.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUIToast.xib; path = ../MidtransKit/MidtransUIToast.xib; sourceTree = "<group>"; };
 		E578DD1B1CFC3F250091760A /* VTPaymentListController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTPaymentListController.xib; sourceTree = "<group>"; };
-		E578DD251CFC403D0091760A /* MidtransUIPaymentListHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentListHeader.h; sourceTree = "<group>"; };
-		E578DD261CFC403D0091760A /* MidtransUIPaymentListHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentListHeader.m; sourceTree = "<group>"; };
-		E578DD291CFC40480091760A /* MidtransUIPaymentListFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentListFooter.h; sourceTree = "<group>"; };
-		E578DD2A1CFC40480091760A /* MidtransUIPaymentListFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentListFooter.m; sourceTree = "<group>"; };
 		E57FFC831E1256B6002A875C /* MidtransItemCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransItemCell.xib; sourceTree = "<group>"; };
 		E57FFC871E125FDA002A875C /* MidtransItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransItemCell.h; sourceTree = "<group>"; };
 		E57FFC881E125FDA002A875C /* MidtransItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransItemCell.m; sourceTree = "<group>"; };
@@ -1059,6 +1057,8 @@
 				E5CA54BB1D6AF76400EC2A51 /* MidtransUICardFormatter.m */,
 				E5165C5A1DF12031008334AB /* MidtransUIConfiguration.h */,
 				E5165C5B1DF12031008334AB /* MidtransUIConfiguration.m */,
+				E54F5C161E56C88E00B7592E /* UIColor+SNP_HexString.h */,
+				E54F5C171E56C88E00B7592E /* UIColor+SNP_HexString.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -1184,10 +1184,10 @@
 			isa = PBXGroup;
 			children = (
 				E5EDD4C81E0A7C950006E160 /* Localizable.strings */,
+				0CB96A231E35BBB300A15D72 /* bin.json */,
 				E53BD03F1D143BE8001FADDE /* bri_epay.plist */,
 				E50D85F31D0ECB9C00F26D2E /* indomaret.plist */,
 				E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */,
-				0CB96A231E35BBB300A15D72 /* bin.json */,
 				E50D85E11D0EC93400F26D2E /* mandiri_ecash.plist */,
 				30E7133E1C85AAE600AFB7B4 /* permata_va.plist */,
 				309CC0D81C86A32000C058BE /* bca_va.plist */,
@@ -1202,6 +1202,7 @@
 				E58017E51D585B03007D2DEC /* indosat_dompetku.plist */,
 				E58017E71D585B0E007D2DEC /* xl_tunai.plist */,
 				E5AB97601D7414A900466A44 /* kioson.plist */,
+				E54F5C141E56AFC500B7592E /* snap_colors.plist */,
 			);
 			name = Data;
 			sourceTree = "<group>";
@@ -1398,10 +1399,6 @@
 				306838711C7EDA0A0064A305 /* VTPaymentHeader.m */,
 				E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */,
 				E503AED61C8E8AF800F097FF /* MidtransUIListCell.m */,
-				E578DD251CFC403D0091760A /* MidtransUIPaymentListHeader.h */,
-				E578DD261CFC403D0091760A /* MidtransUIPaymentListHeader.m */,
-				E578DD291CFC40480091760A /* MidtransUIPaymentListFooter.h */,
-				E578DD2A1CFC40480091760A /* MidtransUIPaymentListFooter.m */,
 				0093D8AF1DC1E49A00393334 /* MidtransLoadingIndicator.h */,
 				0093D8B01DC1E49A00393334 /* MidtransLoadingIndicator.m */,
 				0093D8B31DC1EC7D00393334 /* MidtransLoadingView.h */,
@@ -1598,6 +1595,7 @@
 				E5387D5D1D62C29E004CCF3D /* VTGuideCell.h in Headers */,
 				00F61B201D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.h in Headers */,
 				E517C2E21C96C1C4009AE6AA /* PopAnimator.h in Headers */,
+				E54F5C181E56C88E00B7592E /* UIColor+SNP_HexString.h in Headers */,
 				30E77E8A1C84021A0090D228 /* VTMandiriClickpayController.h in Headers */,
 				E57202E01D62FB27006B9265 /* VTInstruction.h in Headers */,
 				0CD7EA961E03C4070036C187 /* MidtransPaymentGCIView.h in Headers */,
@@ -1622,10 +1620,8 @@
 				E517C2D11C969110009AE6AA /* UICollectionView+Empty.h in Headers */,
 				E5F1754D1E13334F0000C019 /* MidtransTransactionDetailViewController.h in Headers */,
 				E50438731D1A4A5000710470 /* VTSingleGuideController.h in Headers */,
-				E578DD2B1CFC40480091760A /* MidtransUIPaymentListFooter.h in Headers */,
 				E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */,
 				E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */,
-				E578DD271CFC403D0091760A /* MidtransUIPaymentListHeader.h in Headers */,
 				0C0EADD21E3787EE002C0400 /* AddOnConstructor.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
 				0C2B8E541E260E4B007901CB /* MidtransInstallmentView.h in Headers */,
@@ -1847,6 +1843,7 @@
 				0C2B8E4F1E2498F9007901CB /* midtrans_lock@2x.png in Resources */,
 				0C7AB5301E309E6800EB6785 /* anz.png in Resources */,
 				E5387D531D62BE7E004CCF3D /* permata_atm_2@2x.png in Resources */,
+				E54F5C151E56AFC500B7592E /* snap_colors.plist in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
 				E50D85F21D0ECB9000F26D2E /* VTIndomaretSuccessController.xib in Resources */,
@@ -2027,7 +2024,6 @@
 				E564550C1D23AD5000CE5FA4 /* VTSegmentedControl.m in Sources */,
 				E517C2C21C9673B4009AE6AA /* VTAlertBackgroundView.m in Sources */,
 				E57202DF1D62FB27006B9265 /* VTGroupedInstruction.m in Sources */,
-				E578DD2C1CFC40480091760A /* MidtransUIPaymentListFooter.m in Sources */,
 				30E713271C859EE100AFB7B4 /* MidtransUIButton.m in Sources */,
 				E5EF82791C8C081F007B6585 /* VTCCBackView.m in Sources */,
 				30E7130E1C856B0D00AFB7B4 /* MidtransUIRoundedLabel.m in Sources */,
@@ -2054,6 +2050,7 @@
 				001FCC021DD06DA50023408D /* VTErrorStatusController.m in Sources */,
 				E583AFEB1C8D5C1600C04512 /* VTPaymentStatusViewModel.m in Sources */,
 				E517C2BD1C9672BA009AE6AA /* VTConfirmPaymentController.m in Sources */,
+				E54F5C191E56C88E00B7592E /* UIColor+SNP_HexString.m in Sources */,
 				3005E2A91C7C239A00064169 /* VTClassHelper.m in Sources */,
 				E56455081D23ABF000CE5FA4 /* VTNoteTitleLabel.m in Sources */,
 				E5C25FF21D26382E0012BCC8 /* MidtransUIBaseViewController.m in Sources */,
@@ -2083,7 +2080,6 @@
 				E583AFF61C8D6DD300C04512 /* VTSuccessStatusController.m in Sources */,
 				E56455041D23A5DB00CE5FA4 /* MidtransUINextStepButton.m in Sources */,
 				E503AED91C8E8AF800F097FF /* MidtransUIListCell.m in Sources */,
-				E578DD281CFC403D0091760A /* MidtransUIPaymentListHeader.m in Sources */,
 				E503AECE1C8E889C00F097FF /* VTVAListController.m in Sources */,
 				E54AC3FF1D16487800BA4603 /* MidtransUIThemeManager.m in Sources */,
 				0C7AB56D1E310E7800EB6785 /* MidtransNewCreditCardView.m in Sources */,

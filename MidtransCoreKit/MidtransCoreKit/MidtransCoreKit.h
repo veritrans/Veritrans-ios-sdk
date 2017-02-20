@@ -55,5 +55,4 @@
 #import "MidtransNetworkLogger.h"
 #import "MidtransPromo.h"
 #import "MidtransPromoEngine.h"
-
 #endif /* MidtransCoreKit_h */

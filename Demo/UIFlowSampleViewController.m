@@ -99,12 +99,16 @@
     }
 }
 -(void)customField {
-    NSDictionary *customField = @{@"NAMA":@"arie",@"pekerjaan":@"developer",@"skill":@"Objective C"};
+    NSMutableArray *arrayOfCustomField = [NSMutableArray new];
+    
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:@"custom1"}];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:@"custom2"}];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:@"custom3"}];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:self.customerDetails
-                                                                       customField:customField
+                                                                       customField:arrayOfCustomField
                                                              transactionExpireTime:nil
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      {

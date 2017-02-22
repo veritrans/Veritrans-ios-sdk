@@ -9,6 +9,11 @@
 /**
  *  error domain
  */
+
+static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
+static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
+static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
+
 static NSString * const MIDTRANS_ERROR_DOMAIN = @"error.veritrans.co.id";
 
 /**

@@ -11,6 +11,8 @@
 #import "MidtransUIListCell.h"
 #import "MidtransUIPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransVAViewController.h"
+
 @interface VTVAListController ()
 @property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
@@ -65,7 +67,7 @@
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:indexPath.row];
     NSString *paymentName  = vaTypeModel.shortName;
     [[MIDTrackingManager shared] trackEventName:paymentName];
-    MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     [self.navigationController pushViewController:vc animated:YES];
 }
 

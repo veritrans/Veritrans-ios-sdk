@@ -352,6 +352,12 @@
 		E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59BD7421D05B288004AE009 /* VASuccessIcon@2x.png */; };
 		E5A35FA01D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h in Headers */ = {isa = PBXBuildFile; fileRef = E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */; };
 		E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */; };
+		E5AA78AF1E657EF2007D8022 /* MidtransVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AA78AD1E657EF2007D8022 /* MidtransVAViewController.h */; };
+		E5AA78B01E657EF2007D8022 /* MidtransVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AA78AE1E657EF2007D8022 /* MidtransVAViewController.m */; };
+		E5AA78B21E657F0E007D8022 /* MidtransVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AA78B11E657F0E007D8022 /* MidtransVAViewController.xib */; };
+		E5AA78B51E657FD2007D8022 /* MidtransVAHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AA78B41E657FD2007D8022 /* MidtransVAHeader.xib */; };
+		E5AA78B81E65808D007D8022 /* MidtransVAHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E5AA78B61E65808D007D8022 /* MidtransVAHeader.h */; };
+		E5AA78B91E65808D007D8022 /* MidtransVAHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AA78B71E65808D007D8022 /* MidtransVAHeader.m */; };
 		E5AB97611D7414A900466A44 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97601D7414A900466A44 /* kioson.plist */; };
 		E5AB97631D74192300466A44 /* kioson@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97621D74192300466A44 /* kioson@2x.png */; };
 		E5AB97651D741C4100466A44 /* VTPendingStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97641D741C4100466A44 /* VTPendingStatusController.xib */; };
@@ -758,6 +764,12 @@
 		E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVATransactionStatusViewModel.h; sourceTree = "<group>"; };
 		E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVATransactionStatusViewModel.m; sourceTree = "<group>"; };
 		E5AA56731DA2679C00DAD851 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../../Library/Developer/Xcode/DerivedData/VTDirectDemo-fgcjdwnqwitkoyctqedzbpnlobvx/Build/Products/Debug-iphonesimulator/libMidtransCoreKit.a"; sourceTree = "<group>"; };
+		E5AA78AD1E657EF2007D8022 /* MidtransVAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransVAViewController.h; sourceTree = "<group>"; };
+		E5AA78AE1E657EF2007D8022 /* MidtransVAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransVAViewController.m; sourceTree = "<group>"; };
+		E5AA78B11E657F0E007D8022 /* MidtransVAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransVAViewController.xib; sourceTree = "<group>"; };
+		E5AA78B41E657FD2007D8022 /* MidtransVAHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransVAHeader.xib; sourceTree = "<group>"; };
+		E5AA78B61E65808D007D8022 /* MidtransVAHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransVAHeader.h; sourceTree = "<group>"; };
+		E5AA78B71E65808D007D8022 /* MidtransVAHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransVAHeader.m; sourceTree = "<group>"; };
 		E5AB97601D7414A900466A44 /* kioson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = kioson.plist; sourceTree = "<group>"; };
 		E5AB97621D74192300466A44 /* kioson@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kioson@2x.png"; sourceTree = "<group>"; };
 		E5AB97641D741C4100466A44 /* VTPendingStatusController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VTPendingStatusController.xib; sourceTree = "<group>"; };
@@ -1226,6 +1238,7 @@
 				E578DD191CFC1BE00091760A /* MidtransUIToast.xib */,
 				E546D1DA1CEAC92A00D65252 /* VTKeyboardAccessoryView.xib */,
 				0093D8B71DC1EC8F00393334 /* MidtransLoadingView.xib */,
+				E5AA78B31E657FC0007D8022 /* VA */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -1325,6 +1338,10 @@
 			children = (
 				E503AECB1C8E889C00F097FF /* VTVAListController.h */,
 				E503AECC1C8E889C00F097FF /* VTVAListController.m */,
+				E5AA78AD1E657EF2007D8022 /* MidtransVAViewController.h */,
+				E5AA78AE1E657EF2007D8022 /* MidtransVAViewController.m */,
+				E5AA78B61E65808D007D8022 /* MidtransVAHeader.h */,
+				E5AA78B71E65808D007D8022 /* MidtransVAHeader.m */,
 			);
 			name = "Bank Transfer";
 			sourceTree = "<group>";
@@ -1557,6 +1574,15 @@
 			name = Status;
 			sourceTree = "<group>";
 		};
+		E5AA78B31E657FC0007D8022 /* VA */ = {
+			isa = PBXGroup;
+			children = (
+				E5AA78B11E657F0E007D8022 /* MidtransVAViewController.xib */,
+				E5AA78B41E657FD2007D8022 /* MidtransVAHeader.xib */,
+			);
+			name = VA;
+			sourceTree = "<group>";
+		};
 		E5D23C801D1D31CA0069B5F9 /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
@@ -1622,6 +1648,7 @@
 				E50438731D1A4A5000710470 /* VTSingleGuideController.h in Headers */,
 				E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */,
 				E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */,
+				E5AA78AF1E657EF2007D8022 /* MidtransVAViewController.h in Headers */,
 				0C0EADD21E3787EE002C0400 /* AddOnConstructor.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
 				0C2B8E541E260E4B007901CB /* MidtransInstallmentView.h in Headers */,
@@ -1665,6 +1692,7 @@
 				E5C25FF51D2639B40012BCC8 /* VTBackBarButtonItem.h in Headers */,
 				E517C2DD1C96C1A2009AE6AA /* PushAnimator.h in Headers */,
 				306838811C7EE7220064A305 /* MidtransUIPaymentViewController.h in Headers */,
+				E5AA78B81E65808D007D8022 /* MidtransVAHeader.h in Headers */,
 				E546D1D81CEAC91D00D65252 /* VTKeyboardAccessoryView.h in Headers */,
 				E57202D61D62F01D006B9265 /* VTGuideView.h in Headers */,
 				30FC52BF1C7D65880094F837 /* NSString+TextDirectionality.h in Headers */,
@@ -1772,6 +1800,7 @@
 				E52831FF1D2116EF00F4F8F0 /* VTCvvInfoController.xib in Resources */,
 				0C2B8E601E260FBF007901CB /* icon_btn_min_@2x.png in Resources */,
 				00F61B071D145B4600C93DA0 /* SourceSansPro-Semibold.ttf in Resources */,
+				E5AA78B51E657FD2007D8022 /* MidtransVAHeader.xib in Resources */,
 				E52832011D2116FB00F4F8F0 /* VTConfirmPaymentController.xib in Resources */,
 				E5AB97631D74192300466A44 /* kioson@2x.png in Resources */,
 				0C39984C1E39DAF300CF5F6D /* MidtransUICustomAlertViewController.xib in Resources */,
@@ -1897,6 +1926,7 @@
 				E5387D4F1D62BE7E004CCF3D /* other_prima_5@2x.png in Resources */,
 				E5387D381D62BE7E004CCF3D /* mandiri_atm_2@2x.png in Resources */,
 				E5387D541D62BE7E004CCF3D /* permata_atm_3@2x.png in Resources */,
+				E5AA78B21E657F0E007D8022 /* MidtransVAViewController.xib in Resources */,
 				00F61B171D146F8C00C93DA0 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				0C7AB5351E309E6800EB6785 /* bca.png in Resources */,
 				00C6855B1DC701910008D08F /* MidtransPaymentStatusViewController.xib in Resources */,
@@ -2060,6 +2090,7 @@
 				3014E0CF1C7AF38F003EB203 /* VTPaymentListController.m in Sources */,
 				30E77E8B1C84021A0090D228 /* VTMandiriClickpayController.m in Sources */,
 				0093D8B21DC1E49A00393334 /* MidtransLoadingIndicator.m in Sources */,
+				E5AA78B01E657EF2007D8022 /* MidtransVAViewController.m in Sources */,
 				00F61B1B1D14703100C93DA0 /* MidtransUIPaymentGeneralView.m in Sources */,
 				E5EF826E1C8C07AF007B6585 /* MidtransUIXibView.m in Sources */,
 				E5C00EE81D61B9E5008DD9C5 /* MidtransUITheme.m in Sources */,
@@ -2110,6 +2141,7 @@
 				002CC9B91D12A442003A1203 /* MidtransUIStringHelper.m in Sources */,
 				302BAA411C8816C400AE68CC /* VTCvvInfoController.m in Sources */,
 				0C2B8E871E2794D4007901CB /* MidtransLineView.m in Sources */,
+				E5AA78B91E65808D007D8022 /* MidtransVAHeader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

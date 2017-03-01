@@ -36,6 +36,7 @@
 "creditcard.promo-title" = "Congratulations";
 
 "va.list.title" = "Select Bank";
+"va.pay-button" = "See Account Number";
 
 "payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
 "payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";

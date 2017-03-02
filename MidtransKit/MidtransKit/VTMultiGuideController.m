@@ -40,6 +40,7 @@
     if ([_model.title isEqualToString:@"Other Bank"]) {
         guidePath =[VTBundle pathForResource:@"all_va" ofType:@"plist"];
     }
+
     self.guideViewControllers = [NSMutableArray new];
 
     NSArray *groupedInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];

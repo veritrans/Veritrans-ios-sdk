@@ -391,26 +391,31 @@ MidtransUICustomAlertViewControllerDelegate
                                   @"SELF['bins'] CONTAINS %@",binNumber];
         NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
         dispatch_once(&once_token, ^{
-             bool isDebitCard = false;
+             BOOL isDebitCard = NO;
             if (filtered.count) {
-                self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-                /// check if mandiri debit card
-               
-                if ([self.filteredBinObject.bank isEqualToString:@"mandiri"]) {
-                    NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                                              @"SELF['bank'] CONTAINS 'mandiri_debit'"];
-                    NSArray *mandiriDebit  = [self.bankBinList filteredArrayUsingPredicate:predicate];
-                    if (mandiriDebit.count) {
-                        MidtransBinResponse *mandiriDebitObject = [[MidtransBinResponse alloc] initWithDictionary:[mandiriDebit firstObject]];
-                        BOOL isMandiriDebitCard = [mandiriDebitObject.bins containsObject:binNumber];
-                        isDebitCard = isMandiriDebitCard;
-                        if (isMandiriDebitCard) {
+                if (filtered.count >1) {
+                    NSArray *debitCard  = [filtered filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF['bank'] CONTAINS 'debit'"]];
+                    if (debitCard.count) {
+                         MidtransBinResponse *debitCardObject = [[MidtransBinResponse alloc] initWithDictionary:[debitCard firstObject]];
+                        if ([debitCardObject.bank containsString:@"mandiri"]) {
+                            isDebitCard = YES;
                             self.title = @"Mandiri Debit Card";
                             self.filteredBinObject.bank = @"mandiri";
+                        } else if([debitCardObject.bank containsString:@"bni"]){
+                            isDebitCard = YES;
+                            self.title = @"BNI Card";
+                            self.filteredBinObject.bank = @"bni";
                         }
                     }
                     
                 }
+                else{
+                    self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+                    if ([self.filteredBinObject.bank containsString:@"debit"]) {
+                        isDebitCard = YES;
+                    }
+                }
+                
                 if (self.installmentAvailable) {
                     if (!isDebitCard) {
                     self.installmentBankName = self.filteredBinObject.bank;
@@ -421,6 +426,7 @@ MidtransUICustomAlertViewControllerDelegate
                 }
             }
             else {
+                self.title = UILocalizedString(@"creditcard.input.title", nil);
                 if([[self.installment.terms objectForKey:@"offline"] count]){
                     if (!isDebitCard) {
 
@@ -437,6 +443,7 @@ MidtransUICustomAlertViewControllerDelegate
     }
     else{
         *onceToken = 0;
+        self.title = UILocalizedString(@"creditcard.input.title", nil);
         self.filteredBinObject.bank = nil;
         self.view.creditCardNumberTextField.info2Icon = nil;
         if (self.installmentValueObject.count > 0) {

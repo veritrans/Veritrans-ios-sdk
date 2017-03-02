@@ -11,7 +11,6 @@
 
 
 @interface MidtransSavedCardController : MidtransUIPaymentController
-@property (nonatomic) MidtransMaskedCreditCard *selectedMaskedCard;
 @property (nonatomic) NSArray <MidtransPromo *>*promos;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod

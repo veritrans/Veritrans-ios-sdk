@@ -253,6 +253,7 @@
 		E53402AD1E683E6600CD0420 /* plus-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53402AC1E683E6600CD0420 /* plus-icon@2x.png */; };
 		E53402B01E68405600CD0420 /* MidtransSavedCardFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */; };
 		E53402B11E68405600CD0420 /* MidtransSavedCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */; };
+		E53402B31E684C9000CD0420 /* trash-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53402B21E684C9000CD0420 /* trash-icon@2x.png */; };
 		E5387D311D62BE7E004CCF3D /* bca_atm_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5387D091D62BE7E004CCF3D /* bca_atm_1@2x.png */; };
 		E5387D321D62BE7E004CCF3D /* bca_atm_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5387D0A1D62BE7E004CCF3D /* bca_atm_2@2x.png */; };
 		E5387D331D62BE7E004CCF3D /* bca_atm_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5387D0B1D62BE7E004CCF3D /* bca_atm_3@2x.png */; };
@@ -521,7 +522,7 @@
 		0CD7EA921E03A2810036C187 /* gci@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gci@2x.png"; sourceTree = "<group>"; };
 		0CD7EA941E03C4070036C187 /* MidtransPaymentGCIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentGCIView.h; sourceTree = "<group>"; };
 		0CD7EA951E03C4070036C187 /* MidtransPaymentGCIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGCIView.m; sourceTree = "<group>"; };
-		0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransNewCreditCardViewController.xib; sourceTree = "<group>"; };
+		0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransNewCreditCardViewController.xib; path = ../MidtransResources/MidtransNewCreditCardViewController.xib; sourceTree = "<group>"; };
 		15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2891C7C17A200064169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -673,6 +674,7 @@
 		E53402AC1E683E6600CD0420 /* plus-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-icon@2x.png"; sourceTree = "<group>"; };
 		E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardFooter.h; sourceTree = "<group>"; };
 		E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardFooter.m; sourceTree = "<group>"; };
+		E53402B21E684C9000CD0420 /* trash-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "trash-icon@2x.png"; sourceTree = "<group>"; };
 		E5387D091D62BE7E004CCF3D /* bca_atm_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_atm_1@2x.png"; sourceTree = "<group>"; };
 		E5387D0A1D62BE7E004CCF3D /* bca_atm_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_atm_2@2x.png"; sourceTree = "<group>"; };
 		E5387D0B1D62BE7E004CCF3D /* bca_atm_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_atm_3@2x.png"; sourceTree = "<group>"; };
@@ -885,6 +887,7 @@
 				0CF976791E315CDA00D2D0D0 /* Add On Payment */,
 				0C7AB5641E310ABD00EB6785 /* MidtransNewCreditCardViewController.h */,
 				0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */,
+				0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */,
 				0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */,
 				0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */,
 			);
@@ -1266,6 +1269,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E53402B21E684C9000CD0420 /* trash-icon@2x.png */,
 				E53402AC1E683E6600CD0420 /* plus-icon@2x.png */,
 				E5306C861E55C1D9008B0CD3 /* mandiri_va@2x.png */,
 				0C7AB4FD1E309E6800EB6785 /* bank_assets */,
@@ -1575,7 +1579,6 @@
 				E57FFC831E1256B6002A875C /* MidtransItemCell.xib */,
 				E5F175491E1330F10000C019 /* MidtransTransactionDetailViewController.xib */,
 				E5F1754F1E135DC30000C019 /* MidtransPaymentMethodHeader.xib */,
-				0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */,
 			);
 			name = "Payment Method";
 			sourceTree = "<group>";
@@ -1921,6 +1924,7 @@
 				0C7AB53A1E309E6800EB6785 /* bni.png in Resources */,
 				309CC0F21C86C72200C058BE /* JCBDark@2x.png in Resources */,
 				30E7131C1C85975000AFB7B4 /* DetailDisclosure@2x.png in Resources */,
+				E53402B31E684C9000CD0420 /* trash-icon@2x.png in Resources */,
 				309CC0F31C86C72200C058BE /* MasterCard@2x.png in Resources */,
 				E503AEC71C8E85C500F097FF /* va@2x.png in Resources */,
 				309CC0D71C86960000C058BE /* InfoIcon@2x.png in Resources */,

@@ -12,6 +12,7 @@
 #import "MidtransPaymentMethodHeader.h"
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransSavedCardFooter.h"
+#import "VTConfirmPaymentController.h"
 
 @interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) IBOutlet UITableView *tableView;
@@ -104,6 +105,44 @@
     [self.navigationController pushViewController:vc animated:YES];
 }
 
+- (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
+    VTConfirmPaymentController *vc =
+    [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
+                                               grossAmount:self.token.transactionDetails.grossAmount];
+    [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
+        if (selectedIndex == 1) {
+            [self showLoadingWithText:@"Processing your transaction"];
+            
+            MidtransPaymentCreditCard *paymentDetail =
+            [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber
+                                                  customer:self.token.customerDetails
+                                                  saveCard:NO
+                                               installment:nil];
+            MidtransTransaction *transaction =
+            [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
+                                                          token:self.token];
+            
+            [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+                [self hideLoading];
+                
+                if (error) {
+                    [self handleTransactionError:error];
+                } else {
+                    [self handleTransactionSuccess:result];
+                }
+            }];
+        }
+    }];
+}
+
+- (void)performTwoClicksWithCard:(MidtransMaskedCreditCard *)card {
+    MidtransNewCreditCardViewController *vc =
+    [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
+                                                    maskedCard:card
+                                                    creditCard:self.creditCard];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.cards.count;
 }
@@ -123,10 +162,23 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
-                                                                                              maskedCard:self.cards[indexPath.row]
-                                                                                              creditCard:self.creditCard];
-    [self.navigationController pushViewController:vc animated:YES];
+    MidtransMaskedCreditCard *card = self.cards[indexPath.row];
+    if (CC_CONFIG.tokenStorageEnabled) {
+        if ([card.tokenType isEqualToString:TokenTypeOneClick]) {
+            [self performOneClickWithCard:card];
+        }
+        else {
+            [self performTwoClicksWithCard:card];
+        }
+    }
+    else {
+        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
+            [self performOneClickWithCard:card];
+        }
+        else {
+            [self performTwoClicksWithCard:card];
+        }
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

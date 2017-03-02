@@ -256,10 +256,11 @@ MidtransUICustomAlertViewControllerDelegate
     }
     else {
         self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:originNumber];
-        if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
-            self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
-        }
+        self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
+//        if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
         
+       // }
+    
     }
 }
 - (void)reformatCardNumber {
@@ -390,21 +391,44 @@ MidtransUICustomAlertViewControllerDelegate
                                   @"SELF['bins'] CONTAINS %@",binNumber];
         NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
         dispatch_once(&once_token, ^{
+             bool isDebitCard = false;
             if (filtered.count) {
                 self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+                /// check if mandiri debit card
+               
+                if ([self.filteredBinObject.bank isEqualToString:@"mandiri"]) {
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                                              @"SELF['bank'] CONTAINS 'mandiri_debit'"];
+                    NSArray *mandiriDebit  = [self.bankBinList filteredArrayUsingPredicate:predicate];
+                    if (mandiriDebit.count) {
+                        MidtransBinResponse *mandiriDebitObject = [[MidtransBinResponse alloc] initWithDictionary:[mandiriDebit firstObject]];
+                        BOOL isMandiriDebitCard = [mandiriDebitObject.bins containsObject:binNumber];
+                        isDebitCard = isMandiriDebitCard;
+                        if (isMandiriDebitCard) {
+                            self.title = @"Mandiri Debit Card";
+                            self.filteredBinObject.bank = @"mandiri";
+                        }
+                    }
+                    
+                }
                 if (self.installmentAvailable) {
+                    if (!isDebitCard) {
                     self.installmentBankName = self.filteredBinObject.bank;
                     [self.installmentValueObject addObject:@"0"];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
-                    [self showInstallmentView:YES];
+                        [self showInstallmentView:YES];
+                    }
                 }
             }
             else {
                 if([[self.installment.terms objectForKey:@"offline"] count]){
+                    if (!isDebitCard) {
+
                     self.installmentBankName = @"offline";
                     [self.installmentValueObject addObject:@"0"];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
                     [self showInstallmentView:YES];
+                }
                 }
                 
             }

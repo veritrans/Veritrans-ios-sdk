@@ -12,6 +12,11 @@
 #import "MidtransUITextField.h"
 #import "MidtransUIThemeManager.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransPaymentMethodHeader.h"
+
+@interface MidtransNewCreditCardView()
+@property (nonatomic) IBOutlet MidtransPaymentMethodHeader *headerView;
+@end
 
 @implementation MidtransNewCreditCardView
 
@@ -23,14 +28,12 @@
     self.secureBadgeWrapper.layer.borderWidth = 1.0f;
     self.secureBadgeWrapper.layer.borderColor = [UIColor clearColor].CGColor;
     
-    self.topHeaderContainerView.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
-    
     self.cvvInfoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     UIImage *image = [[UIImage imageNamed:@"hint" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.cvvInfoButton setImage:image forState:UIControlStateNormal];
 }
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
-    self.totalAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.headerView.priceAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 - (UIImage *)iconWithBankName:(NSString *)bankName {
     return [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];

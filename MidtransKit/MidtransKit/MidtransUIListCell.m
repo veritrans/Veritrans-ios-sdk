@@ -19,6 +19,9 @@
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
         imagePath = @"mandiri_va";
     }
+    else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
+    self.paymentMethodNameLabel.text = @"Credit/Debit Card";
+    }
 
     self.paymentMethodLogo.image = [UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil];
     

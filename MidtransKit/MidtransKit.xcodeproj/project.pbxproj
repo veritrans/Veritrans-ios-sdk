@@ -243,6 +243,16 @@
 		E52F72B81C996103009D7BA4 /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B61C996103009D7BA4 /* Visa@2x.png */; };
 		E52F72B91C996103009D7BA4 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E52F72B71C996103009D7BA4 /* VisaDark@2x.png */; };
 		E5306C871E55C1D9008B0CD3 /* mandiri_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5306C861E55C1D9008B0CD3 /* mandiri_va@2x.png */; };
+		E53402A11E6809D000CD0420 /* MidtransSavedCardController.h in Headers */ = {isa = PBXBuildFile; fileRef = E534029E1E6809D000CD0420 /* MidtransSavedCardController.h */; };
+		E53402A21E6809D000CD0420 /* MidtransSavedCardController.m in Sources */ = {isa = PBXBuildFile; fileRef = E534029F1E6809D000CD0420 /* MidtransSavedCardController.m */; };
+		E53402A31E6809D800CD0420 /* MidtransSavedCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */; };
+		E53402A71E680BA100CD0420 /* MidtransSavedCardCell.h in Headers */ = {isa = PBXBuildFile; fileRef = E53402A41E680BA100CD0420 /* MidtransSavedCardCell.h */; };
+		E53402A81E680BA100CD0420 /* MidtransSavedCardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E53402A51E680BA100CD0420 /* MidtransSavedCardCell.m */; };
+		E53402A91E68101D00CD0420 /* MidtransSavedCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */; };
+		E53402AB1E683D6A00CD0420 /* MidtransSavedCardFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */; };
+		E53402AD1E683E6600CD0420 /* plus-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E53402AC1E683E6600CD0420 /* plus-icon@2x.png */; };
+		E53402B01E68405600CD0420 /* MidtransSavedCardFooter.h in Headers */ = {isa = PBXBuildFile; fileRef = E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */; };
+		E53402B11E68405600CD0420 /* MidtransSavedCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */; };
 		E5387D311D62BE7E004CCF3D /* bca_atm_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5387D091D62BE7E004CCF3D /* bca_atm_1@2x.png */; };
 		E5387D321D62BE7E004CCF3D /* bca_atm_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5387D0A1D62BE7E004CCF3D /* bca_atm_2@2x.png */; };
 		E5387D331D62BE7E004CCF3D /* bca_atm_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5387D0B1D62BE7E004CCF3D /* bca_atm_3@2x.png */; };
@@ -653,6 +663,16 @@
 		E52F72B61C996103009D7BA4 /* Visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Visa@2x.png"; sourceTree = "<group>"; };
 		E52F72B71C996103009D7BA4 /* VisaDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VisaDark@2x.png"; sourceTree = "<group>"; };
 		E5306C861E55C1D9008B0CD3 /* mandiri_va@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mandiri_va@2x.png"; sourceTree = "<group>"; };
+		E534029E1E6809D000CD0420 /* MidtransSavedCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardController.h; sourceTree = "<group>"; };
+		E534029F1E6809D000CD0420 /* MidtransSavedCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardController.m; sourceTree = "<group>"; };
+		E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransSavedCardController.xib; sourceTree = "<group>"; };
+		E53402A41E680BA100CD0420 /* MidtransSavedCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardCell.h; sourceTree = "<group>"; };
+		E53402A51E680BA100CD0420 /* MidtransSavedCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardCell.m; sourceTree = "<group>"; };
+		E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransSavedCardCell.xib; sourceTree = "<group>"; };
+		E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransSavedCardFooter.xib; sourceTree = "<group>"; };
+		E53402AC1E683E6600CD0420 /* plus-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-icon@2x.png"; sourceTree = "<group>"; };
+		E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardFooter.h; sourceTree = "<group>"; };
+		E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardFooter.m; sourceTree = "<group>"; };
 		E5387D091D62BE7E004CCF3D /* bca_atm_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_atm_1@2x.png"; sourceTree = "<group>"; };
 		E5387D0A1D62BE7E004CCF3D /* bca_atm_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_atm_2@2x.png"; sourceTree = "<group>"; };
 		E5387D0B1D62BE7E004CCF3D /* bca_atm_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bca_atm_3@2x.png"; sourceTree = "<group>"; };
@@ -1246,6 +1266,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E53402AC1E683E6600CD0420 /* plus-icon@2x.png */,
 				E5306C861E55C1D9008B0CD3 /* mandiri_va@2x.png */,
 				0C7AB4FD1E309E6800EB6785 /* bank_assets */,
 				E5387D081D62BE6D004CCF3D /* instructions */,
@@ -1320,6 +1341,15 @@
 				300F5CA51C7C0EB200DA6E13 /* VTCardListController.m */,
 				30E879851C88EDE1000C0F4B /* VTTwoClickController.h */,
 				30E879861C88EDE1000C0F4B /* VTTwoClickController.m */,
+				E534029E1E6809D000CD0420 /* MidtransSavedCardController.h */,
+				E534029F1E6809D000CD0420 /* MidtransSavedCardController.m */,
+				E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */,
+				E53402A41E680BA100CD0420 /* MidtransSavedCardCell.h */,
+				E53402A51E680BA100CD0420 /* MidtransSavedCardCell.m */,
+				E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */,
+				E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */,
+				E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */,
+				E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */,
 			);
 			name = "Credit Card";
 			sourceTree = "<group>";
@@ -1627,6 +1657,7 @@
 				0CD7EA961E03C4070036C187 /* MidtransPaymentGCIView.h in Headers */,
 				3014E0CE1C7AF38F003EB203 /* VTPaymentListController.h in Headers */,
 				3056A21D1C7EA3660015B3CC /* VTItemViewModel.h in Headers */,
+				E53402A71E680BA100CD0420 /* MidtransSavedCardCell.h in Headers */,
 				E57FFC891E125FDA002A875C /* MidtransItemCell.h in Headers */,
 				E583AFEA1C8D5C1600C04512 /* VTPaymentStatusViewModel.h in Headers */,
 				0C2B8E861E2794D4007901CB /* MidtransLineView.h in Headers */,
@@ -1648,6 +1679,7 @@
 				E50438731D1A4A5000710470 /* VTSingleGuideController.h in Headers */,
 				E564550B1D23AD5000CE5FA4 /* VTSegmentedControl.h in Headers */,
 				E56455071D23ABF000CE5FA4 /* VTNoteTitleLabel.h in Headers */,
+				E53402B01E68405600CD0420 /* MidtransSavedCardFooter.h in Headers */,
 				E5AA78AF1E657EF2007D8022 /* MidtransVAViewController.h in Headers */,
 				0C0EADD21E3787EE002C0400 /* AddOnConstructor.h in Headers */,
 				300F5CA61C7C0EB200DA6E13 /* VTCardListController.h in Headers */,
@@ -1672,6 +1704,7 @@
 				0093D8B51DC1EC7D00393334 /* MidtransLoadingView.h in Headers */,
 				E5165C5C1DF12031008334AB /* MidtransUIConfiguration.h in Headers */,
 				E5AB976C1D741C8D00466A44 /* VTPendingStatusController.h in Headers */,
+				E53402A11E6809D000CD0420 /* MidtransSavedCardController.h in Headers */,
 				E5591A481CEF0DB0005A2DB1 /* VTVASuccessStatusController.h in Headers */,
 				0C0EADC31E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.h in Headers */,
 				E503AED81C8E8AF800F097FF /* MidtransUIListCell.h in Headers */,
@@ -1790,6 +1823,7 @@
 				E59BD7441D05B288004AE009 /* VASuccessIcon@2x.png in Resources */,
 				E5EF827C1C8C0837007B6585 /* MidtransUICCFrontView.xib in Resources */,
 				E511CF4F1E486D1000926FC7 /* ccOfferIcon@2x.png in Resources */,
+				E53402AB1E683D6A00CD0420 /* MidtransSavedCardFooter.xib in Resources */,
 				E517FE731D4AF5580083B136 /* VTErrorStatusController.xib in Resources */,
 				E5D23C861D1D31FC0069B5F9 /* VTAddCardController.xib in Resources */,
 				E5387D391D62BE7E004CCF3D /* mandiri_atm_3@2x.png in Resources */,
@@ -1802,6 +1836,7 @@
 				00F61B071D145B4600C93DA0 /* SourceSansPro-Semibold.ttf in Resources */,
 				E5AA78B51E657FD2007D8022 /* MidtransVAHeader.xib in Resources */,
 				E52832011D2116FB00F4F8F0 /* VTConfirmPaymentController.xib in Resources */,
+				E53402A91E68101D00CD0420 /* MidtransSavedCardCell.xib in Resources */,
 				E5AB97631D74192300466A44 /* kioson@2x.png in Resources */,
 				0C39984C1E39DAF300CF5F6D /* MidtransUICustomAlertViewController.xib in Resources */,
 				E5583DFF1D0FD443002B7FA1 /* VTMandiriClickpayController.xib in Resources */,
@@ -1873,6 +1908,7 @@
 				0C7AB5301E309E6800EB6785 /* anz.png in Resources */,
 				E5387D531D62BE7E004CCF3D /* permata_atm_2@2x.png in Resources */,
 				E54F5C151E56AFC500B7592E /* snap_colors.plist in Resources */,
+				E53402AD1E683E6600CD0420 /* plus-icon@2x.png in Resources */,
 				30E713001C85592800AFB7B4 /* TokenButtonIcon@2x.png in Resources */,
 				30AB739B1C7D57AA001F42FE /* ImageOffer@2x.png in Resources */,
 				E50D85F21D0ECB9000F26D2E /* VTIndomaretSuccessController.xib in Resources */,
@@ -1933,6 +1969,7 @@
 				0C7AB5531E309E6800EB6785 /* maybank.png in Resources */,
 				E511CF511E487C0500926FC7 /* MidtransPromoView.xib in Resources */,
 				0C2B8E631E260FC0007901CB /* icon_btn_plus_@2x.png in Resources */,
+				E53402A31E6809D800CD0420 /* MidtransSavedCardController.xib in Resources */,
 				E58017F21D586E36007D2DEC /* VTXLTunaiSuccessController.xib in Resources */,
 				E5D23C7D1D1D104A0069B5F9 /* MasterCardDark@2x.png in Resources */,
 				E5387D361D62BE7E004CCF3D /* bca_atm_6@2x.png in Resources */,
@@ -2072,6 +2109,7 @@
 				E58017F01D586A10007D2DEC /* VTPaymentStatusXLTunaiViewModel.m in Sources */,
 				E50438781D1A4A7C00710470 /* VTSubGuideController.m in Sources */,
 				0C2B8E681E275837007901CB /* MidtransCollectionViewLayout.m in Sources */,
+				E53402A21E6809D000CD0420 /* MidtransSavedCardController.m in Sources */,
 				0C2B8E6D1E275928007901CB /* MidtransInstallmentCollectionViewCell.m in Sources */,
 				30E77E811C83FE570090D228 /* MIdtransUIBorderedView.m in Sources */,
 				E5C25FEE1D2615950012BCC8 /* UIFont+IBCustomFonts.m in Sources */,
@@ -2118,6 +2156,7 @@
 				E5EF82741C8C0814007B6585 /* MidtransUICCFrontView.m in Sources */,
 				0093D8B61DC1EC7D00393334 /* MidtransLoadingView.m in Sources */,
 				00F61B211D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.m in Sources */,
+				E53402A81E680BA100CD0420 /* MidtransSavedCardCell.m in Sources */,
 				300F5CA71C7C0EB200DA6E13 /* VTCardListController.m in Sources */,
 				E50438741D1A4A5000710470 /* VTSingleGuideController.m in Sources */,
 				E578DD0B1CFBF6480091760A /* UIView+Toast.m in Sources */,
@@ -2126,6 +2165,7 @@
 				E517C2D21C969110009AE6AA /* UICollectionView+Empty.m in Sources */,
 				E5AB976D1D741C8D00466A44 /* VTPendingStatusController.m in Sources */,
 				0C0EADC41E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.m in Sources */,
+				E53402B11E68405600CD0420 /* MidtransSavedCardFooter.m in Sources */,
 				30E879881C88EDE1000C0F4B /* VTTwoClickController.m in Sources */,
 				0C39984A1E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m in Sources */,
 				E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */,

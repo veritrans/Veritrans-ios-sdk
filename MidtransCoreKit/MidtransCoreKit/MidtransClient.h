@@ -53,5 +53,5 @@
 - (void)registerCreditCard:(MidtransCreditCard *_Nonnull)creditCard
                 completion:(void (^_Nullable)(MidtransMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
 
-+ (BOOL)isCard:(MidtransCreditCard *_Nonnull)card eligibleForBins:(NSArray *_Nullable)bins error:(NSError **)error;
++ (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 @end

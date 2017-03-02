@@ -16,4 +16,7 @@
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
                     paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
                     andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard;
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
+                            maskedCard:(MidtransMaskedCreditCard *_Nonnull)maskedCard
+                            creditCard:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard;
 @end

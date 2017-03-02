@@ -7,15 +7,29 @@
 //
 
 #import "MidtransSavedCardFooter.h"
+#import "MidtransUIThemeManager.h"
+#import "VTClassHelper.h"
 
 @implementation MidtransSavedCardFooter
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    UIColor *themeColor = [[MidtransUIThemeManager shared] themeColor];
+    [self.addCardButton setImage:[self templateImageNamed:@"plus-icon"] forState:UIControlStateNormal];
+    [self.addCardButton setTitleColor:themeColor forState:UIControlStateNormal];
+    [self.addCardButton setTintColor:themeColor];
+    UIEdgeInsets insets = self.addCardButton.titleEdgeInsets;
+    insets.left = 8;
+    self.addCardButton.titleEdgeInsets = insets;
+    self.addCardButton.layer.borderColor = themeColor.CGColor;
+    self.addCardButton.layer.borderWidth = 1.;
+    self.addCardButton.layer.cornerRadius = 5.;
+    
 }
-*/
+
+- (UIImage *)templateImageNamed:(NSString *)imageName {
+    return [[UIImage imageNamed:imageName inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+}
 
 @end

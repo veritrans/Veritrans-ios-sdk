@@ -11,6 +11,7 @@
 @protocol MidtransUICustomAlertViewControllerDelegate <NSObject>
 
 - (void)didSelectOKButtonAlertViewController:(MidtransUICustomAlertViewController *)alertViewVC;
+@optional
 - (void)didSelectCancelButtonAlertViewController:(MidtransUICustomAlertViewController *)alertViewVC;
 
 @end

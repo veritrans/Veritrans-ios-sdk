@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MidtransSavedCardFooter : UIView
+@property (strong, nonatomic) IBOutlet UIButton *addCardButton;
 
 @end

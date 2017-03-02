@@ -55,6 +55,7 @@ MidtransUICustomAlertViewControllerDelegate
 @property (nonatomic) NSInteger constraintsHeight;
 @property (nonatomic,strong)NSArray *bankBinList;
 @property (nonatomic) MidtransObtainedPromo *obtainedPromo;
+@property (nonatomic) MidtransMaskedCreditCard *maskedCreditCard;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -69,6 +70,18 @@ MidtransUICustomAlertViewControllerDelegate
     }
     return self;
 }
+
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+                   maskedCard:(MidtransMaskedCreditCard *)maskedCard
+                   creditCard:(MidtransPaymentRequestV2CreditCard *)creditCard {
+    if (self = [super initWithToken:token]) {
+        self.maskedCreditCard = maskedCard;
+        self.creditCardInfo = creditCard;
+        self.token = token;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -95,7 +108,7 @@ MidtransUICustomAlertViewControllerDelegate
     
     self.saveCard = NO;
     
-    if ([CC_CONFIG saveCardEnabled]) {
+    if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":@"CREDIT_CARD_SAVE",
                                                                     @"addOnTitle":@"Save card for later use"}];
@@ -111,6 +124,19 @@ MidtransUICustomAlertViewControllerDelegate
             }
         }
     }
+    
+    if (self.maskedCreditCard) {
+        self.view.creditCardNumberTextField.text = self.maskedCreditCard.formattedNumber;
+        self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
+        self.view.creditCardNumberTextField.enabled = NO;
+        self.view.cardExpireTextField.enabled = NO;
+        [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
+    }
+    else {
+        self.view.creditCardNumberTextField.enabled = YES;
+        self.view.cardExpireTextField.enabled = YES;
+    }
+    
     self.installment = [[MidtransPaymentRequestV2Installment alloc]
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
     
@@ -257,10 +283,6 @@ MidtransUICustomAlertViewControllerDelegate
     else {
         self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:originNumber];
         self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
-//        if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
-        
-       // }
-    
     }
 }
 - (void)reformatCardNumber {

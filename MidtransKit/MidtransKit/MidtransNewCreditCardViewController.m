@@ -256,10 +256,11 @@ MidtransUICustomAlertViewControllerDelegate
     }
     else {
         self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:originNumber];
-        if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
-            self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
-        }
+        self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
+//        if (self.installmentBankName.length && ![self.installmentBankName isEqualToString:@"offline"]) {
         
+       // }
+    
     }
 }
 - (void)reformatCardNumber {
@@ -392,6 +393,21 @@ MidtransUICustomAlertViewControllerDelegate
         dispatch_once(&once_token, ^{
             if (filtered.count) {
                 self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+                /// check if mandiri debit card
+                if ([self.filteredBinObject.bank isEqualToString:@"mandiri"]) {
+                    NSPredicate *predicate = [NSPredicate predicateWithFormat:
+                                              @"SELF['bank'] CONTAINS 'mandiri_debit'"];
+                    NSArray *mandiriDebit  = [self.bankBinList filteredArrayUsingPredicate:predicate];
+                    if (mandiriDebit.count) {
+                        MidtransBinResponse *mandiriDebitObject = [[MidtransBinResponse alloc] initWithDictionary:[mandiriDebit firstObject]];
+                        BOOL isMandiriDebitCard = [mandiriDebitObject.bins containsObject:binNumber];
+                        if (isMandiriDebitCard) {
+                            self.title = @"Mandiri Debit Card";
+                            self.filteredBinObject.bank = @"mandiri";
+                        }
+                    }
+                    
+                }
                 if (self.installmentAvailable) {
                     self.installmentBankName = self.filteredBinObject.bank;
                     [self.installmentValueObject addObject:@"0"];

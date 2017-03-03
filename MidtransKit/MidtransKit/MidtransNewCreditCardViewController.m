@@ -465,9 +465,12 @@ UIAlertViewDelegate
                 if ([self.filteredBinObject.bank containsString:@"debit"]) {
                     if ([self.filteredBinObject.bank containsString:@"mandiri"]) {
                          self.title = @"Mandiri Debit Card";
+                         self.filteredBinObject.bank = @"mandiri";
+                        
                     }
                     else if([self.filteredBinObject.bank containsString:@"bni"]){
                         self.title = @"BNI Card";
+                        self.filteredBinObject.bank = @"bni";
                     }
                     isDebitCard = YES;
                 }

@@ -13,6 +13,8 @@
 #import "MidtransMaskedCreditCard.h"
 #import "MidtransTransactionExpire.h"
 #import "MidtransTransactionResult.h"
+#import "MidtransPaymentRequestV2SavedTokens.h"
+
 @class MidtransTransactionTokenResponse,MidtransPaymentRequestV2Response;
 /**
  `VTMerchant` wraps operation that offered by the Merchant Server. Note that data format is tightly-coupled with the merchant server implementation. Please refer to the Merchant Server documentation for further information.
@@ -70,5 +72,9 @@
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(MidtransPaymentRequestV2Response *_Nullable response, NSError *_Nullable error))completion;
+
+- (void)deleteMaskedCreditCard:(MidtransMaskedCreditCard *)maskedCard
+                         token:(MidtransTransactionTokenResponse *)token
+                    completion:(void(^)(BOOL success))completion;
 
 @end

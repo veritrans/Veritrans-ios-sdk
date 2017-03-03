@@ -53,3 +53,8 @@
 "kioson.pending.code-title" = "Payment Code";
 "kioson.pending.howto-title" = "How Can I Pay via Kioson";
 "kioson.pending.copy-title" = "Copy Payment Code";
+
+"alert.title" = "Warning";
+"alert.message-delete-card" = "Are you sure to delete this card?";
+"alert.no" = "No";
+"alert.yes" = "Yes";

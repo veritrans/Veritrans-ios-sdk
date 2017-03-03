@@ -15,13 +15,13 @@
  */
 @interface MidtransTokenizeRequest : NSObject
 
-@property (nonatomic, readonly) MidtransCreditCard *creditCard;
-@property (nonatomic, readonly) NSNumber *grossAmount;
-@property (nonatomic, readonly) BOOL installment;
-@property (nonatomic, readonly) NSNumber *installmentTerm;
-@property (nonatomic, readonly) NSString *token;
-@property (nonatomic, readonly) BOOL twoClick;
-@property (nonatomic, readonly) BOOL secure;
+@property (nonatomic) MidtransCreditCard *creditCard;
+@property (nonatomic) NSNumber *grossAmount;
+@property (nonatomic) BOOL installment;
+@property (nonatomic) NSNumber *installmentTerm;
+@property (nonatomic) NSString *token;
+@property (nonatomic) BOOL twoClick;
+@property (nonatomic) BOOL secure;
 
 @property (nonatomic) MidtransObtainedPromo *obtainedPromo;
 

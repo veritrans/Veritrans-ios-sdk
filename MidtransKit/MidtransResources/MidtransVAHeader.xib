@@ -35,7 +35,7 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gR6-sh-JnL">
-                        <rect key="frame" x="15" y="383.5" width="345" height="31"/>
+                        <rect key="frame" x="15" y="363" width="345" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="tND-wI-0du"/>
                         </constraints>
@@ -45,29 +45,39 @@
                         </segments>
                     </segmentedControl>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="We will also send the payment instruction to your email" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-mz-S8H">
-                        <rect key="frame" x="15" y="56" width="345" height="319.5"/>
+                        <rect key="frame" x="15" y="56" width="345" height="291"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIR-WH-ZYP">
+                        <rect key="frame" x="15" y="401" width="345" height="19"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="iIR-WH-ZYP" firstAttribute="top" secondItem="gR6-sh-JnL" secondAttribute="bottom" constant="8" id="1C0-CF-bmO"/>
                     <constraint firstItem="zir-Nc-rh2" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="3aw-mf-6WY"/>
                     <constraint firstItem="zir-Nc-rh2" firstAttribute="top" secondItem="dxx-fu-CgF" secondAttribute="top" constant="8" id="E4y-Ku-AKV"/>
                     <constraint firstItem="tbu-mz-S8H" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="T7i-bv-UMq"/>
                     <constraint firstItem="gR6-sh-JnL" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="Tvv-Uh-cdP"/>
                     <constraint firstItem="tbu-mz-S8H" firstAttribute="top" secondItem="zir-Nc-rh2" secondAttribute="bottom" id="UMn-rl-IpM"/>
-                    <constraint firstItem="gR6-sh-JnL" firstAttribute="top" secondItem="tbu-mz-S8H" secondAttribute="bottom" constant="8" id="Yz1-EP-3cn"/>
-                    <constraint firstAttribute="bottom" secondItem="gR6-sh-JnL" secondAttribute="bottom" constant="15" id="a3U-7l-2sD"/>
+                    <constraint firstItem="gR6-sh-JnL" firstAttribute="top" secondItem="tbu-mz-S8H" secondAttribute="bottom" constant="16" id="Yz1-EP-3cn"/>
                     <constraint firstAttribute="trailing" secondItem="tbu-mz-S8H" secondAttribute="trailing" constant="15" id="bf6-0P-hCJ"/>
                     <constraint firstAttribute="trailing" secondItem="zir-Nc-rh2" secondAttribute="trailing" constant="15" id="f9D-fT-pie"/>
+                    <constraint firstAttribute="bottom" secondItem="iIR-WH-ZYP" secondAttribute="bottom" constant="8" id="fXB-Jh-XB5"/>
                     <constraint firstAttribute="trailing" secondItem="gR6-sh-JnL" secondAttribute="trailing" constant="15" id="lpd-FN-kUo"/>
+                    <constraint firstAttribute="trailing" secondItem="iIR-WH-ZYP" secondAttribute="trailing" constant="15" id="n6x-82-dri"/>
+                    <constraint firstItem="iIR-WH-ZYP" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="nbm-n8-ung"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="descLabel" destination="tbu-mz-S8H" id="EqR-x7-d52"/>
                 <outlet property="emailTextField" destination="zir-Nc-rh2" id="wbG-5y-kho"/>
                 <outlet property="tabSwitch" destination="gR6-sh-JnL" id="vHf-KX-Js7"/>
+                <outlet property="tutorialTitleLabel" destination="iIR-WH-ZYP" id="WsP-9c-ad8"/>
             </connections>
             <point key="canvasLocation" x="4" y="-92"/>
         </tableViewCell>

@@ -35,9 +35,9 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     return instance;
 }
 
-+ (BOOL)isCard:(MidtransCreditCard *)card eligibleForBins:(NSArray *)bins error:(NSError **)error {
++ (BOOL)isCreditCardNumber:(NSString *)ccNumber eligibleForBins:(NSArray *)bins error:(NSError **)error {
     for (NSString *whiteListedBin in bins) {
-        if ([card.number containsString:whiteListedBin]) {
+        if ([ccNumber containsString:whiteListedBin]) {
             return YES;
         }
     }

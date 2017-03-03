@@ -54,3 +54,8 @@
 
 "creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
 "creditcard.promo-title" = "Selamat";
+
+"alert.title" = "Perhatian";
+"alert.message-delete-card" = "Apakah anda yakin akan menghapus kartu ini?";
+"alert.no" = "Tidak";
+"alert.yes" = "Ya";

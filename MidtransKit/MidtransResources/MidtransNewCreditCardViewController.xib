@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,11 +9,6 @@
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <customFonts key="customFonts">
-        <array key="SourceSansPro-Semibold.ttf">
-            <string>SourceSansPro-Semibold</string>
-        </array>
-    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransNewCreditCardViewController">
             <connections>
@@ -27,7 +22,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-RD-scv">
-                    <rect key="frame" x="0.0" y="52" width="320" height="375"/>
+                    <rect key="frame" x="0.0" y="50" width="320" height="377"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-qA-ZcM">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="238"/>
@@ -174,34 +169,6 @@
                         <constraint firstItem="nkU-qA-ZcM" firstAttribute="width" secondItem="ACd-RD-scv" secondAttribute="width" id="c5t-7G-mMf"/>
                     </constraints>
                 </scrollView>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="he9-LD-p6z">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL AMOUNT TO BE PAID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4wz-Uq-a1I">
-                            <rect key="frame" x="8" y="12" width="129.5" height="21"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="11"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lSW-Xr-dKE">
-                            <rect key="frame" x="214.5" y="12" width="97.5" height="21"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
-                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="0.10588235294117647" green="0.5607843137254902" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="bottom" secondItem="4wz-Uq-a1I" secondAttribute="bottom" constant="11" id="A3K-Aj-LgT"/>
-                        <constraint firstAttribute="bottom" secondItem="lSW-Xr-dKE" secondAttribute="bottom" constant="11" id="Gsr-22-poB"/>
-                        <constraint firstAttribute="trailing" secondItem="lSW-Xr-dKE" secondAttribute="trailing" constant="8.5" id="d4d-1s-c8L"/>
-                        <constraint firstItem="lSW-Xr-dKE" firstAttribute="top" secondItem="he9-LD-p6z" secondAttribute="top" constant="12" id="ei3-hM-B0W"/>
-                        <constraint firstItem="4wz-Uq-a1I" firstAttribute="leading" secondItem="he9-LD-p6z" secondAttribute="leading" constant="8" id="gUb-gi-Mbf"/>
-                        <constraint firstItem="4wz-Uq-a1I" firstAttribute="top" secondItem="he9-LD-p6z" secondAttribute="top" constant="12" id="hzg-nF-VWa"/>
-                        <constraint firstItem="lSW-Xr-dKE" firstAttribute="leading" secondItem="4wz-Uq-a1I" secondAttribute="trailing" constant="76.5" id="ocd-IC-Caa"/>
-                        <constraint firstAttribute="height" constant="44" id="sYP-jV-Iq3"/>
-                    </constraints>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7l5-VJ-9Eb" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="0.0" y="424" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -214,21 +181,50 @@
                         <action selector="submitPaymentDidtapped:" destination="-1" eventType="touchUpInside" id="sMg-yV-0cg"/>
                     </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K39-0u-IJj" customClass="MidtransPaymentMethodHeader">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL AMOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
+                            <rect key="frame" x="15" y="20.5" width="69" height="10"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-08-1kx">
+                            <rect key="frame" x="255" y="0.0" width="50" height="50"/>
+                            <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="l67-Ku-WeL" firstAttribute="centerY" secondItem="9Xe-08-1kx" secondAttribute="centerY" id="Pwa-7l-a6P"/>
+                        <constraint firstAttribute="trailing" secondItem="9Xe-08-1kx" secondAttribute="trailing" constant="15" id="TGE-sZ-ZdU"/>
+                        <constraint firstAttribute="bottom" secondItem="9Xe-08-1kx" secondAttribute="bottom" id="gFc-zv-2Qn"/>
+                        <constraint firstItem="l67-Ku-WeL" firstAttribute="leading" secondItem="K39-0u-IJj" secondAttribute="leading" constant="15" id="lew-RP-kdq"/>
+                        <constraint firstItem="9Xe-08-1kx" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="top" id="mOU-1f-WZe"/>
+                        <constraint firstItem="9Xe-08-1kx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l67-Ku-WeL" secondAttribute="trailing" constant="8" id="pJN-Cz-OiM"/>
+                        <constraint firstAttribute="height" constant="50" id="sDC-EK-i1s"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="priceAmountLabel" destination="9Xe-08-1kx" id="0kZ-ND-aZS"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="he9-LD-p6z" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="Bzg-a2-3Xv"/>
-                <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="he9-LD-p6z" secondAttribute="bottom" constant="8" id="J6i-Dl-t0b"/>
                 <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" id="JYC-Uk-GD8"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="Jac-gk-BDd"/>
-                <constraint firstItem="he9-LD-p6z" firstAttribute="width" secondItem="HhS-r6-FLV" secondAttribute="width" id="Kib-cu-B38"/>
+                <constraint firstAttribute="trailing" secondItem="K39-0u-IJj" secondAttribute="trailing" id="RNm-HW-aHZ"/>
                 <constraint firstAttribute="bottom" secondItem="7l5-VJ-9Eb" secondAttribute="bottom" id="VmK-XM-Twn"/>
-                <constraint firstAttribute="trailing" secondItem="he9-LD-p6z" secondAttribute="trailing" id="ayj-9a-Ik3"/>
                 <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="ACd-RD-scv" secondAttribute="bottom" constant="-3" id="bEK-Ns-KZy"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="width" secondItem="HhS-r6-FLV" secondAttribute="width" id="cwZ-fi-E30"/>
+                <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="bottom" id="onC-Es-4Ul"/>
+                <constraint firstItem="K39-0u-IJj" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="p7e-Oe-laD"/>
                 <constraint firstAttribute="trailing" secondItem="ACd-RD-scv" secondAttribute="trailing" id="sZH-Bv-dLY"/>
                 <constraint firstItem="7l5-VJ-9Eb" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="yld-Mk-2tc"/>
-                <constraint firstItem="he9-LD-p6z" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="zhM-Se-rcK"/>
+                <constraint firstItem="K39-0u-IJj" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="zyu-YZ-VJo"/>
             </constraints>
             <connections>
                 <outlet property="addOnTableView" destination="lSd-uE-pg7" id="YLb-5R-9Dc"/>
@@ -237,10 +233,9 @@
                 <outlet property="cardExpireTextField" destination="6qH-4m-fM3" id="xyK-Lp-kBM"/>
                 <outlet property="creditCardNumberTextField" destination="iDR-Mj-7On" id="wOy-dm-Y16"/>
                 <outlet property="cvvInfoButton" destination="GqG-gu-Um3" id="GAB-Mn-uBO"/>
+                <outlet property="headerView" destination="K39-0u-IJj" id="Xt8-7f-CiD"/>
                 <outlet property="installmentView" destination="Lfj-Hs-yBs" id="DUG-Ih-LO1"/>
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
-                <outlet property="topHeaderContainerView" destination="he9-LD-p6z" id="nbe-Pt-PNq"/>
-                <outlet property="totalAmountLabel" destination="lSW-Xr-dKE" id="928-3l-gVt"/>
             </connections>
             <point key="canvasLocation" x="-10" y="-161"/>
         </view>

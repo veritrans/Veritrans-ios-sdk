@@ -81,7 +81,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-Fq-Xtj">
-                    <rect key="frame" x="352" y="632.5" width="8" height="13"/>
+                    <rect key="frame" x="352" y="633" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="NGI-UR-g0L"/>
                         <constraint firstAttribute="width" constant="8" id="tqQ-ah-qng"/>

@@ -522,7 +522,7 @@
 		0CD7EA921E03A2810036C187 /* gci@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gci@2x.png"; sourceTree = "<group>"; };
 		0CD7EA941E03C4070036C187 /* MidtransPaymentGCIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentGCIView.h; sourceTree = "<group>"; };
 		0CD7EA951E03C4070036C187 /* MidtransPaymentGCIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGCIView.m; sourceTree = "<group>"; };
-		0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransNewCreditCardViewController.xib; path = ../MidtransResources/MidtransNewCreditCardViewController.xib; sourceTree = "<group>"; };
+		0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransNewCreditCardViewController.xib; sourceTree = "<group>"; };
 		15EA0C8809E6A036D91CD1E1 /* libPods-MidtransKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2871C7C17A200064169 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		3005E2891C7C17A200064169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -666,11 +666,11 @@
 		E5306C861E55C1D9008B0CD3 /* mandiri_va@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mandiri_va@2x.png"; sourceTree = "<group>"; };
 		E534029E1E6809D000CD0420 /* MidtransSavedCardController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardController.h; sourceTree = "<group>"; };
 		E534029F1E6809D000CD0420 /* MidtransSavedCardController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardController.m; sourceTree = "<group>"; };
-		E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransSavedCardController.xib; sourceTree = "<group>"; };
+		E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransSavedCardController.xib; path = ../MidtransKit/MidtransSavedCardController.xib; sourceTree = "<group>"; };
 		E53402A41E680BA100CD0420 /* MidtransSavedCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardCell.h; sourceTree = "<group>"; };
 		E53402A51E680BA100CD0420 /* MidtransSavedCardCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardCell.m; sourceTree = "<group>"; };
-		E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransSavedCardCell.xib; sourceTree = "<group>"; };
-		E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransSavedCardFooter.xib; sourceTree = "<group>"; };
+		E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransSavedCardCell.xib; path = ../MidtransKit/MidtransSavedCardCell.xib; sourceTree = "<group>"; };
+		E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransSavedCardFooter.xib; path = ../MidtransKit/MidtransSavedCardFooter.xib; sourceTree = "<group>"; };
 		E53402AC1E683E6600CD0420 /* plus-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "plus-icon@2x.png"; sourceTree = "<group>"; };
 		E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardFooter.h; sourceTree = "<group>"; };
 		E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransSavedCardFooter.m; sourceTree = "<group>"; };
@@ -887,7 +887,6 @@
 				0CF976791E315CDA00D2D0D0 /* Add On Payment */,
 				0C7AB5641E310ABD00EB6785 /* MidtransNewCreditCardViewController.h */,
 				0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */,
-				0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */,
 				0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */,
 				0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */,
 			);
@@ -1347,13 +1346,10 @@
 				30E879861C88EDE1000C0F4B /* VTTwoClickController.m */,
 				E534029E1E6809D000CD0420 /* MidtransSavedCardController.h */,
 				E534029F1E6809D000CD0420 /* MidtransSavedCardController.m */,
-				E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */,
 				E53402A41E680BA100CD0420 /* MidtransSavedCardCell.h */,
 				E53402A51E680BA100CD0420 /* MidtransSavedCardCell.m */,
-				E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */,
 				E53402AE1E68405600CD0420 /* MidtransSavedCardFooter.h */,
 				E53402AF1E68405600CD0420 /* MidtransSavedCardFooter.m */,
-				E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */,
 			);
 			name = "Credit Card";
 			sourceTree = "<group>";
@@ -1619,6 +1615,10 @@
 		E5D23C801D1D31CA0069B5F9 /* Credit Card */ = {
 			isa = PBXGroup;
 			children = (
+				0CF976771E3156E800D2D0D0 /* MidtransNewCreditCardViewController.xib */,
+				E53402A01E6809D000CD0420 /* MidtransSavedCardController.xib */,
+				E53402A61E680BA100CD0420 /* MidtransSavedCardCell.xib */,
+				E53402AA1E683D6A00CD0420 /* MidtransSavedCardFooter.xib */,
 				E5D23C811D1D31E60069B5F9 /* VTCardListController.xib */,
 				E5D23C831D1D31F10069B5F9 /* VTTwoClickController.xib */,
 				E5D23C851D1D31FC0069B5F9 /* VTAddCardController.xib */,

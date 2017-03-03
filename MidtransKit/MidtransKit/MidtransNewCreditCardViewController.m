@@ -459,8 +459,8 @@ UIAlertViewDelegate
             if (self.installmentAvailable) {
                 if (!isDebitCard) {
                     self.installmentBankName = self.filteredBinObject.bank;
-                    [self.installmentValueObject addObject:@"0"];
-                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.filteredBinObject.bank]];
+                    [self.installmentValueObject setArray:@[@"0"]];
+                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
                     [self showInstallmentView:YES];
                 }
             }
@@ -471,13 +471,12 @@ UIAlertViewDelegate
                 if (!isDebitCard) {
                     
                     self.installmentBankName = @"offline";
-                    [self.installmentValueObject addObject:@"0"];
-                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
+                    [self.installmentValueObject setArray:@[@"0"]];
+                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
                     [self showInstallmentView:YES];
                 }
             }
         }
-        
     }
     else{
         self.title = UILocalizedString(@"creditcard.input.title", nil);

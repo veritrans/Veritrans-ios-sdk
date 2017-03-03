@@ -59,23 +59,35 @@
                             <constraint firstAttribute="width" constant="39" placeholder="YES" id="oiP-qL-IXe"/>
                         </constraints>
                     </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ku9-HK-NEJ">
+                        <rect key="frame" x="154" y="17" width="39" height="26"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="26" placeholder="YES" id="FO8-dE-c46"/>
+                            <constraint firstAttribute="width" constant="39" placeholder="YES" id="pDR-lF-Pvt"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="KbW-zR-8Pn" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="8PS-40-R0u"/>
-                    <constraint firstItem="KbW-zR-8Pn" firstAttribute="leading" secondItem="Zad-28-tmE" secondAttribute="trailing" constant="8" id="NrF-bu-Y6Y"/>
                     <constraint firstItem="VgL-dS-VY9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Vdq-E1-vyb"/>
+                    <constraint firstItem="Zad-28-tmE" firstAttribute="leading" secondItem="Ku9-HK-NEJ" secondAttribute="trailing" constant="8" id="XE3-iL-oJ9"/>
                     <constraint firstAttribute="trailing" secondItem="KbW-zR-8Pn" secondAttribute="trailing" id="YuB-pO-4ee"/>
+                    <constraint firstItem="KbW-zR-8Pn" firstAttribute="leading" secondItem="Zad-28-tmE" secondAttribute="trailing" constant="8" id="n7H-xr-Sne"/>
+                    <constraint firstItem="Ku9-HK-NEJ" firstAttribute="centerY" secondItem="Zad-28-tmE" secondAttribute="centerY" id="qwG-Lo-XUc"/>
                     <constraint firstItem="Zad-28-tmE" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="tGT-OY-Yir"/>
                     <constraint firstItem="VgL-dS-VY9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="xjG-87-HQO"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="bankImageView" destination="Zad-28-tmE" id="62Z-35-7CM"/>
+                <outlet property="bankToPromoPadding" destination="XE3-iL-oJ9" id="YSb-Mc-h0c"/>
                 <outlet property="ccImageView" destination="KbW-zR-8Pn" id="f3d-VC-Ecc"/>
+                <outlet property="ccToBankPadding" destination="n7H-xr-Sne" id="W2g-xg-2Ui"/>
                 <outlet property="descLabel" destination="Zde-1V-F9h" id="hMx-rK-rP6"/>
-                <outlet property="promoImageView" destination="Zad-28-tmE" id="ldw-Pd-nWC"/>
+                <outlet property="promoImageView" destination="Ku9-HK-NEJ" id="0Iu-3v-nmd"/>
                 <outlet property="titleLabel" destination="1YV-dG-XVz" id="X86-mC-TnZ"/>
             </connections>
-            <point key="canvasLocation" x="127" y="-86"/>
+            <point key="canvasLocation" x="127" y="-86.5"/>
         </tableViewCell>
     </objects>
 </document>

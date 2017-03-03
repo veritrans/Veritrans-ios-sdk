@@ -9,11 +9,16 @@
 #import "MidtransUIPaymentController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
+@protocol MidtransNewCreditCardViewControllerDelegate <NSObject>
+- (void)didDeleteSavedCard;
+@end
+
 @interface MidtransNewCreditCardViewController : MidtransUIPaymentController
 
+@property (nonatomic, weak, nullable) id<MidtransNewCreditCardViewControllerDelegate>delegate;
 @property (nonatomic, nullable) NSArray <MidtransPromo *>*promos;
 
--(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
+- (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
                     paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod
                     andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard;
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token

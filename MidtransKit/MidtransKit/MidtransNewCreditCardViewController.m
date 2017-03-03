@@ -29,7 +29,7 @@ MidtransUITextFieldDelegate,
 MidtransPaymentCCAddOnDataSourceDelegate,
 MidtransUICardFormatterDelegate,
 MidtransInstallmentViewDelegate,
-MidtransUICustomAlertViewControllerDelegate
+UIAlertViewDelegate
 >
 
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
@@ -148,7 +148,7 @@ MidtransUICustomAlertViewControllerDelegate
         
         //add delete button
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"trash-icon" inBundle:VTBundle compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(deleteCardPressed:)];
-
+        
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
         self.view.cardExpireTextField.textColor = [UIColor grayColor];
     }
@@ -163,7 +163,12 @@ MidtransUICustomAlertViewControllerDelegate
 }
 
 - (void)deleteCardPressed:(id)sender {
-    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
+                                                    message:UILocalizedString(@"alert.message-delete-card", nil)
+                                                   delegate:self
+                                          cancelButtonTitle:UILocalizedString(@"alert.no", nil)
+                                          otherButtonTitles:UILocalizedString(@"alert.yes", nil), nil];
+    [alert show];
 }
 
 - (void)setupInstallmentView {
@@ -317,7 +322,7 @@ MidtransUICustomAlertViewControllerDelegate
                                                       initWithTitle:@"What is CVV?"
                                                       message:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"
                                                       image:@"CreditCardBackSmall"
-                                                      delegate:self
+                                                      delegate:nil
                                                       cancelButtonTitle:nil
                                                       okButtonTitle:@"Ok"];
     
@@ -334,7 +339,7 @@ MidtransUICustomAlertViewControllerDelegate
                                                           initWithTitle:@"save card for later reuse"
                                                           message:@"We will securely store your card details so you can reuse theme latter"
                                                           image:nil
-                                                          delegate:self
+                                                          delegate:nil
                                                           cancelButtonTitle:nil
                                                           okButtonTitle:@"Ok"];
         
@@ -400,7 +405,7 @@ MidtransUICustomAlertViewControllerDelegate
                                                           initWithTitle:UILocalizedString(@"creditcard.promo-title", nil)
                                                           message:message
                                                           image:nil
-                                                          delegate:self
+                                                          delegate:nil
                                                           cancelButtonTitle:nil
                                                           okButtonTitle:@"Ok"];
         
@@ -650,10 +655,40 @@ MidtransUICustomAlertViewControllerDelegate
                       andButtonTitle:@"Close"];
     }
 }
+
 -(void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
 }
-- (void)didSelectOKButtonAlertViewController:(MidtransUICustomAlertViewController *)alertViewVC {
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self showLoadingWithText:nil];
+        [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
+            [self hideLoading];
+            
+            if (success == NO) {
+                return;
+            }
+            
+            NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
+            NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [self.maskedCreditCard.savedTokenId isEqualToString:savedToken.token];
+            }];
+            if (index != NSNotFound) {
+                [savedTokensM removeObjectAtIndex:index];
+            }
+            self.creditCardInfo.savedTokens = savedTokensM;
+            
+            if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                [self.delegate didDeleteSavedCard];
+            }
+        }];
+    }
+    else {
+        
+    }
 }
 
 @end

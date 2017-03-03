@@ -15,8 +15,7 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
-
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransCoreKit.h"
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
@@ -84,6 +83,24 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 completion(nil, error);
             }
         }
+    }];
+}
+
+- (void)deleteMaskedCreditCard:(MidtransMaskedCreditCard *)maskedCard
+                         token:(MidtransTransactionTokenResponse *)token
+                    completion:(void(^)(BOOL success))completion {
+    NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/saved_tokens/%@",PRIVATECONFIG.snapURL, token.tokenId, maskedCard.maskedNumber];
+    NSDictionary *parameter = @{@"token":token.tokenId,
+                                @"masked_card":maskedCard.maskedNumber};
+    [[MidtransNetworking shared] deleteFromURL:stringURL header:nil parameters:parameter callback:^(id response, NSError *error) {
+        BOOL success = YES;
+        if (error) {
+            success = NO;
+        }
+        if (response[@"error_message"]) {
+            success = NO;
+        }
+        if (completion) completion(success);
     }];
 }
 

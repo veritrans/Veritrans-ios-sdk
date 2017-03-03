@@ -14,7 +14,7 @@
 #import "MidtransSavedCardFooter.h"
 #import "VTConfirmPaymentController.h"
 
-@interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource>
+@interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource, MidtransNewCreditCardViewControllerDelegate>
 @property (nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) MidtransPaymentRequestV2CreditCard *creditCard;
 @property (nonatomic) NSMutableArray *cards;
@@ -140,6 +140,7 @@
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                     maskedCard:card
                                                     creditCard:self.creditCard];
+    vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -198,7 +199,14 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
-    return 40;
+    return 60;
+}
+
+#pragma mark - MidtransNewCreditCardViewControllerDelegate
+
+- (void)didDeleteSavedCard {
+    [self.navigationController popToViewController:self animated:YES];
+    [self reloadSavedCards];    
 }
 
 @end

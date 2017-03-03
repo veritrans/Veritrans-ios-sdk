@@ -146,17 +146,21 @@ UIAlertViewDelegate
         [self updatePromoViewWithCreditCardNumber:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
-        //add delete button
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"trash-icon" inBundle:VTBundle compatibleWithTraitCollection:nil] style:UIBarButtonItemStylePlain target:self action:@selector(deleteCardPressed:)];
-        
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
         self.view.cardExpireTextField.textColor = [UIColor grayColor];
+        
+        //add delete button
+        self.view.deleteButton.hidden = NO;
+        [self.view.deleteButton setTitle:UILocalizedString(@"Delete Saved Card", nil) forState:UIControlStateNormal];
+        [self.view.deleteButton addTarget:self action:@selector(deleteCardPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     else {
         self.view.creditCardNumberTextField.enabled = YES;
         self.view.cardExpireTextField.enabled = YES;
         self.view.creditCardNumberTextField.textColor = [UIColor darkTextColor];
         self.view.cardExpireTextField.textColor = [UIColor darkTextColor];
+        
+        self.view.deleteButton.hidden = YES;
     }
     
     [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
@@ -276,11 +280,14 @@ UIAlertViewDelegate
          {
              if (obtainedPromo) {
                  weakSelf.obtainedPromo = obtainedPromo;
-                 self.view.creditCardNumberTextField.info3Icon = [UIImage imageNamed:@"ccOfferIcon" inBundle:VTBundle compatibleWithTraitCollection:nil];
+                 UIImage *icon = [UIImage imageNamed:@"ccOfferIcon" inBundle:VTBundle compatibleWithTraitCollection:nil];
+                 self.view.creditCardNumberTextField.info3Icon = icon;
              }
              else {
                  self.view.creditCardNumberTextField.info3Icon = nil;
              }
+             [self.view.creditCardNumberTextField setNeedsLayout];
+             [self.view.creditCardNumberTextField layoutSubviews];
          }];
     }
     else {
@@ -433,7 +440,7 @@ UIAlertViewDelegate
         }
         
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                                  @"SELF['bins'] CONTAINS %@",binNumber];
+                                  @"SELF['bins'] CONTAINS %@", [binNumber substringToIndex:6]];
         NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
         BOOL isDebitCard = NO;
         if (filtered.count) {

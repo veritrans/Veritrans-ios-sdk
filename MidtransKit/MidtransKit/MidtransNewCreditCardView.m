@@ -31,7 +31,19 @@
     self.cvvInfoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     UIImage *image = [[UIImage imageNamed:@"hint" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.cvvInfoButton setImage:image forState:UIControlStateNormal];
+    
+    UIEdgeInsets insets = self.deleteButton.titleEdgeInsets;
+    insets.left = 8;
+    self.deleteButton.titleEdgeInsets = insets;
+    [self.deleteButton setImage:[self templateImageNamed:@"trash-icon"] forState:UIControlStateNormal];
+    self.deleteButton.layer.borderColor = self.deleteButton.tintColor.CGColor;
+    self.deleteButton.layer.borderWidth = 1.;
+    self.deleteButton.layer.cornerRadius = 5.;
 }
+- (UIImage *)templateImageNamed:(NSString *)imageName {
+    return [[UIImage imageNamed:imageName inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
+}
+
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
     self.headerView.priceAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
 }

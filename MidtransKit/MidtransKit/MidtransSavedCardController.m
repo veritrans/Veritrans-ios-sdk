@@ -20,6 +20,7 @@
 @property (nonatomic) NSMutableArray *cards;
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 @property (nonatomic) MidtransSavedCardFooter *footerView;
+@property (nonatomic) NSArray *bankBinList;
 @end
 
 @implementation MidtransSavedCardController
@@ -32,8 +33,22 @@
         self.token = token;
         self.paymentMethod = paymentMethod;
         self.creditCard = creditCard;
+        self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]] options:kNilOptions error:nil];
     }
     return self;
+}
+
+- (NSString *)bankNameFromNumber:(NSString *)number {
+    for (NSDictionary *bankBin in self.bankBinList) {
+        NSString *bankName = bankBin[@"bank"];
+        NSArray *bins = bankBin[@"bins"];
+        for (NSString *bin in bins) {
+            if ([number containsString:bin]) {
+                return bankName;
+            }
+        }
+    }
+    return nil;
 }
 
 - (void)viewDidLoad {
@@ -102,6 +117,7 @@
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard];
+    vc.promos = self.promos;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -140,6 +156,7 @@
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                     maskedCard:card
                                                     creditCard:self.creditCard];
+    vc.promos = self.promos;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -159,6 +176,7 @@
         return NO;
     }];
     cell.havePromo = index != NSNotFound;
+    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
     return cell;
 }
 
@@ -202,11 +220,54 @@
     return 60;
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
+                                                        message:UILocalizedString(@"alert.message-delete-card", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:UILocalizedString(@"alert.no", nil)
+                                              otherButtonTitles:UILocalizedString(@"alert.yes", nil), nil];
+        [alert setTag:indexPath.row];
+        [alert show];
+    }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex == 1) {
+        [self showLoadingWithText:nil];
+        MidtransMaskedCreditCard *card = self.cards[alertView.tag];
+        [[MidtransMerchantClient shared] deleteMaskedCreditCard:card token:self.token completion:^(BOOL success) {
+            [self hideLoading];
+            
+            if (success == NO) {
+                return;
+            }
+            
+            NSMutableArray *savedTokensM = self.creditCard.savedTokens.mutableCopy;
+            NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [card.savedTokenId isEqualToString:savedToken.token];
+            }];
+            if (index != NSNotFound) {
+                [savedTokensM removeObjectAtIndex:index];
+            }
+            self.creditCard.savedTokens = savedTokensM;
+            
+            [self reloadSavedCards];
+        }];
+    }
+}
+
 #pragma mark - MidtransNewCreditCardViewControllerDelegate
 
 - (void)didDeleteSavedCard {
     [self.navigationController popToViewController:self animated:YES];
-    [self reloadSavedCards];    
+    [self reloadSavedCards];
 }
 
 @end

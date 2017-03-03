@@ -452,6 +452,12 @@ UIAlertViewDelegate
             else{
                 self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
                 if ([self.filteredBinObject.bank containsString:@"debit"]) {
+                    if ([self.filteredBinObject.bank containsString:@"mandiri"]) {
+                         self.title = @"Mandiri Debit Card";
+                    }
+                    else if([self.filteredBinObject.bank containsString:@"bni"]){
+                        self.title = @"BNI Card";
+                    }
                     isDebitCard = YES;
                 }
             }

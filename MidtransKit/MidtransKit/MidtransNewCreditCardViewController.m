@@ -428,6 +428,10 @@ UIAlertViewDelegate
 
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
     if (binNumber.length >= 6) {
+        if (self.installmentValueObject.count) {
+            return;
+        }
+        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
                                   @"SELF['bins'] CONTAINS %@",binNumber];
         NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];

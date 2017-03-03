@@ -11,5 +11,6 @@
 
 @interface MidtransSavedCardCell : UITableViewCell
 @property (nonatomic) MidtransMaskedCreditCard *maskedCard;
+@property (nonatomic) NSString *bankName;
 @property (nonatomic, assign) BOOL havePromo;
 @end

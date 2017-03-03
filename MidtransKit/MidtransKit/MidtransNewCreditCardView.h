@@ -19,6 +19,7 @@
 @property (weak, nonatomic) IBOutlet UIView *installmentView;
 @property (weak, nonatomic) IBOutlet UIButton *cvvInfoButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *installmentWrapperViewConstraints;
+@property (nonatomic) IBOutlet UIButton *deleteButton;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

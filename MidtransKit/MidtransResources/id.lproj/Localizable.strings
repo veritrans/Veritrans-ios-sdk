@@ -59,3 +59,5 @@
 "alert.message-delete-card" = "Apakah anda yakin akan menghapus kartu ini?";
 "alert.no" = "Tidak";
 "alert.yes" = "Ya";
+
+"Delete Saved Card" = "Hapus Kartu";

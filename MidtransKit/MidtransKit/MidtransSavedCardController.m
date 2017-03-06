@@ -118,6 +118,7 @@
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard];
     vc.promos = self.promos;
+    vc.currentMaskedCards = self.cards;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

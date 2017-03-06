@@ -17,6 +17,7 @@
 
 @property (nonatomic, weak, nullable) id<MidtransNewCreditCardViewControllerDelegate>delegate;
 @property (nonatomic, nullable) NSArray <MidtransPromo *>*promos;
+@property (nonatomic, nullable) NSArray <MidtransMaskedCreditCard *>*currentMaskedCards;
 
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
                     paymentMethodName:(MidtransPaymentListModel *_Nonnull)paymentMethod

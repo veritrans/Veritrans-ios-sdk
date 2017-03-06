@@ -85,7 +85,14 @@ UIAlertViewDelegate
     [super viewDidLoad];
     
     self.title = UILocalizedString(@"creditcard.input.title", nil);
-    self.maskedCards = [NSMutableArray new];
+    
+    if (self.currentMaskedCards) {
+        self.maskedCards = [NSMutableArray arrayWithArray:self.currentMaskedCards];
+    }
+    else {
+        self.maskedCards = [NSMutableArray new];
+    }
+    
     self.installmentCurrentIndex = 0;
     self.installmentAvailable = NO;
     self.installmentValueObject = [NSMutableArray new];

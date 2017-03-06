@@ -10,15 +10,11 @@
 #import "MidtransUIListCell.h"
 #import "MidtransItemCell.h"
 #import "VTClassHelper.h"
-#import "MidtransUIPaymentListHeader.h"
 #import "MidtransTransactionDetailViewController.h"
-#import "MidtransPaymentMethodHeader.h"
 
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) NSArray *paymentMethods;
 @property (nonatomic) BOOL shouldExpand;
-@property (nonatomic) MidtransPaymentMethodHeader *headerView;
-
 @property (nonatomic) NSArray *items;
 @end
 

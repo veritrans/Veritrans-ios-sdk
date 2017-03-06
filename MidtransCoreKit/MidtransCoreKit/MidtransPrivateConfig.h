@@ -16,6 +16,8 @@
 @property (nonatomic, readonly) NSString *baseUrl;
 @property (nonatomic, readonly) NSString *mixpanelToken;
 @property (nonatomic, readonly) NSString *snapURL;
+@property (nonatomic, readonly) NSString *binURL;
+@property (nonatomic, readonly) NSString *promoEngineURL;
 @property (nonatomic, assign) MidtransServerEnvironment env;
 
 + (MidtransPrivateConfig *)shared;

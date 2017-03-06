@@ -9,7 +9,6 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransConstant.h"
-#import "MTPaymentRequestDataModels.h"
 #import "MidtransNetworking.h"
 #import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransDeviceHelper.h"
@@ -108,6 +107,7 @@
     
     [self sendTrackingData:event];
 }
+
 - (void)trackEventWithEvent:(NSString *)eventName
              withProperties:(NSDictionary *)properties {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
@@ -127,6 +127,7 @@
     [[MidtransNetworking shared] getFromURL:URL parameters:parameter callback:nil];
     
 }
+
 - (void)trackGeneratedSnapToken:(BOOL)success {
     NSString *eventName = MIDTRANS_TRACKING_APP_GET_SNAP_TOKEN_SUCCESS;
     if (!success) {
@@ -138,6 +139,7 @@
                             @"properties":parameters};
     [self sendTrackingData:event];
 }
+
 - (void)trackPaymentlistGenerated:(NSArray *)paymentList {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters  = [parameters addDefaultParameter];

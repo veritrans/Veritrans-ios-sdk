@@ -7,6 +7,8 @@
 //
 
 #import "MidtransLoadingIndicator.h"
+#import "MidtransUIThemeManager.h"
+
 @interface MidtransLoadingIndicator ()
 @property (strong, nonatomic) CALayer *loadingIndicator1;
 @property (strong, nonatomic) CALayer *loadingIndicator2;
@@ -39,15 +41,15 @@
 
 - (void)initLoadingIndicator {
     self.loadingIndicator1 = [[CALayer alloc] init];
-    self.loadingIndicator1.backgroundColor = [UIColor colorWithRed:0.10 green:0.64 blue:0.94 alpha:1.0].CGColor;
+    self.loadingIndicator1.backgroundColor = [[MidtransUIThemeManager shared] themeColor].CGColor;
     [self.layer addSublayer:self.loadingIndicator1];
 
     self.loadingIndicator2 = [[CALayer alloc] init];
-    self.loadingIndicator2.backgroundColor = [UIColor colorWithRed:0.10 green:0.64 blue:0.94 alpha:1.0].CGColor;
+    self.loadingIndicator2.backgroundColor = [[MidtransUIThemeManager shared] themeColor].CGColor;
     [self.layer addSublayer:self.loadingIndicator2];
 
     self.loadingIndicator3 = [[CALayer alloc] init];
-    self.loadingIndicator3.backgroundColor = [UIColor colorWithRed:0.10 green:0.64 blue:0.94 alpha:1.0].CGColor;
+    self.loadingIndicator3.backgroundColor = [[MidtransUIThemeManager shared] themeColor].CGColor;
     [self.layer addSublayer:self.loadingIndicator3];
 }
 

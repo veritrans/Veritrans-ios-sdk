@@ -8,20 +8,22 @@
 
 #import <Foundation/Foundation.h>
 #import "MidtransCreditCard.h"
+#import "MidtransObtainedPromo.h"
 
 /**
  `MidtransTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
  */
 @interface MidtransTokenizeRequest : NSObject
 
-@property (nonatomic, readonly) MidtransCreditCard *creditCard;
-@property (nonatomic, readonly) NSNumber *grossAmount;
-@property (nonatomic, readonly) BOOL installment;
-@property (nonatomic, readonly) NSNumber *installmentTerm;
-@property (nonatomic, readonly) NSString *token;
-@property (nonatomic, readonly) BOOL twoClick;
-@property (nonatomic, readonly) NSString *type;
-@property (nonatomic, readonly) BOOL secure;
+@property (nonatomic) MidtransCreditCard *creditCard;
+@property (nonatomic) NSNumber *grossAmount;
+@property (nonatomic) BOOL installment;
+@property (nonatomic) NSNumber *installmentTerm;
+@property (nonatomic) NSString *token;
+@property (nonatomic) BOOL twoClick;
+@property (nonatomic) BOOL secure;
+
+@property (nonatomic) MidtransObtainedPromo *obtainedPromo;
 
 ///----------------
 /// @Initialization
@@ -36,6 +38,18 @@
  */
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
                        grossAmount:(NSNumber *)grossAmount
+                            secure:(BOOL)secure;
+
+- (instancetype)initWithTwoClickToken:(NSString *)token
+                                  cvv:(NSString *)cvv
+                          grossAmount:(NSNumber *)grossAmount
+                          installment:(BOOL)installment
+                      installmentTerm:(NSNumber *)installmentTerm;
+
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
+                       grossAmount:(NSNumber *)grossAmount
+                       installment:(BOOL)installment
+                   installmentTerm:(NSNumber *)installmentTerm
                             secure:(BOOL)secure;
 
 /**

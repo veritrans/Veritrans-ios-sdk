@@ -11,9 +11,12 @@ project 'MidtransDemoSwift/MidtransDemoSwift.xcodeproj'
 target 'VTDirectDemo' do
     project 'Demo/VTDirectDemo.xcodeproj'
     pod 'SDWebImage', '~>3.7'
+    pod 'SRMonthPicker'
+    pod 'JVFloatLabeledTextField'
+    pod 'IQKeyboardManager'
+    pod 'ActionSheetPicker-3.0'
     pod 'iOS-Color-Picker'
     pod 'MBProgressHUD'
-#    pod 'CardIO', '~> 5.4'
 end
 
 target 'MidtransDemoSwift' do

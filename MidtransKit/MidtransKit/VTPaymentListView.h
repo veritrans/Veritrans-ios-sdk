@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
-#import "MidtransUIPaymentListFooter.h"
-#import "MidtransUIPaymentListHeader.h"
 #import "MidtransLoadingView.h"
+#import "MidtransPaymentMethodHeader.h"
 
 @class VTPaymentListView;
 
@@ -21,10 +19,10 @@
 
 @interface VTPaymentListView : UIView
 
-@property (nonatomic) MidtransUIPaymentListFooter *footer;
-@property (nonatomic) MidtransUIPaymentListHeader *header;
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *emptyView;
 @property (nonatomic, weak) id<VTPaymentListViewDelegate>delegate;
+@property (nonatomic) MidtransPaymentMethodHeader *headerView;
 
 - (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items;
 

@@ -29,6 +29,12 @@
     self.sampleList = @[@"Normal Payment",@"Specific Payment",@"Payment With Limit Time",@"Custom Theme",@"Custom Field"];
     [self.tableView reloadData];
     // Do any additional setup after loading the view from its nib.
+    
+    [[MidtransNetworkLogger shared] startLogging];
+}
+
+- (void)dealloc {
+    [[MidtransNetworkLogger shared] stopLogging];
 }
 
 - (void)initPayment {
@@ -71,6 +77,8 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self initPayment];
     
+    [MidtransUIThemeManager applyStandardTheme];
+    
     switch (indexPath.row) {
         case 0:
             [self normalPaymentMode];
@@ -91,25 +99,30 @@
     }
 }
 -(void)customField {
+    NSMutableArray *arrayOfCustomField = [NSMutableArray new];
     
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:@"custom1"}];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:@"custom2"}];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:@"custom3"}];
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:self.transactionDetails
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:self.customerDetails
-                                                                       customField:@{@"Some Message":@"Value"}
+                                                                       customField:arrayOfCustomField
                                                              transactionExpireTime:nil
-                                                                        completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
-                                                                            [MBProgressHUD hideHUDForView:self.view animated:YES];
-                                                                            if (!error) {
-                                                                                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureCreditCard];
-                                                                                paymentVC.paymentDelegate = self;
-                                                                                
-                                                                                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
-                                                                            }
-                                                                            else {
-                                                                                
-                                                                            }
-                                                                        }];
+                                                                        completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+     {
+         [MBProgressHUD hideHUDForView:self.view animated:YES];
+         if (!error) {
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureCreditCard];
+             paymentVC.paymentDelegate = self;
+             
+             [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+         }
+         else {
+             
+         }
+     }];
 }
 - (void)customTheme {
     MidtransUIFontSource *fontSource = [self myFontSource];
@@ -188,9 +201,9 @@
                                                                        itemDetails:self.itemDetails
                                                                    customerDetails:self.customerDetails
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error){
+                                                                            NSLog(@"token->%@",token);
                                                                             [MBProgressHUD hideHUDForView:self.view animated:YES];
                                                                             if (!error) {
-                                                                                NSLog(@"data-->%@",token);
                                                                                 MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
                                                                                 paymentVC.paymentDelegate = self;
                                                                                 
@@ -223,13 +236,18 @@
     return result;
 }
 
-- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {}
-- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {}
-- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {}
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
+    NSLog(@"result %@", result);
+}
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
+    NSLog(@"result %@", result);
+}
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
+    NSLog(@"error %@", error);
+}
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     
 }
-
 - (UIColor *)myThemeColor {
     NSData *themeColorData = [[NSUserDefaults standardUserDefaults] objectForKey:@"theme_color"];
     return [NSKeyedUnarchiver unarchiveObjectWithData:themeColorData];

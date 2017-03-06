@@ -6,7 +6,7 @@
   Copyright © 2016 Veritrans. All rights reserved.
 */
 
-"payment.failed" = "Payment Failed";
+"payment.failed" = "Pembayaran Gagal";
 "payment.pending" = "Payment Pending";
 "payment.pay-at" = "Pay at %@";
 "clickpay.invalid-number" = "Invalid Debit Number";
@@ -22,7 +22,10 @@
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
 "payment.finish-button-title" = "Complete Payment At %@";
+
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
+"payment.va.confirm_button" = "Lihat Nomor Rekening";
+
 "toast.copy-text" = "Copied to clipboard";
 
 "creditcard.input.title" = "Card Details";
@@ -30,7 +33,8 @@
 "creditcard.twoclick.title" = "Pay With Credit Card";
 "creditcard.error.invalid-bin" = "Kartu kredit tidak bisa digunakan, silahkan gunakan kartu kredit lain.";
 
-"va.list.title" = "Select Bank";
+"va.list.title" = "Pilih Bank";
+"va.pay-button" = "Lihat Nomer Akun";
 
 "payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
 "payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";
@@ -47,3 +51,13 @@
 "kioson.pending.code-title" = "Payment Code";
 "kioson.pending.howto-title" = "How Can I Pay via Kioson";
 "kioson.pending.copy-title" = "Copy Payment Code";
+
+"creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
+"creditcard.promo-title" = "Selamat";
+
+"alert.title" = "Perhatian";
+"alert.message-delete-card" = "Apakah anda yakin akan menghapus kartu ini?";
+"alert.no" = "Tidak";
+"alert.yes" = "Ya";
+
+"Delete Saved Card" = "hapus kartu";

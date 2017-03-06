@@ -11,7 +11,7 @@
 #import "PushAnimator.h"
 
 #import "VTClassHelper.h"
-#import "VTAddCardController.h"
+#import "MidtransNewCreditCardViewController.h"
 #import "VTTwoClickController.h"
 #import "MidtransUITextField.h"
 #import "VTCCBackView.h"
@@ -27,7 +27,7 @@
 
 CGFloat const ButtonHeight = 56;
 
-@interface VTCardListController () <MidtransUICardCellDelegate, VTAddCardControllerDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@interface VTCardListController () <MidtransUICardCellDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -52,18 +52,16 @@ CGFloat const ButtonHeight = 56;
         self.creditCard = creditCard;
     }
     return self;
-    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.cards = [NSMutableArray new];
-    
     self.title = UILocalizedString(@"creditcard.list.title", nil);
     [self.pageControl setNumberOfPages:0];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    
+    NSLog(@"pref-->%@",self.creditCard);
     [self updateView];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     
@@ -166,9 +164,10 @@ CGFloat const ButtonHeight = 56;
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token maskedCards:self.cards bins:self.creditCard.whitelistBins];
-    vc.delegate = self;
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod andCreditCardData:self.creditCard];
+    
+  [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -238,7 +237,7 @@ CGFloat const ButtonHeight = 56;
         if (selectedIndex == 1) {
             [self showLoadingWithText:@"Processing your transaction"];
             
-            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO];
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
             MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
             
             [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
@@ -256,16 +255,9 @@ CGFloat const ButtonHeight = 56;
 
 - (void)performTwoClicks {
     VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
-                                                                maskedCard:self.selectedMaskedCard];
+                                                                maskedCard:self.selectedMaskedCard andCreditCardData:self.creditCard];
     [self.navigationController setDelegate:self];
     [self.navigationController pushViewController:vc animated:YES];
-}
-
-#pragma mark - VTAddCardControllerDelegate
-
-- (void)viewController:(VTAddCardController *)viewController didRegisterCard:(MidtransMaskedCreditCard *)registeredCard {
-    [self.navigationController popViewControllerAnimated:YES];
-    [self reloadMaskedCards];
 }
 
 #pragma mark - MIdtransUICardCellDelegate

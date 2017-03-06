@@ -10,16 +10,36 @@
 #import "NSString+TextDirectionality.h"
 #import "MidtransUIThemeManager.h"
 
+@interface MidtransSmallButton : UIButton
+@end
+
+@implementation MidtransSmallButton
+- (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event {
+    CGRect bounds = self.bounds;
+    CGFloat widthDelta = (44. - bounds.size.width) > 0 ? (44. - bounds.size.width) : 0;
+    CGFloat heightDelta = (44. - bounds.size.height) > 0 ? (44. - bounds.size.height) : 0;
+    bounds = CGRectInset(bounds, -(widthDelta/2.), -(heightDelta/2.));
+    return CGRectContainsPoint(bounds, point);
+}
+@end
+
 static CGFloat const kFloatingLabelShowAnimationDuration = 0.17f;
 static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
+static CGFloat const kInfoPadding = 5;
+
+@interface MidtransUITextField()
+@property (nonatomic) MidtransSmallButton *info1Button;
+@property (nonatomic) MidtransSmallButton *info2Button;
+@property (nonatomic) MidtransSmallButton *info3Button;
+@end
 
 @implementation MidtransUITextField {
     BOOL _isFloatingLabelFontDefault;
-    
     UILabel *_warningLabel;
     UIView *_divView;
-    UIImageView *_infoIconView;
 }
+
+@dynamic delegate;
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -37,14 +57,42 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
     return self;
 }
 
+- (void)initInfoButton:(MidtransSmallButton *)button {
+    [self addSubview:button];
+    [button addTarget:self action:@selector(infoPressed:) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)infoPressed:(MidtransSmallButton *)sender {
+    if ([sender isEqual:self.info1Button]) {
+        if ([self.delegate respondsToSelector:@selector(textField_didInfo1Tap:)]) {
+            [self.delegate textField_didInfo1Tap:self];
+        }
+    }
+    else if ([sender isEqual:self.info2Button]) {
+        if ([self.delegate respondsToSelector:@selector(textField_didInfo2Tap:)]) {
+            [self.delegate textField_didInfo2Tap:self];
+        }
+    }
+    else {
+        if ([self.delegate respondsToSelector:@selector(textField_didInfo3Tap:)]) {
+            [self.delegate textField_didInfo3Tap:self];
+        }
+    }
+}
+
 - (void)commonInit {
     
     self.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.font.pointSize];
     
     self.floatingLabelActiveTextColor = [[MidtransUIThemeManager shared] themeColor];
     
-    _infoIconView = [UIImageView new];
-    [self addSubview:_infoIconView];
+    self.info1Button = [MidtransSmallButton new];
+    self.info2Button = [MidtransSmallButton new];
+    self.info3Button = [MidtransSmallButton new];
+    
+    [self initInfoButton:self.info1Button];
+    [self initInfoButton:self.info2Button];
+    [self initInfoButton:self.info3Button];
     
     _divView = [UIView new];
     [self addSubview:_divView];
@@ -272,7 +320,10 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 }
 
 - (CGRect)insetRectForBounds:(CGRect)rect {
-    CGFloat rightPadding = CGRectGetWidth([self infoIconRect]);
+    CGFloat info1Width = CGRectGetWidth([self info1IconRect]) > 0 ? CGRectGetWidth([self info1IconRect])+kInfoPadding : 0;
+    CGFloat info2Width = CGRectGetWidth([self info2IconRect]) > 0 ? CGRectGetWidth([self info2IconRect])+kInfoPadding : 0;
+    CGFloat info3Width = CGRectGetWidth([self info3IconRect]) > 0 ? CGRectGetWidth([self info3IconRect])+kInfoPadding : 0;
+    CGFloat rightPadding = info1Width+info2Width+info3Width;
     return CGRectMake(0, 15, rect.size.width-rightPadding, rect.size.height-30);
 }
 
@@ -311,8 +362,13 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
                                                    alpha:1.0f];
     }
     
-    _infoIconView.frame = [self infoIconRect];
-    _infoIconView.image = _infoIcon;
+    self.info1Button.frame = [self info1IconRect];
+    self.info2Button.frame = [self info2IconRect];
+    self.info3Button.frame = [self info3IconRect];
+    
+    [self.info1Button setBackgroundImage:self.info1Icon forState:UIControlStateNormal];
+    [self.info2Button setBackgroundImage:self.info2Icon forState:UIControlStateNormal];
+    [self.info3Button setBackgroundImage:self.info3Icon forState:UIControlStateNormal];
     
     _warningLabel.frame = [self warningLabelRect];
     
@@ -333,12 +389,36 @@ static CGFloat const kFloatingLabelHideAnimationDuration = 0.17f;
 - (CGRect)warningLabelRect {
     return CGRectMake(0, CGRectGetMaxY([self divViewRect]), CGRectGetWidth(self.bounds), 15);
 }
-
-- (CGRect)infoIconRect {
-    CGSize size = _infoIcon.size;
-    CGFloat width = _infoIcon ? size.width : 0;
+- (CGRect)info1IconRect {
+    CGSize size = _info1Icon.size;
+    CGFloat width = _info1Icon ? size.width : 0;
     CGRect fieldRect = self.bounds;
     return CGRectMake(CGRectGetMaxX(fieldRect)-size.width, CGRectGetMidY(fieldRect)-(size.height/2.0), width, size.height);
+}
+- (CGRect)info2IconRect {
+    CGSize size = _info2Icon.size;
+    CGFloat width = _info2Icon ? size.width : 0;
+    CGRect fieldRect = self.bounds;
+    
+    CGFloat info1Width = CGRectGetWidth([self info1IconRect]) > 0 ? CGRectGetWidth([self info1IconRect])+kInfoPadding : 0;
+    
+    return CGRectMake(CGRectGetMaxX(fieldRect)-(info1Width + size.width),
+                      CGRectGetMidY(fieldRect)-(size.height/2.0),
+                      width,
+                      size.height);
+}
+- (CGRect)info3IconRect {
+    CGSize size = _info3Icon.size;
+    CGFloat width = _info3Icon ? size.width : 0;
+    CGRect fieldRect = self.bounds;
+    
+    CGFloat info1Width = CGRectGetWidth([self info1IconRect]) > 0 ? CGRectGetWidth([self info1IconRect])+kInfoPadding : 0;
+    CGFloat info2Width = CGRectGetWidth([self info2IconRect]) > 0 ? CGRectGetWidth([self info2IconRect])+kInfoPadding : 0;
+    
+    return CGRectMake(CGRectGetMaxX(fieldRect) - (info1Width + info2Width + size.width),
+                      CGRectGetMidY(fieldRect)-(size.height/2.0),
+                      width,
+                      size.height);
 }
 
 @end

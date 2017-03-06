@@ -15,9 +15,7 @@
 #import "MidtransTrackingManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
-#import "MTPaymentRequestDataModels.h"
-
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransCoreKit.h"
 
 NSString *const SAVE_MASKEDCARD_URL = @"%@/users/%@/tokens";
 NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
@@ -66,10 +64,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
-            
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
                 [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MIDTRANS_PAYMENT_CREDIT_CARD value:0];
-                //transaction finished here
                 if (completion){
                     completion(chargeResult, error);
                 }
@@ -87,6 +83,24 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 completion(nil, error);
             }
         }
+    }];
+}
+
+- (void)deleteMaskedCreditCard:(MidtransMaskedCreditCard *)maskedCard
+                         token:(MidtransTransactionTokenResponse *)token
+                    completion:(void(^)(BOOL success))completion {
+    NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/saved_tokens/%@",PRIVATECONFIG.snapURL, token.tokenId, maskedCard.maskedNumber];
+    NSDictionary *parameter = @{@"token":token.tokenId,
+                                @"masked_card":maskedCard.maskedNumber};
+    [[MidtransNetworking shared] deleteFromURL:stringURL header:nil parameters:parameter callback:^(id response, NSError *error) {
+        BOOL success = YES;
+        if (error) {
+            success = NO;
+        }
+        if (response[@"error_message"]) {
+            success = NO;
+        }
+        if (completion) completion(success);
     }];
 }
 
@@ -138,7 +152,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
-                                          customField:(NSDictionary *)customField
+                                          customField:(nullable NSArray *)customField
                                 transactionExpireTime:(MidtransTransactionExpire *)expireTime
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
@@ -147,7 +161,14 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
     [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
     if ([customField count] || [customField isEqual:[NSNull null]]) {
-        [dictionaryParameters setObject:customField forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOM];
+        for (NSDictionary *dictionary in customField) {
+            NSArray *key_dictionary=[dictionary allKeys];
+            for (NSString *string_key in key_dictionary) {
+                [dictionaryParameters setObject:[dictionary objectForKey:string_key] forKey:string_key];
+
+            }
+            
+        }
     }
     if ([[expireTime dictionaryRepresentation] count] || [expireTime isEqual:[NSNull null]]) {
         [dictionaryParameters setObject:[expireTime dictionaryRepresentation] forKey:MIDTRANS_CORE_SNAP_PARAMETER_EXPIRE_TIME];
@@ -157,9 +178,11 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [creditCardParameter setObject:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
     [creditCardParameter setObject:@(CC_CONFIG.secureSnapEnabled) forKey:@"secure"];
     if (CC_CONFIG.acquiringBankString) {
-        [creditCardParameter setObject:CC_CONFIG.acquiringBankString forKey:@"bank"];
+        creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
-    
+    if (CC_CONFIG.preauthEnabled) {
+        creditCardParameter[@"type"] = @"authorize";
+    }
     [dictionaryParameters setObject:creditCardParameter forKey:@"credit_card"];
     
     NSError *error;
@@ -169,6 +192,15 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+    
+    if (CC_CONFIG.promoEnabled) {
+        NSMutableDictionary *promoParam = [NSMutableDictionary new];
+        promoParam[@"enabled"] = @"YES";
+        if (CC_CONFIG.allowedPromoCodes) {
+            promoParam[@"allowed_promo_codes"] = CC_CONFIG.allowedPromoCodes;
+        }
+        dictionaryParameters[@"promo"] = promoParam;
+    }
     
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil

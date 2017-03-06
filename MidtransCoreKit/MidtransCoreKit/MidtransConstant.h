@@ -9,6 +9,11 @@
 /**
  *  error domain
  */
+
+static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
+static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
+static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
+
 static NSString * const MIDTRANS_ERROR_DOMAIN = @"error.veritrans.co.id";
 
 /**
@@ -95,16 +100,19 @@ static NSString * const MIDTRANS_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your 
 static NSString *const MIDTRANS_SANDBOX_API_URL = @"https://api.sandbox.veritrans.co.id/v2";
 static NSString *const MIDTRANS_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
 static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1";
-static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
-static NSString *const MIDTRANS_PROD_SNAP = @"https://app.midtrans.com/snap/v1";
-static NSString *const MIDTRANS_PRODUCTION_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
+static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://app.sandbox.midtrans.com/snap/v1/bank_bins";
 
-/*sandbox*/
+static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
+static NSString *const MIDTRANS_PRODUCTION_SNAP = @"https://app.midtrans.com/snap/v1";
+static NSString *const MIDTRANS_PRODUCTION_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
+static NSString *const MIDTRANS_PRODUCTION_BIN_URL = @"https://app.midtrans.com/snap/v1/bank_bins";
+
+/*staging*/
 
 static NSString *const MIDTRANS_STAGING_API_URL = @"https://api.stg.veritrans.co.id/v2";
 static NSString *const MIDTRANS_STAGING_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
 static NSString *const MIDTRANS_STAGING_SNAP = @"https://app.stg.veritrans.co.id/snap/v1";
-
+static NSString *const MIDTRANS_STAGING_BIN_URL = @"https://app.stg.midtrans.com/snap/v1/bank_bins";
 
 static NSString *const MIDTRANS_TRACKING_CC_TOKEN = @"token";
 static NSString *const MIDTRANS_TRACKING_PAYMENT_METHOD = @"payment_method";
@@ -112,8 +120,10 @@ static NSString *const MIDTRANS_TRACKING_PAYMENT_AMOUNT = @"amount";
 static NSString *const MIDTRANS_TRACKING_PAYMENT_FEATURE = @"payment_feature";
 static NSString *const MIDTRANS_TRACKING_SECURE_PROTOCOL = @"secure";
 static NSString *const MIDTRANS_TRACKING_DEVICE_ID = @"Device ID";
+static NSString *const MIDTRANS_TRACKING_TIME_STAMP = @"Timestamp";
 static NSString *const MIDTRANS_TRACKING_DISTINCT_ID = @"distinct_id";
 static NSString *const MIDTRANS_TRACKING_DEVICE_MODEL = @"Device Model";
+static NSString *const MIDTRANS_TRACKING_DEVICE_TYPE = @"Device Type";
 static NSString *const MIDTRANS_TRACKING_DEVICE_LANGUAGE = @"Device Language";
 static NSString *const MIDTRANS_TRACKING_APP_TOKENIZER_SUCCESS = @"Tokenize Success";
 static NSString *const MIDTRANS_TRACKING_APP_TOKENIZER_ERROR = @"Tokenize Failed";

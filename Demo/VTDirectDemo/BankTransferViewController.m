@@ -8,6 +8,8 @@
 
 #import "BankTransferViewController.h"
 #import "SamplePaymentListTableViewCell.h"
+#import "BankTransferDetailViewController.h"
+#import <MBProgressHUD.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentListModel.h>
 @interface BankTransferViewController () <UITableViewDelegate,UITableViewDataSource>
@@ -27,8 +29,6 @@
         [vaListM addObject:paymentmodel];
     }
     self.bankList = vaListM;
-    
-    
     [self.tableView reloadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -46,7 +46,54 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.bankList.count;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    id<MidtransPaymentDetails> paymentDetails;
+    MidtransVAType paymentType;
+     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.bankList objectAtIndex:indexPath.row];
+    if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
+        paymentType = VTVATypeBCA;
+    }
+    else if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
+        paymentType = VTVATypeMandiri;
+    }
+    else if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+        paymentType = VTVATypePermata;
+    }
+    else if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        paymentType = VTVATypeOther;
+    }
+    else if ([vaTypeModel.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
+        paymentType = VTVATypeOther;
+    }
+    
+    /*
+     put customer email here
+     */
+    paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:paymentType
+                                                                             email:@"testing@mailinator.com"];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.transactionToken];
+    
+    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+        [MBProgressHUD hideHUDForView:self.view animated:YES];
+        if (error) {
+            UIAlertView *alertView = [[UIAlertView alloc]
+                                      initWithTitle:@"ERROR"
+                                      message:error.description
+                                      delegate:self
+                                      cancelButtonTitle:@"OK"
+                                      otherButtonTitles:nil];
+            [alertView show];
 
+        }
+        else {
+            BankTransferDetailViewController *bankDtail =[[BankTransferDetailViewController alloc] initWithNibName:@"BankTransferDetailViewController" bundle:nil];
+                                                          bankDtail.bankName = vaTypeModel.internalBaseClassIdentifier;
+                                                          bankDtail.transactionData = result.transactionId;
+           [self.navigationController pushViewController:bankDtail animated:YES];
+                                                          }
+    }];
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransPaymentListModel *paymentMethod = self.bankList[indexPath.row];
     SamplePaymentListTableViewCell *cell = (SamplePaymentListTableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"SamplePaymentListTableViewCell"];

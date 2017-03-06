@@ -10,19 +10,19 @@
 #import "VTClassHelper.h"
 #import "MidtransUIListCell.h"
 #import "VTPaymentHeader.h"
-#import "VTCardListController.h"
+#import "VTVAListController.h"
 #import "VTMandiriClickpayController.h"
 #import "MidtransUIPaymentGeneralViewController.h"
 #import "MidtransUIPaymentDirectViewController.h"
 #import "VTMandiriClickpayController.h"
-#import "VTVAListController.h"
-#import "VTAddCardController.h"
-#import "MidtransUIPaymentListFooter.h"
-#import "MidtransUIPaymentListHeader.h"
+#import "MidtransSavedCardController.h"
 #import "VTPaymentListView.h"
+#import "MidtransNewCreditCardViewController.h"
 #import "MidtransPaymentGCIViewController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransUIThemeManager.h"
+#import "UIColor+SNP_HexString.h"
 
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
@@ -41,14 +41,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[MIDTrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
     
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
     self.title =  UILocalizedString(@"payment.list.title", nil);
     self.singlePayment = false;
     
-    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
+    UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
+                                    initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
     
     UIImage *logo = [MidtransImageManager merchantLogo];
@@ -68,24 +69,37 @@
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
+    
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchant.preference.displayName;
          if (response) {
-             [self hideLoading];
+             //applying SNAP color if any
+             UIColor *snapColor = [self colorFromSnapScheme:response.merchant.preference.colorScheme];
+             [MidtransUIThemeManager applySnapThemeColor:snapColor];
+             [self reloadThemeColor];
              
+             //handle payment list
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
+                                                   @"shortName":@"atm transfer",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
              
              NSArray *paymentAvailable = response.enabledPayments;
-             
+             if (self.paymentMethodSelected.length>0) {
+                 NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
+                 NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
+                 if (!results.count) {
+                     self.view.emptyView.hidden = NO;
+                     return ;
+                 }
+             }
              for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index ;
                  if (self.paymentMethodSelected.length > 0) {
@@ -108,11 +122,11 @@
                                  self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
                                  vaAlreadyAdded = YES;
                              }
-                             
                          }
                      }
                      
                      else {
+                         
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          [self.paymentMethodList addObject:model];
                          
@@ -123,7 +137,7 @@
                  if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count<2) {
+                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -137,13 +151,33 @@
          else {
              NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
              [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
-             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
          }
+         
+         [self hideLoading];
      }];
 }
 
 - (void)closePressed:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)reloadThemeColor {
+    UIColor *color = [[MidtransUIThemeManager shared] themeColor];
+    self.navigationController.navigationBar.tintColor = color;
+    self.view.headerView.backgroundColor = color;
+}
+
+- (UIColor *)colorFromSnapScheme:(NSString *)scheme {
+    NSString *path = [VTBundle pathForResource:@"snap_colors" ofType:@"plist"];
+    NSDictionary *snapColors = [NSDictionary dictionaryWithContentsOfFile:path];
+    NSString *hex = snapColors[scheme];
+    if (hex) {
+        return [UIColor colorWithSNP_HexString:hex];
+    }
+    else {
+        return nil;
+    }
 }
 
 #pragma mark - VTPaymentListViewDelegate
@@ -155,27 +189,40 @@
 #pragma mark - Helper
 
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
+    
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
-    NSString *paymentMethodName = paymentMethod.internalBaseClassIdentifier;
-    if ([paymentMethodName isEqualToString:MIDTRANS_PAYMENT_VA]) {
-        paymentMethodName = @"bank_transfer";
-    }
-    [[MidtransTrackingManager shared] trackEventWithEvent:MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT
-                                           withProperties:@{MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE:paymentMethodName}];
+    NSString *paymentMethodName = paymentMethod.shortName;
+    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
-            VTAddCardController *vc = [[VTAddCardController alloc] initWithToken:self.token
-                                                               paymentMethodName:paymentMethod];
-            [vc showDismissButton:self.singlePayment];
-            [self.navigationController pushViewController:vc animated:!self.singlePayment];
+            MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
+                                                                  initWithToken:self.token
+                                                                  paymentMethodName:paymentMethod
+                                                                  andCreditCardData:self.responsePayment.creditCard];
+            creditCardVC.promos = self.responsePayment.promos;
+            [creditCardVC showDismissButton:self.singlePayment];
+            [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
         }
         else {
-            VTCardListController *vc = [[VTCardListController alloc] initWithToken:self.token
-                                                                 paymentMethodName:paymentMethod
-                                                                 andCreditCardData:self.responsePayment.creditCard];
-            [vc showDismissButton:self.singlePayment];
-            [self.navigationController pushViewController:vc animated:!self.singlePayment];
+            if (self.responsePayment.creditCard.savedTokens.count) {
+                MidtransSavedCardController *vc = [[MidtransSavedCardController alloc] initWithToken:self.token
+                                                                     paymentMethodName:paymentMethod
+                                                                     andCreditCardData:self.responsePayment.creditCard];
+                vc.promos = self.responsePayment.promos;
+                [vc showDismissButton:self.singlePayment];
+                [self.navigationController pushViewController:vc animated:!self.singlePayment];
+                
+            }
+            else {
+                MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
+                                                                      initWithToken:self.token
+                                                                      paymentMethodName:paymentMethod
+                                                                      andCreditCardData:self.responsePayment.creditCard];
+                creditCardVC.promos = self.responsePayment.promos;
+                [creditCardVC showDismissButton:self.singlePayment];
+                [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
+            }
         }
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {

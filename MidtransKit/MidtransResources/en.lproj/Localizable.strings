@@ -12,7 +12,7 @@
 "clickpay.invalid-number" = "Invalid Debit Number";
 "clickpay.invalid-token" = "Invalid Clickpay Token";
 "name.other-bank" = "Other Bank";
-"payment.how" = "How can I Pay Via %@";
+"payment.how" = "How Can I Pay Via %@";
 "payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
 "payment.email-placeholder" = "Email Address (optional)";
 "payment.email-note" = "We will send you the payment code along with payment instructions to your email address";
@@ -22,15 +22,21 @@
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
 "payment.finish-button-title" = "Complete Payment At %@";
+
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
+"payment.va.confirm_button" = "See Account Number";
+
 "toast.copy-text" = "Copied to clipboard";
 
 "creditcard.input.title" = "Card Details";
 "creditcard.list.title" = "Choose Card";
 "creditcard.twoclick.title" = "Pay With Credit Card";
 "creditcard.error.invalid-bin" = "This card is not applicable, please use another one.";
+"creditcard.promo-message" = "With this card, you will get %@ discount from %@";
+"creditcard.promo-title" = "Congratulations";
 
 "va.list.title" = "Select Bank";
+"va.pay-button" = "See Account Number";
 
 "payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
 "payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";
@@ -47,3 +53,10 @@
 "kioson.pending.code-title" = "Payment Code";
 "kioson.pending.howto-title" = "How Can I Pay via Kioson";
 "kioson.pending.copy-title" = "Copy Payment Code";
+
+"alert.title" = "Warning";
+"alert.message-delete-card" = "Are you sure to delete this card?";
+"alert.no" = "No";
+"alert.yes" = "Yes";
+
+"Delete Saved Card" = "delete this card";

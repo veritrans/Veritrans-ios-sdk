@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.paymentMethodList = [NSMutableArray new];
+    self.paymentMethodList = [[NSMutableArray alloc] initWithCapacity:2];
     UIBarButtonItem *doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Close"
                                                                    style:UIBarButtonItemStylePlain target:self
                                                                   action:@selector(dismissModalViewControllerAnimated:)];
@@ -69,45 +69,18 @@
                              }
                          }
                      }
-                     else {
+                     else if([enabledPayment.type isEqualToString:@"credit_card"]) {
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:self.paymentList[index]];
                          [self.paymentMethodList addObject:model];
                      }
                      mainIndex++;
                  }
-                 [self.tableView reloadData];
              }
+               [self.tableView reloadData];
          }
          else {
          }
      }];
-    
-    //    [[MidtransMerchantClient sharedClient] requestPaymentlistWithToken:self.transactionToken.tokenId
-    //                                                            completion:^(MidtransPaymentRequestResponse * _Nullable response, NSError * _Nullable error)
-    //     {
-    //         [MBProgressHUD hideHUDForView:self.view animated:YES];
-    //         self.title = response.merchantData.displayName;
-    //         if (response) {
-    //             NSInteger grandTotalAmount = [response.transactionData.transactionDetails.amount integerValue];
-    //             // [self.tableView reloadData];
-    //             self.paymentRequestResponse = response;
-    //             if (self.paymentRequestResponse.transactionData.enabledPayments.count) {
-    //                 for (int x=0; x<response.transactionData.enabledPayments.count; x++) {
-    //                     for (int i = 0; i<self.paymentList.count; i++) {
-    //                         MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:self.paymentList[i]];
-    //                         if ([self.paymentRequestResponse.transactionData.enabledPayments[x] isEqualToString:paymentmodel.localPaymentIdentifier]) {
-    //                             [self.paymentMethodList addObject:paymentmodel];
-    //                         }
-    //                     }
-    //                 }
-    //             }
-    //             [self.tableView reloadData];
-    //
-    //         }
-    //         else {
-    //             //todo what should happens when payment request is failed;
-    //         }
-    //     }];
 }
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -116,7 +89,7 @@
     return 60;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.paymentMethodList.count;
+    return self.paymentMethodList.count>2?2:self.paymentList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {

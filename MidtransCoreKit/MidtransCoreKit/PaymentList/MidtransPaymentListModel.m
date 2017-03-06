@@ -11,6 +11,7 @@
 NSString *const kVTPaymentListModelId = @"id";
 NSString *const kVTPaymentListModelLocalIdentifier = @"identifier";
 NSString *const kVTPaymentListModelTitle = @"title";
+NSString *const kVTPaymentListModelShortName = @"shortName";
 NSString *const kVTPaymentListModelDescription = @"description";
 
 
@@ -24,6 +25,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
 
 @synthesize internalBaseClassIdentifier = _internalBaseClassIdentifier;
 @synthesize title = _title;
+@synthesize shortName = _shortName;
 @synthesize localPaymentIdentifier = _localPaymentIdentifier;
 @synthesize internalBaseClassDescription = _internalBaseClassDescription;
 
@@ -40,6 +42,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
         self.internalBaseClassIdentifier = [self objectOrNilForKey:kVTPaymentListModelId fromDictionary:dict];
         self.title = [self objectOrNilForKey:kVTPaymentListModelTitle fromDictionary:dict];
+        self.shortName = [self objectOrNilForKey:kVTPaymentListModelShortName fromDictionary:dict];
         self.localPaymentIdentifier = [self objectOrNilForKey:kVTPaymentListModelLocalIdentifier fromDictionary:dict];
         self.internalBaseClassDescription = [self objectOrNilForKey:kVTPaymentListModelDescription fromDictionary:dict];
         
@@ -53,6 +56,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.internalBaseClassIdentifier forKey:kVTPaymentListModelId];
     [mutableDict setValue:self.title forKey:kVTPaymentListModelTitle];
+    [mutableDict setValue:self.shortName forKey:kVTPaymentListModelShortName];
     [mutableDict setValue:self.internalBaseClassDescription forKey:kVTPaymentListModelDescription];
     
     return [NSDictionary dictionaryWithDictionary:mutableDict];
@@ -76,6 +80,7 @@ NSString *const kVTPaymentListModelDescription = @"description";
     
     self.internalBaseClassIdentifier = [aDecoder decodeObjectForKey:kVTPaymentListModelId];
     self.title = [aDecoder decodeObjectForKey:kVTPaymentListModelTitle];
+     self.shortName = [aDecoder decodeObjectForKey:kVTPaymentListModelShortName];
     self.localPaymentIdentifier = [aDecoder decodeObjectForKey:kVTPaymentListModelLocalIdentifier];
     self.internalBaseClassDescription = [aDecoder decodeObjectForKey:kVTPaymentListModelDescription];
     return self;

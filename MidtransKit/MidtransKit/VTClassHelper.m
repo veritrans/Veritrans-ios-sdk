@@ -209,4 +209,33 @@
 
 @end
 
+@implementation MidtransMaskedCreditCard (utilities)
+
+- (NSString *)formattedNumber {
+    NSInteger currentLength = self.maskedNumber.length-1; // minus 1 is because dash char
+    NSInteger dotCount = 16 - currentLength;
+    NSMutableString *dotString = [NSMutableString new];
+    for (int i=0; i<dotCount; i++) {
+        [dotString appendString:@"\u2022"];
+    }
+    return [[self.maskedNumber stringByReplacingOccurrencesOfString:@"-" withString:dotString] formattedCreditCardNumber];
+}
+
+- (UIImage *)darkIcon {
+    switch ([MidtransCreditCardHelper typeFromString:self.maskedNumber]) {
+        case VTCreditCardTypeVisa:
+            return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeJCB:
+            return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeMasterCard:
+            return [UIImage imageNamed:@"MasterCardDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        case VTCreditCardTypeAmex:
+            return [UIImage imageNamed:@"AmexDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        default:
+            return nil;
+    }
+}
+
+
+@end
 

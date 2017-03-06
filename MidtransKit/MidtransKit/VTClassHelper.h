@@ -51,3 +51,8 @@
 @interface NSArray (Item)
 - (NSString *)formattedPriceAmount;
 @end
+
+@interface MidtransMaskedCreditCard (utilities)
+- (NSString *)formattedNumber;
+- (UIImage *)darkIcon;
+@end

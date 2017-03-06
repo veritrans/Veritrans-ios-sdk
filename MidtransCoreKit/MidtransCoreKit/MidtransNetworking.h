@@ -7,10 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MidtransNetworkOperation.h"
 
 @interface MidtransNetworking : NSObject
 
 + (MidtransNetworking *)shared;
+
+@property (nonatomic, assign) BOOL enableLogging;
 
 - (void)deleteFromURL:(NSString *)URL
                header:(NSDictionary *)header

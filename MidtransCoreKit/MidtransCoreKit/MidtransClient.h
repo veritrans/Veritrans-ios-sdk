@@ -49,8 +49,9 @@
  
  @param completion A callback that will be called when the operation finished. When the operation succeeded, the completion will contain registered credit card object.
  */
+- (void)requestCardBINForInstallmentWithCompletion:(void (^_Nullable)(NSArray *_Nullable binResponse, NSError *_Nullable error))completion;
 - (void)registerCreditCard:(MidtransCreditCard *_Nonnull)creditCard
                 completion:(void (^_Nullable)(MidtransMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
 
-+ (BOOL)isCard:(MidtransCreditCard *_Nonnull)card eligibleForBins:(NSArray *_Nullable)bins error:(NSError **)error;
++ (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 @end

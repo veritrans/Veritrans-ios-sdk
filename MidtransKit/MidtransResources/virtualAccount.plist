@@ -9,6 +9,8 @@
 		<string>Pay from BCA ATMs or internet banking</string>
 		<key>id</key>
 		<string>bca_va</string>
+		<key>shortName</key>
+		<string>atm bca</string>
 	</dict>
 	<dict>
 		<key>title</key>
@@ -17,8 +19,12 @@
 		<string>Pay from Mandiri ATMs or internet banking</string>
 		<key>id</key>
 		<string>echannel</string>
+		<key>shortName</key>
+		<string>atm mandiri</string>
 	</dict>
 	<dict>
+		<key>shortName</key>
+		<string>atm permata</string>
 		<key>title</key>
 		<string>Permata</string>
 		<key>description</key>
@@ -27,6 +33,8 @@
 		<string>permata_va</string>
 	</dict>
 	<dict>
+		<key>shortName</key>
+		<string>atm all</string>
 		<key>title</key>
 		<string>Other Bank</string>
 		<key>description</key>

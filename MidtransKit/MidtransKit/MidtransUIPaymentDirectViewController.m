@@ -26,7 +26,7 @@
     [super viewDidLoad];
     
     [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
-    
+    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
         self.view.directPaymentTextField.keyboardType = UIKeyboardTypePhonePad;
         self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.indosat-dompetku.token-placeholder", nil);
@@ -78,12 +78,16 @@
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
 }
+- (void)setPaymentType:(MidtransVAType)paymentType {
+    _paymentType = paymentType;
+    [self.view.confirmPaymentButton setTitle:UILocalizedString(@"payment.va.confirm_button", nil) forState:UIControlStateNormal];
+}
 - (IBAction)paymentGuideDidTapped:(id)sender {
     
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
-    
+    [[MIDTrackingManager shared] trackEventName:@"btn confirm payment"];
     id<MidtransPaymentDetails> paymentDetails;
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||

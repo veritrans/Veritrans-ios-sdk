@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="429" id="R6K-7V-5XL" customClass="MidtransVAHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="R6K-7V-5XL" id="dxx-fu-CgF">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="428"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zir-Nc-rh2" customClass="MidtransUITextField">
+                        <rect key="frame" x="15" y="8" width="345" height="48"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="48" id="wtX-ha-bbf"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                        <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
+                        </userDefinedRuntimeAttributes>
+                    </textField>
+                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gR6-sh-JnL">
+                        <rect key="frame" x="15" y="355" width="345" height="31"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="tND-wI-0du"/>
+                        </constraints>
+                        <segments>
+                            <segment title="First"/>
+                            <segment title="Second"/>
+                        </segments>
+                    </segmentedControl>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="We will also send the payment instruction to your email" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-mz-S8H">
+                        <rect key="frame" x="15" y="56" width="345" height="283"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIR-WH-ZYP">
+                        <rect key="frame" x="15" y="401" width="345" height="19"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="iIR-WH-ZYP" firstAttribute="top" secondItem="gR6-sh-JnL" secondAttribute="bottom" constant="16" id="1C0-CF-bmO"/>
+                    <constraint firstItem="zir-Nc-rh2" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="3aw-mf-6WY"/>
+                    <constraint firstItem="zir-Nc-rh2" firstAttribute="top" secondItem="dxx-fu-CgF" secondAttribute="top" constant="8" id="E4y-Ku-AKV"/>
+                    <constraint firstItem="tbu-mz-S8H" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="T7i-bv-UMq"/>
+                    <constraint firstItem="gR6-sh-JnL" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="Tvv-Uh-cdP"/>
+                    <constraint firstItem="tbu-mz-S8H" firstAttribute="top" secondItem="zir-Nc-rh2" secondAttribute="bottom" id="UMn-rl-IpM"/>
+                    <constraint firstItem="gR6-sh-JnL" firstAttribute="top" secondItem="tbu-mz-S8H" secondAttribute="bottom" constant="16" id="Yz1-EP-3cn"/>
+                    <constraint firstAttribute="trailing" secondItem="tbu-mz-S8H" secondAttribute="trailing" constant="15" id="bf6-0P-hCJ"/>
+                    <constraint firstAttribute="trailing" secondItem="zir-Nc-rh2" secondAttribute="trailing" constant="15" id="f9D-fT-pie"/>
+                    <constraint firstAttribute="bottom" secondItem="iIR-WH-ZYP" secondAttribute="bottom" constant="8" id="fXB-Jh-XB5"/>
+                    <constraint firstAttribute="trailing" secondItem="gR6-sh-JnL" secondAttribute="trailing" constant="15" id="lpd-FN-kUo"/>
+                    <constraint firstAttribute="trailing" secondItem="iIR-WH-ZYP" secondAttribute="trailing" constant="15" id="n6x-82-dri"/>
+                    <constraint firstItem="iIR-WH-ZYP" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="nbm-n8-ung"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descLabel" destination="tbu-mz-S8H" id="EqR-x7-d52"/>
+                <outlet property="emailTextField" destination="zir-Nc-rh2" id="wbG-5y-kho"/>
+                <outlet property="tabSwitch" destination="gR6-sh-JnL" id="vHf-KX-Js7"/>
+                <outlet property="tutorialTitleLabel" destination="iIR-WH-ZYP" id="WsP-9c-ad8"/>
+            </connections>
+            <point key="canvasLocation" x="3.5" y="-92.5"/>
+        </tableViewCell>
+    </objects>
+</document>

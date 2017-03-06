@@ -533,10 +533,9 @@ UIAlertViewDelegate
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
-    
     [[MIDTrackingManager shared] trackEventName:@"btn confirm payment"];
     
-    if (self.installmentAvailable && self.installmentCurrentIndex!=0) {
+    if (self.installmentAvailable && self.installmentCurrentIndex !=0) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
@@ -578,10 +577,14 @@ UIAlertViewDelegate
             return;
         }
     }
-    [self showLoadingWithText:@"Processing your transaction"];
+
     MidtransTokenizeRequest *tokenRequest;
     
     if (self.maskedCreditCard) {
+        if (!self.view.cardCVVNumberTextField.text.length) {
+            self.view.cardCVVNumberTextField.warning = @"CVV is invalid";
+            return;
+        }
         tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
                                                                           cvv:self.view.cardCVVNumberTextField.text
                                                                   grossAmount:self.token.transactionDetails.grossAmount];
@@ -591,7 +594,7 @@ UIAlertViewDelegate
                                                                grossAmount:self.token.transactionDetails.grossAmount
                                                                     secure:CC_CONFIG.secure3DEnabled];
     }
-    
+        [self showLoadingWithText:@"Processing your transaction"];
     if (self.installmentTerms && self.installmentCurrentIndex !=0) {
         NSInteger installment = [self.installment.terms[self.installmentBankName][self.installmentCurrentIndex-1] integerValue];
         tokenRequest.installment = YES;

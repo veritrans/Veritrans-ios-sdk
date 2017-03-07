@@ -19,4 +19,5 @@
 - (void)setupInstallmentCollection;
 - (void)resetInstallmentIndex;
 - (void)configureInstallmentView:(NSArray *)installmentContent;
+- (void)configurePointView:(NSArray *)pointData;
 @end

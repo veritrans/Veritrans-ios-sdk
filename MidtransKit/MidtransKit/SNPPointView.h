@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 @class MidtransPaymentMethodHeader,MidtransTransactionTokenResponse;
 @interface SNPPointView : UIView
+@property (weak, nonatomic) IBOutlet UITextField *finalAmountTextField;
+@property (weak, nonatomic) IBOutlet UIView *pointViewWrapper;
 @property (weak, nonatomic) IBOutlet MidtransPaymentMethodHeader *paymentHeaderView;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 @end

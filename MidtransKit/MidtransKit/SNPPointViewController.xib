@@ -8,6 +8,14 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SNPPointViewController">
             <connections>
@@ -78,15 +86,41 @@
                                         <constraint firstAttribute="height" constant="44" id="AUx-c0-Rhy"/>
                                     </constraints>
                                 </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AMOUNT TO PAY AFTER DISCOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ld7-Vv-zZT">
+                                    <rect key="frame" x="10" y="127" width="281" height="21"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="21" id="l6x-PR-s6B"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="11"/>
+                                    <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FBY-wa-CTh">
+                                    <rect key="frame" x="8" y="156" width="302" height="32"/>
+                                    <color key="backgroundColor" red="0.8784313725490196" green="0.94117647058823528" blue="0.97647058823529409" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="32" id="cxP-Uj-qM0"/>
+                                    </constraints>
+                                    <color key="textColor" red="0.38431372549999998" green="0.38431372549999998" blue="0.38431372549999998" alpha="1" colorSpace="calibratedRGB"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
+                                <constraint firstItem="ld7-Vv-zZT" firstAttribute="centerY" secondItem="Zxt-ff-qnD" secondAttribute="centerY" id="3XI-OE-hqo"/>
                                 <constraint firstItem="gaQ-Ag-MFf" firstAttribute="top" secondItem="Zxt-ff-qnD" secondAttribute="top" constant="40" id="4pV-m6-DSV"/>
+                                <constraint firstItem="FBY-wa-CTh" firstAttribute="top" secondItem="ld7-Vv-zZT" secondAttribute="bottom" constant="8" id="BR2-Db-g2g"/>
+                                <constraint firstItem="OOn-Ah-xkc" firstAttribute="top" secondItem="FBY-wa-CTh" secondAttribute="bottom" constant="19" id="Brk-2M-BXZ"/>
+                                <constraint firstItem="ld7-Vv-zZT" firstAttribute="leading" secondItem="OOn-Ah-xkc" secondAttribute="leading" id="JdB-KI-rnf"/>
+                                <constraint firstAttribute="trailing" secondItem="ld7-Vv-zZT" secondAttribute="trailing" constant="29" id="Jj9-Mm-apY"/>
                                 <constraint firstAttribute="bottom" secondItem="OOn-Ah-xkc" secondAttribute="bottom" constant="24" id="beb-jy-BAh"/>
                                 <constraint firstItem="OOn-Ah-xkc" firstAttribute="leading" secondItem="Zxt-ff-qnD" secondAttribute="leading" constant="10" id="h7S-61-AGc"/>
                                 <constraint firstItem="gaQ-Ag-MFf" firstAttribute="centerX" secondItem="Zxt-ff-qnD" secondAttribute="centerX" id="mOe-F7-zRt"/>
                                 <constraint firstAttribute="trailing" secondItem="OOn-Ah-xkc" secondAttribute="trailing" constant="10" id="mUd-4D-j1N"/>
-                                <constraint firstItem="OOn-Ah-xkc" firstAttribute="top" secondItem="gaQ-Ag-MFf" secondAttribute="bottom" constant="96" id="sWy-IQ-YXn"/>
+                                <constraint firstItem="ld7-Vv-zZT" firstAttribute="top" secondItem="gaQ-Ag-MFf" secondAttribute="bottom" constant="16" id="nLR-bp-jhR"/>
+                                <constraint firstAttribute="trailing" secondItem="FBY-wa-CTh" secondAttribute="trailing" constant="10" id="oj4-em-7qK"/>
+                                <constraint firstItem="FBY-wa-CTh" firstAttribute="leading" secondItem="Zxt-ff-qnD" secondAttribute="leading" constant="8" id="pq6-NE-Y3N"/>
                             </constraints>
                         </view>
                     </subviews>
@@ -95,7 +129,7 @@
                         <constraint firstItem="Zxt-ff-qnD" firstAttribute="leading" secondItem="ewV-xR-rxD" secondAttribute="leading" id="RTq-g6-g6x"/>
                         <constraint firstItem="Zxt-ff-qnD" firstAttribute="top" secondItem="ewV-xR-rxD" secondAttribute="top" id="UDs-U8-nhV"/>
                         <constraint firstAttribute="trailing" secondItem="Zxt-ff-qnD" secondAttribute="trailing" id="fEU-4S-Gyv"/>
-                        <constraint firstAttribute="bottom" secondItem="Zxt-ff-qnD" secondAttribute="bottom" constant="156" id="hHf-1N-THs"/>
+                        <constraint firstAttribute="bottom" secondItem="Zxt-ff-qnD" secondAttribute="bottom" id="hHf-1N-THs"/>
                     </constraints>
                 </scrollView>
             </subviews>
@@ -114,7 +148,9 @@
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="k9F-9a-9Mq"/>
             </constraints>
             <connections>
+                <outlet property="finalAmountTextField" destination="FBY-wa-CTh" id="T6q-ZH-C94"/>
                 <outlet property="paymentHeaderView" destination="Tp0-jv-NQb" id="36q-ra-Jbn"/>
+                <outlet property="pointViewWrapper" destination="OOn-Ah-xkc" id="wGR-hx-Ozf"/>
             </connections>
             <point key="canvasLocation" x="-36" y="44"/>
         </view>

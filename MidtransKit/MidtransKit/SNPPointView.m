@@ -13,6 +13,11 @@
 #import <MidtransCoreKit/MidtransPaymentRequestV2DataModels.h>
 @implementation SNPPointView
 
+-(void)awakeFromNib{
+    [super awakeFromNib];
+    self.finalAmountTextField.layer.cornerRadius = 3.0f;
+    
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

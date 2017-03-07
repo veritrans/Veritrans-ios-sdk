@@ -12,6 +12,7 @@
 NSString *const kMidtransPaymentRequestV2MerchantClientKey = @"client_key";
 NSString *const kMidtransPaymentRequestV2MerchantEnabledPrinciples = @"enabled_principles";
 NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
+NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
 
 
 @interface MidtransPaymentRequestV2Merchant ()
@@ -41,6 +42,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
             self.clientKey = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantClientKey fromDictionary:dict];
             self.enabledPrinciples = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples fromDictionary:dict];
+        self.pointBanks = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantPointBanks fromDictionary:dict];
             self.preference = [MidtransPaymentRequestV2Preference modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2MerchantPreference]];
 
     }
@@ -63,7 +65,18 @@ NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
             [tempArrayForEnabledPrinciples addObject:subArrayObject];
         }
     }
+    NSMutableArray *tempArrayForPointBanks = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.pointBanks) {
+        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            // This class is a model object
+            [tempArrayForPointBanks addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            // Generic object
+            [tempArrayForPointBanks addObject:subArrayObject];
+        }
+    }
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForEnabledPrinciples] forKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples];
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForPointBanks] forKey:kMidtransPaymentRequestV2MerchantPointBanks];
     [mutableDict setValue:[self.preference dictionaryRepresentation] forKey:kMidtransPaymentRequestV2MerchantPreference];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
@@ -91,6 +104,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
     self.clientKey = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantClientKey];
     self.enabledPrinciples = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples];
     self.preference = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPreference];
+    self.preference = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPointBanks];
     return self;
 }
 
@@ -100,6 +114,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
     [aCoder encodeObject:_clientKey forKey:kMidtransPaymentRequestV2MerchantClientKey];
     [aCoder encodeObject:_enabledPrinciples forKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples];
     [aCoder encodeObject:_preference forKey:kMidtransPaymentRequestV2MerchantPreference];
+    [aCoder encodeObject:_pointBanks forKey:kMidtransPaymentRequestV2MerchantPointBanks];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -111,6 +126,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
         copy.clientKey = [self.clientKey copyWithZone:zone];
         copy.enabledPrinciples = [self.enabledPrinciples copyWithZone:zone];
         copy.preference = [self.preference copyWithZone:zone];
+        copy.pointBanks = [self.pointBanks copyWithZone:zone];
     }
     
     return copy;

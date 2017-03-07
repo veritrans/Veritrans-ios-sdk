@@ -199,7 +199,7 @@
             MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                   initWithToken:self.token
                                                                   paymentMethodName:paymentMethod
-                                                                  andCreditCardData:self.responsePayment.creditCard];
+                                                                  andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
             creditCardVC.promos = self.responsePayment.promos;
             [creditCardVC showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
@@ -208,7 +208,8 @@
             if (self.responsePayment.creditCard.savedTokens.count) {
                 MidtransSavedCardController *vc = [[MidtransSavedCardController alloc] initWithToken:self.token
                                                                      paymentMethodName:paymentMethod
-                                                                     andCreditCardData:self.responsePayment.creditCard];
+                                                                     andCreditCardData:self.responsePayment.creditCard
+                                                                     andCompleteResponseOfPayment:self.responsePayment];
                 vc.promos = self.responsePayment.promos;
                 [vc showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
@@ -218,7 +219,7 @@
                 MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod
-                                                                      andCreditCardData:self.responsePayment.creditCard];
+                                                                      andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
                 creditCardVC.promos = self.responsePayment.promos;
                 [creditCardVC showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];

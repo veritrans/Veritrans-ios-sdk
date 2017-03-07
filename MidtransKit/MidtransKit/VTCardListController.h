@@ -15,5 +15,6 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard;
+           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard
+andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment;
 @end

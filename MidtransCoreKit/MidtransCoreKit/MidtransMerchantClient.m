@@ -8,6 +8,7 @@
 
 #import "MidtransMerchantClient.h"
 #import "MidtransConfig.h"
+#import "SNPPointDataModels.h"
 #import "MidtransNetworking.h"
 #import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
@@ -42,7 +43,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 @implementation MidtransMerchantClient
 
 + (MidtransMerchantClient *)shared {
-    // Idea stolen from http://www.galloway.me.uk/tutorials/singleton-classes/
     static MidtransMerchantClient *instance = nil;
     @synchronized(self) {
         if (instance == nil) {
@@ -148,7 +148,26 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [paymentType isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY];
 }
+- (void)requestCustomerPointWithToken:(NSString * _Nonnull )token
+                   andCreditCardToken:(NSString *_Nonnull)creditCardToken
+                           completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion {
+    NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/point_inquiry/%@",PRIVATECONFIG.snapURL, token, creditCardToken];
+    [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
+        if (!error) {
+            SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
+            if (completion) {
+                completion(pointResponse,NULL);
+            }
+        }
+        else{
+            if (completion) {
+                [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
+                completion(NULL,error);
+            }
+        }
+    }];
 
+}
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MidtransPaymentMethodHeader,MidtransTransactionTokenResponse;
 @interface SNPPointView : UIView
-
+@property (weak, nonatomic) IBOutlet MidtransPaymentMethodHeader *paymentHeaderView;
+- (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 @end

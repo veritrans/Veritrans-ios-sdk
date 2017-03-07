@@ -11,11 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SNPPointViewController">
             <connections>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="Grz-AN-VIB"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="SNPPointView">
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
@@ -113,6 +113,9 @@
                 <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" id="jI0-bL-5lR"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="k9F-9a-9Mq"/>
             </constraints>
+            <connections>
+                <outlet property="paymentHeaderView" destination="Tp0-jv-NQb" id="36q-ra-Jbn"/>
+            </connections>
             <point key="canvasLocation" x="-36" y="44"/>
         </view>
     </objects>

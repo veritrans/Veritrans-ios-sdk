@@ -8,21 +8,33 @@
 
 #import "SNPPointViewController.h"
 #import "MidtransInstallmentView.h"
+#import "SNPPointView.h"
+#import <MidtransCorekit/MidtransCorekit.h>
 @interface SNPPointViewController ()
-
+@property (strong, nonatomic) IBOutlet SNPPointView *view;
+@property (nonatomic,strong) NSString *creditCardToken;
 @end
 
 @implementation SNPPointViewController
+@dynamic view;
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nullable)token
                         tokenizedCard:(NSString * _Nonnull)tokenizedCard
          andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response * _Nonnull)responsePayment {
     if (self = [super initWithToken:token]) {
-        NSLog(@"token-->%@",tokenizedCard);
+        self.creditCardToken = tokenizedCard;
     }
     return self;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view configureAmountTotal:self.token];
+    [self showLoadingWithText:@"Calculating your Point"];
+    [[MidtransMerchantClient shared] requestCustomerPointWithToken:self.token.tokenId andCreditCardToken:self.creditCardToken completion:^(SNPPointResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+                [self hideLoading];
+            NSLog(@"data-->%@",response.pointBalanceAmount);
+        }
+    }];
     self.title = @"Redeem BNI Reward Point";
     
     // Do any additional setup after loading the view from its nib.

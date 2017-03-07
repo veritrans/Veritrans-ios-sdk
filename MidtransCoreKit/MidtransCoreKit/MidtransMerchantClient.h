@@ -15,7 +15,7 @@
 #import "MidtransTransactionResult.h"
 #import "MidtransPaymentRequestV2SavedTokens.h"
 
-@class MidtransTransactionTokenResponse,MidtransPaymentRequestV2Response;
+@class MidtransTransactionTokenResponse,MidtransPaymentRequestV2Response,SNPPointResponse;
 /**
  `VTMerchant` wraps operation that offered by the Merchant Server. Note that data format is tightly-coupled with the merchant server implementation. Please refer to the Merchant Server documentation for further information.
  */
@@ -64,6 +64,9 @@
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 
+- (void)requestCustomerPointWithToken:(NSString * _Nonnull )token
+                   andCreditCardToken:(NSString *_Nonnull)creditCardToken
+                           completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion;
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails

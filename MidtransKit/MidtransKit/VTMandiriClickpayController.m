@@ -11,12 +11,11 @@
 #import "MidtransUITextField.h"
 #import "MidtransUIHudView.h"
 #import "MidtransUICardFormatter.h"
-
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 static NSString* const ClickpayAPPLI = @"3";
 
-@interface VTMandiriClickpayController () <UITextFieldDelegate>
+@interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
 
 @property (strong, nonatomic) IBOutlet MidtransUITextField *debitNumberTextField;
 @property (strong, nonatomic) IBOutlet MidtransUITextField *tokenTextField;
@@ -57,7 +56,6 @@ static NSString* const ClickpayAPPLI = @"3";
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
     self.tokenTextField.warning = nil;
     self.debitNumberTextField.warning = nil;
-    
     if ([self.debitNumberTextField.text isValidClickpayNumber] == NO) {
         self.debitNumberTextField.warning = UILocalizedString(@"clickpay.invalid-number", nil);
         return;
@@ -93,6 +91,12 @@ static NSString* const ClickpayAPPLI = @"3";
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isEqual:self.debitNumberTextField]) {
+        //generate challenge 1 number
+        NSMutableString *fieldText = textField.text.mutableCopy;
+        [fieldText replaceCharactersInRange:range withString:string];
+        self.input1Label.text = [MidtransMandiriClickpayHelper generateInput1FromCardNumber:fieldText];
+        
+        //reformat debit number
         return [self.ccFormatter updateTextFieldContentAndPosition];
     } else if ([textField isEqual:self.tokenTextField]) {
         NSInteger clickpayTokenLenth = 6;

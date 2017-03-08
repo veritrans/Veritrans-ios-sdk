@@ -83,8 +83,7 @@
     if (show) {
         if (!self.backBarButton) {
             self.backBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissButtonDidTapped:)];
-        }
-        
+        }        
         self.navigationItem.leftBarButtonItem = self.backBarButton;
     }
     else {
@@ -92,7 +91,7 @@
     }
 }
 - (void)dismissButtonDidTapped:(id)sender {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

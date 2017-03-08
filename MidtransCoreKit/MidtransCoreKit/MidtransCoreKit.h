@@ -54,5 +54,6 @@
 #import "MIdtransPaymentGCI.h"
 #import "MidtransNetworkLogger.h"
 #import "MidtransPromo.h"
+#import "SNPPointDataModels.h"
 #import "MidtransPromoEngine.h"
 #endif /* MidtransCoreKit_h */

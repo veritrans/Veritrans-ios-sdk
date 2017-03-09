@@ -38,18 +38,21 @@ CGFloat const ButtonHeight = 56;
 @property (nonatomic, strong) MidtransPaymentRequestV2CreditCard *creditCard;
 @property (nonatomic) NSMutableArray *cards;
 @property (nonatomic) BOOL editingCell;
+@property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
 @end
 
 @implementation VTCardListController
 
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
+           andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard
+andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
         self.token = token;
         self.paymentMethod = paymentMethod;
         self.creditCard = creditCard;
+         self.responsePayment = responsePayment;
     }
     return self;
 }
@@ -165,7 +168,10 @@ CGFloat const ButtonHeight = 56;
 
 - (IBAction)addCardPressed:(id)sender {
     
-    MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod andCreditCardData:self.creditCard];
+    MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
+                                                                                       paymentMethodName:self.paymentMethod
+                                                                                       andCreditCardData:self.creditCard
+                                                                            andCompleteResponseOfPayment:self.responsePayment];
     
   [self.navigationController pushViewController:vc animated:YES];
 }

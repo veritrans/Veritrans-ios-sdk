@@ -586,7 +586,7 @@ UIAlertViewDelegate
 - (IBAction)submitPaymentDidtapped:(id)sender {
     [[MIDTrackingManager shared] trackEventName:@"btn confirm payment"];
     
-    if (self.installmentAvailable && self.installmentCurrentIndex !=0) {
+    if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }

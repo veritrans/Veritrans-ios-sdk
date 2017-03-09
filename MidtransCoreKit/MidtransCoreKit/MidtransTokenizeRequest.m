@@ -131,7 +131,9 @@
         [result setObject:self.installmentTerm forKey:@"installment_term"];
         
     }
-    
+    if (self.point) {
+         [result setObject:@"true" forKey:@"point"];
+    }
     if (CC_CONFIG.preauthEnabled) {
         result[@"type"] = @"authorize";
     }

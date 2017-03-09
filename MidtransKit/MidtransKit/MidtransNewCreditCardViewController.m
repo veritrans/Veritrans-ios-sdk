@@ -651,7 +651,9 @@ UIAlertViewDelegate
         tokenRequest.installment = YES;
         tokenRequest.installmentTerm = @(installment);
     }
-    
+    if (self.bniPointActive) {
+        tokenRequest.point = YES;
+    }
     if (self.obtainedPromo) {
         tokenRequest.obtainedPromo = self.obtainedPromo;
     }

@@ -11,4 +11,5 @@
 @interface MidtransInstallmentCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *installmentLabel;
 - (void)configureInstallmentWithText:(NSString *)title;
+- (void)configurePointWithThext:(NSNumber *)number;
 @end

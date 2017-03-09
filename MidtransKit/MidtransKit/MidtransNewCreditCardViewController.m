@@ -129,6 +129,7 @@ UIAlertViewDelegate
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
                                                                     @"addOnTitle":@"Save card for later use"}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
+            self.saveCard = YES;
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
             [self setCreditCardSelectedAtIndex:0];
@@ -675,16 +676,16 @@ UIAlertViewDelegate
     if (self.obtainedPromo) {
         paymentDetail.discountToken = self.obtainedPromo.discountToken;
     }
+    MidtransTransaction *transaction = [[MidtransTransaction alloc]
+                                        initWithPaymentDetails:paymentDetail token:self.token];
     if (self.bniPointActive) {
         [self hideLoading];
-        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
-                                                                          tokenizedCard:token
-                                                           andCompleteResponseOfPayment:self.responsePayment];
+        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token tokenizedCard:token savedCard:self.saveCard andCompleteResponseOfPayment:self.responsePayment];
+        pointVC.currentMaskedCards = self.currentMaskedCards;
         [self.navigationController pushViewController:pointVC animated:YES];
         return;
     }
-    MidtransTransaction *transaction = [[MidtransTransaction alloc]
-                                        initWithPaymentDetails:paymentDetail token:self.token];
+
     
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error)

@@ -18,6 +18,7 @@
 @property (nonatomic) MidtransCreditCard *creditCard;
 @property (nonatomic) NSNumber *grossAmount;
 @property (nonatomic) BOOL installment;
+@property (nonatomic) BOOL point;
 @property (nonatomic) NSNumber *installmentTerm;
 @property (nonatomic) NSString *token;
 @property (nonatomic) BOOL twoClick;

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="f5Q-4K-301">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="gaV-nF-RUe">
+            <objects>
+                <navigationController id="f5Q-4K-301" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="ZNc-jZ-qgN">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="IXW-UG-PvI" kind="relationship" relationship="rootViewController" id="Hxw-gF-pcp"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UYm-jm-zOI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1351" y="72"/>
+        </scene>
+        <!--Demo Configuration-->
+        <scene sceneID="h9M-JK-hed">
+            <objects>
+                <viewController id="IXW-UG-PvI" customClass="StoreSettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="geD-sY-Sbz"/>
+                        <viewControllerLayoutGuide type="bottom" id="dqa-nf-u0E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="JTg-eX-Soh">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nl3-4J-uhp">
+                                <rect key="frame" x="0.0" y="64" width="375" height="550"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mzx-fW-tEj">
+                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="EWR-a8-iix"/>
+                                </constraints>
+                                <state key="normal" title="LAUNCH DEMO APP">
+                                    <color key="titleColor" red="0.92549019610000005" green="0.96078431369999995" blue="0.98823529409999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="launchAppButtonDidTapped:" destination="IXW-UG-PvI" eventType="touchUpInside" id="Vy9-e9-H3h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Mzx-fW-tEj" secondAttribute="trailing" constant="-16" id="3Ry-7j-Eob"/>
+                            <constraint firstItem="Nl3-4J-uhp" firstAttribute="leading" secondItem="JTg-eX-Soh" secondAttribute="leadingMargin" constant="-16" id="Bvg-pc-6UO"/>
+                            <constraint firstItem="Nl3-4J-uhp" firstAttribute="top" secondItem="geD-sY-Sbz" secondAttribute="bottom" id="FzV-ce-9Gj"/>
+                            <constraint firstItem="dqa-nf-u0E" firstAttribute="top" secondItem="Mzx-fW-tEj" secondAttribute="bottom" id="S1b-kd-HsK"/>
+                            <constraint firstItem="Mzx-fW-tEj" firstAttribute="top" secondItem="Nl3-4J-uhp" secondAttribute="bottom" constant="-1" id="WFf-IR-Ruu"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Nl3-4J-uhp" secondAttribute="trailing" constant="-16" id="bb2-Vh-lpt"/>
+                            <constraint firstItem="Nl3-4J-uhp" firstAttribute="width" secondItem="JTg-eX-Soh" secondAttribute="width" id="yng-9G-k2v"/>
+                            <constraint firstItem="Mzx-fW-tEj" firstAttribute="leading" secondItem="JTg-eX-Soh" secondAttribute="leadingMargin" constant="-16" id="zda-zK-jPN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Demo Configuration" id="RlY-OI-kHU"/>
+                    <connections>
+                        <outlet property="storeSettingWrapperView" destination="Nl3-4J-uhp" id="Zm9-k1-KTf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yZy-KX-Cx2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-551.20000000000005" y="71.514242878560722"/>
+        </scene>
+    </scenes>
+</document>

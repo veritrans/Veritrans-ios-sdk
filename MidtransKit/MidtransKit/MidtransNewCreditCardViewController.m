@@ -129,7 +129,7 @@ UIAlertViewDelegate
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
                                                                     @"addOnTitle":@"Save card for later use"}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
-            self.saveCard = YES;
+            //self.saveCard = YES;
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
             [self setCreditCardSelectedAtIndex:0];

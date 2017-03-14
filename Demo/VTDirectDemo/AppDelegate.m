@@ -94,7 +94,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     }
     CC_CONFIG.saveCardEnabled = YES;
     
-    id acquiringBank = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerAcquiringBank];
+    id acquiringBank = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCAcquiringBank];
     if (!acquiringBank) {
         acquiringBank = @{@"type":@(MTAcquiringBankMandiri), @"string":@"Mandiri"};
     }

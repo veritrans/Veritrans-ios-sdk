@@ -15,7 +15,6 @@ static NSString *const kOptionViewControllerCCSaveCard = @"cc_save_card";
 static NSString *const kOptionViewControllerCCAcquiringBank = @"cc_acquiring_bank";
 static NSString *const kOptionViewControllerThemeColor = @"theme_color";
 static NSString *const kOptionViewControllerCustomFont = @"custom_font";
-static NSString *const kOptionViewControllerAcquiringBank = @"acquiring_bank";
 static NSString *const kOptionViewControllerPromoEngine = @"cc_promo_engine";
 static NSString *const kOptionViewControllerPreauth = @"cc_preauth";
 

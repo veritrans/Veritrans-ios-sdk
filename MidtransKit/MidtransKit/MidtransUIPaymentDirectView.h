@@ -7,17 +7,18 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUITextField.h"
 #import "MidtransUIButton.h"
 
 @interface MidtransUIPaymentDirectView : UIView
-@property (weak, nonatomic) IBOutlet MidtransUITextField *directPaymentTextField;
-@property (weak, nonatomic) IBOutlet UILabel *vtInformationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
-@property (weak, nonatomic) IBOutlet MidtransUIButton *howToPaymentButton;
 @property (weak, nonatomic) IBOutlet UIButton *confirmPaymentButton;
-@property (strong, nonatomic) IBOutlet UILabel *noteLabel;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+- (void)initViewWithPaymentID:(NSString *)paymentMethodID email:(NSString *)email;
+- (MidtransVAType)paymentTypeWithID:(NSString *)paymentMethodID ;
+- (MidtransUITextField *)emailTextField;
+- (UILabel *)instructionTitleLabel;
 
 @end

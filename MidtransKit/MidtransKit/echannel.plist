@@ -30,7 +30,7 @@
                 
                 <dict>
                     <key>content</key>
-                    <string>Enter 70012 (Veritrans company code) and press ‘Correct’</string>
+                    <string>Enter 70012 (Midtrans company code) and press ‘Correct’</string>
                     <key>image</key>
                     <string>mandiri_atm_4</string>
                 </dict>
@@ -71,7 +71,7 @@
                 
                 <dict>
                     <key>content</key>
-                    <string>Select your account in ‘From Account’, then ‘Billing Name’ select ‘Veritrans’</string>
+                    <string>Select your account in ‘From Account’, then ‘Billing Name’ select ‘Midtrans’</string>
                     <key>image</key>
                     <string></string>
                 </dict>

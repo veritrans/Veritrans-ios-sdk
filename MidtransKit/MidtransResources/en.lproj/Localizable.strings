@@ -58,5 +58,6 @@
 "alert.message-delete-card" = "Are you sure to delete this card?";
 "alert.no" = "No";
 "alert.yes" = "Yes";
+"alert.invalid-payment-token" = "Payment token is invalid, please checkout again";
 
 "Delete Saved Card" = "delete this card";

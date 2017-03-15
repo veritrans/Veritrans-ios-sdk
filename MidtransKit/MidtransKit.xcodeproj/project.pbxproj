@@ -312,6 +312,9 @@
 		E546D1DF1CEACBBB00D65252 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */; };
 		E54AC3FE1D16487800BA4603 /* MidtransUIThemeManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E54AC3FC1D16487800BA4603 /* MidtransUIThemeManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E54AC3FF1D16487800BA4603 /* MidtransUIThemeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54AC3FD1D16487800BA4603 /* MidtransUIThemeManager.m */; };
+		E54F2B6B1E79201A00A3D64C /* MidtransDirectHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E54F2B6A1E79201A00A3D64C /* MidtransDirectHeader.xib */; };
+		E54F2B6E1E79207100A3D64C /* MidtransDirectHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E54F2B6C1E79207100A3D64C /* MidtransDirectHeader.h */; };
+		E54F2B6F1E79207100A3D64C /* MidtransDirectHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E54F2B6D1E79207100A3D64C /* MidtransDirectHeader.m */; };
 		E54F5C151E56AFC500B7592E /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54F5C141E56AFC500B7592E /* snap_colors.plist */; };
 		E54F5C181E56C88E00B7592E /* UIColor+SNP_HexString.h in Headers */ = {isa = PBXBuildFile; fileRef = E54F5C161E56C88E00B7592E /* UIColor+SNP_HexString.h */; };
 		E54F5C191E56C88E00B7592E /* UIColor+SNP_HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = E54F5C171E56C88E00B7592E /* UIColor+SNP_HexString.m */; };
@@ -740,6 +743,9 @@
 		E546D1DD1CEACBBB00D65252 /* prevIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prevIcon@2x.png"; sourceTree = "<group>"; };
 		E54AC3FC1D16487800BA4603 /* MidtransUIThemeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIThemeManager.h; sourceTree = "<group>"; };
 		E54AC3FD1D16487800BA4603 /* MidtransUIThemeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIThemeManager.m; sourceTree = "<group>"; };
+		E54F2B6A1E79201A00A3D64C /* MidtransDirectHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidtransDirectHeader.xib; sourceTree = "<group>"; };
+		E54F2B6C1E79207100A3D64C /* MidtransDirectHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransDirectHeader.h; sourceTree = "<group>"; };
+		E54F2B6D1E79207100A3D64C /* MidtransDirectHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransDirectHeader.m; sourceTree = "<group>"; };
 		E54F5C141E56AFC500B7592E /* snap_colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = snap_colors.plist; sourceTree = "<group>"; };
 		E54F5C161E56C88E00B7592E /* UIColor+SNP_HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SNP_HexString.h"; sourceTree = "<group>"; };
 		E54F5C171E56C88E00B7592E /* UIColor+SNP_HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SNP_HexString.m"; sourceTree = "<group>"; };
@@ -963,6 +969,8 @@
 				00F61B1E1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.m */,
 				00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */,
 				00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */,
+				E54F2B6C1E79207100A3D64C /* MidtransDirectHeader.h */,
+				E54F2B6D1E79207100A3D64C /* MidtransDirectHeader.m */,
 			);
 			name = "Direct Payment";
 			sourceTree = "<group>";
@@ -1278,7 +1286,7 @@
 				E50438BB1D1A718700710470 /* Status */,
 				E50438B01D1A653500710470 /* Guide */,
 				E57FFC821E1255BB002A875C /* Payment Method */,
-				00F61B1F1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib */,
+				E54F2B691E791FF800A3D64C /* Direct */,
 				00F61B141D146F7100C93DA0 /* MidtransUIPaymentGeneralViewController.xib */,
 				E5583DFE1D0FD443002B7FA1 /* VTMandiriClickpayController.xib */,
 				E5EF827B1C8C0837007B6585 /* MidtransUICCFrontView.xib */,
@@ -1586,6 +1594,15 @@
 			name = instructions;
 			sourceTree = "<group>";
 		};
+		E54F2B691E791FF800A3D64C /* Direct */ = {
+			isa = PBXGroup;
+			children = (
+				00F61B1F1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.xib */,
+				E54F2B6A1E79201A00A3D64C /* MidtransDirectHeader.xib */,
+			);
+			name = Direct;
+			sourceTree = "<group>";
+		};
 		E578DD071CFBF6480091760A /* Toast */ = {
 			isa = PBXGroup;
 			children = (
@@ -1746,6 +1763,7 @@
 				E578DD0A1CFBF6480091760A /* UIView+Toast.h in Headers */,
 				E58017EB1D5868E1007D2DEC /* VTXLTunaiSuccessController.h in Headers */,
 				E5504E161D0E64A100137655 /* UIViewController+HeaderSubtitle.h in Headers */,
+				E54F2B6E1E79207100A3D64C /* MidtransDirectHeader.h in Headers */,
 				00F61B261D14825100C93DA0 /* MidtransUIPaymentDirectView.h in Headers */,
 				00C6855E1DC701B50008D08F /* MIdtransPaymentStatusView.h in Headers */,
 				E504386F1D1A4A2100710470 /* VTMultiGuideController.h in Headers */,
@@ -2028,6 +2046,7 @@
 				0C7AB54B1E309E6800EB6785 /* citi@2x.png in Resources */,
 				E57202E51D632315006B9265 /* VTKlikbcaSuccessController.xib in Resources */,
 				0C7AB53F1E309E6800EB6785 /* bri.png in Resources */,
+				E54F2B6B1E79201A00A3D64C /* MidtransDirectHeader.xib in Resources */,
 				E50D85F61D0ECB9C00F26D2E /* bca_klikpay.plist in Resources */,
 				E58017E41D585AEF007D2DEC /* telkomsel_cash.plist in Resources */,
 				E5AB97651D741C4100466A44 /* VTPendingStatusController.xib in Resources */,
@@ -2210,6 +2229,7 @@
 				0C39984A1E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m in Sources */,
 				E5A35FA11D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m in Sources */,
 				00F61B271D14825100C93DA0 /* MidtransUIPaymentDirectView.m in Sources */,
+				E54F2B6F1E79207100A3D64C /* MidtransDirectHeader.m in Sources */,
 				E57FFC8A1E125FDA002A875C /* MidtransItemCell.m in Sources */,
 				E57202E11D62FB27006B9265 /* VTInstruction.m in Sources */,
 				E5165C5D1DF12031008334AB /* MidtransUIConfiguration.m in Sources */,

@@ -59,5 +59,6 @@
 "alert.message-delete-card" = "Apakah anda yakin akan menghapus kartu ini?";
 "alert.no" = "Tidak";
 "alert.yes" = "Ya";
+"alert.invalid-payment-token" = "Token pembayaran tidak valid, silahkan lakukan checkout lagi";
 
 "Delete Saved Card" = "hapus kartu";

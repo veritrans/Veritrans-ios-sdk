@@ -27,7 +27,7 @@
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
-@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate>
+@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
@@ -69,6 +69,15 @@
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
+    
+    if (self.token.tokenId.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:UILocalizedString(@"alert.invalid-payment-token", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Ok", nil];
+        [alert show];
+    }
     
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
@@ -207,9 +216,9 @@
         else {
             if (self.responsePayment.creditCard.savedTokens.count) {
                 MidtransSavedCardController *vc = [[MidtransSavedCardController alloc] initWithToken:self.token
-                                                                     paymentMethodName:paymentMethod
-                                                                     andCreditCardData:self.responsePayment.creditCard
-                                                                     andCompleteResponseOfPayment:self.responsePayment];
+                                                                                   paymentMethodName:paymentMethod
+                                                                                   andCreditCardData:self.responsePayment.creditCard
+                                                                        andCompleteResponseOfPayment:self.responsePayment];
                 vc.promos = self.responsePayment.promos;
                 [vc showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
@@ -269,6 +278,12 @@
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

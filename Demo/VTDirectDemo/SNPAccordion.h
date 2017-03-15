@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <QuartzCore/QuartzCore.h>
 @class SNPAccordion;
-@protocol OCBorghettiViewDelegate <NSObject>
+@protocol SNPAccordionDelegate <NSObject>
 - (void)accordion:(SNPAccordion *)accordion
    willSelectView:(UIView *)view
         withTitle:(NSString *)title
@@ -48,6 +48,7 @@
  */
 @property (nonatomic, strong) UIColor *headerTitleColor;
 
+@property (nonatomic, strong) UIColor *headerTitleActiveColor;
 /**
  Sets section header background color.
  */
@@ -66,7 +67,7 @@
  
  @see OCBorghettiViewDelegate protocol
  */
-@property (nonatomic, weak) id <OCBorghettiViewDelegate> delegate;
+@property (nonatomic, weak) id <SNPAccordionDelegate> delegate;
 
 
 @end

@@ -34,9 +34,10 @@
     
     self.headerHeight = 30;
     self.headerColor = [UIColor blackColor];
-    self.headerFont = [UIFont fontWithName:@"Arial-BoldMT" size:16];
+    self.headerFont = [UIFont fontWithName:@"SourceSans-Pro" size:16];
     self.headerTitleColor = [UIColor whiteColor];
-    self.headerBorderColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
+    self.headerBorderColor = [UIColor lightGrayColor];
+    self.headerTitleActiveColor = [UIColor colorWithRed:0.18 green:0.50 blue:0.76 alpha:1.0];
     self.hasBorder = NO;
     
     self.backgroundColor = [UIColor clearColor];
@@ -60,6 +61,12 @@
     [section setAutoresizingMask:UIViewAutoresizingFlexibleWidth];
     [section setTitle:sectionTitle forState:UIControlStateNormal];
     [section.titleLabel setFont:self.headerFont];
+    section.contentEdgeInsets = UIEdgeInsetsMake(0.0f, 30, 0.0f,0);
+    section.imageEdgeInsets = UIEdgeInsetsMake(0.0f, 30, 0.0f, 0);
+    UIImageView *imageLeftView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 20, 20)];
+    imageLeftView.contentMode = UIViewContentModeScaleAspectFit;
+    [section addSubview:imageLeftView];
+    [imageLeftView setImage:icon];
     [section setTitleColor:self.headerTitleColor
                   forState:UIControlStateNormal];
     
@@ -73,6 +80,7 @@
     [self addSubview:sectionView];
     
     [section setTag:self.sections.count - 1];
+    imageLeftView.tag = self.sections.count - 1;
     [section addTarget:self
                 action:@selector(sectionSelected:)
       forControlEvents:UIControlEventTouchUpInside];
@@ -111,27 +119,6 @@
 }
 
 #pragma mark - Private
-
-- (void)initBorghetti
-{
-    self.views = [NSMutableArray new];
-    self.sections = [NSMutableArray new];
-    
-    self.headerHeight = 30;
-    self.headerColor = [UIColor blackColor];
-    self.headerFont = [UIFont fontWithName:@"Arial-BoldMT" size:16];
-    self.headerTitleColor = [UIColor whiteColor];
-    self.headerBorderColor = [UIColor colorWithWhite:0.8f alpha:1.0f];
-    self.hasBorder = NO;
-    
-    self.backgroundColor = [UIColor clearColor];
-    self.userInteractionEnabled = YES;
-    self.autoresizesSubviews = YES;
-    self.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-    
-    self.shouldAnimate = NO;
-}
-
 - (void)sectionSelected:(id)sender
 {
     self.activeSection = [sender tag];
@@ -143,8 +130,7 @@
         self.numberOfSections += 1;
 }
 
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     int height = 0;
     
     for (int i = 0; i < self.views.count; i++) {
@@ -171,18 +157,19 @@
         sectionViewFrame.origin.y = height;
         
         if (self.activeSection == i) {
-            [sectionTitle setImage:[UIImage imageNamed:@"OCBorghettiView.bundle/icon_down_arrow.png"]
+            [sectionTitle setImage:[UIImage imageNamed:@"arrow_up"]
                           forState:UIControlStateNormal];
             
             sectionViewFrame.size.height = (self.frame.size.height - (self.numberOfSections * self.headerHeight));
+            [sectionTitle setTitleColor:self.headerTitleActiveColor forState:UIControlStateNormal];
             [sectionView setFrame:CGRectMake(0, sectionViewFrame.origin.y, self.frame.size.width, 0)];
             
             if ([sectionView respondsToSelector:@selector(setScrollsToTop:)])
                 [sectionView setScrollsToTop:YES];
         } else {
-            [sectionTitle setImage:[UIImage imageNamed:@"OCBorghettiView.bundle/icon_right_arrow.png"]
+            [sectionTitle setImage:[UIImage imageNamed:@"arrow_down"]
                           forState:UIControlStateNormal];
-            
+            [sectionTitle setTitleColor:self.headerTitleColor forState:UIControlStateNormal];
             sectionViewFrame.size.height = 0;
             
             if ([sectionView respondsToSelector:@selector(setScrollsToTop:)])

@@ -18,6 +18,9 @@
 		00F0DA8F1D76DCBF005B117E /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA8E1D76DCBF005B117E /* Media.xcassets */; };
 		00F0DA9A1D76EB9D005B117E /* PaymentCreditCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */; };
 		00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */; };
+		0C1002971E78FBA300573009 /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C1002961E78FBA300573009 /* Menu.plist */; };
+		0C10029C1E791C2100573009 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10029A1E791C2100573009 /* ProductDetailViewController.m */; };
+		0C10029D1E791C2100573009 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C10029B1E791C2100573009 /* ProductDetailViewController.xib */; };
 		0C43B4C81E0A4446000A583C /* UIFlowSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */; };
 		0C43B4C91E0A4446000A583C /* UIFlowSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */; };
 		0C48E3641E52D9C0005379EF /* BankTransferDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C48E3621E52D9C0005379EF /* BankTransferDetailViewController.m */; };
@@ -103,6 +106,10 @@
 		00F0DA971D76EB9D005B117E /* PaymentCreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentCreditCardViewController.h; sourceTree = "<group>"; };
 		00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardViewController.m; sourceTree = "<group>"; };
 		00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentCreditCardViewController.xib; sourceTree = "<group>"; };
+		0C1002961E78FBA300573009 /* Menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Menu.plist; sourceTree = "<group>"; };
+		0C1002991E791C2100573009 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
+		0C10029A1E791C2100573009 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
+		0C10029B1E791C2100573009 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
 		0C43B4C51E0A4446000A583C /* UIFlowSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlowSampleViewController.h; sourceTree = "<group>"; };
 		0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowSampleViewController.m; sourceTree = "<group>"; };
 		0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFlowSampleViewController.xib; sourceTree = "<group>"; };
@@ -280,6 +287,16 @@
 			name = "Payment Creditcard";
 			sourceTree = "<group>";
 		};
+		0C1002981E79172900573009 /* Product Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0C1002991E791C2100573009 /* ProductDetailViewController.h */,
+				0C10029A1E791C2100573009 /* ProductDetailViewController.m */,
+				0C10029B1E791C2100573009 /* ProductDetailViewController.xib */,
+			);
+			name = "Product Detail";
+			sourceTree = "<group>";
+		};
 		0C43B4C41E0A43DA000A583C /* UI-FLOW-SAMPLE LIST */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +321,7 @@
 		0CAE1ACE1E77D9D4009C0A14 /* New store */ = {
 			isa = PBXGroup;
 			children = (
+				0C1002981E79172900573009 /* Product Detail */,
 				0CAE1ACF1E77D9E3009C0A14 /* NewStore.storyboard */,
 				0CAE1AD11E77DA0D009C0A14 /* StoreSettingViewController.h */,
 				0CAE1AD21E77DA0D009C0A14 /* StoreSettingViewController.m */,
@@ -316,6 +334,7 @@
 			children = (
 				0CAE1AD51E77E56E009C0A14 /* SNPAccordion.h */,
 				0CAE1AD61E77E56E009C0A14 /* SNPAccordion.m */,
+				0C1002961E78FBA300573009 /* Menu.plist */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -595,11 +614,13 @@
 				E5C25FE21D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf in Resources */,
 				E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */,
 				E5C25FD31D25DE520012BCC8 /* Lato-Regular.ttf in Resources */,
+				0C10029D1E791C2100573009 /* ProductDetailViewController.xib in Resources */,
 				E5C25FD11D25DE520012BCC8 /* Lato-Light.ttf in Resources */,
 				00F0DA8B1D76BFF6005B117E /* SamplePaymentListTableViewCell.xib in Resources */,
 				E5C25FD71D25DE520012BCC8 /* TitilliumWeb-Bold.ttf in Resources */,
 				00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */,
 				00EC17931D7D297300D076D2 /* BankTransferViewController.xib in Resources */,
+				0C1002971E78FBA300573009 /* Menu.plist in Resources */,
 				E5C25FCC1D25DE520012BCC8 /* Lato-Bold.ttf in Resources */,
 				E5C25FDC1D25DE520012BCC8 /* TitilliumWeb-Light.ttf in Resources */,
 				E5C25FBA1D25DE520012BCC8 /* ArimaMadurai-Bold.ttf in Resources */,
@@ -708,6 +729,7 @@
 				E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */,
 				0CAE1AD31E77DA0D009C0A14 /* StoreSettingViewController.m in Sources */,
 				0CAE1AD71E77E56E009C0A14 /* SNPAccordion.m in Sources */,
+				0C10029C1E791C2100573009 /* ProductDetailViewController.m in Sources */,
 				302F71C91C73163C00FE73FE /* ViewController.m in Sources */,
 				E542D3331E27378600B9D044 /* AcquiringBankTableViewController.m in Sources */,
 				30FDCC411C8002B400CEFED3 /* TableViewCell.m in Sources */,

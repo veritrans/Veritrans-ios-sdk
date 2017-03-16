@@ -42,7 +42,7 @@
     NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"payment-menu" ofType:@"plist"]];
     self.menu = dictRoot;
     self.accordion.headerHeight = 40;
-    self.key =[self.menu allKeys];
+    self.key =@[@"Credit Card Payment",@"3D Secure",@"Issuing Bank",@"Custom Expiry",@"Save Card",@"Pre auth"];
     for (int i=0; i<self.menu.count; i++) {
         UITableView *section = [[UITableView alloc] init];
         [section setTag:i];
@@ -73,7 +73,7 @@
     if (cell == nil){
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"setting_cell"];
     }
-    
+    cell.textLabel.font = [UIFont fontWithName:@"SourceSansPro-Regular" size:13];
     cell.textLabel.text = [[[self.menu objectForKey:[self.key objectAtIndex:tableView.tag]] objectAtIndex:indexPath.row] objectForKey:@"title"];
     cell.textLabel.textColor = [UIColor colorWithRed:0.46f green:0.46f blue:0.46f alpha:1.0f];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

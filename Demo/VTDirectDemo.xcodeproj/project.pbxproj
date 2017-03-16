@@ -21,14 +21,20 @@
 		0C1002971E78FBA300573009 /* Menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C1002961E78FBA300573009 /* Menu.plist */; };
 		0C10029C1E791C2100573009 /* ProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C10029A1E791C2100573009 /* ProductDetailViewController.m */; };
 		0C10029D1E791C2100573009 /* ProductDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C10029B1E791C2100573009 /* ProductDetailViewController.xib */; };
+		0C3A8F871E7A6AAA002F1402 /* payment-menu.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C3A8F861E7A6AAA002F1402 /* payment-menu.plist */; };
 		0C43B4C81E0A4446000A583C /* UIFlowSampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */; };
 		0C43B4C91E0A4446000A583C /* UIFlowSampleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */; };
 		0C48E3641E52D9C0005379EF /* BankTransferDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C48E3621E52D9C0005379EF /* BankTransferDetailViewController.m */; };
 		0C48E3651E52D9C0005379EF /* BankTransferDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C48E3631E52D9C0005379EF /* BankTransferDetailViewController.xib */; };
+		0C513EAA1E7A72FB003E5BFB /* OrderReviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C513EA81E7A72FB003E5BFB /* OrderReviewViewController.m */; };
+		0C513EAB1E7A72FB003E5BFB /* OrderReviewViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C513EA91E7A72FB003E5BFB /* OrderReviewViewController.xib */; };
 		0C88856B1E4D877300E0034E /* PaymentCreditCardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C88856A1E4D877300E0034E /* PaymentCreditCardView.m */; };
 		0CAE1AD01E77D9E3009C0A14 /* NewStore.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CAE1ACF1E77D9E3009C0A14 /* NewStore.storyboard */; };
 		0CAE1AD31E77DA0D009C0A14 /* StoreSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE1AD21E77DA0D009C0A14 /* StoreSettingViewController.m */; };
 		0CAE1AD71E77E56E009C0A14 /* SNPAccordion.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAE1AD61E77E56E009C0A14 /* SNPAccordion.m */; };
+		0CC895991E7A6E620002AD3B /* SourceSansPro-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CC895961E7A6E620002AD3B /* SourceSansPro-Light.otf */; };
+		0CC8959A1E7A6E620002AD3B /* SourceSansPro-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CC895971E7A6E620002AD3B /* SourceSansPro-Regular.otf */; };
+		0CC8959B1E7A6E620002AD3B /* SourceSansPro-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0CC895981E7A6E620002AD3B /* SourceSansPro-Semibold.otf */; };
 		302F71C31C73163C00FE73FE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C21C73163C00FE73FE /* main.m */; };
 		302F71C61C73163C00FE73FE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C51C73163C00FE73FE /* AppDelegate.m */; };
 		302F71C91C73163C00FE73FE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 302F71C81C73163C00FE73FE /* ViewController.m */; };
@@ -110,12 +116,16 @@
 		0C1002991E791C2100573009 /* ProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetailViewController.h; sourceTree = "<group>"; };
 		0C10029A1E791C2100573009 /* ProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProductDetailViewController.m; sourceTree = "<group>"; };
 		0C10029B1E791C2100573009 /* ProductDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ProductDetailViewController.xib; sourceTree = "<group>"; };
+		0C3A8F861E7A6AAA002F1402 /* payment-menu.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "payment-menu.plist"; sourceTree = "<group>"; };
 		0C43B4C51E0A4446000A583C /* UIFlowSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlowSampleViewController.h; sourceTree = "<group>"; };
 		0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowSampleViewController.m; sourceTree = "<group>"; };
 		0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFlowSampleViewController.xib; sourceTree = "<group>"; };
 		0C48E3611E52D9C0005379EF /* BankTransferDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransferDetailViewController.h; sourceTree = "<group>"; };
 		0C48E3621E52D9C0005379EF /* BankTransferDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransferDetailViewController.m; sourceTree = "<group>"; };
 		0C48E3631E52D9C0005379EF /* BankTransferDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransferDetailViewController.xib; sourceTree = "<group>"; };
+		0C513EA71E7A72FB003E5BFB /* OrderReviewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderReviewViewController.h; sourceTree = "<group>"; };
+		0C513EA81E7A72FB003E5BFB /* OrderReviewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderReviewViewController.m; sourceTree = "<group>"; };
+		0C513EA91E7A72FB003E5BFB /* OrderReviewViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrderReviewViewController.xib; sourceTree = "<group>"; };
 		0C8885691E4D877300E0034E /* PaymentCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentCreditCardView.h; sourceTree = "<group>"; };
 		0C88856A1E4D877300E0034E /* PaymentCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardView.m; sourceTree = "<group>"; };
 		0CAE1ACF1E77D9E3009C0A14 /* NewStore.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewStore.storyboard; sourceTree = "<group>"; };
@@ -123,6 +133,9 @@
 		0CAE1AD21E77DA0D009C0A14 /* StoreSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreSettingViewController.m; sourceTree = "<group>"; };
 		0CAE1AD51E77E56E009C0A14 /* SNPAccordion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPAccordion.h; sourceTree = "<group>"; };
 		0CAE1AD61E77E56E009C0A14 /* SNPAccordion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPAccordion.m; sourceTree = "<group>"; };
+		0CC895961E7A6E620002AD3B /* SourceSansPro-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.otf"; sourceTree = "<group>"; };
+		0CC895971E7A6E620002AD3B /* SourceSansPro-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.otf"; sourceTree = "<group>"; };
+		0CC895981E7A6E620002AD3B /* SourceSansPro-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Semibold.otf"; sourceTree = "<group>"; };
 		18A2FDE89D2B5AA6DDA21506 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
 		302F71BE1C73163C00FE73FE /* VTDirectDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VTDirectDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		302F71C21C73163C00FE73FE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -297,6 +310,16 @@
 			name = "Product Detail";
 			sourceTree = "<group>";
 		};
+		0C1003101E7A4EA600573009 /* Order Review */ = {
+			isa = PBXGroup;
+			children = (
+				0C513EA71E7A72FB003E5BFB /* OrderReviewViewController.h */,
+				0C513EA81E7A72FB003E5BFB /* OrderReviewViewController.m */,
+				0C513EA91E7A72FB003E5BFB /* OrderReviewViewController.xib */,
+			);
+			name = "Order Review";
+			sourceTree = "<group>";
+		};
 		0C43B4C41E0A43DA000A583C /* UI-FLOW-SAMPLE LIST */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +344,7 @@
 		0CAE1ACE1E77D9D4009C0A14 /* New store */ = {
 			isa = PBXGroup;
 			children = (
+				0C1003101E7A4EA600573009 /* Order Review */,
 				0C1002981E79172900573009 /* Product Detail */,
 				0CAE1ACF1E77D9E3009C0A14 /* NewStore.storyboard */,
 				0CAE1AD11E77DA0D009C0A14 /* StoreSettingViewController.h */,
@@ -337,6 +361,16 @@
 				0C1002961E78FBA300573009 /* Menu.plist */,
 			);
 			name = Helper;
+			sourceTree = "<group>";
+		};
+		0CC895951E7A6E4D0002AD3B /* font */ = {
+			isa = PBXGroup;
+			children = (
+				0CC895961E7A6E620002AD3B /* SourceSansPro-Light.otf */,
+				0CC895971E7A6E620002AD3B /* SourceSansPro-Regular.otf */,
+				0CC895981E7A6E620002AD3B /* SourceSansPro-Semibold.otf */,
+			);
+			name = font;
 			sourceTree = "<group>";
 		};
 		302F71B51C73163C00FE73FE = {
@@ -364,6 +398,7 @@
 			children = (
 				302F71C11C73163C00FE73FE /* Supporting Files */,
 				E5C25FE91D25FFCD0012BCC8 /* Classes */,
+				0C3A8F861E7A6AAA002F1402 /* payment-menu.plist */,
 			);
 			path = VTDirectDemo;
 			sourceTree = "<group>";
@@ -371,6 +406,7 @@
 		302F71C11C73163C00FE73FE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0CC895951E7A6E4D0002AD3B /* font */,
 				00F0DA8E1D76DCBF005B117E /* Media.xcassets */,
 				E553BA7F1D66AF530091E403 /* Settings.bundle */,
 				E522A2A21D2500C300788BBE /* Font */,
@@ -613,10 +649,12 @@
 			files = (
 				E5C25FE21D25DE520012BCC8 /* YanoneKaffeesatz-Bold.ttf in Resources */,
 				E5C25FBD1D25DE520012BCC8 /* ArimaMadurai-Light.ttf in Resources */,
+				0CC8959A1E7A6E620002AD3B /* SourceSansPro-Regular.otf in Resources */,
 				E5C25FD31D25DE520012BCC8 /* Lato-Regular.ttf in Resources */,
 				0C10029D1E791C2100573009 /* ProductDetailViewController.xib in Resources */,
 				E5C25FD11D25DE520012BCC8 /* Lato-Light.ttf in Resources */,
 				00F0DA8B1D76BFF6005B117E /* SamplePaymentListTableViewCell.xib in Resources */,
+				0C513EAB1E7A72FB003E5BFB /* OrderReviewViewController.xib in Resources */,
 				E5C25FD71D25DE520012BCC8 /* TitilliumWeb-Bold.ttf in Resources */,
 				00F0DA9B1D76EB9D005B117E /* PaymentCreditCardViewController.xib in Resources */,
 				00EC17931D7D297300D076D2 /* BankTransferViewController.xib in Resources */,
@@ -638,8 +676,11 @@
 				E5C25FC21D25DE520012BCC8 /* Changa-Bold.ttf in Resources */,
 				00598E9A1D76AFBA006241BF /* SamplePaymentListViewController.xib in Resources */,
 				E5C25FE51D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf in Resources */,
+				0CC895991E7A6E620002AD3B /* SourceSansPro-Light.otf in Resources */,
 				E5C25FC51D25DE520012BCC8 /* Changa-Light.ttf in Resources */,
 				E5C25FDE1D25DE520012BCC8 /* TitilliumWeb-Regular.ttf in Resources */,
+				0CC8959B1E7A6E620002AD3B /* SourceSansPro-Semibold.otf in Resources */,
+				0C3A8F871E7A6AAA002F1402 /* payment-menu.plist in Resources */,
 				E5C25FBF1D25DE520012BCC8 /* ArimaMadurai-Regular.ttf in Resources */,
 				302F71CC1C73163C00FE73FE /* Main.storyboard in Resources */,
 				E57A161E1DAB012C00324B9C /* MidtransKit.bundle in Resources */,
@@ -725,6 +766,7 @@
 				0C48E3641E52D9C0005379EF /* BankTransferDetailViewController.m in Sources */,
 				00F0DA9A1D76EB9D005B117E /* PaymentCreditCardViewController.m in Sources */,
 				E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */,
+				0C513EAA1E7A72FB003E5BFB /* OrderReviewViewController.m in Sources */,
 				E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */,
 				E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */,
 				0CAE1AD31E77DA0D009C0A14 /* StoreSettingViewController.m in Sources */,

@@ -26,7 +26,8 @@
 @interface SNPAccordion :UIView
 - (void)addSectionWithTitle:(NSString *)sectionTitle
                     andView:(id)sectionView
-                    andIcon:(UIImage *)icon;
+                    andIcon:(UIImage *)icon
+           withTotalContent:(NSInteger)totalContent;
 
 /**
  Sets the active section.

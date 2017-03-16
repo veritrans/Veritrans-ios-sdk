@@ -1,31 +1,30 @@
 //
-//  ProductDetailViewController.m
+//  OrderReviewViewController.m
 //  VTDirectDemo
 //
-//  Created by Vanbungkring on 3/15/17.
+//  Created by Vanbungkring on 3/16/17.
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
 
-#import "ProductDetailViewController.h"
 #import "OrderReviewViewController.h"
-@interface ProductDetailViewController ()
+
+@interface OrderReviewViewController ()
 
 @end
 
-@implementation ProductDetailViewController
+@implementation OrderReviewViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        self.edgesForExtendedLayout = UIRectEdgeNone;
+    }
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-- (IBAction)buyNowButtonDidTapped:(id)sender {
-    OrderReviewViewController *orderVC = [[OrderReviewViewController alloc] initWithNibName:@"OrderReviewViewController" bundle:nil];
-    [self.navigationController pushViewController:orderVC animated:YES];
 }
 
 /*

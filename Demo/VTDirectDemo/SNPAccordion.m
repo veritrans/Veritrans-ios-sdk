@@ -51,7 +51,8 @@
 #pragma mark Add Section and View
 
 - (void)addSectionWithTitle:(NSString *)sectionTitle
-                    andView:(id)sectionView andIcon:(UIImage *)icon {
+                    andView:(id)sectionView andIcon:(UIImage *)icon
+           withTotalContent:(NSInteger)totalContent {
     UIButton *section = [[UIButton alloc] init];
     
     [section setBackgroundColor:self.headerColor];

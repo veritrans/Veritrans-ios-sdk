@@ -33,50 +33,16 @@
     self.accordion = [[SNPAccordion alloc] initWithFrame:CGRectMake(0, 0, self.storeSettingWrapperView.frame.size.width, self.storeSettingWrapperView.frame.size.height)];
     self.accordion.headerHeight = 40;
     //
-    self.accordion.headerFont = [UIFont fontWithName:@"SourceSans-Pro" size:16];
+    self.accordion.headerFont = [UIFont fontWithName:@"SourceSansPro-Regular" size:16];
     self.accordion.headerTitleColor = [UIColor lightGrayColor];
     self.accordion.headerColor = [UIColor whiteColor];
     [self.storeSettingWrapperView addSubview:self.accordion];
     
-    // Section One
-    self.menu = @{@"Card Payment Method":@[
-                                   @{@"title":@"Normal",@"code_name":@"normal"},
-                                   @{@"title":@"Two Clicks",@"code_name":@"two_click"},
-                                   @{@"title":@"One Clicks",@"code_name":@"one_click"}
-                                   ],
-                           @"3D Secure":@[
-                                   @{@"title":@"Enabled",@"code_name":@"enable"},
-                                   @{@"title":@"Disable",@"code_name":@"disable"}
-                                   ],
-                           @"Issuing Bank":@[
-                                   @{@"title":@"BNI",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankBNI]},
-                                   @{@"title":@"Mandiri",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankMandiri]},
-                                   @{@"title":@"BCA",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankBCA]},
-                                   @{@"title":@"Maybank",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankMaybank]},
-                                   @{@"title":@"BRI",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankBRI]},
-                                   ],
-                           @"Issuing Bank":@[
-                                   @{@"title":@"BNI",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankBNI]},
-                                   @{@"title":@"Mandiri",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankMandiri]},
-                                   @{@"title":@"BCA",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankBCA]},
-                                   @{@"title":@"Maybank",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankMaybank]},
-                                   @{@"title":@"BRI",@"code_name":[NSNumber numberWithInteger:MTAcquiringBankBRI]},
-                                   ],
-                           @"Custom Expiry":@[
-                                   @{@"title":@"No Expiry",@"code_name":@"no_expiry"},
-                                   @{@"title":@"1 Minute",@"code_name":@"1_minute"},
-                                   @{@"title":@"1 Hour",@"code_name":@"1_hour"}
-                                   ],
-                           @"Save Card":@[
-                                   @{@"title":@"Enable",@"code_name":@"enable"},
-                                   @{@"title":@"Disable",@"code_name":@"disable"}
-                                   ],
-                           @"Pre Auth":@[
-                                   @{@"title":@"Enable",@"code_name":@"enable"},
-                                   @{@"title":@"Disable",@"code_name":@"disable"}
-                                   ]};
+    // Read plist from bundle and get Root Dictionary out of it
+    NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"payment-menu" ofType:@"plist"]];
+    self.menu = dictRoot;
     self.accordion.headerHeight = 40;
-    self.key = [[self.menu allKeys] sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    self.key =[self.menu allKeys];
     for (int i=0; i<self.menu.count; i++) {
         UITableView *section = [[UITableView alloc] init];
         [section setTag:i];
@@ -84,7 +50,7 @@
         [section setDelegate:self];
         [section setDataSource:self];
         [self.accordion addSectionWithTitle:[self.key objectAtIndex:i]
-                                    andView:section andIcon:[UIImage imageNamed:[[self.key objectAtIndex:i] lowercaseString]]];
+                                    andView:section andIcon:[UIImage imageNamed:[[self.key objectAtIndex:i] lowercaseString]] withTotalContent:10];
         [section reloadData];
     }
 

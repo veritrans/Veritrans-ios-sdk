@@ -114,6 +114,27 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     CC_CONFIG.setDefaultCreditSaveCardEnabled = YES;
     
+    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"back"]
+                                                      forState:UIControlStateNormal
+                                                    barMetrics:UIBarMetricsDefault];
+    
+    //Change navigation bar appearance
+    [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
+    
+    // to remove 1 px border below nav bar
+    [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbar"]
+                                      forBarPosition:UIBarPositionAny
+                                          barMetrics:UIBarMetricsDefault];
+    [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(-60, -60)
+                                                         forBarMetrics:UIBarMetricsDefault];
+    
+    [[UINavigationBar appearance] setShadowImage:[[UIImage alloc] init]];
+    
+    NSDictionary *titleTextAttributes = @{NSForegroundColorAttributeName : [UIColor lightGrayColor],
+                                          NSFontAttributeName : [UIFont fontWithName:@"SourceSansPro-Regular"
+                                                                                size:17.0f]};
+    [[UINavigationBar appearance] setTitleTextAttributes:titleTextAttributes];
+    
     return YES;
 }
 

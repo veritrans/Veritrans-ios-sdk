@@ -115,9 +115,9 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
     
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
-        currentFormatter.locale = [NSLocale currentLocale];
         currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        currentFormatter.currencySymbol = @"Rp ";
+        currentFormatter.groupingSeparator = @",";
+        currentFormatter.decimalSeparator = @".";
         [dictionary setObject:currentFormatter forKey:identifier];
     }
     

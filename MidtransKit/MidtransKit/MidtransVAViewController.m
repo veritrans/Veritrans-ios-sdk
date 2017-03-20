@@ -45,6 +45,7 @@
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
     self.headerView.emailTextField.text = self.token.customerDetails.email;
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
+    [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other Bank"]) {

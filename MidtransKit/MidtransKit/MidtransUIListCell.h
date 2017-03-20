@@ -7,11 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-@class VTPaymentListModel;
+@class MidtransPaymentListModel,MidtransPaymentRequestV2Response;
 @interface MidtransUIListCell : UITableViewCell
 @property (nonatomic) NSDictionary *item;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *paymentMethodLogo;
-- (void)configurePaymetnList:(VTPaymentListModel *)paymentList;
+- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response;
 @end

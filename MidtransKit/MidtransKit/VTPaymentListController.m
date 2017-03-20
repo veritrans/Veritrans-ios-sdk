@@ -144,7 +144,7 @@
                  }
                  
                  if (response.enabledPayments.count) {
-                     [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
+                     [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response];
                  }
                  else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;

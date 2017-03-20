@@ -323,7 +323,11 @@ UIAlertViewDelegate
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
-    self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+    
+    if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
+            self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+    }
+
     self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
 }
 

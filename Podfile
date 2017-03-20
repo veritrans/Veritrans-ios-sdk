@@ -2,14 +2,14 @@ platform :ios, '7.0'
 
 workspace 'MidtransSDK.xcworkspace'
 
-project 'Demo/VTDirectDemo.xcodeproj'
+project 'DemoDev/VTDirectDemo.xcodeproj'
 project 'MidtransDemoSwift/MidtransDemoSwift.xcodeproj'
 project 'MidtransKit/MidtransKit.xcodeproj'
 project 'MidtransCoreKit/MidtransCoreKit.xcodeproj'
 project 'MidtransDemoSwift/MidtransDemoSwift.xcodeproj'
 
 target 'VTDirectDemo' do
-    project 'Demo/VTDirectDemo.xcodeproj'
+    project 'DemoDev/VTDirectDemo.xcodeproj'
     pod 'SDWebImage', '~>3.7'
     pod 'SRMonthPicker'
     pod 'JVFloatLabeledTextField'

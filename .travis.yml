@@ -1,9 +1,8 @@
 language: objective-c  #1
 
-osx_image: xcode8 #2
+#osx_image: xcode8 #2
 xcode_project: DemoTest/VTDirectDemo.xcworkspace #3
 branches:
-only:
 - development
 before_install:
 # Until Travis upgrades from Cocoapods 0.39, we need to do it here.
@@ -15,12 +14,16 @@ before_install:
 # Recent pods aren't found if we don't explicitly update Cocoapods' repo.
 # - pod repo update
 - brew install gflags
-install:
 
-before_script: cd scripts
-script: test.sh
-after_script: cd ../
+script:
+- cd DemoTest
+- pod install
+- rm -rf "~/Library/Caches/CocoaPods"
+- rm -rf "Pods/"
+- pod update
+- xcodebuild -workspace VTDirectDemo.xcworkspace -scheme MidtransSDKDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
+- cd ..
 
 notifications:
-#email: true
-#slack: midtrans:0RQSD3O4kPhQy9KxlPZsFYXp
+email: true
+slack: midtrans:0RQSD3O4kPhQy9KxlPZsFYXp

@@ -19,7 +19,7 @@ end
 
 s.source_files = 'MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
-    'MidtransKit' => ['MidtransKit/**/*.{png,plist,xib,storyboard,strings,ttf}']
+    'MidtransKit' => ['MidtransKit/**/*.{json,png,plist,xib,storyboard,strings,ttf}']
 }
 s.dependency 'MidtransCoreKit', '~> 1.3.1'
 

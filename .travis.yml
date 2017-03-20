@@ -17,7 +17,9 @@ before_install:
 - brew install gflags
 install:
 
-script: scripts/test.sh
+before_script: cd scripts
+script: test.sh
+after_script: cd ../
 
 notifications:
 #email: true

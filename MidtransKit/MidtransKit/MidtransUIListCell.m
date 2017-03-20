@@ -8,11 +8,11 @@
 
 #import "MidtransUIListCell.h"
 #import "VTClassHelper.h"
+#import <MidtransCorekit/MidtransCorekit.h>
 #import <MidtransCoreKit/MidtransPaymentListModel.h>
-
 @implementation MidtransUIListCell
 
-- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList {
+- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response {
     self.paymentMethodNameLabel.text = paymentList.title;
     self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
       NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
@@ -20,9 +20,14 @@
         imagePath = @"mandiri_va";
     }
     else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-    self.paymentMethodNameLabel.text = @"Credit/Debit Card";
-    }
+        self.paymentMethodNameLabel.text = @"Credit/Debit Card";
+         //       response.merchant.enabledPrinciples =@[@"visa",@"mastercard",@"amex"];
+        NSArray *capArray = [response.merchant.enabledPrinciples valueForKeyPath:@"capitalizedString"];
 
+        self.paymentMethodDescriptionLabel.text = [NSString stringWithFormat:@"Pay With %@",[capArray componentsJoinedByString:@", "]];
+        imagePath = [response.merchant.enabledPrinciples componentsJoinedByString:@"-"];
+        
+    }
     self.paymentMethodLogo.image = [UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     [self.contentView setNeedsLayout];

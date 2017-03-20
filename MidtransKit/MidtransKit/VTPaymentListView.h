@@ -11,7 +11,7 @@
 #import "MidtransLoadingView.h"
 #import "MidtransPaymentMethodHeader.h"
 
-@class VTPaymentListView;
+@class VTPaymentListView,MidtransPaymentRequestV2Response;
 
 @protocol VTPaymentListViewDelegate <NSObject>
 - (void)paymentListView:(VTPaymentListView *)view didSelectAtIndex:(NSUInteger)index;
@@ -24,6 +24,6 @@
 @property (nonatomic, weak) id<VTPaymentListViewDelegate>delegate;
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 
-- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items;
+- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response;
 
 @end

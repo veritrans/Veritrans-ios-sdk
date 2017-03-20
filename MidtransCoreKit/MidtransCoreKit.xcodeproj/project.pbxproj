@@ -227,7 +227,6 @@
 		0C6FC8951E1B62850002E160 /* MidtransPaymentRequestV2Installment2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment2.m; sourceTree = "<group>"; };
 		0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Terms.h; sourceTree = "<group>"; };
 		0C6FC8971E1B62850002E160 /* MidtransPaymentRequestV2Terms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Terms.m; sourceTree = "<group>"; };
-		0CB96A261E35C09100A15D72 /* bin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bin.json; sourceTree = "<group>"; };
 		0CD7EA981E03D0820036C187 /* MIdtransPaymentGCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentGCI.h; sourceTree = "<group>"; };
 		0CD7EA991E03D0820036C187 /* MIdtransPaymentGCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransPaymentGCI.m; sourceTree = "<group>"; };
 		2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransConstant.h; sourceTree = "<group>"; };
@@ -595,7 +594,6 @@
 		3054943C1C759FF800938C17 /* MidtransCoreKit */ = {
 			isa = PBXGroup;
 			children = (
-				0CB96A261E35C09100A15D72 /* bin.json */,
 				3054948C1C75A40900938C17 /* MidtransCoreKit.h */,
 				0089B5F61D13D5B7009C0059 /* Common */,
 				2EDAA3A01D0A7597009EC90D /* Tracking */,

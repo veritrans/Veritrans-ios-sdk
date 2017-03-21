@@ -328,7 +328,8 @@ UIAlertViewDelegate
             self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
     }
 
-    self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
+    UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
+    self.view.creditCardNumberTextField.info2Icon = bankIcon;
 }
 
 #pragma mark - VTCardFormatterDelegate
@@ -488,6 +489,7 @@ UIAlertViewDelegate
         NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
         BOOL isDebitCard = NO;
         if (filtered.count) {
+            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
             if (filtered.count > 1) {
                 NSArray *debitCard  = [filtered filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF['bank'] CONTAINS 'debit'"]];
                 if (debitCard.count) {
@@ -505,7 +507,6 @@ UIAlertViewDelegate
                 
             }
             else{
-                self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                          self.title = @"Mandiri Debit Card";

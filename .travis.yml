@@ -6,7 +6,7 @@ branches:
 - development
 before_install:
 - gem install xcpretty
-- gem uninstall cocoapods -v '1.0.1'
+- gem uninstall cocoapods -a
 - gem install cocoapods -v '1.0.1'
 - brew install gflags
 

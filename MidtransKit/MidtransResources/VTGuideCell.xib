@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1108" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="413" height="219"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="apd-p7-Tdt" id="MBM-xz-qok">
-                <rect key="frame" x="0.0" y="0.0" width="413" height="218.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="413" height="218"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="55" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHq-x8-tpJ">
-                        <rect key="frame" x="13" y="32" width="18" height="17"/>
+                        <rect key="frame" x="13" y="32.5" width="18" height="16.5"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="18" id="JpP-hI-Upn"/>
                         </constraints>
@@ -39,7 +39,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N2Z-1S-9fx">
-                        <rect key="frame" x="164" y="32" width="236" height="17"/>
+                        <rect key="frame" x="164" y="32.5" width="236" height="16.5"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                     <constraint firstItem="N2Z-1S-9fx" firstAttribute="centerY" secondItem="NAG-In-ctW" secondAttribute="centerY" id="Gtk-LS-tFz"/>
                     <constraint firstAttribute="trailing" secondItem="N2Z-1S-9fx" secondAttribute="trailing" constant="13" id="JFI-Ur-sHa"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NAG-In-ctW" secondAttribute="bottom" constant="13" id="Li9-Yk-xBJ"/>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N2Z-1S-9fx" secondAttribute="bottom" constant="13" id="dSg-7J-iuh"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N2Z-1S-9fx" secondAttribute="bottom" constant="20" id="dSg-7J-iuh"/>
                     <constraint firstItem="NAG-In-ctW" firstAttribute="top" secondItem="MBM-xz-qok" secondAttribute="top" id="nxN-8X-AZy"/>
                     <constraint firstItem="uHq-x8-tpJ" firstAttribute="centerY" secondItem="NAG-In-ctW" secondAttribute="centerY" id="yts-oD-Kcs"/>
                 </constraints>

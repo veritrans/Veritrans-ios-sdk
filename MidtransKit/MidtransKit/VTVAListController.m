@@ -57,7 +57,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
-    [cell configurePaymetnList:self.vaList[indexPath.row]];
+    [cell configurePaymetnList:self.vaList[indexPath.row] withFullPaymentResponse:self.paymentResponse];
     return cell;
 }
 

@@ -25,65 +25,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self addNavigationToTextFields:@[self.view.directPaymentTextField]];
-    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
-        self.view.directPaymentTextField.keyboardType = UIKeyboardTypePhonePad;
-        self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.indosat-dompetku.token-placeholder", nil);
-        self.view.vtInformationLabel.text = UILocalizedString(@"payment.indosat-dompetku.token-note", nil);
-    }
-    else {
-        self.view.directPaymentTextField.keyboardType = UIKeyboardTypeEmailAddress;
-        
-        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
-            self.view.directPaymentTextField.placeholder = UILocalizedString(@"KlikBCA User ID", nil);
-            self.view.vtInformationLabel.text = UILocalizedString(@"payment.klikbca.userid-note", nil);
-        }
-        else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
-            self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.telkomsel-cash.token-placeholder", nil);
-            self.view.vtInformationLabel.text = UILocalizedString(@"payment.telkomsel-cash.token-note", nil);
-        }
-        else {
-            self.view.directPaymentTextField.text = self.token.customerDetails.email;
-            self.view.directPaymentTextField.placeholder = UILocalizedString(@"payment.email-placeholder", nil);
-            self.view.vtInformationLabel.text = UILocalizedString(@"payment.email-note", nil);
-            
-            if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-                self.view.noteLabel.text = UILocalizedString(@"payment.kioson.note", nil);
-            }
-            else {
-                if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
-                    self.paymentType = VTVATypeBCA;
-                }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
-                    self.paymentType = VTVATypeMandiri;
-                }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
-                    self.paymentType = VTVATypePermata;
-                }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-                    self.paymentType = VTVATypeOther;
-                }
-                else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
-                    self.paymentType = VTVATypeOther;
-                }
-            }
-        }
-    }
-    
     self.title = self.paymentMethod.title;
     
-    [self.view.howToPaymentButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.how",nil), self.title]
-                                  forState:UIControlStateNormal];
+    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
+    
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
+    self.view.instructionTitleLabel.text = [NSString stringWithFormat:@"%@ step by step", self.paymentMethod.title];
+    [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
 }
 - (void)setPaymentType:(MidtransVAType)paymentType {
     _paymentType = paymentType;
     [self.view.confirmPaymentButton setTitle:UILocalizedString(@"payment.va.confirm_button", nil) forState:UIControlStateNormal];
-}
-- (IBAction)paymentGuideDidTapped:(id)sender {
-    
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
@@ -96,36 +48,36 @@
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
         paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType
-                                                                                 email:self.view.directPaymentTextField.text];
-        self.token.customerDetails.email = self.view.directPaymentTextField.text;
+                                                                                 email:self.view.emailTextField.text];
+        self.token.customerDetails.email = self.view.emailTextField.text;
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]){
-        if (self.view.directPaymentTextField.text.length == 0) {
-            self.view.directPaymentTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
+        if (self.view.emailTextField.text.length == 0) {
+            self.view.emailTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
             [self hideLoading];
             return;
         }
-        paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.directPaymentTextField.text];
+        paymentDetails = [[MidtransPaymentKlikBCA alloc] initWithKlikBCAUserId:self.view.emailTextField.text];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
         paymentDetails = [[MidtransPaymentIndomaret alloc] init];
-        self.token.customerDetails.email = self.view.directPaymentTextField.text;
+        self.token.customerDetails.email = self.view.emailTextField.text;
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
-        if (self.view.directPaymentTextField.text.length == 0) {
-            self.view.directPaymentTextField.warning = UILocalizedString(@"payment.indosat-dompetku.warning", nil);
+        if (self.view.emailTextField.text.length == 0) {
+            self.view.emailTextField.warning = UILocalizedString(@"payment.indosat-dompetku.warning", nil);
             [self hideLoading];
             return;
         }
-        paymentDetails = [[MidtransPaymentIndosatDompetku alloc] initWithMSISDN:self.view.directPaymentTextField.text];
+        paymentDetails = [[MidtransPaymentIndosatDompetku alloc] initWithMSISDN:self.view.emailTextField.text];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
-        if (self.view.directPaymentTextField.text.length == 0) {
-            self.view.directPaymentTextField.warning = UILocalizedString(@"payment.telkomsel-cash.warning", nil);
+        if (self.view.emailTextField.text.length == 0) {
+            self.view.emailTextField.warning = UILocalizedString(@"payment.telkomsel-cash.warning", nil);
             [self hideLoading];
             return;
         }
-        paymentDetails = [[MidtransPaymentTelkomselCash alloc] initWithMSISDN:self.view.directPaymentTextField.text];
+        paymentDetails = [[MidtransPaymentTelkomselCash alloc] initWithMSISDN:self.view.emailTextField.text];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
         paymentDetails = [[MidtransPaymentKiosOn alloc] init];
@@ -141,10 +93,6 @@
             [self handleTransactionSuccess:result];
         }
     }];
-}
-
-- (IBAction)howtoButtonDidTapped:(id)sender {
-    [self showGuideViewController];
 }
 
 @end

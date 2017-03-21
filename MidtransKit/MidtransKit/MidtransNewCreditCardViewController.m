@@ -129,7 +129,7 @@ UIAlertViewDelegate
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
                                                                     @"addOnTitle":@"Save card for later use"}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
-            self.saveCard = YES;
+            //self.saveCard = YES;
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
             [self setCreditCardSelectedAtIndex:0];
@@ -323,7 +323,11 @@ UIAlertViewDelegate
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
-    self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+    
+    if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
+            self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+    }
+
     self.view.creditCardNumberTextField.info2Icon = [self.view iconWithBankName:self.filteredBinObject.bank];
 }
 

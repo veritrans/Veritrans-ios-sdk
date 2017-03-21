@@ -19,6 +19,8 @@
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         self.edgesForExtendedLayout = UIRectEdgeNone;
     }
+    self.productImage.layer.cornerRadius = self.productImageConstraintsHeight.constant/2.0f;
+    self.productImage.layer.masksToBounds = YES;
     // Do any additional setup after loading the view from its nib.
 }
 

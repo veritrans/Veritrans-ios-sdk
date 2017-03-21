@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ProductDetailViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIPageControl *pager;
 
 @end

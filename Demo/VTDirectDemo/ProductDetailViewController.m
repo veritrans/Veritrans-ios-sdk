@@ -8,7 +8,8 @@
 
 #import "ProductDetailViewController.h"
 #import "OrderReviewViewController.h"
-@interface ProductDetailViewController ()
+@interface ProductDetailViewController () <UIScrollViewDelegate>
+@property (weak, nonatomic) IBOutlet UIScrollView *productScrollView;
 
 @end
 
@@ -16,6 +17,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Product Detail";
+    UIImage *backBtn = [UIImage imageNamed:@"back"];
+    backBtn = [backBtn imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+    self.navigationItem.backBarButtonItem.title=@"";
+    self.navigationController.navigationBar.backIndicatorImage = backBtn;
+    self.navigationController.navigationBar.backIndicatorTransitionMaskImage = backBtn;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -27,7 +34,14 @@
     OrderReviewViewController *orderVC = [[OrderReviewViewController alloc] initWithNibName:@"OrderReviewViewController" bundle:nil];
     [self.navigationController pushViewController:orderVC animated:YES];
 }
+-(void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
+    if (scrollView ==self.productScrollView) {
+        int page = scrollView.contentOffset.x / scrollView.frame.size.width;
+        CGFloat width = scrollView.frame.size.width;
+        [self.pager setCurrentPage:page];
+    }
 
+}
 /*
 #pragma mark - Navigation
 

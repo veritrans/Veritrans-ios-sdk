@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface OrderReviewViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *productImage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *productImageConstraintsHeight;
 
 @end

@@ -14,7 +14,9 @@
 @property (weak, nonatomic) IBOutlet UIView *storeSettingWrapperView;
 @property (nonatomic,strong) SNPAccordion *accordion;
 @property (nonatomic,strong)NSDictionary *menu;
-@property (nonatomic,strong)NSArray *key;
+@property (nonatomic,strong)NSMutableArray *key;
+@property (nonatomic,strong)NSArray *key2;
+@property (nonatomic,strong)NSArray *image;
 @end
 
 @implementation StoreSettingViewController
@@ -30,6 +32,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (void)setupAccordion {
+    self.key = [NSMutableArray new];
     self.accordion = [[SNPAccordion alloc] initWithFrame:CGRectMake(0, 0, self.storeSettingWrapperView.frame.size.width, self.storeSettingWrapperView.frame.size.height)];
     self.accordion.headerHeight = 40;
     //
@@ -42,7 +45,9 @@
     NSDictionary *dictRoot = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"payment-menu" ofType:@"plist"]];
     self.menu = dictRoot;
     self.accordion.headerHeight = 40;
-    self.key =@[@"Credit Card Payment",@"3D Secure",@"Issuing Bank",@"Custom Expiry",@"Save Card",@"Pre auth"];
+    self.image =@[@"Credit Card Payment",@"3D Secure",@"Issuing Bank",@"Custom Expiry",@"Save Card",@"Pre auth"];
+    self.key =[NSMutableArray arrayWithArray:@[@"Credit Card Payment",@"3D Secure",@"Issuing Bank",@"Custom Expiry",@"Save Card",@"Pre auth"]];
+    self.key2 =@[@"Credit Card Payment",@"3D Secure",@"Issuing Bank",@"Custom Expiry",@"Save Card",@"Pre auth"];
     for (int i=0; i<self.menu.count; i++) {
         UITableView *section = [[UITableView alloc] init];
         [section setTag:i];
@@ -50,7 +55,7 @@
         [section setDelegate:self];
         [section setDataSource:self];
         [self.accordion addSectionWithTitle:[self.key objectAtIndex:i]
-                                    andView:section andIcon:[UIImage imageNamed:[[self.key objectAtIndex:i] lowercaseString]] withTotalContent:10];
+                                    andView:section andIcon:[UIImage imageNamed:[[self.image objectAtIndex:i] lowercaseString]] withTotalContent:10];
         [section reloadData];
     }
 
@@ -65,7 +70,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [[self.menu objectForKey:[self.key objectAtIndex:tableView.tag]] count];
+    return [[self.menu objectForKey:[self.key2 objectAtIndex:tableView.tag]] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -74,7 +79,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"setting_cell"];
     }
     cell.textLabel.font = [UIFont fontWithName:@"SourceSansPro-Regular" size:13];
-    cell.textLabel.text = [[[self.menu objectForKey:[self.key objectAtIndex:tableView.tag]] objectAtIndex:indexPath.row] objectForKey:@"title"];
+    cell.textLabel.text = [[[self.menu objectForKey:[self.key2 objectAtIndex:tableView.tag]] objectAtIndex:indexPath.row] objectForKey:@"title"];
     cell.textLabel.textColor = [UIColor colorWithRed:0.46f green:0.46f blue:0.46f alpha:1.0f];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -90,7 +95,12 @@
     return YES;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryCheckmark;
     
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView cellForRowAtIndexPath:indexPath].accessoryType = UITableViewCellAccessoryNone;
 }
 - (UIStatusBarStyle)preferredStatusBarStyle {
     return UIStatusBarStyleLightContent;

@@ -114,9 +114,6 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     
     CC_CONFIG.setDefaultCreditSaveCardEnabled = YES;
     
-    [[UIBarButtonItem appearance] setBackButtonBackgroundImage:[UIImage imageNamed:@"back"]
-                                                      forState:UIControlStateNormal
-                                                    barMetrics:UIBarMetricsDefault];
     
     //Change navigation bar appearance
     [[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];

@@ -768,7 +768,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.pods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "95bfec7d-97a7-4be3-b731-deb23d56b17d";
 				PROVISIONING_PROFILE_SPECIFIER = "MidtransMobileDemo-dev";
@@ -799,7 +799,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.pods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5ad87d51-09f3-4be3-977d-f149c63937ff";
 				PROVISIONING_PROFILE_SPECIFIER = "MidtransMobileDemo-adhoc";

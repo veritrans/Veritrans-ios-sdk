@@ -31,7 +31,6 @@
 		30FDCC411C8002B400CEFED3 /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 30FDCC401C8002B400CEFED3 /* TableViewCell.m */; };
 		72B22156D9547266756CAF38 /* libPods-VTDirectDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE41FAA23E8E4836936E68C0 /* libPods-VTDirectDemo.a */; };
 		E502249A1CE975D30010C0ED /* IHKeyboardAvoiding.m in Sources */ = {isa = PBXBuildFile; fileRef = E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */; };
-		E50C07401E4DAE5400A2EC8D /* MID4WebPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E50C073F1E4DAE5400A2EC8D /* MID4WebPaymentTests.m */; };
 		E5154ABB1C980EAD001A69E2 /* OptionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5154ABA1C980EAD001A69E2 /* OptionViewController.m */; };
 		E542D3331E27378600B9D044 /* AcquiringBankTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E542D3321E27378600B9D044 /* AcquiringBankTableViewController.m */; };
 		E553BA801D66AF530091E403 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E553BA7F1D66AF530091E403 /* Settings.bundle */; };
@@ -51,12 +50,13 @@
 		E5C25FE41D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FB71D25DE520012BCC8 /* YanoneKaffeesatz-Light.ttf */; };
 		E5C25FE51D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5C25FB81D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf */; };
 		E5C25FE81D25FFC10012BCC8 /* FontListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */; };
-		E5D8B6821E35C2E200734AE0 /* MID2VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B6811E35C2E200734AE0 /* MID2VAPaymentTests.m */; };
-		E5D8B6871E35D21300734AE0 /* MIDTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B6861E35D21300734AE0 /* MIDTestHelper.m */; };
-		E5D8B6891E35ECE000734AE0 /* MID3KlikbcaPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D8B6881E35ECE000734AE0 /* MID3KlikbcaPaymentTests.m */; };
 		E5DB43CE1DC0833C001C7B99 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */; };
 		E5DB43D01DC0867C001C7B99 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */; };
-		E5E15BEE1E2876E00019D329 /* MID1CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E15BED1E2876E00019D329 /* MID1CreditCardPaymentTests.m */; };
+		E5DE3A211E8133E6002CE342 /* MID1CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE3A1D1E8133E6002CE342 /* MID1CreditCardPaymentTests.m */; };
+		E5DE3A221E8133E6002CE342 /* MID2VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE3A1E1E8133E6002CE342 /* MID2VAPaymentTests.m */; };
+		E5DE3A231E8133E6002CE342 /* MID3KlikbcaPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE3A1F1E8133E6002CE342 /* MID3KlikbcaPaymentTests.m */; };
+		E5DE3A241E8133E6002CE342 /* MID4WebPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE3A201E8133E6002CE342 /* MID4WebPaymentTests.m */; };
+		E5DE3A271E8133EF002CE342 /* MIDTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5DE3A261E8133EF002CE342 /* MIDTestHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,7 +109,6 @@
 		AE41FAA23E8E4836936E68C0 /* libPods-VTDirectDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-VTDirectDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50224981CE975D30010C0ED /* IHKeyboardAvoiding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IHKeyboardAvoiding.h; sourceTree = "<group>"; };
 		E50224991CE975D30010C0ED /* IHKeyboardAvoiding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IHKeyboardAvoiding.m; sourceTree = "<group>"; };
-		E50C073F1E4DAE5400A2EC8D /* MID4WebPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID4WebPaymentTests.m; sourceTree = "<group>"; };
 		E5154AB91C980EAD001A69E2 /* OptionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OptionViewController.h; sourceTree = "<group>"; };
 		E5154ABA1C980EAD001A69E2 /* OptionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OptionViewController.m; sourceTree = "<group>"; };
 		E542D3311E27378600B9D044 /* AcquiringBankTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcquiringBankTableViewController.h; sourceTree = "<group>"; };
@@ -132,15 +131,16 @@
 		E5C25FB81D25DE520012BCC8 /* YanoneKaffeesatz-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "YanoneKaffeesatz-Regular.ttf"; sourceTree = "<group>"; };
 		E5C25FE61D25FFC10012BCC8 /* FontListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontListViewController.h; sourceTree = "<group>"; };
 		E5C25FE71D25FFC10012BCC8 /* FontListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontListViewController.m; sourceTree = "<group>"; };
-		E5D8B6811E35C2E200734AE0 /* MID2VAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID2VAPaymentTests.m; sourceTree = "<group>"; };
-		E5D8B6851E35D21300734AE0 /* MIDTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDTestHelper.h; sourceTree = "<group>"; };
-		E5D8B6861E35D21300734AE0 /* MIDTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDTestHelper.m; sourceTree = "<group>"; };
-		E5D8B6881E35ECE000734AE0 /* MID3KlikbcaPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID3KlikbcaPaymentTests.m; sourceTree = "<group>"; };
 		E5DB43CD1DC0833C001C7B99 /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = virtualAccount.plist; sourceTree = "<group>"; };
 		E5DB43CF1DC0867C001C7B99 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = paymentMethods.plist; sourceTree = "<group>"; };
+		E5DE3A1D1E8133E6002CE342 /* MID1CreditCardPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MID1CreditCardPaymentTests.m; path = ../../DemoDev/MidtransSDKUITests/MID1CreditCardPaymentTests.m; sourceTree = "<group>"; };
+		E5DE3A1E1E8133E6002CE342 /* MID2VAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MID2VAPaymentTests.m; path = ../../DemoDev/MidtransSDKUITests/MID2VAPaymentTests.m; sourceTree = "<group>"; };
+		E5DE3A1F1E8133E6002CE342 /* MID3KlikbcaPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MID3KlikbcaPaymentTests.m; path = ../../DemoDev/MidtransSDKUITests/MID3KlikbcaPaymentTests.m; sourceTree = "<group>"; };
+		E5DE3A201E8133E6002CE342 /* MID4WebPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MID4WebPaymentTests.m; path = ../../DemoDev/MidtransSDKUITests/MID4WebPaymentTests.m; sourceTree = "<group>"; };
+		E5DE3A251E8133EF002CE342 /* MIDTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDTestHelper.h; path = ../../DemoDev/MidtransSDKUITests/MIDTestHelper.h; sourceTree = "<group>"; };
+		E5DE3A261E8133EF002CE342 /* MIDTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIDTestHelper.m; path = ../../DemoDev/MidtransSDKUITests/MIDTestHelper.m; sourceTree = "<group>"; };
 		E5E15BE31E2876BB0019D329 /* MidtransSDKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransSDKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5E15BE71E2876BB0019D329 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5E15BED1E2876E00019D329 /* MID1CreditCardPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID1CreditCardPaymentTests.m; sourceTree = "<group>"; };
 		EFB48D22A5313F6D378ED305 /* Pods-VTDirectDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VTDirectDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-VTDirectDemo/Pods-VTDirectDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -310,15 +310,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		E50C07411E4DAEF400A2EC8D /* utils */ = {
-			isa = PBXGroup;
-			children = (
-				E5D8B6851E35D21300734AE0 /* MIDTestHelper.h */,
-				E5D8B6861E35D21300734AE0 /* MIDTestHelper.m */,
-			);
-			name = utils;
-			sourceTree = "<group>";
-		};
 		E522A2A21D2500C300788BBE /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,12 +399,13 @@
 		E5E15BE41E2876BB0019D329 /* MidtransSDKUITests */ = {
 			isa = PBXGroup;
 			children = (
+				E5DE3A251E8133EF002CE342 /* MIDTestHelper.h */,
+				E5DE3A261E8133EF002CE342 /* MIDTestHelper.m */,
+				E5DE3A1D1E8133E6002CE342 /* MID1CreditCardPaymentTests.m */,
+				E5DE3A1E1E8133E6002CE342 /* MID2VAPaymentTests.m */,
+				E5DE3A1F1E8133E6002CE342 /* MID3KlikbcaPaymentTests.m */,
+				E5DE3A201E8133E6002CE342 /* MID4WebPaymentTests.m */,
 				E5E15BE71E2876BB0019D329 /* Info.plist */,
-				E50C07411E4DAEF400A2EC8D /* utils */,
-				E5E15BED1E2876E00019D329 /* MID1CreditCardPaymentTests.m */,
-				E5D8B6811E35C2E200734AE0 /* MID2VAPaymentTests.m */,
-				E5D8B6881E35ECE000734AE0 /* MID3KlikbcaPaymentTests.m */,
-				E50C073F1E4DAE5400A2EC8D /* MID4WebPaymentTests.m */,
 			);
 			path = MidtransSDKUITests;
 			sourceTree = "<group>";
@@ -621,11 +613,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5D8B6821E35C2E200734AE0 /* MID2VAPaymentTests.m in Sources */,
-				E5D8B6891E35ECE000734AE0 /* MID3KlikbcaPaymentTests.m in Sources */,
-				E5E15BEE1E2876E00019D329 /* MID1CreditCardPaymentTests.m in Sources */,
-				E5D8B6871E35D21300734AE0 /* MIDTestHelper.m in Sources */,
-				E50C07401E4DAE5400A2EC8D /* MID4WebPaymentTests.m in Sources */,
+				E5DE3A231E8133E6002CE342 /* MID3KlikbcaPaymentTests.m in Sources */,
+				E5DE3A241E8133E6002CE342 /* MID4WebPaymentTests.m in Sources */,
+				E5DE3A211E8133E6002CE342 /* MID1CreditCardPaymentTests.m in Sources */,
+				E5DE3A221E8133E6002CE342 /* MID2VAPaymentTests.m in Sources */,
+				E5DE3A271E8133EF002CE342 /* MIDTestHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -768,7 +760,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.pods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "95bfec7d-97a7-4be3-b731-deb23d56b17d";
 				PROVISIONING_PROFILE_SPECIFIER = "MidtransMobileDemo-dev";
@@ -799,7 +791,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.pods;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5ad87d51-09f3-4be3-977d-f149c63937ff";
 				PROVISIONING_PROFILE_SPECIFIER = "MidtransMobileDemo-adhoc";

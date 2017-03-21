@@ -100,9 +100,9 @@
 		00F0DA971D76EB9D005B117E /* PaymentCreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PaymentCreditCardViewController.h; sourceTree = "<group>"; };
 		00F0DA981D76EB9D005B117E /* PaymentCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PaymentCreditCardViewController.m; sourceTree = "<group>"; };
 		00F0DA991D76EB9D005B117E /* PaymentCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PaymentCreditCardViewController.xib; sourceTree = "<group>"; };
-		0C43B4C51E0A4446000A583C /* UIFlowSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIFlowSampleViewController.h; sourceTree = "<group>"; };
-		0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIFlowSampleViewController.m; sourceTree = "<group>"; };
-		0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UIFlowSampleViewController.xib; sourceTree = "<group>"; };
+		0C43B4C51E0A4446000A583C /* UIFlowSampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UIFlowSampleViewController.h; path = VTDirectDemo/UIFlowSampleViewController.h; sourceTree = "<group>"; };
+		0C43B4C61E0A4446000A583C /* UIFlowSampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = UIFlowSampleViewController.m; path = VTDirectDemo/UIFlowSampleViewController.m; sourceTree = "<group>"; };
+		0C43B4C71E0A4446000A583C /* UIFlowSampleViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = UIFlowSampleViewController.xib; path = VTDirectDemo/UIFlowSampleViewController.xib; sourceTree = "<group>"; };
 		0C48E3611E52D9C0005379EF /* BankTransferDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankTransferDetailViewController.h; sourceTree = "<group>"; };
 		0C48E3621E52D9C0005379EF /* BankTransferDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankTransferDetailViewController.m; sourceTree = "<group>"; };
 		0C48E3631E52D9C0005379EF /* BankTransferDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BankTransferDetailViewController.xib; sourceTree = "<group>"; };
@@ -841,7 +841,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "95bfec7d-97a7-4be3-b731-deb23d56b17d";
 				PROVISIONING_PROFILE_SPECIFIER = "MidtransMobileDemo-dev";
@@ -872,7 +872,7 @@
 					"$(PROJECT_DIR)/MidtransCoreKit/build/Debug-iphoneos",
 					"$(PROJECT_DIR)/MidtransKit/build/Debug-iphoneos",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "5ad87d51-09f3-4be3-977d-f149c63937ff";
 				PROVISIONING_PROFILE_SPECIFIER = "MidtransMobileDemo-adhoc";

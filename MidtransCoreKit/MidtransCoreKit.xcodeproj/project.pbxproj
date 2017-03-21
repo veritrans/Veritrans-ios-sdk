@@ -83,7 +83,6 @@
 		2ED4518E1D09C4D7008BAED8 /* MidtransConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EDAA3A31D0A7601009EC90D /* MidtransTrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDAA3A11D0A7601009EC90D /* MidtransTrackingManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2EDAA3A41D0A7601009EC90D /* MidtransTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAA3A21D0A7601009EC90D /* MidtransTrackingManager.m */; };
-		303049F5248E8AD59AE786CA /* libPods-MidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6A94CCEACA9DDDFEE5D5E604 /* libPods-MidtransCoreKit.a */; };
 		305494571C75A08900938C17 /* MidtransAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* MidtransAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494581C75A08900938C17 /* MidtransAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944C1C75A08900938C17 /* MidtransAddress.m */; };
 		3054945D1C75A08900938C17 /* MidtransNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494511C75A08900938C17 /* MidtransNetworking.h */; };
@@ -330,7 +329,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				303049F5248E8AD59AE786CA /* libPods-MidtransCoreKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

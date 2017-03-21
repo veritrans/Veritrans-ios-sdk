@@ -37,8 +37,10 @@
     XCUIApplication *app = [[XCUIApplication alloc] init];
     
     [self enterPaymentList:app];
-    
-    [app.tables.staticTexts[@"BCA KlikPay"] tap];
+
+    XCUIElement *klikPayButton = app.tables.staticTexts[@"BCA KlikPay"];
+    [self waitUntilAvailableForElement:klikPayButton];
+    [klikPayButton tap];
     [app.buttons[@"Confirm Payment"] tap];
     
     XCUIElement *bayarButton = app.buttons[@"Bayar"];
@@ -59,7 +61,9 @@
     
     [self enterPaymentList:app];
     
-    [app.tables.staticTexts[@"CIMB Clicks"] tap];
+    XCUIElement *clicksButton = app.tables.staticTexts[@"CIMB Clicks"];
+    [self waitUntilAvailableForElement:clicksButton];
+    [clicksButton tap];
     [app.buttons[@"Confirm Payment"] tap];
     
     XCUIElement *userTextField = app.textFields[@"Success user is 'testuser00'"];
@@ -81,7 +85,9 @@
     
     [self enterPaymentList:app];
     
-    [app.tables.staticTexts[@"Pay using e-Pay BRI account"] tap];
+    XCUIElement *epayButton = app.tables.staticTexts[@"e-Pay BRI"];
+    [self waitUntilAvailableForElement:epayButton];
+    [epayButton tap];
     [app.buttons[@"Confirm Payment"] tap];
     
     XCUIElement *userTextField = app.textFields[@"Success user is 'testuser00'"];

@@ -20,6 +20,7 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
     MTAcquiringBankUnknown,
     MTAcquiringBankBCA,
     MTAcquiringBankBRI,
+    MTAcquiringBankDanamon,
     MTAcquiringBankCIMB,
     MTAcquiringBankMandiri,
     MTAcquiringBankBNI,

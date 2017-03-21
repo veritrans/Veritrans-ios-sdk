@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Credit Card Payment</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Normal</string>
+			<key>code_name</key>
+			<string>normal</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Two Clicks</string>
+			<key>code_name</key>
+			<string>two_click</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>One Clicks</string>
+			<key>code_name</key>
+			<string>one_click</string>
+		</dict>
+	</array>
+	<key>3D Secure</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Enabled</string>
+			<key>code_name</key>
+			<string>enable</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Disable</string>
+			<key>code_name</key>
+			<string>disable</string>
+		</dict>
+	</array>
+	<key>Issuing Bank</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>BNI</string>
+			<key>code_name</key>
+			<integer>6</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Mandiri</string>
+			<key>code_name</key>
+			<integer>5</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>BCA</string>
+			<key>code_name</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Maybank</string>
+			<key>code_name</key>
+			<integer>7</integer>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>BRI</string>
+			<key>code_name</key>
+			<integer>2</integer>
+		</dict>
+	</array>
+	<key>Custom Expiry</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>No Expiry</string>
+			<key>code_name</key>
+			<string>no_expiry</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>1 Minute</string>
+			<key>code_name</key>
+			<string>1_minute</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>1 Hour</string>
+			<key>code_name</key>
+			<string>1_hour</string>
+		</dict>
+	</array>
+	<key>Save Card</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Enable</string>
+			<key>code_name</key>
+			<string>enable</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Disable</string>
+			<key>code_name</key>
+			<string>disable</string>
+		</dict>
+	</array>
+	<key>Pre Auth</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>Enable</string>
+			<key>code_name</key>
+			<string>enable</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>Disable</string>
+			<key>code_name</key>
+			<string>disable</string>
+		</dict>
+	</array>
+</dict>
+</plist>

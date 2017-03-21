@@ -36,6 +36,7 @@
     self.banks = @[@{@"type":@(MTAcquiringBankBCA), @"string":@"BCA"},
                    @{@"type":@(MTAcquiringBankBRI), @"string":@"BRI"},
                    @{@"type":@(MTAcquiringBankCIMB), @"string":@"CIMB"},
+                    @{@"type":@(MTAcquiringBankDanamon), @"string":@"Danamon"},
                    @{@"type":@(MTAcquiringBankMandiri), @"string":@"Mandiri"},
                    @{@"type":@(MTAcquiringBankBNI), @"string":@"BNI"},
                    @{@"type":@(MTAcquiringBankMaybank), @"string":@"Maybank"}];

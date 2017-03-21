@@ -51,7 +51,10 @@
 	<string>Used to scan credit card</string>
 	<key>UIAppFonts</key>
 	<array>
+		<string>SourceSansPro-light.otf</string>
+		<string>SourceSansPro-Regular.otf</string>
 		<string>ArimaMadurai-Bold.ttf</string>
+		<string>SourceSansPro-Semibold.otf</string>
 		<string>ArimaMadurai-Light.ttf</string>
 		<string>ArimaMadurai-Regular.ttf</string>
 		<string>Changa-Bold.ttf</string>
@@ -70,7 +73,7 @@
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>NewStore</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

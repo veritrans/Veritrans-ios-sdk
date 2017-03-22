@@ -112,7 +112,7 @@
     XCUIElement *cell = app.tables.staticTexts[@"Mandiri e-Cash"];
     [self waitUntilAvailableForElement:cell];
     [cell tap];
-    [app.buttons[@"Confirm Payment"] tap];
+    [app.buttons[@"Confirm XXXX Payment"] tap];
     
     XCUIElement *textField = app.textFields[@"0987654321 for success"];
     [self waitUntilAvailableForElement:textField];

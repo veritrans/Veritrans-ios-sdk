@@ -1,32 +1,35 @@
-language: objective-c  #1
-
-osx_image: xcode8.2
-
 branches:
 - development
+
 before_install:
 - gem install xcpretty
 - gem install cocoapods -v '1.1.1'
 - brew install gflags
 
 script:
+#reset pods
 - rm -rf "~/Library/Caches/CocoaPods"
-
-#TEST DEVELOPMENT BUILD
 - rm -rf "Pods/"
 - pod install
 - pod update
-- xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
-- xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKUITests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
 
-after_success:
+osx_image: xcode8.2
+language: objective-c
+xcode_project: MidtransSDK.xcworkspace
+xcode_scheme: MidtransSDKUITests
+
+#- xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
+
+#- xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
+
+#after_success:
 #TEST COCOAPODS BUILD
-- cd DemoPods
+#- cd DemoPods
 #- rm -rf "Pods/"
 #- pod install
 #- pod update
 #- xcodebuild -workspace VTDirectDemo.xcworkspace -scheme DemoPods -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
-- cd ..
+#- cd ..
 
 notifications:
 email: true

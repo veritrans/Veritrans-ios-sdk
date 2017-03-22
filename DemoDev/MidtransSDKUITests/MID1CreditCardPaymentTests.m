@@ -44,7 +44,7 @@
     
     [self inputCardNumber:@"4811111111111114" expDate:@"02 / 20" cvv:@"123" withApp:app];
     
-    [app.buttons[@"Finish Payment X"] tap];
+    [app.buttons[@"Finish Payment"] tap];
     
     [self input3DSecureOTP:app];
     

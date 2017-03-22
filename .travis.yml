@@ -1,3 +1,6 @@
+osx_image: xcode8.2
+language: objective-c
+
 branches:
 - development
 
@@ -13,16 +16,12 @@ script:
 - pod install
 - pod update
 
-osx_image: xcode8.2
-language: objective-c
-xcode_project: MidtransSDK.xcworkspace
-xcode_scheme: MidtransSDKUITests
+#create simulator
+- xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
 
-#- xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
+#run test
+- xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
 
-#- xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
-
-#after_success:
 #TEST COCOAPODS BUILD
 #- cd DemoPods
 #- rm -rf "Pods/"

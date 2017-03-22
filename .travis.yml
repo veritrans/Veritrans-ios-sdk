@@ -17,10 +17,10 @@ script:
 - pod update
 
 #create simulator
+- xcrun simctl erase all
 - xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
 
 #run test
-- rm -rf "~/Library/Developer/Xcode/DerivedData"
 - xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean build test | xcpretty
 
 #TEST COCOAPODS BUILD

@@ -19,13 +19,14 @@ script:
 - xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
 - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransSDKUITests -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
 
+after_success:
 #TEST COCOAPODS BUILD
-#- cd DemoPods
+- cd DemoPods
 #- rm -rf "Pods/"
 #- pod install
 #- pod update
 #- xcodebuild -workspace VTDirectDemo.xcworkspace -scheme DemoPods -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 6,OS=9.0' ONLY_ACTIVE_ARCH=NO clean test | xcpretty
-#- cd ..
+- cd ..
 
 notifications:
 email: true

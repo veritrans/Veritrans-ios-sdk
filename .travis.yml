@@ -20,8 +20,7 @@ script:
 - xcrun simctl create iPhone-6-10 com.apple.CoreSimulator.SimDeviceType.iPhone-6 com.apple.CoreSimulator.SimRuntime.iOS-9-0
 
 #run test
-- xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean build | xcpretty
-- xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO test | xcpretty
+- xcodebuild -workspace MidtransSDK.xcworkspace -scheme DemoDev -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean build test | xcpretty
 
 #TEST COCOAPODS BUILD
 #- cd DemoPods

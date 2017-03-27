@@ -10,7 +10,6 @@
 
 @interface MDOptionCell()
 @property (strong, nonatomic) IBOutlet UIImageView *checkImageView;
-
 @end
 
 @implementation MDOptionCell

@@ -9,6 +9,8 @@
 #import "AppDelegate.h"
 
 #import <MidtransKit/MidtransKit.h>
+#import <Fabric/Fabric.h>
+#import <Crashlytics/Crashlytics.h>
 
 #import "OptionViewController.h"
 //40ae30db-319b-4fb3-9753-aa5f0f031bcf
@@ -25,7 +27,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    
     id environment = [[NSUserDefaults standardUserDefaults] valueForKey:kEnvironment];
     if (!environment) {
         environment = @"0";
@@ -51,6 +53,10 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    //    [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
+    //             environment:MidtransServerEnvironmentProduction
+    //       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
     
     [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
              environment:MidtransServerEnvironmentSandbox
@@ -100,7 +106,7 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
         promoEngine = @NO;
     }
     CC_CONFIG.promoEnabled = [promoEngine boolValue];
-        
+    
     id preauth = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerPreauth];
     if (!preauth) {
         preauth = @NO;
@@ -108,6 +114,8 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     CC_CONFIG.preauthEnabled = [preauth boolValue];
     
     CC_CONFIG.setDefaultCreditSaveCardEnabled = YES;
+    
+    [Fabric with:@[[Crashlytics class]]];
     
     return YES;
 }

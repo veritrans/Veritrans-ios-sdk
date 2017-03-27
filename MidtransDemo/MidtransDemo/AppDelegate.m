@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "MDOptionsViewController.h"
+#import "MDProductViewController.h"
 #import "MDUtils.h"
 
 @interface AppDelegate ()
@@ -20,14 +21,18 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"Fonts:\n%@\n%@", [UIFont fontNamesForFamilyName:@"Bariol"], [UIFont fontNamesForFamilyName:@"Source Sans Pro"]);
 
-    MDOptionsViewController *vc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];
-    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    MDProductViewController *pvc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
+    MDOptionsViewController *ovc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];
+    UINavigationController *nvc = [[UINavigationController alloc] init];
+    [nvc setViewControllers:@[ovc, pvc]];
+    
     nvc.navigationBar.titleTextAttributes = @{
                                               NSFontAttributeName:[UIFont bariolRegularWithSize:21],
                                               NSForegroundColorAttributeName:[UIColor mdDarkColor]
                                               };
     nvc.navigationBar.translucent = NO;
     nvc.navigationBar.barTintColor = [UIColor whiteColor];
+    nvc.navigationBar.tintColor = [UIColor mdBlueColor];
     self.window.rootViewController = nvc;
     [self.window makeKeyAndVisible];    
     return YES;

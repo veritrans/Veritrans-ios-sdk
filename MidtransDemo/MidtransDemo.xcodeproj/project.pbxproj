@@ -12,7 +12,19 @@
 		E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F91E83A72F008726D0 /* AppDelegate.m */; };
 		E56437021E83A72F008726D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56437011E83A72F008726D0 /* Assets.xcassets */; };
 		E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56437031E83A72F008726D0 /* LaunchScreen.storyboard */; };
-		E5D7FEC11E83A9080086A8A4 /* options.json in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEC01E83A9080086A8A4 /* options.json */; };
+		E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
+		E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */; };
+		E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539ED1E88F82A001617C8 /* MDOptionManager.m */; };
+		E5A539FD1E88F82A001617C8 /* MDOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */; };
+		E5A539FE1E88F82A001617C8 /* MDOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */; };
+		E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539F21E88F82A001617C8 /* MDProductViewController.m */; };
+		E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F31E88F82A001617C8 /* MDProductViewController.xib */; };
+		E5A53A021E88F82A001617C8 /* MDOptionColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */; };
+		E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */; };
+		E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */; };
+		E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */; };
+		E5A53A0A1E88F896001617C8 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A53A091E88F896001617C8 /* libMidtransKit.a */; };
+		E5A53A101E88F9E1001617C8 /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */; };
 		E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */; };
 		E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */; };
 		E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */; };
@@ -35,7 +47,24 @@
 		E56437011E83A72F008726D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E56437041E83A72F008726D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E56437061E83A72F008726D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E5D7FEC01E83A9080086A8A4 /* options.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = options.json; sourceTree = "<group>"; };
+		E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageCollectionViewCell.h; sourceTree = "<group>"; };
+		E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageCollectionViewCell.m; sourceTree = "<group>"; };
+		E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5A539EC1E88F82A001617C8 /* MDOptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionManager.h; sourceTree = "<group>"; };
+		E5A539ED1E88F82A001617C8 /* MDOptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionManager.m; sourceTree = "<group>"; };
+		E5A539EE1E88F82A001617C8 /* MDOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOrderViewController.h; sourceTree = "<group>"; };
+		E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOrderViewController.m; sourceTree = "<group>"; };
+		E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOrderViewController.xib; sourceTree = "<group>"; };
+		E5A539F11E88F82A001617C8 /* MDProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDProductViewController.h; sourceTree = "<group>"; };
+		E5A539F21E88F82A001617C8 /* MDProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDProductViewController.m; sourceTree = "<group>"; };
+		E5A539F31E88F82A001617C8 /* MDProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDProductViewController.xib; sourceTree = "<group>"; };
+		E5A539F51E88F82A001617C8 /* MDOptionColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionColorCell.h; sourceTree = "<group>"; };
+		E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionColorCell.m; sourceTree = "<group>"; };
+		E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionColorCell.xib; sourceTree = "<group>"; };
+		E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		E5A53A091E88F896001617C8 /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MidtransSDK-gbplbptermujxydppqzfhrkodozv/Build/Products/Debug-iphonesimulator/libMidtransKit.a"; sourceTree = "<group>"; };
+		E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5D7FEC51E83B4760086A8A4 /* MDOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionView.h; sourceTree = "<group>"; };
 		E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionView.m; sourceTree = "<group>"; };
 		E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionView.xib; sourceTree = "<group>"; };
@@ -56,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A53A0A1E88F896001617C8 /* libMidtransKit.a in Frameworks */,
 				8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -93,20 +123,11 @@
 		E56436F41E83A72F008726D0 /* MidtransDemo */ = {
 			isa = PBXGroup;
 			children = (
-				E5D7FED61E83D1430086A8A4 /* Utils */,
 				E56436F51E83A72F008726D0 /* Supporting Files */,
-				E56437011E83A72F008726D0 /* Assets.xcassets */,
-				E56436F81E83A72F008726D0 /* AppDelegate.h */,
-				E56436F91E83A72F008726D0 /* AppDelegate.m */,
-				E5D7FECA1E83B67F0086A8A4 /* MDOptionsViewController.h */,
-				E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */,
-				E5D7FECC1E83B67F0086A8A4 /* MDOptionsViewController.xib */,
-				E5D7FEC51E83B4760086A8A4 /* MDOptionView.h */,
-				E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */,
-				E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */,
-				E5D7FED11E83CBB80086A8A4 /* MDOptionCell.h */,
-				E5D7FED21E83CBB80086A8A4 /* MDOptionCell.m */,
-				E5D7FED31E83CBB80086A8A4 /* MDOptionCell.xib */,
+				E5D7FED61E83D1430086A8A4 /* utils */,
+				E5A53A081E88F860001617C8 /* controllers */,
+				E5A53A061E88F844001617C8 /* cells */,
+				E5A53A071E88F853001617C8 /* views */,
 			);
 			path = MidtransDemo;
 			sourceTree = "<group>";
@@ -114,27 +135,75 @@
 		E56436F51E83A72F008726D0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E56436F81E83A72F008726D0 /* AppDelegate.h */,
+				E56436F91E83A72F008726D0 /* AppDelegate.m */,
+				E56437011E83A72F008726D0 /* Assets.xcassets */,
 				E5D7FEE01E83D83F0086A8A4 /* Fonts */,
 				E56437031E83A72F008726D0 /* LaunchScreen.storyboard */,
 				E56437061E83A72F008726D0 /* Info.plist */,
-				E5D7FEC01E83A9080086A8A4 /* options.json */,
 				E56436F61E83A72F008726D0 /* main.m */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		E5D7FED61E83D1430086A8A4 /* Utils */ = {
+		E5A53A061E88F844001617C8 /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */,
+				E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */,
+				E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */,
+				E5A539F51E88F82A001617C8 /* MDOptionColorCell.h */,
+				E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */,
+				E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */,
+				E5D7FED11E83CBB80086A8A4 /* MDOptionCell.h */,
+				E5D7FED21E83CBB80086A8A4 /* MDOptionCell.m */,
+				E5D7FED31E83CBB80086A8A4 /* MDOptionCell.xib */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		E5A53A071E88F853001617C8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7FEC51E83B4760086A8A4 /* MDOptionView.h */,
+				E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */,
+				E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		E5A53A081E88F860001617C8 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5A539EE1E88F82A001617C8 /* MDOrderViewController.h */,
+				E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */,
+				E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */,
+				E5A539F11E88F82A001617C8 /* MDProductViewController.h */,
+				E5A539F21E88F82A001617C8 /* MDProductViewController.m */,
+				E5A539F31E88F82A001617C8 /* MDProductViewController.xib */,
+				E5D7FECA1E83B67F0086A8A4 /* MDOptionsViewController.h */,
+				E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */,
+				E5D7FECC1E83B67F0086A8A4 /* MDOptionsViewController.xib */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		E5D7FED61E83D1430086A8A4 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5A539EC1E88F82A001617C8 /* MDOptionManager.h */,
+				E5A539ED1E88F82A001617C8 /* MDOptionManager.m */,
 				E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */,
 				E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */,
 			);
-			name = Utils;
+			name = utils;
 			sourceTree = "<group>";
 		};
 		E5D7FEE01E83D83F0086A8A4 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */,
+				E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */,
 				E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */,
 				E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */,
 			);
@@ -144,6 +213,8 @@
 		EC16E625E4533EAA44E1C9D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */,
+				E5A53A091E88F896001617C8 /* libMidtransKit.a */,
 				85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */,
 			);
 			name = Frameworks;
@@ -211,13 +282,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5A53A101E88F9E1001617C8 /* MidtransKit.bundle in Resources */,
 				E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */,
+				E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */,
+				E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */,
 				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
-				E5D7FEC11E83A9080086A8A4 /* options.json in Resources */,
+				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,
+				E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */,
 				E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */,
 				E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */,
 				E5D7FECE1E83B67F0086A8A4 /* MDOptionsViewController.xib in Resources */,
+				E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */,
 				E56437021E83A72F008726D0 /* Assets.xcassets in Resources */,
+				E5A539FE1E88F82A001617C8 /* MDOrderViewController.xib in Resources */,
 				E5D7FEDF1E83D81E0086A8A4 /* SourceSansPro-Light.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -278,11 +355,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */,
+				E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */,
 				E5D7FED41E83CBB80086A8A4 /* MDOptionCell.m in Sources */,
+				E5A53A021E88F82A001617C8 /* MDOptionColorCell.m in Sources */,
 				E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */,
+				E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */,
+				E5A539FD1E88F82A001617C8 /* MDOrderViewController.m in Sources */,
 				E56436F71E83A72F008726D0 /* main.m in Sources */,
 				E5D7FEE31E83D8F10086A8A4 /* MDUtils.m in Sources */,
 				E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */,
+				E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

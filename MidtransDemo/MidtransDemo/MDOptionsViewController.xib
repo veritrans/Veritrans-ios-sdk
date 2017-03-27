@@ -8,6 +8,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Light.ttf">
+            <string>SourceSansPro-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDOptionsViewController">
             <connections>
@@ -22,15 +27,18 @@
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfY-1n-zhC">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
-                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" red="0.18431372549019609" green="0.50196078431372548" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="NBq-i9-c8F"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="Button"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="20"/>
+                    <state key="normal" title="Launch Demo App"/>
+                    <connections>
+                        <action selector="launchPressed:" destination="-1" eventType="touchUpInside" id="P9I-cM-H11"/>
+                    </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N0h-J0-q5L">
-                    <rect key="frame" x="0.0" y="16" width="375" height="596"/>
+                    <rect key="frame" x="0.0" y="8" width="375" height="604"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mJs-sb-eO8">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -51,7 +59,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="N0h-J0-q5L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="16" id="0vG-xH-Q1o"/>
+                <constraint firstItem="N0h-J0-q5L" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="8" id="0vG-xH-Q1o"/>
                 <constraint firstItem="N0h-J0-q5L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="25S-yA-uSj"/>
                 <constraint firstItem="QfY-1n-zhC" firstAttribute="top" secondItem="N0h-J0-q5L" secondAttribute="bottom" id="GSx-oq-ZHF"/>
                 <constraint firstAttribute="trailing" secondItem="QfY-1n-zhC" secondAttribute="trailing" id="T5u-9x-cMj"/>

@@ -1,4 +1,4 @@
-//
+
 //  VTKlikbcaSuccessController.m
 //  MidtransKit
 //
@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
+@property (weak, nonatomic) IBOutlet UILabel *transactionExpiredTime;
 
 @property (nonatomic) VTPaymentStatusViewModel *successViewModel;
 @end
@@ -44,6 +45,7 @@
     self.amountLabel.text = self.successViewModel.totalAmount;
     self.orderIdLabel.text = self.successViewModel.orderId;
     self.transactionTimeLabel.text = self.successViewModel.transactionTime;
+    self.transactionExpiredTime.text = [self.successViewModel.additionalData objectForKey:@"bca_klikbca_expire_time"];
     
     [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title",nil), @"KlikBCA"] forState:UIControlStateNormal];
 }

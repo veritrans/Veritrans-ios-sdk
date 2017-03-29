@@ -1,0 +1,718 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */; };
+		E56436F71E83A72F008726D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F61E83A72F008726D0 /* main.m */; };
+		E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F91E83A72F008726D0 /* AppDelegate.m */; };
+		E56437021E83A72F008726D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56437011E83A72F008726D0 /* Assets.xcassets */; };
+		E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56437031E83A72F008726D0 /* LaunchScreen.storyboard */; };
+		E56BCB871E8B60FE0005A401 /* MDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB861E8B60FE0005A401 /* MDButton.m */; };
+		E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */; };
+		E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
+		E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */; };
+		E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539ED1E88F82A001617C8 /* MDOptionManager.m */; };
+		E5A539FD1E88F82A001617C8 /* MDOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */; };
+		E5A539FE1E88F82A001617C8 /* MDOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */; };
+		E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539F21E88F82A001617C8 /* MDProductViewController.m */; };
+		E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F31E88F82A001617C8 /* MDProductViewController.xib */; };
+		E5A53A021E88F82A001617C8 /* MDOptionColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */; };
+		E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */; };
+		E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */; };
+		E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */; };
+		E5A53A0A1E88F896001617C8 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A53A091E88F896001617C8 /* libMidtransKit.a */; };
+		E5A53A101E88F9E1001617C8 /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */; };
+		E5C751761E8B916F001F47D9 /* MIDTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751711E8B916F001F47D9 /* MIDTestHelper.m */; };
+		E5C751771E8B916F001F47D9 /* MID1CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */; };
+		E5C751781E8B916F001F47D9 /* MID2VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */; };
+		E5C751791E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751741E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m */; };
+		E5C7517A1E8B916F001F47D9 /* MID4WebPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751751E8B916F001F47D9 /* MID4WebPaymentTests.m */; };
+		E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */; };
+		E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */; };
+		E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */; };
+		E5D7FECE1E83B67F0086A8A4 /* MDOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FECC1E83B67F0086A8A4 /* MDOptionsViewController.xib */; };
+		E5D7FED41E83CBB80086A8A4 /* MDOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FED21E83CBB80086A8A4 /* MDOptionCell.m */; };
+		E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FED31E83CBB80086A8A4 /* MDOptionCell.xib */; };
+		E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */; };
+		E5D7FEDF1E83D81E0086A8A4 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */; };
+		E5D7FEE31E83D8F10086A8A4 /* MDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5C7516B1E8B912F001F47D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E56436EA1E83A72F008726D0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E56436F11E83A72F008726D0;
+			remoteInfo = MidtransDemo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		E5449D301E8B86FE000D0DF2 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.release.xcconfig"; sourceTree = "<group>"; };
+		E56436F21E83A72F008726D0 /* MidtransDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidtransDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E56436F61E83A72F008726D0 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E56436F81E83A72F008726D0 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E56436F91E83A72F008726D0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E56437011E83A72F008726D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E56437041E83A72F008726D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E56437061E83A72F008726D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56BCB851E8B60FE0005A401 /* MDButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDButton.h; sourceTree = "<group>"; };
+		E56BCB861E8B60FE0005A401 /* MDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDButton.m; sourceTree = "<group>"; };
+		E56BCB881E8B610B0005A401 /* MDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationViewController.h; sourceTree = "<group>"; };
+		E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationViewController.m; sourceTree = "<group>"; };
+		E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageCollectionViewCell.h; sourceTree = "<group>"; };
+		E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageCollectionViewCell.m; sourceTree = "<group>"; };
+		E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDImageCollectionViewCell.xib; sourceTree = "<group>"; };
+		E5A539EC1E88F82A001617C8 /* MDOptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionManager.h; sourceTree = "<group>"; };
+		E5A539ED1E88F82A001617C8 /* MDOptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionManager.m; sourceTree = "<group>"; };
+		E5A539EE1E88F82A001617C8 /* MDOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOrderViewController.h; sourceTree = "<group>"; };
+		E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOrderViewController.m; sourceTree = "<group>"; };
+		E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOrderViewController.xib; sourceTree = "<group>"; };
+		E5A539F11E88F82A001617C8 /* MDProductViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDProductViewController.h; sourceTree = "<group>"; };
+		E5A539F21E88F82A001617C8 /* MDProductViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDProductViewController.m; sourceTree = "<group>"; };
+		E5A539F31E88F82A001617C8 /* MDProductViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDProductViewController.xib; sourceTree = "<group>"; };
+		E5A539F51E88F82A001617C8 /* MDOptionColorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionColorCell.h; sourceTree = "<group>"; };
+		E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionColorCell.m; sourceTree = "<group>"; };
+		E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionColorCell.xib; sourceTree = "<group>"; };
+		E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
+		E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
+		E5A53A091E88F896001617C8 /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MidtransSDK-gbplbptermujxydppqzfhrkodozv/Build/Products/Debug-iphonesimulator/libMidtransKit.a"; sourceTree = "<group>"; };
+		E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C751661E8B912F001F47D9 /* MidtransDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5C7516A1E8B912F001F47D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5C751701E8B916F001F47D9 /* MIDTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDTestHelper.h; sourceTree = "<group>"; };
+		E5C751711E8B916F001F47D9 /* MIDTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDTestHelper.m; sourceTree = "<group>"; };
+		E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID1CreditCardPaymentTests.m; sourceTree = "<group>"; };
+		E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID2VAPaymentTests.m; sourceTree = "<group>"; };
+		E5C751741E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID3KlikbcaPaymentTests.m; sourceTree = "<group>"; };
+		E5C751751E8B916F001F47D9 /* MID4WebPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID4WebPaymentTests.m; sourceTree = "<group>"; };
+		E5D7FEC51E83B4760086A8A4 /* MDOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionView.h; sourceTree = "<group>"; };
+		E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionView.m; sourceTree = "<group>"; };
+		E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionView.xib; sourceTree = "<group>"; };
+		E5D7FECA1E83B67F0086A8A4 /* MDOptionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionsViewController.h; sourceTree = "<group>"; };
+		E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionsViewController.m; sourceTree = "<group>"; };
+		E5D7FECC1E83B67F0086A8A4 /* MDOptionsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionsViewController.xib; sourceTree = "<group>"; };
+		E5D7FED11E83CBB80086A8A4 /* MDOptionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionCell.h; sourceTree = "<group>"; };
+		E5D7FED21E83CBB80086A8A4 /* MDOptionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionCell.m; sourceTree = "<group>"; };
+		E5D7FED31E83CBB80086A8A4 /* MDOptionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionCell.xib; sourceTree = "<group>"; };
+		E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bariol_Regular.otf; sourceTree = "<group>"; };
+		E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
+		E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDUtils.h; sourceTree = "<group>"; };
+		E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDUtils.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E56436EF1E83A72F008726D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5A53A0A1E88F896001617C8 /* libMidtransKit.a in Frameworks */,
+				8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C751631E8B912F001F47D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		AD35E827B16E4F3F7B5D0F70 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */,
+				C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E56436E91E83A72F008726D0 = {
+			isa = PBXGroup;
+			children = (
+				E56436F41E83A72F008726D0 /* MidtransDemo */,
+				E5C751671E8B912F001F47D9 /* MidtransDemoUITests */,
+				E56436F31E83A72F008726D0 /* Products */,
+				AD35E827B16E4F3F7B5D0F70 /* Pods */,
+				EC16E625E4533EAA44E1C9D6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E56436F31E83A72F008726D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E56436F21E83A72F008726D0 /* MidtransDemo.app */,
+				E5C751661E8B912F001F47D9 /* MidtransDemoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E56436F41E83A72F008726D0 /* MidtransDemo */ = {
+			isa = PBXGroup;
+			children = (
+				E56436F81E83A72F008726D0 /* AppDelegate.h */,
+				E56436F91E83A72F008726D0 /* AppDelegate.m */,
+				E56436F51E83A72F008726D0 /* Supporting Files */,
+				E56BCB841E8B60E30005A401 /* kits */,
+				E5D7FED61E83D1430086A8A4 /* utils */,
+				E5A53A081E88F860001617C8 /* controllers */,
+				E5A53A061E88F844001617C8 /* cells */,
+				E5A53A071E88F853001617C8 /* views */,
+			);
+			path = MidtransDemo;
+			sourceTree = "<group>";
+		};
+		E56436F51E83A72F008726D0 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E56437011E83A72F008726D0 /* Assets.xcassets */,
+				E5D7FEE01E83D83F0086A8A4 /* Fonts */,
+				E56437031E83A72F008726D0 /* LaunchScreen.storyboard */,
+				E56437061E83A72F008726D0 /* Info.plist */,
+				E56436F61E83A72F008726D0 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E56BCB841E8B60E30005A401 /* kits */ = {
+			isa = PBXGroup;
+			children = (
+				E56BCB851E8B60FE0005A401 /* MDButton.h */,
+				E56BCB861E8B60FE0005A401 /* MDButton.m */,
+				E56BCB881E8B610B0005A401 /* MDNavigationViewController.h */,
+				E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */,
+			);
+			name = kits;
+			sourceTree = "<group>";
+		};
+		E5A53A061E88F844001617C8 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */,
+				E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */,
+				E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */,
+				E5A539F51E88F82A001617C8 /* MDOptionColorCell.h */,
+				E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */,
+				E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */,
+				E5D7FED11E83CBB80086A8A4 /* MDOptionCell.h */,
+				E5D7FED21E83CBB80086A8A4 /* MDOptionCell.m */,
+				E5D7FED31E83CBB80086A8A4 /* MDOptionCell.xib */,
+			);
+			name = cells;
+			sourceTree = "<group>";
+		};
+		E5A53A071E88F853001617C8 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				E5D7FEC51E83B4760086A8A4 /* MDOptionView.h */,
+				E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */,
+				E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
+		E5A53A081E88F860001617C8 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E5A539EE1E88F82A001617C8 /* MDOrderViewController.h */,
+				E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */,
+				E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */,
+				E5A539F11E88F82A001617C8 /* MDProductViewController.h */,
+				E5A539F21E88F82A001617C8 /* MDProductViewController.m */,
+				E5A539F31E88F82A001617C8 /* MDProductViewController.xib */,
+				E5D7FECA1E83B67F0086A8A4 /* MDOptionsViewController.h */,
+				E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */,
+				E5D7FECC1E83B67F0086A8A4 /* MDOptionsViewController.xib */,
+			);
+			name = controllers;
+			sourceTree = "<group>";
+		};
+		E5C751671E8B912F001F47D9 /* MidtransDemoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5C7517B1E8B917C001F47D9 /* utils */,
+				E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */,
+				E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */,
+				E5C751741E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m */,
+				E5C751751E8B916F001F47D9 /* MID4WebPaymentTests.m */,
+			);
+			path = MidtransDemoUITests;
+			sourceTree = "<group>";
+		};
+		E5C7517B1E8B917C001F47D9 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5C751701E8B916F001F47D9 /* MIDTestHelper.h */,
+				E5C751711E8B916F001F47D9 /* MIDTestHelper.m */,
+				E5C7516A1E8B912F001F47D9 /* Info.plist */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		E5D7FED61E83D1430086A8A4 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5A539EC1E88F82A001617C8 /* MDOptionManager.h */,
+				E5A539ED1E88F82A001617C8 /* MDOptionManager.m */,
+				E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */,
+				E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */,
+			);
+			name = utils;
+			sourceTree = "<group>";
+		};
+		E5D7FEE01E83D83F0086A8A4 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */,
+				E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */,
+				E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */,
+				E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		EC16E625E4533EAA44E1C9D6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */,
+				E5A53A091E88F896001617C8 /* libMidtransKit.a */,
+				85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E56436F11E83A72F008726D0 /* MidtransDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E56437091E83A72F008726D0 /* Build configuration list for PBXNativeTarget "MidtransDemo" */;
+			buildPhases = (
+				ED480F2D901C8292729174EA /* [CP] Check Pods Manifest.lock */,
+				E56436EE1E83A72F008726D0 /* Sources */,
+				E56436EF1E83A72F008726D0 /* Frameworks */,
+				E56436F01E83A72F008726D0 /* Resources */,
+				23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */,
+				BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */,
+				E5449D301E8B86FE000D0DF2 /* Embed Frameworks */,
+				E5C751611E8B8F83001F47D9 /* Fabric */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MidtransDemo;
+			productName = MidtransDemo;
+			productReference = E56436F21E83A72F008726D0 /* MidtransDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5C751651E8B912F001F47D9 /* MidtransDemoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5C7516D1E8B912F001F47D9 /* Build configuration list for PBXNativeTarget "MidtransDemoUITests" */;
+			buildPhases = (
+				E5C751621E8B912F001F47D9 /* Sources */,
+				E5C751631E8B912F001F47D9 /* Frameworks */,
+				E5C751641E8B912F001F47D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5C7516C1E8B912F001F47D9 /* PBXTargetDependency */,
+			);
+			name = MidtransDemoUITests;
+			productName = MidtransDemoUITests;
+			productReference = E5C751661E8B912F001F47D9 /* MidtransDemoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E56436EA1E83A72F008726D0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = Midtrans;
+				TargetAttributes = {
+					E56436F11E83A72F008726D0 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G92YEQF267;
+						ProvisioningStyle = Automatic;
+					};
+					E5C751651E8B912F001F47D9 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = G92YEQF267;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E56436F11E83A72F008726D0;
+					};
+				};
+			};
+			buildConfigurationList = E56436ED1E83A72F008726D0 /* Build configuration list for PBXProject "MidtransDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E56436E91E83A72F008726D0;
+			productRefGroup = E56436F31E83A72F008726D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E56436F11E83A72F008726D0 /* MidtransDemo */,
+				E5C751651E8B912F001F47D9 /* MidtransDemoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E56436F01E83A72F008726D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5A53A101E88F9E1001617C8 /* MidtransKit.bundle in Resources */,
+				E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */,
+				E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */,
+				E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */,
+				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
+				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,
+				E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */,
+				E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */,
+				E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */,
+				E5D7FECE1E83B67F0086A8A4 /* MDOptionsViewController.xib in Resources */,
+				E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */,
+				E56437021E83A72F008726D0 /* Assets.xcassets in Resources */,
+				E5A539FE1E88F82A001617C8 /* MDOrderViewController.xib in Resources */,
+				E5D7FEDF1E83D81E0086A8A4 /* SourceSansPro-Light.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C751641E8B912F001F47D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5C751611E8B8F83001F47D9 /* Fabric */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Fabric;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
+		};
+		ED480F2D901C8292729174EA /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E56436EE1E83A72F008726D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */,
+				E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */,
+				E5D7FED41E83CBB80086A8A4 /* MDOptionCell.m in Sources */,
+				E5A53A021E88F82A001617C8 /* MDOptionColorCell.m in Sources */,
+				E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */,
+				E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */,
+				E5A539FD1E88F82A001617C8 /* MDOrderViewController.m in Sources */,
+				E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */,
+				E56436F71E83A72F008726D0 /* main.m in Sources */,
+				E5D7FEE31E83D8F10086A8A4 /* MDUtils.m in Sources */,
+				E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */,
+				E56BCB871E8B60FE0005A401 /* MDButton.m in Sources */,
+				E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5C751621E8B912F001F47D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5C751761E8B916F001F47D9 /* MIDTestHelper.m in Sources */,
+				E5C751771E8B916F001F47D9 /* MID1CreditCardPaymentTests.m in Sources */,
+				E5C751791E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m in Sources */,
+				E5C751781E8B916F001F47D9 /* MID2VAPaymentTests.m in Sources */,
+				E5C7517A1E8B916F001F47D9 /* MID4WebPaymentTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5C7516C1E8B912F001F47D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E56436F11E83A72F008726D0 /* MidtransDemo */;
+			targetProxy = E5C7516B1E8B912F001F47D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E56437031E83A72F008726D0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E56437041E83A72F008726D0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E56437071E83A72F008726D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E56437081E83A72F008726D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E564370A1E83A72F008726D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MidtransDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E564370B1E83A72F008726D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = MidtransDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		E5C7516E1E8B912F001F47D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.MidtransDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MidtransDemo;
+			};
+			name = Debug;
+		};
+		E5C7516F1E8B912F001F47D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransDemoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.MidtransDemoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MidtransDemo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E56436ED1E83A72F008726D0 /* Build configuration list for PBXProject "MidtransDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E56437071E83A72F008726D0 /* Debug */,
+				E56437081E83A72F008726D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E56437091E83A72F008726D0 /* Build configuration list for PBXNativeTarget "MidtransDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E564370A1E83A72F008726D0 /* Debug */,
+				E564370B1E83A72F008726D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5C7516D1E8B912F001F47D9 /* Build configuration list for PBXNativeTarget "MidtransDemoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5C7516E1E8B912F001F47D9 /* Debug */,
+				E5C7516F1E8B912F001F47D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E56436EA1E83A72F008726D0 /* Project object */;
+}

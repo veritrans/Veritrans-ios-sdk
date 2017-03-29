@@ -22,6 +22,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDOrderViewController">
             <connections>
+                <outlet property="amountView" destination="eeh-aL-78U" id="B4P-ml-yYq"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -150,7 +151,7 @@ Indonesia</string>
                             </constraints>
                         </view>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Rp 20,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08Q-dj-7dZ">
-                            <rect key="frame" x="301.5" y="37.5" width="47.5" height="15.5"/>
+                            <rect key="frame" x="301.5" y="38" width="47.5" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" red="0.027450980392156862" green="0.67843137254901964" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -171,14 +172,14 @@ Indonesia</string>
                         <constraint firstItem="08Q-dj-7dZ" firstAttribute="centerY" secondItem="zqR-QW-AAS" secondAttribute="centerY" id="zn8-GS-XlU"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-Qu-Y8z">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-Qu-Y8z" customClass="MDButton">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                     <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="xgj-lU-UBn"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="20"/>
-                    <state key="normal" title="Bayar Rp 20,000"/>
+                    <state key="normal" title="Bayar Rp 20,000" image="arrow_right_white"/>
                     <connections>
                         <action selector="bayarPressed:" destination="-1" eventType="touchUpInside" id="qPS-lM-ORE"/>
                     </connections>
@@ -207,6 +208,7 @@ Indonesia</string>
     </objects>
     <resources>
         <image name="address" width="18" height="24"/>
+        <image name="arrow_right_white" width="8" height="13"/>
         <image name="product_icon" width="40" height="40"/>
     </resources>
 </document>

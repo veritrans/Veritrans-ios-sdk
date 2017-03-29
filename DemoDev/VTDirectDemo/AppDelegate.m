@@ -70,11 +70,11 @@ static NSString * const kTimeoutInterval = @"timeout_interval";
     //       merchantServerURL:@"https://echo.dev.kfit.ninja/api/fave/v2/cities/jakarta/veritrans/"];
     
     //set credit card config
-    id ccPaymentType = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType];
-    if (!ccPaymentType) {
-        ccPaymentType = @(MTCreditCardPaymentTypeNormal);
+    id ccTypeOption = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCType];
+    if (!ccTypeOption) {
+        ccTypeOption = @(MTCreditCardPaymentTypeNormal);
     }
-    CC_CONFIG.paymentType = [ccPaymentType integerValue];
+    CC_CONFIG.paymentType = [ccTypeOption integerValue];
     
     id secureCreditCard = [[NSUserDefaults standardUserDefaults] objectForKey:kOptionViewControllerCCSecure];
     if (!secureCreditCard) {

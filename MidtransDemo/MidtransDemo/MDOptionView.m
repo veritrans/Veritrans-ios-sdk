@@ -68,6 +68,10 @@ static CGFloat const optionCellHeight = 40;
     [self.titleView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(titlePressed:)]];
     
     self.selected = NO;
+    
+    defaults_observe_object(@"md_color", ^(NSNotification *note){
+        self.selected = self.selected;
+    });
 }
 
 - (void)updateViewIndexOption:(NSUInteger)index thenSelectTable:(BOOL)thenSelectTable {
@@ -91,8 +95,8 @@ static CGFloat const optionCellHeight = 40;
 
 - (void)setSelected:(BOOL)selected {
     if (selected) {
-        self.iconView.tintColor = [UIColor mdBlueColor];
-        self.titleLabel.textColor = [UIColor mdBlueColor];
+        self.iconView.tintColor = [UIColor mdThemeColor];
+        self.titleLabel.textColor = [UIColor mdThemeColor];
         self.tableViewHeight.constant = optionCellHeight*self.options.count+2; //2 is two borders height
         self.arrowView.transform = CGAffineTransformMakeRotation(180 * M_PI/180.);
     }

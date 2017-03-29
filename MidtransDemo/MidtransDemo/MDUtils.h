@@ -25,13 +25,17 @@
 @end
 
 @interface UIColor (Midtrans)
-+ (UIColor *) colorWithHexString:(NSString *)hexstr;
-+ (UIColor *) colorWithHexValue: (NSInteger) rgbValue;
++ (UIColor *)colorWithHexString:(NSString *)hexstr;
++ (UIColor *)colorWithHexValue: (NSInteger) rgbValue;
 + (UIColor *)mdDarkColor;
-+ (UIColor *)mdBlueColor;
++ (UIColor *)mdThemeColor;
 @end
 
 @interface UIFont (Midtrans)
 + (UIFont *)bariolRegularWithSize:(CGFloat)size;
 + (UIFont *)ssProLightWithSize:(CGFloat)size;
+@end
+
+@interface NSString (Utils)
++ (NSString *)randomWithLength:(NSUInteger)length;
 @end

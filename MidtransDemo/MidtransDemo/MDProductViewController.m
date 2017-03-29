@@ -9,6 +9,7 @@
 #import "MDProductViewController.h"
 #import "MDImageCollectionViewCell.h"
 #import "MDOrderViewController.h"
+#import "MDUtils.h"
 
 @interface MDProductViewController () <
 UICollectionViewDelegate,
@@ -41,6 +42,11 @@ UICollectionViewDelegateFlowLayout
     [self.collectionView registerNib:[UINib nibWithNibName:@"MDImageCollectionViewCell" bundle:nil] forCellWithReuseIdentifier:@"MDImageCollectionViewCell"];
     
     self.images = @[[UIImage imageNamed:@"slide_img_1"], [UIImage imageNamed:@"slide_img_2"], [UIImage imageNamed:@"slide_img_2"]];
+    
+    self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
+    defaults_observe_object(@"md_color", ^(NSNotification *note){
+        self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
+    });
 }
 
 - (void)settingsPressed:(id)sender {

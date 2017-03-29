@@ -14,7 +14,7 @@
 
 @implementation UIColor (Midtrans)
 
-+ (UIColor *) colorWithHexString:(NSString *)hexstr {
++ (UIColor *)colorWithHexString:(NSString *)hexstr {
     NSScanner *scanner;
     unsigned int rgbval;
     
@@ -25,7 +25,7 @@
     return [UIColor colorWithHexValue: rgbval];
 }
 
-+ (UIColor *) colorWithHexValue: (NSInteger) rgbValue {
++ (UIColor *)colorWithHexValue: (NSInteger) rgbValue {
     return [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0
                            green:((float)((rgbValue & 0xFF00) >> 8))/255.0
                             blue:((float)(rgbValue & 0xFF))/255.0
@@ -36,8 +36,8 @@
 + (UIColor *)mdDarkColor {
     return [UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1];
 }
-+ (UIColor *)mdBlueColor {
-    return [UIColor colorWithRed:52/255. green:129/255. blue:192/255. alpha:1];
++ (UIColor *)mdThemeColor {
+    return [NSKeyedUnarchiver unarchiveObjectWithData:defaults_object(@"md_color")];
 }
 @end
 
@@ -48,4 +48,17 @@
 + (UIFont *)ssProLightWithSize:(CGFloat)size {
     return [UIFont fontWithName:@"SourceSansPro-Light" size:size];
 }
+@end
+
+@implementation NSString (Utils)
+
++ (NSString *)randomWithLength:(NSUInteger)length {
+    NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    NSMutableString *randomString = [NSMutableString stringWithCapacity:length];
+    for (int i=0; i<length; i++) {
+        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
+    }
+    return randomString;
+}
+
 @end

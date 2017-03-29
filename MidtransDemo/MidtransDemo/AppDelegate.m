@@ -10,6 +10,7 @@
 #import "MDOptionsViewController.h"
 #import "MDProductViewController.h"
 #import "MDUtils.h"
+#import "MDNavigationViewController.h"
 
 @interface AppDelegate ()
 
@@ -23,16 +24,8 @@
 
     MDProductViewController *pvc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
     MDOptionsViewController *ovc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];
-    UINavigationController *nvc = [[UINavigationController alloc] init];
+    MDNavigationViewController *nvc = [MDNavigationViewController new];
     [nvc setViewControllers:@[ovc, pvc]];
-    
-    nvc.navigationBar.titleTextAttributes = @{
-                                              NSFontAttributeName:[UIFont bariolRegularWithSize:21],
-                                              NSForegroundColorAttributeName:[UIColor mdDarkColor]
-                                              };
-    nvc.navigationBar.translucent = NO;
-    nvc.navigationBar.barTintColor = [UIColor whiteColor];
-    nvc.navigationBar.tintColor = [UIColor mdBlueColor];
     self.window.rootViewController = nvc;
     [self.window makeKeyAndVisible];    
     return YES;

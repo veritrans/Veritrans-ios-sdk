@@ -25,14 +25,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfY-1n-zhC">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfY-1n-zhC" customClass="MDButton">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                     <color key="backgroundColor" red="0.18431372549019609" green="0.50196078431372548" blue="0.76078431372549016" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="55" id="NBq-i9-c8F"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="20"/>
-                    <state key="normal" title="Launch Demo App"/>
+                    <state key="normal" title="Launch Demo App" image="arrow_right_white"/>
                     <connections>
                         <action selector="launchPressed:" destination="-1" eventType="touchUpInside" id="P9I-cM-H11"/>
                     </connections>
@@ -70,4 +70,7 @@
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="arrow_right_white" width="8" height="13"/>
+    </resources>
 </document>

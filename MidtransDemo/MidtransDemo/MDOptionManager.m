@@ -23,162 +23,173 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        self.ccPaymentType = [self ccPaymentOptionFromObject:defaults_object(@"md_cc_type")];
-        self.secure3D = [self booleanOptionFromObject: defaults_object(@"md_3ds")];
-        self.issuingBank = [self issuingBankOptionFromObject:defaults_object(@"md_bank")];
-        self.saveCard = [self booleanOptionFromObject: defaults_object(@"md_savecard")];
-        self.promo = [self booleanOptionFromObject: defaults_object(@"md_savecard")];
-        self.preauth = [self booleanOptionFromObject:defaults_object(@"md_preauth")];
-        self.customExpiry = [self expireTimeOptionFromData:defaults_object(@"md_expire")];
-        self.colorTheme = [self colorOptionFromData:defaults_object(@"md_color")];
+        self.ccTypeOption = [self ccPaymentOptionFromObject:defaults_object(@"md_cc_type")];
+        self.secure3DOption = [self booleanOptionFromObject: defaults_object(@"md_3ds")];
+        self.issuingBankOption = [self issuingBankOptionFromObject:defaults_object(@"md_bank")];
+        self.saveCardOption = [self booleanOptionFromObject: defaults_object(@"md_savecard")];
+        self.promoOption = [self booleanOptionFromObject: defaults_object(@"md_savecard")];
+        self.preauthOption = [self booleanOptionFromObject:defaults_object(@"md_preauth")];
+        self.expireTimeOption = [self expireTimeOptionFromData:defaults_object(@"md_expire")];
+        self.colorOption = [self colorOptionFromData:defaults_object(@"md_color")];
     }
     return self;
 }
 
-- (void)setCcPaymentType:(NSString *)ccPaymentType {
-    if ([ccPaymentType isEqualToString:@"Two Clicks"]) {
-        CC_CONFIG.paymentType = MTCreditCardPaymentTypeTwoclick;
-    }
-    else if ([ccPaymentType isEqualToString:@"One Click"]) {
-        CC_CONFIG.paymentType = MTCreditCardPaymentTypeOneclick;
-    }
-    else {
-        CC_CONFIG.paymentType = MTCreditCardPaymentTypeNormal;
-    }
-    defaults_set_object(@"md_cc_type", @(CC_CONFIG.paymentType));
+- (void)setCcTypeOption:(NSString *)ccTypeOption {
+    _ccTypeOption = ccTypeOption;
+    defaults_set_object(@"md_cc_type", [self ccTypeValue]);
 }
-- (NSString *)ccPaymentType {
-    return [self ccPaymentOptionFromObject:@(CC_CONFIG.paymentType)];
+- (void)setSecure3DOption:(NSString *)secure3DOption {
+    _secure3DOption = secure3DOption;
+    defaults_set_object(@"md_3ds", [self secure3DValue]);
 }
-
-- (void)setSecure3D:(NSString *)secure3D {
-    if ([secure3D isEqualToString:@"Enable"]) {
-        CC_CONFIG.secure3DEnabled = YES;
-    }
-    else {
-        CC_CONFIG.secure3DEnabled = NO;
-    }
-    defaults_set_object(@"md_3ds", @(CC_CONFIG.secure3DEnabled));
+- (void)setIssuingBankOption:(NSString *)issuingBankOption {
+    _issuingBankOption = issuingBankOption;
+    defaults_set_object(@"md_bank", [self issuingBankValue]);
 }
-- (NSString *)secure3D {
-    return [self booleanOptionFromObject:@(CC_CONFIG.secure3DEnabled)];
+- (void)setSaveCardOption:(NSString *)saveCardOption {
+    _saveCardOption = saveCardOption;
+    defaults_set_object(@"md_savecard", [self saveCardValue]);
 }
-
-- (void)setIssuingBank:(NSString *)issuingBank {
-    if ([issuingBank isEqualToString:@"BNI"]) {
-        CC_CONFIG.acquiringBank = MTAcquiringBankBNI;
-    }
-    else if ([issuingBank isEqualToString:@"BCA"]) {
-        CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
-    }
-    else if ([issuingBank isEqualToString:@"Maybank"]) {
-        CC_CONFIG.acquiringBank = MTAcquiringBankMaybank;
-    }
-    else if ([issuingBank isEqualToString:@"BRI"]) {
-        CC_CONFIG.acquiringBank = MTAcquiringBankBRI;
-    }
-    else if ([issuingBank isEqualToString:@"CIMB"]) {
-        CC_CONFIG.acquiringBank = MTAcquiringBankCIMB;
-    }
-    else {
-        CC_CONFIG.acquiringBank = MTAcquiringBankMandiri;
-    }
-    defaults_set_object(@"md_bank", @(CC_CONFIG.acquiringBank));
+- (void)setPromoOption:(NSString *)promoOption {
+    _promoOption = promoOption;
+    defaults_set_object(@"md_promo", [self promoValue]);
 }
-- (NSString *)issuingBank {
-    return [self issuingBankOptionFromObject:@(CC_CONFIG.acquiringBank)];
+- (void)setPreauthOption:(NSString *)preauthOption {
+    _preauthOption = preauthOption;
+    defaults_set_object(@"md_preauth", [self preauthValue]);
 }
-
-- (void)setSaveCard:(NSString *)saveCard {
-    if ([saveCard isEqualToString:@"Enable"]) {
-        CC_CONFIG.saveCardEnabled = YES;
-    }
-    else {
-        CC_CONFIG.saveCardEnabled = NO;
-    }
-    defaults_set_object(@"md_savecard", @(CC_CONFIG.saveCardEnabled));
+- (void)setColorOption:(NSString *)colorOption {
+    _colorOption = colorOption;
+    defaults_set_object(@"md_color", [self colorValue]);
 }
-- (NSString *)saveCard {
-    return [self booleanOptionFromObject:@(CC_CONFIG.saveCardEnabled)];
-}
-
-- (void)setPromo:(NSString *)promo {
-    if ([promo isEqualToString:@"Enable"]) {
-        CC_CONFIG.promoEnabled = YES;
-    }
-    else {
-        CC_CONFIG.promoEnabled = NO;
-    }
-    defaults_set_object(@"md_promo", @(CC_CONFIG.promoEnabled));
-}
-- (NSString *)promo {
-    return [self booleanOptionFromObject:@(CC_CONFIG.promoEnabled)];
-}
-
-- (void)setPreauth:(NSString *)preauth {
-    if ([preauth isEqualToString:@"Enable"]) {
-        CC_CONFIG.preauthEnabled = YES;
-    }
-    else {
-        CC_CONFIG.preauthEnabled = NO;
-    }
-    defaults_set_object(@"md_preauth", @(CC_CONFIG.preauthEnabled));
-}
-- (NSString *)preauth {
-    return [self booleanOptionFromObject:@(CC_CONFIG.preauthEnabled)];
-}
-
-- (void)setColorTheme:(NSString *)colorTheme {
-    UIColor *color;
-    if ([colorTheme isEqualToString:@"Red"]) {
-        color = [UIColor colorWithHexString:@"#d4385c"];
-    }
-    else if ([colorTheme isEqualToString:@"Green"]) {
-        color = [UIColor colorWithHexString:@"#3bb740"];
-    }
-    else if ([colorTheme isEqualToString:@"Orange"]) {
-        color = [UIColor colorWithHexString:@"#ff8c00"];
-    }
-    else if ([colorTheme isEqualToString:@"Black"]) {
-        color = [UIColor colorWithHexString:@"#151515"];
-    }
-    else {
-        color = [UIColor colorWithHexString:@"#2f80c2"];
-    }
-    defaults_set_object(@"md_color", [NSKeyedArchiver archivedDataWithRootObject:color]);
-}
-- (NSString *)colorTheme {
-    return [self colorOptionFromData:defaults_object(@"md_color")];
-}
-
-- (void)setCustomExpiry:(NSString *)customExpiry {
-    MidtransTransactionExpire *expireTime;
-    if ([customExpiry isEqualToString:@"1 Minute"]) {
-        expireTime =
-        [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
-                                               expireDuration:1
-                                                 withUnitTime:MindtransTimeUnitTypeMinute];
-    }
-    else if ([customExpiry isEqualToString:@"1 Hour"]) {
-        expireTime =
-        [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
-                                               expireDuration:1
-                                                 withUnitTime:MindtransTimeUnitTypeHour];
-    }
-    
-    if (expireTime) {
-        defaults_set_object(@"md_expire",[NSKeyedArchiver archivedDataWithRootObject:expireTime]);
+- (void)setExpireTimeOption:(NSString *)expireTimeOption {
+    _expireTimeOption = expireTimeOption;
+    if ([self expireTimeValue]) {
+        defaults_set_object(@"md_expire", [self expireTimeValue]);
     }
     else {
         defaults_remove(@"md_expire");
     }
 }
-- (NSString *)customExpiry {
-    return [self expireTimeOptionFromData:defaults_object(@"md_expire")];
+
+#pragma mark - Values
+
+- (id)expireTimeValue {
+    MidtransTransactionExpire *expireTime;
+    if ([_expireTimeOption isEqualToString:@"1 Minute"]) {
+        expireTime =
+        [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
+                                               expireDuration:1
+                                                 withUnitTime:MindtransTimeUnitTypeMinute];
+    }
+    else if ([_expireTimeOption isEqualToString:@"1 Hour"]) {
+        expireTime =
+        [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
+                                               expireDuration:1
+                                                 withUnitTime:MindtransTimeUnitTypeHour];
+    }
+    if (expireTime) {
+        return [NSKeyedArchiver archivedDataWithRootObject:expireTime];
+    }
+    else {
+        return nil;
+    }
+}
+- (id)colorValue {
+    return [NSKeyedArchiver archivedDataWithRootObject:[MDOptionManager colorWithOption:_colorOption]];
+}
+- (id)preauthValue {
+    if ([_preauthOption isEqualToString:@"Enable"]) {
+        CC_CONFIG.preauthEnabled = YES;
+    }
+    else {
+        CC_CONFIG.preauthEnabled = NO;
+    }
+    return @(CC_CONFIG.preauthEnabled);
+}
+- (id)promoValue {
+    if ([_promoOption isEqualToString:@"Enable"]) {
+        CC_CONFIG.promoEnabled = YES;
+    }
+    else {
+        CC_CONFIG.promoEnabled = NO;
+    }
+    return @(CC_CONFIG.promoEnabled);
+}
+- (id)ccTypeValue {
+    if ([_ccTypeOption isEqualToString:@"Two Clicks"]) {
+        CC_CONFIG.paymentType = MTCreditCardPaymentTypeTwoclick;
+    }
+    else if ([_ccTypeOption isEqualToString:@"One Click"]) {
+        CC_CONFIG.paymentType = MTCreditCardPaymentTypeOneclick;
+    }
+    else {
+        CC_CONFIG.paymentType = MTCreditCardPaymentTypeNormal;
+    }
+    return @(CC_CONFIG.paymentType);
+}
+- (id)secure3DValue {
+    if ([_secure3DOption isEqualToString:@"Enable"]) {
+        CC_CONFIG.secure3DEnabled = YES;
+    }
+    else {
+        CC_CONFIG.secure3DEnabled = NO;
+    }
+    return @(CC_CONFIG.secure3DEnabled);
+}
+- (id)issuingBankValue {
+    if ([_issuingBankOption isEqualToString:@"BNI"]) {
+        CC_CONFIG.acquiringBank = MTAcquiringBankBNI;
+    }
+    else if ([_issuingBankOption isEqualToString:@"BCA"]) {
+        CC_CONFIG.acquiringBank = MTAcquiringBankBCA;
+    }
+    else if ([_issuingBankOption isEqualToString:@"Maybank"]) {
+        CC_CONFIG.acquiringBank = MTAcquiringBankMaybank;
+    }
+    else if ([_issuingBankOption isEqualToString:@"BRI"]) {
+        CC_CONFIG.acquiringBank = MTAcquiringBankBRI;
+    }
+    else if ([_issuingBankOption isEqualToString:@"CIMB"]) {
+        CC_CONFIG.acquiringBank = MTAcquiringBankCIMB;
+    }
+    else {
+        CC_CONFIG.acquiringBank = MTAcquiringBankMandiri;
+    }
+    return @(CC_CONFIG.acquiringBank);
+}
+- (id)saveCardValue {
+    if ([_saveCardOption isEqualToString:@"Enable"]) {
+        CC_CONFIG.saveCardEnabled = YES;
+    }
+    else {
+        CC_CONFIG.saveCardEnabled = NO;
+    }
+    return @(CC_CONFIG.saveCardEnabled);
 }
 
 #pragma mark - Helper
 
++ (UIColor *)colorWithOption:(NSString *)colorOption {
+    UIColor *color;
+    if ([colorOption isEqualToString:@"Red"]) {
+        color = [UIColor colorWithHexString:@"#d4385c"];
+    }
+    else if ([colorOption isEqualToString:@"Green"]) {
+        color = [UIColor colorWithHexString:@"#3bb740"];
+    }
+    else if ([colorOption isEqualToString:@"Orange"]) {
+        color = [UIColor colorWithHexString:@"#ff8c00"];
+    }
+    else if ([colorOption isEqualToString:@"Black"]) {
+        color = [UIColor colorWithHexString:@"#151515"];
+    }
+    else {
+        color = [UIColor colorWithHexString:@"#2f80c2"];
+    }
+    return color;
+}
 - (NSString *)ccPaymentOptionFromObject:(id)type {
     MTCreditCardPaymentType _type = [type integerValue];
     switch (_type) {
@@ -220,7 +231,6 @@
         return @"No Expiry";
     }
 }
-
 - (NSString *)colorOptionFromData:(NSData *)colorData {
     if (colorData) {
         UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
@@ -239,7 +249,6 @@
     }
     return @"Blue";
 }
-
 - (NSString *)booleanOptionFromObject:(id)object {
     return [object boolValue]? @"Enable" : @"Disable";
 }

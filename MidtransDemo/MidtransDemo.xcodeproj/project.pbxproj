@@ -14,7 +14,6 @@
 		E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56437031E83A72F008726D0 /* LaunchScreen.storyboard */; };
 		E56BCB871E8B60FE0005A401 /* MDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB861E8B60FE0005A401 /* MDButton.m */; };
 		E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */; };
-		E57D82BE1E8BAD73001F2373 /* LaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E57D82BD1E8BAD73001F2373 /* LaunchViewController.m */; };
 		E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
 		E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */; };
 		E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539ED1E88F82A001617C8 /* MDOptionManager.m */; };
@@ -82,8 +81,6 @@
 		E56BCB861E8B60FE0005A401 /* MDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDButton.m; sourceTree = "<group>"; };
 		E56BCB881E8B610B0005A401 /* MDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationViewController.h; sourceTree = "<group>"; };
 		E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationViewController.m; sourceTree = "<group>"; };
-		E57D82BC1E8BAD73001F2373 /* LaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LaunchViewController.h; sourceTree = "<group>"; };
-		E57D82BD1E8BAD73001F2373 /* LaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LaunchViewController.m; sourceTree = "<group>"; };
 		E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageCollectionViewCell.h; sourceTree = "<group>"; };
 		E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageCollectionViewCell.m; sourceTree = "<group>"; };
 		E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -193,8 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				E56437011E83A72F008726D0 /* Assets.xcassets */,
+				E56437031E83A72F008726D0 /* LaunchScreen.storyboard */,
 				E5D7FEE01E83D83F0086A8A4 /* fonts */,
-				E57D82BF1E8BAD78001F2373 /* launch screen */,
 				E56437061E83A72F008726D0 /* Info.plist */,
 				E56436F61E83A72F008726D0 /* main.m */,
 			);
@@ -210,16 +207,6 @@
 				E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */,
 			);
 			name = kits;
-			sourceTree = "<group>";
-		};
-		E57D82BF1E8BAD78001F2373 /* launch screen */ = {
-			isa = PBXGroup;
-			children = (
-				E56437031E83A72F008726D0 /* LaunchScreen.storyboard */,
-				E57D82BC1E8BAD73001F2373 /* LaunchViewController.h */,
-				E57D82BD1E8BAD73001F2373 /* LaunchViewController.m */,
-			);
-			name = "launch screen";
 			sourceTree = "<group>";
 		};
 		E5A53A061E88F844001617C8 /* cells */ = {
@@ -503,7 +490,6 @@
 				E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */,
 				E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */,
 				E5D7FED41E83CBB80086A8A4 /* MDOptionCell.m in Sources */,
-				E57D82BE1E8BAD73001F2373 /* LaunchViewController.m in Sources */,
 				E5A53A021E88F82A001617C8 /* MDOptionColorCell.m in Sources */,
 				E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */,
 				E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */,

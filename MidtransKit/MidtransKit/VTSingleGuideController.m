@@ -29,9 +29,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    [self setHeaderWithTitle:self.model.title
-                    subTitle:NSLocalizedString(@"Payment Instructions",nil)];
+    self.title = self.model.title;
     
     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];

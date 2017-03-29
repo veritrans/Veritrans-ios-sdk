@@ -34,8 +34,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self setHeaderWithTitle:_model.title
-                    subTitle:NSLocalizedString(@"Payment Instructions", nil)];
+    self.title = self.paymentMethod.title;
      NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
     if ([_model.title isEqualToString:@"Other Bank"]) {
         guidePath =[VTBundle pathForResource:@"all_va" ofType:@"plist"];

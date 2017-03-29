@@ -37,8 +37,7 @@ static NSString* const ClickpayAPPLI = @"3";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self setHeaderWithTitle:self.paymentMethod.title
-                    subTitle:NSLocalizedString(@"Payment Instructions",nil)];
+    self.title = self.paymentMethod.title;
     
     [self addNavigationToTextFields:@[self.debitNumberTextField, self.tokenTextField]];
     

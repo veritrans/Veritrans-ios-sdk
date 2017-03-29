@@ -14,6 +14,7 @@
 @property (nonatomic) NSString *totalAmount;
 @property (nonatomic) NSString *orderId;
 @property (nonatomic) NSString *transactionTime;
+@property (nonatomic) NSDictionary *additionalData;
 @property (nonatomic) NSString *paymentType;
 @property (nonatomic, readonly) MidtransTransactionResult *transactionResult;
 

@@ -26,6 +26,7 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 @property (weak, nonatomic) IBOutlet UIView *instructionPage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionviewHeightConstraints;
 
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
@@ -53,6 +54,8 @@ static NSString* const ClickpayAPPLI = @"3";
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
+    self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;
+    [self.view updateConstraintsIfNeeded];
     [self addSubViewController:vc toView:self.instructionPage];
 
     

@@ -32,6 +32,7 @@
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @property (nonatomic) MidtransLoadingView *loadingView;
+@property (nonatomic) BOOL dismissButton;
 @end
 
 @implementation MidtransUIPaymentController
@@ -81,6 +82,7 @@
 }
 - (void)showDismissButton:(BOOL)show {
     if (show) {
+        self.dismissButton = YES;
         if (!self.backBarButton) {
             self.backBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissButtonDidTapped:)];
         }        
@@ -91,7 +93,11 @@
     }
 }
 - (void)dismissButtonDidTapped:(id)sender {
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+    if (self.dismissButton) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];

@@ -174,19 +174,19 @@
 + (UIColor *)colorWithOption:(NSString *)colorOption {
     UIColor *color;
     if ([colorOption isEqualToString:@"Red"]) {
-        color = [UIColor colorWithHexString:@"#d4385c"];
+        color = RGB(212, 56, 92);
     }
     else if ([colorOption isEqualToString:@"Green"]) {
-        color = [UIColor colorWithHexString:@"#3bb740"];
+        color = RGB(59, 183, 64);
     }
     else if ([colorOption isEqualToString:@"Orange"]) {
-        color = [UIColor colorWithHexString:@"#ff8c00"];
+        color = RGB(255, 140, 0);
     }
     else if ([colorOption isEqualToString:@"Black"]) {
-        color = [UIColor colorWithHexString:@"#151515"];
+        color = RGB(21, 21, 21);
     }
     else {
-        color = [UIColor colorWithHexString:@"#2f80c2"];
+        color = RGB(47, 128, 194);
     }
     return color;
 }
@@ -234,16 +234,16 @@
 - (NSString *)colorOptionFromData:(NSData *)colorData {
     if (colorData) {
         UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:colorData];
-        if ([color isEqual:[UIColor colorWithHexString:@"#d4385c"]]) {
+        if ([color isEqualToColor:RGB(212, 56, 92)]) {
             return @"Red";
         }
-        else if ([color isEqual:[UIColor colorWithHexString:@"#3bb740"]]) {
+        else if ([color isEqualToColor:RGB(59, 183, 64)]) {
             return @"Green";
         }
-        else if ([color isEqual:[UIColor colorWithHexString:@"#ff8c00"]]) {
+        else if ([color isEqualToColor:RGB(255, 140, 0)]) {
             return @"Orange";
         }
-        else if ([color isEqual:[UIColor colorWithHexString:@"#151515"]]) {
+        else if ([color isEqualToColor:RGB(21, 21, 21)]) {
             return @"Black";
         }
     }

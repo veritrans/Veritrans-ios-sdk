@@ -14,30 +14,22 @@
 
 @implementation UIColor (Midtrans)
 
-+ (UIColor *)colorWithHexString:(NSString *)hexstr {
-    NSScanner *scanner;
-    unsigned int rgbval;
-    
-    scanner = [NSScanner scannerWithString: hexstr];
-    [scanner setCharactersToBeSkipped:[NSCharacterSet characterSetWithCharactersInString:@"#"]];
-    [scanner scanHexInt: &rgbval];
-    
-    return [UIColor colorWithHexValue: rgbval];
-}
-
-+ (UIColor *)colorWithHexValue: (NSInteger) rgbValue {
-    return [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0
-                           green:((float)((rgbValue & 0xFF00) >> 8))/255.0
-                            blue:((float)(rgbValue & 0xFF))/255.0
-                           alpha:1.0];
-    
-}
-
 + (UIColor *)mdDarkColor {
     return [UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1];
 }
 + (UIColor *)mdThemeColor {
     return [NSKeyedUnarchiver unarchiveObjectWithData:defaults_object(@"md_color")];
+}
+
+- (BOOL)isEqualToColor:(UIColor *)otherColor {
+    CGFloat r1, g1, b1, a1, r2, g2, b2, a2;
+    [self getRed:&r1 green:&g1 blue:&b1 alpha:&a1];
+    [otherColor getRed:&r2 green:&g2 blue:&b2 alpha:&a2];
+    return
+    fabs(r1 - r2) <= 0.01 &&
+    fabs(g1 - g2) <= 0.01 &&
+    fabs(b1 - b2) <= 0.01 &&
+    fabs(a1 - a2) <= 0.01;
 }
 @end
 

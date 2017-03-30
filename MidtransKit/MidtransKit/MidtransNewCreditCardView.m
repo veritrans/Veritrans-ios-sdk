@@ -107,6 +107,6 @@
     }
 }
 - (void)sendTrackingEvent:(NSString *)eventName {
-    [[MIDTrackingManager shared] trackEventName:eventName];
+    [[SNPUITrackingManager shared] trackEventName:eventName];
 }
 @end

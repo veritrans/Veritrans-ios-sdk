@@ -9,7 +9,6 @@
 #import "MidtransClient.h"
 #import "MidtransConfig.h"
 #import "MidtransNetworking.h"
-#import "MidtransTrackingManager.h"
 #import "MidtransHelper.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransCreditCardHelper.h"
@@ -81,18 +80,13 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     
     [[MidtransNetworking shared] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
         if (error) {
-            [[MidtransTrackingManager shared] trackAppFailGenerateToken:nil
-                                                         secureProtocol:NO
-                                                     withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
+           
             if (completion) completion(nil, error);
         } else {
             NSString *redirectURL = response[@"redirect_url"];
             NSString *token = response[@"token_id"];
             if (redirectURL) {
-                [[MidtransTrackingManager shared] trackAppSuccessGenerateToken:token
-                                                                secureProtocol:YES
-                                                            withPaymentFeature:0
-                                                                 paymentMethod:@"credit card" value:nil];
+              
                 Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:token
                                                                                              secureURL:[NSURL URLWithString:redirectURL]];
                 [secureController showWithCompletion:^(NSError *error) {
@@ -103,9 +97,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                     }
                 }];
             } else {
-                [[MidtransTrackingManager shared] trackAppSuccessGenerateToken:token
-                                                                secureProtocol:NO
-                                                            withPaymentFeature:0 paymentMethod:@"credit card" value:nil];
+                
                 if (completion) completion(token, nil);
             }
         }

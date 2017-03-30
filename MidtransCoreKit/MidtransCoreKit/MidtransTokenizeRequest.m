@@ -9,7 +9,6 @@
 #import "MidtransTokenizeRequest.h"
 #import "MidtransConfig.h"
 #import "MidtransHelper.h"
-#import "MidtransTrackingManager.h"
 #import "MidtransCreditCardHelper.h"
 #import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransCreditCardConfig.h"

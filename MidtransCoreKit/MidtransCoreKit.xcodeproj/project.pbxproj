@@ -81,8 +81,6 @@
 		0CF74F391E6EB5D2006C0393 /* SNPPointResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CF74F361E6EB5D2006C0393 /* SNPPointResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CF74F3A1E6EB5D2006C0393 /* SNPPointResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF74F371E6EB5D2006C0393 /* SNPPointResponse.m */; };
 		2ED4518E1D09C4D7008BAED8 /* MidtransConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EDAA3A31D0A7601009EC90D /* MidtransTrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 2EDAA3A11D0A7601009EC90D /* MidtransTrackingManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EDAA3A41D0A7601009EC90D /* MidtransTrackingManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2EDAA3A21D0A7601009EC90D /* MidtransTrackingManager.m */; };
 		305494571C75A08900938C17 /* MidtransAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 3054944B1C75A08900938C17 /* MidtransAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		305494581C75A08900938C17 /* MidtransAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 3054944C1C75A08900938C17 /* MidtransAddress.m */; };
 		3054945D1C75A08900938C17 /* MidtransNetworking.h in Headers */ = {isa = PBXBuildFile; fileRef = 305494511C75A08900938C17 /* MidtransNetworking.h */; };
@@ -236,8 +234,6 @@
 		0CF74F361E6EB5D2006C0393 /* SNPPointResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPointResponse.h; sourceTree = "<group>"; };
 		0CF74F371E6EB5D2006C0393 /* SNPPointResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPPointResponse.m; sourceTree = "<group>"; };
 		2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransConstant.h; sourceTree = "<group>"; };
-		2EDAA3A11D0A7601009EC90D /* MidtransTrackingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransTrackingManager.h; sourceTree = "<group>"; };
-		2EDAA3A21D0A7601009EC90D /* MidtransTrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransTrackingManager.m; sourceTree = "<group>"; };
 		3054943A1C759FF800938C17 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransCoreKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		305494461C75A01900938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3054944B1C75A08900938C17 /* MidtransAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransAddress.h; sourceTree = "<group>"; };
@@ -476,8 +472,6 @@
 			isa = PBXGroup;
 			children = (
 				0C19235F1E430A7A00B3BBDB /* New Tracking */,
-				2EDAA3A11D0A7601009EC90D /* MidtransTrackingManager.h */,
-				2EDAA3A21D0A7601009EC90D /* MidtransTrackingManager.m */,
 			);
 			name = Tracking;
 			sourceTree = "<group>";
@@ -655,7 +649,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				3054948D1C75A40900938C17 /* MidtransCoreKit.h in Headers */,
-				2EDAA3A31D0A7601009EC90D /* MidtransTrackingManager.h in Headers */,
 				0C1923621E430A8C00B3BBDB /* MIDTrackingManager.h in Headers */,
 				E5E4361F1CE31D1200F688ED /* MidtransTransactionResult.h in Headers */,
 				E5E4360F1CE31B3600F688ED /* MidtransItemDetail.h in Headers */,
@@ -862,7 +855,6 @@
 				0CF74F3A1E6EB5D2006C0393 /* SNPPointResponse.m in Sources */,
 				0CD7EA9B1E03D0820036C187 /* MIdtransPaymentGCI.m in Sources */,
 				009A7E761DBF06E600049358 /* MidtransPaymentRequestV2Merchant.m in Sources */,
-				2EDAA3A41D0A7601009EC90D /* MidtransTrackingManager.m in Sources */,
 				00C95DB91D196589001EC6B7 /* MidtransVirtualAccountModel.m in Sources */,
 				E58017DA1D584256007D2DEC /* MidtransPaymentTelkomselCash.m in Sources */,
 				E53BD03E1D14322B001FADDE /* MidtransPaymentEpayBRI.m in Sources */,

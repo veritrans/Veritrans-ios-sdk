@@ -28,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[MIDTrackingManager shared] trackEventName:@"pg error"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg error"];
     self.title = UILocalizedString(@"payment.failed",nil);
     
     self.navigationItem.hidesBackButton = YES;

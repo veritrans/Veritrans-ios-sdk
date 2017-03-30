@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MIDTrackingManager : NSObject
-+ (MIDTrackingManager *)shared;
+@interface SNPUITrackingManager : NSObject
++ (SNPUITrackingManager *)shared;
 - (void)trackEventName:(NSString *)eventName;
 
 @end

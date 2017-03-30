@@ -40,7 +40,7 @@
 #import "MidtransPaymentKiosOn.h"
 #import "MidtransPaymentListModel.h"
 #import "MidtransVirtualAccountModel.h"
-#import "MIDTrackingManager.h"
+#import "SNPUITrackingManager.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MidtransPaymentRequestV2DataModels.h"
 #import "MidtransPaymentIndosatDompetku.h"

@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[MIDTrackingManager shared] trackEventName:@"pg select payment"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
     
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
@@ -201,7 +201,7 @@
     
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
+    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {

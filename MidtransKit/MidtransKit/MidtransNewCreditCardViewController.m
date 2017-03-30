@@ -358,7 +358,7 @@ UIAlertViewDelegate
 
 - (IBAction)cvvInfoDidTapped:(id)sender {
     MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                      initWithTitle:@"What is CVV?"
+                                                      initWithTitle:@"what is cvv?"
                                                       message:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"
                                                       image:@"CreditCardBackSmall"
                                                       delegate:nil

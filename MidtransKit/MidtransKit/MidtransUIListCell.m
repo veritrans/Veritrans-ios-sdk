@@ -21,10 +21,11 @@
     }
     else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         self.paymentMethodNameLabel.text = @"Credit/Debit Card";
-         //       response.merchant.enabledPrinciples =@[@"visa",@"mastercard",@"amex"];
         NSArray *capArray = [response.merchant.enabledPrinciples valueForKeyPath:@"capitalizedString"];
-
         self.paymentMethodDescriptionLabel.text = [NSString stringWithFormat:@"Pay With %@",[capArray componentsJoinedByString:@", "]];
+        if ([capArray containsObject:@"Jcb"]) {
+            self.paymentMethodDescriptionLabel.text = [self.paymentMethodDescriptionLabel.text stringByReplacingOccurrencesOfString:@"Jcb" withString:@"JCB"];
+        }
         imagePath = [response.merchant.enabledPrinciples componentsJoinedByString:@"-"];
         
     }

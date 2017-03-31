@@ -28,7 +28,7 @@
     self.title = self.paymentMethod.title;
     
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
-    
+     [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.instructionTitleLabel.text = [NSString stringWithFormat:@"%@ step by step", self.paymentMethod.title];
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];

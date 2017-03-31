@@ -31,6 +31,8 @@
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment"];
     
+    CC_CONFIG.tokenStorageEnabled = YES;
+    
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     defaults_observe_object(@"md_color", ^(NSNotification *note){
         self.amountView.backgroundColor = [UIColor mdThemeColor];

@@ -34,10 +34,13 @@ typedef NS_ENUM(NSUInteger, MDOption) {
 + (instancetype)viewWithIcon:(UIImage *)icon
                titleTemplate:(NSString *)titleTemplate
                      options:(NSArray <NSString*>*)options
-               defaultOption:(NSString *)defaultOption
-               isColorOption:(BOOL)isColorOption;
+                        type:(MDOption)type;
 + (instancetype)viewWithIcon:(UIImage *)icon
                titleTemplate:(NSString *)titleTemplate
                      options:(NSArray <NSString*>*)options
-               defaultOption:(NSString *)defaultOption;
+                        type:(MDOption)type
+               isColorOption:(BOOL)isColorOption;
+
+- (void)selectOption:(NSString *)option;
+
 @end

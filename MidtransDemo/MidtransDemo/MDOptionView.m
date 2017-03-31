@@ -32,28 +32,27 @@ static CGFloat const optionCellHeight = 40;
 + (instancetype)viewWithIcon:(UIImage *)icon
                titleTemplate:(NSString *)titleTemplate
                      options:(NSArray <NSString*>*)options
-               defaultOption:(NSString *)defaultOption {
+                        type:(MDOption)type {
     return [self viewWithIcon:icon
                 titleTemplate:titleTemplate
                       options:options
-                defaultOption:defaultOption
+                         type:type
                 isColorOption:NO];
 }
 
 + (instancetype)viewWithIcon:(UIImage *)icon
                titleTemplate:(NSString *)titleTemplate
                      options:(NSArray <NSString*>*)options
-               defaultOption:(NSString *)defaultOption
+                        type:(MDOption)type
                isColorOption:(BOOL)isColorOption {
     MDOptionView *view = [[NSBundle mainBundle] loadNibNamed:@"MDOptionView" owner:self options:nil].firstObject;
     view.icon = icon;
     view.titleTemplate = titleTemplate;
     view.isColorOption = isColorOption;
     view.options = options;
+    view.optionType = type;
     
     [view commonInit];
-    
-    [view updateViewIndexOption:[options indexOfObject:defaultOption] thenSelectTable:YES];
     
     return view;
 }
@@ -72,6 +71,10 @@ static CGFloat const optionCellHeight = 40;
     defaults_observe_object(@"md_color", ^(NSNotification *note){
         self.selected = self.selected;
     });
+}
+
+- (void)selectOption:(NSString *)option {
+    [self updateViewIndexOption:[self.options indexOfObject:option] thenSelectTable:YES];
 }
 
 - (void)updateViewIndexOption:(NSUInteger)index thenSelectTable:(BOOL)thenSelectTable {

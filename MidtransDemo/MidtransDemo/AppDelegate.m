@@ -11,6 +11,7 @@
 #import "MDProductViewController.h"
 #import "MDUtils.h"
 #import "MDNavigationViewController.h"
+#import "MDOptionManager.h"
 
 @interface AppDelegate ()
 
@@ -22,6 +23,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"Fonts:\n%@\n%@", [UIFont fontNamesForFamilyName:@"Bariol"], [UIFont fontNamesForFamilyName:@"Source Sans Pro"]);
 
+    [MDOptionManager shared];
+    
     MDProductViewController *pvc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
     MDOptionsViewController *ovc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];
     MDNavigationViewController *nvc = [MDNavigationViewController new];

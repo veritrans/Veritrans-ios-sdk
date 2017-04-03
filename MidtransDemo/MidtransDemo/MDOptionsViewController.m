@@ -95,15 +95,12 @@
         MTCreditCardPaymentType type = [note unsignedIntegerValue];
         MDOptionView *opt3ds = [self optionViewWithType:MDOption3DSecure];
         MDOptionView *optSaveCard = [self optionViewWithType:MDOptionSaveCard];
-        if (type == MTCreditCardPaymentTypeNormal) {
-            NSString *option = @"Disable";
-            [opt3ds selectOption:option];
-            [optSaveCard selectOption:option];
+        if (type == MTCreditCardPaymentTypeOneclick) {
+            [opt3ds selectOption:@"Enable"];
+            [optSaveCard selectOption:@"Enable"];
         }
-        else {
-            NSString *option = @"Enable";
-            [opt3ds selectOption:option];
-            [optSaveCard selectOption:option];
+        else if (type == MTCreditCardPaymentTypeTwoclick) {
+            [optSaveCard selectOption:@"Enable"];
         }
     });
 }

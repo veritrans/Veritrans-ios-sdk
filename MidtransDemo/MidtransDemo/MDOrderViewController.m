@@ -27,10 +27,24 @@
     self.progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.progressHUD.textLabel.text = @"Loading...";
     
-    [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
-             environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment"];
+    NSString *clientkey;
+    NSString *merchantServer;
+    switch (CC_CONFIG.paymentType) {
+        case MTCreditCardPaymentTypeOneclick:
+            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+            merchantServer = @"https://rakawm-snap.herokuapp.com/installment";
+            break;
+        default:
+            clientkey = @"VT-client-cwmvxnYb-CTkaAgz";
+            merchantServer = @"https://demo-merchant-server.herokuapp.com";
+            break;
+    }
     
+    [CONFIG setClientKey:clientkey
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:merchantServer];
+    
+    //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
@@ -90,7 +104,7 @@
          MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
          paymentVC.paymentDelegate = self;
          [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
-
+         
          //hide hud
          [self.progressHUD dismissAnimated:YES];
      }];

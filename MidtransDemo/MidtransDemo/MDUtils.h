@@ -14,7 +14,7 @@
 #define defaults_save()                     [defaults() synchronize]
 #define defaults_object(key)                [defaults() objectForKey:key]
 #define defaults_set_object(key, object)    [defaults() setObject:object forKey:key]; defaults_save(); defaults_post_notification(key)
-#define defaults_remove(key)
+#define defaults_remove(key)                [defaults() removeObjectForKey:key]; defaults_save();
 
 #define defaults_object_from_notification(n) [n.userInfo objectForKey:@"value"]
 #define defaults_observe_object(key, block) [[NSNotificationCenter defaultCenter] addObserverForName:key object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *n){ block( defaults_object_from_notification(n) ); }]

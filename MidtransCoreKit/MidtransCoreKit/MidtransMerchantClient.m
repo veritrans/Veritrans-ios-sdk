@@ -183,9 +183,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             NSArray *key_dictionary=[dictionary allKeys];
             for (NSString *string_key in key_dictionary) {
                 [dictionaryParameters setObject:[dictionary objectForKey:string_key] forKey:string_key];
-
             }
-            
         }
     }
     if ([[expireTime dictionaryRepresentation] count] || [expireTime isEqual:[NSNull null]]) {

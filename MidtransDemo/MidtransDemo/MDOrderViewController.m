@@ -70,7 +70,11 @@
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
     //configure expire time
-    MidtransTransactionExpire *expr = [[MDOptionManager shared] expireTimeValue];
+    MidtransTransactionExpire *expr;
+    NSData *data = [[MDOptionManager shared] expireTimeValue];
+    if (data) {
+        expr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    }
     
     //show hud
     [self.progressHUD showInView:self.navigationController.view];

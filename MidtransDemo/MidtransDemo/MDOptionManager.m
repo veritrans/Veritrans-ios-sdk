@@ -26,7 +26,7 @@
         self.secure3DOption = [self booleanOptionFromObject: defaults_object(@"md_3ds")];
         self.issuingBankOption = [self issuingBankOptionFromObject:defaults_object(@"md_bank")];
         self.saveCardOption = [self booleanOptionFromObject: defaults_object(@"md_savecard")];
-        self.promoOption = [self booleanOptionFromObject: defaults_object(@"md_savecard")];
+        self.promoOption = [self booleanOptionFromObject: defaults_object(@"md_promo")];
         self.preauthOption = [self booleanOptionFromObject:defaults_object(@"md_preauth")];
         self.expireTimeOption = [self expireTimeOptionFromData:defaults_object(@"md_expire")];
         self.colorOption = [self colorOptionFromData:defaults_object(@"md_color")];

@@ -406,7 +406,9 @@ UIAlertViewDelegate
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
     NSError *error;
-    
+    if ([textField isEqual:self.view.creditCardNumberTextField]) {
+        [textField.text isValidCreditCardNumber:&error];
+    }
     if ([textField isEqual:self.view.cardExpireTextField]) {
         [textField.text isValidExpiryDate:&error];
     }
@@ -804,6 +806,7 @@ UIAlertViewDelegate
                     }
                     break;
                 default:
+                    
                     break;
             }
         }

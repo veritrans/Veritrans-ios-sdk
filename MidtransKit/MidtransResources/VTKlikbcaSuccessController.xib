@@ -23,7 +23,6 @@
                 <outlet property="orderIdLabel" destination="SPG-fC-LMc" id="kxV-If-y5b"/>
                 <outlet property="titleLabel" destination="PZc-v5-ZPk" id="2C8-Cu-hkw"/>
                 <outlet property="transactionExpiredTime" destination="4ax-sq-Q4h" id="0e9-lx-TbZ"/>
-                <outlet property="transactionTimeLabel" destination="IQq-FV-IDo" id="vVj-KS-g4S"/>
                 <outlet property="view" destination="6DC-PG-Qi1" id="Mc5-Q6-h4Q"/>
             </connections>
         </placeholder>
@@ -73,10 +72,10 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="576"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EvZ-Yt-UeE">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="445"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T8S-c8-8Gb" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="355" width="375" height="45"/>
+                                    <rect key="frame" x="0.0" y="310" width="375" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPG-fC-LMc">
                                             <rect key="frame" x="320" y="12" width="40" height="22"/>
@@ -111,7 +110,7 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kaZ-18-saw" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="310" width="375" height="45"/>
+                                    <rect key="frame" x="0.0" y="265" width="375" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0Z-XP-3IC">
                                             <rect key="frame" x="320" y="12" width="40" height="22"/>
@@ -143,39 +142,6 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k1D-Ny-GGw" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="265" width="375" height="45"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQq-FV-IDo">
-                                            <rect key="frame" x="320" y="12" width="40" height="22"/>
-                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t9Y-gl-aYU">
-                                            <rect key="frame" x="15" y="14" width="95" height="17"/>
-                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
-                                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="IQq-FV-IDo" secondAttribute="trailing" constant="15" id="5NT-SD-bBz"/>
-                                        <constraint firstItem="t9Y-gl-aYU" firstAttribute="leading" secondItem="k1D-Ny-GGw" secondAttribute="leading" constant="15" id="fQi-cD-sIR"/>
-                                        <constraint firstItem="IQq-FV-IDo" firstAttribute="centerY" secondItem="k1D-Ny-GGw" secondAttribute="centerY" id="grv-5Y-4Yu"/>
-                                        <constraint firstItem="t9Y-gl-aYU" firstAttribute="centerY" secondItem="k1D-Ny-GGw" secondAttribute="centerY" id="xrW-vO-ZgY"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
-                                            <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                                            <integer key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5DW-m3-m1F">
                                     <rect key="frame" x="0.0" y="25" width="375" height="110"/>
                                     <subviews>
@@ -186,7 +152,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please complete payment to proceed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32j-ow-9yg">
-                                            <rect key="frame" x="86" y="66" width="202" height="17"/>
+                                            <rect key="frame" x="86.5" y="66" width="202" height="17"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -255,16 +221,16 @@
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dbf-Bu-p5y" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="400" width="375" height="45"/>
+                                    <rect key="frame" x="0.0" y="355" width="375" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ax-sq-Q4h">
-                                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                            <rect key="frame" x="320" y="12" width="40" height="22"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Expired Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4HJ-yW-Xax">
-                                            <rect key="frame" x="15" y="14.5" width="138" height="17"/>
+                                            <rect key="frame" x="15" y="14" width="138" height="17"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -299,16 +265,12 @@
                                 <constraint firstItem="Rjy-lW-KN0" firstAttribute="leading" secondItem="EvZ-Yt-UeE" secondAttribute="leading" id="Ccc-8R-ReN"/>
                                 <constraint firstAttribute="trailing" secondItem="Dbf-Bu-p5y" secondAttribute="trailing" id="CfP-ZI-eBn"/>
                                 <constraint firstItem="kaZ-18-saw" firstAttribute="height" secondItem="T8S-c8-8Gb" secondAttribute="height" id="EjC-Vb-1cz"/>
-                                <constraint firstItem="kaZ-18-saw" firstAttribute="top" secondItem="k1D-Ny-GGw" secondAttribute="bottom" id="IqB-PM-af9"/>
                                 <constraint firstItem="Rjy-lW-KN0" firstAttribute="top" secondItem="5DW-m3-m1F" secondAttribute="bottom" id="NOl-ss-NGA"/>
                                 <constraint firstItem="Dbf-Bu-p5y" firstAttribute="height" secondItem="T8S-c8-8Gb" secondAttribute="height" id="Osw-SB-SFy"/>
                                 <constraint firstAttribute="trailing" secondItem="5DW-m3-m1F" secondAttribute="trailing" id="PUV-V1-Ext"/>
-                                <constraint firstItem="k1D-Ny-GGw" firstAttribute="leading" secondItem="T8S-c8-8Gb" secondAttribute="leading" id="SC2-Mz-SgM"/>
-                                <constraint firstItem="k1D-Ny-GGw" firstAttribute="height" secondItem="T8S-c8-8Gb" secondAttribute="height" id="U18-cN-tyR"/>
+                                <constraint firstItem="kaZ-18-saw" firstAttribute="top" secondItem="Rjy-lW-KN0" secondAttribute="bottom" id="R5G-iz-nxH"/>
                                 <constraint firstItem="5DW-m3-m1F" firstAttribute="leading" secondItem="EvZ-Yt-UeE" secondAttribute="leading" id="WIb-yX-BxI"/>
                                 <constraint firstItem="T8S-c8-8Gb" firstAttribute="leading" secondItem="EvZ-Yt-UeE" secondAttribute="leading" id="aEb-qY-B7p"/>
-                                <constraint firstItem="k1D-Ny-GGw" firstAttribute="top" secondItem="Rjy-lW-KN0" secondAttribute="bottom" id="dei-DU-bUI"/>
-                                <constraint firstItem="k1D-Ny-GGw" firstAttribute="trailing" secondItem="T8S-c8-8Gb" secondAttribute="trailing" id="f6r-1v-J2d"/>
                                 <constraint firstItem="kaZ-18-saw" firstAttribute="leading" secondItem="T8S-c8-8Gb" secondAttribute="leading" id="jgy-VK-aX4"/>
                                 <constraint firstItem="Dbf-Bu-p5y" firstAttribute="leading" secondItem="EvZ-Yt-UeE" secondAttribute="leading" id="lew-qt-JM1"/>
                                 <constraint firstItem="kaZ-18-saw" firstAttribute="trailing" secondItem="T8S-c8-8Gb" secondAttribute="trailing" id="m51-ai-5ca"/>

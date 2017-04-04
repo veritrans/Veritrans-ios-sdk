@@ -7,7 +7,7 @@ s.homepage         = "https://veritrans.co.id/"
 s.license          = 'MIT'
 s.author           = { "veritrans" => "dev@veritrans.co.id" }
 s.source           = { :git => 'https://github.com/veritrans/Veritrans-ios-sdk.git', :tag => s.version}
-s.platform     = :ios, '7.0'
+s.platform     = :ios, '8.0'
 s.requires_arc = true
 
 s.subspec 'UI' do |sp|
@@ -17,7 +17,7 @@ s.subspec 'CardIO' do |sp|
     sp.dependency 'CardIO', '~> 5.4'
 end
 
-s.source_files = 'MidtransKit/MidtransKit/*.{h,m}'
+s.source_files = 'MidtransKit/MidtransKit/classes/*.{h,m}'
 s.resource_bundles = {
     'MidtransKit' => ['MidtransKit/MidtransKit/resources/*']
 }

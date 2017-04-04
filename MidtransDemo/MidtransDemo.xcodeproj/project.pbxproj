@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B11D80EC176711F769117D6 /* libPods-MidtransDemoPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FA01C9A4C5A4D4325CD869D9 /* libPods-MidtransDemoPods.a */; };
 		8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */; };
 		E56436F71E83A72F008726D0 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F61E83A72F008726D0 /* main.m */; };
 		E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F91E83A72F008726D0 /* AppDelegate.m */; };
@@ -14,6 +15,32 @@
 		E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56437031E83A72F008726D0 /* LaunchScreen.storyboard */; };
 		E56BCB871E8B60FE0005A401 /* MDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB861E8B60FE0005A401 /* MDButton.m */; };
 		E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */; };
+		E57124D41E9392B20064F515 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E57124D31E9392B20064F515 /* main.m */; };
+		E57124E71E9393130064F515 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F91E83A72F008726D0 /* AppDelegate.m */; };
+		E57124E81E9393130064F515 /* MDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB861E8B60FE0005A401 /* MDButton.m */; };
+		E57124E91E9393130064F515 /* MDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */; };
+		E57124EA1E9393130064F515 /* MDOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539ED1E88F82A001617C8 /* MDOptionManager.m */; };
+		E57124EB1E9393130064F515 /* MDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */; };
+		E57124EC1E9393130064F515 /* MDOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */; };
+		E57124ED1E9393130064F515 /* MDProductViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539F21E88F82A001617C8 /* MDProductViewController.m */; };
+		E57124EE1E9393130064F515 /* MDOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */; };
+		E57124EF1E9393130064F515 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
+		E57124F01E9393130064F515 /* MDOptionColorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539F61E88F82A001617C8 /* MDOptionColorCell.m */; };
+		E57124F11E9393130064F515 /* MDOptionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FED21E83CBB80086A8A4 /* MDOptionCell.m */; };
+		E57124F21E9393130064F515 /* MDOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */; };
+		E57124F31E9393210064F515 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56437031E83A72F008726D0 /* LaunchScreen.storyboard */; };
+		E57124F41E9393290064F515 /* MDOrderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */; };
+		E57124F51E9393290064F515 /* MDProductViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F31E88F82A001617C8 /* MDProductViewController.xib */; };
+		E57124F61E9393290064F515 /* MDOptionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FECC1E83B67F0086A8A4 /* MDOptionsViewController.xib */; };
+		E57124F71E9393290064F515 /* MDImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */; };
+		E57124F81E9393290064F515 /* MDOptionColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */; };
+		E57124F91E9393290064F515 /* MDOptionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FED31E83CBB80086A8A4 /* MDOptionCell.xib */; };
+		E57124FA1E9393290064F515 /* MDOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */; };
+		E57124FB1E93933A0064F515 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56437011E83A72F008726D0 /* Assets.xcassets */; };
+		E57124FC1E93933A0064F515 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */; };
+		E57124FD1E93933A0064F515 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */; };
+		E57124FE1E93933A0064F515 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */; };
+		E57124FF1E93933A0064F515 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */; };
 		E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
 		E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */; };
 		E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539ED1E88F82A001617C8 /* MDOptionManager.m */; };
@@ -69,6 +96,7 @@
 
 /* Begin PBXFileReference section */
 		43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		83E2EA106416AB9B491F03C3 /* Pods-MidtransDemoPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoPods.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemoPods/Pods-MidtransDemoPods.release.xcconfig"; sourceTree = "<group>"; };
 		85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.release.xcconfig"; sourceTree = "<group>"; };
 		E56436F21E83A72F008726D0 /* MidtransDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidtransDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -82,6 +110,9 @@
 		E56BCB861E8B60FE0005A401 /* MDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDButton.m; sourceTree = "<group>"; };
 		E56BCB881E8B610B0005A401 /* MDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationViewController.h; sourceTree = "<group>"; };
 		E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationViewController.m; sourceTree = "<group>"; };
+		E57124D01E9392B20064F515 /* MidtransDemoPods.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidtransDemoPods.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E57124D31E9392B20064F515 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E57124E31E9392B20064F515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageCollectionViewCell.h; sourceTree = "<group>"; };
 		E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageCollectionViewCell.m; sourceTree = "<group>"; };
 		E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -120,6 +151,8 @@
 		E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDUtils.h; sourceTree = "<group>"; };
 		E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDUtils.m; sourceTree = "<group>"; };
 		E5F1B94F1E9355D800ED659D /* MidtransKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MidtransKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9CB656ED4BE464B4A45E231 /* Pods-MidtransDemoPods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoPods.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemoPods/Pods-MidtransDemoPods.debug.xcconfig"; sourceTree = "<group>"; };
+		FA01C9A4C5A4D4325CD869D9 /* libPods-MidtransDemoPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemoPods.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +162,14 @@
 			files = (
 				8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */,
 				E5F1B9501E9355D800ED659D /* MidtransKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E57124CD1E9392B20064F515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5B11D80EC176711F769117D6 /* libPods-MidtransDemoPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +188,8 @@
 			children = (
 				43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */,
 				C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */,
+				E9CB656ED4BE464B4A45E231 /* Pods-MidtransDemoPods.debug.xcconfig */,
+				83E2EA106416AB9B491F03C3 /* Pods-MidtransDemoPods.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -155,6 +198,7 @@
 			isa = PBXGroup;
 			children = (
 				E56436F41E83A72F008726D0 /* MidtransDemo */,
+				E57124D11E9392B20064F515 /* MidtransDemoPods */,
 				E5C751671E8B912F001F47D9 /* MidtransDemoUITests */,
 				E56436F31E83A72F008726D0 /* Products */,
 				AD35E827B16E4F3F7B5D0F70 /* Pods */,
@@ -167,6 +211,7 @@
 			children = (
 				E56436F21E83A72F008726D0 /* MidtransDemo.app */,
 				E5C751661E8B912F001F47D9 /* MidtransDemoUITests.xctest */,
+				E57124D01E9392B20064F515 /* MidtransDemoPods.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -207,6 +252,15 @@
 				E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */,
 			);
 			name = kits;
+			sourceTree = "<group>";
+		};
+		E57124D11E9392B20064F515 /* MidtransDemoPods */ = {
+			isa = PBXGroup;
+			children = (
+				E57124D31E9392B20064F515 /* main.m */,
+				E57124E31E9392B20064F515 /* Info.plist */,
+			);
+			path = MidtransDemoPods;
 			sourceTree = "<group>";
 		};
 		E5A53A061E88F844001617C8 /* cells */ = {
@@ -300,6 +354,7 @@
 			children = (
 				E5F1B94F1E9355D800ED659D /* MidtransKit.framework */,
 				85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */,
+				FA01C9A4C5A4D4325CD869D9 /* libPods-MidtransDemoPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -327,6 +382,26 @@
 			name = MidtransDemo;
 			productName = MidtransDemo;
 			productReference = E56436F21E83A72F008726D0 /* MidtransDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E57124CF1E9392B20064F515 /* MidtransDemoPods */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E57124E61E9392B20064F515 /* Build configuration list for PBXNativeTarget "MidtransDemoPods" */;
+			buildPhases = (
+				1B79577A49BC9CF80CA7814B /* [CP] Check Pods Manifest.lock */,
+				E57124CC1E9392B20064F515 /* Sources */,
+				E57124CD1E9392B20064F515 /* Frameworks */,
+				E57124CE1E9392B20064F515 /* Resources */,
+				8FF50B3231DAF7119A6C06A8 /* [CP] Embed Pods Frameworks */,
+				B725FD8605F13673410B7CD3 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MidtransDemoPods;
+			productName = MidtransDemoPods;
+			productReference = E57124D01E9392B20064F515 /* MidtransDemoPods.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E5C751651E8B912F001F47D9 /* MidtransDemoUITests */ = {
@@ -361,6 +436,11 @@
 						DevelopmentTeam = G92YEQF267;
 						ProvisioningStyle = Automatic;
 					};
+					E57124CF1E9392B20064F515 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = G92YEQF267;
+						ProvisioningStyle = Automatic;
+					};
 					E5C751651E8B912F001F47D9 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = G92YEQF267;
@@ -384,6 +464,7 @@
 			targets = (
 				E56436F11E83A72F008726D0 /* MidtransDemo */,
 				E5C751651E8B912F001F47D9 /* MidtransDemoUITests */,
+				E57124CF1E9392B20064F515 /* MidtransDemoPods */,
 			);
 		};
 /* End PBXProject section */
@@ -409,6 +490,26 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E57124CE1E9392B20064F515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E57124FB1E93933A0064F515 /* Assets.xcassets in Resources */,
+				E57124FC1E93933A0064F515 /* SourceSansPro-Bold.ttf in Resources */,
+				E57124FD1E93933A0064F515 /* SourceSansPro-Regular.ttf in Resources */,
+				E57124FE1E93933A0064F515 /* Bariol_Regular.otf in Resources */,
+				E57124FF1E93933A0064F515 /* SourceSansPro-Light.ttf in Resources */,
+				E57124F41E9393290064F515 /* MDOrderViewController.xib in Resources */,
+				E57124F51E9393290064F515 /* MDProductViewController.xib in Resources */,
+				E57124F61E9393290064F515 /* MDOptionsViewController.xib in Resources */,
+				E57124F71E9393290064F515 /* MDImageCollectionViewCell.xib in Resources */,
+				E57124F81E9393290064F515 /* MDOptionColorCell.xib in Resources */,
+				E57124F91E9393290064F515 /* MDOptionCell.xib in Resources */,
+				E57124FA1E9393290064F515 /* MDOptionView.xib in Resources */,
+				E57124F31E9393210064F515 /* LaunchScreen.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5C751641E8B912F001F47D9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -419,6 +520,21 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		1B79577A49BC9CF80CA7814B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -432,6 +548,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8FF50B3231DAF7119A6C06A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemoPods/Pods-MidtransDemoPods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B725FD8605F13673410B7CD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemoPods/Pods-MidtransDemoPods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */ = {
@@ -498,6 +644,26 @@
 				E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */,
 				E56BCB871E8B60FE0005A401 /* MDButton.m in Sources */,
 				E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E57124CC1E9392B20064F515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E57124E71E9393130064F515 /* AppDelegate.m in Sources */,
+				E57124E81E9393130064F515 /* MDButton.m in Sources */,
+				E57124E91E9393130064F515 /* MDNavigationViewController.m in Sources */,
+				E57124EA1E9393130064F515 /* MDOptionManager.m in Sources */,
+				E57124EB1E9393130064F515 /* MDUtils.m in Sources */,
+				E57124EC1E9393130064F515 /* MDOrderViewController.m in Sources */,
+				E57124ED1E9393130064F515 /* MDProductViewController.m in Sources */,
+				E57124EE1E9393130064F515 /* MDOptionsViewController.m in Sources */,
+				E57124EF1E9393130064F515 /* MDImageCollectionViewCell.m in Sources */,
+				E57124F01E9393130064F515 /* MDOptionColorCell.m in Sources */,
+				E57124F11E9393130064F515 /* MDOptionCell.m in Sources */,
+				E57124F21E9393130064F515 /* MDOptionView.m in Sources */,
+				E57124D41E9392B20064F515 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +817,36 @@
 			};
 			name = Release;
 		};
+		E57124E41E9392B20064F515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E9CB656ED4BE464B4A45E231 /* Pods-MidtransDemoPods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransDemoPods/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransDemoPods;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		E57124E51E9392B20064F515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83E2EA106416AB9B491F03C3 /* Pods-MidtransDemoPods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransDemoPods/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransDemoPods;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		E5C7516E1E8B912F001F47D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -692,6 +888,15 @@
 			buildConfigurations = (
 				E564370A1E83A72F008726D0 /* Debug */,
 				E564370B1E83A72F008726D0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E57124E61E9392B20064F515 /* Build configuration list for PBXNativeTarget "MidtransDemoPods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E57124E41E9392B20064F515 /* Debug */,
+				E57124E51E9392B20064F515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

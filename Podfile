@@ -8,3 +8,11 @@ target 'MidtransDemo' do
     pod 'Fabric'
     pod 'Crashlytics'
 end
+
+target 'MidtransDemoPods' do
+    project 'MidtransDemo/MidtransDemo.xcodeproj'
+    pod 'JGProgressHUD'
+    pod 'Fabric'
+    pod 'Crashlytics'
+    pod 'MidtransKit', '~> 0.0.7'
+end

@@ -8,8 +8,8 @@
 
 #import "MidtransUIListCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCorekit/MidtransCorekit.h>
-#import <MidtransCoreKit/MidtransPaymentListModel.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
+
 @implementation MidtransUIListCell
 
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response {

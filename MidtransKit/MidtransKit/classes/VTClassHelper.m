@@ -44,19 +44,25 @@
 
 + (NSBundle*)kitBundle {
     static dispatch_once_t onceToken;
-    static NSBundle *kitBundle = nil;
+    static NSBundle *ourBundle;
     dispatch_once(&onceToken, ^{
-        //check if bundle is in dynamic framework
-        NSURL *bundleURL = [[NSBundle mainBundle] URLForResource:@"Frameworks/MidtransKit.framework/MidtransKit"
-                                                   withExtension:@"bundle"];
-        if (!bundleURL) {
-            bundleURL = [[NSBundle mainBundle] URLForResource:@"MidtransKit"
-                                                withExtension:@"bundle"];
+        ourBundle = [NSBundle bundleWithPath:@"MidtransKit.bundle"];
+        if (ourBundle == nil) {
+            // This might be the same as the previous check if not using a dynamic framework
+            NSString *path = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:@"MidtransKit" ofType:@"bundle"];
+            ourBundle = [NSBundle bundleWithPath:path];
         }
-        kitBundle = [NSBundle bundleWithURL:bundleURL];
         
+        if (ourBundle == nil) {
+            // This will be the same as mainBundle if not using a dynamic framework
+            ourBundle = [NSBundle bundleForClass:[VTClassHelper class]];
+        }
+        
+        if (ourBundle == nil) {
+            ourBundle = [NSBundle mainBundle];
+        }
     });
-    return kitBundle;
+    return ourBundle;
 }
 
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {

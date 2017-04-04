@@ -42,6 +42,20 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3005E2861C7C17A100064169"
+               BuildableName = "MidtransKit.bundle"
+               BlueprintName = "MidtransResources"
+               ReferencedContainer = "container:../MidtransKit/MidtransKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
                BlueprintIdentifier = "E56436F11E83A72F008726D0"
                BuildableName = "MidtransDemo.app"
                BlueprintName = "MidtransDemo"

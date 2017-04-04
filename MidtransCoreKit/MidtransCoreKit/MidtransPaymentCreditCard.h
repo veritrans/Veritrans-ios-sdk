@@ -49,8 +49,8 @@
 /// @name Instantiation
 ///--------------------
 
-+ (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment;
-+ (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard point:(NSString *)point;
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard installment:(NSString *_Nullable)installment;
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard point:(NSString *_Nullable)point;
 
-+ (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment;
++ (instancetype _Nonnull)modelWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard installment:(NSString *_Nullable)installment;
 @end

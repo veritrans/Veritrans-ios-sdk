@@ -10,7 +10,7 @@
 #import "MidtransUIListCell.h"
 #import "MidtransItemCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCorekit/MidtransCorekit.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
 
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>

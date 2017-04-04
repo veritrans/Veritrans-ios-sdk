@@ -76,8 +76,8 @@
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token completion:(void (^_Nullable)(MidtransPaymentRequestV2Response *_Nullable response, NSError *_Nullable error))completion;
 
-- (void)deleteMaskedCreditCard:(MidtransMaskedCreditCard *)maskedCard
-                         token:(MidtransTransactionTokenResponse *)token
-                    completion:(void(^)(BOOL success))completion;
+- (void)deleteMaskedCreditCard:(MidtransMaskedCreditCard *_Nonnull)maskedCard
+                         token:(MidtransTransactionTokenResponse *_Nonnull)token
+                    completion:(void(^_Nullable)(BOOL success))completion;
 
 @end

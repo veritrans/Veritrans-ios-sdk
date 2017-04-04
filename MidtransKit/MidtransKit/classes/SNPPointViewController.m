@@ -11,7 +11,7 @@
 
 #import "MidtransUITextField.h"
 #import "VTClassHelper.h"
-#import <MidtransCorekit/MidtransCorekit.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 @interface SNPPointViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet SNPPointView *view;
 @property (nonatomic,strong) NSString *creditCardToken;

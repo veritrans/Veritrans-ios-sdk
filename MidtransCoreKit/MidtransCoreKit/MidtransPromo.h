@@ -11,14 +11,14 @@
 
 @interface MidtransPromo : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, assign) id sponsorMessageEn;
+@property (nonatomic) id sponsorMessageEn;
 @property (nonatomic, strong) NSString *promoCode;
 @property (nonatomic, strong) NSString *discountType;
 @property (nonatomic, assign) double promoIdentifier;
 @property (nonatomic, strong) NSString *sponsorName;
 @property (nonatomic, strong) NSArray *bins;
 @property (nonatomic, strong) NSString *startDate;
-@property (nonatomic, assign) id sponsorMessageId;
+@property (nonatomic) id sponsorMessageId;
 @property (nonatomic, assign) double discountAmount;
 @property (nonatomic, strong) NSString *endDate;
 

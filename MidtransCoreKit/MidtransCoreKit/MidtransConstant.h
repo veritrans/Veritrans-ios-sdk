@@ -25,10 +25,6 @@ static NSString * const MIDTRANS_TRANSACTION_STATUS_SETTLE   = @"settlement";
 
 /**
  *  credit card type
- *
- *  @param systemVersion]
- *
- *  @return 
  */
 static NSString * const CREDIT_CARD_TYPE_AMEX   = @"Amex";
 static NSString * const CREDIT_CARD_TYPE_JCB    = @"JCB";

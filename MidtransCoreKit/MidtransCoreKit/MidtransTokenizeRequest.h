@@ -58,7 +58,6 @@
  
  @param token The token from previous successful transaction.
  @param cvv The credit card's CVV.
- @param secure Flag that will be used to determine whether the token request process will use a redirect URL provided by the bank
  @param grossAmount The amount
  */
 - (instancetype)initWithTwoClickToken:(NSString *)token

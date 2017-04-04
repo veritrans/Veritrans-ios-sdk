@@ -14,8 +14,8 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "305494391C759FF800938C17"
-               BuildableName = "libMidtransCoreKit.a"
+               BlueprintIdentifier = "E5CDEC891E9340CA0032DC3B"
+               BuildableName = "MidtransCoreKit.framework"
                BlueprintName = "MidtransCoreKit"
                ReferencedContainer = "container:MidtransCoreKit.xcodeproj">
             </BuildableReference>
@@ -45,8 +45,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "305494391C759FF800938C17"
-            BuildableName = "libMidtransCoreKit.a"
+            BlueprintIdentifier = "E5CDEC891E9340CA0032DC3B"
+            BuildableName = "MidtransCoreKit.framework"
             BlueprintName = "MidtransCoreKit"
             ReferencedContainer = "container:MidtransCoreKit.xcodeproj">
          </BuildableReference>
@@ -63,8 +63,8 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "305494391C759FF800938C17"
-            BuildableName = "libMidtransCoreKit.a"
+            BlueprintIdentifier = "E5CDEC891E9340CA0032DC3B"
+            BuildableName = "MidtransCoreKit.framework"
             BlueprintName = "MidtransCoreKit"
             ReferencedContainer = "container:MidtransCoreKit.xcodeproj">
          </BuildableReference>

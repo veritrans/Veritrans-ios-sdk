@@ -25,8 +25,6 @@
 		E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */; };
 		E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */; };
 		E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */; };
-		E5A53A0A1E88F896001617C8 /* libMidtransKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E5A53A091E88F896001617C8 /* libMidtransKit.a */; };
-		E5A53A101E88F9E1001617C8 /* MidtransKit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */; };
 		E5C751761E8B916F001F47D9 /* MIDTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751711E8B916F001F47D9 /* MIDTestHelper.m */; };
 		E5C751771E8B916F001F47D9 /* MID1CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */; };
 		E5C751781E8B916F001F47D9 /* MID2VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */; };
@@ -41,6 +39,8 @@
 		E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */; };
 		E5D7FEDF1E83D81E0086A8A4 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */; };
 		E5D7FEE31E83D8F10086A8A4 /* MDUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */; };
+		E5F1B9501E9355D800ED659D /* MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5F1B94F1E9355D800ED659D /* MidtransKit.framework */; };
+		E5F1B9511E9355D800ED659D /* MidtransKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E5F1B94F1E9355D800ED659D /* MidtransKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +60,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				E5F1B9511E9355D800ED659D /* MidtransKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,8 +98,6 @@
 		E5A539F71E88F82A001617C8 /* MDOptionColorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionColorCell.xib; sourceTree = "<group>"; };
 		E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Bold.ttf"; sourceTree = "<group>"; };
 		E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Regular.ttf"; sourceTree = "<group>"; };
-		E5A53A091E88F896001617C8 /* libMidtransKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MidtransSDK-gbplbptermujxydppqzfhrkodozv/Build/Products/Debug-iphonesimulator/libMidtransKit.a"; sourceTree = "<group>"; };
-		E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C751661E8B912F001F47D9 /* MidtransDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5C7516A1E8B912F001F47D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C751701E8B916F001F47D9 /* MIDTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDTestHelper.h; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDUtils.h; sourceTree = "<group>"; };
 		E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDUtils.m; sourceTree = "<group>"; };
+		E5F1B94F1E9355D800ED659D /* MidtransKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MidtransKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,8 +127,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A53A0A1E88F896001617C8 /* libMidtransKit.a in Frameworks */,
 				8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */,
+				E5F1B9501E9355D800ED659D /* MidtransKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,8 +298,7 @@
 		EC16E625E4533EAA44E1C9D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E5A53A0F1E88F9E1001617C8 /* MidtransKit.bundle */,
-				E5A53A091E88F896001617C8 /* libMidtransKit.a */,
+				E5F1B94F1E9355D800ED659D /* MidtransKit.framework */,
 				85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */,
 			);
 			name = Frameworks;
@@ -394,7 +393,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E5A53A101E88F9E1001617C8 /* MidtransKit.bundle in Resources */,
 				E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */,
 				E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */,
 				E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */,
@@ -577,7 +575,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -618,7 +616,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

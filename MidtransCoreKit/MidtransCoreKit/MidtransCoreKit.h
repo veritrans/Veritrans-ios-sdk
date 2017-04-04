@@ -2,14 +2,30 @@
 //  MidtransCoreKit.h
 //  MidtransCoreKit
 //
-//  Created by Nanang Rafsanjani on 2/18/16.
-//  Copyright © 2016 Veritrans. All rights reserved.
+//  Created by Nanang Rafsanjani on 4/4/17.
+//  Copyright © 2017 Midtrans. All rights reserved.
 //
 
-#ifndef MidtransCoreKit_h
-#define MidtransCoreKit_h
+#import <UIKit/UIKit.h>
+
+//! Project version number for MidtransCoreKit.
+FOUNDATION_EXPORT double MidtransCoreKitVersionNumber;
+
+//! Project version string for MidtransCoreKit.
+FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <MidtransCoreKit/PublicHeader.h>
 
 #import "MidtransTransactionResult.h"
+#import "Midtrans3DSController.h"
+#import "MidtransBinDataModels.h"
+#import "MidtransDeviceHelper.h"
+#import "MidtransLuhn.h"
+#import "MidtransNetworking.h"
+#import "MidtransNetworkOperation.h"
+#import "MidtransPaymentListDataModel.h"
+#import "MidtransPaymentRequestV2Terms.h"
+#import "MidtransPrivateConfig.h"
 #import "MidtransItemDetail.h"
 #import "MidtransTransaction.h"
 #import "MidtransTransactionDetails.h"
@@ -55,4 +71,4 @@
 #import "MidtransPromo.h"
 #import "SNPPointDataModels.h"
 #import "MidtransPromoEngine.h"
-#endif /* MidtransCoreKit_h */
+#import "MidtransBinResponse.h"

@@ -8,11 +8,3 @@ target 'MidtransDemo' do
     pod 'Fabric'
     pod 'Crashlytics'
 end
-
-target 'MidtransKit' do
-    project 'MidtransKit/MidtransKit.xcodeproj'
-end
-
-target 'MidtransCoreKit' do
-    project 'MidtransCoreKit/MidtransCoreKit.xcodeproj'
-end

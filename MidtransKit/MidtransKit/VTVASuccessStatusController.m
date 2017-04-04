@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[MIDTrackingManager shared] trackEventName:@"pg success"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg success"];
     // Do any additional setup after loading the view from its nib.
     
     [self.navigationItem setHidesBackButton:YES];

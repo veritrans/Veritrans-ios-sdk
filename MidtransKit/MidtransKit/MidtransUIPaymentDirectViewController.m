@@ -27,8 +27,8 @@
     
     self.title = self.paymentMethod.title;
     
-    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
-    
+    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
+    [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.instructionTitleLabel.text = [NSString stringWithFormat:@"%@ step by step", self.paymentMethod.title];
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
@@ -39,7 +39,7 @@
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
-    [[MIDTrackingManager shared] trackEventName:@"btn confirm payment"];
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     id<MidtransPaymentDetails> paymentDetails;
     
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||

@@ -13,7 +13,6 @@
 #import "MidtransConstant.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransHelper.h"
-#import "MidtransTrackingManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MidtransCoreKit.h"
@@ -65,20 +64,20 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-                [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:MIDTRANS_PAYMENT_CREDIT_CARD value:0];
+                
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
             else {
-                [[MidtransTrackingManager shared]trackTransaction:YES secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+                
                 if (completion){
                     completion(chargeResult, error);
                 }
             }
         }
         else {
-            [[MidtransTrackingManager shared]trackTransaction:NO secureProtocol:YES withPaymentFeature:0 paymentMethod:paymentType value:0];
+           
             if (completion) {
                 completion(nil, error);
             }
@@ -161,7 +160,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         }
         else{
             if (completion) {
-                [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
+              
                 completion(NULL,error);
             }
         }
@@ -184,9 +183,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             NSArray *key_dictionary=[dictionary allKeys];
             for (NSString *string_key in key_dictionary) {
                 [dictionaryParameters setObject:[dictionary objectForKey:string_key] forKey:string_key];
-
             }
-            
         }
     }
     if ([[expireTime dictionaryRepresentation] count] || [expireTime isEqual:[NSNull null]]) {
@@ -195,7 +192,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     NSMutableDictionary *creditCardParameter = [NSMutableDictionary new];
     [creditCardParameter setObject:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
-    [creditCardParameter setObject:@(CC_CONFIG.secureSnapEnabled) forKey:@"secure"];
+    [creditCardParameter setObject:@(CC_CONFIG.secure3DEnabled) forKey:@"secure"];
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
@@ -233,13 +230,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                                                                                    customerDetails:customerDetails
                                                                                                        itemDetails:itemDetails];
              if (completion) {
-                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
+                
                  completion(token,NULL);
              }
          }
          else {
              if (completion) {
-                 [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
                  completion(NULL,error);
              }
          }
@@ -268,13 +264,11 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                     [[NSUserDefaults standardUserDefaults] setObject:token forKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
-                [[MidtransTrackingManager shared] trackGeneratedSnapToken:YES];
-                completion(paymentRequestV2,NULL);
+                               completion(paymentRequestV2,NULL);
             }
         }
         else{
             if (completion) {
-                [[MidtransTrackingManager shared] trackGeneratedSnapToken:NO];
                 completion(NULL,error);
             }
         }

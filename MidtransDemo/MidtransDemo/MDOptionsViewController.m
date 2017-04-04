@@ -10,6 +10,8 @@
 #import "MDOptionView.h"
 #import "MDProductViewController.h"
 #import "MDOptionManager.h"
+#import "MDUtils.h"
+#import <MidtransKit/MidtransKit.h>
 
 @interface MDOptionsViewController () <MDOptionViewDelegate>
 @property (strong, nonatomic) IBOutlet UIView *optionContainer;
@@ -30,51 +32,51 @@
     MDOptionView *optType = [MDOptionView viewWithIcon:[UIImage imageNamed:@"cc_click"]
                                          titleTemplate:@"%@ Credit Card Payment"
                                                options:@[@"Normal", @"Two Clicks", @"One Click"]
-                                         defaultOption:[MDOptionManager shared].ccTypeOption];
-    optType.optionType = MDOptionPaymentType;
+                                                  type:MDOptionPaymentType];
+    [optType selectOption:[MDOptionManager shared].ccTypeOption];
     
     MDOptionView *opt3ds = [MDOptionView viewWithIcon:[UIImage imageNamed:@"3ds"]
                                         titleTemplate:@"3D Secure %@d"
                                               options:@[@"Enable", @"Disable"]
-                                        defaultOption:[MDOptionManager shared].secure3DOption];
-    opt3ds.optionType = MDOption3DSecure;
+                                                 type:MDOption3DSecure];
+    [opt3ds selectOption:[MDOptionManager shared].secure3DOption];
     
     MDOptionView *optAcqBank = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
                                             titleTemplate:@"Issuing Bank by %@"
                                                   options:@[@"BNI", @"Mandiri", @"BCA", @"Maybank", @"BRI"]
-                                            defaultOption:[MDOptionManager shared].issuingBankOption];
-    optAcqBank.optionType = MDOptionIssuingBank;
+                                                     type:MDOptionIssuingBank];
+    [optAcqBank selectOption:[MDOptionManager shared].issuingBankOption];
     
     MDOptionView *optCustomExpiry = [MDOptionView viewWithIcon:[UIImage imageNamed:@"expiry"]
                                                  titleTemplate:@"%@"
                                                        options:@[@"No Expiry", @"1 Minute", @"1 Hour"]
-                                                 defaultOption:[MDOptionManager shared].expireTimeOption];
-    optCustomExpiry.optionType = MDOptionCustomExpiry;
+                                                          type:MDOptionCustomExpiry];
+    [optCustomExpiry selectOption:[MDOptionManager shared].expireTimeOption];
     
     MDOptionView *optSaveCard = [MDOptionView viewWithIcon:[UIImage imageNamed:@"save_card"]
                                              titleTemplate:@"Save Card Feature %@d"
                                                    options:@[@"Enable", @"Disable"]
-                                             defaultOption:[MDOptionManager shared].saveCardOption];
-    optSaveCard.optionType = MDOptionSaveCard;
+                                                      type:MDOptionSaveCard];
+    [optSaveCard selectOption:[MDOptionManager shared].saveCardOption];
     
     MDOptionView *optPromo = [MDOptionView viewWithIcon:[UIImage imageNamed:@"promo"]
                                           titleTemplate:@"Promo %@d"
                                                 options:@[@"Enable", @"Disable"]
-                                          defaultOption:[MDOptionManager shared].promoOption];
-    optPromo.optionType = MDOptionPromo;
+                                                   type:MDOptionPromo];
+    [optPromo selectOption:[MDOptionManager shared].promoOption];
     
     MDOptionView *optPreauth = [MDOptionView viewWithIcon:[UIImage imageNamed:@"preauth"]
                                             titleTemplate:@"Pre Auth Feature %@d"
                                                   options:@[@"Enable", @"Disable"]
-                                            defaultOption:[MDOptionManager shared].preauthOption];
-    optPreauth.optionType = MDOptionPreauth;
+                                                     type:MDOptionPreauth];
+    [optPreauth selectOption:[MDOptionManager shared].preauthOption];
     
     MDOptionView *optTheme = [MDOptionView viewWithIcon:[UIImage imageNamed:@"theme"]
                                           titleTemplate:@"%@ Color Theme"
                                                 options:@[@"Blue", @"Red", @"Green", @"Orange", @"Black"]
-                                          defaultOption:[MDOptionManager shared].colorOption
+                                                   type:MDOptionColorTheme
                                           isColorOption:YES];
-    optTheme.optionType = MDOptionColorTheme;
+    [optTheme selectOption:[MDOptionManager shared].colorOption];
     
     self.optionViews = @[
                          optType,
@@ -88,6 +90,19 @@
                          ];
     
     [self prepareOptionViews:self.optionViews];
+    
+    defaults_observe_object(@"md_cc_type", ^(id note){
+        MTCreditCardPaymentType type = [note unsignedIntegerValue];
+        MDOptionView *opt3ds = [self optionViewWithType:MDOption3DSecure];
+        MDOptionView *optSaveCard = [self optionViewWithType:MDOptionSaveCard];
+        if (type == MTCreditCardPaymentTypeOneclick) {
+            [opt3ds selectOption:@"Enable"];
+            [optSaveCard selectOption:@"Enable"];
+        }
+        else if (type == MTCreditCardPaymentTypeTwoclick) {
+            [optSaveCard selectOption:@"Enable"];
+        }
+    });
 }
 
 - (void)prepareOptionViews:(NSArray *)optViews {
@@ -164,6 +179,15 @@
             [MDOptionManager shared].issuingBankOption = option;
             break;
     }
+}
+
+- (MDOptionView *)optionViewWithType:(MDOption)type {
+    for (MDOptionView *optView in self.optionViews) {
+        if (optView.optionType == type) {
+            return optView;
+        }
+    }
+    return nil;
 }
 
 - (IBAction)launchPressed:(id)sender {

@@ -6,7 +6,7 @@
 //  Copyright © 2017 Veritrans. All rights reserved.
 //
 
-#import "MIDTrackingManager.h"
+#import "SNPUITrackingManager.h"
 #import "MidtransPrivateConfig.h"
 #import "MidtransConstant.h"
 #import "MidtransNetworking.h"
@@ -23,7 +23,7 @@
     return result;
 }
 
-- (NSMutableDictionary*)addDefaultParameter{
+- (NSMutableDictionary*)SNPUITrackingManageraddDefaultParameter{
     NSString *token = [PRIVATECONFIG mixpanelToken];
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
@@ -50,19 +50,19 @@
 
 @end
 
-@implementation MIDTrackingManager
+@implementation SNPUITrackingManager
 
-+ (MIDTrackingManager *)shared {
-    static MIDTrackingManager *sharedInstance;
++ (SNPUITrackingManager *)shared {
+    static SNPUITrackingManager *sharedInstance;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
-        sharedInstance = [[MIDTrackingManager alloc] init];
+        sharedInstance = [[SNPUITrackingManager alloc] init];
     });
     return sharedInstance;
 }
 - (void)trackEventName:(NSString *)eventName {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    parameters  = [parameters addDefaultParameter];
+    parameters  = [parameters SNPUITrackingManageraddDefaultParameter];
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
     [self sendTrackingData:event];

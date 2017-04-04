@@ -316,7 +316,6 @@
 		E57121001E937B790064F515 /* VTPaymentListView.h in Headers */ = {isa = PBXBuildFile; fileRef = 00F61AE71D145A2B00C93DA0 /* VTPaymentListView.h */; };
 		E57121011E937B790064F515 /* MidtransTransactionDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F1754B1E13334F0000C019 /* MidtransTransactionDetailViewController.h */; };
 		E57121021E937B790064F515 /* MidtransPaymentMethodHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F175511E135DDA0000C019 /* MidtransPaymentMethodHeader.h */; };
-		E57121031E937B790064F515 /* MidtransKitStatic.h in Headers */ = {isa = PBXBuildFile; fileRef = E57120981E937B140064F515 /* MidtransKitStatic.h */; };
 		E57122AC1E937C040064F515 /* MidtransUICustomAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C3998471E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m */; };
 		E57122AD1E937C040064F515 /* MidtransInstallmentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B8E531E260E4B007901CB /* MidtransInstallmentView.m */; };
 		E57122AE1E937C040064F515 /* MidtransInstallmentCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2B8E6A1E275928007901CB /* MidtransInstallmentCollectionViewCell.m */; };
@@ -416,6 +415,216 @@
 		E571230C1E937C050064F515 /* MidtransTransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1754C1E13334F0000C019 /* MidtransTransactionDetailViewController.m */; };
 		E571230D1E937C050064F515 /* MidtransPaymentMethodHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F175521E135DDA0000C019 /* MidtransPaymentMethodHeader.m */; };
 		E57123131E937E860064F515 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E57123121E937E860064F515 /* libMidtransCoreKit.a */; };
+		E57123FA1E9381100064F515 /* AlertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA141E936FAB00ED659D /* AlertBackground@2x.png */; };
+		E57123FB1E9381100064F515 /* anz.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA151E936FAB00ED659D /* anz.png */; };
+		E57123FC1E9381100064F515 /* bca_atm_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA161E936FAB00ED659D /* bca_atm_1@2x.png */; };
+		E57123FD1E9381100064F515 /* bca_klikbca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA171E936FAB00ED659D /* bca_klikbca@2x.png */; };
+		E57123FE1E9381100064F515 /* bca_klikpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA181E936FAB00ED659D /* bca_klikpay@2x.png */; };
+		E57123FF1E9381100064F515 /* bni_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA191E936FAB00ED659D /* bni_badge@2x.png */; };
+		E57124001E9381100064F515 /* bni_badge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA1A1E936FAB00ED659D /* bni_badge@3x.png */; };
+		E57124011E9381100064F515 /* bri_epay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA1B1E936FAB00ED659D /* bri_epay@2x.png */; };
+		E57124021E9381100064F515 /* bri.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA1C1E936FAB00ED659D /* bri.png */; };
+		E57124031E9381100064F515 /* checkbox_uncheck@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA1D1E936FAB00ED659D /* checkbox_uncheck@2x.png */; };
+		E57124041E9381100064F515 /* cimb_clicks@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA1E1E936FAB00ED659D /* cimb_clicks@2x.png */; };
+		E57124051E9381100064F515 /* DisclosureIndicatorGray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA1F1E936FAB00ED659D /* DisclosureIndicatorGray@2x.png */; };
+		E57124061E9381100064F515 /* echannel@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA201E936FAB00ED659D /* echannel@2x.png */; };
+		E57124071E9381100064F515 /* gci@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA211E936FAB00ED659D /* gci@2x.png */; };
+		E57124081E9381100064F515 /* hint.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA221E936FAB00ED659D /* hint.png */; };
+		E57124091E9381100064F515 /* ImageOffer@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA231E936FAB00ED659D /* ImageOffer@2x.png */; };
+		E571240A1E9381100064F515 /* indomaret@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA241E936FAB00ED659D /* indomaret@2x.png */; };
+		E571240B1E9381100064F515 /* indosat_dompetku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA251E936FAB00ED659D /* indosat_dompetku@2x.png */; };
+		E571240C1E9381100064F515 /* InfoIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA261E936FAB00ED659D /* InfoIcon@2x.png */; };
+		E571240D1E9381100064F515 /* mandiri_clickpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA271E936FAB00ED659D /* mandiri_clickpay@2x.png */; };
+		E571240E1E9381100064F515 /* mandiri_ecash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA281E936FAB00ED659D /* mandiri_ecash@2x.png */; };
+		E571240F1E9381100064F515 /* padlock1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA291E936FAB00ED659D /* padlock1@2x.png */; };
+		E57124101E9381110064F515 /* prevIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA2A1E936FAB00ED659D /* prevIcon@2x.png */; };
+		E57124111E9381110064F515 /* telkomsel_cash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA2B1E936FAB00ED659D /* telkomsel_cash@2x.png */; };
+		E57124121E9381110064F515 /* visa-mastercard-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA2C1E936FAB00ED659D /* visa-mastercard-amex.png */; };
+		E57124131E9381110064F515 /* visa-mastercard-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA2D1E936FAB00ED659D /* visa-mastercard-amex@2x.png */; };
+		E57124141E9381110064F515 /* visa-mastercard-amex@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA2E1E936FAB00ED659D /* visa-mastercard-amex@3x.png */; };
+		E57124151E9381110064F515 /* visa-mastercard-jcb-amex.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA2F1E936FAB00ED659D /* visa-mastercard-jcb-amex.png */; };
+		E57124161E9381110064F515 /* visa-mastercard-jcb-amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA301E936FAB00ED659D /* visa-mastercard-jcb-amex@2x.png */; };
+		E57124171E9381110064F515 /* visa-mastercard-jcb-amex@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA311E936FAB00ED659D /* visa-mastercard-jcb-amex@3x.png */; };
+		E57124181E9381110064F515 /* visa-mastercard-jcb.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA321E936FAB00ED659D /* visa-mastercard-jcb.png */; };
+		E57124191E9381110064F515 /* visa-mastercard-jcb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA331E936FAB00ED659D /* visa-mastercard-jcb@2x.png */; };
+		E571241A1E9381110064F515 /* visa-mastercard-jcb@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA341E936FAB00ED659D /* visa-mastercard-jcb@3x.png */; };
+		E571241B1E9381110064F515 /* visa-mastercard.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA351E936FAB00ED659D /* visa-mastercard.png */; };
+		E571241C1E9381110064F515 /* visa-mastercard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA361E936FAB00ED659D /* visa-mastercard@2x.png */; };
+		E571241D1E9381110064F515 /* visa-mastercard@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA371E936FAB00ED659D /* visa-mastercard@3x.png */; };
+		E571241E1E9381110064F515 /* xl_tunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA381E936FAB00ED659D /* xl_tunai@2x.png */; };
+		E571241F1E9381110064F515 /* Amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA391E936FAB00ED659D /* Amex@2x.png */; };
+		E57124201E9381110064F515 /* AmexDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA3A1E936FAB00ED659D /* AmexDark@2x.png */; };
+		E57124211E9381110064F515 /* back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA3B1E936FAB00ED659D /* back@2x.png */; };
+		E57124221E9381110064F515 /* BackBarIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA3C1E936FAB00ED659D /* BackBarIcon@2x.png */; };
+		E57124231E9381110064F515 /* bbm@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA3D1E936FAB00ED659D /* bbm@2x.png */; };
+		E57124241E9381110064F515 /* bca_atm_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA3E1E936FAB00ED659D /* bca_atm_2@2x.png */; };
+		E57124251E9381110064F515 /* bca_atm_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA3F1E936FAB00ED659D /* bca_atm_3@2x.png */; };
+		E57124261E9381110064F515 /* bca_atm_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA401E936FAB00ED659D /* bca_atm_4@2x.png */; };
+		E57124271E9381110064F515 /* bca_atm_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA411E936FAB00ED659D /* bca_atm_5@2x.png */; };
+		E57124281E9381110064F515 /* bca_atm_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA421E936FAB00ED659D /* bca_atm_6@2x.png */; };
+		E57124291E9381110064F515 /* bca_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA431E936FAB00ED659D /* bca_va@2x.png */; };
+		E571242A1E9381110064F515 /* bca.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA441E936FAB00ED659D /* bca.png */; };
+		E571242B1E9381110064F515 /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA451E936FAB00ED659D /* cc_badge@2x.png */; };
+		E571242C1E9381110064F515 /* ccOfferIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA461E936FAB00ED659D /* ccOfferIcon@2x.png */; };
+		E571242D1E9381110064F515 /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA471E936FAB00ED659D /* checkbox_checked@2x.png */; };
+		E571242E1E9381110064F515 /* credit_card@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA481E936FAB00ED659D /* credit_card@2x.png */; };
+		E571242F1E9381110064F515 /* CreditCardBack@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA491E936FAB00ED659D /* CreditCardBack@2x.png */; };
+		E57124301E9381110064F515 /* CreditCardBackSmall@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA4A1E936FAB00ED659D /* CreditCardBackSmall@2x.png */; };
+		E57124311E9381110064F515 /* CreditCardFront@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA4B1E936FAB00ED659D /* CreditCardFront@2x.png */; };
+		E57124321E9381110064F515 /* DeleteIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA4C1E936FAB00ED659D /* DeleteIcon@2x.png */; };
+		E57124331E9381110064F515 /* DetailDisclosure@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA4D1E936FAB00ED659D /* DetailDisclosure@2x.png */; };
+		E57124341E9381110064F515 /* DisclosureIndicator@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA4E1E936FAB00ED659D /* DisclosureIndicator@2x.png */; };
+		E57124351E9381110064F515 /* emptyCardIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA4F1E936FAB00ED659D /* emptyCardIcon@2x.png */; };
+		E57124361E9381110064F515 /* errorIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA501E936FAB00ED659D /* errorIcon@2x.png */; };
+		E57124371E9381110064F515 /* icon_btn_min_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA511E936FAB00ED659D /* icon_btn_min_@2x.png */; };
+		E57124381E9381110064F515 /* icon_btn_plus_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA521E936FAB00ED659D /* icon_btn_plus_@2x.png */; };
+		E57124391E9381110064F515 /* JCB@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA531E936FAB00ED659D /* JCB@2x.png */; };
+		E571243A1E9381110064F515 /* JCBDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA541E936FAB00ED659D /* JCBDark@2x.png */; };
+		E571243B1E9381110064F515 /* kioson@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA551E936FAB00ED659D /* kioson@2x.png */; };
+		E571243C1E9381110064F515 /* mandiri_atm_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA561E936FAB00ED659D /* mandiri_atm_1@2x.png */; };
+		E571243D1E9381110064F515 /* mandiri_atm_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA571E936FAB00ED659D /* mandiri_atm_2@2x.png */; };
+		E571243E1E9381110064F515 /* mandiri_atm_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA581E936FAB00ED659D /* mandiri_atm_3@2x.png */; };
+		E571243F1E9381110064F515 /* MasterCard@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA591E936FAB00ED659D /* MasterCard@2x.png */; };
+		E57124401E9381110064F515 /* MasterCardDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA5A1E936FAB00ED659D /* MasterCardDark@2x.png */; };
+		E57124411E9381110064F515 /* midtrans_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA5B1E936FAB00ED659D /* midtrans_lock@2x.png */; };
+		E57124421E9381110064F515 /* other_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA5C1E936FAB00ED659D /* other_va@2x.png */; };
+		E57124431E9381110064F515 /* pendingIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA5D1E936FAB00ED659D /* pendingIcon@2x.png */; };
+		E57124441E9381110064F515 /* permata_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA5E1E936FAB00ED659D /* permata_va@2x.png */; };
+		E57124451E9381110064F515 /* successIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA5F1E936FAB00ED659D /* successIcon@2x.png */; };
+		E57124461E9381110064F515 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA601E936FAB00ED659D /* TokenButtonIcon@2x.png */; };
+		E57124471E9381110064F515 /* trash-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA611E936FAB00ED659D /* trash-icon@2x.png */; };
+		E57124481E9381110064F515 /* va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA621E936FAB00ED659D /* va@2x.png */; };
+		E57124491E9381110064F515 /* VASuccessIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA631E936FAB00ED659D /* VASuccessIcon@2x.png */; };
+		E571244A1E9381110064F515 /* Visa@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA641E936FAB00ED659D /* Visa@2x.png */; };
+		E571244B1E9381110064F515 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA651E936FAB00ED659D /* VisaDark@2x.png */; };
+		E571244C1E9381110064F515 /* anz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA661E936FAB00ED659D /* anz@2x.png */; };
+		E571244D1E9381110064F515 /* bca@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA671E936FAB00ED659D /* bca@2x.png */; };
+		E571244E1E9381110064F515 /* bni.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA681E936FAB00ED659D /* bni.png */; };
+		E571244F1E9381110064F515 /* bni@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA691E936FAB00ED659D /* bni@2x.png */; };
+		E57124501E9381110064F515 /* bri@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA6A1E936FAB00ED659D /* bri@2x.png */; };
+		E57124511E9381110064F515 /* cimb.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA6B1E936FAB00ED659D /* cimb.png */; };
+		E57124521E9381110064F515 /* cimb@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA6C1E936FAB00ED659D /* cimb@2x.png */; };
+		E57124531E9381110064F515 /* citi.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA6D1E936FAB00ED659D /* citi.png */; };
+		E57124541E9381110064F515 /* citi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA6E1E936FAB00ED659D /* citi@2x.png */; };
+		E57124551E9381110064F515 /* hint@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA6F1E936FAB00ED659D /* hint@2x.png */; };
+		E57124561E9381110064F515 /* mandiri_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA701E936FAB00ED659D /* mandiri_va@2x.png */; };
+		E57124571E9381110064F515 /* mandiri.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA711E936FAB00ED659D /* mandiri.png */; };
+		E57124581E9381110064F515 /* mandiri@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA721E936FAB00ED659D /* mandiri@2x.png */; };
+		E57124591E9381110064F515 /* maybank.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA731E936FAB00ED659D /* maybank.png */; };
+		E571245A1E9381110064F515 /* maybank@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA741E936FAB00ED659D /* maybank@2x.png */; };
+		E571245B1E9381110064F515 /* mega.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA751E936FAB00ED659D /* mega.png */; };
+		E571245C1E9381110064F515 /* mega@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA761E936FAB00ED659D /* mega@2x.png */; };
+		E571245D1E9381110064F515 /* permata.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA771E936FAB00ED659D /* permata.png */; };
+		E571245E1E9381110064F515 /* permata@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA781E936FAB00ED659D /* permata@2x.png */; };
+		E571245F1E9381110064F515 /* plus-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA791E936FAB00ED659D /* plus-icon@2x.png */; };
+		E57124601E9381110064F515 /* va.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA7A1E936FAB00ED659D /* va.png */; };
+		E57124611E9381110064F515 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA7B1E936FAB00ED659D /* logo@2x.png */; };
+		E57124621E9381110064F515 /* mandiri_atm_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA7C1E936FAB00ED659D /* mandiri_atm_4@2x.png */; };
+		E57124631E9381110064F515 /* mandiri_atm_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA7D1E936FAB00ED659D /* mandiri_atm_5@2x.png */; };
+		E57124641E9381110064F515 /* mandiri_atm_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA7E1E936FAB00ED659D /* mandiri_atm_6@2x.png */; };
+		E57124651E9381110064F515 /* NextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA7F1E936FAB00ED659D /* NextIcon@2x.png */; };
+		E57124661E9381110064F515 /* other_alto_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA801E936FAB00ED659D /* other_alto_1@2x.png */; };
+		E57124671E9381110064F515 /* other_alto_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA811E936FAB00ED659D /* other_alto_2@2x.png */; };
+		E57124681E9381110064F515 /* other_alto_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA821E936FAB00ED659D /* other_alto_3@2x.png */; };
+		E57124691E9381110064F515 /* other_alto_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA831E936FAB00ED659D /* other_alto_4@2x.png */; };
+		E571246A1E9381110064F515 /* other_alto_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA841E936FAB00ED659D /* other_alto_5@2x.png */; };
+		E571246B1E9381110064F515 /* other_alto_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA851E936FAB00ED659D /* other_alto_6@2x.png */; };
+		E571246C1E9381110064F515 /* other_alto_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA861E936FAB00ED659D /* other_alto_7@2x.png */; };
+		E571246D1E9381110064F515 /* other_atm_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA871E936FAB00ED659D /* other_atm_1@2x.png */; };
+		E571246E1E9381110064F515 /* other_atm_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA881E936FAB00ED659D /* other_atm_2@2x.png */; };
+		E571246F1E9381110064F515 /* other_atm_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA891E936FAB00ED659D /* other_atm_3@2x.png */; };
+		E57124701E9381110064F515 /* other_atm_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA8A1E936FAB00ED659D /* other_atm_4@2x.png */; };
+		E57124711E9381110064F515 /* other_atm_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA8B1E936FAB00ED659D /* other_atm_5@2x.png */; };
+		E57124721E9381110064F515 /* other_atm_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA8C1E936FAB00ED659D /* other_atm_6@2x.png */; };
+		E57124731E9381110064F515 /* other_atm_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA8D1E936FAB00ED659D /* other_atm_7@2x.png */; };
+		E57124741E9381110064F515 /* other_prima_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA8E1E936FAB00ED659D /* other_prima_1@2x.png */; };
+		E57124751E9381110064F515 /* other_prima_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA8F1E936FAB00ED659D /* other_prima_2@2x.png */; };
+		E57124761E9381110064F515 /* other_prima_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA901E936FAB00ED659D /* other_prima_3@2x.png */; };
+		E57124771E9381110064F515 /* other_prima_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA911E936FAB00ED659D /* other_prima_4@2x.png */; };
+		E57124781E9381110064F515 /* other_prima_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA921E936FAB00ED659D /* other_prima_5@2x.png */; };
+		E57124791E9381110064F515 /* other_prima_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA931E936FAB00ED659D /* other_prima_6@2x.png */; };
+		E571247A1E9381110064F515 /* other_prima_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA941E936FAB00ED659D /* other_prima_7@2x.png */; };
+		E571247B1E9381110064F515 /* permata_atm_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA951E936FAB00ED659D /* permata_atm_1@2x.png */; };
+		E571247C1E9381110064F515 /* permata_atm_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA961E936FAB00ED659D /* permata_atm_2@2x.png */; };
+		E571247D1E9381110064F515 /* permata_atm_3@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA971E936FAB00ED659D /* permata_atm_3@2x.png */; };
+		E571247E1E9381110064F515 /* permata_atm_4@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA981E936FAB00ED659D /* permata_atm_4@2x.png */; };
+		E571247F1E9381110064F515 /* permata_atm_5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA991E936FAB00ED659D /* permata_atm_5@2x.png */; };
+		E57124801E9381110064F515 /* permata_atm_6@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA9A1E936FAB00ED659D /* permata_atm_6@2x.png */; };
+		E57124811E9381110064F515 /* permata_atm_7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BA9B1E936FAB00ED659D /* permata_atm_7@2x.png */; };
+		E57124821E9381280064F515 /* OCRAEXT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB861E93702C00ED659D /* OCRAEXT.TTF */; };
+		E57124831E9381280064F515 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */; };
+		E57124841E9381290064F515 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */; };
+		E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */; };
+		E57124861E9381290064F515 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB8A1E93702C00ED659D /* SourceSansPro-Semibold.ttf */; };
+		E57124871E9381320064F515 /* MidtransDirectHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB241E93701100ED659D /* MidtransDirectHeader.xib */; };
+		E57124881E9381320064F515 /* MidtransInstallmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB251E93701100ED659D /* MidtransInstallmentCollectionViewCell.xib */; };
+		E57124891E9381320064F515 /* MidtransInstallmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB261E93701100ED659D /* MidtransInstallmentView.xib */; };
+		E571248A1E9381320064F515 /* MidtransItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB271E93701100ED659D /* MidtransItemCell.xib */; };
+		E571248B1E9381320064F515 /* MidtransLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB281E93701100ED659D /* MidtransLoadingView.xib */; };
+		E571248C1E9381320064F515 /* MidtransNewCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB291E93701100ED659D /* MidtransNewCreditCardViewController.xib */; };
+		E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB2A1E93701100ED659D /* MidtransPaymentGCIViewController.xib */; };
+		E571248E1E9381320064F515 /* MidtransPaymentMethodHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB2B1E93701100ED659D /* MidtransPaymentMethodHeader.xib */; };
+		E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB2C1E93701100ED659D /* MidtransPaymentStatusViewController.xib */; };
+		E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB2D1E93701100ED659D /* MidtransPromoView.xib */; };
+		E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB2E1E93701100ED659D /* MidtransSavedCardCell.xib */; };
+		E57124921E9381320064F515 /* MidtransSavedCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB2F1E93701100ED659D /* MidtransSavedCardController.xib */; };
+		E57124931E9381320064F515 /* MidtransSavedCardFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB301E93701100ED659D /* MidtransSavedCardFooter.xib */; };
+		E57124941E9381320064F515 /* MidtransTransactionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB311E93701100ED659D /* MidtransTransactionDetailViewController.xib */; };
+		E57124951E9381320064F515 /* MIdtransUICardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB321E93701100ED659D /* MIdtransUICardCell.xib */; };
+		E57124961E9381320064F515 /* MidtransUICCFrontView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB331E93701100ED659D /* MidtransUICCFrontView.xib */; };
+		E57124971E9381320064F515 /* MidtransUICustomAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB341E93701100ED659D /* MidtransUICustomAlertViewController.xib */; };
+		E57124981E9381320064F515 /* MidtransUIListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB351E93701100ED659D /* MidtransUIListCell.xib */; };
+		E57124991E9381320064F515 /* MidtransUIPaymentDirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB361E93701100ED659D /* MidtransUIPaymentDirectViewController.xib */; };
+		E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB371E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib */; };
+		E571249B1E9381320064F515 /* MidtransUIToast.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB381E93701100ED659D /* MidtransUIToast.xib */; };
+		E571249C1E9381320064F515 /* MidtransVAHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB391E93701100ED659D /* MidtransVAHeader.xib */; };
+		E571249D1E9381320064F515 /* MidtransVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB3A1E93701100ED659D /* MidtransVAViewController.xib */; };
+		E571249E1E9381320064F515 /* SNPPointViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB3B1E93701100ED659D /* SNPPointViewController.xib */; };
+		E571249F1E9381320064F515 /* VTAddCardController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB3C1E93701100ED659D /* VTAddCardController.xib */; };
+		E57124A01E9381320064F515 /* VTBillpaySuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB3D1E93701100ED659D /* VTBillpaySuccessController.xib */; };
+		E57124A11E9381320064F515 /* VTCardListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB3E1E93701100ED659D /* VTCardListController.xib */; };
+		E57124A21E9381320064F515 /* VTCCBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB3F1E93701100ED659D /* VTCCBackView.xib */; };
+		E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB401E93701100ED659D /* VTConfirmPaymentController.xib */; };
+		E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB411E93701100ED659D /* VTCvvInfoController.xib */; };
+		E57124A51E9381320064F515 /* VTErrorStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB421E93701100ED659D /* VTErrorStatusController.xib */; };
+		E57124A61E9381320064F515 /* VTGuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB431E93701100ED659D /* VTGuideCell.xib */; };
+		E57124A71E9381320064F515 /* VTGuideView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB441E93701100ED659D /* VTGuideView.xib */; };
+		E57124A81E9381320064F515 /* VTIndomaretSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB451E93701100ED659D /* VTIndomaretSuccessController.xib */; };
+		E57124A91E9381320064F515 /* VTKeyboardAccessoryView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB461E93701100ED659D /* VTKeyboardAccessoryView.xib */; };
+		E57124AA1E9381320064F515 /* VTKlikbcaSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB471E93701100ED659D /* VTKlikbcaSuccessController.xib */; };
+		E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB481E93701100ED659D /* VTMandiriClickpayController.xib */; };
+		E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB491E93701100ED659D /* VTMultiGuideController.xib */; };
+		E57124AD1E9381320064F515 /* VTPaymentListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB4A1E93701100ED659D /* VTPaymentListController.xib */; };
+		E57124AE1E9381320064F515 /* VTPendingStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB4B1E93701100ED659D /* VTPendingStatusController.xib */; };
+		E57124AF1E9381320064F515 /* VTSingleGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB4C1E93701100ED659D /* VTSingleGuideController.xib */; };
+		E57124B01E9381320064F515 /* VTSubGuideController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB4D1E93701100ED659D /* VTSubGuideController.xib */; };
+		E57124B11E9381320064F515 /* VTSuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB4E1E93701100ED659D /* VTSuccessStatusController.xib */; };
+		E57124B21E9381320064F515 /* VTTwoClickController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB4F1E93701100ED659D /* VTTwoClickController.xib */; };
+		E57124B31E9381320064F515 /* VTVAListController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB501E93701100ED659D /* VTVAListController.xib */; };
+		E57124B41E9381320064F515 /* VTVASuccessStatusController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB511E93701100ED659D /* VTVASuccessStatusController.xib */; };
+		E57124B51E9381320064F515 /* VTXLTunaiSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB521E93701100ED659D /* VTXLTunaiSuccessController.xib */; };
+		E57124B61E9381320064F515 /* MidtransCreditCardAddOnComponentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB531E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib */; };
+		E57124B71E9381320064F515 /* MidtransUIPaymentListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB541E93701100ED659D /* MidtransUIPaymentListHeader.xib */; };
+		E57124B81E9381410064F515 /* bri_epay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E53BD03F1D143BE8001FADDE /* bri_epay.plist */; };
+		E57124B91E9381410064F515 /* indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85F31D0ECB9C00F26D2E /* indomaret.plist */; };
+		E57124BA1E9381410064F515 /* bca_klikpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85F41D0ECB9C00F26D2E /* bca_klikpay.plist */; };
+		E57124BB1E9381410064F515 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E50D85E11D0EC93400F26D2E /* mandiri_ecash.plist */; };
+		E57124BC1E9381410064F515 /* permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30E7133E1C85AAE600AFB7B4 /* permata_va.plist */; };
+		E57124BD1E9381410064F515 /* bca_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0D81C86A32000C058BE /* bca_va.plist */; };
+		E57124BE1E9381410064F515 /* echannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DB1C86A68F00C058BE /* echannel.plist */; };
+		E57124BF1E9381410064F515 /* all_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DD1C86B5BD00C058BE /* all_va.plist */; };
+		E57124C01E9381410064F515 /* mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0C91C86875400C058BE /* mandiri_clickpay.plist */; };
+		E57124C11E9381410064F515 /* cimb_clicks.plist in Resources */ = {isa = PBXBuildFile; fileRef = 309CC0DF1C86B88C00C058BE /* cimb_clicks.plist */; };
+		E57124C21E9381410064F515 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E503AEC91C8E860700F097FF /* virtualAccount.plist */; };
+		E57124C31E9381410064F515 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5F4AA8B1CF6D2C70059DDF8 /* paymentMethods.plist */; };
+		E57124C41E9381410064F515 /* bca_klikbca.plist in Resources */ = {isa = PBXBuildFile; fileRef = 002CC9A61D125BFF003A1203 /* bca_klikbca.plist */; };
+		E57124C51E9381410064F515 /* telkomsel_cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58017E31D585AEF007D2DEC /* telkomsel_cash.plist */; };
+		E57124C61E9381410064F515 /* indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58017E51D585B03007D2DEC /* indosat_dompetku.plist */; };
+		E57124C71E9381410064F515 /* xl_tunai.plist in Resources */ = {isa = PBXBuildFile; fileRef = E58017E71D585B0E007D2DEC /* xl_tunai.plist */; };
+		E57124C81E9381410064F515 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E5AB97601D7414A900466A44 /* kioson.plist */; };
+		E57124C91E9381410064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54F5C141E56AFC500B7592E /* snap_colors.plist */; };
+		E57124CA1E9381490064F515 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5EDD4C81E0A7C950006E160 /* Localizable.strings */; };
+		E57124CB1E93814F0064F515 /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = E55F62771E93498000C012C8 /* bin.json */; };
 		E5BAD2CE1E9354D10059B771 /* IHKeyboardAvoiding_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BAD2C81E9354D10059B771 /* IHKeyboardAvoiding_vt.h */; };
 		E5BAD2CF1E9354D10059B771 /* IHKeyboardAvoiding_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BAD2C91E9354D10059B771 /* IHKeyboardAvoiding_vt.m */; };
 		E5BAD2D01E9354D10059B771 /* MBXPageViewController_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BAD2CA1E9354D10059B771 /* MBXPageViewController_vt.h */; };
@@ -792,11 +1001,11 @@
 		E56455091D23AD5000CE5FA4 /* VTSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTSegmentedControl.h; path = classes/VTSegmentedControl.h; sourceTree = "<group>"; };
 		E564550A1D23AD5000CE5FA4 /* VTSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTSegmentedControl.m; path = classes/VTSegmentedControl.m; sourceTree = "<group>"; };
 		E57120961E937B140064F515 /* libMidtransKitStatic.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMidtransKitStatic.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		E57120981E937B140064F515 /* MidtransKitStatic.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransKitStatic.h; sourceTree = "<group>"; };
-		E57120991E937B140064F515 /* MidtransKitStatic.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransKitStatic.m; sourceTree = "<group>"; };
 		E571230E1E937C5A0064F515 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../MidtransCoreKit/build/Release-iphoneos/libMidtransCoreKit.a"; sourceTree = "<group>"; };
 		E57123101E937CC40064F515 /* MidtransCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MidtransCoreKit.framework; path = "../MidtransCoreKit/build/Debug-iphoneos/MidtransCoreKit.framework"; sourceTree = "<group>"; };
 		E57123121E937E860064F515 /* libMidtransCoreKit.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMidtransCoreKit.a; path = "../../../../../Library/Developer/Xcode/DerivedData/MidtransSDK-gbplbptermujxydppqzfhrkodozv/Build/Products/Debug-iphonesimulator/libMidtransCoreKit.a"; sourceTree = "<group>"; };
+		E57123F41E9380E80064F515 /* MidtransKit.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		E57123F61E9380E80064F515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E57202D41D62F01D006B9265 /* VTGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTGuideView.h; path = classes/VTGuideView.h; sourceTree = "<group>"; };
 		E57202D51D62F01D006B9265 /* VTGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTGuideView.m; path = classes/VTGuideView.m; sourceTree = "<group>"; };
 		E57202DA1D62FB27006B9265 /* VTGroupedInstruction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTGroupedInstruction.h; path = classes/VTGroupedInstruction.h; sourceTree = "<group>"; };
@@ -1069,6 +1278,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E57123F11E9380E80064F515 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5CDEC931E9340E80032DC3B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -1272,7 +1488,7 @@
 			isa = PBXGroup;
 			children = (
 				E5CDEC981E9340E80032DC3B /* MidtransKit */,
-				E57120971E937B140064F515 /* MidtransKitStatic */,
+				E57123F51E9380E80064F515 /* MidtransKitResources */,
 				3054941C1C759EDF00938C17 /* Products */,
 				305494991C75A4E700938C17 /* Frameworks */,
 			);
@@ -1283,6 +1499,7 @@
 			children = (
 				E5CDEC971E9340E80032DC3B /* MidtransKit.framework */,
 				E57120961E937B140064F515 /* libMidtransKitStatic.a */,
+				E57123F41E9380E80064F515 /* MidtransKit.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1745,13 +1962,12 @@
 			name = sources;
 			sourceTree = "<group>";
 		};
-		E57120971E937B140064F515 /* MidtransKitStatic */ = {
+		E57123F51E9380E80064F515 /* MidtransKitResources */ = {
 			isa = PBXGroup;
 			children = (
-				E57120981E937B140064F515 /* MidtransKitStatic.h */,
-				E57120991E937B140064F515 /* MidtransKitStatic.m */,
+				E57123F61E9380E80064F515 /* Info.plist */,
 			);
-			path = MidtransKitStatic;
+			path = MidtransKitResources;
 			sourceTree = "<group>";
 		};
 		E583AFED1C8D6DB000C04512 /* Status */ = {
@@ -1894,7 +2110,6 @@
 				E57121001E937B790064F515 /* VTPaymentListView.h in Headers */,
 				E57121011E937B790064F515 /* MidtransTransactionDetailViewController.h in Headers */,
 				E57121021E937B790064F515 /* MidtransPaymentMethodHeader.h in Headers */,
-				E57121031E937B790064F515 /* MidtransKitStatic.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2025,6 +2240,23 @@
 			productReference = E57120961E937B140064F515 /* libMidtransKitStatic.a */;
 			productType = "com.apple.product-type.library.static";
 		};
+		E57123F31E9380E80064F515 /* MidtransKitResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E57123F71E9380E80064F515 /* Build configuration list for PBXNativeTarget "MidtransKitResources" */;
+			buildPhases = (
+				E57123F01E9380E80064F515 /* Sources */,
+				E57123F11E9380E80064F515 /* Frameworks */,
+				E57123F21E9380E80064F515 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MidtransKitResources;
+			productName = MidtransKitResources;
+			productReference = E57123F41E9380E80064F515 /* MidtransKit.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		E5CDEC961E9340E80032DC3B /* MidtransKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5CDEC9C1E9340E80032DC3B /* Build configuration list for PBXNativeTarget "MidtransKit" */;
@@ -2058,6 +2290,11 @@
 						DevelopmentTeam = G92YEQF267;
 						ProvisioningStyle = Automatic;
 					};
+					E57123F31E9380E80064F515 = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = G92YEQF267;
+						ProvisioningStyle = Automatic;
+					};
 					E5CDEC961E9340E80032DC3B = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = G92YEQF267;
@@ -2080,11 +2317,229 @@
 			targets = (
 				E5CDEC961E9340E80032DC3B /* MidtransKit */,
 				E57120951E937B140064F515 /* MidtransKitStatic */,
+				E57123F31E9380E80064F515 /* MidtransKitResources */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		E57123F21E9380E80064F515 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E57124CB1E93814F0064F515 /* bin.json in Resources */,
+				E57124CA1E9381490064F515 /* Localizable.strings in Resources */,
+				E57124B81E9381410064F515 /* bri_epay.plist in Resources */,
+				E57124B91E9381410064F515 /* indomaret.plist in Resources */,
+				E57124BA1E9381410064F515 /* bca_klikpay.plist in Resources */,
+				E57124BB1E9381410064F515 /* mandiri_ecash.plist in Resources */,
+				E57124BC1E9381410064F515 /* permata_va.plist in Resources */,
+				E57124BD1E9381410064F515 /* bca_va.plist in Resources */,
+				E57124BE1E9381410064F515 /* echannel.plist in Resources */,
+				E57124BF1E9381410064F515 /* all_va.plist in Resources */,
+				E57124C01E9381410064F515 /* mandiri_clickpay.plist in Resources */,
+				E57124C11E9381410064F515 /* cimb_clicks.plist in Resources */,
+				E57124C21E9381410064F515 /* virtualAccount.plist in Resources */,
+				E57124C31E9381410064F515 /* paymentMethods.plist in Resources */,
+				E57124C41E9381410064F515 /* bca_klikbca.plist in Resources */,
+				E57124C51E9381410064F515 /* telkomsel_cash.plist in Resources */,
+				E57124C61E9381410064F515 /* indosat_dompetku.plist in Resources */,
+				E57124C71E9381410064F515 /* xl_tunai.plist in Resources */,
+				E57124C81E9381410064F515 /* kioson.plist in Resources */,
+				E57124C91E9381410064F515 /* snap_colors.plist in Resources */,
+				E57124871E9381320064F515 /* MidtransDirectHeader.xib in Resources */,
+				E57124881E9381320064F515 /* MidtransInstallmentCollectionViewCell.xib in Resources */,
+				E57124891E9381320064F515 /* MidtransInstallmentView.xib in Resources */,
+				E571248A1E9381320064F515 /* MidtransItemCell.xib in Resources */,
+				E571248B1E9381320064F515 /* MidtransLoadingView.xib in Resources */,
+				E571248C1E9381320064F515 /* MidtransNewCreditCardViewController.xib in Resources */,
+				E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */,
+				E571248E1E9381320064F515 /* MidtransPaymentMethodHeader.xib in Resources */,
+				E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */,
+				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
+				E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */,
+				E57124921E9381320064F515 /* MidtransSavedCardController.xib in Resources */,
+				E57124931E9381320064F515 /* MidtransSavedCardFooter.xib in Resources */,
+				E57124941E9381320064F515 /* MidtransTransactionDetailViewController.xib in Resources */,
+				E57124951E9381320064F515 /* MIdtransUICardCell.xib in Resources */,
+				E57124961E9381320064F515 /* MidtransUICCFrontView.xib in Resources */,
+				E57124971E9381320064F515 /* MidtransUICustomAlertViewController.xib in Resources */,
+				E57124981E9381320064F515 /* MidtransUIListCell.xib in Resources */,
+				E57124991E9381320064F515 /* MidtransUIPaymentDirectViewController.xib in Resources */,
+				E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
+				E571249B1E9381320064F515 /* MidtransUIToast.xib in Resources */,
+				E571249C1E9381320064F515 /* MidtransVAHeader.xib in Resources */,
+				E571249D1E9381320064F515 /* MidtransVAViewController.xib in Resources */,
+				E571249E1E9381320064F515 /* SNPPointViewController.xib in Resources */,
+				E571249F1E9381320064F515 /* VTAddCardController.xib in Resources */,
+				E57124A01E9381320064F515 /* VTBillpaySuccessController.xib in Resources */,
+				E57124A11E9381320064F515 /* VTCardListController.xib in Resources */,
+				E57124A21E9381320064F515 /* VTCCBackView.xib in Resources */,
+				E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */,
+				E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */,
+				E57124A51E9381320064F515 /* VTErrorStatusController.xib in Resources */,
+				E57124A61E9381320064F515 /* VTGuideCell.xib in Resources */,
+				E57124A71E9381320064F515 /* VTGuideView.xib in Resources */,
+				E57124A81E9381320064F515 /* VTIndomaretSuccessController.xib in Resources */,
+				E57124A91E9381320064F515 /* VTKeyboardAccessoryView.xib in Resources */,
+				E57124AA1E9381320064F515 /* VTKlikbcaSuccessController.xib in Resources */,
+				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
+				E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */,
+				E57124AD1E9381320064F515 /* VTPaymentListController.xib in Resources */,
+				E57124AE1E9381320064F515 /* VTPendingStatusController.xib in Resources */,
+				E57124AF1E9381320064F515 /* VTSingleGuideController.xib in Resources */,
+				E57124B01E9381320064F515 /* VTSubGuideController.xib in Resources */,
+				E57124B11E9381320064F515 /* VTSuccessStatusController.xib in Resources */,
+				E57124B21E9381320064F515 /* VTTwoClickController.xib in Resources */,
+				E57124B31E9381320064F515 /* VTVAListController.xib in Resources */,
+				E57124B41E9381320064F515 /* VTVASuccessStatusController.xib in Resources */,
+				E57124B51E9381320064F515 /* VTXLTunaiSuccessController.xib in Resources */,
+				E57124B61E9381320064F515 /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
+				E57124B71E9381320064F515 /* MidtransUIPaymentListHeader.xib in Resources */,
+				E57124821E9381280064F515 /* OCRAEXT.TTF in Resources */,
+				E57124831E9381280064F515 /* SourceSansPro-Bold.ttf in Resources */,
+				E57124841E9381290064F515 /* SourceSansPro-Light.ttf in Resources */,
+				E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */,
+				E57124861E9381290064F515 /* SourceSansPro-Semibold.ttf in Resources */,
+				E57123FA1E9381100064F515 /* AlertBackground@2x.png in Resources */,
+				E57123FB1E9381100064F515 /* anz.png in Resources */,
+				E57123FC1E9381100064F515 /* bca_atm_1@2x.png in Resources */,
+				E57123FD1E9381100064F515 /* bca_klikbca@2x.png in Resources */,
+				E57123FE1E9381100064F515 /* bca_klikpay@2x.png in Resources */,
+				E57123FF1E9381100064F515 /* bni_badge@2x.png in Resources */,
+				E57124001E9381100064F515 /* bni_badge@3x.png in Resources */,
+				E57124011E9381100064F515 /* bri_epay@2x.png in Resources */,
+				E57124021E9381100064F515 /* bri.png in Resources */,
+				E57124031E9381100064F515 /* checkbox_uncheck@2x.png in Resources */,
+				E57124041E9381100064F515 /* cimb_clicks@2x.png in Resources */,
+				E57124051E9381100064F515 /* DisclosureIndicatorGray@2x.png in Resources */,
+				E57124061E9381100064F515 /* echannel@2x.png in Resources */,
+				E57124071E9381100064F515 /* gci@2x.png in Resources */,
+				E57124081E9381100064F515 /* hint.png in Resources */,
+				E57124091E9381100064F515 /* ImageOffer@2x.png in Resources */,
+				E571240A1E9381100064F515 /* indomaret@2x.png in Resources */,
+				E571240B1E9381100064F515 /* indosat_dompetku@2x.png in Resources */,
+				E571240C1E9381100064F515 /* InfoIcon@2x.png in Resources */,
+				E571240D1E9381100064F515 /* mandiri_clickpay@2x.png in Resources */,
+				E571240E1E9381100064F515 /* mandiri_ecash@2x.png in Resources */,
+				E571240F1E9381100064F515 /* padlock1@2x.png in Resources */,
+				E57124101E9381110064F515 /* prevIcon@2x.png in Resources */,
+				E57124111E9381110064F515 /* telkomsel_cash@2x.png in Resources */,
+				E57124121E9381110064F515 /* visa-mastercard-amex.png in Resources */,
+				E57124131E9381110064F515 /* visa-mastercard-amex@2x.png in Resources */,
+				E57124141E9381110064F515 /* visa-mastercard-amex@3x.png in Resources */,
+				E57124151E9381110064F515 /* visa-mastercard-jcb-amex.png in Resources */,
+				E57124161E9381110064F515 /* visa-mastercard-jcb-amex@2x.png in Resources */,
+				E57124171E9381110064F515 /* visa-mastercard-jcb-amex@3x.png in Resources */,
+				E57124181E9381110064F515 /* visa-mastercard-jcb.png in Resources */,
+				E57124191E9381110064F515 /* visa-mastercard-jcb@2x.png in Resources */,
+				E571241A1E9381110064F515 /* visa-mastercard-jcb@3x.png in Resources */,
+				E571241B1E9381110064F515 /* visa-mastercard.png in Resources */,
+				E571241C1E9381110064F515 /* visa-mastercard@2x.png in Resources */,
+				E571241D1E9381110064F515 /* visa-mastercard@3x.png in Resources */,
+				E571241E1E9381110064F515 /* xl_tunai@2x.png in Resources */,
+				E571241F1E9381110064F515 /* Amex@2x.png in Resources */,
+				E57124201E9381110064F515 /* AmexDark@2x.png in Resources */,
+				E57124211E9381110064F515 /* back@2x.png in Resources */,
+				E57124221E9381110064F515 /* BackBarIcon@2x.png in Resources */,
+				E57124231E9381110064F515 /* bbm@2x.png in Resources */,
+				E57124241E9381110064F515 /* bca_atm_2@2x.png in Resources */,
+				E57124251E9381110064F515 /* bca_atm_3@2x.png in Resources */,
+				E57124261E9381110064F515 /* bca_atm_4@2x.png in Resources */,
+				E57124271E9381110064F515 /* bca_atm_5@2x.png in Resources */,
+				E57124281E9381110064F515 /* bca_atm_6@2x.png in Resources */,
+				E57124291E9381110064F515 /* bca_va@2x.png in Resources */,
+				E571242A1E9381110064F515 /* bca.png in Resources */,
+				E571242B1E9381110064F515 /* cc_badge@2x.png in Resources */,
+				E571242C1E9381110064F515 /* ccOfferIcon@2x.png in Resources */,
+				E571242D1E9381110064F515 /* checkbox_checked@2x.png in Resources */,
+				E571242E1E9381110064F515 /* credit_card@2x.png in Resources */,
+				E571242F1E9381110064F515 /* CreditCardBack@2x.png in Resources */,
+				E57124301E9381110064F515 /* CreditCardBackSmall@2x.png in Resources */,
+				E57124311E9381110064F515 /* CreditCardFront@2x.png in Resources */,
+				E57124321E9381110064F515 /* DeleteIcon@2x.png in Resources */,
+				E57124331E9381110064F515 /* DetailDisclosure@2x.png in Resources */,
+				E57124341E9381110064F515 /* DisclosureIndicator@2x.png in Resources */,
+				E57124351E9381110064F515 /* emptyCardIcon@2x.png in Resources */,
+				E57124361E9381110064F515 /* errorIcon@2x.png in Resources */,
+				E57124371E9381110064F515 /* icon_btn_min_@2x.png in Resources */,
+				E57124381E9381110064F515 /* icon_btn_plus_@2x.png in Resources */,
+				E57124391E9381110064F515 /* JCB@2x.png in Resources */,
+				E571243A1E9381110064F515 /* JCBDark@2x.png in Resources */,
+				E571243B1E9381110064F515 /* kioson@2x.png in Resources */,
+				E571243C1E9381110064F515 /* mandiri_atm_1@2x.png in Resources */,
+				E571243D1E9381110064F515 /* mandiri_atm_2@2x.png in Resources */,
+				E571243E1E9381110064F515 /* mandiri_atm_3@2x.png in Resources */,
+				E571243F1E9381110064F515 /* MasterCard@2x.png in Resources */,
+				E57124401E9381110064F515 /* MasterCardDark@2x.png in Resources */,
+				E57124411E9381110064F515 /* midtrans_lock@2x.png in Resources */,
+				E57124421E9381110064F515 /* other_va@2x.png in Resources */,
+				E57124431E9381110064F515 /* pendingIcon@2x.png in Resources */,
+				E57124441E9381110064F515 /* permata_va@2x.png in Resources */,
+				E57124451E9381110064F515 /* successIcon@2x.png in Resources */,
+				E57124461E9381110064F515 /* TokenButtonIcon@2x.png in Resources */,
+				E57124471E9381110064F515 /* trash-icon@2x.png in Resources */,
+				E57124481E9381110064F515 /* va@2x.png in Resources */,
+				E57124491E9381110064F515 /* VASuccessIcon@2x.png in Resources */,
+				E571244A1E9381110064F515 /* Visa@2x.png in Resources */,
+				E571244B1E9381110064F515 /* VisaDark@2x.png in Resources */,
+				E571244C1E9381110064F515 /* anz@2x.png in Resources */,
+				E571244D1E9381110064F515 /* bca@2x.png in Resources */,
+				E571244E1E9381110064F515 /* bni.png in Resources */,
+				E571244F1E9381110064F515 /* bni@2x.png in Resources */,
+				E57124501E9381110064F515 /* bri@2x.png in Resources */,
+				E57124511E9381110064F515 /* cimb.png in Resources */,
+				E57124521E9381110064F515 /* cimb@2x.png in Resources */,
+				E57124531E9381110064F515 /* citi.png in Resources */,
+				E57124541E9381110064F515 /* citi@2x.png in Resources */,
+				E57124551E9381110064F515 /* hint@2x.png in Resources */,
+				E57124561E9381110064F515 /* mandiri_va@2x.png in Resources */,
+				E57124571E9381110064F515 /* mandiri.png in Resources */,
+				E57124581E9381110064F515 /* mandiri@2x.png in Resources */,
+				E57124591E9381110064F515 /* maybank.png in Resources */,
+				E571245A1E9381110064F515 /* maybank@2x.png in Resources */,
+				E571245B1E9381110064F515 /* mega.png in Resources */,
+				E571245C1E9381110064F515 /* mega@2x.png in Resources */,
+				E571245D1E9381110064F515 /* permata.png in Resources */,
+				E571245E1E9381110064F515 /* permata@2x.png in Resources */,
+				E571245F1E9381110064F515 /* plus-icon@2x.png in Resources */,
+				E57124601E9381110064F515 /* va.png in Resources */,
+				E57124611E9381110064F515 /* logo@2x.png in Resources */,
+				E57124621E9381110064F515 /* mandiri_atm_4@2x.png in Resources */,
+				E57124631E9381110064F515 /* mandiri_atm_5@2x.png in Resources */,
+				E57124641E9381110064F515 /* mandiri_atm_6@2x.png in Resources */,
+				E57124651E9381110064F515 /* NextIcon@2x.png in Resources */,
+				E57124661E9381110064F515 /* other_alto_1@2x.png in Resources */,
+				E57124671E9381110064F515 /* other_alto_2@2x.png in Resources */,
+				E57124681E9381110064F515 /* other_alto_3@2x.png in Resources */,
+				E57124691E9381110064F515 /* other_alto_4@2x.png in Resources */,
+				E571246A1E9381110064F515 /* other_alto_5@2x.png in Resources */,
+				E571246B1E9381110064F515 /* other_alto_6@2x.png in Resources */,
+				E571246C1E9381110064F515 /* other_alto_7@2x.png in Resources */,
+				E571246D1E9381110064F515 /* other_atm_1@2x.png in Resources */,
+				E571246E1E9381110064F515 /* other_atm_2@2x.png in Resources */,
+				E571246F1E9381110064F515 /* other_atm_3@2x.png in Resources */,
+				E57124701E9381110064F515 /* other_atm_4@2x.png in Resources */,
+				E57124711E9381110064F515 /* other_atm_5@2x.png in Resources */,
+				E57124721E9381110064F515 /* other_atm_6@2x.png in Resources */,
+				E57124731E9381110064F515 /* other_atm_7@2x.png in Resources */,
+				E57124741E9381110064F515 /* other_prima_1@2x.png in Resources */,
+				E57124751E9381110064F515 /* other_prima_2@2x.png in Resources */,
+				E57124761E9381110064F515 /* other_prima_3@2x.png in Resources */,
+				E57124771E9381110064F515 /* other_prima_4@2x.png in Resources */,
+				E57124781E9381110064F515 /* other_prima_5@2x.png in Resources */,
+				E57124791E9381110064F515 /* other_prima_6@2x.png in Resources */,
+				E571247A1E9381110064F515 /* other_prima_7@2x.png in Resources */,
+				E571247B1E9381110064F515 /* permata_atm_1@2x.png in Resources */,
+				E571247C1E9381110064F515 /* permata_atm_2@2x.png in Resources */,
+				E571247D1E9381110064F515 /* permata_atm_3@2x.png in Resources */,
+				E571247E1E9381110064F515 /* permata_atm_4@2x.png in Resources */,
+				E571247F1E9381110064F515 /* permata_atm_5@2x.png in Resources */,
+				E57124801E9381110064F515 /* permata_atm_6@2x.png in Resources */,
+				E57124811E9381110064F515 /* permata_atm_7@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5CDEC951E9340E80032DC3B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2410,6 +2865,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E57123F01E9380E80064F515 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E5CDEC921E9340E80032DC3B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2648,6 +3110,48 @@
 			};
 			name = Release;
 		};
+		E57123F81E9380E80064F515 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = NO;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransKitResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKitResources;
+				PRODUCT_NAME = MidtransKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E57123F91E9380E80064F515 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = NO;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransKitResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKitResources;
+				PRODUCT_NAME = MidtransKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		E5CDEC9D1E9340E80032DC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2717,6 +3221,14 @@
 			buildConfigurations = (
 				E571209C1E937B140064F515 /* Debug */,
 				E571209D1E937B140064F515 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		E57123F71E9380E80064F515 /* Build configuration list for PBXNativeTarget "MidtransKitResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E57123F81E9380E80064F515 /* Debug */,
+				E57123F91E9380E80064F515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

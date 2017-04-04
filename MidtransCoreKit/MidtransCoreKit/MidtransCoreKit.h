@@ -40,8 +40,7 @@
 #import "MidtransPaymentKiosOn.h"
 #import "MidtransPaymentListModel.h"
 #import "MidtransVirtualAccountModel.h"
-#import "MidtransTrackingManager.h"
-#import "MIDTrackingManager.h"
+#import "SNPUITrackingManager.h"
 #import "MidtransTransactionTokenResponse.h"
 #import "MidtransPaymentRequestV2DataModels.h"
 #import "MidtransPaymentIndosatDompetku.h"
@@ -54,5 +53,6 @@
 #import "MIdtransPaymentGCI.h"
 #import "MidtransNetworkLogger.h"
 #import "MidtransPromo.h"
+#import "SNPPointDataModels.h"
 #import "MidtransPromoEngine.h"
 #endif /* MidtransCoreKit_h */

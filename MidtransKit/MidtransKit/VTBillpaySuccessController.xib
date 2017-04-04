@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -24,7 +24,6 @@
                 <outlet property="companyCodeLabel" destination="l9W-kK-H1R" id="N58-Zm-0i8"/>
                 <outlet property="infoView" destination="5Sv-12-cU3" id="gZk-0i-FH4"/>
                 <outlet property="orderIdLabel" destination="6H4-W8-RvD" id="CUp-Xy-LYz"/>
-                <outlet property="transactionTimeLabel" destination="Dqd-di-a4Y" id="Oww-Id-9xx"/>
                 <outlet property="view" destination="ccc-V8-hAf" id="Xpz-YH-fBn"/>
             </connections>
         </placeholder>
@@ -93,13 +92,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="541"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Sv-12-cU3">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="365"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="320"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2tc-0a-MAS" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="320" width="375" height="45"/>
+                                    <rect key="frame" x="0.0" y="275" width="375" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6H4-W8-RvD">
-                                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -131,10 +130,10 @@
                                     </userDefinedRuntimeAttributes>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rE7-vm-MRi" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="275" width="375" height="45"/>
+                                    <rect key="frame" x="0.0" y="230" width="375" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCX-Av-XxC">
-                                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -163,44 +162,11 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CQR-lZ-QTC" customClass="MIdtransUIBorderedView">
-                                    <rect key="frame" x="0.0" y="230" width="375" height="45"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dqd-di-a4Y">
-                                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
-                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqr-e3-zVt">
-                                            <rect key="frame" x="15" y="14.5" width="94.5" height="16.5"/>
-                                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
-                                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="Dqd-di-a4Y" secondAttribute="trailing" constant="15" id="0JB-Hl-jjl"/>
-                                        <constraint firstItem="cqr-e3-zVt" firstAttribute="leading" secondItem="CQR-lZ-QTC" secondAttribute="leading" constant="15" id="5Fg-S7-NhU"/>
-                                        <constraint firstItem="Dqd-di-a4Y" firstAttribute="centerY" secondItem="CQR-lZ-QTC" secondAttribute="centerY" id="lPb-xC-Qr0"/>
-                                        <constraint firstItem="cqr-e3-zVt" firstAttribute="centerY" secondItem="CQR-lZ-QTC" secondAttribute="centerY" id="lxg-Zq-d32"/>
-                                    </constraints>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
-                                            <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                                            <integer key="value" value="1"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ruY-5W-oED" customClass="MIdtransUIBorderedView">
                                     <rect key="frame" x="0.0" y="185" width="375" height="45"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l9W-kK-H1R">
-                                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -269,20 +235,16 @@
                                 <constraint firstAttribute="bottom" secondItem="2tc-0a-MAS" secondAttribute="bottom" id="Cjj-AZ-7PY"/>
                                 <constraint firstItem="2LP-Da-mMn" firstAttribute="centerX" secondItem="5Sv-12-cU3" secondAttribute="centerX" id="DMC-bc-J2y"/>
                                 <constraint firstItem="rE7-vm-MRi" firstAttribute="trailing" secondItem="2tc-0a-MAS" secondAttribute="trailing" id="DPy-gQ-efN"/>
-                                <constraint firstItem="CQR-lZ-QTC" firstAttribute="top" secondItem="ruY-5W-oED" secondAttribute="bottom" id="KfO-OA-fFq"/>
                                 <constraint firstAttribute="trailing" secondItem="S3O-D2-oCo" secondAttribute="trailing" id="Orc-Qw-cAs"/>
                                 <constraint firstItem="ruY-5W-oED" firstAttribute="trailing" secondItem="2tc-0a-MAS" secondAttribute="trailing" id="QDs-b0-oZY"/>
                                 <constraint firstItem="S3O-D2-oCo" firstAttribute="top" secondItem="5Sv-12-cU3" secondAttribute="top" constant="25" id="TmH-gg-Lyz"/>
-                                <constraint firstItem="CQR-lZ-QTC" firstAttribute="trailing" secondItem="2tc-0a-MAS" secondAttribute="trailing" id="UOA-ML-PaS"/>
                                 <constraint firstItem="ruY-5W-oED" firstAttribute="top" secondItem="S3O-D2-oCo" secondAttribute="bottom" constant="50" id="dBd-1e-kgv"/>
                                 <constraint firstItem="rE7-vm-MRi" firstAttribute="height" secondItem="2tc-0a-MAS" secondAttribute="height" id="diX-5q-fS2"/>
                                 <constraint firstItem="ruY-5W-oED" firstAttribute="height" secondItem="2tc-0a-MAS" secondAttribute="height" id="gaT-b9-IKu"/>
-                                <constraint firstItem="CQR-lZ-QTC" firstAttribute="leading" secondItem="2tc-0a-MAS" secondAttribute="leading" id="l2C-lr-Gz0"/>
-                                <constraint firstItem="rE7-vm-MRi" firstAttribute="top" secondItem="CQR-lZ-QTC" secondAttribute="bottom" id="lk7-Ho-Z0H"/>
                                 <constraint firstItem="2LP-Da-mMn" firstAttribute="top" secondItem="5Sv-12-cU3" secondAttribute="top" id="mfJ-q6-AEU"/>
                                 <constraint firstAttribute="trailing" secondItem="2tc-0a-MAS" secondAttribute="trailing" id="n0S-P9-NyL"/>
                                 <constraint firstItem="rE7-vm-MRi" firstAttribute="leading" secondItem="2tc-0a-MAS" secondAttribute="leading" id="n7a-mp-UHM"/>
-                                <constraint firstItem="CQR-lZ-QTC" firstAttribute="height" secondItem="2tc-0a-MAS" secondAttribute="height" id="v5C-gE-9TO"/>
+                                <constraint firstItem="rE7-vm-MRi" firstAttribute="top" secondItem="ruY-5W-oED" secondAttribute="bottom" id="q6G-H6-ayH"/>
                                 <constraint firstItem="ruY-5W-oED" firstAttribute="leading" secondItem="2tc-0a-MAS" secondAttribute="leading" id="vIz-v5-SDI"/>
                                 <constraint firstItem="2tc-0a-MAS" firstAttribute="leading" secondItem="5Sv-12-cU3" secondAttribute="leading" id="y6T-4b-rM7"/>
                             </constraints>

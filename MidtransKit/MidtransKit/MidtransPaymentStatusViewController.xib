@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -18,10 +21,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="zlS-A2-aUc" customClass="MIdtransPaymentStatusView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n7K-Ql-7pO" customClass="MidtransUINextStepButton">
+                    <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="HJv-eO-RTY"/>
@@ -32,45 +36,17 @@
                         <action selector="FinishButtonDidTapped:" destination="-1" eventType="touchUpInside" id="wcS-Y9-oGN"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZzR-lb-7bl" customClass="MIdtransUIBorderedView">
-                    <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UBg-AH-f7G">
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2dq-lT-hC5">
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
-                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                    </subviews>
-                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="45" id="LTa-on-cpH"/>
-                        <constraint firstItem="2dq-lT-hC5" firstAttribute="leading" secondItem="ZzR-lb-7bl" secondAttribute="leading" constant="15" id="XxN-tC-8OB"/>
-                        <constraint firstItem="UBg-AH-f7G" firstAttribute="centerY" secondItem="ZzR-lb-7bl" secondAttribute="centerY" id="bva-4T-Ma4"/>
-                        <constraint firstItem="2dq-lT-hC5" firstAttribute="centerY" secondItem="ZzR-lb-7bl" secondAttribute="centerY" id="dUa-xK-fIK"/>
-                        <constraint firstAttribute="trailing" secondItem="UBg-AH-f7G" secondAttribute="trailing" constant="15" id="eLH-pz-TBh"/>
-                    </constraints>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
-                            <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
-                            <integer key="value" value="1"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
-                    </userDefinedRuntimeAttributes>
-                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-ZM-Szx" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="239" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-Ac-N2B">
+                            <rect key="frame" x="265.5" y="12.5" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPD-AD-hB5">
+                            <rect key="frame" x="15" y="14.5" width="55" height="16.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="55" id="x3t-PQ-zSc"/>
                             </constraints>
@@ -99,13 +75,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esG-UV-3BY" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="194" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-Ut-KqY">
+                            <rect key="frame" x="265.5" y="12.5" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Avs-LD-exQ">
+                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -130,13 +109,16 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7g-aK-yUo">
+                    <rect key="frame" x="0.0" y="69" width="320" height="110"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Q-wD-J7a">
+                            <rect key="frame" x="120.5" y="45" width="79.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your payment is being reviewed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFr-KU-EsK">
+                            <rect key="frame" x="74.5" y="66.5" width="172.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -152,19 +134,23 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VASuccessIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="pQp-of-u6G">
+                    <rect key="frame" x="135" y="44" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="NeK-0U-6vk"/>
                         <constraint firstAttribute="width" constant="50" id="pGh-KF-8H5"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mky-Yo-t5V" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="284" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBe-WT-Bx1">
+                            <rect key="frame" x="265.5" y="12.5" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LYX-0N-8Dd">
+                            <rect key="frame" x="15" y="14.5" width="77.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -193,14 +179,12 @@
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="C7g-aK-yUo" secondAttribute="trailing" id="0Ua-Ec-k5w"/>
                 <constraint firstItem="j9s-ZM-Szx" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="1LS-Cl-Wbg"/>
-                <constraint firstItem="mky-Yo-t5V" firstAttribute="top" secondItem="ZzR-lb-7bl" secondAttribute="bottom" id="1S9-KA-1pv"/>
                 <constraint firstAttribute="trailing" secondItem="mky-Yo-t5V" secondAttribute="trailing" id="5IJ-h9-sDF"/>
-                <constraint firstItem="ZzR-lb-7bl" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="98A-He-efX"/>
                 <constraint firstItem="pQp-of-u6G" firstAttribute="top" secondItem="zlS-A2-aUc" secondAttribute="top" constant="44" id="D65-rR-fyI"/>
-                <constraint firstItem="ZzR-lb-7bl" firstAttribute="top" secondItem="j9s-ZM-Szx" secondAttribute="bottom" id="F8B-Oy-Lue"/>
                 <constraint firstItem="esG-UV-3BY" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="FRx-A2-Ail"/>
                 <constraint firstItem="C7g-aK-yUo" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="GOM-rg-k68"/>
                 <constraint firstAttribute="trailing" secondItem="esG-UV-3BY" secondAttribute="trailing" id="HEk-yY-zN4"/>
+                <constraint firstItem="mky-Yo-t5V" firstAttribute="top" secondItem="j9s-ZM-Szx" secondAttribute="bottom" id="JHY-4z-sL4"/>
                 <constraint firstItem="n7K-Ql-7pO" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="L7m-GO-vlY"/>
                 <constraint firstAttribute="trailing" secondItem="n7K-Ql-7pO" secondAttribute="trailing" id="QJo-jd-7FZ"/>
                 <constraint firstItem="pQp-of-u6G" firstAttribute="centerX" secondItem="zlS-A2-aUc" secondAttribute="centerX" id="RGC-x6-cKw"/>
@@ -210,7 +194,6 @@
                 <constraint firstItem="C7g-aK-yUo" firstAttribute="top" secondItem="pQp-of-u6G" secondAttribute="bottom" constant="-25" id="XQw-gW-aWr"/>
                 <constraint firstAttribute="bottom" secondItem="n7K-Ql-7pO" secondAttribute="bottom" id="XzC-VE-ZWi"/>
                 <constraint firstItem="j9s-ZM-Szx" firstAttribute="top" secondItem="esG-UV-3BY" secondAttribute="bottom" id="g6o-I1-vCy"/>
-                <constraint firstAttribute="trailing" secondItem="ZzR-lb-7bl" secondAttribute="trailing" id="ly7-bg-R94"/>
                 <constraint firstAttribute="trailing" secondItem="j9s-ZM-Szx" secondAttribute="trailing" id="nEB-CP-NMI"/>
             </constraints>
             <connections>
@@ -218,7 +201,6 @@
                 <outlet property="paymentStatusOrderIdNumberLabel" destination="M1M-Ac-N2B" id="g6U-ER-usW"/>
                 <outlet property="paymentStatusPaymentTypeLabel" destination="mBe-WT-Bx1" id="yhk-5C-uB6"/>
                 <outlet property="paymentStatusTotalAmountLabel" destination="mXp-Ut-KqY" id="LfR-D5-V6b"/>
-                <outlet property="paymentStatusTransactionTimeLabel" destination="UBg-AH-f7G" id="zeb-NA-p2u"/>
                 <outlet property="paymentStatusWrapperContentLabel" destination="bFr-KU-EsK" id="jXk-je-CfH"/>
                 <outlet property="paymentStatusWrapperTitleLabel" destination="Q5Q-wD-J7a" id="7Hf-P4-t2J"/>
                 <outlet property="paymentStatusWrapperView" destination="C7g-aK-yUo" id="9QE-uw-3oR"/>

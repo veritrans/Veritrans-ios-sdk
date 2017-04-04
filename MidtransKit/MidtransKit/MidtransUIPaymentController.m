@@ -32,6 +32,7 @@
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @property (nonatomic) MidtransLoadingView *loadingView;
+@property (nonatomic) BOOL dismissButton;
 @end
 
 @implementation MidtransUIPaymentController
@@ -81,6 +82,7 @@
 }
 - (void)showDismissButton:(BOOL)show {
     if (show) {
+        self.dismissButton = YES;
         if (!self.backBarButton) {
             self.backBarButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(dismissButtonDidTapped:)];
         }        
@@ -91,7 +93,11 @@
     }
 }
 - (void)dismissButtonDidTapped:(id)sender {
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+    if (self.dismissButton) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -235,14 +241,14 @@
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
         [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-        [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ va overview",[self.paymentMethod.title lowercaseString]]];
+        [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ va overview",[self.paymentMethod.title lowercaseString]]];
         VTMultiGuideController *vc = [[VTMultiGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         VTSingleGuideController *vc = [[VTSingleGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-        [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ overview",self.paymentMethod.shortName]];
+        [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ overview",self.paymentMethod.shortName]];
     }
 }
 -(void)showToastInviewWithMessage:(NSString *)message {

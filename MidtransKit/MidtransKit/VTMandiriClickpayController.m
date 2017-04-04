@@ -12,7 +12,8 @@
 #import "MidtransUIHudView.h"
 #import "MidtransUICardFormatter.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
+#import "UIViewController+HeaderSubtitle.h"
+#import "VTSubGuideController.h"
 static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
@@ -24,6 +25,8 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input1Label;
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
+@property (weak, nonatomic) IBOutlet UIView *instructionPage;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionviewHeightConstraints;
 
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
@@ -48,6 +51,13 @@ static NSString* const ClickpayAPPLI = @"3";
     self.input3Label.text = [MidtransMandiriClickpayHelper generateInput3];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
+    VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
+    self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;
+    [self.view updateConstraintsIfNeeded];
+    [self addSubViewController:vc toView:self.instructionPage];
+
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;

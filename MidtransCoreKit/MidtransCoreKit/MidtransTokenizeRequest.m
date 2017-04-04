@@ -9,7 +9,6 @@
 #import "MidtransTokenizeRequest.h"
 #import "MidtransConfig.h"
 #import "MidtransHelper.h"
-#import "MidtransTrackingManager.h"
 #import "MidtransCreditCardHelper.h"
 #import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransCreditCardConfig.h"
@@ -131,7 +130,9 @@
         [result setObject:self.installmentTerm forKey:@"installment_term"];
         
     }
-    
+    if (self.point) {
+         [result setObject:@"true" forKey:@"point"];
+    }
     if (CC_CONFIG.preauthEnabled) {
         result[@"type"] = @"authorize";
     }

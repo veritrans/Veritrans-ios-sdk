@@ -10,11 +10,13 @@
 #import "MidtransUIListCell.h"
 #import "MidtransItemCell.h"
 #import "VTClassHelper.h"
+#import <MidtransCorekit/MidtransCorekit.h>
 #import "MidtransTransactionDetailViewController.h"
 
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) NSArray *paymentMethods;
 @property (nonatomic) BOOL shouldExpand;
+@property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
 @property (nonatomic) NSArray *items;
 @end
 
@@ -34,7 +36,8 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
 }
 
-- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items {
+- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response {
+    self.responsePayment = response;
     self.items = items;
     self.headerView.priceAmountLabel.text = [items formattedPriceAmount];
     
@@ -59,7 +62,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
-    [cell configurePaymetnList:self.paymentMethods[indexPath.row]];
+    [cell configurePaymetnList:self.paymentMethods[indexPath.row] withFullPaymentResponse:self.responsePayment];
     return cell;
 }
 

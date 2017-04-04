@@ -35,7 +35,7 @@
 
 - (NSString *)formattedCurrencyNumber {
     NSNumberFormatter *nf = [NSNumberFormatter indonesianCurrencyFormatter];
-    return [@"Rp " stringByAppendingString:[nf stringFromNumber:self]];
+    return [NSString stringWithFormat:@"Rp %@", [nf stringFromNumber:self]];
 }
 
 @end

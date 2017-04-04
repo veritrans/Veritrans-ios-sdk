@@ -31,11 +31,22 @@
 }
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MidtransInstallmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"installmentCell" forIndexPath:indexPath];
-    [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]]];
+    if (self.installmentData.count){
+          [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]]];
+    }
+    else{
+      [cell configurePointWithThext:(NSNumber *)self.pointData[indexPath.row]];
+    }
     return cell;
 }
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    return self.installmentData.count;
+    if (self.installmentData.count){
+        return self.installmentData.count;
+    }
+    else {
+        return self.pointData.count;
+    }
+    
 }
 
 - (CGFloat)collectionView:(UICollectionView *)collectionView  layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section {
@@ -60,7 +71,11 @@
         self.installmentCurrentIndex = indexPath.row;
     }
 }
-
+- (void)configurePointView:(NSArray *)pointData {
+    self.pointData = pointData;
+    self.installmentCurrentIndex = self.pointData.count;
+    [self.installmentCollectionView reloadData];
+}
 - (void)configureInstallmentView:(NSArray *)installmentContent {
     self.installmentData = installmentContent;
     [self.installmentCollectionView reloadData];
@@ -90,7 +105,12 @@
     }
 }
 - (void)resetInstallmentIndex {
-    self.installmentCurrentIndex  = 0;
+    if (self.pointData) {
+        self.installmentCurrentIndex = self.pointData.count;
+    }
+    else{
+        self.installmentCurrentIndex  = 0;
+    }
     self.prevButton.enabled = NO;
     self.nextButton.enabled = YES;
     [self selectedIndex:0];

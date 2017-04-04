@@ -27,7 +27,7 @@
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
-@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate>
+@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate, UIAlertViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
@@ -41,7 +41,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[MIDTrackingManager shared] trackEventName:@"pg select payment"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
     
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
@@ -69,6 +69,15 @@
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
+    
+    if (self.token.tokenId.length == 0) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                        message:UILocalizedString(@"alert.invalid-payment-token", nil)
+                                                       delegate:self
+                                              cancelButtonTitle:nil
+                                              otherButtonTitles:@"Ok", nil];
+        [alert show];
+    }
     
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
@@ -135,7 +144,7 @@
                  }
                  
                  if (response.enabledPayments.count) {
-                     [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails];
+                     [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response];
                  }
                  else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
@@ -192,14 +201,14 @@
     
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-    [[MIDTrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
+    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
             MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                   initWithToken:self.token
                                                                   paymentMethodName:paymentMethod
-                                                                  andCreditCardData:self.responsePayment.creditCard];
+                                                                  andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
             creditCardVC.promos = self.responsePayment.promos;
             [creditCardVC showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
@@ -207,8 +216,9 @@
         else {
             if (self.responsePayment.creditCard.savedTokens.count) {
                 MidtransSavedCardController *vc = [[MidtransSavedCardController alloc] initWithToken:self.token
-                                                                     paymentMethodName:paymentMethod
-                                                                     andCreditCardData:self.responsePayment.creditCard];
+                                                                                   paymentMethodName:paymentMethod
+                                                                                   andCreditCardData:self.responsePayment.creditCard
+                                                                        andCompleteResponseOfPayment:self.responsePayment];
                 vc.promos = self.responsePayment.promos;
                 [vc showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
@@ -218,7 +228,7 @@
                 MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod
-                                                                      andCreditCardData:self.responsePayment.creditCard];
+                                                                      andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
                 creditCardVC.promos = self.responsePayment.promos;
                 [creditCardVC showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
@@ -268,6 +278,12 @@
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
+}
+
+#pragma mark - UIAlertViewDelegate
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

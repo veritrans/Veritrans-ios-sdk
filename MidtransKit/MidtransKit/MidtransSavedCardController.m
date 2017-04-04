@@ -21,17 +21,19 @@
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 @property (nonatomic) MidtransSavedCardFooter *footerView;
 @property (nonatomic) NSArray *bankBinList;
+@property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
 @end
 
 @implementation MidtransSavedCardController
-
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-            andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
+            andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard
+ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {
         self.token = token;
         self.paymentMethod = paymentMethod;
+        self.responsePayment = responsePayment;
         self.creditCard = creditCard;
         self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]] options:kNilOptions error:nil];
     }
@@ -53,7 +55,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.footerView = [[VTBundle loadNibNamed:@"MidtransSavedCardFooter" owner:self options:nil] lastObject];
     [self.footerView.addCardButton addTarget:self action:@selector(addCardPressed:) forControlEvents:UIControlEventTouchUpInside];
     
@@ -116,7 +117,8 @@
 - (void)addCardPressed:(id)sender {
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
-                                                                                       andCreditCardData:self.creditCard];
+                                                                                       andCreditCardData:self.creditCard
+                                                                            andCompleteResponseOfPayment:self.responsePayment];
     vc.promos = self.promos;
     vc.currentMaskedCards = self.cards;
     [self.navigationController pushViewController:vc animated:YES];
@@ -156,7 +158,8 @@
     MidtransNewCreditCardViewController *vc =
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                     maskedCard:card
-                                                    creditCard:self.creditCard];
+                                                    creditCard:self.creditCard
+                                  andCompleteResponseOfPayment:self.responsePayment];
     vc.promos = self.promos;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];

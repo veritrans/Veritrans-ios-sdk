@@ -30,8 +30,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
-    [self setHeaderWithTitle:self.paymentMethod.title subTitle:@"Payment Instructions"];
+    self.title = self.paymentMethod.title;
     
     
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];

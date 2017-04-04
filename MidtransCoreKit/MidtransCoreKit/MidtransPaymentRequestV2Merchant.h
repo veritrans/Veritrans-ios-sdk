@@ -12,6 +12,7 @@
 
 @property (nonatomic, strong) NSString *clientKey;
 @property (nonatomic, strong) NSArray *enabledPrinciples;
+@property (nonatomic, strong) NSArray *pointBanks;
 @property (nonatomic, strong) MidtransPaymentRequestV2Preference *preference;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

@@ -255,7 +255,7 @@
             
             NSMutableArray *savedTokensM = self.creditCard.savedTokens.mutableCopy;
             NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [card.savedTokenId isEqualToString:savedToken.token];
+                return [card.maskedNumber isEqualToString:savedToken.maskedCard];
             }];
             if (index != NSNotFound) {
                 [savedTokensM removeObjectAtIndex:index];

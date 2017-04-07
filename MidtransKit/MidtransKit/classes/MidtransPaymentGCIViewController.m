@@ -12,7 +12,7 @@
 #import "MidtransUITextField.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "MidtransUICardFormatter.h"
-#import <MidtransCoreKit/MidtransCorekit.h>
+#import <MidtransCoreKit/MidtransCoreKit.h>
 @interface MidtransPaymentGCIViewController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
 @property (strong, nonatomic) IBOutlet MidtransPaymentGCIView *view;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;

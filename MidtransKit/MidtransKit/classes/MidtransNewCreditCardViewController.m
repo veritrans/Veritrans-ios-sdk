@@ -22,7 +22,6 @@
 #import "MidtransInstallmentView.h"
 #import "MidtransUITextField.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCoreKit/MidtransBinResponse.h>
 
 @interface MidtransNewCreditCardViewController () <
 UITableViewDelegate,

@@ -27,25 +27,20 @@
 }
 
 - (NSString *)paymentType {
-    NSString *typeString;
     switch (_type) {
         case VTVATypeMandiri:
-            typeString = MIDTRANS_PAYMENT_ECHANNEL;
-            break;
+            return MIDTRANS_PAYMENT_ECHANNEL;
         case VTVATypeAll:
-            typeString = MIDTRANS_PAYMENT_ALL_VA;
-            break;
+            return MIDTRANS_PAYMENT_ALL_VA;
         case VTVATypeBCA:
-            typeString = MIDTRANS_PAYMENT_BCA_VA;
-            break;
+            return MIDTRANS_PAYMENT_BCA_VA;
         case VTVATypePermata:
-            typeString = MIDTRANS_PAYMENT_PERMATA_VA;
-            break;
+            return MIDTRANS_PAYMENT_PERMATA_VA;
+        case VTVATypeBNI:
+            return MIDTRANS_PAYMENT_BNI_VA;
         case VTVATypeOther:
-            typeString = MIDTRANS_PAYMENT_OTHER_VA;
-            break;
+            return MIDTRANS_PAYMENT_OTHER_VA;
     }
-    return typeString;
 }
 
 - (NSDictionary *)dictionaryValue {

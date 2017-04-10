@@ -57,8 +57,8 @@
                                                         completion:^(SNPPointResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
             self.pointResponse = response;
-            self.view.pointInputTextField.text = [NSString stringWithFormat:@"%0d",[response.pointBalanceAmount integerValue]];
-            self.view.pointTotalTtitle.text = [NSString stringWithFormat:@"Your total BNI Reward Points is %d",[response.pointBalanceAmount integerValue]];
+            self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[response.pointBalanceAmount integerValue]];
+            self.view.pointTotalTtitle.text = [NSString stringWithFormat:@"Your total BNI Reward Points is %i",[response.pointBalanceAmount integerValue]];
             
             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[self.pointResponse.pointBalanceAmount integerValue]]];
 

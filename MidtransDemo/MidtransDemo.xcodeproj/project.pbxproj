@@ -41,8 +41,10 @@
 		E57124FD1E93933A0064F515 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */; };
 		E57124FE1E93933A0064F515 /* Bariol_Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDC1E83D7FB0086A8A4 /* Bariol_Regular.otf */; };
 		E57124FF1E93933A0064F515 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */; };
-		E58FCEAF1E94D0F000632085 /* MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FCEAA1E94D0A900632085 /* MidtransKit.framework */; };
-		E58FCEB01E94D0F000632085 /* MidtransKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E58FCEAA1E94D0A900632085 /* MidtransKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E591479B1E9B3B870091D180 /* MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FCEAA1E94D0A900632085 /* MidtransKit.framework */; };
+		E591479C1E9B3B870091D180 /* MidtransKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E58FCEAA1E94D0A900632085 /* MidtransKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		E59147A11E9B3BCE0091D180 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E59147A01E9B3BCE0091D180 /* MidtransCoreKit.framework */; };
+		E59147A21E9B3BCE0091D180 /* MidtransCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E59147A01E9B3BCE0091D180 /* MidtransCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
 		E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */; };
 		E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539ED1E88F82A001617C8 /* MDOptionManager.m */; };
@@ -92,7 +94,7 @@
 			remoteGlobalIDString = E57123F41E9380E80064F515;
 			remoteInfo = MidtransKitResources;
 		};
-		E58FCEB11E94D0F000632085 /* PBXContainerItemProxy */ = {
+		E591479D1E9B3B870091D180 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E58FCEA21E94D0A900632085 /* MidtransKit.xcodeproj */;
 			proxyType = 1;
@@ -109,13 +111,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		E58FCEB31E94D0F000632085 /* Embed Frameworks */ = {
+		E591479F1E9B3B870091D180 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				E58FCEB01E94D0F000632085 /* MidtransKit.framework in Embed Frameworks */,
+				E59147A21E9B3BCE0091D180 /* MidtransCoreKit.framework in Embed Frameworks */,
+				E591479C1E9B3B870091D180 /* MidtransKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -142,6 +145,7 @@
 		E57124D31E9392B20064F515 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E57124E31E9392B20064F515 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E58FCEA21E94D0A900632085 /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
+		E59147A01E9B3BCE0091D180 /* MidtransCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MidtransCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E5A539E91E88F82A001617C8 /* MDImageCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDImageCollectionViewCell.h; sourceTree = "<group>"; };
 		E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDImageCollectionViewCell.m; sourceTree = "<group>"; };
 		E5A539EB1E88F82A001617C8 /* MDImageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDImageCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -190,7 +194,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BF6E4F6C7C4D27D8D802C0E /* libPods-MidtransDemo.a in Frameworks */,
-				E58FCEAF1E94D0F000632085 /* MidtransKit.framework in Frameworks */,
+				E59147A11E9B3BCE0091D180 /* MidtransCoreKit.framework in Frameworks */,
+				E591479B1E9B3B870091D180 /* MidtransKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +397,7 @@
 		EC16E625E4533EAA44E1C9D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E59147A01E9B3BCE0091D180 /* MidtransCoreKit.framework */,
 				E5F1B94F1E9355D800ED659D /* MidtransKit.framework */,
 				85C9EE3827173EC76CEF056B /* libPods-MidtransDemo.a */,
 				FA01C9A4C5A4D4325CD869D9 /* libPods-MidtransDemoPods.a */,
@@ -413,12 +419,12 @@
 				23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */,
 				BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */,
 				E5C751611E8B8F83001F47D9 /* Fabric */,
-				E58FCEB31E94D0F000632085 /* Embed Frameworks */,
+				E591479F1E9B3B870091D180 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E58FCEB21E94D0F000632085 /* PBXTargetDependency */,
+				E591479E1E9B3B870091D180 /* PBXTargetDependency */,
 			);
 			name = MidtransDemo;
 			productName = MidtransDemo;
@@ -753,10 +759,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E58FCEB21E94D0F000632085 /* PBXTargetDependency */ = {
+		E591479E1E9B3B870091D180 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = MidtransKit;
-			targetProxy = E58FCEB11E94D0F000632085 /* PBXContainerItemProxy */;
+			targetProxy = E591479D1E9B3B870091D180 /* PBXContainerItemProxy */;
 		};
 		E5C7516C1E8B912F001F47D9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

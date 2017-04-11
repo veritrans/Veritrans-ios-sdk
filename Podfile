@@ -14,5 +14,4 @@ target 'MidtransDemoPods' do
     pod 'JGProgressHUD'
     pod 'Fabric'
     pod 'Crashlytics'
-    pod 'MidtransKit', '~> 1.4.1'
 end

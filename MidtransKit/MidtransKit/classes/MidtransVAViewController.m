@@ -62,20 +62,24 @@
     }
     [self selectTabAtIndex:0];
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
+    id paymentID = self.paymentMethod.internalBaseClassIdentifier;
+    if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.paymentType = VTVATypeBCA;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
         self.paymentType = VTVATypeMandiri;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
         self.paymentType = VTVATypePermata;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
         self.paymentType = VTVATypeOther;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
         self.paymentType = VTVATypeOther;
+    }
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+        self.paymentType = VTVATypeBNI;
     }
 }
 

@@ -4,95 +4,107 @@
     <array>
         <dict>
             <key>name</key>
-            <string>ATM BCA</string>
+            <string>ATM BNI</string>
             <key>guides</key>
             <array>
                 <dict>
                     <key>content</key>
                     <string>On the main menu, choose ‘Other Transaction’</string>
                     <key>image</key>
-                    <string>bca_atm_1</string>
+                    <string>bni_va1</string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
                     <string>Choose ‘Transfer’</string>
                     <key>image</key>
-                    <string>bca_atm_2</string>
+                    <string>bni_va2</string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Choose ‘To BCA Virtual Account’</string>
+                    <string>Choose ‘Savings Account’</string>
                     <key>image</key>
-                    <string>bca_atm_3</string>
+                    <string>bni_va3</string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Enter your payment code (11 digit code) and press ‘Correct’</string>
+                    <string>Choose 'To BNI Account'</string>
                     <key>image</key>
-                    <string>bca_atm_4</string>
+                    <string>bni_va4</string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Enter the full amount to be paid and press ‘Correct’</string>
+                    <string>Enter BNI virtual account number and press 'Correct'</string>
                     <key>image</key>
-                    <string>bca_atm_5</string>
+                    <string>bni_va5</string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Your payment details will appear on the confirmation page. If the information is correct press ‘Yes’</string>
+                    <string>Enter the full amount to be paid and press 'Connect'</string>
                     <key>image</key>
-                    <string>bca_atm_6</string>
+                    <string>bni_va6</string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Your payment details will appear on the confirmation page. If the information is correct press 'Correct'</string>
+                    <key>image</key>
+                    <string>bni_va7</string>
                 </dict>
             </array>
         </dict>
         <dict>
             <key>name</key>
-            <string>Klik BCA</string>
+            <string>Mobile Banking</string>
             <key>guides</key>
             <array>
                 <dict>
                     <key>content</key>
-                    <string>Choose menu ‘Fund Transfer’</string>
+                    <string>Login to BNI Mobile Banking application</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Choose ‘Transfer to BCA Virtual Account’</string>
+                    <string>Choose 'To BNI Account' then 'Add New Account'</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>‘Input BCA Virtual Account Number’ or ‘Choose from Transfer List’ and click ‘Continue’</string>
+                    <string>Enter your debit account number and destination account number</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Amount to be paid, account number and Merchant name will appear on the payment confirmation page, if the information is right click ‘Continue’</string>
+                    <string>Enter the full amount to be paid and press 'Proceed'</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Get your ‘BCA token’ and input KEYBCA Response ‘APPLI 1’ and click ‘Submit’</string>
+                    <string>Your payment details will appear on confirmation page</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Your transaction is Done</string>
+                    <string>If the information is correct then enter authentication token code and press `Proceed'</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Payment complete</string>
                     <key>image</key>
                     <string></string>
                 </dict>
@@ -100,68 +112,75 @@
         </dict>
         <dict>
             <key>name</key>
-            <string>m-BCA</string>
+            <string>Internet Banking</string>
             <key>guides</key>
             <array>
                 <dict>
                     <key>content</key>
-                    <string>Choose ‘m-transfer’</string>
+                    <string>Visit https://ibank.bni.co.id then choose 'Enter'</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Choose ‘Transfer’</string>
+                    <string>Enter User ID and Password</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Choose ‘BCA Virtual Account’</string>
+                    <string>Choose 'Set Destination Account' then 'Add Destination Account'</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Choose ‘account number’ that you want to use for payment</string>
+                    <string>Enter name and VA number</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Input BCA Virtual Account Number and click ‘OK’</string>
+                    <string>Enter authentication token code</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>BCA Virtual Account Number and your account information will appear on the payment confirmation page and then click ‘Send’</string>
+                    <string>Now Destination/Favorite account number is successfully added</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Click ‘OK’ on the payment confirmation page</string>
+                    <string>Back to 'Transfer' menu'</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Enter amount to be transferred then click ‘OK’</string>
+                    <string>Choose 'Transfer to BNI Account', then choose destination/favorite account</string>
                     <key>image</key>
                     <string></string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
-                    <string>Your transaction is Done</string>
+                    <string>Choose Debit Account and enter amount, then enter authentication token code</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Payment complete</string>
                     <key>image</key>
                     <string></string>
                 </dict>

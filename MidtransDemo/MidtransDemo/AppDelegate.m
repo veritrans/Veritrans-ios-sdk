@@ -10,9 +10,10 @@
 #import "MDOptionsViewController.h"
 #import "MDProductViewController.h"
 #import "MDUtils.h"
+#import <Crashlytics/Crashlytics.h>
 #import "MDNavigationViewController.h"
 #import "MDOptionManager.h"
-
+#import <Fabric/Fabric.h>
 @interface AppDelegate ()
 
 @end
@@ -24,7 +25,7 @@
     NSLog(@"Fonts:\n%@\n%@", [UIFont fontNamesForFamilyName:@"Bariol"], [UIFont fontNamesForFamilyName:@"Source Sans Pro"]);
 
     [MDOptionManager shared];
-    
+    [Fabric with:@[[Crashlytics class]]];
     MDProductViewController *pvc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
     MDOptionsViewController *ovc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];
     MDNavigationViewController *nvc = [MDNavigationViewController new];

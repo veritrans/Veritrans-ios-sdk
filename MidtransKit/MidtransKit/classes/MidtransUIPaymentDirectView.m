@@ -10,6 +10,7 @@
 #import "MidtransDirectHeader.h"
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
+#import "MidtransUIToast.h"
 
 @interface MidtransUIPaymentDirectView() <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) MidtransDirectHeader *headerView;
@@ -29,6 +30,11 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransDirectHeader"];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [[UIPasteboard generalPasteboard] setString:note.object];
+        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self];
+    }];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

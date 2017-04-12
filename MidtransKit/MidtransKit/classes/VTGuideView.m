@@ -9,7 +9,7 @@
 #import "VTGuideView.h"
 #import "VTGuideCell.h"
 #import "VTClassHelper.h"
-
+#import "MidtransUIToast.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 static NSString *const cellIdentifier = @"VTGuideCell";
@@ -44,6 +44,11 @@ static NSString *const cellIdentifier = @"VTGuideCell";
     [self.tableView registerNib:[UINib nibWithNibName:cellIdentifier bundle:VTBundle] forCellReuseIdentifier:cellIdentifier];
     
     self.cachedCells = [NSMutableDictionary new];
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [[UIPasteboard generalPasteboard] setString:note.object];
+        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self];
+    }];
 }
 
 - (void)setInstructions:(NSArray<VTInstruction *> *)instructions {

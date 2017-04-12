@@ -12,10 +12,14 @@
 
 NSString *const kMTMaskedCreditCard = @"masked_card";
 NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
+NSString *const kSNPMaskedCreditCardStatusCode = @"status_code";
+NSString *const kSNPMaskedCreditCardTransactionId = @"transaction_id";
 
 @interface MidtransMaskedCreditCard()
 @property (nonatomic, readwrite) NSString *maskedNumber;
 @property (nonatomic, readwrite) NSString *savedTokenId;
+@property (nonatomic,readwrite) NSString *statusCode;
+@property (nonatomic,readwrite) NSString *transactionId;
 @property (nonatomic, readwrite) NSString *type;
 @property (nonatomic, readwrite) NSString *tokenType;
 @property (nonatomic, readwrite) NSString *expiresAt;
@@ -28,6 +32,8 @@ NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
     if (self = [super init]) {
         self.maskedNumber = [data[kMTMaskedCreditCard] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
         self.savedTokenId = data[kMTMaskedCreditCardToken];
+        self.statusCode = data[kSNPMaskedCreditCardStatusCode];
+        self.transactionId = data[kSNPMaskedCreditCardTransactionId];
         self.type = [MidtransCreditCardHelper nameFromString:self.maskedNumber];
         self.data = data;
     }
@@ -47,7 +53,9 @@ NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
 
 - (NSDictionary *)dictionaryValue {
     return @{kMTMaskedCreditCardIdentifier:self.savedTokenId,
-             kMTMaskedCreditCardCardhash:self.maskedNumber};
+             kMTMaskedCreditCardCardhash:self.maskedNumber,
+             kSNPMaskedCreditCardStatusCode:self.statusCode,
+             kSNPMaskedCreditCardTransactionId:self.transactionId};
 }
 
 - (NSString *)description {

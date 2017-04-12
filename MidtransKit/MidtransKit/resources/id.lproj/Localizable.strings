@@ -1,10 +1,10 @@
-/* 
-  Localizable.strings
-  MidtransKit
-
-  Created by Nanang Rafsanjani on 6/22/16.
-  Copyright © 2016 Veritrans. All rights reserved.
-*/
+/*
+ Localizable.strings
+ MidtransKit
+ 
+ Created by Nanang Rafsanjani on 6/22/16.
+ Copyright © 2016 Veritrans. All rights reserved.
+ */
 
 "payment.failed" = "Pembayaran Gagal";
 "payment.pending" = "Payment Pending";

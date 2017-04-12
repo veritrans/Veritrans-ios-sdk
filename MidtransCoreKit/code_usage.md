@@ -412,14 +412,14 @@ accepted Format
 | expiry_month       | NSString | N        | MM               |   |
 | expiry_year        | NSString | N        | YYYY             |   |
 
-####code usage
+###code usage
 ```
 MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:@"4111111111111111" expiryMonth:@"11" expiryYear:@"2018" cvv:@"123"];
 [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
 }];
 ```
 
-#####Output
+###Output
 
 | JSON Attribute | Type   | Description                                  |
 |----------------|--------|----------------------------------------------|

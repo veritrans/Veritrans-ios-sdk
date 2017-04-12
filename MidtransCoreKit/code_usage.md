@@ -403,14 +403,30 @@ if (error) {
 }
 }];
 ```
-### Save card without Cahrge
+### Save card without Charge
+accepted Format
+
+| Name               | Type     | Nullable | Format           |   |
+|--------------------|----------|----------|------------------|---|
+| credit_card_number | NSString | N        | 4111111111111111 |   |
+| expiry_month       | NSString | N        | MM               |   |
+| expiry_year        | NSString | N        | YYYY             |   |
+
+####code usage
 ```
 MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:@"4111111111111111" expiryMonth:@"11" expiryYear:@"2018" cvv:@"123"];
 [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
 }];
 ```
 
-it will return
+#####Output
+| JSON Attribute | Type   | Description                                  |
+|----------------|--------|----------------------------------------------|
+| transaction_id | String | Transaction ID given by Midtrans             |
+| cardhash       | String | First 6-digit and last 4-digit of customer's |
+| status_code    | number | Status code                                  |
+| token_id       | String | hashed card with 32 length string            |
+
 ```json
 "cardhash" : "411111XXXXXX1111",
 "token_id" : "411111CKtOalcBOxUiRTuGiIZsij1111",

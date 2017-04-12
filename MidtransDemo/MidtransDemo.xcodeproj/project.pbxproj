@@ -369,8 +369,8 @@
 				E56436F01E83A72F008726D0 /* Resources */,
 				23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */,
 				BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */,
-				E5C751611E8B8F83001F47D9 /* Fabric */,
 				E58FCEB31E94D0F000632085 /* Embed Frameworks */,
+				0CA57CD61E9D0CE600B33FAF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -502,6 +502,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		0CA57CD61E9D0CE600B33FAF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
+		};
 		23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -531,20 +544,6 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E5C751611E8B8F83001F47D9 /* Fabric */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = Fabric;
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
 		};
 		ED480F2D901C8292729174EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;

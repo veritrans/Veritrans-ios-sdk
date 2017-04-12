@@ -54,11 +54,6 @@
 }
 
 - (IBAction)bayarPressed:(id)sender {
-    MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:@"4111111111111111" expiryMonth:@"11" expiryYear:@"2018" cvv:@"123"];
-    NSLog(@"credit card-->%@",[creditCard dictionaryValue]);
-    [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
-        NSLog(@"data-->%@",maskedCreditCard);
-    }];
     
     //configure transaction information
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"

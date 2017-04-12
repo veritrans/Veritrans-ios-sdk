@@ -1412,6 +1412,7 @@
 				E5F1BB8A1E93702C00ED659D /* SourceSansPro-Semibold.ttf */,
 			);
 			name = Font;
+			path = ../MidtransResources;
 			sourceTree = "<group>";
 		};
 		00F61B111D146E3300C93DA0 /* General Payment */ = {
@@ -1663,6 +1664,7 @@
 				E5FE44AD1E9E30F00088A207 /* Localizable.strings */,
 			);
 			name = Data;
+			path = ../MidtransResources;
 			sourceTree = "<group>";
 		};
 		306838871C7EF3B80064A305 /* Views */ = {
@@ -1719,6 +1721,7 @@
 				E5F1BB541E93701100ED659D /* MidtransUIPaymentListHeader.xib */,
 			);
 			name = Views;
+			path = ../MidtransResources;
 			sourceTree = "<group>";
 		};
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
@@ -2002,34 +2005,13 @@
 			name = instructions;
 			sourceTree = "<group>";
 		};
-		E55F628C1E9349B900C012C8 /* resources */ = {
+		E57123F51E9380E80064F515 /* MidtransKitResources */ = {
 			isa = PBXGroup;
 			children = (
 				00F61AF01D145B3600C93DA0 /* Font */,
 				30AB739C1C7D57B6001F42FE /* Assets */,
 				306838871C7EF3B80064A305 /* Views */,
 				306838861C7EF3AC0064A305 /* Data */,
-			);
-			name = resources;
-			path = ../MidtransResources;
-			sourceTree = "<group>";
-		};
-		E55F628D1E9349D700C012C8 /* sources */ = {
-			isa = PBXGroup;
-			children = (
-				E5CDEC991E9340E80032DC3B /* MidtransKit.h */,
-				E503AEDC1C8E8C7200F097FF /* View */,
-				3056A21F1C7EA36E0015B3CC /* View Model */,
-				3056A2141C7E98490015B3CC /* Kit */,
-				3005E29D1C7C1C6B00064169 /* Helper */,
-				30E77E821C8401C40090D228 /* Controller */,
-			);
-			name = sources;
-			sourceTree = "<group>";
-		};
-		E57123F51E9380E80064F515 /* MidtransKitResources */ = {
-			isa = PBXGroup;
-			children = (
 				E57123F61E9380E80064F515 /* Info.plist */,
 			);
 			path = MidtransKitResources;
@@ -2071,8 +2053,12 @@
 		E5CDEC981E9340E80032DC3B /* MidtransKit */ = {
 			isa = PBXGroup;
 			children = (
-				E55F628D1E9349D700C012C8 /* sources */,
-				E55F628C1E9349B900C012C8 /* resources */,
+				E5CDEC991E9340E80032DC3B /* MidtransKit.h */,
+				E503AEDC1C8E8C7200F097FF /* View */,
+				3056A21F1C7EA36E0015B3CC /* View Model */,
+				3056A2141C7E98490015B3CC /* Kit */,
+				3005E29D1C7C1C6B00064169 /* Helper */,
+				30E77E821C8401C40090D228 /* Controller */,
 				E5CDEC9A1E9340E80032DC3B /* Info.plist */,
 			);
 			path = MidtransKit;

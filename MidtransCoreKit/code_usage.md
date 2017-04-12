@@ -21,6 +21,9 @@ We provide an API-only implementation for all payment types. This allows users t
 12. BRI E-Pay
 13. Kios ON
 14. GCI
+
+### Misc
+1. Save Card  Without Charge
 ### Setup
 
 #### Requirement

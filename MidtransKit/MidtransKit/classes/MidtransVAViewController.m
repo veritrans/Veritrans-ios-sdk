@@ -12,6 +12,7 @@
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransUIToast.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -81,6 +82,11 @@
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
         self.paymentType = VTVATypeBNI;
     }
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [[UIPasteboard generalPasteboard] setString:note.object];
+        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    }];
 }
 
 - (IBAction)payPressed:(id)sender {

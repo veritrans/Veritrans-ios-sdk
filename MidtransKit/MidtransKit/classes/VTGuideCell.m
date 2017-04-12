@@ -12,24 +12,16 @@
 @interface VTGuideCell()
 @property (strong, nonatomic) IBOutlet UILabel *numberLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *illustrationView;
-@property (strong, nonatomic) IBOutlet UILabel *contentLabel;
+@property (strong, nonatomic) IBOutlet VTTapableLabel *contentLabel;
 @property (strong, nonatomic) IBOutlet NSLayoutConstraint *illustrationWidth;
 
 @end
 
 @implementation VTGuideCell
 
-- (NSAttributedString *)attributedString:(NSString *)string {
-    NSDictionary *attribute = @{NSFontAttributeName:self.contentLabel.font,
-                                NSForegroundColorAttributeName:self.contentLabel.textColor};
-    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:string attributes:attribute];
-    [attributedString replaceCharacterString:@"[token_button]" withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-    return attributedString;
-}
-
 - (void)setInstruction:(VTInstruction *)instruction number:(NSInteger)number {
     self.numberLabel.text = [NSString stringWithFormat:@"%li", (long)number];
-    self.contentLabel.attributedText = [self attributedString:instruction.content];
+    self.contentLabel.tapableText = instruction.content;
     
     UIImage *image = [UIImage imageNamed:instruction.image inBundle:VTBundle compatibleWithTraitCollection:nil];
     if (image) {

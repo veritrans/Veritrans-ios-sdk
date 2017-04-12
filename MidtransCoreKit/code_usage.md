@@ -420,6 +420,7 @@ MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:@"41
 ```
 
 #####Output
+
 | JSON Attribute | Type   | Description                                  |
 |----------------|--------|----------------------------------------------|
 | transaction_id | String | Transaction ID given by Midtrans             |

@@ -10,6 +10,7 @@
 #import "MidtransUITextField.h"
 #import "MidtransVAHeader.h"
 #import "VTClassHelper.h"
+#import "SNPPostPaymentVAViewController.h"
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
@@ -101,7 +102,8 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [self handleTransactionSuccess:result];
+            SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
+            [self.navigationController pushViewController:postPaymentVAController animated:YES];
         }
     }];
 }

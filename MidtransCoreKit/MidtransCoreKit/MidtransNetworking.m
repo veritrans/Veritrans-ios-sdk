@@ -12,7 +12,7 @@
 
 @implementation NSData (decode)
 
-- (NSData*)validateUTF8 {
+- (NSData*)SNPvalidateUTF8 {
     NSString *strUtf8 = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
     NSString *strAscii = [[NSString alloc] initWithData:self encoding:NSASCIIStringEncoding];
     if (strUtf8) {
@@ -28,7 +28,7 @@
 
 @implementation NSString (encode)
 
-- (NSString *)URLEncodedString {
+- (NSString *)SNPURLEncodedString {
     return [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -50,7 +50,7 @@
             else if ([value isKindOfClass:[NSNull class]])
                 escapedValue = @"";
             else
-                escapedValue = [value URLEncodedString];
+                escapedValue = [value SNPURLEncodedString];
             
             [pairs addObject:[NSString stringWithFormat:@"%@=%@", key, escapedValue]];
         }
@@ -67,7 +67,7 @@
             NSArray *pairs = [self pairsOfArray:value key:key];
             [result addObjectsFromArray:pairs];
         } else {
-            NSString *escapedValue = [value isKindOfClass:[NSNumber class]] ? value : [value URLEncodedString];
+            NSString *escapedValue = [value isKindOfClass:[NSNumber class]] ? value : [value SNPURLEncodedString];
             [result addObject:[NSString stringWithFormat:@"%@[]=%@", key, escapedValue]];
         }
     }

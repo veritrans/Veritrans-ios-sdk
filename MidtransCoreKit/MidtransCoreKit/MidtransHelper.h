@@ -33,9 +33,9 @@ extern NSString *const MidtransMaskedCardsUpdated;
 + (NSNumberFormatter *)indonesianCurrencyFormatter;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
 @end
-
-@interface NSDictionary (SafeObject)
-- (id)safeObjectForKey:(id)key;
-- (id)safeValueForKeyPath:(NSString*)keyPath;
-- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
-@end
+//
+//@interface NSDictionary (SafeObject)
+//- (id)safeObjectForKey:(id)key;
+//- (id)safeValueForKeyPath:(NSString*)keyPath;
+//- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict;
+//@end

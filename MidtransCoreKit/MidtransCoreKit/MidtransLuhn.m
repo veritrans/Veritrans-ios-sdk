@@ -22,7 +22,7 @@
 
 + (BOOL)validateString:(NSString *)string {
     NSString *formattedString = [string formattedStringForProcessing];
-    if (formattedString == nil || formattedString.length < 9 || formattedString.isEmpty) {
+    if (formattedString == nil || formattedString.length < 9 || formattedString.SNPisEmpty) {
         return NO;
     }
     

@@ -54,7 +54,6 @@
 }
 
 - (IBAction)bayarPressed:(id)sender {
-    //configure transaction information
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
                                                          lastName:@"last"
                                                             phone:@"088888888888"

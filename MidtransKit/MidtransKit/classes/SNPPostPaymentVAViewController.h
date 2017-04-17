@@ -10,7 +10,5 @@
 @class MidtransTransactionResult,MidtransTransaction,MidtransPaymentListModel;
 @interface SNPPostPaymentVAViewController : MidtransUIPaymentController
 @property (nonatomic,strong)MidtransTransaction *transactionDetail;
-@property (nonatomic,strong)MidtransPaymentListModel *paymentMethod;
-@property (nonatomic,strong)MidtransTransactionTokenResponse *token;
 @property (nonatomic,strong)MidtransTransactionResult *transactionResult;
 @end

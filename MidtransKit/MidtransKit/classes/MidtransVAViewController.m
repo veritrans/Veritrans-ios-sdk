@@ -10,6 +10,7 @@
 #import "MidtransUITextField.h"
 #import "MidtransVAHeader.h"
 #import "VTClassHelper.h"
+#import "SNPPostPaymentVAViewController.h"
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
@@ -21,6 +22,7 @@
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+
 @property (nonatomic) MidtransVAType paymentType;
 @end
 
@@ -101,7 +103,18 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [self handleTransactionSuccess:result];
+            if (self.paymentType == VTVATypeMandiri) {
+                [self handleTransactionSuccess:result];
+            }
+            else{
+            SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
+                
+                postPaymentVAController.token = self.token;
+            postPaymentVAController.paymentMethod = self.paymentMethod;
+            postPaymentVAController.transactionDetail = transaction;
+            postPaymentVAController.transactionResult = result;
+            [self.navigationController pushViewController:postPaymentVAController animated:YES];
+            }
         }
     }];
 }

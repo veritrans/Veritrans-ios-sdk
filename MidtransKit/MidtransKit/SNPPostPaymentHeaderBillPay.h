@@ -9,5 +9,7 @@
 #import "SNPPostPaymentHeader.h"
 
 @interface SNPPostPaymentHeaderBillPay : SNPPostPaymentHeader
+@property (weak, nonatomic) IBOutlet UITextField *companyCodeTextField;
+@property (weak, nonatomic) IBOutlet UIButton *companyCodeCopyButton;
 
 @end

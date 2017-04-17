@@ -57,7 +57,7 @@
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i<[self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
-        if (i>1) {
+        if (i > 1) {
             [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
         } else {
             [self.headerView.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
@@ -103,18 +103,13 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            if (self.paymentType == VTVATypeMandiri) {
-                [self handleTransactionSuccess:result];
-            }
-            else{
             SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
-                
-                postPaymentVAController.token = self.token;
+            
+            postPaymentVAController.token = self.token;
             postPaymentVAController.paymentMethod = self.paymentMethod;
             postPaymentVAController.transactionDetail = transaction;
             postPaymentVAController.transactionResult = result;
             [self.navigationController pushViewController:postPaymentVAController animated:YES];
-            }
         }
     }];
 }

@@ -40,7 +40,7 @@
 - (void)commonInit {
     self.backgroundColor = [UIColor clearColor];
     
-    UIImage *background = [UIImage imageNamed:@"alertBackground" inBundle:VTBundle compatibleWithTraitCollection:nil];
+    UIImage *background = [UIImage imageNamed:@"AlertBackground" inBundle:VTBundle compatibleWithTraitCollection:nil];
     background = [background stretchableImageWithLeftCapWidth:15 topCapHeight:15];
     
     _backgroundView = [UIImageView new];

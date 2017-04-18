@@ -765,7 +765,7 @@ UIAlertViewDelegate
             
             NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
             NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.savedTokenId isEqualToString:savedToken.token];
+                return [self.maskedCreditCard.maskedNumber isEqualToString:savedToken.maskedCard];
             }];
             if (index != NSNotFound) {
                 [savedTokensM removeObjectAtIndex:index];

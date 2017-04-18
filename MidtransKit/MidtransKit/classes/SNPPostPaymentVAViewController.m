@@ -30,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationItem setHidesBackButton:YES];
+    [self showBackButton:NO];
+    
     self.title = self.paymentMethod.title;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

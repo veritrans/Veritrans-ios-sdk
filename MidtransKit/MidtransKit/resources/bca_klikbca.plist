@@ -2,26 +2,17 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-    <dict>
-        <key>content</key>
-        <string>Please make sure that the UserID is active and registered at BCA.</string>
-        <key>image</key>
-        <string></string>
-    </dict>
-	
-    <dict>
-        <key>content</key>
-        <string>Please continue the payment through KlikBCA by opening www.klikbca.com on a separate window or tab, using the same User ID that you entered below.</string>
-        <key>image</key>
-        <string></string>
-    </dict>
-	
-    <dict>
-        <key>content</key>
-        <string>Transaction will be cancelled if payment is not completed within 2 hours.</string>
-        <key>image</key>
-        <string></string>
-    </dict>
-	
+	<dict>
+		<key>content</key>
+		<string>Please make sure that the UserID is active and registered at BCA.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Please continue the payment through KlikBCA by opening www.klikbca.com on a separate window or tab, using the same User ID that you entered below.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
 </array>
 </plist>

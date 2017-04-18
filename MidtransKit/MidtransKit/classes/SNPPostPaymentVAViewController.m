@@ -8,6 +8,7 @@
 
 #import "SNPPostPaymentVAViewController.h"
 #import "SNPPostPaymentHeader.h"
+#import "SNPPostPaymentHeaderBillPay.h"
 #import "VTClassHelper.h"
 #import "SNPPostPaymentFooter.h"
 #import "MidtransUIToast.h"
@@ -21,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (nonatomic,strong) NSString *instructionUrl;
 @property (nonatomic) SNPPostPaymentHeader *headerView;
+@property (nonatomic) SNPPostPaymentHeaderBillPay *headerViewBillPay;
 @property (nonatomic) SNPPostPaymentFooter *footerView;
 @end
 
@@ -33,16 +35,24 @@
     self.tableView.dataSource = self;
     self.tableView.estimatedRowHeight = 60;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeaderBillPay" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeaderBillPay"];
+         self.headerViewBillPay = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeaderBillPay"];
+    }
+         else{
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
+              self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
+         }
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentFooter" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentFooter"];
      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     
-    self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
+   
     self.footerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentFooter"];
     [self.footerView.downloadInstructionButton addTarget:self action:@selector(downloadButtonDidtapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
+    [self.headerViewBillPay.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     NSString *vaNumber;
     NSString *expireDate;
@@ -50,6 +60,18 @@
     if ([self.paymentMethod.title isEqualToString:@"BCA"]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bca_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"bca_expiration" ];
+    }
+    else if([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+        vaNumber = [self.transactionResult.additionalData objectForKey:@"bill_key"];
+        expireDate = [self.transactionResult.additionalData objectForKey:@"billpayment_expiration"];
+        self.headerViewBillPay.companyCodeTextField.text =[self.transactionResult.additionalData objectForKey:@"biller_code"];
+          self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+        [self.headerViewBillPay.expiredTimeLabel boldSubstring:expireDate];
+        self.headerViewBillPay.vaTextField.enabled = NO;
+        self.headerViewBillPay.vaTextField.text = vaNumber;
+        [self.headerViewBillPay.companyCodeCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self.headerViewBillPay.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
     }
     else if ([self.paymentMethod.title isEqualToString:@"Permata"]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
@@ -73,9 +95,21 @@
     for (int i=0; i<[self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
         if (i>1) {
-            [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
+            if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+                 [self.headerViewBillPay.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
+            }
+            else {
+                 [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
+            }
+           
         } else {
-            [self.headerView.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
+            if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+                [self.headerViewBillPay.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
+            }
+            else {
+               [self.headerView.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
+            }
+            
         }
     }
     self.tableView.tableFooterView = self.footerView;
@@ -94,8 +128,22 @@
     }];
 }
 - (void)copyButtonDidTapped:(id)sender {
-    [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
-    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+        
+        if ([sender isEqual:self.headerViewBillPay.companyCodeCopyButton]) {
+            [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.companyCodeTextField.text];
+            [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+        }
+        else {
+            [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.vaTextField.text];
+            [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+        }
+    }
+    else {
+        [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
+        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    }
+   
 }
 - (void)tabChanged:(UISegmentedControl *)sender {
     [self selectTabAtIndex:sender.selectedSegmentIndex];
@@ -117,6 +165,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
+        if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+            return self.headerViewBillPay;
+        }
+        else{
+            return self.headerView;
+        }
         return self.headerView;
     }
     if (indexPath.row == self.subInstructions.count+1) {
@@ -133,7 +187,12 @@
     }
     else {
         if (indexPath.row == 0) {
-            return [self.headerView.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+            if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+                return [self.headerViewBillPay.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+            }
+            else{
+                return [self.headerView.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+            }
         }
         else {
             static VTGuideCell *cell = nil;

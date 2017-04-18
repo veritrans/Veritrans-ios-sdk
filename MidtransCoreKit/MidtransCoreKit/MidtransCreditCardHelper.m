@@ -74,7 +74,7 @@
     }
 }
 - (BOOL)isValidValue:(NSError **)error {
-    if (!self.isEmpty) {
+    if (!self.SNPisEmpty) {
         return YES;
     } else {
         NSString *errorMessage = NSLocalizedString(MIDTRANS_MESSAGE_INPUT_VALUE_INVALID, nil);

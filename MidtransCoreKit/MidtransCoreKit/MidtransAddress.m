@@ -83,7 +83,7 @@
 }
 
 - (BOOL)validCustomerData:(NSError **)error {
-    if (!self.phone.isEmpty && self.phone.isValidPhoneNumber) {
+    if (!self.phone.SNPisEmpty && self.phone.SNPisValidPhoneNumber) {
         return YES;
     }
     else {

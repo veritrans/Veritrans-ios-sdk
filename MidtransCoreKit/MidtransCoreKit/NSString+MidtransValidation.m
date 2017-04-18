@@ -10,25 +10,25 @@
 
 @implementation NSString (MidtransValidation)
 
-- (BOOL)isEmpty {
+- (BOOL)SNPisEmpty {
     NSString *string = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
     return (string.length == 0);
 }
 
-- (BOOL)isValidClickpayNumber {
+- (BOOL)SNPisValidClickpayNumber {
     NSString *formatted = [self stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *regex = @"^[0-9]{16}$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", regex];
     return [predicate evaluateWithObject:formatted];
 }
 
-- (BOOL)isValidClickpayToken {
+- (BOOL)SNPisValidClickpayToken {
     NSString *regex = @"^[0-9]{6}$";
     NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", regex];
     return [predicate evaluateWithObject:self];
 }
 
-- (BOOL)isValidEmail {
+- (BOOL)SNPisValidEmail {
     NSString *emailRegex =
     @"(?:[a-z0-9!#$%\\&'*+/=?\\^_`{|}~-]+(?:\\.[a-z0-9!#$%\\&'*+/=?\\^_`{|}"
     @"~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\"
@@ -42,25 +42,25 @@
     return [emailTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidCommonName {
+- (BOOL)SNPisValidCommonName {
     NSString *nameRegex = @"^[a-z ]+$";
     NSPredicate *nameTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", nameRegex];
     return [nameTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidNumber {
+- (BOOL)SNPisValidNumber {
     NSString *numberRegex = @"^[0-9]*$";
     NSPredicate *numberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", numberRegex];
     return [numberTest evaluateWithObject:self];
 }
 
-- (BOOL)isValidPhoneNumber {
+- (BOOL)SNPisValidPhoneNumber {
     NSString *phoneNumberRegex = @"^\\+?[0-9]*$";
     NSPredicate *phoneNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", phoneNumberRegex];
     return [phoneNumberTest evaluateWithObject:self] && self.length >= 6;
 }
 
-- (BOOL)isValidUsingPlusPhoneNumber {
+- (BOOL)SNPisValidUsingPlusPhoneNumber {
     NSString *phoneNumberRegex = @"^\\+[0-9]*$";
     NSPredicate *phoneNumberTest = [NSPredicate predicateWithFormat:@"SELF MATCHES[c] %@", phoneNumberRegex];
     return [phoneNumberTest evaluateWithObject:self];

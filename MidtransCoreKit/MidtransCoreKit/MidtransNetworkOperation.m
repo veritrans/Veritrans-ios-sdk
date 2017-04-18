@@ -29,7 +29,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
 
 @implementation NSData (decode)
 
-- (NSData*)validateUTF8 {
+- (NSData*)SNPvalidateUTF8 {
     NSString *strUtf8 = [[NSString alloc] initWithData:self encoding:NSUTF8StringEncoding];
     NSString *strAscii = [[NSString alloc] initWithData:self encoding:NSASCIIStringEncoding];
     if (strUtf8) {
@@ -45,7 +45,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
 
 @implementation NSString (encode)
 
-- (NSString *)URLEncodedString {
+- (NSString *)SNPURLEncodedString {
     return [self stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 }
 
@@ -119,7 +119,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
     if (self.isCancelled)
         return;
     
-    id responseObject = [NSJSONSerialization JSONObjectWithData:[_responseData validateUTF8]
+    id responseObject = [NSJSONSerialization JSONObjectWithData:[_responseData SNPvalidateUTF8]
                                                         options:NSJSONReadingMutableContainers
                                                           error:nil];
     
@@ -128,7 +128,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
     if (request)
         [object setObject:request forKey:kMTNetworkOperationRequest];
     if (_responseData)
-        [object setObject:[_responseData validateUTF8] forKey:kMTNetworkOperationResponse];
+        [object setObject:[_responseData SNPvalidateUTF8] forKey:kMTNetworkOperationResponse];
     [[NSNotificationCenter defaultCenter] postNotificationName:MTNetworkingDidFinishRequest object:object];
     
     if (responseObject[MIDTRANS_CORE_STATUS_CODE]) {

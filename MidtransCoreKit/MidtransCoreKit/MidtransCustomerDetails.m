@@ -80,10 +80,10 @@
 }
 
 - (BOOL)isValidCustomerData:(NSError **)error {
-    if (self.email.isEmpty ||
-        !self.email.isValidEmail ||
-        self.phone.isEmpty ||
-        !self.phone.isValidPhoneNumber)
+    if (self.email.SNPisEmpty ||
+        !self.email.SNPisValidEmail ||
+        self.phone.SNPisEmpty ||
+        !self.phone.SNPisValidPhoneNumber)
     {
         *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
         return NO;

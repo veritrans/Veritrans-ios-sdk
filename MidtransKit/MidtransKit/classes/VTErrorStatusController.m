@@ -11,7 +11,15 @@
 #import "VTKITConstant.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
+
 @interface VTErrorStatusController ()
+
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
+@property (strong, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (strong, nonatomic) IBOutlet UILabel *orderIDLabel;
+@property (strong, nonatomic) IBOutlet UILabel *paymentTypeLabel;
+
 @property (nonatomic) NSError *error;
 @end
 

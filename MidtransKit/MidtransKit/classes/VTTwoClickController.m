@@ -18,8 +18,6 @@
 #import <MidtransCoreKit/MidtransBinResponse.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2Installment.h>
 #import "VTPaymentStatusViewModel.h"
-#import "VTSuccessStatusController.h"
-#import "VTErrorStatusController.h"
 #import "IHKeyboardAvoiding_vt.h"
 #import "MidtransInstallmentView.h"
 static dispatch_once_t * onceToken;
@@ -46,21 +44,26 @@ static dispatch_once_t * onceToken;
 
 @implementation VTTwoClickController
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCard:(MidtransMaskedCreditCard *)maskedCard {
-    self = [super initWithToken:token];
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+                   maskedCard:(MidtransMaskedCreditCard *)maskedCard {
+    self = [super initWithToken:token paymentMethodName:paymentMethod];
     if (self) {
         self.maskeCard = maskedCard;
     }
     return self;
 }
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCard:(MidtransMaskedCreditCard *)maskedCard andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
-    self = [super initWithToken:token];
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+                   maskedCard:(MidtransMaskedCreditCard *)maskedCard
+            andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard {
+    self = [super initWithToken:token paymentMethodName:paymentMethod];
     if (self) {
         self.maskeCard = maskedCard;
         self.creditCardInfo = creditCard;
     }
     return self;
-
+    
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -190,12 +193,12 @@ static dispatch_once_t * onceToken;
         tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId cvv:self.cvvTextField.text grossAmount:self.token.transactionDetails.grossAmount installment:YES installmentTerm:[NSNumber numberWithInteger:installment]];
     }
     else {
-      tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
-                                                                                                  cvv:self.cvvTextField.text
-                                                                                        grossAmount:self.token.transactionDetails.grossAmount];
+        tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskeCard.savedTokenId
+                                                                          cvv:self.cvvTextField.text
+                                                                  grossAmount:self.token.transactionDetails.grossAmount];
     }
-
-   
+    
+    
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {

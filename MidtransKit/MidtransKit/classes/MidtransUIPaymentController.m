@@ -26,7 +26,6 @@
 #import "VTVASuccessStatusController.h"
 #import "VTIndomaretSuccessController.h"
 #import "VTKlikbcaSuccessController.h"
-#import "VTPendingStatusController.h"
 
 @interface MidtransUIPaymentController ()
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
@@ -36,14 +35,6 @@
 @end
 
 @implementation MidtransUIPaymentController
-
--(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
-    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
-    if (self) {
-        self.token = token;
-    }
-    return self;
-}
 
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
@@ -146,7 +137,7 @@
         return;
     }
     
-    VTErrorStatusController *vc = [[VTErrorStatusController alloc] initWithError:error];
+    VTPaymentStatusController *vc = [VTPaymentStatusController errorTransactionWithError:error token:self.token paymentMethod:self.paymentMethod];
     if ([VTClassHelper hasKindOfController:vc onControllers:self.navigationController.viewControllers] == NO) {
         [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
     }
@@ -184,7 +175,7 @@
         NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN
                                                     code:result.statusCode
                                                 userInfo:@{NSLocalizedDescriptionKey:result.statusMessage}];
-        vc = [[VTErrorStatusController alloc] initWithError:error];
+        vc = [VTPaymentStatusController errorTransactionWithError:error token:self.token paymentMethod:self.paymentMethod];
     }
     else {
         id paymentID = self.paymentMethod.internalBaseClassIdentifier;
@@ -221,7 +212,7 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
         else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-            VTPendingStatusController *vc = [[VTPendingStatusController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod result:result];
+            VTPaymentStatusController *vc = [VTPaymentStatusController pendingTransactionWithResult:result token:self.token paymentMethod:self.paymentMethod];
             [self.navigationController pushViewController:vc animated:YES];
         }
         else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
@@ -229,8 +220,9 @@
             vc = [[VTXLTunaiSuccessController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod statusModel:viewModel];
         }
         else {
-            VTPaymentStatusViewModel *vm = [[VTPaymentStatusViewModel alloc] initWithTransactionResult:result];
-            vc = [[VTSuccessStatusController alloc] initWithSuccessViewModel:vm];
+            vc = [VTPaymentStatusController successTransactionWithResult:result
+                                                                   token:self.token
+                                                           paymentMethod:self.paymentMethod];
         }
     }
     if ([VTClassHelper hasKindOfController:vc onControllers:self.navigationController.viewControllers] == NO) {

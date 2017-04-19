@@ -30,6 +30,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.navigationItem setHidesBackButton:YES];
+    [self showBackButton:NO];
+    
     self.title = self.paymentMethod.title;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -206,6 +210,9 @@
     }
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

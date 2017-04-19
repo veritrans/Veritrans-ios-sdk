@@ -67,7 +67,7 @@ UIAlertViewDelegate
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod
             andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard
  andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment {
-    if (self = [super initWithToken:token]) {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.creditCardInfo = creditCard;
         self.responsePayment = responsePayment;
         self.paymentMethodInfo = paymentMethod;
@@ -76,10 +76,11 @@ UIAlertViewDelegate
 }
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+                paymentMethod:(MidtransPaymentListModel *)paymentMethod
                    maskedCard:(MidtransMaskedCreditCard *)maskedCard
                    creditCard:(MidtransPaymentRequestV2CreditCard *)creditCard
- andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment{
-    if (self = [super initWithToken:token]) {
+ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.maskedCreditCard = maskedCard;
         self.creditCardInfo = creditCard;
         self.responsePayment = responsePayment;
@@ -378,11 +379,11 @@ UIAlertViewDelegate
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"save card for later reuse"
-                                                          message:@"We will securely store your card details so you can reuse theme later"
+                                                          message:@"we will securely store your card details so you can reuse them later"
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
-                                                          okButtonTitle:@"Ok"];
+                                                          okButtonTitle:@"ok"];
         
         [self.navigationController presentCustomViewController:alertView
                                               onViewController:self.navigationController
@@ -391,11 +392,11 @@ UIAlertViewDelegate
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"redeem bni reward point"
-                                                          message:@"you can pay partly through the redemption of BNI Reward Point through your Credit Card"
+                                                          message:@"you can pay partly through the redemption of BNI Reward Point through your credit card"
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
-                                                          okButtonTitle:@"Ok"];
+                                                          okButtonTitle:@"ok"];
         
         [self.navigationController presentCustomViewController:alertView
                                               onViewController:self.navigationController
@@ -684,7 +685,11 @@ UIAlertViewDelegate
                                         initWithPaymentDetails:paymentDetail token:self.token];
     if (self.bniPointActive) {
         [self hideLoading];
-        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token tokenizedCard:token savedCard:self.saveCard andCompleteResponseOfPayment:self.responsePayment];
+        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
+                                                                          paymentMethod:self.paymentMethod
+                                                                          tokenizedCard:token
+                                                                              savedCard:self.saveCard
+                                                           andCompleteResponseOfPayment:self.responsePayment];
         pointVC.currentMaskedCards = self.currentMaskedCards;
         [self.navigationController pushViewController:pointVC animated:YES];
         return;
@@ -765,7 +770,7 @@ UIAlertViewDelegate
             
             NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
             NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.savedTokenId isEqualToString:savedToken.token];
+                return [self.maskedCreditCard.maskedNumber isEqualToString:savedToken.maskedCard];
             }];
             if (index != NSNotFound) {
                 [savedTokensM removeObjectAtIndex:index];
@@ -792,14 +797,14 @@ UIAlertViewDelegate
         }
         else {
             switch ([MidtransCreditCardHelper typeFromString:ccnumber]) {
-                case VTCreditCardTypeAmex:
+                    case VTCreditCardTypeAmex:
                     if (ccnumber.length == 15) {
                         [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
-                case VTCreditCardTypeJCB:
-                case VTCreditCardTypeVisa:
-                case VTCreditCardTypeMasterCard:
+                    case VTCreditCardTypeJCB:
+                    case VTCreditCardTypeVisa:
+                    case VTCreditCardTypeMasterCard:
                     if (ccnumber.length == 16) {
                         [self.view.cardExpireTextField becomeFirstResponder];
                     }

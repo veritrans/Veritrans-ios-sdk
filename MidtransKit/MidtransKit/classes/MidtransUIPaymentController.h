@@ -9,16 +9,16 @@
 #import "MidtransUIBaseViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentListModel.h>
-#import "VTErrorStatusController.h"
 #import "VTPaymentStatusViewModel.h"
-#import "VTSuccessStatusController.h"
+#import "VTPaymentStatusController.h"
 #import "MidtransUIPaymentViewController.h"
 @interface MidtransUIPaymentController : MidtransUIBaseViewController
 @property (nonatomic,strong) MidtransTransactionTokenResponse *token;
 @property (nonatomic,strong) MidtransPaymentListModel *paymentMethod;
+
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod;
--(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
+
 -(void)showBackButton:(BOOL)show;
 -(void)showDismissButton:(BOOL)show;
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;

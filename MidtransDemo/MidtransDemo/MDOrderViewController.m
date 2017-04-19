@@ -91,8 +91,7 @@
     
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
-    
-    //tokenize transaction
+
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst

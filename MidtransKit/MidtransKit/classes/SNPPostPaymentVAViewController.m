@@ -210,6 +210,9 @@
     }
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 

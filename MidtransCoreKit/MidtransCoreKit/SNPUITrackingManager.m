@@ -15,13 +15,7 @@
 #import "MidtransHelper.h"
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 
-@implementation NSDictionary (TrackingManager)
-
-- (NSDictionary*)dictionaryByRemovingKey:(NSString *)key {
-    NSMutableDictionary *result = [self mutableCopy];
-    [result removeObjectForKey:key];
-    return result;
-}
+@implementation NSDictionary (SNPUITrackingManager)
 
 - (NSMutableDictionary*)SNPUITrackingManageraddDefaultParameter{
     NSString *token = [PRIVATECONFIG mixpanelToken];

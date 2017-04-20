@@ -54,7 +54,6 @@
 }
 
 - (IBAction)bayarPressed:(id)sender {
-    //configure transaction information
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
                                                          lastName:@"last"
                                                             phone:@"088888888888"
@@ -92,8 +91,7 @@
     
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
-    
-    //tokenize transaction
+
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst

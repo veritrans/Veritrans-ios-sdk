@@ -53,7 +53,7 @@
         [textField.text isValidCreditCardNumber:&error];
     }
     else {
-        if (self.view.passwordTextField.text.isEmpty) {
+        if (self.view.passwordTextField.text.SNPisEmpty) {
              [textField.text isValidValue:&error];
         }
     }
@@ -61,11 +61,11 @@
 }
 
 - (IBAction)confirmPaymentButtonDidTapped:(id)sender {
-   if (self.view.gciCardTextField.text.isEmpty) {
+   if (self.view.gciCardTextField.text.SNPisEmpty) {
         self.view.gciCardTextField.warning = @"Card Number cannot be empty";
         return;
     }
-     else if (self.view.passwordTextField.text.isEmpty) {
+     else if (self.view.passwordTextField.text.SNPisEmpty) {
        self.view.passwordTextField.warning = @"PIN cannot be empty";
         return;
     }

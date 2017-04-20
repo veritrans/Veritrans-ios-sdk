@@ -32,6 +32,16 @@
 		<key>id</key>
 		<string>permata_va</string>
 	</dict>
+    <dict>
+        <key>shortName</key>
+        <string>atm bni</string>
+        <key>title</key>
+        <string>BNI</string>
+        <key>description</key>
+        <string>Pay from BNI ATMs or internet banking</string>
+        <key>id</key>
+        <string>bni_va</string>
+    </dict>
 	<dict>
 		<key>shortName</key>
 		<string>atm all</string>

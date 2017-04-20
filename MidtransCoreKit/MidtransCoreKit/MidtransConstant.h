@@ -45,6 +45,7 @@ static NSString * const MIDTRANS_PAYMENT_CREDIT_CARD = @"credit_card";
 static NSString * const MIDTRANS_PAYMENT_ECHANNEL = @"echannel";
 static NSString * const MIDTRANS_PAYMENT_PERMATA_VA = @"permata_va";
 static NSString * const MIDTRANS_PAYMENT_BCA_VA = @"bca_va";
+static NSString * const MIDTRANS_PAYMENT_BNI_VA = @"bni_va";
 static NSString * const MIDTRANS_PAYMENT_ALL_VA = @"all_va";
 static NSString * const MIDTRANS_PAYMENT_OTHER_VA= @"other_va";
 static NSString * const MIDTRANS_PAYMENT_VA = @"va";

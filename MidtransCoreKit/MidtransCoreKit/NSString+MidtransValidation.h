@@ -9,14 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @interface NSString (MidtransValidation)
-- (BOOL)isEmpty;
-- (BOOL)isValidEmail;
-- (BOOL)isValidCommonName;
-- (BOOL)isValidNumber;
-- (BOOL)isValidPhoneNumber;
-- (BOOL)isValidUsingPlusPhoneNumber;
+- (BOOL)SNPisEmpty;
+- (BOOL)SNPisValidEmail;
+- (BOOL)SNPisValidCommonName;
+- (BOOL)SNPisValidNumber;
+- (BOOL)SNPisValidPhoneNumber;
+- (BOOL)SNPisValidUsingPlusPhoneNumber;
 
-- (BOOL)isValidClickpayNumber;
-- (BOOL)isValidClickpayToken;
+- (BOOL)SNPisValidClickpayNumber;
+- (BOOL)SNPisValidClickpayToken;
 
 @end

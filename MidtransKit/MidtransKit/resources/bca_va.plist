@@ -39,14 +39,14 @@
                     <key>content</key>
                     <string>Enter the full amount to be paid and press ‘Correct’</string>
                     <key>image</key>
-                    <string>bca_atm_4</string>
+                    <string>bca_atm_5</string>
                 </dict>
                 
                 <dict>
                     <key>content</key>
                     <string>Your payment details will appear on the confirmation page. If the information is correct press ‘Yes’</string>
                     <key>image</key>
-                    <string>bca_atm_4</string>
+                    <string>bca_atm_6</string>
                 </dict>
             </array>
         </dict>

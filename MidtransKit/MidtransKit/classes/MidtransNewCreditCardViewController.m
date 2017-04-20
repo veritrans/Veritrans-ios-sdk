@@ -378,11 +378,11 @@ UIAlertViewDelegate
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"save card for later reuse"
-                                                          message:@"We will securely store your card details so you can reuse theme later"
+                                                          message:@"we will securely store your card details so you can reuse them later"
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
-                                                          okButtonTitle:@"Ok"];
+                                                          okButtonTitle:@"ok"];
         
         [self.navigationController presentCustomViewController:alertView
                                               onViewController:self.navigationController
@@ -391,11 +391,11 @@ UIAlertViewDelegate
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"redeem bni reward point"
-                                                          message:@"you can pay partly through the redemption of BNI Reward Point through your Credit Card"
+                                                          message:@"you can pay partly through the redemption of BNI Reward Point through your credit card"
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
-                                                          okButtonTitle:@"Ok"];
+                                                          okButtonTitle:@"ok"];
         
         [self.navigationController presentCustomViewController:alertView
                                               onViewController:self.navigationController
@@ -765,7 +765,7 @@ UIAlertViewDelegate
             
             NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
             NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.savedTokenId isEqualToString:savedToken.token];
+                return [self.maskedCreditCard.maskedNumber isEqualToString:savedToken.maskedCard];
             }];
             if (index != NSNotFound) {
                 [savedTokensM removeObjectAtIndex:index];

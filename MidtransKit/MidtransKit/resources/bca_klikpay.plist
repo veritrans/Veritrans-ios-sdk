@@ -10,13 +10,13 @@
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>For payment, you can choose to use KlikBCA Individu Account or BCA Card</string>
+		<string>For payment, you can choose to use KlikBCA Individu Account or BCA Credit Card</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>For more information about BCA KlikPay please contact Halo BCA at (021) 1500888 or visit www.klikbca.com/klikpay</string>
+		<string>For more information about BCA KlikPay please contact Halo BCA at (021) 1500888 or visit &lt;link&gt;http://klikbca.com/KlikPay/klikpay.html&lt;/link&gt;</string>
 		<key>image</key>
 		<string></string>
 	</dict>

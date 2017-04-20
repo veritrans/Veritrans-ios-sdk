@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VTInstruction.h"
+#import "VTTapableLabel.h"
 
 @interface VTGuideCell : UITableViewCell
 - (void)setInstruction:(VTInstruction *)instruction number:(NSInteger)number;

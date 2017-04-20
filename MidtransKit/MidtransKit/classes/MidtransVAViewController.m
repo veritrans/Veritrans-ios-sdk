@@ -10,8 +10,10 @@
 #import "MidtransUITextField.h"
 #import "MidtransVAHeader.h"
 #import "VTClassHelper.h"
+#import "SNPPostPaymentVAViewController.h"
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransUIToast.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -20,6 +22,7 @@
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+
 @property (nonatomic) MidtransVAType paymentType;
 @end
 
@@ -54,7 +57,7 @@
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i<[self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
-        if (i>1) {
+        if (i > 1) {
             [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
         } else {
             [self.headerView.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
@@ -62,21 +65,30 @@
     }
     [self selectTabAtIndex:0];
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
+    id paymentID = self.paymentMethod.internalBaseClassIdentifier;
+    if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.paymentType = VTVATypeBCA;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
         self.paymentType = VTVATypeMandiri;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
         self.paymentType = VTVATypePermata;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
         self.paymentType = VTVATypeOther;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
         self.paymentType = VTVATypeOther;
     }
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+        self.paymentType = VTVATypeBNI;
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+        [[UIPasteboard generalPasteboard] setString:note.object];
+        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    }];
 }
 
 - (IBAction)payPressed:(id)sender {
@@ -91,7 +103,13 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [self handleTransactionSuccess:result];
+            SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
+            
+            postPaymentVAController.token = self.token;
+            postPaymentVAController.paymentMethod = self.paymentMethod;
+            postPaymentVAController.transactionDetail = transaction;
+            postPaymentVAController.transactionResult = result;
+            [self.navigationController pushViewController:postPaymentVAController animated:YES];
         }
     }];
 }

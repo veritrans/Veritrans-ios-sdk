@@ -32,6 +32,8 @@ static NSString * _Nonnull const kMTMaskedCreditCardExpiresAt = @"expires_at";
 @property (nonatomic, readonly, nullable) NSString *type;
 
 @property (nonatomic, readonly, nullable) NSString *tokenType;
+@property (nonatomic, readonly, nullable) NSString *statusCode;
+@property (nonatomic, readonly, nullable) NSString *transactionId;
 
 @property (nonatomic, readonly, nullable) NSString *expiresAt;
 

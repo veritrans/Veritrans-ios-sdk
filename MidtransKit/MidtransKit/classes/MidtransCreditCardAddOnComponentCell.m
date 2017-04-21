@@ -19,15 +19,17 @@
     // Initialization code
     
     self.addOnInformationButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
-    self.addOnImageView.tintColor = [[MidtransUIThemeManager shared] themeColor];
+    self.checkButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     
     [self.addOnInformationButton setImage:[self templateImageNamed:@"hint"] forState:UIControlStateNormal];
-    self.addOnImageView.highlightedImage = [self templateImageNamed:@"checkbox_checked"];
-    self.addOnImageView.image = [self templateImageNamed:@"checkbox_uncheck"];
+    
+    [self.checkButton setBackgroundImage:[self templateImageNamed:@"checkbox_uncheck"] forState:UIControlStateNormal];
+    [self.checkButton setBackgroundImage:[self templateImageNamed:@"checkbox_checked"] forState:UIControlStateSelected];
 }
+
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
-    self.addOnImageView.highlighted = selected;
+    
 }
 - (void)configurePaymentAddOnWithData:(AddOnConstructor *)addOn {
     self.addOnTitleLabel.text = addOn.addOnTitle;

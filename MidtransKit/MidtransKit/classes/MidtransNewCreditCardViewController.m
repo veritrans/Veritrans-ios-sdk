@@ -8,7 +8,6 @@
 
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransNewCreditCardView.h"
-#import "MidtransPaymentCCAddOnDataSource.h"
 #import "VTClassHelper.h"
 #import "MidtransUINextStepButton.h"
 #import "SNPPointViewController.h"
@@ -22,11 +21,12 @@
 #import "MidtransInstallmentView.h"
 #import "MidtransUITextField.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransCreditCardAddOnComponentCell.h"
 
 @interface MidtransNewCreditCardViewController () <
 UITableViewDelegate,
+UITableViewDataSource,
 MidtransUITextFieldDelegate,
-MidtransPaymentCCAddOnDataSourceDelegate,
 MidtransUICardFormatterDelegate,
 MidtransInstallmentViewDelegate,
 UIAlertViewDelegate
@@ -34,14 +34,12 @@ UIAlertViewDelegate
 
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *bottomButton;
-@property (nonatomic,strong ) MidtransPaymentCCAddOnDataSource *dataSource;
 @property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCardInfo;
 @property (nonatomic,strong) MidtransPaymentRequestV2Installment *installment;
 @property (nonatomic,strong) MidtransPaymentListModel *paymentMethodInfo;
 @property (nonatomic) NSInteger attemptRetry;
 @property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
-@property (nonatomic) BOOL saveCard;
 @property (nonatomic,strong) NSString *installmentBankName;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
@@ -57,7 +55,9 @@ UIAlertViewDelegate
 @property (nonatomic) MidtransMaskedCreditCard *maskedCreditCard;
 @property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
 @property (nonatomic) BOOL bniPointActive;
+@property (nonatomic) BOOL isSaveCard;
 @property (nonatomic,strong)AddOnConstructor *constructBNIPoint;
+
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -112,26 +112,26 @@ UIAlertViewDelegate
     self.ccFormatter.numberLimit = 16;
     self.ccFormatter.delegate = self;
     self.addOnArray = [NSMutableArray new];
-    self.dataSource = [[MidtransPaymentCCAddOnDataSource alloc] init];
     
-    self.dataSource.delegate = self;
-    self.view.addOnTableView.dataSource  = self.dataSource;
     [self.view configureAmountTotal:self.token];
     
-    self.saveCard = NO;
+    self.view.addOnTableView.delegate = self;
+    self.view.addOnTableView.dataSource = self;
+    [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
+    
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
                                                    @"addOnTitle":@"Redeem BNI Reward Point"}];
+    
+    self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
                                                                     @"addOnTitle":@"Save card for later use"}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
-            //self.saveCard = YES;
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
-            [self setCreditCardSelectedAtIndex:0];
             
         }
     }
@@ -175,21 +175,11 @@ UIAlertViewDelegate
         self.view.deleteButton.hidden = YES;
     }
     
-    [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
-    
     [self.view.creditCardNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardCVVNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardExpireTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
 }
-- (void)setCreditCardSelectedAtIndex:(NSInteger)index {
-    if ([CC_CONFIG setDefaultCreditSaveCardEnabled]) {
-        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        [self.view.addOnTableView selectRowAtIndexPath:indexPath
-                                              animated:NO
-                                        scrollPosition:UITableViewScrollPositionNone];
-        [self tableView:self.view.addOnTableView didSelectRowAtIndexPath:indexPath];
-    }
-}
+
 - (void)deleteCardPressed:(id)sender {
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
                                                     message:UILocalizedString(@"alert.message-delete-card", nil)
@@ -230,35 +220,42 @@ UIAlertViewDelegate
 }
 
 #pragma mark - UITableViewDelegate
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.addOnArray.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    AddOnConstructor *payAddOn = [self.addOnArray objectAtIndex:indexPath.row];
+    MidtransCreditCardAddOnComponentCell *cell = (MidtransCreditCardAddOnComponentCell *)[tableView dequeueReusableCellWithIdentifier:@"MidtransCreditCardAddOnComponentCell"];
+    
+    cell.checkButton.selected = self.isSaveCard;
+    cell.checkButton.tag = indexPath.row;
+    cell.addOnInformationButton.tag = indexPath.row;
+    [cell configurePaymentAddOnWithData:payAddOn];
+    
+    [cell.checkButton addTarget:self action:@selector(checkButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    [cell.addOnInformationButton addTarget:self action:@selector(informationButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+    
+    if ([payAddOn.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
+        cell.checkButton.selected = self.isSaveCard;
+    }
+    else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
+        cell.checkButton.selected = self.bniPointActive;
+    }
+
+    return cell;
+}
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IS_IOS8_OR_ABOVE) {
         return UITableViewAutomaticDimension;
     }
     else {
-        UITableViewCell *cell = [self.dataSource tableView:self.view.addOnTableView
-                                     cellForRowAtIndexPath:indexPath];
+        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
         [cell updateConstraintsIfNeeded];
         [cell layoutIfNeeded];
         float height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         return height;
-    }
-}
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:indexPath.row];
-    if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
-        self.saveCard = !self.saveCard;
-    }
-    if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-        self.bniPointActive = !self.bniPointActive;
-    }
-}
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
-    AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:indexPath.row];
-    if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
-        self.saveCard = !self.saveCard;
-    }
-    if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-        self.bniPointActive = !self.bniPointActive;
     }
 }
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -291,12 +288,8 @@ UIAlertViewDelegate
     return UITableViewAutomaticDimension;
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-}
 - (void)updateAddOnContent {
-    self.dataSource.paymentAddOnArray  = self.addOnArray;
-    self.view.addOnTableViewHeightConstraints.constant = self.dataSource.paymentAddOnArray.count * 50;
+    self.view.addOnTableViewHeightConstraints.constant = self.addOnArray.count * 50;
     [self.view.addOnTableView reloadData];
 }
 
@@ -372,8 +365,19 @@ UIAlertViewDelegate
                                                 completion:nil];
 }
 
-- (void)informationButtonDidTappedWithTag:(NSInteger)index {
-    AddOnConstructor *constructor = [self.dataSource.paymentAddOnArray objectAtIndex:index];
+- (void)checkButtonTap:(UIButton *)sender {
+    AddOnConstructor *constructor = [self.addOnArray objectAtIndex:sender.tag];
+    if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
+        self.isSaveCard = !sender.selected;
+    }
+    else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
+        self.bniPointActive = !sender.selected;
+    }
+    [self.view.addOnTableView reloadData];
+}
+
+- (void)informationButtonTap:(UIButton *)sender {
+    AddOnConstructor *constructor = [self.addOnArray objectAtIndex:sender.tag];
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
@@ -522,9 +526,7 @@ UIAlertViewDelegate
                         if (![self.addOnArray containsObject:self.constructBNIPoint]) {
                             [self.addOnArray addObject:self.constructBNIPoint];
                             [self updateAddOnContent];
-                            [self setCreditCardSelectedAtIndex:0];
                         }
-                        
                     }
                 }
             }
@@ -552,10 +554,8 @@ UIAlertViewDelegate
     }
     else{
         if ([self.addOnArray containsObject:self.constructBNIPoint]) {
-            self.bniPointActive = NO;
             [self.addOnArray removeObject:self.constructBNIPoint];
             [self updateAddOnContent];
-            [self setCreditCardSelectedAtIndex:0];
         }
         
         
@@ -674,7 +674,7 @@ UIAlertViewDelegate
 - (void)payWithToken:(NSString *)token {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
-                                                                                saveCard:self.saveCard
+                                                                                saveCard:self.isSaveCard
                                                                              installment:self.installmentTerms];
     
     if (self.obtainedPromo) {
@@ -684,7 +684,7 @@ UIAlertViewDelegate
                                         initWithPaymentDetails:paymentDetail token:self.token];
     if (self.bniPointActive) {
         [self hideLoading];
-        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token tokenizedCard:token savedCard:self.saveCard andCompleteResponseOfPayment:self.responsePayment];
+        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token tokenizedCard:token savedCard:self.isSaveCard andCompleteResponseOfPayment:self.responsePayment];
         pointVC.currentMaskedCards = self.currentMaskedCards;
         [self.navigationController pushViewController:pointVC animated:YES];
         return;

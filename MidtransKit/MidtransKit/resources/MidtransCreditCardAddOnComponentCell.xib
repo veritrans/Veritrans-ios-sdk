@@ -41,6 +41,9 @@
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i2-wu-Kbq" customClass="MidtransUIButton">
                         <rect key="frame" x="15" y="11" width="22" height="22"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mt_checkbox">
+                            <accessibilityTraits key="traits" button="YES"/>
+                        </accessibility>
                         <state key="normal" backgroundImage="checkbox_uncheck.png"/>
                         <state key="selected" backgroundImage="checkbox_checked.png"/>
                     </button>

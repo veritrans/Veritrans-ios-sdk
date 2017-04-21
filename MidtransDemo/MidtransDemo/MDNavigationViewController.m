@@ -19,6 +19,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.navigationBar.accessibilityIdentifier = @"demo_navbar";
+    
     self.navigationBar.titleTextAttributes = @{
                                                NSFontAttributeName:[UIFont bariolRegularWithSize:21],
                                                NSForegroundColorAttributeName:[UIColor mdDarkColor]

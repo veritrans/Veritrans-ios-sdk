@@ -81,6 +81,7 @@ static CGFloat const kInfoPadding = 5;
 }
 
 - (void)commonInit {
+    self.accessibilityIdentifier = @"mt_textfield";
     
     self.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.font.pointSize];
     

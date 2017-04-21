@@ -26,6 +26,7 @@
     }
     else {
         [self tap];
+        sleep(1);
         [self typeText:text];
     }
     

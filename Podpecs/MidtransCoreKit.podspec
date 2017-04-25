@@ -10,7 +10,7 @@ s.source           = { :git => 'https://github.com/veritrans/Veritrans-ios-sdk.g
 s.platform     = :ios, '8.0'
 s.requires_arc = true
 
-s.source_files = 'MidtransCoreKit/MidtransCoreKit/*.{h,m}'
+s.source_files = 'MidtransCoreKit/MidtransCoreKit/**/*.{h,m}'
 s.frameworks    = 'UIKit', 'Foundation'
 
 end

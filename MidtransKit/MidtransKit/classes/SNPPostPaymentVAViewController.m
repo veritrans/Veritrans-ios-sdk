@@ -40,19 +40,19 @@
     self.tableView.estimatedRowHeight = 60;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
-         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeaderBillPay" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeaderBillPay"];
-         self.headerViewBillPay = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeaderBillPay"];
+        [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeaderBillPay" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeaderBillPay"];
+        self.headerViewBillPay = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeaderBillPay"];
     }
-         else{
-    [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
-              self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
-         }
+    else{
+        [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
+        self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
+    }
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentFooter" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentFooter"];
-     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     
-   
+    
     self.footerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentFooter"];
     [self.footerView.downloadInstructionButton addTarget:self action:@selector(downloadButtonDidtapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
@@ -69,7 +69,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bill_key"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"billpayment_expiration"];
         self.headerViewBillPay.companyCodeTextField.text =[self.transactionResult.additionalData objectForKey:@"biller_code"];
-          self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+        self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
         [self.headerViewBillPay.expiredTimeLabel boldSubstring:expireDate];
         self.headerViewBillPay.vaTextField.enabled = NO;
         self.headerViewBillPay.vaTextField.text = vaNumber;
@@ -81,7 +81,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }
-   
+    
     
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other Bank"]) {
@@ -100,25 +100,25 @@
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
         if (i>1) {
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
-                 [self.headerViewBillPay.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
+                [self.headerViewBillPay.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
             }
             else {
-                 [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
+                [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
             }
-           
+            
         } else {
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
                 [self.headerViewBillPay.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
             }
             else {
-               [self.headerView.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
+                [self.headerView.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
             }
             
         }
     }
     self.tableView.tableFooterView = self.footerView;
     [self selectTabAtIndex:0];
-
+    
     
     // Do any additional setup after loading the view from its nib.
 }
@@ -127,7 +127,7 @@
     NSURL *URL = [NSURL URLWithString:self.instructionUrl];
     [application openURL:URL options:@{} completionHandler:^(BOOL success) {
         if (!success) {
-           [MidtransUIToast createToast:@"Failed to open Instructions" duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:@"Failed to open Instructions" duration:1.5 containerView:self.view];
         }
     }];
 }
@@ -147,7 +147,7 @@
         [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
         [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
     }
-   
+    
 }
 - (void)tabChanged:(UISegmentedControl *)sender {
     [self selectTabAtIndex:sender.selectedSegmentIndex];
@@ -217,13 +217,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end

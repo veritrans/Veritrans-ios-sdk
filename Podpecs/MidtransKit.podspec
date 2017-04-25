@@ -17,7 +17,7 @@ s.subspec 'CardIO' do |sp|
     sp.dependency 'CardIO', '~> 5.4'
 end
 
-s.source_files = 'MidtransKit/MidtransKit/classes/*.{h,m}'
+s.source_files = 'MidtransKit/MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
     'MidtransKit' => ['MidtransKit/MidtransKit/resources/*']
 }

@@ -30,10 +30,10 @@
 		E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F81E88F82A001617C8 /* SourceSansPro-Bold.ttf */; };
 		E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5A539F91E88F82A001617C8 /* SourceSansPro-Regular.ttf */; };
 		E5C751761E8B916F001F47D9 /* MIDTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751711E8B916F001F47D9 /* MIDTestHelper.m */; };
-		E5C751771E8B916F001F47D9 /* MID1CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */; };
-		E5C751781E8B916F001F47D9 /* MID2VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */; };
-		E5C751791E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751741E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m */; };
-		E5C7517A1E8B916F001F47D9 /* MID4WebPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751751E8B916F001F47D9 /* MID4WebPaymentTests.m */; };
+		E5C751771E8B916F001F47D9 /* CreditCardPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751721E8B916F001F47D9 /* CreditCardPaymentTests.m */; };
+		E5C751781E8B916F001F47D9 /* VAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751731E8B916F001F47D9 /* VAPaymentTests.m */; };
+		E5C751791E8B916F001F47D9 /* KlikBCAPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751741E8B916F001F47D9 /* KlikBCAPaymentTests.m */; };
+		E5C7517A1E8B916F001F47D9 /* WebPaymentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C751751E8B916F001F47D9 /* WebPaymentTests.m */; };
 		E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */; };
 		E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */; };
 		E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D7FECB1E83B67F0086A8A4 /* MDOptionsViewController.m */; };
@@ -136,10 +136,10 @@
 		E5C7516A1E8B912F001F47D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5C751701E8B916F001F47D9 /* MIDTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDTestHelper.h; sourceTree = "<group>"; };
 		E5C751711E8B916F001F47D9 /* MIDTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDTestHelper.m; sourceTree = "<group>"; };
-		E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID1CreditCardPaymentTests.m; sourceTree = "<group>"; };
-		E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID2VAPaymentTests.m; sourceTree = "<group>"; };
-		E5C751741E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID3KlikbcaPaymentTests.m; sourceTree = "<group>"; };
-		E5C751751E8B916F001F47D9 /* MID4WebPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MID4WebPaymentTests.m; sourceTree = "<group>"; };
+		E5C751721E8B916F001F47D9 /* CreditCardPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreditCardPaymentTests.m; sourceTree = "<group>"; };
+		E5C751731E8B916F001F47D9 /* VAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VAPaymentTests.m; sourceTree = "<group>"; };
+		E5C751741E8B916F001F47D9 /* KlikBCAPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KlikBCAPaymentTests.m; sourceTree = "<group>"; };
+		E5C751751E8B916F001F47D9 /* WebPaymentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebPaymentTests.m; sourceTree = "<group>"; };
 		E5D7FEC51E83B4760086A8A4 /* MDOptionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDOptionView.h; sourceTree = "<group>"; };
 		E5D7FEC61E83B4760086A8A4 /* MDOptionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDOptionView.m; sourceTree = "<group>"; };
 		E5D7FEC81E83B4810086A8A4 /* MDOptionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDOptionView.xib; sourceTree = "<group>"; };
@@ -305,10 +305,10 @@
 			isa = PBXGroup;
 			children = (
 				E5C7517B1E8B917C001F47D9 /* utils */,
-				E5C751721E8B916F001F47D9 /* MID1CreditCardPaymentTests.m */,
-				E5C751731E8B916F001F47D9 /* MID2VAPaymentTests.m */,
-				E5C751741E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m */,
-				E5C751751E8B916F001F47D9 /* MID4WebPaymentTests.m */,
+				E5C751721E8B916F001F47D9 /* CreditCardPaymentTests.m */,
+				E5C751731E8B916F001F47D9 /* VAPaymentTests.m */,
+				E5C751741E8B916F001F47D9 /* KlikBCAPaymentTests.m */,
+				E5C751751E8B916F001F47D9 /* WebPaymentTests.m */,
 			);
 			path = MidtransDemoUITests;
 			sourceTree = "<group>";
@@ -588,10 +588,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C751761E8B916F001F47D9 /* MIDTestHelper.m in Sources */,
-				E5C751771E8B916F001F47D9 /* MID1CreditCardPaymentTests.m in Sources */,
-				E5C751791E8B916F001F47D9 /* MID3KlikbcaPaymentTests.m in Sources */,
-				E5C751781E8B916F001F47D9 /* MID2VAPaymentTests.m in Sources */,
-				E5C7517A1E8B916F001F47D9 /* MID4WebPaymentTests.m in Sources */,
+				E5C751771E8B916F001F47D9 /* CreditCardPaymentTests.m in Sources */,
+				E5C751791E8B916F001F47D9 /* KlikBCAPaymentTests.m in Sources */,
+				E5C751781E8B916F001F47D9 /* VAPaymentTests.m in Sources */,
+				E5C7517A1E8B916F001F47D9 /* WebPaymentTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

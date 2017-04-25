@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "MIDTestHelper.h"
 
-@interface MID2VAPaymentTests : XCTestCase
+@interface VAPaymentTests : XCTestCase
 
 @end
 
-@implementation MID2VAPaymentTests
+@implementation VAPaymentTests
 
 - (void)setUp {
     [super setUp];

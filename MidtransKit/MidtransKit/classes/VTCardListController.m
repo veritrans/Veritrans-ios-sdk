@@ -166,11 +166,11 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
 
 - (IBAction)addCardPressed:(id)sender {
     
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
-     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

@@ -587,6 +587,7 @@ UIAlertViewDelegate
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
+    
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive) {
@@ -689,7 +690,7 @@ UIAlertViewDelegate
         SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
                                                                           paymentMethod:self.paymentMethod
                                                                           tokenizedCard:token
-                                                                              savedCard:self.saveCard
+                                                                              savedCard:self.isSaveCard
                                                            andCompleteResponseOfPayment:self.responsePayment];
 
         pointVC.currentMaskedCards = self.currentMaskedCards;

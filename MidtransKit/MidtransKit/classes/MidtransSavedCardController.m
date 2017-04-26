@@ -130,6 +130,7 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
+      [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     VTConfirmPaymentController *vc =
     [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
@@ -152,6 +153,8 @@
                 if (error) {
                     [self handleTransactionError:error];
                 } else {
+                        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"one click"}];
+                    
                     [self handleTransactionSuccess:result];
                 }
             }];
@@ -197,6 +200,7 @@
             [self performOneClickWithCard:card];
         }
         else {
+              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
             [self performTwoClicksWithCard:card];
         }
     }
@@ -205,6 +209,7 @@
             [self performOneClickWithCard:card];
         }
         else {
+              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
             [self performTwoClicksWithCard:card];
         }
     }

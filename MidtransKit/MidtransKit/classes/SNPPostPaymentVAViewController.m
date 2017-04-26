@@ -116,6 +116,8 @@
             
         }
     }
+    VTGroupedInstruction *groupedIns = [self.mainInstructions firstObject];
+    [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at %@",groupedIns.name] forState:UIControlStateNormal];
     self.tableView.tableFooterView = self.footerView;
     [self selectTabAtIndex:0];
     
@@ -155,6 +157,7 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
+         [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at %@",groupedInst.name] forState:UIControlStateNormal];
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
 }

@@ -19,7 +19,7 @@
 @dynamic delegate;
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }
@@ -32,7 +32,7 @@
         default:
             break;
     }
-    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token];
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     vc.paymentMethodSelected = paymentMethodSelected;
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;

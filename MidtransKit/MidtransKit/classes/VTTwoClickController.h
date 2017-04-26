@@ -16,7 +16,11 @@
 @property (weak, nonatomic) IBOutlet VTCCBackView *backView;
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
                    maskedCard:(MidtransMaskedCreditCard *)maskedCard;
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token maskedCard:(MidtransMaskedCreditCard *)maskedCard andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard;
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+                   maskedCard:(MidtransMaskedCreditCard *)maskedCard
+            andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard;
 
 @end

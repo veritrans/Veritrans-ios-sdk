@@ -18,8 +18,6 @@
 #import "MidtransUICCFrontView.h"
 #import "MidtransUIHudView.h"
 #import "VTPaymentStatusViewModel.h"
-#import "VTSuccessStatusController.h"
-#import "VTErrorStatusController.h"
 #import "VTConfirmPaymentController.h"
 #import "UIViewController+Modal.h"
 #import "MidtransUIConfiguration.h"
@@ -52,7 +50,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
         self.token = token;
         self.paymentMethod = paymentMethod;
         self.creditCard = creditCard;
-         self.responsePayment = responsePayment;
+        self.responsePayment = responsePayment;
     }
     return self;
 }
@@ -173,7 +171,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
     
-  [self.navigationController pushViewController:vc animated:YES];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (id<UIViewControllerAnimatedTransitioning>)navigationController:(UINavigationController *)navigationController
@@ -261,7 +259,9 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
 
 - (void)performTwoClicks {
     VTTwoClickController *vc = [[VTTwoClickController alloc] initWithToken:self.token
-                                                                maskedCard:self.selectedMaskedCard andCreditCardData:self.creditCard];
+                                                         paymentMethodName:self.paymentMethod
+                                                                maskedCard:self.selectedMaskedCard
+                                                         andCreditCardData:self.creditCard];
     [self.navigationController setDelegate:self];
     [self.navigationController pushViewController:vc animated:YES];
 }

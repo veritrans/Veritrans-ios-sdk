@@ -162,6 +162,7 @@
 - (void)performTwoClicksWithCard:(MidtransMaskedCreditCard *)card {
     MidtransNewCreditCardViewController *vc =
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
+                                                 paymentMethod:self.paymentMethod
                                                     maskedCard:card
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];

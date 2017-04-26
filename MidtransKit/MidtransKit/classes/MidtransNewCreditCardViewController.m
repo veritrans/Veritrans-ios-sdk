@@ -67,7 +67,7 @@ UIAlertViewDelegate
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod
             andCreditCardData:(MidtransPaymentRequestV2CreditCard *)creditCard
  andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment {
-    if (self = [super initWithToken:token]) {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.creditCardInfo = creditCard;
         self.responsePayment = responsePayment;
         self.paymentMethodInfo = paymentMethod;
@@ -76,10 +76,11 @@ UIAlertViewDelegate
 }
 
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+                paymentMethod:(MidtransPaymentListModel *)paymentMethod
                    maskedCard:(MidtransMaskedCreditCard *)maskedCard
                    creditCard:(MidtransPaymentRequestV2CreditCard *)creditCard
- andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment{
-    if (self = [super initWithToken:token]) {
+ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.maskedCreditCard = maskedCard;
         self.creditCardInfo = creditCard;
         self.responsePayment = responsePayment;
@@ -684,7 +685,13 @@ UIAlertViewDelegate
                                         initWithPaymentDetails:paymentDetail token:self.token];
     if (self.bniPointActive) {
         [self hideLoading];
-        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token tokenizedCard:token savedCard:self.isSaveCard andCompleteResponseOfPayment:self.responsePayment];
+
+        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
+                                                                          paymentMethod:self.paymentMethod
+                                                                          tokenizedCard:token
+                                                                              savedCard:self.saveCard
+                                                           andCompleteResponseOfPayment:self.responsePayment];
+
         pointVC.currentMaskedCards = self.currentMaskedCards;
         [self.navigationController pushViewController:pointVC animated:YES];
         return;
@@ -798,14 +805,14 @@ UIAlertViewDelegate
         }
         else {
             switch ([MidtransCreditCardHelper typeFromString:ccnumber]) {
-                case VTCreditCardTypeAmex:
+                    case VTCreditCardTypeAmex:
                     if (ccnumber.length == 15) {
                         [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
-                case VTCreditCardTypeJCB:
-                case VTCreditCardTypeVisa:
-                case VTCreditCardTypeMasterCard:
+                    case VTCreditCardTypeJCB:
+                    case VTCreditCardTypeVisa:
+                    case VTCreditCardTypeMasterCard:
                     if (ccnumber.length == 16) {
                         [self.view.cardExpireTextField becomeFirstResponder];
                     }

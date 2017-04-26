@@ -13,6 +13,11 @@
 
 #define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
+#define snpRGB(r, g, b) \
+[UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
+#define snpRGBA(r, g, b, a) \
+[UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
+
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTInstruction.h"
 #import "VTGroupedInstruction.h"

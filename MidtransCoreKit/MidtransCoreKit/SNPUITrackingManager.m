@@ -54,6 +54,17 @@
     });
     return sharedInstance;
 }
+- (void)trackEventName:(NSString *)eventName additionalParameters:(NSDictionary *)additionalParameters {
+    NSDictionary  *addParameters =[additionalParameters copy];
+    
+    NSMutableDictionary *parameters = [addParameters copy];
+    
+    parameters  = [parameters SNPUITrackingManageraddDefaultParameter];
+    NSDictionary *event = @{@"event":eventName,
+                            @"properties":parameters};
+    [self sendTrackingData:event];
+    
+}
 - (void)trackEventName:(NSString *)eventName {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     parameters  = [parameters SNPUITrackingManageraddDefaultParameter];

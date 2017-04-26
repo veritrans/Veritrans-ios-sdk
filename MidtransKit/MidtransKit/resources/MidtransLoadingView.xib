@@ -21,16 +21,16 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pco-FU-cLp">
-                    <rect key="frame" x="137.5" y="266.5" width="100" height="135"/>
+                    <rect key="frame" x="116" y="266" width="143.5" height="135"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading payment page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcB-Mj-47a">
-                            <rect key="frame" x="0.0" y="116" width="100" height="19"/>
+                            <rect key="frame" x="0.0" y="116" width="143.5" height="19"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZX-2m-rHg">
-                            <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                            <rect key="frame" x="22" y="0.0" width="100" height="100"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="midtrans_logo_left.png" translatesAutoresizingMaskIntoConstraints="NO" id="eeP-ss-D2A">
                                     <rect key="frame" x="0.0" y="0.0" width="13" height="100"/>
@@ -60,11 +60,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="lZX-2m-rHg" firstAttribute="centerX" secondItem="Pco-FU-cLp" secondAttribute="centerX" id="0xe-J0-Mtj"/>
                         <constraint firstItem="lZX-2m-rHg" firstAttribute="top" secondItem="Pco-FU-cLp" secondAttribute="top" id="4F2-Le-nfW"/>
-                        <constraint firstItem="lZX-2m-rHg" firstAttribute="leading" secondItem="Pco-FU-cLp" secondAttribute="leading" id="DdF-uL-ilL"/>
                         <constraint firstAttribute="trailing" secondItem="EcB-Mj-47a" secondAttribute="trailing" id="F1k-wZ-ut0"/>
                         <constraint firstItem="EcB-Mj-47a" firstAttribute="top" secondItem="lZX-2m-rHg" secondAttribute="bottom" constant="16" id="Seq-Jg-waU"/>
-                        <constraint firstAttribute="trailing" secondItem="lZX-2m-rHg" secondAttribute="trailing" id="U2d-vl-Ega"/>
                         <constraint firstAttribute="bottom" secondItem="EcB-Mj-47a" secondAttribute="bottom" id="dgQ-pP-0Mf"/>
                         <constraint firstItem="EcB-Mj-47a" firstAttribute="leading" secondItem="Pco-FU-cLp" secondAttribute="leading" id="mWi-oD-oXq"/>
                     </constraints>

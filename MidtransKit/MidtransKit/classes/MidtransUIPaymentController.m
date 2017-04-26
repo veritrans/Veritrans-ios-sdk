@@ -124,7 +124,7 @@
 
 - (MidtransLoadingView *)loadingView {
     if (!_loadingView) {
-        _loadingView = [[MidtransLoadingView alloc] init];
+        _loadingView = [VTBundle loadNibNamed:@"MidtransLoadingView" owner:self options:nil].firstObject;
     }
     return _loadingView;
 }

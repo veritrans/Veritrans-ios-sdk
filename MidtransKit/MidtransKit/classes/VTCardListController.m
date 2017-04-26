@@ -170,6 +170,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
+     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
     
     [self.navigationController pushViewController:vc animated:YES];
 }

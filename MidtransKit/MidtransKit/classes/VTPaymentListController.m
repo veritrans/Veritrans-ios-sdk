@@ -231,6 +231,7 @@
                                                                       andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
                 creditCardVC.promos = self.responsePayment.promos;
                 [creditCardVC showDismissButton:self.singlePayment];
+                 [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
             }
         }

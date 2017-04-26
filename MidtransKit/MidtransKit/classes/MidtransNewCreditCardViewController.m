@@ -689,7 +689,7 @@ UIAlertViewDelegate
         SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
                                                                           paymentMethod:self.paymentMethod
                                                                           tokenizedCard:token
-                                                                              savedCard:self.saveCard
+                                                                              savedCard:self.isSaveCard
                                                            andCompleteResponseOfPayment:self.responsePayment];
 
         pointVC.currentMaskedCards = self.currentMaskedCards;

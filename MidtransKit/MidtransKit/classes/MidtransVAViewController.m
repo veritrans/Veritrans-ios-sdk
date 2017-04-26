@@ -120,6 +120,7 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
+
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
 }

@@ -21,7 +21,7 @@
 "payment.list.title" = "Select Payment";
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
-"payment.finish-button-title" = "Complete Payment At %@";
+"payment.finish-button-title" = "Complete Payment at %@";
 
 "Close" = "Tutup";
 

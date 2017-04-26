@@ -22,6 +22,7 @@
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
 "Close" = "Close";
+"payment.finish-button-title-via"="Complete Payment via %@";
 "payment.finish-button-title" = "Complete Payment At %@";
 
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";

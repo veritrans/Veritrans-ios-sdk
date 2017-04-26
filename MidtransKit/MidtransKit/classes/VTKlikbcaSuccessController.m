@@ -47,7 +47,7 @@
     self.transactionTimeLabel.text = self.successViewModel.transactionTime;
     self.transactionExpiredTime.text = [self.successViewModel.additionalData objectForKey:@"bca_klikbca_expire_time"];
     
-    [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title",nil), @"KlikBCA"] forState:UIControlStateNormal];
+    [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title-via",nil), @"KlikBCA"] forState:UIControlStateNormal];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

@@ -84,9 +84,10 @@
 
             if (maskedCards.count) {
                 [self.cards setArray:maskedCards];
-                [self.tableView reloadData];
             }
             else {
+                [self.cards removeAllObjects];
+                
                 MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                                    paymentMethodName:self.paymentMethod
                                                                                                    andCreditCardData:self.creditCard
@@ -95,6 +96,8 @@
                 vc.currentMaskedCards = self.cards;
                 [self.navigationController pushViewController:vc animated:NO];
             }
+            
+            [self.tableView reloadData];
             
             [self hideLoading];
         }];
@@ -166,6 +169,7 @@
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
     vc.promos = self.promos;
+    vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }

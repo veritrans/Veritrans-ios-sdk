@@ -32,7 +32,7 @@
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
             clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-            merchantServer = @"https://rakawm-snap.herokuapp.com/installment";
+            merchantServer = @"https://rakawm-snap.herokuapp.com";
             break;
         default:
             clientkey = @"VT-client-cwmvxnYb-CTkaAgz";

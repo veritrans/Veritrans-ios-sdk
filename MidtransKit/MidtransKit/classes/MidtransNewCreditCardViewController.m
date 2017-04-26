@@ -715,7 +715,7 @@ UIAlertViewDelegate
                      return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
                  }];
                  if (index == NSNotFound) {
-                    [self.maskedCards addObject:result.maskedCreditCard];
+                     [self.maskedCards addObject:result.maskedCreditCard];
                  }
                  
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
@@ -761,27 +761,42 @@ UIAlertViewDelegate
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
+        NSUInteger cardIndex = alertView.tag;
+        
         [self showLoadingWithText:nil];
-        [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
-            [self hideLoading];
-            
-            if (success == NO) {
-                return;
-            }
-            
-            NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
-            NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.maskedNumber isEqualToString:savedToken.maskedCard];
-            }];
-            if (index != NSNotFound) {
-                [savedTokensM removeObjectAtIndex:index];
-            }
-            self.creditCardInfo.savedTokens = savedTokensM;
-            
-            if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
-                [self.delegate didDeleteSavedCard];
-            }
-        }];
+        
+        if (CC_CONFIG.tokenStorageEnabled) {
+            [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard
+                                                              token:self.token
+                                                         completion:^(BOOL success)
+             {
+                 [self hideLoading];
+                 
+                 if (success == NO) {
+                     return;
+                 }
+                 
+                 NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
+                 [savedTokensM removeObjectAtIndex:cardIndex];
+                 self.creditCardInfo.savedTokens = savedTokensM;
+                 
+                 if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                     [self.delegate didDeleteSavedCard];
+                 }
+             }];
+        }
+        else {
+            [self.currentMaskedCards removeObject:self.maskedCreditCard];
+            [[MidtransMerchantClient shared] saveMaskedCards:self.currentMaskedCards
+                                                    customer:self.token.customerDetails
+                                                  completion:^(id  _Nullable result, NSError * _Nullable error)
+             {
+                 [self hideLoading];
+                 if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                     [self.delegate didDeleteSavedCard];
+                 }
+             }];
+        }
     }
 }
 

@@ -62,7 +62,6 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
     [self.pageControl setNumberOfPages:0];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    NSLog(@"pref-->%@",self.creditCard);
     [self updateView];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     
@@ -166,6 +165,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
 
 - (IBAction)addCardPressed:(id)sender {
     
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard

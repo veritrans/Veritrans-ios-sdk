@@ -225,12 +225,14 @@
                 
             }
             else {
+                  [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
                 MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod
                                                                       andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
                 creditCardVC.promos = self.responsePayment.promos;
                 [creditCardVC showDismissButton:self.singlePayment];
+               
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
             }
         }

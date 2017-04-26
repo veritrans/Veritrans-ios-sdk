@@ -587,6 +587,7 @@ UIAlertViewDelegate
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
+    
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive) {

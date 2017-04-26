@@ -162,7 +162,7 @@
              [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
          }
          
-//         [self hideLoading];
+         [self hideLoading];
      }];
 }
 

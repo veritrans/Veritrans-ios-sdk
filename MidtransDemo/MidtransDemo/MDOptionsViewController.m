@@ -43,7 +43,7 @@
     
     MDOptionView *optAcqBank = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
                                             titleTemplate:@"Issuing Bank by %@"
-                                                  options:@[@"BNI", @"Mandiri", @"BCA", @"Maybank", @"BRI"]
+                                                  options:@[@"BNI", @"Mandiri", @"BCA", @"Maybank", @"BRI", @"CIMB"]
                                                      type:MDOptionIssuingBank];
     [optAcqBank selectOption:[MDOptionManager shared].issuingBankOption];
     

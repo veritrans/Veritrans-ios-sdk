@@ -711,7 +711,13 @@ UIAlertViewDelegate
          }
          else {
              if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
-                 [self.maskedCards addObject:result.maskedCreditCard];
+                 NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                     return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
+                 }];
+                 if (index == NSNotFound) {
+                    [self.maskedCards addObject:result.maskedCreditCard];
+                 }
+                 
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
                                                          customer:self.token.customerDetails
                                                        completion:^(id  _Nullable result, NSError * _Nullable error) {

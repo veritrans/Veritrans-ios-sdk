@@ -121,7 +121,7 @@
         XCTFail(@"There're no saved cards!");
     }
     
-    XCUIElement *finishInputCard = [[[app descendantsMatchingType:XCUIElementTypeButton] matchingIdentifier:@"mt_finish_btn"] elementAtIndex:0];
+    XCUIElement *finishInputCard = [[app.buttons matchingIdentifier:@"mt_finish_btn"] elementAtIndex:0];
     [finishInputCard tap];
     
     XCUIElement *otpText = [[app.webViews descendantsMatchingType:XCUIElementTypeSecureTextField] elementAtIndex:0];
@@ -309,7 +309,65 @@
 }
 
 - (void)testBNIPoint {
+    XCUIApplication *app = [[XCUIApplication alloc] init];
     
+    XCUIElement *navbar = app.navigationBars[@"demo_navbar"];
+    XCUIElement *settingBtn = navbar.buttons[@"demo_navbar_setting"];
+    [settingBtn tap];
+    
+    //selet 1-click
+    [self option:app selectAtIndex:0 thenChooseAtIndex:0];
+    //enable 3ds
+    [self option:app selectAtIndex:1 thenChooseAtIndex:0];
+    //set bni bank
+    [self option:app selectAtIndex:2 thenChooseAtIndex:0];
+    //disable save card
+    [self option:app selectAtIndex:4 thenChooseAtIndex:1];
+    
+    XCUIElement *button = [[app.buttons matchingIdentifier:@"demo_finish_option"] elementAtIndex:0];
+    [button tap];
+    button = [[app.buttons matchingIdentifier:@"demo_buy"] elementAtIndex:0];
+    [button tap];
+    button = [[app.buttons matchingIdentifier:@"demo_pay"] elementAtIndex:0];
+    [button tap];
+    
+    XCUIElementQuery *cells = [app.tables.cells matchingIdentifier:@"mt_payment_method"];
+    XCUIElement *cell = [cells elementAtIndex:0];
+    [self waitUntilAvailableForElement:cell];
+    [cell tap];
+    
+    XCUIElementQuery *textFields = [[app descendantsMatchingType:XCUIElementTypeAny] matchingIdentifier:@"mt_textfield"];
+    XCUIElement *numberText = [textFields elementAtIndex:0];
+    [numberText enterText:@"4105058689481467"];
+    
+    XCUIElement *expiryText = [textFields elementAtIndex:1];
+    [expiryText enterText:@"02 / 20"];
+    
+    XCUIElement *cvvText = [textFields elementAtIndex:2];
+    [cvvText enterText:@"123"];
+    
+    cells = [[app descendantsMatchingType:XCUIElementTypeAny] matchingIdentifier:@"mt_checkbox"];
+    XCUIElement *bniPointCheckbox = [cells elementAtIndex:0];
+    if (bniPointCheckbox.selected == NO) {
+        [bniPointCheckbox tap];
+    }
+
+    XCUIElement *finishInputCard = [[app.buttons matchingIdentifier:@"mt_finish_btn"] elementAtIndex:0];
+    [finishInputCard tap];
+    
+    XCUIElement *otpText = [app.webViews.secureTextFields elementAtIndex:0];
+    [self waitUntilAvailableForElement:otpText];
+    [otpText enterText:@"112233"];
+    
+    XCUIElement *ok3ds = [app.webViews.buttons elementAtIndex:0];
+    [ok3ds tap];
+    
+    XCUIElement *finishBNIPoint = [[app.buttons matchingIdentifier:@"mt_finish_btn"] elementAtIndex:0];
+    [finishBNIPoint tap];
+    
+    XCUIElement *finishPayment = [[app.buttons matchingIdentifier:@"mt_finish_btn"] elementAtIndex:0];
+    [self waitUntilAvailableForElement:finishPayment];
+    [finishPayment tap];
 }
 
 #pragma mark - Helper

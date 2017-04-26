@@ -62,7 +62,6 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
     [self.pageControl setNumberOfPages:0];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    NSLog(@"pref-->%@",self.creditCard);
     [self updateView];
     [self.collectionView registerNib:[UINib nibWithNibName:@"MIdtransUICardCell" bundle:VTBundle] forCellWithReuseIdentifier:@"MIdtransUICardCell"];
     

@@ -120,6 +120,7 @@
 }
 
 - (void)addCardPressed:(id)sender {
+     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
@@ -153,7 +154,6 @@
                 if (error) {
                     [self handleTransactionError:error];
                 } else {
-                        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"one click"}];
                     
                     [self handleTransactionSuccess:result];
                 }
@@ -197,6 +197,7 @@
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     if (CC_CONFIG.tokenStorageEnabled) {
         if ([card.tokenType isEqualToString:TokenTypeOneClick]) {
+             [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"one click"}];
             [self performOneClickWithCard:card];
         }
         else {

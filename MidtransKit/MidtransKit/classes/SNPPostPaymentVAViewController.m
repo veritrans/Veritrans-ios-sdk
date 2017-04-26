@@ -116,8 +116,6 @@
             
         }
     }
-    VTGroupedInstruction *groupedIns = [self.mainInstructions firstObject];
-    [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at %@",groupedIns.name] forState:UIControlStateNormal];
     self.tableView.tableFooterView = self.footerView;
     [self selectTabAtIndex:0];
     
@@ -157,7 +155,11 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-         [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at %@",groupedInst.name] forState:UIControlStateNormal];
+    if ([groupedInst.name containsString:@"ATM"] || [groupedInst.name containsString:@"atm"]) {
+        [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at ATM"] forState: UIControlStateNormal];
+    } else {
+        [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment via %@",groupedInst.name] forState:UIControlStateNormal];
+    }
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
 }

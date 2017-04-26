@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "MIDTestHelper.h"
 
-@interface MID4WebPaymentTests : XCTestCase
+@interface WebPaymentTests : XCTestCase
 @property (nonatomic) XCUIApplication *app;
 @end
 
-@implementation MID4WebPaymentTests
+@implementation WebPaymentTests
 
 - (void)setUp {
     [super setUp];

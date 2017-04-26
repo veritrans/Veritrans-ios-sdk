@@ -9,11 +9,11 @@
 #import <XCTest/XCTest.h>
 #import "MIDTestHelper.h"
 
-@interface MID3KlikbcaPaymentTests : XCTestCase
+@interface KlikBCAPaymentTests : XCTestCase
 
 @end
 
-@implementation MID3KlikbcaPaymentTests
+@implementation KlikBCAPaymentTests
 
 - (void)setUp {
     [super setUp];

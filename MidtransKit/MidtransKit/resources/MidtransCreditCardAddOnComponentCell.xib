@@ -1,12 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -21,11 +20,11 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjt-ZA-2iZ">
-                        <rect key="frame" x="37" y="11" width="237" height="22"/>
+                        <rect key="frame" x="47" y="11" width="240" height="22"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="22" id="Y9a-Ks-flu"/>
                         </constraints>
@@ -33,40 +32,36 @@
                         <color key="textColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDn-eM-QDh">
-                        <rect key="frame" x="271" y="0.0" width="44" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="44" id="Ahe-Dj-uKK"/>
-                            <constraint firstAttribute="height" constant="44" id="mxB-Ue-Jh0"/>
-                        </constraints>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDn-eM-QDh" customClass="MidtransUIButton">
+                        <rect key="frame" x="284" y="11" width="21" height="22"/>
                         <state key="normal" image="hint.png"/>
                         <connections>
                             <action selector="addOnInformationButtonDIdTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DbE-7w-EaN"/>
                         </connections>
                     </button>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkbox_uncheck.png" highlightedImage="checkbox_checked.png" translatesAutoresizingMaskIntoConstraints="NO" id="2ag-nm-5G4">
-                        <rect key="frame" x="12" y="15" width="15" height="15"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="15" id="Jc9-B2-oUs"/>
-                            <constraint firstAttribute="height" constant="15" id="mal-RC-I5r"/>
-                        </constraints>
-                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i2-wu-Kbq" customClass="MidtransUIButton">
+                        <rect key="frame" x="15" y="11" width="22" height="22"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mt_checkbox">
+                            <accessibilityTraits key="traits" button="YES"/>
+                        </accessibility>
+                        <state key="normal" backgroundImage="checkbox_uncheck.png"/>
+                        <state key="selected" backgroundImage="checkbox_checked.png"/>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Mjt-ZA-2iZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2qV-n3-lNa"/>
-                    <constraint firstItem="xDn-eM-QDh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-8" id="4Xf-Hz-O5d"/>
-                    <constraint firstAttribute="topMargin" secondItem="2ag-nm-5G4" secondAttribute="top" constant="-7" id="S6C-ko-e9Z"/>
-                    <constraint firstAttribute="bottomMargin" secondItem="xDn-eM-QDh" secondAttribute="bottom" constant="-9" id="a3S-b5-edK"/>
-                    <constraint firstAttribute="leadingMargin" secondItem="2ag-nm-5G4" secondAttribute="leading" constant="-4" id="cnr-sL-lOT"/>
+                    <constraint firstItem="5i2-wu-Kbq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="GJd-zf-00n"/>
+                    <constraint firstItem="5i2-wu-Kbq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Jdd-d9-j6w"/>
+                    <constraint firstItem="xDn-eM-QDh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KhK-QV-eUA"/>
+                    <constraint firstAttribute="trailing" secondItem="xDn-eM-QDh" secondAttribute="trailing" constant="15" id="Lyn-y9-sm7"/>
+                    <constraint firstItem="Mjt-ZA-2iZ" firstAttribute="leading" secondItem="5i2-wu-Kbq" secondAttribute="trailing" constant="10" id="YYC-sO-0Sq"/>
                     <constraint firstItem="xDn-eM-QDh" firstAttribute="leading" secondItem="Mjt-ZA-2iZ" secondAttribute="trailing" constant="-3" id="odd-1g-OeG"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="xDn-eM-QDh" secondAttribute="trailing" constant="-3" id="wvf-gy-ECa"/>
-                    <constraint firstItem="Mjt-ZA-2iZ" firstAttribute="leading" secondItem="2ag-nm-5G4" secondAttribute="trailing" constant="10" id="ywr-s2-Dqg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="addOnImageView" destination="2ag-nm-5G4" id="jy1-3b-Pay"/>
                 <outlet property="addOnInformationButton" destination="xDn-eM-QDh" id="WZ4-dB-dF2"/>
                 <outlet property="addOnTitleLabel" destination="Mjt-ZA-2iZ" id="QjD-SM-p3p"/>
+                <outlet property="checkButton" destination="5i2-wu-Kbq" id="WFl-7c-Ulz"/>
             </connections>
         </tableViewCell>
     </objects>

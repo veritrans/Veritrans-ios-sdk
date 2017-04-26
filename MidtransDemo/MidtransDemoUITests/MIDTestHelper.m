@@ -11,7 +11,7 @@
 @implementation XCTestCase (Utils)
 
 - (void)waitUntilAvailableForElement:(XCUIElement *)element {
-    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"exists == 1 AND hittable == 1"];
     [self expectationForPredicate:predicate evaluatedWithObject:element handler:nil];
     [self waitForExpectationsWithTimeout:30 handler:nil];
 }
@@ -26,6 +26,7 @@
     }
     else {
         [self tap];
+        sleep(1);
         [self typeText:text];
     }
     

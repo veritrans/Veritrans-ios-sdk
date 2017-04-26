@@ -35,7 +35,13 @@ UICollectionViewDelegateFlowLayout
                                     target:nil
                                     action:nil];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsPressed:)];
+    UIBarButtonItem *settingBtn =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]
+                                     style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(settingsPressed:)];
+    settingBtn.accessibilityIdentifier = @"demo_navbar_setting";
+    self.navigationItem.leftBarButtonItem = settingBtn;    
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

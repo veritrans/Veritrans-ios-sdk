@@ -12,7 +12,10 @@
 @implementation MidtransUINextStepButton
 
 - (void)awakeFromNib {
-    [super awakeFromNib];    
+    [super awakeFromNib];
+    
+    self.accessibilityIdentifier = @"mt_finish_btn";
+    
     [self setBackgroundColor:[[MidtransUIThemeManager shared] themeColor]];
     self.titleLabel.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }

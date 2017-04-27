@@ -71,6 +71,12 @@
                                                      type:MDOptionPreauth];
     [optPreauth selectOption:[MDOptionManager shared].preauthOption];
     
+    MDOptionView *optBNIPoint = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bni_point"]
+                                          titleTemplate:@"BNI Point Only %@"
+                                                options:@[@"Disable", @"Enable"]
+                                                   type:MDOptionBNIPointOnly];
+    [optBNIPoint selectOption:[MDOptionManager shared].colorOption];
+    
     MDOptionView *optTheme = [MDOptionView viewWithIcon:[UIImage imageNamed:@"theme"]
                                           titleTemplate:@"%@ Color Theme"
                                                 options:@[@"Blue", @"Red", @"Green", @"Orange", @"Black"]
@@ -86,6 +92,7 @@
                          optSaveCard,
                          optPromo,
                          optPreauth,
+                         optBNIPoint,
                          optTheme
                          ];
     
@@ -174,6 +181,9 @@
             break;
         case MDOptionPaymentType:
             [MDOptionManager shared].ccTypeOption = option;
+            break;
+        case MDOptionBNIPointOnly:
+            [MDOptionManager shared].bniPointValue = option;
             break;
         case MDOptionIssuingBank:
             [MDOptionManager shared].issuingBankOption = option;

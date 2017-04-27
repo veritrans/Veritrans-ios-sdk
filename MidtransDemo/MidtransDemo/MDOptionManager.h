@@ -21,6 +21,7 @@
 @property (nonatomic) NSString *promoOption;
 @property (nonatomic) NSString *preauthOption;
 @property (nonatomic) NSString *colorOption;
+@property (nonatomic) NSString *bniPointOption;
 
 @property (nonatomic) id ccTypeValue;
 @property (nonatomic) id secure3DValue;
@@ -29,6 +30,7 @@
 @property (nonatomic) id saveCardValue;
 @property (nonatomic) id promoValue;
 @property (nonatomic) id preauthValue;
+@property (nonatomic) id bniPointValue;
 @property (nonatomic) id colorValue;
 
 @end

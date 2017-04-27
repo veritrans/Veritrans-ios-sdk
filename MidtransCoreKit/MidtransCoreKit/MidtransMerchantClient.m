@@ -171,6 +171,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                           customField:(nullable NSArray *)customField
+                                            binFilter:(nullable NSArray *)binFilter
                                 transactionExpireTime:(MidtransTransactionExpire *)expireTime
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
@@ -193,6 +194,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     NSMutableDictionary *creditCardParameter = [NSMutableDictionary new];
     [creditCardParameter setObject:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
     [creditCardParameter setObject:@(CC_CONFIG.secure3DEnabled) forKey:@"secure"];
+    if (binFilter.count>0) {
+        creditCardParameter[@"whitelist_bins"] = binFilter;
+    }
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
@@ -247,7 +251,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
-    [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil transactionExpireTime:nil completion:completion];
+    [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil binFilter:nil transactionExpireTime:nil completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
+        
+    }];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

@@ -82,6 +82,10 @@
     UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[MDOptionManager shared].colorValue];
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
+    NSArray *binFilter = @[];
+    if ([[MDOptionManager shared].bniPointValue isEqualToString:@"Enable"]) {
+        binFilter = @[@"410505"];
+    }
     //configure expire time
     MidtransTransactionExpire *expr;
     NSData *data = [[MDOptionManager shared] expireTimeValue];
@@ -96,6 +100,7 @@
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
                                                                        customField:nil
+                                                                         binFilter:binFilter
                                                              transactionExpireTime:expr
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      {

@@ -47,6 +47,11 @@
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
     
+    [MidtransConfig shared].customBCAVANumber = @"33221180";
+    [MidtransConfig shared].customPermataVANumber = @"112";
+    
+    [[MidtransNetworkLogger shared] startLogging];
+    
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     defaults_observe_object(@"md_color", ^(NSNotification *note){
         self.amountView.backgroundColor = [UIColor mdThemeColor];
@@ -82,6 +87,10 @@
     UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[MDOptionManager shared].colorValue];
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
+    NSArray *binFilter = @[];
+    if ([[MDOptionManager shared].bniPointValue isEqualToString:@"Enable"]) {
+        binFilter = @[@"410505"];
+    }
     //configure expire time
     MidtransTransactionExpire *expr;
     NSData *data = [[MDOptionManager shared] expireTimeValue];
@@ -96,12 +105,25 @@
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
                                                                        customField:nil
+                                                                         binFilter:binFilter
                                                              transactionExpireTime:expr
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      {
-         MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-         paymentVC.paymentDelegate = self;
-         [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+         if (error) {
+             if ([error.localizedDescription isKindOfClass:[NSArray class]]) {
+                 
+             }
+             else {
+                 
+             }
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+             [alert show];
+         }
+         else {
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             paymentVC.paymentDelegate = self;
+             [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+         }
          
          //hide hud
          [self.progressHUD dismissAnimated:YES];

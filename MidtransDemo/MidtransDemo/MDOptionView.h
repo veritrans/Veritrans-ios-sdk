@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, MDOption) {
     MDOptionPromo,
     MDOptionPreauth,
     MDOptionColorTheme,
+    MDOptionBNIPointOnly,
     MDOptionCustomExpiry
 };
 

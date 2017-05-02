@@ -10,7 +10,6 @@
 #import "MidtransPrivateConfig.h"
 #import "MidtransConstant.h"
 #import "MidtransNetworking.h"
-#import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransDeviceHelper.h"
 #import "MidtransHelper.h"
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]

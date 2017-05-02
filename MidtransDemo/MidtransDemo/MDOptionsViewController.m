@@ -20,7 +20,9 @@
 @property (nonatomic, assign) BOOL animating;
 @end
 
-@implementation MDOptionsViewController
+@implementation MDOptionsViewController {
+    UIAlertAction *_okAction;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -29,60 +31,132 @@
     
     self.edgesForExtendedLayout = UIRectEdgeNone;
     
+    ///////////
+    //cc payment type
+    id options = @[[MDOption optionGeneralWithName:@"2-Clicks" value:@(MTCreditCardPaymentTypeTwoclick)],
+                   [MDOption optionGeneralWithName:@"1-Click" value:@(MTCreditCardPaymentTypeOneclick)],
+                   [MDOption optionGeneralWithName:@"Normal" value:@(MTCreditCardPaymentTypeNormal)]];
     MDOptionView *optType = [MDOptionView viewWithIcon:[UIImage imageNamed:@"cc_click"]
                                          titleTemplate:@"%@ Credit Card Payment"
-                                               options:@[@"Normal", @"Two Clicks", @"One Click"]
-                                                  type:MDOptionPaymentType];
-    [optType selectOption:[MDOptionManager shared].ccTypeOption];
+                                               options:options
+                                            identifier:OPTCreditCardFeature];
+    [optType selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].ccTypeOption]];
     
-    MDOptionView *opt3ds = [MDOptionView viewWithIcon:[UIImage imageNamed:@"3ds"]
-                                        titleTemplate:@"3D Secure %@d"
-                                              options:@[@"Enable", @"Disable"]
-                                                 type:MDOption3DSecure];
-    [opt3ds selectOption:[MDOptionManager shared].secure3DOption];
-    
+    ///////////
+    //acquiring bank
+    options = @[[MDOption optionGeneralWithName:@"BNI" value:@(MTAcquiringBankBNI)],
+                [MDOption optionGeneralWithName:@"BCA" value:@(MTAcquiringBankBCA)],
+                [MDOption optionGeneralWithName:@"CIMB" value:@(MTAcquiringBankCIMB)],
+                [MDOption optionGeneralWithName:@"BRI" value:@(MTAcquiringBankBRI)],
+                [MDOption optionGeneralWithName:@"Mandiri" value:@(MTAcquiringBankMandiri)],
+                [MDOption optionGeneralWithName:@"Maybank" value:@(MTAcquiringBankMaybank)]];
     MDOptionView *optAcqBank = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
                                             titleTemplate:@"Issuing Bank by %@"
-                                                  options:@[@"BNI", @"Mandiri", @"BCA", @"Maybank", @"BRI", @"CIMB"]
-                                                     type:MDOptionIssuingBank];
-    [optAcqBank selectOption:[MDOptionManager shared].issuingBankOption];
+                                                  options:options
+                                               identifier:OPTAcquiringBank];
+    [optAcqBank selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].issuingBankOption]];
     
+    ///////////
+    //expire time
+    MidtransTransactionExpire *minute = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
+                                                                               expireDuration:1
+                                                                                 withUnitTime:MindtransTimeUnitTypeMinute];
+    MidtransTransactionExpire *hour = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
+                                                                             expireDuration:1
+                                                                               withUnitTime:MindtransTimeUnitTypeHour];
+    options = @[[MDOption optionGeneralWithName:@"No Expiry" value:nil],
+                [MDOption optionGeneralWithName:@"1 Minute" value:minute],
+                [MDOption optionGeneralWithName:@"1 Hour" value:hour]];
     MDOptionView *optCustomExpiry = [MDOptionView viewWithIcon:[UIImage imageNamed:@"expiry"]
                                                  titleTemplate:@"%@"
-                                                       options:@[@"No Expiry", @"1 Minute", @"1 Hour"]
-                                                          type:MDOptionCustomExpiry];
-    [optCustomExpiry selectOption:[MDOptionManager shared].expireTimeOption];
+                                                       options:options
+                                                    identifier:OPTCustomExpire];
+    [optCustomExpiry selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].expireTimeOption]];
     
+    ///////////
+    //save card
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
+                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
     MDOptionView *optSaveCard = [MDOptionView viewWithIcon:[UIImage imageNamed:@"save_card"]
                                              titleTemplate:@"Save Card Feature %@d"
-                                                   options:@[@"Enable", @"Disable"]
-                                                      type:MDOptionSaveCard];
-    [optSaveCard selectOption:[MDOptionManager shared].saveCardOption];
+                                                   options:options
+                                                identifier:OPTSaveCard];
+    [optSaveCard selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].saveCardOption]];
     
+    ///////////
+    //3d secure
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
+                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
+    MDOptionView *opt3ds = [MDOptionView viewWithIcon:[UIImage imageNamed:@"3ds"]
+                                        titleTemplate:@"3D Secure %@d"
+                                              options:options
+                                           identifier:OPT3DSecure];
+    [opt3ds selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].secure3DOption]];
+    
+    
+    ///////////
+    //promo
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
+                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
     MDOptionView *optPromo = [MDOptionView viewWithIcon:[UIImage imageNamed:@"promo"]
                                           titleTemplate:@"Promo %@d"
-                                                options:@[@"Enable", @"Disable"]
-                                                   type:MDOptionPromo];
-    [optPromo selectOption:[MDOptionManager shared].promoOption];
+                                                options:options
+                                             identifier:OPTPromo];
+    [optPromo selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].promoOption]];
     
+    ///////////
+    //preauth
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
+                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
     MDOptionView *optPreauth = [MDOptionView viewWithIcon:[UIImage imageNamed:@"preauth"]
                                             titleTemplate:@"Pre Auth Feature %@d"
-                                                  options:@[@"Enable", @"Disable"]
-                                                     type:MDOptionPreauth];
-    [optPreauth selectOption:[MDOptionManager shared].preauthOption];
+                                                  options:options
+                                               identifier:OPTPreauth];
+    [optPreauth selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].preauthOption]];
     
+    
+    ///////////
+    //bni point
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
+                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
     MDOptionView *optBNIPoint = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bni_point"]
-                                          titleTemplate:@"BNI Point Only %@"
-                                                options:@[@"Disable", @"Enable"]
-                                                   type:MDOptionBNIPointOnly];
-    [optBNIPoint selectOption:[MDOptionManager shared].colorOption];
-    
+                                             titleTemplate:@"BNI Point Only %@"
+                                                   options:options
+                                                identifier:OPTBNIPoint];
+    [optBNIPoint selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].colorOption]];
+
+    ///////////////
+    //color scheme
+    options = @[[MDOption optionColorWithName:@"Blue" value:RGB(47, 128, 194)],
+                [MDOption optionColorWithName:@"Red" value:RGB(212, 56, 92)],
+                [MDOption optionColorWithName:@"Green" value:RGB(59, 183, 64)],
+                [MDOption optionColorWithName:@"Orange" value:RGB(255, 140, 0)],
+                [MDOption optionColorWithName:@"Black" value:RGB(21, 21, 21)]];
     MDOptionView *optTheme = [MDOptionView viewWithIcon:[UIImage imageNamed:@"theme"]
                                           titleTemplate:@"%@ Color Theme"
-                                                options:@[@"Blue", @"Red", @"Green", @"Orange", @"Black"]
-                                                   type:MDOptionColorTheme
-                                          isColorOption:YES];
-    [optTheme selectOption:[MDOptionManager shared].colorOption];
+                                                options:options
+                                             identifier:OPTColor];
+    [optTheme selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].colorOption]];
+    
+    ////////////
+    //permata va
+    options = @[[MDOption optionComposerWithName:@"Disable" value:nil],
+                [MDOption optionComposerWithName:@"Enable" value:nil]];
+    MDOptionView *optPermataVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_permata_va"]
+                                              titleTemplate:@"Custom Permata VA %@d"
+                                                    options:options
+                                                 identifier:OPTPermataVA];
+    [optPermataVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].permataVAOption]];
+    
+    ////////////
+    //permata va
+    options = @[[MDOption optionComposerWithName:@"Disable" value:nil],
+                [MDOption optionComposerWithName:@"Enable" value:nil]];
+    MDOptionView *optBCAVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+                                              titleTemplate:@"Custom BCA VA %@d"
+                                                    options:options
+                                                 identifier:OPTBCAVA];
+    [optBCAVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bcaVAOption]];
     
     self.optionViews = @[
                          optType,
@@ -92,22 +166,22 @@
                          optSaveCard,
                          optPromo,
                          optPreauth,
+                         optTheme,
                          optBNIPoint,
-                         optTheme
+                         optPermataVA,
+                         optBCAVA
                          ];
     
     [self prepareOptionViews:self.optionViews];
     
     defaults_observe_object(@"md_cc_type", ^(id note){
-        MTCreditCardPaymentType type = [note unsignedIntegerValue];
-        MDOptionView *opt3ds = [self optionViewWithType:MDOption3DSecure];
-        MDOptionView *optSaveCard = [self optionViewWithType:MDOptionSaveCard];
+        MTCreditCardPaymentType type = [[MDOptionManager shared].ccTypeOption.value integerValue];
         if (type == MTCreditCardPaymentTypeOneclick) {
-            [opt3ds selectOption:@"Enable"];
-            [optSaveCard selectOption:@"Enable"];
+            [opt3ds selectOptionAtIndex:0];
+            [optSaveCard selectOptionAtIndex:0];
         }
         else if (type == MTCreditCardPaymentTypeTwoclick) {
-            [optSaveCard selectOption:@"Enable"];
+            [optSaveCard selectOptionAtIndex:0];
         }
     });
 }
@@ -159,41 +233,50 @@
     }];
 }
 
-- (void)optionView:(MDOptionView *)optionView didOptionSelect:(NSString *)option {
-    switch (optionView.optionType) {
-        case MDOptionColorTheme:
-            [MDOptionManager shared].colorOption = option;
-            break;
-        case MDOptionPreauth:
-            [MDOptionManager shared].preauthOption = option;
-            break;
-        case MDOptionPromo:
-            [MDOptionManager shared].promoOption = option;
-            break;
-        case MDOptionSaveCard:
-            [MDOptionManager shared].saveCardOption = option;
-            break;
-        case MDOptionCustomExpiry:
-            [MDOptionManager shared].expireTimeOption = option;
-            break;
-        case MDOption3DSecure:
-            [MDOptionManager shared].secure3DOption = option;
-            break;
-        case MDOptionPaymentType:
-            [MDOptionManager shared].ccTypeOption = option;
-            break;
-        case MDOptionBNIPointOnly:
-            [MDOptionManager shared].bniPointValue = option;
-            break;
-        case MDOptionIssuingBank:
-            [MDOptionManager shared].issuingBankOption = option;
-            break;
+- (void)optionView:(MDOptionView *)optionView didOptionSelect:(MDOption *)option {
+    NSString *idf = optionView.identifier;
+    if ([idf isEqualToString:OPTSaveCard]) {
+        [MDOptionManager shared].saveCardOption = option;
+    }
+    else if ([idf isEqualToString:OPT3DSecure]) {
+        [MDOptionManager shared].secure3DOption = option;
+    }
+    else if ([idf isEqualToString:OPTColor]) {
+        [MDOptionManager shared].colorOption = option;
+    }
+    else if ([idf isEqualToString:OPTPromo]) {
+        [MDOptionManager shared].promoOption = option;
+    }
+    else if ([idf isEqualToString:OPTPreauth]) {
+        [MDOptionManager shared].preauthOption = option;
+    }
+    else if ([idf isEqualToString:OPTBNIPoint]) {
+        [MDOptionManager shared].bniPointOption = option;
+    }
+    else if ([idf isEqualToString:OPTPermataVA]) {
+        [MDOptionManager shared].permataVAOption = option;
+    }
+    else if ([idf isEqualToString:OPTBCAVA]) {
+        [MDOptionManager shared].bcaVAOption = option;
+    }
+    else if ([idf isEqualToString:OPTCustomExpire]) {
+        [MDOptionManager shared].expireTimeOption = option;
+    }
+    else if ([idf isEqualToString:OPTAcquiringBank]) {
+        [MDOptionManager shared].issuingBankOption = option;
+    }
+    else if ([idf isEqualToString:OPTCreditCardFeature]) {
+        [MDOptionManager shared].ccTypeOption = option;
     }
 }
 
-- (MDOptionView *)optionViewWithType:(MDOption)type {
+- (void)customVANumberChanged:(UITextField *)sender {
+    _okAction.enabled = sender.text.length>0;
+}
+
+- (MDOptionView *)optionView:(NSString *)identifier {
     for (MDOptionView *optView in self.optionViews) {
-        if (optView.optionType == type) {
+        if ([optView.identifier isEqualToString:identifier]) {
             return optView;
         }
     }

@@ -77,7 +77,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             }
         }
         else {
-           
+            
             if (completion) {
                 completion(nil, error);
             }
@@ -160,12 +160,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         }
         else{
             if (completion) {
-              
+                
                 completion(NULL,error);
             }
         }
     }];
-
+    
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
@@ -205,6 +205,14 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     [dictionaryParameters setObject:creditCardParameter forKey:@"credit_card"];
     
+    if ([CONFIG customPermataVANumber].length > 0) {
+        dictionaryParameters[@"permata_va"] = @{@"va_number":CONFIG.customPermataVANumber};
+    }
+    
+    if ([CONFIG customBCAVANumber].length > 0) {
+        dictionaryParameters[@"bca_va"] = @{@"va_number":CONFIG.customBCAVANumber};
+    }
+    
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {
         if (completion) completion (nil, error);
@@ -227,21 +235,34 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)
      {
-         if (!error) {
-             
-             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
-                                                                                                transactionDetails:transactionDetails
-                                                                                                   customerDetails:customerDetails
-                                                                                                       itemDetails:itemDetails];
-             if (completion) {
-                
-                 completion(token,NULL);
+         MidtransTransactionTokenResponse *token;
+         if (response) {
+             id errorResponse = response[@"error_messages"];
+             if (errorResponse) {
+                 NSString *errorMessage;
+                 if ([errorResponse isKindOfClass:[NSArray class]]) {
+                     errorMessage = [errorResponse firstObject];
+                 }
+                 else if ([errorResponse isKindOfClass:[NSString class]]) {
+                     errorMessage = errorResponse;
+                 }
+                 else {
+                     errorMessage = @"Checkout error";
+                 }
+                 error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                             code:0
+                                         userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+             }
+             else {
+                 token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
+                                                                  transactionDetails:transactionDetails
+                                                                     customerDetails:customerDetails
+                                                                         itemDetails:itemDetails];
              }
          }
-         else {
-             if (completion) {
-                 completion(NULL,error);
-             }
+         
+         if (completion) {
+             completion(token, error);
          }
      }];
     
@@ -270,7 +291,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                     [[NSUserDefaults standardUserDefaults] setObject:token forKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
-                               completion(paymentRequestV2,NULL);
+                completion(paymentRequestV2,NULL);
             }
         }
         else{

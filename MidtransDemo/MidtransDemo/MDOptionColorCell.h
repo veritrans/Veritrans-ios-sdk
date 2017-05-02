@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MDOptionColorCell : UITableViewCell
-@property (nonatomic) NSString *colorString;
+@property (strong, nonatomic) IBOutlet UIView *colorImageView;
+@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @end

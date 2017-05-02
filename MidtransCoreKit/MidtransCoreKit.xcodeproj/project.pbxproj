@@ -61,7 +61,6 @@
 		E55F638D1E934C4800C012C8 /* MidtransPaymentCIMBClicks.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E0A1D0E58BE00137655 /* MidtransPaymentCIMBClicks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F638E1E934C4800C012C8 /* MidtransTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436031CE31ACE00F688ED /* MidtransTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F638F1E934C4800C012C8 /* MidtransTransactionDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436051CE31ACE00F688ED /* MidtransTransactionDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E55F63901E934C4800C012C8 /* MidtransCreditCardPaymentFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E4362F1CE31E0100F688ED /* MidtransCreditCardPaymentFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63911E934C4800C012C8 /* MidtransTokenizeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436191CE31CD800F688ED /* MidtransTokenizeRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63921E934C4800C012C8 /* MidtransPaymentKlikBCA.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9961D125604003A1203 /* MidtransPaymentKlikBCA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63931E934C4800C012C8 /* MidtransPaymentTelkomselCash.h in Headers */ = {isa = PBXBuildFile; fileRef = E58017D71D584256007D2DEC /* MidtransPaymentTelkomselCash.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -272,7 +271,6 @@
 		E57120821E937A790064F515 /* MidtransPaymentCIMBClicks.h in Headers */ = {isa = PBXBuildFile; fileRef = E5504E0A1D0E58BE00137655 /* MidtransPaymentCIMBClicks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120831E937A790064F515 /* MidtransTransaction.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436031CE31ACE00F688ED /* MidtransTransaction.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120841E937A790064F515 /* MidtransTransactionDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436051CE31ACE00F688ED /* MidtransTransactionDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E57120851E937A790064F515 /* MidtransCreditCardPaymentFeature.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E4362F1CE31E0100F688ED /* MidtransCreditCardPaymentFeature.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120861E937A790064F515 /* MidtransTokenizeRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = E5E436191CE31CD800F688ED /* MidtransTokenizeRequest.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120871E937A790064F515 /* MidtransPaymentKlikBCA.h in Headers */ = {isa = PBXBuildFile; fileRef = 002CC9961D125604003A1203 /* MidtransPaymentKlikBCA.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120881E937A790064F515 /* MidtransPaymentTelkomselCash.h in Headers */ = {isa = PBXBuildFile; fileRef = E58017D71D584256007D2DEC /* MidtransPaymentTelkomselCash.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -434,7 +432,6 @@
 		E5E436291CE31DB700F688ED /* MidtransEnvironment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransEnvironment.h; sourceTree = "<group>"; };
 		E5E4362B1CE31DED00F688ED /* MidtransPaymentCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentCreditCard.h; sourceTree = "<group>"; };
 		E5E4362C1CE31DED00F688ED /* MidtransPaymentCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentCreditCard.m; sourceTree = "<group>"; };
-		E5E4362F1CE31E0100F688ED /* MidtransCreditCardPaymentFeature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransCreditCardPaymentFeature.h; sourceTree = "<group>"; };
 		E5E436311CE31E4200F688ED /* MidtransCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransCreditCard.h; sourceTree = "<group>"; };
 		E5E436321CE31E4200F688ED /* MidtransCreditCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransCreditCard.m; sourceTree = "<group>"; };
 		E5E436351CE31E6500F688ED /* MidtransMaskedCreditCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransMaskedCreditCard.h; sourceTree = "<group>"; };
@@ -645,7 +642,6 @@
 				E5E436041CE31ACE00F688ED /* MidtransTransaction.m */,
 				E5E436051CE31ACE00F688ED /* MidtransTransactionDetails.h */,
 				E5E436061CE31ACE00F688ED /* MidtransTransactionDetails.m */,
-				E5E4362F1CE31E0100F688ED /* MidtransCreditCardPaymentFeature.h */,
 				E5E436191CE31CD800F688ED /* MidtransTokenizeRequest.h */,
 				E5E4361A1CE31CD800F688ED /* MidtransTokenizeRequest.m */,
 				002CC9961D125604003A1203 /* MidtransPaymentKlikBCA.h */,
@@ -833,7 +829,6 @@
 				E57120821E937A790064F515 /* MidtransPaymentCIMBClicks.h in Headers */,
 				E57120831E937A790064F515 /* MidtransTransaction.h in Headers */,
 				E57120841E937A790064F515 /* MidtransTransactionDetails.h in Headers */,
-				E57120851E937A790064F515 /* MidtransCreditCardPaymentFeature.h in Headers */,
 				E57120861E937A790064F515 /* MidtransTokenizeRequest.h in Headers */,
 				E57120871E937A790064F515 /* MidtransPaymentKlikBCA.h in Headers */,
 				E57120881E937A790064F515 /* MidtransPaymentTelkomselCash.h in Headers */,
@@ -914,7 +909,6 @@
 				E55F638D1E934C4800C012C8 /* MidtransPaymentCIMBClicks.h in Headers */,
 				E55F638E1E934C4800C012C8 /* MidtransTransaction.h in Headers */,
 				E55F638F1E934C4800C012C8 /* MidtransTransactionDetails.h in Headers */,
-				E55F63901E934C4800C012C8 /* MidtransCreditCardPaymentFeature.h in Headers */,
 				E55F63911E934C4800C012C8 /* MidtransTokenizeRequest.h in Headers */,
 				E55F63921E934C4800C012C8 /* MidtransPaymentKlikBCA.h in Headers */,
 				E55F63931E934C4800C012C8 /* MidtransPaymentTelkomselCash.h in Headers */,
@@ -1352,6 +1346,7 @@
 				E5711F5C1E93789C0064F515 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E5CDEC8F1E9340CA0032DC3B /* Build configuration list for PBXNativeTarget "MidtransCoreKit" */ = {
 			isa = XCConfigurationList;

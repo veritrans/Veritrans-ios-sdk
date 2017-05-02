@@ -47,8 +47,8 @@
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
     
-//    [MidtransConfig shared].customBCAVANumber =defaults_object(@");
-//    [MidtransConfig shared].customPermataVANumber = @"112";
+    [MidtransConfig shared].customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
+    [MidtransConfig shared].customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     
     [[MidtransNetworkLogger shared] startLogging];
     

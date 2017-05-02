@@ -10,13 +10,12 @@
 #import "MidtransConfig.h"
 #import "MidtransHelper.h"
 #import "MidtransCreditCardHelper.h"
-#import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransCreditCardConfig.h"
 
 @interface MidtransTokenizeRequest()
 @property (nonatomic, readwrite) NSString *type;
 @property (nonatomic, readwrite) NSString *cvv;
-@property (nonatomic, readwrite) MidtransCreditCardPaymentFeature creditCardPaymentFeature;
+@property (nonatomic, readwrite) MTCreditCardPaymentType featureType;
 @end
 
 @implementation MidtransTokenizeRequest
@@ -28,7 +27,7 @@
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;
         self.grossAmount = grossAmount;
-        self.creditCardPaymentFeature = MidtransCreditCardPaymentFeatureNormal;
+        self.featureType = MTCreditCardPaymentTypeNormal;
         self.secure = secure;
     }
     return self;
@@ -44,7 +43,7 @@
         self.installmentTerm = installmentTerm;
         self.cvv = creditCard.cvv;
         self.grossAmount = grossAmount;
-        self.creditCardPaymentFeature = MidtransCreditCardPaymentFeatureNormal;
+        self.featureType = MTCreditCardPaymentTypeNormal;
         self.secure = secure;
     }
     return self;
@@ -61,7 +60,7 @@
         self.token = token;
         self.cvv = cvv;
         self.secure = YES;
-        self.creditCardPaymentFeature = MidtransCreditCardPaymentFeatureTwoClick;
+        self.featureType = MTCreditCardPaymentTypeTwoclick;
     }
     return self;
     
@@ -75,15 +74,15 @@
         self.token = token;
         self.cvv = cvv;
         self.secure = YES;
-        self.creditCardPaymentFeature = MidtransCreditCardPaymentFeatureTwoClick;
+        self.featureType = MTCreditCardPaymentTypeTwoclick;
     }
     return self;
 }
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary new];
-    switch (_creditCardPaymentFeature) {
-        case MidtransCreditCardPaymentFeatureTwoClick: {
+    switch (self.featureType) {
+        case MTCreditCardPaymentTypeTwoclick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":self.secure ? @"true":@"false",
@@ -91,7 +90,7 @@
                                     @"two_click":@"true",
                                     @"token_id":[MidtransHelper nullifyIfNil:self.token]}];
             break;
-        } case MidtransCreditCardPaymentFeatureNormal: {
+        } case MTCreditCardPaymentTypeNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_exp_month":self.creditCard.expiryMonth,

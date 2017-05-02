@@ -39,7 +39,6 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransPaymentCreditCard.h"
 #import "MidtransHelper.h"
 #import "MidtransPaymentBankTransfer.h"
-#import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransMerchantClient.h"
 #import "MidtransCreditCard.h"
 #import "MidtransCustomerDetails.h"

@@ -47,8 +47,8 @@
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
     
-    [MidtransConfig shared].customBCAVANumber = @"33221180";
-    [MidtransConfig shared].customPermataVANumber = @"112";
+//    [MidtransConfig shared].customBCAVANumber =defaults_object(@");
+//    [MidtransConfig shared].customPermataVANumber = @"112";
     
     [[MidtransNetworkLogger shared] startLogging];
     
@@ -84,23 +84,17 @@
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
                                                                     fontNameRegular:@"SourceSansPro-Regular"
                                                                       fontNameLight:@"SourceSansPro-Light"];
-    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[MDOptionManager shared].colorValue];
+    UIColor *color = [MDOptionManager shared].colorOption.value;
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
     NSArray *binFilter = @[];
-    if ([[MDOptionManager shared].bniPointValue isEqualToString:@"Enable"]) {
+    if ([[MDOptionManager shared].bniPointOption.value boolValue]) {
         binFilter = @[@"410505"];
     }
     //configure expire time
-    MidtransTransactionExpire *expr;
-    NSData *data = [[MDOptionManager shared] expireTimeValue];
-    if (data) {
-        expr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    }
-    
+    MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
-
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst

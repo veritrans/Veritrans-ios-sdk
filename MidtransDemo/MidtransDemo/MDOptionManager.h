@@ -7,30 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MDOption.h"
 
 @interface MDOptionManager : NSObject
 
 + (MDOptionManager *)shared;
-+ (UIColor *)colorWithOption:(NSString *)colorOption;
 
-@property (nonatomic) NSString *ccTypeOption;
-@property (nonatomic) NSString *secure3DOption;
-@property (nonatomic) NSString *issuingBankOption;
-@property (nonatomic) NSString *expireTimeOption;
-@property (nonatomic) NSString *saveCardOption;
-@property (nonatomic) NSString *promoOption;
-@property (nonatomic) NSString *preauthOption;
-@property (nonatomic) NSString *colorOption;
-@property (nonatomic) NSString *bniPointOption;
-
-@property (nonatomic) id ccTypeValue;
-@property (nonatomic) id secure3DValue;
-@property (nonatomic) id issuingBankValue;
-@property (nonatomic) id expireTimeValue;
-@property (nonatomic) id saveCardValue;
-@property (nonatomic) id promoValue;
-@property (nonatomic) id preauthValue;
-@property (nonatomic) id bniPointValue;
-@property (nonatomic) id colorValue;
-
+@property (nonatomic) MDOption *ccTypeOption;
+@property (nonatomic) MDOption *secure3DOption;
+@property (nonatomic) MDOption *issuingBankOption;
+@property (nonatomic) MDOption *expireTimeOption;
+@property (nonatomic) MDOption *saveCardOption;
+@property (nonatomic) MDOption *promoOption;
+@property (nonatomic) MDOption *preauthOption;
+@property (nonatomic) MDOption *colorOption;
+@property (nonatomic) MDOption *bniPointOption;
+@property (nonatomic) MDOption *permataVAOption;
+@property (nonatomic) MDOption *bcaVAOption;
 @end

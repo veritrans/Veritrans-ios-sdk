@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "MDOption.h"
 
 #define defaults()                          [NSUserDefaults standardUserDefaults]
 #define defaults_init(dictionary)			[defaults() registerDefaults:dictionary]
@@ -23,8 +24,20 @@
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
-@interface MDUtils : NSObject
+static NSString *const OPTCreditCardFeature = @"OPTCreditCardFeature";
+static NSString *const OPT3DSecure = @"OPT3DSecure";
+static NSString *const OPTAcquiringBank = @"OPTAcquiringBank";
+static NSString *const OPTCustomExpire = @"OPTCustomExpire";
+static NSString *const OPTSaveCard = @"OPTSaveCard";
+static NSString *const OPTPromo = @"OPTPromo";
+static NSString *const OPTPreauth = @"OPTPreauth";
+static NSString *const OPTColor = @"OPTColor";
+static NSString *const OPTBNIPoint = @"OPTBNIPoint";
+static NSString *const OPTPermataVA = @"OPTPermataVA";
+static NSString *const OPTBCAVA = @"OPTBCAVA";
 
+@interface MDUtils : NSObject
++ (UIViewController *)rootViewController;
 @end
 
 @interface UIColor (Midtrans)
@@ -40,4 +53,8 @@
 
 @interface NSString (Utils)
 + (NSString *)randomWithLength:(NSUInteger)length;
+@end
+
+@interface NSArray (Option)
+- (NSInteger)indexOfOption:(MDOption *)option;
 @end

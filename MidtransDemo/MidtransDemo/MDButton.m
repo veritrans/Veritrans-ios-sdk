@@ -33,8 +33,6 @@
 }
 
 - (void)commonInit {
-    
-    
     self.backgroundColor = [UIColor mdThemeColor];
     defaults_observe_object(@"md_color", ^(NSNotification *note){
         self.backgroundColor = [UIColor mdThemeColor];

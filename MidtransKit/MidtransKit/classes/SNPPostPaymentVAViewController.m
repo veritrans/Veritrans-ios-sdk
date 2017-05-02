@@ -155,9 +155,10 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-    if ([groupedInst.name containsString:@"ATM"] || [groupedInst.name containsString:@"atm"]) {
+    if ([groupedInst.name containsString:@"ATM"] || [groupedInst.name containsString:@"atm"] ||[groupedInst.name containsString:@"Alto"] || [groupedInst.name containsString:@"ALTO"]) {
         [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at ATM"] forState: UIControlStateNormal];
-    } else {
+    }
+    else {
         [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment via %@",groupedInst.name] forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;

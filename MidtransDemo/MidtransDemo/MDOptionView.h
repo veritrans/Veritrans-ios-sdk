@@ -15,6 +15,7 @@
 - (void)optionView:(MDOptionView *)optionView didTapHeader:(id)sender;
 - (void)optionView:(MDOptionView *)optionView didTapOption:(MDOption *)option;
 - (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option;
+- (void)optionView:(MDOptionView *)optionView didTapEditComposerOption:(MDOption *)option;
 @end
 
 @interface MDOptionView : UIView

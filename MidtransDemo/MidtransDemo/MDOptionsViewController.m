@@ -252,6 +252,25 @@
     if ([idf isEqualToString:OPTPermataVA] ||
         [idf isEqualToString:OPTBCAVA]) {
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
+                                                              predefinedText:nil
+                                                            inputPlaceholder:@"Custom VA Number"];
+        alert.delegate = self;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTInstallment]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Installment" radioButtons:@[@"Required", @"Optional"]];
+        alert.delegate = self;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    self.selectedOptionView = optionView;
+}
+- (void)optionView:(MDOptionView *)optionView didTapEditComposerOption:(MDOption *)option {
+    NSString *idf = optionView.identifier;
+    if ([idf isEqualToString:OPTPermataVA] ||
+        [idf isEqualToString:OPTBCAVA]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
                                                               predefinedText:option.value
                                                             inputPlaceholder:@"Custom VA Number"];
         alert.delegate = self;

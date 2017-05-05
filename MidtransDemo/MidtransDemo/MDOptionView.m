@@ -170,8 +170,8 @@ static CGFloat const optionCellHeight = 40;
 #pragma mark - MDOptionComposerCellDelegate
 
 - (void)optionCell:(MDOptionComposerCell *)cell didEditOption:(MDOption *)option {
-    if ([self.delegate respondsToSelector:@selector(optionView:didTapComposerOption:)]) {
-        [self.delegate optionView:self didTapComposerOption:option];
+    if ([self.delegate respondsToSelector:@selector(optionView:didTapEditComposerOption:)]) {
+        [self.delegate optionView:self didTapEditComposerOption:option];
     }
 }
 

@@ -10,7 +10,7 @@
 #import "MDImageCollectionViewCell.h"
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
-
+#import "MDProfileViewController.h"
 @interface MDProductViewController () <
 UICollectionViewDelegate,
 UICollectionViewDataSource,
@@ -40,8 +40,16 @@ UICollectionViewDelegateFlowLayout
                                      style:UIBarButtonItemStylePlain
                                     target:self
                                     action:@selector(settingsPressed:)];
+    UIBarButtonItem *profileButton =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"account_icon"]
+                                     style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(profileButtonDidTapped:)];
+    
     settingBtn.accessibilityIdentifier = @"demo_navbar_setting";
-    self.navigationItem.leftBarButtonItem = settingBtn;    
+    profileButton.accessibilityIdentifier = @"demo_navbar_user";
+    self.navigationItem.leftBarButtonItem = settingBtn;
+    self.navigationItem.rightBarButtonItem = profileButton;
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -54,7 +62,10 @@ UICollectionViewDelegateFlowLayout
         self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
     });
 }
-
+- (void)profileButtonDidTapped:(id)sender {
+    MDProfileViewController *profileVC = [[MDProfileViewController alloc] initWithNibName:@"MDProfileViewController" bundle:nil];
+    [self.navigationController pushViewController:profileVC animated:YES];
+}
 - (void)settingsPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

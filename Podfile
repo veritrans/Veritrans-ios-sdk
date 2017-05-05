@@ -5,6 +5,8 @@ project 'MidtransDemo/MidtransDemo.xcodeproj'
 
 target 'MidtransDemo' do
     pod 'JGProgressHUD'
+    pod 'ACFloatingTextfield-Objc', '~> 1.4'
+    pod 'IQKeyboardManager'
     pod 'Fabric'
     pod 'Crashlytics'
 end

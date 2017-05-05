@@ -41,6 +41,7 @@
         self.permataVAOption = [self unArchivedObject:@"md_permata_va"];
         self.bcaVAOption = [self unArchivedObject:@"md_bca_va"];
         self.bniPointOption = [self unArchivedObject:@"md_bni_point"];
+        self.installmentOption = [self unArchivedObject:@"md_installment"];
     }
     return self;
 }
@@ -100,6 +101,10 @@
 - (void)setBcaVAOption:(MDOption *)bcaVAOption {
     _bcaVAOption = bcaVAOption;
     [self archiveObject:bcaVAOption key:@"md_bca_va"];
+}
+- (void)setInstallmentOption:(MDOption *)installmentOption {
+    _installmentOption = installmentOption;
+    [self archiveObject:installmentOption key:@"md_installment"];
 }
 
 - (id)unArchivedObject:(NSString *)key {

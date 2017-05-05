@@ -11,18 +11,18 @@
 #import "MDProductViewController.h"
 #import "MDOptionManager.h"
 #import "MDUtils.h"
+#import "MDAlertViewController.h"
 #import <MidtransKit/MidtransKit.h>
 
-@interface MDOptionsViewController () <MDOptionViewDelegate>
+@interface MDOptionsViewController () <MDOptionViewDelegate, MDAlertViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *optionContainer;
 
 @property (nonatomic) NSArray *optionViews;
 @property (nonatomic, assign) BOOL animating;
+@property (nonatomic) MDOptionView *selectedOptionView;
 @end
 
-@implementation MDOptionsViewController {
-    UIAlertAction *_okAction;
-}
+@implementation MDOptionsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -124,7 +124,7 @@
                                                    options:options
                                                 identifier:OPTBNIPoint];
     [optBNIPoint selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].colorOption]];
-
+    
     ///////////////
     //color scheme
     options = @[[MDOption optionColorWithName:@"Blue" value:RGB(47, 128, 194)],
@@ -140,8 +140,8 @@
     
     ////////////
     //permata va
-    options = @[[MDOption optionComposerWithName:@"Disable" value:nil],
-                [MDOption optionComposerWithName:@"Enable" value:nil]];
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
     MDOptionView *optPermataVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_permata_va"]
                                               titleTemplate:@"Custom Permata VA %@d"
                                                     options:options
@@ -150,13 +150,25 @@
     
     ////////////
     //permata va
-    options = @[[MDOption optionComposerWithName:@"Disable" value:nil],
-                [MDOption optionComposerWithName:@"Enable" value:nil]];
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
     MDOptionView *optBCAVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
-                                              titleTemplate:@"Custom BCA VA %@d"
-                                                    options:options
-                                                 identifier:OPTBCAVA];
+                                          titleTemplate:@"Custom BCA VA %@d"
+                                                options:options
+                                             identifier:OPTBCAVA];
     [optBCAVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bcaVAOption]];
+    
+    /////////////
+    //installment
+    options = @[[MDOption optionGeneralWithName:@"Disabled" value:nil],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"Mandiri" value:[self installmentBank:@"mandiri" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[self installmentBank:@"bca" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[self installmentBank:@"bni" isRequired:NO]]];
+    MDOptionView *optInstallment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"installment"]
+                                                titleTemplate:@"Installment %@"
+                                                      options:options
+                                                   identifier:OPTInstallment];
+    [optInstallment selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].installmentOption]];
     
     self.optionViews = @[
                          optType,
@@ -169,7 +181,8 @@
                          optTheme,
                          optBNIPoint,
                          optPermataVA,
-                         optBCAVA
+                         optBCAVA,
+                         optInstallment
                          ];
     
     [self prepareOptionViews:self.optionViews];
@@ -212,8 +225,7 @@
                                                                                  metrics:0
                                                                                    views:views]];
 }
-
-- (void)optionView:(MDOptionView *)optionView didHeaderTap:(id)sender {
+- (void)optionView:(MDOptionView *)optionView didTapHeader:(id)sender {
     if (self.animating)
         return;
     
@@ -232,9 +244,79 @@
         self.animating = NO;
     }];
 }
-
-- (void)optionView:(MDOptionView *)optionView didOptionSelect:(MDOption *)option {
+- (void)optionView:(MDOptionView *)optionView didTapOption:(MDOption *)option {
+    [self cacheOptionWithView:optionView option:option];
+}
+- (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option {
     NSString *idf = optionView.identifier;
+    if ([idf isEqualToString:OPTPermataVA] ||
+        [idf isEqualToString:OPTBCAVA]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
+                                                              predefinedText:option.value
+                                                            inputPlaceholder:@"Custom VA Number"];
+        alert.delegate = self;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTInstallment]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Installment" radioButtons:@[@"Required", @"Optional"]];
+        alert.predefinedRadio = option.subName;
+        alert.delegate = self;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    self.selectedOptionView = optionView;
+}
+
+- (IBAction)launchPressed:(id)sender {
+    MDProductViewController *vc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController"
+                                                                            bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+#pragma mark - MDAlertViewControllerDelegate
+
+- (void)alertViewController_didCancel:(MDAlertViewController *)viewController {
+    [viewController dismiss];
+}
+- (void)alertViewController:(MDAlertViewController *)viewController didApplyInput:(NSString *)inputText {
+    NSUInteger index = viewController.tag;
+    MDOption *option = self.selectedOptionView.options[index];
+    option.value = inputText;
+    option.subName = inputText;
+    
+    [self.selectedOptionView selectOptionAtIndex:index];
+    
+    [self cacheOptionWithView:self.selectedOptionView option:option];
+    
+    [viewController dismiss];
+}
+- (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values {
+    
+}
+- (void)alertViewController:(MDAlertViewController *)viewController didApplyRadio:(id)value {
+    NSUInteger index = viewController.tag;
+    MDOption *option = self.selectedOptionView.options[index];
+    option.subName = value;
+    
+    if ([self.selectedOptionView.identifier isEqualToString:OPTInstallment]) {
+        ((MidtransPaymentRequestV2Installment *)option.value).required = [value isEqualToString:@"Required"]? YES: NO;
+    }
+    
+    [self.selectedOptionView selectOptionAtIndex:index];
+    [self cacheOptionWithView:self.selectedOptionView option:option];
+    
+    [viewController dismiss];
+}
+
+#pragma mark - Helper
+
+- (MidtransPaymentRequestV2Installment *)installmentBank:(NSString *)bank isRequired:(BOOL)required {
+    return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@6,@12]} isRequired:required];
+}
+
+- (void)cacheOptionWithView:(MDOptionView *)view option:(MDOption *)option {
+    NSString *idf = view.identifier;
     if ([idf isEqualToString:OPTSaveCard]) {
         [MDOptionManager shared].saveCardOption = option;
     }
@@ -253,12 +335,6 @@
     else if ([idf isEqualToString:OPTBNIPoint]) {
         [MDOptionManager shared].bniPointOption = option;
     }
-    else if ([idf isEqualToString:OPTPermataVA]) {
-        [MDOptionManager shared].permataVAOption = option;
-    }
-    else if ([idf isEqualToString:OPTBCAVA]) {
-        [MDOptionManager shared].bcaVAOption = option;
-    }
     else if ([idf isEqualToString:OPTCustomExpire]) {
         [MDOptionManager shared].expireTimeOption = option;
     }
@@ -268,12 +344,16 @@
     else if ([idf isEqualToString:OPTCreditCardFeature]) {
         [MDOptionManager shared].ccTypeOption = option;
     }
+    else if ([idf isEqualToString:OPTBCAVA]) {
+        [MDOptionManager shared].bcaVAOption = option;
+    }
+    else if ([idf isEqualToString:OPTPermataVA]) {
+        [MDOptionManager shared].permataVAOption = option;
+    }
+    else if ([idf isEqualToString:OPTInstallment]) {
+        [MDOptionManager shared].installmentOption = option;
+    }
 }
-
-- (void)customVANumberChanged:(UITextField *)sender {
-    _okAction.enabled = sender.text.length>0;
-}
-
 - (MDOptionView *)optionView:(NSString *)identifier {
     for (MDOptionView *optView in self.optionViews) {
         if ([optView.identifier isEqualToString:identifier]) {
@@ -281,11 +361,6 @@
         }
     }
     return nil;
-}
-
-- (IBAction)launchPressed:(id)sender {
-    MDProductViewController *vc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

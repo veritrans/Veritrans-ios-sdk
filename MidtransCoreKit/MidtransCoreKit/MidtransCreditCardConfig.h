@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MidtransPaymentRequestV2Installment.h"
 
 #define CC_CONFIG ((MidtransCreditCardConfig *)[MidtransCreditCardConfig shared])
 
@@ -63,6 +64,8 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
  These NSString array are promo codes that will be allowed by promo engine
  */
 @property (nonatomic) NSArray *allowedPromoCodes;
+
+@property (nonatomic) MidtransPaymentRequestV2Installment *predefinedInstallment;
 
 /*
  Boolean value to set pre-auth credit card transaction

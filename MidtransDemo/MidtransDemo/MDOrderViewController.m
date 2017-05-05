@@ -47,6 +47,8 @@
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
     
+    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
+    
     [MidtransConfig shared].customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     [MidtransConfig shared].customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     

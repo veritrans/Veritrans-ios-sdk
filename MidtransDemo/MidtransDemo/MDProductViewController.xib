@@ -206,7 +206,7 @@
                         <constraint firstAttribute="trailing" secondItem="x2Z-ls-Jdi" secondAttribute="trailing" id="xju-VQ-1lh"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdV-MY-LF8" customClass="MDButton">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pdV-MY-LF8" customClass="MDJButton">
                     <rect key="frame" x="0.0" y="612" width="375" height="55"/>
                     <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <accessibility key="accessibilityConfiguration" identifier="demo_buy"/>

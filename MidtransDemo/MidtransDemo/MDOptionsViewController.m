@@ -148,7 +148,7 @@
                                                  identifier:OPTPermataVA];
     [optPermataVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].permataVAOption]];
     
-    ////////////
+    /////////////
     //permata va
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
@@ -190,11 +190,11 @@
     defaults_observe_object(@"md_cc_type", ^(id note){
         MTCreditCardPaymentType type = [[MDOptionManager shared].ccTypeOption.value integerValue];
         if (type == MTCreditCardPaymentTypeOneclick) {
-            [opt3ds selectOptionAtIndex:0];
-            [optSaveCard selectOptionAtIndex:0];
+            [opt3ds selectOptionAtIndex:1];
+            [optSaveCard selectOptionAtIndex:1];
         }
         else if (type == MTCreditCardPaymentTypeTwoclick) {
-            [optSaveCard selectOptionAtIndex:0];
+            [optSaveCard selectOptionAtIndex:1];
         }
     });
 }

@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "bni_point@4x.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "selection_on@2x.png",
       "scale" : "2x"
     },
     {

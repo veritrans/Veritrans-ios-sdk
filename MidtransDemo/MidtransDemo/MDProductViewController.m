@@ -10,6 +10,7 @@
 #import "MDImageCollectionViewCell.h"
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import "MDAlertViewController.h"
 
 @interface MDProductViewController () <
 UICollectionViewDelegate,
@@ -41,7 +42,7 @@ UICollectionViewDelegateFlowLayout
                                     target:self
                                     action:@selector(settingsPressed:)];
     settingBtn.accessibilityIdentifier = @"demo_navbar_setting";
-    self.navigationItem.leftBarButtonItem = settingBtn;    
+    self.navigationItem.leftBarButtonItem = settingBtn;
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;

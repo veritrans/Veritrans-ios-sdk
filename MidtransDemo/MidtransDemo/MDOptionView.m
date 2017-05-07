@@ -23,9 +23,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 
 @property (nonatomic) UIImage *icon;
-@property (nonatomic) NSArray <MDOption*>*options;
 @property (nonatomic) NSString *titleTemplate;
-@property (nonatomic) UIAlertAction *okAction;
 @end
 
 @implementation MDOptionView
@@ -102,8 +100,8 @@ static CGFloat const optionCellHeight = 40;
 }
 
 - (void)titlePressed:(UIGestureRecognizer *)sender {
-    if ([self.delegate respondsToSelector:@selector(optionView:didHeaderTap:)]) {
-        [self.delegate optionView:self didHeaderTap:sender];
+    if ([self.delegate respondsToSelector:@selector(optionView:didTapHeader:)]) {
+        [self.delegate optionView:self didTapHeader:sender];
     }
 }
 
@@ -137,74 +135,44 @@ static CGFloat const optionCellHeight = 40;
     }
     return resultCell;
 }
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+- (NSIndexPath *)tableView:(UITableView *)tableView willSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     MDOption *option = self.options[indexPath.row];
     
-    if ([cell isKindOfClass:[MDOptionComposerCell class]]
-        && [option.name isEqualToString:@"Enable"]
-        && [option.value length] == 0) {
-        [self showOptionComposer:option atCell:cell isEdit:NO];
+    if ([cell isKindOfClass:[MDOptionComposerCell class]]) {
+        if ([self.delegate respondsToSelector:@selector(optionView:didTapComposerOption:)]) {
+            [self.delegate optionView:self didTapComposerOption:option];
+        }
+        return tableView.indexPathForSelectedRow;
     }
     else {
-        [self updateViewIndexOption:indexPath.row thenSelectTable:NO];
-        if ([self.delegate respondsToSelector:@selector(optionView:didOptionSelect:)]) {
-            [self.delegate optionView:self didOptionSelect:option];
-        }
+        return indexPath;
+    }
+}
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    MDOption *option = self.options[indexPath.row];
+    
+    UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    if ([cell isKindOfClass:[MDOptionComposerCell class]]) {
+        ((MDOptionComposerCell *)cell).option = option;
+    }
+    
+    [self updateViewIndexOption:indexPath.row thenSelectTable:NO];
+    
+    if ([self.delegate respondsToSelector:@selector(optionView:didTapOption:)]) {
+        [self.delegate optionView:self didTapOption:option];
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return optionCellHeight;
 }
-- (void)valueChanged:(UITextField *)sender {
-    self.okAction.enabled = sender.text.length>0;
-}
 
 #pragma mark - MDOptionComposerCellDelegate
 
 - (void)optionCell:(MDOptionComposerCell *)cell didEditOption:(MDOption *)option {
-    [self showOptionComposer:option atCell:cell isEdit:YES];
-}
-
-#pragma mark - Helper
-
-- (void)showOptionComposer:(MDOption *)option atCell:(UITableViewCell *)cell isEdit:(BOOL)isEdit {
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Custom Permata VA" message:@"Please insert your custom Virtual Account number." preferredStyle:UIAlertControllerStyleAlert];
-    
-    [alert addTextFieldWithConfigurationHandler:^(UITextField *tf) {
-        tf.placeholder = @"Custom VA number";
-        tf.text = option.value;
-        [tf addTarget:self action:@selector(valueChanged:) forControlEvents:UIControlEventEditingChanged];
-    }];
-    
-    [alert addAction:[UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if (isEdit == NO) {
-            NSInteger index = [self.options indexOfObjectPassingTest:^BOOL(MDOption *_obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [_obj.name isEqualToString:@"Disable"];
-            }];
-            if (index != NSNotFound)
-                [self selectOptionAtIndex:index];
-        }
-    }]];
-    
-    self.okAction = [UIAlertAction actionWithTitle:@"Insert" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        UITextField *tf = alert.textFields.firstObject;
-        option.value = tf.text;
-        
-        MDOptionComposerCell *composerCell = (MDOptionComposerCell*)cell;
-        composerCell.option = option;
-        
-        NSInteger index = [self.options indexOfObject:option];
-        [self updateViewIndexOption:index thenSelectTable:NO];
-        
-        if ([self.delegate respondsToSelector:@selector(optionView:didOptionSelect:)]) {
-            [self.delegate optionView:self didOptionSelect:option];
-        }
-    }];
-    self.okAction.enabled = [option.value length] > 0;
-    [alert addAction:self.okAction];
-    
-    [[MDUtils rootViewController] presentViewController:alert animated:YES completion:nil];
+    if ([self.delegate respondsToSelector:@selector(optionView:didTapEditComposerOption:)]) {
+        [self.delegate optionView:self didTapEditComposerOption:option];
+    }
 }
 
 @end

@@ -1,15 +1,15 @@
 //
-//  MDButton.m
+//  MDJButton.m
 //  MidtransDemo
 //
 //  Created by Nanang Rafsanjani on 3/29/17.
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
 
-#import "MDButton.h"
+#import "MDJButton.h"
 #import "MDUtils.h"
 
-@implementation MDButton
+@implementation MDJButton
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {

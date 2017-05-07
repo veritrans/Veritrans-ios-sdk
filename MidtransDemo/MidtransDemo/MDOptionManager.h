@@ -24,4 +24,5 @@
 @property (nonatomic) MDOption *bniPointOption;
 @property (nonatomic) MDOption *permataVAOption;
 @property (nonatomic) MDOption *bcaVAOption;
+@property (nonatomic) MDOption *installmentOption;
 @end

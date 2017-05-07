@@ -101,6 +101,7 @@
     NSUInteger index = [self indexOfObjectPassingTest:^BOOL(MDOption *_option, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([_option.name isEqual:option.name]) {
             _option.value = option.value;
+            _option.subName = option.subName;
             return YES;
         }
         else {

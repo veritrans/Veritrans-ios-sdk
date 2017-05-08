@@ -26,7 +26,6 @@
 		E55F63621E934C4700C012C8 /* MidtransPaymentWebController.h in Headers */ = {isa = PBXBuildFile; fileRef = E53BD0161D124AB7001FADDE /* MidtransPaymentWebController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63681E934C4700C012C8 /* MidtransPromo.h in Headers */ = {isa = PBXBuildFile; fileRef = E511CF421E48525400926FC7 /* MidtransPromo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63691E934C4700C012C8 /* MidtransPaymentRequestV2Installment.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6FC8921E1B62850002E160 /* MidtransPaymentRequestV2Installment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E55F636A1E934C4700C012C8 /* MidtransPaymentRequestV2Installment2.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6FC8941E1B62850002E160 /* MidtransPaymentRequestV2Installment2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F636B1E934C4700C012C8 /* MidtransPaymentRequestV2Terms.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F636C1E934C4700C012C8 /* MidtransPaymentRequestV2SavedTokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 009A7E7F1DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F636D1E934C4700C012C8 /* MidtransPaymentRequestV2BillingAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 009A7E511DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -88,7 +87,6 @@
 		E55F63A91E934C6400C012C8 /* MidtransPaymentWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = E53BD0171D124AB7001FADDE /* MidtransPaymentWebController.m */; };
 		E55F63AD1E934C6400C012C8 /* MidtransPromo.m in Sources */ = {isa = PBXBuildFile; fileRef = E511CF431E48525400926FC7 /* MidtransPromo.m */; };
 		E55F63AE1E934C6400C012C8 /* MidtransPaymentRequestV2Installment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */; };
-		E55F63AF1E934C6400C012C8 /* MidtransPaymentRequestV2Installment2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FC8951E1B62850002E160 /* MidtransPaymentRequestV2Installment2.m */; };
 		E55F63B01E934C6400C012C8 /* MidtransPaymentRequestV2Terms.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FC8971E1B62850002E160 /* MidtransPaymentRequestV2Terms.m */; };
 		E55F63B11E934C6400C012C8 /* MidtransPaymentRequestV2SavedTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7E801DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.m */; };
 		E55F63B21E934C6400C012C8 /* MidtransPaymentRequestV2BillingAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7E521DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.m */; };
@@ -162,7 +160,6 @@
 		E57120121E937A2B0064F515 /* MidtransTransactionExpire.m in Sources */ = {isa = PBXBuildFile; fileRef = E5711FFE1E937A030064F515 /* MidtransTransactionExpire.m */; };
 		E57120131E937A2B0064F515 /* MidtransPromo.m in Sources */ = {isa = PBXBuildFile; fileRef = E511CF431E48525400926FC7 /* MidtransPromo.m */; };
 		E57120141E937A2B0064F515 /* MidtransPaymentRequestV2Installment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */; };
-		E57120151E937A2B0064F515 /* MidtransPaymentRequestV2Installment2.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FC8951E1B62850002E160 /* MidtransPaymentRequestV2Installment2.m */; };
 		E57120161E937A2C0064F515 /* MidtransPaymentRequestV2Terms.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6FC8971E1B62850002E160 /* MidtransPaymentRequestV2Terms.m */; };
 		E57120171E937A2C0064F515 /* MidtransPaymentRequestV2SavedTokens.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7E801DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.m */; };
 		E57120181E937A2C0064F515 /* MidtransPaymentRequestV2BillingAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 009A7E521DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.m */; };
@@ -233,7 +230,6 @@
 		E571205C1E937A790064F515 /* MidtransTransactionExpire.h in Headers */ = {isa = PBXBuildFile; fileRef = E5711FFD1E937A030064F515 /* MidtransTransactionExpire.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E571205D1E937A790064F515 /* MidtransPromo.h in Headers */ = {isa = PBXBuildFile; fileRef = E511CF421E48525400926FC7 /* MidtransPromo.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E571205E1E937A790064F515 /* MidtransPaymentRequestV2Installment.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6FC8921E1B62850002E160 /* MidtransPaymentRequestV2Installment.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E571205F1E937A790064F515 /* MidtransPaymentRequestV2Installment2.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6FC8941E1B62850002E160 /* MidtransPaymentRequestV2Installment2.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120601E937A790064F515 /* MidtransPaymentRequestV2Terms.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120611E937A790064F515 /* MidtransPaymentRequestV2SavedTokens.h in Headers */ = {isa = PBXBuildFile; fileRef = 009A7E7F1DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120621E937A790064F515 /* MidtransPaymentRequestV2BillingAddress.h in Headers */ = {isa = PBXBuildFile; fileRef = 009A7E511DBF06E600049358 /* MidtransPaymentRequestV2BillingAddress.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -337,8 +333,6 @@
 		0C1923611E430A8C00B3BBDB /* SNPUITrackingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPUITrackingManager.m; sourceTree = "<group>"; };
 		0C6FC8921E1B62850002E160 /* MidtransPaymentRequestV2Installment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Installment.h; sourceTree = "<group>"; };
 		0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment.m; sourceTree = "<group>"; };
-		0C6FC8941E1B62850002E160 /* MidtransPaymentRequestV2Installment2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Installment2.h; sourceTree = "<group>"; };
-		0C6FC8951E1B62850002E160 /* MidtransPaymentRequestV2Installment2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment2.m; sourceTree = "<group>"; };
 		0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Terms.h; sourceTree = "<group>"; };
 		0C6FC8971E1B62850002E160 /* MidtransPaymentRequestV2Terms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Terms.m; sourceTree = "<group>"; };
 		0CD7EA981E03D0820036C187 /* MIdtransPaymentGCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentGCI.h; sourceTree = "<group>"; };
@@ -506,8 +500,6 @@
 				E511CF431E48525400926FC7 /* MidtransPromo.m */,
 				0C6FC8921E1B62850002E160 /* MidtransPaymentRequestV2Installment.h */,
 				0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */,
-				0C6FC8941E1B62850002E160 /* MidtransPaymentRequestV2Installment2.h */,
-				0C6FC8951E1B62850002E160 /* MidtransPaymentRequestV2Installment2.m */,
 				0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */,
 				0C6FC8971E1B62850002E160 /* MidtransPaymentRequestV2Terms.m */,
 				009A7E7F1DBF38A600049358 /* MidtransPaymentRequestV2SavedTokens.h */,
@@ -791,7 +783,6 @@
 				E571205C1E937A790064F515 /* MidtransTransactionExpire.h in Headers */,
 				E571205D1E937A790064F515 /* MidtransPromo.h in Headers */,
 				E571205E1E937A790064F515 /* MidtransPaymentRequestV2Installment.h in Headers */,
-				E571205F1E937A790064F515 /* MidtransPaymentRequestV2Installment2.h in Headers */,
 				E57120601E937A790064F515 /* MidtransPaymentRequestV2Terms.h in Headers */,
 				E57120611E937A790064F515 /* MidtransPaymentRequestV2SavedTokens.h in Headers */,
 				E57120621E937A790064F515 /* MidtransPaymentRequestV2BillingAddress.h in Headers */,
@@ -874,7 +865,6 @@
 				E55F63621E934C4700C012C8 /* MidtransPaymentWebController.h in Headers */,
 				E55F63681E934C4700C012C8 /* MidtransPromo.h in Headers */,
 				E55F63691E934C4700C012C8 /* MidtransPaymentRequestV2Installment.h in Headers */,
-				E55F636A1E934C4700C012C8 /* MidtransPaymentRequestV2Installment2.h in Headers */,
 				E55F636B1E934C4700C012C8 /* MidtransPaymentRequestV2Terms.h in Headers */,
 				E55F636C1E934C4700C012C8 /* MidtransPaymentRequestV2SavedTokens.h in Headers */,
 				E55F636D1E934C4700C012C8 /* MidtransPaymentRequestV2BillingAddress.h in Headers */,
@@ -1037,7 +1027,6 @@
 				E57120121E937A2B0064F515 /* MidtransTransactionExpire.m in Sources */,
 				E57120131E937A2B0064F515 /* MidtransPromo.m in Sources */,
 				E57120141E937A2B0064F515 /* MidtransPaymentRequestV2Installment.m in Sources */,
-				E57120151E937A2B0064F515 /* MidtransPaymentRequestV2Installment2.m in Sources */,
 				E57120161E937A2C0064F515 /* MidtransPaymentRequestV2Terms.m in Sources */,
 				E57120171E937A2C0064F515 /* MidtransPaymentRequestV2SavedTokens.m in Sources */,
 				E57120181E937A2C0064F515 /* MidtransPaymentRequestV2BillingAddress.m in Sources */,
@@ -1108,7 +1097,6 @@
 				E5711FF81E9379B90064F515 /* MidtransPaymentListModel.m in Sources */,
 				E55F63AD1E934C6400C012C8 /* MidtransPromo.m in Sources */,
 				E55F63AE1E934C6400C012C8 /* MidtransPaymentRequestV2Installment.m in Sources */,
-				E55F63AF1E934C6400C012C8 /* MidtransPaymentRequestV2Installment2.m in Sources */,
 				E55F63B01E934C6400C012C8 /* MidtransPaymentRequestV2Terms.m in Sources */,
 				E55F63B11E934C6400C012C8 /* MidtransPaymentRequestV2SavedTokens.m in Sources */,
 				E55F63B21E934C6400C012C8 /* MidtransPaymentRequestV2BillingAddress.m in Sources */,

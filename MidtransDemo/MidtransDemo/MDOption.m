@@ -17,7 +17,6 @@
     opt.value = value;
     return opt;
 }
-
 + (MDOption *)optionColorWithName:(NSString *)name value:(UIColor *)value {
     MDOption *opt = [MDOption new];
     opt.name = name;
@@ -25,11 +24,11 @@
     opt.value = value;
     return opt;
 }
-
-+ (MDOption *)optionComposerWithName:(NSString *)name value:(id)value {
++ (MDOption *)optionComposer:(MDComposerType)composerType name:(NSString *)name value:(id)value {
     MDOption *opt = [MDOption new];
-    opt.name = name;
     opt.type = MDOptionTypeComposer;
+    opt.composerType = composerType;
+    opt.name = name;
     opt.value = value;
     return opt;
 }
@@ -40,6 +39,7 @@
         self.type = [decoder decodeIntegerForKey:@"type"];
         self.name = [decoder decodeObjectForKey:@"name"];
         self.value = [decoder decodeObjectForKey:@"value"];
+        self.subName = [decoder decodeObjectForKey:@"subname"];
     }
     return self;
 }
@@ -48,5 +48,6 @@
     [encoder encodeObject:self.name forKey:@"name"];
     [encoder encodeObject:self.value forKey:@"value"];
     [encoder encodeInteger:self.type forKey:@"type"];
+    [encoder encodeObject:self.subName forKey:@"subname"];
 }
 @end

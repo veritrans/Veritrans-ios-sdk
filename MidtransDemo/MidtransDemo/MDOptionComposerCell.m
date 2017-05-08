@@ -14,6 +14,7 @@
 @property (nonatomic) IBOutlet UIButton *editButton;
 @property (nonatomic) IBOutlet UIImageView *checkView;
 @end
+
 @implementation MDOptionComposerCell
 
 - (void)awakeFromNib {
@@ -31,6 +32,8 @@
     [super setSelected:selected animated:animated];
     
     self.checkView.hidden = !selected;
+    
+    [self updateView];
 }
 
 - (void)editPressed:(UIButton *)sender {
@@ -42,19 +45,17 @@
 - (void)setOption:(MDOption *)option {
     _option = option;
     
-    if ([option.name isEqualToString:@"Disable"]) {
-        self.titleLabel.text = option.name;
-        self.editButton.hidden = YES;
+    [self updateView];
+}
+
+- (void)updateView {
+    if (self.option.subName && self.selected) {
+        self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", self.option.name, self.option.subName];
+        self.editButton.hidden = NO;
     }
     else {
-        if ([option.value length]) {
-            self.titleLabel.text = [NSString stringWithFormat:@"%@ - %@", option.name, option.value];
-            self.editButton.hidden = NO;
-        }
-        else {
-            self.titleLabel.text = option.name;
-            self.editButton.hidden = YES;
-        }
+        self.titleLabel.text = self.option.name;
+        self.editButton.hidden = YES;
     }
 }
 

@@ -7,6 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CE373A81EC064C2000C80A9 /* MDAddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */; };
+		0CE373A91EC064C2000C80A9 /* MDAddCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */; };
+		0CE373AA1EC064C2000C80A9 /* MDAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739C1EC064C2000C80A9 /* MDAlertViewController.xib */; };
+		0CE373AB1EC064C2000C80A9 /* MDCardListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3739E1EC064C2000C80A9 /* MDCardListViewController.m */; };
+		0CE373AC1EC064C2000C80A9 /* MDCardListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739F1EC064C2000C80A9 /* MDCardListViewController.xib */; };
+		0CE373AD1EC064C2000C80A9 /* MDCardTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE373A11EC064C2000C80A9 /* MDCardTableViewCell.m */; };
+		0CE373AE1EC064C2000C80A9 /* MDProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE373A31EC064C2000C80A9 /* MDProfileViewController.m */; };
+		0CE373AF1EC064C2000C80A9 /* MDProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A41EC064C2000C80A9 /* MDProfileViewController.xib */; };
+		0CE373B01EC064C2000C80A9 /* MDSaveCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */; };
+		0CE373B11EC064C2000C80A9 /* MDSaveCardFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */; };
 		25395560897337BED2927325 /* Pods_MidtransDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E14140008FFCCE01248075FF /* Pods_MidtransDemo.framework */; };
 		E519C8F21E9B672200EF70DF /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E519C8F11E9B672200EF70DF /* MidtransCoreKit.framework */; };
 		E519C8F31E9B672200EF70DF /* MidtransCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E519C8F11E9B672200EF70DF /* MidtransCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -110,6 +120,21 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAddCardViewController.h; sourceTree = "<group>"; };
+		0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAddCardViewController.m; sourceTree = "<group>"; };
+		0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDAddCardViewController.xib; sourceTree = "<group>"; };
+		0CE3739C1EC064C2000C80A9 /* MDAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDAlertViewController.xib; sourceTree = "<group>"; };
+		0CE3739D1EC064C2000C80A9 /* MDCardListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCardListViewController.h; sourceTree = "<group>"; };
+		0CE3739E1EC064C2000C80A9 /* MDCardListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCardListViewController.m; sourceTree = "<group>"; };
+		0CE3739F1EC064C2000C80A9 /* MDCardListViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDCardListViewController.xib; sourceTree = "<group>"; };
+		0CE373A01EC064C2000C80A9 /* MDCardTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDCardTableViewCell.h; sourceTree = "<group>"; };
+		0CE373A11EC064C2000C80A9 /* MDCardTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDCardTableViewCell.m; sourceTree = "<group>"; };
+		0CE373A21EC064C2000C80A9 /* MDProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDProfileViewController.h; sourceTree = "<group>"; };
+		0CE373A31EC064C2000C80A9 /* MDProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDProfileViewController.m; sourceTree = "<group>"; };
+		0CE373A41EC064C2000C80A9 /* MDProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDProfileViewController.xib; sourceTree = "<group>"; };
+		0CE373A51EC064C2000C80A9 /* MDSaveCardFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDSaveCardFooter.h; sourceTree = "<group>"; };
+		0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSaveCardFooter.m; sourceTree = "<group>"; };
+		0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDSaveCardFooter.xib; sourceTree = "<group>"; };
 		43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		83E2EA106416AB9B491F03C3 /* Pods-MidtransDemoPods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoPods.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemoPods/Pods-MidtransDemoPods.release.xcconfig"; sourceTree = "<group>"; };
 		C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.release.xcconfig"; path = "../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -339,6 +364,21 @@
 		E5A53A081E88F860001617C8 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */,
+				0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */,
+				0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */,
+				0CE3739C1EC064C2000C80A9 /* MDAlertViewController.xib */,
+				0CE3739D1EC064C2000C80A9 /* MDCardListViewController.h */,
+				0CE3739E1EC064C2000C80A9 /* MDCardListViewController.m */,
+				0CE3739F1EC064C2000C80A9 /* MDCardListViewController.xib */,
+				0CE373A01EC064C2000C80A9 /* MDCardTableViewCell.h */,
+				0CE373A11EC064C2000C80A9 /* MDCardTableViewCell.m */,
+				0CE373A21EC064C2000C80A9 /* MDProfileViewController.h */,
+				0CE373A31EC064C2000C80A9 /* MDProfileViewController.m */,
+				0CE373A41EC064C2000C80A9 /* MDProfileViewController.xib */,
+				0CE373A51EC064C2000C80A9 /* MDSaveCardFooter.h */,
+				0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */,
+				0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */,
 				E5A539EE1E88F82A001617C8 /* MDOrderViewController.h */,
 				E5A539EF1E88F82A001617C8 /* MDOrderViewController.m */,
 				E5A539F01E88F82A001617C8 /* MDOrderViewController.xib */,
@@ -535,13 +575,18 @@
 				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
 				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,
 				E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */,
+				0CE373AA1EC064C2000C80A9 /* MDAlertViewController.xib in Resources */,
 				E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */,
+				0CE373AC1EC064C2000C80A9 /* MDCardListViewController.xib in Resources */,
 				E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */,
+				0CE373B11EC064C2000C80A9 /* MDSaveCardFooter.xib in Resources */,
 				E5D7FECE1E83B67F0086A8A4 /* MDOptionsViewController.xib in Resources */,
 				E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */,
 				E56437021E83A72F008726D0 /* Assets.xcassets in Resources */,
 				E52954571EBB01890076BEC8 /* MDAlertInputCell.xib in Resources */,
 				E529544F1EBAF8E60076BEC8 /* MDAlertViewController.xib in Resources */,
+				0CE373AF1EC064C2000C80A9 /* MDProfileViewController.xib in Resources */,
+				0CE373A91EC064C2000C80A9 /* MDAddCardViewController.xib in Resources */,
 				E529545C1EBB01990076BEC8 /* MDAlertRadioCell.xib in Resources */,
 				E52954611EBB01B60076BEC8 /* MDAlertCheckCell.xib in Resources */,
 				E5A539FE1E88F82A001617C8 /* MDOrderViewController.xib in Resources */,
@@ -629,6 +674,7 @@
 				E5D7FECD1E83B67F0086A8A4 /* MDOptionsViewController.m in Sources */,
 				E5A539FC1E88F82A001617C8 /* MDOptionManager.m in Sources */,
 				E5D7FED41E83CBB80086A8A4 /* MDOptionCell.m in Sources */,
+				0CE373AD1EC064C2000C80A9 /* MDCardTableViewCell.m in Sources */,
 				E5A53A021E88F82A001617C8 /* MDOptionColorCell.m in Sources */,
 				E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */,
 				E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */,
@@ -638,12 +684,16 @@
 				E56436F71E83A72F008726D0 /* main.m in Sources */,
 				E529545B1EBB01990076BEC8 /* MDAlertRadioCell.m in Sources */,
 				E5C7B4631EB2E0A8005D5B78 /* MDOptionComposerCell.m in Sources */,
+				0CE373B01EC064C2000C80A9 /* MDSaveCardFooter.m in Sources */,
 				E529544E1EBAF8E60076BEC8 /* MDAlertViewController.m in Sources */,
 				E5D7FEE31E83D8F10086A8A4 /* MDUtils.m in Sources */,
+				0CE373AB1EC064C2000C80A9 /* MDCardListViewController.m in Sources */,
 				E5C7B4691EB2E8EB005D5B78 /* MDOption.m in Sources */,
 				E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */,
 				E56BCB871E8B60FE0005A401 /* MDJButton.m in Sources */,
+				0CE373AE1EC064C2000C80A9 /* MDProfileViewController.m in Sources */,
 				E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */,
+				0CE373A81EC064C2000C80A9 /* MDAddCardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

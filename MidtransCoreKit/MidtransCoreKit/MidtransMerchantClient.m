@@ -216,7 +216,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         dictionaryParameters[@"bca_va"] = @{@"va_number":CONFIG.customBCAVANumber};
     }
     
-    if (CONFIG.customPaymentChannels.count>0) {
+    if (CONFIG.customPaymentChannels.count > 0) {
         dictionaryParameters[@"enabled_payments"] = CONFIG.customPaymentChannels;
     }
     

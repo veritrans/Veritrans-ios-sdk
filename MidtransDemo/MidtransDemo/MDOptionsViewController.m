@@ -13,6 +13,7 @@
 #import "MDUtils.h"
 #import "MDAlertViewController.h"
 #import <MidtransKit/MidtransKit.h>
+#import "MDPayment.h"
 
 @interface MDOptionsViewController () <MDOptionViewDelegate, MDAlertViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *optionContainer;
@@ -170,6 +171,16 @@
                                                    identifier:OPTInstallment];
     [optInstallment selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].installmentOption]];
     
+    //////////////////
+    //payment channels
+    options = @[[MDOption optionGeneralWithName:@"Show All" value:nil],
+                [MDOption optionCheckListWithName:@"Show Selected Only" checkedList:nil]];
+    MDOptionView *optPaymentChannels = [MDOptionView viewWithIcon:[UIImage imageNamed:@"payment_channel"]
+                                                    titleTemplate:@"%@"
+                                                          options:options
+                                                       identifier:OPTPaymanetChannel];
+    [optPaymentChannels selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].paymentChannel]];
+    
     self.optionViews = @[
                          optType,
                          opt3ds,
@@ -182,7 +193,8 @@
                          optBNIPoint,
                          optPermataVA,
                          optBCAVA,
-                         optInstallment
+                         optInstallment,
+                         optPaymentChannels
                          ];
     
     [self prepareOptionViews:self.optionViews];
@@ -248,43 +260,10 @@
     [self cacheOptionWithView:optionView option:option];
 }
 - (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option {
-    NSString *idf = optionView.identifier;
-    if ([idf isEqualToString:OPTPermataVA] ||
-        [idf isEqualToString:OPTBCAVA]) {
-        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
-                                                              predefinedText:nil
-                                                            inputPlaceholder:@"Custom VA Number"];
-        alert.delegate = self;
-        alert.tag = [optionView.options indexOfObject:option];
-        [alert show];
-    }
-    else if ([idf isEqualToString:OPTInstallment]) {
-        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Installment" radioButtons:@[@"Required", @"Optional"]];
-        alert.delegate = self;
-        alert.tag = [optionView.options indexOfObject:option];
-        [alert show];
-    }
-    self.selectedOptionView = optionView;
+    [self showAlertAtOptionView:optionView option:option usePredefinedValue:NO];
 }
 - (void)optionView:(MDOptionView *)optionView didTapEditComposerOption:(MDOption *)option {
-    NSString *idf = optionView.identifier;
-    if ([idf isEqualToString:OPTPermataVA] ||
-        [idf isEqualToString:OPTBCAVA]) {
-        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
-                                                              predefinedText:option.value
-                                                            inputPlaceholder:@"Custom VA Number"];
-        alert.delegate = self;
-        alert.tag = [optionView.options indexOfObject:option];
-        [alert show];
-    }
-    else if ([idf isEqualToString:OPTInstallment]) {
-        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Installment" radioButtons:@[@"Required", @"Optional"]];
-        alert.predefinedRadio = option.subName;
-        alert.delegate = self;
-        alert.tag = [optionView.options indexOfObject:option];
-        [alert show];
-    }
-    self.selectedOptionView = optionView;
+    [self showAlertAtOptionView:optionView option:option usePredefinedValue:YES];
 }
 
 - (IBAction)launchPressed:(id)sender {
@@ -311,7 +290,15 @@
     [viewController dismiss];
 }
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values {
+    NSUInteger index = viewController.tag;
+    MDOption *option = self.selectedOptionView.options[index];
+    option.value = [MDUtils paymentChannelsWithNames:values];
+    option.subName = [NSString stringWithFormat:@"%@ Channels", @(values.count)];
     
+    [self.selectedOptionView selectOptionAtIndex:index];
+    [self cacheOptionWithView:self.selectedOptionView option:option];
+    
+    [viewController dismiss];
 }
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyRadio:(id)value {
     NSUInteger index = viewController.tag;
@@ -329,6 +316,39 @@
 }
 
 #pragma mark - Helper
+
+- (void)showAlertAtOptionView:(MDOptionView *)optionView
+                       option:(MDOption *)option
+           usePredefinedValue:(BOOL)usePredefinedValue {
+    NSString *idf = optionView.identifier;
+    if ([idf isEqualToString:OPTPermataVA] ||
+        [idf isEqualToString:OPTBCAVA]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
+                                                              predefinedText:option.value
+                                                            inputPlaceholder:@"Custom VA Number"];
+        alert.delegate = self;
+        alert.predefinedInputText = usePredefinedValue? option.value: nil;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTInstallment]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Installment" radioButtons:@[@"Required", @"Optional"]];
+        alert.predefinedRadio = usePredefinedValue? option.subName: nil;
+        alert.delegate = self;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTPaymanetChannel]) {
+        NSArray *channelNames = [[MDUtils allPaymentChannels] valueForKey:@"name"];
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Payment Channels"
+                                                                  checkLists:channelNames];
+        alert.delegate = self;
+        alert.predefinedCheckLists = usePredefinedValue? [option.value valueForKey:@"name"]: nil;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    self.selectedOptionView = optionView;
+}
 
 - (MidtransPaymentRequestV2Installment *)installmentBank:(NSString *)bank isRequired:(BOOL)required {
     return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@6,@12]} isRequired:required];
@@ -371,6 +391,9 @@
     }
     else if ([idf isEqualToString:OPTInstallment]) {
         [MDOptionManager shared].installmentOption = option;
+    }
+    else if ([idf isEqualToString:OPTPaymanetChannel]) {
+        [MDOptionManager shared].paymentChannel = option;
     }
 }
 - (MDOptionView *)optionView:(NSString *)identifier {

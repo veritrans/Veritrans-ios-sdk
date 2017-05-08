@@ -11,6 +11,28 @@
 
 @implementation MDUtils
 
++ (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names {
+    NSArray *allChannels = [self allPaymentChannels];
+    NSMutableArray *result = [NSMutableArray new];
+    for (MDPayment *channel in allChannels) {
+        if ([names containsObject:channel.name]) {
+            [result addObject:channel];
+        }
+    }
+    return  result;
+}
++ (NSArray <MDPayment*>*)allPaymentChannels {
+    NSString *rawChannelsPath = [[NSBundle mainBundle] pathForResource:@"payment_channels" ofType:@"json"];
+    NSData *data = [NSData dataWithContentsOfFile:rawChannelsPath];
+    NSArray *rawChannels = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+    NSMutableArray *channels = [NSMutableArray new];
+    for (id rawChannel in rawChannels) {
+        MDPayment *channel = [MDPayment modelObjectWithDictionary:rawChannel];
+        [channels addObject:channel];
+    }
+    return channels;
+}
+
 + (UIViewController *)rootViewController {
     UIViewController *topRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     while (topRootViewController.presentedViewController){

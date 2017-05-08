@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "MDOption.h"
+#import "MDPayment.h"
 
 #define defaults()                          [NSUserDefaults standardUserDefaults]
 #define defaults_init(dictionary)			[defaults() registerDefaults:dictionary]
@@ -36,8 +37,11 @@ static NSString *const OPTBNIPoint = @"OPTBNIPoint";
 static NSString *const OPTPermataVA = @"OPTPermataVA";
 static NSString *const OPTBCAVA = @"OPTBCAVA";
 static NSString *const OPTInstallment = @"OPTInstallment";
+static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";
 
 @interface MDUtils : NSObject
++ (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names;
++ (NSArray <MDPayment*>*)allPaymentChannels;
 + (UIViewController *)rootViewController;
 @end
 

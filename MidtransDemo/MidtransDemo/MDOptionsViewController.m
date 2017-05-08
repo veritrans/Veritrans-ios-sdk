@@ -162,9 +162,9 @@
     /////////////
     //installment
     options = @[[MDOption optionGeneralWithName:@"Disabled" value:nil],
-                [MDOption optionComposer:MDComposerTypeRadio name:@"Mandiri" value:[self installmentBank:@"mandiri" isRequired:NO]],
-                [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[self installmentBank:@"bca" isRequired:NO]],
-                [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[self installmentBank:@"bni" isRequired:NO]]];
+                [MDOption optionComposer:MDComposerTypeRadio name:@"Mandiri" value:[MDUtils installmentOfBank:@"mandiri" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[MDUtils installmentOfBank:@"bca" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[MDUtils installmentOfBank:@"bni" isRequired:NO]]];
     MDOptionView *optInstallment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"installment"]
                                                 titleTemplate:@"Installment %@"
                                                       options:options
@@ -257,7 +257,7 @@
     }];
 }
 - (void)optionView:(MDOptionView *)optionView didTapOption:(MDOption *)option {
-    [self cacheOptionWithView:optionView option:option];
+    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
 }
 - (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option {
     [self showAlertAtOptionView:optionView option:option usePredefinedValue:NO];
@@ -285,7 +285,7 @@
     
     [self.selectedOptionView selectOptionAtIndex:index];
     
-    [self cacheOptionWithView:self.selectedOptionView option:option];
+    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
     
     [viewController dismiss];
 }
@@ -296,7 +296,7 @@
     option.subName = [NSString stringWithFormat:@"%@ Channels", @(values.count)];
     
     [self.selectedOptionView selectOptionAtIndex:index];
-    [self cacheOptionWithView:self.selectedOptionView option:option];
+    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
     
     [viewController dismiss];
 }
@@ -310,7 +310,7 @@
     }
     
     [self.selectedOptionView selectOptionAtIndex:index];
-    [self cacheOptionWithView:self.selectedOptionView option:option];
+    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
     
     [viewController dismiss];
 }
@@ -350,52 +350,6 @@
     self.selectedOptionView = optionView;
 }
 
-- (MidtransPaymentRequestV2Installment *)installmentBank:(NSString *)bank isRequired:(BOOL)required {
-    return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@6,@12]} isRequired:required];
-}
-
-- (void)cacheOptionWithView:(MDOptionView *)view option:(MDOption *)option {
-    NSString *idf = view.identifier;
-    if ([idf isEqualToString:OPTSaveCard]) {
-        [MDOptionManager shared].saveCardOption = option;
-    }
-    else if ([idf isEqualToString:OPT3DSecure]) {
-        [MDOptionManager shared].secure3DOption = option;
-    }
-    else if ([idf isEqualToString:OPTColor]) {
-        [MDOptionManager shared].colorOption = option;
-    }
-    else if ([idf isEqualToString:OPTPromo]) {
-        [MDOptionManager shared].promoOption = option;
-    }
-    else if ([idf isEqualToString:OPTPreauth]) {
-        [MDOptionManager shared].preauthOption = option;
-    }
-    else if ([idf isEqualToString:OPTBNIPoint]) {
-        [MDOptionManager shared].bniPointOption = option;
-    }
-    else if ([idf isEqualToString:OPTCustomExpire]) {
-        [MDOptionManager shared].expireTimeOption = option;
-    }
-    else if ([idf isEqualToString:OPTAcquiringBank]) {
-        [MDOptionManager shared].issuingBankOption = option;
-    }
-    else if ([idf isEqualToString:OPTCreditCardFeature]) {
-        [MDOptionManager shared].ccTypeOption = option;
-    }
-    else if ([idf isEqualToString:OPTBCAVA]) {
-        [MDOptionManager shared].bcaVAOption = option;
-    }
-    else if ([idf isEqualToString:OPTPermataVA]) {
-        [MDOptionManager shared].permataVAOption = option;
-    }
-    else if ([idf isEqualToString:OPTInstallment]) {
-        [MDOptionManager shared].installmentOption = option;
-    }
-    else if ([idf isEqualToString:OPTPaymanetChannel]) {
-        [MDOptionManager shared].paymentChannel = option;
-    }
-}
 - (MDOptionView *)optionView:(NSString *)identifier {
     for (MDOptionView *optView in self.optionViews) {
         if ([optView.identifier isEqualToString:identifier]) {

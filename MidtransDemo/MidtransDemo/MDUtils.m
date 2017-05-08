@@ -11,6 +11,53 @@
 
 @implementation MDUtils
 
++ (MidtransPaymentRequestV2Installment *)installmentOfBank:(NSString *)bank isRequired:(BOOL)required {
+    return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@6,@12]} isRequired:required];
+}
+
++ (void)saveOptionWithView:(MDOptionView *)view option:(MDOption *)option {
+    NSString *idf = view.identifier;
+    if ([idf isEqualToString:OPTSaveCard]) {
+        [MDOptionManager shared].saveCardOption = option;
+    }
+    else if ([idf isEqualToString:OPT3DSecure]) {
+        [MDOptionManager shared].secure3DOption = option;
+    }
+    else if ([idf isEqualToString:OPTColor]) {
+        [MDOptionManager shared].colorOption = option;
+    }
+    else if ([idf isEqualToString:OPTPromo]) {
+        [MDOptionManager shared].promoOption = option;
+    }
+    else if ([idf isEqualToString:OPTPreauth]) {
+        [MDOptionManager shared].preauthOption = option;
+    }
+    else if ([idf isEqualToString:OPTBNIPoint]) {
+        [MDOptionManager shared].bniPointOption = option;
+    }
+    else if ([idf isEqualToString:OPTCustomExpire]) {
+        [MDOptionManager shared].expireTimeOption = option;
+    }
+    else if ([idf isEqualToString:OPTAcquiringBank]) {
+        [MDOptionManager shared].issuingBankOption = option;
+    }
+    else if ([idf isEqualToString:OPTCreditCardFeature]) {
+        [MDOptionManager shared].ccTypeOption = option;
+    }
+    else if ([idf isEqualToString:OPTBCAVA]) {
+        [MDOptionManager shared].bcaVAOption = option;
+    }
+    else if ([idf isEqualToString:OPTPermataVA]) {
+        [MDOptionManager shared].permataVAOption = option;
+    }
+    else if ([idf isEqualToString:OPTInstallment]) {
+        [MDOptionManager shared].installmentOption = option;
+    }
+    else if ([idf isEqualToString:OPTPaymanetChannel]) {
+        [MDOptionManager shared].paymentChannel = option;
+    }
+}
+
 + (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names {
     NSArray *allChannels = [self allPaymentChannels];
     NSMutableArray *result = [NSMutableArray new];

@@ -42,6 +42,10 @@ static NSString *const OPTBCAVA = @"OPTBCAVA";
 static NSString *const OPTInstallment = @"OPTInstallment";
 static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";
 
+static NSString *const BankBCAKey = @"bca";
+static NSString *const BankMandiriKey = @"mandiri";
+static NSString *const BankBNIKey = @"bni";
+
 @interface MDUtils : NSObject
 + (MidtransPaymentRequestV2Installment *)installmentOfBank:(NSString *)bank isRequired:(BOOL)required;
 + (void)saveOptionWithView:(MDOptionView *)view option:(MDOption *)option;

@@ -68,7 +68,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MDAlertInputCell" bundle:nil] forCellReuseIdentifier:@"MDAlertInputCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MDAlertRadioCell" bundle:nil] forCellReuseIdentifier:@"MDAlertRadioCell"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MDAlertCheckCell" bundle:nil] forCellReuseIdentifier:@"MDAlertCheckCell"];
-    self.tableView.allowsMultipleSelection = self.type == MDAlertOptionTypeCheck;
     [self updateTableViewHeight];
     
     self.titleLabel.text = self.alertTitle;
@@ -84,6 +83,16 @@
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.radioButtons indexOfObject:self.predefinedRadio] inSection:0];
         [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
         [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+    }
+    else if (self.type == MDAlertOptionTypeCheck) {
+        self.tableView.allowsMultipleSelection = YES;
+        for (int i=0; i<self.checkLists.count; i++) {
+            if ([self.predefinedCheckLists containsObject:self.checkLists[i]]) {
+                NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
+                [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
+                [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
+            }
+        }
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -240,6 +249,7 @@
     }
     else {
         MDAlertCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDAlertCheckCell"];
+        cell.titleLabel.text = self.checkLists[indexPath.row];
         return cell;
     }
 }

@@ -42,6 +42,7 @@
         self.bcaVAOption = [self unArchivedObject:@"md_bca_va"];
         self.bniPointOption = [self unArchivedObject:@"md_bni_point"];
         self.installmentOption = [self unArchivedObject:@"md_installment"];
+        self.paymentChannel = [self unArchivedObject:@"md_payment_channel"];
     }
     return self;
 }
@@ -105,6 +106,10 @@
 - (void)setInstallmentOption:(MDOption *)installmentOption {
     _installmentOption = installmentOption;
     [self archiveObject:installmentOption key:@"md_installment"];
+}
+- (void)setPaymentChannel:(MDOption *)paymentChannel {
+    _paymentChannel = paymentChannel;
+    [self archiveObject:paymentChannel key:@"md_payment_channel"];
 }
 
 - (id)unArchivedObject:(NSString *)key {

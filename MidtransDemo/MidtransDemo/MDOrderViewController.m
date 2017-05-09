@@ -54,8 +54,9 @@
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
     
-    [MidtransConfig shared].customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
-    [MidtransConfig shared].customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
+    CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
+    CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
+    CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     
     [[MidtransNetworkLogger shared] startLogging];
     

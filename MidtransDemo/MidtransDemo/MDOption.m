@@ -32,6 +32,14 @@
     opt.value = value;
     return opt;
 }
++ (MDOption *)optionCheckListWithName:(NSString *)name checkedList:(NSArray *)checkedList {
+    MDOption *opt = [MDOption new];
+    opt.type = MDOptionTypeComposer;
+    opt.composerType = MDComposerTypeCheck;
+    opt.name = name;
+    opt.value = checkedList;
+    return opt;
+}
 
 - (id)initWithCoder:(NSCoder *)decoder {
     self = [super init];

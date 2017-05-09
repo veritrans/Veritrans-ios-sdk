@@ -24,6 +24,8 @@
 		E56436FA1E83A72F008726D0 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E56436F91E83A72F008726D0 /* AppDelegate.m */; };
 		E56437021E83A72F008726D0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E56437011E83A72F008726D0 /* Assets.xcassets */; };
 		E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E56437031E83A72F008726D0 /* LaunchScreen.storyboard */; };
+		E56A2D591EC05B04000C5A87 /* payment_channels.json in Resources */ = {isa = PBXBuildFile; fileRef = E56A2D581EC05B04000C5A87 /* payment_channels.json */; };
+		E56A2D611EC06A3F000C5A87 /* MDPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E56A2D601EC06A3F000C5A87 /* MDPayment.m */; };
 		E56BCB871E8B60FE0005A401 /* MDJButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB861E8B60FE0005A401 /* MDJButton.m */; };
 		E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E56BCB891E8B610B0005A401 /* MDNavigationViewController.m */; };
 		E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5A539EA1E88F82A001617C8 /* MDImageCollectionViewCell.m */; };
@@ -135,6 +137,9 @@
 		E56437011E83A72F008726D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E56437041E83A72F008726D0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E56437061E83A72F008726D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E56A2D581EC05B04000C5A87 /* payment_channels.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = payment_channels.json; sourceTree = "<group>"; };
+		E56A2D5F1EC06A3F000C5A87 /* MDPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDPayment.h; sourceTree = "<group>"; };
+		E56A2D601EC06A3F000C5A87 /* MDPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDPayment.m; sourceTree = "<group>"; };
 		E56BCB851E8B60FE0005A401 /* MDJButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDJButton.h; sourceTree = "<group>"; };
 		E56BCB861E8B60FE0005A401 /* MDJButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDJButton.m; sourceTree = "<group>"; };
 		E56BCB881E8B610B0005A401 /* MDNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationViewController.h; sourceTree = "<group>"; };
@@ -291,6 +296,7 @@
 				E5D7FEE01E83D83F0086A8A4 /* fonts */,
 				E56437061E83A72F008726D0 /* Info.plist */,
 				E56436F61E83A72F008726D0 /* main.m */,
+				E56A2D581EC05B04000C5A87 /* payment_channels.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -377,6 +383,8 @@
 		E5D7FED61E83D1430086A8A4 /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				E56A2D5F1EC06A3F000C5A87 /* MDPayment.h */,
+				E56A2D601EC06A3F000C5A87 /* MDPayment.m */,
 				E5A539EC1E88F82A001617C8 /* MDOptionManager.h */,
 				E5A539ED1E88F82A001617C8 /* MDOptionManager.m */,
 				E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */,
@@ -535,6 +543,7 @@
 				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
 				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,
 				E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */,
+				E56A2D591EC05B04000C5A87 /* payment_channels.json in Resources */,
 				E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */,
 				E56437051E83A72F008726D0 /* LaunchScreen.storyboard in Resources */,
 				E5D7FECE1E83B67F0086A8A4 /* MDOptionsViewController.xib in Resources */,
@@ -634,6 +643,7 @@
 				E5A539FA1E88F82A001617C8 /* MDImageCollectionViewCell.m in Sources */,
 				E52954561EBB01890076BEC8 /* MDAlertInputCell.m in Sources */,
 				E5A539FD1E88F82A001617C8 /* MDOrderViewController.m in Sources */,
+				E56A2D611EC06A3F000C5A87 /* MDPayment.m in Sources */,
 				E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */,
 				E56436F71E83A72F008726D0 /* main.m in Sources */,
 				E529545B1EBB01990076BEC8 /* MDAlertRadioCell.m in Sources */,

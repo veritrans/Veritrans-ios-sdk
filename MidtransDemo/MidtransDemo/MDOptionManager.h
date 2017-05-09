@@ -25,4 +25,6 @@
 @property (nonatomic) MDOption *permataVAOption;
 @property (nonatomic) MDOption *bcaVAOption;
 @property (nonatomic) MDOption *installmentOption;
+@property (nonatomic) MDOption *paymentChannel;
+
 @end

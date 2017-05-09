@@ -61,9 +61,14 @@
     [[MidtransNetworkLogger shared] startLogging];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
+    __weak MDOrderViewController *wself = self;
     defaults_observe_object(@"md_color", ^(NSNotification *note){
-        self.amountView.backgroundColor = [UIColor mdThemeColor];
+        wself.amountView.backgroundColor = [UIColor mdThemeColor];
     });
+}
+
+- (void)dealloc {
+    [[MidtransNetworkLogger shared] stopLogging];
 }
 
 - (IBAction)bayarPressed:(id)sender {

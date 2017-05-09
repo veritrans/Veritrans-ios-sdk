@@ -126,6 +126,9 @@
     if (data) {
         defaults_set_object(key, data);
     }
+    else {
+        defaults_remove(key)
+    }
 }
 
 @end

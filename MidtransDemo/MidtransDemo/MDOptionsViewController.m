@@ -257,7 +257,7 @@
     }];
 }
 - (void)optionView:(MDOptionView *)optionView didTapOption:(MDOption *)option {
-    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
+    [MDUtils saveOptionWithView:optionView option:option];
 }
 - (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option {
     [self showAlertAtOptionView:optionView option:option usePredefinedValue:NO];
@@ -306,7 +306,27 @@
     option.subName = value;
     
     if ([self.selectedOptionView.identifier isEqualToString:OPTInstallment]) {
-        ((MidtransPaymentRequestV2Installment *)option.value).required = [value isEqualToString:@"Required"]? YES: NO;
+        MidtransPaymentRequestV2Installment *term = option.value;
+        term.required = [value isEqualToString:@"Required"]? YES: NO;
+        
+        NSString *bank = term.terms.allKeys.firstObject;
+        MTAcquiringBank bankAcq;
+        
+        if ([bank isEqualToString:BankBCAKey]) {
+            bankAcq = MTAcquiringBankBCA;
+        }
+        else if ([bank isEqualToString:BankMandiriKey]) {
+            bankAcq = MTAcquiringBankMandiri;
+        }
+        else {
+            bankAcq = MTAcquiringBankBNI;
+        }
+        
+        MDOptionView *view = [self optionView:OPTAcquiringBank];
+        NSUInteger index = [view.options indexOfObjectPassingTest:^BOOL(MDOption * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj.value integerValue] == bankAcq;
+        }];
+        [view selectOptionAtIndex:index];
     }
     
     [self.selectedOptionView selectOptionAtIndex:index];

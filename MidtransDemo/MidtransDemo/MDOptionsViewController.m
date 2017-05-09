@@ -124,7 +124,7 @@
                                              titleTemplate:@"BNI Point Only %@"
                                                    options:options
                                                 identifier:OPTBNIPoint];
-    [optBNIPoint selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].colorOption]];
+    [optBNIPoint selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bniPointOption]];
     
     ///////////////
     //color scheme

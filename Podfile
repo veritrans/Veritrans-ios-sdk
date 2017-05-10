@@ -6,6 +6,7 @@ project 'MidtransDemo/MidtransDemo.xcodeproj'
 use_frameworks!
 
 target 'MidtransDemo' do
+    pod 'CHRTextFieldFormatter'
     pod 'JGProgressHUD'
     pod 'ACFloatingTextfield-Objc', '~> 1.4'
     pod 'IQKeyboardManager'

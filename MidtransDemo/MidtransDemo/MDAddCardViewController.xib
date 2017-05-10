@@ -6,11 +6,15 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MDAddCardViewController">
             <connections>
+                <outlet property="cardNumberTextFIeld" destination="hno-BE-QpC" id="481-z2-Snl"/>
+                <outlet property="cvv" destination="zgf-kM-RFn" id="tbE-4W-r1Z"/>
+                <outlet property="expiryDate" destination="v96-c3-Hjg" id="TvD-hS-p4b"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -20,19 +24,22 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="huD-MF-J4A">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="617"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v10-Qo-DKj">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="417"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="138"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hno-BE-QpC" customClass="ACFloatingTextField">
-                                    <rect key="frame" x="8" y="22" width="359" height="30"/>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Card Number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hno-BE-QpC" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="8" y="22" width="359" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="MAq-LY-udb"/>
+                                    </constraints>
                                     <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
                                         <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
-                                            <color key="value" red="0.21176470589999999" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         </userDefinedRuntimeAttribute>
                                         <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
                                             <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,32 +47,132 @@
                                         <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
                                             <color key="value" red="0.27447596190000001" green="0.27452921870000002" blue="0.27447256450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                            <color key="value" red="0.63487810860000005" green="0.032235628279999998" blue="0.07791635425" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                            <color key="value" red="0.63487810860000005" green="0.032235628279999998" blue="0.07791635425" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                            <color key="value" red="0.21176470589999999" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="wdf-NS-3s3"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Expiry Date (MM/YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="v96-c3-Hjg" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="8" y="74" width="171" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="Djn-EA-YyD"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                            <color key="value" red="0.27447596190000001" green="0.27452921870000002" blue="0.27447256450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                            <color key="value" red="0.63487810860000005" green="0.032235628279999998" blue="0.07791635425" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                            <color key="value" red="0.63487810860000005" green="0.032235628279999998" blue="0.07791635425" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                            <color key="value" red="0.21176470589999999" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="xFO-YC-eCl"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="CVV" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zgf-kM-RFn" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="195" y="74" width="172" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="G7I-n2-Uh1"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="placeHolderColor">
+                                            <color key="value" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedPlaceHolderColor">
+                                            <color key="value" red="0.27447596190000001" green="0.27452921870000002" blue="0.27447256450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="errorTextColor">
+                                            <color key="value" red="0.63487810860000005" green="0.032235628279999998" blue="0.07791635425" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="errorLineColor">
+                                            <color key="value" red="0.63487810860000005" green="0.032235628279999998" blue="0.07791635425" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                            <color key="value" red="0.21176470589999999" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <outlet property="delegate" destination="-1" id="0D4-84-FBS"/>
+                                    </connections>
                                 </textField>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="hno-BE-QpC" firstAttribute="top" secondItem="v10-Qo-DKj" secondAttribute="top" constant="22" id="6Ru-QH-2PG"/>
+                                <constraint firstItem="zgf-kM-RFn" firstAttribute="top" secondItem="hno-BE-QpC" secondAttribute="bottom" constant="8" id="Cjh-Vk-AFU"/>
                                 <constraint firstItem="hno-BE-QpC" firstAttribute="leading" secondItem="v10-Qo-DKj" secondAttribute="leading" constant="8" id="JSG-PR-WsG"/>
+                                <constraint firstItem="v96-c3-Hjg" firstAttribute="leading" secondItem="v10-Qo-DKj" secondAttribute="leading" constant="8" id="LX7-dn-u6l"/>
+                                <constraint firstItem="v96-c3-Hjg" firstAttribute="width" secondItem="hno-BE-QpC" secondAttribute="width" multiplier="1/2" constant="-8.5" id="Njq-sD-6eN"/>
+                                <constraint firstItem="v96-c3-Hjg" firstAttribute="top" secondItem="hno-BE-QpC" secondAttribute="bottom" constant="8" id="Y3d-h6-2z6"/>
+                                <constraint firstItem="zgf-kM-RFn" firstAttribute="width" secondItem="v96-c3-Hjg" secondAttribute="width" constant="1" id="ZpU-OT-NNq"/>
+                                <constraint firstAttribute="bottom" secondItem="v96-c3-Hjg" secondAttribute="bottom" constant="20" id="o4M-h0-ggf"/>
                                 <constraint firstAttribute="trailing" secondItem="hno-BE-QpC" secondAttribute="trailing" constant="8" id="ptT-aV-fKV"/>
+                                <constraint firstItem="zgf-kM-RFn" firstAttribute="leading" secondItem="v96-c3-Hjg" secondAttribute="trailing" constant="16" id="ust-1o-81I"/>
                             </constraints>
                         </view>
                     </subviews>
                     <constraints>
                         <constraint firstItem="v10-Qo-DKj" firstAttribute="top" secondItem="huD-MF-J4A" secondAttribute="top" id="Cmr-js-c3z"/>
-                        <constraint firstAttribute="bottom" secondItem="v10-Qo-DKj" secondAttribute="bottom" constant="250" id="gvx-L4-sgQ"/>
+                        <constraint firstItem="v10-Qo-DKj" firstAttribute="width" secondItem="huD-MF-J4A" secondAttribute="width" id="Hbo-Gd-WyQ"/>
+                        <constraint firstAttribute="bottom" secondItem="v10-Qo-DKj" secondAttribute="bottom" id="T3l-LQ-xLi"/>
                         <constraint firstItem="v10-Qo-DKj" firstAttribute="leading" secondItem="huD-MF-J4A" secondAttribute="leading" id="q9X-Jf-gZ7"/>
                         <constraint firstAttribute="trailing" secondItem="v10-Qo-DKj" secondAttribute="trailing" id="w2t-W1-oss"/>
                     </constraints>
                 </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nIq-3i-ocl">
+                    <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                    <color key="backgroundColor" red="0.21176470589999999" green="0.47058823529999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="Occ-Fk-lSP"/>
+                    </constraints>
+                    <state key="normal" title="SAVE CARD">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="saveCardButtonDidtapped:" destination="-1" eventType="touchUpInside" id="YJj-Vr-uUr"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="huD-MF-J4A" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="0ZA-FF-r58"/>
+                <constraint firstItem="nIq-3i-ocl" firstAttribute="leading" secondItem="huD-MF-J4A" secondAttribute="leading" id="8YU-nC-Jdu"/>
                 <constraint firstItem="huD-MF-J4A" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Bly-Un-Zcq"/>
                 <constraint firstItem="huD-MF-J4A" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="TUz-4g-Rsq"/>
                 <constraint firstAttribute="trailing" secondItem="huD-MF-J4A" secondAttribute="trailing" id="Xvh-Jr-UhG"/>
-                <constraint firstAttribute="bottom" secondItem="huD-MF-J4A" secondAttribute="bottom" id="sDA-dV-gow"/>
+                <constraint firstItem="nIq-3i-ocl" firstAttribute="trailing" secondItem="huD-MF-J4A" secondAttribute="trailing" id="dGa-dG-HbD"/>
+                <constraint firstItem="nIq-3i-ocl" firstAttribute="top" secondItem="huD-MF-J4A" secondAttribute="bottom" id="lBf-CO-GP3"/>
+                <constraint firstAttribute="bottom" secondItem="nIq-3i-ocl" secondAttribute="bottom" id="mef-B8-XeK"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>

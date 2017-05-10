@@ -8,7 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MidtransKit/MidtransKit.h>
+
 #import "MDOption.h"
+#import "MDPayment.h"
+#import "MDOptionView.h"
 
 #define defaults()                          [NSUserDefaults standardUserDefaults]
 #define defaults_init(dictionary)			[defaults() registerDefaults:dictionary]
@@ -36,8 +40,17 @@ static NSString *const OPTBNIPoint = @"OPTBNIPoint";
 static NSString *const OPTPermataVA = @"OPTPermataVA";
 static NSString *const OPTBCAVA = @"OPTBCAVA";
 static NSString *const OPTInstallment = @"OPTInstallment";
+static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";
+
+static NSString *const BankBCAKey = @"bca";
+static NSString *const BankMandiriKey = @"mandiri";
+static NSString *const BankBNIKey = @"bni";
 
 @interface MDUtils : NSObject
++ (MidtransPaymentRequestV2Installment *)installmentOfBank:(NSString *)bank isRequired:(BOOL)required;
++ (void)saveOptionWithView:(MDOptionView *)view option:(MDOption *)option;
++ (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names;
++ (NSArray <MDPayment*>*)allPaymentChannels;
 + (UIViewController *)rootViewController;
 @end
 

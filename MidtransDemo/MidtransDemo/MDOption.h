@@ -24,10 +24,12 @@ typedef NS_ENUM(NSUInteger, MDComposerType) {
 + (MDOption *)optionGeneralWithName:(NSString *)name value:(id)value;
 + (MDOption *)optionColorWithName:(NSString *)name value:(UIColor *)value;
 + (MDOption *)optionComposer:(MDComposerType)composerType name:(NSString *)name value:(id)value;
++ (MDOption *)optionCheckListWithName:(NSString *)name checkedList:(NSArray *)checkedList;
 
 @property (nonatomic, assign) MDOptionType type;
 @property (nonatomic, assign) MDComposerType composerType;
 @property (nonatomic) NSString *name;
 @property (nonatomic) NSString *subName;
 @property (nonatomic) id value;
+
 @end

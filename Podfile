@@ -8,7 +8,7 @@ use_frameworks!
 target 'MidtransDemo' do
     pod 'CHRTextFieldFormatter'
     pod 'JGProgressHUD'
-    pod 'ACFloatingTextfield-Objc', '~> 1.4'
+    pod 'ACFloatingTextfield-Objc'
     pod 'IQKeyboardManager'
     pod 'Fabric'
     pod 'Crashlytics'

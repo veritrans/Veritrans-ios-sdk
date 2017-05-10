@@ -33,6 +33,7 @@
     [super tearDown];
 }
 
+
 - (void)testNormal {
     XCUIApplication *app = [[XCUIApplication alloc] init];
     

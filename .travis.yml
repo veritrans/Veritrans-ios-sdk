@@ -22,7 +22,7 @@ script:
 
 #run test
 - xcodebuild -workspace MidtransSDK.xcworkspace -scheme MidtransMobileDemo -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone-6-10,OS=9.0' ONLY_ACTIVE_ARCH=NO clean build test | xcpretty
-
+ - xctool -project MidtransSDK.xcworkspace -scheme MidtransMobileDemo build test -sdk iphonesimulator GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES
 #TEST COCOAPODS BUILD
 #- cd DemoPods
 #- rm -rf "Pods/"

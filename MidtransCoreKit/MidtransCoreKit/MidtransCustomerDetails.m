@@ -53,8 +53,10 @@
         self.customerIdentifier = [[NSUUID UUID] UUIDString];
         self.firstName = firstName;
         self.lastName = lastName;
+        if (phone.length>0) {
+            self.phone = phone;
+        }
         self.email = email;
-        self.phone = phone;
         self.shippingAddress = shippingAddress;
         self.billingAddress = billingAddress;
     }
@@ -64,13 +66,22 @@
 - (NSDictionary *)dictionaryValue {
     // Format MUST BE compatible with
     // http://docs.veritrans.co.id/en/api/methods.html#customer_details_attr
+    if (self.phone.length>0) {
+        return @{@"first_name": [MidtransHelper nullifyIfNil:self.firstName],
+                 @"last_name": [MidtransHelper nullifyIfNil:self.lastName],
+                 @"email": [MidtransHelper nullifyIfNil:self.email],
+                 @"phone": [MidtransHelper nullifyIfNil:self.phone],
+                 @"shipping_address": [self.shippingAddress dictionaryValue],
+                 @"billing_address": [self.billingAddress dictionaryValue]};
+    }
+    else {
+        return @{@"first_name": [MidtransHelper nullifyIfNil:self.firstName],
+                 @"last_name": [MidtransHelper nullifyIfNil:self.lastName],
+                 @"email": [MidtransHelper nullifyIfNil:self.email],
+                 @"shipping_address": [self.shippingAddress dictionaryValue],
+                 @"billing_address": [self.billingAddress dictionaryValue]};
+    }
     
-    return @{@"first_name": [MidtransHelper nullifyIfNil:self.firstName],
-             @"last_name": [MidtransHelper nullifyIfNil:self.lastName],
-             @"email": [MidtransHelper nullifyIfNil:self.email],
-             @"phone": [MidtransHelper nullifyIfNil:self.phone],
-             @"shipping_address": [self.shippingAddress dictionaryValue],
-             @"billing_address": [self.billingAddress dictionaryValue]};
 }
 
 - (NSDictionary *)snapDictionaryValue {
@@ -81,9 +92,7 @@
 
 - (BOOL)isValidCustomerData:(NSError **)error {
     if (self.email.SNPisEmpty ||
-        !self.email.SNPisValidEmail ||
-        self.phone.SNPisEmpty ||
-        !self.phone.SNPisValidPhoneNumber)
+        !self.email.SNPisValidEmail)
     {
         *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
         return NO;

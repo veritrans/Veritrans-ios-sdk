@@ -74,7 +74,7 @@
 - (IBAction)bayarPressed:(id)sender {
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
                                                          lastName:@"last"
-                                                            phone:@"088888888888"
+                                                            phone:@""
                                                           address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
                                                              city:@"Jakarta"
                                                        postalCode:@"10220"
@@ -82,7 +82,7 @@
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
                                                                                 email:@"midtrans@mailinator.com"
-                                                                                phone:@"088888888888"
+                                                                                phone:@""
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
     cst.customerIdentifier = @"midtrans@mailinator.com";
@@ -108,6 +108,7 @@
     MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
+    valloc(<#size_t#>)
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst

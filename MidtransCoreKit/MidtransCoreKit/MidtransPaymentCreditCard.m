@@ -70,11 +70,19 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *value = [NSMutableDictionary new];
-    value[@"payment_type"] = MIDTRANS_PAYMENT_CREDIT_CARD;
-    value[@"payment_params"] = [self paymentParameter];
-    value[@"customer_details"] = @{@"email":self.customerDetails.email,
-                                   @"phone":self.customerDetails.phone,
-                                   @"full_name":self.customerDetails.firstName};
+    if (self.customerDetails.phone.length > 0) {
+        value[@"payment_type"] = MIDTRANS_PAYMENT_CREDIT_CARD;
+        value[@"payment_params"] = [self paymentParameter];
+        value[@"customer_details"] = @{@"email":self.customerDetails.email,
+                                       @"phone":self.customerDetails.phone,
+                                       @"full_name":self.customerDetails.firstName};
+    }
+    else {
+        value[@"payment_type"] = MIDTRANS_PAYMENT_CREDIT_CARD;
+        value[@"payment_params"] = [self paymentParameter];
+        value[@"customer_details"] = @{@"email":self.customerDetails.email,
+                                       @"full_name":self.customerDetails.firstName};
+    }
     if (self.discountToken) {
         value[@"discount_token"] = self.discountToken;
     }

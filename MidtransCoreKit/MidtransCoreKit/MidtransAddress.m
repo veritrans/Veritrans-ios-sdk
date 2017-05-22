@@ -64,7 +64,9 @@
     MidtransAddress *addr = [[MidtransAddress alloc] init];
     addr.firstName = firstName;
     addr.lastName = lastName;
-    addr.phone = phone;
+    if (phone.length>0) {
+        addr.phone = phone;
+    }
     addr.address = address;
     addr.city = city;
     addr.postalCode = postalCode;
@@ -73,23 +75,26 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"first_name":[MidtransHelper nullifyIfNil:_firstName],
-             @"last_name":[MidtransHelper nullifyIfNil:_lastName],
-             @"phone":[MidtransHelper nullifyIfNil:_phone],
-             @"address":[MidtransHelper nullifyIfNil:_address],
-             @"city":[MidtransHelper nullifyIfNil:_city],
-             @"postal_code":[MidtransHelper nullifyIfNil:_postalCode],
-             @"country_code":[MidtransHelper nullifyIfNil:_countryCode]};
+    if (_phone.length>0) {
+        return @{@"first_name":[MidtransHelper nullifyIfNil:_firstName],
+                 @"last_name":[MidtransHelper nullifyIfNil:_lastName],
+                 @"phone":[MidtransHelper nullifyIfNil:_phone],
+                 @"address":[MidtransHelper nullifyIfNil:_address],
+                 @"city":[MidtransHelper nullifyIfNil:_city],
+                 @"postal_code":[MidtransHelper nullifyIfNil:_postalCode],
+                 @"country_code":[MidtransHelper nullifyIfNil:_countryCode]};
+    }
+    else {
+        return @{@"first_name":[MidtransHelper nullifyIfNil:_firstName],
+                 @"last_name":[MidtransHelper nullifyIfNil:_lastName],
+                 @"address":[MidtransHelper nullifyIfNil:_address],
+                 @"city":[MidtransHelper nullifyIfNil:_city],
+                 @"postal_code":[MidtransHelper nullifyIfNil:_postalCode],
+                 @"country_code":[MidtransHelper nullifyIfNil:_countryCode]};
+    }
 }
 
 - (BOOL)validCustomerData:(NSError **)error {
-    if (!self.phone.SNPisEmpty && self.phone.SNPisValidPhoneNumber) {
-        return YES;
-    }
-    else {
-        *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Invalid or missing customer credentials", nil)}];
-        return NO;
-    }
+    return YES;
 }
-
 @end

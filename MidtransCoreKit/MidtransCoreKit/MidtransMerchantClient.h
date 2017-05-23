@@ -56,7 +56,7 @@
 
 - (void)fetchMaskedCardsCustomer:(MidtransCustomerDetails *_Nonnull)customer completion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
 
-/*
+/*https://www.linkedin.com/feed/#
  * updated method, snapping
  */
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails

@@ -30,5 +30,5 @@
                     identifier:(NSString *)identifier;
 
 - (void)selectOptionAtIndex:(NSInteger)index;
-
+- (void)resetOptionView;
 @end

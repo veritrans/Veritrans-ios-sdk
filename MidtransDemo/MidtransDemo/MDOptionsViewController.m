@@ -24,14 +24,10 @@
 @end
 
 @implementation MDOptionsViewController
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    
-    self.title = @"Demo Configuration";
-    
-    self.edgesForExtendedLayout = UIRectEdgeNone;
-    
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+}
+- (void)initConfiguration{
     ///////////
     //cc payment type
     id options = @[[MDOption optionGeneralWithName:@"2-Clicks" value:@(MTCreditCardPaymentTypeTwoclick)],
@@ -180,7 +176,9 @@
                                                           options:options
                                                        identifier:OPTPaymanetChannel];
     [optPaymentChannels selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].paymentChannel]];
-    
+    if (self.optionViews.count) {
+        [self prepareOptionViews:@[]];;
+    }
     self.optionViews = @[
                          optType,
                          opt3ds,
@@ -197,7 +195,7 @@
                          optPaymentChannels
                          ];
     
-    [self prepareOptionViews:self.optionViews];
+     [self prepareOptionViews:self.optionViews];;
     
     defaults_observe_object(@"md_cc_type", ^(id note){
         MTCreditCardPaymentType type = [[MDOptionManager shared].ccTypeOption.value integerValue];
@@ -209,33 +207,52 @@
             [optSaveCard selectOptionAtIndex:1];
         }
     });
-}
 
-- (void)prepareOptionViews:(NSArray *)optViews {
-    NSMutableDictionary *views = [NSMutableDictionary new];
-    NSMutableString *constraintFormat = [NSMutableString stringWithString:@"V:|"];
+   
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
+        [self initConfiguration];
+    self.title = @"Demo Configuration";
+    UIBarButtonItem * resetButton = [[UIBarButtonItem alloc] initWithTitle:@"Reset " style:UIBarButtonItemStylePlain target:self action:@selector(resetConfiguration:)];
+    self.navigationItem.rightBarButtonItem = resetButton;
+    self.edgesForExtendedLayout = UIRectEdgeNone;
     
-    int i = 0;
-    for (MDOptionView *optView in optViews) {
-        optView.delegate = self;
-        optView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self.optionContainer addSubview:optView];
-        [self.optionContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[opt]-0-|"
+    }
+- (void)resetConfiguration:(id)sender {
+    [[MDOptionManager shared] resetConfiguration];
+    [self initConfiguration];
+}
+- (void)prepareOptionViews:(NSArray *)optViews {
+    if (optViews.count) {
+        NSMutableDictionary *views = [NSMutableDictionary new];
+        NSMutableString *constraintFormat = [NSMutableString stringWithString:@"V:|"];
+        
+        int i = 0;
+        for (MDOptionView *optView in optViews) {
+            optView.delegate = self;
+            optView.translatesAutoresizingMaskIntoConstraints = NO;
+            [self.optionContainer addSubview:optView];
+            [self.optionContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[opt]-0-|"
+                                                                                         options:0
+                                                                                         metrics:0
+                                                                                           views:@{@"opt":optView}]];
+            
+            NSString *optKey = [NSString stringWithFormat:@"opt%i", i];
+            [constraintFormat appendString:[NSString stringWithFormat:@"-0-[%@]", optKey]];
+            [views setObject:optView forKey:optKey];
+            i++;
+        }
+        [constraintFormat appendString:@"-0-|"];
+        
+        [self.optionContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:constraintFormat
                                                                                      options:0
                                                                                      metrics:0
-                                                                                       views:@{@"opt":optView}]];
-        
-        NSString *optKey = [NSString stringWithFormat:@"opt%i", i];
-        [constraintFormat appendString:[NSString stringWithFormat:@"-0-[%@]", optKey]];
-        [views setObject:optView forKey:optKey];
-        i++;
+                                                                                       views:views]];
+    } else {
+        [self.optionContainer.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     }
-    [constraintFormat appendString:@"-0-|"];
-    
-    [self.optionContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:constraintFormat
-                                                                                 options:0
-                                                                                 metrics:0
-                                                                                   views:views]];
+   
 }
 - (void)optionView:(MDOptionView *)optionView didTapHeader:(id)sender {
     if (self.animating)

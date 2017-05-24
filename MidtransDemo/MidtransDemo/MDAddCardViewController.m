@@ -76,11 +76,44 @@
 }
 - (IBAction)saveCardButtonDidtapped:(id)sender {
 
+    NSString *clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+    NSString *merchantServer = @"https://rakawm-snap.herokuapp.com";
+    [[MidtransNetworkLogger shared] startLogging];
+    [CONFIG setClientKey:clientkey
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:merchantServer];
+    
     JGProgressHUD *hud =  [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     hud.textLabel.text = @"Loading";
     [hud showInView:self.navigationController.view];
+    NSArray *data = [self.expiryDate.text componentsSeparatedByString:@"/"];
+    NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    NSString *expYear = [NSString stringWithFormat:@"%ld",[data[1] integerValue]+2000];
+   
+    MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.cardNumberTextFIeld.text stringByReplacingOccurrencesOfString:@" " withString:@""]  expiryMonth:expMonth expiryYear:expYear cvv:self.cvv.text];
+    [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
+        [hud dismiss];
+        if (!error) {
+            [self saveCreditCardObject:maskedCreditCard];
+        }
+        else {
+            NSLog(@"error-->%@",error.description);
+        }
+        
+    }];
     
     
+}
+
+- (void)saveCreditCardObject:(MidtransMaskedCreditCard *)creditCardObject {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *arrayOfRawCard = [userDefaults objectForKey:@"SAVED_CARD"];
+    NSMutableArray *mutableDataArray =[NSMutableArray arrayWithArray:arrayOfRawCard];
+    [mutableDataArray addObject:[creditCardObject dictionaryValue]];
+    [userDefaults setObject:mutableDataArray forKey:@"SAVED_CARD"];
+    [userDefaults objectForKey:@"SAVED_CARD"];
+    [userDefaults synchronize];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 /*
 #pragma mark - Navigation

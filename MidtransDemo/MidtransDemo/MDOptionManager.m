@@ -130,5 +130,19 @@
         defaults_remove(key)
     }
 }
-
+- (void)resetConfiguration {
+    self.secure3DOption = nil;
+    self.issuingBankOption = nil;
+    self.saveCardOption = nil;
+    self.promoOption = nil;
+    self.preauthOption = nil;
+    self.expireTimeOption = nil;
+    self.colorOption = nil;
+    self.ccTypeOption = nil;
+    self.permataVAOption = nil;
+    self.bcaVAOption = nil;
+    self.bniPointOption =nil;
+    self.installmentOption =nil;
+    self.paymentChannel = nil;
+}
 @end

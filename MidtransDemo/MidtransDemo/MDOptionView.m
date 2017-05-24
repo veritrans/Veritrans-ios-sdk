@@ -42,7 +42,9 @@ static CGFloat const optionCellHeight = 40;
     
     return view;
 }
-
+- (void)resetOptionView {
+    [self.tableView reloadData];
+}
 - (void)awakeFromNib {
     [super awakeFromNib];
     

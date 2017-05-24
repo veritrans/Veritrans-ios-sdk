@@ -26,5 +26,5 @@
 @property (nonatomic) MDOption *bcaVAOption;
 @property (nonatomic) MDOption *installmentOption;
 @property (nonatomic) MDOption *paymentChannel;
-
+- (void)resetConfiguration;
 @end

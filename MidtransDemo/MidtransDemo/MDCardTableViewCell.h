@@ -10,5 +10,5 @@
 @class MidtransMaskedCreditCard;
 @interface MDCardTableViewCell : UITableViewCell
 @property (nonatomic,strong) MidtransMaskedCreditCard *maskedCard;
-- (void)configureCard:(MidtransMaskedCreditCard *)maskedCreditCard;
+- (void)configureCard:(NSDictionary *)maskedCreditCard;
 @end

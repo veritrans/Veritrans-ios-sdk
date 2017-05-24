@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C1B358B1ED53E84003F6806 /* MDCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1B358A1ED53E84003F6806 /* MDCardTableViewCell.xib */; };
 		0CE373A81EC064C2000C80A9 /* MDAddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */; };
 		0CE373A91EC064C2000C80A9 /* MDAddCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */; };
 		0CE373AA1EC064C2000C80A9 /* MDAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739C1EC064C2000C80A9 /* MDAlertViewController.xib */; };
@@ -23,7 +24,6 @@
 		E524BCF91E9E24D30004812E /* MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E524BCF41E9E244D0004812E /* MidtransKit.framework */; };
 		E524BCFA1E9E24D30004812E /* MidtransKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = E524BCF41E9E244D0004812E /* MidtransKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E529544E1EBAF8E60076BEC8 /* MDAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E529544C1EBAF8E60076BEC8 /* MDAlertViewController.m */; };
-		E529544F1EBAF8E60076BEC8 /* MDAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E529544D1EBAF8E60076BEC8 /* MDAlertViewController.xib */; };
 		E52954561EBB01890076BEC8 /* MDAlertInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52954541EBB01890076BEC8 /* MDAlertInputCell.m */; };
 		E52954571EBB01890076BEC8 /* MDAlertInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52954551EBB01890076BEC8 /* MDAlertInputCell.xib */; };
 		E529545B1EBB01990076BEC8 /* MDAlertRadioCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52954591EBB01990076BEC8 /* MDAlertRadioCell.m */; };
@@ -122,6 +122,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C1B358A1ED53E84003F6806 /* MDCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDCardTableViewCell.xib; sourceTree = "<group>"; };
 		0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAddCardViewController.h; sourceTree = "<group>"; };
 		0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAddCardViewController.m; sourceTree = "<group>"; };
 		0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDAddCardViewController.xib; sourceTree = "<group>"; };
@@ -370,6 +371,7 @@
 		E5A53A081E88F860001617C8 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C1B358A1ED53E84003F6806 /* MDCardTableViewCell.xib */,
 				0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */,
 				0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */,
 				0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */,
@@ -507,7 +509,7 @@
 		E56436EA1E83A72F008726D0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = Midtrans;
 				TargetAttributes = {
 					E56436F11E83A72F008726D0 = {
@@ -583,6 +585,7 @@
 				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
 				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,
 				E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */,
+				0C1B358B1ED53E84003F6806 /* MDCardTableViewCell.xib in Resources */,
 				0CE373AA1EC064C2000C80A9 /* MDAlertViewController.xib in Resources */,
 				E56A2D591EC05B04000C5A87 /* payment_channels.json in Resources */,
 				E5D7FEDD1E83D7FB0086A8A4 /* Bariol_Regular.otf in Resources */,
@@ -593,7 +596,6 @@
 				E5A53A031E88F82A001617C8 /* MDOptionColorCell.xib in Resources */,
 				E56437021E83A72F008726D0 /* Assets.xcassets in Resources */,
 				E52954571EBB01890076BEC8 /* MDAlertInputCell.xib in Resources */,
-				E529544F1EBAF8E60076BEC8 /* MDAlertViewController.xib in Resources */,
 				0CE373AF1EC064C2000C80A9 /* MDProfileViewController.xib in Resources */,
 				0CE373A91EC064C2000C80A9 /* MDAddCardViewController.xib in Resources */,
 				E529545C1EBB01990076BEC8 /* MDAlertRadioCell.xib in Resources */,

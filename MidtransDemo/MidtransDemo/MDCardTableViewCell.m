@@ -8,7 +8,7 @@
 
 #import "MDCardTableViewCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
+#import <BKMoneyKit/BKCardNumberLabel.h>
 @interface MDCardTableViewCell()
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UILabel *descLabel;
@@ -17,16 +17,15 @@
 @end
 
 @implementation MDCardTableViewCell
-- (void)configureCard:(MidtransMaskedCreditCard *)maskedCreditCard {
-    _maskedCard = maskedCreditCard;
-    self.titleLabel.text = maskedCreditCard.maskedNumber;
+- (void)configureCard:(NSDictionary *)maskedCreditCard {
+    NSLog(@"maskedCreditCard %@",maskedCreditCard);
+    self.descLabel.text = @"";
+    self.titleLabel.text = [maskedCreditCard objectForKey:@"cardhash"];
     
 }
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
-
 
 @end

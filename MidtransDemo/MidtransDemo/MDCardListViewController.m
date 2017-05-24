@@ -38,6 +38,9 @@
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:@"MDCardTableViewCell" bundle:nil] forCellReuseIdentifier:@"MDCardTableViewCell"];
     self.tableView.tableFooterView = self.footerView;
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    self.maskedCard = [userDefaults objectForKey:@"SAVED_CARD"];
+
     [self.tableView reloadData];
     // Do any additional setup after loading the view from its nib.
 }
@@ -54,7 +57,7 @@
     return 60.0f;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    MidtransMaskedCreditCard *maskedCard = (MidtransMaskedCreditCard *)[self.maskedCard objectAtIndex:indexPath.row];
+    NSDictionary *maskedCard = [self.maskedCard objectAtIndex:indexPath.row];
     MDCardTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDCardTableViewCell" forIndexPath:indexPath];
     [cell configureCard:maskedCard];
     return cell;

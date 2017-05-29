@@ -27,25 +27,25 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose &apos;To BNI Account&apos;</string>
+				<string>Choose ‘To BNI Account‘</string>
 				<key>image</key>
 				<string>bni_va4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter BNI virtual account number and press &apos;Correct&apos;</string>
+				<string>Enter BNI virtual account number and press ‘Correct‘</string>
 				<key>image</key>
 				<string>bni_va5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the full amount to be paid and press &apos;Connect&apos;</string>
+				<string>Enter the full amount to be paid and press ‘Connect‘</string>
 				<key>image</key>
 				<string>bni_va6</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Your payment details will appear on the confirmation page. If the information is correct press &apos;Correct&apos;</string>
+				<string>Your payment details will appear on the confirmation page. If the information is correct press ‘Correct‘</string>
 				<key>image</key>
 				<string>bni_va7</string>
 			</dict>
@@ -64,7 +64,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose &apos;To BNI Account&apos; then &apos;Add New Account&apos;</string>
+				<string>Choose ‘To BNI Account then Add New Account‘</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -76,7 +76,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the full amount to be paid and press &apos;Proceed&apos;</string>
+				<string>Enter the full amount to be paid and press ‘Proceed‘</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -88,7 +88,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>If the information is correct then enter authentication token code and press `Proceed&apos;</string>
+				<string>If the information is correct then enter authentication token code and press ‘Proceed‘</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -107,7 +107,7 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Visit &lt;link&gt;https://ibank.bni.co.id&lt;/link&gt; then choose &apos;Enter&apos;</string>
+				<string>Visit &lt;link&gt;https://ibank.bni.co.id&lt;/link&gt; then choose ‘Enter‘</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -119,7 +119,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose &apos;Set Destination Account&apos; then &apos;Add Destination Account&apos;</string>
+				<string>Choose ‘Set Destination Account‘ then ‘Add Destination Account‘</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -143,13 +143,13 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Back to &apos;Transfer&apos; menu&apos;</string>
+				<string>Back to ‘Transfer‘ menu</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose &apos;Transfer to BNI Account&apos;, then choose destination/favorite account</string>
+				<string>Choose ‘Transfer to BNI Account‘, then choose destination/favorite account</string>
 				<key>image</key>
 				<string></string>
 			</dict>

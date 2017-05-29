@@ -24,6 +24,7 @@
 @property (nonatomic) MDOption *bniPointOption;
 @property (nonatomic) MDOption *permataVAOption;
 @property (nonatomic) MDOption *bcaVAOption;
+@property (nonatomic) MDOption *bniVAOption;
 @property (nonatomic) MDOption *installmentOption;
 @property (nonatomic) MDOption *paymentChannel;
 - (void)resetConfiguration;

@@ -39,6 +39,7 @@ static NSString *const OPTColor = @"OPTColor";
 static NSString *const OPTBNIPoint = @"OPTBNIPoint";
 static NSString *const OPTPermataVA = @"OPTPermataVA";
 static NSString *const OPTBCAVA = @"OPTBCAVA";
+static NSString *const OPTBNIVA = @"OPTBNIVA";
 static NSString *const OPTInstallment = @"OPTInstallment";
 static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";
 

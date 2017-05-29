@@ -8,6 +8,8 @@
 
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+#import <MidtransCOreKit/SNPFreeTextDataModels.h>
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
@@ -54,10 +56,18 @@
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
     
+    
+    /*set custom free text for bca*/
+    NSDictionary *inquiryConstructor=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
+    NSDictionary *inquiryConstructor2=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
+    NSDictionary *paymentConstructor=@{@"en":@"payment text in English",@"id":@"payment Text in ID"};
+    
+    NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
+    CONFIG.customFreeText = freeText;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
+    CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
-    
     [[MidtransNetworkLogger shared] startLogging];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];

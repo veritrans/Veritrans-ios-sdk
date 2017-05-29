@@ -47,6 +47,9 @@
     else if ([idf isEqualToString:OPTBCAVA]) {
         [MDOptionManager shared].bcaVAOption = option;
     }
+    else if ([idf isEqualToString:OPTBNIVA]) {
+        [MDOptionManager shared].bniVAOption = option;
+    }
     else if ([idf isEqualToString:OPTPermataVA]) {
         [MDOptionManager shared].permataVAOption = option;
     }

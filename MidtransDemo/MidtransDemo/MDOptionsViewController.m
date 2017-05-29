@@ -30,9 +30,9 @@
 - (void)initConfiguration{
     ///////////
     //cc payment type
-    id options = @[[MDOption optionGeneralWithName:@"2-Clicks" value:@(MTCreditCardPaymentTypeTwoclick)],
-                   [MDOption optionGeneralWithName:@"1-Click" value:@(MTCreditCardPaymentTypeOneclick)],
-                   [MDOption optionGeneralWithName:@"Normal" value:@(MTCreditCardPaymentTypeNormal)]];
+    id options = @[[MDOption optionGeneralWithName:@"Normal" value:@(MTCreditCardPaymentTypeNormal)],
+                   [MDOption optionGeneralWithName:@"2-Clicks" value:@(MTCreditCardPaymentTypeTwoclick)],
+                   [MDOption optionGeneralWithName:@"1-Click" value:@(MTCreditCardPaymentTypeOneclick)]];
     MDOptionView *optType = [MDOptionView viewWithIcon:[UIImage imageNamed:@"cc_click"]
                                          titleTemplate:@"%@ Credit Card Payment"
                                                options:options
@@ -155,6 +155,18 @@
                                              identifier:OPTBCAVA];
     [optBCAVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bcaVAOption]];
     
+    
+    /////////////
+    //permata va
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
+    MDOptionView *optBNIVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+                                          titleTemplate:@"Custom BNI VA %@d"
+                                                options:options
+                                             identifier:OPTBNIVA];
+    [optBNIVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bniVAOption]];
+    
+    
     /////////////
     //installment
     options = @[[MDOption optionGeneralWithName:@"Disabled" value:nil],
@@ -191,6 +203,7 @@
                          optBNIPoint,
                          optPermataVA,
                          optBCAVA,
+                         optBNIVA,
                          optInstallment,
                          optPaymentChannels
                          ];
@@ -359,7 +372,7 @@
            usePredefinedValue:(BOOL)usePredefinedValue {
     NSString *idf = optionView.identifier;
     if ([idf isEqualToString:OPTPermataVA] ||
-        [idf isEqualToString:OPTBCAVA]) {
+        [idf isEqualToString:OPTBCAVA] ||[idf isEqualToString:OPTBNIVA]) {
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
                                                               predefinedText:option.value
                                                             inputPlaceholder:@"Custom VA Number"];

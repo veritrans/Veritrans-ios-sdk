@@ -34,8 +34,10 @@
 @property (nonatomic) NSString *customPermataVANumber;
 
 @property (nonatomic) NSString *customBCAVANumber;
+@property (nonatomic) NSString *customBNIVANumber;
 
 @property (nonatomic) NSArray *customPaymentChannels;
+@property (nonatomic) NSDictionary *customFreeText;
 
 /**
  Container for data that will be sent to the Merchant Server. The common use-case for this data is to identify client to the Merchant Server. If this variable is set to non-nil, then every request to the Merchant Server will contain this data in its HTTP request header.

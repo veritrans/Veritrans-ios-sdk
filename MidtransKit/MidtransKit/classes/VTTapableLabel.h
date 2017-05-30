@@ -13,3 +13,7 @@ static NSString *const VTTapableLabelDidTapLink = @"VTTapableLabelDidTapLink";
 @interface VTTapableLabel : UILabel
 @property (nonatomic) NSString *tapableText;
 @end
+
+@interface NSString (utils)
+- (NSArray *)stringsBetween:(NSString *)string1 and:(NSString *)string2;
+@end

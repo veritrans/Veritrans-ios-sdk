@@ -69,5 +69,6 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransNetworkLogger.h"
 #import "MidtransPromo.h"
 #import "SNPPointDataModels.h"
+#import "SNPFreeTextDataModels.h"
 #import "MidtransPromoEngine.h"
 #import "MidtransBinResponse.h"

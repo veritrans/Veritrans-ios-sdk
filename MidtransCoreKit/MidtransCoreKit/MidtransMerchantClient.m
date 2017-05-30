@@ -197,7 +197,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if (CC_CONFIG.predefinedInstallment) {
         creditCardParameter[@"installment"] = CC_CONFIG.predefinedInstallment.dictionaryRepresentation;
     }
-    if (binFilter.count>0) {
+    if (binFilter.count > 0) {
         creditCardParameter[@"whitelist_bins"] = binFilter;
     }
     if (CC_CONFIG.acquiringBankString) {
@@ -205,6 +205,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     if (CC_CONFIG.preauthEnabled) {
         creditCardParameter[@"type"] = @"authorize";
+    }
+    if ([CONFIG.customFreeText count]) {
+         dictionaryParameters[@"free_text"] = CONFIG.customFreeText;
     }
     [dictionaryParameters setObject:creditCardParameter forKey:@"credit_card"];
     
@@ -214,6 +217,10 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     if ([CONFIG customBCAVANumber].length > 0) {
         dictionaryParameters[@"bca_va"] = @{@"va_number":CONFIG.customBCAVANumber};
+    }
+    if ([CONFIG customBNIVANumber].length > 0) {
+        
+        dictionaryParameters[@"bni_va"] = @{@"va_number":CONFIG.customBNIVANumber};
     }
     
     if (CONFIG.customPaymentChannels.count > 0) {
@@ -236,7 +243,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         }
         dictionaryParameters[@"promo"] = promoParam;
     }
-    
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters

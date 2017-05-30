@@ -40,6 +40,7 @@
         self.ccTypeOption = [self unArchivedObject:@"md_cc_type"];
         self.permataVAOption = [self unArchivedObject:@"md_permata_va"];
         self.bcaVAOption = [self unArchivedObject:@"md_bca_va"];
+        self.bniVAOption = [self unArchivedObject:@"md_bni_va"];;
         self.bniPointOption = [self unArchivedObject:@"md_bni_point"];
         self.installmentOption = [self unArchivedObject:@"md_installment"];
         self.paymentChannel = [self unArchivedObject:@"md_payment_channel"];
@@ -102,6 +103,10 @@
 - (void)setBcaVAOption:(MDOption *)bcaVAOption {
     _bcaVAOption = bcaVAOption;
     [self archiveObject:bcaVAOption key:@"md_bca_va"];
+}
+- (void)setBniVAOption:(MDOption *)bniVAOption {
+    _bniVAOption = bniVAOption;
+    [self archiveObject:bniVAOption key:@"md_bni_va"];
 }
 - (void)setInstallmentOption:(MDOption *)installmentOption {
     _installmentOption = installmentOption;

@@ -29,6 +29,8 @@
         case MidtransPaymentFeatureCreditCard:
             paymentMethodSelected = MIDTRANS_PAYMENT_CREDIT_CARD;
             break;
+        case MidtransPaymentFeatureBankTransfer:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BANK_TRANSFER;
         default:
             break;
     }

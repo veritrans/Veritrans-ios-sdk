@@ -100,7 +100,7 @@
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
     
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
-    for (int i=0; i<[self.mainInstructions count]; i++) {
+    for (int i=0; i < [self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
         if (i>1) {
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {

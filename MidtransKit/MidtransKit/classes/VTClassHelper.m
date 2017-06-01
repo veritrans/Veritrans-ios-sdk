@@ -221,7 +221,7 @@
     NSInteger currentLength = self.maskedNumber.length-1; // minus 1 is because dash char
     NSInteger dotCount = 16 - currentLength;
     NSMutableString *dotString = [NSMutableString new];
-    for (int i=0; i<dotCount; i++) {
+    for (int i=0; i < dotCount; i++) {
         [dotString appendString:@"\u2022"];
     }
     return [[self.maskedNumber stringByReplacingOccurrencesOfString:@"-" withString:dotString] formattedCreditCardNumber];

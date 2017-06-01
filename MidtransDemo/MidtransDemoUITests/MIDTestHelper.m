@@ -33,7 +33,7 @@
     //    if ([self.value isKindOfClass:[NSString class]]) {
     //        NSString *stringValue = self.value;
     //        NSMutableString *deleteString = [NSMutableString new];
-    //        for (int i=0; i<stringValue.length; i++) {
+    //        for (int i=0; i < stringValue.length; i++) {
     //            [deleteString insertString:XCUIKeyboardKeyDelete atIndex:i];
     //        }
     //

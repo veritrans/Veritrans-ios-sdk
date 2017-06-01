@@ -33,7 +33,7 @@
         [attrString beginEditing];
         [attrString addAttribute:NSFontAttributeName
                            value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:range];
+                           range:[attrString.string rangeOfString:boldLabel]];
         
         [attrString endEditing];
       self.contentLabel.attributedText = attrString;

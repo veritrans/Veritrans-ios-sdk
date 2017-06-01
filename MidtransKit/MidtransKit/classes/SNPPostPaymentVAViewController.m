@@ -69,7 +69,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bni_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"bni_expiration" ];
     }
-    else if([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+    else if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bill_key"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"billpayment_expiration"];
         self.headerViewBillPay.companyCodeTextField.text =[self.transactionResult.additionalData objectForKey:@"biller_code"];

@@ -53,7 +53,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
                                                 if (error) {
-                                                    if(completion) {
+                                                    if (completion) {
                                                         completion(nil,error);
                                                     }
                                                 }
@@ -65,7 +65,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                                                         [contentData addObject:[binResponseObject dictionaryRepresentation]];
                                                     }
                                                     
-                                                    if(completion) {
+                                                    if (completion) {
                                                         completion(contentData,nil);
                                                     }
                                                     

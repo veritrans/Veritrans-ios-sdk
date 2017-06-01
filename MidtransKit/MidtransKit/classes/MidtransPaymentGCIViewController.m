@@ -123,7 +123,7 @@
         return [self.ccFormatter updateTextFieldContentAndPosition];
     }
     else if ([textField isEqual:self.view.passwordTextField]) {
-        if(range.length + range.location > textField.text.length)
+        if (range.length + range.location > textField.text.length)
         {
             return NO;
         }

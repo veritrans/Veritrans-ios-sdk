@@ -39,7 +39,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.clientKey = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantClientKey fromDictionary:dict];
             self.enabledPrinciples = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples fromDictionary:dict];
         self.pointBanks = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantPointBanks fromDictionary:dict];
@@ -57,7 +57,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     [mutableDict setValue:self.clientKey forKey:kMidtransPaymentRequestV2MerchantClientKey];
     NSMutableArray *tempArrayForEnabledPrinciples = [NSMutableArray array];
     for (NSObject *subArrayObject in self.enabledPrinciples) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForEnabledPrinciples addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -67,7 +67,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     }
     NSMutableArray *tempArrayForPointBanks = [NSMutableArray array];
     for (NSObject *subArrayObject in self.pointBanks) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForPointBanks addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

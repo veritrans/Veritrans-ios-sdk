@@ -35,7 +35,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.type = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsType fromDictionary:dict];
             self.category = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsCategory fromDictionary:dict];
 

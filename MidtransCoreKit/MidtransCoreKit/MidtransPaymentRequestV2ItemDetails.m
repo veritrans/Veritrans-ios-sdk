@@ -39,7 +39,7 @@ NSString *const kMidtransPaymentRequestV2ItemDetailsPrice = @"price";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.quantity = [[self objectOrNilForKey:kMidtransPaymentRequestV2ItemDetailsQuantity fromDictionary:dict] doubleValue];
             self.itemDetailsIdentifier = [self objectOrNilForKey:kMidtransPaymentRequestV2ItemDetailsId fromDictionary:dict];
             self.name = [self objectOrNilForKey:kMidtransPaymentRequestV2ItemDetailsName fromDictionary:dict];

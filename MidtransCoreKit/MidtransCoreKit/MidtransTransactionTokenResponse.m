@@ -36,7 +36,7 @@ NSString *const kSnapresponseTokenId = @"token_id";
 - (instancetype)initWithDictionary:(NSDictionary *)dict {
     self = [super init];
     
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.tokenId = [self objectOrNilForKey:kSnapresponseToken fromDictionary:dict]?[self objectOrNilForKey:kSnapresponseToken fromDictionary:dict]:[self objectOrNilForKey:kSnapresponseTokenId fromDictionary:dict];
     }
     

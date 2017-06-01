@@ -37,7 +37,7 @@ NSString *const kSNPFreeTextFreeTextPayment = @"payment";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
     NSObject *receivedSNPFreeTextInquiry = [dict objectForKey:kSNPFreeTextFreeTextInquiry];
     NSMutableArray *parsedSNPFreeTextInquiry = [NSMutableArray array];
     if ([receivedSNPFreeTextInquiry isKindOfClass:[NSArray class]]) {
@@ -76,7 +76,7 @@ NSString *const kSNPFreeTextFreeTextPayment = @"payment";
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     NSMutableArray *tempArrayForInquiry = [NSMutableArray array];
     for (NSObject *subArrayObject in self.inquiry) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForInquiry addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -87,7 +87,7 @@ NSString *const kSNPFreeTextFreeTextPayment = @"payment";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForInquiry] forKey:kSNPFreeTextFreeTextInquiry];
     NSMutableArray *tempArrayForPayment = [NSMutableArray array];
     for (NSObject *subArrayObject in self.payment) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForPayment addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

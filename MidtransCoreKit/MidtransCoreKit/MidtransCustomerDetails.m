@@ -29,7 +29,7 @@
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if((self = [super init])) {
+    if ((self = [super init])) {
         //decode properties, other class vars
         self.customerIdentifier = [decoder decodeObjectForKey:@"customerIdentifier"];
         self.firstName = [decoder decodeObjectForKey:@"firstName"];

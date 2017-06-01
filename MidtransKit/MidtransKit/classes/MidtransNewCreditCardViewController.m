@@ -500,7 +500,7 @@ UIAlertViewDelegate
                         isDebitCard = YES;
                         self.title = @"Mandiri Debit Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                    } else if([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
+                    } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         isDebitCard = YES;
                         self.title = @"BNI Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
@@ -515,7 +515,7 @@ UIAlertViewDelegate
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                         
                     }
-                    else if([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
+                    else if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         self.title = @"BNI Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
                     }
@@ -543,7 +543,7 @@ UIAlertViewDelegate
         }
         else {
             self.title = UILocalizedString(@"creditcard.input.title", nil);
-            if([[self.installment.terms objectForKey:@"offline"] count]) {
+            if ([[self.installment.terms objectForKey:@"offline"] count]) {
                 if (!isDebitCard) {
                     self.installmentBankName = @"offline";
                     [self.installmentValueObject setArray:@[@"0"]];
@@ -799,7 +799,7 @@ UIAlertViewDelegate
     NSString *ccnumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *bank = self.filteredBinObject.bank;
     
-    if([keyPath isEqualToString:@"text"] && object == self.view.creditCardNumberTextField) {
+    if ([keyPath isEqualToString:@"text"] && object == self.view.creditCardNumberTextField) {
         if (([bank isEqualToString:@"bni"] || [bank isEqualToString:@"mandiri"]) &&
             ccnumber.length == 16) {
             [self.view.cardExpireTextField becomeFirstResponder];

@@ -50,7 +50,7 @@
     [self loadControllerAndView];
     [self loadControllers];
     [self connectButtons];
-    if([[self MBXDataSource] respondsToSelector:@selector(otherConfiguration)]) {
+    if ([[self MBXDataSource] respondsToSelector:@selector(otherConfiguration)]) {
         [[self MBXDataSource] otherConfiguration];
     }
 }
@@ -164,7 +164,7 @@
 
 -  (void)syncScrollView {
     for (UIView* view in _pageController.view.subviews) {
-        if([view isKindOfClass:[UIScrollView class]])
+        if ([view isKindOfClass:[UIScrollView class]])
         {
             _pageScrollView = (UIScrollView *)view;
             _pageScrollView.delegate = self;

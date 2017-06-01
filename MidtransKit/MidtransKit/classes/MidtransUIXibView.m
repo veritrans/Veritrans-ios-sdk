@@ -18,7 +18,7 @@
         _customView = [[VTBundle loadNibNamed:className owner:self options:nil] firstObject];
         self.backgroundColor = _customView.backgroundColor;
         _customView.backgroundColor = [UIColor clearColor];
-        if(CGRectIsEmpty(frame)) {
+        if (CGRectIsEmpty(frame)) {
             self.bounds = _customView.bounds;
         } else {
             _customView.frame = self.bounds;
@@ -31,7 +31,7 @@
 
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
-    if(self) {
+    if (self) {
         NSString *className = NSStringFromClass([self class]);
         _customView = [[VTBundle loadNibNamed:className owner:self options:nil] firstObject];
         _customView.translatesAutoresizingMaskIntoConstraints = NO;

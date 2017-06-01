@@ -43,7 +43,7 @@ NSString *const kMidtransPaymentRequestV2CustomerDetailsFirstName = @"first_name
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.email = [self objectOrNilForKey:kMidtransPaymentRequestV2CustomerDetailsEmail fromDictionary:dict];
             self.phone = [self objectOrNilForKey:kMidtransPaymentRequestV2CustomerDetailsPhone fromDictionary:dict];
             self.shippingAddress = [MidtransPaymentRequestV2ShippingAddress modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2CustomerDetailsShippingAddress]];

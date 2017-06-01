@@ -86,14 +86,14 @@
 + (UIViewController *)rootViewController {
     UIViewController *topRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
     while (topRootViewController.presentedViewController) {
-        if(![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
+        if (![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
             topRootViewController = topRootViewController.presentedViewController;
         }
         else {
             break;
         }
     }
-    if(!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]) {
+    if (!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]) {
         
         if (!topRootViewController) {
             topRootViewController = [[[[UIApplication sharedApplication]delegate]window]rootViewController];

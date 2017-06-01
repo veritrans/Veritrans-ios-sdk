@@ -67,7 +67,7 @@ static NSNotification *_lastNotification;
     
     // get animation duration
     float animationDuration = [[[notification userInfo] objectForKey:UIKeyboardAnimationDurationUserInfoKey] floatValue];
-    if (animationDuration == 0){
+    if (animationDuration == 0) {
         // custom keyboards often dont animate, its too clanky so have to manually set this
         animationDuration = 0.1;
     }
@@ -214,7 +214,7 @@ static NSNotification *_lastNotification;
                              else {
                                  _avoidingView.transform = CGAffineTransformIdentity;
                              }
-                         } completion:^(BOOL finished){
+                         } completion:^(BOOL finished) {
                              [_updatedConstraints removeAllObjects];
                              [_updatedConstraintConstants removeAllObjects];
                          }];

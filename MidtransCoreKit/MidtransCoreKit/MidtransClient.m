@@ -52,7 +52,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     NSURL *url = [NSURL URLWithString:[PRIVATECONFIG binURL]];
     NSURLSessionDataTask *dataTask = [session dataTaskWithURL:url
                                             completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
-                                                if (error){
+                                                if (error) {
                                                     if(completion) {
                                                         completion(nil,error);
                                                     }

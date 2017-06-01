@@ -34,7 +34,7 @@
     if (self.installmentData.count){
           [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]]];
     }
-    else{
+    else {
       [cell configurePointWithThext:(NSNumber *)self.pointData[indexPath.row]];
     }
     return cell;
@@ -108,7 +108,7 @@
     if (self.pointData) {
         self.installmentCurrentIndex = self.pointData.count;
     }
-    else{
+    else {
         self.installmentCurrentIndex  = 0;
     }
     self.prevButton.enabled = NO;

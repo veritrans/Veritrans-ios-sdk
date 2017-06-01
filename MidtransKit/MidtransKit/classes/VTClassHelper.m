@@ -96,37 +96,37 @@
 
 + (UIViewController *)rootViewController {
     UIViewController *topRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    while (topRootViewController.presentedViewController){
-        if(![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]){
+    while (topRootViewController.presentedViewController) {
+        if(![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
             topRootViewController = topRootViewController.presentedViewController;
         }
-        else{
+        else {
             break;
         }
     }
-    if(!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]){
+    if(!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]) {
         
         if (!topRootViewController) {
             topRootViewController = [[[[UIApplication sharedApplication]delegate]window]rootViewController];
         }
         
-        if ([topRootViewController isKindOfClass:[UINavigationController class]]){
+        if ([topRootViewController isKindOfClass:[UINavigationController class]]) {
             UINavigationController* navController = (UINavigationController*)topRootViewController;
             return navController.topViewController;
         }
-        else if ([topRootViewController isKindOfClass:[UITabBarController class]]){
+        else if ([topRootViewController isKindOfClass:[UITabBarController class]]) {
             
             UITabBarController* tabController = (UITabBarController*)topRootViewController;
             
-            if ([tabController.selectedViewController isKindOfClass:[UINavigationController class]]){
+            if ([tabController.selectedViewController isKindOfClass:[UINavigationController class]]) {
                 UINavigationController* navController = (UINavigationController*)tabController.selectedViewController;
                 return navController.topViewController;
             }
-            else{
+            else {
                 return tabController.selectedViewController;
             }
         }
-        else{
+        else {
             return topRootViewController;
         }
     }

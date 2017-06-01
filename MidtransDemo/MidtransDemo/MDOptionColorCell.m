@@ -24,7 +24,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.checkImageView.tintColor = [UIColor mdThemeColor];
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
         self.checkImageView.tintColor = [UIColor mdThemeColor];
     });
 }

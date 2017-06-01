@@ -45,7 +45,11 @@ static NSString *const cellIdentifier = @"VTGuideCell";
     
     self.cachedCells = [NSMutableDictionary new];
     
-    [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
+    [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink
+                                                      object:nil
+                                                       queue:[NSOperationQueue mainQueue]
+                                                  usingBlock:^(NSNotification * _Nonnull note) {
+                                                      
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self];
     }];

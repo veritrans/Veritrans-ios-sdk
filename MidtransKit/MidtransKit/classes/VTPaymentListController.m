@@ -109,7 +109,7 @@
                  self.singlePayment = YES;
                  [self redirectToPaymentMethodAtIndex:0];
              }
-             if (self.paymentMethodSelected.length>0) {
+             if (self.paymentMethodSelected.length > 0) {
                  /*special case*/
                  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
                  NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
@@ -155,7 +155,7 @@
                  if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
+                 else if(self.paymentMethodSelected.length > 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }

@@ -267,7 +267,7 @@
 
 - (void)inputTextChanged:(MDTextField *)textField {
     self.inputText = textField.text;
-    self.applyButton.enabled = textField.text.length>0;
+    self.applyButton.enabled = textField.text.length > 0;
 }
 
 @end

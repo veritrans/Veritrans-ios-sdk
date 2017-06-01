@@ -240,7 +240,7 @@ UIAlertViewDelegate
     if ([payAddOn.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         cell.checkButton.selected = self.isSaveCard;
     }
-    else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
+    else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         cell.checkButton.selected = self.bniPointActive;
     }
 
@@ -371,7 +371,7 @@ UIAlertViewDelegate
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         self.isSaveCard = !sender.selected;
     }
-    else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
+    else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         self.bniPointActive = !sender.selected;
     }
     [self.view.addOnTableView reloadData];
@@ -393,7 +393,7 @@ UIAlertViewDelegate
                                               onViewController:self.navigationController
                                                     completion:nil];
     }
-    else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]){
+    else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:@"redeem bni reward point"
                                                           message:@"you can pay partly through the redemption of BNI Reward Point through your credit card"
@@ -500,7 +500,7 @@ UIAlertViewDelegate
                         isDebitCard = YES;
                         self.title = @"Mandiri Debit Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                    } else if([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]){
+                    } else if([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         isDebitCard = YES;
                         self.title = @"BNI Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
@@ -508,14 +508,14 @@ UIAlertViewDelegate
                 }
                 
             }
-            else{
+            else {
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                         self.title = @"Mandiri Debit Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                         
                     }
-                    else if([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]){
+                    else if([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         self.title = @"BNI Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
                     }
@@ -543,7 +543,7 @@ UIAlertViewDelegate
         }
         else {
             self.title = UILocalizedString(@"creditcard.input.title", nil);
-            if([[self.installment.terms objectForKey:@"offline"] count]){
+            if([[self.installment.terms objectForKey:@"offline"] count]) {
                 if (!isDebitCard) {
                     self.installmentBankName = @"offline";
                     [self.installmentValueObject setArray:@[@"0"]];
@@ -553,7 +553,7 @@ UIAlertViewDelegate
             }
         }
     }
-    else{
+    else {
         if ([self.addOnArray containsObject:self.constructBNIPoint]) {
             [self.addOnArray removeObject:self.constructBNIPoint];
             [self updateAddOnContent];

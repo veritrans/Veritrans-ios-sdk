@@ -43,7 +43,7 @@
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeaderBillPay" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeaderBillPay"];
         self.headerViewBillPay = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeaderBillPay"];
     }
-    else{
+    else {
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
         self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
     }
@@ -182,7 +182,7 @@
         if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
             return self.headerViewBillPay;
         }
-        else{
+        else {
             return self.headerView;
         }
         return self.headerView;
@@ -204,7 +204,7 @@
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
                 return [self.headerViewBillPay.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
             }
-            else{
+            else {
                 return [self.headerView.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
             }
         }

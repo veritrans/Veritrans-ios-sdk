@@ -64,7 +64,7 @@
     MidtransAddress *addr = [[MidtransAddress alloc] init];
     addr.firstName = firstName;
     addr.lastName = lastName;
-    if (phone.length>0) {
+    if (phone.length > 0) {
         addr.phone = phone;
     }
     addr.address = address;
@@ -75,7 +75,7 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    if (_phone.length>0) {
+    if (_phone.length > 0) {
         return @{@"first_name":[MidtransHelper nullifyIfNil:_firstName],
                  @"last_name":[MidtransHelper nullifyIfNil:_lastName],
                  @"phone":[MidtransHelper nullifyIfNil:_phone],

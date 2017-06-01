@@ -57,7 +57,7 @@ static CGFloat const optionCellHeight = 40;
     
     self.selected = NO;
     
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
         self.selected = self.selected;
     });
 }

@@ -25,17 +25,13 @@
 }
 
 - (void)drawRect:(CGRect)rect {
-    
-    // Drawing code
     [_borderLineColor set];
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(currentContext, _borderLineWidth);
-    
     if (_bottomLine) {
         CGContextMoveToPoint(currentContext,CGRectGetMinX(rect), CGRectGetMaxY(rect));
         CGContextAddLineToPoint(currentContext,CGRectGetMaxX(rect), CGRectGetMaxY(rect));
     }
-    
     if (_topLine) {
         CGContextMoveToPoint(currentContext,CGRectGetMinX(rect), CGRectGetMinY(rect));
         CGContextAddLineToPoint(currentContext,CGRectGetMaxX(rect), CGRectGetMinY(rect));

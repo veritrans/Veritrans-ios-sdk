@@ -39,9 +39,7 @@
 {
     if (self = [super init]) {
         self.number = [number stringByReplacingOccurrencesOfString:@" " withString:@""];
-        
         self.cvv = cvv;
-        
         NSArray *dates = [expiryDate componentsSeparatedByString:ExpiryDateSeparator];
         NSString *expMonth = dates[0];
         NSString *expYear = dates.count == 2 ? dates[1] : nil;

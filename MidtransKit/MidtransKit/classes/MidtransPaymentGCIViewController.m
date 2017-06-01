@@ -70,12 +70,15 @@
         return;
     }
     [self showLoadingWithText:@"Loading"];
-    MIdtransPaymentGCI *paymentDetails = [[MIdtransPaymentGCI alloc] initWithCardNumber:self.view.gciCardTextField.text password:self.view.passwordTextField.text];
+    MIdtransPaymentGCI *paymentDetails = [[MIdtransPaymentGCI alloc] initWithCardNumber:self.view.gciCardTextField.text
+                                                                               password:self.view.passwordTextField.text];
 
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
-    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                                                     token:self.token];
+    
+    [[MidtransMerchantClient shared] performTransaction:transaction
+                                             completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
-        
         if (error) {
             if (self.attemptRetry<2) {
                 self.attemptRetry+=1;

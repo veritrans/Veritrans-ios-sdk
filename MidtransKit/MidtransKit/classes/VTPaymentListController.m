@@ -93,6 +93,7 @@
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
+             MidtransPaymentListModel *model;
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
@@ -101,7 +102,15 @@
                                                    };
              
              NSArray *paymentAvailable = response.enabledPayments;
+             if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
+                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                 [self.paymentMethodList insertObject:model atIndex:0];
+                  [self hideLoading];
+                 self.singlePayment = YES;
+                 [self redirectToPaymentMethodAtIndex:0];
+             }
              if (self.paymentMethodSelected.length>0) {
+                 /*special case*/
                  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
                  NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
                  if (!results.count) {
@@ -123,7 +132,7 @@
                  }
                  
                  if (index != NSNotFound) {
-                     MidtransPaymentListModel *model;
+                     
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                          if (!vaAlreadyAdded) {
                              if (mainIndex!=0) {
@@ -154,6 +163,9 @@
              }
              if (self.paymentMethodSelected.length > 0) {
                  self.singlePayment = YES;
+                 if ([self.paymentMethodSelected isEqualToString:@"bhank_transfer"]) {
+                     return;
+                 }
                  [self redirectToPaymentMethodAtIndex:0];
              }
          }
@@ -196,7 +208,6 @@
 }
 
 #pragma mark - Helper
-
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];

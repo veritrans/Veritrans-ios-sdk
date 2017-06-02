@@ -26,18 +26,128 @@
         NSString *boldLabel = [[instruction.content stringsBetween:@"‘" and:@"’"] firstObject];
         NSString *cleanString = [[instruction.content stringByReplacingOccurrencesOfString:@"‘" withString:@""] stringByReplacingOccurrencesOfString:@"’" withString:@""];
         NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:cleanString];
-        NSRange range = [cleanString rangeOfString:boldLabel];
-
-        NSRange selectedRange = NSMakeRange(range.location, range.location + range.length);
-        
         [attrString beginEditing];
         [attrString addAttribute:NSFontAttributeName
                            value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:range];
+                           range:[attrString.string rangeOfString:boldLabel]];
         
         [attrString endEditing];
-      self.contentLabel.attributedText = attrString;
+        self.contentLabel.attributedText = attrString;
     }
+    
+    else if ([instruction.content containsString:@"To BNI Account then Add New Account"]) {
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+        [attrString beginEditing];
+        [attrString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                           range:[attrString.string rangeOfString:@"To BNI Account then Add New Account"]];
+        
+        [attrString endEditing];
+        self.contentLabel.attributedText = attrString;
+    }
+    
+   else  if ([instruction.content containsString:@"To BNI Account"]) {
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+        [attrString beginEditing];
+        [attrString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                           range:[attrString.string rangeOfString:@"To BNI Account"]];
+        
+        [attrString endEditing];
+        self.contentLabel.attributedText = attrString;
+    }
+   else  if ([instruction.content containsString:@"Proceed"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Proceed"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Enter"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Enter"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Set Destination Account"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Set Destination Account"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Set Destination Account"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Set Destination Account"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Add Destination Account"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Add Destination Account"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+    else if ([instruction.content containsString:@"Correct"]) {
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+        [attrString beginEditing];
+        [attrString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                           range:[attrString.string rangeOfString:@"Correct"]];
+        
+        [attrString endEditing];
+        self.contentLabel.attributedText = attrString;
+    }
+    else if ([instruction.content containsString:@"Transfer"]) {
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+        [attrString beginEditing];
+        [attrString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                           range:[attrString.string rangeOfString:@"Transfer"]];
+        
+        [attrString endEditing];
+        self.contentLabel.attributedText = attrString;
+    }
+    else if ([instruction.content containsString:@"Connect"]) {
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+        [attrString beginEditing];
+        [attrString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                           range:[attrString.string rangeOfString:@"Connect"]];
+        
+        [attrString endEditing];
+        self.contentLabel.attributedText = attrString;
+    }
+
+    else if ([instruction.content containsString:@"Transfer to BNI Account"]) {
+        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+        [attrString beginEditing];
+        [attrString addAttribute:NSFontAttributeName
+                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                           range:[attrString.string rangeOfString:@"Transfer to BNI Account"]];
+        
+        [attrString endEditing];
+        self.contentLabel.attributedText = attrString;
+    }
+
     else {
         self.contentLabel.tapableText = instruction.content;
     }

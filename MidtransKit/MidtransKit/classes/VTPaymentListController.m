@@ -109,7 +109,7 @@
                  self.singlePayment = YES;
                  [self redirectToPaymentMethodAtIndex:0];
              }
-             if (self.paymentMethodSelected.length > 0) {
+            if (self.paymentMethodSelected.length > 0) {
                  /*special case*/
                  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
                  NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];

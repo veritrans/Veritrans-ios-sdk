@@ -96,37 +96,37 @@
 
 + (UIViewController *)rootViewController {
     UIViewController *topRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    while (topRootViewController.presentedViewController){
-        if(![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]){
+    while (topRootViewController.presentedViewController) {
+        if (![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
             topRootViewController = topRootViewController.presentedViewController;
         }
-        else{
+        else {
             break;
         }
     }
-    if(!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]){
+    if (!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]) {
         
         if (!topRootViewController) {
             topRootViewController = [[[[UIApplication sharedApplication]delegate]window]rootViewController];
         }
         
-        if ([topRootViewController isKindOfClass:[UINavigationController class]]){
+        if ([topRootViewController isKindOfClass:[UINavigationController class]]) {
             UINavigationController* navController = (UINavigationController*)topRootViewController;
             return navController.topViewController;
         }
-        else if ([topRootViewController isKindOfClass:[UITabBarController class]]){
+        else if ([topRootViewController isKindOfClass:[UITabBarController class]]) {
             
             UITabBarController* tabController = (UITabBarController*)topRootViewController;
             
-            if ([tabController.selectedViewController isKindOfClass:[UINavigationController class]]){
+            if ([tabController.selectedViewController isKindOfClass:[UINavigationController class]]) {
                 UINavigationController* navController = (UINavigationController*)tabController.selectedViewController;
                 return navController.topViewController;
             }
-            else{
+            else {
                 return tabController.selectedViewController;
             }
         }
-        else{
+        else {
             return topRootViewController;
         }
     }
@@ -221,7 +221,7 @@
     NSInteger currentLength = self.maskedNumber.length-1; // minus 1 is because dash char
     NSInteger dotCount = 16 - currentLength;
     NSMutableString *dotString = [NSMutableString new];
-    for (int i=0; i<dotCount; i++) {
+    for (int i=0; i < dotCount; i++) {
         [dotString appendString:@"\u2022"];
     }
     return [[self.maskedNumber stringByReplacingOccurrencesOfString:@"-" withString:dotString] formattedCreditCardNumber];

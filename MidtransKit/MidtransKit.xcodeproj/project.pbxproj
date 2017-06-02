@@ -14,6 +14,8 @@
 		0C5DD8891E9E34F60004DD5D /* SNPPostPaymentVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */; };
 		0C5DD88A1E9E34F60004DD5D /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */; };
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
+		0CD116101EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
+		0CD116111EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CE966521EC5625900364146 /* bni_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9664F1EC5625900364146 /* bni_va@2x.png */; };
 		0CE966531EC5625900364146 /* bni_va@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE966501EC5625900364146 /* bni_va@3x.png */; };
 		0CE966541EC5625900364146 /* bni_va@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE966511EC5625900364146 /* bni_va@4x.png */; };
@@ -32,8 +34,6 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
-		E519C8F91E9B6D8800EF70DF /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = E519C8F81E9B6D8800EF70DF /* bni_va.plist */; };
-		E519C8FA1E9B6D8800EF70DF /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = E519C8F81E9B6D8800EF70DF /* bni_va.plist */; };
 		E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */; };
@@ -938,6 +938,7 @@
 		0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardViewController.m; path = classes/MidtransNewCreditCardViewController.m; sourceTree = "<group>"; };
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
+		0CD1160F1EDD5B14005884AD /* bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bni_va.plist; path = MidtransKit/resources/bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
 		0CD7EA941E03C4070036C187 /* MidtransPaymentGCIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIView.h; path = classes/MidtransPaymentGCIView.h; sourceTree = "<group>"; };
@@ -1019,7 +1020,6 @@
 		E517C2DC1C96C1A2009AE6AA /* PushAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PushAnimator.m; path = classes/PushAnimator.m; sourceTree = "<group>"; };
 		E517C2E01C96C1C4009AE6AA /* PopAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PopAnimator.h; path = classes/PopAnimator.h; sourceTree = "<group>"; };
 		E517C2E11C96C1C4009AE6AA /* PopAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PopAnimator.m; path = classes/PopAnimator.m; sourceTree = "<group>"; };
-		E519C8F81E9B6D8800EF70DF /* bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bni_va.plist; path = MidtransKit/resources/bni_va.plist; sourceTree = SOURCE_ROOT; };
 		E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bni_va1@2x.png"; path = "MidtransKit/resources/bni_va1@2x.png"; sourceTree = SOURCE_ROOT; };
 		E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bni_va2@2x.png"; path = "MidtransKit/resources/bni_va2@2x.png"; sourceTree = SOURCE_ROOT; };
 		E519C9571E9B6F2000EF70DF /* bni_va3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bni_va3@2x.png"; path = "MidtransKit/resources/bni_va3@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -1692,7 +1692,7 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				E519C8F81E9B6D8800EF70DF /* bni_va.plist */,
+				0CD1160F1EDD5B14005884AD /* bni_va.plist */,
 				E57127201E93B3290064F515 /* all_va.plist */,
 				E57127211E93B3290064F515 /* bca_klikbca.plist */,
 				E57127221E93B3290064F515 /* bca_klikpay.plist */,
@@ -2497,7 +2497,6 @@
 				E57127E31E93B7C50064F515 /* cimb_clicks.plist in Resources */,
 				E58FCE311E94CFD600632085 /* other_alto_7@2x.png in Resources */,
 				E57124891E9381320064F515 /* MidtransInstallmentView.xib in Resources */,
-				E519C8FA1E9B6D8800EF70DF /* bni_va.plist in Resources */,
 				E58FCD911E94CFD500632085 /* anz@2x.png in Resources */,
 				E57127E21E93B7C50064F515 /* bri_epay.plist in Resources */,
 				E58FCE051E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
@@ -2570,6 +2569,7 @@
 				E58FCE351E94CFD600632085 /* other_atm_2@2x.png in Resources */,
 				E58FCDF71E94CFD500632085 /* JCB@2x.png in Resources */,
 				E58FCD891E94CFD500632085 /* AlertBackground@2x.png in Resources */,
+				0CD116111EDD5B14005884AD /* bni_va.plist in Resources */,
 				E58FCDDB1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC91E94CFD500632085 /* cimb@2x.png in Resources */,
 				E571249B1E9381320064F515 /* MidtransUIToast.xib in Resources */,
@@ -2735,7 +2735,6 @@
 				E5F1BB671E93701100ED659D /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E58FCE301E94CFD600632085 /* other_alto_7@2x.png in Resources */,
 				E5F1BB841E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
-				E519C8F91E9B6D8800EF70DF /* bni_va.plist in Resources */,
 				E58FCD901E94CFD500632085 /* anz@2x.png in Resources */,
 				E57127431E93B3290064F515 /* xl_tunai.plist in Resources */,
 				E58FCE041E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
@@ -2806,6 +2805,7 @@
 				E58FCDB81E94CFD500632085 /* bri.png in Resources */,
 				E58FCE341E94CFD600632085 /* other_atm_2@2x.png in Resources */,
 				E58FCDF61E94CFD500632085 /* JCB@2x.png in Resources */,
+				0CD116101EDD5B14005884AD /* bni_va.plist in Resources */,
 				E58FCD881E94CFD500632085 /* AlertBackground@2x.png in Resources */,
 				E58FCDDA1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC81E94CFD500632085 /* cimb@2x.png in Resources */,

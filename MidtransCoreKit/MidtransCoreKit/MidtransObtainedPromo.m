@@ -51,7 +51,7 @@ NSString *const kMidtransObtainedPromoDiscountAmount = @"discount_amount";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.sponsorMessageEn = [self objectOrNilForKey:kMidtransObtainedPromoSponsorMessageEn fromDictionary:dict];
         self.promoCode = [self objectOrNilForKey:kMidtransObtainedPromoPromoCode fromDictionary:dict];
         self.discountToken = [self objectOrNilForKey:kMidtransObtainedPromoDiscountToken fromDictionary:dict];

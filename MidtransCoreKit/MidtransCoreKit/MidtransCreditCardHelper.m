@@ -236,7 +236,7 @@
     }
     
     NSMutableString *digitsOnlyString = [NSMutableString new];
-    for (NSUInteger i=0; i<[string length]; i++) {
+    for (NSUInteger i=0; i < [string length]; i++) {
         unichar characterToAdd = [string characterAtIndex:i];
         if (isdigit(characterToAdd)) {
             NSString *stringToAdd =

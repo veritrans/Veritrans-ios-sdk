@@ -42,7 +42,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardInstallments = @"installment"
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
     NSObject *receivedMidtransPaymentRequestV2SavedTokens = [dict objectForKey:kMidtransPaymentRequestV2CreditCardSavedTokens];
     NSMutableArray *parsedMidtransPaymentRequestV2SavedTokens = [NSMutableArray array];
     if ([receivedMidtransPaymentRequestV2SavedTokens isKindOfClass:[NSArray class]]) {
@@ -71,7 +71,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardInstallments = @"installment"
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     NSMutableArray *tempArrayForSavedTokens = [NSMutableArray array];
     for (NSObject *subArrayObject in self.savedTokens) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForSavedTokens addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -82,7 +82,7 @@ NSString *const kMidtransPaymentRequestV2CreditCardInstallments = @"installment"
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForSavedTokens] forKey:kMidtransPaymentRequestV2CreditCardSavedTokens];
     NSMutableArray *tempArrayForWhitelistBins = [NSMutableArray array];
     for (NSObject *subArrayObject in self.whitelistBins) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForWhitelistBins addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

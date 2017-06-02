@@ -210,7 +210,7 @@
     
      [self prepareOptionViews:self.optionViews];;
     
-    defaults_observe_object(@"md_cc_type", ^(id note){
+    defaults_observe_object(@"md_cc_type", ^(id note) {
         MTCreditCardPaymentType type = [[MDOptionManager shared].ccTypeOption.value integerValue];
         if (type == MTCreditCardPaymentTypeOneclick) {
             [opt3ds selectOptionAtIndex:1];

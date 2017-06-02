@@ -43,7 +43,7 @@ NSString *const kSNPPointResponsePointBalanceAmount = @"point_balance_amount";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.validationMessages = [self objectOrNilForKey:kSNPPointResponseValidationMessages fromDictionary:dict];
             self.pointBalance = [[self objectOrNilForKey:kSNPPointResponsePointBalance fromDictionary:dict] doubleValue];
             self.statusMessage = [self objectOrNilForKey:kSNPPointResponseStatusMessage fromDictionary:dict];
@@ -62,7 +62,7 @@ NSString *const kSNPPointResponsePointBalanceAmount = @"point_balance_amount";
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     NSMutableArray *tempArrayForValidationMessages = [NSMutableArray array];
     for (NSObject *subArrayObject in self.validationMessages) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForValidationMessages addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

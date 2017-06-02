@@ -51,7 +51,7 @@
                                                                                  email:self.view.emailTextField.text];
         self.token.customerDetails.email = self.view.emailTextField.text;
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]){
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
         if (self.view.emailTextField.text.length == 0) {
             self.view.emailTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
             [self hideLoading];

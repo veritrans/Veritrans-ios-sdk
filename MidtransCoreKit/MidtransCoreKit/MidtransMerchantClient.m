@@ -64,20 +64,17 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-                
-                if (completion){
+                if (completion) {
                     completion(chargeResult, error);
                 }
             }
             else {
-                
-                if (completion){
+                if (completion) {
                     completion(chargeResult, error);
                 }
             }
         }
         else {
-            
             if (completion) {
                 completion(nil, error);
             }
@@ -117,8 +114,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
          if (data) {
              NSMutableArray *result = [[NSMutableArray alloc] init];
              NSError *error;
@@ -130,7 +126,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                      [result addObject:card];
                  }
              }
-             
              if (completion) completion(result, nil);
          }
          else {
@@ -158,9 +153,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 completion(pointResponse,NULL);
             }
         }
-        else{
+        else {
             if (completion) {
-                
                 completion(NULL,error);
             }
         }
@@ -307,7 +301,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 completion(paymentRequestV2,NULL);
             }
         }
-        else{
+        else {
             if (completion) {
                 completion(NULL,error);
             }

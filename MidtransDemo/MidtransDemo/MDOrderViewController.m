@@ -72,7 +72,7 @@
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
         wself.amountView.backgroundColor = [UIColor mdThemeColor];
     });
 }
@@ -137,7 +137,8 @@
              [alert show];
          }
          else {
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            //MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureMandiriEcash];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

@@ -19,15 +19,12 @@
 - (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult {
     if (self = [super init]) {
         self.transactionResult = transactionResult;
-        
         self.totalAmount = transactionResult.grossAmount.formattedCurrencyNumber;
-        
         self.orderId = transactionResult.orderId;
         self.additionalData = transactionResult.additionalData;
         NSDateFormatter *formatter = [NSObject dateFormatterWithIdentifier:@"vt.date"];
         formatter.dateFormat = @"dd/MM/yyyy, HH:mm:ss";
         self.transactionTime = [formatter stringFromDate:transactionResult.transactionTime];
-        
         NSString *paymentTypeString = [transactionResult.paymentType stringByReplacingOccurrencesOfString:@"_" withString:@" "];
         self.paymentType = [paymentTypeString capitalizedString];
     }

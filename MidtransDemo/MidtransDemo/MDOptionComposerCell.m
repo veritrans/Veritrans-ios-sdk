@@ -21,7 +21,7 @@
     [super awakeFromNib];
     
     self.checkView.tintColor = [UIColor mdThemeColor];
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
         self.checkView.tintColor = [UIColor mdThemeColor];
     });
     

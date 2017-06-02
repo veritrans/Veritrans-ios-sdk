@@ -95,7 +95,7 @@
 
 - (CGFloat)calculateTableViewHeight {
     CGFloat result = 0;
-    for (int i=0; i<self.items.count; i++) {
+    for (int i=0; i < self.items.count; i++) {
         static MidtransItemCell *cell = nil;
         static dispatch_once_t onceToken;
         dispatch_once(&onceToken, ^{

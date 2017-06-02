@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
                                        token:(MidtransTransactionTokenResponse *)token
                                paymentMethod:(MidtransPaymentListModel *)paymentMethod {
     VTPaymentStatusController *vc = [[VTPaymentStatusController alloc] initWithNibName:NSStringFromClass([VTPaymentStatusController class]) bundle:VTBundle];
+    
     vc.statusType = SNPStatusTypeSuccess;
     vc.result = result;
     vc.token = token;

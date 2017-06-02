@@ -29,7 +29,7 @@
 }
 
 - (id)initWithCoder:(NSCoder *)decoder {
-    if((self = [super init])) {
+    if ((self = [super init])) {
         //decode properties, other class vars
         self.customerIdentifier = [decoder decodeObjectForKey:@"customerIdentifier"];
         self.firstName = [decoder decodeObjectForKey:@"firstName"];
@@ -53,7 +53,7 @@
         self.customerIdentifier = [[NSUUID UUID] UUIDString];
         self.firstName = firstName;
         self.lastName = lastName;
-        if (phone.length>0) {
+        if (phone.length > 0) {
             self.phone = phone;
         }
         self.email = email;
@@ -66,7 +66,7 @@
 - (NSDictionary *)dictionaryValue {
     // Format MUST BE compatible with
     // http://docs.veritrans.co.id/en/api/methods.html#customer_details_attr
-    if (self.phone.length>0) {
+    if (self.phone.length > 0) {
         return @{@"first_name": [MidtransHelper nullifyIfNil:self.firstName],
                  @"last_name": [MidtransHelper nullifyIfNil:self.lastName],
                  @"email": [MidtransHelper nullifyIfNil:self.email],

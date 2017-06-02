@@ -51,7 +51,7 @@ NSString *const kMidtransPromoEndDate = @"end_date";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.sponsorMessageEn = [self objectOrNilForKey:kMidtransPromoSponsorMessageEn fromDictionary:dict];
             self.promoCode = [self objectOrNilForKey:kMidtransPromoPromoCode fromDictionary:dict];
             self.discountType = [self objectOrNilForKey:kMidtransPromoDiscountType fromDictionary:dict];
@@ -79,7 +79,7 @@ NSString *const kMidtransPromoEndDate = @"end_date";
     [mutableDict setValue:self.sponsorName forKey:kMidtransPromoSponsorName];
     NSMutableArray *tempArrayForBins = [NSMutableArray array];
     for (NSObject *subArrayObject in self.bins) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForBins addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

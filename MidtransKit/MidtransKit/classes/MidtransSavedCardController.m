@@ -80,7 +80,8 @@
     }
     else {
         [self showLoadingWithText:nil];
-        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
+        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                       completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
 
             if (maskedCards.count) {
                 [self.cards setArray:maskedCards];
@@ -132,9 +133,10 @@
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
       [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    VTConfirmPaymentController *vc =
-    [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
+    
+    VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
+    
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
             [self showLoadingWithText:@"Processing your transaction"];
@@ -148,7 +150,8 @@
             [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
                                                           token:self.token];
             
-            [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+            [[MidtransMerchantClient shared] performTransaction:transaction
+                                                     completion:^(MidtransTransactionResult *result, NSError *error) {
                 [self hideLoading];
                 
                 if (error) {

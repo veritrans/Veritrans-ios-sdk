@@ -38,7 +38,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.tokenType = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensTokenType fromDictionary:dict];
         self.expiresAt = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensExpiresAt fromDictionary:dict];
         self.maskedCard = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensMaskedCard fromDictionary:dict];

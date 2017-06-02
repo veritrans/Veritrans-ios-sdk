@@ -44,7 +44,7 @@
 
     NSArray *groupedInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     
-    for (int i=0; i<[groupedInstructions count]; i++) {
+    for (int i=0; i < [groupedInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = groupedInstructions[i];
         
         if (i>1) {

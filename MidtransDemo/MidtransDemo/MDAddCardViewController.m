@@ -37,18 +37,18 @@
     if (textField == self.cardNumberTextFIeld) {
         // Prevent crashing undo bug – see note below.
         [self.cardNumberFormatter textField:textField shouldChangeCharactersInRange:range replacementString:string];
-        if(range.length + range.location > textField.text.length) {
+        if (range.length + range.location > textField.text.length) {
             return NO;
         }
         NSUInteger newLength = [textField.text length] + [string length] - range.length;
         return newLength <= 19;
-    } else if([textField isEqual:self.cvv]){
+    } else if ([textField isEqual:self.cvv]) {
         return [textField filterCvvNumber:string
                                     range:range
                            withCardNumber:self.cvv.text];
-    } else if([textField isEqual:self.expiryDate]){
+    } else if ([textField isEqual:self.expiryDate]) {
        return [textField filterCreditCardExpiryDate:string range:range];
-    }else {
+    } else {
         return YES;
     }
 }

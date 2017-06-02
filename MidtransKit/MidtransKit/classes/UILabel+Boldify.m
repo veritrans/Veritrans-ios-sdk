@@ -24,7 +24,7 @@
 }
 
 - (void)boldSubstring:(NSString*)substring {
-    if(!substring) return;
+    if (!substring) return;
     NSRange range = [self.text rangeOfString:substring];
     [self boldRange:range];
 }

@@ -39,7 +39,7 @@ NSString *const kMidtransPaymentRequestV2TermsOffline = @"offline";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.mandiri = [self objectOrNilForKey:kMidtransPaymentRequestV2TermsMandiri fromDictionary:dict];
             self.bni = [self objectOrNilForKey:kMidtransPaymentRequestV2TermsBni fromDictionary:dict];
             self.bca = [self objectOrNilForKey:kMidtransPaymentRequestV2TermsBca fromDictionary:dict];
@@ -56,7 +56,7 @@ NSString *const kMidtransPaymentRequestV2TermsOffline = @"offline";
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     NSMutableArray *tempArrayForMandiri = [NSMutableArray array];
     for (NSObject *subArrayObject in self.mandiri) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForMandiri addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -67,7 +67,7 @@ NSString *const kMidtransPaymentRequestV2TermsOffline = @"offline";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForMandiri] forKey:kMidtransPaymentRequestV2TermsMandiri];
     NSMutableArray *tempArrayForBni = [NSMutableArray array];
     for (NSObject *subArrayObject in self.bni) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForBni addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -78,7 +78,7 @@ NSString *const kMidtransPaymentRequestV2TermsOffline = @"offline";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForBni] forKey:kMidtransPaymentRequestV2TermsBni];
     NSMutableArray *tempArrayForBca = [NSMutableArray array];
     for (NSObject *subArrayObject in self.bca) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForBca addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -89,7 +89,7 @@ NSString *const kMidtransPaymentRequestV2TermsOffline = @"offline";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForBca] forKey:kMidtransPaymentRequestV2TermsBca];
     NSMutableArray *tempArrayForOffline = [NSMutableArray array];
     for (NSObject *subArrayObject in self.offline) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForOffline addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

@@ -43,7 +43,7 @@
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeaderBillPay" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeaderBillPay"];
         self.headerViewBillPay = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeaderBillPay"];
     }
-    else{
+    else {
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
         self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
     }
@@ -69,7 +69,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bni_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"bni_expiration" ];
     }
-    else if([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+    else if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bill_key"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"billpayment_expiration"];
         self.headerViewBillPay.companyCodeTextField.text =[self.transactionResult.additionalData objectForKey:@"biller_code"];
@@ -100,7 +100,7 @@
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
     
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
-    for (int i=0; i<[self.mainInstructions count]; i++) {
+    for (int i=0; i < [self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
         if (i>1) {
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
@@ -182,7 +182,7 @@
         if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
             return self.headerViewBillPay;
         }
-        else{
+        else {
             return self.headerView;
         }
         return self.headerView;
@@ -204,7 +204,7 @@
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
                 return [self.headerViewBillPay.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
             }
-            else{
+            else {
                 return [self.headerView.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
             }
         }

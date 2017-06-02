@@ -86,7 +86,7 @@
     }
     else if (self.type == MDAlertOptionTypeCheck) {
         self.tableView.allowsMultipleSelection = YES;
-        for (int i=0; i<self.checkLists.count; i++) {
+        for (int i=0; i < self.checkLists.count; i++) {
             if ([self.predefinedCheckLists containsObject:self.checkLists[i]]) {
                 NSIndexPath *indexPath = [NSIndexPath indexPathForRow:i inSection:0];
                 [self.tableView selectRowAtIndexPath:indexPath animated:NO scrollPosition:UITableViewScrollPositionNone];
@@ -140,12 +140,12 @@
             height = 50;
             break;
         case MDAlertOptionTypeRadio:
-            for (int i=0; i<self.radioButtons.count; i++) {
+            for (int i=0; i < self.radioButtons.count; i++) {
                 height += 44;
             }
             break;
         default:
-            for (int i=0; i<self.checkLists.count; i++) {
+            for (int i=0; i < self.checkLists.count; i++) {
                 height += 44;
             }
             break;
@@ -267,7 +267,7 @@
 
 - (void)inputTextChanged:(MDTextField *)textField {
     self.inputText = textField.text;
-    self.applyButton.enabled = textField.text.length>0;
+    self.applyButton.enabled = textField.text.length > 0;
 }
 
 @end

@@ -50,7 +50,7 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeatureXLTunai,
     MidtransPaymentFeatureMandiriClickPay,
     MidtransPaymentFeatureKiosON,
-     MidtransPaymentFeatureGCI
+    MidtransPaymentFeatureGCI
 };
 @class MidtransUIPaymentViewController;
 

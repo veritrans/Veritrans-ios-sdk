@@ -55,7 +55,7 @@
         guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
     }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
-    for (int i=0; i<[self.mainInstructions count]; i++) {
+    for (int i=0; i < [self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
         if (i > 1) {
             [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
@@ -95,7 +95,8 @@
     MidtransPaymentBankTransfer *paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType
                                                                                                           email:self.headerView.emailTextField.text];
     self.token.customerDetails.email = self.headerView.emailTextField.text;
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails
+                                                                                     token:self.token];
     
     [self showLoadingWithText:nil];
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {

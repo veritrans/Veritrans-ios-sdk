@@ -68,7 +68,7 @@ NSString *const kTransactionExpireUnit = @"unit";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.startTime = [self objectOrNilForKey:kTransactionExpireStartTime fromDictionary:dict];
             self.duration = [[self objectOrNilForKey:kTransactionExpireDuration fromDictionary:dict] doubleValue];
             self.unit = [self objectOrNilForKey:kTransactionExpireUnit fromDictionary:dict];

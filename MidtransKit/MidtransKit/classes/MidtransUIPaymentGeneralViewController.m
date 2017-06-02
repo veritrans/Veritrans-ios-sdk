@@ -21,7 +21,10 @@
 @implementation MidtransUIPaymentGeneralViewController
 @dynamic view;
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod merchant:(MidtransPaymentRequestV2Merchant *)merchant {
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+                     merchant:(MidtransPaymentRequestV2Merchant *)merchant {
+    
     if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.merchant = merchant;
     }
@@ -64,15 +67,17 @@
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
-    [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+    [[MidtransMerchantClient shared] performTransaction:transaction
+                                             completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
-        
         if (error) {
             [self handleTransactionError:error];
         }
         else {
             if (result.redirectURL) {
-                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithMerchant:self.merchant result:result identifier:self.paymentMethod.internalBaseClassIdentifier];
+                MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithMerchant:self.merchant
+                                                                                                   result:result
+                                                                                               identifier:self.paymentMethod.internalBaseClassIdentifier];
                 vc.delegate = self;
                 [self.navigationController pushViewController:vc animated:YES];
             }

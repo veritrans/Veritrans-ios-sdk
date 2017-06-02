@@ -55,7 +55,7 @@
 }
 
 - (UITextField *)fieldAtIndex:(NSInteger)index {
-    for (int i=0; i<_fields.count; i++) {
+    for (int i=0; i < _fields.count; i++) {
         if (i == index) {
             return _fields[i];
         }

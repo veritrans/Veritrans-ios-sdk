@@ -72,7 +72,7 @@
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
         wself.amountView.backgroundColor = [UIColor mdThemeColor];
     });
 }

@@ -117,7 +117,7 @@ static dispatch_once_t * onceToken;
                 }
             }
             else {
-                if([[self.installment.terms objectForKey:@"offline"] count]){
+                if ([[self.installment.terms objectForKey:@"offline"] count]) {
                     self.installmentBankName = @"offline";
                     [self.installmentValueObject addObject:@"0"];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:@"offline"]];
@@ -128,7 +128,7 @@ static dispatch_once_t * onceToken;
         });
         
     }
-    else{
+    else {
         *onceToken = 0;
         self.filteredBinObject.bank = nil;
         if (self.installmentValueObject.count > 0) {

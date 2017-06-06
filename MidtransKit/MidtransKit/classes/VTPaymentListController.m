@@ -180,6 +180,11 @@
 
 - (void)closePressed:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    if ([currentWindow viewWithTag:100101]) {
+         [[currentWindow viewWithTag:100101] removeFromSuperview];
+    }
+   
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

@@ -78,6 +78,16 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if ([[MidtransConfig shared] environment]!=MidtransServerEnvironmentProduction) {
+        UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+        
+        UIImage *image = [UIImage imageNamed:@"test_badge" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        UIImageView *badgeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, [currentWindow bounds].size.height-115, 115, 115)];
+        badgeImageView.tag =100101;
+        badgeImageView.image = image;
+        
+        [currentWindow addSubview:badgeImageView];
+    }
     self.navigationBar.translucent = false;
     // to remove 1 px border below nav bar
     
@@ -102,29 +112,38 @@
 }
 
 - (void)transactionPending:(NSNotification *)sender {
+    [self dismissDemoBadge];
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentPending:)]) {
         [self.paymentDelegate paymentViewController:self paymentPending:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionCanceled:(NSNotification *)sender {
+    [self dismissDemoBadge];
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
         [self.paymentDelegate paymentViewController_paymentCanceled:self];
     }
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {
+    [self dismissDemoBadge];
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentSuccess:)]) {
         [self.paymentDelegate paymentViewController:self paymentSuccess:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
 
 - (void)transactionFailed:(NSNotification *)sender {
+    [self dismissDemoBadge];
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:paymentFailed:)]) {
         [self.paymentDelegate paymentViewController:self paymentFailed:sender.userInfo[TRANSACTION_ERROR_KEY]];
     }
 }
-
+- (void)dismissDemoBadge {
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    if ([currentWindow viewWithTag:100101]) {
+        [[currentWindow viewWithTag:100101] removeFromSuperview];
+    }
+}
 - (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
     return UIInterfaceOrientationPortrait;
 }

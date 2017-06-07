@@ -42,6 +42,11 @@
             break;
     }
 
+    /*
+     [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
+     environment:MidtransServerEnvironmentProduction
+     merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
+     */
     [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];

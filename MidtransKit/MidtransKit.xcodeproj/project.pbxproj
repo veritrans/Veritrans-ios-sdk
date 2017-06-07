@@ -11,9 +11,17 @@
 		0C32A9851EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C32A9831EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m */; };
 		0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */; };
 		0C32A98A1EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */; };
+		0C56F0751EE69CEA001B1175 /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0721EE69CEA001B1175 /* cc_badge@2x.png */; };
+		0C56F0761EE69CEA001B1175 /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0721EE69CEA001B1175 /* cc_badge@2x.png */; };
+		0C56F0771EE69CEA001B1175 /* cc_badge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0731EE69CEA001B1175 /* cc_badge@3x.png */; };
+		0C56F0781EE69CEA001B1175 /* cc_badge@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0731EE69CEA001B1175 /* cc_badge@3x.png */; };
+		0C56F0791EE69CEA001B1175 /* cc_badge@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0741EE69CEA001B1175 /* cc_badge@4x.png */; };
+		0C56F07A1EE69CEA001B1175 /* cc_badge@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0741EE69CEA001B1175 /* cc_badge@4x.png */; };
 		0C5DD8891E9E34F60004DD5D /* SNPPostPaymentVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */; };
 		0C5DD88A1E9E34F60004DD5D /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */; };
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
+		0C91BCF31EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
+		0C91BCF41EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
 		0CD116101EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CD116111EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CE966521EC5625900364146 /* bni_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9664F1EC5625900364146 /* bni_va@2x.png */; };
@@ -931,6 +939,9 @@
 		0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentHeaderBillPay.xib; path = MidtransKit/resources/SNPPostPaymentHeaderBillPay.xib; sourceTree = SOURCE_ROOT; };
 		0C3998461E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUICustomAlertViewController.h; path = classes/MidtransUICustomAlertViewController.h; sourceTree = "<group>"; };
 		0C3998471E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUICustomAlertViewController.m; path = classes/MidtransUICustomAlertViewController.m; sourceTree = "<group>"; };
+		0C56F0721EE69CEA001B1175 /* cc_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@2x.png"; sourceTree = "<group>"; };
+		0C56F0731EE69CEA001B1175 /* cc_badge@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@3x.png"; sourceTree = "<group>"; };
+		0C56F0741EE69CEA001B1175 /* cc_badge@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cc_badge@4x.png"; sourceTree = "<group>"; };
 		0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPostPaymentVAViewController.h; path = classes/SNPPostPaymentVAViewController.h; sourceTree = "<group>"; };
 		0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPostPaymentVAViewController.m; path = classes/SNPPostPaymentVAViewController.m; sourceTree = "<group>"; };
 		0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentVAViewController.xib; path = MidtransKit/resources/SNPPostPaymentVAViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -938,6 +949,7 @@
 		0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardViewController.m; path = classes/MidtransNewCreditCardViewController.m; sourceTree = "<group>"; };
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
+		0C91BCF21EE7B15500B5588D /* test_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_badge@2x.png"; sourceTree = "<group>"; };
 		0CD1160F1EDD5B14005884AD /* bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bni_va.plist; path = MidtransKit/resources/bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
@@ -1776,6 +1788,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0C91BCF21EE7B15500B5588D /* test_badge@2x.png */,
 				E5EBC2BD1EB0726700A568D1 /* midtrans_logo_left@2x.png */,
 				E5EBC2BE1EB0726700A568D1 /* midtrans_logo_mid@2x.png */,
 				E5EBC2BF1EB0726700A568D1 /* midtrans_logo_right@2x.png */,
@@ -1789,6 +1802,9 @@
 				E58FCD001E94CFD500632085 /* AlertBackground@2x.png */,
 				E58FCD011E94CFD500632085 /* Amex@2x.png */,
 				E58FCD021E94CFD500632085 /* AmexDark@2x.png */,
+				0C56F0721EE69CEA001B1175 /* cc_badge@2x.png */,
+				0C56F0731EE69CEA001B1175 /* cc_badge@3x.png */,
+				0C56F0741EE69CEA001B1175 /* cc_badge@4x.png */,
 				E58FCD031E94CFD500632085 /* anz.png */,
 				E58FCD041E94CFD500632085 /* anz@2x.png */,
 				E58FCD051E94CFD500632085 /* back@2x.png */,
@@ -2510,6 +2526,7 @@
 				E57127EF1E93B7C50064F515 /* xl_tunai.plist in Resources */,
 				E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */,
 				E57127E61E93B7C50064F515 /* indosat_dompetku.plist in Resources */,
+				0C91BCF41EE7B15500B5588D /* test_badge@2x.png in Resources */,
 				E58FCDBD1E94CFD500632085 /* cc_badge@2x.png in Resources */,
 				E58FCE3F1E94CFD600632085 /* other_atm_7@2x.png in Resources */,
 				E57127E01E93B7C50064F515 /* bca_klikpay.plist in Resources */,
@@ -2577,6 +2594,7 @@
 				E571249D1E9381320064F515 /* MidtransVAViewController.xib in Resources */,
 				E58FCE411E94CFD600632085 /* other_prima_1@2x.png in Resources */,
 				E519C97B1E9B6F2100EF70DF /* bni_va7@2x.png in Resources */,
+				0C56F0761EE69CEA001B1175 /* cc_badge@2x.png in Resources */,
 				E58FCE2F1E94CFD600632085 /* other_alto_6@2x.png in Resources */,
 				E58FCDA11E94CFD500632085 /* bca_atm_5@2x.png in Resources */,
 				E58FCDDD1E94CFD500632085 /* DisclosureIndicatorGray@2x.png in Resources */,
@@ -2634,6 +2652,7 @@
 				E57124AA1E9381320064F515 /* VTKlikbcaSuccessController.xib in Resources */,
 				E58FCE751E94CFD600632085 /* va.png in Resources */,
 				E58FCDA31E94CFD500632085 /* bca_atm_6@2x.png in Resources */,
+				0C56F07A1EE69CEA001B1175 /* cc_badge@4x.png in Resources */,
 				0CEF03241EA3D15E00EA1EE0 /* SNPPostPaymentHeader.xib in Resources */,
 				E58FCDAB1E94CFD500632085 /* bca.png in Resources */,
 				E58FCE531E94CFD600632085 /* pendingIcon@2x.png in Resources */,
@@ -2705,6 +2724,7 @@
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
 				E559763D1EA71B760044342A /* pending@2x.png in Resources */,
 				E57127E71E93B7C50064F515 /* kioson.plist in Resources */,
+				0C56F0781EE69CEA001B1175 /* cc_badge@3x.png in Resources */,
 				E58FCE571E94CFD600632085 /* permata_atm_2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2746,6 +2766,7 @@
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
 				E5F1BB631E93701100ED659D /* MIdtransUICardCell.xib in Resources */,
+				0C91BCF31EE7B15500B5588D /* test_badge@2x.png in Resources */,
 				E5F1BB551E93701100ED659D /* MidtransDirectHeader.xib in Resources */,
 				E57127401E93B3290064F515 /* snap_colors.plist in Resources */,
 				E58FCDBC1E94CFD500632085 /* cc_badge@2x.png in Resources */,
@@ -2813,6 +2834,7 @@
 				E5F1BB601E93701100ED659D /* MidtransSavedCardController.xib in Resources */,
 				E5F1BB6B1E93701100ED659D /* MidtransVAViewController.xib in Resources */,
 				E58FCE401E94CFD600632085 /* other_prima_1@2x.png in Resources */,
+				0C56F0751EE69CEA001B1175 /* cc_badge@2x.png in Resources */,
 				E519C97A1E9B6F2100EF70DF /* bni_va7@2x.png in Resources */,
 				E58FCE2E1E94CFD600632085 /* other_alto_6@2x.png in Resources */,
 				E58FCDA01E94CFD500632085 /* bca_atm_5@2x.png in Resources */,
@@ -2870,6 +2892,7 @@
 				E58FCE741E94CFD600632085 /* va.png in Resources */,
 				E58FCDA21E94CFD500632085 /* bca_atm_6@2x.png in Resources */,
 				0CEF03251EA3D8ED00EA1EE0 /* SNPPostPaymentHeader.xib in Resources */,
+				0C56F0791EE69CEA001B1175 /* cc_badge@4x.png in Resources */,
 				E58FCDAA1E94CFD500632085 /* bca.png in Resources */,
 				E58FCE521E94CFD600632085 /* pendingIcon@2x.png in Resources */,
 				E57127381E93B3290064F515 /* echannel.plist in Resources */,
@@ -2941,6 +2964,7 @@
 				0CE966591EC5661D00364146 /* bni_va@2x.png in Resources */,
 				E55976431EA72F770044342A /* pending@2x.png in Resources */,
 				E5F1BB7F1E93701100ED659D /* VTPaymentStatusController.xib in Resources */,
+				0C56F0771EE69CEA001B1175 /* cc_badge@3x.png in Resources */,
 				E58FCE561E94CFD600632085 /* permata_atm_2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

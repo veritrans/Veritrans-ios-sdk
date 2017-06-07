@@ -241,7 +241,7 @@
     NSInteger tempIndex = _currentPageIndex;
     // Check to see which way are you going (Left -> Right or Right -> Left)
     if (destination > tempIndex) {
-        for (int i = (int)tempIndex+1; i < =destination; i++) {
+        for (int i = (int)tempIndex+1; i <= destination; i++) {
             [self setPageControllerForIndex:i direction:UIPageViewControllerNavigationDirectionForward currentMBXViewController:weakSelf destionation:destination];
         }
     }

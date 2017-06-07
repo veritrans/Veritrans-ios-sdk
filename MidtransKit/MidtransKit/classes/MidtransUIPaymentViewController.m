@@ -82,7 +82,7 @@
         UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
         
         UIImage *image = [UIImage imageNamed:@"test_badge" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        UIImageView *badgeImageView = [[UIImageView alloc] initWithFrame:CGRectMake([currentWindow bounds].size.width-115, 0, 115, 115)];
+        UIImageView *badgeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, [currentWindow bounds].size.height-115, 115, 115)];
         badgeImageView.tag =100101;
         badgeImageView.image = image;
         

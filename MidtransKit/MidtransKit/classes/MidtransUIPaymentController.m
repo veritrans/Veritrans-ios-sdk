@@ -136,6 +136,7 @@
 
 - (void)handleTransactionError:(NSError *)error {
     if (UICONFIG.hideStatusPage) {
+        [self dismissDemoBadge];
         NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED
                                                             object:nil
@@ -158,6 +159,7 @@
 - (void)handleTransactionResult:(MidtransTransactionResult *)result {
     if (UICONFIG.hideStatusPage) {
         NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        [self dismissDemoBadge];
         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         return;
@@ -170,12 +172,14 @@
 }
 - (void)handleTransactionPending:(MidtransTransactionResult *)result {
     NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+    [self dismissDemoBadge];
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     if (UICONFIG.hideStatusPage) {
+        [self dismissDemoBadge];
         NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -251,7 +255,13 @@
         [self.navigationController pushViewController:(UIViewController *)vc animated:YES];
     }
 }
-
+- (void)dismissDemoBadge {
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    if ([currentWindow viewWithTag:100101]) {
+        [[currentWindow viewWithTag:100101] removeFromSuperview];
+    }
+    
+}
 - (void)showGuideViewController {
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||

@@ -10,6 +10,7 @@
 #import "MidtransUIPaymentDirectView.h"
 #import "MidtransUITextField.h"
 #import "MidtransUIButton.h"
+#import "SNPPostPaymentGeneralViewController.h"
 #import "VTClassHelper.h"
 
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -90,7 +91,16 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [self handleTransactionSuccess:result];
+            if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||  [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
+                 SNPPostPaymentGeneralViewController *postPaymentVAController = [[SNPPostPaymentGeneralViewController alloc] initWithNibName:@"SNPPostPaymentGeneralViewController" bundle:VTBundle];
+                postPaymentVAController.token = self.token;
+                postPaymentVAController.paymentMethod = self.paymentMethod;
+                postPaymentVAController.transactionDetail = transaction;
+                postPaymentVAController.transactionResult = result;
+                [self.navigationController pushViewController:postPaymentVAController animated:YES];
+            }else {
+                [self handleTransactionSuccess:result];
+            }
         }
     }];
 }

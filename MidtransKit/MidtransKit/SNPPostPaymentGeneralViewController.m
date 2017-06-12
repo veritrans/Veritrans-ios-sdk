@@ -8,7 +8,7 @@
 
 #import "SNPPostPaymentGeneralViewController.h"
 #import "SNPPostPaymentGeneralView.h"
-#import "SNPPostPaymentHeader.h"
+#import "SNPPostPaymentGeneralHeader.h"
 #import "MidtransUIToast.h"
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
@@ -17,7 +17,7 @@
 @interface SNPPostPaymentGeneralViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet SNPPostPaymentGeneralView *view;
 @property (nonatomic,strong) NSArray *instrunctions;
-@property (nonatomic) SNPPostPaymentHeader *headerView;
+@property (nonatomic) SNPPostPaymentGeneralHeader *headerView;
 @end
 
 @implementation SNPPostPaymentGeneralViewController
@@ -28,16 +28,14 @@
     [self showBackButton:NO];
     self.view.tableView.estimatedRowHeight = 60;
     self.view.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
+    [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentGeneralHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentGeneralHeader"];
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
-    self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
+    self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
     self.headerView.topTextLabel.text = @"Payment Code";
     if ([self.title isEqualToString:@"Kioson"]) {
         self.headerView.expiredTimeLabel.text = self.transactionResult.kiosonExpireTime;
     }
     [self.headerView updateFocusIfNeeded];
-    [self.headerView.tabSwitch removeFromSuperview];
-    [self.headerView.tutorialTitleLabel removeFromSuperview];
     self.view.tableView.tableHeaderView = self.headerView;
     self.headerView.vaTextField.text = self.transactionResult.indomaretPaymentCode;
     self.title = [self.paymentMethod.title capitalizedString];

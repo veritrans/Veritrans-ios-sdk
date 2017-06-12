@@ -33,4 +33,4 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)  -t :5e7f6972-2273-471b-ad30-68797581a09c
 notifications:
 email: true
-slack: midtrans:0RQSD3O4kPhQy9KxlPZsFYXp
+slack: midtrans:yWsmSPQV9XHHNXpXPGIxzybP

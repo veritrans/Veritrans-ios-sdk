@@ -17,5 +17,12 @@
     // Drawing code
 }
 */
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.vaTextField.layer.sublayerTransform = CATransform3DMakeTranslation(5, 0, 0);
+    self.expiredTimeBackground.layer.cornerRadius = 5.0f;
+    self.vaCopyButton.layer.borderColor = self.vaCopyButton.tintColor.CGColor;
+    self.vaCopyButton.layer.borderWidth = 1.;
+    self.vaCopyButton.layer.cornerRadius = 5.;
+}
 @end

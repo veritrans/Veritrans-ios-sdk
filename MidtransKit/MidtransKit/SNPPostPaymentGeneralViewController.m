@@ -15,6 +15,7 @@
 #import "UILabel+Boldify.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 @interface SNPPostPaymentGeneralViewController ()<UITableViewDelegate,UITableViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet SNPPostPaymentGeneralView *view;
 @property (nonatomic,strong) NSArray *instrunctions;
 @property (nonatomic) SNPPostPaymentGeneralHeader *headerView;
@@ -24,6 +25,7 @@
 @dynamic view;
 - (void)viewDidLoad {
     [super viewDidLoad];
+        self.title = [self.paymentMethod.title capitalizedString];
     [self.navigationItem setHidesBackButton:YES];
     [self showBackButton:NO];
     self.view.tableView.estimatedRowHeight = 60;
@@ -32,14 +34,19 @@
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
     self.headerView.topTextLabel.text = @"Payment Code";
+    NSString *expireDate;
     if ([self.title isEqualToString:@"Kioson"]) {
-        self.headerView.expiredTimeLabel.text = self.transactionResult.kiosonExpireTime;
+        expireDate =[self.transactionResult.additionalData objectForKey:@"kioson_expire_time"];
     }
+    else  if ([self.title isEqualToString:@"Indomaret"]) {
+        expireDate =[self.transactionResult.additionalData objectForKey:@"indomaret_expire_time"];
+    }
+     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
     [self.headerView updateFocusIfNeeded];
     self.view.tableView.tableHeaderView = self.headerView;
     self.headerView.vaTextField.text = self.transactionResult.indomaretPaymentCode;
-    self.title = [self.paymentMethod.title capitalizedString];
     self.instrunctions = [VTClassHelper instructionsFromFilePath:[VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"]];
+     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
     // Do any additional setup after loading the view from its nib.
@@ -82,7 +89,10 @@
     [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
-    
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
+    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 

@@ -181,8 +181,8 @@
     
     //////////////////
     //payment channels
-    options = @[[MDOption optionGeneralWithName:@"Show All" value:nil],
-                [MDOption optionCheckListWithName:@"Show Selected Only" checkedList:nil]];
+    options = @[[MDOption optionGeneralWithName:@"Show All Payment Channels" value:nil],
+                [MDOption optionCheckListWithName:@"Show Selected Payment Channels Only" checkedList:nil]];
     MDOptionView *optPaymentChannels = [MDOptionView viewWithIcon:[UIImage imageNamed:@"payment_channel"]
                                                     titleTemplate:@"%@"
                                                           options:options

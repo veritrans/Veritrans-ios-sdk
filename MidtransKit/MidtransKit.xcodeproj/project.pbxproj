@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C108A041EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C108A021EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h */; };
+		0C108A051EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A031EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m */; };
+		0C108A061EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A031EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m */; };
+		0C108A0B1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */; };
+		0C108A0C1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */; };
+		0C1ADB8B1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1ADB881EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h */; };
+		0C1ADB8C1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */; };
+		0C1ADB8D1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */; };
+		0C1ADB931EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1ADB921EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib */; };
+		0C1ADB941EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1ADB921EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib */; };
+		0C1ADB971EEA99330054CF54 /* SNPPostPaymentGeneralView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1ADB951EEA99330054CF54 /* SNPPostPaymentGeneralView.h */; };
+		0C1ADB981EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB961EEA99330054CF54 /* SNPPostPaymentGeneralView.m */; };
+		0C1ADB991EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB961EEA99330054CF54 /* SNPPostPaymentGeneralView.m */; };
 		0C32A9841EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C32A9821EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.h */; };
 		0C32A9851EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C32A9831EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m */; };
 		0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */; };
@@ -926,6 +939,14 @@
 		0C0EADC11E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransCreditCardAddOnComponentCell.m; path = classes/MidtransCreditCardAddOnComponentCell.m; sourceTree = "<group>"; };
 		0C0EADD01E3787EE002C0400 /* AddOnConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddOnConstructor.h; path = classes/AddOnConstructor.h; sourceTree = "<group>"; };
 		0C0EADD11E3787EE002C0400 /* AddOnConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AddOnConstructor.m; path = classes/AddOnConstructor.m; sourceTree = "<group>"; };
+		0C108A021EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPostPaymentGeneralHeader.h; sourceTree = "<group>"; };
+		0C108A031EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPPostPaymentGeneralHeader.m; sourceTree = "<group>"; };
+		0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentGeneralHeader.xib; path = MidtransKit/resources/SNPPostPaymentGeneralHeader.xib; sourceTree = SOURCE_ROOT; };
+		0C1ADB881EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPostPaymentGeneralViewController.h; sourceTree = "<group>"; };
+		0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPPostPaymentGeneralViewController.m; sourceTree = "<group>"; };
+		0C1ADB921EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentGeneralViewController.xib; path = MidtransKit/resources/SNPPostPaymentGeneralViewController.xib; sourceTree = SOURCE_ROOT; };
+		0C1ADB951EEA99330054CF54 /* SNPPostPaymentGeneralView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPostPaymentGeneralView.h; sourceTree = "<group>"; };
+		0C1ADB961EEA99330054CF54 /* SNPPostPaymentGeneralView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPPostPaymentGeneralView.m; sourceTree = "<group>"; };
 		0C2B8E521E260E4B007901CB /* MidtransInstallmentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransInstallmentView.h; path = classes/MidtransInstallmentView.h; sourceTree = "<group>"; };
 		0C2B8E531E260E4B007901CB /* MidtransInstallmentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransInstallmentView.m; path = classes/MidtransInstallmentView.m; sourceTree = "<group>"; };
 		0C2B8E651E275837007901CB /* MidtransCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransCollectionViewLayout.h; path = classes/MidtransCollectionViewLayout.h; sourceTree = "<group>"; };
@@ -1470,6 +1491,10 @@
 				00F61B131D146F7100C93DA0 /* MidtransUIPaymentGeneralViewController.m */,
 				00F61B181D14703100C93DA0 /* MidtransUIPaymentGeneralView.h */,
 				00F61B191D14703100C93DA0 /* MidtransUIPaymentGeneralView.m */,
+				0C1ADB881EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h */,
+				0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */,
+				0C1ADB951EEA99330054CF54 /* SNPPostPaymentGeneralView.h */,
+				0C1ADB961EEA99330054CF54 /* SNPPostPaymentGeneralView.m */,
 			);
 			name = "General Payment";
 			sourceTree = "<group>";
@@ -1527,6 +1552,8 @@
 				0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */,
 				0C32A9821EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.h */,
 				0C32A9831EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m */,
+				0C108A021EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h */,
+				0C108A031EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m */,
 			);
 			name = "Post Payment";
 			sourceTree = "<group>";
@@ -1733,6 +1760,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C1ADB921EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib */,
 				E55976401EA71CA00044342A /* status */,
 				0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */,
 				E5F1BB241E93701100ED659D /* MidtransDirectHeader.xib */,
@@ -1780,6 +1808,7 @@
 				0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */,
 				0CEF03231EA3D15E00EA1EE0 /* SNPPostPaymentHeader.xib */,
 				0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */,
+				0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */,
 			);
 			name = Views;
 			path = ../MidtransResources;
@@ -1936,7 +1965,6 @@
 		30E713121C857DFB00AFB7B4 /* Bank Transfer */ = {
 			isa = PBXGroup;
 			children = (
-				0C5DD8831E9E34920004DD5D /* Post Payment */,
 				E503AECB1C8E889C00F097FF /* VTVAListController.h */,
 				E503AECC1C8E889C00F097FF /* VTVAListController.m */,
 				E5AA78AD1E657EF2007D8022 /* MidtransVAViewController.h */,
@@ -1961,6 +1989,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				0C5DD8831E9E34920004DD5D /* Post Payment */,
 				E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */,
 				E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */,
 				00F61B1C1D1481B200C93DA0 /* Direct Payment */,
@@ -2304,6 +2333,7 @@
 				E55F62B81E934A6D00C012C8 /* NSString+TextDirectionality.h in Headers */,
 				E55F62B91E934A6D00C012C8 /* MidtransUIStringHelper.h in Headers */,
 				E55F62BC1E934A6D00C012C8 /* MidtransUICardFormatter.h in Headers */,
+				0C1ADB8B1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h in Headers */,
 				E55F62BE1E934A6D00C012C8 /* UIColor+SNP_HexString.h in Headers */,
 				E55F62C01E934A6D00C012C8 /* MidtransUIPaymentController.h in Headers */,
 				E55F62C11E934A6D00C012C8 /* MidtransUIPaymentDirectViewController.h in Headers */,
@@ -2327,6 +2357,7 @@
 				E55F62D21E934A6D00C012C8 /* PopAnimator.h in Headers */,
 				E55F62D31E934A6D00C012C8 /* VTCardListController.h in Headers */,
 				E55F62D41E934A6D00C012C8 /* VTTwoClickController.h in Headers */,
+				0C108A041EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h in Headers */,
 				E55F62D51E934A6D00C012C8 /* MidtransSavedCardController.h in Headers */,
 				E5BAD2CE1E9354D10059B771 /* IHKeyboardAvoiding_vt.h in Headers */,
 				E55F62D61E934A6D00C012C8 /* MidtransSavedCardCell.h in Headers */,
@@ -2359,6 +2390,7 @@
 				E55F62ED1E934A6D00C012C8 /* VTPaymentListView.h in Headers */,
 				E55F62EE1E934A6D00C012C8 /* MidtransTransactionDetailViewController.h in Headers */,
 				E55F62EF1E934A6D00C012C8 /* MidtransPaymentMethodHeader.h in Headers */,
+				0C1ADB971EEA99330054CF54 /* SNPPostPaymentGeneralView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2575,6 +2607,7 @@
 				E57124991E9381320064F515 /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
+				0C108A0C1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */,
 				E58FCE511E94CFD600632085 /* padlock1@2x.png in Resources */,
 				E58FCE3D1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
 				E5EBC2C21EB0726700A568D1 /* midtrans_logo_right@2x.png in Resources */,
@@ -2607,6 +2640,7 @@
 				E58FCE791E94CFD600632085 /* VASuccessIcon@2x.png in Resources */,
 				0CE966541EC5625900364146 /* bni_va@4x.png in Resources */,
 				E519C96F1E9B6F2000EF70DF /* bni_va4@2x.png in Resources */,
+				0C1ADB941EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib in Resources */,
 				E58FCE7D1E94CFD600632085 /* visa-mastercard-amex@2x.png in Resources */,
 				E58FCE8D1E94CFD600632085 /* visa-mastercard.png in Resources */,
 				E58FCE591E94CFD600632085 /* permata_atm_3@2x.png in Resources */,
@@ -2815,6 +2849,7 @@
 				E58FCDA81E94CFD500632085 /* bca_va@2x.png in Resources */,
 				E5F1BB681E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				E571273B1E93B3290064F515 /* kioson.plist in Resources */,
+				0C108A0B1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */,
 				0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
 				E58FCE501E94CFD600632085 /* padlock1@2x.png in Resources */,
 				E58FCE3C1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
@@ -2847,6 +2882,7 @@
 				E58FCE781E94CFD600632085 /* VASuccessIcon@2x.png in Resources */,
 				E519C96E1E9B6F2000EF70DF /* bni_va4@2x.png in Resources */,
 				E58FCE7C1E94CFD600632085 /* visa-mastercard-amex@2x.png in Resources */,
+				0C1ADB931EEA99110054CF54 /* SNPPostPaymentGeneralViewController.xib in Resources */,
 				E58FCE8C1E94CFD600632085 /* visa-mastercard.png in Resources */,
 				E58FCE581E94CFD600632085 /* permata_atm_3@2x.png in Resources */,
 				E571273F1E93B3290064F515 /* permata_va.plist in Resources */,
@@ -3078,6 +3114,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C108A061EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,
+				0C1ADB991EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */,
+				0C1ADB8D1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */,
 				0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3146,12 +3185,14 @@
 				E55F63281E934B1C00C012C8 /* VTVAListController.m in Sources */,
 				E55F63291E934B1C00C012C8 /* MidtransVAViewController.m in Sources */,
 				E55F632A1E934B1C00C012C8 /* MidtransVAHeader.m in Sources */,
+				0C108A051EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,
 				E55F632B1E934B1C00C012C8 /* SNPPointViewController.m in Sources */,
 				E55F632C1E934B1C00C012C8 /* SNPPointView.m in Sources */,
 				E5BAD2D31E9354D10059B771 /* UIView+Toast.m in Sources */,
 				E55F632D1E934B1C00C012C8 /* AddOnConstructor.m in Sources */,
 				E55F632E1E934B1C00C012C8 /* MidtransCreditCardAddOnComponentCell.m in Sources */,
 				E55F632F1E934B1C00C012C8 /* MidtransNewCreditCardViewController.m in Sources */,
+				0C1ADB8C1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */,
 				E55F63301E934B1C00C012C8 /* MidtransNewCreditCardView.m in Sources */,
 				E55F63311E934B1C00C012C8 /* VTCvvInfoController.m in Sources */,
 				E55F63321E934B1C00C012C8 /* VTConfirmPaymentController.m in Sources */,
@@ -3175,6 +3216,7 @@
 				E55F63441E934B1C00C012C8 /* MidtransPaymentStatusViewController.m in Sources */,
 				E55F63451E934B1C00C012C8 /* MIdtransPaymentStatusView.m in Sources */,
 				E55F63461E934B1C00C012C8 /* VTBillpaySuccessController.m in Sources */,
+				0C1ADB981EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */,
 				E55F63471E934B1C00C012C8 /* VTXLTunaiSuccessController.m in Sources */,
 				0C32A9851EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m in Sources */,
 				E55F63481E934B1C00C012C8 /* VTIndomaretSuccessController.m in Sources */,

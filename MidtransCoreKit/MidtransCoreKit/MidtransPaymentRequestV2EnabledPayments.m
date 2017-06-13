@@ -10,6 +10,7 @@
 
 NSString *const kMidtransPaymentRequestV2EnabledPaymentsType = @"type";
 NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
+NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
 
 
 @interface MidtransPaymentRequestV2EnabledPayments ()
@@ -22,7 +23,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
 
 @synthesize type = _type;
 @synthesize category = _category;
-
+@synthesize status = _status;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
@@ -37,6 +38,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
     // passed into the model class doesn't break the parsing.
     if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.type = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsType fromDictionary:dict];
+            self.status =  [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsStatus fromDictionary:dict];
             self.category = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsCategory fromDictionary:dict];
 
     }
@@ -49,6 +51,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
 {
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.type forKey:kMidtransPaymentRequestV2EnabledPaymentsType];
+    [mutableDict setValue:self.status forKey:kMidtransPaymentRequestV2EnabledPaymentsStatus];
     [mutableDict setValue:self.category forKey:kMidtransPaymentRequestV2EnabledPaymentsCategory];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
@@ -74,13 +77,14 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
     self = [super init];
 
     self.type = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsType];
+    self.status = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsStatus];
     self.category = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsCategory];
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    [aCoder encodeObject:_type forKey:kMidtransPaymentRequestV2EnabledPaymentsStatus];
     [aCoder encodeObject:_type forKey:kMidtransPaymentRequestV2EnabledPaymentsType];
     [aCoder encodeObject:_category forKey:kMidtransPaymentRequestV2EnabledPaymentsCategory];
 }
@@ -92,6 +96,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
     if (copy) {
 
         copy.type = [self.type copyWithZone:zone];
+        copy.status = [self.type copyWithZone:zone];
         copy.category = [self.category copyWithZone:zone];
     }
     

@@ -13,6 +13,8 @@
 		0C32A98A1EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */; };
 		0C3CF08F1EEFC6D300BB055A /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0721EE69CEA001B1175 /* cc_badge@2x.png */; };
 		0C3CF0901EEFC8CF00BB055A /* cc_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C56F0721EE69CEA001B1175 /* cc_badge@2x.png */; };
+		0C46FA841EEFCED8002342E2 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD741E94CFD500632085 /* TokenButtonIcon@2x.png */; };
+		0C46FA851EEFCF4D002342E2 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD741E94CFD500632085 /* TokenButtonIcon@2x.png */; };
 		0C5DD8891E9E34F60004DD5D /* SNPPostPaymentVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */; };
 		0C5DD88A1E9E34F60004DD5D /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */; };
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
@@ -755,8 +757,6 @@
 		E58FCE6D1E94CFD600632085 /* successIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD721E94CFD500632085 /* successIcon@2x.png */; };
 		E58FCE6E1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD731E94CFD500632085 /* telkomsel_cash@2x.png */; };
 		E58FCE6F1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD731E94CFD500632085 /* telkomsel_cash@2x.png */; };
-		E58FCE701E94CFD600632085 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD741E94CFD500632085 /* TokenButtonIcon@2x.png */; };
-		E58FCE711E94CFD600632085 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD741E94CFD500632085 /* TokenButtonIcon@2x.png */; };
 		E58FCE721E94CFD600632085 /* trash-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD751E94CFD500632085 /* trash-icon@2x.png */; };
 		E58FCE731E94CFD600632085 /* trash-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD751E94CFD500632085 /* trash-icon@2x.png */; };
 		E58FCE741E94CFD600632085 /* va.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD761E94CFD500632085 /* va.png */; };
@@ -2507,6 +2507,7 @@
 				E57124891E9381320064F515 /* MidtransInstallmentView.xib in Resources */,
 				E58FCD911E94CFD500632085 /* anz@2x.png in Resources */,
 				E57127E21E93B7C50064F515 /* bri_epay.plist in Resources */,
+				0C46FA841EEFCED8002342E2 /* TokenButtonIcon@2x.png in Resources */,
 				E58FCE051E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
 				E571248A1E9381320064F515 /* MidtransItemCell.xib in Resources */,
 				E571248B1E9381320064F515 /* MidtransLoadingView.xib in Resources */,
@@ -2624,7 +2625,6 @@
 				E57124A61E9381320064F515 /* VTGuideCell.xib in Resources */,
 				E58FCDB11E94CFD500632085 /* bni_badge@3x.png in Resources */,
 				E58FCE271E94CFD600632085 /* other_alto_2@2x.png in Resources */,
-				E58FCE711E94CFD600632085 /* TokenButtonIcon@2x.png in Resources */,
 				E58FCE811E94CFD600632085 /* visa-mastercard-jcb-amex.png in Resources */,
 				E58FCE4F1E94CFD600632085 /* other_va@2x.png in Resources */,
 				E57124A71E9381320064F515 /* VTGuideView.xib in Resources */,
@@ -2740,6 +2740,7 @@
 				E58FCDCC1E94CFD500632085 /* citi@2x.png in Resources */,
 				E58FCE441E94CFD600632085 /* other_prima_3@2x.png in Resources */,
 				E58FCE101E94CFD500632085 /* mandiri.png in Resources */,
+				0C46FA851EEFCF4D002342E2 /* TokenButtonIcon@2x.png in Resources */,
 				0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */,
 				E58FCDD21E94CFD500632085 /* CreditCardBackSmall@2x.png in Resources */,
 				E5F1BB671E93701100ED659D /* MidtransUIPaymentDirectViewController.xib in Resources */,
@@ -2860,7 +2861,6 @@
 				E5F1BB851E93701100ED659D /* MidtransUIPaymentListHeader.xib in Resources */,
 				E58FCDB01E94CFD500632085 /* bni_badge@3x.png in Resources */,
 				E58FCE261E94CFD600632085 /* other_alto_2@2x.png in Resources */,
-				E58FCE701E94CFD600632085 /* TokenButtonIcon@2x.png in Resources */,
 				E58FCE801E94CFD600632085 /* visa-mastercard-jcb-amex.png in Resources */,
 				E58FCE4E1E94CFD600632085 /* other_va@2x.png in Resources */,
 				E5F1BB7B1E93701100ED659D /* VTPaymentListController.xib in Resources */,

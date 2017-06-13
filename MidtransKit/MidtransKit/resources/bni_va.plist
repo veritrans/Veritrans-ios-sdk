@@ -76,7 +76,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the full amount to be paid and press Proceed</string>
+				<string>Enter the full amount to be paid and press ‘Proceed’ </string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -88,7 +88,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>If the information is correct then enter authentication token code and press Proceed</string>
+				<string>If the information is correct then enter authentication token code and press ‘Proceed’ </string>
 				<key>image</key>
 				<string></string>
 			</dict>

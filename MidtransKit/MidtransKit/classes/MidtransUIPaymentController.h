@@ -22,7 +22,9 @@
 -(void)showBackButton:(BOOL)show;
 -(void)showDismissButton:(BOOL)show;
 -(void)addNavigationToTextFields:(NSArray <UITextField*>*)fields;
-- (void)showLoadingWithText:(NSString *)text;
+-(void)showLoadingWithText:(NSString *)text;
+-(void)showMaintainViewWithTtitle:(NSString*)title andContent:(NSString *)content andButtonTitle:(NSString *)buttonTitle;
+-(void)hideMaintain;
 -(void)hideLoading;
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(MidtransTransactionResult *)result;

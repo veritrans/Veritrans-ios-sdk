@@ -9,6 +9,7 @@
 #import "MidtransUIPaymentController.h"
 #import "MidtransUIPaymentViewController.h"
 #import "VTClassHelper.h"
+#import "SNPMaintainView.h"
 #import "MidtransUIHudView.h"
 #import "MidtransUIToast.h"
 #import "MidtransPaymentStatusViewController.h"
@@ -27,10 +28,11 @@
 #import "VTIndomaretSuccessController.h"
 #import "VTKlikbcaSuccessController.h"
 
-@interface MidtransUIPaymentController ()
+@interface MidtransUIPaymentController () <SNPMaintainViewDelegate>
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @property (nonatomic) MidtransLoadingView *loadingView;
+@property (nonatomic) SNPMaintainView *maintainView;
 @property (nonatomic) BOOL dismissButton;
 @end
 
@@ -119,6 +121,21 @@
     }
 }
 
+-(void)showMaintainViewWithTtitle:(NSString*)title andContent:(NSString *)content andButtonTitle:(NSString *)buttonTitle {
+    [self.maintainView showInView:self.navigationController.view withTitle:title andContent:content andButtonTitle:buttonTitle];
+    self.maintainView.delegate = self;
+}
+-(void)hideMaintain {
+    [self.maintainView hide];
+}
+- (void)maintainViewButtonDidTapped:(NSString *)title {
+    if ([self.title isEqualToString:@"okay, bring me back"]) {
+         [self dismissDemoBadge];
+        [self.navigationController dismissViewControllerAnimated:YES
+                                                      completion:nil];
+
+    }
+}
 - (void)showLoadingWithText:(NSString *)text {
     [self.loadingView showInView:self.navigationController.view withText:text];
 }
@@ -127,6 +144,12 @@
     [self.loadingView hide];
 }
 
+- (SNPMaintainView *)maintainView {
+    if (!_maintainView) {
+        _maintainView = [VTBundle loadNibNamed:@"SNPMaintainView" owner:self options:nil].firstObject;
+    }
+    return _maintainView;
+}
 - (MidtransLoadingView *)loadingView {
     if (!_loadingView) {
         _loadingView = [VTBundle loadNibNamed:@"MidtransLoadingView" owner:self options:nil].firstObject;

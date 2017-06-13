@@ -65,6 +65,11 @@
     }
     
     self.paymentMethodList = [NSMutableArray new];
+
+    [self loadPaymentList];
+  
+}
+- (void)loadPaymentList {
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
@@ -78,7 +83,6 @@
                                               otherButtonTitles:@"Ok", nil];
         [alert show];
     }
-    
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
@@ -105,11 +109,11 @@
              if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
                  [self.paymentMethodList insertObject:model atIndex:0];
-                  [self hideLoading];
+                 [self hideLoading];
                  self.singlePayment = YES;
                  [self redirectToPaymentMethodAtIndex:0];
              }
-            if (self.paymentMethodSelected.length > 0) {
+             if (self.paymentMethodSelected.length > 0) {
                  /*special case*/
                  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
                  NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
@@ -170,12 +174,15 @@
              }
          }
          else {
+             [self hideLoading];
+             [self showMaintainViewWithTtitle:@"we're currently down for maintenance" andContent:@"We expect to be back in a couple hours. Thanks for your patience" andButtonTitle:@"okay, bring me back"];
              NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
              [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
          }
          
          [self hideLoading];
      }];
+
 }
 
 - (void)closePressed:(id)sender {

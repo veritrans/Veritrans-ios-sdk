@@ -37,6 +37,7 @@
 }
 
 - (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response {
+    
     self.responsePayment = response;
     self.items = items;
     self.headerView.priceAmountLabel.text = [items formattedPriceAmount];
@@ -83,7 +84,12 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+    if (indexPath.row == 0) {
+        return 120;
+    }
+    else {
+        return 70;
+    }
 }
 
 @end

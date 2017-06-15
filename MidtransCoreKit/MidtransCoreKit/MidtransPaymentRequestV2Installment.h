@@ -12,6 +12,7 @@
 @property (nonatomic, strong) NSDictionary *terms;
 @property (nonatomic, assign) BOOL required;
 
++ (instancetype)modelWithTerms:(NSDictionary *)terms isRequired:(BOOL)required;
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;
 - (NSDictionary *)dictionaryRepresentation;

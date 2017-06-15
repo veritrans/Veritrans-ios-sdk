@@ -24,6 +24,12 @@ NSString *const kMidtransPaymentRequestV2InstallmentRequired = @"required";
 @synthesize terms = _terms;
 @synthesize required = _required;
 
++ (instancetype)modelWithTerms:(NSDictionary *)terms isRequired:(BOOL)required {
+    MidtransPaymentRequestV2Installment *obj = [MidtransPaymentRequestV2Installment new];
+    obj.terms = terms;
+    obj.required = required;
+    return obj;
+}
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
@@ -36,10 +42,10 @@ NSString *const kMidtransPaymentRequestV2InstallmentRequired = @"required";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.terms = [dict objectForKey:kMidtransPaymentRequestV2InstallmentTerms];
-            self.required = [[self objectOrNilForKey:kMidtransPaymentRequestV2InstallmentRequired fromDictionary:dict] boolValue];
-
+        self.required = [[self objectOrNilForKey:kMidtransPaymentRequestV2InstallmentRequired fromDictionary:dict] boolValue];
+        
     }
     
     return self;
@@ -51,11 +57,11 @@ NSString *const kMidtransPaymentRequestV2InstallmentRequired = @"required";
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.terms forKey:kMidtransPaymentRequestV2InstallmentTerms];
     [mutableDict setValue:[NSNumber numberWithBool:self.required] forKey:kMidtransPaymentRequestV2InstallmentRequired];
-
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
-- (NSString *)description 
+- (NSString *)description
 {
     return [NSString stringWithFormat:@"%@", [self dictionaryRepresentation]];
 }
@@ -73,7 +79,7 @@ NSString *const kMidtransPaymentRequestV2InstallmentRequired = @"required";
 - (id)initWithCoder:(NSCoder *)aDecoder
 {
     self = [super init];
-
+    
     self.terms = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2InstallmentTerms];
     self.required = [aDecoder decodeBoolForKey:kMidtransPaymentRequestV2InstallmentRequired];
     return self;
@@ -81,7 +87,7 @@ NSString *const kMidtransPaymentRequestV2InstallmentRequired = @"required";
 
 - (void)encodeWithCoder:(NSCoder *)aCoder
 {
-
+    
     [aCoder encodeObject:_terms forKey:kMidtransPaymentRequestV2InstallmentTerms];
     [aCoder encodeBool:_required forKey:kMidtransPaymentRequestV2InstallmentRequired];
 }
@@ -91,7 +97,7 @@ NSString *const kMidtransPaymentRequestV2InstallmentRequired = @"required";
     MidtransPaymentRequestV2Installment *copy = [[MidtransPaymentRequestV2Installment alloc] init];
     
     if (copy) {
-
+        
         copy.terms = [self.terms copyWithZone:zone];
         copy.required = self.required;
     }

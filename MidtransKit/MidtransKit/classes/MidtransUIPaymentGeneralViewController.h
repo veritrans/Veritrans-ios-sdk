@@ -10,5 +10,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface MidtransUIPaymentGeneralViewController : MidtransUIPaymentController
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod merchant:(MidtransPaymentRequestV2Merchant *)merchant;
+- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+                     merchant:(MidtransPaymentRequestV2Merchant *)merchant;
 @end

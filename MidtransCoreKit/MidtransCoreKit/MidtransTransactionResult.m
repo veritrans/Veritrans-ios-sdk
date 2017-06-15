@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite) NSDate *transactionTime;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 @property (nonatomic, readwrite) NSString *indomaretPaymentCode;
+@property (nonatomic, readwrite) NSString *kiosonExpireTime;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCode;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCompanyCode;
 @property (nonatomic, readwrite) NSString *virtualAccountNumber;
@@ -60,7 +61,9 @@
                                                @"transaction_id":response[@"transaction_id"]};
             _maskedCreditCard = [[MidtransMaskedCreditCard alloc] initWithData:maskedCardObject];
         }
-        
+        if (response[@"kioson_expire_time"]) {
+             self.kiosonExpireTime = response[@"kioson_expire_time"];
+        }
         if (response[@"payment_code"]) {
             self.indomaretPaymentCode = response[@"payment_code"];
         }

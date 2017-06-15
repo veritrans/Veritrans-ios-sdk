@@ -68,13 +68,16 @@
  Payment code for Indomaret transaction, will not be nil if use Indomaret transaction
  */
 @property (nonatomic, readonly) NSString *indomaretPaymentCode;
-
 /**
  Billpay code & company code transaction, will not be nil if use Mandiri Billpay/ Mandiri VA transaction
  */
 @property (nonatomic, readonly) NSString *mandiriBillpayCode;
 @property (nonatomic, readonly) NSString *mandiriBillpayCompanyCode;
 
+
+/*kioson*/
+
+@property (nonatomic, readonly) NSString *kiosonExpireTime;
 /**
  Virtual account number transaction, will not be nil if use bank transfer transaction except for Mandiri, because it's considered as Billpay
  */

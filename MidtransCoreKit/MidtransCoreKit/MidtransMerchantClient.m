@@ -64,20 +64,17 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         if (response) {
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-                
-                if (completion){
+                if (completion) {
                     completion(chargeResult, error);
                 }
             }
             else {
-                
-                if (completion){
+                if (completion) {
                     completion(chargeResult, error);
                 }
             }
         }
         else {
-           
             if (completion) {
                 completion(nil, error);
             }
@@ -117,8 +114,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
-                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error)
-     {
+                           completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
          if (data) {
              NSMutableArray *result = [[NSMutableArray alloc] init];
              NSError *error;
@@ -130,7 +126,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                      [result addObject:card];
                  }
              }
-             
              if (completion) completion(result, nil);
          }
          else {
@@ -158,19 +153,19 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 completion(pointResponse,NULL);
             }
         }
-        else{
+        else {
             if (completion) {
-              
                 completion(NULL,error);
             }
         }
     }];
-
+    
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                           customField:(nullable NSArray *)customField
+                                            binFilter:(nullable NSArray *)binFilter
                                 transactionExpireTime:(MidtransTransactionExpire *)expireTime
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
@@ -193,13 +188,38 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     NSMutableDictionary *creditCardParameter = [NSMutableDictionary new];
     [creditCardParameter setObject:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
     [creditCardParameter setObject:@(CC_CONFIG.secure3DEnabled) forKey:@"secure"];
+    if (CC_CONFIG.predefinedInstallment) {
+        creditCardParameter[@"installment"] = CC_CONFIG.predefinedInstallment.dictionaryRepresentation;
+    }
+    if (binFilter.count > 0) {
+        creditCardParameter[@"whitelist_bins"] = binFilter;
+    }
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
     if (CC_CONFIG.preauthEnabled) {
         creditCardParameter[@"type"] = @"authorize";
     }
+    if ([CONFIG.customFreeText count]) {
+         dictionaryParameters[@"free_text"] = CONFIG.customFreeText;
+    }
     [dictionaryParameters setObject:creditCardParameter forKey:@"credit_card"];
+    
+    if ([CONFIG customPermataVANumber].length > 0) {
+        dictionaryParameters[@"permata_va"] = @{@"va_number":CONFIG.customPermataVANumber};
+    }
+    
+    if ([CONFIG customBCAVANumber].length > 0) {
+        dictionaryParameters[@"bca_va"] = @{@"va_number":CONFIG.customBCAVANumber};
+    }
+    if ([CONFIG customBNIVANumber].length > 0) {
+        
+        dictionaryParameters[@"bni_va"] = @{@"va_number":CONFIG.customBNIVANumber};
+    }
+    
+    if (CONFIG.customPaymentChannels.count > 0) {
+        dictionaryParameters[@"enabled_payments"] = CONFIG.customPaymentChannels;
+    }
     
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {
@@ -217,27 +237,39 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         }
         dictionaryParameters[@"promo"] = promoParam;
     }
-    
     [[MidtransNetworking shared] postToURL:URL
                                     header:nil
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)
      {
-         if (!error) {
-             
-             MidtransTransactionTokenResponse *token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
-                                                                                                transactionDetails:transactionDetails
-                                                                                                   customerDetails:customerDetails
-                                                                                                       itemDetails:itemDetails];
-             if (completion) {
-                
-                 completion(token,NULL);
+         MidtransTransactionTokenResponse *token;
+         if (response) {
+             id errorResponse = response[@"error_messages"];
+             if (errorResponse) {
+                 NSString *errorMessage;
+                 if ([errorResponse isKindOfClass:[NSArray class]]) {
+                     errorMessage = [errorResponse firstObject];
+                 }
+                 else if ([errorResponse isKindOfClass:[NSString class]]) {
+                     errorMessage = errorResponse;
+                 }
+                 else {
+                     errorMessage = @"Checkout error";
+                 }
+                 error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                             code:0
+                                         userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+             }
+             else {
+                 token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
+                                                                  transactionDetails:transactionDetails
+                                                                     customerDetails:customerDetails
+                                                                         itemDetails:itemDetails];
              }
          }
-         else {
-             if (completion) {
-                 completion(NULL,error);
-             }
+         
+         if (completion) {
+             completion(token, error);
          }
      }];
     
@@ -247,7 +279,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
-    [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil transactionExpireTime:nil completion:completion];
+    [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil binFilter:nil transactionExpireTime:nil completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
+        
+    }];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
@@ -264,10 +298,10 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                     [[NSUserDefaults standardUserDefaults] setObject:token forKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }
-                               completion(paymentRequestV2,NULL);
+                completion(paymentRequestV2,NULL);
             }
         }
-        else{
+        else {
             if (completion) {
                 completion(NULL,error);
             }

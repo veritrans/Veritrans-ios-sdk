@@ -8,8 +8,10 @@
 
 #import "MDProductViewController.h"
 #import "MDImageCollectionViewCell.h"
+#import "MDProfileViewController.h"
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import "MDAlertViewController.h"
 
 @interface MDProductViewController () <
 UICollectionViewDelegate,
@@ -35,7 +37,22 @@ UICollectionViewDelegateFlowLayout
                                     target:nil
                                     action:nil];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"] style:UIBarButtonItemStylePlain target:self action:@selector(settingsPressed:)];
+    UIBarButtonItem *settingBtn =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"settings"]
+                                     style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(settingsPressed:)];
+    settingBtn.accessibilityIdentifier = @"demo_navbar_setting";
+    
+    UIBarButtonItem *profileButton =
+    [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"account_icon"]
+                                     style:UIBarButtonItemStylePlain
+                                    target:self
+                                    action:@selector(profileButtonDidPressed:)];
+    settingBtn.accessibilityIdentifier = @"demo_navbar_setting";
+    
+    self.navigationItem.leftBarButtonItem = settingBtn;
+    self.navigationItem.rightBarButtonItem = profileButton;
     
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
@@ -48,7 +65,10 @@ UICollectionViewDelegateFlowLayout
         self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
     });
 }
-
+- (void)profileButtonDidPressed:(id)sender{
+    MDProfileViewController *profileVC = [[MDProfileViewController alloc] initWithNibName:@"MDProfileViewController" bundle:nil];
+    [self.navigationController pushViewController:profileVC animated:YES];
+}
 - (void)settingsPressed:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }

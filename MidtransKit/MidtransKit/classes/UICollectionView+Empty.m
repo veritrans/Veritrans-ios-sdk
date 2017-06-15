@@ -43,7 +43,7 @@
 }
 
 - (BOOL)empty {
-    for (int i=0; i<[self numberOfSections]; i++) {
+    for (int i=0; i < [self numberOfSections]; i++) {
         if ([self numberOfItemsInSection:i] > 0) return NO;
     }
     return YES;

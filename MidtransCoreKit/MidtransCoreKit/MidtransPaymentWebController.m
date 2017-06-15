@@ -61,6 +61,7 @@
 }
 
 - (void)closePressed:(id)sender {
+    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm Navigation", nil)
                                                     message:NSLocalizedString(@"Are you sure want to leave this page?", nil)
                                                    delegate:self
@@ -86,6 +87,7 @@
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] && [requestURL containsString:@"id="]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] && [requestURL containsString:@"briPayment"])) {
+        
         if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
             [self.delegate webPaymentController_transactionPending:self];
         }

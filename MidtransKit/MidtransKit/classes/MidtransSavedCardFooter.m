@@ -22,7 +22,7 @@
     UIEdgeInsets insets = self.addCardButton.titleEdgeInsets;
     insets.left = 8;
     self.addCardButton.titleEdgeInsets = insets;
-    self.addCardButton.layer.borderColor = themeColor.CGColor;
+    self.addCardButton.layer.borderColor = [UIColor lightGrayColor].CGColor;
     self.addCardButton.layer.borderWidth = 1.;
     self.addCardButton.layer.cornerRadius = 5.;
     

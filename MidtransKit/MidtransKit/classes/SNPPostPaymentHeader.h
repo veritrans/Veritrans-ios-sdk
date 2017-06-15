@@ -16,5 +16,7 @@
 //@property (weak, nonatomic) IBOutlet UIButton *copyVaNumberButton;
 @property (weak, nonatomic) IBOutlet UIButton *vaCopyButton;
 @property (weak, nonatomic) IBOutlet UIView *expiredTimeBackground;
+@property (weak, nonatomic) IBOutlet UILabel *topTextLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *postPaymentBottom;
 
 @end

@@ -8,6 +8,8 @@
 
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
+#import <MidtransCOreKit/SNPFreeTextDataModels.h>
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
@@ -39,24 +41,55 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    
+
+    /*
+     [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
+     environment:MidtransServerEnvironmentProduction
+     merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
+     */
     [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
+    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
+    CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
+    CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
+    CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
+    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
+    CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
+    CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
+    
+    
+    /*set custom free text for bca*/
+    NSDictionary *inquiryConstructor=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
+    NSDictionary *inquiryConstructor2=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
+    NSDictionary *paymentConstructor=@{@"en":@"payment text in English",@"id":@"payment Text in ID"};
+    
+    NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
+    CONFIG.customFreeText = freeText;
+    CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
+    CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
+    CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
+    CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
+    [[MidtransNetworkLogger shared] startLogging];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
-        self.amountView.backgroundColor = [UIColor mdThemeColor];
+    __weak MDOrderViewController *wself = self;
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
+        wself.amountView.backgroundColor = [UIColor mdThemeColor];
     });
+}
+
+- (void)dealloc {
+    [[MidtransNetworkLogger shared] stopLogging];
 }
 
 - (IBAction)bayarPressed:(id)sender {
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
                                                          lastName:@"last"
-                                                            phone:@"088888888888"
+                                                            phone:@""
                                                           address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
                                                              city:@"Jakarta"
                                                        postalCode:@"10220"
@@ -64,7 +97,7 @@
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
                                                                                 email:@"midtrans@mailinator.com"
-                                                                                phone:@"088888888888"
+                                                                                phone:@""
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
     cst.customerIdentifier = @"midtrans@mailinator.com";
@@ -79,29 +112,41 @@
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
                                                                     fontNameRegular:@"SourceSansPro-Regular"
                                                                       fontNameLight:@"SourceSansPro-Light"];
-    UIColor *color = [NSKeyedUnarchiver unarchiveObjectWithData:[MDOptionManager shared].colorValue];
+    UIColor *color = [MDOptionManager shared].colorOption.value;
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
-    //configure expire time
-    MidtransTransactionExpire *expr;
-    NSData *data = [[MDOptionManager shared] expireTimeValue];
-    if (data) {
-        expr = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray *binFilter = @[];
+    if ([[MDOptionManager shared].bniPointOption.value boolValue]) {
+        binFilter = @[@"410505"];
     }
-    
+    //configure expire time
+    MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
-
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
                                                                        customField:nil
+                                                                         binFilter:binFilter
                                                              transactionExpireTime:expr
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      {
-         MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-         paymentVC.paymentDelegate = self;
-         [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+         if (error) {
+             if ([error.localizedDescription isKindOfClass:[NSArray class]]) {
+                 
+             }
+             else {
+                 
+             }
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+             [alert show];
+         }
+         else {
+            //MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureMandiriEcash];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             paymentVC.paymentDelegate = self;
+             [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+         }
          
          //hide hud
          [self.progressHUD dismissAnimated:YES];

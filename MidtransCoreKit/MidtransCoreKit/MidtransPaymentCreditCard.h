@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "MidtransPaymentDetails.h"
-#import "MidtransCreditCardPaymentFeature.h"
 
 /**
  `VTPaymentCreditCard` contains all the data needed to perform transaction againts Veritrans Server using credit card.

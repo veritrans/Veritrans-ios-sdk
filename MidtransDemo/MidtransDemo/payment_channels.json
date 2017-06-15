@@ -1,0 +1,58 @@
+[
+  {
+    "type": "credit_card",
+    "name": "Credit Card"
+  },
+  {
+    "type": "bank_transfer",
+    "name": "Bank Transfer"
+  },
+  {
+    "type": "bca_klikbca",
+    "name": "Klikbca"
+  },
+  {
+    "type": "bca_klikpay",
+    "name": "BCA KlikPay"
+  },
+  {
+    "type": "mandiri_clickpay",
+    "name": "Mandiri Clickpay"
+  },
+  {
+    "type": "cimb_clicks",
+    "name": "CIMB Clicks"
+  },
+  {
+    "type": "bri_epay",
+    "name": "BRI E-Pay"
+  },
+  {
+    "type": "mandiri_ecash",
+    "name": "Mandiri E-Cash"
+  },
+  {
+    "type": "telkomsel_cash",
+    "name": "Telkomsel Cash"
+  },
+  {
+    "type": "xl_tunai",
+    "name": "XL Tunai"
+  },
+  {
+    "type": "indomaret",
+    "name": "Indomaret"
+  },
+  {
+    "type": "indosat_dompetku",
+    "name": "Indosat Dompetku"
+  },
+  {
+    "type": "kioson",
+    "name": "KiosOn"
+  },
+  {
+    "type": "gci",
+    "name": "GCI"
+  }
+]

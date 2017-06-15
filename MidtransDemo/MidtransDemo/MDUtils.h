@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import <MidtransKit/MidtransKit.h>
+
+#import "MDOption.h"
+#import "MDPayment.h"
+#import "MDOptionView.h"
 
 #define defaults()                          [NSUserDefaults standardUserDefaults]
 #define defaults_init(dictionary)			[defaults() registerDefaults:dictionary]
@@ -17,14 +22,37 @@
 #define defaults_remove(key)                [defaults() removeObjectForKey:key]; defaults_save();
 
 #define defaults_object_from_notification(n) [n.userInfo objectForKey:@"value"]
-#define defaults_observe_object(key, block) [[NSNotificationCenter defaultCenter] addObserverForName:key object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *n){ block( defaults_object_from_notification(n) ); }]
+#define defaults_observe_object(key, block) [[NSNotificationCenter defaultCenter] addObserverForName:key object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification *n) { block( defaults_object_from_notification(n) ); }]
 #define defaults_post_notification(defaults_key) [[NSNotificationCenter defaultCenter] postNotificationName:defaults_key object:nil userInfo:@{ @"value" : defaults_object(defaults_key) }]
 
 #define RGB(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1]
 #define RGBA(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
 
-@interface MDUtils : NSObject
+static NSString *const OPTCreditCardFeature = @"OPTCreditCardFeature";
+static NSString *const OPT3DSecure = @"OPT3DSecure";
+static NSString *const OPTAcquiringBank = @"OPTAcquiringBank";
+static NSString *const OPTCustomExpire = @"OPTCustomExpire";
+static NSString *const OPTSaveCard = @"OPTSaveCard";
+static NSString *const OPTPromo = @"OPTPromo";
+static NSString *const OPTPreauth = @"OPTPreauth";
+static NSString *const OPTColor = @"OPTColor";
+static NSString *const OPTBNIPoint = @"OPTBNIPoint";
+static NSString *const OPTPermataVA = @"OPTPermataVA";
+static NSString *const OPTBCAVA = @"OPTBCAVA";
+static NSString *const OPTBNIVA = @"OPTBNIVA";
+static NSString *const OPTInstallment = @"OPTInstallment";
+static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";
 
+static NSString *const BankBCAKey = @"bca";
+static NSString *const BankMandiriKey = @"mandiri";
+static NSString *const BankBNIKey = @"bni";
+
+@interface MDUtils : NSObject
++ (MidtransPaymentRequestV2Installment *)installmentOfBank:(NSString *)bank isRequired:(BOOL)required;
++ (void)saveOptionWithView:(MDOptionView *)view option:(MDOption *)option;
++ (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names;
++ (NSArray <MDPayment*>*)allPaymentChannels;
++ (UIViewController *)rootViewController;
 @end
 
 @interface UIColor (Midtrans)
@@ -40,4 +68,8 @@
 
 @interface NSString (Utils)
 + (NSString *)randomWithLength:(NSUInteger)length;
+@end
+
+@interface NSArray (Option)
+- (NSInteger)indexOfOption:(MDOption *)option;
 @end

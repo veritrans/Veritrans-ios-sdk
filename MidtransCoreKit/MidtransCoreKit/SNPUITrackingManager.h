@@ -11,5 +11,5 @@
 @interface SNPUITrackingManager : NSObject
 + (SNPUITrackingManager *)shared;
 - (void)trackEventName:(NSString *)eventName;
-
+- (void)trackEventName:(NSString *)eventName additionalParameters:(NSDictionary *)additionalParameters;
 @end

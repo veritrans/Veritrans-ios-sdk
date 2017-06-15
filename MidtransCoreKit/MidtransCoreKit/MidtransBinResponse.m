@@ -33,7 +33,7 @@ NSString *const kMidtransBinResponseBank = @"bank";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.bins = [self objectOrNilForKey:kMidtransBinResponseBins fromDictionary:dict];
             self.bank = [self objectOrNilForKey:kMidtransBinResponseBank fromDictionary:dict];
 
@@ -48,7 +48,7 @@ NSString *const kMidtransBinResponseBank = @"bank";
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     NSMutableArray *tempArrayForBins = [NSMutableArray array];
     for (NSObject *subArrayObject in self.bins) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForBins addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

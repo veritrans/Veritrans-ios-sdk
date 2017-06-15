@@ -65,6 +65,11 @@
     }
     
     self.paymentMethodList = [NSMutableArray new];
+
+    [self loadPaymentList];
+  
+}
+- (void)loadPaymentList {
     
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
@@ -78,7 +83,6 @@
                                               otherButtonTitles:@"Ok", nil];
         [alert show];
     }
-    
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
@@ -93,6 +97,7 @@
              self.responsePayment = response;
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
+             MidtransPaymentListModel *model;
              NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
@@ -101,7 +106,15 @@
                                                    };
              
              NSArray *paymentAvailable = response.enabledPayments;
-             if (self.paymentMethodSelected.length>0) {
+             if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
+                 model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                 [self.paymentMethodList insertObject:model atIndex:0];
+                 [self hideLoading];
+                 self.singlePayment = YES;
+                 [self redirectToPaymentMethodAtIndex:0];
+             }
+             if (self.paymentMethodSelected.length > 0) {
+                 /*special case*/
                  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
                  NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
                  if (!results.count) {
@@ -123,7 +136,7 @@
                  }
                  
                  if (index != NSNotFound) {
-                     MidtransPaymentListModel *model;
+                     
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
                          if (!vaAlreadyAdded) {
                              if (mainIndex!=0) {
@@ -146,7 +159,7 @@
                  if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response];
                  }
-                 else if(self.paymentMethodSelected.length> 0 || response.enabledPayments.count == 1) {
+                 else if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count == 1) {
                      self.singlePayment = YES;
                      [self redirectToPaymentMethodAtIndex:0];
                  }
@@ -154,20 +167,31 @@
              }
              if (self.paymentMethodSelected.length > 0) {
                  self.singlePayment = YES;
+                 if ([self.paymentMethodSelected isEqualToString:@"bhank_transfer"]) {
+                     return;
+                 }
                  [self redirectToPaymentMethodAtIndex:0];
              }
          }
          else {
+             [self hideLoading];
+             [self showMaintainViewWithTtitle:@"we're currently down for maintenance" andContent:@"We expect to be back in a couple hours. Thanks for your patience" andButtonTitle:@"okay, bring me back"];
              NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
              [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
          }
          
          [self hideLoading];
      }];
+
 }
 
 - (void)closePressed:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+    UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
+    if ([currentWindow viewWithTag:100101]) {
+         [[currentWindow viewWithTag:100101] removeFromSuperview];
+    }
+   
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -196,7 +220,6 @@
 }
 
 #pragma mark - Helper
-
 - (void)redirectToPaymentMethodAtIndex:(NSInteger)index {
     
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
@@ -225,12 +248,14 @@
                 
             }
             else {
+                [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
                 MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod
                                                                       andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
                 creditCardVC.promos = self.responsePayment.promos;
                 [creditCardVC showDismissButton:self.singlePayment];
+               
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
             }
         }

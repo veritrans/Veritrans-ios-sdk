@@ -7,40 +7,28 @@
 //
 
 #import <UIKit/UIKit.h>
-
-typedef NS_ENUM(NSUInteger, MDOption) {
-    MDOptionPaymentType,
-    MDOption3DSecure,
-    MDOptionIssuingBank,
-    MDOptionSaveCard,
-    MDOptionPromo,
-    MDOptionPreauth,
-    MDOptionColorTheme,
-    MDOptionCustomExpiry
-};
+#import "MDOption.h"
 
 @class MDOptionView;
 
 @protocol MDOptionViewDelegate <NSObject>
-- (void)optionView:(MDOptionView *)optionView didHeaderTap:(id)sender;
-- (void)optionView:(MDOptionView *)optionView didOptionSelect:(NSString *)option;
+- (void)optionView:(MDOptionView *)optionView didTapHeader:(id)sender;
+- (void)optionView:(MDOptionView *)optionView didTapOption:(MDOption *)option;
+- (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option;
+- (void)optionView:(MDOptionView *)optionView didTapEditComposerOption:(MDOption *)option;
 @end
 
 @interface MDOptionView : UIView
 @property (nonatomic, assign) BOOL selected;
-@property (nonatomic, assign) MDOption optionType;
+@property (nonatomic, assign) NSString *identifier;
+@property (nonatomic) NSArray <MDOption*>*options;
 @property (nonatomic, weak) id<MDOptionViewDelegate>delegate;
 
-+ (instancetype)viewWithIcon:(UIImage *)icon
-               titleTemplate:(NSString *)titleTemplate
-                     options:(NSArray <NSString*>*)options
-                        type:(MDOption)type;
-+ (instancetype)viewWithIcon:(UIImage *)icon
-               titleTemplate:(NSString *)titleTemplate
-                     options:(NSArray <NSString*>*)options
-                        type:(MDOption)type
-               isColorOption:(BOOL)isColorOption;
++ (MDOptionView *)viewWithIcon:(UIImage *)icon
+                 titleTemplate:(NSString *)titleTemplate
+                       options:(NSArray <MDOption*>*)options
+                    identifier:(NSString *)identifier;
 
-- (void)selectOption:(NSString *)option;
-
+- (void)selectOptionAtIndex:(NSInteger)index;
+- (void)resetOptionView;
 @end

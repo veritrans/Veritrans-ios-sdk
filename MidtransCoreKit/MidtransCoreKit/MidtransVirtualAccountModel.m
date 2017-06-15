@@ -35,7 +35,7 @@ NSString *const kVirtualAccountModelGuides = @"guides";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.name = [self objectOrNilForKey:kVirtualAccountModelName fromDictionary:dict];
         self.guides = [self objectOrNilForKey:kVirtualAccountModelGuides fromDictionary:dict];
         
@@ -51,7 +51,7 @@ NSString *const kVirtualAccountModelGuides = @"guides";
     [mutableDict setValue:self.name forKey:kVirtualAccountModelName];
     NSMutableArray *tempArrayForGuides = [NSMutableArray array];
     for (NSObject *subArrayObject in self.guides) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForGuides addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

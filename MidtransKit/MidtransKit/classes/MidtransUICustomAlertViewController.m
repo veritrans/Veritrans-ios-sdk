@@ -58,7 +58,7 @@
     self.okButton.userInteractionEnabled = YES;
     [self.okButton addTarget:self action:@selector(okButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     
-    if (_imageName|| _imageName.length>0) {
+    if (_imageName|| _imageName.length > 0) {
         self.imageViewConstraintHeight.constant = 128;
         self.imageViewContent.image = [UIImage imageNamed:_imageName inBundle:VTBundle compatibleWithTraitCollection:nil];
     }

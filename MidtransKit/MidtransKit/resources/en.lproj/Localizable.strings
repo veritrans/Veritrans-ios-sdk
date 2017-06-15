@@ -21,6 +21,8 @@
 "payment.list.title" = "Select Payment";
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
+"Close" = "Close";
+"payment.finish-button-title-via"="Complete Payment via %@";
 "payment.finish-button-title" = "Complete Payment At %@";
 
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
@@ -61,3 +63,8 @@
 "alert.invalid-payment-token" = "Payment token is invalid, please checkout again";
 
 "Delete Saved Card" = "delete this card";
+"Thank you!" = "Thank you!";
+"Ouch!" = "Ouch!";
+"Your payment can't be processed" = "Your payment can't be processed";
+"Your payment has been processed" = "Your payment has been processed";
+"Please complete payment to proceed" = "Please complete payment to proceed";

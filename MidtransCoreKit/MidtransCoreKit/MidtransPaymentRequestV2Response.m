@@ -57,7 +57,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.transactionDetails = [MidtransPaymentRequestV2TransactionDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseTransactionDetails]];
         NSObject *receivedMidtransPaymentRequestV2EnabledPayments = [dict objectForKey:kMidtransPaymentRequestV2ResponseEnabledPayments];
         NSMutableArray *parsedMidtransPaymentRequestV2EnabledPayments = [NSMutableArray array];
@@ -117,7 +117,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
     [mutableDict setValue:[self.transactionDetails dictionaryRepresentation] forKey:kMidtransPaymentRequestV2ResponseTransactionDetails];
     NSMutableArray *tempArrayForEnabledPayments = [NSMutableArray array];
     for (NSObject *subArrayObject in self.enabledPayments) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForEnabledPayments addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -131,7 +131,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
     [mutableDict setValue:[self.customerDetails dictionaryRepresentation] forKey:kMidtransPaymentRequestV2ResponseCustomerDetails];
     NSMutableArray *tempArrayForItemDetails = [NSMutableArray array];
     for (NSObject *subArrayObject in self.itemDetails) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForItemDetails addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {
@@ -145,7 +145,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
     
     NSMutableArray *tempArrayForPromo = [NSMutableArray array];
     for (NSObject *subArrayObject in self.promos) {
-        if([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
             // This class is a model object
             [tempArrayForPromo addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
         } else {

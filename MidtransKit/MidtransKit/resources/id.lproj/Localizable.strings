@@ -21,7 +21,9 @@
 "payment.list.title" = "Select Payment";
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
-"payment.finish-button-title" = "Complete Payment At %@";
+"payment.finish-button-title" = "Complete Payment at %@";
+
+"Close" = "Tutup";
 
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
 "payment.va.confirm_button" = "Lihat Nomor Rekening";
@@ -62,3 +64,8 @@
 "alert.invalid-payment-token" = "Token pembayaran tidak valid, silahkan lakukan checkout lagi";
 
 "Delete Saved Card" = "hapus kartu";
+"Thank you!" = "Terima Kasih!";
+"Ouch!" = "Ups!";
+"Your payment can't be processed" = "Pembayaran anda tidak bisa diproses";
+"Your payment has been processed" = "Pembayaran anda telah diproses";
+"Please complete payment to proceed" = "Silahkan lanjutkan pembayaran anda";

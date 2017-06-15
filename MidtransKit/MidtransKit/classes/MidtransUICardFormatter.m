@@ -95,7 +95,7 @@ NSInteger const amexLimit = 15;
 {
     NSUInteger originalCursorPosition = *cursorPosition;
     NSMutableString *digitsOnlyString = [NSMutableString new];
-    for (NSUInteger i=0; i<[string length]; i++) {
+    for (NSUInteger i=0; i < [string length]; i++) {
         unichar characterToAdd = [string characterAtIndex:i];
         if (isdigit(characterToAdd)) {
             NSString *stringToAdd =
@@ -126,7 +126,7 @@ NSInteger const amexLimit = 15;
 {
     NSMutableString *stringWithAddedSpaces = [NSMutableString new];
     NSUInteger cursorPositionInSpacelessString = *cursorPosition;
-    for (NSUInteger i=0; i<[string length]; i++) {
+    for (NSUInteger i=0; i < [string length]; i++) {
         if ((i>0) && ((i % 4) == 0)) {
             [stringWithAddedSpaces appendString:@" "];
             if (i < cursorPositionInSpacelessString) {

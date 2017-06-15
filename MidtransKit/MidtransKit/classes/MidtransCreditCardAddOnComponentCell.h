@@ -10,9 +10,10 @@
 @class AddOnConstructor;
 @protocol MidtransCreditCardAddOnComponentCellDelegate <NSObject>
 - (void)informationButtonDidTappedWithTag:(NSInteger)index;
+- (void)checkButton_didTap:(UIButton *)button;
 @end
 @interface MidtransCreditCardAddOnComponentCell : UITableViewCell
-@property (weak, nonatomic) IBOutlet UIImageView *addOnImageView;
+@property (weak, nonatomic) IBOutlet UIButton *checkButton;
 @property (weak, nonatomic) IBOutlet UILabel *addOnTitleLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addOnInformationButton;
 @property (weak,nonatomic) id<MidtransCreditCardAddOnComponentCellDelegate>delegate;

@@ -23,33 +23,26 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    
     self.selectionStyle = UITableViewCellSelectionStyleNone;
 }
 
 - (void)setMaskedCard:(MidtransMaskedCreditCard *)maskedCard {
     _maskedCard = maskedCard;
-
     self.descLabel.text = maskedCard.formattedNumber;
     self.ccImageView.image = maskedCard.darkIcon;
-    
     [self updateTitle];
 }
 
 - (void)setHavePromo:(BOOL)havePromo {
     _havePromo = havePromo;
     self.promoImageView.image = havePromo? [UIImage imageNamed:@"ccOfferIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]:nil;
-    
     self.bankToPromoPadding.constant = havePromo? 8:0;
 }
 
 - (void)setBankName:(NSString *)bankName {
     _bankName = bankName;
-    
     self.bankImageView.image = [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];
-    
     [self updateTitle];
-    
     self.ccToBankPadding.constant = bankName.length? 8:0;
 }
 

@@ -36,7 +36,7 @@ NSString *const kVTGroupedInstructionGuides = @"guides";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.name = [self objectOrNilForKey:kVTGroupedInstructionName fromDictionary:dict];
         
         NSArray *guides = [dict objectForKey:kVTGroupedInstructionGuides];

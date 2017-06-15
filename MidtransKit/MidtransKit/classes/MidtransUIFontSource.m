@@ -20,8 +20,7 @@
 
 - (instancetype)initWithFontNameBold:(NSString *)fontNameBold
                      fontNameRegular:(NSString *)fontNameRegular
-                       fontNameLight:(NSString *)fontNameLight
-{
+                       fontNameLight:(NSString *)fontNameLight {
     if (self = [super init]) {
         self.fontNameBold = fontNameBold;
         self.fontNameLight = fontNameLight;
@@ -33,8 +32,7 @@
 
 - (instancetype)initWithFontPathBold:(NSString *)fontPathBold
                      fontPathRegular:(NSString *)fontPathRegular
-                       fontPathLight:(NSString *)fontPathLight
-{
+                       fontPathLight:(NSString *)fontPathLight {
     if (self = [super init]){
         self.fontNameBold = [MidtransUIFontSource fontNameFromFontPath:fontPathBold];
         self.fontNameRegular = [MidtransUIFontSource fontNameFromFontPath:fontPathRegular];

@@ -50,7 +50,7 @@
     [self loadControllerAndView];
     [self loadControllers];
     [self connectButtons];
-    if([[self MBXDataSource] respondsToSelector:@selector(otherConfiguration)]) {
+    if ([[self MBXDataSource] respondsToSelector:@selector(otherConfiguration)]) {
         [[self MBXDataSource] otherConfiguration];
     }
 }
@@ -127,7 +127,7 @@
     
     NSAssert(_viewControllerArray, @"addButtonsToSegmentPage Array need to be non empty");
     int i = 0;
-    for (UIButton* button in buttons){
+    for (UIButton* button in buttons) {
         NSAssert([button isKindOfClass:[UIButton class]], @"Add buttons to MBXPageButtons Array need to contain only UIButton elements");
         button.tag = i;
         
@@ -147,8 +147,7 @@
 }
 
 
-- (void)setupPageViewController
-{
+- (void)setupPageViewController {
     NSAssert(_viewControllerArray, @"pageview controller need to have at last one controller");
     
     _pageController = self;
@@ -159,15 +158,13 @@
     [self syncScrollView];
 }
 
-- (void)setupScrollNavigationController
-{
+- (void)setupScrollNavigationController {
     _scrollNavigationView.delegate = self;
 }
 
--  (void)syncScrollView
-{
-    for (UIView* view in _pageController.view.subviews){
-        if([view isKindOfClass:[UIScrollView class]])
+-  (void)syncScrollView {
+    for (UIView* view in _pageController.view.subviews) {
+        if ([view isKindOfClass:[UIScrollView class]])
         {
             _pageScrollView = (UIScrollView *)view;
             _pageScrollView.delegate = self;
@@ -244,7 +241,7 @@
     NSInteger tempIndex = _currentPageIndex;
     // Check to see which way are you going (Left -> Right or Right -> Left)
     if (destination > tempIndex) {
-        for (int i = (int)tempIndex+1; i<=destination; i++) {
+        for (int i = (int)tempIndex+1; i <= destination; i++) {
             [self setPageControllerForIndex:i direction:UIPageViewControllerNavigationDirectionForward currentMBXViewController:weakSelf destionation:destination];
         }
     }
@@ -265,7 +262,7 @@
 - (void)setPageControllerForIndex:(NSInteger)index direction:(UIPageViewControllerNavigationDirection)direction currentMBXViewController:(id)weakSelf destionation:(NSInteger)destination
 {
     __block NSInteger pageModeBlock = _pageMode;
-    [_pageController setViewControllers:@[[_viewControllerArray objectAtIndex:index]] direction:direction animated:YES completion:^(BOOL complete){
+    [_pageController setViewControllers:@[[_viewControllerArray objectAtIndex:index]] direction:direction animated:YES completion:^(BOOL complete) {
         __strong __typeof(&*weakSelf)strongSelf = weakSelf;
         if (complete && strongSelf) {
             if ((pageModeBlock == MBX_SegmentController) && (index != destination)) return; // It should update the segment buttons when the user already pressed in a segment

@@ -41,7 +41,7 @@ NSString *const kMidtransPaymentRequestV2BillingAddressPostalCode = @"postal_cod
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
             self.countryCode = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressCountryCode fromDictionary:dict];
             self.phone = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressPhone fromDictionary:dict];
             self.city = [self objectOrNilForKey:kMidtransPaymentRequestV2BillingAddressCity fromDictionary:dict];

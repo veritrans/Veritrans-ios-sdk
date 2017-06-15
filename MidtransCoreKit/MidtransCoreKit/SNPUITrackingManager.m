@@ -10,7 +10,6 @@
 #import "MidtransPrivateConfig.h"
 #import "MidtransConstant.h"
 #import "MidtransNetworking.h"
-#import "MidtransCreditCardPaymentFeature.h"
 #import "MidtransDeviceHelper.h"
 #import "MidtransHelper.h"
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
@@ -53,6 +52,16 @@
         sharedInstance = [[SNPUITrackingManager alloc] init];
     });
     return sharedInstance;
+}
+- (void)trackEventName:(NSString *)eventName additionalParameters:(NSDictionary *)additionalParameters {
+    NSMutableDictionary *parameters = [NSMutableDictionary new];
+    
+    parameters  = [parameters SNPUITrackingManageraddDefaultParameter];
+    [parameters addEntriesFromDictionary:additionalParameters];
+    NSDictionary *event = @{@"event":eventName,
+                            @"properties":parameters};
+    [self sendTrackingData:event];
+    
 }
 - (void)trackEventName:(NSString *)eventName {
     NSMutableDictionary *parameters = [NSMutableDictionary new];

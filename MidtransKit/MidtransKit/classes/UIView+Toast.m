@@ -179,7 +179,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 
 - (UIView *)toastViewForMessage:(NSString *)message title:(NSString *)title image:(UIImage *)image style:(CSToastStyle *)style {
     // sanity
-    if(message == nil && title == nil && image == nil) return nil;
+    if (message == nil && title == nil && image == nil) return nil;
     
     // default to the shared style
     if (style == nil) {
@@ -204,7 +204,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     
     wrapperView.backgroundColor = style.backgroundColor;
     
-    if(image != nil) {
+    if (image != nil) {
         imageView = [[UIImageView alloc] initWithImage:image];
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.frame = CGRectMake(style.horizontalPadding, style.verticalPadding, style.imageSize.width, style.imageSize.height);
@@ -212,7 +212,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     
     CGRect imageRect = CGRectZero;
     
-    if(imageView != nil) {
+    if (imageView != nil) {
         imageRect.origin.x = style.horizontalPadding;
         imageRect.origin.y = style.verticalPadding;
         imageRect.size.width = imageView.bounds.size.width;
@@ -258,7 +258,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     
     CGRect titleRect = CGRectZero;
     
-    if(titleLabel != nil) {
+    if (titleLabel != nil) {
         titleRect.origin.x = imageRect.origin.x + imageRect.size.width + style.horizontalPadding;
         titleRect.origin.y = style.verticalPadding;
         titleRect.size.width = titleLabel.bounds.size.width;
@@ -267,7 +267,7 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     
     CGRect messageRect = CGRectZero;
     
-    if(messageLabel != nil) {
+    if (messageLabel != nil) {
         messageRect.origin.x = imageRect.origin.x + imageRect.size.width + style.horizontalPadding;
         messageRect.origin.y = titleRect.origin.y + titleRect.size.height + style.verticalPadding;
         messageRect.size.width = messageLabel.bounds.size.width;
@@ -283,17 +283,17 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
     
     wrapperView.frame = CGRectMake(0.0, 0.0, wrapperWidth, wrapperHeight);
     
-    if(titleLabel != nil) {
+    if (titleLabel != nil) {
         titleLabel.frame = titleRect;
         [wrapperView addSubview:titleLabel];
     }
     
-    if(messageLabel != nil) {
+    if (messageLabel != nil) {
         messageLabel.frame = messageRect;
         [wrapperView addSubview:messageLabel];
     }
     
-    if(imageView != nil) {
+    if (imageView != nil) {
         [wrapperView addSubview:imageView];
     }
     
@@ -386,10 +386,10 @@ static const NSString * CSToastQueueKey             = @"CSToastQueueKey";
 - (CGPoint)cs_centerPointForPosition:(id)point withToast:(UIView *)toast {
     CSToastStyle *style = [CSToastManager sharedStyle];
     
-    if([point isKindOfClass:[NSString class]]) {
-        if([point caseInsensitiveCompare:CSToastPositionTop] == NSOrderedSame) {
+    if ([point isKindOfClass:[NSString class]]) {
+        if ([point caseInsensitiveCompare:CSToastPositionTop] == NSOrderedSame) {
             return CGPointMake(self.bounds.size.width/2, (toast.frame.size.height / 2) + style.verticalPadding);
-        } else if([point caseInsensitiveCompare:CSToastPositionCenter] == NSOrderedSame) {
+        } else if ([point caseInsensitiveCompare:CSToastPositionCenter] == NSOrderedSame) {
             return CGPointMake(self.bounds.size.width / 2, self.bounds.size.height / 2);
         }
     } else if ([point isKindOfClass:[NSValue class]]) {

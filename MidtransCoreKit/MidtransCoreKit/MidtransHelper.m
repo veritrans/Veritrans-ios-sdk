@@ -45,7 +45,7 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
 + (NSString *)randomWithLength:(NSUInteger)length {
     NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     NSMutableString *randomString = [NSMutableString stringWithCapacity:length];
-    for (int i=0; i<length; i++) {
+    for (int i=0; i < length; i++) {
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
     }
     return randomString;
@@ -57,37 +57,37 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
 
 + (UIViewController *)rootViewController {
     UIViewController *topRootViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-    while (topRootViewController.presentedViewController){
-        if(![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]){
+    while (topRootViewController.presentedViewController) {
+        if (![topRootViewController.presentedViewController isKindOfClass:[UIAlertController class]]) {
             topRootViewController = topRootViewController.presentedViewController;
         }
-        else{
+        else {
             break;
         }
     }
-    if(!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]){
+    if (!topRootViewController || [topRootViewController isKindOfClass:[UINavigationController class]] || [topRootViewController isKindOfClass:[UITabBarController class]]) {
         
         if (!topRootViewController) {
             topRootViewController = [[[[UIApplication sharedApplication]delegate]window]rootViewController];
         }
         
-        if ([topRootViewController isKindOfClass:[UINavigationController class]]){
+        if ([topRootViewController isKindOfClass:[UINavigationController class]]) {
             UINavigationController* navController = (UINavigationController*)topRootViewController;
             return navController.topViewController;
         }
-        else if ([topRootViewController isKindOfClass:[UITabBarController class]]){
+        else if ([topRootViewController isKindOfClass:[UITabBarController class]]) {
             
             UITabBarController* tabController = (UITabBarController*)topRootViewController;
             
-            if ([tabController.selectedViewController isKindOfClass:[UINavigationController class]]){
+            if ([tabController.selectedViewController isKindOfClass:[UINavigationController class]]) {
                 UINavigationController* navController = (UINavigationController*)tabController.selectedViewController;
                 return navController.topViewController;
             }
-            else{
+            else {
                 return tabController.selectedViewController;
             }
         }
-        else{
+        else {
             return topRootViewController;
         }
     }
@@ -135,27 +135,3 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
 }
 @end
 
-//@implementation NSDictionary (SafeObject)
-//
-//- (id)safeObjectForKey:(id)key {
-//    id result = [self objectForKey:key];
-//    if ([result isEqual:[NSNull null]]) {
-//        return nil;
-//    }
-//    return result;
-//}
-//
-//- (id)safeValueForKeyPath:(NSString*)keyPath {
-//    id result = [self valueForKeyPath:keyPath];
-//    if ([result isEqual:[NSNull null]]) {
-//        return nil;
-//    }
-//    return result;
-//}
-//
-//- (id)objectOrNilForKey:(id)aKey fromDictionary:(NSDictionary *)dict {
-//    id object = [dict objectForKey:aKey];
-//    return [object isEqual:[NSNull null]] ? nil : object;
-//}
-
-//@end

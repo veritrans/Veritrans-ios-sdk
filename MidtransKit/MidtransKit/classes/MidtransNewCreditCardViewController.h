@@ -24,6 +24,7 @@
                     andCreditCardData:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard
           andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *_Nonnull)responsePayment;
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token
+                         paymentMethod:(MidtransPaymentListModel *_Nullable)paymentMethod
                             maskedCard:(MidtransMaskedCreditCard *_Nonnull)maskedCard
                             creditCard:(MidtransPaymentRequestV2CreditCard *_Nonnull)creditCard
           andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *_Nonnull)responsePayment;

@@ -80,14 +80,14 @@
     }
     else {
         [self showLoadingWithText:nil];
-        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
+        [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
+                                                       completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
 
             if (maskedCards.count) {
                 [self.cards setArray:maskedCards];
+                [self.tableView reloadData];
             }
             else {
-                [self.cards removeAllObjects];
-                
                 MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                                    paymentMethodName:self.paymentMethod
                                                                                                    andCreditCardData:self.creditCard
@@ -96,8 +96,6 @@
                 vc.currentMaskedCards = self.cards;
                 [self.navigationController pushViewController:vc animated:NO];
             }
-            
-            [self.tableView reloadData];
             
             [self hideLoading];
         }];
@@ -123,6 +121,7 @@
 }
 
 - (void)addCardPressed:(id)sender {
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
@@ -133,9 +132,11 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
-    VTConfirmPaymentController *vc =
-    [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
+      [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    
+    VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
+    
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
             [self showLoadingWithText:@"Processing your transaction"];
@@ -149,12 +150,14 @@
             [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
                                                           token:self.token];
             
-            [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+            [[MidtransMerchantClient shared] performTransaction:transaction
+                                                     completion:^(MidtransTransactionResult *result, NSError *error) {
                 [self hideLoading];
                 
                 if (error) {
                     [self handleTransactionError:error];
                 } else {
+                    
                     [self handleTransactionSuccess:result];
                 }
             }];
@@ -165,11 +168,11 @@
 - (void)performTwoClicksWithCard:(MidtransMaskedCreditCard *)card {
     MidtransNewCreditCardViewController *vc =
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
+                                                 paymentMethod:self.paymentMethod
                                                     maskedCard:card
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
     vc.promos = self.promos;
-    vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -197,9 +200,11 @@
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     if (CC_CONFIG.tokenStorageEnabled) {
         if ([card.tokenType isEqualToString:TokenTypeOneClick]) {
+             [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"one click"}];
             [self performOneClickWithCard:card];
         }
         else {
+              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
             [self performTwoClicksWithCard:card];
         }
     }
@@ -208,6 +213,7 @@
             [self performOneClickWithCard:card];
         }
         else {
+              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
             [self performTwoClicksWithCard:card];
         }
     }

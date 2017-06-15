@@ -27,10 +27,11 @@
 @implementation SNPPointViewController
 @dynamic view;
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nullable)token
+                        paymentMethod:(MidtransPaymentListModel *_Nullable)paymentMethod
                         tokenizedCard:(NSString * _Nonnull)tokenizedCard
                             savedCard:(BOOL)savedCard
          andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response * _Nonnull)responsePayment {
-    if (self = [super initWithToken:token]) {
+    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
         self.savedCard = savedCard;
         self.creditCardToken = tokenizedCard;
         

@@ -12,8 +12,7 @@
 
 @interface MDOptionColorCell()
 @property (strong, nonatomic) IBOutlet UIImageView *checkImageView;
-@property (strong, nonatomic) IBOutlet UIView *colorImageView;
-@property (strong, nonatomic) IBOutlet UILabel *titleLabel;
+
 @end
 
 @implementation MDOptionColorCell
@@ -25,7 +24,7 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     
     self.checkImageView.tintColor = [UIColor mdThemeColor];
-    defaults_observe_object(@"md_color", ^(NSNotification *note){
+    defaults_observe_object(@"md_color", ^(NSNotification *note) {
         self.checkImageView.tintColor = [UIColor mdThemeColor];
     });
 }
@@ -33,11 +32,6 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     self.checkImageView.hidden = !selected;
-}
-
-- (void)setColorString:(NSString *)colorString {
-    self.titleLabel.text = colorString;
-    self.colorImageView.backgroundColor = [MDOptionManager colorWithOption:colorString];
 }
 
 @end

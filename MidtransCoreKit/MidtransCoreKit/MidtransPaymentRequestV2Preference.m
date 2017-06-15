@@ -47,7 +47,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
     
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
-    if(self && [dict isKindOfClass:[NSDictionary class]]) {
+    if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.locale = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLocale fromDictionary:dict];
         self.finishUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceFinishUrl fromDictionary:dict];
         self.colorSchemeUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceColorSchemeUrl fromDictionary:dict];

@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "MidtransCoreKit"
-s.version          = "1.4.3"
+s.version          = "1.5.0"
 s.summary          = "Veritrans mobile SDK beta version"
 s.homepage         = "https://veritrans.co.id/"
 s.license          = 'MIT'
@@ -14,4 +14,3 @@ s.source_files = 'MidtransCoreKit/MidtransCoreKit/**/*.{h,m}'
 s.frameworks    = 'UIKit', 'Foundation'
 
 end
-

@@ -32,7 +32,10 @@
                            value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
                            range:[attrString.string rangeOfString:boldLabel]];
         
-        [attrString endEditing];
+       
+        [attrString replaceCharacterString:@"[token_button]"
+                                  withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+         [attrString endEditing];
         self.contentLabel.attributedText = attrString;
     }
     
@@ -57,16 +60,6 @@
         [attrString endEditing];
         self.contentLabel.attributedText = attrString;
     }
-   else  if ([instruction.content containsString:@"Proceed"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Proceed"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
    else  if ([instruction.content containsString:@"Enter"]) {
        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
        [attrString beginEditing];

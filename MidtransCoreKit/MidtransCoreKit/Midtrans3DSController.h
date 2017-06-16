@@ -13,7 +13,7 @@
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, readonly) NSURL *secureURL;
 @property (nonatomic, readonly) NSString *token;
-
+@property (nonatomic,strong) NSString *titleOveride;
 - (instancetype)initWithToken:(NSString *)token
                     secureURL:(NSURL *)secureURL;
 

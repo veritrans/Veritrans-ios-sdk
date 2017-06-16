@@ -40,7 +40,7 @@
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
-    self.title = NSLocalizedString(@"3D Secure", nil);
+    self.title =self.titleOveride.length?self.titleOveride:NSLocalizedString(@"3D Secure", nil);
     
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;

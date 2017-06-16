@@ -47,12 +47,13 @@
      environment:MidtransServerEnvironmentProduction
      merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
      */
-    [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:merchantServer];
+    [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
+             environment:MidtransServerEnvironmentStaging
+       merchantServerURL:@"http://localhost:8000/"];
     
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
+    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
@@ -89,15 +90,15 @@
 - (IBAction)bayarPressed:(id)sender {
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
                                                          lastName:@"last"
-                                                            phone:@""
+                                                            phone:@"123123"
                                                           address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
                                                              city:@"Jakarta"
                                                        postalCode:@"10220"
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"midtrans@mailinator.com"
-                                                                                phone:@""
+                                                                                email:@"test+challenged@midtrans.com"
+                                                                                phone:@"123123"
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
     cst.customerIdentifier = @"midtrans@mailinator.com";

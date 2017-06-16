@@ -733,7 +733,12 @@ UIAlertViewDelegate
                                                        }];
              }
              if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
-                 [self handleTransactionResult:result];
+                 if (result.statusCode == 201) {
+                     [self handleRBATransactionWithTransactionResult:result withCardToken:token];
+                 }
+                 else {
+                   [self handleTransactionSuccess:result];
+                 }
              }
              else {
                  if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
@@ -746,13 +751,32 @@ UIAlertViewDelegate
                      [alert show];
                  }
                  else {
-                     [self handleTransactionSuccess:result];
+                     if (result.statusCode == 201) {
+                         [self handleRBATransactionWithTransactionResult:result];
+                     }
+                     else {
+                       [self handleTransactionSuccess:result];
+                     }
+                     
                  }
              }
          }
      }];
 }
-
+-(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result  {
+    
+    Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:nil
+                                                                                 secureURL:[NSURL URLWithString:[result.additionalData objectForKey:@"redirect_url"]]];
+    secureController.titleOveride = @"Credit Card";
+    [secureController showWithCompletion:^(NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
+    
+}
 - (void)handleRegisterCreditCardError:(NSError *)error {
     if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"

@@ -141,7 +141,7 @@
                          if (!vaAlreadyAdded) {
                              if (mainIndex!=0) {
                                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                                 model.status = enabledPayment.status;
+                                 model.status = @"down";
                                  self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
                                  vaAlreadyAdded = YES;
                              }

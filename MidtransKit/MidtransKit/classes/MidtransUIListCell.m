@@ -32,6 +32,9 @@
     self.paymentMethodLogo.image = [UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil];
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
+    if ([paymentList.status isEqualToString:@"down"]) {
+        self.unavailableVIew.hidden = NO;
+    }
 }
 
 @end

@@ -10,6 +10,7 @@
 @class MidtransPaymentListModel,MidtransPaymentRequestV2Response;
 @interface MidtransUIListCell : UITableViewCell
 @property (nonatomic) NSDictionary *item;
+@property (weak, nonatomic) IBOutlet UIView *unavailableVIew;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *paymentMethodLogo;

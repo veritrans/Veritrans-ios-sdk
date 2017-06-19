@@ -63,6 +63,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
+    if (!cell) {
+        cell = [[MidtransUIListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MidtransUIListCell"];
+    }
     [cell configurePaymetnList:self.paymentMethods[indexPath.row] withFullPaymentResponse:self.responsePayment];
     return cell;
 }
@@ -70,6 +73,10 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+        MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
+    if ([paymentModel.status isEqualToString:@"down"]) {
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(paymentListView:didSelectAtIndex:)]) {
         [self.delegate paymentListView:self didSelectAtIndex:indexPath.row];
     }
@@ -84,12 +91,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return 120;
+     MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
+    if ([paymentModel.status isEqualToString:@"down"]) {
+        return 130;
     }
-    else {
-        return 70;
-    }
+   return 80;
 }
 
 @end

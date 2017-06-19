@@ -19,6 +19,11 @@
 */
 - (void)awakeFromNib {
     [super awakeFromNib];
+    self.maintainButton.layer.cornerRadius = 5.0f;
+    self.maintainButton.layer.borderColor = self.maintainButton.tintColor.CGColor;
+    self.maintainButton.layer.borderWidth = 1.;
+    self.maintainButton.layer.cornerRadius = 5.;
+    
 }
 
 - (void)hide {
@@ -49,9 +54,10 @@
     }];
 
 }
-- (void)buttonViewDidTapped:(id)sender {
+- (IBAction)buttonViewDidTapped:(id)sender {
     if ([self.delegate respondsToSelector:@selector(maintainViewButtonDidTapped:)]) {
         [self.delegate maintainViewButtonDidTapped:self.maintainButton.titleLabel.text];
     }
 }
+
 @end

@@ -14,5 +14,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentMethodDescriptionLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *paymentMethodLogo;
+@property (weak, nonatomic) IBOutlet UIView *tscSeparatorLineView;
+@property (weak, nonatomic) IBOutlet UILabel *tscTextStatusLabel;
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response;
 @end

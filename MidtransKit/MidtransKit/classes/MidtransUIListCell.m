@@ -33,7 +33,14 @@
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
     if ([paymentList.status isEqualToString:@"down"]) {
-        self.unavailableVIew.hidden = NO;
+        self.contentView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
+        self.paymentMethodNameLabel.alpha = 0.4f;
+        self.paymentMethodDescriptionLabel.alpha = 0.4f;
+        self.paymentMethodLogo.alpha = 0.4;
+        self.tscTextStatusLabel.textColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.61 alpha:1.0];
+        self.tscSeparatorLineView.backgroundColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.61 alpha:.65];
+        self.tscSeparatorLineView.hidden = NO;
+        self.tscTextStatusLabel.hidden = NO;
     }
 }
 

@@ -93,7 +93,7 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
      MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
     if ([paymentModel.status isEqualToString:@"down"]) {
-        return 130;
+        return 120;
     }
    return 80;
 }

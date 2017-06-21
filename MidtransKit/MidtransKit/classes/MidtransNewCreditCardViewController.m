@@ -734,7 +734,7 @@ UIAlertViewDelegate
              }
              if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
                  if (result.statusCode == 201) {
-                     [self handleRBATransactionWithTransactionResult:result withCardToken:token];
+                     [self handleRBATransactionWithTransactionResult:result];
                  }
                  else {
                    [self handleTransactionSuccess:result];

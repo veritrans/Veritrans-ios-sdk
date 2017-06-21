@@ -129,12 +129,9 @@
     [self.maintainView hide];
 }
 - (void)maintainViewButtonDidTapped:(NSString *)title {
-    if ([self.title isEqualToString:@"okay, bring me back"]) {
-         [self dismissDemoBadge];
-        [self.navigationController dismissViewControllerAnimated:YES
-                                                      completion:nil];
-
-    }
+    [self dismissDemoBadge];
+    [self.navigationController dismissViewControllerAnimated:YES
+                                                  completion:nil];
 }
 - (void)showLoadingWithText:(NSString *)text {
     [self.loadingView showInView:self.navigationController.view withText:text];

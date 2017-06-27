@@ -12,6 +12,7 @@
 @interface MidtransPaymentRequestV2EnabledPayments : NSObject <NSCoding, NSCopying>
 
 @property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *category;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;

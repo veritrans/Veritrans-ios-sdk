@@ -13,8 +13,12 @@
 		<string>credit_card</string>
 		<key>shortName</key>
 		<string>cc</string>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Kioson</string>
 		<key>description</key>
@@ -27,6 +31,8 @@
 		<string>kioson</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>ATM/Bank Transfer</string>
 		<key>description</key>
@@ -39,6 +45,8 @@
 		<string>all bank</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>CIMB Clicks</string>
 		<key>description</key>
@@ -51,6 +59,8 @@
 		<string>cimb clicks</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Indomaret</string>
 		<key>description</key>
@@ -63,6 +73,8 @@
 		<string>indomaret</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>BCA KlikPay</string>
 		<key>description</key>
@@ -75,6 +87,8 @@
 		<string>bca klikpay</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>KlikBCA</string>
 		<key>description</key>
@@ -87,6 +101,8 @@
 		<string>bca klikbca</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Mandiri e-Cash</string>
 		<key>description</key>
@@ -99,6 +115,8 @@
 		<string>mandiri ecash</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Mandiri Clickpay</string>
 		<key>description</key>
@@ -111,6 +129,8 @@
 		<string>mandiri clickpay</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>e-Pay BRI</string>
 		<key>description</key>
@@ -125,6 +145,8 @@
 	<dict>
 		<key>title</key>
 		<string>Indosat Dompetku</string>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>description</key>
 		<string>Pay with Indosat Dompetku</string>
 		<key>id</key>
@@ -135,6 +157,8 @@
 		<string>indosat dompetku</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>XL Tunai</string>
 		<key>description</key>
@@ -147,6 +171,8 @@
 		<string>xl tunai</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Telkomsel Cash</string>
 		<key>description</key>
@@ -159,6 +185,8 @@
 		<string>telkomsel cash</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>BCA</string>
 		<key>description</key>
@@ -171,6 +199,8 @@
 		<string>atm bca</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Mandiri</string>
 		<key>description</key>
@@ -183,6 +213,8 @@
 		<string>atm mandiri</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Permata</string>
 		<key>description</key>
@@ -195,6 +227,8 @@
 		<string>atm permata</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Other ATM Network</string>
 		<key>description</key>
@@ -207,6 +241,8 @@
 		<string>atm all</string>
 	</dict>
 	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
 		<key>title</key>
 		<string>Gift Card Indonesia</string>
 		<key>description</key>

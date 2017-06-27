@@ -12,7 +12,11 @@
 @implementation MDUtils
 
 + (MidtransPaymentRequestV2Installment *)installmentOfBank:(NSString *)bank isRequired:(BOOL)required {
-    return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@6,@12]} isRequired:required];
+    
+    if ([bank isEqualToString:@"cimb"] || [bank isEqualToString:@"CIMB"]) {
+         return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@3,@6,@12]} isRequired:required];
+    }
+    return [MidtransPaymentRequestV2Installment modelWithTerms:@{bank:@[@3,@6,@12]} isRequired:required];
 }
 
 + (void)saveOptionWithView:(MDOptionView *)view option:(MDOption *)option {

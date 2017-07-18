@@ -171,6 +171,7 @@
     //installment
     options = @[[MDOption optionGeneralWithName:@"Disabled" value:nil],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"Mandiri" value:[MDUtils installmentOfBank:@"mandiri" isRequired:NO]],
+                 [MDOption optionComposer:MDComposerTypeRadio name:@"CIMB" value:[MDUtils installmentOfBank:@"cimb" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[MDUtils installmentOfBank:@"bca" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[MDUtils installmentOfBank:@"bni" isRequired:NO]]];
     MDOptionView *optInstallment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"installment"]

@@ -43,6 +43,8 @@
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
 		0C91BCF31EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
 		0C91BCF41EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
+		0CBB53E01EF7738D00587635 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB53DF1EF7738D00587635 /* arrow@2x.png */; };
+		0CBB53E11EF7738D00587635 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB53DF1EF7738D00587635 /* arrow@2x.png */; };
 		0CD116101EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CD116111EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CE966521EC5625900364146 /* bni_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9664F1EC5625900364146 /* bni_va@2x.png */; };
@@ -979,6 +981,7 @@
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
 		0C91BCF21EE7B15500B5588D /* test_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_badge@2x.png"; sourceTree = "<group>"; };
+		0CBB53DF1EF7738D00587635 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
 		0CD1160F1EDD5B14005884AD /* bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bni_va.plist; path = MidtransKit/resources/bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
@@ -1836,6 +1839,7 @@
 			isa = PBXGroup;
 			children = (
 				0C108A1C1EEE644C00843A05 /* maintain@2x.png */,
+				0CBB53DF1EF7738D00587635 /* arrow@2x.png */,
 				0C108A1D1EEE644C00843A05 /* maintain@3x.png */,
 				0C91BCF21EE7B15500B5588D /* test_badge@2x.png */,
 				E5EBC2BD1EB0726700A568D1 /* midtrans_logo_left@2x.png */,
@@ -2761,6 +2765,7 @@
 				E58FCD9D1E94CFD500632085 /* bca_atm_3@2x.png in Resources */,
 				E58FCE151E94CFD500632085 /* MasterCard@2x.png in Resources */,
 				E58FCDA51E94CFD500632085 /* bca_klikbca@2x.png in Resources */,
+				0CBB53E11EF7738D00587635 /* arrow@2x.png in Resources */,
 				E58FCDC51E94CFD500632085 /* cimb_clicks@2x.png in Resources */,
 				E58FCE391E94CFD600632085 /* other_atm_4@2x.png in Resources */,
 				E58FCE1B1E94CFD600632085 /* maybank@2x.png in Resources */,
@@ -2821,6 +2826,7 @@
 				E58FCDF81E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				E58FCDC21E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
 				E58FCE221E94CFD600632085 /* NextIcon@2x.png in Resources */,
+				0CBB53E01EF7738D00587635 /* arrow@2x.png in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
 				E5F1BB631E93701100ED659D /* MIdtransUICardCell.xib in Resources */,

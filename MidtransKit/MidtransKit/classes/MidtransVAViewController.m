@@ -51,7 +51,7 @@
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
-    if ([self.paymentMethod.title isEqualToString:@"Other Bank"]) {
+    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
         guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
     }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];

@@ -36,7 +36,7 @@
     
     self.title = self.paymentMethod.title;
      NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
-    if ([_model.title isEqualToString:@"Other Bank"]) {
+    if ([_model.title isEqualToString:@"Other ATM Network"]) {
         guidePath =[VTBundle pathForResource:@"all_va" ofType:@"plist"];
     }
 

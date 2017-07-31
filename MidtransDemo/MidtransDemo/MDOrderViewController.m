@@ -9,7 +9,7 @@
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCOreKit/SNPFreeTextDataModels.h>
+#import <MidtransCoreKit/SNPFreeTextDataModels.h>
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
@@ -42,18 +42,14 @@
             break;
     }
 
-    /*
-     [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-     environment:MidtransServerEnvironmentProduction
-     merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
-     */
-    [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
-             environment:MidtransServerEnvironmentStaging
-       merchantServerURL:@"http://localhost:8000/"];
+
+        [CONFIG setClientKey:clientkey
+                 environment:MidtransServerEnvironmentSandbox
+           merchantServerURL:merchantServer];
     
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
-    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
+    CC_CONFIG.authenticationType = MTAuthenticationTypeRBA;
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
@@ -97,17 +93,17 @@
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"test+challenged@midtrans.com"
+                                                                                email:@"secure_email_rba@example.com"
                                                                                 phone:@"123123"
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
-    cst.customerIdentifier = @"midtrans@mailinator.com";
+    cst.customerIdentifier = @"secure_email_rba@example.com";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@20000
+                                                                   price:@200000
                                                                 quantity:@1];
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:itm.price];
+                                                                           andGrossAmount:[NSNumber numberWithInt:200000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -143,7 +139,7 @@
              [alert show];
          }
          else {
-            //MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureMandiriEcash];
+
             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];

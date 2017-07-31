@@ -52,4 +52,5 @@
 
 - (NSString *)chargeURL;
 
+- (NSString *)checkStatusRBA;
 @end

@@ -27,7 +27,9 @@
     [super viewDidLoad];
     
     self.title = self.paymentMethod.title;
-    
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
+        self.view.topConstraints.constant = 40.0f;
+    }
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;

@@ -46,7 +46,8 @@
                 [MDOption optionGeneralWithName:@"CIMB" value:@(MTAcquiringBankCIMB)],
                 [MDOption optionGeneralWithName:@"BRI" value:@(MTAcquiringBankBRI)],
                 [MDOption optionGeneralWithName:@"Mandiri" value:@(MTAcquiringBankMandiri)],
-                [MDOption optionGeneralWithName:@"Maybank" value:@(MTAcquiringBankMaybank)]];
+                [MDOption optionGeneralWithName:@"Maybank" value:@(MTAcquiringBankMaybank)],
+                [MDOption optionGeneralWithName:@"Mega" value:@(MTAcquiringBankMEGA)]];
     MDOptionView *optAcqBank = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
                                             titleTemplate:@"Issuing Bank by %@"
                                                   options:options

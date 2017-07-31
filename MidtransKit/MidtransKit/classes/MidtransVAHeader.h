@@ -13,5 +13,7 @@
 @property (strong, nonatomic) IBOutlet MidtransUITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UISegmentedControl *tabSwitch;
 @property (strong, nonatomic) IBOutlet UILabel *descLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *keySMSviewConstraints;
+@property (weak, nonatomic) IBOutlet UIView *keyView;
 @property (strong, nonatomic) IBOutlet UILabel *tutorialTitleLabel;
 @end

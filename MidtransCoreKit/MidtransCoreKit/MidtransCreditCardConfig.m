@@ -72,6 +72,8 @@ NSString *const vPaymentGatewayMIGS = @"migs";
     switch (self.acquiringBank) {
         case MTAcquiringBankBCA:
             return @"bca";
+        case MTAcquiringBankMEGA:
+            return @"mega";
         case MTAcquiringBankBRI:
             return @"bri";
         case MTAcquiringBankBNI:

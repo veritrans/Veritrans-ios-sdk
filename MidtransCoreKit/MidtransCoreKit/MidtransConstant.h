@@ -41,6 +41,7 @@ static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const MIDTRANS_PAYMENT_CSTORE = @"cstore";
 static NSString * const MIDTRANS_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
 static NSString * const MIDTRANS_PAYMENT_CREDIT_CARD = @"credit_card";
+static NSString * const MIDTRANS_CREDIT_CARD_FORM = @"credit_card_form";
 static NSString * const MIDTRANS_PAYMENT_BANK_TRANSFER = @"bank_transfer";
 static NSString * const MIDTRANS_PAYMENT_ECHANNEL = @"echannel";
 static NSString * const MIDTRANS_PAYMENT_PERMATA_VA = @"permata_va";
@@ -63,6 +64,8 @@ static NSString *const TRANSACTION_PENDING = @"vtTRANSACTION_PENDING";
 static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
 static NSString *const TRANSACTION_CANCELED = @"vtTRANSACTION_CANCELED";
 
+static NSString *const SAVE_CARD_FAILED = @"vtSAVE_CARD_FAILED";
+static NSString *const SAVE_CARD_SUCCESS = @"vtSAVE_CARD_SUCCESS";
 static NSString * const TRANSACTION_RESULT_KEY = @"tr_result";
 static NSString * const TRANSACTION_ERROR_KEY = @"tr_error";
 
@@ -79,6 +82,7 @@ static NSString * const MIDTRANS_AMEX_REGEX         = @"^3[47][0-9]{0,}$";
  */
 
 static NSString * const ENDPOINT_CHARGE = @"%@/transactions/%@/pay";
+static NSString * const ENDPOINT_CHECK_STATUS_RBA = @"%@/transactions/%@/status";
 static NSString * const ENDPOINT_TRANSACTION_DETAIL = @"%@/transactions/%@";
 static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
 

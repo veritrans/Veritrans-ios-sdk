@@ -43,7 +43,7 @@
  @param completion A callback that will be executed when the transaction finishes. If the transaction succeeded, the `result` variable will contain all the information provided from the server.
  */
 - (void)performTransaction:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
-
+- (void)performCheckStatusRBA:(MidtransTransaction *_Nonnull)transaction completion:(void(^)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 /**
  Save credit card partial information to the Merchant Server. The partial
  credit card information is modeled using `MTMaskedCreditCard`. This `MTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.

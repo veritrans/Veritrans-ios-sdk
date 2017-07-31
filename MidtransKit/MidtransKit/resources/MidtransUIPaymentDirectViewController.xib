@@ -1,11 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1217" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -43,7 +44,7 @@
                     <rect key="frame" x="0.0" y="467" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-Uh-jUh">
-                            <rect key="frame" x="265" y="12" width="40" height="22"/>
+                            <rect key="frame" x="265" y="11.5" width="40" height="22"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -73,30 +74,64 @@
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xne-tQ-wBL">
+                    <rect key="frame" x="0.0" y="1" width="320" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment mehtod" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-iO-nQV">
+                            <rect key="frame" x="27" y="12" width="267" height="16"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="token_key.png" translatesAutoresizingMaskIntoConstraints="NO" id="qYX-YA-Won">
+                            <rect key="frame" x="3" y="12" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="9TN-Of-Pds"/>
+                                <constraint firstAttribute="height" constant="20" id="JZ6-DM-QvE"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="pVB-jA-Mt8"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99752849340000005" green="0.95564955470000001" blue="0.77139037850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="0Qu-gg-ihE"/>
+                        <constraint firstItem="GMc-iO-nQV" firstAttribute="centerX" secondItem="xne-tQ-wBL" secondAttribute="centerX" id="ABD-5g-tTq"/>
+                        <constraint firstItem="qYX-YA-Won" firstAttribute="bottom" secondItem="xne-tQ-wBL" secondAttribute="bottomMargin" id="L17-ia-ydm"/>
+                        <constraint firstItem="GMc-iO-nQV" firstAttribute="leading" secondItem="qYX-YA-Won" secondAttribute="trailing" constant="4" id="du8-x8-su9"/>
+                        <constraint firstItem="GMc-iO-nQV" firstAttribute="centerY" secondItem="xne-tQ-wBL" secondAttribute="centerY" id="eiq-6x-vdV"/>
+                    </constraints>
+                </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="PEl-TJ-zof">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="467"/>
+                    <rect key="frame" x="0.0" y="40" width="320" height="427"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="PEl-TJ-zof" firstAttribute="top" secondItem="wPm-rL-6ps" secondAttribute="top" id="Xpt-SO-RUI"/>
+                <constraint firstAttribute="trailing" secondItem="xne-tQ-wBL" secondAttribute="trailing" id="KqC-nf-wdW"/>
+                <constraint firstItem="PEl-TJ-zof" firstAttribute="top" secondItem="wPm-rL-6ps" secondAttribute="top" constant="40" id="Xpt-SO-RUI"/>
                 <constraint firstItem="xlP-9r-rzc" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" id="aCo-qI-ZqQ"/>
                 <constraint firstItem="2AF-lH-6ld" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" id="eSX-Ee-AWh"/>
                 <constraint firstItem="xlP-9r-rzc" firstAttribute="top" secondItem="PEl-TJ-zof" secondAttribute="bottom" id="hEn-h7-cVU"/>
                 <constraint firstItem="PEl-TJ-zof" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" id="igk-oJ-Za9"/>
                 <constraint firstAttribute="trailing" secondItem="xlP-9r-rzc" secondAttribute="trailing" id="jOm-xf-TyH"/>
                 <constraint firstAttribute="trailing" secondItem="PEl-TJ-zof" secondAttribute="trailing" id="jV8-Pw-fUE"/>
+                <constraint firstItem="xne-tQ-wBL" firstAttribute="leading" secondItem="wPm-rL-6ps" secondAttribute="leading" id="kTH-2B-7Ke"/>
                 <constraint firstAttribute="trailing" secondItem="2AF-lH-6ld" secondAttribute="trailing" id="owe-WM-vpB"/>
+                <constraint firstItem="xne-tQ-wBL" firstAttribute="top" secondItem="wPm-rL-6ps" secondAttribute="top" constant="1" id="qHi-w2-n5P"/>
                 <constraint firstItem="2AF-lH-6ld" firstAttribute="top" secondItem="xlP-9r-rzc" secondAttribute="bottom" id="tfu-tF-dqx"/>
                 <constraint firstAttribute="bottom" secondItem="2AF-lH-6ld" secondAttribute="bottom" id="vdO-KV-Jm7"/>
             </constraints>
             <connections>
                 <outlet property="confirmPaymentButton" destination="2AF-lH-6ld" id="E4L-OC-ega"/>
                 <outlet property="tableView" destination="PEl-TJ-zof" id="zm3-OG-oEf"/>
+                <outlet property="topConstraints" destination="Xpt-SO-RUI" id="xsw-aa-xh2"/>
                 <outlet property="totalAmountLabel" destination="BCL-Uh-jUh" id="sAG-jF-A48"/>
             </connections>
-            <point key="canvasLocation" x="-104" y="174"/>
+            <point key="canvasLocation" x="-99" y="179"/>
         </view>
     </objects>
+    <resources>
+        <image name="token_key.png" width="11" height="16"/>
+    </resources>
 </document>

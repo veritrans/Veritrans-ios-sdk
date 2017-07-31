@@ -25,6 +25,7 @@ typedef NS_ENUM(NSUInteger, MTAuthenticationType) {
 typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
     MTAcquiringBankUnknown,
     MTAcquiringBankBCA,
+    MTAcquiringBankMEGA, 
     MTAcquiringBankBRI,
     MTAcquiringBankCIMB,
     MTAcquiringBankMandiri,

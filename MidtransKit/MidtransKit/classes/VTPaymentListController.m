@@ -43,7 +43,15 @@
     [super viewDidLoad];
     [[SNPUITrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
-    
+    if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
+        MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
+        creditCardVC.saveCreditCardOnly = YES;
+        creditCardVC.title = @"Add New Card";
+        [creditCardVC showDismissButton:creditCardVC.saveCreditCardOnly];
+        [self.navigationController pushViewController:creditCardVC animated:!creditCardVC.saveCreditCardOnly];
+        return;
+        
+    }
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
     self.title =  UILocalizedString(@"payment.list.title", nil);
     self.singlePayment = false;

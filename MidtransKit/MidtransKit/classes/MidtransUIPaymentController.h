@@ -33,5 +33,6 @@
 -(void)showGuideViewController;
 -(void)showToastInviewWithMessage:(NSString *)message;
 -(void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message andButtonTitle:(NSString *)buttonTitle;
-
+- (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result;
+- (void)handleSaveCardError:(NSError *)error;
 @end

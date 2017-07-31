@@ -32,7 +32,7 @@
     [super viewDidLoad];
     
     self.title = self.paymentMethod.title;
-    
+    id paymentID = self.paymentMethod.internalBaseClassIdentifier;
     [self.payButton setTitle:UILocalizedString(@"va.pay-button", nil) forState:UIControlStateNormal];
     
     self.tableView.delegate = self;
@@ -49,6 +49,13 @@
     self.headerView.emailTextField.text = self.token.customerDetails.email;
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
+    self.headerView.keySMSviewConstraints.constant = 0.0f;
+    if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
+        self.headerView.keySMSviewConstraints.constant = 0.0f;
+        self.headerView.keyView.hidden = YES;
+    }
+    [self.headerView updateConstraints];
+    [self.headerView layoutIfNeeded];
     
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
@@ -65,7 +72,7 @@
     }
     [self selectTabAtIndex:0];
     
-    id paymentID = self.paymentMethod.internalBaseClassIdentifier;
+
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.paymentType = VTVATypeBCA;
     }
@@ -82,6 +89,7 @@
         self.paymentType = VTVATypeOther;
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+       
         self.paymentType = VTVATypeBNI;
     }
     
@@ -121,7 +129,17 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-
+    if (index ==1) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
+            self.headerView.keySMSviewConstraints.constant = 40.0f;
+            self.headerView.keyView.hidden = YES;
+        }
+        self.headerView.keyView.hidden = NO;
+    }
+    else {
+        self.headerView.keySMSviewConstraints.constant = 0.0f;
+        self.headerView.keyView.hidden =YES;
+    }
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
 }

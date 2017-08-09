@@ -13,7 +13,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransVAViewController.h"
 
-@interface VTVAListController ()
+@interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -25,7 +25,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = UILocalizedString(@"va.list.title", nil);
- [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
@@ -47,12 +47,18 @@
     self.vaList = vaListM;
     self.tableView.tableFooterView = [UIView new];
     self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    if (self.vaList.count == 1) {
+        [self redirectToIndex:0];
+    }
 }
 
 #pragma mark - UITableViewDataSource
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 
+    return 80;
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_vaList count];
+    return self.vaList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -64,11 +70,16 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:indexPath.row];
+    [self redirectToIndex:indexPath.row];
+}
+- (void)redirectToIndex:(NSInteger)index {
+    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:index];
     NSString *paymentName  = vaTypeModel.shortName;
     [[SNPUITrackingManager shared] trackEventName:paymentName];
     MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    if (self.vaList.count == 1) {
+        [vc showDismissButton:YES];
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
-
 @end

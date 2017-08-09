@@ -17,9 +17,9 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
     MTCreditCardPaymentTypeTwoclick
 };
 typedef NS_ENUM(NSUInteger, MTAuthenticationType) {
+        MTAuthenticationTypeNone,
         MTAuthenticationTypeRBA,
         MTAuthenticationType3DS,
-        MTAuthenticationTypeNone
 };
 
 typedef NS_ENUM(NSUInteger, MTAcquiringBank) {

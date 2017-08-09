@@ -54,6 +54,19 @@
                                                identifier:OPTAcquiringBank];
     [optAcqBank selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].issuingBankOption]];
     
+    
+    
+    ////// auth type
+    
+    options = @[[MDOption optionGeneralWithName:@"None" value:@(MTAuthenticationTypeNone)],
+                [MDOption optionGeneralWithName:@"RBA" value:@(MTAuthenticationTypeRBA)],
+                [MDOption optionGeneralWithName:@"3DS" value:@(MTAuthenticationType3DS)]];
+    MDOptionView *optAuth = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
+                                            titleTemplate:@"Auth Type %@"
+                                                  options:options
+                                               identifier:OPTAuthType];
+    [optAuth selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].authTypeOption]];
+    
     ///////////
     //expire time
     MidtransTransactionExpire *minute = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
@@ -197,6 +210,7 @@
                          optType,
                          opt3ds,
                          optAcqBank,
+                         optAuth,
                          optCustomExpiry,
                          optSaveCard,
                          optPromo,

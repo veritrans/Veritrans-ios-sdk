@@ -41,7 +41,8 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-
+    clientkey = @"VT-client-waS-QJwf_P9ypITW";
+    merchantServer = @"http://apidev.doogether.id/v1";
 
         [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
@@ -49,7 +50,8 @@
     
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
-    CC_CONFIG.authenticationType = MTAuthenticationTypeRBA;
+    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
+        NSLog(@"data->%lu",(unsigned long)CC_CONFIG.authenticationType);
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
@@ -97,11 +99,12 @@
                                                                                 phone:@"123123"
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
-    cst.customerIdentifier = @"secure_email_rba@example.com";
+    cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
                                                                    price:@200000
                                                                 quantity:@1];
+    
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
                                                                            andGrossAmount:[NSNumber numberWithInt:200000]];
     
@@ -117,6 +120,7 @@
         binFilter = @[@"410505"];
     }
     //configure expire time
+    [[MidtransNetworkLogger shared] startLogging];
     MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
     //show hud
     [self.progressHUD showInView:self.navigationController.view];

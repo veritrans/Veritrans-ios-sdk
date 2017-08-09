@@ -92,8 +92,13 @@ UIAlertViewDelegate
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
     self.title = UILocalizedString(@"creditcard.input.title", nil);
+    
+    if ([self.responsePayment.merchant.enabledPrinciples containsObject:@"amex"]) {
+          [self.view.secureBadgeImage setImage:[[UIImage imageNamed:@"with_amex" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    }
     if (self.saveCreditCardOnly) {
         self.isSaveCard = NO;
         self.headerViewHeightConstraints.constant = 0.0f;

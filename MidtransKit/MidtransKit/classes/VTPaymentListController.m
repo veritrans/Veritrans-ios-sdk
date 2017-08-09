@@ -32,6 +32,7 @@
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
 @property (nonatomic)BOOL singlePayment;
+@property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
 @end
 
@@ -78,7 +79,7 @@
   
 }
 - (void)loadPaymentList {
-    
+
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
@@ -144,22 +145,21 @@
                  }
                  
                  if (index != NSNotFound) {
-                     
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
+                         self.bankTransferOnly = 1;
                          if (!vaAlreadyAdded) {
-                             if (mainIndex!=0) {
                                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
                                  model.status = enabledPayment.status;
                                  self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
                                  vaAlreadyAdded = YES;
-                             }
                          }
                      }
                      
                      else {
-                         
+                         self.bankTransferOnly = 0;
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          model.status = enabledPayment.status;
+
                          [self.paymentMethodList addObject:model];
                          
                      }
@@ -175,11 +175,8 @@
                  }
                  
              }
-             if (self.paymentMethodSelected.length > 0) {
+             if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count ==1 || self.bankTransferOnly) {
                  self.singlePayment = YES;
-                 if ([self.paymentMethodSelected isEqualToString:@"bhank_transfer"]) {
-                     return;
-                 }
                  [self redirectToPaymentMethodAtIndex:0];
              }
          }
@@ -275,6 +272,7 @@
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         vc.paymentResponse = self.responsePayment;
+                        [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||

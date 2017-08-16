@@ -63,28 +63,16 @@
 		0C6E2AA91F20676400032097 /* token_key@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6E2A951F20676400032097 /* token_key@4x.png */; };
 		0C91BCF31EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
 		0C91BCF41EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
-		0C997B421F385CA000EEBF4B /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B381F385CA000EEBF4B /* default.png */; };
-		0C997B431F385CA000EEBF4B /* default.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B381F385CA000EEBF4B /* default.png */; };
-		0C997B441F385CA000EEBF4B /* default@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B391F385CA000EEBF4B /* default@1.5x.png */; };
-		0C997B451F385CA000EEBF4B /* default@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B391F385CA000EEBF4B /* default@1.5x.png */; };
-		0C997B461F385CA000EEBF4B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3A1F385CA000EEBF4B /* default@2x.png */; };
-		0C997B471F385CA000EEBF4B /* default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3A1F385CA000EEBF4B /* default@2x.png */; };
-		0C997B481F385CA000EEBF4B /* default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3B1F385CA000EEBF4B /* default@3x.png */; };
-		0C997B491F385CA000EEBF4B /* default@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3B1F385CA000EEBF4B /* default@3x.png */; };
-		0C997B4A1F385CA000EEBF4B /* default@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3C1F385CA000EEBF4B /* default@4x.png */; };
-		0C997B4B1F385CA000EEBF4B /* default@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3C1F385CA000EEBF4B /* default@4x.png */; };
-		0C997B4C1F385CA000EEBF4B /* with_amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3D1F385CA000EEBF4B /* with_amex.png */; };
-		0C997B4D1F385CA000EEBF4B /* with_amex.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3D1F385CA000EEBF4B /* with_amex.png */; };
-		0C997B4E1F385CA000EEBF4B /* with_amex@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3E1F385CA000EEBF4B /* with_amex@1.5x.png */; };
-		0C997B4F1F385CA000EEBF4B /* with_amex@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3E1F385CA000EEBF4B /* with_amex@1.5x.png */; };
-		0C997B501F385CA000EEBF4B /* with_amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3F1F385CA000EEBF4B /* with_amex@2x.png */; };
-		0C997B511F385CA000EEBF4B /* with_amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B3F1F385CA000EEBF4B /* with_amex@2x.png */; };
-		0C997B521F385CA000EEBF4B /* with_amex@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B401F385CA000EEBF4B /* with_amex@3x.png */; };
-		0C997B531F385CA000EEBF4B /* with_amex@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B401F385CA000EEBF4B /* with_amex@3x.png */; };
-		0C997B541F385CA000EEBF4B /* with_amex@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B411F385CA000EEBF4B /* with_amex@4x.png */; };
-		0C997B551F385CA000EEBF4B /* with_amex@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C997B411F385CA000EEBF4B /* with_amex@4x.png */; };
 		0CBB53E01EF7738D00587635 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB53DF1EF7738D00587635 /* arrow@2x.png */; };
 		0CBB53E11EF7738D00587635 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB53DF1EF7738D00587635 /* arrow@2x.png */; };
+		0CCF99CB1F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99C71F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png */; };
+		0CCF99CC1F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99C71F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png */; };
+		0CCF99CD1F42A90600920308 /* visa-mastercard-amex-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99C81F42A90600920308 /* visa-mastercard-amex-seal@2x.png */; };
+		0CCF99CE1F42A90600920308 /* visa-mastercard-amex-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99C81F42A90600920308 /* visa-mastercard-amex-seal@2x.png */; };
+		0CCF99CF1F42A90600920308 /* visa-mastercard-jcb-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99C91F42A90600920308 /* visa-mastercard-jcb-seal@2x.png */; };
+		0CCF99D01F42A90600920308 /* visa-mastercard-jcb-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99C91F42A90600920308 /* visa-mastercard-jcb-seal@2x.png */; };
+		0CCF99D11F42A90600920308 /* visa-mastercard-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99CA1F42A90600920308 /* visa-mastercard-seal@2x.png */; };
+		0CCF99D21F42A90600920308 /* visa-mastercard-seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99CA1F42A90600920308 /* visa-mastercard-seal@2x.png */; };
 		0CD116101EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CD116111EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CE966521EC5625900364146 /* bni_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9664F1EC5625900364146 /* bni_va@2x.png */; };
@@ -1031,17 +1019,11 @@
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
 		0C91BCF21EE7B15500B5588D /* test_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_badge@2x.png"; sourceTree = "<group>"; };
-		0C997B381F385CA000EEBF4B /* default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = default.png; sourceTree = "<group>"; };
-		0C997B391F385CA000EEBF4B /* default@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@1.5x.png"; sourceTree = "<group>"; };
-		0C997B3A1F385CA000EEBF4B /* default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@2x.png"; sourceTree = "<group>"; };
-		0C997B3B1F385CA000EEBF4B /* default@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@3x.png"; sourceTree = "<group>"; };
-		0C997B3C1F385CA000EEBF4B /* default@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "default@4x.png"; sourceTree = "<group>"; };
-		0C997B3D1F385CA000EEBF4B /* with_amex.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = with_amex.png; sourceTree = "<group>"; };
-		0C997B3E1F385CA000EEBF4B /* with_amex@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "with_amex@1.5x.png"; sourceTree = "<group>"; };
-		0C997B3F1F385CA000EEBF4B /* with_amex@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "with_amex@2x.png"; sourceTree = "<group>"; };
-		0C997B401F385CA000EEBF4B /* with_amex@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "with_amex@3x.png"; sourceTree = "<group>"; };
-		0C997B411F385CA000EEBF4B /* with_amex@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "with_amex@4x.png"; sourceTree = "<group>"; };
 		0CBB53DF1EF7738D00587635 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
+		0CCF99C71F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-jcb-amex-seal@2x.png"; sourceTree = "<group>"; };
+		0CCF99C81F42A90600920308 /* visa-mastercard-amex-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-amex-seal@2x.png"; sourceTree = "<group>"; };
+		0CCF99C91F42A90600920308 /* visa-mastercard-jcb-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-jcb-seal@2x.png"; sourceTree = "<group>"; };
+		0CCF99CA1F42A90600920308 /* visa-mastercard-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-seal@2x.png"; sourceTree = "<group>"; };
 		0CD1160F1EDD5B14005884AD /* bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bni_va.plist; path = MidtransKit/resources/bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
@@ -1665,16 +1647,10 @@
 		0C997B371F385CA000EEBF4B /* Secured Seal */ = {
 			isa = PBXGroup;
 			children = (
-				0C997B381F385CA000EEBF4B /* default.png */,
-				0C997B391F385CA000EEBF4B /* default@1.5x.png */,
-				0C997B3A1F385CA000EEBF4B /* default@2x.png */,
-				0C997B3B1F385CA000EEBF4B /* default@3x.png */,
-				0C997B3C1F385CA000EEBF4B /* default@4x.png */,
-				0C997B3D1F385CA000EEBF4B /* with_amex.png */,
-				0C997B3E1F385CA000EEBF4B /* with_amex@1.5x.png */,
-				0C997B3F1F385CA000EEBF4B /* with_amex@2x.png */,
-				0C997B401F385CA000EEBF4B /* with_amex@3x.png */,
-				0C997B411F385CA000EEBF4B /* with_amex@4x.png */,
+				0CCF99C71F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png */,
+				0CCF99C81F42A90600920308 /* visa-mastercard-amex-seal@2x.png */,
+				0CCF99C91F42A90600920308 /* visa-mastercard-jcb-seal@2x.png */,
+				0CCF99CA1F42A90600920308 /* visa-mastercard-seal@2x.png */,
 			);
 			path = "Secured Seal";
 			sourceTree = "<group>";
@@ -2676,7 +2652,6 @@
 				E58FCE311E94CFD600632085 /* other_alto_7@2x.png in Resources */,
 				E57124891E9381320064F515 /* MidtransInstallmentView.xib in Resources */,
 				E58FCD911E94CFD500632085 /* anz@2x.png in Resources */,
-				0C997B4B1F385CA000EEBF4B /* default@4x.png in Resources */,
 				E57127E21E93B7C50064F515 /* bri_epay.plist in Resources */,
 				0C46FA841EEFCED8002342E2 /* TokenButtonIcon@2x.png in Resources */,
 				E58FCE051E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
@@ -2706,7 +2681,6 @@
 				E58FCDFF1E94CFD500632085 /* mandiri_atm_1@2x.png in Resources */,
 				E519C9731E9B6F2100EF70DF /* bni_va5@2x.png in Resources */,
 				E5FE44AB1E9E30F00088A207 /* Localizable.strings in Resources */,
-				0C997B531F385CA000EEBF4B /* with_amex@3x.png in Resources */,
 				E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */,
 				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
 				E58FCDD91E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
@@ -2725,10 +2699,8 @@
 				E58FCD971E94CFD500632085 /* bbm@2x.png in Resources */,
 				E58FCDAD1E94CFD500632085 /* bca@2x.png in Resources */,
 				E58FCE851E94CFD600632085 /* visa-mastercard-jcb-amex@3x.png in Resources */,
-				0C997B491F385CA000EEBF4B /* default@3x.png in Resources */,
 				E58FCDF51E94CFD500632085 /* InfoIcon@2x.png in Resources */,
 				E58FCE2D1E94CFD600632085 /* other_alto_5@2x.png in Resources */,
-				0C997B551F385CA000EEBF4B /* with_amex@4x.png in Resources */,
 				E57124961E9381320064F515 /* MidtransUICCFrontView.xib in Resources */,
 				E58FCE651E94CFD600632085 /* permata.png in Resources */,
 				0C6E2AA11F20676400032097 /* token_key.png in Resources */,
@@ -2749,6 +2721,7 @@
 				0C108A0C1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */,
 				E58FCE511E94CFD600632085 /* padlock1@2x.png in Resources */,
 				E58FCE3D1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
+				0CCF99CE1F42A90600920308 /* visa-mastercard-amex-seal@2x.png in Resources */,
 				E5EBC2C21EB0726700A568D1 /* midtrans_logo_right@2x.png in Resources */,
 				E58FCE091E94CFD500632085 /* mandiri_atm_6@2x.png in Resources */,
 				E58FCDF11E94CFD500632085 /* indomaret@2x.png in Resources */,
@@ -2770,7 +2743,6 @@
 				E58FCDA11E94CFD500632085 /* bca_atm_5@2x.png in Resources */,
 				E58FCDDD1E94CFD500632085 /* DisclosureIndicatorGray@2x.png in Resources */,
 				E571249E1E9381320064F515 /* SNPPointViewController.xib in Resources */,
-				0C997B471F385CA000EEBF4B /* default@2x.png in Resources */,
 				E58FCE1F1E94CFD600632085 /* mega@2x.png in Resources */,
 				E58FCE671E94CFD600632085 /* permata@2x.png in Resources */,
 				E571249F1E9381320064F515 /* VTAddCardController.xib in Resources */,
@@ -2801,7 +2773,6 @@
 				E58FCDE11E94CFD500632085 /* emptyCardIcon@2x.png in Resources */,
 				E58FCE0D1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
 				E58FCDB51E94CFD500632085 /* bni@2x.png in Resources */,
-				0C997B4F1F385CA000EEBF4B /* with_amex@1.5x.png in Resources */,
 				E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */,
 				E58FCDB31E94CFD500632085 /* bni.png in Resources */,
 				E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */,
@@ -2823,7 +2794,7 @@
 				E5EBC2C01EB0726700A568D1 /* midtrans_logo_left@2x.png in Resources */,
 				0C108A211EEE644C00843A05 /* maintain@3x.png in Resources */,
 				E58FCD991E94CFD500632085 /* bca_atm_1@2x.png in Resources */,
-				0C997B431F385CA000EEBF4B /* default.png in Resources */,
+				0CCF99D01F42A90600920308 /* visa-mastercard-jcb-seal@2x.png in Resources */,
 				E58FCE0B1E94CFD500632085 /* mandiri_clickpay@2x.png in Resources */,
 				0C108A1F1EEE644C00843A05 /* maintain@2x.png in Resources */,
 				E57127E11E93B7C50064F515 /* bca_va.plist in Resources */,
@@ -2850,6 +2821,7 @@
 				E519C96B1E9B6F2000EF70DF /* bni_va3@2x.png in Resources */,
 				E57127DE1E93B7C50064F515 /* all_va.plist in Resources */,
 				E58FCE0F1E94CFD500632085 /* mandiri_va@2x.png in Resources */,
+				0CCF99CC1F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				E57127EC1E93B7C50064F515 /* snap_colors.plist in Resources */,
 				E58FCE871E94CFD600632085 /* visa-mastercard-jcb.png in Resources */,
 				E57124B21E9381320064F515 /* VTTwoClickController.xib in Resources */,
@@ -2884,9 +2856,7 @@
 				E58FCE151E94CFD500632085 /* MasterCard@2x.png in Resources */,
 				E58FCDA51E94CFD500632085 /* bca_klikbca@2x.png in Resources */,
 				0CBB53E11EF7738D00587635 /* arrow@2x.png in Resources */,
-				0C997B451F385CA000EEBF4B /* default@1.5x.png in Resources */,
 				E58FCDC51E94CFD500632085 /* cimb_clicks@2x.png in Resources */,
-				0C997B511F385CA000EEBF4B /* with_amex@2x.png in Resources */,
 				0C6E2A9B1F20676400032097 /* sms@2x.png in Resources */,
 				E58FCE391E94CFD600632085 /* other_atm_4@2x.png in Resources */,
 				E58FCE1B1E94CFD600632085 /* maybank@2x.png in Resources */,
@@ -2904,11 +2874,11 @@
 				E58FCD8F1E94CFD500632085 /* anz.png in Resources */,
 				E58FCDFD1E94CFD500632085 /* logo@2x.png in Resources */,
 				E58FCE291E94CFD600632085 /* other_alto_3@2x.png in Resources */,
+				0CCF99D21F42A90600920308 /* visa-mastercard-seal@2x.png in Resources */,
 				E57124861E9381290064F515 /* SourceSansPro-Semibold.ttf in Resources */,
 				E58FCE8F1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
 				E559763D1EA71B760044342A /* pending@2x.png in Resources */,
-				0C997B4D1F385CA000EEBF4B /* with_amex.png in Resources */,
 				E57127E71E93B7C50064F515 /* kioson.plist in Resources */,
 				E58FCE571E94CFD600632085 /* permata_atm_2@2x.png in Resources */,
 			);
@@ -2930,7 +2900,6 @@
 				E58FCE241E94CFD600632085 /* other_alto_1@2x.png in Resources */,
 				E5EBC2C41EB0726B00A568D1 /* midtrans_logo_mid@2x.png in Resources */,
 				E58FCE6C1E94CFD600632085 /* successIcon@2x.png in Resources */,
-				0C997B441F385CA000EEBF4B /* default@1.5x.png in Resources */,
 				E519C9761E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				E5F1BB6E1E93701100ED659D /* VTBillpaySuccessController.xib in Resources */,
 				E5F1BB5F1E93701100ED659D /* MidtransSavedCardCell.xib in Resources */,
@@ -2953,7 +2922,6 @@
 				0C6E2AA41F20676400032097 /* token_key@2x.png in Resources */,
 				E58FCDF81E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				E58FCDC21E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
-				0C997B521F385CA000EEBF4B /* with_amex@3x.png in Resources */,
 				E58FCE221E94CFD600632085 /* NextIcon@2x.png in Resources */,
 				0CBB53E01EF7738D00587635 /* arrow@2x.png in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
@@ -2971,13 +2939,11 @@
 				E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */,
 				E5F1BB761E93701100ED659D /* VTIndomaretSuccessController.xib in Resources */,
 				E5F1BB5B1E93701100ED659D /* MidtransPaymentGCIViewController.xib in Resources */,
-				0C997B541F385CA000EEBF4B /* with_amex@4x.png in Resources */,
 				E58FCDFE1E94CFD500632085 /* mandiri_atm_1@2x.png in Resources */,
 				E519C9721E9B6F2100EF70DF /* bni_va5@2x.png in Resources */,
 				E5FE44AA1E9E30F00088A207 /* Localizable.strings in Resources */,
 				E5F1BB741E93701100ED659D /* VTGuideCell.xib in Resources */,
 				E5F1BB5C1E93701100ED659D /* MidtransPaymentMethodHeader.xib in Resources */,
-				0C997B481F385CA000EEBF4B /* default@3x.png in Resources */,
 				E58FCDD81E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
 				E58FCE601E94CFD600632085 /* permata_atm_7@2x.png in Resources */,
 				E5F1BB661E93701100ED659D /* MidtransUIListCell.xib in Resources */,
@@ -3006,7 +2972,6 @@
 				E58FCDDE1E94CFD500632085 /* echannel@2x.png in Resources */,
 				E58FCDD01E94CFD500632085 /* CreditCardBack@2x.png in Resources */,
 				E58FCDF21E94CFD500632085 /* indosat_dompetku@2x.png in Resources */,
-				0C997B4C1F385CA000EEBF4B /* with_amex.png in Resources */,
 				E58FCD941E94CFD500632085 /* BackBarIcon@2x.png in Resources */,
 				E58FCDA81E94CFD500632085 /* bca_va@2x.png in Resources */,
 				E5F1BB681E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib in Resources */,
@@ -3018,6 +2983,7 @@
 				E58FCE3C1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
 				E5EBC2C51EB0726B00A568D1 /* midtrans_logo_right@2x.png in Resources */,
 				E58FCE081E94CFD500632085 /* mandiri_atm_6@2x.png in Resources */,
+				0CCF99CB1F42A90600920308 /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				E58FCDF01E94CFD500632085 /* indomaret@2x.png in Resources */,
 				E58FCE6E1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */,
 				E58FCE821E94CFD600632085 /* visa-mastercard-jcb-amex@2x.png in Resources */,
@@ -3029,7 +2995,6 @@
 				E58FCDDA1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC81E94CFD500632085 /* cimb@2x.png in Resources */,
 				E5F1BB581E93701100ED659D /* MidtransItemCell.xib in Resources */,
-				0C997B461F385CA000EEBF4B /* default@2x.png in Resources */,
 				E5F1BB601E93701100ED659D /* MidtransSavedCardController.xib in Resources */,
 				E5F1BB6B1E93701100ED659D /* MidtransVAViewController.xib in Resources */,
 				E58FCE401E94CFD600632085 /* other_prima_1@2x.png in Resources */,
@@ -3037,7 +3002,6 @@
 				E58FCE2E1E94CFD600632085 /* other_alto_6@2x.png in Resources */,
 				E58FCDA01E94CFD500632085 /* bca_atm_5@2x.png in Resources */,
 				E58FCDDC1E94CFD500632085 /* DisclosureIndicatorGray@2x.png in Resources */,
-				0C997B501F385CA000EEBF4B /* with_amex@2x.png in Resources */,
 				E58FCE1E1E94CFD600632085 /* mega@2x.png in Resources */,
 				E58FCE661E94CFD600632085 /* permata@2x.png in Resources */,
 				E5F1BB5D1E93701100ED659D /* MidtransPaymentStatusViewController.xib in Resources */,
@@ -3063,8 +3027,6 @@
 				E58FCDCA1E94CFD500632085 /* citi.png in Resources */,
 				E58FCE121E94CFD500632085 /* mandiri@2x.png in Resources */,
 				E58FCDE21E94CFD500632085 /* errorIcon@2x.png in Resources */,
-				0C997B4E1F385CA000EEBF4B /* with_amex@1.5x.png in Resources */,
-				0C997B421F385CA000EEBF4B /* default.png in Resources */,
 				E58FCE4A1E94CFD600632085 /* other_prima_6@2x.png in Resources */,
 				E58FCDE01E94CFD500632085 /* emptyCardIcon@2x.png in Resources */,
 				E58FCE0C1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
@@ -3108,6 +3070,7 @@
 				E5F1BB8F1E93702C00ED659D /* SourceSansPro-Semibold.ttf in Resources */,
 				E571273D1E93B3290064F515 /* mandiri_ecash.plist in Resources */,
 				E58FCD921E94CFD500632085 /* back@2x.png in Resources */,
+				0CCF99D11F42A90600920308 /* visa-mastercard-seal@2x.png in Resources */,
 				E58FCE621E94CFD600632085 /* permata_va@2x.png in Resources */,
 				E58FCD8A1E94CFD500632085 /* Amex@2x.png in Resources */,
 				E5F1BB771E93701100ED659D /* VTKeyboardAccessoryView.xib in Resources */,
@@ -3144,7 +3107,7 @@
 				E55976411EA72F770044342A /* check@2x.png in Resources */,
 				E58FCE421E94CFD600632085 /* other_prima_2@2x.png in Resources */,
 				E58FCE541E94CFD600632085 /* permata_atm_1@2x.png in Resources */,
-				0C997B4A1F385CA000EEBF4B /* default@4x.png in Resources */,
+				0CCF99CD1F42A90600920308 /* visa-mastercard-amex-seal@2x.png in Resources */,
 				E5F1BB621E93701100ED659D /* MidtransTransactionDetailViewController.xib in Resources */,
 				E5F1BB791E93701100ED659D /* VTMandiriClickpayController.xib in Resources */,
 				E5F1BB5A1E93701100ED659D /* MidtransNewCreditCardViewController.xib in Resources */,
@@ -3158,6 +3121,7 @@
 				E58FCE481E94CFD600632085 /* other_prima_5@2x.png in Resources */,
 				E58FCE8A1E94CFD600632085 /* visa-mastercard-jcb@3x.png in Resources */,
 				E58FCDCE1E94CFD500632085 /* credit_card@2x.png in Resources */,
+				0CCF99CF1F42A90600920308 /* visa-mastercard-jcb-seal@2x.png in Resources */,
 				E58FCE021E94CFD500632085 /* mandiri_atm_3@2x.png in Resources */,
 				E5F1BB831E93701100ED659D /* VTXLTunaiSuccessController.xib in Resources */,
 				E57127351E93B3290064F515 /* bca_va.plist in Resources */,

@@ -41,9 +41,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    clientkey = @"VT-client-waS-QJwf_P9ypITW";
-    merchantServer = @"http://apidev.doogether.id/v1";
 
+    clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+    merchantServer = @"https://rakawm-snap.herokuapp.com";
         [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
            merchantServerURL:merchantServer];
@@ -51,7 +51,6 @@
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
-        NSLog(@"data->%lu",(unsigned long)CC_CONFIG.authenticationType);
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
@@ -102,11 +101,11 @@
     cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@200000
+                                                                   price:@20000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:[NSNumber numberWithInt:200000]];
+                                                                           andGrossAmount:[NSNumber numberWithInt:20000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -124,10 +123,31 @@
     MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
+    
+    //NSArray *cf = @[MIDTRANS_CUSTOMFIELD_1:@{@"voucher_code":@"123",@"amount":@"123"}];
+    NSMutableArray *arrayOfCustomField = [NSMutableArray new];
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    NSString *jsonString;
+    if (jsonData) {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        //This is your JSON String
+        //NSUTF8StringEncoding encodes special characters using an escaping scheme
+    } else {
+        NSLog(@"Got an error: %@", error);
+        jsonString = @"";
+    }
+    NSLog(@"Your JSON String is %@", jsonString);
+    
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
+
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
-                                                                       customField:nil
+                                                                       customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                              transactionExpireTime:expr
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)

@@ -95,10 +95,11 @@ UIAlertViewDelegate
 
     [super viewDidLoad];
     self.title = UILocalizedString(@"creditcard.input.title", nil);
+    NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
+    NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
+    NSLog(@"data->%@",imagePath);
     
-    if ([self.responsePayment.merchant.enabledPrinciples containsObject:@"amex"]) {
-          [self.view.secureBadgeImage setImage:[[UIImage imageNamed:@"with_amex" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-    }
+    [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     if (self.saveCreditCardOnly) {
         self.isSaveCard = NO;
         self.headerViewHeightConstraints.constant = 0.0f;

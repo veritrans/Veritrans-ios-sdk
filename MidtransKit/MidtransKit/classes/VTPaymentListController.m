@@ -97,6 +97,12 @@
      {
          self.title = response.merchant.preference.displayName;
          if (response) {
+             
+             NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
+             NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
+             
+             [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+             
              //applying SNAP color if any
              UIColor *snapColor = [self colorFromSnapScheme:response.merchant.preference.colorScheme];
              [MidtransUIThemeManager applySnapThemeColor:snapColor];

@@ -97,7 +97,6 @@ UIAlertViewDelegate
     self.title = UILocalizedString(@"creditcard.input.title", nil);
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
     NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
-    NSLog(@"data->%@",imagePath);
     
     [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
     if (self.saveCreditCardOnly) {

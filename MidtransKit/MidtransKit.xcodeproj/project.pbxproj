@@ -71,12 +71,8 @@
 		0C91BCF41EE7B15500B5588D /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C91BCF21EE7B15500B5588D /* test_badge@2x.png */; };
 		0CBB53E01EF7738D00587635 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB53DF1EF7738D00587635 /* arrow@2x.png */; };
 		0CBB53E11EF7738D00587635 /* arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CBB53DF1EF7738D00587635 /* arrow@2x.png */; };
-		0CCF99DE1F469E5700920308 /* MidtransNewCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99E11F469E5700920308 /* MidtransNewCreditCardViewController.xib */; };
-		0CCF99DF1F469E5700920308 /* MidtransNewCreditCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99E11F469E5700920308 /* MidtransNewCreditCardViewController.xib */; };
 		0CCF99E81F46A3EA00920308 /* SNPPostPaymentGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99EB1F46A3EA00920308 /* SNPPostPaymentGeneralViewController.xib */; };
 		0CCF99E91F46A3EA00920308 /* SNPPostPaymentGeneralViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99EB1F46A3EA00920308 /* SNPPostPaymentGeneralViewController.xib */; };
-		0CCF99ED1F46C70000920308 /* MidtransUIPaymentDirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99F01F46C70000920308 /* MidtransUIPaymentDirectViewController.xib */; };
-		0CCF99EE1F46C70000920308 /* MidtransUIPaymentDirectViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CCF99F01F46C70000920308 /* MidtransUIPaymentDirectViewController.xib */; };
 		0CD116101EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CD116111EDD5B14005884AD /* bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* bni_va.plist */; };
 		0CE966521EC5625900364146 /* bni_va@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE9664F1EC5625900364146 /* bni_va@2x.png */; };
@@ -1023,10 +1019,7 @@
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
 		0C91BCF21EE7B15500B5588D /* test_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test_badge@2x.png"; sourceTree = "<group>"; };
 		0CBB53DF1EF7738D00587635 /* arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@2x.png"; sourceTree = "<group>"; };
-		0CCF99E21F469E6200920308 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MidtransNewCreditCardViewController.xib; sourceTree = "<group>"; };
 		0CCF99EA1F46A3EA00920308 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/SNPPostPaymentGeneralViewController.xib; sourceTree = "<group>"; };
-		0CCF99EF1F46C70000920308 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MidtransUIPaymentDirectViewController.xib; sourceTree = "<group>"; };
-		0CCF99F11F46C70200920308 /* id */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = id; path = id.lproj/MidtransUIPaymentDirectViewController.xib; sourceTree = "<group>"; };
 		0CD1160F1EDD5B14005884AD /* bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bni_va.plist; path = MidtransKit/resources/bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
@@ -1844,7 +1837,6 @@
 				0C5A55061F61437A00BFCFF3 /* SNPMaintainView.xib */,
 				E5F1BB271E93701100ED659D /* MidtransItemCell.xib */,
 				E5F1BB281E93701100ED659D /* MidtransLoadingView.xib */,
-				0CCF99E11F469E5700920308 /* MidtransNewCreditCardViewController.xib */,
 				E5F1BB2A1E93701100ED659D /* MidtransPaymentGCIViewController.xib */,
 				E5F1BB2B1E93701100ED659D /* MidtransPaymentMethodHeader.xib */,
 				E5F1BB2D1E93701100ED659D /* MidtransPromoView.xib */,
@@ -1856,7 +1848,6 @@
 				E5F1BB331E93701100ED659D /* MidtransUICCFrontView.xib */,
 				E5F1BB341E93701100ED659D /* MidtransUICustomAlertViewController.xib */,
 				E5F1BB351E93701100ED659D /* MidtransUIListCell.xib */,
-				0CCF99F01F46C70000920308 /* MidtransUIPaymentDirectViewController.xib */,
 				E5F1BB371E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib */,
 				E5F1BB381E93701100ED659D /* MidtransUIToast.xib */,
 				E5F1BB391E93701100ED659D /* MidtransVAHeader.xib */,
@@ -2646,7 +2637,6 @@
 				E58FCDF91E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				E58FCDC31E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
 				E58FCE231E94CFD600632085 /* NextIcon@2x.png in Resources */,
-				0CCF99DF1F469E5700920308 /* MidtransNewCreditCardViewController.xib in Resources */,
 				E58FCDE51E94CFD500632085 /* gci@2x.png in Resources */,
 				E57127EF1E93B7C50064F515 /* xl_tunai.plist in Resources */,
 				E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */,
@@ -2701,7 +2691,6 @@
 				E58FCD951E94CFD500632085 /* BackBarIcon@2x.png in Resources */,
 				E58FCDA91E94CFD500632085 /* bca_va@2x.png in Resources */,
 				0C6E2AA91F20676400032097 /* token_key@4x.png in Resources */,
-				0CCF99EE1F46C70000920308 /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
 				0C108A0C1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */,
@@ -2895,7 +2884,6 @@
 				0C46FA851EEFCF4D002342E2 /* TokenButtonIcon@2x.png in Resources */,
 				0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */,
 				E58FCDD21E94CFD500632085 /* CreditCardBackSmall@2x.png in Resources */,
-				0CCF99ED1F46C70000920308 /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E58FCE301E94CFD600632085 /* other_alto_7@2x.png in Resources */,
 				E5F1BB841E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
 				E58FCD901E94CFD500632085 /* anz@2x.png in Resources */,
@@ -3095,7 +3083,6 @@
 				E58FCE541E94CFD600632085 /* permata_atm_1@2x.png in Resources */,
 				E5F1BB621E93701100ED659D /* MidtransTransactionDetailViewController.xib in Resources */,
 				E5F1BB791E93701100ED659D /* VTMandiriClickpayController.xib in Resources */,
-				0CCF99DE1F469E5700920308 /* MidtransNewCreditCardViewController.xib in Resources */,
 				E58FCD9C1E94CFD500632085 /* bca_atm_3@2x.png in Resources */,
 				E58FCE141E94CFD500632085 /* MasterCard@2x.png in Resources */,
 				E58FCDA41E94CFD500632085 /* bca_klikbca@2x.png in Resources */,
@@ -3358,31 +3345,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		0CCF99E11F469E5700920308 /* MidtransNewCreditCardViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0CCF99E21F469E6200920308 /* en */,
-			);
-			name = MidtransNewCreditCardViewController.xib;
-			path = MidtransKit/resources;
-			sourceTree = SOURCE_ROOT;
-		};
 		0CCF99EB1F46A3EA00920308 /* SNPPostPaymentGeneralViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				0CCF99EA1F46A3EA00920308 /* en */,
 			);
 			name = SNPPostPaymentGeneralViewController.xib;
-			path = MidtransKit/resources;
-			sourceTree = SOURCE_ROOT;
-		};
-		0CCF99F01F46C70000920308 /* MidtransUIPaymentDirectViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0CCF99EF1F46C70000920308 /* en */,
-				0CCF99F11F46C70200920308 /* id */,
-			);
-			name = MidtransUIPaymentDirectViewController.xib;
 			path = MidtransKit/resources;
 			sourceTree = SOURCE_ROOT;
 		};

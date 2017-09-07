@@ -601,7 +601,7 @@ UIAlertViewDelegate
     if (self.saveCreditCardOnly) {
         NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
         NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
-        NSString *expYear = [NSString stringWithFormat:@"%d",[data[1] integerValue]+2000];
+        NSString *expYear = [NSString stringWithFormat:@"%ld",[data[1] integerValue]+2000];
         MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]
                                                                         expiryMonth:expMonth
                                                                          expiryYear:expYear

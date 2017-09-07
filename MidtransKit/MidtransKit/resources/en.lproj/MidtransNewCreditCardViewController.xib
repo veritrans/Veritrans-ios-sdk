@@ -252,7 +252,7 @@
         </view>
     </objects>
     <resources>
-        <image name="default.png" width="256" height="25"/>
+        <image name="default.png" width="37" height="22"/>
         <image name="hint.png" width="21" height="21"/>
         <image name="trash-icon.png" width="12" height="14"/>
     </resources>

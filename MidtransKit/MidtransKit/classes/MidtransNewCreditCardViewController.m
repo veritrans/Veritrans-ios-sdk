@@ -94,7 +94,7 @@ UIAlertViewDelegate
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    self.title = UILocalizedString(@"creditcard.input.title", nil);
+    self.title =  UILocalizedString(@"creditcard.input.title", nil);//(@"creditcard.input.title", nil);
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
     NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
     
@@ -601,7 +601,7 @@ UIAlertViewDelegate
     if (self.saveCreditCardOnly) {
         NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
         NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
-        NSString *expYear = [NSString stringWithFormat:@"%ld",[data[1] integerValue]+2000];
+        NSString *expYear = [NSString stringWithFormat:@"%d",[data[1] integerValue]+2000];
         MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]
                                                                         expiryMonth:expMonth
                                                                          expiryYear:expYear

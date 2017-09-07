@@ -22,6 +22,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    
+    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
+    
     self.addOnTableView.scrollEnabled = false;
     self.addOnTableView.allowsMultipleSelection = YES;
     self.secureBadgeWrapper.layer.cornerRadius = 3.0f;

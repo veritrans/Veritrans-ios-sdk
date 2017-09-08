@@ -31,8 +31,6 @@
     
     NSString *clientkey;
     NSString *merchantServer;
-    clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-    merchantServer = @"https://rakawm-snap.herokuapp.com";
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
             clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
@@ -44,6 +42,8 @@
             break;
     }
 
+    clientkey = @"VT-client-sYXnnlkQ90V_HdHT";
+    merchantServer = @"https://rallypointdev3.azurewebsites.net/api/payment";
         [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
            merchantServerURL:merchantServer];
@@ -104,7 +104,7 @@
                                                                    price:@20000
                                                                 quantity:@1];
     
-    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
+    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:@"2095e0c8-c361-4362-86f3-4e4047a76504"
                                                                            andGrossAmount:[NSNumber numberWithInt:20000]];
     
     //configure theme

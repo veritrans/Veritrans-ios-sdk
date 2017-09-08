@@ -50,13 +50,16 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeatureXLTunai,
     MidtransPaymentFeatureMandiriClickPay,
     MidtransPaymentFeatureKiosON,
-    MidtransPaymentFeatureGCI
+    MidtransPaymentFeatureGCI,
+    MidtransPaymentCreditCardForm
 };
 @class MidtransUIPaymentViewController;
 
 @protocol MidtransUIPaymentViewControllerDelegate;
 
 @protocol MidtransUIPaymentViewControllerDelegate <NSObject>
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCard:(MidtransMaskedCreditCard *)result;
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCardFailed:(NSError *)error;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error;
@@ -66,6 +69,7 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
 @interface MidtransUIPaymentViewController : UINavigationController
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andPaymentFeature:(MidtransPaymentFeature)paymentFeature;
+- (instancetype)initCreditCardForm;
 @property (nonatomic, weak) id<MidtransUIPaymentViewControllerDelegate> paymentDelegate;
 
 @end

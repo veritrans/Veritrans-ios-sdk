@@ -27,16 +27,19 @@
     [super viewDidLoad];
     
     self.title = self.paymentMethod.title;
-    
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
+        self.view.topConstraints.constant = 40.0f;
+    }
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.instructionTitleLabel.text = [NSString stringWithFormat:@"%@ step by step", self.paymentMethod.title];
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
+    NSLog(@"data-->%@",UILocalizedString(@"payment.va.confirm_button",@""));
 }
 - (void)setPaymentType:(MidtransVAType)paymentType {
     _paymentType = paymentType;
-    [self.view.confirmPaymentButton setTitle:UILocalizedString(@"payment.va.confirm_button", nil) forState:UIControlStateNormal];
+    [self.view.confirmPaymentButton setTitle:UILocalizedString(@"payment.va.confirm_button",@"") forState:UIControlStateNormal];
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];

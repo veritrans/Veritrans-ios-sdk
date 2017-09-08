@@ -16,10 +16,16 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
     MTCreditCardPaymentTypeOneclick,
     MTCreditCardPaymentTypeTwoclick
 };
+typedef NS_ENUM(NSUInteger, MTAuthenticationType) {
+        MTAuthenticationTypeNone,
+        MTAuthenticationTypeRBA,
+        MTAuthenticationType3DS,
+};
 
 typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
     MTAcquiringBankUnknown,
     MTAcquiringBankBCA,
+    MTAcquiringBankMEGA, 
     MTAcquiringBankBRI,
     MTAcquiringBankCIMB,
     MTAcquiringBankMandiri,
@@ -31,6 +37,7 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
 
 @property (nonatomic, readonly) NSString *acquiringBankString;
 @property (nonatomic, readonly) NSString *channel;
+@property (nonatomic, readonly) NSString *authenticationTypeString;
 
 @property (nonatomic) MTCreditCardPaymentType paymentType;
 @property (nonatomic) BOOL setDefaultCreditSaveCardEnabled;
@@ -54,7 +61,7 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
  Custom acquiring bank for credit card payment
  */
 @property (nonatomic) MTAcquiringBank acquiringBank;
-
+@property (nonatomic) MTAuthenticationType authenticationType;
 /*
  Set to YES if you want to enable promo engine feature
  */

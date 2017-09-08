@@ -24,6 +24,7 @@
 @property (nonatomic, weak) id<VTPaymentListViewDelegate>delegate;
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 
+@property (weak, nonatomic) IBOutlet UIImageView *secureBadgeImage;
 - (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response;
 
 @end

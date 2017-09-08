@@ -25,6 +25,7 @@
     NSLog(@"Fonts:\n%@\n%@", [UIFont fontNamesForFamilyName:@"Bariol"], [UIFont fontNamesForFamilyName:@"Source Sans Pro"]);
 
     [MDOptionManager shared];
+    
     [Fabric with:@[[Crashlytics class]]];
     MDProductViewController *pvc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
     MDOptionsViewController *ovc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];

@@ -46,12 +46,26 @@
                 [MDOption optionGeneralWithName:@"CIMB" value:@(MTAcquiringBankCIMB)],
                 [MDOption optionGeneralWithName:@"BRI" value:@(MTAcquiringBankBRI)],
                 [MDOption optionGeneralWithName:@"Mandiri" value:@(MTAcquiringBankMandiri)],
-                [MDOption optionGeneralWithName:@"Maybank" value:@(MTAcquiringBankMaybank)]];
+                [MDOption optionGeneralWithName:@"Maybank" value:@(MTAcquiringBankMaybank)],
+                [MDOption optionGeneralWithName:@"Mega" value:@(MTAcquiringBankMEGA)]];
     MDOptionView *optAcqBank = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
                                             titleTemplate:@"Issuing Bank by %@"
                                                   options:options
                                                identifier:OPTAcquiringBank];
     [optAcqBank selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].issuingBankOption]];
+    
+    
+    
+    ////// auth type
+    
+    options = @[[MDOption optionGeneralWithName:@"None" value:@(MTAuthenticationTypeNone)],
+                [MDOption optionGeneralWithName:@"RBA" value:@(MTAuthenticationTypeRBA)],
+                [MDOption optionGeneralWithName:@"3DS" value:@(MTAuthenticationType3DS)]];
+    MDOptionView *optAuth = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
+                                            titleTemplate:@"Auth Type %@"
+                                                  options:options
+                                               identifier:OPTAuthType];
+    [optAuth selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].authTypeOption]];
     
     ///////////
     //expire time
@@ -171,6 +185,7 @@
     //installment
     options = @[[MDOption optionGeneralWithName:@"Disabled" value:nil],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"Mandiri" value:[MDUtils installmentOfBank:@"mandiri" isRequired:NO]],
+                 [MDOption optionComposer:MDComposerTypeRadio name:@"CIMB" value:[MDUtils installmentOfBank:@"cimb" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[MDUtils installmentOfBank:@"bca" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[MDUtils installmentOfBank:@"bni" isRequired:NO]]];
     MDOptionView *optInstallment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"installment"]
@@ -195,6 +210,7 @@
                          optType,
                          opt3ds,
                          optAcqBank,
+                         optAuth,
                          optCustomExpiry,
                          optSaveCard,
                          optPromo,

@@ -37,6 +37,7 @@
 }
 
 - (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response {
+    
     self.responsePayment = response;
     self.items = items;
     self.headerView.priceAmountLabel.text = [items formattedPriceAmount];
@@ -62,6 +63,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
+    if (!cell) {
+        cell = [[MidtransUIListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MidtransUIListCell"];
+    }
     [cell configurePaymetnList:self.paymentMethods[indexPath.row] withFullPaymentResponse:self.responsePayment];
     return cell;
 }
@@ -69,6 +73,10 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+        MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
+    if ([paymentModel.status isEqualToString:@"down"]) {
+        return;
+    }
     if ([self.delegate respondsToSelector:@selector(paymentListView:didSelectAtIndex:)]) {
         [self.delegate paymentListView:self didSelectAtIndex:indexPath.row];
     }
@@ -83,7 +91,11 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+     MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
+    if ([paymentModel.status isEqualToString:@"down"]) {
+        return 120;
+    }
+   return 80;
 }
 
 @end

@@ -37,5 +37,7 @@
 - (NSString *)chargeURL {
     return [NSString stringWithFormat:ENDPOINT_CHARGE, [PRIVATECONFIG snapURL], self.token.tokenId];
 }
-
+- (NSString *)checkStatusRBA {
+    return [NSString stringWithFormat:ENDPOINT_CHECK_STATUS_RBA, [PRIVATECONFIG snapURL], self.token.tokenId];
+}
 @end

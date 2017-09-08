@@ -39,6 +39,14 @@ static NSString* const ClickpayAPPLI = @"3";
     // Do any additional setup after loading the view.
     
     self.title = self.paymentMethod.title;
+    [self.view layoutIfNeeded];
+    [self.keyTokenView setNeedsUpdateConstraints];
+    [self.keyTokenView updateConstraintsIfNeeded];
+    [UIView animateWithDuration:2.0f delay:0.0f options:UIViewAnimationOptionLayoutSubviews animations:^{
+        self.keyTokeViewHeightConstraints.constant = 40;
+        self.keyTokenView.hidden = NO;
+        [self.view layoutIfNeeded];
+    } completion:nil];
     
     [self addNavigationToTextFields:@[self.debitNumberTextField, self.tokenTextField]];
     

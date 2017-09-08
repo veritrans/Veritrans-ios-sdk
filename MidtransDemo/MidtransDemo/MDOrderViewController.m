@@ -9,7 +9,7 @@
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <MidtransCOreKit/SNPFreeTextDataModels.h>
+#import <MidtransCoreKit/SNPFreeTextDataModels.h>
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
@@ -31,6 +31,8 @@
     
     NSString *clientkey;
     NSString *merchantServer;
+    clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+    merchantServer = @"https://rakawm-snap.herokuapp.com";
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
             clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
@@ -42,17 +44,13 @@
             break;
     }
 
-    /*
-     [CONFIG setClientKey:@"d4b273bc-201c-42ae-8a35-c9bf48c1152b"
-     environment:MidtransServerEnvironmentProduction
-     merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
-     */
-    [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:merchantServer];
+        [CONFIG setClientKey:clientkey
+                 environment:MidtransServerEnvironmentSandbox
+           merchantServerURL:merchantServer];
     
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
+    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
@@ -89,24 +87,25 @@
 - (IBAction)bayarPressed:(id)sender {
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
                                                          lastName:@"last"
-                                                            phone:@""
+                                                            phone:@"123123"
                                                           address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
                                                              city:@"Jakarta"
                                                        postalCode:@"10220"
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"midtrans@mailinator.com"
-                                                                                phone:@""
+                                                                                email:@"secure_email_rba@example.com"
+                                                                                phone:@"123123"
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
-    cst.customerIdentifier = @"midtrans@mailinator.com";
+    cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
                                                                    price:@20000
                                                                 quantity:@1];
+    
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:itm.price];
+                                                                           andGrossAmount:[NSNumber numberWithInt:20000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -120,13 +119,35 @@
         binFilter = @[@"410505"];
     }
     //configure expire time
+    [[MidtransNetworkLogger shared] startLogging];
     MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
+    
+    //NSArray *cf = @[MIDTRANS_CUSTOMFIELD_1:@{@"voucher_code":@"123",@"amount":@"123"}];
+    NSMutableArray *arrayOfCustomField = [NSMutableArray new];
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    NSString *jsonString;
+    if (jsonData) {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        //This is your JSON String
+        //NSUTF8StringEncoding encodes special characters using an escaping scheme
+    } else {
+        NSLog(@"Got an error: %@", error);
+        jsonString = @"";
+    }
+    NSLog(@"Your JSON String is %@", jsonString);
+    
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
+
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
-                                                                       customField:nil
+                                                                       customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                              transactionExpireTime:expr
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
@@ -142,7 +163,7 @@
              [alert show];
          }
          else {
-            //MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureMandiriEcash];
+
             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];

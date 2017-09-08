@@ -8,10 +8,11 @@
 
 #import "MDCardListViewController.h"
 #import "MDCardTableViewCell.h"
+#import <MidtransKit/MidtransKit.h>
 #import "MDAddCardViewController.h"
 #import "MDSaveCardFooter.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-@interface MDCardListViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MDCardListViewController ()<UITableViewDelegate,UITableViewDataSource,MidtransUIPaymentViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic,strong) NSArray *maskedCard;
 @property (nonatomic,strong)MDSaveCardFooter *footerView;
@@ -49,14 +50,38 @@
     [self.tableView reloadData];
 }
 - (void)addCardPressed:(id)sender{
-    MDAddCardViewController *addCardVC = [[MDAddCardViewController alloc]
-                                          initWithNibName:@"MDAddCardViewController" bundle:nil];
-    [self.navigationController pushViewController:addCardVC animated:YES];
+    
+    NSString *clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+    NSString *merchantServer = @"https://rakawm-snap.herokuapp.com";
+    [[MidtransNetworkLogger shared] startLogging];
+    [CONFIG setClientKey:clientkey
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:merchantServer];
+    MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initCreditCardForm];
+    paymentVC.paymentDelegate = self;
+    [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.maskedCard.count;
 }
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCard:(MidtransMaskedCreditCard *)result{
+    NSLog(@"data-->%@",result);
+    [self saveCreditCardObject:result];
+}
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCardFailed:(NSError *)error {
+    NSLog(@"data-->%@",error);
+}
 
+- (void)saveCreditCardObject:(MidtransMaskedCreditCard *)creditCardObject {
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSArray *arrayOfRawCard = [userDefaults objectForKey:@"SAVED_CARD"];
+    NSMutableArray *mutableDataArray =[NSMutableArray arrayWithArray:arrayOfRawCard];
+    [mutableDataArray addObject:[creditCardObject dictionaryValue]];
+    [userDefaults setObject:mutableDataArray forKey:@"SAVED_CARD"];
+    [userDefaults objectForKey:@"SAVED_CARD"];
+    [userDefaults synchronize];
+    [self.tableView reloadData];
+}
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 60.0f;
 }

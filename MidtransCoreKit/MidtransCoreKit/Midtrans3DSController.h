@@ -8,12 +8,19 @@
 
 #import <UIKit/UIKit.h>
 #import "MidtransTransactionResult.h"
+@class MidtransTransaction,MidtransTransactionResult;
+@protocol Midtrans3DSControllerDelegate<NSObject>
+- (void)rbaDidGetTransactionStatus:(MidtransTransactionResult *)transactionResult;
+- (void)rbaDidGetError:(NSError *)error;
+@end
 
 @interface Midtrans3DSController : UIViewController
 @property (nonatomic, strong) UIWebView *webView;
 @property (nonatomic, readonly) NSURL *secureURL;
 @property (nonatomic, readonly) NSString *token;
-
+@property (nonatomic, strong) MidtransTransaction *transcationData;
+@property (nonatomic,strong) NSString *titleOveride;
+@property (nonatomic,weak) id<Midtrans3DSControllerDelegate>delegate;
 - (instancetype)initWithToken:(NSString *)token
                     secureURL:(NSURL *)secureURL;
 

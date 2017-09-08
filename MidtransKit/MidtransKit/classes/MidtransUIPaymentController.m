@@ -129,12 +129,9 @@
     [self.maintainView hide];
 }
 - (void)maintainViewButtonDidTapped:(NSString *)title {
-    if ([self.title isEqualToString:@"okay, bring me back"]) {
-         [self dismissDemoBadge];
-        [self.navigationController dismissViewControllerAnimated:YES
-                                                      completion:nil];
-
-    }
+    [self dismissDemoBadge];
+    [self.navigationController dismissViewControllerAnimated:YES
+                                                  completion:nil];
 }
 - (void)showLoadingWithText:(NSString *)text {
     [self.loadingView showInView:self.navigationController.view withText:text];
@@ -199,7 +196,18 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-
+- (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result {
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+    [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_SUCCESS object:nil userInfo:userInfo];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    return;
+}
+- (void)handleSaveCardError:(NSError *)error {
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:error};
+    [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_FAILED object:nil userInfo:userInfo];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    return;
+}
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     if (UICONFIG.hideStatusPage) {
         [self dismissDemoBadge];

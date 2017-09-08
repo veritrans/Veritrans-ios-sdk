@@ -88,7 +88,7 @@
     
     
     NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
-    if ([self.paymentMethod.title isEqualToString:@"Other Bank"]) {
+    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
         guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];

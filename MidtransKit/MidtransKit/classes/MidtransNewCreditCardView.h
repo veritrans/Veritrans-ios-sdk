@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *cvvInfoButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *installmentWrapperViewConstraints;
 @property (nonatomic) IBOutlet UIButton *deleteButton;
+@property (weak, nonatomic) IBOutlet UIImageView *secureBadgeImage;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

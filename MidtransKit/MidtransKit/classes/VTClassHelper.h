@@ -7,10 +7,12 @@
 //
 
 #define VTBundle [VTClassHelper kitBundle]
-
+#define VTLocaleBundle  [VTClassHelper localeBundle]
 #define UILocalizedString(key, comment) \
 [VTBundle localizedStringForKey:(key) value:@"" table:nil]
 
+#define MidtransLocale(key, comment) \
+[VTLocaleBundle localizedStringForKey:(key) value:@"" table:nil]
 #define IPHONE_4 ( fabs( ( double )[ [ UIScreen mainScreen ] bounds ].size.height - ( double )480 ) < DBL_EPSILON )
 
 #define snpRGB(r, g, b) \
@@ -28,6 +30,7 @@
 
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
++ (NSBundle *)localeBundle;
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath;
 + (NSArray <VTGroupedInstruction*>*)groupedInstructionsFromFilePath:(NSString *)filePath;
 + (BOOL)hasKindOfController:(UIViewController *)controller onControllers:(NSArray<UIViewController*>*)controllers;

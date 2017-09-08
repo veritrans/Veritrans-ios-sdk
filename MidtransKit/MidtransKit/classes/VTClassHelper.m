@@ -41,28 +41,44 @@
 @end
 
 @implementation VTClassHelper
++ (NSBundle *)localeBundle {
+    static NSBundle* kioskitBundle = nil;
+    static dispatch_once_t predicate;
+    dispatch_once(&predicate, ^{
+        
+        NSString *libraryBundlePath = [[NSBundle mainBundle] pathForResource:@"MidtransKit"
+                                                                      ofType:@"bundle"];
+        
+        NSBundle *libraryBundle = [NSBundle bundleWithPath:libraryBundlePath];
+        NSString *langID        = [[NSLocale preferredLanguages] objectAtIndex:0];
+        NSString *path          = [libraryBundle pathForResource:langID ofType:@"lproj"];
+        kioskitBundle           = [NSBundle bundleWithPath:path];
+    });
+    return kioskitBundle;
+}
+
 
 + (NSBundle*)kitBundle {
     static dispatch_once_t onceToken;
-    static NSBundle *ourBundle;
+    static NSBundle *midtransKitBundle;
     dispatch_once(&onceToken, ^{
-        ourBundle = [NSBundle bundleWithPath:@"MidtransKit.bundle"];
-        if (ourBundle == nil) {
+        midtransKitBundle = [NSBundle bundleWithPath:@"MidtransKit.bundle"];
+        if (midtransKitBundle == nil) {
             // This might be the same as the previous check if not using a dynamic framework
             NSString *path = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:@"MidtransKit" ofType:@"bundle"];
-            ourBundle = [NSBundle bundleWithPath:path];
+            midtransKitBundle = [NSBundle bundleWithPath:path];
         }
         
-        if (ourBundle == nil) {
+        if (midtransKitBundle == nil) {
             // This will be the same as mainBundle if not using a dynamic framework
-            ourBundle = [NSBundle bundleForClass:[VTClassHelper class]];
+            midtransKitBundle = [NSBundle bundleForClass:[VTClassHelper class]];
         }
         
-        if (ourBundle == nil) {
-            ourBundle = [NSBundle mainBundle];
+        if (midtransKitBundle == nil) {
+            midtransKitBundle = [NSBundle mainBundle];
         }
     });
-    return ourBundle;
+    return midtransKitBundle;
 }
 
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {

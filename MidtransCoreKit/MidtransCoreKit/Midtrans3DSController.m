@@ -9,7 +9,8 @@
 #import "Midtrans3DSController.h"
 #import "MidtransHelper.h"
 #import "MidtransConstant.h"
-
+#import "MidtransMerchantClient.h"
+#import "MidtransTransaction.h"
 @interface Midtrans3DSController() <UIWebViewDelegate, UIAlertViewDelegate>
 @property (nonatomic) NSURL *secureURL;
 @property (nonatomic) NSString *token;
@@ -40,16 +41,14 @@
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     self.navigationItem.leftBarButtonItem = closeButton;
-    self.title = NSLocalizedString(@"3D Secure", nil);
-    
+    self.title =self.titleOveride.length?self.titleOveride:NSLocalizedString(@"3D Secure", nil);
+    self.title = @"Credit Card";
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     self.webView.delegate = self;
-    
     [self.view addSubview:self.webView];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
-    
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.secureURL]];
 }
 
@@ -91,16 +90,33 @@
     NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = %f;", factor];
     [self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
 }
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self scaleTo3DSSize];
-    
     //filter request
     NSURLRequest *request = webView.request;
-    if (request.URL.pathComponents.count > 3 &&
-        [request.URL.pathComponents[3] isEqualToString:@"callback"]) {
+    ////this is for rba
+    if (request.URL.pathComponents.count >3 && [request.URL.pathComponents[4] isEqualToString:@"callback"] ) {
+        
+        [[MidtransMerchantClient shared] performCheckStatusRBA:self.transcationData completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
+            if (error) {
+                if ([self.delegate respondsToSelector:@selector(rbaDidGetError:)]) {
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        [self.delegate rbaDidGetError:error];
+                    }];
+                }
+            }
+            else {
+                if ([self.delegate respondsToSelector:@selector(rbaDidGetTransactionStatus:)]) {
+                    [self dismissViewControllerAnimated:YES completion:^{
+                        [self.delegate rbaDidGetTransactionStatus:result];
+                    }];
+                }
+            }
+        }];
+    }
+    if (request.URL.pathComponents.count > 3 && [request.URL.pathComponents[3] isEqualToString:@"callback"]) {
         
         [self dismissViewControllerAnimated:YES completion:^{
             if (self.completion) self.completion(nil);

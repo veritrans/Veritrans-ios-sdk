@@ -11,7 +11,7 @@
 "payment.pay-at" = "Pay at %@";
 "clickpay.invalid-number" = "Invalid Debit Number";
 "clickpay.invalid-token" = "Invalid Clickpay Token";
-"name.other-bank" = "Other Bank";
+"name.other-bank" = "Other ATM Network";
 "payment.how" = "How Can I Pay Via %@";
 "payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
 "payment.email-placeholder" = "Email Address (optional)";

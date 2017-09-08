@@ -38,7 +38,7 @@
         self.title = @"BCA KlikPay";
     }
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH]) {
-        self.title = @"Mandiri E-Cash";
+        self.title = @"LINE Pay e-cash / mandiri e-cash";
     }
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
         self.title = @"CIMB Clicks";

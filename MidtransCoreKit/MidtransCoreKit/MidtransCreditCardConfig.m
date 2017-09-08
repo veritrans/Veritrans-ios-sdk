@@ -37,7 +37,22 @@ NSString *const vPaymentGatewayMIGS = @"migs";
             break;
     }
 }
-
+- (NSString *)authenticationTypeString {
+    switch (self.authenticationType) {
+        case MTAuthenticationTypeRBA:
+            return @"rba";
+            break;
+        case MTAuthenticationType3DS:
+            return @"3ds";
+            break;
+        case MTAuthenticationTypeNone:
+            return @"none";
+            break;
+        default:
+            return @"none";
+            break;
+    }
+}
 - (NSString *)channel {
     switch (self.acquiringBank) {
         case MTAcquiringBankBCA:
@@ -57,6 +72,8 @@ NSString *const vPaymentGatewayMIGS = @"migs";
     switch (self.acquiringBank) {
         case MTAcquiringBankBCA:
             return @"bca";
+        case MTAcquiringBankMEGA:
+            return @"mega";
         case MTAcquiringBankBRI:
             return @"bri";
         case MTAcquiringBankBNI:

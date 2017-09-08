@@ -10,5 +10,7 @@
 #import "MidtransUIPaymentController.h"
 
 @interface VTMandiriClickpayController : MidtransUIPaymentController
+@property (weak, nonatomic) IBOutlet UIView *keyTokenView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyTokeViewHeightConstraints;
 
 @end

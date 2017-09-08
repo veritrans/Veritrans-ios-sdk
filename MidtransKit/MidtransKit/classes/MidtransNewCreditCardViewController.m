@@ -29,6 +29,7 @@ UITableViewDataSource,
 MidtransUITextFieldDelegate,
 MidtransUICardFormatterDelegate,
 MidtransInstallmentViewDelegate,
+Midtrans3DSControllerDelegate,
 UIAlertViewDelegate
 >
 
@@ -42,6 +43,7 @@ UIAlertViewDelegate
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 @property (nonatomic,strong) NSString *installmentBankName;
 @property (nonatomic) NSMutableArray *maskedCards;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstraints;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
@@ -90,9 +92,17 @@ UIAlertViewDelegate
 }
 
 - (void)viewDidLoad {
+
     [super viewDidLoad];
-    self.title = UILocalizedString(@"creditcard.input.title", nil);
+    self.title =  UILocalizedString(@"creditcard.input.title", nil);//(@"creditcard.input.title", nil);
+    NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
+    NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
     
+    [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+    if (self.saveCreditCardOnly) {
+        self.isSaveCard = NO;
+        self.headerViewHeightConstraints.constant = 0.0f;
+    }
     if (self.currentMaskedCards) {
         self.maskedCards = [NSMutableArray arrayWithArray:self.currentMaskedCards];
     }
@@ -588,6 +598,26 @@ UIAlertViewDelegate
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
     
+    if (self.saveCreditCardOnly) {
+        NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
+        NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
+        NSString *expYear = [NSString stringWithFormat:@"%ld",[data[1] integerValue]+2000];
+        MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]
+                                                                        expiryMonth:expMonth
+                                                                         expiryYear:expYear
+                                                                                cvv:self.view.cardCVVNumberTextField.text];
+        [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
+            [self hideLoading];
+            if (!error) {
+                [self handleSaveCardSuccess:maskedCreditCard];
+            }
+            else {
+                [self handleRegisterCreditCardError:error];
+            }
+        }];
+        return;
+    }
+
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive) {
@@ -621,8 +651,8 @@ UIAlertViewDelegate
             [self handleRegisterCreditCardError:error];
             return;
         }
-        
         cardNumber = creditCard.number;
+        
     }
     
     if (self.bins.count) {
@@ -733,7 +763,12 @@ UIAlertViewDelegate
                                                        }];
              }
              if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
-                 [self handleTransactionResult:result];
+                 if (result.statusCode == 201) {
+                     [self handleRBATransactionWithTransactionResult:result withTransactionData:transaction];
+                 }
+                 else {
+                   [self handleTransactionSuccess:result];
+                 }
              }
              else {
                  if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
@@ -746,13 +781,41 @@ UIAlertViewDelegate
                      [alert show];
                  }
                  else {
-                     [self handleTransactionSuccess:result];
+                     if (result.statusCode == 201) {
+                         [self handleRBATransactionWithTransactionResult:result withTransactionData:transaction];
+                     }
+                     else {
+                       [self handleTransactionSuccess:result];
+                     }
+                     
                  }
              }
          }
      }];
 }
+-(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
+                             withTransactionData:(MidtransTransaction *)transaction  {
+    
+    Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:nil
+                                                                                 secureURL:[NSURL URLWithString:[result.additionalData objectForKey:@"redirect_url"]]];
+    secureController.transcationData = transaction;
+    secureController.delegate = self;
+    [secureController showWithCompletion:^(NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
+    
+}
+- (void)rbaDidGetError:(NSError *)error{
+    [self handleTransactionError:error];
+}
 
+- (void)rbaDidGetTransactionStatus:(MidtransTransactionResult *)transactionResult {
+    [self handleTransactionSuccess:transactionResult];
+}
 - (void)handleRegisterCreditCardError:(NSError *)error {
     if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"

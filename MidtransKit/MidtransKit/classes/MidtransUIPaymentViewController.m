@@ -23,6 +23,13 @@
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     return self;
 }
+- (instancetype)initCreditCardForm {
+    VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:nil paymentMethodName:nil];
+    vc.paymentMethodSelected = MIDTRANS_CREDIT_CARD_FORM;
+    self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
+    return self;
+
+}
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andPaymentFeature:(MidtransPaymentFeature)paymentFeature {
     NSString *paymentMethodSelected;
     switch (paymentFeature) {
@@ -65,12 +72,16 @@
         case MidtransPaymentFeatureGCI:
             paymentMethodSelected = MIDTRANS_PAYMENT_GCI;
             break;
+        case MidtransPaymentCreditCardForm:
+            paymentMethodSelected = MIDTRANS_CREDIT_CARD_FORM;
+            break;
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
             break;
         default:
             break;
     }
+    
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     vc.paymentMethodSelected = paymentMethodSelected;
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
@@ -105,8 +116,22 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionPending:) name:TRANSACTION_PENDING object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionCanceled:) name:TRANSACTION_CANCELED object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCardSuccess:) name:SAVE_CARD_SUCCESS object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(saveCardFailed:) name:SAVE_CARD_FAILED object:nil];
+    
 }
-
+- (void)saveCardSuccess:(NSNotification *)sender {
+    [self dismissDemoBadge];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:saveCard:)]) {
+        [self.paymentDelegate paymentViewController:self saveCard:sender.userInfo[TRANSACTION_RESULT_KEY]];
+    }
+}
+- (void)saveCardFailed:(NSNotification *)sender {
+    [self dismissDemoBadge];
+    if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:saveCardFailed:)]) {
+        [self.paymentDelegate paymentViewController:self saveCard:sender.userInfo[TRANSACTION_RESULT_KEY]];
+    }
+}
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }

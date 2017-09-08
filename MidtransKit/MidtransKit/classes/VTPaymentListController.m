@@ -32,6 +32,7 @@
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
 @property (nonatomic)BOOL singlePayment;
+@property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
 @end
 
@@ -43,7 +44,15 @@
     [super viewDidLoad];
     [[SNPUITrackingManager shared] trackEventName:@"pg select payment"];
     self.view.delegate = self;
-    
+    if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
+        MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
+        creditCardVC.saveCreditCardOnly = YES;
+        creditCardVC.title = @"Add New Card";
+        [creditCardVC showDismissButton:creditCardVC.saveCreditCardOnly];
+        [self.navigationController pushViewController:creditCardVC animated:!creditCardVC.saveCreditCardOnly];
+        return;
+        
+    }
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
     self.title =  UILocalizedString(@"payment.list.title", nil);
     self.singlePayment = false;
@@ -70,7 +79,7 @@
   
 }
 - (void)loadPaymentList {
-    
+
     NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
@@ -88,6 +97,12 @@
      {
          self.title = response.merchant.preference.displayName;
          if (response) {
+             
+             NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
+             NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
+             
+             [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+             
              //applying SNAP color if any
              UIColor *snapColor = [self colorFromSnapScheme:response.merchant.preference.colorScheme];
              [MidtransUIThemeManager applySnapThemeColor:snapColor];
@@ -136,20 +151,21 @@
                  }
                  
                  if (index != NSNotFound) {
-                     
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
+                         self.bankTransferOnly = 1;
                          if (!vaAlreadyAdded) {
-                             if (mainIndex!=0) {
                                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                 model.status = enabledPayment.status;
                                  self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
                                  vaAlreadyAdded = YES;
-                             }
                          }
                      }
                      
                      else {
-                         
+                         self.bankTransferOnly = 0;
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                         model.status = enabledPayment.status;
+
                          [self.paymentMethodList addObject:model];
                          
                      }
@@ -165,17 +181,15 @@
                  }
                  
              }
-             if (self.paymentMethodSelected.length > 0) {
+             if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count ==1 || self.bankTransferOnly) {
                  self.singlePayment = YES;
-                 if ([self.paymentMethodSelected isEqualToString:@"bhank_transfer"]) {
-                     return;
-                 }
                  [self redirectToPaymentMethodAtIndex:0];
              }
          }
          else {
              [self hideLoading];
-             [self showMaintainViewWithTtitle:@"we're currently down for maintenance" andContent:@"We expect to be back in a couple hours. Thanks for your patience" andButtonTitle:@"okay, bring me back"];
+             
+             [self showMaintainViewWithTtitle:@"we're currently down for maintenance" andContent:@"We expect to be back in a couple hours. Thanks for your patience" andButtonTitle:@"okay,bring me back"];
              NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
              [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
          }
@@ -264,6 +278,7 @@
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         vc.paymentResponse = self.responsePayment;
+                        [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||

@@ -13,6 +13,7 @@
 
 + (MDOptionManager *)shared;
 
+@property (nonatomic) MDOption *authTypeOption;
 @property (nonatomic) MDOption *ccTypeOption;
 @property (nonatomic) MDOption *secure3DOption;
 @property (nonatomic) MDOption *issuingBankOption;

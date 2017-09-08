@@ -31,6 +31,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         self.secure3DOption = [self unArchivedObject:@"md_3ds"];
+        self.authTypeOption = [self unArchivedObject:@"auth_type"];
         self.issuingBankOption = [self unArchivedObject:@"md_bank"];
         self.saveCardOption = [self unArchivedObject:@"md_savecard"];
         self.promoOption = [self unArchivedObject:@"md_promo"];
@@ -61,6 +62,10 @@
         self.secure3DOption = [MDOption optionGeneralWithName:@"Enable" value:@YES];
     }
     return _secure3DOption;
+}
+- (void)setAuthTypeOption:(MDOption *)authTypeOption {
+    _authTypeOption = authTypeOption;
+    [self archiveObject:authTypeOption key:@"auth_type"];
 }
 - (void)setIssuingBankOption:(MDOption *)issuingBankOption {
     _issuingBankOption = issuingBankOption;
@@ -137,6 +142,7 @@
 }
 - (void)resetConfiguration {
     self.secure3DOption = nil;
+    self.authTypeOption = nil;
     self.issuingBankOption = nil;
     self.saveCardOption = nil;
     self.promoOption = nil;

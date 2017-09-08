@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import <MidtransKit/MidtransKit.h>
-
+#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MDOption.h"
 #import "MDPayment.h"
 #import "MDOptionView.h"
@@ -31,6 +31,7 @@
 static NSString *const OPTCreditCardFeature = @"OPTCreditCardFeature";
 static NSString *const OPT3DSecure = @"OPT3DSecure";
 static NSString *const OPTAcquiringBank = @"OPTAcquiringBank";
+static NSString *const OPTAuthType = @"OPTAuthType";
 static NSString *const OPTCustomExpire = @"OPTCustomExpire";
 static NSString *const OPTSaveCard = @"OPTSaveCard";
 static NSString *const OPTPromo = @"OPTPromo";

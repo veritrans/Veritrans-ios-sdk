@@ -41,9 +41,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:clientkey
-                 environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:merchantServer];
+        [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
+                 environment:MidtransServerEnvironmentStaging
+           merchantServerURL:@"http://localhost:8000"];
     
     //forced to use token storage
     CC_CONFIG.tokenStorageEnabled = YES;
@@ -91,18 +91,18 @@
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"secure_email_rba@example.com"
+                                                                                email:@"secure_email_rba1@example.com"
                                                                                 phone:@"123123"
                                                                       shippingAddress:[MidtransAddress new]
                                                                        billingAddress:[MidtransAddress new]];
     cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@20000
+                                                                   price:@501000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:[NSNumber numberWithInt:20000]];
+                                                                           andGrossAmount:[NSNumber numberWithInt:501000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"

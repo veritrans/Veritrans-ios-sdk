@@ -313,9 +313,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
-    [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil binFilter:nil transactionExpireTime:nil completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
-        
-    }];
+   [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil binFilter:nil transactionExpireTime:nil completion:completion];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

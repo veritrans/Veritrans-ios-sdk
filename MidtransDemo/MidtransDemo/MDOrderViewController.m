@@ -93,8 +93,8 @@
                                                                              lastName:@"last"
                                                                                 email:@"secure_email_rba@example.com"
                                                                                 phone:@"123123"
-                                                                      shippingAddress:addr
-                                                                       billingAddress:addr];
+                                                                      shippingAddress:[MidtransAddress new]
+                                                                       billingAddress:[MidtransAddress new]];
     cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
@@ -148,6 +148,7 @@
                                                                          binFilter:binFilter
                                                              transactionExpireTime:expr
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
+     
      {
          if (error) {
              if ([error.localizedDescription isKindOfClass:[NSArray class]]) {
@@ -161,7 +162,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureEchannel];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

@@ -113,7 +113,7 @@
     
     NSArray *binFilter = @[];
     if ([[MDOptionManager shared].bniPointOption.value boolValue]) {
-        binFilter = @[@"410505"];
+        binFilter = @[@"4"];
     }
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
@@ -162,7 +162,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureEchannel];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureCreditCard];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

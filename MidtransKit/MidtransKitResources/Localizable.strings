@@ -1,18 +1,18 @@
-/* 
-  Localizable.strings
-  MidtransKit
+/*
+ Localizable.strings
+ MidtransKit
+ 
+ Created by Nanang Rafsanjani on 6/22/16.
+ Copyright © 2016 Veritrans. All rights reserved.
+ */
 
-  Created by Nanang Rafsanjani on 6/22/16.
-  Copyright © 2016 Veritrans. All rights reserved.
-*/
-
-"payment.failed" = "Pembayaran Gagal";
+"payment.failed" = "Payment Failed";
 "payment.pending" = "Payment Pending";
 "payment.pay-at" = "Pay at %@";
 "clickpay.invalid-number" = "Invalid Debit Number";
 "clickpay.invalid-token" = "Invalid Clickpay Token";
-"name.other-bank" = "Other Bank";
-"payment.how" = "How can I Pay Via %@";
+"name.other-bank" = "Other ATM Network";
+"payment.how" = "How Can I Pay Via %@";
 "payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
 "payment.email-placeholder" = "Email Address (optional)";
 "payment.email-note" = "We will send you the payment code along with payment instructions to your email address";
@@ -21,20 +21,24 @@
 "payment.list.title" = "Select Payment";
 "payment.success" = "Payment Successful";
 "payment.pending" = "Payment Pending";
+"Close" = "Close";
+"payment.finish-button-title-via"="Complete Payment via %@";
 "payment.finish-button-title" = "Complete Payment At %@";
 
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
-"payment.va.confirm_button" = "Lihat Nomor Rekening";
+"payment.va.confirm_button" = "See Account Number";
 
 "toast.copy-text" = "Copied to clipboard";
 
 "creditcard.input.title" = "Card Details";
 "creditcard.list.title" = "Choose Card";
 "creditcard.twoclick.title" = "Pay With Credit Card";
-"creditcard.error.invalid-bin" = "Kartu kredit tidak bisa digunakan, silahkan gunakan kartu kredit lain.";
+"creditcard.error.invalid-bin" = "This card is not applicable, please use another one.";
+"creditcard.promo-message" = "With this card, you will get %@ discount from %@";
+"creditcard.promo-title" = "Congratulations";
 
-"va.list.title" = "Pilih Bank";
-"va.pay-button" = "Lihat Nomer Akun";
+"va.list.title" = "Select Bank";
+"va.pay-button" = "See Account Number";
 
 "payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
 "payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";
@@ -52,13 +56,15 @@
 "kioson.pending.howto-title" = "How Can I Pay via Kioson";
 "kioson.pending.copy-title" = "Copy Payment Code";
 
-"creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
-"creditcard.promo-title" = "Selamat";
+"alert.title" = "Warning";
+"alert.message-delete-card" = "Are you sure to delete this card?";
+"alert.no" = "No";
+"alert.yes" = "Yes";
+"alert.invalid-payment-token" = "Payment token is invalid, please checkout again";
 
-"alert.title" = "Perhatian";
-"alert.message-delete-card" = "Apakah anda yakin akan menghapus kartu ini?";
-"alert.no" = "Tidak";
-"alert.yes" = "Ya";
-"alert.invalid-payment-token" = "Token pembayaran tidak valid, silahkan lakukan checkout lagi";
-
-"Delete Saved Card" = "hapus kartu";
+"Delete Saved Card" = "delete this card";
+"Thank you!" = "Thank you!";
+"Ouch!" = "Ouch!";
+"Your payment can't be processed" = "Your payment can't be processed";
+"Your payment has been processed" = "Your payment has been processed";
+"Please complete payment to proceed" = "Please complete payment to proceed";

@@ -144,10 +144,11 @@
 }
 
 - (void)transactionCanceled:(NSNotification *)sender {
-    [self dismissDemoBadge];
+  
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController_paymentCanceled:)]) {
         [self.paymentDelegate paymentViewController_paymentCanceled:self];
     }
+      [self dismissDemoBadge];
 }
 
 - (void)transactionSuccess:(NSNotification *)sender {

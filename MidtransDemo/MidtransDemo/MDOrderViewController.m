@@ -14,7 +14,7 @@
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
 
-@interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate>
+@interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *amountView;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
@@ -41,16 +41,19 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
+    clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+    merchantServer = @"https://rakawm-snap.herokuapp.com";
         [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
            merchantServerURL:merchantServer];
     
     //forced to use token storage
-    CC_CONFIG.tokenStorageEnabled = YES;
+    
+    CC_CONFIG.tokenStorageEnabled =YES;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
-    CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
+    CC_CONFIG.secure3DEnabled = YES;
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
@@ -162,7 +165,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureCreditCard];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

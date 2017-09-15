@@ -80,7 +80,17 @@
     });
     return midtransKitBundle;
 }
++ (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
+    
+    NSString * lang = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSDictionary *languageDic = [NSLocale componentsFromLocaleIdentifier:lang];
+    NSString *languageCode = [languageDic objectForKey:@"kCFLocaleLanguageCodeKey"];
 
+    NSString * bundlePath = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:languageCode ofType:@"lproj"];
+    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
+    NSLog(@"data-->%@",[bundle localizedStringForKey:originalText value:originalText table:nil]);
+    return [bundle localizedStringForKey:originalText value:originalText table:nil];
+}
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {
     NSArray *guideList = [NSArray arrayWithContentsOfFile:filePath];
     NSMutableArray *instructions = [NSMutableArray new];

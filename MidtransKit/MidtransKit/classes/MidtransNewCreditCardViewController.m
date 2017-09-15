@@ -94,7 +94,8 @@ UIAlertViewDelegate
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    self.title =  UILocalizedString(@"creditcard.input.title", nil);//(@"creditcard.input.title", nil);
+    [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
+    self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];//(@"creditcard.input.title", nil);
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
     NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
     

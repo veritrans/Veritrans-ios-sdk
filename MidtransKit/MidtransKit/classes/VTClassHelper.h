@@ -31,6 +31,7 @@
 @interface VTClassHelper : UIViewController
 + (NSBundle*)kitBundle;
 + (NSBundle *)localeBundle;
++ (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText;
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath;
 + (NSArray <VTGroupedInstruction*>*)groupedInstructionsFromFilePath:(NSString *)filePath;
 + (BOOL)hasKindOfController:(UIViewController *)controller onControllers:(NSArray<UIViewController*>*)controllers;

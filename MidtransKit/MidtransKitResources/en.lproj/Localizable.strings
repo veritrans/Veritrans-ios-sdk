@@ -6,6 +6,7 @@
  Copyright © 2016 Veritrans. All rights reserved.
  */
 
+"You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" = "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button";
 "payment.failed" = "Payment Failed";
 "payment.pending" = "Payment Pending";
 "payment.pay-at" = "Pay at %@";

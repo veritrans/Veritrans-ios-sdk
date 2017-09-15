@@ -1,0 +1,71 @@
+/*
+ Localizable.strings
+ MidtransKit
+ 
+ Created by Nanang Rafsanjani on 6/22/16.
+ Copyright © 2016 Veritrans. All rights reserved.
+ */
+
+"You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" = "Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol 'Konfirmasi Pembayaran'";
+"payment.failed" = "Pembayaran Gagal";
+"payment.pending" = "Menunggu Pembayaran";
+"payment.pay-at" = "Pembayaran di %@";
+"clickpay.invalid-number" = "Masukkan Nomor Debit Yang Benar";
+"clickpay.invalid-token" = "Masukkan Token Clickpay Yang Benar";
+"name.other-bank" = "Jaringan ATM Lainnya";
+"payment.how" = "Bagaimana cara pembayaran melalui %@";
+"payment.klikbca.userid-note" = "Tagihan akan dikirimkan ke akun KlikBCA anda setelah konfirmasi pembayaran dilakukan.";
+"payment.email-placeholder" = "Alamat Email (tidak wajib)";
+"payment.email-note" = "Kami akan mengirimkan kode pembayaran dan instruksi pembayaran melalui email";
+"payment.klikbca.userid-warning" = "Mohon pastikan UserID aktif dan terdaftar di BCA.";
+"guide.header-subtitle" = "Instruksi Pembayaran";
+"payment.list.title" = "Pilih Metode Pembayaran";
+"payment.success" = "Pembayaran Berhasil";
+"payment.pending" = "Menunggu Pembayaran";
+"Close" = "Tutup";
+"payment.finish-button-title-via"="Selesaikan Pembayaran melalui %@";
+"payment.finish-button-title" = "Selesaikan Pembayaran di %@";
+
+"payment.va.help-button-title" = "Bagaimana Cara Pembayaran Melalui Transfer Bank %@?";
+"payment.va.confirm_button" = "Lihat Nomor Rekening";
+
+"toast.copy-text" = "Sudah disalin ke clipboard";
+
+"creditcard.input.title" = "Detil Kartu";
+"creditcard.list.title" = "Pilih Kartu";
+"creditcard.twoclick.title" = "Bayar Dengan Kartu Kredit";
+"creditcard.error.invalid-bin" = "nomor kartu kredit tidak terdapat didalam whitelist bin kartu kredit";
+"creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
+"creditcard.promo-title" = "Selamat";
+
+"va.list.title" = "Pilih Bank";
+"va.pay-button" = "Lihat Nomor Rekening";
+
+"payment.telkomsel-cash.token-placeholder" = "Token T-Cash";
+"payment.telkomsel-cash.token-note" = "Pembayaran T-Cash harus menggunakan nomor telepon Telkomsel yang terdaftar.";
+"payment.telkomsel-cash.header-title" = "Telkomsel Cash";
+"payment.telkomsel-cash.warning" = "Token T-Cash tidak boleh kosong.";
+
+"payment.indosat-dompetku.token-placeholder" = "Nomor Telepon Indosat";
+"payment.indosat-dompetku.token-note" = "Masukkan Nomor yang terdaftar di Indosat Dompetku.";
+"payment.indosat-dompetku.header-title" = "Indosat Dompetku";
+"payment.indosat-dompetku.warning" = "Nomor telepon tidak boleh kosong.";
+
+"payment.kioson.note" = "Selesaikan pembayaran di Kioson";
+
+"kioson.pending.code-title" = "Kode Pembayaran";
+"kioson.pending.howto-title" = "Bagaimana saya dapat melakukan pembayaran dengan Kioson?";
+"kioson.pending.copy-title" = "Salin Kode Pembayaran";
+
+"alert.title" = "Perhatian";
+"alert.message-delete-card" = "Anda yakin ingin menghapus kartu ini?";
+"alert.no" = "Tidak";
+"alert.yes" = "Ya";
+"alert.invalid-payment-token" = "Token pembayaran tidak benar, silakan coba lagi.";
+
+"Delete Saved Card" = "hapus kartu ini";
+"Thank you!" = "Terimakasih!";
+"Ouch!" = "Aduh!";
+"Your payment can't be processed" = "Transaksi Anda tidak dapat diproses.";
+"Your payment has been processed" = "Transaksi Anda telah diproses.";
+"Please complete payment to proceed" = "Selesaikan Pembayaran";

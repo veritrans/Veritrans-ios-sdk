@@ -170,7 +170,7 @@
         default:
             break;
     }
-    return [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
+    return [NSPredicate predicateWithFormat:@"SELF MATCHES [c] %@", regex];
 }
 @end
 

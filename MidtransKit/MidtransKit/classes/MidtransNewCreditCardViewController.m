@@ -175,7 +175,8 @@ UIAlertViewDelegate
         
         //add delete button
         self.view.deleteButton.hidden = NO;
-        [self.view.deleteButton setTitle:UILocalizedString(@"Delete Saved Card", nil) forState:UIControlStateNormal];
+        [self.view.deleteButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Delete Saved Card"]
+                                forState:UIControlStateNormal];
         [self.view.deleteButton addTarget:self action:@selector(deleteCardPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     else {
@@ -193,11 +194,12 @@ UIAlertViewDelegate
 }
 
 - (void)deleteCardPressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
-                                                    message:UILocalizedString(@"alert.message-delete-card", nil)
-                                                   delegate:self
-                                          cancelButtonTitle:UILocalizedString(@"alert.no", nil)
-                                          otherButtonTitles:UILocalizedString(@"alert.yes", nil), nil];
+    UIAlertView *alert =
+    [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
+                               message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
+                              delegate:self
+                     cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
+                     otherButtonTitles:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"], nil];
     [alert show];
 }
 
@@ -464,10 +466,10 @@ UIAlertViewDelegate
 - (void)textField_didInfo3Tap:(MidtransUITextField *)textField {
     if ([textField isEqual:self.view.creditCardNumberTextField]) {
         NSString *sponsor = self.obtainedPromo.sponsorName;
-        NSString *message = [NSString stringWithFormat:UILocalizedString(@"creditcard.promo-message", nil), @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
+        NSString *message = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-message"], @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                          initWithTitle:UILocalizedString(@"creditcard.promo-title", nil)
+                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-title"]
                                                           message:message
                                                           image:nil
                                                           delegate:nil
@@ -553,7 +555,7 @@ UIAlertViewDelegate
             }
         }
         else {
-            self.title = UILocalizedString(@"creditcard.input.title", nil);
+            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
             if ([[self.installment.terms objectForKey:@"offline"] count]) {
                 if (!isDebitCard) {
                     self.installmentBankName = @"offline";
@@ -571,7 +573,7 @@ UIAlertViewDelegate
         }
         
         
-        self.title = UILocalizedString(@"creditcard.input.title", nil);
+        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
         self.filteredBinObject.bank = nil;
         self.view.creditCardNumberTextField.info2Icon = nil;
         if (self.installmentValueObject.count > 0) {

@@ -54,7 +54,7 @@
         
     }
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
-    self.title =  UILocalizedString(@"payment.list.title", nil);
+    self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"payment.list.title"];
     self.singlePayment = false;
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
@@ -86,7 +86,7 @@
     
     if (self.token.tokenId.length == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:UILocalizedString(@"alert.invalid-payment-token", nil)
+                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.invalid-payment-token"]
                                                        delegate:self
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"Ok", nil];

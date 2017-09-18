@@ -58,7 +58,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
     [super viewDidLoad];
     
     self.cards = [NSMutableArray new];
-    self.title = UILocalizedString(@"creditcard.list.title", nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.list.title"];
     [self.pageControl setNumberOfPages:0];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;

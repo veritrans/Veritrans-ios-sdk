@@ -24,7 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = UILocalizedString(@"va.list.title", nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];

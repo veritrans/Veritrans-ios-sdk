@@ -140,16 +140,16 @@
         
         if ([sender isEqual:self.headerViewBillPay.companyCodeCopyButton]) {
             [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.companyCodeTextField.text];
-            [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
         }
         else {
             [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.vaTextField.text];
-            [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
         }
     }
     else {
         [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
-        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+        [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }
     
 }

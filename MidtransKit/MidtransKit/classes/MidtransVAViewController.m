@@ -33,7 +33,7 @@
     
     self.title = self.paymentMethod.title;
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
-    [self.payButton setTitle:UILocalizedString(@"va.pay-button", nil) forState:UIControlStateNormal];
+    [self.payButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"va.pay-button"] forState:UIControlStateNormal];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -95,7 +95,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [[UIPasteboard generalPasteboard] setString:note.object];
-        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+        [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }];
 }
 

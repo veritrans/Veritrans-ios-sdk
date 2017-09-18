@@ -69,7 +69,7 @@ static dispatch_once_t * onceToken;
     [super viewDidLoad];
     self.installmentVIew.hidden = NO;
     self.installmentValueObject = [NSMutableArray new];
-    self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.twoclick.title"];
     [self addNavigationToTextFields:@[self.cvvTextField]];
     self.navigationController.delegate = self;
     

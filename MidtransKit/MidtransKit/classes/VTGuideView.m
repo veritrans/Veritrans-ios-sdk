@@ -51,7 +51,7 @@ static NSString *const cellIdentifier = @"VTGuideCell";
                                                   usingBlock:^(NSNotification * _Nonnull note) {
                                                       
         [[UIPasteboard generalPasteboard] setString:note.object];
-        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self];
+        [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self];
     }];
 }
 

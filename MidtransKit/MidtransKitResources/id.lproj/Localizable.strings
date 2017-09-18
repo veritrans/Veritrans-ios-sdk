@@ -6,7 +6,8 @@
  Copyright © 2016 Veritrans. All rights reserved.
  */
 
-"You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" = "Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol 'Konfirmasi Pembayaran'";
+"You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" =
+"Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol 'Konfirmasi Pembayaran'";
 "payment.failed" = "Pembayaran Gagal";
 "payment.pending" = "Menunggu Pembayaran";
 "payment.pay-at" = "Pembayaran di %@";

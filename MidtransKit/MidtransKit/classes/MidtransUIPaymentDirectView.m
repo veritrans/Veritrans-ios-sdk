@@ -33,7 +33,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [[UIPasteboard generalPasteboard] setString:note.object];
-        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self];
+        [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self];
     }];
 }
 
@@ -102,27 +102,27 @@
     
     if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
         self.headerView.emailTextField.keyboardType = UIKeyboardTypePhonePad;
-        self.headerView.emailTextField.placeholder = UILocalizedString(@"payment.indosat-dompetku.token-placeholder", nil);
-        self.headerView.descLabel.text = UILocalizedString(@"payment.indosat-dompetku.token-note", nil);
+        self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.indosat-dompetku.token-placeholder"];
+        self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.indosat-dompetku.token-note"];
     }
     else {
         self.headerView.emailTextField.keyboardType = UIKeyboardTypeEmailAddress;
         
         if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
-            self.headerView.emailTextField.placeholder = UILocalizedString(@"KlikBCA User ID", nil);
-            self.headerView.descLabel.text = UILocalizedString(@"payment.klikbca.userid-note", nil);
+            self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"KlikBCA User ID"];
+            self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.klikbca.userid-note"];
         }
         else if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
-            self.headerView.emailTextField.placeholder = UILocalizedString(@"payment.telkomsel-cash.token-placeholder", nil);
-            self.headerView.descLabel.text = UILocalizedString(@"payment.telkomsel-cash.token-note", nil);
+            self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.telkomsel-cash.token-placeholder"];
+            self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.telkomsel-cash.token-note"];
         }
         else {
             self.headerView.emailTextField.text = email;
-            self.headerView.emailTextField.placeholder = UILocalizedString(@"payment.email-placeholder", nil);
-            self.headerView.descLabel.text = UILocalizedString(@"payment.email-note", nil);
+            self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-placeholder"];
+            self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-note"];
             
             if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-                self.headerView.descLabel.text = UILocalizedString(@"payment.kioson.note", nil);
+                self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.kioson.note"];
             }
         }
     }

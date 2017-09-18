@@ -102,7 +102,7 @@
         return YES;
     }
     else if (error.code == MIDTRANS_ERROR_CODE_INVALID_BIN) {
-        self.creditCardNumberTextField.warning = UILocalizedString(@"creditcard.error.invalid-bin", nil);
+        self.creditCardNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.error.invalid-bin"];
         return YES;
     }
     else {

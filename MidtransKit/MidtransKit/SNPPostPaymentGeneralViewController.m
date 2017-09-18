@@ -86,7 +86,7 @@
 }
 - (void)copyButtonDidTapped:(id)sender {
     [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
-    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
     NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};

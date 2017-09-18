@@ -38,6 +38,9 @@
 "creditcard.error.invalid-bin" = "nomor kartu kredit tidak terdapat didalam whitelist bin kartu kredit";
 "creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
 "creditcard.promo-title" = "Selamat";
+"creditcard.creditcard_number" = "Nomor Kartu Kredit";
+"creditcard.creditcard_valid_until":"Berlaku Hingga (MM/YY)";
+"creditcard.creditcard_cvv":"CVV";
 
 "va.list.title" = "Pilih Bank";
 "va.pay-button" = "Lihat Nomor Rekening";

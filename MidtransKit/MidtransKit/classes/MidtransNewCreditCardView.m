@@ -31,6 +31,10 @@
     self.secureBadgeWrapper.layer.borderWidth = 1.0f;
     self.secureBadgeWrapper.layer.borderColor = [UIColor clearColor].CGColor;
     
+    self.creditCardNumberTextField.placeholder =[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.creditcard_number"];
+        self.cardExpireTextField.placeholder =[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.creditcard_valid_until"];
+        self.cardCVVNumberTextField.placeholder =[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.creditcard_cvv"];
+    
     self.cvvInfoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     UIImage *image = [[UIImage imageNamed:@"hint" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
     [self.cvvInfoButton setImage:image forState:UIControlStateNormal];

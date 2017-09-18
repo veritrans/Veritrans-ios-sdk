@@ -41,7 +41,7 @@
     else  if ([self.title isEqualToString:@"Indomaret"]) {
         expireDate =[self.transactionResult.additionalData objectForKey:@"indomaret_expire_time"];
     }
-     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView updateFocusIfNeeded];
     self.view.tableView.tableHeaderView = self.headerView;
     self.headerView.vaTextField.text = self.transactionResult.indomaretPaymentCode;

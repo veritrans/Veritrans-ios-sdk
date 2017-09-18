@@ -73,7 +73,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bill_key"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"billpayment_expiration"];
         self.headerViewBillPay.companyCodeTextField.text =[self.transactionResult.additionalData objectForKey:@"biller_code"];
-        self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+        self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
         [self.headerViewBillPay.expiredTimeLabel boldSubstring:expireDate];
         self.headerViewBillPay.vaTextField.enabled = NO;
         self.headerViewBillPay.vaTextField.text = vaNumber;
@@ -96,7 +96,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }
-    self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+    self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];
     self.headerView.vaTextField.enabled = NO;
     self.headerView.vaTextField.text = vaNumber;

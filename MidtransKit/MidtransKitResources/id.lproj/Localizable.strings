@@ -92,3 +92,5 @@
 "SMS Charges may be applied for this payment method" = "Biaya SMS mungkin akan dikenakan untuk cara pembayaran ini.";
 "Key token device is required for this payment method" = "Perangkat token key dibutuhkan untuk cara pembayaran ini.";
 "confirm.payment" = "Konfirmasi Pembayaran";
+"Please complete payment before: %@" = "Silakan menyelesaikan pembayaran sebelum :";
+"donwload.instruction" = "unduh instruksi";

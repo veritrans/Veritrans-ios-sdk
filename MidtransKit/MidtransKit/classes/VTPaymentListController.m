@@ -82,6 +82,9 @@
     
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"paymentMethods"];
     NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (path == nil) {
+        path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
+    }
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
     [self showLoadingWithText:@"Loading payment list"];
     

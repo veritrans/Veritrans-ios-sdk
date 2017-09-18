@@ -80,11 +80,8 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
-    
-    
     NSString * bundlePath = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
     NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
-    NSLog(@"data-->%@",[bundle localizedStringForKey:originalText value:originalText table:nil]);
     return [bundle localizedStringForKey:originalText value:originalText table:nil];
 }
 

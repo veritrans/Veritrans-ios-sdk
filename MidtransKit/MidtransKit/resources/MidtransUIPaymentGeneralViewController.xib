@@ -169,6 +169,7 @@
                 <constraint firstAttribute="bottom" secondItem="sZp-ii-eEw" secondAttribute="bottom" id="zmS-Dt-fGE"/>
             </constraints>
             <connections>
+                <outlet property="confirmPaymentButton" destination="sZp-ii-eEw" id="qQj-db-u0I"/>
                 <outlet property="guideView" destination="HhN-9s-kLY" id="RjU-dG-swV"/>
                 <outlet property="orderIdLabel" destination="jVf-Gi-8eJ" id="HaP-Uh-n8J"/>
                 <outlet property="tokenView" destination="LgO-G4-U0Y" id="JZd-um-3Re"/>
@@ -176,7 +177,8 @@
                 <outlet property="tokenViewIcon" destination="YcC-5e-PBF" id="kL6-gY-KE2"/>
                 <outlet property="tokenViewLabel" destination="uvS-gN-gch" id="P3W-Jg-ibJ"/>
                 <outlet property="topConstraints" destination="ExC-va-0O5" id="IRA-Ev-gOD"/>
-                <outlet property="totalAmountLabel" destination="Kwn-Q0-eSx" id="a9w-jN-lmB"/>
+                <outlet property="totalAmountLabel" destination="Kwn-Q0-eSx" id="RRm-tx-GQ8"/>
+                <outlet property="totalAmountLabelText" destination="bFb-1I-nvz" id="bIG-yW-mDH"/>
             </connections>
             <point key="canvasLocation" x="24.5" y="51.5"/>
         </view>

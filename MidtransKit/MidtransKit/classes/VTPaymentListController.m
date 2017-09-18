@@ -47,7 +47,7 @@
     if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
         MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
         creditCardVC.saveCreditCardOnly = YES;
-        creditCardVC.title = @"Add New Card";
+        creditCardVC.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.add.new.card"];
         [creditCardVC showDismissButton:creditCardVC.saveCreditCardOnly];
         [self.navigationController pushViewController:creditCardVC animated:!creditCardVC.saveCreditCardOnly];
         return;
@@ -86,7 +86,7 @@
         path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
     }
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    [self showLoadingWithText:@"Loading payment list"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading payment list"]];
     
     if (self.token.tokenId.length == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -117,13 +117,14 @@
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
              MidtransPaymentListModel *model;
-             NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
+             
+             NSDictionary *vaDictionaryBuilder = @{@"description":[VTClassHelper getTranslationFromAppBundleForString:@"Pay from ATM Bersama, Prima or Alto"],
                                                    @"id":@"va",
                                                    @"identifier":@"va",
                                                    @"shortName":@"atm transfer",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
-             
+            
              NSArray *paymentAvailable = response.enabledPayments;
              if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];

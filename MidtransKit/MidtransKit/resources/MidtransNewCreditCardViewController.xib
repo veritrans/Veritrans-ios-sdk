@@ -247,10 +247,13 @@
                 <outlet property="creditCardNumberTextField" destination="iDR-Mj-7On" id="wOy-dm-Y16"/>
                 <outlet property="cvvInfoButton" destination="GqG-gu-Um3" id="GAB-Mn-uBO"/>
                 <outlet property="deleteButton" destination="YD8-gh-7db" id="EYb-9Y-Kd1"/>
+                <outlet property="finishPaymentButton" destination="7l5-VJ-9Eb" id="c2f-k4-DeS"/>
                 <outlet property="headerView" destination="K39-0u-IJj" id="Xt8-7f-CiD"/>
                 <outlet property="installmentView" destination="Lfj-Hs-yBs" id="DUG-Ih-LO1"/>
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
                 <outlet property="secureBadgeImage" destination="j24-du-W7D" id="NFy-5h-s1J"/>
+                <outlet property="totalAmountText" destination="K39-0u-IJj" id="RzE-oy-smR"/>
+                <outlet property="totalAmountTextLabel" destination="l67-Ku-WeL" id="hEZ-0X-Pa1"/>
             </connections>
             <point key="canvasLocation" x="-10" y="-161"/>
         </view>

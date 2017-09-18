@@ -31,6 +31,19 @@
 		0C5DD88A1E9E34F60004DD5D /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */; };
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
 		0CC9000F1F6FD6760058E93C /* id_paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081C71F6FCF48004391A1 /* id_paymentMethods.plist */; };
+		0CC900161F7014DB0058E93C /* MidtransUIPaymentDirectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */; };
+		0CC900171F7014E50058E93C /* id_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900141F7012EA0058E93C /* id_indomaret.plist */; };
+		0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900141F7012EA0058E93C /* id_indomaret.plist */; };
+		0CC900191F7014E90058E93C /* en_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900151F7012F40058E93C /* en_indomaret.plist */; };
+		0CC9001A1F7014EA0058E93C /* en_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900151F7012F40058E93C /* en_indomaret.plist */; };
+		0CC9001D1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9001C1F7015A90058E93C /* en_indosat_dompetku.plist */; };
+		0CC9001E1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9001C1F7015A90058E93C /* en_indosat_dompetku.plist */; };
+		0CC9001F1F7015AE0058E93C /* id_indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9001B1F7015A90058E93C /* id_indosat_dompetku.plist */; };
+		0CC900201F7015AF0058E93C /* id_indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9001B1F7015A90058E93C /* id_indosat_dompetku.plist */; };
+		0CC900231F701EDB0058E93C /* id_kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900221F701ED40058E93C /* id_kioson.plist */; };
+		0CC900241F701EDC0058E93C /* id_kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900221F701ED40058E93C /* id_kioson.plist */; };
+		0CC900251F701EE00058E93C /* en_kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900211F701ED40058E93C /* en_kioson.plist */; };
+		0CC900261F701EE00058E93C /* en_kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900211F701ED40058E93C /* en_kioson.plist */; };
 		0CD116101EDD5B14005884AD /* en_bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* en_bni_va.plist */; };
 		0CD116111EDD5B14005884AD /* en_bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* en_bni_va.plist */; };
 		0CE1D2661F62A670003A012F /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE1D2651F62A670003A012F /* test_badge@2x.png */; };
@@ -571,9 +584,6 @@
 		E57127361E93B3290064F515 /* bri_epay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127241E93B3290064F515 /* bri_epay.plist */; };
 		E57127371E93B3290064F515 /* cimb_clicks.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127251E93B3290064F515 /* cimb_clicks.plist */; };
 		E57127381E93B3290064F515 /* echannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127261E93B3290064F515 /* echannel.plist */; };
-		E57127391E93B3290064F515 /* indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127271E93B3290064F515 /* indomaret.plist */; };
-		E571273A1E93B3290064F515 /* indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127281E93B3290064F515 /* indosat_dompetku.plist */; };
-		E571273B1E93B3290064F515 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127291E93B3290064F515 /* kioson.plist */; };
 		E57127401E93B3290064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272E1E93B3290064F515 /* snap_colors.plist */; };
 		E57127411E93B3290064F515 /* telkomsel_cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272F1E93B3290064F515 /* telkomsel_cash.plist */; };
 		E57127421E93B3290064F515 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127301E93B3290064F515 /* virtualAccount.plist */; };
@@ -585,9 +595,6 @@
 		E57127E21E93B7C50064F515 /* bri_epay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127241E93B3290064F515 /* bri_epay.plist */; };
 		E57127E31E93B7C50064F515 /* cimb_clicks.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127251E93B3290064F515 /* cimb_clicks.plist */; };
 		E57127E41E93B7C50064F515 /* echannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127261E93B3290064F515 /* echannel.plist */; };
-		E57127E51E93B7C50064F515 /* indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127271E93B3290064F515 /* indomaret.plist */; };
-		E57127E61E93B7C50064F515 /* indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127281E93B3290064F515 /* indosat_dompetku.plist */; };
-		E57127E71E93B7C50064F515 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127291E93B3290064F515 /* kioson.plist */; };
 		E57127EC1E93B7C50064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272E1E93B3290064F515 /* snap_colors.plist */; };
 		E57127ED1E93B7C50064F515 /* telkomsel_cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272F1E93B3290064F515 /* telkomsel_cash.plist */; };
 		E57127EE1E93B7C50064F515 /* virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127301E93B3290064F515 /* virtualAccount.plist */; };
@@ -1014,6 +1021,12 @@
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
 		0CC9000E1F6FD66A0058E93C /* en_paymentMethods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_paymentMethods.plist; path = MidtransKit/resources/en_paymentMethods.plist; sourceTree = SOURCE_ROOT; };
+		0CC900141F7012EA0058E93C /* id_indomaret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_indomaret.plist; path = MidtransKit/resources/id_indomaret.plist; sourceTree = SOURCE_ROOT; };
+		0CC900151F7012F40058E93C /* en_indomaret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_indomaret.plist; path = MidtransKit/resources/en_indomaret.plist; sourceTree = SOURCE_ROOT; };
+		0CC9001B1F7015A90058E93C /* id_indosat_dompetku.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_indosat_dompetku.plist; path = MidtransKit/resources/id_indosat_dompetku.plist; sourceTree = SOURCE_ROOT; };
+		0CC9001C1F7015A90058E93C /* en_indosat_dompetku.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_indosat_dompetku.plist; path = MidtransKit/resources/en_indosat_dompetku.plist; sourceTree = SOURCE_ROOT; };
+		0CC900211F701ED40058E93C /* en_kioson.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_kioson.plist; path = MidtransKit/resources/en_kioson.plist; sourceTree = SOURCE_ROOT; };
+		0CC900221F701ED40058E93C /* id_kioson.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_kioson.plist; path = MidtransKit/resources/id_kioson.plist; sourceTree = SOURCE_ROOT; };
 		0CD1160F1EDD5B14005884AD /* en_bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_bni_va.plist; path = MidtransKit/resources/en_bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
@@ -1198,9 +1211,6 @@
 		E57127241E93B3290064F515 /* bri_epay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = bri_epay.plist; path = MidtransKit/resources/bri_epay.plist; sourceTree = SOURCE_ROOT; };
 		E57127251E93B3290064F515 /* cimb_clicks.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cimb_clicks.plist; path = MidtransKit/resources/cimb_clicks.plist; sourceTree = SOURCE_ROOT; };
 		E57127261E93B3290064F515 /* echannel.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = echannel.plist; path = MidtransKit/resources/echannel.plist; sourceTree = SOURCE_ROOT; };
-		E57127271E93B3290064F515 /* indomaret.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = indomaret.plist; path = MidtransKit/resources/indomaret.plist; sourceTree = SOURCE_ROOT; };
-		E57127281E93B3290064F515 /* indosat_dompetku.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = indosat_dompetku.plist; path = MidtransKit/resources/indosat_dompetku.plist; sourceTree = SOURCE_ROOT; };
-		E57127291E93B3290064F515 /* kioson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = kioson.plist; path = MidtransKit/resources/kioson.plist; sourceTree = SOURCE_ROOT; };
 		E571272E1E93B3290064F515 /* snap_colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = snap_colors.plist; path = MidtransKit/resources/snap_colors.plist; sourceTree = SOURCE_ROOT; };
 		E571272F1E93B3290064F515 /* telkomsel_cash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = telkomsel_cash.plist; path = MidtransKit/resources/telkomsel_cash.plist; sourceTree = SOURCE_ROOT; };
 		E57127301E93B3290064F515 /* virtualAccount.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = virtualAccount.plist; path = MidtransKit/resources/virtualAccount.plist; sourceTree = SOURCE_ROOT; };
@@ -1835,6 +1845,8 @@
 				3D0081BE1F6FB459004391A1 /* id_bca_klikbca.plist */,
 				E57127221E93B3290064F515 /* en_bca_klikpay.plist */,
 				3D0081BB1F6FB0FD004391A1 /* id_bca_klikpay.plist */,
+				0CC9001C1F7015A90058E93C /* en_indosat_dompetku.plist */,
+				0CC9001B1F7015A90058E93C /* id_indosat_dompetku.plist */,
 				E57127231E93B3290064F515 /* en_bca_va.plist */,
 				3D0081D01F6FE03C004391A1 /* id_bca_va.plist */,
 				E57127241E93B3290064F515 /* bri_epay.plist */,
@@ -1843,14 +1855,15 @@
 				3D0081A91F6F99C7004391A1 /* en_mandiri_clickpay.plist */,
 				3D0081AC1F6F99C7004391A1 /* id_mandiri_clickpay.plist */,
 				3D0081AA1F6F99C7004391A1 /* en_mandiri_ecash.plist */,
+				0CC900211F701ED40058E93C /* en_kioson.plist */,
+				0CC900221F701ED40058E93C /* id_kioson.plist */,
 				3D0081AD1F6F99C7004391A1 /* id_mandiri_ecash.plist */,
+				0CC900141F7012EA0058E93C /* id_indomaret.plist */,
 				3D0081AB1F6F99C7004391A1 /* en_permata_va.plist */,
+				0CC900151F7012F40058E93C /* en_indomaret.plist */,
 				3D0081AE1F6F99C7004391A1 /* id_permata_va.plist */,
-				E57127271E93B3290064F515 /* indomaret.plist */,
-				E57127281E93B3290064F515 /* indosat_dompetku.plist */,
 				0CC9000E1F6FD66A0058E93C /* en_paymentMethods.plist */,
 				3D0081C71F6FCF48004391A1 /* id_paymentMethods.plist */,
-				E57127291E93B3290064F515 /* kioson.plist */,
 				E571272E1E93B3290064F515 /* snap_colors.plist */,
 				E571272F1E93B3290064F515 /* telkomsel_cash.plist */,
 				E57127301E93B3290064F515 /* virtualAccount.plist */,
@@ -2688,7 +2701,6 @@
 				E57127EF1E93B7C50064F515 /* xl_tunai.plist in Resources */,
 				E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */,
 				0CE1D2B91F67BA53003A012F /* token_key@3x.png in Resources */,
-				E57127E61E93B7C50064F515 /* indosat_dompetku.plist in Resources */,
 				E58FCDBD1E94CFD500632085 /* cc_badge@2x.png in Resources */,
 				E58FCE3F1E94CFD600632085 /* other_atm_7@2x.png in Resources */,
 				E57127E01E93B7C50064F515 /* en_bca_klikpay.plist in Resources */,
@@ -2738,6 +2750,7 @@
 				E58FCDA91E94CFD500632085 /* bca_va@2x.png in Resources */,
 				E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
+				0CC900201F7015AF0058E93C /* id_indosat_dompetku.plist in Resources */,
 				0C108A0C1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */,
 				E58FCE511E94CFD600632085 /* padlock1@2x.png in Resources */,
 				E58FCE3D1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
@@ -2776,6 +2789,7 @@
 				E58FCE7D1E94CFD600632085 /* visa-mastercard-amex@2x.png in Resources */,
 				E58FCE8D1E94CFD600632085 /* visa-mastercard.png in Resources */,
 				E58FCE591E94CFD600632085 /* permata_atm_3@2x.png in Resources */,
+				0CC9001A1F7014EA0058E93C /* en_indomaret.plist in Resources */,
 				E57124A11E9381320064F515 /* VTCardListController.xib in Resources */,
 				E57124A21E9381320064F515 /* VTCCBackView.xib in Resources */,
 				E58FCE071E94CFD500632085 /* mandiri_atm_5@2x.png in Resources */,
@@ -2794,6 +2808,7 @@
 				E58FCDE11E94CFD500632085 /* emptyCardIcon@2x.png in Resources */,
 				3D0081781F6A9038004391A1 /* Localizable.strings in Resources */,
 				E58FCE0D1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
+				0CC9001E1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */,
 				E58FCDB51E94CFD500632085 /* bni@2x.png in Resources */,
 				E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */,
 				E58FCDB31E94CFD500632085 /* bni.png in Resources */,
@@ -2823,6 +2838,7 @@
 				0CEF03241EA3D15E00EA1EE0 /* SNPPostPaymentHeader.xib in Resources */,
 				E58FCDAB1E94CFD500632085 /* bca.png in Resources */,
 				E58FCE531E94CFD600632085 /* pendingIcon@2x.png in Resources */,
+				0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */,
 				0CE1D2731F62A71E003A012F /* arrow@2x.png in Resources */,
 				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
 				E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */,
@@ -2836,7 +2852,6 @@
 				E58FCE5F1E94CFD600632085 /* permata_atm_6@2x.png in Resources */,
 				0CE1D2961F67A0C8003A012F /* MidtransNewCreditCardViewController.xib in Resources */,
 				3D0081C81F6FCF48004391A1 /* id_paymentMethods.plist in Resources */,
-				E57127E51E93B7C50064F515 /* indomaret.plist in Resources */,
 				E57124B11E9381320064F515 /* VTPaymentStatusController.xib in Resources */,
 				E519C96B1E9B6F2000EF70DF /* bni_va3@2x.png in Resources */,
 				E57127DE1E93B7C50064F515 /* en_all_va.plist in Resources */,
@@ -2881,6 +2896,7 @@
 				E58FCE151E94CFD500632085 /* MasterCard@2x.png in Resources */,
 				E58FCDA51E94CFD500632085 /* bca_klikbca@2x.png in Resources */,
 				0CE1D2C41F67BA99003A012F /* sms@1.5x.png in Resources */,
+				0CC900261F701EE00058E93C /* en_kioson.plist in Resources */,
 				E58FCDC51E94CFD500632085 /* cimb_clicks@2x.png in Resources */,
 				E58FCE391E94CFD600632085 /* other_atm_4@2x.png in Resources */,
 				E58FCE1B1E94CFD600632085 /* maybank@2x.png in Resources */,
@@ -2891,6 +2907,7 @@
 				0CE1D2B71F67BA53003A012F /* token_key@2x.png in Resources */,
 				E58FCE031E94CFD500632085 /* mandiri_atm_3@2x.png in Resources */,
 				E57124841E9381290064F515 /* SourceSansPro-Light.ttf in Resources */,
+				0CC900241F701EDC0058E93C /* id_kioson.plist in Resources */,
 				3D0081D11F6FE03C004391A1 /* id_bca_va.plist in Resources */,
 				E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */,
 				E58FCE771E94CFD600632085 /* va@2x.png in Resources */,
@@ -2904,7 +2921,6 @@
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
 				3D0081B21F6F99C7004391A1 /* en_mandiri_ecash.plist in Resources */,
 				E559763D1EA71B760044342A /* pending@2x.png in Resources */,
-				E57127E71E93B7C50064F515 /* kioson.plist in Resources */,
 				E58FCE571E94CFD600632085 /* permata_atm_2@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2953,6 +2969,7 @@
 				E58FCE221E94CFD600632085 /* NextIcon@2x.png in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
+				0CC900231F701EDB0058E93C /* id_kioson.plist in Resources */,
 				E5F1BB631E93701100ED659D /* MIdtransUICardCell.xib in Resources */,
 				E5F1BB551E93701100ED659D /* MidtransDirectHeader.xib in Resources */,
 				E57127401E93B3290064F515 /* snap_colors.plist in Resources */,
@@ -2977,6 +2994,7 @@
 				E5F1BB661E93701100ED659D /* MidtransUIListCell.xib in Resources */,
 				0CE1D26F1F62A6D0003A012F /* SNPMaintainView.xib in Resources */,
 				E57127331E93B3290064F515 /* en_bca_klikbca.plist in Resources */,
+				0CC900191F7014E90058E93C /* en_indomaret.plist in Resources */,
 				0CE1D2C51F67BA99003A012F /* sms@2x.png in Resources */,
 				E58FCDA61E94CFD500632085 /* bca_klikpay@2x.png in Resources */,
 				E5F1BB571E93701100ED659D /* MidtransInstallmentView.xib in Resources */,
@@ -2985,7 +3003,6 @@
 				E5F1BB8B1E93702C00ED659D /* OCRAEXT.TTF in Resources */,
 				E5F1BB611E93701100ED659D /* MidtransSavedCardFooter.xib in Resources */,
 				0CC9000F1F6FD6760058E93C /* id_paymentMethods.plist in Resources */,
-				E57127391E93B3290064F515 /* indomaret.plist in Resources */,
 				E58FCD8C1E94CFD500632085 /* AmexDark@2x.png in Resources */,
 				E5F1BB7E1E93701100ED659D /* VTSubGuideController.xib in Resources */,
 				E58FCD961E94CFD500632085 /* bbm@2x.png in Resources */,
@@ -3002,12 +3019,12 @@
 				E58FCDDE1E94CFD500632085 /* echannel@2x.png in Resources */,
 				0CE1D2A61F67B861003A012F /* visa-mastercard-jcb-seal@2x.png in Resources */,
 				E58FCDD01E94CFD500632085 /* CreditCardBack@2x.png in Resources */,
+				0CC9001F1F7015AE0058E93C /* id_indosat_dompetku.plist in Resources */,
 				E58FCDF21E94CFD500632085 /* indosat_dompetku@2x.png in Resources */,
 				E58FCD941E94CFD500632085 /* BackBarIcon@2x.png in Resources */,
 				E58FCDA81E94CFD500632085 /* bca_va@2x.png in Resources */,
 				E5F1BB681E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				0CE1D2921F67A08C003A012F /* SNPPostPaymentGeneralHeader.xib in Resources */,
-				E571273B1E93B3290064F515 /* kioson.plist in Resources */,
 				0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
 				0CE1D2A21F67B861003A012F /* visa-mastercard-amex-seal@2x.png in Resources */,
 				E58FCE501E94CFD600632085 /* padlock1@2x.png in Resources */,
@@ -3073,6 +3090,7 @@
 				0CE1D2C91F67BA99003A012F /* sms@4x.png in Resources */,
 				E58FCE4E1E94CFD600632085 /* other_va@2x.png in Resources */,
 				E5F1BB7B1E93701100ED659D /* VTPaymentListController.xib in Resources */,
+				0CC9001D1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */,
 				E5F1BB8C1E93702C00ED659D /* SourceSansPro-Bold.ttf in Resources */,
 				E58FCE461E94CFD600632085 /* other_prima_4@2x.png in Resources */,
 				E58FCDAE1E94CFD500632085 /* bni_badge@2x.png in Resources */,
@@ -3090,6 +3108,7 @@
 				E57127421E93B3290064F515 /* virtualAccount.plist in Resources */,
 				E58FCE741E94CFD600632085 /* va.png in Resources */,
 				E58FCDA21E94CFD500632085 /* bca_atm_6@2x.png in Resources */,
+				0CC900251F701EE00058E93C /* en_kioson.plist in Resources */,
 				0CEF03251EA3D8ED00EA1EE0 /* SNPPostPaymentHeader.xib in Resources */,
 				E58FCDAA1E94CFD500632085 /* bca.png in Resources */,
 				E58FCE521E94CFD600632085 /* pendingIcon@2x.png in Resources */,
@@ -3126,7 +3145,6 @@
 				E5F1BB701E93701100ED659D /* VTCCBackView.xib in Resources */,
 				E58FCE2A1E94CFD600632085 /* other_alto_4@2x.png in Resources */,
 				E5F1BB691E93701100ED659D /* MidtransUIToast.xib in Resources */,
-				E571273A1E93B3290064F515 /* indosat_dompetku.plist in Resources */,
 				0CEF031C1EA3CCBF00EA1EE0 /* SNPPostPaymentVAViewController.xib in Resources */,
 				E5F1BB781E93701100ED659D /* VTKlikbcaSuccessController.xib in Resources */,
 				0CE1D27E1F62A766003A012F /* cc_badge@2x.png in Resources */,
@@ -3147,6 +3165,7 @@
 				E58FCE381E94CFD600632085 /* other_atm_4@2x.png in Resources */,
 				E58FCE1A1E94CFD600632085 /* maybank@2x.png in Resources */,
 				E58FCE481E94CFD600632085 /* other_prima_5@2x.png in Resources */,
+				0CC900171F7014E50058E93C /* id_indomaret.plist in Resources */,
 				E58FCE8A1E94CFD600632085 /* visa-mastercard-jcb@3x.png in Resources */,
 				E58FCDCE1E94CFD500632085 /* credit_card@2x.png in Resources */,
 				E58FCE021E94CFD500632085 /* mandiri_atm_3@2x.png in Resources */,
@@ -3283,6 +3302,7 @@
 				0C1ADB991EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */,
 				0C108A171EEE641200843A05 /* SNPMaintainView.m in Sources */,
 				0C1ADB8D1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */,
+				0CC900161F7014DB0058E93C /* MidtransUIPaymentDirectView.m in Sources */,
 				0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

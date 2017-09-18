@@ -38,9 +38,13 @@
 "creditcard.promo-message" = "With this card, you will get %@ discount from %@";
 "creditcard.promo-title" = "Congratulations";
 "creditcard.creditcard_number" = "Credit Card Number";
-"creditcard.creditcard_valid_until":"Valid Until (MM/YY)";
-"creditcard.creditcard_cvv":"CVV";
-
+"creditcard.creditcard_valid_until" = "Valid Until (MM/YY)";
+"creditcard.creditcard_cvv" = "CVV";
+"creditcard.add.new.card" = "Add New Card";
+"creditcard.finish.payment" = "Finish Payment";
+"creditcard.Save card for later use" = "Save card for later use";
+"creditcard.save card for later reuse" = "save card for later reuse";
+"creditcard.Mandiri Debit Card" = "Mandiri Debit Card";
 "va.list.title" = "Select Bank";
 "va.pay-button" = "See Account Number";
 
@@ -72,3 +76,12 @@
 "Your payment can't be processed" = "Your payment can't be processed";
 "Your payment has been processed" = "Your payment has been processed";
 "Please complete payment to proceed" = "Please complete payment to proceed";
+"Loading payment list" = "Loading payment list";
+"Pay from ATM Bersama, Prima or Alto" = "Pay from ATM Bersama, Prima or Alto";
+"Credit/Debit Card" = "Credit/Debit Card";
+"Pay With %@" = "Pay With %@" ;
+"total.amount" = "Total Amount";
+"%@ step by step" = "%@ step by step";
+"SMS Charges may be applied for this payment method" = "SMS Charges may be applied for this payment method";
+"Key token device is required for this payment method" = "Key token device is required for this payment method";
+"confirm.payment" = "Confirm Payment";

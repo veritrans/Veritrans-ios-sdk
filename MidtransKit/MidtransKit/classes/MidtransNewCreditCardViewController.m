@@ -140,7 +140,7 @@ UIAlertViewDelegate
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
-                                                                    @"addOnTitle":@"Save card for later use"}];
+                                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Save card for later use"]}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
@@ -395,8 +395,8 @@ UIAlertViewDelegate
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                          initWithTitle:@"save card for later reuse"
-                                                          message:@"we will securely store your card details so you can reuse them later"
+                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.save card for later reuse"]
+                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.we will securely store your card details so you can reuse them later"]
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
@@ -474,7 +474,7 @@ UIAlertViewDelegate
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
-                                                          okButtonTitle:@"Ok"];
+                                                          okButtonTitle:@"OK"];
         
         [self.navigationController presentCustomViewController:alertView
                                               onViewController:self.navigationController
@@ -511,7 +511,7 @@ UIAlertViewDelegate
                     MidtransBinResponse *debitCardObject = [[MidtransBinResponse alloc] initWithDictionary:[debitCard firstObject]];
                     if ([debitCardObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                         isDebitCard = YES;
-                        self.title = @"Mandiri Debit Card";
+                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                     } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         isDebitCard = YES;
@@ -524,7 +524,7 @@ UIAlertViewDelegate
             else {
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
-                        self.title = @"Mandiri Debit Card";
+                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                         
                     }

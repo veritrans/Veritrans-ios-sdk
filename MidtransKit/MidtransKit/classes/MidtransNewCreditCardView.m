@@ -9,6 +9,8 @@
 #import "MidtransNewCreditCardView.h"
 #import "MidtransUICardFormatter.h"
 #import "VTClassHelper.h"
+#import "MidtransPaymentMethodHeader.h"
+#import "MidtransUINextStepButton.h"
 #import "MidtransUITextField.h"
 #import "MidtransUIThemeManager.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -23,8 +25,8 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
+    [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.finish.payment"] forState:UIControlStateNormal];
+    self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.addOnTableView.scrollEnabled = false;
     self.addOnTableView.allowsMultipleSelection = YES;
     self.secureBadgeWrapper.layer.cornerRadius = 3.0f;

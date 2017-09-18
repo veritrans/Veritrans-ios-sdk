@@ -20,9 +20,9 @@
         imagePath = @"mandiri_va";
     }
     else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-        self.paymentMethodNameLabel.text = @"Credit/Debit Card";
+        self.paymentMethodNameLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Credit/Debit Card"];
         NSArray *capArray = [response.merchant.enabledPrinciples valueForKeyPath:@"capitalizedString"];
-        self.paymentMethodDescriptionLabel.text = [NSString stringWithFormat:@"Pay With %@",[capArray componentsJoinedByString:@", "]];
+        self.paymentMethodDescriptionLabel.text =  [VTClassHelper getTranslationFromAppBundleForString:[NSString stringWithFormat:@"Pay With %@",[capArray componentsJoinedByString:@", "]]];
         if ([capArray containsObject:@"Jcb"]) {
             self.paymentMethodDescriptionLabel.text = [self.paymentMethodDescriptionLabel.text stringByReplacingOccurrencesOfString:@"Jcb" withString:@"JCB"];
         }

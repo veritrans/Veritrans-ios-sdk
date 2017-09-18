@@ -16,6 +16,7 @@
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *vaList;
 @end
@@ -24,6 +25,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,6 +22,7 @@
                 <outlet property="amountLabel" destination="cZV-8u-zU8" id="aXP-o1-TPG"/>
                 <outlet property="payButton" destination="f0E-ny-Zs0" id="dsa-vz-Xbx"/>
                 <outlet property="tableView" destination="xxN-vw-CNQ" id="X5f-wb-coT"/>
+                <outlet property="totalAmountLabel" destination="QBs-HF-cHt" id="b1F-A4-EwO"/>
                 <outlet property="view" destination="1gO-fv-cPn" id="7rL-Kl-zYL"/>
             </connections>
         </placeholder>

@@ -14,6 +14,6 @@
     [super awakeFromNib];
     self.tokenViewLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Key token device is required for this payment method"];
     self.totalAmountLabelText.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
-    [self.confirmPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"onfirm.payment"] forState:UIControlStateNormal];
+    [self.confirmPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
 }
 @end

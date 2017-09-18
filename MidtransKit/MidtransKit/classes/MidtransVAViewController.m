@@ -18,6 +18,7 @@
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
@@ -33,6 +34,7 @@
     
     self.title = self.paymentMethod.title;
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
+    self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     [self.payButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"va.pay-button"] forState:UIControlStateNormal];
     
     self.tableView.delegate = self;

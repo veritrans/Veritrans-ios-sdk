@@ -109,6 +109,10 @@
 		3D00818C1F6F8742004391A1 /* permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D00818E1F6F8742004391A1 /* permata_va.plist */; };
 		3D00818F1F6F8770004391A1 /* permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081921F6F8770004391A1 /* permata_va.plist */; };
 		3D0081901F6F8770004391A1 /* permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081921F6F8770004391A1 /* permata_va.plist */; };
+		3D0081931F6F8EC6004391A1 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081961F6F8EC6004391A1 /* mandiri_ecash.plist */; };
+		3D0081941F6F8EC6004391A1 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081961F6F8EC6004391A1 /* mandiri_ecash.plist */; };
+		3D00819A1F6F8EE4004391A1 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D00819D1F6F8EE4004391A1 /* mandiri_ecash.plist */; };
+		3D00819B1F6F8EE4004391A1 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D00819D1F6F8EE4004391A1 /* mandiri_ecash.plist */; };
 		E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */; };
@@ -567,7 +571,6 @@
 		E571273A1E93B3290064F515 /* indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127281E93B3290064F515 /* indosat_dompetku.plist */; };
 		E571273B1E93B3290064F515 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127291E93B3290064F515 /* kioson.plist */; };
 		E571273C1E93B3290064F515 /* mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272A1E93B3290064F515 /* mandiri_clickpay.plist */; };
-		E571273D1E93B3290064F515 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272B1E93B3290064F515 /* mandiri_ecash.plist */; };
 		E571273E1E93B3290064F515 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272C1E93B3290064F515 /* paymentMethods.plist */; };
 		E57127401E93B3290064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272E1E93B3290064F515 /* snap_colors.plist */; };
 		E57127411E93B3290064F515 /* telkomsel_cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272F1E93B3290064F515 /* telkomsel_cash.plist */; };
@@ -584,7 +587,6 @@
 		E57127E61E93B7C50064F515 /* indosat_dompetku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127281E93B3290064F515 /* indosat_dompetku.plist */; };
 		E57127E71E93B7C50064F515 /* kioson.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127291E93B3290064F515 /* kioson.plist */; };
 		E57127E81E93B7C50064F515 /* mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272A1E93B3290064F515 /* mandiri_clickpay.plist */; };
-		E57127E91E93B7C50064F515 /* mandiri_ecash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272B1E93B3290064F515 /* mandiri_ecash.plist */; };
 		E57127EA1E93B7C50064F515 /* paymentMethods.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272C1E93B3290064F515 /* paymentMethods.plist */; };
 		E57127EC1E93B7C50064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272E1E93B3290064F515 /* snap_colors.plist */; };
 		E57127ED1E93B7C50064F515 /* telkomsel_cash.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272F1E93B3290064F515 /* telkomsel_cash.plist */; };
@@ -1095,6 +1097,8 @@
 		3D00817D1F6A903D004391A1 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		3D00818D1F6F8742004391A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en; path = en.lproj/permata_va.plist; sourceTree = "<group>"; };
 		3D0081911F6F8770004391A1 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = id; path = id.lproj/permata_va.plist; sourceTree = "<group>"; };
+		3D0081951F6F8EC6004391A1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en; path = en.lproj/mandiri_ecash.plist; sourceTree = "<group>"; };
+		3D00819C1F6F8EE4004391A1 /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = id; path = id.lproj/mandiri_ecash.plist; sourceTree = "<group>"; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -1189,7 +1193,6 @@
 		E57127281E93B3290064F515 /* indosat_dompetku.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = indosat_dompetku.plist; path = MidtransKit/resources/indosat_dompetku.plist; sourceTree = SOURCE_ROOT; };
 		E57127291E93B3290064F515 /* kioson.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = kioson.plist; path = MidtransKit/resources/kioson.plist; sourceTree = SOURCE_ROOT; };
 		E571272A1E93B3290064F515 /* mandiri_clickpay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mandiri_clickpay.plist; path = MidtransKit/resources/mandiri_clickpay.plist; sourceTree = SOURCE_ROOT; };
-		E571272B1E93B3290064F515 /* mandiri_ecash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mandiri_ecash.plist; path = MidtransKit/resources/mandiri_ecash.plist; sourceTree = SOURCE_ROOT; };
 		E571272C1E93B3290064F515 /* paymentMethods.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = paymentMethods.plist; path = MidtransKit/resources/paymentMethods.plist; sourceTree = SOURCE_ROOT; };
 		E571272E1E93B3290064F515 /* snap_colors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = snap_colors.plist; path = MidtransKit/resources/snap_colors.plist; sourceTree = SOURCE_ROOT; };
 		E571272F1E93B3290064F515 /* telkomsel_cash.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = telkomsel_cash.plist; path = MidtransKit/resources/telkomsel_cash.plist; sourceTree = SOURCE_ROOT; };
@@ -1829,7 +1832,8 @@
 				E57127281E93B3290064F515 /* indosat_dompetku.plist */,
 				E57127291E93B3290064F515 /* kioson.plist */,
 				E571272A1E93B3290064F515 /* mandiri_clickpay.plist */,
-				E571272B1E93B3290064F515 /* mandiri_ecash.plist */,
+				3D0081961F6F8EC6004391A1 /* mandiri_ecash.plist */,
+				3D00819D1F6F8EE4004391A1 /* mandiri_ecash.plist */,
 				E571272C1E93B3290064F515 /* paymentMethods.plist */,
 				3D00818E1F6F8742004391A1 /* permata_va.plist */,
 				3D0081921F6F8770004391A1 /* permata_va.plist */,
@@ -2679,7 +2683,7 @@
 				E58FCE691E94CFD600632085 /* plus-icon@2x.png in Resources */,
 				E58FCE7B1E94CFD600632085 /* visa-mastercard-amex.png in Resources */,
 				E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */,
-				E57127E91E93B7C50064F515 /* mandiri_ecash.plist in Resources */,
+				3D0081941F6F8EC6004391A1 /* mandiri_ecash.plist in Resources */,
 				3D00818C1F6F8742004391A1 /* permata_va.plist in Resources */,
 				E58FCDFF1E94CFD500632085 /* mandiri_atm_1@2x.png in Resources */,
 				E519C9731E9B6F2100EF70DF /* bni_va5@2x.png in Resources */,
@@ -2811,6 +2815,7 @@
 				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
 				E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */,
 				E58FCE891E94CFD600632085 /* visa-mastercard-jcb@2x.png in Resources */,
+				3D00819B1F6F8EE4004391A1 /* mandiri_ecash.plist in Resources */,
 				E57124AD1E9381320064F515 /* VTPaymentListController.xib in Resources */,
 				E57124AF1E9381320064F515 /* VTSingleGuideController.xib in Resources */,
 				E58FCD931E94CFD500632085 /* back@2x.png in Resources */,
@@ -3077,7 +3082,7 @@
 				E58FCE881E94CFD600632085 /* visa-mastercard-jcb@2x.png in Resources */,
 				E5F1BB821E93701100ED659D /* VTVASuccessStatusController.xib in Resources */,
 				E5F1BB8F1E93702C00ED659D /* SourceSansPro-Semibold.ttf in Resources */,
-				E571273D1E93B3290064F515 /* mandiri_ecash.plist in Resources */,
+				3D0081931F6F8EC6004391A1 /* mandiri_ecash.plist in Resources */,
 				E58FCD921E94CFD500632085 /* back@2x.png in Resources */,
 				E58FCE621E94CFD600632085 /* permata_va@2x.png in Resources */,
 				0CE1D2AB1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib in Resources */,
@@ -3104,6 +3109,7 @@
 				E58FCDE61E94CFD500632085 /* hint.png in Resources */,
 				E58FCD9E1E94CFD500632085 /* bca_atm_4@2x.png in Resources */,
 				E5F1BB701E93701100ED659D /* VTCCBackView.xib in Resources */,
+				3D00819A1F6F8EE4004391A1 /* mandiri_ecash.plist in Resources */,
 				E58FCE2A1E94CFD600632085 /* other_alto_4@2x.png in Resources */,
 				E5F1BB691E93701100ED659D /* MidtransUIToast.xib in Resources */,
 				E571273A1E93B3290064F515 /* indosat_dompetku.plist in Resources */,
@@ -3407,6 +3413,24 @@
 				3D0081911F6F8770004391A1 /* id */,
 			);
 			name = permata_va.plist;
+			path = MidtransKit/resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		3D0081961F6F8EC6004391A1 /* mandiri_ecash.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D0081951F6F8EC6004391A1 /* en */,
+			);
+			name = mandiri_ecash.plist;
+			path = MidtransKit/resources;
+			sourceTree = SOURCE_ROOT;
+		};
+		3D00819D1F6F8EE4004391A1 /* mandiri_ecash.plist */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3D00819C1F6F8EE4004391A1 /* id */,
+			);
+			name = mandiri_ecash.plist;
 			path = MidtransKit/resources;
 			sourceTree = SOURCE_ROOT;
 		};

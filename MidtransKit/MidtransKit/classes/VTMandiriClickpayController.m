@@ -59,7 +59,8 @@ static NSString* const ClickpayAPPLI = @"3";
     self.input3Label.text = [MidtransMandiriClickpayHelper generateInput3];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
     self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;

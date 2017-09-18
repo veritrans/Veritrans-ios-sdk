@@ -27,7 +27,8 @@
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
-    NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"virtualAccount"];
+    NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
 

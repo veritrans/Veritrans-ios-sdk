@@ -57,9 +57,12 @@
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     
-    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
-        guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
+        
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
+        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {

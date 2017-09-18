@@ -62,6 +62,7 @@
 }
 
 + (NSMutableAttributedString *)numberingTextWithLocalizedStringPath:(NSString *)localizedString objectAtIndex:(NSInteger *)integer {
+    
     NSString *filePath = [VTBundle pathForResource:localizedString ofType:@"plist"];
     return [self numberingTextWithFromListFile:filePath];
 }

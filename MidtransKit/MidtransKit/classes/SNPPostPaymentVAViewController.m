@@ -87,9 +87,12 @@
     }
     
     
-    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
-        guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
+        
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
+        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }

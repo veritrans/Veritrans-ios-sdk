@@ -870,12 +870,13 @@ UIAlertViewDelegate
     if ([keyPath isEqualToString:@"text"] && object == self.view.creditCardNumberTextField) {
         if (([bank isEqualToString:@"bni"] || [bank isEqualToString:@"mandiri"]) &&
             ccnumber.length == 16) {
-//            [self.view.cardExpireTextField becomeFirstResponder];
+               return;
         }
         else {
             switch ([MidtransCreditCardHelper typeFromString:ccnumber]) {
                     case VTCreditCardTypeAmex:
                     if (ccnumber.length == 15) {
+                        return;
                        // [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
@@ -883,7 +884,7 @@ UIAlertViewDelegate
                     case VTCreditCardTypeVisa:
                     case VTCreditCardTypeMasterCard:
                     if (ccnumber.length == 16) {
-                       // [self.view.cardExpireTextField becomeFirstResponder];
+                          return;
                     }
                     break;
                 default:

@@ -236,9 +236,9 @@ static dispatch_once_t * onceToken;
     }
     if (self.installmentRequired && self.installmentCurrentIndex==0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                        message:@"This transaction must use installment"
+                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
                                                        delegate:nil
-                                              cancelButtonTitle:@"Close"
+                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                               otherButtonTitles:nil];
         [alert show];
         return;

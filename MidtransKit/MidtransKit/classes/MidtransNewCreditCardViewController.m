@@ -632,7 +632,7 @@ UIAlertViewDelegate
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                         message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
                                                        delegate:nil
-                                              cancelButtonTitle:@"Close"
+                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                               otherButtonTitles:nil];
         [alert show];
         return;

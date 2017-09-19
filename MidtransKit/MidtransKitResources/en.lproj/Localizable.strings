@@ -25,6 +25,7 @@
 "Close" = "Close";
 "payment.finish-button-title-via"="Complete Payment via %@";
 "payment.finish-button-title" = "Complete Payment At %@";
+"Complete Payment at ATM" = "Complete Payment at ATM";
 
 "payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
 "payment.va.confirm_button" = "See Account Number";
@@ -74,6 +75,7 @@
 "redeem bni reward point" = "redeem bni reward point";
 "you can pay partly through the redemption of BNI Reward Point through your credit card" = "you can pay partly through the redemption of BNI Reward Point through your credit card";
 "This transaction must use installment" = "This transaction must use installment";
+"Your total BNI Reward Points is %i" = "Your total BNI Reward Points is %i";
 
 "alert.title" = "Warning";
 "alert.message-delete-card" = "Are you sure to delete this card?";

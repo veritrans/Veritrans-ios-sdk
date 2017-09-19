@@ -59,7 +59,7 @@
         if (!error) {
             self.pointResponse = response;
             self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[response.pointBalanceAmount intValue]];
-            self.view.pointTotalTtitle.text = [NSString stringWithFormat:@"Your total BNI Reward Points is %i",[response.pointBalanceAmount intValue]];
+            self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[response.pointBalanceAmount intValue]];
             
             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[self.pointResponse.pointBalanceAmount intValue]]];
 

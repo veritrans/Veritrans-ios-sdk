@@ -82,6 +82,8 @@
 "redeem bni reward point" = "Tukarkan poin hadiah BNI";
 "you can pay partly through the redemption of BNI Reward Point through your credit card" = "Anda dapat membayar sebagian dengan Poin Reward BNI melalui Kartu Kredit Anda.";
 "This transaction must use installment" = "Pembayaran harus menggunakan cicilan";
+"Your total BNI Reward Points is %i" = "Total poin hadiah BNI Anda adalah %i";
+"Complete Payment at ATM" = "Selesaikan Pembayaran di ATM";
 
 "alert.title" = "Perhatian";
 "alert.message-delete-card" = "Anda yakin ingin menghapus kartu ini?";

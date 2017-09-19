@@ -133,7 +133,7 @@ UIAlertViewDelegate
     
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
-                                                   @"addOnTitle":@"Redeem BNI Reward Point"}];
+                                                   @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     
@@ -868,7 +868,7 @@ UIAlertViewDelegate
     if ([keyPath isEqualToString:@"text"] && object == self.view.creditCardNumberTextField) {
         if (([bank isEqualToString:@"bni"] || [bank isEqualToString:@"mandiri"]) &&
             ccnumber.length == 16) {
-            [self.view.cardExpireTextField becomeFirstResponder];
+//            [self.view.cardExpireTextField becomeFirstResponder];
         }
         else {
             switch ([MidtransCreditCardHelper typeFromString:ccnumber]) {

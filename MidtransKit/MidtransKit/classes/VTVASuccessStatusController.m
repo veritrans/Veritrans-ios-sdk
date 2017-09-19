@@ -55,7 +55,7 @@
 
 - (IBAction)saveVAPressed:(UIButton *)sender {
     [[UIPasteboard generalPasteboard] setString:self.statusModel.vaNumber];
-    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

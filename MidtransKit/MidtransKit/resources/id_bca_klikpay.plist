@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol ‘Konfirmasi Pembayaran’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Untuk pembayaran, Anda dapat memilih akun KlikBCA Individu atau kartu kredit BCA.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Untuk informasi lebih lanjut mengenai BCA KlikPay harap kontak Halo BCA di (021) 1500888 atau kunjungi &lt;link&gt;http://klikbca.com/KlikPay/klikpay.html&lt;/link&gt;</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

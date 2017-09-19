@@ -13,4 +13,5 @@
 + (NSString *)deviceLanguage;
 + (NSString *)deviceModel;
 + (NSString *)deviceName;
++ (NSString *)deviceCurrentLanguage;
 @end

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Masukkan No. Indosat yang terdaftar.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Pastikan terdapat dana yang mencukupi pada rekening Anda.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Klik ‘Konfirmasi Pembayaran‘</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Anda akan menerima pesan USSD dari Indosat untuk menyelesaikan transaksi melalui Dompetku app.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan PIN Anda</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Pembayaran Selesai</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

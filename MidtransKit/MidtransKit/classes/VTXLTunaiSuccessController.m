@@ -33,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = UILocalizedString(@"payment.pending",nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
     [self.navigationItem setHidesBackButton:YES];
     self.orderIDLabel.text = self.viewModel.xlOrderID;
     self.merchantCodeLabel.text = self.viewModel.xlMerchantID;

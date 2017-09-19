@@ -27,6 +27,12 @@
     free(hw_machine);
     return hardware;
 }
++ (NSString *)deviceCurrentLanguage {
+    NSString * lang = [[NSLocale preferredLanguages] objectAtIndex:0];
+    NSDictionary *languageDic = [NSLocale componentsFromLocaleIdentifier:lang];
+    return [languageDic objectForKey:@"kCFLocaleLanguageCodeKey"];
+
+}
 + (NSString *)deviceLanguage {
     return [[NSBundle mainBundle].preferredLocalizations count]?(NSString *)[NSBundle mainBundle].preferredLocalizations:@"ID";
 }

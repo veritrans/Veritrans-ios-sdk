@@ -53,7 +53,7 @@
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
-    CC_CONFIG.secure3DEnabled = YES;
+    //CC_CONFIG.secure3DEnabled = YES;
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];

@@ -8,7 +8,6 @@
 
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
 @implementation NSMutableAttributedString (Helper)
 
 - (void)replaceCharacterString:(NSString *)characterString withIcon:(UIImage *)icon {
@@ -79,6 +78,11 @@
         }
     });
     return midtransKitBundle;
+}
++ (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
+    NSString * bundlePath = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
+    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
+    return [bundle localizedStringForKey:originalText value:originalText table:nil];
 }
 
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {

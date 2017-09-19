@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="amountLabel" destination="lOs-9y-6eQ" id="0Ig-yf-a96"/>
                 <outlet property="appliLabel" destination="kZG-e7-2qJ" id="xTS-eQ-C1P"/>
+                <outlet property="confirmButton" destination="eY7-ae-Avo" id="K0h-uK-uE6"/>
                 <outlet property="debitNumberTextField" destination="rSq-te-9Ca" id="ncs-J8-zET"/>
                 <outlet property="input1Label" destination="8iY-nb-adT" id="B6m-s2-uB6"/>
                 <outlet property="input2Label" destination="BnO-os-UUa" id="i9d-Qk-qOS"/>
@@ -29,8 +30,11 @@
                 <outlet property="instructionPage" destination="ahp-2X-9AL" id="PiN-XJ-Xh3"/>
                 <outlet property="instructionviewHeightConstraints" destination="lX1-s0-5a5" id="un7-wJ-Fic"/>
                 <outlet property="keyTokeViewHeightConstraints" destination="CXj-cZ-Ktx" id="Il0-1r-9Ii"/>
+                <outlet property="keyTokenLabel" destination="BCY-vQ-GZi" id="Wh5-Xf-l4G"/>
                 <outlet property="keyTokenView" destination="43h-IM-N8l" id="Eni-LY-VW2"/>
+                <outlet property="mandiriClickpayStepLabel" destination="gIu-B6-sX6" id="8kJ-RR-ilO"/>
                 <outlet property="tokenTextField" destination="vHu-0q-4bf" id="7HN-7C-n4a"/>
+                <outlet property="totalAmountLabel" destination="MEt-wf-obH" id="6bV-AA-ysi"/>
                 <outlet property="view" destination="3Zx-FN-k1P" id="aVZ-xg-aLb"/>
             </connections>
         </placeholder>
@@ -100,7 +104,7 @@
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-9y-6eQ">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -144,7 +148,7 @@
                                             <rect key="frame" x="0.0" y="135" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-Ap-hMb">
-                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -178,7 +182,7 @@
                                             <rect key="frame" x="0.0" y="90" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-os-UUa">
-                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -212,7 +216,7 @@
                                             <rect key="frame" x="0.0" y="45" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-nb-adT">
-                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -246,7 +250,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZG-e7-2qJ">
-                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -349,13 +353,13 @@
                     <rect key="frame" x="0.0" y="2" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment mehtod" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCY-vQ-GZi">
-                            <rect key="frame" x="54" y="12" width="267" height="16"/>
+                            <rect key="frame" x="54.5" y="12.5" width="267" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" red="0.36862745098039218" green="0.32156862745098036" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="token_key.png" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-Ci-H09">
-                            <rect key="frame" x="30" y="12" width="20" height="20"/>
+                            <rect key="frame" x="30.5" y="12" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5jX-ag-X5f"/>
                                 <constraint firstAttribute="width" constant="20" id="NW0-Pd-yGc"/>

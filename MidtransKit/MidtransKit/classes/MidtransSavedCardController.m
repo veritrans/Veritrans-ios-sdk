@@ -67,7 +67,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransSavedCardCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransSavedCardCell"];
     
     self.cards = [NSMutableArray new];
-    self.title = UILocalizedString(@"creditcard.list.title", nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.list.title"];
     
     [self reloadSavedCards];
 }
@@ -139,7 +139,7 @@
     
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
-            [self showLoadingWithText:@"Processing your transaction"];
+            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             
             MidtransPaymentCreditCard *paymentDetail =
             [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber
@@ -245,11 +245,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
-                                                        message:UILocalizedString(@"alert.message-delete-card", nil)
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
+                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
                                                        delegate:self
-                                              cancelButtonTitle:UILocalizedString(@"alert.no", nil)
-                                              otherButtonTitles:UILocalizedString(@"alert.yes", nil), nil];
+                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
+                                              otherButtonTitles:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"], nil];
         [alert setTag:indexPath.row];
         [alert show];
     }

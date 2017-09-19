@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MidtransPaymentMethodHeader : UIView
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (nonatomic) IBOutlet UILabel *priceAmountLabel;
 @end

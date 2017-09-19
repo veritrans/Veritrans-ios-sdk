@@ -69,7 +69,7 @@ static dispatch_once_t * onceToken;
     [super viewDidLoad];
     self.installmentVIew.hidden = NO;
     self.installmentValueObject = [NSMutableArray new];
-    self.title = UILocalizedString(@"creditcard.twoclick.title", nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.twoclick.title"];
     [self addNavigationToTextFields:@[self.cvvTextField]];
     self.navigationController.delegate = self;
     
@@ -184,7 +184,7 @@ static dispatch_once_t * onceToken;
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    [self showLoadingWithText:@"Processing your transaction"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     
     MidtransTokenizeRequest *tokenRequest;
     
@@ -236,9 +236,9 @@ static dispatch_once_t * onceToken;
     }
     if (self.installmentRequired && self.installmentCurrentIndex==0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                        message:@"This transaction must use installment"
+                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
                                                        delegate:nil
-                                              cancelButtonTitle:@"Close"
+                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                               otherButtonTitles:nil];
         [alert show];
         return;

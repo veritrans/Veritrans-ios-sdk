@@ -73,7 +73,7 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bill_key"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"billpayment_expiration"];
         self.headerViewBillPay.companyCodeTextField.text =[self.transactionResult.additionalData objectForKey:@"biller_code"];
-        self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+        self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
         [self.headerViewBillPay.expiredTimeLabel boldSubstring:expireDate];
         self.headerViewBillPay.vaTextField.enabled = NO;
         self.headerViewBillPay.vaTextField.text = vaNumber;
@@ -87,17 +87,20 @@
     }
     
     
-    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
-        guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
+        
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
+        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }
-    self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
+    self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];
     self.headerView.vaTextField.enabled = NO;
     self.headerView.vaTextField.text = vaNumber;
-    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
+    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {
@@ -131,7 +134,7 @@
     NSURL *URL = [NSURL URLWithString:self.instructionUrl];
     [application openURL:URL options:@{} completionHandler:^(BOOL success) {
         if (!success) {
-            [MidtransUIToast createToast:@"Failed to open Instructions" duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"Failed to open Instructions"] duration:1.5 containerView:self.view];
         }
     }];
 }
@@ -140,16 +143,16 @@
         
         if ([sender isEqual:self.headerViewBillPay.companyCodeCopyButton]) {
             [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.companyCodeTextField.text];
-            [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
         }
         else {
             [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.vaTextField.text];
-            [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
         }
     }
     else {
         [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
-        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+        [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }
     
 }
@@ -160,10 +163,10 @@
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
     if ([groupedInst.name containsString:@"ATM"] || [groupedInst.name containsString:@"atm"] ||[groupedInst.name containsString:@"Alto"] || [groupedInst.name containsString:@"ALTO"]) {
-        [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment at ATM"] forState: UIControlStateNormal];
+        [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Complete Payment at ATM"] forState: UIControlStateNormal];
     }
     else {
-        [self.finishPaymentButton setTitle:[NSString stringWithFormat:@"Complete Payment via %@",groupedInst.name] forState:UIControlStateNormal];
+        [self.finishPaymentButton setTitle:[NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"payment.finish-button-title-via"],groupedInst.name] forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];

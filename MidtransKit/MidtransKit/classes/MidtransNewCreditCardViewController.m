@@ -860,7 +860,9 @@ UIAlertViewDelegate
 }
 
 #pragma mark - observer
-
+/**
+ we will refactor this on next chore
+ */
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSString *ccnumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *bank = self.filteredBinObject.bank;

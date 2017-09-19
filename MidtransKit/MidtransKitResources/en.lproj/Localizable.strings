@@ -79,7 +79,7 @@
 "Loading payment list" = "Loading payment list";
 "Pay from ATM Bersama, Prima or Alto" = "Pay from ATM Bersama, Prima or Alto";
 "Credit/Debit Card" = "Credit/Debit Card";
-"Pay With %@" = "Pay With %@" ;
+"Pay With" = "Pay With" ;
 "total.amount" = "Total Amount";
 "%@ step by step" = "%@ step by step";
 "SMS Charges may be applied for this payment method" = "SMS Charges may be applied for this payment method";

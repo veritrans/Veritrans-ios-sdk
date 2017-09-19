@@ -58,6 +58,7 @@
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
     }
+    self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     

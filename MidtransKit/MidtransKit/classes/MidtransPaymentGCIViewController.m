@@ -87,7 +87,7 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                 message:error.localizedDescription
                                                                delegate:nil
-                                                      cancelButtonTitle:@"Close"
+                                                      cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                       otherButtonTitles:nil];
                 [alert show];
             }
@@ -102,7 +102,7 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[result.transactionStatus capitalizedString]
                                                                 message:result.statusMessage
                                                                delegate:nil
-                                                      cancelButtonTitle:@"Close"
+                                                      cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                       otherButtonTitles:nil];
                 [alert show];
             }

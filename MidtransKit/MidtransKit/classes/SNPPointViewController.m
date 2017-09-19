@@ -102,7 +102,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)submitPaymentWithToken:(id)sender {
-    [self showLoadingWithText:@"Processing your transaction"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:self.creditCardToken
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard
@@ -119,7 +119,7 @@
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                  message:error.localizedDescription
                                                                 delegate:nil
-                                                       cancelButtonTitle:@"Close"
+                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                        otherButtonTitles:nil];
                  [alert show];
              }
@@ -145,7 +145,7 @@
                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                      message:result.statusMessage
                                                                     delegate:nil
-                                                           cancelButtonTitle:@"Close"
+                                                           cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                            otherButtonTitles:nil];
                      [alert show];
                  }

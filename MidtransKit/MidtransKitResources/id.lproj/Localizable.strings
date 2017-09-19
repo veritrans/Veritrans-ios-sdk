@@ -6,6 +6,8 @@
  Copyright © 2016 Veritrans. All rights reserved.
  */
 
+"Processing your payment" = "Memproses pembayaran";
+"Failed to open Instructions" = "Gagal memuat instruksi";
 "Calculating your Point" = "Sedang menghitung poin anda";
 "Loading" = "Memuat";
 "PIN cannot be empty" = "Masukkan PIN yang benar";

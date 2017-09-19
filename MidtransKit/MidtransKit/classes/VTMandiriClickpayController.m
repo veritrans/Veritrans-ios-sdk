@@ -92,7 +92,7 @@ static NSString* const ClickpayAPPLI = @"3";
         return;
     }
     
-    [self showLoadingWithText:@"Processing your payment"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your payment"]];
     
     MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
                                                                                                   clickpayToken:self.tokenTextField.text];

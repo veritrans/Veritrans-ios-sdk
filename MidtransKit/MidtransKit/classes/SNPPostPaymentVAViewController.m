@@ -134,7 +134,7 @@
     NSURL *URL = [NSURL URLWithString:self.instructionUrl];
     [application openURL:URL options:@{} completionHandler:^(BOOL success) {
         if (!success) {
-            [MidtransUIToast createToast:@"Failed to open Instructions" duration:1.5 containerView:self.view];
+            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"Failed to open Instructions"] duration:1.5 containerView:self.view];
         }
     }];
 }

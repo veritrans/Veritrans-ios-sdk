@@ -184,7 +184,7 @@ static dispatch_once_t * onceToken;
 }
 
 - (IBAction)paymentPressed:(UIButton *)sender {
-    [self showLoadingWithText:@"Processing your transaction"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     
     MidtransTokenizeRequest *tokenRequest;
     

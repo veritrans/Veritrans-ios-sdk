@@ -123,7 +123,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                                                            if (!maskedCards) {
                                                                [self showAlertViewWithTitle:@"Error"
                                                                                  andMessage:error.localizedDescription
-                                                                             andButtonTitle:@"Close"];
+                                                                             andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
                                                                return;
                                                            }
                                                            else {
@@ -239,7 +239,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                                                grossAmount:self.token.transactionDetails.grossAmount];
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
-            [self showLoadingWithText:@"Processing your transaction"];
+            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             
             MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.selectedMaskedCard.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
             MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail token:self.token];
@@ -289,7 +289,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
          } else {
              [self showAlertViewWithTitle:@"Error"
                                andMessage:error.localizedDescription
-                           andButtonTitle:@"Close"];
+                           andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
          }
          
          [self updateView];

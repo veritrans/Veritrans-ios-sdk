@@ -742,7 +742,7 @@ UIAlertViewDelegate
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                  message:error.localizedDescription
                                                                 delegate:nil
-                                                       cancelButtonTitle:@"Close"
+                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                        otherButtonTitles:nil];
                  [alert show];
              }
@@ -779,7 +779,7 @@ UIAlertViewDelegate
                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                      message:result.statusMessage
                                                                     delegate:nil
-                                                           cancelButtonTitle:@"Close"
+                                                           cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                            otherButtonTitles:nil];
                      [alert show];
                  }
@@ -823,7 +823,7 @@ UIAlertViewDelegate
     if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
-                      andButtonTitle:@"Close"];
+                      andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
     }
 }
 

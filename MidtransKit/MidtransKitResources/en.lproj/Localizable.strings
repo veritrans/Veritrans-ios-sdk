@@ -5,6 +5,9 @@
  Created by Nanang Rafsanjani on 6/22/16.
  Copyright © 2016 Veritrans. All rights reserved.
  */
+
+"Processing your payment" = "Processing your payment";
+"Failed to open Instructions" = "Failed to open Instructions";
 "Calculating your Point" = "Calculating your Point";
 "Loading" = "Loading";
 "PIN cannot be empty" = "PIN cannot be empty";

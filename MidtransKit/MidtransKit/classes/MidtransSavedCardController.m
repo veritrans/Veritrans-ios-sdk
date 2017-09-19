@@ -139,7 +139,7 @@
     
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
-            [self showLoadingWithText:@"Processing your transaction"];
+            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             
             MidtransPaymentCreditCard *paymentDetail =
             [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber

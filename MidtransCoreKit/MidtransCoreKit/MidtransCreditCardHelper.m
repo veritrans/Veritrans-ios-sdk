@@ -86,7 +86,7 @@
     if ([MidtransLuhn validateString:self]) {
         return YES;
     } else {
-        NSString *errorMessage = (MIDTRANS_MESSAGE_CARD_INVALID, nil);
+        NSString *errorMessage = NSLocalizedString(MIDTRANS_MESSAGE_CARD_INVALID, nil);
         *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_CC_NUMBER userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
         return NO;
     }

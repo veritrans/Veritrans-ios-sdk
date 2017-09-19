@@ -49,7 +49,7 @@
     self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransVAHeader"];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
     self.headerView.emailTextField.text = self.token.customerDetails.email;
-    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
+    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     self.headerView.keySMSviewConstraints.constant = 0.0f;
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {

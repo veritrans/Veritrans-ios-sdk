@@ -100,7 +100,7 @@
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];
     self.headerView.vaTextField.enabled = NO;
     self.headerView.vaTextField.text = vaNumber;
-    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
+    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {

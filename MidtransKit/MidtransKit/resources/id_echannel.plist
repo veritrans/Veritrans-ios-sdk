@@ -9,37 +9,37 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>On the main menu, choose ‘Pay/Buy’</string>
+				<string>Pada menu utama, pilih ‘Pembayaran/Pembelian’</string>
 				<key>image</key>
 				<string>mandiri_atm_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Others’</string>
+				<string>Pilih ‘Lainnya’</string>
 				<key>image</key>
 				<string>mandiri_atm_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Multi Payment’</string>
+				<string>Pilih ‘Multi Payment’</string>
 				<key>image</key>
 				<string>mandiri_atm_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter 70012 (Midtrans company code) and press ‘Correct’</string>
+				<string>Masukkan 70012 (kode perusahaan Midtrans) dan tekan ’Benar’</string>
 				<key>image</key>
 				<string>mandiri_atm_4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter your Payment Code and press ‘Correct’</string>
+				<string>Masukkan kode pembayaran anda dan tekan ‘Benar’</string>
 				<key>image</key>
 				<string>mandiri_atm_5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Your payment details will appear on the payment confirmation page. If the information is correct press ‘Yes’</string>
+				<string>Detil pembayaran anda akan muncul di halaman konfirmasi pembayaran. Jika informasi tersebut benar tekan ‘Ya’</string>
 				<key>image</key>
 				<string>mandiri_atm_6</string>
 			</dict>
@@ -52,31 +52,31 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Login to Mandiri Internet Banking (ib.bankmandiri.co.id)</string>
+				<string>Login ke Mandiri Internet Banking (ib.bankmandiri.co.id)</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>From the main menu choose ‘Payment’, then choose ’Multi Payment’</string>
+				<string>Dari menu utama pilih ‘Pembayaran’, lalu pilih ’Multi Payment’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Select your account in ‘From Account’, then ‘Billing Name’ select ‘Midtrans’</string>
+				<string>Pilih akun anda di ‘Dari Akun’, lalu ‘Nama Penagihan’ pilih ‘Midtrans’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the ‘Payment Code’ and you will receive your payment details</string>
+				<string>Masukkan ‘Kode Pembayaran’ dan anda akan menerima detil pembayaran anda.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Confirm your payment using your Mandiri Token</string>
+				<string>Konfirmasi pembayaran anda dengan menggunakan Token Mandiri anda.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

@@ -5,49 +5,49 @@
 	<key>Item 0</key>
 	<dict>
 		<key>content</key>
-		<string>Active your Mandiri token by pressing [token_button]</string>
+		<string>Aktifkan token Mandiri Anda dengan menekan [token_button]</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<key>Item 1</key>
 	<dict>
 		<key>content</key>
-		<string>Enter your Mandiri token password</string>
+		<string>Masukkan password token Mandiri Anda.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<key>Item 2</key>
 	<dict>
 		<key>content</key>
-		<string>Press 3 when it displays APPLI</string>
+		<string>Tekan 3 ketika APPLI ditampilkan.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<key>Item 3</key>
 	<dict>
 		<key>content</key>
-		<string>Enter ‘Input 1’ and press [token_button] for 3 seconds</string>
+		<string>Masukkan ‘masukan 1’ dan tekan [token_button] selama 3 detik.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<key>Item 4</key>
 	<dict>
 		<key>content</key>
-		<string>Enter ‘Input 2’ and press [token_button] for 3 seconds</string>
+		<string>Masukkan ‘masukan 2’ dan tekan [token_button] selama 3 detik.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<key>Item 5</key>
 	<dict>
 		<key>content</key>
-		<string>Enter ‘Input 3’ and press [token_button] for 3 seconds</string>
+		<string>Masukkan ‘masukan 3’ dan tekan [token_button] selama 3 detik.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<key>Item 6</key>
 	<dict>
 		<key>content</key>
-		<string>Put the response code on your Mandiri token into the challenge token field</string>
+		<string>Masukkan response code pada token Mandiri Anda pada kolom challenge token.</string>
 		<key>image</key>
 		<string></string>
 	</dict>

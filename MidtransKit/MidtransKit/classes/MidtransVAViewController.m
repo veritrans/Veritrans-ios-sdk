@@ -49,6 +49,8 @@
     self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransVAHeader"];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
     self.headerView.emailTextField.text = self.token.customerDetails.email;
+    self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-placeholder"];
+    self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-note"];
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     self.headerView.keySMSviewConstraints.constant = 0.0f;

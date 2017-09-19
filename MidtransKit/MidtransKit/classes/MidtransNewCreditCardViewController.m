@@ -133,7 +133,7 @@ UIAlertViewDelegate
     
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
-                                                   @"addOnTitle":@"Redeem BNI Reward Point"}];
+                                                   @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     
@@ -868,20 +868,20 @@ UIAlertViewDelegate
     if ([keyPath isEqualToString:@"text"] && object == self.view.creditCardNumberTextField) {
         if (([bank isEqualToString:@"bni"] || [bank isEqualToString:@"mandiri"]) &&
             ccnumber.length == 16) {
-            [self.view.cardExpireTextField becomeFirstResponder];
+//            [self.view.cardExpireTextField becomeFirstResponder];
         }
         else {
             switch ([MidtransCreditCardHelper typeFromString:ccnumber]) {
                     case VTCreditCardTypeAmex:
                     if (ccnumber.length == 15) {
-                        [self.view.cardExpireTextField becomeFirstResponder];
+                       // [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
                     case VTCreditCardTypeJCB:
                     case VTCreditCardTypeVisa:
                     case VTCreditCardTypeMasterCard:
                     if (ccnumber.length == 16) {
-                        [self.view.cardExpireTextField becomeFirstResponder];
+                       // [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
                 default:
@@ -893,7 +893,7 @@ UIAlertViewDelegate
     else if ([keyPath isEqualToString:@"text"] && object == self.view.cardExpireTextField) {
         NSString *unformatText = [self.view.cardExpireTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         if (unformatText.length == 5) {
-            [self.view.cardCVVNumberTextField becomeFirstResponder];
+           // [self.view.cardCVVNumberTextField becomeFirstResponder];
         }
     }
     else if ([keyPath isEqualToString:@"text"] && object == self.view.cardCVVNumberTextField) {

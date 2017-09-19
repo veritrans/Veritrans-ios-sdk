@@ -32,7 +32,9 @@
     self.ccFormatter.numberLimit = 16;
     self.ccFormatter.delegate = self;
     
-    
+    self.view.gciCardTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"gci.placeholder"];
+    self.view.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    [self.view.confirmButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
     // Do any additional setup after loading the view from its nib.
 }
 -(void)textFieldDidChange :(UITextField *) textField{

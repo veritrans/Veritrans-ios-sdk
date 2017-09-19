@@ -45,6 +45,7 @@
 "creditcard.Save card for later use" = "Save card for later use";
 "creditcard.save card for later reuse" = "save card for later reuse";
 "creditcard.Mandiri Debit Card" = "Mandiri Debit Card";
+"creditcard.Mandiri Debit Card placeholder" = "Mandiri Debit Card Number";
 "va.list.title" = "Select Bank";
 "va.pay-button" = "See Account Number";
 
@@ -63,6 +64,15 @@
 "kioson.pending.code-title" = "Payment Code";
 "kioson.pending.howto-title" = "How Can I Pay via Kioson";
 "kioson.pending.copy-title" = "Copy Payment Code";
+
+"gci.placeholder" = "Your gift card number";
+"No Installment" = "No Installment";
+"month.installments" = "%@ Month installment";
+"what is cvv?" = "what is cvv?";
+"The CVV is a 3 (or 6) digit number security code printed on the back of your card" = "The CVV is a 3 (or 6) digit number security code printed on the back of your card";
+"redeem bni reward point" = "redeem bni reward point";
+"you can pay partly through the redemption of BNI Reward Point through your credit card" = "you can pay partly through the redemption of BNI Reward Point through your credit card";
+"This transaction must use installment" = "This transaction must use installment";
 
 "alert.title" = "Warning";
 "alert.message-delete-card" = "Are you sure to delete this card?";

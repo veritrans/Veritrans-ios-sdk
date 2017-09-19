@@ -367,8 +367,8 @@ UIAlertViewDelegate
 
 - (IBAction)cvvInfoDidTapped:(id)sender {
     MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                      initWithTitle:@"what is cvv?"
-                                                      message:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"
+                                                      initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"what is cvv?"]
+                                                      message:[VTClassHelper getTranslationFromAppBundleForString:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"]
                                                       image:@"CreditCardBackSmall"
                                                       delegate:nil
                                                       cancelButtonTitle:nil
@@ -408,8 +408,8 @@ UIAlertViewDelegate
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                          initWithTitle:@"redeem bni reward point"
-                                                          message:@"you can pay partly through the redemption of BNI Reward Point through your credit card"
+                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"redeem bni reward point"]
+                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"you can pay partly through the redemption of BNI Reward Point through your credit card"]
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
@@ -630,7 +630,7 @@ UIAlertViewDelegate
     
     if (self.installmentRequired && self.installmentCurrentIndex == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                        message:@"This transaction must use installment"
+                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
                                                        delegate:nil
                                               cancelButtonTitle:@"Close"
                                               otherButtonTitles:nil];

@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="amountLabel" destination="lOs-9y-6eQ" id="0Ig-yf-a96"/>
                 <outlet property="appliLabel" destination="kZG-e7-2qJ" id="xTS-eQ-C1P"/>
+                <outlet property="confirmButton" destination="eY7-ae-Avo" id="K0h-uK-uE6"/>
                 <outlet property="debitNumberTextField" destination="rSq-te-9Ca" id="ncs-J8-zET"/>
                 <outlet property="input1Label" destination="8iY-nb-adT" id="B6m-s2-uB6"/>
                 <outlet property="input2Label" destination="BnO-os-UUa" id="i9d-Qk-qOS"/>
@@ -33,6 +34,7 @@
                 <outlet property="keyTokenView" destination="43h-IM-N8l" id="Eni-LY-VW2"/>
                 <outlet property="mandiriClickpayStepLabel" destination="gIu-B6-sX6" id="8kJ-RR-ilO"/>
                 <outlet property="tokenTextField" destination="vHu-0q-4bf" id="7HN-7C-n4a"/>
+                <outlet property="totalAmountLabel" destination="MEt-wf-obH" id="6bV-AA-ysi"/>
                 <outlet property="view" destination="3Zx-FN-k1P" id="aVZ-xg-aLb"/>
             </connections>
         </placeholder>

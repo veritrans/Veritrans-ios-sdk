@@ -51,6 +51,7 @@
 "creditcard.Save card for later use" = "Simpan Kartu";
 "creditcard.save card for later reuse" = "Simpan Kartu";
 "creditcard.Mandiri Debit Card" = "Kartu Debit Mandiri";
+"creditcard.Mandiri Debit Card placeholder" = "Nomor Kartu Mandiri Debit";
 "creditcard.we will securely store your card details so you can reuse them later" = "kami akan menyimpan dengan aman kartu anda, sehingga anda bisa menggunakannya lagi nanti";
 "va.list.title" = "Pilih Bank";
 "va.pay-button" = "Lihat Nomor Rekening";
@@ -70,6 +71,16 @@
 "kioson.pending.code-title" = "Kode Pembayaran";
 "kioson.pending.howto-title" = "Bagaimana saya dapat melakukan pembayaran dengan Kioson?";
 "kioson.pending.copy-title" = "Salin Kode Pembayaran";
+
+"gci.placeholder" = "Nomer kartu gift card anda";
+
+"No Installment" = "Tanpa cicilan";
+"month.installments" = "cicilan %@ bulan ";
+"what is cvv?" = "apa itu cvv?";
+"The CVV is a 3 (or 6) digit number security code printed on the back of your card" = "CVV adalah 3 (atau 6) digit angka kode keamanan yang tercetak di belakang kartu Anda";
+"redeem bni reward point" = "Tukarkan poin hadiah BNI";
+"you can pay partly through the redemption of BNI Reward Point through your credit card" = "Anda dapat membayar sebagian dengan Poin Reward BNI melalui Kartu Kredit Anda.";
+"This transaction must use installment" = "Pembayaran harus menggunakan cicilan";
 
 "alert.title" = "Perhatian";
 "alert.message-delete-card" = "Anda yakin ingin menghapus kartu ini?";

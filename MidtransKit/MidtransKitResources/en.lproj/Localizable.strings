@@ -5,7 +5,10 @@
  Created by Nanang Rafsanjani on 6/22/16.
  Copyright © 2016 Veritrans. All rights reserved.
  */
-
+"Calculating your Point" = "Calculating your Point";
+"Loading" = "Loading";
+"PIN cannot be empty" = "PIN cannot be empty";
+"Card Number cannot be empty" = "Card Number cannot be empty";
 "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" = "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button";
 "payment.failed" = "Payment Failed";
 "payment.pending" = "Payment Pending";
@@ -50,6 +53,9 @@
 "creditcard.Mandiri Debit Card placeholder" = "Mandiri Debit Card Number";
 "va.list.title" = "Select Bank";
 "va.pay-button" = "See Account Number";
+
+"BNI Card" = "BNI Card";
+"Processing your transaction" = "Processing your transaction";
 
 "payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
 "payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";

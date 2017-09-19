@@ -515,7 +515,7 @@ UIAlertViewDelegate
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                     } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         isDebitCard = YES;
-                        self.title = @"BNI Card";
+                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
                     }
                 }
@@ -529,7 +529,7 @@ UIAlertViewDelegate
                         
                     }
                     else if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
-                        self.title = @"BNI Card";
+                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
                     }
                     isDebitCard = YES;
@@ -670,7 +670,7 @@ UIAlertViewDelegate
     
     if (self.maskedCreditCard) {
         if (!self.view.cardCVVNumberTextField.text.length) {
-            self.view.cardCVVNumberTextField.warning = @"CVV is invalid";
+            self.view.cardCVVNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"CVV is invalid"];
             return;
         }
         tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
@@ -682,7 +682,7 @@ UIAlertViewDelegate
                                                                grossAmount:self.token.transactionDetails.grossAmount
                                                                     secure:CC_CONFIG.secure3DEnabled];
     }
-    [self showLoadingWithText:@"Processing your transaction"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     if (self.installmentTerms && self.installmentCurrentIndex !=0) {
         NSInteger installment = [self.installment.terms[self.installmentBankName][self.installmentCurrentIndex-1] integerValue];
         tokenRequest.installment = YES;

@@ -33,7 +33,7 @@
     [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentGeneralHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentGeneralHeader"];
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
-    self.headerView.topTextLabel.text = @"Payment Code";
+    self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
     NSString *expireDate;
     if ([self.title isEqualToString:@"Kioson"]) {
         expireDate =[self.transactionResult.additionalData objectForKey:@"kioson_expire_time"];

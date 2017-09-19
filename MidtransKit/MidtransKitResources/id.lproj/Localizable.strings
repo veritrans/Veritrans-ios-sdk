@@ -6,6 +6,10 @@
  Copyright © 2016 Veritrans. All rights reserved.
  */
 
+"Calculating your Point" = "Sedang menghitung poin anda";
+"Loading" = "Memuat";
+"PIN cannot be empty" = "Masukkan PIN yang benar";
+"Card Number cannot be empty" = "Masukkan nomor kartu yang benar";
 "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" =
 "Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol 'Konfirmasi Pembayaran'";
 "payment.failed" = "Pembayaran Gagal";
@@ -56,6 +60,9 @@
 "creditcard.we will securely store your card details so you can reuse them later" = "kami akan menyimpan dengan aman kartu anda, sehingga anda bisa menggunakannya lagi nanti";
 "va.list.title" = "Pilih Bank";
 "va.pay-button" = "Lihat Nomor Rekening";
+
+"BNI Card" = "Kartu BNI";
+"Processing your transaction" = "Memproses transaksi";
 
 "payment.telkomsel-cash.token-placeholder" = "Token T-Cash";
 "payment.telkomsel-cash.token-note" = "Pembayaran T-Cash harus menggunakan nomor telepon Telkomsel yang terdaftar.";

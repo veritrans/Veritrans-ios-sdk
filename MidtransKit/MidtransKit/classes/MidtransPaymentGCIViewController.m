@@ -64,14 +64,14 @@
 
 - (IBAction)confirmPaymentButtonDidTapped:(id)sender {
    if (self.view.gciCardTextField.text.SNPisEmpty) {
-        self.view.gciCardTextField.warning = @"Card Number cannot be empty";
+        self.view.gciCardTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"Card Number cannot be empty"];
         return;
     }
      else if (self.view.passwordTextField.text.SNPisEmpty) {
-       self.view.passwordTextField.warning = @"PIN cannot be empty";
+       self.view.passwordTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"PIN cannot be empty"];
         return;
     }
-    [self showLoadingWithText:@"Loading"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading"]];
     MIdtransPaymentGCI *paymentDetails = [[MIdtransPaymentGCI alloc] initWithCardNumber:self.view.gciCardTextField.text
                                                                                password:self.view.passwordTextField.text];
 

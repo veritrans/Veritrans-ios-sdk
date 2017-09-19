@@ -48,10 +48,10 @@
         self.maskedCards = [NSMutableArray new];
     }
     self.maskedCards = [NSMutableArray new];
-    self.title = @"Redeem BNI Reward Point";
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"];
     self.pointRedeem = [NSMutableArray new];
     [self.view configureAmountTotal:self.token];
-    [self showLoadingWithText:@"Calculating your Point"];
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Calculating your Point"]];
 
     [[MidtransMerchantClient shared] requestCustomerPointWithToken:self.token.tokenId
                                                 andCreditCardToken:self.creditCardToken

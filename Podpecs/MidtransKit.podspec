@@ -19,7 +19,8 @@ end
 
 s.source_files = 'MidtransKit/MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
-    'MidtransKit' => ['MidtransKit/MidtransKit/resources/*']
+    'MidtransKit' => ['MidtransKit/MidtransKit/resources/*'],
+    'MidtransKit-Locale' =>['MidtransKit/MidtransKitResources//*.lproj/*.strings"]'],
 }
 s.dependency 'MidtransCoreKit', '~> 1.7.2'
 

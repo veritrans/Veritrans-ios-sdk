@@ -80,10 +80,14 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
+    static NSBundle* kioskitBundle = nil;
+    NSString *libraryBundlePath = [[NSBundle mainBundle] pathForResource:@"MidtransKit"
+                                                                  ofType:@"bundle"];
     
-    NSString * bundlePath = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
-    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
-    return [bundle localizedStringForKey:originalText value:originalText table:nil];
+    NSBundle *libraryBundle = [NSBundle bundleWithPath:libraryBundlePath];
+    NSString *path          = [libraryBundle pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
+    kioskitBundle           = [NSBundle bundleWithPath:path];
+    return [kioskitBundle localizedStringForKey:originalText value:originalText table:nil];
 }
 
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {

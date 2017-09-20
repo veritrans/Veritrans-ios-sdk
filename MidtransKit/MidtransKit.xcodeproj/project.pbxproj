@@ -15,6 +15,8 @@
 		0C108A161EEE641200843A05 /* SNPMaintainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A141EEE641200843A05 /* SNPMaintainView.m */; };
 		0C108A171EEE641200843A05 /* SNPMaintainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A141EEE641200843A05 /* SNPMaintainView.m */; };
 		0C108A181EEE641B00843A05 /* SNPMaintainView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C108A131EEE641200843A05 /* SNPMaintainView.h */; };
+		0C18691F1F724399001CD2FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D00817A1F6A9038004391A1 /* Localizable.strings */; };
+		0C1869201F72439A001CD2FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D00817A1F6A9038004391A1 /* Localizable.strings */; };
 		0C1ADB8B1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1ADB881EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h */; };
 		0C1ADB8C1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */; };
 		0C1ADB8D1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */; };
@@ -138,8 +140,6 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
-		3D0081771F6A9038004391A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D00817A1F6A9038004391A1 /* Localizable.strings */; };
-		3D0081781F6A9038004391A1 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3D00817A1F6A9038004391A1 /* Localizable.strings */; };
 		3D0081AF1F6F99C7004391A1 /* en_mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081A91F6F99C7004391A1 /* en_mandiri_clickpay.plist */; };
 		3D0081B01F6F99C7004391A1 /* en_mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081A91F6F99C7004391A1 /* en_mandiri_clickpay.plist */; };
 		3D0081B31F6F99C7004391A1 /* en_permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D0081AB1F6F99C7004391A1 /* en_permata_va.plist */; };
@@ -2838,10 +2838,10 @@
 				E58FCDE31E94CFD500632085 /* errorIcon@2x.png in Resources */,
 				E58FCE4B1E94CFD600632085 /* other_prima_6@2x.png in Resources */,
 				E58FCDE11E94CFD500632085 /* emptyCardIcon@2x.png in Resources */,
-				3D0081781F6A9038004391A1 /* Localizable.strings in Resources */,
 				E58FCE0D1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
 				0CC9001E1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */,
 				E58FCDB51E94CFD500632085 /* bni@2x.png in Resources */,
+				0C1869201F72439A001CD2FF /* Localizable.strings in Resources */,
 				E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */,
 				E58FCDB31E94CFD500632085 /* bni.png in Resources */,
 				E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */,
@@ -3081,7 +3081,6 @@
 				E58FCDB81E94CFD500632085 /* bri.png in Resources */,
 				E58FCE341E94CFD600632085 /* other_atm_2@2x.png in Resources */,
 				E58FCDF61E94CFD500632085 /* JCB@2x.png in Resources */,
-				3D0081771F6A9038004391A1 /* Localizable.strings in Resources */,
 				0CD116101EDD5B14005884AD /* en_bni_va.plist in Resources */,
 				E58FCD881E94CFD500632085 /* AlertBackground@2x.png in Resources */,
 				E58FCDDA1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
@@ -3116,6 +3115,7 @@
 				E58FCDEC1E94CFD500632085 /* icon_btn_plus_@2x.png in Resources */,
 				E58FCE721E94CFD600632085 /* trash-icon@2x.png in Resources */,
 				E58FCE941E94CFD600632085 /* VisaDark@2x.png in Resources */,
+				0C18691F1F724399001CD2FF /* Localizable.strings in Resources */,
 				0CE1D2691F62A68E003A012F /* maintain@3x.png in Resources */,
 				E58FCDCA1E94CFD500632085 /* citi.png in Resources */,
 				E58FCE121E94CFD500632085 /* mandiri@2x.png in Resources */,

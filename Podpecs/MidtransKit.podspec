@@ -22,7 +22,7 @@ s.resource_bundles = {
     'MidtransKit' => ['MidtransKit/MidtransKit/resources/*'],
     'MidtransKit-Locale' =>['MidtransKit/MidtransKitResources//*.lproj/*.strings"]'],
 }
-s.dependency 'MidtransCoreKit', '~> 1.7.2'
+s.dependency 'MidtransCoreKit', '~> 1.7.2.1'
 
 s.default_subspec = 'UI'
 

@@ -105,6 +105,15 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
+		3D4088BA1F726BC500B9A2EC /* alto_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B11F726BC500B9A2EC /* alto_preview.png */; };
+		3D4088BB1F726BC500B9A2EC /* alto_preview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B21F726BC500B9A2EC /* alto_preview@2x.png */; };
+		3D4088BC1F726BC500B9A2EC /* alto_preview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B31F726BC500B9A2EC /* alto_preview@3x.png */; };
+		3D4088BD1F726BC500B9A2EC /* bersama_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B41F726BC500B9A2EC /* bersama_preview.png */; };
+		3D4088BE1F726BC500B9A2EC /* bersama_preview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B51F726BC500B9A2EC /* bersama_preview@2x.png */; };
+		3D4088BF1F726BC500B9A2EC /* bersama_preview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B61F726BC500B9A2EC /* bersama_preview@3x.png */; };
+		3D4088C01F726BC500B9A2EC /* prima_preview.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B71F726BC500B9A2EC /* prima_preview.png */; };
+		3D4088C11F726BC500B9A2EC /* prima_preview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B81F726BC500B9A2EC /* prima_preview@2x.png */; };
+		3D4088C21F726BC500B9A2EC /* prima_preview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4088B91F726BC500B9A2EC /* prima_preview@3x.png */; };
 		E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */; };
@@ -1090,6 +1099,15 @@
 		30E879861C88EDE1000C0F4B /* VTTwoClickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTTwoClickController.m; path = classes/VTTwoClickController.m; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/classes/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/classes/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
+		3D4088B11F726BC500B9A2EC /* alto_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alto_preview.png; path = resources/alto_preview.png; sourceTree = "<group>"; };
+		3D4088B21F726BC500B9A2EC /* alto_preview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alto_preview@2x.png"; path = "resources/alto_preview@2x.png"; sourceTree = "<group>"; };
+		3D4088B31F726BC500B9A2EC /* alto_preview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alto_preview@3x.png"; path = "resources/alto_preview@3x.png"; sourceTree = "<group>"; };
+		3D4088B41F726BC500B9A2EC /* bersama_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bersama_preview.png; path = resources/bersama_preview.png; sourceTree = "<group>"; };
+		3D4088B51F726BC500B9A2EC /* bersama_preview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bersama_preview@2x.png"; path = "resources/bersama_preview@2x.png"; sourceTree = "<group>"; };
+		3D4088B61F726BC500B9A2EC /* bersama_preview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bersama_preview@3x.png"; path = "resources/bersama_preview@3x.png"; sourceTree = "<group>"; };
+		3D4088B71F726BC500B9A2EC /* prima_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prima_preview.png; path = resources/prima_preview.png; sourceTree = "<group>"; };
+		3D4088B81F726BC500B9A2EC /* prima_preview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_preview@2x.png"; path = "resources/prima_preview@2x.png"; sourceTree = "<group>"; };
+		3D4088B91F726BC500B9A2EC /* prima_preview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_preview@3x.png"; path = "resources/prima_preview@3x.png"; sourceTree = "<group>"; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -1902,6 +1920,15 @@
 			isa = PBXGroup;
 			children = (
 				0CE1D2711F62A71E003A012F /* arrow@2x.png */,
+				3D4088B11F726BC500B9A2EC /* alto_preview.png */,
+				3D4088B21F726BC500B9A2EC /* alto_preview@2x.png */,
+				3D4088B31F726BC500B9A2EC /* alto_preview@3x.png */,
+				3D4088B41F726BC500B9A2EC /* bersama_preview.png */,
+				3D4088B51F726BC500B9A2EC /* bersama_preview@2x.png */,
+				3D4088B61F726BC500B9A2EC /* bersama_preview@3x.png */,
+				3D4088B71F726BC500B9A2EC /* prima_preview.png */,
+				3D4088B81F726BC500B9A2EC /* prima_preview@2x.png */,
+				3D4088B91F726BC500B9A2EC /* prima_preview@3x.png */,
 				0CE1D2681F62A68E003A012F /* maintain@3x.png */,
 				0CE1D2651F62A670003A012F /* test_badge@2x.png */,
 				E5EBC2BD1EB0726700A568D1 /* midtrans_logo_left@2x.png */,
@@ -2681,6 +2708,7 @@
 				E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */,
 				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
 				E58FCDD91E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
+				3D4088C01F726BC500B9A2EC /* prima_preview.png in Resources */,
 				E58FCE611E94CFD600632085 /* permata_atm_7@2x.png in Resources */,
 				E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */,
 				E57127E81E93B7C50064F515 /* mandiri_clickpay.plist in Resources */,
@@ -2690,6 +2718,7 @@
 				E58FCE191E94CFD600632085 /* maybank.png in Resources */,
 				E58FCDBF1E94CFD500632085 /* ccOfferIcon@2x.png in Resources */,
 				E57124931E9381320064F515 /* MidtransSavedCardFooter.xib in Resources */,
+				3D4088BA1F726BC500B9A2EC /* alto_preview.png in Resources */,
 				E57124941E9381320064F515 /* MidtransTransactionDetailViewController.xib in Resources */,
 				E57124951E9381320064F515 /* MIdtransUICardCell.xib in Resources */,
 				E58FCD8D1E94CFD500632085 /* AmexDark@2x.png in Resources */,
@@ -2723,6 +2752,7 @@
 				E5EBC2C21EB0726700A568D1 /* midtrans_logo_right@2x.png in Resources */,
 				E58FCE091E94CFD500632085 /* mandiri_atm_6@2x.png in Resources */,
 				0CE1D27A1F62A752003A012F /* bni_va@3x.png in Resources */,
+				3D4088BD1F726BC500B9A2EC /* bersama_preview.png in Resources */,
 				E58FCDF11E94CFD500632085 /* indomaret@2x.png in Resources */,
 				E58FCE6F1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */,
 				E58FCE831E94CFD600632085 /* visa-mastercard-jcb-amex@2x.png in Resources */,
@@ -2744,16 +2774,19 @@
 				0CE1D2AC1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E571249E1E9381320064F515 /* SNPPointViewController.xib in Resources */,
 				E58FCE1F1E94CFD600632085 /* mega@2x.png in Resources */,
+				3D4088BF1F726BC500B9A2EC /* bersama_preview@3x.png in Resources */,
 				E58FCE671E94CFD600632085 /* permata@2x.png in Resources */,
 				E571249F1E9381320064F515 /* VTAddCardController.xib in Resources */,
 				0CE1D2C61F67BA99003A012F /* sms@2x.png in Resources */,
 				E57124A01E9381320064F515 /* VTBillpaySuccessController.xib in Resources */,
 				E57127EA1E93B7C50064F515 /* paymentMethods.plist in Resources */,
+				3D4088C11F726BC500B9A2EC /* prima_preview@2x.png in Resources */,
 				E58FCE791E94CFD600632085 /* VASuccessIcon@2x.png in Resources */,
 				E519C96F1E9B6F2000EF70DF /* bni_va4@2x.png in Resources */,
 				E58FCE7D1E94CFD600632085 /* visa-mastercard-amex@2x.png in Resources */,
 				E58FCE8D1E94CFD600632085 /* visa-mastercard.png in Resources */,
 				E58FCE591E94CFD600632085 /* permata_atm_3@2x.png in Resources */,
+				3D4088BB1F726BC500B9A2EC /* alto_preview@2x.png in Resources */,
 				E57124A11E9381320064F515 /* VTCardListController.xib in Resources */,
 				E57124A21E9381320064F515 /* VTCCBackView.xib in Resources */,
 				E58FCE071E94CFD500632085 /* mandiri_atm_5@2x.png in Resources */,
@@ -2773,6 +2806,7 @@
 				0CE1D2991F67A177003A012F /* Localizable.strings in Resources */,
 				E58FCE0D1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
 				E58FCDB51E94CFD500632085 /* bni@2x.png in Resources */,
+				3D4088BC1F726BC500B9A2EC /* alto_preview@3x.png in Resources */,
 				E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */,
 				E58FCDB31E94CFD500632085 /* bni.png in Resources */,
 				E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */,
@@ -2809,6 +2843,7 @@
 				E57124AF1E9381320064F515 /* VTSingleGuideController.xib in Resources */,
 				E58FCD931E94CFD500632085 /* back@2x.png in Resources */,
 				0CE1D29C1F67B6CA003A012F /* test_badge@2x.png in Resources */,
+				3D4088BE1F726BC500B9A2EC /* bersama_preview@2x.png in Resources */,
 				E58FCE631E94CFD600632085 /* permata_va@2x.png in Resources */,
 				E58FCD8B1E94CFD500632085 /* Amex@2x.png in Resources */,
 				E57124B01E9381320064F515 /* VTSubGuideController.xib in Resources */,
@@ -2874,6 +2909,7 @@
 				E58FCD8F1E94CFD500632085 /* anz.png in Resources */,
 				E58FCDFD1E94CFD500632085 /* logo@2x.png in Resources */,
 				E58FCE291E94CFD600632085 /* other_alto_3@2x.png in Resources */,
+				3D4088C21F726BC500B9A2EC /* prima_preview@3x.png in Resources */,
 				E57124861E9381290064F515 /* SourceSansPro-Semibold.ttf in Resources */,
 				E58FCE8F1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,

@@ -80,13 +80,28 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
-    static NSBundle* kioskitBundle = nil;
-    NSString *libraryBundlePath = [[NSBundle mainBundle] pathForResource:@"MidtransKit"
-                                                                  ofType:@"bundle"];
+        NSBundle* kioskitBundle = [NSBundle bundleWithPath:@"MidtransKit.bundle"];
     
-    NSBundle *libraryBundle = [NSBundle bundleWithPath:libraryBundlePath];
-    NSString *path          = [libraryBundle pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
-    kioskitBundle           = [NSBundle bundleWithPath:path];
+    if (kioskitBundle == nil) {
+        // This might be the same as the previous check if not using a dynamic framework
+        NSString *libraryBundlePath = [[NSBundle mainBundle] pathForResource:@"MidtransKit"
+                                                         ofType:@"bundle"];
+        NSBundle *libraryBundle = [NSBundle bundleWithPath:libraryBundlePath];
+        NSString *path          = [libraryBundle pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
+        kioskitBundle           = [NSBundle bundleWithPath:path];
+    }
+    
+    if (kioskitBundle == nil) {
+        
+        // This will be the same as mainBundle if not using a dynamic framework
+        kioskitBundle = [NSBundle bundleForClass:[VTClassHelper class]];
+        
+    }
+    
+    if (kioskitBundle == nil) {
+        kioskitBundle = [NSBundle mainBundle];
+    }
+    
     return [kioskitBundle localizedStringForKey:originalText value:originalText table:nil];
 }
 

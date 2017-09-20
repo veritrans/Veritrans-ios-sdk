@@ -129,17 +129,42 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-    if (index ==1) {
+    
+    if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
+        
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        
+    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] &&
+               index == 1) {
+        
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+    
+    } else {
+        
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
+    }
+    
+    if (index == 0) {
+        
+        self.headerView.keySMSviewConstraints.constant = 0.0f;
+        self.headerView.keyView.hidden =YES;
+        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"bersama_preview"];
+        
+    } else
+    if (index == 1) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
             self.headerView.keySMSviewConstraints.constant = 40.0f;
             self.headerView.keyView.hidden = YES;
         }
         self.headerView.keyView.hidden = NO;
+        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"prima_preview"];
     }
     else {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
-        self.headerView.keyView.hidden =YES;
+        self.headerView.keyView.hidden = YES;
+        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview"];
     }
+    
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
 }

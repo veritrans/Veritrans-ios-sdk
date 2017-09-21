@@ -16,8 +16,10 @@
 		0C108A171EEE641200843A05 /* SNPMaintainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A141EEE641200843A05 /* SNPMaintainView.m */; };
 		0C108A181EEE641B00843A05 /* SNPMaintainView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C108A131EEE641200843A05 /* SNPMaintainView.h */; };
 		0C115B771F73954B00327915 /* VTClassHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2A71C7C239A00064169 /* VTClassHelper.m */; };
-		0C1869231F726AA5001CD2FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C1869211F726AA1001CD2FF /* Localizable.strings */; };
-		0C1869241F726AA6001CD2FF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0C1869211F726AA1001CD2FF /* Localizable.strings */; };
+		0C115B7C1F73A76900327915 /* en_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7A1F73A76400327915 /* en_lang.json */; };
+		0C115B7D1F73A76B00327915 /* en_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7A1F73A76400327915 /* en_lang.json */; };
+		0C115B7E1F73A77200327915 /* id_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7B1F73A76600327915 /* id_lang.json */; };
+		0C115B7F1F73A77300327915 /* id_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7B1F73A76600327915 /* id_lang.json */; };
 		0C1ADB8B1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1ADB881EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h */; };
 		0C1ADB8C1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */; };
 		0C1ADB8D1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */; };
@@ -1014,8 +1016,8 @@
 		0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentGeneralHeader.xib; path = MidtransKit/resources/SNPPostPaymentGeneralHeader.xib; sourceTree = SOURCE_ROOT; };
 		0C108A131EEE641200843A05 /* SNPMaintainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPMaintainView.h; sourceTree = "<group>"; };
 		0C108A141EEE641200843A05 /* SNPMaintainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPMaintainView.m; sourceTree = "<group>"; };
-		0C1869221F726AA1001CD2FF /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = MidtransKit/resources/id.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
-		0C1869251F726ABC001CD2FF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = MidtransKit/resources/en.lproj/Localizable.strings; sourceTree = SOURCE_ROOT; };
+		0C115B7A1F73A76400327915 /* en_lang.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = en_lang.json; path = MidtransKit/resources/en_lang.json; sourceTree = SOURCE_ROOT; };
+		0C115B7B1F73A76600327915 /* id_lang.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = id_lang.json; path = MidtransKit/resources/id_lang.json; sourceTree = SOURCE_ROOT; };
 		0C1ADB881EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPostPaymentGeneralViewController.h; sourceTree = "<group>"; };
 		0C1ADB891EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPPostPaymentGeneralViewController.m; sourceTree = "<group>"; };
 		0C1ADB951EEA99330054CF54 /* SNPPostPaymentGeneralView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPostPaymentGeneralView.h; sourceTree = "<group>"; };
@@ -1862,6 +1864,8 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0C115B7A1F73A76400327915 /* en_lang.json */,
+				0C115B7B1F73A76600327915 /* id_lang.json */,
 				0CD1160F1EDD5B14005884AD /* en_bni_va.plist */,
 				3D0081CE1F6FD7C2004391A1 /* id_bni_va.plist */,
 				E57127201E93B3290064F515 /* en_other_va.plist */,
@@ -1899,7 +1903,6 @@
 				0CC9003F1F7028C00058E93C /* en_virtualAccount.plist */,
 				0CC900401F7028C00058E93C /* id_virtualAccount.plist */,
 				E571272E1E93B3290064F515 /* snap_colors.plist */,
-				0C1869211F726AA1001CD2FF /* Localizable.strings */,
 				E55F62771E93498000C012C8 /* bin.json */,
 			);
 			name = Data;
@@ -2696,6 +2699,7 @@
 			files = (
 				E58FCD9B1E94CFD500632085 /* bca_atm_2@2x.png in Resources */,
 				E58FCE331E94CFD600632085 /* other_atm_1@2x.png in Resources */,
+				0C115B7F1F73A77300327915 /* id_lang.json in Resources */,
 				0CE1D2671F62A670003A012F /* test_badge@2x.png in Resources */,
 				E58FCE171E94CFD500632085 /* MasterCardDark@2x.png in Resources */,
 				E57124871E9381320064F515 /* MidtransDirectHeader.xib in Resources */,
@@ -2842,8 +2846,8 @@
 				E58FCE0D1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
 				0CC9001E1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */,
 				E58FCDB51E94CFD500632085 /* bni@2x.png in Resources */,
-				0C1869241F726AA6001CD2FF /* Localizable.strings in Resources */,
 				E57124A31E9381320064F515 /* VTConfirmPaymentController.xib in Resources */,
+				0C115B7D1F73A76B00327915 /* en_lang.json in Resources */,
 				E58FCDB31E94CFD500632085 /* bni.png in Resources */,
 				E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */,
 				E57124A61E9381320064F515 /* VTGuideCell.xib in Resources */,
@@ -2970,6 +2974,7 @@
 			files = (
 				E5F1BB6C1E93701100ED659D /* SNPPointViewController.xib in Resources */,
 				E58FCD9A1E94CFD500632085 /* bca_atm_2@2x.png in Resources */,
+				0C115B7E1F73A77200327915 /* id_lang.json in Resources */,
 				E58FCE321E94CFD600632085 /* other_atm_1@2x.png in Resources */,
 				0CE1D2B41F67BA53003A012F /* token_key@1.5x.png in Resources */,
 				0CE1D2C11F67BA99003A012F /* sms.png in Resources */,
@@ -3116,8 +3121,8 @@
 				E58FCDEC1E94CFD500632085 /* icon_btn_plus_@2x.png in Resources */,
 				E58FCE721E94CFD600632085 /* trash-icon@2x.png in Resources */,
 				E58FCE941E94CFD600632085 /* VisaDark@2x.png in Resources */,
-				0C1869231F726AA5001CD2FF /* Localizable.strings in Resources */,
 				0CE1D2691F62A68E003A012F /* maintain@3x.png in Resources */,
+				0C115B7C1F73A76900327915 /* en_lang.json in Resources */,
 				E58FCDCA1E94CFD500632085 /* citi.png in Resources */,
 				E58FCE121E94CFD500632085 /* mandiri@2x.png in Resources */,
 				E58FCDE21E94CFD500632085 /* errorIcon@2x.png in Resources */,
@@ -3470,18 +3475,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		0C1869211F726AA1001CD2FF /* Localizable.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0C1869221F726AA1001CD2FF /* id */,
-				0C1869251F726ABC001CD2FF /* en */,
-			);
-			name = Localizable.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		305494221C759EDF00938C17 /* Debug */ = {

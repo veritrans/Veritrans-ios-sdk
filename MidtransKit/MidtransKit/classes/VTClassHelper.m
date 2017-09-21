@@ -41,19 +41,13 @@
 
 @implementation VTClassHelper
 + (NSBundle *)localeBundle {
-    static NSBundle* kioskitBundle = nil;
-    static dispatch_once_t predicate;
-    dispatch_once(&predicate, ^{
-        
-        NSString *libraryBundlePath = [[NSBundle mainBundle] pathForResource:@"MidtransKit"
-                                                                      ofType:@"bundle"];
-        
-        NSBundle *libraryBundle = [NSBundle bundleWithPath:libraryBundlePath];
-        NSString *langID        = [[NSLocale preferredLanguages] objectAtIndex:0];
-        NSString *path          = [libraryBundle pathForResource:langID ofType:@"lproj"];
-        kioskitBundle           = [NSBundle bundleWithPath:path];
-    });
-    return kioskitBundle;
+    static NSBundle *bundle;
+    NSString *stringsBundlePath = [VTBundle
+                                   pathForResource:@"Localizable"
+                                   ofType:@"strings" inDirectory:nil forLocalization:[MidtransDeviceHelper deviceCurrentLanguage]];
+    
+    bundle = [NSBundle bundleWithPath:stringsBundlePath];
+    return bundle;
 }
 
 
@@ -80,10 +74,12 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
-    NSString * bundlePath = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
-    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
-    
-    return [bundle localizedStringForKey:originalText value:originalText table:nil];
+    NSString *language = [NSString stringWithFormat:@"%@_lang",[MidtransDeviceHelper deviceCurrentLanguage]];
+    if ([[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] ||[[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] ) {
+        language = @"en_lanng";
+    }
+    NSDictionary *dictionary =  [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:language ofType:@"json"]] options:kNilOptions error:nil];
+    return [dictionary objectForKey:originalText];
 }
 
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {

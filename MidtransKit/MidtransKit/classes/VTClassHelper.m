@@ -80,29 +80,10 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
-        NSBundle* kioskitBundle = [NSBundle bundleWithPath:@"MidtransKit.bundle"];
+    NSString * bundlePath = [[NSBundle bundleForClass:[VTClassHelper class]] pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
+    NSBundle * bundle = [NSBundle bundleWithPath:bundlePath];
     
-    if (kioskitBundle == nil) {
-        // This might be the same as the previous check if not using a dynamic framework
-        NSString *libraryBundlePath = [[NSBundle mainBundle] pathForResource:@"MidtransKit"
-                                                         ofType:@"bundle"];
-        NSBundle *libraryBundle = [NSBundle bundleWithPath:libraryBundlePath];
-        NSString *path          = [libraryBundle pathForResource:[MidtransDeviceHelper deviceCurrentLanguage] ofType:@"lproj"];
-        kioskitBundle           = [NSBundle bundleWithPath:path];
-    }
-    
-    if (kioskitBundle == nil) {
-        
-        // This will be the same as mainBundle if not using a dynamic framework
-        kioskitBundle = [NSBundle bundleForClass:[VTClassHelper class]];
-        
-    }
-    
-    if (kioskitBundle == nil) {
-        kioskitBundle = [NSBundle mainBundle];
-    }
-    
-    return [kioskitBundle localizedStringForKey:originalText value:originalText table:nil];
+    return [bundle localizedStringForKey:originalText value:originalText table:nil];
 }
 
 + (NSArray <VTInstruction *> *)instructionsFromFilePath:(NSString *)filePath {

@@ -76,7 +76,7 @@
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
     NSString *language = [NSString stringWithFormat:@"%@_lang",[MidtransDeviceHelper deviceCurrentLanguage]];
     if ([[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] ||[[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] ) {
-        language = @"en_lanng";
+        language = @"en_lang";
     }
     NSDictionary *dictionary =  [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:language ofType:@"json"]] options:kNilOptions error:nil];
     return [dictionary objectForKey:originalText];

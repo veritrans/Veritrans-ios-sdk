@@ -31,7 +31,8 @@
     [super viewDidLoad];
     self.title = self.model.title;
     
-    NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.internalBaseClassIdentifier];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
     [self addSubViewController:vc toView:self.containerView];

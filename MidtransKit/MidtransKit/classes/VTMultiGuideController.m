@@ -35,9 +35,11 @@
     [super viewDidLoad];
     
     self.title = self.paymentMethod.title;
-     NSString *guidePath = [VTBundle pathForResource:_model.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.internalBaseClassIdentifier];
+     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([_model.title isEqualToString:@"Other ATM Network"]) {
-        guidePath =[VTBundle pathForResource:@"all_va" ofType:@"plist"];
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
+        guidePath =[VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     }
 
     self.guideViewControllers = [NSMutableArray new];

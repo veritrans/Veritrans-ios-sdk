@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.title = UILocalizedString(@"payment.pending",nil);
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
     [self.navigationItem setHidesBackButton:YES];
     [self showDismissButton:YES];
     [self showBackButton:NO];
@@ -47,7 +47,7 @@
     self.transactionTimeLabel.text = self.successViewModel.transactionTime;
     self.transactionExpiredTime.text = [self.successViewModel.additionalData objectForKey:@"bca_klikbca_expire_time"];
     
-    [self.finishButton setTitle:[NSString stringWithFormat:UILocalizedString(@"payment.finish-button-title-via",nil), @"KlikBCA"] forState:UIControlStateNormal];
+    [self.finishButton setTitle:[NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"payment.finish-button-title-via"], @"KlikBCA"] forState:UIControlStateNormal];
 }
 
 - (IBAction)helpPressed:(UIButton *)sender {

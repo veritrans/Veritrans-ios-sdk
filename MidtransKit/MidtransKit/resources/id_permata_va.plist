@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM Permata</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Pada menu utama pilih ‘Transaksi Lainnya’</string>
+				<key>image</key>
+				<string>permata_atm_1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Pembayaran’</string>
+				<key>image</key>
+				<string>permata_atm_2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Pembayaran Lainnya’</string>
+				<key>image</key>
+				<string>permata_atm_3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Virtual Account’</string>
+				<key>image</key>
+				<string>permata_atm_4</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan 16 digit No. Virtual Account yang dituju dan tekan ‘Benar’</string>
+				<key>image</key>
+				<string>permata_atm_5</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Detail pembayaran anda akan muncul pada halaman konfirmasi. Jika informasi telah sesuai tekan ‘Benar’</string>
+				<key>image</key>
+				<string>permata_atm_6</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih rekening pembayaran Anda dan tekan ‘Benar’</string>
+				<key>image</key>
+				<string>permata_atm_7</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Alto</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Pada menu utama pilih ‘Transaksi Lainnya’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Pembayaran’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Pembayaran Lainnya’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Virtual Account’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan 16 digit No. Virtual Account yang dituju dan tekan ‘Benar’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Detail pembayaran anda akan muncul pada halaman konfirmasi. Jika informasi telah sesuai tekan ‘Benar’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih rekening pembayaran Anda dan tekan ‘Benar’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

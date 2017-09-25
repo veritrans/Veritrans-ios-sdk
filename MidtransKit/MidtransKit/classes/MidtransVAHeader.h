@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *keySMSviewConstraints;
 @property (weak, nonatomic) IBOutlet UIView *keyView;
 @property (strong, nonatomic) IBOutlet UILabel *tutorialTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *smsChargeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *otherAtmIconsImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherAtmIconsHeightLayoutConstraint;
 @end

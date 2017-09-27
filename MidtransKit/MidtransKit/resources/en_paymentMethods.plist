@@ -254,5 +254,19 @@
 		<key>shortName</key>
 		<string>gci</string>
 	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Danamon Online</string>
+		<key>description</key>
+		<string>Pay with your Danamon Online account</string>
+		<key>id</key>
+		<string>danamon_online</string>
+		<key>identifier</key>
+		<string>danamon_online</string>
+		<key>shortName</key>
+		<string>danamon online</string>
+	</dict>
 </array>
 </plist>

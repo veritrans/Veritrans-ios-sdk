@@ -25,6 +25,10 @@
 		0C1B35DC1ED6B3A7003F6806 /* SNPFreeTextPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */; };
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
+		0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C9324391F7B76E900D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
+		0C93243A1F7B76F500D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
+		0C93243B1F7B76FA00D9A390 /* MidtransPaymentDanamonOnline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63521E934C4700C012C8 /* NSString+MidtransValidation.h in Headers */ = {isa = PBXBuildFile; fileRef = 0089B5F71D13D5D6009C0059 /* NSString+MidtransValidation.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63531E934C4700C012C8 /* SNPUITrackingManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1923601E430A8C00B3BBDB /* SNPUITrackingManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E55F63541E934C4700C012C8 /* MidtransConstant.h in Headers */ = {isa = PBXBuildFile; fileRef = 2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -362,6 +366,8 @@
 		0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment.m; sourceTree = "<group>"; };
 		0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Terms.h; sourceTree = "<group>"; };
 		0C6FC8971E1B62850002E160 /* MidtransPaymentRequestV2Terms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Terms.m; sourceTree = "<group>"; };
+		0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentDanamonOnline.h; sourceTree = "<group>"; };
+		0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentDanamonOnline.m; sourceTree = "<group>"; };
 		0CD7EA981E03D0820036C187 /* MIdtransPaymentGCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentGCI.h; sourceTree = "<group>"; };
 		0CD7EA991E03D0820036C187 /* MIdtransPaymentGCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransPaymentGCI.m; sourceTree = "<group>"; };
 		2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransConstant.h; sourceTree = "<group>"; };
@@ -692,6 +698,8 @@
 				E5AB975B1D7403AC00466A44 /* MidtransPaymentKiosOn.m */,
 				0CD7EA981E03D0820036C187 /* MIdtransPaymentGCI.h */,
 				0CD7EA991E03D0820036C187 /* MIdtransPaymentGCI.m */,
+				0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */,
+				0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -814,6 +822,7 @@
 				E571204F1E937A790064F515 /* MidtransPrivateConfig.h in Headers */,
 				0C1B35D91ED6B3A7003F6806 /* SNPFreeTextInquiry.h in Headers */,
 				E57120501E937A790064F515 /* MidtransCreditCardConfig.h in Headers */,
+				0C93243B1F7B76FA00D9A390 /* MidtransPaymentDanamonOnline.h in Headers */,
 				E57120511E937A790064F515 /* MidtransHelper.h in Headers */,
 				E57120521E937A790064F515 /* MidtransNetworking.h in Headers */,
 				E57120531E937A790064F515 /* MidtransNetworkOperation.h in Headers */,
@@ -898,6 +907,7 @@
 				E55F63521E934C4700C012C8 /* NSString+MidtransValidation.h in Headers */,
 				0C1B35D01ED6B106003F6806 /* SNPFreeTextInquiry.h in Headers */,
 				E55F63531E934C4700C012C8 /* SNPUITrackingManager.h in Headers */,
+				0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */,
 				E55F63541E934C4700C012C8 /* MidtransConstant.h in Headers */,
 				E55F63551E934C4700C012C8 /* MidtransImageManager.h in Headers */,
 				E55F63561E934C4700C012C8 /* MidtransCreditCardHelper.h in Headers */,
@@ -1103,6 +1113,7 @@
 				E57120271E937A2C0064F515 /* MidtransItemDetail.m in Sources */,
 				E57120281E937A2C0064F515 /* MidtransAddress.m in Sources */,
 				E57120291E937A2C0064F515 /* MidtransCustomerDetails.m in Sources */,
+				0C93243A1F7B76F500D9A390 /* MidtransPaymentDanamonOnline.m in Sources */,
 				E571202A1E937A2C0064F515 /* MidtransCreditCard.m in Sources */,
 				E571202B1E937A2C0064F515 /* MidtransMaskedCreditCard.m in Sources */,
 				E571202C1E937A2C0064F515 /* MidtransTransactionResult.m in Sources */,
@@ -1178,6 +1189,7 @@
 				E55F63C31E934C6400C012C8 /* MidtransCustomerDetails.m in Sources */,
 				E55F63C41E934C6400C012C8 /* MidtransCreditCard.m in Sources */,
 				E55F63C51E934C6400C012C8 /* MidtransMaskedCreditCard.m in Sources */,
+				0C9324391F7B76E900D9A390 /* MidtransPaymentDanamonOnline.m in Sources */,
 				E55F63C61E934C6400C012C8 /* MidtransTransactionResult.m in Sources */,
 				E55F63C71E934C6400C012C8 /* MidtransPaymentEpayBRI.m in Sources */,
 				E55F63C81E934C6400C012C8 /* MidtransPaymentMandiriClickpay.m in Sources */,

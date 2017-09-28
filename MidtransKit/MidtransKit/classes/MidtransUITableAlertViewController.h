@@ -8,11 +8,15 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, MTOtherBankType) {
+    MTOtherBankTypeATMBersama,
+    MTOtherBankTypePrima,
+    MTOtherBankTypeAlto
+};
+
 @interface MidtransUITableAlertViewController : UIViewController <UITableViewDataSource,
 UITableViewDelegate>
 
-- (instancetype)initWithTitle:(NSString *)title
-             closeButtonTitle:(NSString *)closeButtonTitle
-                     withList:(NSArray*) list;
+- (instancetype)initWithType:(MTOtherBankType) type;
 
 @end

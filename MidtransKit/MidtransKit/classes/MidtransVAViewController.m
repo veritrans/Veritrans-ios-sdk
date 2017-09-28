@@ -15,6 +15,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
 #import "MidtransUITableAlertViewController.h"
+#import "UIViewController+Modal.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -134,7 +135,9 @@
     }
     MidtransUITableAlertViewController* alert = [[MidtransUITableAlertViewController alloc] initWithTitle:title closeButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] withList:bankList];
     
-    [self presentViewController:alert animated:YES completion:nil];
+    [self.navigationController presentCustomViewController:alert
+                                          onViewController:self.navigationController
+                                                completion:nil];
 }
 
 - (IBAction)payPressed:(id)sender {

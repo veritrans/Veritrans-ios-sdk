@@ -19,6 +19,7 @@
                 <outlet property="closeButton" destination="E0m-Pq-Puj" id="fEU-xu-6fl"/>
                 <outlet property="containerView" destination="KAz-4r-2FP" id="2Dy-Mz-e0R"/>
                 <outlet property="tableView" destination="dD1-Al-hnA" id="kyx-u2-4Ny"/>
+                <outlet property="view" destination="iN0-l3-epB" id="9me-Te-vv4"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

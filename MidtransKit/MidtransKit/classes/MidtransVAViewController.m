@@ -14,6 +14,7 @@
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
+#import "MidtransUITableAlertViewController.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -111,8 +112,6 @@
 }
 
 -(void) displayBankList {
-    
-    UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
     
     NSArray* bankList = @[];
     if (self.headerView.tabSwitch.selectedSegmentIndex == 0) {

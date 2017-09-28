@@ -183,6 +183,12 @@
 		3D40894A1F75133200B9A2EC /* prima_preview@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089451F75133200B9A2EC /* prima_preview@2x.png */; };
 		3D40894B1F75133200B9A2EC /* prima_preview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089461F75133200B9A2EC /* prima_preview@3x.png */; };
 		3D40894C1F75133200B9A2EC /* prima_preview@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089461F75133200B9A2EC /* prima_preview@3x.png */; };
+		3DBBA1751F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBBA1741F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib */; };
+		3DBBA1761F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3DBBA1741F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib */; };
+		3DBBA1791F7CE061000FFD5E /* MidtransUITableAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DBBA1771F7CE061000FFD5E /* MidtransUITableAlertViewController.h */; };
+		3DBBA17A1F7CE061000FFD5E /* MidtransUITableAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBA1781F7CE061000FFD5E /* MidtransUITableAlertViewController.m */; };
+		3DBBA17C1F7CE0B4000FFD5E /* MidtransUITableAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3DBBA1771F7CE061000FFD5E /* MidtransUITableAlertViewController.h */; };
+		3DBBA17D1F7CE0B9000FFD5E /* MidtransUITableAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3DBBA1781F7CE061000FFD5E /* MidtransUITableAlertViewController.m */; };
 		E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */; };
@@ -1184,6 +1190,9 @@
 		3D4089441F75133200B9A2EC /* prima_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prima_preview.png; path = resources/prima_preview.png; sourceTree = "<group>"; };
 		3D4089451F75133200B9A2EC /* prima_preview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_preview@2x.png"; path = "resources/prima_preview@2x.png"; sourceTree = "<group>"; };
 		3D4089461F75133200B9A2EC /* prima_preview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_preview@3x.png"; path = "resources/prima_preview@3x.png"; sourceTree = "<group>"; };
+		3DBBA1741F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUITableAlertViewController.xib; path = MidtransKit/classes/MidtransUITableAlertViewController.xib; sourceTree = SOURCE_ROOT; };
+		3DBBA1771F7CE061000FFD5E /* MidtransUITableAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUITableAlertViewController.h; path = classes/MidtransUITableAlertViewController.h; sourceTree = "<group>"; };
+		3DBBA1781F7CE061000FFD5E /* MidtransUITableAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUITableAlertViewController.m; path = classes/MidtransUITableAlertViewController.m; sourceTree = "<group>"; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -1688,6 +1697,8 @@
 			children = (
 				0C3998461E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h */,
 				0C3998471E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m */,
+				3DBBA1771F7CE061000FFD5E /* MidtransUITableAlertViewController.h */,
+				3DBBA1781F7CE061000FFD5E /* MidtransUITableAlertViewController.m */,
 			);
 			name = "Custom AlertView";
 			sourceTree = "<group>";
@@ -1964,6 +1975,7 @@
 				E5F1BB331E93701100ED659D /* MidtransUICCFrontView.xib */,
 				0CE1D26E1F62A6D0003A012F /* SNPMaintainView.xib */,
 				E5F1BB341E93701100ED659D /* MidtransUICustomAlertViewController.xib */,
+				3DBBA1741F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib */,
 				E5F1BB351E93701100ED659D /* MidtransUIListCell.xib */,
 				E5F1BB371E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib */,
 				E5F1BB381E93701100ED659D /* MidtransUIToast.xib */,
@@ -2463,6 +2475,7 @@
 				E57120E51E937B790064F515 /* PopAnimator.h in Headers */,
 				E57120E61E937B790064F515 /* VTCardListController.h in Headers */,
 				E57120E71E937B790064F515 /* VTTwoClickController.h in Headers */,
+				3DBBA17C1F7CE0B4000FFD5E /* MidtransUITableAlertViewController.h in Headers */,
 				E57120E81E937B790064F515 /* MidtransSavedCardController.h in Headers */,
 				E57120E91E937B790064F515 /* MidtransSavedCardCell.h in Headers */,
 				E57120EA1E937B790064F515 /* MidtransSavedCardFooter.h in Headers */,
@@ -2531,6 +2544,7 @@
 				E55F62A81E934A6D00C012C8 /* MIdtransUIDetailedTitleController.h in Headers */,
 				E55F62A91E934A6D00C012C8 /* MidtransUIXibView.h in Headers */,
 				E55F62AA1E934A6D00C012C8 /* VTAlertBackgroundView.h in Headers */,
+				3DBBA1791F7CE061000FFD5E /* MidtransUITableAlertViewController.h in Headers */,
 				E55F62AB1E934A6D00C012C8 /* UICollectionView+Empty.h in Headers */,
 				E55F62AC1E934A6D00C012C8 /* MidtransUIHudView.h in Headers */,
 				E55F62AD1E934A6D00C012C8 /* VTKeyboardAccessoryView.h in Headers */,
@@ -2794,6 +2808,7 @@
 				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
 				E58FCDD91E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
 				E58FCE611E94CFD600632085 /* permata_atm_7@2x.png in Resources */,
+				3DBBA1761F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib in Resources */,
 				E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */,
 				E58FCDA71E94CFD500632085 /* bca_klikpay@2x.png in Resources */,
 				E57124921E9381320064F515 /* MidtransSavedCardController.xib in Resources */,
@@ -3110,6 +3125,7 @@
 				E5F1BB561E93701100ED659D /* MidtransInstallmentCollectionViewCell.xib in Resources */,
 				E58FCE641E94CFD600632085 /* permata.png in Resources */,
 				E5F1BB5E1E93701100ED659D /* MidtransPromoView.xib in Resources */,
+				3DBBA1751F7CDFDB000FFD5E /* MidtransUITableAlertViewController.xib in Resources */,
 				E57127341E93B3290064F515 /* en_bca_klikpay.plist in Resources */,
 				E58FCDFA1E94CFD500632085 /* kioson@2x.png in Resources */,
 				3D4089371F7512F100B9A2EC /* bersama_preview@2x.png in Resources */,
@@ -3396,6 +3412,7 @@
 				E57123001E937C040064F515 /* MidtransPaymentStatusViewController.m in Sources */,
 				E57123011E937C040064F515 /* MIdtransPaymentStatusView.m in Sources */,
 				E57123021E937C040064F515 /* VTBillpaySuccessController.m in Sources */,
+				3DBBA17D1F7CE0B9000FFD5E /* MidtransUITableAlertViewController.m in Sources */,
 				E57123031E937C040064F515 /* VTXLTunaiSuccessController.m in Sources */,
 				E57123041E937C040064F515 /* VTIndomaretSuccessController.m in Sources */,
 				E57123051E937C040064F515 /* VTVASuccessStatusController.m in Sources */,
@@ -3484,6 +3501,7 @@
 				0CEF032E1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */,
 				E55F63271E934B1C00C012C8 /* MidtransUIPaymentGeneralView.m in Sources */,
 				E55F63281E934B1C00C012C8 /* VTVAListController.m in Sources */,
+				3DBBA17A1F7CE061000FFD5E /* MidtransUITableAlertViewController.m in Sources */,
 				E55F63291E934B1C00C012C8 /* MidtransVAViewController.m in Sources */,
 				E55F632A1E934B1C00C012C8 /* MidtransVAHeader.m in Sources */,
 				0C108A051EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,

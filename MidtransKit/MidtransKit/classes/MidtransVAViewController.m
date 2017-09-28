@@ -69,9 +69,8 @@
     [self loadOtherBankList];
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
-        
-        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
+    if ([self.paymentMethod.title isEqualToString:[VTClassHelper getTranslationFromAppBundleForString:@"Other ATM Network"]]) {
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
         guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];

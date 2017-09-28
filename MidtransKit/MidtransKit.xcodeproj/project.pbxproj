@@ -35,6 +35,20 @@
 		0C5DD8891E9E34F60004DD5D /* SNPPostPaymentVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */; };
 		0C5DD88A1E9E34F60004DD5D /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */; };
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
+		0C9324431F7B7F5400D9A390 /* danamon_online@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324411F7B7DBC00D9A390 /* danamon_online@2x.png */; };
+		0C9324441F7B7F5400D9A390 /* danamon_online@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324411F7B7DBC00D9A390 /* danamon_online@2x.png */; };
+		0C9324451F7B7F5800D9A390 /* danamon_online@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324421F7B7DBD00D9A390 /* danamon_online@3x.png */; };
+		0C9324461F7B7F5900D9A390 /* danamon_online@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324421F7B7DBD00D9A390 /* danamon_online@3x.png */; };
+		0C9324471F7B7F6000D9A390 /* danamon_online@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C93243C1F7B7DB700D9A390 /* danamon_online@1.5x.png */; };
+		0C9324481F7B7F6000D9A390 /* danamon_online@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C93243C1F7B7DB700D9A390 /* danamon_online@1.5x.png */; };
+		0C9324491F7B7F6300D9A390 /* danamon_online.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324401F7B7DBC00D9A390 /* danamon_online.png */; };
+		0C93244A1F7B7F6400D9A390 /* danamon_online.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324401F7B7DBC00D9A390 /* danamon_online.png */; };
+		0C93244B1F7B7F6F00D9A390 /* danamon_online@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C93243F1F7B7DBB00D9A390 /* danamon_online@4x.png */; };
+		0C93244C1F7B7F6F00D9A390 /* danamon_online@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C93243F1F7B7DBB00D9A390 /* danamon_online@4x.png */; };
+		0C93244E1F7B810B00D9A390 /* en_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */; };
+		0C93244F1F7B810B00D9A390 /* en_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */; };
+		0C9324511F7B828A00D9A390 /* id_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324501F7B814D00D9A390 /* id_danamon_online.plist */; };
+		0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324501F7B814D00D9A390 /* id_danamon_online.plist */; };
 		0CC900161F7014DB0058E93C /* MidtransUIPaymentDirectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */; };
 		0CC900171F7014E50058E93C /* id_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900141F7012EA0058E93C /* id_indomaret.plist */; };
 		0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900141F7012EA0058E93C /* id_indomaret.plist */; };
@@ -1063,6 +1077,13 @@
 		0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardViewController.m; path = classes/MidtransNewCreditCardViewController.m; sourceTree = "<group>"; };
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
 		0C7AB56B1E310E7800EB6785 /* MidtransNewCreditCardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardView.m; path = classes/MidtransNewCreditCardView.m; sourceTree = "<group>"; };
+		0C93243C1F7B7DB700D9A390 /* danamon_online@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "danamon_online@1.5x.png"; path = "resources/danamon_online@1.5x.png"; sourceTree = "<group>"; };
+		0C93243F1F7B7DBB00D9A390 /* danamon_online@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "danamon_online@4x.png"; path = "resources/danamon_online@4x.png"; sourceTree = "<group>"; };
+		0C9324401F7B7DBC00D9A390 /* danamon_online.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = danamon_online.png; path = resources/danamon_online.png; sourceTree = "<group>"; };
+		0C9324411F7B7DBC00D9A390 /* danamon_online@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "danamon_online@2x.png"; path = "resources/danamon_online@2x.png"; sourceTree = "<group>"; };
+		0C9324421F7B7DBD00D9A390 /* danamon_online@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "danamon_online@3x.png"; path = "resources/danamon_online@3x.png"; sourceTree = "<group>"; };
+		0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_danamon_online.plist; path = MidtransKit/resources/en_danamon_online.plist; sourceTree = SOURCE_ROOT; };
+		0C9324501F7B814D00D9A390 /* id_danamon_online.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_danamon_online.plist; path = MidtransKit/resources/id_danamon_online.plist; sourceTree = SOURCE_ROOT; };
 		0CC9000E1F6FD66A0058E93C /* en_paymentMethods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_paymentMethods.plist; path = MidtransKit/resources/en_paymentMethods.plist; sourceTree = SOURCE_ROOT; };
 		0CC900141F7012EA0058E93C /* id_indomaret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_indomaret.plist; path = MidtransKit/resources/id_indomaret.plist; sourceTree = SOURCE_ROOT; };
 		0CC900151F7012F40058E93C /* en_indomaret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_indomaret.plist; path = MidtransKit/resources/en_indomaret.plist; sourceTree = SOURCE_ROOT; };
@@ -1934,6 +1955,8 @@
 				0CC900401F7028C00058E93C /* id_virtualAccount.plist */,
 				E571272E1E93B3290064F515 /* snap_colors.plist */,
 				E55F62771E93498000C012C8 /* bin.json */,
+				0C9324501F7B814D00D9A390 /* id_danamon_online.plist */,
+				0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */,
 			);
 			name = Data;
 			path = ../MidtransResources;
@@ -2001,6 +2024,11 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0C9324401F7B7DBC00D9A390 /* danamon_online.png */,
+				0C93243C1F7B7DB700D9A390 /* danamon_online@1.5x.png */,
+				0C9324411F7B7DBC00D9A390 /* danamon_online@2x.png */,
+				0C9324421F7B7DBD00D9A390 /* danamon_online@3x.png */,
+				0C93243F1F7B7DBB00D9A390 /* danamon_online@4x.png */,
 				0CE1D2711F62A71E003A012F /* arrow@2x.png */,
 				0CE1D2681F62A68E003A012F /* maintain@3x.png */,
 				0CE1D2651F62A670003A012F /* test_badge@2x.png */,
@@ -2749,6 +2777,7 @@
 				E5EBC2C11EB0726700A568D1 /* midtrans_logo_mid@2x.png in Resources */,
 				E519C9771E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				E57124881E9381320064F515 /* MidtransInstallmentCollectionViewCell.xib in Resources */,
+				0C93244F1F7B810B00D9A390 /* en_danamon_online.plist in Resources */,
 				E58FCE011E94CFD500632085 /* mandiri_atm_2@2x.png in Resources */,
 				0CE1D2A51F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				0CE1D2781F62A752003A012F /* bni_va@2x.png in Resources */,
@@ -2808,6 +2837,7 @@
 				E58FCD971E94CFD500632085 /* bbm@2x.png in Resources */,
 				E58FCDAD1E94CFD500632085 /* bca@2x.png in Resources */,
 				E58FCE851E94CFD600632085 /* visa-mastercard-jcb-amex@3x.png in Resources */,
+				0C9324481F7B7F6000D9A390 /* danamon_online@1.5x.png in Resources */,
 				E58FCDF51E94CFD500632085 /* InfoIcon@2x.png in Resources */,
 				E58FCE2D1E94CFD600632085 /* other_alto_5@2x.png in Resources */,
 				0CE1D2A91F67B861003A012F /* visa-mastercard-seal@2x.png in Resources */,
@@ -2849,6 +2879,7 @@
 				E571249B1E9381320064F515 /* MidtransUIToast.xib in Resources */,
 				E571249C1E9381320064F515 /* MidtransVAHeader.xib in Resources */,
 				E571249D1E9381320064F515 /* MidtransVAViewController.xib in Resources */,
+				0C93244C1F7B7F6F00D9A390 /* danamon_online@4x.png in Resources */,
 				E58FCE411E94CFD600632085 /* other_prima_1@2x.png in Resources */,
 				E519C97B1E9B6F2100EF70DF /* bni_va7@2x.png in Resources */,
 				E58FCE2F1E94CFD600632085 /* other_alto_6@2x.png in Resources */,
@@ -2874,6 +2905,8 @@
 				E57124A21E9381320064F515 /* VTCCBackView.xib in Resources */,
 				E58FCE071E94CFD500632085 /* mandiri_atm_5@2x.png in Resources */,
 				0CE1D26D1F62A6B5003A012F /* SNPMaintainView.xib in Resources */,
+				0C9324461F7B7F5900D9A390 /* danamon_online@3x.png in Resources */,
+				0C93244A1F7B7F6400D9A390 /* danamon_online.png in Resources */,
 				E58FCE7F1E94CFD600632085 /* visa-mastercard-amex@3x.png in Resources */,
 				E58FCE931E94CFD600632085 /* Visa@2x.png in Resources */,
 				E58FCE4D1E94CFD600632085 /* other_prima_7@2x.png in Resources */,
@@ -2906,6 +2939,7 @@
 				E57124A81E9381320064F515 /* VTIndomaretSuccessController.xib in Resources */,
 				E58FCE471E94CFD600632085 /* other_prima_4@2x.png in Resources */,
 				E58FCDAF1E94CFD500632085 /* bni_badge@2x.png in Resources */,
+				0C9324441F7B7F5400D9A390 /* danamon_online@2x.png in Resources */,
 				E58FCE211E94CFD600632085 /* midtrans_lock@2x.png in Resources */,
 				0CE1D26A1F62A68E003A012F /* maintain@3x.png in Resources */,
 				E58FCDD71E94CFD500632085 /* DeleteIcon@2x.png in Resources */,
@@ -2929,6 +2963,7 @@
 				0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */,
 				0CE1D2731F62A71E003A012F /* arrow@2x.png in Resources */,
 				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
+				0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */,
 				0CC9002C1F70207D0058E93C /* id_telkomsel_cash.plist in Resources */,
 				E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */,
 				E58FCE891E94CFD600632085 /* visa-mastercard-jcb@2x.png in Resources */,
@@ -3027,6 +3062,7 @@
 				0CE1D2B41F67BA53003A012F /* token_key@1.5x.png in Resources */,
 				0CE1D2C11F67BA99003A012F /* sms.png in Resources */,
 				E58FCE161E94CFD500632085 /* MasterCardDark@2x.png in Resources */,
+				0C93244E1F7B810B00D9A390 /* en_danamon_online.plist in Resources */,
 				0CE1D2CF1F67BBDE003A012F /* SNPPostPaymentGeneralViewController.xib in Resources */,
 				0CC900291F7020780058E93C /* en_telkomsel_cash.plist in Resources */,
 				E5F1BB591E93701100ED659D /* MidtransLoadingView.xib in Resources */,
@@ -3035,6 +3071,7 @@
 				E58FCE241E94CFD600632085 /* other_alto_1@2x.png in Resources */,
 				E5EBC2C41EB0726B00A568D1 /* midtrans_logo_mid@2x.png in Resources */,
 				E58FCE6C1E94CFD600632085 /* successIcon@2x.png in Resources */,
+				0C9324451F7B7F5800D9A390 /* danamon_online@3x.png in Resources */,
 				E519C9761E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				E5F1BB6E1E93701100ED659D /* VTBillpaySuccessController.xib in Resources */,
 				E5F1BB5F1E93701100ED659D /* MidtransSavedCardCell.xib in Resources */,
@@ -3043,6 +3080,7 @@
 				3D4089391F7512F100B9A2EC /* bersama_preview@3x.png in Resources */,
 				E58FCE441E94CFD600632085 /* other_prima_3@2x.png in Resources */,
 				E58FCE101E94CFD500632085 /* mandiri.png in Resources */,
+				0C9324511F7B828A00D9A390 /* id_danamon_online.plist in Resources */,
 				0C46FA851EEFCF4D002342E2 /* TokenButtonIcon@2x.png in Resources */,
 				0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */,
 				3D4089401F75130300B9A2EC /* alto_preview@2x.png in Resources */,
@@ -3100,6 +3138,7 @@
 				E5F1BB8B1E93702C00ED659D /* OCRAEXT.TTF in Resources */,
 				E5F1BB611E93701100ED659D /* MidtransSavedCardFooter.xib in Resources */,
 				0CC9003B1F7026F10058E93C /* en_mandiri_ecash.plist in Resources */,
+				0C93244B1F7B7F6F00D9A390 /* danamon_online@4x.png in Resources */,
 				E58FCD8C1E94CFD500632085 /* AmexDark@2x.png in Resources */,
 				E5F1BB7E1E93701100ED659D /* VTSubGuideController.xib in Resources */,
 				E58FCD961E94CFD500632085 /* bbm@2x.png in Resources */,
@@ -3149,6 +3188,7 @@
 				E5F1BB6B1E93701100ED659D /* MidtransVAViewController.xib in Resources */,
 				E58FCE401E94CFD600632085 /* other_prima_1@2x.png in Resources */,
 				E519C97A1E9B6F2100EF70DF /* bni_va7@2x.png in Resources */,
+				0C9324471F7B7F6000D9A390 /* danamon_online@1.5x.png in Resources */,
 				E58FCE2E1E94CFD600632085 /* other_alto_6@2x.png in Resources */,
 				E58FCDA01E94CFD500632085 /* bca_atm_5@2x.png in Resources */,
 				E58FCDDC1E94CFD500632085 /* DisclosureIndicatorGray@2x.png in Resources */,
@@ -3241,9 +3281,11 @@
 				E58FCDC01E94CFD500632085 /* checkbox_checked@2x.png in Resources */,
 				3D4089201F74E43200B9A2EC /* id_permata_va.plist in Resources */,
 				E58FCE5A1E94CFD600632085 /* permata_atm_4@2x.png in Resources */,
+				0C9324431F7B7F5400D9A390 /* danamon_online@2x.png in Resources */,
 				E58FCE6A1E94CFD600632085 /* prevIcon@2x.png in Resources */,
 				E55976421EA72F770044342A /* cross@2x.png in Resources */,
 				0CE1D2A81F67B861003A012F /* visa-mastercard-seal@2x.png in Resources */,
+				0C9324491F7B7F6300D9A390 /* danamon_online.png in Resources */,
 				3D4089491F75133200B9A2EC /* prima_preview@2x.png in Resources */,
 				E5F1BB6F1E93701100ED659D /* VTCardListController.xib in Resources */,
 				3D4089421F75130300B9A2EC /* alto_preview@3x.png in Resources */,

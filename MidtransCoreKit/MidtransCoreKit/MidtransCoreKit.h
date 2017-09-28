@@ -72,3 +72,4 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "SNPFreeTextDataModels.h"
 #import "MidtransPromoEngine.h"
 #import "MidtransBinResponse.h"
+#import "MidtransPaymentDanamonOnline.h"

@@ -7,6 +7,10 @@
     "type": "bank_transfer",
     "name": "Bank Transfer"
   },
+ {
+ "type": "danamon_online",
+ "name": "Danamon Online"
+ },
   {
     "type": "bca_klikbca",
     "name": "Klikbca"

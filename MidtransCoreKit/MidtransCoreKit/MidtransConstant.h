@@ -38,6 +38,7 @@ static NSString * const MIDTRANS_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
 static NSString * const MIDTRANS_PAYMENT_KLIK_BCA = @"bca_klikbca";
 static NSString * const MIDTRANS_PAYMENT_INDOMARET = @"indomaret";
 static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
+static NSString * const MIDTRANS_PAYMENT_DANAMON_ONLINE = @"danamon_online";
 static NSString * const MIDTRANS_PAYMENT_CSTORE = @"cstore";
 static NSString * const MIDTRANS_PAYMENT_MANDIRI_ECASH = @"mandiri_ecash";
 static NSString * const MIDTRANS_PAYMENT_CREDIT_CARD = @"credit_card";

@@ -116,19 +116,23 @@
 -(void) displayBankList {
     
     NSArray* bankList = @[];
+    NSString* title = @"";
     if (self.headerView.tabSwitch.selectedSegmentIndex == 0) {
         bankList = self.otherBankListATMBersama;
+        title = [VTClassHelper getTranslationFromAppBundleForString:@"Banks registered with ATM Bersama"];
     } else if (self.headerView.tabSwitch.selectedSegmentIndex == 1) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
             bankList = self.otherBankListAlto;
+            title = [VTClassHelper getTranslationFromAppBundleForString:@"Banks registered with Alto"];
+        } else {
+            bankList = self.otherBankListPrima;
+            title = [VTClassHelper getTranslationFromAppBundleForString:@"Banks registered with Prima"];
         }
-        bankList = self.otherBankListPrima;
     } else {
         bankList = self.otherBankListAlto;
+        title = [VTClassHelper getTranslationFromAppBundleForString:@"Banks registered with Alto"];
     }
-    for (NSString* bank in bankList) {
-        [alert addAction:[UIAlertAction actionWithTitle:bank style:UIAlertActionStyleDefault handler:nil]];
-    }
+    MidtransUITableAlertViewController* alert = [[MidtransUITableAlertViewController alloc] initWithTitle:title closeButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] withList:bankList];
     
     [self presentViewController:alert animated:YES completion:nil];
 }

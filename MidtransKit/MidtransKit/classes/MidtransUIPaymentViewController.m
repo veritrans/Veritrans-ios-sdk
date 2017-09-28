@@ -66,6 +66,9 @@
         case MidtransPaymentFeatureIndomaret:
             paymentMethodSelected = MIDTRANS_PAYMENT_INDOMARET;
             break;
+        case MidtransPyamentFeatureDanamonOnline:
+            paymentMethodSelected = MIDTRANS_PAYMENT_DANAMON_ONLINE;
+            break;
         case MidtransPaymentFeatureKiosON:
             paymentMethodSelected = MIDTRANS_PAYMENT_KIOS_ON;
             break;

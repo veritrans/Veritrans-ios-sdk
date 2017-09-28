@@ -38,8 +38,8 @@
             merchantServer = @"https://rakawm-snap.herokuapp.com";
             break;
         default:
-            clientkey = @"VT-client-cwmvxnYb-CTkaAgz";
-            merchantServer = @"https://demo-merchant-server.herokuapp.com";
+            clientkey = @"VT-client-wCSALF27ZAHMVa2U";
+            merchantServer = @"https://tapri.ayopop.com/api/payments/ccPayment/v2/";
             break;
     }
         [CONFIG setClientKey:clientkey

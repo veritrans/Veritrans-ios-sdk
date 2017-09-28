@@ -46,6 +46,7 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeaturePermataVA,
     MidtransPaymentFeatureBRIEpay,
     MidtransPaymentFeatureTelkomselEcash,
+    MidtransPyamentFeatureDanamonOnline,
     MidtransPaymentFeatureIndosatDompetku,
     MidtransPaymentFeatureXLTunai,
     MidtransPaymentFeatureMandiriClickPay,

@@ -23,6 +23,9 @@
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+@property (nonatomic) NSArray *otherBankListATMBersama;
+@property (nonatomic) NSArray *otherBankListPrima;
+@property (nonatomic) NSArray *otherBankListAlto;
 
 @property (nonatomic) MidtransVAType paymentType;
 @end
@@ -59,9 +62,11 @@
         self.headerView.keyView.hidden = YES;
     }
     self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
+    [self.headerView.expandBankListButton addTarget:self action:@selector(displayBankList) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     
+    [self loadOtherBankList];
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
@@ -107,6 +112,28 @@
     }];
 }
 
+-(void) displayBankList {
+    
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    NSArray* bankList = @[];
+    if (self.headerView.tabSwitch.selectedSegmentIndex == 0) {
+        bankList = self.otherBankListATMBersama;
+    } else if (self.headerView.tabSwitch.selectedSegmentIndex == 1) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            bankList = self.otherBankListAlto;
+        }
+        bankList = self.otherBankListPrima;
+    } else {
+        bankList = self.otherBankListAlto;
+    }
+    for (NSString* bank in bankList) {
+        [alert addAction:[UIAlertAction actionWithTitle:bank style:UIAlertActionStyleDefault handler:nil]];
+    }
+    
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (IBAction)payPressed:(id)sender {
     MidtransPaymentBankTransfer *paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType
                                                                                                           email:self.headerView.emailTextField.text];
@@ -137,29 +164,51 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-    if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-    } else {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
-    }
     
     if (index == 0) {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden =YES;
         self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"bersama_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with ATM Bersama logo’"];
+        [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 83 registered banks"] forState:UIControlStateNormal];
     } else if (index == 1) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
             self.headerView.keySMSviewConstraints.constant = 40.0f;
             self.headerView.keyView.hidden = YES;
         }
         self.headerView.keyView.hidden = NO;
-        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"prima_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            
+            self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Alto logo’"];
+            [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 19 registered banks"] forState:UIControlStateNormal];
+        } else {
+            
+            self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"prima_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Prima logo’"];
+            [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 64 registered banks"] forState:UIControlStateNormal];
+        }
     } else {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
         self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Alto logo’"];
+        [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 19 registered banks"] forState:UIControlStateNormal];
+    }
+    
+    if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+    } else {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 0.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        [self.headerView.expandBankListButton setTitle:nil forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
@@ -198,4 +247,173 @@
     }
 }
 
+-(void) loadOtherBankList {
+    
+    self.otherBankListATMBersama = @[@"Bank Aceh",
+                                     @"Bank Agroniaga",
+                                     @"Bank Andara",
+                                     @"Bank ANZ",
+                                     @"Bank Artos Indonesia",
+                                     @"Bank Bengkulu",
+                                     @"Bank BJB",
+                                     @"Bank BJB Syariah",
+                                     @"Bank Bukopin",
+                                     @"Bank Capital",
+                                     @"Bank CIMB Niaga",
+                                     @"Bank Commonwealth",
+                                     @"Bank Danamon",
+                                     @"Bank DBS",
+                                     @"Bank Dinar",
+                                     @"Bank DKI",
+                                     @"Bank Ekonomi",
+                                     @"Bank Ganesha",
+                                     @"Bank HSBC",
+                                     @"Bank ICBC",
+                                     @"Bank Ina Perdana",
+                                     @"Bank Index",
+                                     @"Bank J Trust",
+                                     @"Bank Jambi",
+                                     @"Bank Jateng",
+                                     @"Bank Jatim",
+                                     @"Bank Kalbar",
+                                     @"Bank Kalsel",
+                                     @"Bank Kaltim",
+                                     @"Bank Kesejahteraan",
+                                     @"Bank Lampung",
+                                     @"Bank Maluku",
+                                     @"Bank Mandiri",
+                                     @"Bank Mayapada Internasional",
+                                     @"Bank Maybank Indonesia",
+                                     @"Bank Mayora",
+                                     @"Bank Mega Syariah",
+                                     @"Bank Mega",
+                                     @"Bank Mestika",
+                                     @"Bank MNC Internasional",
+                                     @"Bank Muamalat",
+                                     @"Bank Nagari",
+                                     @"Bank Negara Indonesia (BNI)",
+                                     @"Bank NTB",
+                                     @"Bank NTT",
+                                     @"Bank Nusantara Parahyangan (BNP)",
+                                     @"Bank of China",
+                                     @"Bank of India Indonesia",
+                                     @"Bank Panin Syariah",
+                                     @"Bank Panin",
+                                     @"Bank Papua",
+                                     @"Bank Permata",
+                                     @"Bank Pundi Indonesia",
+                                     @"Bank QNB Kesawan",
+                                     @"Bank Rakyat Indonesia (BRI)",
+                                     @"Bank Riau Kepri",
+                                     @"Bank Saudara",
+                                     @"Bank Sinarmas",
+                                     @"Bank Sulselbar",
+                                     @"Bank Sulteng",
+                                     @"Bank Sultra",
+                                     @"Bank Sulut",
+                                     @"Bank Sumsel Babel",
+                                     @"Bank Sumut",
+                                     @"Bank Syariah Mandiri",
+                                     @"Bank Tabungan Negara (BTN)",
+                                     @"Bank Tabungan Pensiunan (BTPN)",
+                                     @"Bank Woori Saudara (BWS)",
+                                     @"BPD Bali",
+                                     @"BPD DIY",
+                                     @"BPD Kalteng",
+                                     @"BPR Bank Supra",
+                                     @"BPR Eka Bumi Artha",
+                                     @"BPR KS",
+                                     @"BPR Semoga Jaya Artha",
+                                     @"BRI Syariah",
+                                     @"Citibank",
+                                     @"ICB Bumiputera",
+                                     @"Nobu Bank",
+                                     @"OCBC NISP",
+                                     @"Rabobank",
+                                     @"Standard Chartered",
+                                     @"UOB Indonesia"];
+    self.otherBankListPrima = @[@"Bank Aceh Syariah",
+                                @"Bank Agris",
+                                @"Bank ANDA",
+                                @"Bank ANZ",
+                                @"Bank Artha Graha",
+                                @"Bank Banten",
+                                @"Bank BCA",
+                                @"Bank BCA Syariah",
+                                @"Bank BJB",
+                                @"Bank BJB Syariah",
+                                @"Bank BNI",
+                                @"Bank BNP",
+                                @"Bank BPD DIY",
+                                @"Bank BRI",
+                                @"Bank BRI Syariah",
+                                @"Bank BTN",
+                                @"Bank BTPN",
+                                @"Bank BTPN Syariah",
+                                @"Bank Bukopin",
+                                @"Bank Bumi Arta",
+                                @"Bank CIMB Niaga",
+                                @"Bank Commonwealth",
+                                @"Bank CTBC Indonesia",
+                                @"Bank Danamon Indonesia",
+                                @"Bank DKI",
+                                @"Bank Ekonomi",
+                                @"Bank Jasa Jakarta",
+                                @"Bank Jateng",
+                                @"Bank Jatim",
+                                @"Bank JTrust Indonesia",
+                                @"Bank Kalbar",
+                                @"Bank Kaltim",
+                                @"Bank KEB Hana Indonesia",
+                                @"Bank Mandiri",
+                                @"Bank Maspion",
+                                @"Bank Mayapada",
+                                @"Bank Maybank Indonesia",
+                                @"Bank Mega Syariah",
+                                @"Bank Mega",
+                                @"Bank MNC",
+                                @"Bank Muamalat",
+                                @"Bank Multiarta Sentosa",
+                                @"Bank Nagari",
+                                @"Bank National Nobu",
+                                @"Bank OCBC NISP",
+                                @"Bank of Tokyo — Mitsubishi",
+                                @"Bank Panin",
+                                @"Bank Papua",
+                                @"Bank Permata",
+                                @"Bank Rabobank",
+                                @"Bank Riaukepri",
+                                @"Bank Royal",
+                                @"Bank Sahabat Sampoerna",
+                                @"Bank SBI Indonesia",
+                                @"Bank Sinarmas",
+                                @"Bank Sulselbar",
+                                @"Bank Sumselbabel",
+                                @"Bank Syariah Bukopin",
+                                @"Bank Syariah Mandiri",
+                                @"Bank UOB Indonesia",
+                                @"Bank Victoria",
+                                @"Bank Victoria Syariah",
+                                @"Bank Windu",
+                                @"Bank Woori Saudara"];
+    self.otherBankListAlto = @[@"Bank Artha Graha",
+                               @"Bank CNB",
+                               @"Bank Danamon",
+                               @"Bank DBS",
+                               @"Bank Harda Internasional (BHI)",
+                               @"Bank KEB Hana Indonesia",
+                               @"Bank Kesejahteraan",
+                               @"Bank Maybank Indonesia",
+                               @"Bank Nusantara Parahyangan (BNP)",
+                               @"Bank Panin",
+                               @"Bank Permata",
+                               @"Bank Prima Master",
+                               @"Bank SBI Indonesia",
+                               @"Bank Sinarmas",
+                               @"Bank Tabungan Negara (BTN)",
+                               @"BPR Eka Bumi Artha",
+                               @"BPR KS",
+                               @"Citibank",
+                               @"KSP Intidana"];
+}
 @end

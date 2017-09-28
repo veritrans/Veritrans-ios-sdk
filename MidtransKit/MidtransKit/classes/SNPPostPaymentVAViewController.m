@@ -94,7 +94,7 @@
         filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
         guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
-        expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
+        expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration"];
     }
     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];

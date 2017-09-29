@@ -28,10 +28,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-4r-2FP">
+<<<<<<< HEAD
                     <rect key="frame" x="20" y="44" width="335" height="579"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-Al-hnA">
                             <rect key="frame" x="0.0" y="0.0" width="335" height="535"/>
+=======
+                    <rect key="frame" x="57.5" y="64" width="260" height="539"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-Al-hnA">
+                            <rect key="frame" x="0.0" y="45" width="260" height="449"/>
+>>>>>>> 1e5b6db... fix ui for table alert
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="iN0-l3-epB" id="3Vd-L2-R0j"/>
@@ -39,17 +46,37 @@
                             </connections>
                         </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-Pq-Puj">
+<<<<<<< HEAD
                             <rect key="frame" x="0.0" y="535" width="335" height="44"/>
                             <color key="backgroundColor" red="0.1058823529" green="0.56078431370000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                            <rect key="frame" x="0.0" y="495" width="260" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+>>>>>>> 1e5b6db... fix ui for table alert
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="0ho-i6-PdF"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" red="0.1058823529" green="0.56078431370000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="didSelectCloseButton:" destination="-1" eventType="touchUpInside" id="do6-OP-qs0"/>
                             </connections>
                         </button>
+<<<<<<< HEAD
+=======
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrr-oT-cNJ">
+                            <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="44" id="IJa-hw-0xZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+>>>>>>> 1e5b6db... fix ui for table alert
                     </subviews>
                     <constraints>
                         <constraint firstItem="E0m-Pq-Puj" firstAttribute="trailing" secondItem="dD1-Al-hnA" secondAttribute="trailing" id="1BT-SF-oJr"/>
@@ -58,16 +85,27 @@
                         <constraint firstItem="E0m-Pq-Puj" firstAttribute="top" secondItem="dD1-Al-hnA" secondAttribute="bottom" id="P9W-fx-JCU"/>
                         <constraint firstItem="dD1-Al-hnA" firstAttribute="leading" secondItem="KAz-4r-2FP" secondAttribute="leading" id="oA9-li-2VV"/>
                         <constraint firstItem="E0m-Pq-Puj" firstAttribute="leading" secondItem="dD1-Al-hnA" secondAttribute="leading" id="ol7-z1-uOz"/>
+<<<<<<< HEAD
                         <constraint firstAttribute="trailing" secondItem="dD1-Al-hnA" secondAttribute="trailing" id="ztt-he-KOY"/>
+=======
+                        <constraint firstItem="Hrr-oT-cNJ" firstAttribute="top" secondItem="KAz-4r-2FP" secondAttribute="top" id="qCy-TV-IW7"/>
+                        <constraint firstAttribute="width" constant="260" id="xlI-jD-n37"/>
+>>>>>>> 1e5b6db... fix ui for table alert
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+<<<<<<< HEAD
                 <constraint firstAttribute="bottom" secondItem="KAz-4r-2FP" secondAttribute="bottom" constant="44" id="1PY-xc-PdB"/>
                 <constraint firstItem="KAz-4r-2FP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="7eB-rG-paZ"/>
                 <constraint firstAttribute="trailing" secondItem="KAz-4r-2FP" secondAttribute="trailing" constant="20" id="LV4-Wt-0Uh"/>
                 <constraint firstItem="KAz-4r-2FP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="yI4-JZ-g5o"/>
+=======
+                <constraint firstItem="KAz-4r-2FP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="90y-T6-ZVv"/>
+                <constraint firstItem="KAz-4r-2FP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OLY-lr-teY"/>
+                <constraint firstItem="KAz-4r-2FP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rXT-v3-jqS"/>
+>>>>>>> 1e5b6db... fix ui for table alert
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>

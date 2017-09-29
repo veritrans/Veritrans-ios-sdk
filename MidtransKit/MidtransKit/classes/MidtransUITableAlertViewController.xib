@@ -29,10 +29,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KAz-4r-2FP">
-                    <rect key="frame" x="27.5" y="44" width="320" height="579"/>
+                    <rect key="frame" x="57.5" y="64" width="260" height="539"/>
                     <subviews>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dD1-Al-hnA">
-                            <rect key="frame" x="0.0" y="45" width="320" height="489"/>
+                            <rect key="frame" x="0.0" y="45" width="260" height="449"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <outlet property="dataSource" destination="-1" id="jWe-44-1gp"/>
@@ -40,20 +40,22 @@
                             </connections>
                         </tableView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E0m-Pq-Puj">
-                            <rect key="frame" x="0.0" y="535" width="320" height="44"/>
-                            <color key="backgroundColor" red="0.1058823529" green="0.56078431370000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <rect key="frame" x="0.0" y="495" width="260" height="44"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="0ho-i6-PdF"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="Y0C-W8-jzk"/>
                             </constraints>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" red="0.1058823529" green="0.56078431370000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
                             <connections>
                                 <action selector="didSelectCloseButton:" destination="-1" eventType="touchUpInside" id="do6-OP-qs0"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hrr-oT-cNJ">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                            <rect key="frame" x="0.0" y="0.0" width="260" height="44"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="44" id="IJa-hw-0xZ"/>
@@ -77,13 +79,13 @@
                         <constraint firstItem="Hrr-oT-cNJ" firstAttribute="leading" secondItem="KAz-4r-2FP" secondAttribute="leading" id="m0e-9i-75y"/>
                         <constraint firstItem="E0m-Pq-Puj" firstAttribute="leading" secondItem="dD1-Al-hnA" secondAttribute="leading" id="ol7-z1-uOz"/>
                         <constraint firstItem="Hrr-oT-cNJ" firstAttribute="top" secondItem="KAz-4r-2FP" secondAttribute="top" id="qCy-TV-IW7"/>
-                        <constraint firstAttribute="width" constant="320" id="xlI-jD-n37"/>
+                        <constraint firstAttribute="width" constant="260" id="xlI-jD-n37"/>
                     </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="KAz-4r-2FP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="44" id="90y-T6-ZVv"/>
+                <constraint firstItem="KAz-4r-2FP" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="90y-T6-ZVv"/>
                 <constraint firstItem="KAz-4r-2FP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="OLY-lr-teY"/>
                 <constraint firstItem="KAz-4r-2FP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="rXT-v3-jqS"/>
             </constraints>

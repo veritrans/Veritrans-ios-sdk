@@ -41,8 +41,9 @@
         title = [VTClassHelper getTranslationFromAppBundleForString:@"Banks registered with Alto"];
     }
     self.listTitle.text = title;
-    [self.closeButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] forState:UIControlStateNormal];
+    [self.closeButton setTitle:@"OK" forState:UIControlStateNormal];
     self.list = bankList;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
     CABasicAnimation *scale1 = [CABasicAnimation animation];
     scale1.keyPath = @"transform.scale";
@@ -97,9 +98,11 @@
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:nil];
-    cell.textLabel.text = self.list[indexPath.row];
+    UITableViewCell* cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    cell.textLabel.text = [NSString stringWithFormat:@"%ld.\t%@", indexPath.row+1, self.list[indexPath.row]];
     cell.textLabel.font = [UIFont fontWithName:@"SourceSansPro-Regular" size:13];
+    cell.textLabel.textColor = [UIColor grayColor];
+    cell.backgroundColor = indexPath.row % 2 ? [UIColor colorWithWhite:1.0f alpha:1] : [UIColor colorWithWhite:0.95f alpha:1];
     return cell;
 }
 - (IBAction)didSelectCloseButton:(id)sender {

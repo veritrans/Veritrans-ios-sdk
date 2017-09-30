@@ -73,9 +73,6 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
         paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];
     }
-    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]) {
-        paymentDetails = [[MidtransPaymentDanamonOnline alloc] init];
-    }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
         paymentDetails = [[MidtransPaymentXLTunai alloc] init];
     }

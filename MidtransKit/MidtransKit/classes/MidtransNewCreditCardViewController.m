@@ -682,9 +682,7 @@ UIAlertViewDelegate
                                                                grossAmount:self.token.transactionDetails.grossAmount
                                                                     secure:CC_CONFIG.secure3DEnabled];
     }
-    
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-    
     if (self.installmentTerms && self.installmentCurrentIndex !=0) {
         NSInteger installment = [self.installment.terms[self.installmentBankName][self.installmentCurrentIndex-1] integerValue];
         tokenRequest.installment = YES;

@@ -14,6 +14,8 @@
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
+#import "MidtransUITableAlertViewController.h"
+#import "UIViewController+Modal.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -59,12 +61,14 @@
         self.headerView.keyView.hidden = YES;
     }
     self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
+    [self.headerView.expandBankListButton addTarget:self action:@selector(displayBankList) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if ([self.paymentMethod.title isEqualToString:[VTClassHelper getTranslationFromAppBundleForString:@"Other ATM Network"]]) {
+    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
+        
         filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
         guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     }
@@ -96,6 +100,7 @@
         self.paymentType = VTVATypeOther;
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+       
         self.paymentType = VTVATypeBNI;
     }
     
@@ -103,6 +108,27 @@
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }];
+}
+
+-(void) displayBankList {
+    
+    MTOtherBankType type;
+    if (self.headerView.tabSwitch.selectedSegmentIndex == 0) {
+        type = MTOtherBankTypeATMBersama;
+    } else if (self.headerView.tabSwitch.selectedSegmentIndex == 1) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            type = MTOtherBankTypeAlto;
+        } else {
+            type = MTOtherBankTypePrima;
+        }
+    } else {
+        type = MTOtherBankTypeAlto;
+    }
+    MidtransUITableAlertViewController* alert = [[MidtransUITableAlertViewController alloc] initWithType:type];
+    
+    [self.navigationController presentCustomViewController:alert
+                                          onViewController:self.navigationController
+                                                completion:nil];
 }
 
 - (IBAction)payPressed:(id)sender {
@@ -135,29 +161,51 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-    if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-    } else {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
-    }
     
     if (index == 0) {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden =YES;
         self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"bersama_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with ATM Bersama logo’"];
+        [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 83 registered banks"] forState:UIControlStateNormal];
     } else if (index == 1) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
             self.headerView.keySMSviewConstraints.constant = 40.0f;
             self.headerView.keyView.hidden = YES;
         }
         self.headerView.keyView.hidden = NO;
-        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"prima_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            
+            self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Alto logo’"];
+            [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 19 registered banks"] forState:UIControlStateNormal];
+        } else {
+            
+            self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"prima_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Prima logo’"];
+            [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 64 registered banks"] forState:UIControlStateNormal];
+        }
     } else {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
         self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Alto logo’"];
+        [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 19 registered banks"] forState:UIControlStateNormal];
+    }
+    
+    if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+    } else {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 0.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        [self.headerView.expandBankListButton setTitle:nil forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];

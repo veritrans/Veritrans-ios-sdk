@@ -83,17 +83,17 @@
         [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
                                                        completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
 
-            if (maskedCards.count>0) {
+            if (maskedCards.count) {
                 [self.cards setArray:maskedCards];
                 [self.tableView reloadData];
             }
             else {
-                [self.tableView reloadData];
                 MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                                    paymentMethodName:self.paymentMethod
                                                                                                    andCreditCardData:self.creditCard
                                                                                         andCompleteResponseOfPayment:self.responsePayment];
                 vc.promos = self.promos;
+                vc.currentMaskedCards = self.cards;
                 [self.navigationController pushViewController:vc animated:NO];
             }
             

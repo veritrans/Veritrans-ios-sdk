@@ -99,7 +99,6 @@
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
-         NSLog(@"data-->%@",response);
          self.title = response.merchant.preference.displayName;
          if (response) {
              
@@ -288,7 +287,6 @@
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||

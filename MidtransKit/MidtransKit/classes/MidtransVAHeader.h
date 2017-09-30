@@ -19,4 +19,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *smsChargeLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *otherAtmIconsImageView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *otherAtmIconsHeightLayoutConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *payNoticeLabel;
+@property (weak, nonatomic) IBOutlet UIButton *expandBankListButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *expandListButtonHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *payNoticeLabelHeightConstraint;
+
 @end

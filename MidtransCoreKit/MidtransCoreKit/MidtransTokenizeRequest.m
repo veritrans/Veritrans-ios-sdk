@@ -27,7 +27,7 @@
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;
         self.grossAmount = grossAmount;
-        self.featureType =MTCreditCardPaymentTypeNormal;
+        self.featureType = MTCreditCardPaymentTypeNormal;
         self.secure = secure;
     }
     return self;

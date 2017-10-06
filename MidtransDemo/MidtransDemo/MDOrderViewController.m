@@ -48,7 +48,7 @@
     
     //forced to use token storage
     UICONFIG.hideStatusPage = YES;
-    CC_CONFIG.tokenStorageEnabled =YES;
+    CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
 
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];

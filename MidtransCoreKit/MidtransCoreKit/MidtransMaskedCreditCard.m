@@ -8,8 +8,8 @@
 
 #import "MidtransMaskedCreditCard.h"
 #import "MidtransConstant.h"
-#import "MidtransCreditCardConfig.h"
 #import "MidtransCreditCardHelper.h"
+#import "MidtransCreditCardConfig.h"
 
 NSString *const kMTMaskedCreditCard = @"masked_card";
 NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
@@ -34,9 +34,6 @@ NSString *const kSNPMaskedCreditCardTransactionId = @"transaction_id";
         self.maskedNumber = [data[kMTMaskedCreditCard] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
         self.savedTokenId = data[kMTMaskedCreditCardToken];
         self.statusCode = data[kSNPMaskedCreditCardStatusCode];
-        if (CC_CONFIG.tokenStorageEnabled == YES) {
-            self.tokenType = @"two_clicks";
-        }
         self.transactionId = data[kSNPMaskedCreditCardTransactionId];
         self.type = [MidtransCreditCardHelper nameFromString:self.maskedNumber];
         self.data = data;
@@ -60,8 +57,7 @@ NSString *const kSNPMaskedCreditCardTransactionId = @"transaction_id";
 - (NSDictionary *)dictionaryValue {
     return @{kMTMaskedCreditCardIdentifier:self.savedTokenId,
              kMTMaskedCreditCardCardhash:self.maskedNumber,
-             kMTMaskedCreditCardType:self.type,
-             kMTMaskedCreditCardTokenType:self.tokenType,
+             kMTMaskedCreditCardTokenType:[CC_CONFIG tokenStorageEnabled]?@"two_clicks":@"",
              kSNPMaskedCreditCardStatusCode:self.statusCode,
              kSNPMaskedCreditCardTransactionId:self.transactionId};
 }

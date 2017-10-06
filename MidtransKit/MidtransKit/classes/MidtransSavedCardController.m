@@ -16,8 +16,8 @@
 
 @interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource, MidtransNewCreditCardViewControllerDelegate>
 @property (nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) MidtransPaymentRequestV2CreditCard *creditCard;
-@property (nonatomic) NSMutableArray *cards;
+@property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCard;
+@property (nonatomic,strong) NSMutableArray *cards;
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 @property (nonatomic) MidtransSavedCardFooter *footerView;
 @property (nonatomic) NSArray *bankBinList;
@@ -66,7 +66,7 @@
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransSavedCardCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransSavedCardCell"];
     
-    self.cards = [NSMutableArray new];
+    self.cards = [[NSMutableArray alloc] init];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.list.title"];
     
     [self reloadSavedCards];
@@ -83,7 +83,7 @@
         [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
                                                        completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
 
-            if (maskedCards.count>0) {
+            if (maskedCards.count > 0) {
                 [self.cards setArray:maskedCards];
                 [self.tableView reloadData];
             }
@@ -173,6 +173,7 @@
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
     vc.promos = self.promos;
+    vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -199,14 +200,8 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     if (CC_CONFIG.tokenStorageEnabled) {
-        if ([card.tokenType isEqualToString:TokenTypeOneClick]) {
-             [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"one click"}];
-            [self performOneClickWithCard:card];
-        }
-        else {
-              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
-            [self performTwoClicksWithCard:card];
-        }
+        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
+        [self performTwoClicksWithCard:card];
     }
     else {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
@@ -262,7 +257,7 @@
         NSUInteger cardIndex = alertView.tag;
         [self showLoadingWithText:nil];
         if (CC_CONFIG.tokenStorageEnabled == YES) {
-             [self.cards removeObjectAtIndex:cardIndex];
+            [self.cards removeObjectAtIndex:cardIndex];
             [[MidtransMerchantClient shared] saveMaskedCards:self.cards
                                                     customer:self.token.customerDetails
                                                   completion:^(id  _Nullable result, NSError * _Nullable error) {

@@ -64,10 +64,6 @@
     
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if ([self.paymentMethod.title isEqualToString:[VTClassHelper getTranslationFromAppBundleForString:@"Other ATM Network"]]) {
-        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
-        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];

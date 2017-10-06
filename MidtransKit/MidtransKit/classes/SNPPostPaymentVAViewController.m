@@ -91,10 +91,10 @@
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
         
-        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"all_va"];
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
         guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
-        expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
+        expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration"];
     }
     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];
@@ -105,7 +105,7 @@
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
-        if (i>1) {
+        if (i > 1) {
             if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
                 [self.headerViewBillPay.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
             }

@@ -73,7 +73,7 @@
 }
 
 - (void)reloadSavedCards {
-    if (CC_CONFIG.tokenStorageEnabled) {
+    if (!CC_CONFIG.tokenStorageEnabled) {
         NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
         [self.cards setArray:savedTokens];
         [self.tableView reloadData];
@@ -260,33 +260,32 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSUInteger cardIndex = alertView.tag;
-        
         [self showLoadingWithText:nil];
-        
-        if (CC_CONFIG.tokenStorageEnabled) {
-            MidtransMaskedCreditCard *card = self.cards[cardIndex];
-            [[MidtransMerchantClient shared] deleteMaskedCreditCard:card token:self.token completion:^(BOOL success) {
+        if (CC_CONFIG.tokenStorageEnabled == YES) {
+             [self.cards removeObjectAtIndex:cardIndex];
+            [[MidtransMerchantClient shared] saveMaskedCards:self.cards
+                                                    customer:self.token.customerDetails
+                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
+                                                      [self hideLoading];
+                                                      [self reloadSavedCards];
+                                                  }];
+        } else {
+            MidtransMaskedCreditCard *maskedCard = self.cards[cardIndex];
+            [[MidtransMerchantClient shared] deleteMaskedCreditCard:maskedCard token:self.token completion:^(BOOL success) {
                 [self hideLoading];
                 
                 if (success == NO) {
                     return;
                 }
-                
-                NSMutableArray *savedTokensM = self.creditCard.savedTokens.mutableCopy;
-                [savedTokensM removeObjectAtIndex:cardIndex];
-                self.creditCard.savedTokens = savedTokensM;
-                [self reloadSavedCards];
+             [self.cards removeObjectAtIndex:cardIndex];
+                [self.tableView reloadData];
+    
             }];
         }
-        else {
-            [self.cards removeObjectAtIndex:cardIndex];
-            [[MidtransMerchantClient shared] saveMaskedCards:self.cards
-                                                    customer:self.token.customerDetails
-                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                      [self reloadSavedCards];
-                                                  }];
-        }
+        
     }
+        
+       
 }
 
 #pragma mark - MidtransNewCreditCardViewControllerDelegate

@@ -133,7 +133,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 - (void)saveMaskedCards:(NSArray <MidtransPaymentCreditCard*>*)maskedCards
                customer:(MidtransCustomerDetails *)customer
              completion:(void(^)(id result, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
+    NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];;
     NSArray *parameters = maskedCards.requestBodyValues;
     [[MidtransNetworking shared] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
 }

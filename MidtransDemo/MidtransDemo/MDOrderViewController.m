@@ -42,7 +42,7 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:@"VT-client-TzAbiyRrkIP_IkqY"
+        [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
            merchantServerURL:merchantServer];
     

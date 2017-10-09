@@ -25,8 +25,6 @@
 		0C1B35DC1ED6B3A7003F6806 /* SNPFreeTextPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */; };
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
-		0C68F0401F8B3A230026416D /* Raygun4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C68F03F1F8B3A1B0026416D /* Raygun4iOS.framework */; };
-		0C68F0411F8B3A240026416D /* Raygun4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C68F03F1F8B3A1B0026416D /* Raygun4iOS.framework */; };
 		0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C9324391F7B76E900D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
 		0C93243A1F7B76F500D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
@@ -364,7 +362,6 @@
 		0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextPayment.m; sourceTree = "<group>"; };
 		0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPFreeTextResponse.h; sourceTree = "<group>"; };
 		0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextResponse.m; sourceTree = "<group>"; };
-		0C68F03F1F8B3A1B0026416D /* Raygun4iOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Raygun4iOS.framework; sourceTree = "<group>"; };
 		0C6FC8921E1B62850002E160 /* MidtransPaymentRequestV2Installment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Installment.h; sourceTree = "<group>"; };
 		0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment.m; sourceTree = "<group>"; };
 		0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Terms.h; sourceTree = "<group>"; };
@@ -477,7 +474,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C68F0411F8B3A240026416D /* Raygun4iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -485,7 +481,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C68F0401F8B3A230026416D /* Raygun4iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -798,7 +793,6 @@
 		E5CDEC8B1E9340CA0032DC3B /* MidtransCoreKit */ = {
 			isa = PBXGroup;
 			children = (
-				0C68F03F1F8B3A1B0026416D /* Raygun4iOS.framework */,
 				0089B5F61D13D5B7009C0059 /* Common */,
 				2EDAA3A01D0A7597009EC90D /* Tracking */,
 				2ED4518C1D09C4BB008BAED8 /* Const */,

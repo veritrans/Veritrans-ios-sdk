@@ -228,8 +228,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
-    if ([CC_CONFIG.authenticationTypeString length]>0) {
-        creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString?CC_CONFIG.authenticationTypeString:@"none";
+    if (CC_CONFIG.authenticationTypeString!=nil || [CC_CONFIG.authenticationTypeString length]>0) {
+        creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
     }
     if (CC_CONFIG.preauthEnabled) {
         creditCardParameter[@"type"] = @"authorize";

@@ -42,7 +42,7 @@ UIAlertViewDelegate
 @property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 @property (nonatomic,strong) NSString *installmentBankName;
-@property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic,strong) NSMutableArray *maskedCards;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstraints;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
@@ -751,7 +751,7 @@ UIAlertViewDelegate
              }
          }
          else {
-             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+             if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                      return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
                  }];
@@ -836,6 +836,23 @@ UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self showLoadingWithText:nil];
+        if ([CC_CONFIG tokenStorageEnabled]) {
+            NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [self.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
+            }];
+            if (index != NSNotFound) {
+                [self.maskedCards removeObjectAtIndex:index];
+            }
+            
+            [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
+                                                    customer:self.token.customerDetails
+                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
+                                                      [self hideLoading];
+                                                      if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                                                          [self.delegate didDeleteSavedCard];
+                                                      }
+                                                  }];
+        } else {
         [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
             [self hideLoading];
             
@@ -856,7 +873,7 @@ UIAlertViewDelegate
                 [self.delegate didDeleteSavedCard];
             }
         }];
-    }
+        }}
 }
 
 #pragma mark - observer

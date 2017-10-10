@@ -15,7 +15,6 @@
 		0C108A161EEE641200843A05 /* SNPMaintainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A141EEE641200843A05 /* SNPMaintainView.m */; };
 		0C108A171EEE641200843A05 /* SNPMaintainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A141EEE641200843A05 /* SNPMaintainView.m */; };
 		0C108A181EEE641B00843A05 /* SNPMaintainView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C108A131EEE641200843A05 /* SNPMaintainView.h */; };
-		0C115B771F73954B00327915 /* VTClassHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 3005E2A71C7C239A00064169 /* VTClassHelper.m */; };
 		0C115B7C1F73A76900327915 /* en_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7A1F73A76400327915 /* en_lang.json */; };
 		0C115B7D1F73A76B00327915 /* en_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7A1F73A76400327915 /* en_lang.json */; };
 		0C115B7E1F73A77200327915 /* id_lang.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C115B7B1F73A76600327915 /* id_lang.json */; };
@@ -3429,7 +3428,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C115B771F73954B00327915 /* VTClassHelper.m in Sources */,
 				0C108A061EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,
 				0C1ADB991EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */,
 				0C108A171EEE641200843A05 /* SNPMaintainView.m in Sources */,

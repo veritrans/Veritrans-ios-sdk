@@ -10,13 +10,31 @@
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Untuk pembayaran, Anda dapat memilih akun KlikBCA Individu atau kartu kredit BCA.</string>
+		<string>Setelah Login ke Akun BCA Klikpay Anda dengan memasukkan alamat email dan password, maka akan tampil informasi data transaksi seperti nama merchant, waktu transaksi, dan jumlah yang harus dibayar. Pilihlah jenis pembayaran KlikBCA atau BCA Card untuk transaksi tersebut.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Untuk informasi lebih lanjut mengenai BCA KlikPay harap kontak Halo BCA di (021) 1500888 atau kunjungi &lt;link&gt;http://klikbca.com/KlikPay/klikpay.html&lt;/link&gt;</string>
+		<string>Untuk otorisasi pembayaran dengan BCA KlikPay, tekan tombol ‘kirim OTP’, dan Anda akan menerima kode OTP (One Time Password) yang dikirim melalui SMS ke handphone Anda. Masukkan kode OTP tersebut pada kolom yang tersedia.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Apabila kode OTP yang Anda masukkan benar, transaksi pembayaran akan langsung diproses dan saldo rekening Anda (untuk jenis pembayaran KlikBCA) atau limit BCA Card Anda (untuk jenis pembayaran BCA Card) akan berkurang sejumlah nilai transaksi.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Status keberhasilan transaksi Anda akan tampil pada layar transaksi dan Anda akan menerima email notifikasi.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Informasi lebih lanjut tentang BCA KlikPay dapat hubungi Halo BCA di 1500888 atau kunjungi &lt;link&gt;http://klikbca.com/KlikPay/klikpay.html&lt;/link&gt;</string>
 		<key>image</key>
 		<string></string>
 	</dict>

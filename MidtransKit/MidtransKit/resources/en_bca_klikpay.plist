@@ -10,7 +10,25 @@
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>For payment, you can choose to use KlikBCA Individu Account or BCA Credit Card</string>
+		<string>After Login to your BCA Klikpay Account by entering your email address and password, it will display transaction information such as merchant name, transaction time, and amount to be paid. Choose the type of payment KlikBCA or BCA Card for the transaction.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>To authorize payment with BCA KlikPay, press the ‘send OTP’ button, and you will receive an OTP (One Time Password) code sent via SMS to your mobile phone. Enter the OTP code in the fields provided.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>If your OTP code is correct, your payment will be processed immediately and your account balance (for KlikBCA payment type) or your BCA Card limit (for BCA Card payment type) will be reduced according to amount of transaction value.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Your transaction success status will appear on the transaction screen and you will receive a notification email.</string>
 		<key>image</key>
 		<string></string>
 	</dict>

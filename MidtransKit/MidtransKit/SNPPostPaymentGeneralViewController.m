@@ -33,7 +33,7 @@
     [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentGeneralHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentGeneralHeader"];
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
-    self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
+    self.headerView.topTextLabel.text = @"Payment Code";
     NSString *expireDate;
     if ([self.title isEqualToString:@"Kioson"]) {
         expireDate =[self.transactionResult.additionalData objectForKey:@"kioson_expire_time"];
@@ -41,19 +41,11 @@
     else  if ([self.title isEqualToString:@"Indomaret"]) {
         expireDate =[self.transactionResult.additionalData objectForKey:@"indomaret_expire_time"];
     }
-     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
+     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"Please complete payment before: %@",expireDate];
     [self.headerView updateFocusIfNeeded];
     self.view.tableView.tableHeaderView = self.headerView;
     self.headerView.vaTextField.text = self.transactionResult.indomaretPaymentCode;
-    
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
-    
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
-    }
-    self.instrunctions = [VTClassHelper instructionsFromFilePath:guidePath];
-    
+    self.instrunctions = [VTClassHelper instructionsFromFilePath:[VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"]];
      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
@@ -94,7 +86,7 @@
 }
 - (void)copyButtonDidTapped:(id)sender {
     [[UIPasteboard generalPasteboard] setString:self.headerView.vaTextField.text];
-    [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
     NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};

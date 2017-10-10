@@ -38,10 +38,7 @@ NSString *const vPaymentGatewayMIGS = @"migs";
     }
 }
 - (NSString *)authenticationTypeString {
-
     switch (self.authenticationType) {
-        case MTAuthenticationTypeUnknown:
-            return @"";
         case MTAuthenticationTypeRBA:
             return @"rba";
             break;
@@ -52,7 +49,7 @@ NSString *const vPaymentGatewayMIGS = @"migs";
             return @"none";
             break;
         default:
-            return nil;
+            return @"none";
             break;
     }
 }

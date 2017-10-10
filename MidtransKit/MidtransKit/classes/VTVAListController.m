@@ -16,7 +16,6 @@
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *vaList;
 @end
@@ -25,18 +24,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
+    self.title = UILocalizedString(@"va.list.title", nil);
     [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
-    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"virtualAccount"];
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:@"en_virtualAccount" ofType:@"plist"];
-    }
-    
+    NSString *path = [VTBundle pathForResource:@"virtualAccount" ofType:@"plist"];
     NSMutableArray *vaListM = [NSMutableArray new];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:guidePath];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
 
     NSArray *paymentAvailable = self.paymentResponse.enabledPayments;
     for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {

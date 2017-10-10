@@ -8,12 +8,12 @@
 
 #import "MidtransPaymentMethodHeader.h"
 #import "MidtransUIThemeManager.h"
-#import "VTClassHelper.h"
+
 @implementation MidtransPaymentMethodHeader
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    
     self.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
 @end

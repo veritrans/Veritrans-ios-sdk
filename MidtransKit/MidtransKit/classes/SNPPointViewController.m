@@ -48,10 +48,10 @@
         self.maskedCards = [NSMutableArray new];
     }
     self.maskedCards = [NSMutableArray new];
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"];
+    self.title = @"Redeem BNI Reward Point";
     self.pointRedeem = [NSMutableArray new];
     [self.view configureAmountTotal:self.token];
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Calculating your Point"]];
+    [self showLoadingWithText:@"Calculating your Point"];
 
     [[MidtransMerchantClient shared] requestCustomerPointWithToken:self.token.tokenId
                                                 andCreditCardToken:self.creditCardToken
@@ -59,7 +59,7 @@
         if (!error) {
             self.pointResponse = response;
             self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[response.pointBalanceAmount intValue]];
-            self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[response.pointBalanceAmount intValue]];
+            self.view.pointTotalTtitle.text = [NSString stringWithFormat:@"Your total BNI Reward Points is %i",[response.pointBalanceAmount intValue]];
             
             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[self.pointResponse.pointBalanceAmount intValue]]];
 
@@ -102,7 +102,7 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)submitPaymentWithToken:(id)sender {
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+    [self showLoadingWithText:@"Processing your transaction"];
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:self.creditCardToken
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard
@@ -119,7 +119,7 @@
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                  message:error.localizedDescription
                                                                 delegate:nil
-                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                       cancelButtonTitle:@"Close"
                                                        otherButtonTitles:nil];
                  [alert show];
              }
@@ -145,7 +145,7 @@
                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                      message:result.statusMessage
                                                                     delegate:nil
-                                                           cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                           cancelButtonTitle:@"Close"
                                                            otherButtonTitles:nil];
                      [alert show];
                  }

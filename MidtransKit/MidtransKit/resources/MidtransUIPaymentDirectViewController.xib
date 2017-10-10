@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,13 +44,13 @@
                     <rect key="frame" x="0.0" y="467" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCL-Uh-jUh">
-                            <rect key="frame" x="263" y="13.5" width="42" height="20"/>
+                            <rect key="frame" x="265.5" y="12" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6aQ-Jk-lYW">
-                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -77,14 +77,14 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xne-tQ-wBL">
                     <rect key="frame" x="0.0" y="1" width="320" height="40"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-iO-nQV">
-                            <rect key="frame" x="17.5" y="14" width="286.5" height="14"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment mehtod" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GMc-iO-nQV">
+                            <rect key="frame" x="26.5" y="12.5" width="267" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="token_key.png" translatesAutoresizingMaskIntoConstraints="NO" id="qYX-YA-Won">
-                            <rect key="frame" x="-7" y="12" width="20.5" height="20"/>
+                            <rect key="frame" x="2" y="12" width="20.5" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="9TN-Of-Pds"/>
                                 <constraint firstAttribute="height" constant="20" id="JZ6-DM-QvE"/>
@@ -126,10 +126,7 @@
                 <outlet property="confirmPaymentButton" destination="2AF-lH-6ld" id="E4L-OC-ega"/>
                 <outlet property="tableView" destination="PEl-TJ-zof" id="zm3-OG-oEf"/>
                 <outlet property="topConstraints" destination="Xpt-SO-RUI" id="xsw-aa-xh2"/>
-                <outlet property="topLabelText" destination="GMc-iO-nQV" id="5m7-Uz-e3q"/>
-                <outlet property="topViewConstraints" destination="0Qu-gg-ihE" id="6Ng-g9-1Ry"/>
                 <outlet property="totalAmountLabel" destination="BCL-Uh-jUh" id="sAG-jF-A48"/>
-                <outlet property="totalAmountTextLabel" destination="6aQ-Jk-lYW" id="HY5-9Y-rEF"/>
             </connections>
             <point key="canvasLocation" x="-99" y="179"/>
         </view>

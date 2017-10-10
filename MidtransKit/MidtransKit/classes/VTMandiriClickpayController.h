@@ -12,9 +12,5 @@
 @interface VTMandiriClickpayController : MidtransUIPaymentController
 @property (weak, nonatomic) IBOutlet UIView *keyTokenView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *keyTokeViewHeightConstraints;
-@property (weak, nonatomic) IBOutlet UILabel *keyTokenLabel;
-@property (weak, nonatomic) IBOutlet UILabel *mandiriClickpayStepLabel;
-@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
-@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 
 @end

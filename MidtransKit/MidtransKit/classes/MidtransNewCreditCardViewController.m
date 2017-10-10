@@ -42,7 +42,7 @@ UIAlertViewDelegate
 @property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 @property (nonatomic,strong) NSString *installmentBankName;
-@property (nonatomic,strong) NSMutableArray *maskedCards;
+@property (nonatomic) NSMutableArray *maskedCards;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstraints;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
@@ -94,8 +94,7 @@ UIAlertViewDelegate
 - (void)viewDidLoad {
 
     [super viewDidLoad];
-    [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
-    self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];//(@"creditcard.input.title", nil);
+    self.title =  UILocalizedString(@"creditcard.input.title", nil);//(@"creditcard.input.title", nil);
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
     NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
     
@@ -133,14 +132,14 @@ UIAlertViewDelegate
     
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
-                                                   @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
+                                                   @"addOnTitle":@"Redeem BNI Reward Point"}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
-                                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Save card for later use"]}];
+                                                                    @"addOnTitle":@"Save card for later use"}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
             [self updateAddOnContent];
@@ -175,8 +174,7 @@ UIAlertViewDelegate
         
         //add delete button
         self.view.deleteButton.hidden = NO;
-        [self.view.deleteButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Delete Saved Card"]
-                                forState:UIControlStateNormal];
+        [self.view.deleteButton setTitle:UILocalizedString(@"Delete Saved Card", nil) forState:UIControlStateNormal];
         [self.view.deleteButton addTarget:self action:@selector(deleteCardPressed:) forControlEvents:UIControlEventTouchUpInside];
     }
     else {
@@ -194,12 +192,11 @@ UIAlertViewDelegate
 }
 
 - (void)deleteCardPressed:(id)sender {
-    UIAlertView *alert =
-    [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
-                               message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
-                              delegate:self
-                     cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
-                     otherButtonTitles:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"], nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
+                                                    message:UILocalizedString(@"alert.message-delete-card", nil)
+                                                   delegate:self
+                                          cancelButtonTitle:UILocalizedString(@"alert.no", nil)
+                                          otherButtonTitles:UILocalizedString(@"alert.yes", nil), nil];
     [alert show];
 }
 
@@ -367,8 +364,8 @@ UIAlertViewDelegate
 
 - (IBAction)cvvInfoDidTapped:(id)sender {
     MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                      initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"what is cvv?"]
-                                                      message:[VTClassHelper getTranslationFromAppBundleForString:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"]
+                                                      initWithTitle:@"what is cvv?"
+                                                      message:@"The CVV is a 3 (or 6) digit number security code printed on the back of your card"
                                                       image:@"CreditCardBackSmall"
                                                       delegate:nil
                                                       cancelButtonTitle:nil
@@ -395,8 +392,8 @@ UIAlertViewDelegate
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.save card for later reuse"]
-                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.we will securely store your card details so you can reuse them later"]
+                                                          initWithTitle:@"save card for later reuse"
+                                                          message:@"we will securely store your card details so you can reuse them later"
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
@@ -408,8 +405,8 @@ UIAlertViewDelegate
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"redeem bni reward point"]
-                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"you can pay partly through the redemption of BNI Reward Point through your credit card"]
+                                                          initWithTitle:@"redeem bni reward point"
+                                                          message:@"you can pay partly through the redemption of BNI Reward Point through your credit card"
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
@@ -466,15 +463,15 @@ UIAlertViewDelegate
 - (void)textField_didInfo3Tap:(MidtransUITextField *)textField {
     if ([textField isEqual:self.view.creditCardNumberTextField]) {
         NSString *sponsor = self.obtainedPromo.sponsorName;
-        NSString *message = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-message"], @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
+        NSString *message = [NSString stringWithFormat:UILocalizedString(@"creditcard.promo-message", nil), @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
-                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-title"]
+                                                          initWithTitle:UILocalizedString(@"creditcard.promo-title", nil)
                                                           message:message
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
-                                                          okButtonTitle:@"OK"];
+                                                          okButtonTitle:@"Ok"];
         
         [self.navigationController presentCustomViewController:alertView
                                               onViewController:self.navigationController
@@ -511,11 +508,11 @@ UIAlertViewDelegate
                     MidtransBinResponse *debitCardObject = [[MidtransBinResponse alloc] initWithDictionary:[debitCard firstObject]];
                     if ([debitCardObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                         isDebitCard = YES;
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
+                        self.title = @"Mandiri Debit Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                     } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         isDebitCard = YES;
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
+                        self.title = @"BNI Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
                     }
                 }
@@ -524,12 +521,12 @@ UIAlertViewDelegate
             else {
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
+                        self.title = @"Mandiri Debit Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
                         
                     }
                     else if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
+                        self.title = @"BNI Card";
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
                     }
                     isDebitCard = YES;
@@ -555,7 +552,7 @@ UIAlertViewDelegate
             }
         }
         else {
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
+            self.title = UILocalizedString(@"creditcard.input.title", nil);
             if ([[self.installment.terms objectForKey:@"offline"] count]) {
                 if (!isDebitCard) {
                     self.installmentBankName = @"offline";
@@ -573,7 +570,7 @@ UIAlertViewDelegate
         }
         
         
-        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
+        self.title = UILocalizedString(@"creditcard.input.title", nil);
         self.filteredBinObject.bank = nil;
         self.view.creditCardNumberTextField.info2Icon = nil;
         if (self.installmentValueObject.count > 0) {
@@ -630,9 +627,9 @@ UIAlertViewDelegate
     
     if (self.installmentRequired && self.installmentCurrentIndex == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
+                                                        message:@"This transaction must use installment"
                                                        delegate:nil
-                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                              cancelButtonTitle:@"Close"
                                               otherButtonTitles:nil];
         [alert show];
         return;
@@ -670,7 +667,7 @@ UIAlertViewDelegate
     
     if (self.maskedCreditCard) {
         if (!self.view.cardCVVNumberTextField.text.length) {
-            self.view.cardCVVNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"CVV is invalid"];
+            self.view.cardCVVNumberTextField.warning = @"CVV is invalid";
             return;
         }
         tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
@@ -682,7 +679,7 @@ UIAlertViewDelegate
                                                                grossAmount:self.token.transactionDetails.grossAmount
                                                                     secure:CC_CONFIG.secure3DEnabled];
     }
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+    [self showLoadingWithText:@"Processing your transaction"];
     if (self.installmentTerms && self.installmentCurrentIndex !=0) {
         NSInteger installment = [self.installment.terms[self.installmentBankName][self.installmentCurrentIndex-1] integerValue];
         tokenRequest.installment = YES;
@@ -742,7 +739,7 @@ UIAlertViewDelegate
                  UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                  message:error.localizedDescription
                                                                 delegate:nil
-                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                       cancelButtonTitle:@"Close"
                                                        otherButtonTitles:nil];
                  [alert show];
              }
@@ -751,7 +748,7 @@ UIAlertViewDelegate
              }
          }
          else {
-             if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                      return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
                  }];
@@ -779,7 +776,7 @@ UIAlertViewDelegate
                      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                      message:result.statusMessage
                                                                     delegate:nil
-                                                           cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                           cancelButtonTitle:@"Close"
                                                            otherButtonTitles:nil];
                      [alert show];
                  }
@@ -823,7 +820,7 @@ UIAlertViewDelegate
     if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
                           andMessage:error.localizedDescription
-                      andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
+                      andButtonTitle:@"Close"];
     }
 }
 
@@ -836,23 +833,6 @@ UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self showLoadingWithText:nil];
-        if ([CC_CONFIG tokenStorageEnabled]) {
-            NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
-            }];
-            if (index != NSNotFound) {
-                [self.maskedCards removeObjectAtIndex:index];
-            }
-            
-            [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
-                                                    customer:self.token.customerDetails
-                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                      [self hideLoading];
-                                                      if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
-                                                          [self.delegate didDeleteSavedCard];
-                                                      }
-                                                  }];
-        } else {
         [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
             [self hideLoading];
             
@@ -873,13 +853,11 @@ UIAlertViewDelegate
                 [self.delegate didDeleteSavedCard];
             }
         }];
-        }}
+    }
 }
 
 #pragma mark - observer
-/**
- we will refactor this on next chore
- */
+
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     NSString *ccnumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     NSString *bank = self.filteredBinObject.bank;
@@ -887,21 +865,20 @@ UIAlertViewDelegate
     if ([keyPath isEqualToString:@"text"] && object == self.view.creditCardNumberTextField) {
         if (([bank isEqualToString:@"bni"] || [bank isEqualToString:@"mandiri"]) &&
             ccnumber.length == 16) {
-               return;
+            [self.view.cardExpireTextField becomeFirstResponder];
         }
         else {
             switch ([MidtransCreditCardHelper typeFromString:ccnumber]) {
                     case VTCreditCardTypeAmex:
                     if (ccnumber.length == 15) {
-                        return;
-                       // [self.view.cardExpireTextField becomeFirstResponder];
+                        [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
                     case VTCreditCardTypeJCB:
                     case VTCreditCardTypeVisa:
                     case VTCreditCardTypeMasterCard:
                     if (ccnumber.length == 16) {
-                          return;
+                        [self.view.cardExpireTextField becomeFirstResponder];
                     }
                     break;
                 default:
@@ -913,7 +890,7 @@ UIAlertViewDelegate
     else if ([keyPath isEqualToString:@"text"] && object == self.view.cardExpireTextField) {
         NSString *unformatText = [self.view.cardExpireTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
         if (unformatText.length == 5) {
-           // [self.view.cardCVVNumberTextField becomeFirstResponder];
+            [self.view.cardCVVNumberTextField becomeFirstResponder];
         }
     }
     else if ([keyPath isEqualToString:@"text"] && object == self.view.cardCVVNumberTextField) {

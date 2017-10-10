@@ -170,7 +170,7 @@
         default:
             break;
     }
-    return [NSPredicate predicateWithFormat:@"SELF MATCHES [c] %@", regex];
+    return [NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex];
 }
 @end
 
@@ -226,7 +226,8 @@
     return NO;
 }
 
-- (NSString *)removeNonDigits:(NSString *)string {
+- (NSString *)removeNonDigits:(NSString *)string
+{
     if (string.length) {
         NSString *firstChar = [string substringToIndex:1];
         if (firstChar.integerValue > 1) {

@@ -32,9 +32,7 @@
     self.ccFormatter.numberLimit = 16;
     self.ccFormatter.delegate = self;
     
-    self.view.gciCardTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"gci.placeholder"];
-    self.view.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
-    [self.view.confirmButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
+    
     // Do any additional setup after loading the view from its nib.
 }
 -(void)textFieldDidChange :(UITextField *) textField{
@@ -64,14 +62,14 @@
 
 - (IBAction)confirmPaymentButtonDidTapped:(id)sender {
    if (self.view.gciCardTextField.text.SNPisEmpty) {
-        self.view.gciCardTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"Card Number cannot be empty"];
+        self.view.gciCardTextField.warning = @"Card Number cannot be empty";
         return;
     }
      else if (self.view.passwordTextField.text.SNPisEmpty) {
-       self.view.passwordTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"PIN cannot be empty"];
+       self.view.passwordTextField.warning = @"PIN cannot be empty";
         return;
     }
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading"]];
+    [self showLoadingWithText:@"Loading"];
     MIdtransPaymentGCI *paymentDetails = [[MIdtransPaymentGCI alloc] initWithCardNumber:self.view.gciCardTextField.text
                                                                                password:self.view.passwordTextField.text];
 
@@ -87,7 +85,7 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
                                                                 message:error.localizedDescription
                                                                delegate:nil
-                                                      cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                      cancelButtonTitle:@"Close"
                                                       otherButtonTitles:nil];
                 [alert show];
             }
@@ -102,7 +100,7 @@
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[result.transactionStatus capitalizedString]
                                                                 message:result.statusMessage
                                                                delegate:nil
-                                                      cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                      cancelButtonTitle:@"Close"
                                                       otherButtonTitles:nil];
                 [alert show];
             }

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 @class MidtransUITextField;
-@class MidtransTransactionTokenResponse;
+@class MidtransTransactionTokenResponse,MidtransUINextStepButton,MidtransPaymentMethodHeader;
 @interface MidtransNewCreditCardView : UIView
 @property (weak, nonatomic) IBOutlet MidtransUITextField *creditCardNumberTextField;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpireTextField;
@@ -21,6 +21,9 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *installmentWrapperViewConstraints;
 @property (nonatomic) IBOutlet UIButton *deleteButton;
 @property (weak, nonatomic) IBOutlet UIImageView *secureBadgeImage;
+@property (weak, nonatomic) IBOutlet MidtransPaymentMethodHeader *totalAmountText;
+@property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

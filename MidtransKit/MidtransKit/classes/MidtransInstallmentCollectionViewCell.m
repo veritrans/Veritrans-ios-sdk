@@ -20,10 +20,10 @@
 }
 - (void)configureInstallmentWithText:(NSString *)title {
     if ([title isEqualToString:@"0"]) {
-         self.installmentLabel.text =@"No Installment";
+         self.installmentLabel.text =[VTClassHelper getTranslationFromAppBundleForString:@"No Installment"];
     }
     else {
-        self.installmentLabel.text = [NSString stringWithFormat:@"%@ Month installments",title];
+        self.installmentLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"month.installments"],title];
     }
 }
 @end

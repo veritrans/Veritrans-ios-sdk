@@ -9,6 +9,8 @@
 #import "MidtransNewCreditCardView.h"
 #import "MidtransUICardFormatter.h"
 #import "VTClassHelper.h"
+#import "MidtransPaymentMethodHeader.h"
+#import "MidtransUINextStepButton.h"
 #import "MidtransUITextField.h"
 #import "MidtransUIThemeManager.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -23,13 +25,17 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    NSString * language = [[NSLocale preferredLanguages] objectAtIndex:0];
-    
+    [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.finish.payment"] forState:UIControlStateNormal];
+    self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.addOnTableView.scrollEnabled = false;
     self.addOnTableView.allowsMultipleSelection = YES;
     self.secureBadgeWrapper.layer.cornerRadius = 3.0f;
     self.secureBadgeWrapper.layer.borderWidth = 1.0f;
     self.secureBadgeWrapper.layer.borderColor = [UIColor clearColor].CGColor;
+    
+    self.creditCardNumberTextField.placeholder =[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.creditcard_number"];
+        self.cardExpireTextField.placeholder =[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.creditcard_valid_until"];
+        self.cardCVVNumberTextField.placeholder =[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.creditcard_cvv"];
     
     self.cvvInfoButton.tintColor = [[MidtransUIThemeManager shared] themeColor];
     UIImage *image = [[UIImage imageNamed:@"hint" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
@@ -102,7 +108,7 @@
         return YES;
     }
     else if (error.code == MIDTRANS_ERROR_CODE_INVALID_BIN) {
-        self.creditCardNumberTextField.warning = UILocalizedString(@"creditcard.error.invalid-bin", nil);
+        self.creditCardNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.error.invalid-bin"];
         return YES;
     }
     else {

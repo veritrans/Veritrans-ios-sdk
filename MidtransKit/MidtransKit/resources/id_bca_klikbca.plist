@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Pastikan bahwa User ID sudah aktif dan terdaftar di BCA.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Silakan lanjutkan pembayaran melalui KlikBCA dengan membuka &lt;link&gt;http://www.klikbca.com/&lt;/link&gt; pada browser anda, menggunakan User ID yang sama dengan yang anda masukkan di atas.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

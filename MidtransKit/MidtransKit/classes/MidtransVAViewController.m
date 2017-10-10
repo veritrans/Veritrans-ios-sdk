@@ -14,10 +14,13 @@
 #import "VTGuideCell.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
+#import "MidtransUITableAlertViewController.h"
+#import "UIViewController+Modal.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
@@ -33,7 +36,8 @@
     
     self.title = self.paymentMethod.title;
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
-    [self.payButton setTitle:UILocalizedString(@"va.pay-button", nil) forState:UIControlStateNormal];
+    self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    [self.payButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"va.pay-button"] forState:UIControlStateNormal];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -47,19 +51,26 @@
     self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransVAHeader"];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
     self.headerView.emailTextField.text = self.token.customerDetails.email;
-    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:@"%@ transfer step by step", self.title];
+    self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-placeholder"];
+    self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-note"];
+    self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     self.headerView.keySMSviewConstraints.constant = 0.0f;
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
     }
+    self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
+    [self.headerView.expandBankListButton addTarget:self action:@selector(displayBankList) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     
-    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
-        guidePath = [VTBundle pathForResource:@"all_va" ofType:@"plist"];
+        
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
+        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {
@@ -95,8 +106,29 @@
     
     [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [[UIPasteboard generalPasteboard] setString:note.object];
-        [MidtransUIToast createToast:UILocalizedString(@"toast.copy-text",nil) duration:1.5 containerView:self.view];
+        [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }];
+}
+
+-(void) displayBankList {
+    
+    MTOtherBankType type;
+    if (self.headerView.tabSwitch.selectedSegmentIndex == 0) {
+        type = MTOtherBankTypeATMBersama;
+    } else if (self.headerView.tabSwitch.selectedSegmentIndex == 1) {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            type = MTOtherBankTypeAlto;
+        } else {
+            type = MTOtherBankTypePrima;
+        }
+    } else {
+        type = MTOtherBankTypeAlto;
+    }
+    MidtransUITableAlertViewController* alert = [[MidtransUITableAlertViewController alloc] initWithType:type];
+    
+    [self.navigationController presentCustomViewController:alert
+                                          onViewController:self.navigationController
+                                                completion:nil];
 }
 
 - (IBAction)payPressed:(id)sender {
@@ -129,16 +161,51 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-    if (index ==1) {
+    
+    if (index == 0) {
+        self.headerView.keySMSviewConstraints.constant = 0.0f;
+        self.headerView.keyView.hidden =YES;
+        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"bersama_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with ATM Bersama logo’"];
+        [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 83 registered banks"] forState:UIControlStateNormal];
+    } else if (index == 1) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
             self.headerView.keySMSviewConstraints.constant = 40.0f;
             self.headerView.keyView.hidden = YES;
         }
         self.headerView.keyView.hidden = NO;
-    }
-    else {
+        if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            
+            self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Alto logo’"];
+            [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 19 registered banks"] forState:UIControlStateNormal];
+        } else {
+            
+            self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"prima_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Prima logo’"];
+            [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 64 registered banks"] forState:UIControlStateNormal];
+        }
+    } else {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
-        self.headerView.keyView.hidden =YES;
+        self.headerView.keyView.hidden = YES;
+        self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
+        self.headerView.payNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Pay through ‘all bank ATMs with Alto logo’"];
+        [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 19 registered banks"] forState:UIControlStateNormal];
+    }
+    
+    if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+    } else {
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 0.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        [self.headerView.expandBankListButton setTitle:nil forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];

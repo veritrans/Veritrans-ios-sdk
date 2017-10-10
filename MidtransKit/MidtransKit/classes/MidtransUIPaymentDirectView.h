@@ -16,6 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *confirmPaymentButton;
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topConstraints;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *topViewConstraints;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *topLabelText;
 
 - (void)initViewWithPaymentID:(NSString *)paymentMethodID email:(NSString *)email;
 - (MidtransVAType)paymentTypeWithID:(NSString *)paymentMethodID ;

@@ -72,10 +72,10 @@ static NSString * const TRANSACTION_ERROR_KEY = @"tr_error";
 /**
  *  CONSTANT REGEX
  */
-static NSString * const MIDTRANS_VISA_REGEX         = @"^4[0-9]{0,}$";
-static NSString * const MIDTRANS_MASTER_CARD_REGEX   = @"^5[1-5][0-9]{0,}$";
-static NSString * const MIDTRANS_JCB_REGEX          = @"^(?:2131|1800|35)[0-9]{0,}";
-static NSString * const MIDTRANS_AMEX_REGEX         = @"^3[47][0-9]{0,}$";
+static NSString * const MIDTRANS_VISA_REGEX         = @"(^4[0-9]{0,}$)";
+static NSString * const MIDTRANS_MASTER_CARD_REGEX   = @"(^5[1-5][0-9]{0,}$)";
+static NSString * const MIDTRANS_JCB_REGEX          = @"(^(?:2131|1800|35)[0-9]{0,})";
+static NSString * const MIDTRANS_AMEX_REGEX         = @"(^3[47][0-9]{0,}$)";
 
 /**
  * CONSTANT ENDPOINT

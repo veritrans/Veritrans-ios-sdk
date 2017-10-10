@@ -13,5 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *amountTotalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *confirmButton;
 //- (void)configurePaymentOptions:()
 @end

@@ -53,24 +53,13 @@ static NSString* const ClickpayAPPLI = @"3";
     self.debitNumberTextField.delegate = self;
     self.tokenTextField.delegate = self;
     
-    self.debitNumberTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card placeholder"];
-    
     self.appliLabel.text = ClickpayAPPLI;
     self.input1Label.text = [MidtransMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
     self.input2Label.text = [MidtransMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
     self.input3Label.text = [MidtransMandiriClickpayHelper generateInput3];
     
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    self.mandiriClickpayStepLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
-    self.keyTokenLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Key token device is required for this payment method"];
-    self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
-    [self.confirmButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
-    
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
-    }
+    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
     self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;
@@ -86,16 +75,16 @@ static NSString* const ClickpayAPPLI = @"3";
     self.tokenTextField.warning = nil;
     self.debitNumberTextField.warning = nil;
     if ([self.debitNumberTextField.text SNPisValidClickpayNumber] == NO) {
-        self.debitNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"clickpay.invalid-number"];
+        self.debitNumberTextField.warning = UILocalizedString(@"clickpay.invalid-number", nil);
         return;
     }
     
     if ([self.tokenTextField.text SNPisValidClickpayToken] == NO) {
-        self.tokenTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"clickpay.invalid-token"];
+        self.tokenTextField.warning = UILocalizedString(@"clickpay.invalid-token", nil);
         return;
     }
     
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your payment"]];
+    [self showLoadingWithText:@"Processing your payment"];
     
     MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
                                                                                                   clickpayToken:self.tokenTextField.text];

@@ -47,14 +47,14 @@
     if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
         MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
         creditCardVC.saveCreditCardOnly = YES;
-        creditCardVC.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.add.new.card"];
+        creditCardVC.title = @"Add New Card";
         [creditCardVC showDismissButton:creditCardVC.saveCreditCardOnly];
         [self.navigationController pushViewController:creditCardVC animated:!creditCardVC.saveCreditCardOnly];
         return;
         
     }
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
-    self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"payment.list.title"];
+    self.title =  UILocalizedString(@"payment.list.title", nil);
     self.singlePayment = false;
     
     UIBarButtonItem *closeButton = [[UIBarButtonItem alloc]
@@ -79,18 +79,14 @@
   
 }
 - (void)loadPaymentList {
-    
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"paymentMethods"];
-    NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if (path == nil) {
-        path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
-    }
+
+    NSString *path = [VTBundle pathForResource:@"paymentMethods" ofType:@"plist"];
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading payment list"]];
+    [self showLoadingWithText:@"Loading payment list"];
     
     if (self.token.tokenId.length == 0) {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.invalid-payment-token"]
+                                                        message:UILocalizedString(@"alert.invalid-payment-token", nil)
                                                        delegate:self
                                               cancelButtonTitle:nil
                                               otherButtonTitles:@"Ok", nil];
@@ -117,14 +113,13 @@
              bool vaAlreadyAdded = 0;
              NSInteger mainIndex = 0;
              MidtransPaymentListModel *model;
-             
-             NSDictionary *vaDictionaryBuilder = @{@"description":[VTClassHelper getTranslationFromAppBundleForString:@"Pay from ATM Bersama, Prima or Alto"],
+             NSDictionary *vaDictionaryBuilder = @{@"description":@"Pay from ATM Bersama, Prima or Alto",
                                                    @"id":@"va",
                                                    @"identifier":@"va",
                                                    @"shortName":@"atm transfer",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
-            
+             
              NSArray *paymentAvailable = response.enabledPayments;
              if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];

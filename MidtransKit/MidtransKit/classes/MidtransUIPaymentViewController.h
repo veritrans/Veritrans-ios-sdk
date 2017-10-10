@@ -70,6 +70,6 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token andPaymentFeature:(MidtransPaymentFeature)paymentFeature;
 - (instancetype)initCreditCardForm;
-@property (nonatomic, strong) id<MidtransUIPaymentViewControllerDelegate> paymentDelegate;
+@property (nonatomic, weak) id<MidtransUIPaymentViewControllerDelegate> paymentDelegate;
 
 @end

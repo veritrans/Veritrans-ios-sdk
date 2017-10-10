@@ -27,25 +27,19 @@
     [super viewDidLoad];
     
     self.title = self.paymentMethod.title;
-    self.view.topLabelText.text  = [VTClassHelper getTranslationFromAppBundleForString:@"Key token device is required for this payment method"];
-    self.view.topConstraints.constant = 0.0f;
-    self.view.topViewConstraints.constant = 0.0f;
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
         self.view.topConstraints.constant = 40.0f;
-        self.view.topViewConstraints.constant = 40.0f;
     }
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    self.view.instructionTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
-    if ([[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"id"]) {
-        self.view.instructionTitleLabel.text = [NSString stringWithFormat:@" Panduan pembayaran melalui %@", self.paymentMethod.title];
-    }
+    self.view.instructionTitleLabel.text = [NSString stringWithFormat:@"%@ step by step", self.paymentMethod.title];
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
+    NSLog(@"data-->%@",UILocalizedString(@"payment.va.confirm_button",@""));
 }
 - (void)setPaymentType:(MidtransVAType)paymentType {
     _paymentType = paymentType;
-    [self.view.confirmPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"payment.va.confirm_button"] forState:UIControlStateNormal];
+    [self.view.confirmPaymentButton setTitle:UILocalizedString(@"payment.va.confirm_button",@"") forState:UIControlStateNormal];
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
@@ -63,7 +57,7 @@
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
         if (self.view.emailTextField.text.length == 0) {
-            self.view.emailTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"payment.klikbca.userid-warning"];
+            self.view.emailTextField.warning = UILocalizedString(@"payment.klikbca.userid-warning", nil);
             [self hideLoading];
             return;
         }
@@ -75,7 +69,7 @@
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
         if (self.view.emailTextField.text.length == 0) {
-            self.view.emailTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"payment.indosat-dompetku.warning"];
+            self.view.emailTextField.warning = UILocalizedString(@"payment.indosat-dompetku.warning", nil);
             [self hideLoading];
             return;
         }
@@ -83,7 +77,7 @@
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
         if (self.view.emailTextField.text.length == 0) {
-            self.view.emailTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"payment.telkomsel-cash.warning"];
+            self.view.emailTextField.warning = UILocalizedString(@"payment.telkomsel-cash.warning", nil);
             [self hideLoading];
             return;
         }

@@ -45,7 +45,7 @@
     self.transactionTimeLabel.text = self.statusModel.transactionTime;
     self.paymentCodeLabel.text = self.statusModel.transactionResult.indomaretPaymentCode;
     
-    self.title = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"payment.pay-at"], [MIDTRANS_PAYMENT_INDOMARET capitalizedString]];
+    self.title = [NSString stringWithFormat:UILocalizedString(@"payment.pay-at",nil), [MIDTRANS_PAYMENT_INDOMARET capitalizedString]];
     
     [self.navigationItem setHidesBackButton:YES];
 }

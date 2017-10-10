@@ -89,11 +89,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     switch (self.statusType) {
             case SNPStatusTypeError: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg error"];
-                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
+                self.title = UILocalizedString(@"payment.failed",nil);
                 
                 self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
-                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment can't be processed"];
+                self.titleLabel.text = UILocalizedString(@"Ouch!", nil);
+                self.descriptionLabel.text = UILocalizedString(@"Your payment can't be processed", nil);
                 
                 [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(212, 56, 92)]];
                 break;
@@ -101,11 +101,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             
             case SNPStatusTypeSuccess: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg success"];
-                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
+                self.title = UILocalizedString(@"payment.success",nil);
                 
                 self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
-                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment has been processed"];
+                self.titleLabel.text = UILocalizedString(@"Thank you!", nil);
+                self.descriptionLabel.text = UILocalizedString(@"Your payment has been processed", nil);
                 
                 [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(139, 197, 63)]];
                 break;
@@ -113,11 +113,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             
             case SNPStatusTypePending: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg pending"];
-                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
+                self.title = UILocalizedString(@"payment.pending", nil);
                 
                 self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
-                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment to proceed"];
+                self.titleLabel.text = UILocalizedString(@"Thank you!", nil);
+                self.descriptionLabel.text = UILocalizedString(@"Please complete payment to proceed", nil);
                 
                 [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(250, 175, 63)]];
                 break;
@@ -129,7 +129,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     self.orderIdLabel.text = trxDetail.orderId;
     self.paymentTypeLabel.text = self.paymentMethod.title;
     
-    [self.finishButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] forState:UIControlStateNormal];
+    [self.finishButton setTitle:UILocalizedString(@"Close", nil) forState:UIControlStateNormal];
 }
 
 - (void)setGradientLayerColors:(NSArray <UIColor*>*)colors {

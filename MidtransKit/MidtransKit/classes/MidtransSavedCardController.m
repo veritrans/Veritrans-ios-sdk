@@ -16,8 +16,8 @@
 
 @interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource, MidtransNewCreditCardViewControllerDelegate>
 @property (nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic,strong) MidtransPaymentRequestV2CreditCard *creditCard;
-@property (nonatomic,strong) NSMutableArray *cards;
+@property (nonatomic) MidtransPaymentRequestV2CreditCard *creditCard;
+@property (nonatomic) NSMutableArray *cards;
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 @property (nonatomic) MidtransSavedCardFooter *footerView;
 @property (nonatomic) NSArray *bankBinList;
@@ -66,14 +66,14 @@
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransSavedCardCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransSavedCardCell"];
     
-    self.cards = [[NSMutableArray alloc] init];
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.list.title"];
+    self.cards = [NSMutableArray new];
+    self.title = UILocalizedString(@"creditcard.list.title", nil);
     
     [self reloadSavedCards];
 }
 
 - (void)reloadSavedCards {
-    if (!CC_CONFIG.tokenStorageEnabled) {
+    if (CC_CONFIG.tokenStorageEnabled) {
         NSArray *savedTokens = [self convertV2ModelCards:self.creditCard.savedTokens];
         [self.cards setArray:savedTokens];
         [self.tableView reloadData];
@@ -139,7 +139,7 @@
     
     [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
         if (selectedIndex == 1) {
-            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+            [self showLoadingWithText:@"Processing your transaction"];
             
             MidtransPaymentCreditCard *paymentDetail =
             [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber
@@ -173,7 +173,6 @@
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
     vc.promos = self.promos;
-    vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -200,8 +199,14 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     if (CC_CONFIG.tokenStorageEnabled) {
-        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
-        [self performTwoClicksWithCard:card];
+        if ([card.tokenType isEqualToString:TokenTypeOneClick]) {
+             [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"one click"}];
+            [self performOneClickWithCard:card];
+        }
+        else {
+              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
+            [self performTwoClicksWithCard:card];
+        }
     }
     else {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
@@ -240,11 +245,11 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:UILocalizedString(@"alert.title", nil)
+                                                        message:UILocalizedString(@"alert.message-delete-card", nil)
                                                        delegate:self
-                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
-                                              otherButtonTitles:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"], nil];
+                                              cancelButtonTitle:UILocalizedString(@"alert.no", nil)
+                                              otherButtonTitles:UILocalizedString(@"alert.yes", nil), nil];
         [alert setTag:indexPath.row];
         [alert show];
     }
@@ -255,32 +260,33 @@
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         NSUInteger cardIndex = alertView.tag;
+        
         [self showLoadingWithText:nil];
-        if (CC_CONFIG.tokenStorageEnabled == YES) {
-            [self.cards removeObjectAtIndex:cardIndex];
-            [[MidtransMerchantClient shared] saveMaskedCards:self.cards
-                                                    customer:self.token.customerDetails
-                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                      [self hideLoading];
-                                                      [self reloadSavedCards];
-                                                  }];
-        } else {
-            MidtransMaskedCreditCard *maskedCard = self.cards[cardIndex];
-            [[MidtransMerchantClient shared] deleteMaskedCreditCard:maskedCard token:self.token completion:^(BOOL success) {
+        
+        if (CC_CONFIG.tokenStorageEnabled) {
+            MidtransMaskedCreditCard *card = self.cards[cardIndex];
+            [[MidtransMerchantClient shared] deleteMaskedCreditCard:card token:self.token completion:^(BOOL success) {
                 [self hideLoading];
                 
                 if (success == NO) {
                     return;
                 }
-             [self.cards removeObjectAtIndex:cardIndex];
-                [self.tableView reloadData];
-    
+                
+                NSMutableArray *savedTokensM = self.creditCard.savedTokens.mutableCopy;
+                [savedTokensM removeObjectAtIndex:cardIndex];
+                self.creditCard.savedTokens = savedTokensM;
+                [self reloadSavedCards];
             }];
         }
-        
+        else {
+            [self.cards removeObjectAtIndex:cardIndex];
+            [[MidtransMerchantClient shared] saveMaskedCards:self.cards
+                                                    customer:self.token.customerDetails
+                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
+                                                      [self reloadSavedCards];
+                                                  }];
+        }
     }
-        
-       
 }
 
 #pragma mark - MidtransNewCreditCardViewControllerDelegate

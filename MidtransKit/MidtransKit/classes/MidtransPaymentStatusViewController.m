@@ -29,7 +29,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
+    self.title = UILocalizedString(@"payment.pending",nil);
     [self showDismissButton:YES];
     [self showBackButton:NO];
     [self.view configureWithTransactionResult:self.result];

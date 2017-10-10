@@ -32,7 +32,7 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-qA-ZcM">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
                             <subviews>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Credit card number" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDR-Mj-7On" customClass="MidtransUITextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nomor Kartu Kredit" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="iDR-Mj-7On" customClass="MidtransUITextField">
                                     <rect key="frame" x="10" y="10" width="394" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="Ary-nZ-GPW"/>
@@ -43,7 +43,7 @@
                                         <userDefinedRuntimeAttribute type="boolean" keyPath="underlined" value="YES"/>
                                     </userDefinedRuntimeAttributes>
                                 </textField>
-                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Valid (MM/YY)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-4m-fM3" customClass="MidtransUITextField">
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Masa Berlaku (Bulan/Tahun)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="6qH-4m-fM3" customClass="MidtransUITextField">
                                     <rect key="frame" x="10" y="65" width="276" height="50"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" id="BZz-ci-2kl"/>
@@ -185,7 +185,7 @@
                         <constraint firstAttribute="height" constant="56" id="Wba-SD-iaP"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                    <state key="normal" title="Finish Payment"/>
+                    <state key="normal" title="Selesaikan Pembayaran"/>
                     <connections>
                         <action selector="submitPaymentDidtapped:" destination="-1" eventType="touchUpInside" id="sMg-yV-0cg"/>
                     </connections>
@@ -193,8 +193,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K39-0u-IJj" customClass="MidtransPaymentMethodHeader">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL AMOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
-                            <rect key="frame" x="15" y="20" width="69" height="10"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jumlah" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
+                            <rect key="frame" x="15" y="20" width="31" height="10"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>

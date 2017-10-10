@@ -38,7 +38,7 @@
     self.view.topConstraints.constant = 0.0f;
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] || [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY]|| [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
-            self.view.tokenViewLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
+            self.view.tokenViewLabel.text = @"SMS Charges may be applied for this payment method";
             [self.view.tokenViewIcon setImage:[[UIImage imageNamed:@"sms" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         }
         self.view.topConstraints.constant = 40.0f;
@@ -46,13 +46,8 @@
         self.view.tokenViewConstraints.constant = 40.0f;
         [self updateViewConstraints];
     }
-    [self updateViewConstraints];
-    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
-    }
     
+    NSString *guidePath = [VTBundle pathForResource:self.paymentMethod.internalBaseClassIdentifier ofType:@"plist"];
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     
     self.view.guideView.instructions = instructions;

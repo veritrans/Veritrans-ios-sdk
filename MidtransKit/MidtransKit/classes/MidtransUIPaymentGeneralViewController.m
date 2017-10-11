@@ -49,6 +49,10 @@
     [self updateViewConstraints];
     NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (guidePath == nil) {
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
+    }
+    
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     
     self.view.guideView.instructions = instructions;

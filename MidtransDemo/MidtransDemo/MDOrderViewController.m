@@ -48,8 +48,8 @@
            merchantServerURL:merchantServer];
     
     //forced to use token storage
-    
-    CC_CONFIG.tokenStorageEnabled =YES;
+    UICONFIG.hideStatusPage = YES;
+    CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];

@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet MidtransPaymentMethodHeader *totalAmountText;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountPrice;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

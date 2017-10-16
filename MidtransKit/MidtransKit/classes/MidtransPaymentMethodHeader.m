@@ -14,6 +14,5 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
-    self.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
 @end

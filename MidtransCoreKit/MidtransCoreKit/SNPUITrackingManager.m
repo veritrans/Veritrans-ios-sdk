@@ -22,7 +22,14 @@
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];
-    [defaultParameters setObject:VERSION forKey:@"sdk version"];
+    [defaultParameters setObject:[MidtransDeviceHelper currentCPUUsage] forKey:@"cpu"];
+    [defaultParameters setObject:[MidtransDeviceHelper deviceCurrentNetwork] forKey:@"network"];
+    [defaultParameters setObject:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forKey:@"sdk version"];
+    [defaultParameters setObject:[MidtransDeviceHelper applicationName] forKey:@"host_app"];
+    
+    [defaultParameters setObject:[NSString stringWithFormat:@"width = %f, height = %f", [MidtransDeviceHelper screenSize].width, [MidtransDeviceHelper screenSize].height] forKey:@"screen_size"];
+    
+    [defaultParameters setObject:[[UIDevice currentDevice] systemVersion] forKey:@"os_version"];
     id snapToken = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
     if (snapToken) {
         [defaultParameters setObject:snapToken forKey:MIDTRANS_TRACKING_DISTINCT_ID];

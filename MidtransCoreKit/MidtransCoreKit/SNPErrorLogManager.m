@@ -7,7 +7,7 @@
 //
 
 #import "SNPErrorLogManager.h"
-#import <Raygun4iOS/Raygun.h>
+#import "Raygun.h"
 #import <UIKit/UIKit.h>
 #import "MidtransConstant.h"
 #import "MidtransDeviceHelper.h"

@@ -209,11 +209,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
-    NSException* myException = [NSException
-                                exceptionWithName:@"FileNotFoundException"
-                                reason:@"File Not Found on System"
-                                userInfo:nil];
-    [[SNPErrorLogManager shared] trackException:myException className:[self description]];
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         for (NSDictionary *dictionary in customField) {
             NSArray *key_dictionary=[dictionary allKeys];

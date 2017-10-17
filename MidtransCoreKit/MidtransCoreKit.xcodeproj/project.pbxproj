@@ -26,6 +26,22 @@
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
 		0C4747A51F96239700E7CBD5 /* Raygun4iOS.framework in Sources */ = {isa = PBXBuildFile; fileRef = 0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */; };
+		0C4747AE1F96249500E7CBD5 /* Raygun.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AC1F96248C00E7CBD5 /* Raygun.h */; };
+		0C4747AF1F96249500E7CBD5 /* Raygun.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AC1F96248C00E7CBD5 /* Raygun.h */; };
+		0C4747B01F96249900E7CBD5 /* Raygun4iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A61F96248A00E7CBD5 /* Raygun4iOS.h */; };
+		0C4747B11F96249900E7CBD5 /* RaygunClientMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A71F96248B00E7CBD5 /* RaygunClientMessage.h */; };
+		0C4747B21F96249900E7CBD5 /* RaygunEnvironmentMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A91F96248B00E7CBD5 /* RaygunEnvironmentMessage.h */; };
+		0C4747B31F96249900E7CBD5 /* RaygunErrorMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A81F96248B00E7CBD5 /* RaygunErrorMessage.h */; };
+		0C4747B41F96249900E7CBD5 /* RaygunMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AD1F96248C00E7CBD5 /* RaygunMessage.h */; };
+		0C4747B51F96249900E7CBD5 /* RaygunMessageDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AB1F96248C00E7CBD5 /* RaygunMessageDetails.h */; };
+		0C4747B61F96249900E7CBD5 /* RaygunUserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AA1F96248B00E7CBD5 /* RaygunUserInfo.h */; };
+		0C4747B71F96249A00E7CBD5 /* Raygun4iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A61F96248A00E7CBD5 /* Raygun4iOS.h */; };
+		0C4747B81F96249A00E7CBD5 /* RaygunClientMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A71F96248B00E7CBD5 /* RaygunClientMessage.h */; };
+		0C4747B91F96249A00E7CBD5 /* RaygunEnvironmentMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A91F96248B00E7CBD5 /* RaygunEnvironmentMessage.h */; };
+		0C4747BA1F96249A00E7CBD5 /* RaygunErrorMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A81F96248B00E7CBD5 /* RaygunErrorMessage.h */; };
+		0C4747BB1F96249A00E7CBD5 /* RaygunMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AD1F96248C00E7CBD5 /* RaygunMessage.h */; };
+		0C4747BC1F96249A00E7CBD5 /* RaygunMessageDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AB1F96248C00E7CBD5 /* RaygunMessageDetails.h */; };
+		0C4747BD1F96249A00E7CBD5 /* RaygunUserInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AA1F96248B00E7CBD5 /* RaygunUserInfo.h */; };
 		0C50726D1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C50726E1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C50726F1F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */; };
@@ -369,6 +385,14 @@
 		0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextPayment.m; sourceTree = "<group>"; };
 		0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPFreeTextResponse.h; sourceTree = "<group>"; };
 		0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextResponse.m; sourceTree = "<group>"; };
+		0C4747A61F96248A00E7CBD5 /* Raygun4iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Raygun4iOS.h; sourceTree = "<group>"; };
+		0C4747A71F96248B00E7CBD5 /* RaygunClientMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaygunClientMessage.h; sourceTree = "<group>"; };
+		0C4747A81F96248B00E7CBD5 /* RaygunErrorMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaygunErrorMessage.h; sourceTree = "<group>"; };
+		0C4747A91F96248B00E7CBD5 /* RaygunEnvironmentMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaygunEnvironmentMessage.h; sourceTree = "<group>"; };
+		0C4747AA1F96248B00E7CBD5 /* RaygunUserInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaygunUserInfo.h; sourceTree = "<group>"; };
+		0C4747AB1F96248C00E7CBD5 /* RaygunMessageDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaygunMessageDetails.h; sourceTree = "<group>"; };
+		0C4747AC1F96248C00E7CBD5 /* Raygun.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Raygun.h; sourceTree = "<group>"; };
+		0C4747AD1F96248C00E7CBD5 /* RaygunMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RaygunMessage.h; sourceTree = "<group>"; };
 		0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNPErrorLogManager.h; sourceTree = "<group>"; };
 		0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNPErrorLogManager.m; sourceTree = "<group>"; };
 		0C5072711F8CAE9C008F4339 /* NSString+MidtransValidation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+MidtransValidation.m"; path = "MidtransCoreKit/NSString+MidtransValidation.m"; sourceTree = "<group>"; };
@@ -809,6 +833,14 @@
 		E5CDEC8B1E9340CA0032DC3B /* MidtransCoreKit */ = {
 			isa = PBXGroup;
 			children = (
+				0C4747AC1F96248C00E7CBD5 /* Raygun.h */,
+				0C4747A61F96248A00E7CBD5 /* Raygun4iOS.h */,
+				0C4747A71F96248B00E7CBD5 /* RaygunClientMessage.h */,
+				0C4747A91F96248B00E7CBD5 /* RaygunEnvironmentMessage.h */,
+				0C4747A81F96248B00E7CBD5 /* RaygunErrorMessage.h */,
+				0C4747AD1F96248C00E7CBD5 /* RaygunMessage.h */,
+				0C4747AB1F96248C00E7CBD5 /* RaygunMessageDetails.h */,
+				0C4747AA1F96248B00E7CBD5 /* RaygunUserInfo.h */,
 				0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */,
 				0089B5F61D13D5B7009C0059 /* Common */,
 				2EDAA3A01D0A7597009EC90D /* Tracking */,
@@ -845,7 +877,9 @@
 				E571204D1E937A790064F515 /* MidtransEnvironment.h in Headers */,
 				E571204E1E937A790064F515 /* MidtransConfig.h in Headers */,
 				E571204F1E937A790064F515 /* MidtransPrivateConfig.h in Headers */,
+				0C4747BC1F96249A00E7CBD5 /* RaygunMessageDetails.h in Headers */,
 				0C1B35D91ED6B3A7003F6806 /* SNPFreeTextInquiry.h in Headers */,
+				0C4747BB1F96249A00E7CBD5 /* RaygunMessage.h in Headers */,
 				E57120501E937A790064F515 /* MidtransCreditCardConfig.h in Headers */,
 				0C93243B1F7B76FA00D9A390 /* MidtransPaymentDanamonOnline.h in Headers */,
 				E57120511E937A790064F515 /* MidtransHelper.h in Headers */,
@@ -857,7 +891,9 @@
 				E57120571E937A790064F515 /* MidtransPaymentWebController.h in Headers */,
 				E57120581E937A790064F515 /* SNPPointDataModels.h in Headers */,
 				E57120591E937A790064F515 /* SNPPointResponse.h in Headers */,
+				0C4747B71F96249A00E7CBD5 /* Raygun4iOS.h in Headers */,
 				E571205A1E937A790064F515 /* MidtransBinDataModels.h in Headers */,
+				0C4747B91F96249A00E7CBD5 /* RaygunEnvironmentMessage.h in Headers */,
 				E571205B1E937A790064F515 /* MidtransBinResponse.h in Headers */,
 				E571205C1E937A790064F515 /* MidtransTransactionExpire.h in Headers */,
 				E571205D1E937A790064F515 /* MidtransPromo.h in Headers */,
@@ -877,6 +913,7 @@
 				0C1B35DB1ED6B3A7003F6806 /* SNPFreeTextPayment.h in Headers */,
 				E571206B1E937A790064F515 /* MidtransPaymentRequestV2Response.h in Headers */,
 				E571206C1E937A790064F515 /* MidtransPaymentRequestV2ShippingAddress.h in Headers */,
+				0C4747BA1F96249A00E7CBD5 /* RaygunErrorMessage.h in Headers */,
 				E571206D1E937A790064F515 /* MidtransPaymentRequestV2TransactionDetails.h in Headers */,
 				E571206E1E937A790064F515 /* MidtransObtainedPromo.h in Headers */,
 				E571206F1E937A790064F515 /* MidtransTransactionTokenResponse.h in Headers */,
@@ -897,6 +934,7 @@
 				E571207E1E937A790064F515 /* MidtransPaymentIndomaret.h in Headers */,
 				E571207F1E937A790064F515 /* MidtransPaymentMandiriECash.h in Headers */,
 				0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */,
+				0C4747BD1F96249A00E7CBD5 /* RaygunUserInfo.h in Headers */,
 				E57120801E937A790064F515 /* MidtransPaymentCreditCard.h in Headers */,
 				E57120811E937A790064F515 /* MidtransPaymentBankTransfer.h in Headers */,
 				E57120821E937A790064F515 /* MidtransPaymentCIMBClicks.h in Headers */,
@@ -904,9 +942,11 @@
 				E57120841E937A790064F515 /* MidtransTransactionDetails.h in Headers */,
 				0C1B35D61ED6B3A7003F6806 /* SNPFreeTextDataModels.h in Headers */,
 				E57120861E937A790064F515 /* MidtransTokenizeRequest.h in Headers */,
+				0C4747AF1F96249500E7CBD5 /* Raygun.h in Headers */,
 				E57120871E937A790064F515 /* MidtransPaymentKlikBCA.h in Headers */,
 				E57120881E937A790064F515 /* MidtransPaymentTelkomselCash.h in Headers */,
 				E57120891E937A790064F515 /* MidtransPaymentXLTunai.h in Headers */,
+				0C4747B81F96249A00E7CBD5 /* RaygunClientMessage.h in Headers */,
 				E571208A1E937A790064F515 /* MidtransPaymentIndosatDompetku.h in Headers */,
 				E571208B1E937A790064F515 /* MidtransPaymentKiosOn.h in Headers */,
 				E571208C1E937A790064F515 /* MIdtransPaymentGCI.h in Headers */,
@@ -931,7 +971,9 @@
 				E5711FED1E9379660064F515 /* MidtransBinResponse.h in Headers */,
 				E57120441E937A500064F515 /* MidtransBinDataModels.h in Headers */,
 				E55F63521E934C4700C012C8 /* NSString+MidtransValidation.h in Headers */,
+				0C4747B51F96249900E7CBD5 /* RaygunMessageDetails.h in Headers */,
 				0C1B35D01ED6B106003F6806 /* SNPFreeTextInquiry.h in Headers */,
+				0C4747B41F96249900E7CBD5 /* RaygunMessage.h in Headers */,
 				E55F63531E934C4700C012C8 /* SNPUITrackingManager.h in Headers */,
 				0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */,
 				E55F63541E934C4700C012C8 /* MidtransConstant.h in Headers */,
@@ -943,7 +985,9 @@
 				E55F635A1E934C4700C012C8 /* MidtransPrivateConfig.h in Headers */,
 				E55F635B1E934C4700C012C8 /* MidtransCreditCardConfig.h in Headers */,
 				E55F635C1E934C4700C012C8 /* MidtransHelper.h in Headers */,
+				0C4747B01F96249900E7CBD5 /* Raygun4iOS.h in Headers */,
 				E55F635D1E934C4700C012C8 /* MidtransNetworking.h in Headers */,
+				0C4747B21F96249900E7CBD5 /* RaygunEnvironmentMessage.h in Headers */,
 				E55F635E1E934C4700C012C8 /* MidtransNetworkOperation.h in Headers */,
 				E55F635F1E934C4700C012C8 /* MidtransNetworkLogger.h in Headers */,
 				E55F63601E934C4700C012C8 /* MidtransDeviceHelper.h in Headers */,
@@ -963,6 +1007,7 @@
 				0C1B35D21ED6B106003F6806 /* SNPFreeTextPayment.h in Headers */,
 				E55F63731E934C4800C012C8 /* MidtransPaymentRequestV2ItemDetails.h in Headers */,
 				E55F63741E934C4800C012C8 /* MidtransPaymentRequestV2Merchant.h in Headers */,
+				0C4747B31F96249900E7CBD5 /* RaygunErrorMessage.h in Headers */,
 				E55F63751E934C4800C012C8 /* MidtransPaymentRequestV2Preference.h in Headers */,
 				E55F63761E934C4800C012C8 /* MidtransPaymentRequestV2Response.h in Headers */,
 				E55F63771E934C4800C012C8 /* MidtransPaymentRequestV2ShippingAddress.h in Headers */,
@@ -983,6 +1028,7 @@
 				E55F63891E934C4800C012C8 /* MidtransPaymentIndomaret.h in Headers */,
 				E55F638A1E934C4800C012C8 /* MidtransPaymentMandiriECash.h in Headers */,
 				0C1B35D41ED6B106003F6806 /* SNPFreeTextResponse.h in Headers */,
+				0C4747B61F96249900E7CBD5 /* RaygunUserInfo.h in Headers */,
 				E55F638B1E934C4800C012C8 /* MidtransPaymentCreditCard.h in Headers */,
 				E55F638C1E934C4800C012C8 /* MidtransPaymentBankTransfer.h in Headers */,
 				E55F638D1E934C4800C012C8 /* MidtransPaymentCIMBClicks.h in Headers */,
@@ -990,9 +1036,11 @@
 				E55F638F1E934C4800C012C8 /* MidtransTransactionDetails.h in Headers */,
 				0C1B35CD1ED6B106003F6806 /* SNPFreeTextDataModels.h in Headers */,
 				E55F63911E934C4800C012C8 /* MidtransTokenizeRequest.h in Headers */,
+				0C4747AE1F96249500E7CBD5 /* Raygun.h in Headers */,
 				E55F63921E934C4800C012C8 /* MidtransPaymentKlikBCA.h in Headers */,
 				E55F63931E934C4800C012C8 /* MidtransPaymentTelkomselCash.h in Headers */,
 				E55F63941E934C4800C012C8 /* MidtransPaymentXLTunai.h in Headers */,
+				0C4747B11F96249900E7CBD5 /* RaygunClientMessage.h in Headers */,
 				E55F63951E934C4800C012C8 /* MidtransPaymentIndosatDompetku.h in Headers */,
 				E55F63961E934C4800C012C8 /* MidtransPaymentKiosOn.h in Headers */,
 				E55F63971E934C4800C012C8 /* MIdtransPaymentGCI.h in Headers */,

@@ -78,7 +78,6 @@
  @param email The user's email address.
  @param fullName The user's full name.
  @param firstName The user's first or preferred name.
- @param isAnonymous True if the user is not logged in, or however you want to define anonymous.
  
  @return a new RaygunUserInfo object.
  */
@@ -95,7 +94,6 @@
  @param email The user's email address.
  @param fullName The user's full name.
  @param firstName The user's first or preferred name.
- @param isAnonymous True if the user is not logged in, or however you want to define anonymous.
  @param uuid Device identifier.
  
  @return a new RaygunUserInfo object.

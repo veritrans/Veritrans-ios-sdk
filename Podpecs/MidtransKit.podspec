@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name             = "MidtransKit"
-s.version          = "1.7.3"
+s.version          = "1.7.4"
 s.summary          = "Veritrans mobile SDK beta version"
 s.homepage         = "https://veritrans.co.id/"
 s.license          = 'MIT'
@@ -17,7 +17,7 @@ s.source_files = 'MidtransKit/MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
     'MidtransKit' => ['MidtransKit/MidtransKit/resources/*','MidtransKit/MidtransKitResources/*.lproj/*.strings']
 }
-s.dependency 'MidtransCoreKit', '~> 1.7.3'
+s.dependency 'MidtransCoreKit', '~> 1.7.4'
 
 s.default_subspec = 'UI'
 

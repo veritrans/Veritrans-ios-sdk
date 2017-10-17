@@ -6,6 +6,7 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
+@class MIdtransUIBorderedView;
 #import <UIKit/UIKit.h>
 #import "MidtransUIPaymentController.h"
 

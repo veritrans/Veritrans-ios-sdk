@@ -22,10 +22,13 @@
 #import "UIViewController+Modal.h"
 #import "MidtransUIConfiguration.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 
 CGFloat const ButtonHeight = 56;
 
 @interface VTCardListController () <MidtransUICardCellDelegate, UINavigationControllerDelegate, UIActionSheetDelegate>
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (strong, nonatomic) IBOutlet UIView *emptyCardView;
 @property (strong, nonatomic) IBOutlet UIView *cardsView;
@@ -72,10 +75,15 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
     if (![CC_CONFIG tokenStorageEnabled]) {
         [self.collectionView addGestureRecognizer:[[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(startEditing:)]];
     }
-    
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     [self reloadMaskedCards];
 }
 
+-(void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController* detail = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [detail presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+}
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setDelegate:nil];

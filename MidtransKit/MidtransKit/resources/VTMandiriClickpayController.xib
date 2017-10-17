@@ -34,6 +34,7 @@
                 <outlet property="keyTokenView" destination="43h-IM-N8l" id="Eni-LY-VW2"/>
                 <outlet property="mandiriClickpayStepLabel" destination="gIu-B6-sX6" id="8kJ-RR-ilO"/>
                 <outlet property="tokenTextField" destination="vHu-0q-4bf" id="7HN-7C-n4a"/>
+                <outlet property="totalAmountBorderedView" destination="421-1G-YEy" id="PGU-nx-5d5"/>
                 <outlet property="totalAmountLabel" destination="MEt-wf-obH" id="6bV-AA-ysi"/>
                 <outlet property="view" destination="3Zx-FN-k1P" id="aVZ-xg-aLb"/>
             </connections>

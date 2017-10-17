@@ -128,6 +128,7 @@
                 <outlet property="topConstraints" destination="Xpt-SO-RUI" id="xsw-aa-xh2"/>
                 <outlet property="topLabelText" destination="GMc-iO-nQV" id="5m7-Uz-e3q"/>
                 <outlet property="topViewConstraints" destination="0Qu-gg-ihE" id="6Ng-g9-1Ry"/>
+                <outlet property="totalAmountBorderedView" destination="xlP-9r-rzc" id="WDy-wh-xeM"/>
                 <outlet property="totalAmountLabel" destination="BCL-Uh-jUh" id="sAG-jF-A48"/>
                 <outlet property="totalAmountTextLabel" destination="6aQ-Jk-lYW" id="HY5-9Y-rEF"/>
             </connections>

@@ -11,10 +11,13 @@
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
 #import "MidtransUIToast.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 
 @interface MidtransUIPaymentDirectView() <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) MidtransDirectHeader *headerView;
 @property (nonatomic) NSArray *guides;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end
 
 @implementation MidtransUIPaymentDirectView
@@ -36,6 +39,14 @@
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self];
     }];
+    
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+
+-(void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController* detail = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [detail presentAtPositionOfView:self.totalAmountBorderedView items:self.items];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

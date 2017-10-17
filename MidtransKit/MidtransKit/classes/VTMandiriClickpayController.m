@@ -14,6 +14,8 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTSubGuideController.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
 static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
@@ -27,6 +29,7 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 @property (weak, nonatomic) IBOutlet UIView *instructionPage;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionviewHeightConstraints;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
@@ -80,6 +83,13 @@ static NSString* const ClickpayAPPLI = @"3";
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+
+-(void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController* detail = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [detail presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {

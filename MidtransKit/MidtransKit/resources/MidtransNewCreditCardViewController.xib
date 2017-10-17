@@ -256,7 +256,7 @@
                 <outlet property="installmentView" destination="Lfj-Hs-yBs" id="DUG-Ih-LO1"/>
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
                 <outlet property="secureBadgeImage" destination="j24-du-W7D" id="NFy-5h-s1J"/>
-                <outlet property="totalAmountBorderedView" destination="K39-0u-IJj" id="rMc-m6-NQG"/>
+                <outlet property="totalAmountBorderedView" destination="K39-0u-IJj" id="vHH-yo-3jU"/>
                 <outlet property="totalAmountPrice" destination="9Xe-08-1kx" id="Z7S-ZO-8z1"/>
                 <outlet property="totalAmountTextLabel" destination="l67-Ku-WeL" id="8Xe-tN-TGo"/>
             </connections>

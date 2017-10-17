@@ -42,6 +42,7 @@
         self.view.instructionTitleLabel.text = [NSString stringWithFormat:@" Panduan pembayaran melalui %@", self.paymentMethod.title];
     }
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
+    self.view.items = self.token.itemDetails;
 }
 - (void)setPaymentType:(MidtransVAType)paymentType {
     _paymentType = paymentType;

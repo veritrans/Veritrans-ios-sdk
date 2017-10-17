@@ -193,6 +193,7 @@
                 <outlet property="gciCardTextField" destination="wvs-u7-GxZ" id="kQw-5U-X5f"/>
                 <outlet property="orderIdLabel" destination="i0D-3I-196" id="29b-ZW-sdf"/>
                 <outlet property="passwordTextField" destination="bJK-h8-j7b" id="RK8-Bj-GC9"/>
+                <outlet property="totalAmountBorderedView" destination="gCd-AT-Gu2" id="Zu5-Wt-63j"/>
                 <outlet property="totalAmountLabel" destination="ceq-gF-pUn" id="cE0-G9-fji"/>
             </connections>
             <point key="canvasLocation" x="-193" y="-27"/>

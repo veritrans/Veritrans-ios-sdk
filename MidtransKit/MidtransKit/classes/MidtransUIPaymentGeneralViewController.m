@@ -12,6 +12,8 @@
 #import "UIViewController+HeaderSubtitle.h"
 #import "MidtransUIStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 
 @interface MidtransUIPaymentGeneralViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentGeneralView *view;
@@ -58,8 +60,13 @@
     self.view.guideView.instructions = instructions;
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 }
-
+-(void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController* detail = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [detail presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
+}
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
     [self showLoadingWithText:nil];
     

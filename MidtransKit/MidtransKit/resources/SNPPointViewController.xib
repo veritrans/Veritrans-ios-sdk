@@ -184,6 +184,7 @@
                 <outlet property="finalAmountTextField" destination="FBY-wa-CTh" id="T6q-ZH-C94"/>
                 <outlet property="pointInputTextField" destination="6Sk-k1-kF7" id="4Sx-fP-U4Z"/>
                 <outlet property="pointTotalTtitle" destination="7Dz-Ir-Q39" id="Fq9-mf-uAO"/>
+                <outlet property="totalAmountBorderedView" destination="Tp0-jv-NQb" id="EKw-Xv-w87"/>
                 <outlet property="totalAmountLabel" destination="3hS-WI-qoh" id="Bn7-tJ-nV1"/>
                 <outlet property="totalAmountPriceLabel" destination="96a-4j-fTn" id="0UG-jg-VSp"/>
             </connections>

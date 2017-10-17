@@ -15,6 +15,8 @@
 #import "VTGuideCell.h"
 #import "UILabel+Boldify.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 @interface SNPPostPaymentVAViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *mainInstructions;
@@ -24,6 +26,7 @@
 @property (nonatomic) SNPPostPaymentHeader *headerView;
 @property (nonatomic) SNPPostPaymentHeaderBillPay *headerViewBillPay;
 @property (nonatomic) SNPPostPaymentFooter *footerView;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end
 
 @implementation SNPPostPaymentVAViewController
@@ -128,8 +131,13 @@
     self.tableView.tableFooterView = self.footerView;
     [self selectTabAtIndex:0];
     
-    
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     // Do any additional setup after loading the view from its nib.
+}
+-(void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController* detail = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [detail presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (void)downloadButtonDidtapped:(id)sender {
     UIApplication *application = [UIApplication sharedApplication];

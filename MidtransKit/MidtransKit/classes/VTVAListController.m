@@ -12,12 +12,15 @@
 #import "MidtransUIPaymentDirectViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransVAViewController.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
 
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (nonatomic) NSArray *vaList;
 @end
 
@@ -57,8 +60,13 @@
     if (self.vaList.count == 1) {
         [self redirectToIndex:0];
     }
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 }
-
+-(void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController* detail = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [detail presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+}
 #pragma mark - UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 

@@ -25,12 +25,13 @@
 		0C1B35DC1ED6B3A7003F6806 /* SNPFreeTextPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */; };
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
+		0C4747A51F96239700E7CBD5 /* Raygun4iOS.framework in Sources */ = {isa = PBXBuildFile; fileRef = 0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */; };
 		0C50726D1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C50726E1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C50726F1F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */; };
 		0C5072701F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */; };
 		0C5072741F8CAEB7008F4339 /* Raygun4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
-		0C5072751F8CAFE8008F4339 /* Raygun4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		0C5072751F8CAFE8008F4339 /* Raygun4iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C9324391F7B76E900D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
 		0C93243A1F7B76F500D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
@@ -1227,6 +1228,7 @@
 				E55F63CC1E934C6400C012C8 /* MidtransPaymentMandiriECash.m in Sources */,
 				E55F63CD1E934C6400C012C8 /* MidtransPaymentCreditCard.m in Sources */,
 				E55F63CE1E934C6400C012C8 /* MidtransPaymentBankTransfer.m in Sources */,
+				0C4747A51F96239700E7CBD5 /* Raygun4iOS.framework in Sources */,
 				E55F63CF1E934C6400C012C8 /* MidtransPaymentCIMBClicks.m in Sources */,
 				E55F63D01E934C6400C012C8 /* MidtransTransaction.m in Sources */,
 				E55F63D11E934C6400C012C8 /* MidtransTransactionDetails.m in Sources */,

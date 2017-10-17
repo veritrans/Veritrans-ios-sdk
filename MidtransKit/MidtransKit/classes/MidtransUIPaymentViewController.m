@@ -21,6 +21,7 @@
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
+    vc.paymentMethodSelected = nil;
     return self;
 }
 - (instancetype)initCreditCardForm {
@@ -82,6 +83,7 @@
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
             break;
         default:
+            paymentMethodSelected = nil;
             break;
     }
     

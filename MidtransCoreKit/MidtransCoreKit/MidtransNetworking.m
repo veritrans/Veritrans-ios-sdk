@@ -9,7 +9,7 @@
 #import "MidtransNetworking.h"
 #import "MidtransConfig.h"
 #import "MidtransConstant.h"
-
+#import "SNPErrorLogManager.h"
 @implementation NSData (decode)
 
 - (NSData*)SNPvalidateUTF8 {
@@ -142,9 +142,19 @@
         [request addValue:header[key] forHTTPHeaderField:key];
     }
     
-    MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
-                                                             callback:callback];
-    [_operationQueue addOperation:op];
+    @try {
+        MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
+                                                                             callback:callback];
+        [_operationQueue addOperation:op];
+    }
+    @catch (NSException * e) {
+        
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+    @finally {
+        NSLog(@"finally");
+    }
+   
 }
 
 - (void)postToURL:(NSString *)URL
@@ -168,9 +178,20 @@
         [request addValue:header[key] forHTTPHeaderField:key];
     }
     
-    MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
-                                                             callback:callback];
-    [_operationQueue addOperation:op];
+    @try {
+        MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
+                                                                             callback:callback];
+        [_operationQueue addOperation:op];
+    }
+    @catch (NSException * e) {
+        
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+    @finally {
+        NSLog(@"finally");
+    }
+    
+   
 }
 
 - (void)getFromURL:(NSString *)URL

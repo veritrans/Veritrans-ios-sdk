@@ -7,11 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface MidtransDeviceHelper : NSObject
 + (NSString *)deviceToken;
++ (CGSize)screenSize;
 + (NSString *)deviceLanguage;
 + (NSString *)deviceModel;
 + (NSString *)deviceName;
 + (NSString *)deviceCurrentLanguage;
++ (NSNumber *)currentCPUUsage;
++ (NSString *)deviceCurrentNetwork;
++ (NSString *)applicationName;
++ (NSString *)applicationVersion;
 @end

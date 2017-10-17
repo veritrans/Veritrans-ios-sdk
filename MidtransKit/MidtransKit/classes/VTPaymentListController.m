@@ -99,7 +99,6 @@
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
-         NSLog(@"data-->%@",response);
          self.title = response.merchant.preference.displayName;
          if (response) {
              

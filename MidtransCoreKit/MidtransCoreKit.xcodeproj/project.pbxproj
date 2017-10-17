@@ -25,7 +25,6 @@
 		0C1B35DC1ED6B3A7003F6806 /* SNPFreeTextPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */; };
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
-		0C4747A51F96239700E7CBD5 /* Raygun4iOS.framework in Sources */ = {isa = PBXBuildFile; fileRef = 0C5072721F8CAEB2008F4339 /* Raygun4iOS.framework */; };
 		0C4747AE1F96249500E7CBD5 /* Raygun.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AC1F96248C00E7CBD5 /* Raygun.h */; };
 		0C4747AF1F96249500E7CBD5 /* Raygun.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747AC1F96248C00E7CBD5 /* Raygun.h */; };
 		0C4747B01F96249900E7CBD5 /* Raygun4iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C4747A61F96248A00E7CBD5 /* Raygun4iOS.h */; };
@@ -1276,7 +1275,6 @@
 				E55F63CC1E934C6400C012C8 /* MidtransPaymentMandiriECash.m in Sources */,
 				E55F63CD1E934C6400C012C8 /* MidtransPaymentCreditCard.m in Sources */,
 				E55F63CE1E934C6400C012C8 /* MidtransPaymentBankTransfer.m in Sources */,
-				0C4747A51F96239700E7CBD5 /* Raygun4iOS.framework in Sources */,
 				E55F63CF1E934C6400C012C8 /* MidtransPaymentCIMBClicks.m in Sources */,
 				E55F63D01E934C6400C012C8 /* MidtransTransaction.m in Sources */,
 				E55F63D11E934C6400C012C8 /* MidtransTransactionDetails.m in Sources */,

@@ -11,8 +11,6 @@
 #import "MidtransConstant.h"
 #if __has_include(<Raygun4iOS/Raygun.h>)
 #import <Raygun4iOS/Raygun.h>
-#else
-#import "Raygun.h"
 #endif
 
 #import "MidtransDeviceHelper.h"
@@ -23,9 +21,10 @@
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         sharedInstance = [[SNPErrorLogManager alloc] init];
-        if ([Raygun class]) {
-            [Raygun sharedReporterWithApiKey:MIDTRANS_RAYGUN_APP_KEY];
-        }
+#if __has_include(<Raygun4iOS/Raygun.h>)
+        [Raygun sharedReporterWithApiKey:MIDTRANS_RAYGUN_APP_KEY];
+#endif
+      
         
        
     });
@@ -40,7 +39,7 @@
 }
 
 - (void)trackException:(NSException *)exceptionName className:(NSString *)className{
-    if ([Raygun class]) {
+#if __has_include(<Raygun4iOS/Raygun.h>)
 
     self.className = className;
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
@@ -63,9 +62,8 @@
     NSString *merchant = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     [defaultParameters setObject:merchant forKey:MIDTRANS_CORE_MERCHANT_NAME];
 
-    [[Raygun sharedReporter] send:exceptionName withTags:@[] withUserCustomData:defaultParameters];
+#endif
         
-    }
 }
 
 @end

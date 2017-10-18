@@ -9,8 +9,7 @@ s.author           = { "veritrans" => "dev@veritrans.co.id" }
 s.source           = { :git => 'https://github.com/veritrans/Veritrans-ios-sdk.git', :tag => s.version}
 s.platform     = :ios, '8.0'
 s.requires_arc = true
-s.ios.dependency 'Raygun4iOS', '~> 2.4'
 s.source_files = 'MidtransCoreKit/MidtransCoreKit/**/*.{h,m}'
 s.frameworks    = 'UIKit', 'Foundation'
-
+s.dependency 'Raygun4iOS'
 end

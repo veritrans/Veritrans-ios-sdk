@@ -7,9 +7,14 @@
 //
 
 #import "SNPErrorLogManager.h"
-#import "Raygun.h"
 #import <UIKit/UIKit.h>
 #import "MidtransConstant.h"
+#if __has_include(<Raygun4iOS/Raygun.h>)
+#import <Raygun4iOS/Raygun.h>
+#else
+#import "Raygun.h"
+#endif
+
 #import "MidtransDeviceHelper.h"
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 @implementation SNPErrorLogManager
@@ -18,7 +23,10 @@
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         sharedInstance = [[SNPErrorLogManager alloc] init];
-        [Raygun sharedReporterWithApiKey:MIDTRANS_RAYGUN_APP_KEY];
+        if ([Raygun class]) {
+            [Raygun sharedReporterWithApiKey:MIDTRANS_RAYGUN_APP_KEY];
+        }
+        
        
     });
     return sharedInstance;
@@ -32,17 +40,18 @@
 }
 
 - (void)trackException:(NSException *)exceptionName className:(NSString *)className{
+    if ([Raygun class]) {
+
     self.className = className;
-    
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];
     [defaultParameters setObject:[MidtransDeviceHelper currentCPUUsage] forKey:@"cpu"];
     [defaultParameters setObject:[MidtransDeviceHelper deviceCurrentNetwork] forKey:@"network"];
     [defaultParameters setObject:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forKey:@"sdk version"];
     [defaultParameters setObject:[MidtransDeviceHelper applicationName] forKey:@"host_app"];
-    
+
     [defaultParameters setObject:[NSString stringWithFormat:@"width = %f, height = %f", [MidtransDeviceHelper screenSize].width, [MidtransDeviceHelper screenSize].height] forKey:@"screen_size"];
-    
+
     [defaultParameters setObject:[[UIDevice currentDevice] systemVersion] forKey:@"os_version"];
     [defaultParameters setObject:self.className?self.className:@"-" forKey:@"class"];
     [defaultParameters setObject:timeStamp forKey:MIDTRANS_TRACKING_TIME_STAMP];
@@ -50,11 +59,13 @@
     [defaultParameters setObject:[MidtransDeviceHelper deviceModel]?[MidtransDeviceHelper deviceModel]:@"simulator" forKey:MIDTRANS_TRACKING_DEVICE_MODEL];
     [defaultParameters setObject:[MidtransDeviceHelper deviceName]?[MidtransDeviceHelper deviceName]:@"simulator" forKey:MIDTRANS_TRACKING_DEVICE_TYPE];
     [defaultParameters setObject:[MidtransDeviceHelper deviceLanguage] forKey:MIDTRANS_TRACKING_DEVICE_LANGUAGE];
-    
+
     NSString *merchant = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     [defaultParameters setObject:merchant forKey:MIDTRANS_CORE_MERCHANT_NAME];
-    
+
     [[Raygun sharedReporter] send:exceptionName withTags:@[] withUserCustomData:defaultParameters];
+        
+    }
 }
 
 @end

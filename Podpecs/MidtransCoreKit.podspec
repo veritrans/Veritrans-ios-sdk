@@ -11,5 +11,6 @@ s.platform     = :ios, '8.0'
 s.requires_arc = true
 s.source_files = 'MidtransCoreKit/MidtransCoreKit/**/*.{h,m}'
 s.frameworks    = 'UIKit', 'Foundation'
+s.static_framework = true
 s.ios.dependency 'Raygun4iOS', '~> 2.04'
 end

@@ -47,7 +47,7 @@
     [defaultParameters setObject:[MidtransDeviceHelper currentCPUUsage] forKey:@"cpu"];
     [defaultParameters setObject:[MidtransDeviceHelper deviceCurrentNetwork] forKey:@"network"];
     [defaultParameters setObject:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forKey:@"sdk version"];
-    [defaultParameters setObject:[MidtransDeviceHelper applicationName] forKey:@"host_app"];
+    [defaultParameters setObject:[MidtransDeviceHelper applicationName]?[MidtransDeviceHelper applicationName] :@"" forKey:@"host_app"];
 
     [defaultParameters setObject:[NSString stringWithFormat:@"width = %f, height = %f", [MidtransDeviceHelper screenSize].width, [MidtransDeviceHelper screenSize].height] forKey:@"screen_size"];
 

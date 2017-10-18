@@ -117,8 +117,13 @@
 }
 + (NSString *)deviceCurrentNetwork {
     
-    UIApplication *app = [UIApplication sharedApplication];
-    NSArray *subviews = [[[app valueForKey:@"statusBar"] valueForKey:@"foregroundView"]    subviews];
+    NSArray *subviews = nil;
+    id statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
+    if ([statusBar isKindOfClass:NSClassFromString(@"UIStatusBar_Modern")]) {
+        subviews = [[[statusBar valueForKey:@"statusBar"] valueForKey:@"foregroundView"] subviews];
+    } else {
+        subviews = [[statusBar valueForKey:@"foregroundView"] subviews];
+    }
     NSNumber *dataNetworkItemView = nil;
     
     for (id subview in subviews) {

@@ -47,21 +47,30 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2h-AK-Sd3">
-                            <rect key="frame" x="265.5" y="0.0" width="39.5" height="45"/>
+                            <rect key="frame" x="250.5" y="0.0" width="39.5" height="45"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="SgR-Ae-lik">
+                            <rect key="frame" x="290" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="fPS-Vc-Gnf"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Pk5-Ct-ZE0" secondAttribute="bottom" id="C1b-IL-lf5"/>
+                        <constraint firstAttribute="trailing" secondItem="SgR-Ae-lik" secondAttribute="trailing" id="CTj-sM-bkr"/>
                         <constraint firstItem="B2h-AK-Sd3" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="Fge-sw-lac"/>
                         <constraint firstItem="Pk5-Ct-ZE0" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="Pml-sG-XcP"/>
-                        <constraint firstAttribute="trailing" secondItem="B2h-AK-Sd3" secondAttribute="trailing" constant="15" id="Zmg-nc-Luy"/>
+                        <constraint firstAttribute="bottom" secondItem="SgR-Ae-lik" secondAttribute="bottom" id="Y7P-Fs-5xL"/>
                         <constraint firstAttribute="bottom" secondItem="B2h-AK-Sd3" secondAttribute="bottom" id="gi3-eL-8am"/>
+                        <constraint firstItem="SgR-Ae-lik" firstAttribute="leading" secondItem="B2h-AK-Sd3" secondAttribute="trailing" id="qgb-NG-1Js"/>
                         <constraint firstItem="Pk5-Ct-ZE0" firstAttribute="leading" secondItem="qte-DI-uap" secondAttribute="leading" constant="15" id="qnu-7O-2DZ"/>
                         <constraint firstAttribute="height" constant="45" id="quk-WX-xJS"/>
+                        <constraint firstItem="SgR-Ae-lik" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="rU3-wD-jgR"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -86,4 +95,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

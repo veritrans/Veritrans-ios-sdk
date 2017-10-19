@@ -50,25 +50,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJb-M5-yYW" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="567" width="375" height="45"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-JC-0iG">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdv-xP-PuC">
                             <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="kXU-4g-JHC">
+                            <rect key="frame" x="345" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="4uW-ze-wU7"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-JC-0iG">
+                            <rect key="frame" x="305.5" y="11" width="39.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="kXU-4g-JHC" secondAttribute="bottom" id="7vA-LO-bjW"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="leading" secondItem="cJb-M5-yYW" secondAttribute="leading" constant="15" id="Fns-q3-Y54"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="Rzj-o8-QMF"/>
+                        <constraint firstAttribute="trailing" secondItem="kXU-4g-JHC" secondAttribute="trailing" id="T0Y-eM-dxl"/>
+                        <constraint firstItem="kXU-4g-JHC" firstAttribute="leading" secondItem="MQT-JC-0iG" secondAttribute="trailing" id="g61-9d-K0u"/>
                         <constraint firstAttribute="height" constant="45" id="rc6-BX-R73"/>
                         <constraint firstItem="MQT-JC-0iG" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="wrl-HV-CeF"/>
-                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="15" id="xXh-1N-TKK"/>
+                        <constraint firstItem="kXU-4g-JHC" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="top" id="yxg-dj-0lu"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -98,4 +107,7 @@
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

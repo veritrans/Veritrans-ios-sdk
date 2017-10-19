@@ -47,23 +47,32 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="erp-2z-2Fc" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-8u-zU8">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QBs-HF-cHt">
                             <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="CGQ-EU-1eg">
+                            <rect key="frame" x="345" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="i0R-dB-mZe"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-8u-zU8">
+                            <rect key="frame" x="305" y="12" width="39.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="CGQ-EU-1eg" firstAttribute="leading" secondItem="cZV-8u-zU8" secondAttribute="trailing" constant="0.5" id="BB9-Sp-Vkv"/>
+                        <constraint firstAttribute="bottom" secondItem="CGQ-EU-1eg" secondAttribute="bottom" id="Yzm-2I-ebs"/>
+                        <constraint firstAttribute="trailing" secondItem="CGQ-EU-1eg" secondAttribute="trailing" id="ceb-oW-ala"/>
                         <constraint firstAttribute="height" constant="45" id="dQo-bt-Ydk"/>
-                        <constraint firstAttribute="trailing" secondItem="cZV-8u-zU8" secondAttribute="trailing" constant="15" id="noY-pV-ffJ"/>
                         <constraint firstItem="QBs-HF-cHt" firstAttribute="leading" secondItem="erp-2z-2Fc" secondAttribute="leading" constant="15" id="pAe-2M-8HM"/>
+                        <constraint firstItem="CGQ-EU-1eg" firstAttribute="top" secondItem="erp-2z-2Fc" secondAttribute="top" id="qap-E7-Fhw"/>
                         <constraint firstItem="QBs-HF-cHt" firstAttribute="centerY" secondItem="erp-2z-2Fc" secondAttribute="centerY" id="rsG-MS-0eT"/>
                         <constraint firstItem="cZV-8u-zU8" firstAttribute="centerY" secondItem="erp-2z-2Fc" secondAttribute="centerY" id="wq5-cJ-WYF"/>
                     </constraints>
@@ -109,5 +118,6 @@
     </objects>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
+        <image name="icon-help.png" width="12" height="12"/>
     </resources>
 </document>

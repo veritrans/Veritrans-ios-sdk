@@ -37,7 +37,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="303"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBk-Up-o01">
-                            <rect key="frame" x="45" y="60.5" width="231.5" height="182.5"/>
+                            <rect key="frame" x="44.5" y="60.5" width="231.5" height="182.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Card Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vl-pC-whZ">
                                     <rect key="frame" x="0.0" y="128" width="231.5" height="21.5"/>
@@ -54,7 +54,7 @@ be used for every transactions.</string>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyCardIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oUC-TE-I6l">
-                                    <rect key="frame" x="30.5" y="0.0" width="169" height="120"/>
+                                    <rect key="frame" x="31" y="0.0" width="169" height="120"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -166,12 +166,6 @@ be used for every transactions.</string>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-Kh-Feo">
-                            <rect key="frame" x="265.5" y="12.5" width="39.5" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mGP-kc-oMz" userLabel="Line View">
                             <rect key="frame" x="0.0" y="44" width="320" height="1"/>
                             <color key="backgroundColor" red="0.7843137255" green="0.79215686269999996" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -179,17 +173,32 @@ be used for every transactions.</string>
                                 <constraint firstAttribute="height" constant="1" id="NSX-gs-aNw"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="OKF-vN-xrK">
+                            <rect key="frame" x="290" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="neZ-XU-kV9"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-Kh-Feo">
+                            <rect key="frame" x="250.5" y="12" width="39.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="trailing" secondItem="OKF-vN-xrK" secondAttribute="trailing" id="1fO-ZQ-cyG"/>
                         <constraint firstItem="IQA-H8-m1F" firstAttribute="leading" secondItem="kMz-eb-pIV" secondAttribute="leading" constant="15" id="3LD-22-pBX"/>
+                        <constraint firstAttribute="bottom" secondItem="OKF-vN-xrK" secondAttribute="bottom" id="41o-To-UzN"/>
+                        <constraint firstItem="OKF-vN-xrK" firstAttribute="top" secondItem="kMz-eb-pIV" secondAttribute="top" id="9by-Pf-qvN"/>
                         <constraint firstItem="IQA-H8-m1F" firstAttribute="centerY" secondItem="kMz-eb-pIV" secondAttribute="centerY" id="GRS-Gv-ba6"/>
                         <constraint firstAttribute="bottom" secondItem="mGP-kc-oMz" secondAttribute="bottom" id="Ijw-NH-v1y"/>
                         <constraint firstItem="mGP-kc-oMz" firstAttribute="leading" secondItem="kMz-eb-pIV" secondAttribute="leading" id="Ra3-7S-2CY"/>
                         <constraint firstAttribute="height" constant="45" id="XDs-Fd-w3v"/>
                         <constraint firstAttribute="trailing" secondItem="mGP-kc-oMz" secondAttribute="trailing" id="eCa-gz-1dV"/>
+                        <constraint firstItem="OKF-vN-xrK" firstAttribute="leading" secondItem="5HZ-Kh-Feo" secondAttribute="trailing" id="g2m-RM-Yau"/>
                         <constraint firstItem="5HZ-Kh-Feo" firstAttribute="centerY" secondItem="kMz-eb-pIV" secondAttribute="centerY" id="g3N-Ou-EPr"/>
-                        <constraint firstAttribute="trailing" secondItem="5HZ-Kh-Feo" secondAttribute="trailing" constant="15" id="ldR-Yn-TL9"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -205,13 +214,13 @@ be used for every transactions.</string>
                     <rect key="frame" x="16" y="303" width="288" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-L2-p46" customClass="VTNoteTitleLabel">
-                            <rect key="frame" x="50" y="3.5" width="61" height="13"/>
+                            <rect key="frame" x="50" y="3" width="61" height="13"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="10"/>
                             <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Midtrans securely manages your credit cards for all our merchants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="14m-CR-X1Q">
-                            <rect key="frame" x="50" y="16.5" width="238" height="33"/>
+                            <rect key="frame" x="50" y="16" width="238" height="33"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -291,6 +300,7 @@ be used for every transactions.</string>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="DisclosureIndicatorGray.png" width="8" height="13"/>
         <image name="emptyCardIcon.png" width="169" height="120"/>
+        <image name="icon-help.png" width="12" height="12"/>
         <image name="padlock1.png" width="42" height="51"/>
     </resources>
 </document>

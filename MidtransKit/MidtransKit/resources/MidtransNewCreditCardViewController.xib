@@ -51,21 +51,30 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-08-1kx">
-                            <rect key="frame" x="363.66666666666674" y="0.0" width="35.333333333333314" height="50"/>
+                            <rect key="frame" x="343.66666666666674" y="0.0" width="35.333333333333314" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="1M4-vy-14e">
+                            <rect key="frame" x="379" y="0.0" width="30" height="50"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="7BO-uZ-ekx"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="1M4-vy-14e" firstAttribute="leading" secondItem="9Xe-08-1kx" secondAttribute="trailing" id="Gyl-l2-4Tw"/>
                         <constraint firstItem="l67-Ku-WeL" firstAttribute="centerY" secondItem="9Xe-08-1kx" secondAttribute="centerY" id="Pwa-7l-a6P"/>
-                        <constraint firstAttribute="trailing" secondItem="9Xe-08-1kx" secondAttribute="trailing" constant="15" id="TGE-sZ-ZdU"/>
+                        <constraint firstItem="1M4-vy-14e" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="top" id="XXi-fb-M75"/>
+                        <constraint firstAttribute="bottom" secondItem="1M4-vy-14e" secondAttribute="bottom" id="auY-wR-cgu"/>
                         <constraint firstAttribute="bottom" secondItem="9Xe-08-1kx" secondAttribute="bottom" id="gFc-zv-2Qn"/>
                         <constraint firstItem="l67-Ku-WeL" firstAttribute="leading" secondItem="K39-0u-IJj" secondAttribute="leading" constant="15" id="lew-RP-kdq"/>
                         <constraint firstItem="9Xe-08-1kx" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="top" id="mOU-1f-WZe"/>
                         <constraint firstItem="9Xe-08-1kx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l67-Ku-WeL" secondAttribute="trailing" constant="8" id="pJN-Cz-OiM"/>
                         <constraint firstAttribute="height" constant="50" id="sDC-EK-i1s"/>
+                        <constraint firstAttribute="trailing" secondItem="1M4-vy-14e" secondAttribute="trailing" constant="5" id="tey-h5-etu"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
@@ -266,6 +275,7 @@
     <resources>
         <image name="default.png" width="37" height="22"/>
         <image name="hint.png" width="21" height="21"/>
+        <image name="icon-help.png" width="12" height="12"/>
         <image name="trash-icon.png" width="12" height="14"/>
     </resources>
 </document>

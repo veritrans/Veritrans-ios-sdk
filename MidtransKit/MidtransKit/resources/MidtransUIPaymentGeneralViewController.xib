@@ -50,25 +50,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qr2-Lo-cXi" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="513" width="375" height="45"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwn-Q0-eSx">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bFb-1I-nvz">
                             <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="949-9s-M2o">
+                            <rect key="frame" x="345" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="vh1-26-eid"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwn-Q0-eSx">
+                            <rect key="frame" x="305.5" y="12" width="39.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="bFb-1I-nvz" firstAttribute="leading" secondItem="qr2-Lo-cXi" secondAttribute="leading" constant="15" id="5ME-pK-tkZ"/>
+                        <constraint firstItem="949-9s-M2o" firstAttribute="leading" secondItem="Kwn-Q0-eSx" secondAttribute="trailing" id="7NF-Jy-SA4"/>
                         <constraint firstAttribute="height" constant="45" id="Cno-Xk-t5J"/>
+                        <constraint firstItem="949-9s-M2o" firstAttribute="top" secondItem="qr2-Lo-cXi" secondAttribute="top" id="Ptd-VC-VKF"/>
                         <constraint firstItem="bFb-1I-nvz" firstAttribute="centerY" secondItem="qr2-Lo-cXi" secondAttribute="centerY" id="SXz-UA-q0x"/>
-                        <constraint firstAttribute="trailing" secondItem="Kwn-Q0-eSx" secondAttribute="trailing" constant="15" id="TrP-Gg-U8I"/>
                         <constraint firstItem="Kwn-Q0-eSx" firstAttribute="centerY" secondItem="qr2-Lo-cXi" secondAttribute="centerY" id="aWO-vz-r6v"/>
+                        <constraint firstAttribute="bottom" secondItem="949-9s-M2o" secondAttribute="bottom" id="n3c-aP-MoB"/>
+                        <constraint firstAttribute="trailing" secondItem="949-9s-M2o" secondAttribute="trailing" id="stu-WM-sou"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -84,7 +93,7 @@
                     <rect key="frame" x="0.0" y="558" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVf-Gi-8eJ">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -121,13 +130,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment mehtod" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvS-gN-gch">
-                            <rect key="frame" x="54" y="13" width="267" height="15.5"/>
+                            <rect key="frame" x="54.5" y="12.5" width="267" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" red="0.36862745098039218" green="0.32156862745098036" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="token_key.png" translatesAutoresizingMaskIntoConstraints="NO" id="YcC-5e-PBF">
-                            <rect key="frame" x="30" y="12" width="20" height="20"/>
+                            <rect key="frame" x="30.5" y="12" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="20" id="Hcj-MU-EII"/>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="djr-0d-a1k"/>
@@ -184,6 +193,7 @@
     </objects>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
+        <image name="icon-help.png" width="12" height="12"/>
         <image name="token_key.png" width="11" height="16"/>
     </resources>
 </document>

@@ -104,25 +104,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="421-1G-YEy" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-9y-6eQ">
-                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MEt-wf-obH">
                             <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="wk0-hh-uWz">
+                            <rect key="frame" x="345" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="26l-cd-XiH"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-9y-6eQ">
+                            <rect key="frame" x="305.5" y="11" width="39.5" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="lOs-9y-6eQ" secondAttribute="trailing" constant="15" id="0Zr-Im-Fbx"/>
                         <constraint firstAttribute="height" constant="45" id="Dgh-xq-hAm"/>
                         <constraint firstItem="lOs-9y-6eQ" firstAttribute="centerY" secondItem="421-1G-YEy" secondAttribute="centerY" id="LNM-f9-OhY"/>
                         <constraint firstItem="MEt-wf-obH" firstAttribute="centerY" secondItem="421-1G-YEy" secondAttribute="centerY" id="izL-En-5cf"/>
+                        <constraint firstItem="wk0-hh-uWz" firstAttribute="leading" secondItem="lOs-9y-6eQ" secondAttribute="trailing" id="j18-Uh-Sja"/>
+                        <constraint firstItem="wk0-hh-uWz" firstAttribute="top" secondItem="421-1G-YEy" secondAttribute="top" id="pxd-K4-mii"/>
                         <constraint firstItem="MEt-wf-obH" firstAttribute="leading" secondItem="421-1G-YEy" secondAttribute="leading" constant="15" id="rXu-Zo-DaH"/>
+                        <constraint firstAttribute="trailing" secondItem="wk0-hh-uWz" secondAttribute="trailing" id="sb7-vd-5GE"/>
+                        <constraint firstAttribute="bottom" secondItem="wk0-hh-uWz" secondAttribute="bottom" id="scX-M8-HW7"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -148,7 +157,7 @@
                                             <rect key="frame" x="0.0" y="135" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wvl-Ap-hMb">
-                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -182,7 +191,7 @@
                                             <rect key="frame" x="0.0" y="90" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnO-os-UUa">
-                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -216,7 +225,7 @@
                                             <rect key="frame" x="0.0" y="45" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8iY-nb-adT">
-                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -250,7 +259,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="45"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kZG-e7-2qJ">
-                                                    <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
+                                                    <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -353,13 +362,13 @@
                     <rect key="frame" x="0.0" y="2" width="375" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment mehtod" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BCY-vQ-GZi">
-                            <rect key="frame" x="54.5" y="12.5" width="267" height="15.5"/>
+                            <rect key="frame" x="54" y="13" width="267" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" red="0.36862745098039218" green="0.32156862745098036" blue="0.0039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="token_key.png" translatesAutoresizingMaskIntoConstraints="NO" id="ACq-Ci-H09">
-                            <rect key="frame" x="30.5" y="12" width="20" height="20"/>
+                            <rect key="frame" x="30" y="12" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="5jX-ag-X5f"/>
                                 <constraint firstAttribute="width" constant="20" id="NW0-Pd-yGc"/>
@@ -410,6 +419,7 @@
     </objects>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
+        <image name="icon-help.png" width="12" height="12"/>
         <image name="token_key.png" width="11" height="16"/>
     </resources>
 </document>

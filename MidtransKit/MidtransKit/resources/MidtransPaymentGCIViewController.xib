@@ -104,25 +104,34 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gCd-AT-Gu2" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="421" width="320" height="45"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kl-VV-TBV">
-                            <rect key="frame" x="248" y="12" width="57" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ceq-gF-pUn">
                             <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="lfq-LV-tdc">
+                            <rect key="frame" x="290" y="0.0" width="30" height="45"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="30" id="o6j-Xr-jOy"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kl-VV-TBV">
+                            <rect key="frame" x="233" y="11" width="57" height="21.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="1Kl-VV-TBV" secondAttribute="trailing" constant="15" id="0BN-gv-DyI"/>
+                        <constraint firstItem="lfq-LV-tdc" firstAttribute="top" secondItem="gCd-AT-Gu2" secondAttribute="top" id="29t-FP-y7g"/>
+                        <constraint firstAttribute="trailing" secondItem="lfq-LV-tdc" secondAttribute="trailing" id="7we-LT-5bB"/>
                         <constraint firstAttribute="height" constant="45" id="W7Z-PB-Ebe"/>
                         <constraint firstItem="ceq-gF-pUn" firstAttribute="centerY" secondItem="gCd-AT-Gu2" secondAttribute="centerY" id="WN8-BE-Nya"/>
                         <constraint firstItem="ceq-gF-pUn" firstAttribute="leading" secondItem="gCd-AT-Gu2" secondAttribute="leading" constant="15" id="d2a-tl-iVp"/>
                         <constraint firstItem="1Kl-VV-TBV" firstAttribute="centerY" secondItem="gCd-AT-Gu2" secondAttribute="centerY" id="fKU-hb-umN"/>
+                        <constraint firstItem="lfq-LV-tdc" firstAttribute="leading" secondItem="1Kl-VV-TBV" secondAttribute="trailing" id="jae-Zg-cCb"/>
+                        <constraint firstAttribute="bottom" secondItem="lfq-LV-tdc" secondAttribute="bottom" id="x8l-xO-Fs6"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -138,7 +147,7 @@
                     <rect key="frame" x="0.0" y="466" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0D-3I-196">
-                            <rect key="frame" x="248.5" y="12" width="56.5" height="21.5"/>
+                            <rect key="frame" x="248.5" y="12.5" width="56.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -197,4 +206,7 @@
             <point key="canvasLocation" x="-193" y="-27"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

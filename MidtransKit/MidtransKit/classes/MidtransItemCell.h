@@ -11,4 +11,5 @@
 
 @interface MidtransItemCell : UITableViewCell
 @property (nonatomic) MidtransItemDetail *itemDetail;
+@property (weak, nonatomic) IBOutlet UIView *backgroundView;
 @end

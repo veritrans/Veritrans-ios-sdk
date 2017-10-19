@@ -16,6 +16,7 @@
 #import "VTSubGuideController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
 static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
@@ -67,6 +68,7 @@ static NSString* const ClickpayAPPLI = @"3";
     self.mandiriClickpayStepLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     self.keyTokenLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Key token device is required for this payment method"];
     self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     [self.confirmButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
     
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];

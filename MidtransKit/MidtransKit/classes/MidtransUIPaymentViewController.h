@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import "MidtransUIFontSource.h"
+@class MidtransUIFontSource;
 
 /*
  static NSString * const MIDTRANS_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";

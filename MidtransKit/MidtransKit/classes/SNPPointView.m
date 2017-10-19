@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2DataModels.h>
+#import "MidtransUIThemeManager.h"
 @implementation SNPPointView
 
 -(void)awakeFromNib{
@@ -26,5 +27,6 @@
 */
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
     self.totalAmountPriceLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.totalAmountPriceLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 @end

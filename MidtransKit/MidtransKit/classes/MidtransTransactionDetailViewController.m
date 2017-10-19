@@ -15,11 +15,10 @@
 @property (nonatomic) IBOutlet UILabel *priceAmountLabel;
 @property (nonatomic) IBOutlet UIView *backgroundView;
 @property (nonatomic) IBOutlet UIView *headerView;
-@property (nonatomic) IBOutlet NSLayoutConstraint *topSpaceConstraint;
 @property (nonatomic) IBOutlet NSLayoutConstraint *tableHeightConstraint;
 @property (nonatomic) IBOutlet UITableView *tableView;
-@property (nonatomic) NSArray *items;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
+@property (nonatomic) NSArray *items;
 @end
 
 @implementation MidtransTransactionDetailViewController
@@ -34,6 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.view.exclusiveTouch = NO;
     [[SNPUITrackingManager shared] trackEventName:@"pg order summary"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransItemCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransItemCell"];
     self.tableView.delegate = self;
@@ -41,7 +41,8 @@
     
     [self.backgroundView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
-    
+    [self.view addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
+    self.priceAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 - (void)backgroundTapped:(id)sender {
@@ -65,8 +66,9 @@
     [rootVC addSubViewController:self toView:rootVC.view];
     
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
-//    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
-    self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
+    self.bottomSpaceConstraint.constant = CGRectGetHeight(self.view.frame) -
+    CGRectGetMinY(generalRect) +
+    CGRectGetHeight([[UIApplication sharedApplication] statusBarFrame]);
     
     self.items = items;
     self.priceAmountLabel.text = [items formattedPriceAmount];
@@ -89,7 +91,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransItemCell"];
     cell.itemDetail = self.items[indexPath.row];
-    cell.backgroundColor = [UIColor whiteColor];
+    cell.backgroundView.backgroundColor = indexPath.row % 2 == 0 ? [UIColor colorWithWhite:.98f alpha:1.f] : [UIColor whiteColor];
     return cell;
 }
 

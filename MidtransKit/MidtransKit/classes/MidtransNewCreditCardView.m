@@ -27,6 +27,7 @@
     
     [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.finish.payment"] forState:UIControlStateNormal];
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    self.totalAmountPrice.textColor = [[MidtransUIThemeManager shared] themeColor];
     self.addOnTableView.scrollEnabled = false;
     self.addOnTableView.allowsMultipleSelection = YES;
     self.secureBadgeWrapper.layer.cornerRadius = 3.0f;

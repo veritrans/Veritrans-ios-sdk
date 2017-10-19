@@ -24,6 +24,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 CGFloat const ButtonHeight = 56;
 
@@ -77,6 +78,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
     }
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.amountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     [self reloadMaskedCards];
 }
 

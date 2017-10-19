@@ -21,7 +21,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pco-FU-cLp">
-                    <rect key="frame" x="116" y="267" width="143.5" height="135"/>
+                    <rect key="frame" x="116" y="266" width="143.5" height="135"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading payment page" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EcB-Mj-47a">
                             <rect key="frame" x="0.0" y="116" width="143.5" height="19"/>

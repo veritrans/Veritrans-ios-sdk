@@ -14,6 +14,7 @@
 #import "MidtransVAViewController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
 
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
@@ -29,6 +30,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];

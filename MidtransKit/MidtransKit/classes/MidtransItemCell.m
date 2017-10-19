@@ -29,7 +29,7 @@
     NSInteger grandTotlaPrice = [itemDetail.price intValue] * [itemDetail.quantity intValue];
     self.nameLabel.text = itemDetail.name;
     self.priceLabel.text = [NSNumber numberWithInteger:grandTotlaPrice].formattedCurrencyNumber;
-    self.qtyLabel.text = [NSString stringWithFormat:@"x%@", itemDetail.quantity];
+    self.qtyLabel.text = [NSString stringWithFormat:@"%@", itemDetail.quantity];
     
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];

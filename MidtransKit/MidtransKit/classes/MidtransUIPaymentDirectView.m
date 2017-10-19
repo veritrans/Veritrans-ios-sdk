@@ -13,6 +13,7 @@
 #import "MidtransUIToast.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransUIPaymentDirectView() <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) MidtransDirectHeader *headerView;
@@ -42,6 +43,7 @@
     
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 -(void) totalAmountBorderedViewTapped:(id) sender {

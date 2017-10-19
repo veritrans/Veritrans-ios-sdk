@@ -17,6 +17,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 @interface SNPPostPaymentVAViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *mainInstructions;
@@ -52,6 +53,7 @@
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentFooter" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentFooter"];
     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     

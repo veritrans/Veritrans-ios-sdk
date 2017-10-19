@@ -20,7 +20,7 @@
         self.paymentStatusTransactionTimeLabel.text = [formatter stringFromDate:result.transactionTime];
         self.paymentStatusOrderIdNumberLabel.text = result.orderId;
         self.paymentStatusTotalAmountLabel.text  = result.grossAmount.formattedCurrencyNumber;
-
+        
     }
 }
 

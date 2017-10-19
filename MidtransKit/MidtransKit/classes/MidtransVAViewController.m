@@ -18,6 +18,7 @@
 #import "UIViewController+Modal.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -41,6 +42,7 @@
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
     self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     [self.payButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"va.pay-button"] forState:UIControlStateNormal];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

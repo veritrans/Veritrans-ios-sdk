@@ -16,6 +16,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 @interface SNPPostPaymentGeneralViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
@@ -57,7 +58,8 @@
     }
     self.instrunctions = [VTClassHelper instructionsFromFilePath:guidePath];
     
-     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
     [self.view.totalAmountBorderedView addGestureRecognizer:

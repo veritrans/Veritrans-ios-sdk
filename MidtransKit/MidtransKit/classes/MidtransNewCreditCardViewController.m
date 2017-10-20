@@ -189,19 +189,16 @@ UIAlertViewDelegate
         
         self.view.deleteButton.hidden = YES;
     }
-    
     [self.view.creditCardNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardCVVNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardExpireTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 }
-
 -(void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *vc = [[MidtransTransactionDetailViewController alloc] init];
     [vc presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
-
 - (void)deleteCardPressed:(id)sender {
     UIAlertView *alert =
     [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]

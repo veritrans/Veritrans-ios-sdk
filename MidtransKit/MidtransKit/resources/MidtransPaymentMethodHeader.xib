@@ -27,14 +27,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-bd-5U3">
-<<<<<<< HEAD
-                    <rect key="frame" x="312.5" y="0.0" width="47.5" height="50"/>
-                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="22"/>
-                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-=======
                     <rect key="frame" x="324.5" y="0.0" width="35.5" height="50"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
->>>>>>> 210f4cf... changed total amount location to the bottom/footer cell
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>

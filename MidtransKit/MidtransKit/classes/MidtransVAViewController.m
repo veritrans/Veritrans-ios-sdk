@@ -25,6 +25,9 @@
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+@property (nonatomic) NSArray *otherBankListATMBersama;
+@property (nonatomic) NSArray *otherBankListPrima;
+@property (nonatomic) NSArray *otherBankListAlto;
 
 @property (nonatomic) MidtransVAType paymentType;
 @end
@@ -243,5 +246,4 @@
         }
     }
 }
-
 @end

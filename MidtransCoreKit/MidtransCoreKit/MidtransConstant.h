@@ -90,6 +90,7 @@ static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
  *  MESSAGE CONSTANT
  */
 
+static NSString *const MIDTRANS_RAYGUN_APP_KEY = @"eqBTHdEAfobg/zeTi8d5gw==";
 static NSString * const MIDTRANS_MESSAGE_CARD_INVALID = @"Card number is invalid";
 static NSString * const MIDTRANS_MESSAGE_INPUT_VALUE_INVALID = @"Input Invalid";
 static NSString * const MIDTRANS_MESSAGE_EXPIRE_DATE_INVALID = @"Expiry Year is invalid";

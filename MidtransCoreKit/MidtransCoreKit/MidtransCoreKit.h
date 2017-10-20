@@ -63,6 +63,7 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransPaymentTelkomselCash.h"
 #import "MidtransCreditCardConfig.h"
 #import "MidtransImageManager.h"
+#import "SNPErrorLogManager.h"
 #import "MidtransPaymentWebController.h"
 #import "MidtransTransactionExpire.h"
 #import "MIdtransPaymentGCI.h"

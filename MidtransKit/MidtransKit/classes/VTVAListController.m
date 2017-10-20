@@ -29,10 +29,14 @@
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"virtualAccount"];
-    NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"virtualAccount"];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (guidePath == nil) {
+        guidePath = [VTBundle pathForResource:@"en_virtualAccount" ofType:@"plist"];
+    }
+    
     NSMutableArray *vaListM = [NSMutableArray new];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+    NSArray *paymentList = [NSArray arrayWithContentsOfFile:guidePath];
 
     NSArray *paymentAvailable = self.paymentResponse.enabledPayments;
     for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {

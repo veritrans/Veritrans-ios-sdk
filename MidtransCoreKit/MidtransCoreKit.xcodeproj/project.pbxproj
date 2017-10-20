@@ -25,6 +25,10 @@
 		0C1B35DC1ED6B3A7003F6806 /* SNPFreeTextPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */; };
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
+		0C50726D1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C50726E1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C50726F1F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */; };
+		0C5072701F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */; };
 		0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C9324391F7B76E900D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
 		0C93243A1F7B76F500D9A390 /* MidtransPaymentDanamonOnline.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */; };
@@ -362,6 +366,9 @@
 		0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextPayment.m; sourceTree = "<group>"; };
 		0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPFreeTextResponse.h; sourceTree = "<group>"; };
 		0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextResponse.m; sourceTree = "<group>"; };
+		0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNPErrorLogManager.h; sourceTree = "<group>"; };
+		0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNPErrorLogManager.m; sourceTree = "<group>"; };
+		0C5072711F8CAE9C008F4339 /* NSString+MidtransValidation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+MidtransValidation.m"; path = "MidtransCoreKit/NSString+MidtransValidation.m"; sourceTree = "<group>"; };
 		0C6FC8921E1B62850002E160 /* MidtransPaymentRequestV2Installment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Installment.h; sourceTree = "<group>"; };
 		0C6FC8931E1B62850002E160 /* MidtransPaymentRequestV2Installment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentRequestV2Installment.m; sourceTree = "<group>"; };
 		0C6FC8961E1B62850002E160 /* MidtransPaymentRequestV2Terms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentRequestV2Terms.h; sourceTree = "<group>"; };
@@ -621,6 +628,15 @@
 			path = BIN;
 			sourceTree = "<group>";
 		};
+		0C68F0421F8B3A7F0026416D /* RayGun */ = {
+			isa = PBXGroup;
+			children = (
+				0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */,
+				0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */,
+			);
+			name = RayGun;
+			sourceTree = "<group>";
+		};
 		0CF74F341E6EB5D2006C0393 /* Point */ = {
 			isa = PBXGroup;
 			children = (
@@ -642,6 +658,7 @@
 		2EDAA3A01D0A7597009EC90D /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				0C68F0421F8B3A7F0026416D /* RayGun */,
 				0C19235F1E430A7A00B3BBDB /* New Tracking */,
 			);
 			name = Tracking;
@@ -759,6 +776,7 @@
 		305494311C759FF800938C17 = {
 			isa = PBXGroup;
 			children = (
+				0C5072711F8CAE9C008F4339 /* NSString+MidtransValidation.m */,
 				E5CDEC8B1E9340CA0032DC3B /* MidtransCoreKit */,
 				3054943B1C759FF800938C17 /* Products */,
 				A0C9D60C2D536437D42CFD0A /* Frameworks */,
@@ -840,6 +858,7 @@
 				E57120601E937A790064F515 /* MidtransPaymentRequestV2Terms.h in Headers */,
 				E57120611E937A790064F515 /* MidtransPaymentRequestV2SavedTokens.h in Headers */,
 				E57120621E937A790064F515 /* MidtransPaymentRequestV2BillingAddress.h in Headers */,
+				0C50726E1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */,
 				E57120631E937A790064F515 /* MidtransPaymentRequestV2Callbacks.h in Headers */,
 				E57120641E937A790064F515 /* MidtransPaymentRequestV2CreditCard.h in Headers */,
 				E57120651E937A790064F515 /* MidtransPaymentRequestV2CustomerDetails.h in Headers */,
@@ -925,6 +944,7 @@
 				E55F63621E934C4700C012C8 /* MidtransPaymentWebController.h in Headers */,
 				E55F63681E934C4700C012C8 /* MidtransPromo.h in Headers */,
 				E55F63691E934C4700C012C8 /* MidtransPaymentRequestV2Installment.h in Headers */,
+				0C50726D1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */,
 				E55F636B1E934C4700C012C8 /* MidtransPaymentRequestV2Terms.h in Headers */,
 				E55F636C1E934C4700C012C8 /* MidtransPaymentRequestV2SavedTokens.h in Headers */,
 				E55F636D1E934C4700C012C8 /* MidtransPaymentRequestV2BillingAddress.h in Headers */,
@@ -1082,6 +1102,7 @@
 				E57120081E937A2B0064F515 /* MidtransCreditCardConfig.m in Sources */,
 				E57120091E937A2B0064F515 /* MidtransHelper.m in Sources */,
 				E571200A1E937A2B0064F515 /* MidtransNetworking.m in Sources */,
+				0C5072701F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */,
 				E571200B1E937A2B0064F515 /* MidtransNetworkOperation.m in Sources */,
 				E571200C1E937A2B0064F515 /* MidtransNetworkLogger.m in Sources */,
 				E571200D1E937A2B0064F515 /* MidtransDeviceHelper.m in Sources */,
@@ -1158,6 +1179,7 @@
 				E55F63A21E934C6400C012C8 /* MidtransCreditCardConfig.m in Sources */,
 				E55F63A31E934C6400C012C8 /* MidtransHelper.m in Sources */,
 				E55F63A41E934C6400C012C8 /* MidtransNetworking.m in Sources */,
+				0C50726F1F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */,
 				E55F63A51E934C6400C012C8 /* MidtransNetworkOperation.m in Sources */,
 				E5711FFB1E9379E80064F515 /* MidtransVirtualAccountModel.m in Sources */,
 				E55F63A61E934C6400C012C8 /* MidtransNetworkLogger.m in Sources */,
@@ -1269,6 +1291,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lc++";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1314,6 +1337,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-lc++";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1326,8 +1350,19 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit/RG",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_NAME = MidtransCoreKit;
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
@@ -1341,8 +1376,19 @@
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit",
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				OTHER_LDFLAGS = "-ObjC";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit/RG",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+				);
 				PRODUCT_NAME = MidtransCoreKit;
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
 				SKIP_INSTALL = YES;
@@ -1362,10 +1408,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit",
+				);
 				INFOPLIST_FILE = MidtransCoreKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit/RG",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1388,10 +1442,18 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit",
+				);
 				INFOPLIST_FILE = MidtransCoreKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/MidtransCoreKit/RG",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

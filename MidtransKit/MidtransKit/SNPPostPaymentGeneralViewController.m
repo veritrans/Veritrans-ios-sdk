@@ -47,8 +47,12 @@
     self.headerView.vaTextField.text = self.transactionResult.indomaretPaymentCode;
     
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
-    NSLog(@"data->%@",[VTBundle pathForResource:filenameByLanguage ofType:@"plist"]);
-    self.instrunctions = [VTClassHelper instructionsFromFilePath:[VTBundle pathForResource:filenameByLanguage ofType:@"plist"]];
+    
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (guidePath == nil) {
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
+    }
+    self.instrunctions = [VTClassHelper instructionsFromFilePath:guidePath];
     
      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];

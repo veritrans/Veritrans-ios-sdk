@@ -28,7 +28,6 @@
     self.shouldExpand = NO;
     
     self.headerView = [[VTBundle loadNibNamed:@"MidtransPaymentMethodHeader" owner:self options:nil] lastObject];
-    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerTapped:)]];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -53,11 +52,6 @@
     
     self.paymentMethods = paymentMethods;
     [self.tableView reloadData];
-}
-
-- (void)headerTapped:(id)sender {
-    MidtransTransactionDetailViewController *vc = [[MidtransTransactionDetailViewController alloc] init];
-    [vc presentAtPositionOfView:self.headerView items:self.items];
 }
 
 #pragma mark - UITableViewDataSource
@@ -91,11 +85,11 @@
     }
 }
 
--(UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return self.headerView;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 50;
 }
 

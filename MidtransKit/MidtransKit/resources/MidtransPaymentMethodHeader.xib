@@ -26,14 +26,6 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qaY-KL-EHi">
                     <rect key="frame" x="15" y="17.5" width="73.5" height="16.5"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
-<<<<<<< HEAD
-                    <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iib-bd-5U3">
-                    <rect key="frame" x="324.5" y="0.0" width="35.5" height="50"/>
-                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
-=======
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -41,7 +33,6 @@
                     <rect key="frame" x="323" y="0.0" width="42" height="50"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="21"/>
                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
->>>>>>> 0a77979... change payment method header back to blue bg on top table
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -51,10 +42,6 @@
                 <constraint firstAttribute="bottom" secondItem="Iib-bd-5U3" secondAttribute="bottom" id="WSr-ab-MP5"/>
                 <constraint firstItem="Iib-bd-5U3" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="qaY-KL-EHi" secondAttribute="trailing" constant="8" id="ZYO-dz-yWe"/>
                 <constraint firstItem="Iib-bd-5U3" firstAttribute="top" secondItem="7ZA-6L-FwF" secondAttribute="top" id="bo2-S3-ZNA"/>
-<<<<<<< HEAD
-                <constraint firstAttribute="trailing" secondItem="Iib-bd-5U3" secondAttribute="trailing" constant="15" id="erG-x2-R3V"/>
-=======
->>>>>>> 0a77979... change payment method header back to blue bg on top table
                 <constraint firstItem="qaY-KL-EHi" firstAttribute="centerY" secondItem="Iib-bd-5U3" secondAttribute="centerY" id="qAX-h1-hUZ"/>
                 <constraint firstAttribute="trailing" secondItem="Iib-bd-5U3" secondAttribute="trailing" constant="10" id="qsM-6V-tMY"/>
             </constraints>

@@ -28,7 +28,6 @@
     self.shouldExpand = NO;
     
     self.headerView = [[VTBundle loadNibNamed:@"MidtransPaymentMethodHeader" owner:self options:nil] lastObject];
-    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerTapped:)]];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
@@ -53,11 +52,6 @@
     
     self.paymentMethods = paymentMethods;
     [self.tableView reloadData];
-}
-
-- (void)headerTapped:(id)sender {
-    MidtransTransactionDetailViewController *vc = [[MidtransTransactionDetailViewController alloc] init];
-    [vc presentAtPositionOfView:self.headerView items:self.items];
 }
 
 #pragma mark - UITableViewDataSource
@@ -91,6 +85,7 @@
     }
 }
 
+<<<<<<< HEAD
 //- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
 //    return self.headerView;
 //}
@@ -104,6 +99,13 @@
 //}
 
 -(CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+=======
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    return self.headerView;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+>>>>>>> 0a77979... change payment method header back to blue bg on top table
     return 50;
 }
 

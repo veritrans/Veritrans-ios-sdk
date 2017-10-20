@@ -176,19 +176,25 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                    andCreditCardToken:(NSString *_Nonnull)creditCardToken
                            completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion {
     NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/point_inquiry/%@",PRIVATECONFIG.snapURL, token, creditCardToken];
-    [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
-        if (!error) {
-            SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
-            if (completion) {
-                completion(pointResponse,NULL);
+    @try {
+        [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
+            if (!error) {
+                SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
+                if (completion) {
+                    completion(pointResponse,NULL);
+                }
             }
-        }
-        else {
-            if (completion) {
-                completion(NULL,error);
+            else {
+                if (completion) {
+                    completion(NULL,error);
+                }
             }
-        }
-    }];
+        }];
+    }
+    @catch (NSException * e) {
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+   
     
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
@@ -203,7 +209,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
-    
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         for (NSDictionary *dictionary in customField) {
             NSArray *key_dictionary=[dictionary allKeys];

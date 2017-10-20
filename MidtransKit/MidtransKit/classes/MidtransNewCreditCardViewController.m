@@ -545,11 +545,13 @@ UIAlertViewDelegate
                 }
                 else {
                     if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                        
-                        if (![self.addOnArray containsObject:self.constructBNIPoint]) {
-                            [self.addOnArray addObject:self.constructBNIPoint];
-                            [self updateAddOnContent];
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] ) {
+                            if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+                                [self.addOnArray addObject:self.constructBNIPoint];
+                                [self updateAddOnContent];
+                            }
                         }
+                        
                     }
                 }
             }

@@ -10,6 +10,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIPaymentViewController.h"
 #import "VTPaymentListController.h"
+#import "MIDV2PaymentListViewController.h"
 #import "VTClassHelper.h"
 #import "MidtransUIThemeManager.h"
 #import "VTKITConstant.h"

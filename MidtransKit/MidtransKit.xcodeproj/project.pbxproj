@@ -52,10 +52,9 @@
 		0CBA28C01F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */; };
 		0CBA28C11F98B15800F651C7 /* MIDV2PaymentListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */; };
 		0CBA28C21F98B15800F651C7 /* MIDV2PaymentListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */; };
-		0CBA28C41F98B1C400F651C7 /* MIDV2PaymentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA28C31F98B1BC00F651C7 /* MIDV2PaymentListViewController.xib */; };
-		0CBA28C51F98B1C500F651C7 /* MIDV2PaymentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA28C31F98B1BC00F651C7 /* MIDV2PaymentListViewController.xib */; };
 		0CBA28CF1F98B24900F651C7 /* MIDV2PaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28CE1F98B24900F651C7 /* MIDV2PaymentListView.m */; };
 		0CBA28D01F98B24900F651C7 /* MIDV2PaymentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28CE1F98B24900F651C7 /* MIDV2PaymentListView.m */; };
+		0CBA28D21F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CBA28D11F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib */; };
 		0CC900161F7014DB0058E93C /* MidtransUIPaymentDirectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */; };
 		0CC900171F7014E50058E93C /* id_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900141F7012EA0058E93C /* id_indomaret.plist */; };
 		0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900141F7012EA0058E93C /* id_indomaret.plist */; };
@@ -1099,9 +1098,9 @@
 		0C9324501F7B814D00D9A390 /* id_danamon_online.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_danamon_online.plist; path = MidtransKit/resources/id_danamon_online.plist; sourceTree = SOURCE_ROOT; };
 		0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDV2PaymentListViewController.h; path = classes/MIDV2PaymentListViewController.h; sourceTree = "<group>"; };
 		0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MIDV2PaymentListViewController.m; path = classes/MIDV2PaymentListViewController.m; sourceTree = "<group>"; };
-		0CBA28C31F98B1BC00F651C7 /* MIDV2PaymentListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MIDV2PaymentListViewController.xib; path = MidtransKit/resources/MIDV2PaymentListViewController.xib; sourceTree = SOURCE_ROOT; };
 		0CBA28CD1F98B24900F651C7 /* MIDV2PaymentListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDV2PaymentListView.h; path = classes/MIDV2PaymentListView.h; sourceTree = "<group>"; };
 		0CBA28CE1F98B24900F651C7 /* MIDV2PaymentListView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MIDV2PaymentListView.m; path = classes/MIDV2PaymentListView.m; sourceTree = "<group>"; };
+		0CBA28D11F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MIDV2PaymentListViewController.xib; path = MidtransKit/resources/MIDV2PaymentListViewController.xib; sourceTree = SOURCE_ROOT; };
 		0CC9000E1F6FD66A0058E93C /* en_paymentMethods.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_paymentMethods.plist; path = MidtransKit/resources/en_paymentMethods.plist; sourceTree = SOURCE_ROOT; };
 		0CC900141F7012EA0058E93C /* id_indomaret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_indomaret.plist; path = MidtransKit/resources/id_indomaret.plist; sourceTree = SOURCE_ROOT; };
 		0CC900151F7012F40058E93C /* en_indomaret.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_indomaret.plist; path = MidtransKit/resources/en_indomaret.plist; sourceTree = SOURCE_ROOT; };
@@ -2000,7 +1999,6 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				0CBA28C31F98B1BC00F651C7 /* MIDV2PaymentListViewController.xib */,
 				0CE1D2AA1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib */,
 				0CE1D2941F67A0C8003A012F /* MidtransNewCreditCardViewController.xib */,
 				0CE1D2911F67A08C003A012F /* SNPPostPaymentGeneralHeader.xib */,
@@ -2053,6 +2051,7 @@
 				0CEF03231EA3D15E00EA1EE0 /* SNPPostPaymentHeader.xib */,
 				0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */,
 				0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */,
+				0CBA28D11F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib */,
 			);
 			name = Views;
 			path = ../MidtransResources;
@@ -2897,7 +2896,7 @@
 				0CE1D2BB1F67BA53003A012F /* token_key@4x.png in Resources */,
 				E58FCDA91E94CFD500632085 /* bca_va@2x.png in Resources */,
 				E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
-				0CBA28C51F98B1C500F651C7 /* MIDV2PaymentListViewController.xib in Resources */,
+				0CBA28D21F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib in Resources */,
 				0CC9003C1F7026F20058E93C /* en_mandiri_ecash.plist in Resources */,
 				0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
 				0CC900201F7015AF0058E93C /* id_indosat_dompetku.plist in Resources */,
@@ -3128,7 +3127,6 @@
 				0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */,
 				3D4089401F75130300B9A2EC /* alto_preview@2x.png in Resources */,
 				E58FCDD21E94CFD500632085 /* CreditCardBackSmall@2x.png in Resources */,
-				0CBA28C41F98B1C400F651C7 /* MIDV2PaymentListViewController.xib in Resources */,
 				0CE1D27B1F62A752003A012F /* bni_va@4x.png in Resources */,
 				0CC900351F70244A0058E93C /* en_bri_epay.plist in Resources */,
 				3D4089261F74E43200B9A2EC /* en_paymentMethods.plist in Resources */,

@@ -126,6 +126,7 @@
                                     <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="j24-du-W7D" secondAttribute="trailing" constant="8" id="7Vh-3U-M0s"/>
+                                        <constraint firstItem="j24-du-W7D" firstAttribute="top" secondItem="y8z-Vk-UJc" secondAttribute="top" id="HhA-Th-H8f"/>
                                         <constraint firstItem="j24-du-W7D" firstAttribute="top" secondItem="y8z-Vk-UJc" secondAttribute="top" id="IOM-ui-MrY"/>
                                         <constraint firstItem="j24-du-W7D" firstAttribute="leading" secondItem="y8z-Vk-UJc" secondAttribute="leading" constant="8" id="IsW-ux-97b"/>
                                         <constraint firstAttribute="height" constant="51" id="SGk-c2-B9s"/>
@@ -148,7 +149,6 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="iDR-Mj-7On" firstAttribute="top" secondItem="nkU-qA-ZcM" secondAttribute="top" constant="10" id="0su-3f-oPE"/>
-                                <constraint firstItem="y8z-Vk-UJc" firstAttribute="top" secondItem="Lfj-Hs-yBs" secondAttribute="bottom" constant="10" id="3dp-n0-e2d"/>
                                 <constraint firstItem="tcC-BX-eY2" firstAttribute="trailing" secondItem="iDR-Mj-7On" secondAttribute="trailing" id="5F9-AC-Rd2"/>
                                 <constraint firstItem="lSd-uE-pg7" firstAttribute="leading" secondItem="nkU-qA-ZcM" secondAttribute="leading" id="5cm-IF-D2i"/>
                                 <constraint firstItem="YD8-gh-7db" firstAttribute="top" secondItem="y8z-Vk-UJc" secondAttribute="bottom" constant="16" id="7UZ-W3-aij"/>
@@ -170,6 +170,7 @@
                                 <constraint firstAttribute="trailing" secondItem="y8z-Vk-UJc" secondAttribute="trailing" constant="10" id="pP0-sE-rk1"/>
                                 <constraint firstItem="tcC-BX-eY2" firstAttribute="bottom" secondItem="6qH-4m-fM3" secondAttribute="bottom" id="tIa-j0-Fq1"/>
                                 <constraint firstItem="lSd-uE-pg7" firstAttribute="top" secondItem="6qH-4m-fM3" secondAttribute="bottom" id="xw3-1R-RkN"/>
+                                <constraint firstItem="y8z-Vk-UJc" firstAttribute="top" secondItem="Lfj-Hs-yBs" secondAttribute="bottom" constant="10" id="xzn-s4-KxO"/>
                                 <constraint firstItem="lSd-uE-pg7" firstAttribute="top" secondItem="tcC-BX-eY2" secondAttribute="bottom" id="yUZ-tP-4e3"/>
                             </constraints>
                         </view>

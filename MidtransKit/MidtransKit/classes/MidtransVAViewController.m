@@ -23,7 +23,13 @@
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+<<<<<<< HEAD
 
+=======
+@property (nonatomic) NSArray *otherBankListATMBersama;
+@property (nonatomic) NSArray *otherBankListPrima;
+@property (nonatomic) NSArray *otherBankListAlto;
+>>>>>>> 8c09501... hide scan card button, fix download instruction
 @property (nonatomic) MidtransVAType paymentType;
 @end
 
@@ -128,7 +134,6 @@
         }
     }];
 }
-
 - (void)tabChanged:(UISegmentedControl *)sender {
     [self selectTabAtIndex:sender.selectedSegmentIndex];
 }

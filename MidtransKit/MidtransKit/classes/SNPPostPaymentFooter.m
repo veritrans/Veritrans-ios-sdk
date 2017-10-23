@@ -10,19 +10,12 @@
 #import "VTClassHelper.h"
 
 @interface SNPPostPaymentFooter()
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leadingImageConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *trailingButtonConstraint;
 @end
 @implementation SNPPostPaymentFooter
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.downloadInstructionButton.layer.borderColor = self.downloadInstructionButton.tintColor.CGColor;
-    self.downloadInstructionButton.layer.borderWidth = 1.;
-    self.downloadInstructionButton.layer.cornerRadius = 5.;
-    [self.downloadInstructionButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"donwload.instruction"] forState:UIControlStateNormal];
-    self.leadingImageConstraint.constant = (self.leadingImageConstraint.constant + self.trailingButtonConstraint.constant) / 2;
-    self.trailingButtonConstraint.constant = self.leadingImageConstraint.constant;
+    [self.downloadInstructionButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"download.instruction"] forState:UIControlStateNormal];
     // Initialization code
 }
 

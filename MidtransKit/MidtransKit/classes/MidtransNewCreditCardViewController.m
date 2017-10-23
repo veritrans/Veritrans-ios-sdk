@@ -192,6 +192,9 @@ UIAlertViewDelegate
     [self.view.cardCVVNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardExpireTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
 }
+- (IBAction)scanCardTapped:(id)sender {
+    
+}
 
 - (void)deleteCardPressed:(id)sender {
     UIAlertView *alert =

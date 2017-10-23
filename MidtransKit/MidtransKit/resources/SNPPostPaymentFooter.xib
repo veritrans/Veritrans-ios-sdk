@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,9 +21,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20E-AY-UYK">
-                        <rect key="frame" x="64" y="12" width="193" height="35"/>
+                        <rect key="frame" x="84.5" y="12" width="151" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="193" id="eNg-44-cO2"/>
+                            <constraint firstAttribute="width" constant="151" id="FkA-RG-fsP"/>
                             <constraint firstAttribute="height" constant="35" id="lMZ-hr-UEk"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -30,18 +31,32 @@
                             <color key="titleColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download.png" translatesAutoresizingMaskIntoConstraints="NO" id="nBd-Xo-P04">
+                        <rect key="frame" x="54.5" y="14" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="nBd-Xo-P04" secondAttribute="height" multiplier="1:1" id="1Fd-Sm-wdm"/>
+                            <constraint firstAttribute="width" constant="30" id="KoJ-cz-6QD"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="20E-AY-UYK" secondAttribute="trailing" constant="55" id="Hq6-V8-7Qg"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="20E-AY-UYK" secondAttribute="trailing" constant="76.5" id="DbN-pf-obG"/>
+                    <constraint firstItem="20E-AY-UYK" firstAttribute="leading" secondItem="nBd-Xo-P04" secondAttribute="trailing" id="Lp6-8r-fCf"/>
                     <constraint firstAttribute="bottomMargin" secondItem="20E-AY-UYK" secondAttribute="bottom" constant="4.5" id="LtR-5n-Y18"/>
-                    <constraint firstItem="20E-AY-UYK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="56" id="bsh-gx-nMF"/>
+                    <constraint firstItem="nBd-Xo-P04" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="N4P-u9-IrA"/>
+                    <constraint firstItem="nBd-Xo-P04" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="38.5" id="P13-MN-uXF"/>
                     <constraint firstItem="20E-AY-UYK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fVA-4I-JHg"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="downloadInstructionButton" destination="20E-AY-UYK" id="G1Y-KS-mZh"/>
+                <outlet property="leadingImageConstraint" destination="P13-MN-uXF" id="xy4-jt-jgK"/>
+                <outlet property="trailingButtonConstraint" destination="DbN-pf-obG" id="0Af-99-fiE"/>
             </connections>
             <point key="canvasLocation" x="25" y="60"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="download.png" width="10" height="12"/>
+    </resources>
 </document>

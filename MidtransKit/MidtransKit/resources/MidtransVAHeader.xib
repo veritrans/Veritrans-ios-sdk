@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -90,11 +91,25 @@
                             <constraint firstAttribute="height" constant="24" id="ZU3-8F-HcI"/>
                         </constraints>
                     </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFh-Zu-uCe">
+                        <rect key="frame" x="130" y="383.5" width="115" height="24"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="24" id="6e0-oE-Ebk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="11"/>
+                        <state key="normal" title="Total 64 registered banks"/>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="see.png" translatesAutoresizingMaskIntoConstraints="NO" id="dDw-U0-4bg">
+                        <rect key="frame" x="100" y="380.5" width="30" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="dDw-U0-4bg" secondAttribute="height" multiplier="1:1" id="6CU-34-3oq"/>
+                            <constraint firstAttribute="width" constant="30" id="QAu-J3-dUf"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="zir-Nc-rh2" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="3aw-mf-6WY"/>
-                    <constraint firstItem="lZV-aq-b2w" firstAttribute="top" secondItem="0Bs-05-PwO" secondAttribute="bottom" constant="8" id="879-Px-pig"/>
-                    <constraint firstItem="0Bs-05-PwO" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leadingMargin" id="CLS-Qv-rGW"/>
+                    <constraint firstItem="iFh-Zu-uCe" firstAttribute="leading" secondItem="dDw-U0-4bg" secondAttribute="trailing" id="B3y-Oq-Tv7"/>
                     <constraint firstItem="zir-Nc-rh2" firstAttribute="top" secondItem="dxx-fu-CgF" secondAttribute="top" constant="8" id="E4y-Ku-AKV"/>
                     <constraint firstAttribute="trailingMargin" secondItem="lZV-aq-b2w" secondAttribute="trailing" constant="-8" id="OEL-Yu-Vf6"/>
                     <constraint firstItem="0Bs-05-PwO" firstAttribute="top" secondItem="gR6-sh-JnL" secondAttribute="bottom" constant="8" id="PK0-74-8il"/>
@@ -111,6 +126,8 @@
                     <constraint firstAttribute="trailing" secondItem="gR6-sh-JnL" secondAttribute="trailing" constant="15" id="lpd-FN-kUo"/>
                     <constraint firstAttribute="trailing" secondItem="iIR-WH-ZYP" secondAttribute="trailing" constant="15" id="n6x-82-dri"/>
                     <constraint firstItem="iIR-WH-ZYP" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="nbm-n8-ung"/>
+                    <constraint firstItem="dDw-U0-4bg" firstAttribute="centerY" secondItem="iFh-Zu-uCe" secondAttribute="centerY" id="rps-ON-b39"/>
+                    <constraint firstItem="ut2-Ps-drI" firstAttribute="top" secondItem="gR6-sh-JnL" secondAttribute="bottom" constant="8" id="wAN-AP-KU6"/>
                     <constraint firstAttribute="bottomMargin" secondItem="lZV-aq-b2w" secondAttribute="bottom" constant="30" id="wej-ut-EkF"/>
                 </constraints>
             </tableViewCellContentView>
@@ -130,6 +147,7 @@
     </objects>
     <resources>
         <image name="bersama_preview.png" width="325" height="24"/>
+        <image name="see.png" width="16" height="10"/>
         <image name="sms.png" width="9" height="16"/>
     </resources>
 </document>

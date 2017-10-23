@@ -59,6 +59,7 @@ UIAlertViewDelegate
 @property (nonatomic) BOOL bniPointActive;
 @property (nonatomic) BOOL isSaveCard;
 @property (nonatomic,strong)AddOnConstructor *constructBNIPoint;
+@property (nonatomic,strong)AddOnConstructor *constructMandiriPoint;
 
 @end
 
@@ -134,6 +135,9 @@ UIAlertViewDelegate
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
+    self.constructMandiriPoint = [[AddOnConstructor alloc]
+                              initWithDictionary:@{@"addOnName":SNP_CORE_MANDIRI_POINT,
+                                                   @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     
@@ -522,6 +526,7 @@ UIAlertViewDelegate
                 
             }
             else {
+                
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
@@ -535,6 +540,14 @@ UIAlertViewDelegate
                     isDebitCard = YES;
                 }
                 else {
+                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI]) {
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                                [self.addOnArray addObject:self.constructMandiriPoint];
+                                [self updateAddOnContent];
+                            }
+                        }
+                    }
                     if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
                         if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] ) {
                             if (![self.addOnArray containsObject:self.constructBNIPoint]) {

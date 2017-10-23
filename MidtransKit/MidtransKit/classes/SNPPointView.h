@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MidtransPaymentMethodHeader,MidtransTransactionTokenResponse;
+@class MidtransTransactionTokenResponse;
 @interface SNPPointView : UIView
 @property (weak, nonatomic) IBOutlet UITextField *finalAmountTextField;
 @property (weak, nonatomic) IBOutlet UIView *pointViewWrapper;
 @property (weak, nonatomic) IBOutlet UITextField *pointInputTextField;
 @property (weak, nonatomic) IBOutlet UILabel *pointTotalTtitle;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountPriceLabel;
 
-@property (weak, nonatomic) IBOutlet MidtransPaymentMethodHeader *paymentHeaderView;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 @end

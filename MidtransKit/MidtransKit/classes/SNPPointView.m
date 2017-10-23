@@ -8,7 +8,6 @@
 
 #import "SNPPointView.h"
 #import "VTClassHelper.h"
-#import "MidtransPaymentMethodHeader.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentRequestV2DataModels.h>
 @implementation SNPPointView
@@ -26,6 +25,6 @@
 }
 */
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
-    self.paymentHeaderView.priceAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.totalAmountPriceLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 @end

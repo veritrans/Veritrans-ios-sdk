@@ -217,7 +217,6 @@
 - (void)reloadThemeColor {
     UIColor *color = [[MidtransUIThemeManager shared] themeColor];
     self.navigationController.navigationBar.tintColor = color;
-    self.view.headerView.backgroundColor = color;
 }
 
 - (UIColor *)colorFromSnapScheme:(NSString *)scheme {

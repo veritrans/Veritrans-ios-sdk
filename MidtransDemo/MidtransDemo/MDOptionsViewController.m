@@ -136,6 +136,12 @@
                                                 identifier:OPTBNIPoint];
     [optBNIPoint selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bniPointOption]];
     
+    MDOptionView *optMandiriPoint = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bni_point"]
+                                             titleTemplate:@"Mandiri Point Only %@"
+                                                   options:options
+                                                identifier:OPTMandiriPoint];
+    [optMandiriPoint selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].mandiriPointOption]];
+    
     ///////////////
     //color scheme
     options = @[[MDOption optionColorWithName:@"Blue" value:RGB(47, 128, 194)],
@@ -217,6 +223,7 @@
                          optPreauth,
                          optTheme,
                          optBNIPoint,
+                         optMandiriPoint,
                          optPermataVA,
                          optBCAVA,
                          optBNIVA,

@@ -34,6 +34,8 @@
 		0C5DD8891E9E34F60004DD5D /* SNPPostPaymentVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */; };
 		0C5DD88A1E9E34F60004DD5D /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */; };
 		0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */; };
+		0C6FD11B1F9DDAAB00401628 /* mandiri_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6FD1181F9DDAA300401628 /* mandiri_badge@2x.png */; };
+		0C6FD11C1F9DDAAE00401628 /* mandiri_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C6FD1181F9DDAA300401628 /* mandiri_badge@2x.png */; };
 		0C9324431F7B7F5400D9A390 /* danamon_online@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324411F7B7DBC00D9A390 /* danamon_online@2x.png */; };
 		0C9324441F7B7F5400D9A390 /* danamon_online@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324411F7B7DBC00D9A390 /* danamon_online@2x.png */; };
 		0C9324451F7B7F5800D9A390 /* danamon_online@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324421F7B7DBD00D9A390 /* danamon_online@3x.png */; };
@@ -1090,6 +1092,7 @@
 		0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPostPaymentVAViewController.h; path = classes/SNPPostPaymentVAViewController.h; sourceTree = "<group>"; };
 		0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPostPaymentVAViewController.m; path = classes/SNPPostPaymentVAViewController.m; sourceTree = "<group>"; };
 		0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentVAViewController.xib; path = MidtransKit/resources/SNPPostPaymentVAViewController.xib; sourceTree = SOURCE_ROOT; };
+		0C6FD1181F9DDAA300401628 /* mandiri_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mandiri_badge@2x.png"; path = "resources/mandiri_badge@2x.png"; sourceTree = "<group>"; };
 		0C7AB5641E310ABD00EB6785 /* MidtransNewCreditCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardViewController.h; path = classes/MidtransNewCreditCardViewController.h; sourceTree = "<group>"; };
 		0C7AB5651E310ABD00EB6785 /* MidtransNewCreditCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransNewCreditCardViewController.m; path = classes/MidtransNewCreditCardViewController.m; sourceTree = "<group>"; };
 		0C7AB56A1E310E7800EB6785 /* MidtransNewCreditCardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransNewCreditCardView.h; path = classes/MidtransNewCreditCardView.h; sourceTree = "<group>"; };
@@ -2104,6 +2107,7 @@
 				E58FCD111E94CFD500632085 /* bca.png */,
 				E58FCD121E94CFD500632085 /* bca@2x.png */,
 				E58FCD131E94CFD500632085 /* bni_badge@2x.png */,
+				0C6FD1181F9DDAA300401628 /* mandiri_badge@2x.png */,
 				E58FCD141E94CFD500632085 /* bni_badge@3x.png */,
 				E58FCD151E94CFD500632085 /* bni.png */,
 				E58FCD161E94CFD500632085 /* bni@2x.png */,
@@ -2830,6 +2834,7 @@
 				E58FCE251E94CFD600632085 /* other_alto_1@2x.png in Resources */,
 				E58FCE6D1E94CFD600632085 /* successIcon@2x.png in Resources */,
 				E5EBC2C11EB0726700A568D1 /* midtrans_logo_mid@2x.png in Resources */,
+				0C6FD11B1F9DDAAB00401628 /* mandiri_badge@2x.png in Resources */,
 				E519C9771E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				E57124881E9381320064F515 /* MidtransInstallmentCollectionViewCell.xib in Resources */,
 				0C93244F1F7B810B00D9A390 /* en_danamon_online.plist in Resources */,
@@ -3245,6 +3250,7 @@
 				E58FCD881E94CFD500632085 /* AlertBackground@2x.png in Resources */,
 				E58FCDDA1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC81E94CFD500632085 /* cimb@2x.png in Resources */,
+				0C6FD11C1F9DDAAE00401628 /* mandiri_badge@2x.png in Resources */,
 				E5F1BB581E93701100ED659D /* MidtransItemCell.xib in Resources */,
 				E5F1BB601E93701100ED659D /* MidtransSavedCardController.xib in Resources */,
 				E5F1BB6B1E93701100ED659D /* MidtransVAViewController.xib in Resources */,

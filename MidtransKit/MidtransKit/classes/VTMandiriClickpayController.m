@@ -97,23 +97,37 @@ static NSString* const ClickpayAPPLI = @"3";
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your payment"]];
     
-    MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
-                                                                                                  clickpayToken:self.tokenTextField.text];
-    
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                                     token:self.token];
-    
+    MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.debitNumberTextField.text
+                                                                     expiryDate:nil
+                                                                            cvv:nil];
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
+                                                                                    grossAmount:self.token.transactionDetails.grossAmount
+                                                                                         secure:NO];
+    [[MidtransClient shared] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        [self hideLoading];
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
+}
+-(void) payWithToken:(NSString*) token {
+    MidtransPaymentMandiriClickpay * clickpay = [[MidtransPaymentMandiriClickpay alloc] initWithCardToken:token
+                                                                                            clickpayToken:self.tokenTextField.text];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc]
+                                        initWithPaymentDetails:clickpay token:self.token];
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoading];
-        if (error) {
-            [self handleTransactionError:error];
-        } else {
-            [self handleTransactionSuccess:result];
-        }
-    }];
+                                                 [self hideLoading];
+                                                 if (error) {
+                                                     [self handleTransactionError:error];
+                                                 } else {
+                                                     [self handleTransactionSuccess:result];
+                                                 }
+                                             }];
 }
-
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {
     [self showGuideViewController];
 }

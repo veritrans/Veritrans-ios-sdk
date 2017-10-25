@@ -17,4 +17,5 @@
     [self setBackgroundColor:[[MidtransUIThemeManager shared] themeColor]];
     self.titleLabel.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }
+
 @end

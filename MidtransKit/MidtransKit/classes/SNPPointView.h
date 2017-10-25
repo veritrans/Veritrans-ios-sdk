@@ -15,6 +15,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointTotalTtitle;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountPriceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *pointBankImage;
+@property (weak, nonatomic) IBOutlet UILabel *topTextLabel;
+@property (weak, nonatomic) IBOutlet UITextField *topTextfield;
 
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 @end

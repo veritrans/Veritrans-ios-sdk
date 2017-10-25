@@ -38,6 +38,7 @@ static NSString *const OPTPromo = @"OPTPromo";
 static NSString *const OPTPreauth = @"OPTPreauth";
 static NSString *const OPTColor = @"OPTColor";
 static NSString *const OPTBNIPoint = @"OPTBNIPoint";
+static NSString *const OPTMandiriPoint = @"OPTMandiriPoint";
 static NSString *const OPTPermataVA = @"OPTPermataVA";
 static NSString *const OPTBCAVA = @"OPTBCAVA";
 static NSString *const OPTBNIVA = @"OPTBNIVA";

@@ -30,7 +30,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7l5-VJ-9Eb" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="680" width="414" height="56"/>
+                    <rect key="frame" x="8" y="672" width="398" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="Wba-SD-iaP"/>
@@ -42,7 +42,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K39-0u-IJj" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="630" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="614" width="414" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
                             <rect key="frame" x="15" y="16.333333333333371" width="73.666666666666671" height="17.666666666666629"/>
@@ -74,10 +74,11 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
                             <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-RD-scv">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="680"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="617"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-qA-ZcM">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>
@@ -228,28 +229,20 @@
                         <constraint firstItem="nkU-qA-ZcM" firstAttribute="width" secondItem="ACd-RD-scv" secondAttribute="width" id="c5t-7G-mMf"/>
                     </constraints>
                 </scrollView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7l5-VJ-9Eb" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="8" y="688" width="398" height="40"/>
-                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="Wba-SD-iaP"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
-                    <state key="normal" title="Finish Payment"/>
-                    <connections>
-                        <action selector="submitPaymentDidtapped:" destination="-1" eventType="touchUpInside" id="sMg-yV-0cg"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="1Pn-Za-I5X"/>
-                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" constant="8" id="2zI-qa-wNZ"/>
+                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="bottom" constant="8" id="DkS-ej-YHt"/>
+                <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="I95-wd-7kg"/>
+                <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" constant="8" id="JYC-Uk-GD8"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="Jac-gk-BDd"/>
-                <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" constant="8" id="PHe-hj-9Qk"/>
+                <constraint firstAttribute="trailing" secondItem="K39-0u-IJj" secondAttribute="trailing" id="RNm-HW-aHZ"/>
+                <constraint firstItem="K39-0u-IJj" firstAttribute="top" secondItem="ACd-RD-scv" secondAttribute="bottom" constant="-3" id="Sah-kW-q73"/>
+                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" constant="8" id="Vql-vr-LJX"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="width" secondItem="HhS-r6-FLV" secondAttribute="width" id="cwZ-fi-E30"/>
                 <constraint firstAttribute="bottom" secondItem="7l5-VJ-9Eb" secondAttribute="bottom" constant="8" id="kwq-if-PS5"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="pHd-wR-ZU9"/>
+                <constraint firstItem="K39-0u-IJj" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="r0K-HM-fIT"/>
                 <constraint firstAttribute="trailing" secondItem="ACd-RD-scv" secondAttribute="trailing" id="sZH-Bv-dLY"/>
             </constraints>
             <connections>
@@ -265,6 +258,9 @@
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
                 <outlet property="scrollView" destination="ACd-RD-scv" id="bKZ-Wf-ov6"/>
                 <outlet property="secureBadgeImage" destination="j24-du-W7D" id="NFy-5h-s1J"/>
+                <outlet property="totalAmountBorderedView" destination="K39-0u-IJj" id="rMc-m6-NQG"/>
+                <outlet property="totalAmountPrice" destination="9Xe-08-1kx" id="Z7S-ZO-8z1"/>
+                <outlet property="totalAmountTextLabel" destination="l67-Ku-WeL" id="8Xe-tN-TGo"/>
             </connections>
             <point key="canvasLocation" x="-10" y="-161"/>
         </view>

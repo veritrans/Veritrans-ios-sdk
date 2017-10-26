@@ -27,7 +27,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="SNPPointView">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="631"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d31-MR-59L" customClass="MidtransUINextStepButton">
@@ -42,8 +42,8 @@
                         <action selector="submitPaymentWithToken:" destination="-1" eventType="touchUpInside" id="uOG-Y7-5yv"/>
                     </connections>
                 </button>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ewV-xR-rxD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="512"/>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewV-xR-rxD">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-ff-qnD">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="344"/>
@@ -159,16 +159,16 @@
                     </constraints>
                 </scrollView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tp0-jv-NQb" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="526" width="320" height="50"/>
+                    <rect key="frame" x="0.0" y="462" width="320" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hS-WI-qoh">
-                            <rect key="frame" x="15" y="17.5" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="17" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96a-4j-fTn">
-                            <rect key="frame" x="264" y="0.0" width="41" height="50"/>
+                            <rect key="frame" x="269.5" y="0.0" width="35.5" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -197,14 +197,20 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" constant="8" id="4OQ-cc-I2s"/>
+                <constraint firstItem="d31-MR-59L" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="bottom" constant="8" id="AiM-G4-Zs2"/>
                 <constraint firstItem="d31-MR-59L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IpG-Ig-wCi"/>
-                <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="L1N-et-ntk"/>
+                <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lk8-XO-S4j"/>
+                <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rnk-zw-dbE"/>
                 <constraint firstItem="ewV-xR-rxD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ScF-5q-gHf"/>
+                <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W4B-OY-OPT"/>
+                <constraint firstItem="Tp0-jv-NQb" firstAttribute="top" secondItem="ewV-xR-rxD" secondAttribute="bottom" constant="-3" id="fHa-dU-sJk"/>
                 <constraint firstAttribute="trailing" secondItem="ewV-xR-rxD" secondAttribute="trailing" id="fg3-ov-oJI"/>
                 <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" constant="8" id="jI0-bL-5lR"/>
+                <constraint firstAttribute="trailing" secondItem="Tp0-jv-NQb" secondAttribute="trailing" id="xhS-6T-ZgW"/>
             </constraints>
             <connections>
                 <outlet property="finalAmountTextField" destination="FBY-wa-CTh" id="T6q-ZH-C94"/>
+                <outlet property="pointBankImage" destination="gaQ-Ag-MFf" id="deY-qA-gtd"/>
                 <outlet property="pointInputTextField" destination="6Sk-k1-kF7" id="4Sx-fP-U4Z"/>
                 <outlet property="pointTotalTtitle" destination="7Dz-Ir-Q39" id="Fq9-mf-uAO"/>
                 <outlet property="topTextLabel" destination="ld7-Vv-zZT" id="5fh-e3-8oe"/>
@@ -212,7 +218,7 @@
                 <outlet property="totalAmountLabel" destination="3hS-WI-qoh" id="Bn7-tJ-nV1"/>
                 <outlet property="totalAmountPriceLabel" destination="96a-4j-fTn" id="0UG-jg-VSp"/>
             </connections>
-            <point key="canvasLocation" x="-177" y="-68.5"/>
+            <point key="canvasLocation" x="-177" y="-69"/>
         </view>
     </objects>
     <resources>

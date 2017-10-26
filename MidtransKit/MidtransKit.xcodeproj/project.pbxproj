@@ -229,6 +229,11 @@
 		3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE31F9DAE610001AC9A /* see@2x.png */; };
 		3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
 		3DECDFF61F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
+		3DECDF751F99BABD0001AC9A /* icon-help.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDF701F99BABD0001AC9A /* icon-help.png */; };
+		3DECDF761F99BABD0001AC9A /* icon-help@1.5x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDF711F99BABD0001AC9A /* icon-help@1.5x.png */; };
+		3DECDF771F99BABD0001AC9A /* icon-help@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDF721F99BABD0001AC9A /* icon-help@2x.png */; };
+		3DECDF781F99BABD0001AC9A /* icon-help@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDF731F99BABD0001AC9A /* icon-help@3x.png */; };
+		3DECDF791F99BABD0001AC9A /* icon-help@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDF741F99BABD0001AC9A /* icon-help@4x.png */; };
 		E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */; };
@@ -1255,6 +1260,11 @@
 		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see.png; sourceTree = "<group>"; };
 		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "see@2x.png"; sourceTree = "<group>"; };
 		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "see@3x.png"; sourceTree = "<group>"; };
+		3DECDF701F99BABD0001AC9A /* icon-help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help.png"; path = "resources/icon-help.png"; sourceTree = "<group>"; };
+		3DECDF711F99BABD0001AC9A /* icon-help@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@1.5x.png"; path = "resources/icon-help@1.5x.png"; sourceTree = "<group>"; };
+		3DECDF721F99BABD0001AC9A /* icon-help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@2x.png"; path = "resources/icon-help@2x.png"; sourceTree = "<group>"; };
+		3DECDF731F99BABD0001AC9A /* icon-help@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@3x.png"; path = "resources/icon-help@3x.png"; sourceTree = "<group>"; };
+		3DECDF741F99BABD0001AC9A /* icon-help@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@4x.png"; path = "resources/icon-help@4x.png"; sourceTree = "<group>"; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -3096,6 +3106,7 @@
 				E57124B61E9381320064F515 /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
 				0CE1D2B51F67BA53003A012F /* token_key@1.5x.png in Resources */,
 				3DECDFE61F9DAE610001AC9A /* download.png in Resources */,
+				3DECDF751F99BABD0001AC9A /* icon-help.png in Resources */,
 				0CC900381F70244F0058E93C /* id_bri_epay.plist in Resources */,
 				0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */,
 				E57124B71E9381320064F515 /* MidtransUIPaymentListHeader.xib in Resources */,

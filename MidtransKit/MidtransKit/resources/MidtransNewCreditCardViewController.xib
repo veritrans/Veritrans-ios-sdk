@@ -30,7 +30,7 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-RD-scv">
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-RD-scv">
                     <rect key="frame" x="0.0" y="50" width="414" height="630"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-qA-ZcM">
@@ -224,13 +224,6 @@
                         <outlet property="priceAmountLabel" destination="9Xe-08-1kx" id="0kZ-ND-aZS"/>
                     </connections>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdV-o8-HON" userLabel="Border Top View">
-                    <rect key="frame" x="0.0" y="679" width="414" height="1"/>
-                    <color key="backgroundColor" red="0.81359057741116758" green="0.81359057741116758" blue="0.81359057741116758" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="1" id="Lff-y9-OjE"/>
-                    </constraints>
-                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
@@ -238,10 +231,8 @@
                 <constraint firstItem="ACd-RD-scv" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="Jac-gk-BDd"/>
                 <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" constant="8" id="PHe-hj-9Qk"/>
                 <constraint firstAttribute="trailing" secondItem="K39-0u-IJj" secondAttribute="trailing" id="RNm-HW-aHZ"/>
-                <constraint firstAttribute="trailing" secondItem="TdV-o8-HON" secondAttribute="trailing" id="TYv-LU-mbz"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="width" secondItem="HhS-r6-FLV" secondAttribute="width" id="cwZ-fi-E30"/>
-                <constraint firstItem="TdV-o8-HON" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="doy-s7-009"/>
-                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="TdV-o8-HON" secondAttribute="bottom" constant="8" id="fx3-Yx-zw8"/>
+                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="ACd-RD-scv" secondAttribute="bottom" constant="8" id="erD-Xp-LDa"/>
                 <constraint firstAttribute="bottom" secondItem="7l5-VJ-9Eb" secondAttribute="bottom" constant="8" id="kwq-if-PS5"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="bottom" id="onC-Es-4Ul"/>
                 <constraint firstItem="K39-0u-IJj" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="p7e-Oe-laD"/>

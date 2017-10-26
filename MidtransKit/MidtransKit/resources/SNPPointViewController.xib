@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -31,10 +31,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d31-MR-59L" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="575" width="320" height="56"/>
+                    <rect key="frame" x="8" y="520" width="304" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="Lnk-Ys-V9u"/>
+                        <constraint firstAttribute="height" constant="40" id="Lnk-Ys-V9u"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                     <state key="normal" title="Finish Payment"/>
@@ -196,16 +196,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" id="4OQ-cc-I2s"/>
-                <constraint firstItem="d31-MR-59L" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="bottom" constant="-1" id="AiM-G4-Zs2"/>
-                <constraint firstItem="d31-MR-59L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IpG-Ig-wCi"/>
+                <constraint firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" constant="8" id="4OQ-cc-I2s"/>
+                <constraint firstItem="d31-MR-59L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IpG-Ig-wCi"/>
+                <constraint firstItem="Tp0-jv-NQb" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Kz1-uH-3sY"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lk8-XO-S4j"/>
                 <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rnk-zw-dbE"/>
                 <constraint firstItem="ewV-xR-rxD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ScF-5q-gHf"/>
-                <constraint firstItem="Tp0-jv-NQb" firstAttribute="top" secondItem="ewV-xR-rxD" secondAttribute="bottom" constant="-3" id="fHa-dU-sJk"/>
+                <constraint firstItem="d31-MR-59L" firstAttribute="top" secondItem="ewV-xR-rxD" secondAttribute="bottom" constant="8" id="WTr-tP-m1U"/>
+                <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="bottom" constant="-4" id="byJ-dC-xli"/>
                 <constraint firstAttribute="trailing" secondItem="ewV-xR-rxD" secondAttribute="trailing" id="fg3-ov-oJI"/>
                 <constraint firstAttribute="trailing" secondItem="Tp0-jv-NQb" secondAttribute="trailing" id="iqR-0a-PPW"/>
-                <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" id="jI0-bL-5lR"/>
+                <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" constant="8" id="jI0-bL-5lR"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="k9F-9a-9Mq"/>
             </constraints>
             <connections>

@@ -30,10 +30,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7l5-VJ-9Eb" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="8" y="672" width="398" height="56"/>
+                    <rect key="frame" x="8" y="688" width="398" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="Wba-SD-iaP"/>
+                        <constraint firstAttribute="height" constant="40" id="Wba-SD-iaP"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                     <state key="normal" title="Finish Payment"/>
@@ -42,10 +42,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K39-0u-IJj" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="614" width="414" height="50"/>
+                    <rect key="frame" x="0.0" y="630" width="414" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
-                            <rect key="frame" x="15" y="16.333333333333371" width="73.666666666666671" height="17.666666666666629"/>
+                            <rect key="frame" x="15" y="17" width="73.666666666666671" height="16.666666666666629"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-RD-scv">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="617"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="633"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkU-qA-ZcM">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="289"/>

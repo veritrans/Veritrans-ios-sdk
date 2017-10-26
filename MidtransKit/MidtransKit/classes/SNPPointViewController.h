@@ -9,6 +9,7 @@
 #import "MidtransUIPaymentController.h"
 
 @interface SNPPointViewController : MidtransUIPaymentController
+@property (nonatomic,strong)NSString *bankName;
 @property (nonatomic, nullable) NSArray <MidtransMaskedCreditCard *>*currentMaskedCards;
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nullable)token
                         paymentMethod:(MidtransPaymentListModel *_Nullable)paymentMethod

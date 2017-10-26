@@ -76,7 +76,6 @@ static NSString* const ClickpayAPPLI = @"3";
     self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;
     [self.view updateConstraintsIfNeeded];
     [self addSubViewController:vc toView:self.instructionPage];
-
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;
@@ -89,18 +88,15 @@ static NSString* const ClickpayAPPLI = @"3";
         self.debitNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"clickpay.invalid-number"];
         return;
     }
-    
     if ([self.tokenTextField.text SNPisValidClickpayToken] == NO) {
         self.tokenTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"clickpay.invalid-token"];
         return;
     }
-    
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your payment"]];
-    
-    MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber:self.debitNumberTextField.text
+    MidtransCreditCard *mandiriClickpayCard = [[MidtransCreditCard alloc] initWithNumber:self.debitNumberTextField.text
                                                                      expiryDate:nil
                                                                             cvv:nil];
-    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:mandiriClickpayCard
                                                                                     grossAmount:self.token.transactionDetails.grossAmount
                                                                                          secure:NO];
     [[MidtransClient shared] generateToken:tokenRequest

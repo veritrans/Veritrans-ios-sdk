@@ -41,6 +41,9 @@
     else if ([idf isEqualToString:OPTBNIPoint]) {
         [MDOptionManager shared].bniPointOption = option;
     }
+    else if ([idf isEqualToString:OPTMandiriPoint]) {
+        [MDOptionManager shared].mandiriPointOption = option;
+    }
     else if ([idf isEqualToString:OPTCustomExpire]) {
         [MDOptionManager shared].expireTimeOption = option;
     }

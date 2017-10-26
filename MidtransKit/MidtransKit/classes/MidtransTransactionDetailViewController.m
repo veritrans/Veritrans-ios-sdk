@@ -19,6 +19,7 @@
 @property (nonatomic) IBOutlet NSLayoutConstraint *tableHeightConstraint;
 @property (nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *items;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @end
 
 @implementation MidtransTransactionDetailViewController
@@ -41,7 +42,6 @@
     [self.backgroundView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
     
-    self.headerView.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 - (void)backgroundTapped:(id)sender {
@@ -65,7 +65,8 @@
     [rootVC addSubViewController:self toView:rootVC.view];
     
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
-    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+//    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+    self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
     
     self.items = items;
     self.priceAmountLabel.text = [items formattedPriceAmount];
@@ -88,6 +89,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransItemCell"];
     cell.itemDetail = self.items[indexPath.row];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

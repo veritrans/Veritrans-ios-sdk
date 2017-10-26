@@ -201,7 +201,6 @@
                 <constraint firstItem="ACd-RD-scv" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="Jac-gk-BDd"/>
                 <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" constant="8" id="PHe-hj-9Qk"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="width" secondItem="HhS-r6-FLV" secondAttribute="width" id="cwZ-fi-E30"/>
-                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="ACd-RD-scv" secondAttribute="bottom" constant="8" id="erD-Xp-LDa"/>
                 <constraint firstAttribute="bottom" secondItem="7l5-VJ-9Eb" secondAttribute="bottom" constant="8" id="kwq-if-PS5"/>
                 <constraint firstAttribute="trailing" secondItem="ACd-RD-scv" secondAttribute="trailing" id="sZH-Bv-dLY"/>
             </constraints>

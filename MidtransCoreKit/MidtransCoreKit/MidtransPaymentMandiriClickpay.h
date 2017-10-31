@@ -11,5 +11,5 @@
 #import "MidtransMandiriClickpayHelper.h"
 
 @interface MidtransPaymentMandiriClickpay : NSObject <MidtransPaymentDetails>
-- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken;
+- (instancetype _Nonnull)initWithCardToken:(NSString *_Nonnull)cardToken clickpayToken:(NSString *_Nonnull)clickpayToken;
 @end

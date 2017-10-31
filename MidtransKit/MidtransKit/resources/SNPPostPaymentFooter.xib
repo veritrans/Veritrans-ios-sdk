@@ -9,6 +9,11 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -20,21 +25,21 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="20E-AY-UYK">
-                        <rect key="frame" x="64" y="12" width="193" height="35"/>
+                        <rect key="frame" x="78" y="12" width="165" height="35"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="193" id="eNg-44-cO2"/>
+                            <constraint firstAttribute="width" constant="165" id="FkA-RG-fsP"/>
                             <constraint firstAttribute="height" constant="35" id="lMZ-hr-UEk"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <state key="normal" title="download instructions">
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                        <inset key="imageEdgeInsets" minX="-10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <state key="normal" title="download instructions" image="download.png">
                             <color key="titleColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </state>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailingMargin" secondItem="20E-AY-UYK" secondAttribute="trailing" constant="55" id="Hq6-V8-7Qg"/>
+                    <constraint firstItem="20E-AY-UYK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="5H4-w4-ja1"/>
                     <constraint firstAttribute="bottomMargin" secondItem="20E-AY-UYK" secondAttribute="bottom" constant="4.5" id="LtR-5n-Y18"/>
-                    <constraint firstItem="20E-AY-UYK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="56" id="bsh-gx-nMF"/>
                     <constraint firstItem="20E-AY-UYK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="4" id="fVA-4I-JHg"/>
                 </constraints>
             </tableViewCellContentView>
@@ -44,4 +49,7 @@
             <point key="canvasLocation" x="25" y="60"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="download.png" width="10" height="12"/>
+    </resources>
 </document>

@@ -113,5 +113,5 @@
     "Key token device is required for this payment method" : "Key token device is required for this payment method",
     "confirm.payment" : "Confirm Payment",
     "Please complete payment before: %@" : "Please complete payment before :",
-    "donwload.instruction" : "donwload instruction"
+    "download.instruction" : "Download Instruction"
 }

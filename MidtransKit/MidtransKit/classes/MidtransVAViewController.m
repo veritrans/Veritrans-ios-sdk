@@ -28,7 +28,6 @@
 @property (nonatomic) NSArray *otherBankListATMBersama;
 @property (nonatomic) NSArray *otherBankListPrima;
 @property (nonatomic) NSArray *otherBankListAlto;
-
 @property (nonatomic) MidtransVAType paymentType;
 @end
 
@@ -154,7 +153,6 @@
         }
     }];
 }
-
 - (void)tabChanged:(UISegmentedControl *)sender {
     [self selectTabAtIndex:sender.selectedSegmentIndex];
 }

@@ -84,34 +84,48 @@
     switch (self.featureType) {
         case MTCreditCardPaymentTypeTwoclick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
-                                    @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"two_click":@"true",
                                     @"token_id":[MidtransHelper nullifyIfNil:self.token]}];
+            if (self.cvv) {
+                [result setObject:self.cvv forKey:@"card_cvv"];
+            }
             break;
         } case MTCreditCardPaymentTypeNormal: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
-                                    @"card_exp_month":self.creditCard.expiryMonth,
-                                    @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount]}];
+            if (self.creditCard.expiryYear) {
+                [result setObject:self.creditCard.expiryYear forKey:@"card_exp_year"];
+            }
+            if (self.creditCard.expiryMonth) {
+                [result setObject:self.creditCard.expiryMonth forKey:@"card_exp_month"];
+            }
+            if (self.cvv) {
+                [result setObject:self.cvv forKey:@"card_cvv"];
+            }
             break;
         } default: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
-                                    @"card_exp_month":self.creditCard.expiryMonth,
-                                    @"card_exp_year":self.creditCard.expiryYear,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"card_cvv":[MidtransHelper nullifyIfNil:self.cvv],
                                     @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"installment":self.installment? @"true":@"false",
                                     @"installment_term":[MidtransHelper nullifyIfNil:self.installmentTerm],
                                     @"two_click":self.twoClick? @"true":@"false"}];
+            if (self.creditCard.expiryYear) {
+                [result setObject:self.creditCard.expiryYear forKey:@"card_exp_year"];
+            }
+            if (self.creditCard.expiryMonth) {
+                [result setObject:self.creditCard.expiryMonth forKey:@"card_exp_month"];
+            }
+            if (self.cvv) {
+                [result setObject:self.cvv forKey:@"card_cvv"];
+            }
             break;
         }
     }

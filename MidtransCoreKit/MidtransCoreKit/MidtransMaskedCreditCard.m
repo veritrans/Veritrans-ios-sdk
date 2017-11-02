@@ -9,6 +9,7 @@
 #import "MidtransMaskedCreditCard.h"
 #import "MidtransConstant.h"
 #import "MidtransCreditCardHelper.h"
+#import "MidtransCreditCardConfig.h"
 
 NSString *const kMTMaskedCreditCard = @"masked_card";
 NSString *const kMTMaskedCreditCardToken = @"saved_token_id";
@@ -56,6 +57,7 @@ NSString *const kSNPMaskedCreditCardTransactionId = @"transaction_id";
 - (NSDictionary *)dictionaryValue {
     return @{kMTMaskedCreditCardIdentifier:self.savedTokenId,
              kMTMaskedCreditCardCardhash:self.maskedNumber,
+             kMTMaskedCreditCardTokenType:[CC_CONFIG tokenStorageEnabled]?@"two_clicks":@"",
              kSNPMaskedCreditCardStatusCode:self.statusCode,
              kSNPMaskedCreditCardTransactionId:self.transactionId};
 }

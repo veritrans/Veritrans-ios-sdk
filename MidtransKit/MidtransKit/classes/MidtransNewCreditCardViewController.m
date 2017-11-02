@@ -42,7 +42,7 @@ UIAlertViewDelegate
 @property (nonatomic,strong)MidtransInstallmentView *installmentsContentView;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 @property (nonatomic,strong) NSString *installmentBankName;
-@property (nonatomic) NSMutableArray *maskedCards;
+@property (nonatomic,strong) NSMutableArray *maskedCards;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstraints;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
@@ -57,8 +57,10 @@ UIAlertViewDelegate
 @property (nonatomic) MidtransMaskedCreditCard *maskedCreditCard;
 @property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
 @property (nonatomic) BOOL bniPointActive;
+@property (nonatomic) BOOL mandiriPointActive;
 @property (nonatomic) BOOL isSaveCard;
 @property (nonatomic,strong)AddOnConstructor *constructBNIPoint;
+@property (nonatomic,strong)AddOnConstructor *constructMandiriPoint;
 
 @end
 
@@ -111,6 +113,7 @@ UIAlertViewDelegate
         self.maskedCards = [NSMutableArray new];
     }
     self.bniPointActive = NO;
+    self.mandiriPointActive = NO;
     self.installmentCurrentIndex = 0;
     self.installmentAvailable = NO;
     self.installmentValueObject = [NSMutableArray new];
@@ -134,6 +137,9 @@ UIAlertViewDelegate
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
+    self.constructMandiriPoint = [[AddOnConstructor alloc]
+                              initWithDictionary:@{@"addOnName":SNP_CORE_MANDIRI_POINT,
+                                                   @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     
@@ -191,6 +197,9 @@ UIAlertViewDelegate
     [self.view.creditCardNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardCVVNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardExpireTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
+}
+- (IBAction)scanCardTapped:(id)sender {
+    
 }
 
 - (void)deleteCardPressed:(id)sender {
@@ -255,6 +264,9 @@ UIAlertViewDelegate
     }
     else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         cell.checkButton.selected = self.bniPointActive;
+    }
+    else if ([payAddOn.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
+        cell.checkButton.selected = self.mandiriPointActive;
     }
 
     return cell;
@@ -384,6 +396,9 @@ UIAlertViewDelegate
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         self.isSaveCard = !sender.selected;
     }
+    else if ([constructor.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
+        self.mandiriPointActive = !sender.selected;
+    }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         self.bniPointActive = !sender.selected;
     }
@@ -409,6 +424,19 @@ UIAlertViewDelegate
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"redeem bni reward point"]
+                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"you can pay partly through the redemption of BNI Reward Point through your credit card"]
+                                                          image:nil
+                                                          delegate:nil
+                                                          cancelButtonTitle:nil
+                                                          okButtonTitle:@"ok"];
+        
+        [self.navigationController presentCustomViewController:alertView
+                                              onViewController:self.navigationController
+                                                    completion:nil];
+    }
+    else if ([constructor.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
+        MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
+                                                          initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"redeem mandiri reward point"]
                                                           message:[VTClassHelper getTranslationFromAppBundleForString:@"you can pay partly through the redemption of BNI Reward Point through your credit card"]
                                                           image:nil
                                                           delegate:nil
@@ -513,6 +541,12 @@ UIAlertViewDelegate
                         isDebitCard = YES;
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                                [self.addOnArray addObject:self.constructMandiriPoint];
+                                [self updateAddOnContent];
+                            }
+                        }
                     } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
                         isDebitCard = YES;
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
@@ -522,6 +556,7 @@ UIAlertViewDelegate
                 
             }
             else {
+                
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
@@ -535,12 +570,22 @@ UIAlertViewDelegate
                     isDebitCard = YES;
                 }
                 else {
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                        
-                        if (![self.addOnArray containsObject:self.constructBNIPoint]) {
-                            [self.addOnArray addObject:self.constructBNIPoint];
-                            [self updateAddOnContent];
+                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI]) {
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                                [self.addOnArray addObject:self.constructMandiriPoint];
+                                [self updateAddOnContent];
+                            }
                         }
+                    }
+                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] ) {
+                            if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+                                [self.addOnArray addObject:self.constructBNIPoint];
+                                [self updateAddOnContent];
+                            }
+                        }
+                        
                     }
                 }
             }
@@ -569,6 +614,10 @@ UIAlertViewDelegate
     else {
         if ([self.addOnArray containsObject:self.constructBNIPoint]) {
             [self.addOnArray removeObject:self.constructBNIPoint];
+            [self updateAddOnContent];
+        }
+        if ([self.addOnArray containsObject:self.constructMandiriPoint]) {
+            [self.addOnArray removeObject:self.constructMandiriPoint];
             [self updateAddOnContent];
         }
         
@@ -623,7 +672,7 @@ UIAlertViewDelegate
 
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
-    if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive) {
+    if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
@@ -690,7 +739,7 @@ UIAlertViewDelegate
         tokenRequest.installment = YES;
         tokenRequest.installmentTerm = @(installment);
     }
-    if (self.bniPointActive) {
+    if (self.bniPointActive || self.mandiriPointActive) {
         tokenRequest.point = YES;
     }
     if (self.obtainedPromo) {
@@ -719,7 +768,7 @@ UIAlertViewDelegate
     }
     MidtransTransaction *transaction = [[MidtransTransaction alloc]
                                         initWithPaymentDetails:paymentDetail token:self.token];
-    if (self.bniPointActive) {
+    if (self.bniPointActive || self.mandiriPointActive) {
         [self hideLoading];
 
         SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
@@ -727,7 +776,12 @@ UIAlertViewDelegate
                                                                           tokenizedCard:token
                                                                               savedCard:self.isSaveCard
                                                            andCompleteResponseOfPayment:self.responsePayment];
-
+        if (self.bniPointActive) {
+            pointVC.bankName = SNP_CORE_BANK_BNI;
+        }
+        else if (self.mandiriPointActive) {
+            pointVC.bankName = SNP_CORE_BANK_MANDIRI;
+        }
         pointVC.currentMaskedCards = self.currentMaskedCards;
         [self.navigationController pushViewController:pointVC animated:YES];
         return;
@@ -753,7 +807,7 @@ UIAlertViewDelegate
              }
          }
          else {
-             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+             if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                      return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
                  }];
@@ -838,6 +892,23 @@ UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
         [self showLoadingWithText:nil];
+        if ([CC_CONFIG tokenStorageEnabled]) {
+            NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [self.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
+            }];
+            if (index != NSNotFound) {
+                [self.maskedCards removeObjectAtIndex:index];
+            }
+            
+            [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
+                                                    customer:self.token.customerDetails
+                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
+                                                      [self hideLoading];
+                                                      if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                                                          [self.delegate didDeleteSavedCard];
+                                                      }
+                                                  }];
+        } else {
         [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
             [self hideLoading];
             
@@ -858,7 +929,7 @@ UIAlertViewDelegate
                 [self.delegate didDeleteSavedCard];
             }
         }];
-    }
+        }}
 }
 
 #pragma mark - observer

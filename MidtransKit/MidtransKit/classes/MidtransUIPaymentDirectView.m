@@ -98,8 +98,13 @@
 }
 
 - (void)initViewWithPaymentID:(NSString *)paymentMethodID email:(NSString *)email {
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", paymentMethodID];
-    self.guides = [VTClassHelper instructionsFromFilePath:[VTBundle pathForResource:filenameByLanguage ofType:@"plist"]];
+    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", paymentMethodID];
+    
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (guidePath == nil) {
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",paymentMethodID] ofType:@"plist"];
+    }
+    self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
     [self.tableView reloadData];
     
     if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {

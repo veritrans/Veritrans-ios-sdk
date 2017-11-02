@@ -133,7 +133,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 - (void)saveMaskedCards:(NSArray <MidtransPaymentCreditCard*>*)maskedCards
                customer:(MidtransCustomerDetails *)customer
              completion:(void(^)(id result, NSError *error))completion {
-    NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];
+    NSString *URL = [NSString stringWithFormat:SAVE_MASKEDCARD_URL, [CONFIG merchantURL], customer.customerIdentifier];;
     NSArray *parameters = maskedCards.requestBodyValues;
     [[MidtransNetworking shared] postToURL:URL header:[CONFIG merchantClientData] parameters:parameters callback:completion];
 }
@@ -176,19 +176,25 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                    andCreditCardToken:(NSString *_Nonnull)creditCardToken
                            completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion {
     NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/point_inquiry/%@",PRIVATECONFIG.snapURL, token, creditCardToken];
-    [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
-        if (!error) {
-            SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
-            if (completion) {
-                completion(pointResponse,NULL);
+    @try {
+        [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
+            if (!error) {
+                SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
+                if (completion) {
+                    completion(pointResponse,NULL);
+                }
             }
-        }
-        else {
-            if (completion) {
-                completion(NULL,error);
+            else {
+                if (completion) {
+                    completion(NULL,error);
+                }
             }
-        }
-    }];
+        }];
+    }
+    @catch (NSException * e) {
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+   
     
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
@@ -203,7 +209,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
-    
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         for (NSDictionary *dictionary in customField) {
             NSArray *key_dictionary=[dictionary allKeys];
@@ -228,8 +233,8 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
-    if ([CC_CONFIG.authenticationTypeString length]>0) {
-        creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString?CC_CONFIG.authenticationTypeString:@"none";
+    if (CC_CONFIG.authenticationTypeString!=nil || [CC_CONFIG.authenticationTypeString length]>0) {
+        creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
     }
     if (CC_CONFIG.preauthEnabled) {
         creditCardParameter[@"type"] = @"authorize";

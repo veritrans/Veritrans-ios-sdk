@@ -39,6 +39,7 @@
         self.expireTimeOption = [self unArchivedObject:@"md_expire"];
         self.colorOption = [self unArchivedObject:@"md_color"];
         self.ccTypeOption = [self unArchivedObject:@"md_cc_type"];
+        self.mandiriPointOption = [self unArchivedObject:@"md_mandiri_point"];
         self.permataVAOption = [self unArchivedObject:@"md_permata_va"];
         self.bcaVAOption = [self unArchivedObject:@"md_bca_va"];
         self.bniVAOption = [self unArchivedObject:@"md_bni_va"];;
@@ -97,6 +98,10 @@
     }
     return _colorOption;
 }
+- (void)setMandiriPointOption:(MDOption *)mandiriPointOption {
+    _mandiriPointOption = mandiriPointOption;
+    [self archiveObject:mandiriPointOption key:@"md_mandiri_point"];
+}
 - (void)setBniPointOption:(MDOption *)bniPointOption {
     _bniPointOption = bniPointOption;
     [self archiveObject:bniPointOption key:@"md_bni_point"];
@@ -148,6 +153,7 @@
     self.promoOption = nil;
     self.preauthOption = nil;
     self.expireTimeOption = nil;
+    self.mandiriPointOption = nil;
     self.colorOption = nil;
     self.ccTypeOption = nil;
     self.permataVAOption = nil;

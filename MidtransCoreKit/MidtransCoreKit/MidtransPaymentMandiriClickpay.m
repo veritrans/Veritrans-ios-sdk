@@ -10,7 +10,7 @@
 #import "MidtransConstant.h"
 
 @interface MidtransPaymentMandiriClickpay()
-@property (nonatomic) NSString *cardNumber;
+@property (nonatomic) NSString *cardToken;
 @property (nonatomic) MidtransTransactionTokenResponse *token;
 @property (nonatomic) NSString *clickpayToken;
 @property (nonatomic) NSNumber *grossAmount;
@@ -18,9 +18,9 @@
 
 @implementation MidtransPaymentMandiriClickpay
 
-- (instancetype _Nonnull)initWithCardNumber:(NSString *_Nonnull)cardNumber clickpayToken:(NSString *_Nonnull)clickpayToken {
+-(instancetype)initWithCardToken:(NSString *)cardToken clickpayToken:(NSString *)clickpayToken {
     if (self = [super init]) {
-        self.cardNumber = [cardNumber stringByReplacingOccurrencesOfString:@" " withString:@""];
+        self.cardToken = cardToken;
         self.clickpayToken = clickpayToken;
     }
     return self;
@@ -28,9 +28,9 @@
 
 - (NSDictionary *)dictionaryValue {
     return @{@"payment_type":MIDTRANS_PAYMENT_MANDIRI_CLICKPAY,
-             @"payment_params":@{@"mandiri_card_no":self.cardNumber,
+             @"payment_params":@{@"token_id":self.cardToken,
                                  @"input3":[MidtransMandiriClickpayHelper generateInput3],
-                                 @"token_response":self.clickpayToken}};
+                                 @"token":self.clickpayToken}};
 }
 
 @end

@@ -9,7 +9,7 @@
 #import "MidtransNetworking.h"
 #import "MidtransConfig.h"
 #import "MidtransConstant.h"
-
+#import "SNPErrorLogManager.h"
 @implementation NSData (decode)
 
 - (NSData*)SNPvalidateUTF8 {
@@ -113,6 +113,7 @@
     [request setHTTPMethod:@"DELETE"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"mobile" forHTTPHeaderField:@"X-Source"];
+    [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
@@ -137,14 +138,25 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request addValue:@"mobile" forHTTPHeaderField:@"X-Source"];
+    [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }
     
-    MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
-                                                             callback:callback];
-    [_operationQueue addOperation:op];
+    @try {
+        MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
+                                                                             callback:callback];
+        [_operationQueue addOperation:op];
+    }
+    @catch (NSException * e) {
+        
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+    @finally {
+        NSLog(@"finally");
+    }
+   
 }
 
 - (void)postToURL:(NSString *)URL
@@ -164,13 +176,27 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:[CONFIG timeoutInterval]];
+    [request addValue:@"mobile" forHTTPHeaderField:@"X-Source"];
+    [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
+    
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }
     
-    MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
-                                                             callback:callback];
-    [_operationQueue addOperation:op];
+    @try {
+        MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
+                                                                             callback:callback];
+        [_operationQueue addOperation:op];
+    }
+    @catch (NSException * e) {
+        
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+    @finally {
+        NSLog(@"finally");
+    }
+    
+   
 }
 
 - (void)getFromURL:(NSString *)URL

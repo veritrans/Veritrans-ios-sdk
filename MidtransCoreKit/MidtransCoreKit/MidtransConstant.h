@@ -91,6 +91,7 @@ static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
  *  MESSAGE CONSTANT
  */
 
+static NSString *const MIDTRANS_RAYGUN_APP_KEY = @"eqBTHdEAfobg/zeTi8d5gw==";
 static NSString * const MIDTRANS_MESSAGE_CARD_INVALID = @"Card number is invalid";
 static NSString * const MIDTRANS_MESSAGE_INPUT_VALUE_INVALID = @"Input Invalid";
 static NSString * const MIDTRANS_MESSAGE_EXPIRE_DATE_INVALID = @"Expiry Year is invalid";
@@ -151,6 +152,7 @@ static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
+static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";
 static NSString *const SNP_CORE_CREDIT_CARD_SAVE = @"CREDIT_CARD_SAVE";
 
 static NSString *const SNP_CORE_DEBIT_CARD = @"debit";

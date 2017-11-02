@@ -41,6 +41,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.point = @"0";
+     self.view.pointBankImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_badge",self.bankName] inBundle:VTBundle compatibleWithTraitCollection:nil];
+    self.view.pointBankImage.contentMode = UIViewContentModeScaleAspectFit;
     if (self.currentMaskedCards) {
         self.maskedCards = [NSMutableArray arrayWithArray:self.currentMaskedCards];
     }
@@ -48,7 +50,15 @@
         self.maskedCards = [NSMutableArray new];
     }
     self.maskedCards = [NSMutableArray new];
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"];
+    if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
+        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"];
+    }
+    else {
+        self.title = @"Mandiri Fiestapoin";
+        self.view.topTextLabel.hidden = NO;
+        self.view.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Diskon Fiesta Point"];
+        self.view.pointInputTextField.hidden = YES;
+    }
     self.pointRedeem = [NSMutableArray new];
     [self.view configureAmountTotal:self.token];
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Calculating your Point"]];
@@ -59,11 +69,18 @@
         if (!error) {
             self.pointResponse = response;
             self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[response.pointBalanceAmount intValue]];
-            self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[response.pointBalanceAmount intValue]];
-            
+            if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
+                self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[response.pointBalanceAmount intValue]];
+                self.view.topTextfield.hidden = YES;
+               
+            } else {
+                 self.view.topTextfield.hidden = NO;
+                self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Current fiesta point %i"],[response.pointBalanceAmount intValue]];
+                self.view.topTextfield.text = [NSNumber numberWithInteger:0 - [response.pointBalanceAmount integerValue]].formattedCurrencyNumber;
+            }
+           
             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[self.pointResponse.pointBalanceAmount intValue]]];
-
-         [self hideLoading];
+            [self hideLoading];
         }
     }];
 
@@ -108,7 +125,8 @@
                                                                                 saveCard:self.savedCard
                                                                                    point:self.point];
     MidtransTransaction *transaction = [[MidtransTransaction alloc]
-                                        initWithPaymentDetails:paymentDetail token:self.token];
+                                        initWithPaymentDetails:paymentDetail
+                                        token:self.token];
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error)
      {

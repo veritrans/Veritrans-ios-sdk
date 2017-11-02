@@ -16,6 +16,8 @@
 #import "MidtransUIToast.h"
 #import "MidtransUITableAlertViewController.h"
 #import "UIViewController+Modal.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
@@ -25,6 +27,7 @@
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (nonatomic) NSArray *otherBankListATMBersama;
 @property (nonatomic) NSArray *otherBankListPrima;
 @property (nonatomic) NSArray *otherBankListAlto;
@@ -83,7 +86,6 @@
     }
     [self selectTabAtIndex:0];
     
-
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.paymentType = VTVATypeBCA;
     }
@@ -107,8 +109,13 @@
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }];
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 }
-
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+}
 -(void) displayBankList {
     
     MTOtherBankType type;

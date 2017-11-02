@@ -46,13 +46,13 @@
                     <rect key="frame" x="0.0" y="630" width="414" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
-                            <rect key="frame" x="15" y="16.333333333333371" width="73.666666666666671" height="17.666666666666629"/>
+                            <rect key="frame" x="15" y="17" width="74" height="17"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-08-1kx">
-                            <rect key="frame" x="363.66666666666674" y="0.0" width="35.333333333333314" height="50"/>
+                            <rect key="frame" x="363" y="0.0" width="36" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -256,7 +256,7 @@
                 <outlet property="installmentView" destination="Lfj-Hs-yBs" id="DUG-Ih-LO1"/>
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
                 <outlet property="secureBadgeImage" destination="j24-du-W7D" id="NFy-5h-s1J"/>
-                <outlet property="totalAmountBorderedView" destination="K39-0u-IJj" id="rMc-m6-NQG"/>
+                <outlet property="totalAmountBorderedView" destination="K39-0u-IJj" id="Fc8-JK-UJS"/>
                 <outlet property="totalAmountPrice" destination="9Xe-08-1kx" id="Z7S-ZO-8z1"/>
                 <outlet property="totalAmountTextLabel" destination="l67-Ku-WeL" id="8Xe-tN-TGo"/>
             </connections>

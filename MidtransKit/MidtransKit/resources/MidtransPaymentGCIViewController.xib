@@ -105,7 +105,7 @@
                     <rect key="frame" x="0.0" y="421" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Kl-VV-TBV">
-                            <rect key="frame" x="248" y="12" width="57" height="21.5"/>
+                            <rect key="frame" x="248" y="12.5" width="57" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -139,7 +139,7 @@
                     <rect key="frame" x="0.0" y="466" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i0D-3I-196">
-                            <rect key="frame" x="248.5" y="12" width="56.5" height="21.5"/>
+                            <rect key="frame" x="248.5" y="12.5" width="56.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -193,6 +193,7 @@
                 <outlet property="gciCardTextField" destination="wvs-u7-GxZ" id="kQw-5U-X5f"/>
                 <outlet property="orderIdLabel" destination="i0D-3I-196" id="29b-ZW-sdf"/>
                 <outlet property="passwordTextField" destination="bJK-h8-j7b" id="RK8-Bj-GC9"/>
+                <outlet property="totalAmountBorderedView" destination="gCd-AT-Gu2" id="efr-eL-CMT"/>
                 <outlet property="totalAmountLabel" destination="ceq-gF-pUn" id="cE0-G9-fji"/>
             </connections>
             <point key="canvasLocation" x="-193" y="-27"/>

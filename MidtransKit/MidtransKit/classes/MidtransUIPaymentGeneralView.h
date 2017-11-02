@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "VTGuideView.h"
+@class MIdtransUIBorderedView;
 @class MidtransUINextStepButton;
 @interface MidtransUIPaymentGeneralView : UIView
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *confirmPaymentButton;
@@ -20,4 +21,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *tokenViewIcon;
 @property (strong, nonatomic) IBOutlet VTGuideView *guideView;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabelText;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end

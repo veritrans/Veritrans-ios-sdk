@@ -15,6 +15,8 @@
 #import "VTGuideCell.h"
 #import "UILabel+Boldify.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 @interface SNPPostPaymentVAViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *mainInstructions;
@@ -24,6 +26,7 @@
 @property (nonatomic) SNPPostPaymentHeader *headerView;
 @property (nonatomic) SNPPostPaymentHeaderBillPay *headerViewBillPay;
 @property (nonatomic) SNPPostPaymentFooter *footerView;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end
 
 @implementation SNPPostPaymentVAViewController
@@ -50,8 +53,6 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentFooter" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentFooter"];
     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
-    
-    
     
     self.footerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentFooter"];
     [self.footerView.downloadInstructionButton addTarget:self action:@selector(downloadButtonDidtapped:) forControlEvents:UIControlEventTouchUpInside];
@@ -85,7 +86,6 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }
-    
     
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
@@ -128,8 +128,12 @@
     self.tableView.tableFooterView = self.footerView;
     [self selectTabAtIndex:0];
     
-    
-    // Do any additional setup after loading the view from its nib.
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (void)downloadButtonDidtapped:(id)sender {
     UIApplication *application = [UIApplication sharedApplication];

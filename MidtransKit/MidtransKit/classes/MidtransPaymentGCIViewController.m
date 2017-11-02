@@ -13,6 +13,8 @@
 #import "IHKeyboardAvoiding_vt.h"
 #import "MidtransUICardFormatter.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
 @interface MidtransPaymentGCIViewController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
 @property (strong, nonatomic) IBOutlet MidtransPaymentGCIView *view;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
@@ -35,7 +37,12 @@
     self.view.gciCardTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"gci.placeholder"];
     self.view.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     [self.view.confirmButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
-    // Do any additional setup after loading the view from its nib.
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 -(void)textFieldDidChange :(UITextField *) textField{
     if ([textField isEqual:self.view.gciCardTextField]) {

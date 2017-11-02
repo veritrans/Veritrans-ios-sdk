@@ -12,7 +12,8 @@
 #import "MidtransUIButton.h"
 #import "SNPPostPaymentGeneralViewController.h"
 #import "VTClassHelper.h"
-
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface MidtransUIPaymentDirectViewController ()
@@ -42,6 +43,12 @@
         self.view.instructionTitleLabel.text = [NSString stringWithFormat:@" Panduan pembayaran melalui %@", self.paymentMethod.title];
     }
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (void)setPaymentType:(MidtransVAType)paymentType {
     _paymentType = paymentType;

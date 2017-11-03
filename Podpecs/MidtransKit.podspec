@@ -17,7 +17,7 @@ s.source_files = 'MidtransKit/MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
     'MidtransKit' => ['MidtransKit/MidtransKit/resources/*']
 }
-s.dependency 'MidtransCoreKit', '~> 1.7.4'
+s.dependency 'MidtransCoreKit', '~> 1.7.5'
 s.static_framework = true
 s.default_subspec = 'UI'
 

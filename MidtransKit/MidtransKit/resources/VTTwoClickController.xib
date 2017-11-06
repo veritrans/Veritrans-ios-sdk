@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="14z-jT-gWy">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="513"/>
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="512"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Euh-lf-MT6">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="310"/>
@@ -93,10 +93,10 @@
                     </constraints>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZPm-aO-9Zh" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="513" width="320" height="55"/>
+                    <rect key="frame" x="8" y="520" width="304" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="55" id="coi-yv-H6z"/>
+                        <constraint firstAttribute="height" constant="40" id="coi-yv-H6z"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="20"/>
                     <state key="normal" title="Finish Payment"/>
@@ -105,7 +105,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="dGN-Gu-EQK">
-                    <rect key="frame" x="297" y="534" width="8" height="13"/>
+                    <rect key="frame" x="289" y="533.5" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="8" id="Rmx-nG-Iwr"/>
                         <constraint firstAttribute="height" constant="13" id="sV0-MT-wxQ"/>
@@ -117,11 +117,11 @@
                 <constraint firstItem="14z-jT-gWy" firstAttribute="top" secondItem="Umb-6l-Una" secondAttribute="top" id="1NJ-GB-NxH"/>
                 <constraint firstItem="14z-jT-gWy" firstAttribute="leading" secondItem="Umb-6l-Una" secondAttribute="leading" id="5I8-iy-YU8"/>
                 <constraint firstAttribute="trailing" secondItem="14z-jT-gWy" secondAttribute="trailing" id="Pk3-u3-7VZ"/>
-                <constraint firstAttribute="bottom" secondItem="ZPm-aO-9Zh" secondAttribute="bottom" id="SCg-zi-p5h"/>
+                <constraint firstAttribute="bottom" secondItem="ZPm-aO-9Zh" secondAttribute="bottom" constant="8" id="SCg-zi-p5h"/>
                 <constraint firstItem="dGN-Gu-EQK" firstAttribute="centerY" secondItem="ZPm-aO-9Zh" secondAttribute="centerY" id="bIr-9q-i0w"/>
-                <constraint firstItem="ZPm-aO-9Zh" firstAttribute="top" secondItem="14z-jT-gWy" secondAttribute="bottom" id="mng-iw-o9o"/>
-                <constraint firstItem="ZPm-aO-9Zh" firstAttribute="leading" secondItem="Umb-6l-Una" secondAttribute="leading" id="px8-Q8-zoE"/>
-                <constraint firstAttribute="trailing" secondItem="ZPm-aO-9Zh" secondAttribute="trailing" id="uE5-5v-MNH"/>
+                <constraint firstItem="ZPm-aO-9Zh" firstAttribute="top" secondItem="14z-jT-gWy" secondAttribute="bottom" constant="8" id="mng-iw-o9o"/>
+                <constraint firstItem="ZPm-aO-9Zh" firstAttribute="leading" secondItem="Umb-6l-Una" secondAttribute="leading" constant="8" id="px8-Q8-zoE"/>
+                <constraint firstAttribute="trailing" secondItem="ZPm-aO-9Zh" secondAttribute="trailing" constant="8" id="uE5-5v-MNH"/>
                 <constraint firstItem="dGN-Gu-EQK" firstAttribute="trailing" secondItem="ZPm-aO-9Zh" secondAttribute="trailing" constant="-15" id="y6f-oX-GKd"/>
             </constraints>
             <point key="canvasLocation" x="33" y="53"/>

@@ -21,7 +21,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransNewCreditCardViewController">
             <connections>
                 <outlet property="bottomButton" destination="7l5-VJ-9Eb" id="pv4-vH-KjM"/>
-                <outlet property="headerViewHeightConstraints" destination="sDC-EK-i1s" id="xZY-wg-y5G"/>
                 <outlet property="view" destination="HhS-r6-FLV" id="pYD-RQ-Bep"/>
             </connections>
         </placeholder>
@@ -31,10 +30,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7l5-VJ-9Eb" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="680" width="414" height="56"/>
+                    <rect key="frame" x="8" y="688" width="398" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="Wba-SD-iaP"/>
+                        <constraint firstAttribute="height" constant="40" id="Wba-SD-iaP"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                     <state key="normal" title="Finish Payment"/>
@@ -46,7 +45,7 @@
                     <rect key="frame" x="0.0" y="630" width="414" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
-                            <rect key="frame" x="15" y="16.333333333333371" width="73.666666666666671" height="17.666666666666629"/>
+                            <rect key="frame" x="15" y="17" width="73.666666666666671" height="16.666666666666629"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -75,6 +74,7 @@
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
                             <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ACd-RD-scv">
@@ -232,17 +232,18 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="bottom" id="DkS-ej-YHt"/>
+                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="bottom" constant="8" id="DkS-ej-YHt"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="I95-wd-7kg"/>
-                <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" id="JYC-Uk-GD8"/>
+                <constraint firstAttribute="trailing" secondItem="7l5-VJ-9Eb" secondAttribute="trailing" constant="8" id="JYC-Uk-GD8"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="Jac-gk-BDd"/>
                 <constraint firstAttribute="trailing" secondItem="K39-0u-IJj" secondAttribute="trailing" id="RNm-HW-aHZ"/>
                 <constraint firstItem="K39-0u-IJj" firstAttribute="top" secondItem="ACd-RD-scv" secondAttribute="bottom" constant="-3" id="Sah-kW-q73"/>
-                <constraint firstAttribute="bottom" secondItem="7l5-VJ-9Eb" secondAttribute="bottom" id="VmK-XM-Twn"/>
+                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" constant="8" id="Vql-vr-LJX"/>
                 <constraint firstItem="ACd-RD-scv" firstAttribute="width" secondItem="HhS-r6-FLV" secondAttribute="width" id="cwZ-fi-E30"/>
+                <constraint firstAttribute="bottom" secondItem="7l5-VJ-9Eb" secondAttribute="bottom" constant="8" id="kwq-if-PS5"/>
+                <constraint firstItem="ACd-RD-scv" firstAttribute="top" secondItem="HhS-r6-FLV" secondAttribute="top" id="pHd-wR-ZU9"/>
+                <constraint firstItem="K39-0u-IJj" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="r0K-HM-fIT"/>
                 <constraint firstAttribute="trailing" secondItem="ACd-RD-scv" secondAttribute="trailing" id="sZH-Bv-dLY"/>
-                <constraint firstItem="7l5-VJ-9Eb" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="yld-Mk-2tc"/>
-                <constraint firstItem="K39-0u-IJj" firstAttribute="leading" secondItem="HhS-r6-FLV" secondAttribute="leading" id="zyu-YZ-VJo"/>
             </constraints>
             <connections>
                 <outlet property="addOnTableView" destination="lSd-uE-pg7" id="YLb-5R-9Dc"/>
@@ -255,6 +256,7 @@
                 <outlet property="finishPaymentButton" destination="7l5-VJ-9Eb" id="c2f-k4-DeS"/>
                 <outlet property="installmentView" destination="Lfj-Hs-yBs" id="DUG-Ih-LO1"/>
                 <outlet property="installmentWrapperViewConstraints" destination="24o-px-pgN" id="44U-Ga-HGI"/>
+                <outlet property="scrollView" destination="ACd-RD-scv" id="bKZ-Wf-ov6"/>
                 <outlet property="secureBadgeImage" destination="j24-du-W7D" id="NFy-5h-s1J"/>
                 <outlet property="totalAmountBorderedView" destination="K39-0u-IJj" id="rMc-m6-NQG"/>
                 <outlet property="totalAmountPrice" destination="9Xe-08-1kx" id="Z7S-ZO-8z1"/>

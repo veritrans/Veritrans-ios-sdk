@@ -32,10 +32,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0E-ny-Zs0" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="YfF-GY-5MI"/>
+                        <constraint firstAttribute="height" constant="40" id="YfF-GY-5MI"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="Confirm Payment"/>
@@ -75,6 +75,7 @@
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xxN-vw-CNQ">
@@ -91,16 +92,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="f0E-ny-Zs0" firstAttribute="top" secondItem="erp-2z-2Fc" secondAttribute="bottom" id="DgL-AP-P46"/>
+                <constraint firstItem="f0E-ny-Zs0" firstAttribute="top" secondItem="erp-2z-2Fc" secondAttribute="bottom" constant="8" id="DgL-AP-P46"/>
                 <constraint firstItem="erp-2z-2Fc" firstAttribute="leading" secondItem="1gO-fv-cPn" secondAttribute="leading" id="LDP-kV-SEA"/>
-                <constraint firstAttribute="bottom" secondItem="f0E-ny-Zs0" secondAttribute="bottom" id="MgY-1t-rJt"/>
+                <constraint firstAttribute="bottom" secondItem="f0E-ny-Zs0" secondAttribute="bottom" constant="8" id="MgY-1t-rJt"/>
                 <constraint firstAttribute="trailing" secondItem="9uX-Fq-Xtj" secondAttribute="trailing" constant="15" id="Obu-3i-nzg"/>
                 <constraint firstItem="xxN-vw-CNQ" firstAttribute="top" secondItem="1gO-fv-cPn" secondAttribute="top" id="Toi-jP-1QK"/>
-                <constraint firstAttribute="trailing" secondItem="f0E-ny-Zs0" secondAttribute="trailing" id="cBw-ID-Qws"/>
+                <constraint firstAttribute="trailing" secondItem="f0E-ny-Zs0" secondAttribute="trailing" constant="8" id="cBw-ID-Qws"/>
                 <constraint firstItem="xxN-vw-CNQ" firstAttribute="leading" secondItem="1gO-fv-cPn" secondAttribute="leading" id="fOK-sl-bw4"/>
                 <constraint firstAttribute="trailing" secondItem="xxN-vw-CNQ" secondAttribute="trailing" id="gE7-Ce-lAL"/>
                 <constraint firstItem="erp-2z-2Fc" firstAttribute="top" secondItem="xxN-vw-CNQ" secondAttribute="bottom" id="hWt-sx-s64"/>
-                <constraint firstItem="f0E-ny-Zs0" firstAttribute="leading" secondItem="1gO-fv-cPn" secondAttribute="leading" id="jj5-Ue-UPj"/>
+                <constraint firstItem="f0E-ny-Zs0" firstAttribute="leading" secondItem="1gO-fv-cPn" secondAttribute="leading" constant="8" id="jj5-Ue-UPj"/>
                 <constraint firstAttribute="trailing" secondItem="erp-2z-2Fc" secondAttribute="trailing" id="vSh-J5-IW5"/>
                 <constraint firstItem="9uX-Fq-Xtj" firstAttribute="centerY" secondItem="f0E-ny-Zs0" secondAttribute="centerY" id="wxf-Oa-tGg"/>
             </constraints>

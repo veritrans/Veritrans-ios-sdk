@@ -148,6 +148,13 @@
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                          return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
                      }];
+                     if (index !=NSNotFound) {
+                         self.singlePayment = YES;
+                         model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                         model.status = enabledPayment.status;
+                         [self.paymentMethodList addObject:model];
+                         [self redirectToPaymentMethodAtIndex:0];
+                     }
                  }
                  else {
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -170,7 +177,6 @@
                          self.bankTransferOnly = 0;
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          model.status = enabledPayment.status;
-
                          [self.paymentMethodList addObject:model];
                          
                      }

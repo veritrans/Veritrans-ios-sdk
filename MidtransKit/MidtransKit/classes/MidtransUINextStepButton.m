@@ -17,4 +17,10 @@
     [self setBackgroundColor:[[MidtransUIThemeManager shared] themeColor]];
     self.titleLabel.font = [[MidtransUIThemeManager shared].themeFont fontRegularWithSize:self.titleLabel.font.pointSize];
 }
+
+-(void)drawRect:(CGRect)rect {
+    self.layer.masksToBounds = YES;
+    self.layer.cornerRadius = 2.f;
+}
+
 @end

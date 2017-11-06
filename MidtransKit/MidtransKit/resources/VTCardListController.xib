@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -36,16 +36,16 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="303"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dBk-Up-o01">
-                            <rect key="frame" x="35" y="62.5" width="251" height="178.5"/>
+                            <rect key="frame" x="45" y="60.5" width="231.5" height="182.5"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Card Yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vl-pC-whZ">
-                                    <rect key="frame" x="0.0" y="128" width="251" height="20"/>
+                                    <rect key="frame" x="0.0" y="128" width="231.5" height="21.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" red="0.57647058819999997" green="0.58431372550000005" blue="0.53725490200000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="x8Y-tY-MY1">
-                                    <rect key="frame" x="0.0" y="148" width="251" height="30.5"/>
+                                    <rect key="frame" x="0.0" y="149.5" width="231.5" height="33"/>
                                     <string key="text">Save your time by add credit card that can 
 be used for every transactions.</string>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
@@ -53,7 +53,7 @@ be used for every transactions.</string>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptyCardIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="oUC-TE-I6l">
-                                    <rect key="frame" x="40.5" y="0.0" width="169" height="120"/>
+                                    <rect key="frame" x="30.5" y="0.0" width="169" height="120"/>
                                 </imageView>
                             </subviews>
                             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -111,7 +111,7 @@ be used for every transactions.</string>
                             <rect key="frame" x="15" y="250" width="290" height="35"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pay with new card" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJu-Uv-YlX">
-                                    <rect key="frame" x="0.0" y="10" width="139.5" height="17"/>
+                                    <rect key="frame" x="0.0" y="10" width="129" height="17"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <nil key="highlightedColor"/>
@@ -161,13 +161,13 @@ be used for every transactions.</string>
                     <rect key="frame" x="0.0" y="379" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IQA-H8-m1F">
-                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-Kh-Feo">
-                            <rect key="frame" x="263" y="13" width="42" height="20"/>
+                            <rect key="frame" x="265.5" y="12.5" width="39.5" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -199,19 +199,20 @@ be used for every transactions.</string>
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fzS-Jl-EY5">
                     <rect key="frame" x="16" y="303" width="288" height="51"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Did you know?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="OSe-L2-p46" customClass="VTNoteTitleLabel">
-                            <rect key="frame" x="50" y="5.5" width="67" height="12"/>
+                            <rect key="frame" x="50" y="3.5" width="61" height="13"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="10"/>
                             <color key="textColor" red="0.0" green="0.59999999999999998" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Midtrans securely manages your credit cards for all our merchants" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="233" translatesAutoresizingMaskIntoConstraints="NO" id="14m-CR-X1Q">
-                            <rect key="frame" x="50" y="17.5" width="238" height="30.5"/>
+                            <rect key="frame" x="50" y="16.5" width="238" height="33"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -237,11 +238,11 @@ be used for every transactions.</string>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zzh-9l-Msm" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="424" width="320" height="56"/>
+                    <rect key="frame" x="8" y="432" width="304" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <gestureRecognizers/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="huE-P2-16i"/>
+                        <constraint firstAttribute="height" constant="40" id="huE-P2-16i"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
                     <state key="normal" title="Pay With New Card"/>
@@ -250,7 +251,7 @@ be used for every transactions.</string>
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="QjR-Z0-4so">
-                    <rect key="frame" x="297" y="446" width="8" height="13"/>
+                    <rect key="frame" x="289" y="446" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="8" id="Pvx-3h-FBd"/>
                         <constraint firstAttribute="height" constant="13" id="ut9-Ox-fNj"/>
@@ -259,7 +260,7 @@ be used for every transactions.</string>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="zzh-9l-Msm" secondAttribute="trailing" id="CWW-yJ-bKX"/>
+                <constraint firstAttribute="trailing" secondItem="zzh-9l-Msm" secondAttribute="trailing" constant="8" id="CWW-yJ-bKX"/>
                 <constraint firstItem="iOt-vA-hCp" firstAttribute="leading" secondItem="YUE-Zs-Vdp" secondAttribute="leading" id="GDe-jO-dJi"/>
                 <constraint firstItem="kMz-eb-pIV" firstAttribute="top" secondItem="fzS-Jl-EY5" secondAttribute="bottom" constant="25" id="KI2-ap-QlO"/>
                 <constraint firstItem="fzS-Jl-EY5" firstAttribute="top" secondItem="iOt-vA-hCp" secondAttribute="bottom" id="MlB-pe-cbX"/>
@@ -267,16 +268,16 @@ be used for every transactions.</string>
                 <constraint firstItem="QjR-Z0-4so" firstAttribute="trailing" secondItem="zzh-9l-Msm" secondAttribute="trailing" constant="-15" id="S00-Aj-AXQ"/>
                 <constraint firstAttribute="trailing" secondItem="iOt-vA-hCp" secondAttribute="trailing" id="S0Z-9y-Btx"/>
                 <constraint firstItem="9vD-ts-uZf" firstAttribute="leading" secondItem="YUE-Zs-Vdp" secondAttribute="leading" id="a2c-Km-yMV"/>
-                <constraint firstItem="zzh-9l-Msm" firstAttribute="top" secondItem="kMz-eb-pIV" secondAttribute="bottom" id="c4I-ea-RK2"/>
+                <constraint firstItem="zzh-9l-Msm" firstAttribute="top" secondItem="kMz-eb-pIV" secondAttribute="bottom" constant="8" id="c4I-ea-RK2"/>
                 <constraint firstAttribute="trailing" secondItem="kMz-eb-pIV" secondAttribute="trailing" id="e7c-Ci-RXw"/>
                 <constraint firstItem="iOt-vA-hCp" firstAttribute="top" secondItem="YUE-Zs-Vdp" secondAttribute="top" id="eiK-5G-4yJ"/>
                 <constraint firstItem="9vD-ts-uZf" firstAttribute="top" secondItem="YUE-Zs-Vdp" secondAttribute="top" id="jEg-By-SLu"/>
                 <constraint firstItem="QjR-Z0-4so" firstAttribute="centerY" secondItem="zzh-9l-Msm" secondAttribute="centerY" id="nSF-Mm-Acl"/>
-                <constraint firstAttribute="bottom" secondItem="zzh-9l-Msm" secondAttribute="bottom" id="rCg-W5-F2A"/>
+                <constraint firstAttribute="bottom" secondItem="zzh-9l-Msm" secondAttribute="bottom" constant="8" id="rCg-W5-F2A"/>
                 <constraint firstItem="fzS-Jl-EY5" firstAttribute="leading" secondItem="YUE-Zs-Vdp" secondAttribute="leading" constant="16" id="uvz-dc-O84"/>
                 <constraint firstAttribute="trailing" secondItem="9vD-ts-uZf" secondAttribute="trailing" id="wCb-Az-eiP"/>
                 <constraint firstAttribute="trailing" secondItem="fzS-Jl-EY5" secondAttribute="trailing" constant="16" id="wXx-5u-c9m"/>
-                <constraint firstItem="zzh-9l-Msm" firstAttribute="leading" secondItem="YUE-Zs-Vdp" secondAttribute="leading" id="wpT-xm-pVH"/>
+                <constraint firstItem="zzh-9l-Msm" firstAttribute="leading" secondItem="YUE-Zs-Vdp" secondAttribute="leading" constant="8" id="wpT-xm-pVH"/>
                 <constraint firstItem="kMz-eb-pIV" firstAttribute="leading" secondItem="YUE-Zs-Vdp" secondAttribute="leading" id="xd0-vv-p4y"/>
             </constraints>
             <point key="canvasLocation" x="26.5" y="51.5"/>

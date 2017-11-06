@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,13 +21,13 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wV9-Ui-wJU">
-                    <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                    <rect key="frame" x="8" y="603" width="359" height="56"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWG-kK-ISp" customClass="MidtransUINextStepButton">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <rect key="frame" x="0.0" y="16" width="359" height="40"/>
                             <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="56" id="XOC-M7-ENX"/>
+                                <constraint firstAttribute="height" constant="40" id="XOC-M7-ENX"/>
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                             <state key="normal" title="Ok, I Got it"/>
@@ -36,7 +36,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="GiC-AU-fCy">
-                            <rect key="frame" x="359" y="21" width="8" height="13"/>
+                            <rect key="frame" x="343" y="29" width="8" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="8" id="3fz-8c-rWk"/>
                                 <constraint firstAttribute="height" constant="13" id="8SZ-jO-3OK"/>
@@ -54,19 +54,19 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6r-Bg-my9">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="611"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wV9-Ui-wJU" secondAttribute="bottom" id="G4G-AA-9lZ"/>
-                <constraint firstAttribute="trailing" secondItem="wV9-Ui-wJU" secondAttribute="trailing" id="U3a-dV-G2b"/>
+                <constraint firstAttribute="bottom" secondItem="wV9-Ui-wJU" secondAttribute="bottom" constant="8" id="G4G-AA-9lZ"/>
+                <constraint firstAttribute="trailing" secondItem="wV9-Ui-wJU" secondAttribute="trailing" constant="8" id="U3a-dV-G2b"/>
                 <constraint firstItem="W6r-Bg-my9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UIv-Hn-cEb"/>
                 <constraint firstAttribute="trailing" secondItem="W6r-Bg-my9" secondAttribute="trailing" id="kvB-j7-Z5f"/>
                 <constraint firstItem="W6r-Bg-my9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qa5-YW-sAo"/>
-                <constraint firstItem="wV9-Ui-wJU" firstAttribute="top" secondItem="W6r-Bg-my9" secondAttribute="bottom" id="yeg-zb-hrS"/>
-                <constraint firstItem="wV9-Ui-wJU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zpz-jC-Mic"/>
+                <constraint firstItem="wV9-Ui-wJU" firstAttribute="top" secondItem="W6r-Bg-my9" secondAttribute="bottom" constant="8" id="yeg-zb-hrS"/>
+                <constraint firstItem="wV9-Ui-wJU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zpz-jC-Mic"/>
             </constraints>
         </view>
     </objects>

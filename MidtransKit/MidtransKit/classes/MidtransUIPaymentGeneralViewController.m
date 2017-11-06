@@ -12,6 +12,7 @@
 #import "UIViewController+HeaderSubtitle.h"
 #import "MidtransUIStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransUINextStepButton.h"
 
 @interface MidtransUIPaymentGeneralViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentGeneralView *view;

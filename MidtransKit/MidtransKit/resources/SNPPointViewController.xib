@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -162,22 +162,31 @@
                     <rect key="frame" x="0.0" y="463" width="320" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hS-WI-qoh">
-                            <rect key="frame" x="15" y="17" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="17.5" width="77" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96a-4j-fTn">
-                            <rect key="frame" x="269.5" y="0.0" width="35.5" height="50"/>
+                            <rect key="frame" x="259" y="0.0" width="41" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Fs-Zx-qcx">
+                            <rect key="frame" x="302" y="17.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="Qbo-1p-waT"/>
+                                <constraint firstAttribute="width" constant="15" id="VqT-J7-vzZ"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="3Fs-Zx-qcx" firstAttribute="centerY" secondItem="Tp0-jv-NQb" secondAttribute="centerY" id="Ae5-Un-m0F"/>
                         <constraint firstAttribute="height" constant="50" id="GGw-nK-EJf"/>
+                        <constraint firstAttribute="trailing" secondItem="3Fs-Zx-qcx" secondAttribute="trailing" constant="3" id="LIU-f1-ZYp"/>
                         <constraint firstItem="96a-4j-fTn" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="top" id="Ygz-tj-z5u"/>
-                        <constraint firstAttribute="trailing" secondItem="96a-4j-fTn" secondAttribute="trailing" constant="15" id="ZSs-KI-wwR"/>
+                        <constraint firstAttribute="trailing" secondItem="96a-4j-fTn" secondAttribute="trailing" constant="20" id="ZSs-KI-wwR"/>
                         <constraint firstItem="3hS-WI-qoh" firstAttribute="centerY" secondItem="96a-4j-fTn" secondAttribute="centerY" id="mcS-nA-lY6"/>
                         <constraint firstItem="3hS-WI-qoh" firstAttribute="leading" secondItem="Tp0-jv-NQb" secondAttribute="leading" constant="15" id="pNX-Fz-GjA"/>
                         <constraint firstItem="96a-4j-fTn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3hS-WI-qoh" secondAttribute="trailing" constant="8" id="tpm-cy-B82"/>
@@ -224,5 +233,6 @@
     </objects>
     <resources>
         <image name="bni_badge.png" width="165" height="60"/>
+        <image name="icon-help.png" width="12" height="12"/>
     </resources>
 </document>

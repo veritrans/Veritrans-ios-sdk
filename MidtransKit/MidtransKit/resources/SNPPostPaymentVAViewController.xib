@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -51,25 +51,34 @@
                     <rect key="frame" x="0.0" y="567" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-JC-0iG">
-                            <rect key="frame" x="320.5" y="12" width="39.5" height="21.5"/>
+                            <rect key="frame" x="313" y="13.5" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdv-xP-PuC">
-                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-5K-vdc">
+                            <rect key="frame" x="357" y="14.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="78s-JM-E3L"/>
+                                <constraint firstAttribute="width" constant="15" id="dMu-k5-w3v"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="leading" secondItem="cJb-M5-yYW" secondAttribute="leading" constant="15" id="Fns-q3-Y54"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="Rzj-o8-QMF"/>
+                        <constraint firstAttribute="trailing" secondItem="I3b-5K-vdc" secondAttribute="trailing" constant="3" id="g1g-oy-QAV"/>
                         <constraint firstAttribute="height" constant="45" id="rc6-BX-R73"/>
+                        <constraint firstItem="I3b-5K-vdc" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="uW3-ro-402"/>
                         <constraint firstItem="MQT-JC-0iG" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="wrl-HV-CeF"/>
-                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="15" id="xXh-1N-TKK"/>
+                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="20" id="xXh-1N-TKK"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -99,4 +108,7 @@
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

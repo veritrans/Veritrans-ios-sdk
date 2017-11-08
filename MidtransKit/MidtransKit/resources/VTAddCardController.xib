@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -232,23 +232,32 @@
                     <rect key="frame" x="0.0" y="468" width="320" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
-                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8I-cU7">
-                            <rect key="frame" x="296" y="12" width="9" height="21.5"/>
+                            <rect key="frame" x="291" y="12.5" width="9" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZXa-It-cnI">
+                            <rect key="frame" x="302" y="14.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="HRv-Pd-YcW"/>
+                                <constraint firstAttribute="height" constant="15" id="apJ-9m-RdS"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="89S-8I-cU7" firstAttribute="centerY" secondItem="m7b-l4-Xll" secondAttribute="centerY" id="JYI-V0-qkk"/>
                         <constraint firstAttribute="height" constant="44" id="NTb-WE-uif"/>
-                        <constraint firstAttribute="trailing" secondItem="89S-8I-cU7" secondAttribute="trailing" constant="15" id="ZQl-Pi-iO0"/>
+                        <constraint firstAttribute="trailing" secondItem="89S-8I-cU7" secondAttribute="trailing" constant="20" id="ZQl-Pi-iO0"/>
+                        <constraint firstItem="ZXa-It-cnI" firstAttribute="centerY" secondItem="m7b-l4-Xll" secondAttribute="centerY" id="k9q-jp-ycM"/>
                         <constraint firstItem="G5o-vj-Rom" firstAttribute="leading" secondItem="m7b-l4-Xll" secondAttribute="leading" constant="15" id="nmL-MP-Bd5"/>
+                        <constraint firstAttribute="trailing" secondItem="ZXa-It-cnI" secondAttribute="trailing" constant="3" id="qlU-RH-ada"/>
                         <constraint firstItem="G5o-vj-Rom" firstAttribute="centerY" secondItem="m7b-l4-Xll" secondAttribute="centerY" id="xPj-5e-s2R"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
@@ -296,6 +305,7 @@
         <image name="checkbox_checked.png" width="22" height="22"/>
         <image name="checkbox_uncheck.png" width="22" height="22"/>
         <image name="hint.png" width="21" height="21"/>
+        <image name="icon-help.png" width="12" height="12"/>
         <image name="midtrans_lock.png" width="109" height="28"/>
     </resources>
 </document>

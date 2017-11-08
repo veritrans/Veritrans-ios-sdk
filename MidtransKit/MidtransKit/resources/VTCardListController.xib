@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -167,7 +167,7 @@ be used for every transactions.</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-Kh-Feo">
-                            <rect key="frame" x="263" y="13" width="42" height="20"/>
+                            <rect key="frame" x="258" y="13" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -179,17 +179,26 @@ be used for every transactions.</string>
                                 <constraint firstAttribute="height" constant="1" id="NSX-gs-aNw"/>
                             </constraints>
                         </view>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="z1i-OJ-u19">
+                            <rect key="frame" x="302" y="15" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="Yuo-mY-5kx"/>
+                                <constraint firstAttribute="height" constant="15" id="rcw-eI-EOa"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstItem="IQA-H8-m1F" firstAttribute="leading" secondItem="kMz-eb-pIV" secondAttribute="leading" constant="15" id="3LD-22-pBX"/>
+                        <constraint firstItem="z1i-OJ-u19" firstAttribute="centerY" secondItem="kMz-eb-pIV" secondAttribute="centerY" id="Exc-MA-Jrh"/>
                         <constraint firstItem="IQA-H8-m1F" firstAttribute="centerY" secondItem="kMz-eb-pIV" secondAttribute="centerY" id="GRS-Gv-ba6"/>
                         <constraint firstAttribute="bottom" secondItem="mGP-kc-oMz" secondAttribute="bottom" id="Ijw-NH-v1y"/>
                         <constraint firstItem="mGP-kc-oMz" firstAttribute="leading" secondItem="kMz-eb-pIV" secondAttribute="leading" id="Ra3-7S-2CY"/>
                         <constraint firstAttribute="height" constant="45" id="XDs-Fd-w3v"/>
                         <constraint firstAttribute="trailing" secondItem="mGP-kc-oMz" secondAttribute="trailing" id="eCa-gz-1dV"/>
                         <constraint firstItem="5HZ-Kh-Feo" firstAttribute="centerY" secondItem="kMz-eb-pIV" secondAttribute="centerY" id="g3N-Ou-EPr"/>
-                        <constraint firstAttribute="trailing" secondItem="5HZ-Kh-Feo" secondAttribute="trailing" constant="15" id="ldR-Yn-TL9"/>
+                        <constraint firstAttribute="trailing" secondItem="z1i-OJ-u19" secondAttribute="trailing" constant="3" id="gN3-sp-9c6"/>
+                        <constraint firstAttribute="trailing" secondItem="5HZ-Kh-Feo" secondAttribute="trailing" constant="20" id="ldR-Yn-TL9"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -291,6 +300,7 @@ be used for every transactions.</string>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="DisclosureIndicatorGray.png" width="8" height="13"/>
         <image name="emptyCardIcon.png" width="169" height="120"/>
+        <image name="icon-help.png" width="12" height="12"/>
         <image name="padlock1.png" width="42" height="51"/>
     </resources>
 </document>

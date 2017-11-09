@@ -12,6 +12,9 @@
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransPaymentStatusViewController">
@@ -30,7 +33,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="HJv-eO-RTY"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <state key="normal" title="Finish"/>
                     <connections>
                         <action selector="FinishButtonDidTapped:" destination="-1" eventType="touchUpInside" id="wcS-Y9-oGN"/>

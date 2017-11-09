@@ -93,7 +93,7 @@
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"secureemail_rba1@example.com"
+                                                                                email:@"budi@utomo.com"
                                                                                 phone:@"123123"
                                                                       shippingAddress:[MidtransAddress new]
                                                                        billingAddress:[MidtransAddress new]];

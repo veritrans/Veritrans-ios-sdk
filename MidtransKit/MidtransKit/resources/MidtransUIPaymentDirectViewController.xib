@@ -170,6 +170,7 @@
         </view>
     </objects>
     <resources>
+        <image name="DisclosureIndicator.png" width="8" height="13"/>
         <image name="icon-help.png" width="12" height="12"/>
         <image name="token_key.png" width="11" height="16"/>
     </resources>

@@ -37,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="AlD-Xn-mRf"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <state key="normal" title="Complete Payment at  Indomaret"/>
                     <connections>
                         <action selector="finishPressed:" destination="-1" eventType="touchUpInside" id="kRn-Dv-e7b"/>

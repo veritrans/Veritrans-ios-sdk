@@ -11,10 +11,12 @@
     <customFonts key="customFonts">
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Medium</string>
         </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
+        </array>
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
         </array>
     </customFonts>
     <objects>
@@ -35,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="Wba-SD-iaP"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="Finish Payment"/>
                     <connections>
                         <action selector="submitPaymentDidtapped:" destination="-1" eventType="touchUpInside" id="sMg-yV-0cg"/>

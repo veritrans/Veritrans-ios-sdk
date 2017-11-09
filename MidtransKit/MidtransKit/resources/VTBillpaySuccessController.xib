@@ -38,7 +38,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="56" id="QGM-yJ-Ijl"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <state key="normal" title="Finish Payment"/>
                     <connections>
                         <action selector="finishPressed:" destination="-1" eventType="touchUpInside" id="JV3-Zt-QVc"/>

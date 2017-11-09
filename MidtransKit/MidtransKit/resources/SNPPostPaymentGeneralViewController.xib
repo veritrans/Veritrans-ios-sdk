@@ -29,7 +29,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QLe-sD-jYO">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="mMO-tb-b20"/>
@@ -37,10 +37,10 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cav-Dr-p3x" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="612" width="375" height="56"/>
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="zEI-RS-Tyr"/>
+                        <constraint firstAttribute="height" constant="40" id="zEI-RS-Tyr"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="FINISH PAYMENT"/>
@@ -49,7 +49,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s4F-bM-mvq" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="567" width="375" height="45"/>
+                    <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXg-rB-5CU">
                             <rect key="frame" x="313" y="13" width="42" height="20"/>
@@ -58,7 +58,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3N-5x-Vzl">
-                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -89,20 +89,21 @@
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="cav-Dr-p3x" firstAttribute="top" secondItem="s4F-bM-mvq" secondAttribute="bottom" id="97u-2W-ngq"/>
+                <constraint firstItem="cav-Dr-p3x" firstAttribute="top" secondItem="s4F-bM-mvq" secondAttribute="bottom" constant="8" id="97u-2W-ngq"/>
                 <constraint firstItem="s4F-bM-mvq" firstAttribute="leading" secondItem="Bok-Rm-EbP" secondAttribute="leading" id="A4B-XU-akP"/>
                 <constraint firstItem="QLe-sD-jYO" firstAttribute="width" secondItem="Bok-Rm-EbP" secondAttribute="width" id="AcS-61-M6Z"/>
                 <constraint firstItem="QLe-sD-jYO" firstAttribute="leading" secondItem="Bok-Rm-EbP" secondAttribute="leading" id="IQH-fi-R1x"/>
-                <constraint firstItem="cav-Dr-p3x" firstAttribute="leading" secondItem="Bok-Rm-EbP" secondAttribute="leading" id="K5b-k0-t2S"/>
+                <constraint firstItem="cav-Dr-p3x" firstAttribute="leading" secondItem="Bok-Rm-EbP" secondAttribute="leading" constant="8" id="K5b-k0-t2S"/>
                 <constraint firstAttribute="trailing" secondItem="QLe-sD-jYO" secondAttribute="trailing" id="PHJ-24-iDY"/>
-                <constraint firstAttribute="trailing" secondItem="cav-Dr-p3x" secondAttribute="trailing" id="TbT-Q8-J4N"/>
+                <constraint firstAttribute="trailing" secondItem="cav-Dr-p3x" secondAttribute="trailing" constant="8" id="TbT-Q8-J4N"/>
                 <constraint firstItem="QLe-sD-jYO" firstAttribute="top" secondItem="Bok-Rm-EbP" secondAttribute="top" id="axs-ib-cbv"/>
-                <constraint firstAttribute="bottom" secondItem="cav-Dr-p3x" secondAttribute="bottom" constant="-1" id="m9f-HH-Xix"/>
+                <constraint firstAttribute="bottom" secondItem="cav-Dr-p3x" secondAttribute="bottom" constant="8" id="m9f-HH-Xix"/>
                 <constraint firstAttribute="trailing" secondItem="s4F-bM-mvq" secondAttribute="trailing" id="uRV-e5-HVi"/>
                 <constraint firstItem="s4F-bM-mvq" firstAttribute="top" secondItem="QLe-sD-jYO" secondAttribute="bottom" constant="7" id="w5M-vs-8nO"/>
             </constraints>

@@ -11,7 +11,7 @@
 @class MIdtransUIBorderedView;
 @class MidtransTransactionTokenResponse,MidtransUINextStepButton,MidtransPaymentMethodHeader;
 @interface MidtransNewCreditCardView : UIView
-@property (weak, nonatomic) IBOutlet UIButton *scanCardButton;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *creditCardNumberTextField;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpireTextField;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardCVVNumberTextField;

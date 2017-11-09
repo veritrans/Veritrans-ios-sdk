@@ -32,10 +32,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ypF-l5-5lk" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="512" width="320" height="56"/>
+                    <rect key="frame" x="8" y="520" width="304" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="CgY-SN-5DN"/>
+                        <constraint firstAttribute="height" constant="40" id="CgY-SN-5DN"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <state key="normal" title="Finish Payment"/>
@@ -44,7 +44,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DQf-po-YeP" customClass="MidtransUIButton">
-                    <rect key="frame" x="0.0" y="477" width="320" height="35"/>
+                    <rect key="frame" x="8" y="477" width="304" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="aA0-Ql-B8a"/>
                     </constraints>
@@ -62,7 +62,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="jsp-nc-9RZ">
-                    <rect key="frame" x="297" y="534" width="8" height="13"/>
+                    <rect key="frame" x="289" y="534" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="BVZ-Az-Gpz"/>
                         <constraint firstAttribute="width" constant="8" id="dlk-j4-nO1"/>
@@ -225,19 +225,18 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="bFQ-GS-8vL" firstAttribute="top" secondItem="a3k-TK-DeV" secondAttribute="bottom" id="3S6-6R-nZ7"/>
-                <constraint firstAttribute="bottom" secondItem="ypF-l5-5lk" secondAttribute="bottom" id="6ZK-2C-BFd"/>
+                <constraint firstAttribute="bottom" secondItem="ypF-l5-5lk" secondAttribute="bottom" constant="8" id="6ZK-2C-BFd"/>
                 <constraint firstItem="jsp-nc-9RZ" firstAttribute="trailing" secondItem="ypF-l5-5lk" secondAttribute="trailing" constant="-15" id="7rn-N5-zhB"/>
                 <constraint firstAttribute="trailing" secondItem="a3k-TK-DeV" secondAttribute="trailing" id="9TR-TT-KLC"/>
-                <constraint firstItem="ypF-l5-5lk" firstAttribute="leading" secondItem="K0l-zZ-pTS" secondAttribute="leading" id="CgS-xL-4pw"/>
+                <constraint firstItem="ypF-l5-5lk" firstAttribute="leading" secondItem="K0l-zZ-pTS" secondAttribute="leading" constant="8" id="CgS-xL-4pw"/>
                 <constraint firstItem="DQf-po-YeP" firstAttribute="trailing" secondItem="ypF-l5-5lk" secondAttribute="trailing" id="O7o-Rb-1Ta"/>
-                <constraint firstItem="ypF-l5-5lk" firstAttribute="top" secondItem="DQf-po-YeP" secondAttribute="bottom" id="RSI-PI-SGi"/>
+                <constraint firstItem="ypF-l5-5lk" firstAttribute="top" secondItem="DQf-po-YeP" secondAttribute="bottom" constant="8" id="RSI-PI-SGi"/>
                 <constraint firstItem="DQf-po-YeP" firstAttribute="leading" secondItem="ypF-l5-5lk" secondAttribute="leading" id="SVI-eH-wp8"/>
                 <constraint firstItem="a3k-TK-DeV" firstAttribute="leading" secondItem="K0l-zZ-pTS" secondAttribute="leading" id="Srl-tD-KWk"/>
                 <constraint firstItem="a3k-TK-DeV" firstAttribute="top" secondItem="K0l-zZ-pTS" secondAttribute="top" id="THk-ij-tBh"/>
                 <constraint firstItem="DQf-po-YeP" firstAttribute="top" secondItem="bFQ-GS-8vL" secondAttribute="bottom" id="VUj-7c-eOV"/>
                 <constraint firstItem="bFQ-GS-8vL" firstAttribute="leading" secondItem="K0l-zZ-pTS" secondAttribute="leading" id="Zm3-yd-HML"/>
-                <constraint firstItem="ypF-l5-5lk" firstAttribute="top" secondItem="DQf-po-YeP" secondAttribute="bottom" id="aqC-p2-o4o"/>
-                <constraint firstAttribute="trailing" secondItem="ypF-l5-5lk" secondAttribute="trailing" id="njP-nw-PnJ"/>
+                <constraint firstAttribute="trailing" secondItem="ypF-l5-5lk" secondAttribute="trailing" constant="8" id="njP-nw-PnJ"/>
                 <constraint firstItem="jsp-nc-9RZ" firstAttribute="centerY" secondItem="ypF-l5-5lk" secondAttribute="centerY" id="ybe-jF-z8F"/>
                 <constraint firstAttribute="trailing" secondItem="bFQ-GS-8vL" secondAttribute="trailing" id="zEk-7i-HbQ"/>
             </constraints>

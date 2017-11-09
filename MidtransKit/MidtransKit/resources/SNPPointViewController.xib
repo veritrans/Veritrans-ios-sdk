@@ -34,7 +34,7 @@
                     <rect key="frame" x="0.0" y="512" width="320" height="56"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="Lnk-Ys-V9u"/>
+                        <constraint firstAttribute="height" constant="40" id="Lnk-Ys-V9u"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                     <state key="normal" title="Finish Payment"/>
@@ -162,7 +162,7 @@
                     <rect key="frame" x="0.0" y="463" width="320" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hS-WI-qoh">
-                            <rect key="frame" x="15" y="17.5" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="17" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -205,17 +205,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" id="4OQ-cc-I2s"/>
-                <constraint firstItem="d31-MR-59L" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="bottom" constant="-1" id="AiM-G4-Zs2"/>
-                <constraint firstItem="d31-MR-59L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IpG-Ig-wCi"/>
+                <constraint firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" constant="8" id="4OQ-cc-I2s"/>
+                <constraint firstItem="d31-MR-59L" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="bottom" constant="8" id="AiM-G4-Zs2"/>
+                <constraint firstItem="d31-MR-59L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IpG-Ig-wCi"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lk8-XO-S4j"/>
                 <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rnk-zw-dbE"/>
                 <constraint firstItem="ewV-xR-rxD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ScF-5q-gHf"/>
+                <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W4B-OY-OPT"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="top" secondItem="ewV-xR-rxD" secondAttribute="bottom" constant="-3" id="fHa-dU-sJk"/>
                 <constraint firstAttribute="trailing" secondItem="ewV-xR-rxD" secondAttribute="trailing" id="fg3-ov-oJI"/>
-                <constraint firstAttribute="trailing" secondItem="Tp0-jv-NQb" secondAttribute="trailing" id="iqR-0a-PPW"/>
-                <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" id="jI0-bL-5lR"/>
-                <constraint firstItem="Tp0-jv-NQb" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="k9F-9a-9Mq"/>
+                <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" constant="8" id="jI0-bL-5lR"/>
+                <constraint firstAttribute="trailing" secondItem="Tp0-jv-NQb" secondAttribute="trailing" id="xhS-6T-ZgW"/>
             </constraints>
             <connections>
                 <outlet property="finalAmountTextField" destination="FBY-wa-CTh" id="T6q-ZH-C94"/>
@@ -228,7 +228,7 @@
                 <outlet property="totalAmountLabel" destination="3hS-WI-qoh" id="Bn7-tJ-nV1"/>
                 <outlet property="totalAmountPriceLabel" destination="96a-4j-fTn" id="0UG-jg-VSp"/>
             </connections>
-            <point key="canvasLocation" x="-177" y="-68.5"/>
+            <point key="canvasLocation" x="-177" y="-69"/>
         </view>
     </objects>
     <resources>

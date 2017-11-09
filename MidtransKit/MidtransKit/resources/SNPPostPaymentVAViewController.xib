@@ -32,14 +32,14 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-84-F0O">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgi-C0-gbw" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="612" width="375" height="56"/>
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="khV-dQ-c1H"/>
+                        <constraint firstAttribute="height" constant="40" id="khV-dQ-c1H"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="FINISH PAYMENT"/>
@@ -48,7 +48,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJb-M5-yYW" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="567" width="375" height="45"/>
+                    <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-JC-0iG">
                             <rect key="frame" x="313" y="13.5" width="42" height="20"/>
@@ -88,13 +88,14 @@
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="sgi-C0-gbw" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="bottom" id="0Rn-Tv-oVT"/>
-                <constraint firstAttribute="trailing" secondItem="sgi-C0-gbw" secondAttribute="trailing" id="Mek-t0-WoE"/>
+                <constraint firstItem="sgi-C0-gbw" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="bottom" constant="8" id="0Rn-Tv-oVT"/>
+                <constraint firstAttribute="trailing" secondItem="sgi-C0-gbw" secondAttribute="trailing" constant="8" id="Mek-t0-WoE"/>
                 <constraint firstAttribute="trailing" secondItem="aZJ-84-F0O" secondAttribute="trailing" id="ScQ-Sq-vqm"/>
                 <constraint firstItem="aZJ-84-F0O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ssy-YE-adr"/>
                 <constraint firstItem="aZJ-84-F0O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wos-bo-L77"/>
@@ -102,8 +103,8 @@
                 <constraint firstItem="cJb-M5-yYW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dPQ-HY-IiA"/>
                 <constraint firstItem="aZJ-84-F0O" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fPk-W1-GkG"/>
                 <constraint firstItem="cJb-M5-yYW" firstAttribute="top" secondItem="aZJ-84-F0O" secondAttribute="bottom" constant="7" id="jVO-bf-cgX"/>
-                <constraint firstItem="sgi-C0-gbw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l1i-Qq-iny"/>
-                <constraint firstAttribute="bottom" secondItem="sgi-C0-gbw" secondAttribute="bottom" constant="-1" id="qlE-2O-hhS"/>
+                <constraint firstItem="sgi-C0-gbw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="l1i-Qq-iny"/>
+                <constraint firstAttribute="bottom" secondItem="sgi-C0-gbw" secondAttribute="bottom" constant="8" id="qlE-2O-hhS"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>

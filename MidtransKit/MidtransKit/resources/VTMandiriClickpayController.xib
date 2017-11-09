@@ -56,10 +56,10 @@
                     </userDefinedRuntimeAttributes>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eY7-ae-Avo" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="Ag4-ch-1VU"/>
+                        <constraint firstAttribute="height" constant="40" id="Ag4-ch-1VU"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <state key="normal" title="Confirm Payment"/>
@@ -68,7 +68,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="WA5-E8-aSa">
-                    <rect key="frame" x="352" y="632" width="8" height="13"/>
+                    <rect key="frame" x="344" y="632" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="Y0R-FV-Ae6"/>
                         <constraint firstAttribute="width" constant="8" id="qWz-qu-B9t"/>
@@ -141,7 +141,7 @@
                         <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="NO"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
@@ -390,14 +390,14 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="vHu-0q-4bf" firstAttribute="leading" secondItem="3Zx-FN-k1P" secondAttribute="leading" constant="15" id="1MA-si-XC2"/>
-                <constraint firstAttribute="bottom" secondItem="eY7-ae-Avo" secondAttribute="bottom" id="2Dh-Bg-5uQ"/>
+                <constraint firstAttribute="bottom" secondItem="eY7-ae-Avo" secondAttribute="bottom" constant="8" id="2Dh-Bg-5uQ"/>
                 <constraint firstAttribute="trailing" secondItem="43h-IM-N8l" secondAttribute="trailing" id="3EQ-aJ-KjY"/>
                 <constraint firstItem="WA5-E8-aSa" firstAttribute="trailing" secondItem="eY7-ae-Avo" secondAttribute="trailing" constant="-15" id="4By-kP-hAO"/>
-                <constraint firstItem="eY7-ae-Avo" firstAttribute="top" secondItem="421-1G-YEy" secondAttribute="bottom" id="A4h-yj-Vb9"/>
+                <constraint firstItem="eY7-ae-Avo" firstAttribute="top" secondItem="421-1G-YEy" secondAttribute="bottom" constant="8" id="A4h-yj-Vb9"/>
                 <constraint firstItem="43h-IM-N8l" firstAttribute="top" secondItem="3Zx-FN-k1P" secondAttribute="top" constant="2" id="Abn-iR-XSC"/>
-                <constraint firstItem="eY7-ae-Avo" firstAttribute="leading" secondItem="3Zx-FN-k1P" secondAttribute="leading" id="Dz9-z7-KOu"/>
+                <constraint firstItem="eY7-ae-Avo" firstAttribute="leading" secondItem="3Zx-FN-k1P" secondAttribute="leading" constant="8" id="Dz9-z7-KOu"/>
                 <constraint firstItem="rSq-te-9Ca" firstAttribute="leading" secondItem="3Zx-FN-k1P" secondAttribute="leading" constant="15" id="Hzr-Lm-Ra3"/>
-                <constraint firstAttribute="trailing" secondItem="eY7-ae-Avo" secondAttribute="trailing" id="J8b-Mq-U4n"/>
+                <constraint firstAttribute="trailing" secondItem="eY7-ae-Avo" secondAttribute="trailing" constant="8" id="J8b-Mq-U4n"/>
                 <constraint firstItem="Vkx-Iy-OAU" firstAttribute="top" secondItem="9ln-H6-lf0" secondAttribute="bottom" id="Jkm-XV-Y5W"/>
                 <constraint firstAttribute="trailing" secondItem="9ln-H6-lf0" secondAttribute="trailing" id="MZa-11-zLi"/>
                 <constraint firstItem="43h-IM-N8l" firstAttribute="width" secondItem="3Zx-FN-k1P" secondAttribute="width" id="ODd-XE-2AJ"/>

@@ -29,10 +29,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ji7-wl-bXv" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="611" width="375" height="56"/>
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="cUk-xP-PuR"/>
+                        <constraint firstAttribute="height" constant="40" id="cUk-xP-PuR"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                     <state key="normal" title="Complete Payment via XL Tunai"/>
@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ob4-6z-aBy" customClass="MidtransUIButton">
-                    <rect key="frame" x="0.0" y="576" width="375" height="35"/>
+                    <rect key="frame" x="8" y="576" width="359" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="f9R-ng-l6d"/>
                     </constraints>
@@ -59,7 +59,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="vse-cZ-lyF">
-                    <rect key="frame" x="352" y="633" width="8" height="13"/>
+                    <rect key="frame" x="344" y="633" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="bN3-hN-PN8"/>
                         <constraint firstAttribute="width" constant="8" id="cLZ-so-PlO"/>
@@ -258,20 +258,19 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Ji7-wl-bXv" secondAttribute="trailing" id="23b-MT-oio"/>
+                <constraint firstAttribute="trailing" secondItem="Ji7-wl-bXv" secondAttribute="trailing" constant="8" id="23b-MT-oio"/>
                 <constraint firstItem="ffG-xE-dwG" firstAttribute="leading" secondItem="oWu-UC-0Vr" secondAttribute="leading" id="3mF-Ha-8SN"/>
                 <constraint firstAttribute="trailing" secondItem="ffG-xE-dwG" secondAttribute="trailing" id="5GV-7D-JGh"/>
                 <constraint firstItem="fwm-bD-5UG" firstAttribute="leading" secondItem="oWu-UC-0Vr" secondAttribute="leading" id="6uD-jf-OEa"/>
-                <constraint firstItem="Ji7-wl-bXv" firstAttribute="leading" secondItem="oWu-UC-0Vr" secondAttribute="leading" id="7jI-OE-uzm"/>
+                <constraint firstItem="Ji7-wl-bXv" firstAttribute="leading" secondItem="oWu-UC-0Vr" secondAttribute="leading" constant="8" id="7jI-OE-uzm"/>
                 <constraint firstItem="Ob4-6z-aBy" firstAttribute="leading" secondItem="Ji7-wl-bXv" secondAttribute="leading" id="C5h-Nh-emX"/>
                 <constraint firstAttribute="trailing" secondItem="fwm-bD-5UG" secondAttribute="trailing" id="FCX-To-fAh"/>
                 <constraint firstItem="Ob4-6z-aBy" firstAttribute="trailing" secondItem="Ji7-wl-bXv" secondAttribute="trailing" id="Gwn-AU-YZX"/>
-                <constraint firstItem="Ji7-wl-bXv" firstAttribute="top" secondItem="Ob4-6z-aBy" secondAttribute="bottom" id="HDE-TH-VWY"/>
+                <constraint firstItem="Ji7-wl-bXv" firstAttribute="top" secondItem="Ob4-6z-aBy" secondAttribute="bottom" constant="8" id="HDE-TH-VWY"/>
                 <constraint firstItem="vse-cZ-lyF" firstAttribute="centerY" secondItem="Ji7-wl-bXv" secondAttribute="centerY" id="JLA-YX-4xM"/>
                 <constraint firstItem="vse-cZ-lyF" firstAttribute="trailing" secondItem="Ji7-wl-bXv" secondAttribute="trailing" constant="-15" id="JxP-w2-k1j"/>
-                <constraint firstAttribute="bottom" secondItem="Ji7-wl-bXv" secondAttribute="bottom" id="OEa-0d-n3c"/>
+                <constraint firstAttribute="bottom" secondItem="Ji7-wl-bXv" secondAttribute="bottom" constant="8" id="OEa-0d-n3c"/>
                 <constraint firstItem="Ob4-6z-aBy" firstAttribute="top" secondItem="ffG-xE-dwG" secondAttribute="bottom" id="Skj-1E-8km"/>
-                <constraint firstItem="Ji7-wl-bXv" firstAttribute="top" secondItem="Ob4-6z-aBy" secondAttribute="bottom" id="crP-Lu-I6v"/>
                 <constraint firstItem="fwm-bD-5UG" firstAttribute="top" secondItem="oWu-UC-0Vr" secondAttribute="top" id="fcY-6l-mPQ"/>
                 <constraint firstItem="ffG-xE-dwG" firstAttribute="top" secondItem="fwm-bD-5UG" secondAttribute="bottom" id="ktZ-8r-A1O"/>
             </constraints>

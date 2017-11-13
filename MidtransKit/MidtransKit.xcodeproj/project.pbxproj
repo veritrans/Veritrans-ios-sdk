@@ -164,6 +164,8 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
+		3D0E6C341FB95C6100E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
+		3D0E6C351FB95C6300E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
 		3D4089101F74E35800B9A2EC /* en_mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089061F74E35800B9A2EC /* en_mandiri_clickpay.plist */; };
 		3D4089111F74E35800B9A2EC /* en_permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089071F74E35800B9A2EC /* en_permata_va.plist */; };
 		3D4089121F74E35800B9A2EC /* id_bca_klikbca.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089081F74E35800B9A2EC /* id_bca_klikbca.plist */; };
@@ -640,7 +642,6 @@
 		E57124831E9381280064F515 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */; };
 		E57124841E9381290064F515 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */; };
 		E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */; };
-		E57124861E9381290064F515 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB8A1E93702C00ED659D /* SourceSansPro-Semibold.ttf */; };
 		E57124871E9381320064F515 /* MidtransDirectHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB241E93701100ED659D /* MidtransDirectHeader.xib */; };
 		E57124881E9381320064F515 /* MidtransInstallmentCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB251E93701100ED659D /* MidtransInstallmentCollectionViewCell.xib */; };
 		E57124891E9381320064F515 /* MidtransInstallmentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB261E93701100ED659D /* MidtransInstallmentView.xib */; };
@@ -1029,7 +1030,6 @@
 		E5F1BB8C1E93702C00ED659D /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */; };
 		E5F1BB8D1E93702C00ED659D /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */; };
 		E5F1BB8E1E93702C00ED659D /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */; };
-		E5F1BB8F1E93702C00ED659D /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB8A1E93702C00ED659D /* SourceSansPro-Semibold.ttf */; };
 		E5FE449F1E9E2D850088A207 /* VTTapableLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = E5FE449D1E9E2D850088A207 /* VTTapableLabel.h */; };
 		E5FE44A01E9E2D850088A207 /* VTTapableLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5FE449E1E9E2D850088A207 /* VTTapableLabel.m */; };
 /* End PBXBuildFile section */
@@ -1253,6 +1253,7 @@
 		3D4089441F75133200B9A2EC /* prima_preview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prima_preview.png; path = resources/prima_preview.png; sourceTree = "<group>"; };
 		3D4089451F75133200B9A2EC /* prima_preview@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_preview@2x.png"; path = "resources/prima_preview@2x.png"; sourceTree = "<group>"; };
 		3D4089461F75133200B9A2EC /* prima_preview@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_preview@3x.png"; path = "resources/prima_preview@3x.png"; sourceTree = "<group>"; };
+		3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.ttf"; path = "MidtransKit/resources/SourceSansPro-Semibold.ttf"; sourceTree = SOURCE_ROOT; };
 		3D8BF5CD1F90BD8B00F35C55 /* MidtransUITableAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUITableAlertViewController.h; path = classes/MidtransUITableAlertViewController.h; sourceTree = "<group>"; };
 		3D8BF5CE1F90BD8B00F35C55 /* MidtransUITableAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUITableAlertViewController.m; path = classes/MidtransUITableAlertViewController.m; sourceTree = "<group>"; };
 		3D8BF5D31F90BDC400F35C55 /* MidtransUITableAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUITableAlertViewController.xib; path = MidtransKit/classes/MidtransUITableAlertViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -1607,7 +1608,6 @@
 		E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.ttf"; path = "MidtransKit/resources/SourceSansPro-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Light.ttf"; path = "MidtransKit/resources/SourceSansPro-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.ttf"; path = "MidtransKit/resources/SourceSansPro-Regular.ttf"; sourceTree = SOURCE_ROOT; };
-		E5F1BB8A1E93702C00ED659D /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.ttf"; path = "MidtransKit/resources/SourceSansPro-Semibold.ttf"; sourceTree = SOURCE_ROOT; };
 		E5FE449D1E9E2D850088A207 /* VTTapableLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTTapableLabel.h; path = classes/VTTapableLabel.h; sourceTree = "<group>"; };
 		E5FE449E1E9E2D850088A207 /* VTTapableLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTTapableLabel.m; path = classes/VTTapableLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1707,7 +1707,7 @@
 				E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */,
 				E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */,
 				E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */,
-				E5F1BB8A1E93702C00ED659D /* SourceSansPro-Semibold.ttf */,
+				3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */,
 			);
 			name = Font;
 			path = ../MidtransResources;
@@ -3083,6 +3083,7 @@
 				E58FCD8B1E94CFD500632085 /* Amex@2x.png in Resources */,
 				E57124B01E9381320064F515 /* VTSubGuideController.xib in Resources */,
 				E58FCE5F1E94CFD600632085 /* permata_atm_6@2x.png in Resources */,
+				3D0E6C341FB95C6100E6CC43 /* SourceSansPro-Semibold.ttf in Resources */,
 				0CE1D2961F67A0C8003A012F /* MidtransNewCreditCardViewController.xib in Resources */,
 				E57124B11E9381320064F515 /* VTPaymentStatusController.xib in Resources */,
 				E519C96B1E9B6F2000EF70DF /* bni_va3@2x.png in Resources */,
@@ -3160,7 +3161,6 @@
 				E58FCD8F1E94CFD500632085 /* anz.png in Resources */,
 				E58FCDFD1E94CFD500632085 /* logo@2x.png in Resources */,
 				E58FCE291E94CFD600632085 /* other_alto_3@2x.png in Resources */,
-				E57124861E9381290064F515 /* SourceSansPro-Semibold.ttf in Resources */,
 				E58FCE8F1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
 				E559763D1EA71B760044342A /* pending@2x.png in Resources */,
@@ -3389,7 +3389,6 @@
 				3DECDFE71F9DAE610001AC9A /* download@2x.png in Resources */,
 				E5F1BB821E93701100ED659D /* VTVASuccessStatusController.xib in Resources */,
 				0CC900431F7028C50058E93C /* id_virtualAccount.plist in Resources */,
-				E5F1BB8F1E93702C00ED659D /* SourceSansPro-Semibold.ttf in Resources */,
 				3D4089221F74E43200B9A2EC /* id_bca_klikpay.plist in Resources */,
 				3D40893E1F75130300B9A2EC /* alto_preview.png in Resources */,
 				E58FCD921E94CFD500632085 /* back@2x.png in Resources */,
@@ -3406,6 +3405,7 @@
 				E5F1BB811E93701100ED659D /* VTVAListController.xib in Resources */,
 				0CC900371F70244D0058E93C /* id_bri_epay.plist in Resources */,
 				E58FCE861E94CFD600632085 /* visa-mastercard-jcb.png in Resources */,
+				3D0E6C351FB95C6300E6CC43 /* SourceSansPro-Semibold.ttf in Resources */,
 				E5F1BB8E1E93702C00ED659D /* SourceSansPro-Regular.ttf in Resources */,
 				0CC9002F1F7021FF0058E93C /* en_xl_tunai.plist in Resources */,
 				E58FCDC01E94CFD500632085 /* checkbox_checked@2x.png in Resources */,
@@ -3746,6 +3746,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_BITCODE = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3764,7 +3765,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -3798,6 +3799,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -3824,6 +3826,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
@@ -3839,6 +3842,7 @@
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PUBLIC_HEADERS_FOLDER_PATH = "include/$(PROJECT_NAME)";
@@ -3855,10 +3859,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = NO;
 				DEVELOPMENT_TEAM = G92YEQF267;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MidtransKitResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "$(inherited)";
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKitResources;
 				PRODUCT_NAME = MidtransKit;
 				SDKROOT = iphoneos;
@@ -3876,10 +3884,13 @@
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = NO;
 				DEVELOPMENT_TEAM = G92YEQF267;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MidtransKitResources/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				ONLY_ACTIVE_ARCH = YES;
+				"OTHER_LDFLAGS[arch=*]" = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKitResources;
 				PRODUCT_NAME = MidtransKit;
 				SDKROOT = iphoneos;
@@ -3905,6 +3916,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -3931,6 +3943,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

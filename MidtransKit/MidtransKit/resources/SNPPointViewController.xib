@@ -164,13 +164,13 @@
                             <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="96a-4j-fTn">
-                            <rect key="frame" x="259" y="0.0" width="41" height="50"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96a-4j-fTn">
+                            <rect key="frame" x="239" y="0.0" width="41" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="3Fs-Zx-qcx">
-                            <rect key="frame" x="302" y="17.5" width="15" height="15"/>
+                            <rect key="frame" x="290" y="17.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="Qbo-1p-waT"/>
                                 <constraint firstAttribute="width" constant="15" id="VqT-J7-vzZ"/>
@@ -181,9 +181,9 @@
                     <constraints>
                         <constraint firstItem="3Fs-Zx-qcx" firstAttribute="centerY" secondItem="Tp0-jv-NQb" secondAttribute="centerY" id="Ae5-Un-m0F"/>
                         <constraint firstAttribute="height" constant="50" id="GGw-nK-EJf"/>
-                        <constraint firstAttribute="trailing" secondItem="3Fs-Zx-qcx" secondAttribute="trailing" constant="3" id="LIU-f1-ZYp"/>
+                        <constraint firstAttribute="trailing" secondItem="3Fs-Zx-qcx" secondAttribute="trailing" constant="15" id="LIU-f1-ZYp"/>
                         <constraint firstItem="96a-4j-fTn" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="top" id="Ygz-tj-z5u"/>
-                        <constraint firstAttribute="trailing" secondItem="96a-4j-fTn" secondAttribute="trailing" constant="20" id="ZSs-KI-wwR"/>
+                        <constraint firstAttribute="trailing" secondItem="96a-4j-fTn" secondAttribute="trailing" constant="40" id="ZSs-KI-wwR"/>
                         <constraint firstItem="3hS-WI-qoh" firstAttribute="centerY" secondItem="96a-4j-fTn" secondAttribute="centerY" id="mcS-nA-lY6"/>
                         <constraint firstItem="3hS-WI-qoh" firstAttribute="leading" secondItem="Tp0-jv-NQb" secondAttribute="leading" constant="15" id="pNX-Fz-GjA"/>
                         <constraint firstItem="96a-4j-fTn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="3hS-WI-qoh" secondAttribute="trailing" constant="8" id="tpm-cy-B82"/>

@@ -15,6 +15,8 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
+
 @interface MidtransPaymentGCIViewController () <UITextFieldDelegate,MidtransUICardFormatterDelegate>
 @property (strong, nonatomic) IBOutlet MidtransPaymentGCIView *view;
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
@@ -39,6 +41,7 @@
     [self.view.confirmButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

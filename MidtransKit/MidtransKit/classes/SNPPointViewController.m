@@ -14,6 +14,8 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
+
 @interface SNPPointViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet SNPPointView *view;
 @property (nonatomic,strong) NSString *creditCardToken;
@@ -85,9 +87,9 @@
             [self hideLoading];
         }
     }];
-    
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

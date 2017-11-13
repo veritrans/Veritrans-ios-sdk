@@ -52,13 +52,13 @@
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-08-1kx">
-                            <rect key="frame" x="348.33333333333331" y="0.0" width="40.666666666666686" height="50"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-08-1kx">
+                            <rect key="frame" x="330.66666666666669" y="0.0" width="43.333333333333314" height="50"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="XOO-e2-kal">
-                            <rect key="frame" x="394" y="15" width="20" height="20"/>
+                            <rect key="frame" x="379" y="15" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="20" id="UU3-JG-TeD"/>
                                 <constraint firstAttribute="width" constant="20" id="c9l-1f-P5r"/>
@@ -68,9 +68,9 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="XOO-e2-kal" firstAttribute="centerY" secondItem="K39-0u-IJj" secondAttribute="centerY" id="5Jd-eh-CLv"/>
-                        <constraint firstAttribute="trailing" secondItem="XOO-e2-kal" secondAttribute="trailing" id="82V-0q-TTF"/>
+                        <constraint firstAttribute="trailing" secondItem="XOO-e2-kal" secondAttribute="trailing" constant="15" id="82V-0q-TTF"/>
                         <constraint firstItem="l67-Ku-WeL" firstAttribute="centerY" secondItem="9Xe-08-1kx" secondAttribute="centerY" id="Pwa-7l-a6P"/>
-                        <constraint firstAttribute="trailing" secondItem="9Xe-08-1kx" secondAttribute="trailing" constant="25" id="TGE-sZ-ZdU"/>
+                        <constraint firstAttribute="trailing" secondItem="9Xe-08-1kx" secondAttribute="trailing" constant="40" id="TGE-sZ-ZdU"/>
                         <constraint firstAttribute="bottom" secondItem="9Xe-08-1kx" secondAttribute="bottom" id="gFc-zv-2Qn"/>
                         <constraint firstItem="l67-Ku-WeL" firstAttribute="leading" secondItem="K39-0u-IJj" secondAttribute="leading" constant="15" id="lew-RP-kdq"/>
                         <constraint firstItem="9Xe-08-1kx" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="top" id="mOU-1f-WZe"/>

@@ -69,7 +69,7 @@
                     <rect key="frame" x="0.0" y="521" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kwn-Q0-eSx">
-                            <rect key="frame" x="313" y="13.5" width="42" height="20"/>
+                            <rect key="frame" x="293" y="13.5" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -81,7 +81,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="eMh-fA-VtA">
-                            <rect key="frame" x="357" y="14.5" width="15" height="15"/>
+                            <rect key="frame" x="345" y="14.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="4MD-d3-O04"/>
                                 <constraint firstAttribute="width" constant="15" id="AHc-AY-oac"/>
@@ -93,9 +93,9 @@
                         <constraint firstItem="bFb-1I-nvz" firstAttribute="leading" secondItem="qr2-Lo-cXi" secondAttribute="leading" constant="15" id="5ME-pK-tkZ"/>
                         <constraint firstAttribute="height" constant="45" id="Cno-Xk-t5J"/>
                         <constraint firstItem="eMh-fA-VtA" firstAttribute="centerY" secondItem="qr2-Lo-cXi" secondAttribute="centerY" id="Fjh-BV-XHL"/>
-                        <constraint firstAttribute="trailing" secondItem="eMh-fA-VtA" secondAttribute="trailing" constant="3" id="Kdp-7j-Ndd"/>
+                        <constraint firstAttribute="trailing" secondItem="eMh-fA-VtA" secondAttribute="trailing" constant="15" id="Kdp-7j-Ndd"/>
                         <constraint firstItem="bFb-1I-nvz" firstAttribute="centerY" secondItem="qr2-Lo-cXi" secondAttribute="centerY" id="SXz-UA-q0x"/>
-                        <constraint firstAttribute="trailing" secondItem="Kwn-Q0-eSx" secondAttribute="trailing" constant="20" id="TrP-Gg-U8I"/>
+                        <constraint firstAttribute="trailing" secondItem="Kwn-Q0-eSx" secondAttribute="trailing" constant="40" id="TrP-Gg-U8I"/>
                         <constraint firstItem="Kwn-Q0-eSx" firstAttribute="centerY" secondItem="qr2-Lo-cXi" secondAttribute="centerY" id="aWO-vz-r6v"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

@@ -48,13 +48,13 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2h-AK-Sd3">
-                            <rect key="frame" x="258" y="0.0" width="42" height="45"/>
+                            <rect key="frame" x="238" y="0.0" width="42" height="45"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="ABc-FH-MPR">
-                            <rect key="frame" x="302" y="14.5" width="15" height="15"/>
+                            <rect key="frame" x="290" y="14.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="2B7-OQ-Pjy"/>
                                 <constraint firstAttribute="height" constant="15" id="KSA-mQ-7Ud"/>
@@ -66,8 +66,8 @@
                         <constraint firstAttribute="bottom" secondItem="Pk5-Ct-ZE0" secondAttribute="bottom" id="C1b-IL-lf5"/>
                         <constraint firstItem="B2h-AK-Sd3" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="Fge-sw-lac"/>
                         <constraint firstItem="Pk5-Ct-ZE0" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="Pml-sG-XcP"/>
-                        <constraint firstAttribute="trailing" secondItem="B2h-AK-Sd3" secondAttribute="trailing" constant="20" id="Zmg-nc-Luy"/>
-                        <constraint firstAttribute="trailing" secondItem="ABc-FH-MPR" secondAttribute="trailing" constant="3" id="cML-Iz-dUd"/>
+                        <constraint firstAttribute="trailing" secondItem="B2h-AK-Sd3" secondAttribute="trailing" constant="40" id="Zmg-nc-Luy"/>
+                        <constraint firstAttribute="trailing" secondItem="ABc-FH-MPR" secondAttribute="trailing" constant="15" id="cML-Iz-dUd"/>
                         <constraint firstItem="ABc-FH-MPR" firstAttribute="centerY" secondItem="qte-DI-uap" secondAttribute="centerY" id="fDK-62-QMp"/>
                         <constraint firstAttribute="bottom" secondItem="B2h-AK-Sd3" secondAttribute="bottom" id="gi3-eL-8am"/>
                         <constraint firstItem="Pk5-Ct-ZE0" firstAttribute="leading" secondItem="qte-DI-uap" secondAttribute="leading" constant="15" id="qnu-7O-2DZ"/>

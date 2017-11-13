@@ -16,6 +16,8 @@
 #import "VTSubGuideController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
+
 static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
@@ -84,6 +86,7 @@ static NSString* const ClickpayAPPLI = @"3";
     self.ccFormatter.numberLimit = 16;
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.amountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

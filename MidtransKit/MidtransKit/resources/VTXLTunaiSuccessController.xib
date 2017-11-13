@@ -12,6 +12,9 @@
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTXLTunaiSuccessController">
@@ -34,7 +37,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="cUk-xP-PuR"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                     <state key="normal" title="Complete Payment via XL Tunai"/>
                     <connections>
                         <action selector="finishPressed:" destination="-1" eventType="touchUpInside" id="SVm-Jn-97p"/>

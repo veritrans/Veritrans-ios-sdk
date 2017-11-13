@@ -14,6 +14,7 @@
 #import "MidtransVAViewController.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
@@ -62,6 +63,7 @@
     }
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

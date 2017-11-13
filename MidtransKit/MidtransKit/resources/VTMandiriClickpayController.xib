@@ -105,7 +105,7 @@
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOs-9y-6eQ">
-                            <rect key="frame" x="313" y="13.5" width="42" height="20"/>
+                            <rect key="frame" x="293" y="13.5" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -117,7 +117,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="xLv-lQ-WlF">
-                            <rect key="frame" x="357" y="15" width="15" height="15"/>
+                            <rect key="frame" x="345" y="15" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="8uT-gQ-YAh"/>
                                 <constraint firstAttribute="width" constant="15" id="yDY-cr-Htd"/>
@@ -126,10 +126,10 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="lOs-9y-6eQ" secondAttribute="trailing" constant="20" id="0Zr-Im-Fbx"/>
+                        <constraint firstAttribute="trailing" secondItem="lOs-9y-6eQ" secondAttribute="trailing" constant="40" id="0Zr-Im-Fbx"/>
                         <constraint firstItem="xLv-lQ-WlF" firstAttribute="centerY" secondItem="421-1G-YEy" secondAttribute="centerY" id="5PX-nb-wZq"/>
                         <constraint firstAttribute="height" constant="45" id="Dgh-xq-hAm"/>
-                        <constraint firstAttribute="trailing" secondItem="xLv-lQ-WlF" secondAttribute="trailing" constant="3" id="Dhx-fl-76A"/>
+                        <constraint firstAttribute="trailing" secondItem="xLv-lQ-WlF" secondAttribute="trailing" constant="15" id="Dhx-fl-76A"/>
                         <constraint firstItem="lOs-9y-6eQ" firstAttribute="centerY" secondItem="421-1G-YEy" secondAttribute="centerY" id="LNM-f9-OhY"/>
                         <constraint firstItem="MEt-wf-obH" firstAttribute="centerY" secondItem="421-1G-YEy" secondAttribute="centerY" id="izL-En-5cf"/>
                         <constraint firstItem="MEt-wf-obH" firstAttribute="leading" secondItem="421-1G-YEy" secondAttribute="leading" constant="15" id="rXu-Zo-DaH"/>

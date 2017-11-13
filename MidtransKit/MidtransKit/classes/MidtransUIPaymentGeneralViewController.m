@@ -15,6 +15,7 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransUINextStepButton.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransUIPaymentGeneralViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentGeneralView *view;
@@ -63,6 +64,7 @@
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

@@ -48,7 +48,7 @@
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-8u-zU8">
-                            <rect key="frame" x="313" y="13.5" width="42" height="20"/>
+                            <rect key="frame" x="293" y="13" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -60,7 +60,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="Gpe-Dq-rTQ">
-                            <rect key="frame" x="357" y="15" width="15" height="15"/>
+                            <rect key="frame" x="345" y="15" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="PPZ-9s-SC2"/>
                                 <constraint firstAttribute="height" constant="15" id="v4Q-BX-GnM"/>
@@ -69,9 +69,9 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="Gpe-Dq-rTQ" secondAttribute="trailing" constant="3" id="Hy6-br-Tqd"/>
+                        <constraint firstAttribute="trailing" secondItem="Gpe-Dq-rTQ" secondAttribute="trailing" constant="15" id="Hy6-br-Tqd"/>
                         <constraint firstAttribute="height" constant="45" id="dQo-bt-Ydk"/>
-                        <constraint firstAttribute="trailing" secondItem="cZV-8u-zU8" secondAttribute="trailing" constant="20" id="noY-pV-ffJ"/>
+                        <constraint firstAttribute="trailing" secondItem="cZV-8u-zU8" secondAttribute="trailing" constant="40" id="noY-pV-ffJ"/>
                         <constraint firstItem="QBs-HF-cHt" firstAttribute="leading" secondItem="erp-2z-2Fc" secondAttribute="leading" constant="15" id="pAe-2M-8HM"/>
                         <constraint firstItem="QBs-HF-cHt" firstAttribute="centerY" secondItem="erp-2z-2Fc" secondAttribute="centerY" id="rsG-MS-0eT"/>
                         <constraint firstItem="cZV-8u-zU8" firstAttribute="centerY" secondItem="erp-2z-2Fc" secondAttribute="centerY" id="wq5-cJ-WYF"/>

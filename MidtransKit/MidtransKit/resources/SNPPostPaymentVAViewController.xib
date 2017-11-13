@@ -51,8 +51,8 @@
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-JC-0iG">
-                            <rect key="frame" x="313" y="13.5" width="42" height="20"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <rect key="frame" x="293" y="0.0" width="42" height="45"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -63,7 +63,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-5K-vdc">
-                            <rect key="frame" x="357" y="14.5" width="15" height="15"/>
+                            <rect key="frame" x="345" y="14.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="15" id="78s-JM-E3L"/>
                                 <constraint firstAttribute="width" constant="15" id="dMu-k5-w3v"/>
@@ -72,13 +72,15 @@
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="MQT-JC-0iG" secondAttribute="bottom" id="7zH-7l-yje"/>
+                        <constraint firstItem="MQT-JC-0iG" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="top" id="DH9-nQ-hSO"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="leading" secondItem="cJb-M5-yYW" secondAttribute="leading" constant="15" id="Fns-q3-Y54"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="Rzj-o8-QMF"/>
-                        <constraint firstAttribute="trailing" secondItem="I3b-5K-vdc" secondAttribute="trailing" constant="3" id="g1g-oy-QAV"/>
+                        <constraint firstAttribute="trailing" secondItem="I3b-5K-vdc" secondAttribute="trailing" constant="15" id="g1g-oy-QAV"/>
                         <constraint firstAttribute="height" constant="45" id="rc6-BX-R73"/>
                         <constraint firstItem="I3b-5K-vdc" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="uW3-ro-402"/>
                         <constraint firstItem="MQT-JC-0iG" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="wrl-HV-CeF"/>
-                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="20" id="xXh-1N-TKK"/>
+                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="40" id="xXh-1N-TKK"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">

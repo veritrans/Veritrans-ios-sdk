@@ -241,12 +241,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8I-cU7">
-                            <rect key="frame" x="291" y="13" width="9" height="20"/>
+                            <rect key="frame" x="271" y="12.5" width="9" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZXa-It-cnI">
-                            <rect key="frame" x="302" y="14.5" width="15" height="15"/>
+                            <rect key="frame" x="290" y="14.5" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="HRv-Pd-YcW"/>
                                 <constraint firstAttribute="height" constant="15" id="apJ-9m-RdS"/>
@@ -257,10 +257,10 @@
                     <constraints>
                         <constraint firstItem="89S-8I-cU7" firstAttribute="centerY" secondItem="m7b-l4-Xll" secondAttribute="centerY" id="JYI-V0-qkk"/>
                         <constraint firstAttribute="height" constant="44" id="NTb-WE-uif"/>
-                        <constraint firstAttribute="trailing" secondItem="89S-8I-cU7" secondAttribute="trailing" constant="20" id="ZQl-Pi-iO0"/>
+                        <constraint firstAttribute="trailing" secondItem="89S-8I-cU7" secondAttribute="trailing" constant="40" id="ZQl-Pi-iO0"/>
                         <constraint firstItem="ZXa-It-cnI" firstAttribute="centerY" secondItem="m7b-l4-Xll" secondAttribute="centerY" id="k9q-jp-ycM"/>
                         <constraint firstItem="G5o-vj-Rom" firstAttribute="leading" secondItem="m7b-l4-Xll" secondAttribute="leading" constant="15" id="nmL-MP-Bd5"/>
-                        <constraint firstAttribute="trailing" secondItem="ZXa-It-cnI" secondAttribute="trailing" constant="3" id="qlU-RH-ada"/>
+                        <constraint firstAttribute="trailing" secondItem="ZXa-It-cnI" secondAttribute="trailing" constant="15" id="qlU-RH-ada"/>
                         <constraint firstItem="G5o-vj-Rom" firstAttribute="centerY" secondItem="m7b-l4-Xll" secondAttribute="centerY" id="xPj-5e-s2R"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

@@ -170,7 +170,7 @@ be used for every transactions.</string>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5HZ-Kh-Feo">
-                            <rect key="frame" x="258" y="13.5" width="42" height="20"/>
+                            <rect key="frame" x="238" y="13.5" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -183,7 +183,7 @@ be used for every transactions.</string>
                             </constraints>
                         </view>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="z1i-OJ-u19">
-                            <rect key="frame" x="302" y="15" width="15" height="15"/>
+                            <rect key="frame" x="290" y="15" width="15" height="15"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="15" id="Yuo-mY-5kx"/>
                                 <constraint firstAttribute="height" constant="15" id="rcw-eI-EOa"/>
@@ -200,8 +200,8 @@ be used for every transactions.</string>
                         <constraint firstAttribute="height" constant="45" id="XDs-Fd-w3v"/>
                         <constraint firstAttribute="trailing" secondItem="mGP-kc-oMz" secondAttribute="trailing" id="eCa-gz-1dV"/>
                         <constraint firstItem="5HZ-Kh-Feo" firstAttribute="centerY" secondItem="kMz-eb-pIV" secondAttribute="centerY" id="g3N-Ou-EPr"/>
-                        <constraint firstAttribute="trailing" secondItem="z1i-OJ-u19" secondAttribute="trailing" constant="3" id="gN3-sp-9c6"/>
-                        <constraint firstAttribute="trailing" secondItem="5HZ-Kh-Feo" secondAttribute="trailing" constant="20" id="ldR-Yn-TL9"/>
+                        <constraint firstAttribute="trailing" secondItem="z1i-OJ-u19" secondAttribute="trailing" constant="15" id="gN3-sp-9c6"/>
+                        <constraint firstAttribute="trailing" secondItem="5HZ-Kh-Feo" secondAttribute="trailing" constant="40" id="ldR-Yn-TL9"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">

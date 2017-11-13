@@ -17,6 +17,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 @interface SNPPostPaymentVAViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *mainInstructions;
@@ -128,6 +129,7 @@
     self.tableView.tableFooterView = self.footerView;
     [self selectTabAtIndex:0];
     
+    self.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 }

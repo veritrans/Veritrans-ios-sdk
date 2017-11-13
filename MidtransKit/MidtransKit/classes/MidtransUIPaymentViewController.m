@@ -103,7 +103,7 @@
         badgeImageView.tag =100101;
         badgeImageView.image = image;
         
-//        [currentWindow addSubview:badgeImageView];
+        [currentWindow addSubview:badgeImageView];
     }
     self.navigationBar.translucent = false;
     // to remove 1 px border below nav bar

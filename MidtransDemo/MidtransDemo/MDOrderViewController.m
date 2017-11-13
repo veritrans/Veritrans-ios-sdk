@@ -47,12 +47,13 @@
            merchantServerURL:merchantServer];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
 
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
-    CC_CONFIG.secure3DEnabled =YES;
+    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
+    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
@@ -69,6 +70,7 @@
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
+    CONFIG.customBCASubcompanyCode = @"55555";
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
     

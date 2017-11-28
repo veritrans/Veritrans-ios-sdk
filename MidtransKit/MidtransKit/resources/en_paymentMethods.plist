@@ -268,5 +268,19 @@
 		<key>shortName</key>
 		<string>danamon online</string>
 	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>GO-PAY</string>
+		<key>description</key>
+		<string>Pay with GO-PAY</string>
+		<key>id</key>
+		<string>gopay</string>
+		<key>identifier</key>
+		<string>gopay</string>
+		<key>shortName</key>
+		<string>gopay</string>
+	</dict>
 </array>
 </plist>

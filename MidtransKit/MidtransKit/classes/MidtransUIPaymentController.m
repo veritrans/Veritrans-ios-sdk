@@ -312,7 +312,7 @@
     }
 }
 -(void)showToastInviewWithMessage:(NSString *)message {
-    [MidtransUIToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:message?message:@"Copied to clipboard" duration:1.5 containerView:self.view];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "MidtransUIListCell.h"
 #import "VTPaymentHeader.h"
+#import "MidGopayViewController.h"
 #import "VTVAListController.h"
 #import "VTMandiriClickpayController.h"
 #import "MidtransUIPaymentGeneralViewController.h"
@@ -124,7 +125,7 @@
                                                    @"shortName":@"atm transfer",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
-            
+             
              NSArray *paymentAvailable = response.enabledPayments;
              if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
@@ -323,6 +324,11 @@
                                                                            paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+        MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [midGopayVC showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     }
     else {
         MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];

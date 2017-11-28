@@ -25,6 +25,16 @@
 		0C1B35DC1ED6B3A7003F6806 /* SNPFreeTextPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */; };
 		0C1B35DD1ED6B3A7003F6806 /* SNPFreeTextResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C1B35DE1ED6B3A7003F6806 /* SNPFreeTextResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */; };
+		0C313E141FCD2BE90074366F /* MIDGOPAYDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C313E111FCD2BD20074366F /* MIDGOPAYDataModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C313E151FCD2BE90074366F /* MIDGOPAYResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C313E121FCD2BD20074366F /* MIDGOPAYResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C313E161FCD2BE90074366F /* MIDGOPAYResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C313E131FCD2BD20074366F /* MIDGOPAYResponse.m */; };
+		0C313E171FCD2BEA0074366F /* MIDGOPAYDataModels.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C313E111FCD2BD20074366F /* MIDGOPAYDataModels.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C313E181FCD2BEA0074366F /* MIDGOPAYResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C313E121FCD2BD20074366F /* MIDGOPAYResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C313E191FCD2BEA0074366F /* MIDGOPAYResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C313E131FCD2BD20074366F /* MIDGOPAYResponse.m */; };
+		0C313E1C1FCD2C5A0074366F /* MidtransPaymentGOPAY.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C313E1A1FCD2C5A0074366F /* MidtransPaymentGOPAY.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C313E1D1FCD2C5A0074366F /* MidtransPaymentGOPAY.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C313E1A1FCD2C5A0074366F /* MidtransPaymentGOPAY.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0C313E1E1FCD2C5A0074366F /* MidtransPaymentGOPAY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C313E1B1FCD2C5A0074366F /* MidtransPaymentGOPAY.m */; };
+		0C313E1F1FCD2C5A0074366F /* MidtransPaymentGOPAY.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C313E1B1FCD2C5A0074366F /* MidtransPaymentGOPAY.m */; };
 		0C50726D1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C50726E1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0C50726F1F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */; };
@@ -366,6 +376,11 @@
 		0C1B35CA1ED6B106003F6806 /* SNPFreeTextPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextPayment.m; sourceTree = "<group>"; };
 		0C1B35CB1ED6B106003F6806 /* SNPFreeTextResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPFreeTextResponse.h; sourceTree = "<group>"; };
 		0C1B35CC1ED6B106003F6806 /* SNPFreeTextResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPFreeTextResponse.m; sourceTree = "<group>"; };
+		0C313E111FCD2BD20074366F /* MIDGOPAYDataModels.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDGOPAYDataModels.h; sourceTree = "<group>"; };
+		0C313E121FCD2BD20074366F /* MIDGOPAYResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDGOPAYResponse.h; sourceTree = "<group>"; };
+		0C313E131FCD2BD20074366F /* MIDGOPAYResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDGOPAYResponse.m; sourceTree = "<group>"; };
+		0C313E1A1FCD2C5A0074366F /* MidtransPaymentGOPAY.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentGOPAY.h; sourceTree = "<group>"; };
+		0C313E1B1FCD2C5A0074366F /* MidtransPaymentGOPAY.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentGOPAY.m; sourceTree = "<group>"; };
 		0C50726B1F8C88A0008F4339 /* SNPErrorLogManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SNPErrorLogManager.h; sourceTree = "<group>"; };
 		0C50726C1F8C88A0008F4339 /* SNPErrorLogManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNPErrorLogManager.m; sourceTree = "<group>"; };
 		0C5072711F8CAE9C008F4339 /* NSString+MidtransValidation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "NSString+MidtransValidation.m"; path = "MidtransCoreKit/NSString+MidtransValidation.m"; sourceTree = "<group>"; };
@@ -506,6 +521,7 @@
 		006DB7B51D3DE279001C9A71 /* Snap */ = {
 			isa = PBXGroup;
 			children = (
+				0C313E101FCD2BD20074366F /* Gopay */,
 				0C1B35C31ED6B106003F6806 /* Free Text */,
 				0CF74F341E6EB5D2006C0393 /* Point */,
 				0C43B4F21E0BC022000A583C /* BIN */,
@@ -618,6 +634,16 @@
 			path = "Free Text";
 			sourceTree = "<group>";
 		};
+		0C313E101FCD2BD20074366F /* Gopay */ = {
+			isa = PBXGroup;
+			children = (
+				0C313E111FCD2BD20074366F /* MIDGOPAYDataModels.h */,
+				0C313E121FCD2BD20074366F /* MIDGOPAYResponse.h */,
+				0C313E131FCD2BD20074366F /* MIDGOPAYResponse.m */,
+			);
+			path = Gopay;
+			sourceTree = "<group>";
+		};
 		0C43B4F21E0BC022000A583C /* BIN */ = {
 			isa = PBXGroup;
 			children = (
@@ -717,6 +743,8 @@
 				0CD7EA991E03D0820036C187 /* MIdtransPaymentGCI.m */,
 				0C9324361F7B76E800D9A390 /* MidtransPaymentDanamonOnline.h */,
 				0C9324371F7B76E800D9A390 /* MidtransPaymentDanamonOnline.m */,
+				0C313E1A1FCD2C5A0074366F /* MidtransPaymentGOPAY.h */,
+				0C313E1B1FCD2C5A0074366F /* MidtransPaymentGOPAY.m */,
 			);
 			name = Payment;
 			sourceTree = "<group>";
@@ -843,10 +871,12 @@
 				0C93243B1F7B76FA00D9A390 /* MidtransPaymentDanamonOnline.h in Headers */,
 				E57120511E937A790064F515 /* MidtransHelper.h in Headers */,
 				E57120521E937A790064F515 /* MidtransNetworking.h in Headers */,
+				0C313E1D1FCD2C5A0074366F /* MidtransPaymentGOPAY.h in Headers */,
 				E57120531E937A790064F515 /* MidtransNetworkOperation.h in Headers */,
 				E57120541E937A790064F515 /* MidtransNetworkLogger.h in Headers */,
 				E57120551E937A790064F515 /* MidtransDeviceHelper.h in Headers */,
 				E57120561E937A790064F515 /* Midtrans3DSController.h in Headers */,
+				0C313E171FCD2BEA0074366F /* MIDGOPAYDataModels.h in Headers */,
 				E57120571E937A790064F515 /* MidtransPaymentWebController.h in Headers */,
 				E57120581E937A790064F515 /* SNPPointDataModels.h in Headers */,
 				E57120591E937A790064F515 /* SNPPointResponse.h in Headers */,
@@ -856,6 +886,7 @@
 				E571205D1E937A790064F515 /* MidtransPromo.h in Headers */,
 				E571205E1E937A790064F515 /* MidtransPaymentRequestV2Installment.h in Headers */,
 				E57120601E937A790064F515 /* MidtransPaymentRequestV2Terms.h in Headers */,
+				0C313E181FCD2BEA0074366F /* MIDGOPAYResponse.h in Headers */,
 				E57120611E937A790064F515 /* MidtransPaymentRequestV2SavedTokens.h in Headers */,
 				E57120621E937A790064F515 /* MidtransPaymentRequestV2BillingAddress.h in Headers */,
 				0C50726E1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */,
@@ -929,10 +960,12 @@
 				0C9324381F7B76E900D9A390 /* MidtransPaymentDanamonOnline.h in Headers */,
 				E55F63541E934C4700C012C8 /* MidtransConstant.h in Headers */,
 				E55F63551E934C4700C012C8 /* MidtransImageManager.h in Headers */,
+				0C313E1C1FCD2C5A0074366F /* MidtransPaymentGOPAY.h in Headers */,
 				E55F63561E934C4700C012C8 /* MidtransCreditCardHelper.h in Headers */,
 				E55F63571E934C4700C012C8 /* MidtransLuhn.h in Headers */,
 				E55F63581E934C4700C012C8 /* MidtransEnvironment.h in Headers */,
 				E55F63591E934C4700C012C8 /* MidtransConfig.h in Headers */,
+				0C313E141FCD2BE90074366F /* MIDGOPAYDataModels.h in Headers */,
 				E55F635A1E934C4700C012C8 /* MidtransPrivateConfig.h in Headers */,
 				E55F635B1E934C4700C012C8 /* MidtransCreditCardConfig.h in Headers */,
 				E55F635C1E934C4700C012C8 /* MidtransHelper.h in Headers */,
@@ -942,6 +975,7 @@
 				E55F63601E934C4700C012C8 /* MidtransDeviceHelper.h in Headers */,
 				E55F63611E934C4700C012C8 /* Midtrans3DSController.h in Headers */,
 				E55F63621E934C4700C012C8 /* MidtransPaymentWebController.h in Headers */,
+				0C313E151FCD2BE90074366F /* MIDGOPAYResponse.h in Headers */,
 				E55F63681E934C4700C012C8 /* MidtransPromo.h in Headers */,
 				E55F63691E934C4700C012C8 /* MidtransPaymentRequestV2Installment.h in Headers */,
 				0C50726D1F8C88A0008F4339 /* SNPErrorLogManager.h in Headers */,
@@ -1111,6 +1145,7 @@
 				E57120101E937A2B0064F515 /* SNPPointResponse.m in Sources */,
 				E57120111E937A2B0064F515 /* MidtransBinResponse.m in Sources */,
 				E57120121E937A2B0064F515 /* MidtransTransactionExpire.m in Sources */,
+				0C313E191FCD2BEA0074366F /* MIDGOPAYResponse.m in Sources */,
 				E57120131E937A2B0064F515 /* MidtransPromo.m in Sources */,
 				E57120141E937A2B0064F515 /* MidtransPaymentRequestV2Installment.m in Sources */,
 				E57120161E937A2C0064F515 /* MidtransPaymentRequestV2Terms.m in Sources */,
@@ -1155,6 +1190,7 @@
 				E571203A1E937A2C0064F515 /* MidtransPaymentTelkomselCash.m in Sources */,
 				E571203B1E937A2C0064F515 /* MidtransPaymentXLTunai.m in Sources */,
 				E571203C1E937A2C0064F515 /* MidtransPaymentIndosatDompetku.m in Sources */,
+				0C313E1F1FCD2C5A0074366F /* MidtransPaymentGOPAY.m in Sources */,
 				E571203D1E937A2C0064F515 /* MidtransPaymentKiosOn.m in Sources */,
 				E571203E1E937A2C0064F515 /* MIdtransPaymentGCI.m in Sources */,
 				E571203F1E937A2C0064F515 /* MidtransMerchantClient.m in Sources */,
@@ -1188,6 +1224,7 @@
 				E55F63A91E934C6400C012C8 /* MidtransPaymentWebController.m in Sources */,
 				E5711FF81E9379B90064F515 /* MidtransPaymentListModel.m in Sources */,
 				E55F63AD1E934C6400C012C8 /* MidtransPromo.m in Sources */,
+				0C313E161FCD2BE90074366F /* MIDGOPAYResponse.m in Sources */,
 				E55F63AE1E934C6400C012C8 /* MidtransPaymentRequestV2Installment.m in Sources */,
 				E55F63B01E934C6400C012C8 /* MidtransPaymentRequestV2Terms.m in Sources */,
 				E55F63B11E934C6400C012C8 /* MidtransPaymentRequestV2SavedTokens.m in Sources */,
@@ -1232,6 +1269,7 @@
 				E55F63D61E934C6400C012C8 /* MidtransPaymentIndosatDompetku.m in Sources */,
 				E55F63D71E934C6400C012C8 /* MidtransPaymentKiosOn.m in Sources */,
 				E55F63D81E934C6400C012C8 /* MIdtransPaymentGCI.m in Sources */,
+				0C313E1E1FCD2C5A0074366F /* MidtransPaymentGOPAY.m in Sources */,
 				E5711FF41E9379950064F515 /* SNPPointResponse.m in Sources */,
 				E55F63D91E934C6400C012C8 /* MidtransMerchantClient.m in Sources */,
 				E57120001E937A030064F515 /* MidtransTransactionExpire.m in Sources */,
@@ -1414,7 +1452,7 @@
 				);
 				INFOPLIST_FILE = MidtransCoreKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1448,7 +1486,7 @@
 				);
 				INFOPLIST_FILE = MidtransCoreKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

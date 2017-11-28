@@ -36,6 +36,7 @@ static NSString * const CREDIT_CARD_TYPE_VISA    = @"Visa";
  */
 static NSString * const MIDTRANS_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
 static NSString * const MIDTRANS_PAYMENT_KLIK_BCA = @"bca_klikbca";
+static NSString * const MIDTRANS_PAYMENT_GOPAY = @"gopay";
 static NSString * const MIDTRANS_PAYMENT_INDOMARET = @"indomaret";
 static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const MIDTRANS_PAYMENT_DANAMON_ONLINE = @"danamon_online";

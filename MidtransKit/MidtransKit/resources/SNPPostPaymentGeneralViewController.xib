@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -52,25 +52,34 @@
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXg-rB-5CU">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
+                            <rect key="frame" x="293" y="13.5" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y3N-5x-Vzl">
-                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="gg1-eE-MNx">
+                            <rect key="frame" x="345" y="15.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="ae8-Ai-AUK"/>
+                                <constraint firstAttribute="height" constant="15" id="c6I-Tn-hWA"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="trailing" secondItem="bXg-rB-5CU" secondAttribute="trailing" constant="15" id="2Ed-1E-KXV"/>
+                        <constraint firstAttribute="trailing" secondItem="bXg-rB-5CU" secondAttribute="trailing" constant="40" id="2Ed-1E-KXV"/>
                         <constraint firstItem="bXg-rB-5CU" firstAttribute="centerY" secondItem="s4F-bM-mvq" secondAttribute="centerY" id="Cua-RY-ief"/>
                         <constraint firstItem="Y3N-5x-Vzl" firstAttribute="centerY" secondItem="s4F-bM-mvq" secondAttribute="centerY" id="F0k-2p-zie"/>
+                        <constraint firstAttribute="trailing" secondItem="gg1-eE-MNx" secondAttribute="trailing" constant="15" id="FR3-lE-xxK"/>
                         <constraint firstItem="Y3N-5x-Vzl" firstAttribute="leading" secondItem="s4F-bM-mvq" secondAttribute="leading" constant="15" id="GmP-W9-aHt"/>
                         <constraint firstAttribute="height" constant="45" id="e7X-nA-GvD"/>
+                        <constraint firstItem="gg1-eE-MNx" firstAttribute="centerY" secondItem="bXg-rB-5CU" secondAttribute="centerY" id="uly-F9-JT7"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -101,9 +110,13 @@
             <connections>
                 <outlet property="finishPaymentButton" destination="cav-Dr-p3x" id="vEe-IE-tVL"/>
                 <outlet property="tableView" destination="QLe-sD-jYO" id="8jR-oV-fcq"/>
+                <outlet property="totalAmountBorderedView" destination="s4F-bM-mvq" id="uYF-7r-qpg"/>
                 <outlet property="totalAmountLabel" destination="bXg-rB-5CU" id="Ixh-Mo-6r9"/>
             </connections>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

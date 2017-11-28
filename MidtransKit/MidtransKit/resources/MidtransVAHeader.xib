@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -36,7 +36,7 @@
                         </userDefinedRuntimeAttributes>
                     </textField>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gR6-sh-JnL">
-                        <rect key="frame" x="15" y="290" width="345" height="31"/>
+                        <rect key="frame" x="15" y="287.5" width="345" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="tND-wI-0du"/>
                         </constraints>
@@ -46,28 +46,28 @@
                         </segments>
                     </segmentedControl>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="We will also send the payment instruction to your email" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tbu-mz-S8H">
-                        <rect key="frame" x="15" y="56" width="345" height="218"/>
+                        <rect key="frame" x="15" y="56" width="345" height="215.5"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIR-WH-ZYP">
-                        <rect key="frame" x="15" y="470.5" width="345" height="19"/>
+                        <rect key="frame" x="15" y="472" width="345" height="17.5"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZV-aq-b2w">
-                        <rect key="frame" x="0.0" y="419.5" width="375" height="40"/>
+                        <rect key="frame" x="8" y="417" width="375" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS charges may be applied for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iP-jf-PY7">
-                                <rect key="frame" x="53.5" y="12.5" width="269.5" height="15.5"/>
+                                <rect key="frame" x="42" y="14" width="292.5" height="14"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                 <color key="textColor" red="0.36862745099999999" green="0.32156862749999998" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sms.png" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-Kp-AGq">
-                                <rect key="frame" x="29.5" y="10" width="20" height="20"/>
+                                <rect key="frame" x="18" y="10" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Z4u-0S-Up7"/>
                                     <constraint firstAttribute="height" constant="20" id="oLC-8o-kLU"/>
@@ -85,7 +85,7 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bayar melalui semua bank ATM berlogo Prima" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ut2-Ps-drI">
-                        <rect key="frame" x="16" y="327.5" width="343" height="84"/>
+                        <rect key="frame" x="24" y="325" width="327" height="84"/>
                         <color key="backgroundColor" red="0.96522830310880825" green="0.96522830310880825" blue="0.96522830310880825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="84" id="SFb-Lz-Dh9"/>
@@ -95,13 +95,13 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bersama_preview.png" translatesAutoresizingMaskIntoConstraints="NO" id="0Bs-05-PwO">
-                        <rect key="frame" x="20" y="331.5" width="335" height="24"/>
+                        <rect key="frame" x="28" y="329" width="319" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="ZU3-8F-HcI"/>
                         </constraints>
                     </imageView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iFh-Zu-uCe">
-                        <rect key="frame" x="107" y="383.5" width="162" height="24"/>
+                        <rect key="frame" x="107" y="381" width="162" height="24"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="24" id="6e0-oE-Ebk"/>
                             <constraint firstAttribute="width" constant="162" id="Ngf-XK-jOX"/>

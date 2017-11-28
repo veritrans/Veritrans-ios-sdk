@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -17,6 +17,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTVAListController">
             <connections>
                 <outlet property="tableView" destination="QzD-tQ-HgG" id="LAT-8w-3g9"/>
+                <outlet property="totalAmountBorderedView" destination="qte-DI-uap" id="xgc-vp-LoZ"/>
                 <outlet property="totalAmountLabel" destination="B2h-AK-Sd3" id="Z9x-a2-gec"/>
                 <outlet property="totalAmountTextLabel" destination="Pk5-Ct-ZE0" id="aWZ-Kb-Dad"/>
                 <outlet property="view" destination="KiP-We-xFP" id="Go9-m2-geL"/>
@@ -41,24 +42,33 @@
                     <rect key="frame" x="0.0" y="523" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pk5-Ct-ZE0">
-                            <rect key="frame" x="15" y="0.0" width="73.5" height="45"/>
+                            <rect key="frame" x="15" y="0.0" width="77" height="45"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2h-AK-Sd3">
-                            <rect key="frame" x="265.5" y="0.0" width="39.5" height="45"/>
+                            <rect key="frame" x="238" y="0.0" width="42" height="45"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="ABc-FH-MPR">
+                            <rect key="frame" x="290" y="14.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="2B7-OQ-Pjy"/>
+                                <constraint firstAttribute="height" constant="15" id="KSA-mQ-7Ud"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="Pk5-Ct-ZE0" secondAttribute="bottom" id="C1b-IL-lf5"/>
                         <constraint firstItem="B2h-AK-Sd3" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="Fge-sw-lac"/>
                         <constraint firstItem="Pk5-Ct-ZE0" firstAttribute="top" secondItem="qte-DI-uap" secondAttribute="top" id="Pml-sG-XcP"/>
-                        <constraint firstAttribute="trailing" secondItem="B2h-AK-Sd3" secondAttribute="trailing" constant="15" id="Zmg-nc-Luy"/>
+                        <constraint firstAttribute="trailing" secondItem="B2h-AK-Sd3" secondAttribute="trailing" constant="40" id="Zmg-nc-Luy"/>
+                        <constraint firstAttribute="trailing" secondItem="ABc-FH-MPR" secondAttribute="trailing" constant="15" id="cML-Iz-dUd"/>
+                        <constraint firstItem="ABc-FH-MPR" firstAttribute="centerY" secondItem="qte-DI-uap" secondAttribute="centerY" id="fDK-62-QMp"/>
                         <constraint firstAttribute="bottom" secondItem="B2h-AK-Sd3" secondAttribute="bottom" id="gi3-eL-8am"/>
                         <constraint firstItem="Pk5-Ct-ZE0" firstAttribute="leading" secondItem="qte-DI-uap" secondAttribute="leading" constant="15" id="qnu-7O-2DZ"/>
                         <constraint firstAttribute="height" constant="45" id="quk-WX-xJS"/>
@@ -86,4 +96,7 @@
             </constraints>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

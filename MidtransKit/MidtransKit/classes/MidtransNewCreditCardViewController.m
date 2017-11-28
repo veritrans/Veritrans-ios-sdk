@@ -22,6 +22,9 @@
 #import "MidtransUITextField.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransCreditCardAddOnComponentCell.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransNewCreditCardViewController () <
 UITableViewDelegate,
@@ -197,6 +200,13 @@ UIAlertViewDelegate
     [self.view.creditCardNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardCVVNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardExpireTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountPrice.textColor = [[MidtransUIThemeManager shared] themeColor];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (IBAction)scanCardTapped:(id)sender {
     

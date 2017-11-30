@@ -7,9 +7,16 @@
 //
 
 #import "MIDGopayView.h"
-
+#import "VTClassHelper.h"
+#import "MidtransUINextStepButton.h"
 @implementation MIDGopayView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"confirm.payment"] forState:UIControlStateNormal];
+      self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
+    [self.installGojekButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"install.gojek"] forState:UIControlStateNormal];
+}
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.

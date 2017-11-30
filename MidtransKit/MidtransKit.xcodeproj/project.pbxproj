@@ -234,6 +234,8 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
+		0CF5EC411FCFF931006CC5FC /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5EC3E1FCFF930006CC5FC /* reload.png */; };
+		0CF5EC421FCFF931006CC5FC /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CF5EC3E1FCFF930006CC5FC /* reload.png */; };
 		3D4089101F74E35800B9A2EC /* en_mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089061F74E35800B9A2EC /* en_mandiri_clickpay.plist */; };
 		3D4089111F74E35800B9A2EC /* en_permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089071F74E35800B9A2EC /* en_permata_va.plist */; };
 		3D4089121F74E35800B9A2EC /* id_bca_klikbca.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089081F74E35800B9A2EC /* id_bca_klikbca.plist */; };
@@ -1296,6 +1298,7 @@
 		0CEF032A1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPostPaymentFooter.h; path = classes/SNPPostPaymentFooter.h; sourceTree = "<group>"; };
 		0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPostPaymentFooter.m; path = classes/SNPPostPaymentFooter.m; sourceTree = "<group>"; };
 		0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentFooter.xib; path = MidtransKit/resources/SNPPostPaymentFooter.xib; sourceTree = SOURCE_ROOT; };
+		0CF5EC3E1FCFF930006CC5FC /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
 		0CF74F221E6E847B006C0393 /* SNPPointViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPointViewController.h; path = classes/SNPPointViewController.h; sourceTree = "<group>"; };
 		0CF74F231E6E847B006C0393 /* SNPPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPointViewController.m; path = classes/SNPPointViewController.m; sourceTree = "<group>"; };
 		0CF74F271E6E8531006C0393 /* SNPPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPointView.h; path = classes/SNPPointView.h; sourceTree = "<group>"; };
@@ -1901,6 +1904,7 @@
 		0C638CAC1FC801B400787163 /* gopay */ = {
 			isa = PBXGroup;
 			children = (
+				0CF5EC3E1FCFF930006CC5FC /* reload.png */,
 				0CE180571FCBCA3900F7D5B2 /* gojek_icon.png */,
 				0CE1804B1FCBCA3700F7D5B2 /* gojek_icon@2x.png */,
 				0CE180481FCBCA3600F7D5B2 /* gojek_icon@3x.png */,
@@ -3093,6 +3097,7 @@
 				E58FCDD91E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
 				E58FCE611E94CFD600632085 /* permata_atm_7@2x.png in Resources */,
 				E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */,
+				0CF5EC421FCFF931006CC5FC /* reload.png in Resources */,
 				E58FCDA71E94CFD500632085 /* bca_klikpay@2x.png in Resources */,
 				0CE180721FCBCA4200F7D5B2 /* ic_chevron_down@3x.png in Resources */,
 				3DECDFE81F9DAE610001AC9A /* download@2x.png in Resources */,
@@ -3483,6 +3488,7 @@
 				0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
 				0CE1D2A21F67B861003A012F /* visa-mastercard-amex-seal@2x.png in Resources */,
 				E58FCE501E94CFD600632085 /* padlock1@2x.png in Resources */,
+				0CF5EC411FCFF931006CC5FC /* reload.png in Resources */,
 				E58FCE3C1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
 				0CC9002B1F70207C0058E93C /* id_telkomsel_cash.plist in Resources */,
 				E5EBC2C51EB0726B00A568D1 /* midtrans_logo_right@2x.png in Resources */,

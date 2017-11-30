@@ -47,7 +47,7 @@
 - (double)timeoutInterval {
     if (_timeoutInterval == 0) {
         //default timeout
-        _timeoutInterval = 20;
+        _timeoutInterval = 1000;
     }
     return _timeoutInterval;
 }

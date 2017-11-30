@@ -4,37 +4,37 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tap `Pay using GO-PAY`</string>
+		<string>Tap ‘Pay using GO-PAY’ </string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>*QR code* will appear on the next page to be scanned.</string>
+		<string>‘QR Code’ will appear on the next page to be scanned.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>B *GO-JEK* app on your mobile phone</string>
+		<string>Open ‘GO-JEK’ app on your mobile phone</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Buka *Scan QR*, then point your camera phone to the *QR Code*</string>
+		<string>Open ‘Scan QR‘, then point your camera phone to the ‘QR Code’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Check your payment details in *GO-JEK* app and then tap *Pay*</string>
+		<string>Check your payment details in ‘GO-JEK’ app and then tap ‘Pay’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Your transaction is done</string>
+		<string>Your transaction is ‘Done’</string>
 		<key>image</key>
 		<string></string>
 	</dict>

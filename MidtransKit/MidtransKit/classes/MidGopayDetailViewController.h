@@ -7,6 +7,7 @@
 //
 
 #import "MidtransUIPaymentController.h"
-
+@class MidtransTransactionResult;
 @interface MidGopayDetailViewController : MidtransUIPaymentController
+@property (nonatomic,strong) MidtransTransactionResult *result;
 @end

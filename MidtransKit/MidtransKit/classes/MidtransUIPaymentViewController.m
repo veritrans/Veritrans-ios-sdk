@@ -38,6 +38,9 @@
         case MidtransPaymentFeatureCreditCard:
             paymentMethodSelected = MIDTRANS_PAYMENT_CREDIT_CARD;
             break;
+        case MidtransPaymentFeatureGOPAY:
+            paymentMethodSelected = MIDTRANS_PAYMENT_GOPAY;
+            break;
         case MidtransPaymentFeatureBankTransfer:
             paymentMethodSelected = MIDTRANS_PAYMENT_BANK_TRANSFER;
             break;

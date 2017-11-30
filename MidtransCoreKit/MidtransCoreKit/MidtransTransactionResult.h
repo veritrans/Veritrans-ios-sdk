@@ -84,7 +84,8 @@
 @property (nonatomic, readonly) NSString *virtualAccountNumber;
 
 @property (nonatomic, readonly) NSURL *redirectURL;
-
+@property (nonatomic,readonly) NSURL *qr_code_url;
+@property (nonatomic,readonly) NSURL *deeplink_url;
 
 ///---------------------
 /// @name Initialization

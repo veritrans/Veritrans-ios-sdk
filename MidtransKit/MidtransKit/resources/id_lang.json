@@ -108,5 +108,6 @@
     "Key token device is required for this payment method":"Perangkat token key dibutuhkan untuk cara pembayaran ini.",
     "confirm.payment":"Konfirmasi Pembayaran",
     "Please complete payment before: %@":"Silakan menyelesaikan pembayaran sebelum :",
-    "download.instruction":"Unduh Instruksi Pembayaran"
+    "download.instruction":"Unduh Instruksi Pembayaran",
+     "install.gojek":"Install aplikasi GO-JEK dari Appstore"
 }

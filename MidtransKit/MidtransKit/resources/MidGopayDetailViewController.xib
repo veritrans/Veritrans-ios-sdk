@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,18 +34,21 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
                     <state key="normal" title="Pay using GO-PAY"/>
+                    <connections>
+                        <action selector="finishButtonDidTapped:" destination="-1" eventType="touchUpInside" id="y6b-EI-nRb"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CbO-1M-yj4" customClass="MIdtransUIBorderedView">
                     <rect key="frame" x="0.0" y="560" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zke-ZV-m4d">
-                            <rect key="frame" x="15" y="17" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="17.5" width="77" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jet-ja-d2u">
-                            <rect key="frame" x="324.5" y="0.0" width="35.5" height="50"/>
+                            <rect key="frame" x="319" y="0.0" width="41" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -75,13 +78,14 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gopay.png" translatesAutoresizingMaskIntoConstraints="NO" id="KKg-t2-xRZ">
-                            <rect key="frame" x="67" y="240" width="240" height="80"/>
+                            <rect key="frame" x="67" y="120" width="240" height="80"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="80" id="ayz-3l-b4g"/>
+                                <constraint firstAttribute="width" constant="240" id="Zwy-tE-oQz"/>
+                                <constraint firstAttribute="height" constant="80" id="wVz-ph-25f"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Pay using GO-PAy to continue payment in GO-JEK app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nte-RP-673">
-                            <rect key="frame" x="83.5" y="340" width="208" height="64.5"/>
+                            <rect key="frame" x="83.5" y="220" width="208" height="59.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="208" id="5cj-nD-EU0"/>
                             </constraints>
@@ -92,39 +96,44 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstItem="Nte-RP-673" firstAttribute="top" secondItem="KKg-t2-xRZ" secondAttribute="bottom" constant="20" id="BiS-ZU-584"/>
+                        <constraint firstItem="Nte-RP-673" firstAttribute="top" secondItem="KKg-t2-xRZ" secondAttribute="bottom" constant="20" id="2Tg-Kz-eFl"/>
                         <constraint firstItem="Nte-RP-673" firstAttribute="centerX" secondItem="uwC-Bl-Ft4" secondAttribute="centerX" id="OSu-aG-nwh"/>
-                        <constraint firstItem="KKg-t2-xRZ" firstAttribute="centerY" secondItem="uwC-Bl-Ft4" secondAttribute="centerY" id="e2P-Pq-FIN"/>
-                        <constraint firstItem="KKg-t2-xRZ" firstAttribute="leading" secondItem="uwC-Bl-Ft4" secondAttribute="leading" constant="67" id="kXW-wC-mdK"/>
-                        <constraint firstAttribute="trailing" secondItem="KKg-t2-xRZ" secondAttribute="trailing" constant="68" id="wB3-EP-DnJ"/>
+                        <constraint firstItem="KKg-t2-xRZ" firstAttribute="centerX" secondItem="uwC-Bl-Ft4" secondAttribute="centerX" id="rlz-Jl-IEC"/>
+                        <constraint firstItem="KKg-t2-xRZ" firstAttribute="top" secondItem="uwC-Bl-Ft4" secondAttribute="top" constant="120" id="v4i-f4-tc1"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-TF-eqz">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfj-Oi-AQy">
-                            <rect key="frame" x="87" y="55" width="200" height="200"/>
+                            <rect key="frame" x="37" y="55" width="300" height="300"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="200" id="C2e-wk-VMf"/>
-                                <constraint firstAttribute="width" constant="200" id="tRl-iU-RSl"/>
+                                <constraint firstAttribute="height" constant="300" id="C2e-wk-VMf"/>
                             </constraints>
                         </imageView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyR-vH-YJy">
-                            <rect key="frame" x="87" y="55" width="200" height="200"/>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyR-vH-YJy">
+                            <rect key="frame" x="37" y="55" width="300" height="300"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="200" id="Sa5-Yx-aa2"/>
-                                <constraint firstAttribute="height" constant="200" id="Xgp-bN-Lvj"/>
+                                <constraint firstAttribute="width" constant="300" id="Sa5-Yx-aa2"/>
                             </constraints>
-                            <state key="normal" title="Reload"/>
+                            <state key="normal" image="reload.png"/>
                             <connections>
                                 <action selector="qrcodeReloadDidTapped:" destination="-1" eventType="touchUpInside" id="eTV-52-3Jg"/>
                             </connections>
                         </button>
+                        <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kiy-Hc-fVM">
+                            <rect key="frame" x="0.0" y="363" width="375" height="197"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="width" secondItem="xfj-Oi-AQy" secondAttribute="width" id="3n0-SC-tNV"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="top" secondItem="jo2-TF-eqz" secondAttribute="top" constant="55" id="LYD-mr-ce1"/>
+                        <constraint firstItem="Kiy-Hc-fVM" firstAttribute="leading" secondItem="jo2-TF-eqz" secondAttribute="leading" id="S19-sB-uSJ"/>
+                        <constraint firstAttribute="bottom" secondItem="Kiy-Hc-fVM" secondAttribute="bottom" id="TP3-Tt-OPq"/>
+                        <constraint firstItem="Kiy-Hc-fVM" firstAttribute="top" secondItem="DyR-vH-YJy" secondAttribute="bottom" constant="8" id="hni-U8-JmP"/>
+                        <constraint firstAttribute="trailing" secondItem="Kiy-Hc-fVM" secondAttribute="trailing" id="kUG-xj-fdN"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="height" secondItem="xfj-Oi-AQy" secondAttribute="height" id="nsA-7U-0t0"/>
                         <constraint firstItem="xfj-Oi-AQy" firstAttribute="top" secondItem="jo2-TF-eqz" secondAttribute="top" constant="55" id="uTV-Yj-duH"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="centerX" secondItem="jo2-TF-eqz" secondAttribute="centerX" id="vYY-6t-mX9"/>
@@ -158,6 +167,7 @@
                 <outlet property="bottomAmountConstraints" destination="Kl3-4f-Sad" id="dKM-QD-cPB"/>
                 <outlet property="finishPaymentButton" destination="A0x-pu-YaN" id="3zB-V9-OZ5"/>
                 <outlet property="finishPaymentHeightConstraints" destination="w1a-NW-d3T" id="TwA-gz-OeM"/>
+                <outlet property="guideTableView" destination="Kiy-Hc-fVM" id="xHk-0c-EmX"/>
                 <outlet property="qrcodeImage" destination="xfj-Oi-AQy" id="NFm-3n-t1O"/>
                 <outlet property="qrcodeReloadImage" destination="DyR-vH-YJy" id="Pjl-In-ahc"/>
                 <outlet property="qrcodeWrapperView" destination="jo2-TF-eqz" id="Pss-g4-wOo"/>
@@ -171,5 +181,6 @@
     </objects>
     <resources>
         <image name="ic_gopay.png" width="180" height="42"/>
+        <image name="reload.png" width="56" height="56"/>
     </resources>
 </document>

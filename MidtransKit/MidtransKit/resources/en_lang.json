@@ -113,5 +113,6 @@
     "Key token device is required for this payment method" : "Key token device is required for this payment method",
     "confirm.payment" : "Confirm Payment",
     "Please complete payment before: %@" : "Please complete payment before :",
-    "download.instruction" : "Download Instruction"
+    "download.instruction" : "Download Instruction",
+    "install.gojek":"Install GO-JEK app from Appstore"
 }

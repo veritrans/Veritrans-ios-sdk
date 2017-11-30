@@ -49,15 +49,15 @@
 
    
     [self.view.tableView reloadData];
+    
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = @"Pastikan aplikasi GO-JEk terinstall pada HP anda";
+        self.view.topNoticeLabel.text = @"Make sure GO-JEK app is installed on your mobile phone";
     } else {
-    NSURL *gojekUrl = [NSURL URLWithString:@"gojek://"];
+    NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
     if (![[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
         self.view.finishPaymentHeightConstraints.constant =  0.0f;
         self.view.topWrapperView.hidden = NO;
-        self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         self.view.transactionBottomDetailConstraints.constant = 0.0f;
         
     } else {
@@ -87,6 +87,23 @@
    
     
     // Do any additional setup after loading the view from its nib.
+}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 30;
+}
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, tableView.frame.size.width, 18)];
+    /* Create custom view to display section header... */
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
+    [label setFont:[UIFont boldSystemFontOfSize:12]];
+    /* Section header is in 0th index... */
+    [label setText:@"Instructions"];
+    [view addSubview:label];
+    [view setBackgroundColor:[UIColor whiteColor]]; //your background color...
+    return view;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.guides.count;
@@ -122,6 +139,10 @@
         
     }
 }
+- (IBAction)installGOJEKappButtonDidTapped:(id)sender {
+    NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id944875099?mt=8";
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+}
 - (IBAction)finishPaymentButtonDidTapped:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
@@ -131,15 +152,14 @@
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error) {
                                                  [self hideLoading];
-                                                 MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
-                                                 [self.navigationController pushViewController:gopayDetailVC animated:YES];
-//                                                 if (error) {
-//                                                     [self showToastInviewWithMessage:error.description];
-//                                                 }
-//                                                 else {
-//
-//                                                     NSLog(@"result->%@",result);
-//                                                 }
+                                                 if (error || !result) {
+                                                     [self showToastInviewWithMessage:error.description];
+                                                 }
+                                                 else {
+                                                     MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
+                                                     gopayDetailVC.result = result;
+                                                      [self.navigationController pushViewController:gopayDetailVC animated:YES];
+                                                 }
                                              }];
 }
 

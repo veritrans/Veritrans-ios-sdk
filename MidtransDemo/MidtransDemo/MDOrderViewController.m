@@ -42,9 +42,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:clientkey
-                 environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:merchantServer];
+        [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
+                 environment:MidtransServerEnvironmentStaging
+           merchantServerURL:@"https://midtrans-demo.herokuapp.com"];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
@@ -169,7 +169,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureGOPAY];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

@@ -11,6 +11,9 @@
         <array key="HelveticaNeue.ttc">
             <string>HelveticaNeue-Medium</string>
         </array>
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
@@ -77,6 +80,13 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uwC-Bl-Ft4">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                     <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eOU-GM-gWe">
+                            <rect key="frame" x="10" y="92" width="355" height="212"/>
+                            <color key="backgroundColor" red="0.9370916485786438" green="0.93694382905960083" blue="0.95754462480545044" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="212" id="CDW-Ni-gkX"/>
+                            </constraints>
+                        </view>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_gopay.png" translatesAutoresizingMaskIntoConstraints="NO" id="KKg-t2-xRZ">
                             <rect key="frame" x="67" y="120" width="240" height="80"/>
                             <constraints>
@@ -85,7 +95,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap Pay using GO-PAy to continue payment in GO-JEK app." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nte-RP-673">
-                            <rect key="frame" x="83.5" y="220" width="208" height="59.5"/>
+                            <rect key="frame" x="84" y="220" width="208" height="59.5"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="208" id="5cj-nD-EU0"/>
                             </constraints>
@@ -93,16 +103,30 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKK-3c-qrn">
+                            <rect key="frame" x="10" y="92" width="355" height="212"/>
+                            <connections>
+                                <action selector="gopayLogoButtonDidtapped:" destination="-1" eventType="touchUpInside" id="82L-uA-Oxs"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="Nte-RP-673" firstAttribute="top" secondItem="KKg-t2-xRZ" secondAttribute="bottom" constant="20" id="2Tg-Kz-eFl"/>
+                        <constraint firstItem="eOU-GM-gWe" firstAttribute="leading" secondItem="uwC-Bl-Ft4" secondAttribute="leading" constant="10" id="MC7-eD-OWx"/>
                         <constraint firstItem="Nte-RP-673" firstAttribute="centerX" secondItem="uwC-Bl-Ft4" secondAttribute="centerX" id="OSu-aG-nwh"/>
+                        <constraint firstAttribute="trailing" secondItem="eOU-GM-gWe" secondAttribute="trailing" constant="10" id="QPO-4z-VGg"/>
+                        <constraint firstAttribute="trailing" secondItem="YKK-3c-qrn" secondAttribute="trailing" constant="10" id="RoC-FR-UEd"/>
+                        <constraint firstItem="YKK-3c-qrn" firstAttribute="width" secondItem="eOU-GM-gWe" secondAttribute="width" id="WRa-Fl-z1C"/>
+                        <constraint firstItem="YKK-3c-qrn" firstAttribute="bottom" secondItem="eOU-GM-gWe" secondAttribute="bottom" id="YDU-Ob-gwm"/>
+                        <constraint firstItem="YKK-3c-qrn" firstAttribute="leading" secondItem="uwC-Bl-Ft4" secondAttribute="leading" constant="10" id="bBf-5O-axx"/>
+                        <constraint firstItem="YKK-3c-qrn" firstAttribute="height" secondItem="eOU-GM-gWe" secondAttribute="height" id="eWg-uF-7Ib"/>
+                        <constraint firstItem="eOU-GM-gWe" firstAttribute="top" secondItem="uwC-Bl-Ft4" secondAttribute="top" constant="92" id="q6U-pG-kHk"/>
                         <constraint firstItem="KKg-t2-xRZ" firstAttribute="centerX" secondItem="uwC-Bl-Ft4" secondAttribute="centerX" id="rlz-Jl-IEC"/>
                         <constraint firstItem="KKg-t2-xRZ" firstAttribute="top" secondItem="uwC-Bl-Ft4" secondAttribute="top" constant="120" id="v4i-f4-tc1"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-TF-eqz">
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jo2-TF-eqz">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xfj-Oi-AQy">
@@ -122,17 +146,27 @@
                             </connections>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kiy-Hc-fVM">
-                            <rect key="frame" x="0.0" y="363" width="375" height="197"/>
+                            <rect key="frame" x="0.0" y="413" width="375" height="147"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zy-KM-1bR">
+                            <rect key="frame" x="37" y="363" width="300" height="26"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="22"/>
+                            <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="width" secondItem="xfj-Oi-AQy" secondAttribute="width" id="3n0-SC-tNV"/>
+                        <constraint firstItem="9Zy-KM-1bR" firstAttribute="leading" secondItem="jo2-TF-eqz" secondAttribute="leading" constant="37" id="EKu-Bw-Ge8"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="top" secondItem="jo2-TF-eqz" secondAttribute="top" constant="55" id="LYD-mr-ce1"/>
+                        <constraint firstItem="Kiy-Hc-fVM" firstAttribute="top" secondItem="9Zy-KM-1bR" secondAttribute="bottom" constant="24" id="NKi-R9-jsf"/>
                         <constraint firstItem="Kiy-Hc-fVM" firstAttribute="leading" secondItem="jo2-TF-eqz" secondAttribute="leading" id="S19-sB-uSJ"/>
                         <constraint firstAttribute="bottom" secondItem="Kiy-Hc-fVM" secondAttribute="bottom" id="TP3-Tt-OPq"/>
-                        <constraint firstItem="Kiy-Hc-fVM" firstAttribute="top" secondItem="DyR-vH-YJy" secondAttribute="bottom" constant="8" id="hni-U8-JmP"/>
+                        <constraint firstItem="9Zy-KM-1bR" firstAttribute="top" secondItem="xfj-Oi-AQy" secondAttribute="bottom" constant="8" symbolic="YES" id="Tbs-ch-xcb"/>
+                        <constraint firstItem="9Zy-KM-1bR" firstAttribute="leading" secondItem="DyR-vH-YJy" secondAttribute="trailing" constant="-300" id="Tw8-Nc-50L"/>
+                        <constraint firstAttribute="trailing" secondItem="9Zy-KM-1bR" secondAttribute="trailing" constant="38" id="cHt-7H-Xxe"/>
                         <constraint firstAttribute="trailing" secondItem="Kiy-Hc-fVM" secondAttribute="trailing" id="kUG-xj-fdN"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="height" secondItem="xfj-Oi-AQy" secondAttribute="height" id="nsA-7U-0t0"/>
                         <constraint firstItem="xfj-Oi-AQy" firstAttribute="top" secondItem="jo2-TF-eqz" secondAttribute="top" constant="55" id="uTV-Yj-duH"/>
@@ -168,6 +202,7 @@
                 <outlet property="finishPaymentButton" destination="A0x-pu-YaN" id="3zB-V9-OZ5"/>
                 <outlet property="finishPaymentHeightConstraints" destination="w1a-NW-d3T" id="TwA-gz-OeM"/>
                 <outlet property="guideTableView" destination="Kiy-Hc-fVM" id="xHk-0c-EmX"/>
+                <outlet property="merchantName" destination="9Zy-KM-1bR" id="zM7-Mt-ORF"/>
                 <outlet property="qrcodeImage" destination="xfj-Oi-AQy" id="NFm-3n-t1O"/>
                 <outlet property="qrcodeReloadImage" destination="DyR-vH-YJy" id="Pjl-In-ahc"/>
                 <outlet property="qrcodeWrapperView" destination="jo2-TF-eqz" id="Pss-g4-wOo"/>

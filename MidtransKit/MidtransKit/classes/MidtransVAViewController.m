@@ -236,6 +236,9 @@
             dispatch_once(&onceToken, ^{
                 cell = [self.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
             });
+            if(indexPath.row %2 ==0) {
+                 cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+            }
             [cell setInstruction:self.subInstructions[indexPath.row-1] number:indexPath.row];
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }

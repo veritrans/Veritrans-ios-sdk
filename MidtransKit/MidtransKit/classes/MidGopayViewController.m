@@ -111,6 +111,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
+    if(indexPath.row %2 ==0) {
+          cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    }
     if (IPAD && indexPath.row == 4) {
         cell.imageBottomInstruction.hidden = NO;
         cell.bottomImageInstructionsConstraints.constant = 120.0f;

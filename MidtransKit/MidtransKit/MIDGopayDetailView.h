@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class MidtransUINextStepButton,MIdtransUIBorderedView;
 @interface MIDGopayDetailView : UIView
+@property (weak, nonatomic) IBOutlet UILabel *merchantName;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *transactionDetailWrapper;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;
 @property (weak, nonatomic) IBOutlet UIView *topWrapperView;

@@ -183,6 +183,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if (indexPath.row == 0) {
         if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
             return self.headerViewBillPay;
@@ -196,6 +197,9 @@
         return self.footerView;
     }
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
+    if(indexPath.row %2 ==0) {
+         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    }
     [cell setInstruction:self.subInstructions[indexPath.row-1] number:indexPath.row];
     return cell;
 }

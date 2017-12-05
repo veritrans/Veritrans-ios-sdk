@@ -8,6 +8,10 @@
     "name": "Bank Transfer"
   },
  {
+ "type": "gopay",
+ "name": "GO-PAY"
+ },
+ {
  "type": "danamon_online",
  "name": "Danamon Online"
  },
@@ -38,10 +42,6 @@
   {
     "type": "telkomsel_cash",
     "name": "Telkomsel Cash"
-  },
-  {
-    "type": "xl_tunai",
-    "name": "XL Tunai"
   },
   {
     "type": "indomaret",

@@ -17,13 +17,28 @@
 @interface MidGopayDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) NSArray *guides;
 @property (strong, nonatomic) IBOutlet MIDGopayDetailView *view;
+@property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @end
 
 @implementation MidGopayDetailViewController
 @dynamic view;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f,
+                                                                      0.0f,
+                                                                      24.0f,
+                                                                      24.0f)];
+    
+    UIImage *image = [UIImage imageNamed:@"back" inBundle:VTBundle compatibleWithTraitCollection:nil];
+    [backButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
+                forState:UIControlStateNormal];
+    [backButton addTarget:self
+                   action:@selector(backButtonDidTapped:)
+         forControlEvents:UIControlEventTouchUpInside];
+    self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
+     self.navigationItem.leftBarButtonItem = self.backBarButton;
     self.title = @"Pay using GO-PAY";
+    self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.view.guideTableView.tableFooterView = [UIView new];
@@ -59,17 +74,61 @@
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     // Do any additional setup after loading the view.
 }
+- (void)backButtonDidTapped:(id)sender {
+    NSString *title;
+    NSString *content;
+    title = @"Finish Payment";
+    content = @"Make sure payment has been completed within the GO-JEK app.";
+    if (IPAD) {
+        content = @"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.";
+    }
+    UIAlertController *alertController = [UIAlertController
+                                          alertControllerWithTitle:title
+                                          message:content
+                                          preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelAction = [UIAlertAction
+                                   actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel action")
+                                   style:UIAlertActionStyleCancel
+                                   handler:^(UIAlertAction *action)
+                                   {
+                                       NSLog(@"Cancel action");
+                                   }];
+    
+    UIAlertAction *okAction = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                               style:UIAlertActionStyleDefault
+                               handler:^(UIAlertAction *action)
+                               {
+                                   NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+                                   [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+                                   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                               }];
+    
+    [alertController addAction:cancelAction];
+    [alertController addAction:okAction];
+    [self presentViewController:alertController animated:YES completion:nil];
+
+    
+   
+}
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
-    
     if (self.isMovingFromParentViewController || self.isBeingDismissed) {
         NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }
+    
+}
+- (IBAction)gopayLogoButtonDidtapped:(id)sender {
+     [self processCheckOut];
 }
 - (IBAction)finishButtonDidTapped:(id)sender {
+    [self processCheckOut];
+}
+- (void)processCheckOut {
     if (IPAD) {
         NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
@@ -84,7 +143,7 @@
         }
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-       // "gojek://gopay/merchanttransfer?tref=i3VwApFnnG&amount=10000&activity=GP:RR"
+        // "gojek://gopay/merchanttransfer?tref=i3VwApFnnG&amount=10000&activity=GP:RR"
         
     }
 }
@@ -126,6 +185,9 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
+    if(indexPath.row %2 ==0) {
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    }
     if (IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         cell.bottomImageInstructionsConstraints.constant = 120.0f;

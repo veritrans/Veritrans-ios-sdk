@@ -34,6 +34,7 @@
 @property (nonatomic) MidtransLoadingView *loadingView;
 @property (nonatomic) SNPMaintainView *maintainView;
 @property (nonatomic) BOOL dismissButton;
+
 @end
 
 @implementation MidtransUIPaymentController

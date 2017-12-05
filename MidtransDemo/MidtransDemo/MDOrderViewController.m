@@ -42,9 +42,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
+        [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentStaging
-           merchantServerURL:@"https://midtrans-demo.herokuapp.com"];
+           merchantServerURL:merchantServer];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;

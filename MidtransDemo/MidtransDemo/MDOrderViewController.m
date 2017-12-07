@@ -42,9 +42,13 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:clientkey
+//            [CONFIG setClientKey:clientkey
+//                     environment:MidtransServerEnvironmentSandbox
+//               merchantServerURL:merchantServer];
+
+        [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
                  environment:MidtransServerEnvironmentStaging
-           merchantServerURL:merchantServer];
+           merchantServerURL:@"https://midtrans-demo.herokuapp.com/"];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
@@ -95,18 +99,18 @@
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"secureemail_rba1@example.com"
+                                                                                email:@"arie.prasetyo@mailinator.com"
                                                                                 phone:@"123123"
                                                                       shippingAddress:[MidtransAddress new]
                                                                        billingAddress:[MidtransAddress new]];
     cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@501000
+                                                                   price:@25000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:[NSNumber numberWithInt:501000]];
+                                                                           andGrossAmount:[NSNumber numberWithInt:25000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -169,7 +173,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureGOPAY];
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

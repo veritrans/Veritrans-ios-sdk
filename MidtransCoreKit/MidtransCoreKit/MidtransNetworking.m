@@ -112,7 +112,7 @@
                                                            timeoutInterval:[CONFIG timeoutInterval]];
     [request setHTTPMethod:@"DELETE"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:@"mobile" forHTTPHeaderField:@"X-Source"];
+    [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     
     for (NSString *key in [header allKeys]) {
@@ -137,7 +137,7 @@
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request addValue:@"mobile" forHTTPHeaderField:@"X-Source"];
+    [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     
     for (NSString *key in [header allKeys]) {
@@ -176,7 +176,7 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:[CONFIG timeoutInterval]];
-    [request addValue:@"mobile" forHTTPHeaderField:@"X-Source"];
+    [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     
     for (NSString *key in [header allKeys]) {

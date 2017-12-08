@@ -160,20 +160,6 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
-		<string>XL Tunai</string>
-		<key>description</key>
-		<string>Bayar dengan XL Tunai</string>
-		<key>id</key>
-		<string>xl_tunai</string>
-		<key>identifier</key>
-		<string>xl_tunai</string>
-		<key>shortName</key>
-		<string>xl tunai</string>
-	</dict>
-	<dict>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>title</key>
 		<string>Telkomsel Cash</string>
 		<key>description</key>
 		<string>Bayar melalui akun Telkomsel Cash anda</string>

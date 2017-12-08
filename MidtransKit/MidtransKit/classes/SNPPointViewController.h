@@ -10,6 +10,7 @@
 
 @interface SNPPointViewController : MidtransUIPaymentController
 @property (nonatomic,strong)NSString *bankName;
+@property (nonatomic,strong)NSString *redirectURL;
 
 @property (nonatomic, nullable) NSArray <MidtransMaskedCreditCard *>*currentMaskedCards;
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nullable)token

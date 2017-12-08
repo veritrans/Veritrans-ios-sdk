@@ -74,6 +74,24 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     [dataTask resume];
 
 }
+- (void)generateTokenWithSkipping3DS:(MidtransTokenizeRequest *_Nonnull)tokenizeRequest
+                          completion:(void (^_Nullable)(NSDictionary *_Nullable token, NSError *_Nullable error))completion {
+    
+    NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];
+    
+    [[MidtransNetworking shared] getFromURL:URL parameters:[tokenizeRequest dictionaryValue] callback:^(id response, NSError *error) {
+        if (error) {
+            
+            if (completion) completion(nil, error);
+        } else {
+            if (error) {
+                if (completion) completion(nil, error);
+            } else {
+                if (completion) completion(response, error);
+            }
+        }
+    }];
+}
 - (void)generateToken:(MidtransTokenizeRequest *_Nonnull)tokenizeRequest
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion {
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [PRIVATECONFIG baseUrl], GENERATE_TOKEN_URL];

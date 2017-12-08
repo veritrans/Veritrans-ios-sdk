@@ -751,32 +751,32 @@ UIAlertViewDelegate
     }
     if (self.bniPointActive || self.mandiriPointActive) {
         tokenRequest.point = YES;
+        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
+            [self hideLoading];
+            if (error) {
+                
+                [self handleTransactionError:error];
+            } else {
+                SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
+                                                                                  paymentMethod:self.paymentMethod
+                                                                                  tokenizedCard: token[@"token_id"]
+                                                                                      savedCard:self.isSaveCard
+                                                                   andCompleteResponseOfPayment:self.responsePayment];
+                
+                if (self.bniPointActive) {
+                    pointVC.bankName = SNP_CORE_BANK_BNI;
+                }
+                else if (self.mandiriPointActive) {
+                    pointVC.bankName = SNP_CORE_BANK_MANDIRI;
+                }
+                pointVC.redirectURL = token[@"redirect_url"];
+                pointVC.currentMaskedCards = self.currentMaskedCards;
+                [self.navigationController pushViewController:pointVC animated:YES];
+                [self hideLoading];
+            }
+        }];
+        
 
-        [[MidtransClient shared] generateToken:tokenRequest
-                                    completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-                                        if (error) {
-                                            [self hideLoading];
-                                            [self handleTransactionError:error];
-                                        } else {
-                                            SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
-                                                                                                              paymentMethod:self.paymentMethod
-                                                                                                              tokenizedCard:token
-                                                                                                                  savedCard:self.isSaveCard
-                                                                                               andCompleteResponseOfPayment:self.responsePayment];
-                                            
-                                            if (self.bniPointActive) {
-                                                pointVC.bankName = SNP_CORE_BANK_BNI;
-                                            }
-                                            else if (self.mandiriPointActive) {
-                                                pointVC.bankName = SNP_CORE_BANK_MANDIRI;
-                                            }
-                                            pointVC.currentMaskedCards = self.currentMaskedCards;
-                                            [self.navigationController pushViewController:pointVC animated:YES];
-                                            [self hideLoading];
-                                        }
-                                    }];
-        
-        
         return;
     }
     if (self.obtainedPromo) {

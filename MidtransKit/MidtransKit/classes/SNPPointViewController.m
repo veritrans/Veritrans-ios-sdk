@@ -134,6 +134,21 @@
 }
 - (IBAction)submitPaymentWithToken:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+    if (self.redirectURL.length) {
+        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
+                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
+        [secureController showWithCompletion:^(NSError *error) {
+            if (error) {
+                [self handleTransactionError:error];
+            } else {
+                [self executeTransaction];
+            }
+        }];
+    } else {
+        [self executeTransaction];
+    }
+}
+- (void)executeTransaction {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:self.creditCardToken
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard
@@ -186,8 +201,7 @@
                  }
              }
          }
-
+         
      }];
 }
-
 @end

@@ -40,10 +40,6 @@
     "name": "Telkomsel Cash"
   },
   {
-    "type": "xl_tunai",
-    "name": "XL Tunai"
-  },
-  {
     "type": "indomaret",
     "name": "Indomaret"
   },

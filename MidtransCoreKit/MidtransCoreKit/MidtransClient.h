@@ -42,6 +42,11 @@
 - (void)generateToken:(MidtransTokenizeRequest *_Nonnull)tokenizeRequest
            completion:(void (^_Nullable)(NSString *_Nullable token, NSError *_Nullable error))completion;
 
+
+- (void)generateTokenWithSkipping3DS:(MidtransTokenizeRequest *_Nonnull)tokenizeRequest
+           completion:(void (^_Nullable)(NSDictionary *_Nullable token, NSError *_Nullable error))completion;
+
+
 - (void)requestCardBINForInstallmentWithCompletion:(void (^_Nullable)(NSArray *_Nullable binResponse, NSError *_Nullable error))completion;
 
 /**

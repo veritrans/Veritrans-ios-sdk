@@ -40,7 +40,7 @@
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
                        grossAmount:(NSNumber *)grossAmount
                             secure:(BOOL)secure;
-
+- (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard;
 - (instancetype)initWithTwoClickToken:(NSString *)token
                                   cvv:(NSString *)cvv
                           grossAmount:(NSNumber *)grossAmount

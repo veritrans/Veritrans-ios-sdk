@@ -290,7 +290,6 @@
 		E55F62A81E934A6D00C012C8 /* MIdtransUIDetailedTitleController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713171C85816B00AFB7B4 /* MIdtransUIDetailedTitleController.h */; };
 		E55F62A91E934A6D00C012C8 /* MidtransUIXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* MidtransUIXibView.h */; };
 		E55F62AA1E934A6D00C012C8 /* VTAlertBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2BF1C9673B4009AE6AA /* VTAlertBackgroundView.h */; };
-		E55F62AB1E934A6D00C012C8 /* UICollectionView+Empty.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2CF1C969110009AE6AA /* UICollectionView+Empty.h */; };
 		E55F62AC1E934A6D00C012C8 /* MidtransUIHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2D61C96B610009AE6AA /* MidtransUIHudView.h */; };
 		E55F62AD1E934A6D00C012C8 /* VTKeyboardAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */; };
 		E55F62AE1E934A6D00C012C8 /* MidtransUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713241C859EE100AFB7B4 /* MidtransUIButton.h */; };
@@ -381,7 +380,6 @@
 		E55F63091E934B1B00C012C8 /* MIdtransUIDetailedTitleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713181C85816B00AFB7B4 /* MIdtransUIDetailedTitleController.m */; };
 		E55F630A1E934B1B00C012C8 /* MidtransUIXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EF826C1C8C07AF007B6585 /* MidtransUIXibView.m */; };
 		E55F630B1E934B1B00C012C8 /* VTAlertBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2C01C9673B4009AE6AA /* VTAlertBackgroundView.m */; };
-		E55F630C1E934B1B00C012C8 /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */; };
 		E55F630D1E934B1B00C012C8 /* MidtransUIHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D71C96B610009AE6AA /* MidtransUIHudView.m */; };
 		E55F630E1E934B1B00C012C8 /* VTKeyboardAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E546D1D71CEAC91D00D65252 /* VTKeyboardAccessoryView.m */; };
 		E55F630F1E934B1B00C012C8 /* MidtransUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713251C859EE100AFB7B4 /* MidtransUIButton.m */; };
@@ -475,7 +473,6 @@
 		E57120BB1E937B790064F515 /* MIdtransUIDetailedTitleController.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713171C85816B00AFB7B4 /* MIdtransUIDetailedTitleController.h */; };
 		E57120BC1E937B790064F515 /* MidtransUIXibView.h in Headers */ = {isa = PBXBuildFile; fileRef = E5EF826B1C8C07AF007B6585 /* MidtransUIXibView.h */; };
 		E57120BD1E937B790064F515 /* VTAlertBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2BF1C9673B4009AE6AA /* VTAlertBackgroundView.h */; };
-		E57120BE1E937B790064F515 /* UICollectionView+Empty.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2CF1C969110009AE6AA /* UICollectionView+Empty.h */; };
 		E57120BF1E937B790064F515 /* MidtransUIHudView.h in Headers */ = {isa = PBXBuildFile; fileRef = E517C2D61C96B610009AE6AA /* MidtransUIHudView.h */; };
 		E57120C01E937B790064F515 /* VTKeyboardAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */; };
 		E57120C11E937B790064F515 /* MidtransUIButton.h in Headers */ = {isa = PBXBuildFile; fileRef = 30E713241C859EE100AFB7B4 /* MidtransUIButton.h */; };
@@ -569,7 +566,6 @@
 		E57122C51E937C040064F515 /* MIdtransUIDetailedTitleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713181C85816B00AFB7B4 /* MIdtransUIDetailedTitleController.m */; };
 		E57122C61E937C040064F515 /* MidtransUIXibView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EF826C1C8C07AF007B6585 /* MidtransUIXibView.m */; };
 		E57122C71E937C040064F515 /* VTAlertBackgroundView.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2C01C9673B4009AE6AA /* VTAlertBackgroundView.m */; };
-		E57122C81E937C040064F515 /* UICollectionView+Empty.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */; };
 		E57122C91E937C040064F515 /* MidtransUIHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = E517C2D71C96B610009AE6AA /* MidtransUIHudView.m */; };
 		E57122CA1E937C040064F515 /* VTKeyboardAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = E546D1D71CEAC91D00D65252 /* VTKeyboardAccessoryView.m */; };
 		E57122CB1E937C040064F515 /* MidtransUIButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 30E713251C859EE100AFB7B4 /* MidtransUIButton.m */; };
@@ -1291,8 +1287,6 @@
 		E517C2BB1C9672BA009AE6AA /* VTConfirmPaymentController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTConfirmPaymentController.m; path = classes/VTConfirmPaymentController.m; sourceTree = "<group>"; };
 		E517C2BF1C9673B4009AE6AA /* VTAlertBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTAlertBackgroundView.h; path = classes/VTAlertBackgroundView.h; sourceTree = "<group>"; };
 		E517C2C01C9673B4009AE6AA /* VTAlertBackgroundView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTAlertBackgroundView.m; path = classes/VTAlertBackgroundView.m; sourceTree = "<group>"; };
-		E517C2CF1C969110009AE6AA /* UICollectionView+Empty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UICollectionView+Empty.h"; path = "classes/UICollectionView+Empty.h"; sourceTree = "<group>"; };
-		E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UICollectionView+Empty.m"; path = "classes/UICollectionView+Empty.m"; sourceTree = "<group>"; };
 		E517C2D61C96B610009AE6AA /* MidtransUIHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIHudView.h; path = classes/MidtransUIHudView.h; sourceTree = "<group>"; };
 		E517C2D71C96B610009AE6AA /* MidtransUIHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUIHudView.m; path = classes/MidtransUIHudView.m; sourceTree = "<group>"; };
 		E517C2DB1C96C1A2009AE6AA /* PushAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PushAnimator.h; path = classes/PushAnimator.h; sourceTree = "<group>"; };
@@ -1954,8 +1948,6 @@
 				E5EF826C1C8C07AF007B6585 /* MidtransUIXibView.m */,
 				E517C2BF1C9673B4009AE6AA /* VTAlertBackgroundView.h */,
 				E517C2C01C9673B4009AE6AA /* VTAlertBackgroundView.m */,
-				E517C2CF1C969110009AE6AA /* UICollectionView+Empty.h */,
-				E517C2D01C969110009AE6AA /* UICollectionView+Empty.m */,
 				E517C2D61C96B610009AE6AA /* MidtransUIHudView.h */,
 				E517C2D71C96B610009AE6AA /* MidtransUIHudView.m */,
 				E546D1D61CEAC91D00D65252 /* VTKeyboardAccessoryView.h */,
@@ -2550,7 +2542,6 @@
 				E57120BB1E937B790064F515 /* MIdtransUIDetailedTitleController.h in Headers */,
 				E57120BC1E937B790064F515 /* MidtransUIXibView.h in Headers */,
 				E57120BD1E937B790064F515 /* VTAlertBackgroundView.h in Headers */,
-				E57120BE1E937B790064F515 /* UICollectionView+Empty.h in Headers */,
 				E57120BF1E937B790064F515 /* MidtransUIHudView.h in Headers */,
 				E57120C01E937B790064F515 /* VTKeyboardAccessoryView.h in Headers */,
 				E57120C11E937B790064F515 /* MidtransUIButton.h in Headers */,
@@ -2658,7 +2649,6 @@
 				E55F62A81E934A6D00C012C8 /* MIdtransUIDetailedTitleController.h in Headers */,
 				E55F62A91E934A6D00C012C8 /* MidtransUIXibView.h in Headers */,
 				E55F62AA1E934A6D00C012C8 /* VTAlertBackgroundView.h in Headers */,
-				E55F62AB1E934A6D00C012C8 /* UICollectionView+Empty.h in Headers */,
 				E55F62AC1E934A6D00C012C8 /* MidtransUIHudView.h in Headers */,
 				E55F62AD1E934A6D00C012C8 /* VTKeyboardAccessoryView.h in Headers */,
 				E55F62AE1E934A6D00C012C8 /* MidtransUIButton.h in Headers */,
@@ -3512,7 +3502,6 @@
 				E57122C51E937C040064F515 /* MIdtransUIDetailedTitleController.m in Sources */,
 				E57122C61E937C040064F515 /* MidtransUIXibView.m in Sources */,
 				E57122C71E937C040064F515 /* VTAlertBackgroundView.m in Sources */,
-				E57122C81E937C040064F515 /* UICollectionView+Empty.m in Sources */,
 				E57122C91E937C040064F515 /* MidtransUIHudView.m in Sources */,
 				E57122CA1E937C040064F515 /* VTKeyboardAccessoryView.m in Sources */,
 				E57122CB1E937C040064F515 /* MidtransUIButton.m in Sources */,
@@ -3632,7 +3621,6 @@
 				E55F63091E934B1B00C012C8 /* MIdtransUIDetailedTitleController.m in Sources */,
 				E55F630A1E934B1B00C012C8 /* MidtransUIXibView.m in Sources */,
 				E55F630B1E934B1B00C012C8 /* VTAlertBackgroundView.m in Sources */,
-				E55F630C1E934B1B00C012C8 /* UICollectionView+Empty.m in Sources */,
 				E55F630D1E934B1B00C012C8 /* MidtransUIHudView.m in Sources */,
 				E55F630E1E934B1B00C012C8 /* VTKeyboardAccessoryView.m in Sources */,
 				E55F630F1E934B1B00C012C8 /* MidtransUIButton.m in Sources */,

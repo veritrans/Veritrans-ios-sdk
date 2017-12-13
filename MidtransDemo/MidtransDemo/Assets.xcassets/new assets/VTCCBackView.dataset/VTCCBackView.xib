@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G1212" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="OCRAEXT.TTF">
+            <string>OCRAExtended</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTCCBackView">
+            <connections>
+                <outlet property="cvvLabel" destination="AhP-rh-zkE" id="boK-Fn-hKC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="sZZ-1S-OC4">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CreditCardBack.png" translatesAutoresizingMaskIntoConstraints="NO" id="VGG-3e-CqV">
+                    <rect key="frame" x="15" y="10" width="290" height="180"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="290" id="J1i-Hx-XQi"/>
+                        <constraint firstAttribute="height" constant="180" id="VXM-4z-Mfp"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="XXX" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AhP-rh-zkE">
+                    <rect key="frame" x="247" y="104" width="43" height="26"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="26" id="6od-00-YVx"/>
+                        <constraint firstAttribute="width" constant="43" id="IOv-vp-NZz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="OCRAExtended" family="OCR A Extended" pointSize="18"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="VGG-3e-CqV" firstAttribute="centerY" secondItem="sZZ-1S-OC4" secondAttribute="centerY" id="Ser-eX-ZoQ"/>
+                <constraint firstItem="AhP-rh-zkE" firstAttribute="trailing" secondItem="VGG-3e-CqV" secondAttribute="trailing" constant="-15" id="l3S-G7-oyP"/>
+                <constraint firstItem="AhP-rh-zkE" firstAttribute="bottom" secondItem="VGG-3e-CqV" secondAttribute="bottom" constant="-60" id="qV1-mL-DGM"/>
+                <constraint firstItem="VGG-3e-CqV" firstAttribute="centerX" secondItem="sZZ-1S-OC4" secondAttribute="centerX" id="xXz-rD-NTF"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="190" y="183"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CreditCardBack.png" width="315" height="196"/>
+    </resources>
+</document>

@@ -1,0 +1,119 @@
+/*
+ Localizable.strings
+ MidtransKit
+ 
+ Created by Nanang Rafsanjani on 6/22/16.
+ Copyright © 2016 Veritrans. All rights reserved.
+ */
+
+"Processing your payment" = "Memproses pembayaran";
+"Failed to open Instructions" = "Gagal memuat instruksi";
+"Calculating your Point" = "Sedang menghitung poin anda";
+"Loading" = "Memuat";
+"PIN cannot be empty" = "Masukkan PIN yang benar";
+"Card Number cannot be empty" = "Masukkan nomor kartu yang benar";
+"You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" =
+"Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol 'Konfirmasi Pembayaran'";
+"payment.failed" = "Pembayaran Gagal";
+"payment.pending" = "Menunggu Pembayaran";
+"payment.pay-at" = "Pembayaran di %@";
+"clickpay.invalid-number" = "Masukkan Nomor Debit Yang Benar";
+"clickpay.invalid-token" = "Masukkan Token Clickpay Yang Benar";
+"name.other-bank" = "Jaringan ATM Lainnya";
+"payment.how" = "Bagaimana cara pembayaran melalui %@";
+"payment.klikbca.userid-note" = "Tagihan akan dikirimkan ke akun KlikBCA anda setelah konfirmasi pembayaran dilakukan.";
+"payment.email-placeholder" = "Alamat Email (tidak wajib)";
+"payment.email-note" = "Kami akan mengirimkan kode pembayaran dan instruksi pembayaran melalui email";
+"payment.klikbca.userid-warning" = "Mohon pastikan UserID aktif dan terdaftar di BCA.";
+"guide.header-subtitle" = "Instruksi Pembayaran";
+"payment.list.title" = "Pilih Metode Pembayaran";
+"payment.success" = "Pembayaran Berhasil";
+"payment.pending" = "Menunggu Pembayaran";
+"Close" = "Tutup";
+"payment.finish-button-title-via"="Selesaikan Pembayaran melalui %@";
+"payment.finish-button-title" = "Selesaikan Pembayaran di %@";
+
+"payment.va.help-button-title" = "Bagaimana Cara Pembayaran Melalui Transfer Bank %@?";
+"payment.va.confirm_button" = "Lihat Nomor Rekening";
+
+"toast.copy-text" = "Sudah disalin ke clipboard";
+
+"creditcard.input.title" = "Detil Kartu";
+"creditcard.list.title" = "Pilih Kartu";
+"creditcard.twoclick.title" = "Bayar Dengan Kartu Kredit";
+"creditcard.error.invalid-bin" = "nomor kartu kredit tidak terdapat didalam whitelist bin kartu kredit";
+"creditcard.promo-message" = "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@";
+"creditcard.promo-title" = "Selamat";
+"creditcard.creditcard_number" = "Nomor Kartu Kredit";
+"creditcard.creditcard_valid_until" ="Berlaku Hingga (MM/YY)";
+"creditcard.creditcard_cvv" = "CVV";
+"Card number is invalid" = "Nomor kartu tidak valid";
+"Input Invalid" = "Masukan tidak valid";
+"Expiry Year is invalid" = "Tahun kadaluwarsa tidak valid";
+"Expiry Month is invalid" = "Bulan kadaluwarsa tidak valid";
+"CVV is invalid" = "CVV tidak Valid";
+"creditcard.add.new.card" = "Tambah Kartu Kredit";
+"creditcard.finish.payment" = "Selesaikan Pembayaran";
+"creditcard.Save card for later use" = "Simpan Kartu";
+"creditcard.save card for later reuse" = "Simpan Kartu";
+"creditcard.Redeem BNI Reward Point" = "Tukarkan poin hadiah BNI";
+"creditcard.Mandiri Debit Card" = "Kartu Debit Mandiri";
+"creditcard.Mandiri Debit Card placeholder" = "Nomor Kartu Mandiri Debit";
+"creditcard.we will securely store your card details so you can reuse them later" = "kami akan menyimpan dengan aman kartu anda, sehingga anda bisa menggunakannya lagi nanti";
+"va.list.title" = "Pilih Bank";
+"va.pay-button" = "Lihat Nomor Rekening";
+
+"BNI Card" = "Kartu BNI";
+"Processing your transaction" = "Memproses transaksi";
+
+"payment.telkomsel-cash.token-placeholder" = "Token T-Cash";
+"payment.telkomsel-cash.token-note" = "Pembayaran T-Cash harus menggunakan nomor telepon Telkomsel yang terdaftar.";
+"payment.telkomsel-cash.header-title" = "Telkomsel Cash";
+"payment.telkomsel-cash.warning" = "Token T-Cash tidak boleh kosong.";
+
+"payment.indosat-dompetku.token-placeholder" = "Nomor Telepon Indosat";
+"payment.indosat-dompetku.token-note" = "Masukkan Nomor yang terdaftar di Indosat Dompetku.";
+"payment.indosat-dompetku.header-title" = "Indosat Dompetku";
+"payment.indosat-dompetku.warning" = "Nomor telepon tidak boleh kosong.";
+
+"payment.kioson.note" = "Selesaikan pembayaran di Kioson";
+
+"kioson.pending.code-title" = "Kode Pembayaran";
+"kioson.pending.howto-title" = "Bagaimana saya dapat melakukan pembayaran dengan Kioson?";
+"kioson.pending.copy-title" = "Salin Kode Pembayaran";
+
+"gci.placeholder" = "Nomer kartu gift card anda";
+
+"No Installment" = "Tanpa cicilan";
+"month.installments" = "cicilan %@ bulan ";
+"what is cvv?" = "apa itu cvv?";
+"The CVV is a 3 (or 6) digit number security code printed on the back of your card" = "CVV adalah 3 (atau 6) digit angka kode keamanan yang tercetak di belakang kartu Anda";
+"redeem bni reward point" = "Tukarkan poin hadiah BNI";
+"you can pay partly through the redemption of BNI Reward Point through your credit card" = "Anda dapat membayar sebagian dengan Poin Reward BNI melalui Kartu Kredit Anda.";
+"This transaction must use installment" = "Pembayaran harus menggunakan cicilan";
+"Your total BNI Reward Points is %i" = "Total poin hadiah BNI Anda adalah %i";
+"Complete Payment at ATM" = "Selesaikan Pembayaran di ATM";
+
+"alert.title" = "Perhatian";
+"alert.message-delete-card" = "Anda yakin ingin menghapus kartu ini?";
+"alert.no" = "Tidak";
+"alert.yes" = "Ya";
+"alert.invalid-payment-token" = "Token pembayaran tidak benar, silakan coba lagi.";
+
+"Delete Saved Card" = "hapus kartu ini";
+"Thank you!" = "Terimakasih!";
+"Ouch!" = "Aduh!";
+"Your payment can't be processed" = "Transaksi Anda tidak dapat diproses.";
+"Your payment has been processed" = "Transaksi Anda telah diproses.";
+"Please complete payment to proceed" = "Selesaikan Pembayaran";
+"Loading payment list" = "Memuat daftar pembayaran";
+"Pay from ATM Bersama, Prima or Alto" = "Bayar melalui ATM bersama, Prima atau Alto";
+"Credit/Debit Card" = "Kartu Kredit/Kartu Debit";
+"Pay With" = "Bayar Dengan" ;
+"total.amount" = "Total Bayar";
+"%@ step by step" = "Langkah-langkah bayar di %@";
+"SMS Charges may be applied for this payment method" = "Biaya SMS mungkin akan dikenakan untuk cara pembayaran ini.";
+"Key token device is required for this payment method" = "Perangkat token key dibutuhkan untuk cara pembayaran ini.";
+"confirm.payment" = "Konfirmasi Pembayaran";
+"Please complete payment before: %@" = "Silakan menyelesaikan pembayaran sebelum :";
+"donwload.instruction" = "unduh instruksi";

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>aquamarine</key>
+	<string>#51aad8</string>
+    <key>azure</key>
+    <string>#00bcf1</string>
+    <key>navyblue</key>
+    <string>#0e4e95</string>
+    <key>indigo</key>
+    <string>#5d50a0</string>
+    <key>lavender</key>
+    <string>#7558d6</string>
+    <key>hotpink</key>
+    <string>#fd6fd9</string>
+    <key>maroon</key>
+    <string>#b11235</string>
+    <key>crimson</key>
+    <string>#ec1846</string>
+    <key>salmon</key>
+    <string>#f36965</string>
+    <key>coral</key>
+    <string>#e8a340</string>
+    <key>golden</key>
+    <string>#ce9f51</string>
+    <key>khaki</key>
+    <string>#ae9c94</string>
+    <key>gray</key>
+    <string>#999999</string>
+    <key>greenforest</key>
+    <string>#32ad4a</string>
+    <key>olive</key>
+    <string>#77af2d</string>
+    <key>lime</key>
+    <string>#a4b900</string>
+	<key>minty</key>
+	<string>#00ccbc</string>
+    <key>teal</key>
+    <string>#339991</string>
+</dict>
+</plist>

@@ -22,6 +22,9 @@
 #import "MidtransUITextField.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransCreditCardAddOnComponentCell.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransNewCreditCardViewController () <
 UITableViewDelegate,
@@ -197,6 +200,13 @@ UIAlertViewDelegate
     [self.view.creditCardNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardCVVNumberTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
     [self.view.cardExpireTextField addObserver:self forKeyPath:@"text" options:0 context:nil];
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountPrice.textColor = [[MidtransUIThemeManager shared] themeColor];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (IBAction)scanCardTapped:(id)sender {
     
@@ -741,6 +751,33 @@ UIAlertViewDelegate
     }
     if (self.bniPointActive || self.mandiriPointActive) {
         tokenRequest.point = YES;
+        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
+            [self hideLoading];
+            if (error) {
+                
+                [self handleTransactionError:error];
+            } else {
+                SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
+                                                                                  paymentMethod:self.paymentMethod
+                                                                                  tokenizedCard: token[@"token_id"]
+                                                                                      savedCard:self.isSaveCard
+                                                                   andCompleteResponseOfPayment:self.responsePayment];
+                
+                if (self.bniPointActive) {
+                    pointVC.bankName = SNP_CORE_BANK_BNI;
+                }
+                else if (self.mandiriPointActive) {
+                    pointVC.bankName = SNP_CORE_BANK_MANDIRI;
+                }
+                pointVC.redirectURL = token[@"redirect_url"];
+                pointVC.currentMaskedCards = self.currentMaskedCards;
+                [self.navigationController pushViewController:pointVC animated:YES];
+                [self hideLoading];
+            }
+        }];
+        
+
+        return;
     }
     if (self.obtainedPromo) {
         tokenRequest.obtainedPromo = self.obtainedPromo;

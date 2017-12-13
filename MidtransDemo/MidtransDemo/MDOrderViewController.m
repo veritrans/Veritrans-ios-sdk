@@ -42,13 +42,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-//            [CONFIG setClientKey:clientkey
-//                     environment:MidtransServerEnvironmentSandbox
-//               merchantServerURL:merchantServer];
-
-        [CONFIG setClientKey:@"VT-client-wCJjpTZFZXctY_ID"
-                 environment:MidtransServerEnvironmentStaging
-           merchantServerURL:@"https://midtrans-demo.herokuapp.com/"];
+        [CONFIG setClientKey:clientkey
+                 environment:MidtransServerEnvironmentSandbox
+           merchantServerURL:merchantServer];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
@@ -99,18 +95,18 @@
                                                       countryCode:@"IDN"];
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
                                                                              lastName:@"last"
-                                                                                email:@"arie.prasetyo@mailinator.com"
+                                                                                email:@"budi@utomo.com"
                                                                                 phone:@"123123"
                                                                       shippingAddress:[MidtransAddress new]
                                                                        billingAddress:[MidtransAddress new]];
     cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@25000
+                                                                   price:@501000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:[NSNumber numberWithInt:25000]];
+                                                                           andGrossAmount:[NSNumber numberWithInt:501000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"

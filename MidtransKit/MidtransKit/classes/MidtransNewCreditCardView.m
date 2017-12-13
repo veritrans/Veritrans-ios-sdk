@@ -17,10 +17,6 @@
 #import "MidtransPaymentMethodHeader.h"
 #import "MIdtransUIBorderedView.h"
 
-@interface MidtransNewCreditCardView()
-@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
-@end
-
 @implementation MidtransNewCreditCardView
 
 - (void)awakeFromNib {

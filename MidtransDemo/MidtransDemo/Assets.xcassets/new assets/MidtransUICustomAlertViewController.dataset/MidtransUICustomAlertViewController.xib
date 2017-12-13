@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="MuseoSans_500.otf">
+            <string>MuseoSans-500</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransUICustomAlertViewController">
+            <connections>
+                <outlet property="alertViewContainer" destination="rkK-7c-quU" id="V9M-L5-8J7"/>
+                <outlet property="buttonHeightConstraints" destination="oBK-gX-rDB" id="Nth-TD-shn"/>
+                <outlet property="buttonWidthConstraints" destination="83p-Yu-Z0p" id="TZU-wj-4Q6"/>
+                <outlet property="descriptionAlertLabel" destination="wn0-DZ-7cv" id="4Zb-Fc-Mp0"/>
+                <outlet property="imageViewConstraintHeight" destination="QYK-y5-oiW" id="YMz-l5-I9i"/>
+                <outlet property="imageViewContent" destination="i2s-ec-n5E" id="Sks-Tr-1MF"/>
+                <outlet property="okButton" destination="fVH-8I-Dtc" id="P2T-d9-H9T"/>
+                <outlet property="titleAlertLabel" destination="NJi-M2-LS3" id="Pzn-b7-udf"/>
+                <outlet property="view" destination="CS6-9t-bCR" id="diT-gf-L9o"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="CS6-9t-bCR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rkK-7c-quU">
+                    <rect key="frame" x="10" y="213.5" width="300" height="140.5"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NJi-M2-LS3">
+                            <rect key="frame" x="15" y="10" width="277" height="24"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="19"/>
+                            <color key="textColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wn0-DZ-7cv">
+                            <rect key="frame" x="15" y="44" width="270" height="16.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.37153923509999998" green="0.37152808900000001" blue="0.37153446670000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fVH-8I-Dtc">
+                            <rect key="frame" x="77" y="80.5" width="146" height="45"/>
+                            <color key="backgroundColor" red="0.1058823529" green="0.56078431370000004" blue="0.91764705879999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <accessibility key="accessibilityConfiguration">
+                                <accessibilityTraits key="traits" button="YES" notEnabled="YES"/>
+                            </accessibility>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="146" id="83p-Yu-Z0p"/>
+                                <constraint firstAttribute="height" constant="45" id="oBK-gX-rDB"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="MuseoSans-500" family="Museo Sans" pointSize="15"/>
+                            <state key="normal" title="OK">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="okButtonDidTapped:" destination="-1" eventType="touchUpInside" id="zGn-cX-x4h"/>
+                            </connections>
+                        </button>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i2s-ec-n5E">
+                            <rect key="frame" x="33" y="39" width="240" height="0.0"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="240" id="HVF-aT-Ixt"/>
+                                <constraint firstAttribute="height" id="QYK-y5-oiW"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="fVH-8I-Dtc" firstAttribute="centerX" secondItem="rkK-7c-quU" secondAttribute="centerX" id="EhV-iL-gMW"/>
+                        <constraint firstAttribute="width" constant="300" id="H8E-ZI-tPo"/>
+                        <constraint firstAttribute="trailing" secondItem="wn0-DZ-7cv" secondAttribute="trailing" constant="15" id="Oe5-0T-KKy"/>
+                        <constraint firstItem="wn0-DZ-7cv" firstAttribute="top" secondItem="i2s-ec-n5E" secondAttribute="bottom" constant="5" id="Twd-6D-oGN"/>
+                        <constraint firstItem="i2s-ec-n5E" firstAttribute="centerX" secondItem="NJi-M2-LS3" secondAttribute="centerX" id="ZiO-zx-65Y"/>
+                        <constraint firstItem="NJi-M2-LS3" firstAttribute="top" secondItem="rkK-7c-quU" secondAttribute="top" constant="10" id="mO9-GB-QiV"/>
+                        <constraint firstAttribute="bottom" secondItem="fVH-8I-Dtc" secondAttribute="bottom" constant="15" id="mba-dR-Xjk"/>
+                        <constraint firstItem="wn0-DZ-7cv" firstAttribute="leading" secondItem="rkK-7c-quU" secondAttribute="leading" constant="15" id="mvB-Li-Iqi"/>
+                        <constraint firstItem="fVH-8I-Dtc" firstAttribute="top" secondItem="wn0-DZ-7cv" secondAttribute="bottom" constant="20" id="rg6-cL-KvY"/>
+                        <constraint firstItem="i2s-ec-n5E" firstAttribute="top" secondItem="NJi-M2-LS3" secondAttribute="bottom" constant="5" id="xOL-O4-i8E"/>
+                        <constraint firstAttribute="trailing" secondItem="NJi-M2-LS3" secondAttribute="trailing" constant="8" id="xfa-CA-1mG"/>
+                        <constraint firstItem="NJi-M2-LS3" firstAttribute="leading" secondItem="rkK-7c-quU" secondAttribute="leading" constant="15" id="zPA-gi-L4x"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="4"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="rkK-7c-quU" firstAttribute="centerX" secondItem="CS6-9t-bCR" secondAttribute="centerX" id="E4r-Rw-Uw1"/>
+                <constraint firstItem="rkK-7c-quU" firstAttribute="centerY" secondItem="CS6-9t-bCR" secondAttribute="centerY" id="Trv-oB-bPE"/>
+            </constraints>
+            <point key="canvasLocation" x="221" y="173"/>
+        </view>
+    </objects>
+</document>

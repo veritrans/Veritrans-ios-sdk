@@ -14,6 +14,8 @@
 #import "VTGuideCell.h"
 #import "UILabel+Boldify.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
 @interface SNPPostPaymentGeneralViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet SNPPostPaymentGeneralView *view;
@@ -57,7 +59,12 @@
      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
-    // Do any additional setup after loading the view from its nib.
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.instrunctions.count;

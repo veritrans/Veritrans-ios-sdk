@@ -11,12 +11,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [self.addCardButton setImage:[self templateImageNamed:@"plus-icon"] forState:UIControlStateNormal];
-    UIEdgeInsets insets = self.addCardButton.titleEdgeInsets;
-    insets.left = 8;
-    self.addCardButton.titleEdgeInsets = insets;
-    self.addCardButton.layer.borderWidth = 1.;
-    self.addCardButton.layer.cornerRadius = 5.;
+
     
 }
 

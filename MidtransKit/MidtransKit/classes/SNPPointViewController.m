@@ -12,6 +12,10 @@
 #import "MidtransUITextField.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
+
 @interface SNPPointViewController ()<UITextFieldDelegate>
 @property (strong, nonatomic) IBOutlet SNPPointView *view;
 @property (nonatomic,strong) NSString *creditCardToken;
@@ -22,6 +26,7 @@
 @property (nonatomic,strong) MidtransPaymentCreditCard *transaction;
 @property (nonatomic,strong) NSMutableArray *pointRedeem;
 @property (nonatomic,strong) NSString *point;
+@property (nonatomic) NSInteger currentPoint;
 @end
 
 @implementation SNPPointViewController
@@ -41,6 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
      self.point = @"0";
+    self.currentPoint = 0;
      self.view.pointBankImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_badge",self.bankName] inBundle:VTBundle compatibleWithTraitCollection:nil];
     self.view.pointBankImage.contentMode = UIViewContentModeScaleAspectFit;
     if (self.currentMaskedCards) {
@@ -67,6 +73,7 @@
                                                 andCreditCardToken:self.creditCardToken
                                                         completion:^(SNPPointResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
+            self.currentPoint = [response.pointBalanceAmount intValue];
             self.pointResponse = response;
             self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[response.pointBalanceAmount intValue]];
             if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
@@ -83,9 +90,13 @@
             [self hideLoading];
         }
     }];
-
-    
-    // Do any additional setup after loading the view from its nib.
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails withChangedGrossAmount:self.view.totalAmountPriceLabel.text pointName:self.title pointValue:self.currentPoint];
 }
 - (BOOL)textField:(MidtransUITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     
@@ -105,10 +116,13 @@
     if ([amount integerValue]  <= [self.pointResponse.pointBalanceAmount intValue]) {
         NSInteger grossAmount = [self.token.transactionDetails.grossAmount intValue] - [amount integerValue];
         self.point = [NSString stringWithFormat:@"%ld",(long)[amount integerValue]];
+        self.currentPoint =[amount integerValue];
         self.view.finalAmountTextField.text = [NSNumber numberWithInteger:grossAmount].formattedCurrencyNumber;
+        self.view.totalAmountPriceLabel.text =[NSNumber numberWithInteger:grossAmount].formattedCurrencyNumber;
         return YES;
     }
     else {
+        self.currentPoint = 0;
         self.point = @"0";
         return NO;
     }
@@ -120,6 +134,21 @@
 }
 - (IBAction)submitPaymentWithToken:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+    if (self.redirectURL.length) {
+        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
+                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
+        [secureController showWithCompletion:^(NSError *error) {
+            if (error) {
+                [self handleTransactionError:error];
+            } else {
+                [self executeTransaction];
+            }
+        }];
+    } else {
+        [self executeTransaction];
+    }
+}
+- (void)executeTransaction {
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:self.creditCardToken
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard
@@ -172,8 +201,7 @@
                  }
              }
          }
-
+         
      }];
 }
-
 @end

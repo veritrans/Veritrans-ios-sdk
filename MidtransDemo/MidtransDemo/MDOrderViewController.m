@@ -8,6 +8,7 @@
 
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import <ACFloatingTextfield_Objc/ACFloatingTextField.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/SNPFreeTextDataModels.h>
 #import "MDOptionManager.h"
@@ -24,6 +25,21 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+    self.userNameTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+    self.phoneNumberTextfield.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+    
+    self.userNameTextField.text =[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"],[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]];
+    self.emailTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"];
+    
+    self.phoneNumberTextfield.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"];
+    
+    
+    self.emailTextField.enabled = NO;
+    self.userNameTextField.enabled = NO;
+    self.phoneNumberTextfield.enabled = NO;
+    
+    [self.editButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
     self.title = @"Order Review";
     
     self.progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
@@ -86,19 +102,21 @@
 }
 
 - (IBAction)bayarPressed:(id)sender {
-    MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
-                                                         lastName:@"last"
-                                                            phone:@"123123"
+    
+    MidtransAddress *addr = [MidtransAddress addressWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
+                                                         lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
+                                                            phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
                                                           address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
                                                              city:@"Jakarta"
                                                        postalCode:@"10220"
                                                       countryCode:@"IDN"];
-    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
-                                                                             lastName:@"last"
-                                                                                email:@"budi@utomo.com"
-                                                                                phone:@"123123"
-                                                                      shippingAddress:[MidtransAddress new]
-                                                                       billingAddress:[MidtransAddress new]];
+    
+    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
+                                                                             lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
+                                                                                email:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"]
+                                                                                phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
+                                                                      shippingAddress:addr
+                                                                       billingAddress:addr];
     cst.customerIdentifier = @"112232";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
@@ -169,7 +187,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }
@@ -181,6 +199,30 @@
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
 
+- (IBAction)editCustomerAddressButtonDidTapped:(id)sender {
+    if (self.editButton.isSelected ==  true) {
+        [self.editButton setSelected:NO];
+        self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+        self.userNameTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+        self.phoneNumberTextfield.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+        
+        self.emailTextField.enabled = NO;
+        self.userNameTextField.enabled = NO;
+        self.phoneNumberTextfield.enabled = NO;
+        
+        
+    }else {
+        [self.editButton setSelected:YES];
+        self.emailTextField.backgroundColor = [UIColor clearColor];
+        self.userNameTextField.backgroundColor = [UIColor clearColor];
+        self.phoneNumberTextfield.backgroundColor = [UIColor clearColor];
+        
+        self.emailTextField.enabled = YES;
+        self.userNameTextField.enabled = YES;
+        self.phoneNumberTextfield.enabled = YES;
+        NSLog(@"edited");
+    }
+}
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"[MIDTRANS] success %@", result);
 }

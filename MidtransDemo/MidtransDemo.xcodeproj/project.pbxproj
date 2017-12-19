@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		0C1B358B1ED53E84003F6806 /* MDCardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1B358A1ED53E84003F6806 /* MDCardTableViewCell.xib */; };
+		0C1CF4061FE8ABD3006D9F51 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CF4041FE8ABD3006D9F51 /* AddAddressViewController.m */; };
+		0C1CF4071FE8ABD3006D9F51 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1CF4051FE8ABD3006D9F51 /* AddAddressViewController.xib */; };
+		0C1CF40A1FE8ACDF006D9F51 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CF4091FE8ACDF006D9F51 /* AddAddressView.m */; };
 		0C9634A61FDE57F200EF89DF /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634A51FDE57F200EF89DF /* bin.json */; };
 		0CE373A81EC064C2000C80A9 /* MDAddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */; };
 		0CE373A91EC064C2000C80A9 /* MDAddCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */; };
@@ -124,6 +127,11 @@
 
 /* Begin PBXFileReference section */
 		0C1B358A1ED53E84003F6806 /* MDCardTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDCardTableViewCell.xib; sourceTree = "<group>"; };
+		0C1CF4031FE8ABD3006D9F51 /* AddAddressViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressViewController.h; sourceTree = "<group>"; };
+		0C1CF4041FE8ABD3006D9F51 /* AddAddressViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressViewController.m; sourceTree = "<group>"; };
+		0C1CF4051FE8ABD3006D9F51 /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
+		0C1CF4081FE8ACDF006D9F51 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
+		0C1CF4091FE8ACDF006D9F51 /* AddAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressView.m; sourceTree = "<group>"; };
 		0C9634A51FDE57F200EF89DF /* bin.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bin.json; sourceTree = "<group>"; };
 		0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAddCardViewController.h; sourceTree = "<group>"; };
 		0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAddCardViewController.m; sourceTree = "<group>"; };
@@ -240,6 +248,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C1CF4001FE8ABB3006D9F51 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				0C1CF4031FE8ABD3006D9F51 /* AddAddressViewController.h */,
+				0C1CF4041FE8ABD3006D9F51 /* AddAddressViewController.m */,
+				0C1CF4051FE8ABD3006D9F51 /* AddAddressViewController.xib */,
+				0C1CF4081FE8ACDF006D9F51 /* AddAddressView.h */,
+				0C1CF4091FE8ACDF006D9F51 /* AddAddressView.m */,
+			);
+			name = Address;
+			sourceTree = "<group>";
+		};
 		AD35E827B16E4F3F7B5D0F70 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -374,6 +394,7 @@
 		E5A53A081E88F860001617C8 /* controllers */ = {
 			isa = PBXGroup;
 			children = (
+				0C1CF4001FE8ABB3006D9F51 /* Address */,
 				0C1B358A1ED53E84003F6806 /* MDCardTableViewCell.xib */,
 				0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */,
 				0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */,
@@ -587,6 +608,7 @@
 				E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */,
 				0C9634A61FDE57F200EF89DF /* bin.json in Resources */,
 				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
+				0C1CF4071FE8ABD3006D9F51 /* AddAddressViewController.xib in Resources */,
 				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,
 				E5A53A041E88F82A001617C8 /* SourceSansPro-Bold.ttf in Resources */,
 				0C1B358B1ED53E84003F6806 /* MDCardTableViewCell.xib in Resources */,
@@ -698,6 +720,7 @@
 				E56A2D611EC06A3F000C5A87 /* MDPayment.m in Sources */,
 				E56BCB8A1E8B610B0005A401 /* MDNavigationViewController.m in Sources */,
 				E56436F71E83A72F008726D0 /* main.m in Sources */,
+				0C1CF4061FE8ABD3006D9F51 /* AddAddressViewController.m in Sources */,
 				E529545B1EBB01990076BEC8 /* MDAlertRadioCell.m in Sources */,
 				E5C7B4631EB2E0A8005D5B78 /* MDOptionComposerCell.m in Sources */,
 				0CE373B01EC064C2000C80A9 /* MDSaveCardFooter.m in Sources */,
@@ -708,6 +731,7 @@
 				E5D7FEC71E83B4760086A8A4 /* MDOptionView.m in Sources */,
 				E56BCB871E8B60FE0005A401 /* MDJButton.m in Sources */,
 				0CE373AE1EC064C2000C80A9 /* MDProfileViewController.m in Sources */,
+				0C1CF40A1FE8ACDF006D9F51 /* AddAddressView.m in Sources */,
 				E5A539FF1E88F82A001617C8 /* MDProductViewController.m in Sources */,
 				0CE373A81EC064C2000C80A9 /* MDAddCardViewController.m in Sources */,
 			);

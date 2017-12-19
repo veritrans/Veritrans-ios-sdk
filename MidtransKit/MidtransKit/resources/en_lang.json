@@ -116,5 +116,6 @@
     "download.instruction": "Download Instruction",
     "install.gojek": "Install GO-JEK app from Appstore",
     "Pay Now with GO-PAY":"Pay Now with GO-PAY",
-    "Pay using GO-PAY": "Pay using GO-PAY"
+    "Pay using GO-PAY": "Pay using GO-PAY",
+        "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"
 }

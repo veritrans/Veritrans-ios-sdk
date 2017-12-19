@@ -53,7 +53,7 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = @"Please complete your `GO-PAY` payment via `GO-JEK` app";
+        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
     NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
     if (![[UIApplication sharedApplication] canOpenURL:gojekUrl]) {

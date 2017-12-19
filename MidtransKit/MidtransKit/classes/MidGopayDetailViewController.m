@@ -67,7 +67,6 @@
         
     } else {
         self.view.topWrapperView.hidden = NO;
-        
         self.view.qrcodeWrapperView.hidden = YES;
     }
     

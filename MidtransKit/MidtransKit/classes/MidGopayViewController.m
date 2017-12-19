@@ -143,8 +143,7 @@
     }
 }
 - (IBAction)installGOJEKappButtonDidTapped:(id)sender {
-    NSString *iTunesLink = @"itms://itunes.apple.com/us/app/apple-store/id944875099?mt=8";
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:iTunesLink]];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
 }
 - (IBAction)finishPaymentButtonDidTapped:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
@@ -159,9 +158,21 @@
                                                      [self showToastInviewWithMessage:error.description];
                                                  }
                                                  else {
-                                                     MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
-                                                     gopayDetailVC.result = result;
-                                                      [self.navigationController pushViewController:gopayDetailVC animated:YES];
+                                                     if (IPAD) {
+                                                         MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
+                                                         gopayDetailVC.result = result;
+                                                         [self.navigationController pushViewController:gopayDetailVC animated:YES];
+                                                     } else {
+                                                         NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+                                                         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+                                                         NSURL *gojekConstructURL = [NSURL URLWithString:[result.additionalData objectForKey:@"deeplink_url"]];
+                                                         if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
+                                                             [[UIApplication sharedApplication] openURL:gojekConstructURL];
+                                                         }
+                                                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                     }
+                                                    
                                                  }
                                              }];
 }

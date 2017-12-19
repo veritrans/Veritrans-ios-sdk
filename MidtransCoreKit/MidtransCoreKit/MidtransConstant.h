@@ -13,7 +13,7 @@
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
-
+static NSString * const GOJEK_APP_ITUNES_LINK = @"itms://itunes.apple.com/us/app/apple-store/id944875099?mt=8";
 static NSString * const MIDTRANS_ERROR_DOMAIN = @"error.veritrans.co.id";
 
 /**

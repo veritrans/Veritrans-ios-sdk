@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,13 +32,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GO-JEK app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-dZ-Mle">
-                            <rect key="frame" x="76.666666666666657" y="13.333333333333336" width="262.66666666666674" height="14"/>
+                            <rect key="frame" x="76" y="13.333333333333336" width="262.66666666666669" height="14"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gojek_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-hw-1CB">
-                            <rect key="frame" x="52.333333333333336" y="12" width="20.333333333333336" height="20"/>
+                            <rect key="frame" x="51.666666666666664" y="12" width="20.333333333333336" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="JeF-50-S9Z"/>
                                 <constraint firstAttribute="height" constant="20" id="cvj-9D-J8J"/>

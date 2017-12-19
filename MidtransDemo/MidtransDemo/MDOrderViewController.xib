@@ -39,13 +39,13 @@
                     <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp 20.000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFk-Qv-i9H">
-                            <rect key="frame" x="265" y="13" width="97" height="24.5"/>
+                            <rect key="frame" x="279.5" y="12" width="82.5" height="26.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="21"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL AMOUNT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kng-bg-OON">
-                            <rect key="frame" x="13" y="20.5" width="61" height="9.5"/>
+                            <rect key="frame" x="13" y="20" width="55.5" height="10.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="8"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -70,7 +70,7 @@
                                     <rect key="frame" x="8" y="328" width="359" height="89.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="YOUR DELIVERY ADDRESS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MVp-cb-csl">
-                                            <rect key="frame" x="0.0" y="0.0" width="359" height="25"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="268" height="25"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="25" id="YP5-6Y-WM5"/>
                                             </constraints>
@@ -93,17 +93,31 @@ Indonesia</string>
                                             <color key="textColor" red="0.37647058823529411" green="0.38039215686274508" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nbb-Ba-bH3">
+                                            <rect key="frame" x="308" y="2" width="43" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="43" id="UUd-BN-Fdy"/>
+                                                <constraint firstAttribute="height" constant="22" id="gYC-4S-7uQ"/>
+                                            </constraints>
+                                            <state key="normal" image="edit_icon"/>
+                                            <state key="selected" image="save"/>
+                                            <connections>
+                                                <action selector="editAddressViewController:" destination="-1" eventType="touchUpInside" id="zZb-8e-89N"/>
+                                                <action selector="editCustomerAddressButtonDidTapped:" destination="-1" eventType="touchUpInside" id="3Xw-fs-wMv"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="iqz-ON-z8A" firstAttribute="top" secondItem="MVp-cb-csl" secondAttribute="bottom" id="0PR-dj-jB6"/>
+                                        <constraint firstItem="nbb-Ba-bH3" firstAttribute="top" secondItem="6vF-F7-Bve" secondAttribute="top" constant="2" id="1as-za-yoy"/>
                                         <constraint firstItem="MVp-cb-csl" firstAttribute="top" secondItem="6vF-F7-Bve" secondAttribute="top" id="2Ne-Dc-C8G"/>
                                         <constraint firstAttribute="height" constant="89.5" id="5Sz-gP-giz"/>
                                         <constraint firstItem="MVp-cb-csl" firstAttribute="leading" secondItem="6vF-F7-Bve" secondAttribute="leading" id="8JQ-Hv-rTV"/>
                                         <constraint firstItem="r1u-56-gcl" firstAttribute="leading" secondItem="6vF-F7-Bve" secondAttribute="leading" id="BIu-qR-UPa"/>
                                         <constraint firstAttribute="trailing" secondItem="iqz-ON-z8A" secondAttribute="trailing" id="GJg-Ly-QBx"/>
+                                        <constraint firstItem="nbb-Ba-bH3" firstAttribute="leading" secondItem="MVp-cb-csl" secondAttribute="trailing" constant="40" id="Hib-Cr-KDb"/>
                                         <constraint firstItem="r1u-56-gcl" firstAttribute="top" secondItem="MVp-cb-csl" secondAttribute="bottom" id="Q7F-rY-NYw"/>
-                                        <constraint firstAttribute="trailing" secondItem="MVp-cb-csl" secondAttribute="trailing" id="giU-k5-PMr"/>
                                         <constraint firstItem="iqz-ON-z8A" firstAttribute="leading" secondItem="r1u-56-gcl" secondAttribute="trailing" constant="8" id="qFv-Rl-DJI"/>
                                         <constraint firstAttribute="bottom" secondItem="iqz-ON-z8A" secondAttribute="bottom" id="vMm-hl-xS3"/>
                                     </constraints>
@@ -135,16 +149,16 @@ Indonesia</string>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqq-fw-pzR">
-                                            <rect key="frame" x="48" y="27.5" width="237.5" height="35"/>
+                                            <rect key="frame" x="48" y="26" width="245.5" height="38"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Midtrans Pillow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsM-HU-HbE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="237.5" height="19"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="245.5" height="20.5"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="16"/>
                                                     <color key="textColor" red="0.37647058823529411" green="0.38039215686274508" blue="0.38823529411764707" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-RL-n9D">
-                                                    <rect key="frame" x="0.0" y="18.5" width="237.5" height="16.5"/>
+                                                    <rect key="frame" x="0.0" y="20" width="245.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="14"/>
                                                     <color key="textColor" red="0.30196078431372547" green="0.30588235294117649" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -162,7 +176,7 @@ Indonesia</string>
                                             </constraints>
                                         </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="750" verticalHuggingPriority="251" text="Rp 20,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08Q-dj-7dZ">
-                                            <rect key="frame" x="293.5" y="38" width="55.5" height="14"/>
+                                            <rect key="frame" x="301.5" y="37.5" width="47.5" height="15.5"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="12"/>
                                             <color key="textColor" red="0.027450980392156862" green="0.67843137254901964" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
@@ -279,6 +293,7 @@ Indonesia</string>
                                 <constraint firstItem="8Yf-ZT-OrY" firstAttribute="top" secondItem="v3t-TN-St2" secondAttribute="bottom" constant="8" id="lYG-tM-Iwv"/>
                                 <constraint firstItem="p2S-4l-kcS" firstAttribute="top" secondItem="h7v-67-rKM" secondAttribute="bottom" constant="10" id="mDS-Q4-8HA"/>
                                 <constraint firstItem="rBp-0P-m83" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="15" id="n1Z-8d-yLm"/>
+                                <constraint firstAttribute="trailing" secondItem="nbb-Ba-bH3" secondAttribute="trailing" constant="16" id="nL7-dt-SEk"/>
                                 <constraint firstAttribute="trailing" secondItem="2vF-Ez-Dvh" secondAttribute="trailing" constant="108" id="nMx-Lz-W1P"/>
                                 <constraint firstItem="EE8-RM-hGA" firstAttribute="top" secondItem="6vF-F7-Bve" secondAttribute="bottom" constant="18" id="p8R-cJ-hNq"/>
                                 <constraint firstItem="6vF-F7-Bve" firstAttribute="top" secondItem="p2S-4l-kcS" secondAttribute="bottom" constant="33" id="svW-WO-LfE"/>

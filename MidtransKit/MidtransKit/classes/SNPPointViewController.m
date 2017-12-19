@@ -184,18 +184,25 @@
      {
          [self hideLoading];
          if (error) {
-             if (self.attemptRetry < 2) {
-                 self.attemptRetry += 1;
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                 message:error.localizedDescription
-                                                                delegate:nil
-                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                       otherButtonTitles:nil];
-                 [alert show];
-             }
-             else {
-                 [self handleTransactionError:error];
-             }
+
+             
+             UIAlertController *alertController = [UIAlertController
+                                                   alertControllerWithTitle:@"ERROR"
+                                                   message:error.localizedDescription
+                                                   preferredStyle:UIAlertControllerStyleAlert];
+
+             UIAlertAction *okAction = [UIAlertAction
+                                        actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                        style:UIAlertActionStyleDefault
+                                        handler:^(UIAlertAction *action)
+                                        {
+                                            
+                                            [self.navigationController popViewControllerAnimated:YES];
+                                            
+                                        }];
+             
+             [alertController addAction:okAction];
+             [self presentViewController:alertController animated:YES completion:nil];
          }
          else {
              if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {

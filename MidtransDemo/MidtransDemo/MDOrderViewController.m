@@ -8,6 +8,7 @@
 
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import "AddAddressViewController.h"
 #import <ACFloatingTextfield_Objc/ACFloatingTextField.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/SNPFreeTextDataModels.h>
@@ -234,6 +235,10 @@
 }
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"[MIDTRANS] canceled");
+}
+- (IBAction)editAddressViewController:(id)sender {
+    AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];
+    [self.navigationController pushViewController:addAddressVC animated:YES];
 }
 
 @end

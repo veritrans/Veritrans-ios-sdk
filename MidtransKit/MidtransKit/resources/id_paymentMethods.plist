@@ -143,20 +143,6 @@
 		<string>bri epay</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>Indosat Dompetku</string>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>description</key>
-		<string>Bayar dengan Indosat Dompetku</string>
-		<key>id</key>
-		<string>indosat_dompetku</string>
-		<key>identifier</key>
-		<string>indosat_dompetku</string>
-		<key>shortName</key>
-		<string>indosat dompetku</string>
-	</dict>
-	<dict>
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>

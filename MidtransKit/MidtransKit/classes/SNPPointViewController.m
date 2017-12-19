@@ -8,7 +8,7 @@
 
 #import "SNPPointViewController.h"
 #import "SNPPointView.h"
-
+#import "MidtransUINextStepButton.h"
 #import "MidtransUITextField.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -57,10 +57,14 @@
     }
     self.maskedCards = [NSMutableArray new];
     if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
-        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"];
+        self.view.paymentWithoutPointButton.hidden = YES;
+        self.view.payWithoutPointHeightConstraints.constant = 0.0f;
+        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Pay Without Mandiri Point"];
     }
     else {
         self.title = @"Mandiri Fiestapoin";
+        [self.view.paymentWithoutPointButton setTitle: [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Pay Without Mandiri Point"] forState:UIControlStateNormal];
+        
         self.view.topTextLabel.hidden = NO;
         self.view.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Diskon Fiesta Point"];
         self.view.pointInputTextField.hidden = YES;
@@ -141,14 +145,33 @@
             if (error) {
                 [self handleTransactionError:error];
             } else {
-                [self executeTransaction];
+                [self executeTransaction:NO];
             }
         }];
     } else {
-        [self executeTransaction];
+        [self executeTransaction:NO];
     }
 }
-- (void)executeTransaction {
+- (IBAction)payWithoutPointButton:(id)sender {
+    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+    if (self.redirectURL.length) {
+        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
+                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
+        [secureController showWithCompletion:^(NSError *error) {
+            if (error) {
+                [self handleTransactionError:error];
+            } else {
+                [self executeTransaction:YES];
+            }
+        }];
+    } else {
+        [self executeTransaction:YES];
+    }
+}
+- (void)executeTransaction:(BOOL)withoutPoint {
+    if (withoutPoint) {
+        self.point = @"0";
+    }
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:self.creditCardToken
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard

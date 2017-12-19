@@ -44,10 +44,6 @@
     "name": "Indomaret"
   },
   {
-    "type": "indosat_dompetku",
-    "name": "Indosat Dompetku"
-  },
-  {
     "type": "kioson",
     "name": "KiosOn"
   },

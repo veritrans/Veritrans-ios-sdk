@@ -4,31 +4,25 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tap ‘Confirm Payment’</string>
+		<string>Tap ‘Pay Now with GO-PAY’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Tap ‘Pay Using GO-PAY’</string>
+		<string>You will be redirected to the ‘GO-JEK’ app</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>You will be redirected to ‘GO-PAY app’</string>
+		<string>Check your payment details in the ‘GO-JEK’ app</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Check your payment details and then tap ‘Pay’</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Your transaction is  ‘Done’</string>
+		<string>Done</string>
 		<key>image</key>
 		<string></string>
 	</dict>

@@ -147,7 +147,7 @@
                             </connections>
                         </button>
                         <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Kiy-Hc-fVM">
-                            <rect key="frame" x="0.0" y="413" width="375" height="147"/>
+                            <rect key="frame" x="0.0" y="444" width="375" height="116"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </tableView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zy-KM-1bR">
@@ -156,19 +156,39 @@
                             <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YtG-J8-nML">
+                            <rect key="frame" x="8" y="392" width="355" height="40"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GO-JEK app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uC8-tR-bZH">
+                                    <rect key="frame" x="47" y="14" width="263" height="14"/>
+                                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.99752849340000005" green="0.95564955470000001" blue="0.77139037850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="36a-eX-BuP"/>
+                                <constraint firstItem="uC8-tR-bZH" firstAttribute="centerY" secondItem="YtG-J8-nML" secondAttribute="centerY" id="G7s-KQ-k2v"/>
+                                <constraint firstItem="uC8-tR-bZH" firstAttribute="centerX" secondItem="YtG-J8-nML" secondAttribute="centerX" id="Rd8-oY-9Ly"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="Kiy-Hc-fVM" firstAttribute="top" secondItem="YtG-J8-nML" secondAttribute="bottom" constant="12" id="0vu-B2-v8o"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="width" secondItem="xfj-Oi-AQy" secondAttribute="width" id="3n0-SC-tNV"/>
                         <constraint firstItem="9Zy-KM-1bR" firstAttribute="leading" secondItem="jo2-TF-eqz" secondAttribute="leading" constant="37" id="EKu-Bw-Ge8"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="top" secondItem="jo2-TF-eqz" secondAttribute="top" constant="55" id="LYD-mr-ce1"/>
-                        <constraint firstItem="Kiy-Hc-fVM" firstAttribute="top" secondItem="9Zy-KM-1bR" secondAttribute="bottom" constant="24" id="NKi-R9-jsf"/>
                         <constraint firstItem="Kiy-Hc-fVM" firstAttribute="leading" secondItem="jo2-TF-eqz" secondAttribute="leading" id="S19-sB-uSJ"/>
                         <constraint firstAttribute="bottom" secondItem="Kiy-Hc-fVM" secondAttribute="bottom" id="TP3-Tt-OPq"/>
                         <constraint firstItem="9Zy-KM-1bR" firstAttribute="top" secondItem="xfj-Oi-AQy" secondAttribute="bottom" constant="8" symbolic="YES" id="Tbs-ch-xcb"/>
                         <constraint firstItem="9Zy-KM-1bR" firstAttribute="leading" secondItem="DyR-vH-YJy" secondAttribute="trailing" constant="-300" id="Tw8-Nc-50L"/>
+                        <constraint firstItem="YtG-J8-nML" firstAttribute="leading" secondItem="jo2-TF-eqz" secondAttribute="leading" constant="8" id="VyZ-YM-xjU"/>
                         <constraint firstAttribute="trailing" secondItem="9Zy-KM-1bR" secondAttribute="trailing" constant="38" id="cHt-7H-Xxe"/>
+                        <constraint firstAttribute="trailing" secondItem="YtG-J8-nML" secondAttribute="trailing" constant="12" id="czo-Yf-g03"/>
                         <constraint firstAttribute="trailing" secondItem="Kiy-Hc-fVM" secondAttribute="trailing" id="kUG-xj-fdN"/>
+                        <constraint firstItem="YtG-J8-nML" firstAttribute="top" secondItem="9Zy-KM-1bR" secondAttribute="bottom" constant="3" id="mHQ-w8-juN"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="height" secondItem="xfj-Oi-AQy" secondAttribute="height" id="nsA-7U-0t0"/>
                         <constraint firstItem="xfj-Oi-AQy" firstAttribute="top" secondItem="jo2-TF-eqz" secondAttribute="top" constant="55" id="uTV-Yj-duH"/>
                         <constraint firstItem="DyR-vH-YJy" firstAttribute="centerX" secondItem="jo2-TF-eqz" secondAttribute="centerX" id="vYY-6t-mX9"/>
@@ -200,6 +220,7 @@
             <connections>
                 <outlet property="amountLabel" destination="jet-ja-d2u" id="fsh-Mn-juG"/>
                 <outlet property="bottomAmountConstraints" destination="Kl3-4f-Sad" id="dKM-QD-cPB"/>
+                <outlet property="expireTimesLabel" destination="uC8-tR-bZH" id="Jy2-Xd-Cwk"/>
                 <outlet property="finishPaymentButton" destination="A0x-pu-YaN" id="3zB-V9-OZ5"/>
                 <outlet property="finishPaymentHeightConstraints" destination="w1a-NW-d3T" id="TwA-gz-OeM"/>
                 <outlet property="guideTableView" destination="Kiy-Hc-fVM" id="xHk-0c-EmX"/>

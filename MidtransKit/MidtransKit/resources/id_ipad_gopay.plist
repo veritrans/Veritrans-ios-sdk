@@ -4,37 +4,31 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tap ‘Pay using GO-PAY’ </string>
+		<string>Tekan ‘Bayar dengan GO-PAY’ </string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>‘QR Code’ will appear on the next page to be scanned.</string>
+		<string>Buka aplikasi ‘GO-JEK’ di HP Anda</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Open ‘GO-JEK’ app on your mobile phone</string>
+		<string>Tekan ‘SCAN QR’, lalu arahkan kamera ke ‘Kode QR’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Open ‘Scan QR‘, then point your camera phone to the ‘QR Code’</string>
+		<string>Periksa kembali detail pembayaran Anda di aplikasi ‘GO-JEK‘ lalu tekan  ‘BAYAR‘ </string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Check your payment details in ‘GO-JEK’ app and then tap ‘Pay’</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Your transaction is ‘Done’</string>
+		<string>Transaksi Anda selesai.</string>
 		<key>image</key>
 		<string></string>
 	</dict>

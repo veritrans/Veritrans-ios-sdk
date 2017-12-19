@@ -10,31 +10,25 @@
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>‘QR Code’ will appear on the next page to be scanned.</string>
+		<string>Open ‘GO-JEK’ app on your phone.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Open ‘GO-JEK’ app on your mobile phone</string>
+		<string>Tap ‘Scan QR‘, then point your camera phone to the ‘QR Code’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Open ‘Scan QR‘, then point your camera phone to the ‘QR Code’</string>
+		<string>Check your payment details in ‘GO-JEK’ app and then tap ‘PAY’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Check your payment details in ‘GO-JEK’ app and then tap ‘Pay’</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Your transaction is ‘Done’</string>
+		<string>Your transaction is Done</string>
 		<key>image</key>
 		<string></string>
 	</dict>

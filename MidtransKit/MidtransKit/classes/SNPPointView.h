@@ -20,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *topTextLabel;
 @property (weak, nonatomic) IBOutlet UITextField *topTextfield;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
-@property (weak, nonatomic) IBOutlet MidtransUINextStepButton *paymentWithoutPointButton;
+@property (weak, nonatomic) IBOutlet UIButton *paymentWithoutPointButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *payWithoutPointHeightConstraints;
 
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;

@@ -22,5 +22,6 @@
 @property (weak, nonatomic) IBOutlet UIView *qrcodeWrapperView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomAmountConstraints;
 @property (weak, nonatomic) IBOutlet UITableView *guideTableView;
+@property (weak, nonatomic) IBOutlet UILabel *expireTimesLabel;
 
 @end

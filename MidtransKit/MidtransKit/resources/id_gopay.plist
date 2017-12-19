@@ -1,37 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-    <array>
-        <dict>
-            <key>content</key>
-            <string>Tap ‘Confirm Payment’</string>
-            <key>image</key>
-            <string></string>
-        </dict>
-        <dict>
-            <key>content</key>
-            <string>Tap ‘Pay Using GO-PAY’</string>
-            <key>image</key>
-            <string></string>
-        </dict>
-        <dict>
-            <key>content</key>
-            <string>You will be redirected to ‘GO-PAY app’</string>
-            <key>image</key>
-            <string></string>
-        </dict>
-        <dict>
-            <key>content</key>
-            <string>Check your payment details and then tap ‘Pay’</string>
-            <key>image</key>
-            <string></string>
-        </dict>
-        <dict>
-            <key>content</key>
-            <string>Your transaction is  ‘Done’</string>
-            <key>image</key>
-            <string></string>
-        </dict>
-    </array>
+<array>
+	<dict>
+		<key>content</key>
+		<string>Tekan ‘Bayar dengan GO-PAY’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Aplikasi ‘GO-JEK’ akan terbuka</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Periksa rincian pembayaran Anda di aplikasi ‘GO-JEK’ lalu tekan ‘PAY’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Selesai.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
 </plist>
-

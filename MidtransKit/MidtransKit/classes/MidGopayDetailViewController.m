@@ -37,7 +37,7 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
      self.navigationItem.leftBarButtonItem = self.backBarButton;
-    self.title = @"Pay using GO-PAY";
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay using GO-PAY"];
     self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -47,6 +47,9 @@
     [self.view.guideTableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     if (IPAD) {
+          NSString  *expireDate = [self.result.additionalData objectForKey:@"gopay_expiration"];
+        
+        self.view.expireTimesLabel.text =   [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
         self.view.topWrapperView.hidden = YES;
         self.view.qrcodeWrapperView.hidden = NO;
         [self.view.finishPaymentButton setTitle:@"Finish Payment" forState:UIControlStateNormal];
@@ -66,6 +69,7 @@
 
         
     } else {
+
         self.view.topWrapperView.hidden = NO;
         self.view.qrcodeWrapperView.hidden = YES;
     }

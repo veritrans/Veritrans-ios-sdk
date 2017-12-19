@@ -13,6 +13,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransDirectHeader.h"
+#import "MidtransUINextStepButton.h"
 #import "VTGuideCell.h"
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
@@ -52,7 +53,7 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = @"Make sure GO-JEK app is installed on your mobile phone";
+        self.view.topNoticeLabel.text = @"Please complete your `GO-PAY` payment via `GO-JEK` app";
     } else {
     NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
     if (![[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
@@ -65,6 +66,9 @@
          self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         }
     }
+    
+    
+[self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GO-PAY"] forState:UIControlStateNormal];
     
     if (IPAD) {
         NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
@@ -114,7 +118,7 @@
     if(indexPath.row %2 ==0) {
           cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 4) {
+    if (IPAD && indexPath.row == 3) {
         cell.imageBottomInstruction.hidden = NO;
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
     }
@@ -123,7 +127,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IPAD && indexPath.row == 4) {
+    if (IPAD && indexPath.row == 3) {
         return 200;
     }
     else {

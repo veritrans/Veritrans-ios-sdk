@@ -50,6 +50,78 @@
 		0C93244F1F7B810B00D9A390 /* en_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */; };
 		0C9324511F7B828A00D9A390 /* id_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324501F7B814D00D9A390 /* id_danamon_online.plist */; };
 		0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9324501F7B814D00D9A390 /* id_danamon_online.plist */; };
+		0C9634B31FE1197A00EF89DF /* MidGopayDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634AB1FE1197700EF89DF /* MidGopayDetailViewController.h */; };
+		0C9634B41FE1197A00EF89DF /* MidGopayDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634AB1FE1197700EF89DF /* MidGopayDetailViewController.h */; };
+		0C9634B51FE1197A00EF89DF /* MIDGopayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634AE1FE1197800EF89DF /* MIDGopayView.h */; };
+		0C9634B61FE1197A00EF89DF /* MIDGopayView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634AE1FE1197800EF89DF /* MIDGopayView.h */; };
+		0C9634B71FE1197A00EF89DF /* MIDGopayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634AF1FE1197900EF89DF /* MIDGopayView.m */; };
+		0C9634B81FE1197A00EF89DF /* MIDGopayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634AF1FE1197900EF89DF /* MIDGopayView.m */; };
+		0C9634B91FE1197A00EF89DF /* MidGopayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634B01FE1197900EF89DF /* MidGopayViewController.h */; };
+		0C9634BA1FE1197A00EF89DF /* MidGopayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634B01FE1197900EF89DF /* MidGopayViewController.h */; };
+		0C9634BB1FE1197A00EF89DF /* MidGopayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634B11FE1197900EF89DF /* MidGopayDetailViewController.m */; };
+		0C9634BC1FE1197A00EF89DF /* MidGopayDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634B11FE1197900EF89DF /* MidGopayDetailViewController.m */; };
+		0C9634BD1FE1197A00EF89DF /* MidGopayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */; };
+		0C9634BE1FE1197A00EF89DF /* MidGopayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */; };
+		0C9634C11FE119BC00EF89DF /* MIDGopayDetailView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634BF1FE119BA00EF89DF /* MIDGopayDetailView.h */; };
+		0C9634C21FE119BC00EF89DF /* MIDGopayDetailView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C9634BF1FE119BA00EF89DF /* MIDGopayDetailView.h */; };
+		0C9634C31FE119BC00EF89DF /* MIDGopayDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */; };
+		0C9634C41FE119BC00EF89DF /* MIDGopayDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */; };
+		0C9634C61FE119F000EF89DF /* MidGopayDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634C51FE119EF00EF89DF /* MidGopayDetailViewController.xib */; };
+		0C9634DE1FE11A1400EF89DF /* gojek_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634C81FE11A1400EF89DF /* gojek_icon.png */; };
+		0C9634DF1FE11A1400EF89DF /* gojek_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */; };
+		0C9634E01FE11A1400EF89DF /* gojek_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */; };
+		0C9634E11FE11A1400EF89DF /* gopay.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CB1FE11A1400EF89DF /* gopay.png */; };
+		0C9634E21FE11A1400EF89DF /* gopay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CC1FE11A1400EF89DF /* gopay@2x.png */; };
+		0C9634E31FE11A1400EF89DF /* gopay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CD1FE11A1400EF89DF /* gopay@3x.png */; };
+		0C9634E41FE11A1400EF89DF /* gopay_scan_qr_instruction.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */; };
+		0C9634E51FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */; };
+		0C9634E61FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */; };
+		0C9634E71FE11A1400EF89DF /* ic_chevron_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */; };
+		0C9634E81FE11A1400EF89DF /* ic_chevron_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */; };
+		0C9634E91FE11A1400EF89DF /* ic_chevron_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */; };
+		0C9634EA1FE11A1400EF89DF /* ic_chevron_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */; };
+		0C9634EB1FE11A1400EF89DF /* ic_chevron_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */; };
+		0C9634EC1FE11A1400EF89DF /* ic_chevron_up@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */; };
+		0C9634ED1FE11A1400EF89DF /* ic_gopay.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D71FE11A1400EF89DF /* ic_gopay.png */; };
+		0C9634EE1FE11A1400EF89DF /* ic_gopay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */; };
+		0C9634EF1FE11A1400EF89DF /* ic_gopay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */; };
+		0C9634F01FE11A1400EF89DF /* ic_no_gopay.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */; };
+		0C9634F11FE11A1400EF89DF /* ic_no_gopay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */; };
+		0C9634F21FE11A1400EF89DF /* ic_no_gopay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */; };
+		0C9634F31FE11A1400EF89DF /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DD1FE11A1400EF89DF /* reload.png */; };
+		0C9634F41FE11A1F00EF89DF /* gojek_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634C81FE11A1400EF89DF /* gojek_icon.png */; };
+		0C9634F51FE11A1F00EF89DF /* gojek_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */; };
+		0C9634F61FE11A1F00EF89DF /* gojek_icon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */; };
+		0C9634F71FE11A1F00EF89DF /* gopay.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CB1FE11A1400EF89DF /* gopay.png */; };
+		0C9634F81FE11A1F00EF89DF /* gopay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CC1FE11A1400EF89DF /* gopay@2x.png */; };
+		0C9634F91FE11A1F00EF89DF /* gopay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CD1FE11A1400EF89DF /* gopay@3x.png */; };
+		0C9634FA1FE11A1F00EF89DF /* gopay_scan_qr_instruction.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */; };
+		0C9634FB1FE11A1F00EF89DF /* gopay_scan_qr_instruction@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */; };
+		0C9634FC1FE11A1F00EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */; };
+		0C9634FD1FE11A1F00EF89DF /* ic_chevron_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */; };
+		0C9634FE1FE11A1F00EF89DF /* ic_chevron_down@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */; };
+		0C9634FF1FE11A1F00EF89DF /* ic_chevron_down@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */; };
+		0C9635001FE11A1F00EF89DF /* ic_chevron_up.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */; };
+		0C9635011FE11A1F00EF89DF /* ic_chevron_up@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */; };
+		0C9635021FE11A1F00EF89DF /* ic_chevron_up@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */; };
+		0C9635031FE11A1F00EF89DF /* ic_gopay.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D71FE11A1400EF89DF /* ic_gopay.png */; };
+		0C9635041FE11A1F00EF89DF /* ic_gopay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */; };
+		0C9635051FE11A1F00EF89DF /* ic_gopay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */; };
+		0C9635061FE11A1F00EF89DF /* ic_no_gopay.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */; };
+		0C9635071FE11A1F00EF89DF /* ic_no_gopay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */; };
+		0C9635081FE11A1F00EF89DF /* ic_no_gopay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */; };
+		0C9635091FE11A1F00EF89DF /* reload.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634DD1FE11A1400EF89DF /* reload.png */; };
+		0C96350A1FE11B5900EF89DF /* MidGopayDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634C51FE119EF00EF89DF /* MidGopayDetailViewController.xib */; };
+		0C96350C1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C96350B1FE11BDD00EF89DF /* MidGopayDetailViewController.xib */; };
+		0C96350D1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C96350B1FE11BDD00EF89DF /* MidGopayDetailViewController.xib */; };
+		0C9635121FE11D7E00EF89DF /* id_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C96350E1FE11D7C00EF89DF /* id_ipad_gopay.plist */; };
+		0C9635131FE11D7E00EF89DF /* id_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C96350E1FE11D7C00EF89DF /* id_ipad_gopay.plist */; };
+		0C9635141FE11D7E00EF89DF /* id_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C96350F1FE11D7D00EF89DF /* id_gopay.plist */; };
+		0C9635151FE11D7E00EF89DF /* id_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C96350F1FE11D7D00EF89DF /* id_gopay.plist */; };
+		0C9635161FE11D7E00EF89DF /* en_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635101FE11D7D00EF89DF /* en_gopay.plist */; };
+		0C9635171FE11D7E00EF89DF /* en_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635101FE11D7D00EF89DF /* en_gopay.plist */; };
+		0C9635181FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */; };
+		0C9635191FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */; };
 		0CBA28BF1F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */; };
 		0CBA28C01F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */; };
 		0CBA28C11F98B15800F651C7 /* MIDV2PaymentListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */; };
@@ -1123,6 +1195,42 @@
 		0C9324421F7B7DBD00D9A390 /* danamon_online@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "danamon_online@3x.png"; path = "resources/danamon_online@3x.png"; sourceTree = "<group>"; };
 		0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_danamon_online.plist; path = MidtransKit/resources/en_danamon_online.plist; sourceTree = SOURCE_ROOT; };
 		0C9324501F7B814D00D9A390 /* id_danamon_online.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_danamon_online.plist; path = MidtransKit/resources/id_danamon_online.plist; sourceTree = SOURCE_ROOT; };
+		0C9634AB1FE1197700EF89DF /* MidGopayDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidGopayDetailViewController.h; path = classes/MidGopayDetailViewController.h; sourceTree = "<group>"; };
+		0C9634AE1FE1197800EF89DF /* MIDGopayView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MIDGopayView.h; path = classes/MIDGopayView.h; sourceTree = "<group>"; };
+		0C9634AF1FE1197900EF89DF /* MIDGopayView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MIDGopayView.m; path = classes/MIDGopayView.m; sourceTree = "<group>"; };
+		0C9634B01FE1197900EF89DF /* MidGopayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidGopayViewController.h; path = classes/MidGopayViewController.h; sourceTree = "<group>"; };
+		0C9634B11FE1197900EF89DF /* MidGopayDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidGopayDetailViewController.m; path = classes/MidGopayDetailViewController.m; sourceTree = "<group>"; };
+		0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidGopayViewController.m; path = classes/MidGopayViewController.m; sourceTree = "<group>"; };
+		0C9634BF1FE119BA00EF89DF /* MIDGopayDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDGopayDetailView.h; sourceTree = "<group>"; };
+		0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDGopayDetailView.m; sourceTree = "<group>"; };
+		0C9634C51FE119EF00EF89DF /* MidGopayDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidGopayDetailViewController.xib; path = MidtransKit/resources/MidGopayDetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		0C9634C81FE11A1400EF89DF /* gojek_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gojek_icon.png; sourceTree = "<group>"; };
+		0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gojek_icon@2x.png"; sourceTree = "<group>"; };
+		0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gojek_icon@3x.png"; sourceTree = "<group>"; };
+		0C9634CB1FE11A1400EF89DF /* gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gopay.png; sourceTree = "<group>"; };
+		0C9634CC1FE11A1400EF89DF /* gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay@2x.png"; sourceTree = "<group>"; };
+		0C9634CD1FE11A1400EF89DF /* gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay@3x.png"; sourceTree = "<group>"; };
+		0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gopay_scan_qr_instruction.png; sourceTree = "<group>"; };
+		0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay_scan_qr_instruction@2x.png"; sourceTree = "<group>"; };
+		0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay_scan_qr_instruction@3x.png"; sourceTree = "<group>"; };
+		0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_chevron_down.png; sourceTree = "<group>"; };
+		0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_down@2x.png"; sourceTree = "<group>"; };
+		0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_down@3x.png"; sourceTree = "<group>"; };
+		0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_chevron_up.png; sourceTree = "<group>"; };
+		0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_up@2x.png"; sourceTree = "<group>"; };
+		0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_up@3x.png"; sourceTree = "<group>"; };
+		0C9634D71FE11A1400EF89DF /* ic_gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_gopay.png; sourceTree = "<group>"; };
+		0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_gopay@2x.png"; sourceTree = "<group>"; };
+		0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_gopay@3x.png"; sourceTree = "<group>"; };
+		0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_no_gopay.png; sourceTree = "<group>"; };
+		0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_no_gopay@2x.png"; sourceTree = "<group>"; };
+		0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_no_gopay@3x.png"; sourceTree = "<group>"; };
+		0C9634DD1FE11A1400EF89DF /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
+		0C96350B1FE11BDD00EF89DF /* MidGopayDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidGopayDetailViewController.xib; path = MidtransKit/resources/MidGopayDetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		0C96350E1FE11D7C00EF89DF /* id_ipad_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_ipad_gopay.plist; path = MidtransKit/resources/id_ipad_gopay.plist; sourceTree = SOURCE_ROOT; };
+		0C96350F1FE11D7D00EF89DF /* id_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_gopay.plist; path = MidtransKit/resources/id_gopay.plist; sourceTree = SOURCE_ROOT; };
+		0C9635101FE11D7D00EF89DF /* en_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_gopay.plist; path = MidtransKit/resources/en_gopay.plist; sourceTree = SOURCE_ROOT; };
+		0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_ipad_gopay.plist; path = MidtransKit/resources/en_ipad_gopay.plist; sourceTree = SOURCE_ROOT; };
 		0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDV2PaymentListViewController.h; path = classes/MIDV2PaymentListViewController.h; sourceTree = "<group>"; };
 		0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MIDV2PaymentListViewController.m; path = classes/MIDV2PaymentListViewController.m; sourceTree = "<group>"; };
 		0CBA28CD1F98B24900F651C7 /* MIDV2PaymentListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDV2PaymentListView.h; path = classes/MIDV2PaymentListView.h; sourceTree = "<group>"; };
@@ -1792,6 +1900,36 @@
 			name = "Post Payment";
 			sourceTree = "<group>";
 		};
+		0C9634C71FE11A1400EF89DF /* gopay */ = {
+			isa = PBXGroup;
+			children = (
+				0C9634C81FE11A1400EF89DF /* gojek_icon.png */,
+				0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */,
+				0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */,
+				0C9634CB1FE11A1400EF89DF /* gopay.png */,
+				0C9634CC1FE11A1400EF89DF /* gopay@2x.png */,
+				0C9634CD1FE11A1400EF89DF /* gopay@3x.png */,
+				0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */,
+				0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */,
+				0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */,
+				0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */,
+				0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */,
+				0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */,
+				0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */,
+				0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */,
+				0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */,
+				0C9634D71FE11A1400EF89DF /* ic_gopay.png */,
+				0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */,
+				0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */,
+				0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */,
+				0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */,
+				0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */,
+				0C9634DD1FE11A1400EF89DF /* reload.png */,
+			);
+			name = gopay;
+			path = resources/gopay;
+			sourceTree = "<group>";
+		};
 		0CBA28C61F98B20C00F651C7 /* Payment List */ = {
 			isa = PBXGroup;
 			children = (
@@ -1986,6 +2124,10 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0C9635101FE11D7D00EF89DF /* en_gopay.plist */,
+				0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */,
+				0C96350F1FE11D7D00EF89DF /* id_gopay.plist */,
+				0C96350E1FE11D7C00EF89DF /* id_ipad_gopay.plist */,
 				0C115B7A1F73A76400327915 /* en_lang.json */,
 				0C115B7B1F73A76600327915 /* id_lang.json */,
 				0CD1160F1EDD5B14005884AD /* en_bni_va.plist */,
@@ -2046,7 +2188,9 @@
 				E5F1BB251E93701100ED659D /* MidtransInstallmentCollectionViewCell.xib */,
 				E5F1BB261E93701100ED659D /* MidtransInstallmentView.xib */,
 				E5F1BB271E93701100ED659D /* MidtransItemCell.xib */,
+				0C9634C51FE119EF00EF89DF /* MidGopayDetailViewController.xib */,
 				E5F1BB281E93701100ED659D /* MidtransLoadingView.xib */,
+				0C96350B1FE11BDD00EF89DF /* MidGopayDetailViewController.xib */,
 				E5F1BB2A1E93701100ED659D /* MidtransPaymentGCIViewController.xib */,
 				E5F1BB2B1E93701100ED659D /* MidtransPaymentMethodHeader.xib */,
 				E5F1BB2D1E93701100ED659D /* MidtransPromoView.xib */,
@@ -2123,6 +2267,7 @@
 				E5EBC2BF1EB0726700A568D1 /* midtrans_logo_right@2x.png */,
 				E519C8FD1E9B6ED100EF70DF /* instructions */,
 				E55976381EA71B760044342A /* check@2x.png */,
+				0C9634C71FE11A1400EF89DF /* gopay */,
 				E55976391EA71B760044342A /* cross@2x.png */,
 				0CE1D27D1F62A766003A012F /* cc_badge@2x.png */,
 				E559763A1EA71B760044342A /* pending@2x.png */,
@@ -2303,6 +2448,14 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				0C9634BF1FE119BA00EF89DF /* MIDGopayDetailView.h */,
+				0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */,
+				0C9634AB1FE1197700EF89DF /* MidGopayDetailViewController.h */,
+				0C9634B11FE1197900EF89DF /* MidGopayDetailViewController.m */,
+				0C9634AE1FE1197800EF89DF /* MIDGopayView.h */,
+				0C9634AF1FE1197900EF89DF /* MIDGopayView.m */,
+				0C9634B01FE1197900EF89DF /* MidGopayViewController.h */,
+				0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */,
 				0C5DD8831E9E34920004DD5D /* Post Payment */,
 				E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */,
 				E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */,
@@ -2546,6 +2699,7 @@
 				E57120C01E937B790064F515 /* VTKeyboardAccessoryView.h in Headers */,
 				E57120C11E937B790064F515 /* MidtransUIButton.h in Headers */,
 				E57120C21E937B790064F515 /* MidtransUINextStepButton.h in Headers */,
+				0C9634C21FE119BC00EF89DF /* MIDGopayDetailView.h in Headers */,
 				E57120C31E937B790064F515 /* VTNoteTitleLabel.h in Headers */,
 				3D8BF5D61F90BE7800F35C55 /* MidtransUITableAlertViewController.h in Headers */,
 				E57120C41E937B790064F515 /* VTSegmentedControl.h in Headers */,
@@ -2557,11 +2711,13 @@
 				E57120CA1E937B790064F515 /* VTClassHelper.h in Headers */,
 				E57120CB1E937B790064F515 /* NSString+TextDirectionality.h in Headers */,
 				E57120CC1E937B790064F515 /* MidtransUIStringHelper.h in Headers */,
+				0C9634B61FE1197A00EF89DF /* MIDGopayView.h in Headers */,
 				E57120CF1E937B790064F515 /* MidtransUICardFormatter.h in Headers */,
 				E57120D11E937B790064F515 /* UIColor+SNP_HexString.h in Headers */,
 				E57120D31E937B790064F515 /* MidtransUIPaymentController.h in Headers */,
 				E57120D41E937B790064F515 /* MidtransUIPaymentDirectViewController.h in Headers */,
 				E57120D51E937B790064F515 /* MidtransUIPaymentDirectView.h in Headers */,
+				0C9634BA1FE1197A00EF89DF /* MidGopayViewController.h in Headers */,
 				E57120D61E937B790064F515 /* MidtransDirectHeader.h in Headers */,
 				E57120D71E937B790064F515 /* MidtransUIPaymentGeneralViewController.h in Headers */,
 				E57120D81E937B790064F515 /* MidtransUIPaymentGeneralView.h in Headers */,
@@ -2598,6 +2754,7 @@
 				E57120F71E937B790064F515 /* VTBillpaySuccessController.h in Headers */,
 				E57120F81E937B790064F515 /* VTXLTunaiSuccessController.h in Headers */,
 				E57120F91E937B790064F515 /* VTIndomaretSuccessController.h in Headers */,
+				0C9634B41FE1197A00EF89DF /* MidGopayDetailViewController.h in Headers */,
 				E57120FA1E937B790064F515 /* VTVASuccessStatusController.h in Headers */,
 				E57120FC1E937B790064F515 /* VTPaymentStatusController.h in Headers */,
 				0C108A181EEE641B00843A05 /* SNPMaintainView.h in Headers */,
@@ -2644,14 +2801,17 @@
 				E55F62A31E934A6D00C012C8 /* UIViewController+Modal.h in Headers */,
 				E55F62A41E934A6D00C012C8 /* UIViewController+HeaderSubtitle.h in Headers */,
 				E55F62A51E934A6D00C012C8 /* MidtransUITextField.h in Headers */,
+				0C9634B91FE1197A00EF89DF /* MidGopayViewController.h in Headers */,
 				E55F62A61E934A6D00C012C8 /* MIdtransUIBorderedView.h in Headers */,
 				E55F62A71E934A6D00C012C8 /* MidtransUIRoundedLabel.h in Headers */,
 				E55F62A81E934A6D00C012C8 /* MIdtransUIDetailedTitleController.h in Headers */,
 				E55F62A91E934A6D00C012C8 /* MidtransUIXibView.h in Headers */,
 				E55F62AA1E934A6D00C012C8 /* VTAlertBackgroundView.h in Headers */,
+				0C9634B31FE1197A00EF89DF /* MidGopayDetailViewController.h in Headers */,
 				E55F62AC1E934A6D00C012C8 /* MidtransUIHudView.h in Headers */,
 				E55F62AD1E934A6D00C012C8 /* VTKeyboardAccessoryView.h in Headers */,
 				E55F62AE1E934A6D00C012C8 /* MidtransUIButton.h in Headers */,
+				0C9634C11FE119BC00EF89DF /* MIDGopayDetailView.h in Headers */,
 				E55F62AF1E934A6D00C012C8 /* MidtransUINextStepButton.h in Headers */,
 				E55F62B01E934A6D00C012C8 /* VTNoteTitleLabel.h in Headers */,
 				E55F62B11E934A6D00C012C8 /* VTSegmentedControl.h in Headers */,
@@ -2709,6 +2869,7 @@
 				0CEF03211EA3D12F00EA1EE0 /* SNPPostPaymentHeader.h in Headers */,
 				E5FE449F1E9E2D850088A207 /* VTTapableLabel.h in Headers */,
 				E55F62E61E934A6D00C012C8 /* VTIndomaretSuccessController.h in Headers */,
+				0C9634B51FE1197A00EF89DF /* MIDGopayView.h in Headers */,
 				0C32A9841EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.h in Headers */,
 				0CEF03281EA3E39700EA1EE0 /* UILabel+Boldify.h in Headers */,
 				E55F62E71E934A6D00C012C8 /* VTVASuccessStatusController.h in Headers */,
@@ -2862,6 +3023,7 @@
 				E57124871E9381320064F515 /* MidtransDirectHeader.xib in Resources */,
 				E58FCDE91E94CFD500632085 /* hint@2x.png in Resources */,
 				0CE1D2C81F67BA99003A012F /* sms@3x.png in Resources */,
+				0C9634C61FE119F000EF89DF /* MidGopayDetailViewController.xib in Resources */,
 				E58FCE251E94CFD600632085 /* other_alto_1@2x.png in Resources */,
 				E58FCE6D1E94CFD600632085 /* successIcon@2x.png in Resources */,
 				E5EBC2C11EB0726700A568D1 /* midtrans_logo_mid@2x.png in Resources */,
@@ -2875,6 +3037,7 @@
 				E58FCDCD1E94CFD500632085 /* citi@2x.png in Resources */,
 				0CC900301F7022000058E93C /* en_xl_tunai.plist in Resources */,
 				3DECDFF21F9DAE610001AC9A /* see.png in Resources */,
+				0C9634F01FE11A1400EF89DF /* ic_no_gopay.png in Resources */,
 				E58FCE451E94CFD600632085 /* other_prima_3@2x.png in Resources */,
 				E58FCE111E94CFD500632085 /* mandiri.png in Resources */,
 				E58FCDD31E94CFD500632085 /* CreditCardBackSmall@2x.png in Resources */,
@@ -2891,7 +3054,9 @@
 				E58FCDF91E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				E58FCDC31E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
 				E58FCE231E94CFD600632085 /* nextIcon@2x.png in Resources */,
+				0C9634DF1FE11A1400EF89DF /* gojek_icon@2x.png in Resources */,
 				E58FCDE51E94CFD500632085 /* gci@2x.png in Resources */,
+				0C9634EC1FE11A1400EF89DF /* ic_chevron_up@3x.png in Resources */,
 				E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */,
 				3D4089181F74E35800B9A2EC /* id_paymentMethods.plist in Resources */,
 				3D4089141F74E35800B9A2EC /* id_bca_va.plist in Resources */,
@@ -2902,7 +3067,9 @@
 				E58FCE3F1E94CFD600632085 /* other_atm_7@2x.png in Resources */,
 				E57127E01E93B7C50064F515 /* en_bca_klikpay.plist in Resources */,
 				0CE1D2A31F67B861003A012F /* visa-mastercard-amex-seal@2x.png in Resources */,
+				0C9634F21FE11A1400EF89DF /* ic_no_gopay@3x.png in Resources */,
 				E58FCE971E94CFD600632085 /* xl_tunai@2x.png in Resources */,
+				0C9635131FE11D7E00EF89DF /* id_ipad_gopay.plist in Resources */,
 				E58FCE1D1E94CFD600632085 /* mega.png in Resources */,
 				E571248E1E9381320064F515 /* MidtransPaymentMethodHeader.xib in Resources */,
 				E58FCE691E94CFD600632085 /* plus-icon@2x.png in Resources */,
@@ -2912,16 +3079,19 @@
 				3D4089161F74E35800B9A2EC /* id_mandiri_clickpay.plist in Resources */,
 				3D4089101F74E35800B9A2EC /* en_mandiri_clickpay.plist in Resources */,
 				E519C9731E9B6F2100EF70DF /* bni_va5@2x.png in Resources */,
+				0C9634E51FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png in Resources */,
 				E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */,
 				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
 				E58FCDD91E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
 				E58FCE611E94CFD600632085 /* permata_atm_7@2x.png in Resources */,
+				0C9634E91FE11A1400EF89DF /* ic_chevron_down@3x.png in Resources */,
 				E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */,
 				E58FCDA71E94CFD500632085 /* bca_klikpay@2x.png in Resources */,
 				3DECDFE81F9DAE610001AC9A /* download@2x.png in Resources */,
 				E57124921E9381320064F515 /* MidtransSavedCardController.xib in Resources */,
 				E58FCE191E94CFD600632085 /* maybank.png in Resources */,
 				E58FCDBF1E94CFD500632085 /* ccOfferIcon@2x.png in Resources */,
+				0C9635151FE11D7E00EF89DF /* id_gopay.plist in Resources */,
 				E57124931E9381320064F515 /* MidtransSavedCardFooter.xib in Resources */,
 				E57124941E9381320064F515 /* MidtransTransactionDetailViewController.xib in Resources */,
 				3D4089361F7512F100B9A2EC /* bersama_preview.png in Resources */,
@@ -2937,6 +3107,7 @@
 				0CE1D2A91F67B861003A012F /* visa-mastercard-seal@2x.png in Resources */,
 				3D40893A1F7512F100B9A2EC /* bersama_preview@3x.png in Resources */,
 				0CE1D2B31F67BA53003A012F /* token_key.png in Resources */,
+				0C9635191FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */,
 				E57124961E9381320064F515 /* MidtransUICCFrontView.xib in Resources */,
 				E58FCE651E94CFD600632085 /* permata.png in Resources */,
 				E57124971E9381320064F515 /* MidtransUICustomAlertViewController.xib in Resources */,
@@ -2954,6 +3125,7 @@
 				0CC9003C1F7026F20058E93C /* en_mandiri_ecash.plist in Resources */,
 				0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */,
 				0CC900201F7015AF0058E93C /* id_indosat_dompetku.plist in Resources */,
+				0C9634EE1FE11A1400EF89DF /* ic_gopay@2x.png in Resources */,
 				0C108A0C1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib in Resources */,
 				E58FCE511E94CFD600632085 /* padlock1@2x.png in Resources */,
 				E58FCE3D1E94CFD600632085 /* other_atm_6@2x.png in Resources */,
@@ -2972,6 +3144,7 @@
 				0CD116111EDD5B14005884AD /* en_bni_va.plist in Resources */,
 				E58FCDDB1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC91E94CFD500632085 /* cimb@2x.png in Resources */,
+				0C9634EA1FE11A1400EF89DF /* ic_chevron_up.png in Resources */,
 				E571249B1E9381320064F515 /* MidtransUIToast.xib in Resources */,
 				E571249C1E9381320064F515 /* MidtransVAHeader.xib in Resources */,
 				3DECDFEE1F9DAE610001AC9A /* scan_cam@2x.png in Resources */,
@@ -2989,6 +3162,7 @@
 				E58FCE671E94CFD600632085 /* permata@2x.png in Resources */,
 				E571249F1E9381320064F515 /* VTAddCardController.xib in Resources */,
 				3D4089281F74E43300B9A2EC /* en_paymentMethods.plist in Resources */,
+				0C9634DE1FE11A1400EF89DF /* gojek_icon.png in Resources */,
 				0CE1D2C61F67BA99003A012F /* sms@2x.png in Resources */,
 				E57124A01E9381320064F515 /* VTBillpaySuccessController.xib in Resources */,
 				E58FCE791E94CFD600632085 /* VASuccessIcon@2x.png in Resources */,
@@ -3017,6 +3191,7 @@
 				E58FCDE31E94CFD500632085 /* errorIcon@2x.png in Resources */,
 				E58FCE4B1E94CFD600632085 /* other_prima_6@2x.png in Resources */,
 				E58FCDE11E94CFD500632085 /* emptyCardIcon@2x.png in Resources */,
+				0C9634E31FE11A1400EF89DF /* gopay@3x.png in Resources */,
 				E58FCE0D1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
 				3D40894A1F75133200B9A2EC /* prima_preview@2x.png in Resources */,
 				0CC9001E1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */,
@@ -3029,7 +3204,9 @@
 				3D4089481F75133200B9A2EC /* prima_preview.png in Resources */,
 				E57124A61E9381320064F515 /* VTGuideCell.xib in Resources */,
 				E58FCDB11E94CFD500632085 /* bni_badge@3x.png in Resources */,
+				0C9634EF1FE11A1400EF89DF /* ic_gopay@3x.png in Resources */,
 				0CC900361F70244A0058E93C /* en_bri_epay.plist in Resources */,
+				0C9634E71FE11A1400EF89DF /* ic_chevron_down.png in Resources */,
 				E58FCE271E94CFD600632085 /* other_alto_2@2x.png in Resources */,
 				E58FCE811E94CFD600632085 /* visa-mastercard-jcb-amex.png in Resources */,
 				E58FCE4F1E94CFD600632085 /* other_va@2x.png in Resources */,
@@ -3049,10 +3226,12 @@
 				E5EBC2C01EB0726700A568D1 /* midtrans_logo_left@2x.png in Resources */,
 				E58FCD991E94CFD500632085 /* bca_atm_1@2x.png in Resources */,
 				3D40894C1F75133200B9A2EC /* prima_preview@3x.png in Resources */,
+				0C9634F31FE11A1400EF89DF /* reload.png in Resources */,
 				E58FCE0B1E94CFD500632085 /* mandiri_clickpay@2x.png in Resources */,
 				E57127E11E93B7C50064F515 /* en_bca_va.plist in Resources */,
 				E57124AA1E9381320064F515 /* VTKlikbcaSuccessController.xib in Resources */,
 				E58FCE751E94CFD600632085 /* va.png in Resources */,
+				0C9634E21FE11A1400EF89DF /* gopay@2x.png in Resources */,
 				0CC900541F702E160058E93C /* en_cimb_clicks.plist in Resources */,
 				0CC9003E1F7026F60058E93C /* id_mandiri_ecash.plist in Resources */,
 				E58FCDA31E94CFD500632085 /* bca_atm_6@2x.png in Resources */,
@@ -3070,6 +3249,7 @@
 				E57124AF1E9381320064F515 /* VTSingleGuideController.xib in Resources */,
 				E58FCD931E94CFD500632085 /* back@2x.png in Resources */,
 				E58FCE631E94CFD600632085 /* permata_va@2x.png in Resources */,
+				0C9634E01FE11A1400EF89DF /* gojek_icon@3x.png in Resources */,
 				E58FCD8B1E94CFD500632085 /* Amex@2x.png in Resources */,
 				E57124B01E9381320064F515 /* VTSubGuideController.xib in Resources */,
 				E58FCE5F1E94CFD600632085 /* permata_atm_6@2x.png in Resources */,
@@ -3082,6 +3262,7 @@
 				E57127EC1E93B7C50064F515 /* snap_colors.plist in Resources */,
 				E58FCE871E94CFD600632085 /* visa-mastercard-jcb.png in Resources */,
 				E57124B21E9381320064F515 /* VTTwoClickController.xib in Resources */,
+				0C9634F11FE11A1400EF89DF /* ic_no_gopay@2x.png in Resources */,
 				E57127F01E93B7C50064F515 /* bin.json in Resources */,
 				E58FCDC11E94CFD500632085 /* checkbox_checked@2x.png in Resources */,
 				E58FCE5B1E94CFD600632085 /* permata_atm_4@2x.png in Resources */,
@@ -3109,6 +3290,7 @@
 				E58FCDEF1E94CFD500632085 /* ImageOffer@2x.png in Resources */,
 				E58FCE911E94CFD600632085 /* visa-mastercard@3x.png in Resources */,
 				E58FCE371E94CFD600632085 /* other_atm_3@2x.png in Resources */,
+				0C9635171FE11D7E00EF89DF /* en_gopay.plist in Resources */,
 				3D4089171F74E35800B9A2EC /* id_other_va.plist in Resources */,
 				E57124821E9381280064F515 /* OCRAEXT.TTF in Resources */,
 				3D4089411F75130300B9A2EC /* alto_preview@2x.png in Resources */,
@@ -3125,18 +3307,23 @@
 				E58FCD9D1E94CFD500632085 /* bca_atm_3@2x.png in Resources */,
 				E58FCE151E94CFD500632085 /* MasterCard@2x.png in Resources */,
 				E58FCDA51E94CFD500632085 /* bca_klikbca@2x.png in Resources */,
+				0C9634EB1FE11A1400EF89DF /* ic_chevron_up@2x.png in Resources */,
 				0CE1D2C41F67BA99003A012F /* sms@1.5x.png in Resources */,
+				0C9634ED1FE11A1400EF89DF /* ic_gopay.png in Resources */,
 				0CC900261F701EE00058E93C /* en_kioson.plist in Resources */,
+				0C96350D1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */,
 				E58FCDC51E94CFD500632085 /* cimb_clicks@2x.png in Resources */,
 				3DECDF761F99BABD0001AC9A /* icon-help@1.5x.png in Resources */,
 				E58FCE391E94CFD600632085 /* other_atm_4@2x.png in Resources */,
 				E58FCE1B1E94CFD600632085 /* maybank@2x.png in Resources */,
 				3DECDFEC1F9DAE610001AC9A /* scan_cam.png in Resources */,
+				0C9634E81FE11A1400EF89DF /* ic_chevron_down@2x.png in Resources */,
 				0CE1D2CA1F67BA99003A012F /* sms@4x.png in Resources */,
 				0CC9004B1F702AE00058E93C /* en_echannel.plist in Resources */,
 				3DECDF771F99BABD0001AC9A /* icon-help@2x.png in Resources */,
 				E58FCE491E94CFD600632085 /* other_prima_5@2x.png in Resources */,
 				E58FCE8B1E94CFD600632085 /* visa-mastercard-jcb@3x.png in Resources */,
+				0C9634E41FE11A1400EF89DF /* gopay_scan_qr_instruction.png in Resources */,
 				3DECDFF01F9DAE610001AC9A /* scan_cam@3x.png in Resources */,
 				E58FCDCF1E94CFD500632085 /* credit_card@2x.png in Resources */,
 				0CE1D2B71F67BA53003A012F /* token_key@2x.png in Resources */,
@@ -3150,6 +3337,8 @@
 				E58FCDBB1E94CFD500632085 /* bri@2x.png in Resources */,
 				E58FCD8F1E94CFD500632085 /* anz.png in Resources */,
 				E58FCDFD1E94CFD500632085 /* logo@2x.png in Resources */,
+				0C9634E11FE11A1400EF89DF /* gopay.png in Resources */,
+				0C9634E61FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */,
 				E58FCE291E94CFD600632085 /* other_alto_3@2x.png in Resources */,
 				E58FCE8F1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
@@ -3173,6 +3362,7 @@
 				0CE1D2CF1F67BBDE003A012F /* SNPPostPaymentGeneralViewController.xib in Resources */,
 				0CC900291F7020780058E93C /* en_telkomsel_cash.plist in Resources */,
 				E5F1BB591E93701100ED659D /* MidtransLoadingView.xib in Resources */,
+				0C9635011FE11A1F00EF89DF /* ic_chevron_up@2x.png in Resources */,
 				E58FCDE81E94CFD500632085 /* hint@2x.png in Resources */,
 				3D4089251F74E43200B9A2EC /* id_paymentMethods.plist in Resources */,
 				E58FCE241E94CFD600632085 /* other_alto_1@2x.png in Resources */,
@@ -3183,6 +3373,7 @@
 				E519C9761E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				E5F1BB6E1E93701100ED659D /* VTBillpaySuccessController.xib in Resources */,
 				E5F1BB5F1E93701100ED659D /* MidtransSavedCardCell.xib in Resources */,
+				0C9635181FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */,
 				E58FCE001E94CFD500632085 /* mandiri_atm_2@2x.png in Resources */,
 				E58FCDCC1E94CFD500632085 /* citi@2x.png in Resources */,
 				3D4089391F7512F100B9A2EC /* bersama_preview@3x.png in Resources */,
@@ -3196,10 +3387,12 @@
 				0CE1D27B1F62A752003A012F /* bni_va@4x.png in Resources */,
 				0CC900351F70244A0058E93C /* en_bri_epay.plist in Resources */,
 				3DECDFE91F9DAE610001AC9A /* download@3x.png in Resources */,
+				0C9634F51FE11A1F00EF89DF /* gojek_icon@2x.png in Resources */,
 				3DECDFE51F9DAE610001AC9A /* download.png in Resources */,
 				3D4089261F74E43200B9A2EC /* en_paymentMethods.plist in Resources */,
 				E58FCE301E94CFD600632085 /* other_alto_7@2x.png in Resources */,
 				E5F1BB841E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
+				0C9634F71FE11A1F00EF89DF /* gopay.png in Resources */,
 				E58FCD901E94CFD500632085 /* anz@2x.png in Resources */,
 				0CE1D2661F62A670003A012F /* test_badge@2x.png in Resources */,
 				0CE1D2BA1F67BA53003A012F /* token_key@4x.png in Resources */,
@@ -3209,7 +3402,9 @@
 				E58FCDF81E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				3D40891C1F74E43200B9A2EC /* id_bni_va.plist in Resources */,
 				0CE1D2B61F67BA53003A012F /* token_key@2x.png in Resources */,
+				0C9635021FE11A1F00EF89DF /* ic_chevron_up@3x.png in Resources */,
 				E58FCDC21E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
+				0C96350C1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */,
 				E58FCE221E94CFD600632085 /* nextIcon@2x.png in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
@@ -3223,6 +3418,7 @@
 				0CE1D2791F62A752003A012F /* bni_va@3x.png in Resources */,
 				E58FCE1C1E94CFD600632085 /* mega.png in Resources */,
 				E58FCE681E94CFD600632085 /* plus-icon@2x.png in Resources */,
+				0C9635061FE11A1F00EF89DF /* ic_no_gopay.png in Resources */,
 				E58FCE7A1E94CFD600632085 /* visa-mastercard-amex.png in Resources */,
 				E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */,
 				E5F1BB761E93701100ED659D /* VTIndomaretSuccessController.xib in Resources */,
@@ -3249,6 +3445,7 @@
 				E5F1BB611E93701100ED659D /* MidtransSavedCardFooter.xib in Resources */,
 				0CC9003B1F7026F10058E93C /* en_mandiri_ecash.plist in Resources */,
 				0C93244B1F7B7F6F00D9A390 /* danamon_online@4x.png in Resources */,
+				0C9634FF1FE11A1F00EF89DF /* ic_chevron_down@3x.png in Resources */,
 				E58FCD8C1E94CFD500632085 /* AmexDark@2x.png in Resources */,
 				E5F1BB7E1E93701100ED659D /* VTSubGuideController.xib in Resources */,
 				E58FCD961E94CFD500632085 /* bbm@2x.png in Resources */,
@@ -3263,12 +3460,16 @@
 				E57127341E93B3290064F515 /* en_bca_klikpay.plist in Resources */,
 				E58FCDFA1E94CFD500632085 /* kioson@2x.png in Resources */,
 				3D4089371F7512F100B9A2EC /* bersama_preview@2x.png in Resources */,
+				0C9635051FE11A1F00EF89DF /* ic_gopay@3x.png in Resources */,
 				0CC900461F702A290058E93C /* (null) in Resources */,
 				E58FCDC61E94CFD500632085 /* cimb.png in Resources */,
 				E58FCDDE1E94CFD500632085 /* echannel@2x.png in Resources */,
+				0C9634FC1FE11A1F00EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */,
+				0C9635141FE11D7E00EF89DF /* id_gopay.plist in Resources */,
 				0CE1D2A61F67B861003A012F /* visa-mastercard-jcb-seal@2x.png in Resources */,
 				0CC9004C1F702AE40058E93C /* id_echannel.plist in Resources */,
 				E58FCDD01E94CFD500632085 /* CreditCardBack@2x.png in Resources */,
+				0C9634F81FE11A1F00EF89DF /* gopay@2x.png in Resources */,
 				3D4089471F75133200B9A2EC /* prima_preview.png in Resources */,
 				0CC9001F1F7015AE0058E93C /* id_indosat_dompetku.plist in Resources */,
 				E58FCDF21E94CFD500632085 /* indosat_dompetku@2x.png in Resources */,
@@ -3283,6 +3484,7 @@
 				0CC9002B1F70207C0058E93C /* id_telkomsel_cash.plist in Resources */,
 				E5EBC2C51EB0726B00A568D1 /* midtrans_logo_right@2x.png in Resources */,
 				E58FCE081E94CFD500632085 /* mandiri_atm_6@2x.png in Resources */,
+				0C9634FD1FE11A1F00EF89DF /* ic_chevron_down.png in Resources */,
 				E58FCDF01E94CFD500632085 /* indomaret@2x.png in Resources */,
 				E58FCE6E1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */,
 				E58FCE821E94CFD600632085 /* visa-mastercard-jcb-amex@2x.png in Resources */,
@@ -3296,6 +3498,7 @@
 				E58FCDC81E94CFD500632085 /* cimb@2x.png in Resources */,
 				0C6FD11C1F9DDAAE00401628 /* mandiri_badge@2x.png in Resources */,
 				E5F1BB581E93701100ED659D /* MidtransItemCell.xib in Resources */,
+				0C9635091FE11A1F00EF89DF /* reload.png in Resources */,
 				E5F1BB601E93701100ED659D /* MidtransSavedCardController.xib in Resources */,
 				E5F1BB6B1E93701100ED659D /* MidtransVAViewController.xib in Resources */,
 				E58FCE401E94CFD600632085 /* other_prima_1@2x.png in Resources */,
@@ -3307,6 +3510,7 @@
 				3D5DFDC31FB458120021EB2F /* icon-help@2x.png in Resources */,
 				3D4089241F74E43200B9A2EC /* id_other_va.plist in Resources */,
 				E58FCE1E1E94CFD600632085 /* mega@2x.png in Resources */,
+				0C96350A1FE11B5900EF89DF /* MidGopayDetailViewController.xib in Resources */,
 				E58FCE661E94CFD600632085 /* permata@2x.png in Resources */,
 				E5F1BB5D1E93701100ED659D /* MidtransPaymentStatusViewController.xib in Resources */,
 				0CC9003D1F7026F60058E93C /* id_mandiri_ecash.plist in Resources */,
@@ -3315,6 +3519,7 @@
 				E58FCE781E94CFD600632085 /* VASuccessIcon@2x.png in Resources */,
 				E519C96E1E9B6F2000EF70DF /* bni_va4@2x.png in Resources */,
 				3D40891E1F74E43200B9A2EC /* id_mandiri_clickpay.plist in Resources */,
+				0C9635121FE11D7E00EF89DF /* id_ipad_gopay.plist in Resources */,
 				3D4089231F74E43200B9A2EC /* id_bca_va.plist in Resources */,
 				E58FCE7C1E94CFD600632085 /* visa-mastercard-amex@2x.png in Resources */,
 				E58FCE8C1E94CFD600632085 /* visa-mastercard.png in Resources */,
@@ -3335,6 +3540,7 @@
 				0C115B7C1F73A76900327915 /* en_lang.json in Resources */,
 				E58FCDCA1E94CFD500632085 /* citi.png in Resources */,
 				E58FCE121E94CFD500632085 /* mandiri@2x.png in Resources */,
+				0C9635081FE11A1F00EF89DF /* ic_no_gopay@3x.png in Resources */,
 				3D5DFDC51FB458120021EB2F /* icon-help@4x.png in Resources */,
 				E58FCDE21E94CFD500632085 /* errorIcon@2x.png in Resources */,
 				E58FCE4A1E94CFD600632085 /* other_prima_6@2x.png in Resources */,
@@ -3344,10 +3550,13 @@
 				E58FCDB21E94CFD500632085 /* bni.png in Resources */,
 				0CE1D2A41F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				E5F1BB6D1E93701100ED659D /* VTAddCardController.xib in Resources */,
+				0C9635001FE11A1F00EF89DF /* ic_chevron_up.png in Resources */,
 				E5F1BB851E93701100ED659D /* MidtransUIPaymentListHeader.xib in Resources */,
 				E58FCDB01E94CFD500632085 /* bni_badge@3x.png in Resources */,
+				0C9634F91FE11A1F00EF89DF /* gopay@3x.png in Resources */,
 				E58FCE261E94CFD600632085 /* other_alto_2@2x.png in Resources */,
 				E58FCE801E94CFD600632085 /* visa-mastercard-jcb-amex.png in Resources */,
+				0C9635071FE11A1F00EF89DF /* ic_no_gopay@2x.png in Resources */,
 				0CE1D2C91F67BA99003A012F /* sms@4x.png in Resources */,
 				0CC900511F702E0F0058E93C /* id_cimb_clicks.plist in Resources */,
 				E58FCE4E1E94CFD600632085 /* other_va@2x.png in Resources */,
@@ -3367,6 +3576,7 @@
 				E5EBC2C31EB0726B00A568D1 /* midtrans_logo_left@2x.png in Resources */,
 				E58FCE0A1E94CFD500632085 /* mandiri_clickpay@2x.png in Resources */,
 				0CE1D2721F62A71E003A012F /* arrow@2x.png in Resources */,
+				0C9635161FE11D7E00EF89DF /* en_gopay.plist in Resources */,
 				0CE1D2B81F67BA53003A012F /* token_key@3x.png in Resources */,
 				E58FCE741E94CFD600632085 /* va.png in Resources */,
 				E58FCDA21E94CFD500632085 /* bca_atm_6@2x.png in Resources */,
@@ -3380,10 +3590,12 @@
 				E5F1BB821E93701100ED659D /* VTVASuccessStatusController.xib in Resources */,
 				0CC900431F7028C50058E93C /* id_virtualAccount.plist in Resources */,
 				3D4089221F74E43200B9A2EC /* id_bca_klikpay.plist in Resources */,
+				0C9634FB1FE11A1F00EF89DF /* gopay_scan_qr_instruction@2x.png in Resources */,
 				3D40893E1F75130300B9A2EC /* alto_preview.png in Resources */,
 				E58FCD921E94CFD500632085 /* back@2x.png in Resources */,
 				E58FCE621E94CFD600632085 /* permata_va@2x.png in Resources */,
 				0CE1D2AB1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib in Resources */,
+				0C9635031FE11A1F00EF89DF /* ic_gopay.png in Resources */,
 				E58FCD8A1E94CFD500632085 /* Amex@2x.png in Resources */,
 				E5F1BB771E93701100ED659D /* VTKeyboardAccessoryView.xib in Resources */,
 				E58FCE5E1E94CFD600632085 /* permata_atm_6@2x.png in Resources */,
@@ -3415,6 +3627,7 @@
 				E58FCD9E1E94CFD500632085 /* bca_atm_4@2x.png in Resources */,
 				E5F1BB701E93701100ED659D /* VTCCBackView.xib in Resources */,
 				E58FCE2A1E94CFD600632085 /* other_alto_4@2x.png in Resources */,
+				0C9634FA1FE11A1F00EF89DF /* gopay_scan_qr_instruction.png in Resources */,
 				E5F1BB691E93701100ED659D /* MidtransUIToast.xib in Resources */,
 				0CEF031C1EA3CCBF00EA1EE0 /* SNPPostPaymentVAViewController.xib in Resources */,
 				E5F1BB781E93701100ED659D /* VTKlikbcaSuccessController.xib in Resources */,
@@ -3422,6 +3635,7 @@
 				E58FCDEE1E94CFD500632085 /* ImageOffer@2x.png in Resources */,
 				0CE1D2B21F67BA53003A012F /* token_key.png in Resources */,
 				E58FCE901E94CFD600632085 /* visa-mastercard@3x.png in Resources */,
+				0C9634FE1FE11A1F00EF89DF /* ic_chevron_down@2x.png in Resources */,
 				E58FCE361E94CFD600632085 /* other_atm_3@2x.png in Resources */,
 				E5F1BB801E93701100ED659D /* VTTwoClickController.xib in Resources */,
 				E55976411EA72F770044342A /* check@2x.png in Resources */,
@@ -3459,8 +3673,11 @@
 				3DECDFF11F9DAE610001AC9A /* see.png in Resources */,
 				E5F1BB8D1E93702C00ED659D /* SourceSansPro-Light.ttf in Resources */,
 				E58FCE8E1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
+				0C9635041FE11A1F00EF89DF /* ic_gopay@2x.png in Resources */,
+				0C9634F41FE11A1F00EF89DF /* gojek_icon.png in Resources */,
 				E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
 				0CE1D2951F67A0C8003A012F /* MidtransNewCreditCardViewController.xib in Resources */,
+				0C9634F61FE11A1F00EF89DF /* gojek_icon@3x.png in Resources */,
 				E55976431EA72F770044342A /* pending@2x.png in Resources */,
 				E5F1BB7F1E93701100ED659D /* VTPaymentStatusController.xib in Resources */,
 				E58FCE561E94CFD600632085 /* permata_atm_2@2x.png in Resources */,
@@ -3476,6 +3693,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E57122AC1E937C040064F515 /* MidtransUICustomAlertViewController.m in Sources */,
+				0C9634BC1FE1197A00EF89DF /* MidGopayDetailViewController.m in Sources */,
 				E57122AD1E937C040064F515 /* MidtransInstallmentView.m in Sources */,
 				E57122AE1E937C040064F515 /* MidtransInstallmentCollectionViewCell.m in Sources */,
 				E57122B01E937C040064F515 /* MIdtransUICardCell.m in Sources */,
@@ -3510,6 +3728,7 @@
 				0CBA28C01F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */,
 				E57122CE1E937C040064F515 /* VTSegmentedControl.m in Sources */,
 				E57122CF1E937C040064F515 /* MidtransUIBaseViewController.m in Sources */,
+				0C9634BE1FE1197A00EF89DF /* MidGopayViewController.m in Sources */,
 				E57122D01E937C040064F515 /* VTBackBarButtonItem.m in Sources */,
 				E57122D11E937C040064F515 /* IHKeyboardAvoiding_vt.m in Sources */,
 				E57122D21E937C040064F515 /* MBXPageViewController_vt.m in Sources */,
@@ -3535,6 +3754,7 @@
 				E57122E51E937C040064F515 /* MidtransVAViewController.m in Sources */,
 				E57122E61E937C040064F515 /* MidtransVAHeader.m in Sources */,
 				E57122E71E937C040064F515 /* SNPPointViewController.m in Sources */,
+				0C9634B81FE1197A00EF89DF /* MIDGopayView.m in Sources */,
 				E57122E81E937C040064F515 /* SNPPointView.m in Sources */,
 				E57122E91E937C040064F515 /* AddOnConstructor.m in Sources */,
 				E57122EA1E937C040064F515 /* MidtransCreditCardAddOnComponentCell.m in Sources */,
@@ -3550,6 +3770,7 @@
 				E57122F31E937C040064F515 /* MidtransSavedCardController.m in Sources */,
 				E57122F41E937C040064F515 /* MidtransSavedCardCell.m in Sources */,
 				E57122F51E937C040064F515 /* MidtransSavedCardFooter.m in Sources */,
+				0C9634C41FE119BC00EF89DF /* MIDGopayDetailView.m in Sources */,
 				E57122F61E937C040064F515 /* VTMandiriClickpayController.m in Sources */,
 				E57122F71E937C040064F515 /* MidtransPaymentGCIViewController.m in Sources */,
 				E57122F81E937C040064F515 /* MidtransPaymentGCIView.m in Sources */,
@@ -3598,6 +3819,7 @@
 				E55F62F41E934B1B00C012C8 /* MIdtransUICardCell.m in Sources */,
 				E55F62F51E934B1B00C012C8 /* MidtransUICCFrontView.m in Sources */,
 				E55F62F61E934B1B00C012C8 /* VTCCBackView.m in Sources */,
+				0C9634BD1FE1197A00EF89DF /* MidGopayViewController.m in Sources */,
 				E55F62F71E934B1B00C012C8 /* VTPaymentHeader.m in Sources */,
 				E55F62F81E934B1B00C012C8 /* MidtransUIListCell.m in Sources */,
 				E55F62F91E934B1B00C012C8 /* MidtransLoadingIndicator.m in Sources */,
@@ -3650,9 +3872,11 @@
 				E55F63261E934B1C00C012C8 /* MidtransUIPaymentGeneralViewController.m in Sources */,
 				0CEF032E1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */,
 				E55F63271E934B1C00C012C8 /* MidtransUIPaymentGeneralView.m in Sources */,
+				0C9634BB1FE1197A00EF89DF /* MidGopayDetailViewController.m in Sources */,
 				E55F63281E934B1C00C012C8 /* VTVAListController.m in Sources */,
 				E55F63291E934B1C00C012C8 /* MidtransVAViewController.m in Sources */,
 				E55F632A1E934B1C00C012C8 /* MidtransVAHeader.m in Sources */,
+				0C9634C31FE119BC00EF89DF /* MIDGopayDetailView.m in Sources */,
 				0C108A051EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,
 				E55F632B1E934B1C00C012C8 /* SNPPointViewController.m in Sources */,
 				E55F632C1E934B1C00C012C8 /* SNPPointView.m in Sources */,
@@ -3678,6 +3902,7 @@
 				E55F633D1E934B1C00C012C8 /* VTMultiGuideController.m in Sources */,
 				E55F633E1E934B1C00C012C8 /* VTSingleGuideController.m in Sources */,
 				E55F633F1E934B1C00C012C8 /* VTSubGuideController.m in Sources */,
+				0C9634B71FE1197A00EF89DF /* MIDGopayView.m in Sources */,
 				E55F63401E934B1C00C012C8 /* VTGuideView.m in Sources */,
 				E55F63411E934B1C00C012C8 /* VTGuideCell.m in Sources */,
 				E55F63421E934B1C00C012C8 /* VTGroupedInstruction.m in Sources */,

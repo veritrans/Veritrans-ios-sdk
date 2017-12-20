@@ -51,7 +51,7 @@ static NSString* const ClickpayAPPLI = @"3";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.isShowInstructions = YES;
+    self.isShowInstructions = NO;
     // Do any additional setup after loading the view.
     self.isShowInstructions = 0;
     self.title = self.paymentMethod.title;
@@ -92,6 +92,7 @@ static NSString* const ClickpayAPPLI = @"3";
     self.instructionviewHeightConstraints.constant = self.subGuide.view.frame.size.height-200;
     [self.view updateConstraintsIfNeeded];
     [self addSubViewController:self.subGuide toView:self.instructionPage];
+    self.subGuide.view.hidden = YES;
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;

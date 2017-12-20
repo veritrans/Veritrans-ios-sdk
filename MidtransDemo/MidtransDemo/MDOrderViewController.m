@@ -17,12 +17,19 @@
 #import <JGProgressHUD/JGProgressHUD.h>
 
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UIView *amountView;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
 
 @implementation MDOrderViewController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.addressLabel.text = [NSString stringWithFormat:@" %@, %@ - %@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"],[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"],
+                              [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"],
+                              [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]
+                              ];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -107,10 +114,10 @@
     MidtransAddress *addr = [MidtransAddress addressWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
                                                          lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
                                                             phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
-                                                          address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
-                                                             city:@"Jakarta"
-                                                       postalCode:@"10220"
-                                                      countryCode:@"IDN"];
+                                                          address:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"]
+                                                             city:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"]
+                                                       postalCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"]
+                                                      countryCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]];
     
     MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
                                                                              lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]

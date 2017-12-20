@@ -40,6 +40,29 @@
         [[NSUserDefaults standardUserDefaults] setObject:@"demo.midtrans@midtrans.com" forKey:@"USER_DEMO_CONTENT_EMAIL"];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11" forKey:@"USER_DEMO_CONTENT_ADDRESS"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Jakarta" forKey:@"USER_DEMO_CONTENT_CITY"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"10220" forKey:@"USER_DEMO_CONTENT_POSTAL_CODE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"IDN" forKey:@"USER_DEMO_CONTENT_COUNTRY"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    /*
+     address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
+     city:@"Jakarta"
+     postalCode:@"10220"
+     countryCode:@"IDN"];
+     */
     [MDOptionManager shared];
     
     [Fabric with:@[[Crashlytics class]]];

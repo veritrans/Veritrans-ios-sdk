@@ -8,9 +8,18 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Light.ttf">
+            <string>SourceSansPro-Light</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddAddressViewController">
             <connections>
+                <outlet property="addressTextField" destination="aG0-ki-ZlX" id="tiW-Le-kCx"/>
+                <outlet property="cityAddressTextField" destination="OOD-by-0JG" id="1vO-cx-1BN"/>
+                <outlet property="countryTextField" destination="7v7-cp-T4E" id="Ffl-2t-xtY"/>
+                <outlet property="postalCodeTextField" destination="5cI-QQ-cwo" id="mQZ-FE-DBz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -18,7 +27,103 @@
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oe3-ou-EsX">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="612"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EZY-jg-RrU">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="328"/>
+                            <subviews>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aG0-ki-ZlX" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="8" y="28" width="359" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="6K2-wi-Fon"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="City" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OOD-by-0JG" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="8" y="92" width="359" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="wcq-rk-bQR"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Postal Code" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5cI-QQ-cwo" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="8" y="156" width="359" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="FIR-1T-fMe"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                </textField>
+                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Country" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7v7-cp-T4E" customClass="ACFloatingTextField">
+                                    <rect key="frame" x="8" y="220" width="359" height="44"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="JqC-PN-R8W"/>
+                                    </constraints>
+                                    <nil key="textColor"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="trailing" secondItem="7v7-cp-T4E" secondAttribute="trailing" constant="8" id="B30-Ze-qAV"/>
+                                <constraint firstItem="5cI-QQ-cwo" firstAttribute="leading" secondItem="EZY-jg-RrU" secondAttribute="leading" constant="8" id="CR6-OO-Ydb"/>
+                                <constraint firstItem="5cI-QQ-cwo" firstAttribute="top" secondItem="OOD-by-0JG" secondAttribute="bottom" constant="20" id="DXY-LV-ANS"/>
+                                <constraint firstItem="aG0-ki-ZlX" firstAttribute="top" secondItem="EZY-jg-RrU" secondAttribute="top" constant="28" id="FCL-j5-5J0"/>
+                                <constraint firstAttribute="bottom" secondItem="7v7-cp-T4E" secondAttribute="bottom" constant="64" id="FiO-4f-MbY"/>
+                                <constraint firstItem="7v7-cp-T4E" firstAttribute="leading" secondItem="EZY-jg-RrU" secondAttribute="leading" constant="8" id="GGw-7a-vzn"/>
+                                <constraint firstAttribute="trailing" secondItem="OOD-by-0JG" secondAttribute="trailing" constant="8" id="JhZ-D3-FuU"/>
+                                <constraint firstAttribute="trailing" secondItem="5cI-QQ-cwo" secondAttribute="trailing" constant="8" id="JlJ-FV-Wac"/>
+                                <constraint firstItem="7v7-cp-T4E" firstAttribute="top" secondItem="5cI-QQ-cwo" secondAttribute="bottom" constant="20" id="R2v-dE-jUO"/>
+                                <constraint firstItem="OOD-by-0JG" firstAttribute="top" secondItem="aG0-ki-ZlX" secondAttribute="bottom" constant="20" id="ULO-af-Pji"/>
+                                <constraint firstAttribute="trailing" secondItem="aG0-ki-ZlX" secondAttribute="trailing" constant="8" id="Xau-G4-OXv"/>
+                                <constraint firstItem="aG0-ki-ZlX" firstAttribute="leading" secondItem="EZY-jg-RrU" secondAttribute="leading" constant="8" id="kKq-bX-d4e"/>
+                                <constraint firstItem="OOD-by-0JG" firstAttribute="leading" secondItem="EZY-jg-RrU" secondAttribute="leading" constant="8" id="pSF-qM-Raa"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="EZY-jg-RrU" firstAttribute="width" secondItem="oe3-ou-EsX" secondAttribute="width" id="7nH-YO-Ylz"/>
+                        <constraint firstAttribute="bottom" secondItem="EZY-jg-RrU" secondAttribute="bottom" constant="484" id="9CO-cX-SyI"/>
+                        <constraint firstItem="EZY-jg-RrU" firstAttribute="leading" secondItem="oe3-ou-EsX" secondAttribute="leading" id="Mc7-Is-m5X"/>
+                        <constraint firstAttribute="trailing" secondItem="EZY-jg-RrU" secondAttribute="trailing" id="qHw-ge-Zx7"/>
+                        <constraint firstItem="EZY-jg-RrU" firstAttribute="top" secondItem="oe3-ou-EsX" secondAttribute="top" id="vE0-K6-Ahu"/>
+                    </constraints>
+                </scrollView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tAr-Ki-U0E" customClass="MDJButton">
+                    <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                    <color key="backgroundColor" red="0.1843137255" green="0.50196078430000002" blue="0.76078431369999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <accessibility key="accessibilityConfiguration" identifier="demo_pay"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="hpU-sh-AZe"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="20"/>
+                    <state key="normal" title="Update Delivery Address"/>
+                    <connections>
+                        <action selector="updateAddressButtonDidTapped:" destination="-1" eventType="touchUpInside" id="bF6-gz-LoH"/>
+                    </connections>
+                </button>
+            </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="tAr-Ki-U0E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="6nq-za-ExD"/>
+                <constraint firstItem="tAr-Ki-U0E" firstAttribute="top" secondItem="oe3-ou-EsX" secondAttribute="bottom" constant="1" id="A77-vo-jr0"/>
+                <constraint firstItem="oe3-ou-EsX" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="H0O-Im-hSg"/>
+                <constraint firstAttribute="bottom" secondItem="tAr-Ki-U0E" secondAttribute="bottom" id="Kkm-gX-i9F"/>
+                <constraint firstItem="oe3-ou-EsX" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="MWy-iN-Ife"/>
+                <constraint firstItem="tAr-Ki-U0E" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="bq8-U8-x2e"/>
+                <constraint firstAttribute="trailing" secondItem="tAr-Ki-U0E" secondAttribute="trailing" id="e3t-BZ-5Tk"/>
+                <constraint firstAttribute="trailing" secondItem="oe3-ou-EsX" secondAttribute="trailing" id="fAz-VV-BZo"/>
+                <constraint firstItem="oe3-ou-EsX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ykH-93-m1X"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
         </view>
     </objects>
 </document>

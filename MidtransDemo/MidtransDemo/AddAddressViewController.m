@@ -7,8 +7,12 @@
 //
 
 #import "AddAddressViewController.h"
-
+#import <ACFloatingTextfield_Objc/ACFloatingTextField.h>
 @interface AddAddressViewController ()
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *addressTextField;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *cityAddressTextField;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *postalCodeTextField;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *countryTextField;
 
 @end
 
@@ -16,7 +20,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.title = @"Delivery Address";
+    self.addressTextField.text  = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"];
+    self.cityAddressTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"];
+    self.postalCodeTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"];
+     self.countryTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"];
     // Do any additional setup after loading the view from its nib.
+}
+- (IBAction)updateAddressButtonDidTapped:(id)sender {
+    [[NSUserDefaults standardUserDefaults] setObject:self.addressTextField.text forKey:@"USER_DEMO_CONTENT_ADDRESS"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.cityAddressTextField.text forKey:@"USER_DEMO_CONTENT_CITY"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.postalCodeTextField.text forKey:@"USER_DEMO_CONTENT_POSTAL_CODE"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    [[NSUserDefaults standardUserDefaults] setObject:self.countryTextField.text forKey:@"USER_DEMO_CONTENT_COUNTRY"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+    
 }
 
 - (void)didReceiveMemoryWarning {

@@ -61,13 +61,13 @@
                         <rect key="frame" x="8" y="417" width="359" height="40"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS charges may be applied for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2iP-jf-PY7">
-                                <rect key="frame" x="41.5" y="14" width="292.5" height="14"/>
+                                <rect key="frame" x="33.5" y="13.5" width="292.5" height="14"/>
                                 <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                                 <color key="textColor" red="0.36862745099999999" green="0.32156862749999998" blue="0.0039215686269999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sms.png" translatesAutoresizingMaskIntoConstraints="NO" id="JSr-Kp-AGq">
-                                <rect key="frame" x="17.5" y="10" width="20" height="20"/>
+                                <rect key="frame" x="9.5" y="10" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="Z4u-0S-Up7"/>
                                     <constraint firstAttribute="height" constant="20" id="oLC-8o-kLU"/>
@@ -80,7 +80,7 @@
                             <constraint firstItem="2iP-jf-PY7" firstAttribute="leading" secondItem="JSr-Kp-AGq" secondAttribute="trailing" constant="4" id="7qo-52-Yvi"/>
                             <constraint firstItem="JSr-Kp-AGq" firstAttribute="bottom" secondItem="lZV-aq-b2w" secondAttribute="bottomMargin" constant="-2" id="9Fq-Id-Wpr"/>
                             <constraint firstItem="2iP-jf-PY7" firstAttribute="centerY" secondItem="lZV-aq-b2w" secondAttribute="centerY" id="OG3-Cf-A4R"/>
-                            <constraint firstItem="2iP-jf-PY7" firstAttribute="centerX" secondItem="lZV-aq-b2w" secondAttribute="centerX" constant="8.25" id="VLT-hj-DSN"/>
+                            <constraint firstItem="2iP-jf-PY7" firstAttribute="centerX" secondItem="lZV-aq-b2w" secondAttribute="centerX" id="VLT-hj-DSN"/>
                             <constraint firstAttribute="height" constant="40" id="ajc-XV-OQC"/>
                         </constraints>
                     </view>
@@ -119,15 +119,16 @@
                             <constraint firstAttribute="width" constant="46" id="IUw-rU-8rT"/>
                             <constraint firstAttribute="height" constant="30" id="QwM-ik-CD8"/>
                         </constraints>
-                        <state key="normal" image="arrow_down"/>
+                        <state key="normal" image="ic_chevron_down.png"/>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="7qD-dA-0ZJ" firstAttribute="leading" secondItem="iIR-WH-ZYP" secondAttribute="trailing" constant="8" id="0Vg-vY-yNY"/>
                     <constraint firstItem="0Bs-05-PwO" firstAttribute="leading" secondItem="ut2-Ps-drI" secondAttribute="leading" constant="4" id="2Go-dU-Ffg"/>
                     <constraint firstItem="lZV-aq-b2w" firstAttribute="top" secondItem="ut2-Ps-drI" secondAttribute="bottom" constant="8" id="2lj-se-LT1"/>
                     <constraint firstItem="zir-Nc-rh2" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leading" constant="15" id="3aw-mf-6WY"/>
+                    <constraint firstItem="7qD-dA-0ZJ" firstAttribute="leading" secondItem="iIR-WH-ZYP" secondAttribute="trailing" constant="8" id="7Gl-9k-HL2"/>
                     <constraint firstItem="zir-Nc-rh2" firstAttribute="top" secondItem="dxx-fu-CgF" secondAttribute="top" constant="8" id="E4y-Ku-AKV"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="lZV-aq-b2w" secondAttribute="trailing" constant="-8" id="OEL-Yu-Vf6"/>
                     <constraint firstItem="0Bs-05-PwO" firstAttribute="top" secondItem="ut2-Ps-drI" secondAttribute="top" constant="4" id="OVN-MB-Lb9"/>
                     <constraint firstItem="lZV-aq-b2w" firstAttribute="leading" secondItem="dxx-fu-CgF" secondAttribute="leadingMargin" constant="-8" id="Qhf-a1-4D0"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ut2-Ps-drI" secondAttribute="trailing" constant="8" id="SGH-Fa-CdF"/>
@@ -138,7 +139,6 @@
                     <constraint firstItem="gR6-sh-JnL" firstAttribute="top" secondItem="tbu-mz-S8H" secondAttribute="bottom" constant="16" id="Yz1-EP-3cn"/>
                     <constraint firstAttribute="trailing" secondItem="7qD-dA-0ZJ" secondAttribute="trailing" constant="15" id="bOq-Jx-fmm"/>
                     <constraint firstAttribute="trailing" secondItem="tbu-mz-S8H" secondAttribute="trailing" constant="15" id="bf6-0P-hCJ"/>
-                    <constraint firstItem="lZV-aq-b2w" firstAttribute="width" secondItem="dxx-fu-CgF" secondAttribute="width" constant="-16" id="cjz-XJ-G0l"/>
                     <constraint firstAttribute="trailing" secondItem="zir-Nc-rh2" secondAttribute="trailing" constant="15" id="f9D-fT-pie"/>
                     <constraint firstAttribute="bottom" secondItem="iIR-WH-ZYP" secondAttribute="bottom" constant="8" id="fXB-Jh-XB5"/>
                     <constraint firstItem="iFh-Zu-uCe" firstAttribute="centerX" secondItem="ut2-Ps-drI" secondAttribute="centerX" id="j58-nb-zCy"/>
@@ -162,6 +162,7 @@
                 <outlet property="otherAtmIconsImageView" destination="0Bs-05-PwO" id="lg0-NJ-zjj"/>
                 <outlet property="payNoticeLabel" destination="ut2-Ps-drI" id="vQC-Fn-Lom"/>
                 <outlet property="payNoticeLabelHeightConstraint" destination="SFb-Lz-Dh9" id="4op-h2-C2U"/>
+                <outlet property="reloadButton" destination="7qD-dA-0ZJ" id="xbs-Eg-isP"/>
                 <outlet property="smsChargeLabel" destination="2iP-jf-PY7" id="sQ4-et-muK"/>
                 <outlet property="tabSwitch" destination="gR6-sh-JnL" id="vHf-KX-Js7"/>
                 <outlet property="tutorialTitleLabel" destination="iIR-WH-ZYP" id="WsP-9c-ad8"/>
@@ -170,8 +171,8 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="arrow_down" width="14" height="9"/>
         <image name="bersama_preview.png" width="325" height="24"/>
+        <image name="ic_chevron_down.png" width="14" height="9"/>
         <image name="see.png" width="16" height="10"/>
         <image name="sms.png" width="9" height="16"/>
     </resources>

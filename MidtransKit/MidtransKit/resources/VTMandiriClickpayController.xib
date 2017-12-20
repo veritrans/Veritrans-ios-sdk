@@ -311,19 +311,33 @@
                                     <rect key="frame" x="0.0" y="188" width="375" height="27"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mandiri Clickpay step by step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIu-B6-sX6">
-                                            <rect key="frame" x="8" y="1" width="359" height="21"/>
+                                            <rect key="frame" x="8" y="1" width="301" height="21"/>
                                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFU-7i-mXS">
+                                            <rect key="frame" x="317" y="1" width="50" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="50" id="3iM-VO-bUg"/>
+                                                <constraint firstAttribute="height" constant="22" id="dPw-7N-0DM"/>
+                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="22" id="ehX-7N-mat"/>
+                                            </constraints>
+                                            <state key="normal" image="ic_chevron_down.png"/>
+                                            <connections>
+                                                <action selector="reloadInstructionDidTapped:" destination="-1" eventType="touchUpInside" id="ODr-RT-EU5"/>
+                                            </connections>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="gIu-B6-sX6" firstAttribute="top" secondItem="eAM-7t-RXB" secondAttribute="top" constant="1" id="5Du-ld-Xea"/>
                                         <constraint firstAttribute="height" constant="27" id="5PJ-Hh-aE7"/>
                                         <constraint firstAttribute="bottom" secondItem="gIu-B6-sX6" secondAttribute="bottom" constant="5" id="6k0-Sh-KOy"/>
+                                        <constraint firstItem="UFU-7i-mXS" firstAttribute="top" secondItem="eAM-7t-RXB" secondAttribute="top" constant="1" id="Cck-lX-RkM"/>
                                         <constraint firstItem="gIu-B6-sX6" firstAttribute="leading" secondItem="eAM-7t-RXB" secondAttribute="leading" constant="8" id="I6W-da-tng"/>
-                                        <constraint firstAttribute="trailing" secondItem="gIu-B6-sX6" secondAttribute="trailing" constant="8" id="OfE-uR-Gu8"/>
+                                        <constraint firstItem="UFU-7i-mXS" firstAttribute="leading" secondItem="gIu-B6-sX6" secondAttribute="trailing" constant="8" id="MNB-FC-myv"/>
+                                        <constraint firstAttribute="trailing" secondItem="UFU-7i-mXS" secondAttribute="trailing" constant="8" id="gmp-q8-HmU"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ahp-2X-9AL">
@@ -420,6 +434,7 @@
     </objects>
     <resources>
         <image name="DisclosureIndicator.png" width="8" height="13"/>
+        <image name="ic_chevron_down.png" width="14" height="9"/>
         <image name="icon-help.png" width="12" height="12"/>
         <image name="token_key.png" width="11" height="16"/>
     </resources>

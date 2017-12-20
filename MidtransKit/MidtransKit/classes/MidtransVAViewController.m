@@ -33,6 +33,7 @@
 @property (nonatomic) NSArray *otherBankListATMBersama;
 @property (nonatomic) NSArray *otherBankListPrima;
 @property (nonatomic) NSArray *otherBankListAlto;
+@property (nonatomic) BOOL isShowInstruction;
 @property (nonatomic) CGFloat currentTableViewHieght;
 @property (nonatomic) MidtransVAType paymentType;
 @end
@@ -41,7 +42,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.isShowInstruction = 0;
+    self.currentInstruction = [NSMutableArray new];
     self.title = self.paymentMethod.title;
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
     self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
@@ -62,6 +64,7 @@
     self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-placeholder"];
     self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-note"];
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
+    [self.headerView.reloadButton addTarget:self action:@selector(reloadInstruction) forControlEvents:UIControlEventTouchUpInside];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     self.headerView.keySMSviewConstraints.constant = 0.0f;
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
@@ -116,6 +119,17 @@
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     self.amountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
     self.currentTableViewHieght = CGRectGetHeight(self.tableView.frame);
+}
+- (void)reloadInstruction {
+    if (!self.isShowInstruction) {
+        self.subInstructions = self.currentInstruction;
+        [self.tableView reloadData];
+        self.isShowInstruction = 1;
+    } else {
+        self.subInstructions = @[];
+        [self.tableView reloadData];
+        self.isShowInstruction = 0;
+    }
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
@@ -218,6 +232,8 @@
         [self.headerView.expandBankListButton setTitle:nil forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;
+    self.currentInstruction = [NSMutableArray arrayWithArray:self.subInstructions];
+    self.subInstructions = @[];
     [self.tableView reloadData];
 }
 

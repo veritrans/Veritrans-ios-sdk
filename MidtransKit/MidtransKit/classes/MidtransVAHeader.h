@@ -23,5 +23,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *expandBankListButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *expandListButtonHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *payNoticeLabelHeightConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *reloadButton;
 
 @end

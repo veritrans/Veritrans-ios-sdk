@@ -21,7 +21,8 @@
 static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
-
+@property (nonatomic) BOOL isShowInstructions;
+@property (nonatomic,strong)VTSubGuideController *subGuide;
 @property (strong, nonatomic) IBOutlet MidtransUITextField *debitNumberTextField;
 @property (strong, nonatomic) IBOutlet MidtransUITextField *tokenTextField;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
@@ -38,11 +39,21 @@ static NSString* const ClickpayAPPLI = @"3";
 @end
 
 @implementation VTMandiriClickpayController
+- (IBAction)reloadInstructionDidTapped:(id)sender {
+    if (!self.isShowInstructions) {
+        self.subGuide.view.hidden = NO;
+        self.isShowInstructions = 1;
+    } else {
+        self.subGuide.view.hidden = YES;
+        self.isShowInstructions =0;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isShowInstructions = YES;
     // Do any additional setup after loading the view.
-    
+    self.isShowInstructions = 0;
     self.title = self.paymentMethod.title;
     [self.view layoutIfNeeded];
     [self.keyTokenView setNeedsUpdateConstraints];
@@ -77,10 +88,10 @@ static NSString* const ClickpayAPPLI = @"3";
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
     }
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
-    VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
-    self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;
+    self.subGuide = [[VTSubGuideController alloc] initWithInstructions:instructions];
+    self.instructionviewHeightConstraints.constant = self.subGuide.view.frame.size.height-200;
     [self.view updateConstraintsIfNeeded];
-    [self addSubViewController:vc toView:self.instructionPage];
+    [self addSubViewController:self.subGuide toView:self.instructionPage];
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;

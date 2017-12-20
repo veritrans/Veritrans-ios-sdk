@@ -23,7 +23,7 @@
                         <constraint firstAttribute="width" constant="160" id="siv-cN-jzx"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <state key="normal" title="pay with new card" image="plus-icon.png">
+                    <state key="normal" title="Add new card" image="plus-icon.png">
                         <color key="titleColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>

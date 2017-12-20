@@ -24,7 +24,8 @@
     self.descLabel.text = @"";
     NSString *iconName = [MidtransCreditCardHelper nameFromString:[maskedCreditCard objectForKey:@"cardhash"]];
     [self.ccImageView setImage:[UIImage imageNamed:iconName]];
-    self.titleLabel.text =[NSString stringWithFormat:@"%@ - %@",iconName, [self matchBankBIN:[maskedCreditCard objectForKey:@"cardhash"]]];
+    
+    self.titleLabel.text =[NSString stringWithFormat:@"%@ - %@",iconName, [[maskedCreditCard objectForKey:@"cardhash"] substringFromIndex:4]];
     [self.bankImageView setImage:[UIImage imageNamed:[[self matchBankBIN:[maskedCreditCard objectForKey:@"cardhash"]] lowercaseString]]];
     self.descLabel.text = [[self formattedCreditCardNumber:[maskedCreditCard objectForKey:@"cardhash"]] stringByReplacingOccurrencesOfString:@"X" withString:@"⋅"];
      

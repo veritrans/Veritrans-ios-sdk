@@ -20,6 +20,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SNPPostPaymentVAViewController">
             <connections>
                 <outlet property="finishPaymentButton" destination="sgi-C0-gbw" id="cJY-fV-1lv"/>
+                <outlet property="tableVIewConstraints" destination="GHK-YM-9AN" id="jFC-sJ-Rav"/>
                 <outlet property="tableView" destination="aZJ-84-F0O" id="gUd-py-47X"/>
                 <outlet property="totalAmountBorderedView" destination="cJb-M5-yYW" id="gn7-EA-iJ2"/>
                 <outlet property="totalAmountLabel" destination="MQT-JC-0iG" id="OzX-fB-SAn"/>
@@ -34,6 +35,9 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-84-F0O">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="559" id="GHK-YM-9AN"/>
+                    </constraints>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgi-C0-gbw" customClass="MidtransUINextStepButton">
                     <rect key="frame" x="8" y="619" width="359" height="40"/>

@@ -19,6 +19,7 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
 @interface SNPPostPaymentVAViewController ()<UITableViewDataSource,UITableViewDelegate>
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableVIewConstraints;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;

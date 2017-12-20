@@ -22,6 +22,7 @@
                 <outlet property="amountLabel" destination="cZV-8u-zU8" id="aXP-o1-TPG"/>
                 <outlet property="payButton" destination="f0E-ny-Zs0" id="dsa-vz-Xbx"/>
                 <outlet property="tableView" destination="xxN-vw-CNQ" id="X5f-wb-coT"/>
+                <outlet property="tableViewHeightConstraints" destination="K2Z-0s-eVA" id="XJY-5f-Z2w"/>
                 <outlet property="totalAmountBorderedView" destination="erp-2z-2Fc" id="Ahz-4O-pwp"/>
                 <outlet property="totalAmountLabel" destination="QBs-HF-cHt" id="b1F-A4-EwO"/>
                 <outlet property="view" destination="1gO-fv-cPn" id="7rL-Kl-zYL"/>
@@ -48,7 +49,7 @@
                     <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZV-8u-zU8">
-                            <rect key="frame" x="293" y="13" width="42" height="20"/>
+                            <rect key="frame" x="293" y="13.5" width="42" height="20"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -91,6 +92,9 @@
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xxN-vw-CNQ">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="566"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="566" id="K2Z-0s-eVA"/>
+                    </constraints>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-Fq-Xtj">
                     <rect key="frame" x="352" y="633" width="8" height="13"/>

@@ -21,16 +21,19 @@
 #import "MidtransUIThemeManager.h"
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraints;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
+@property (nonatomic,strong) NSMutableArray *currentInstruction;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (nonatomic) NSArray *otherBankListATMBersama;
 @property (nonatomic) NSArray *otherBankListPrima;
 @property (nonatomic) NSArray *otherBankListAlto;
+@property (nonatomic) CGFloat currentTableViewHieght;
 @property (nonatomic) MidtransVAType paymentType;
 @end
 
@@ -112,6 +115,7 @@
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     self.amountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+    self.currentTableViewHieght = CGRectGetHeight(self.tableView.frame);
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

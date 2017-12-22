@@ -4,55 +4,6 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>ATM Bersama</string>
-		<key>guides</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>On the main menu choose ‘Others’</string>
-				<key>image</key>
-				<string>other_atm_1</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Choose ‘Transfer’</string>
-				<key>image</key>
-				<string>other_atm_2</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Choose ‘Online Transfer’</string>
-				<key>image</key>
-				<string>other_atm_3</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter the number 013 (code 013 and 16-digit Virtual Account Number) </string>
-				<key>image</key>
-				<string>other_atm_4</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter the full amount to be paid. If the amount entered is not the same as the invoiced amount, the transaction will be declined</string>
-				<key>image</key>
-				<string>other_atm_5</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Empty the transfer reference number and press ‘Correct’</string>
-				<key>image</key>
-				<string>other_atm_6</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
-				<key>image</key>
-				<string>other_atm_7</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>name</key>
 		<string>Prima</string>
 		<key>guides</key>
 		<array>
@@ -97,6 +48,55 @@
 				<string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
 				<key>image</key>
 				<string>other_prima_7</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>ATM Bersama</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>On the main menu choose ‘Others’</string>
+				<key>image</key>
+				<string>other_atm_1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose ‘Transfer’</string>
+				<key>image</key>
+				<string>other_atm_2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose ‘Online Transfer’</string>
+				<key>image</key>
+				<string>other_atm_3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter the number 013 (code 013 and 16-digit Virtual Account Number) </string>
+				<key>image</key>
+				<string>other_atm_4</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter the full amount to be paid. If the amount entered is not the same as the invoiced amount, the transaction will be declined</string>
+				<key>image</key>
+				<string>other_atm_5</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Empty the transfer reference number and press ‘Correct’</string>
+				<key>image</key>
+				<string>other_atm_6</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
+				<key>image</key>
+				<string>other_atm_7</string>
 			</dict>
 		</array>
 	</dict>

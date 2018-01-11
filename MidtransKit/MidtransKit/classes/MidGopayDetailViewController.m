@@ -47,8 +47,7 @@
     [self.view.guideTableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     if (IPAD) {
-          NSString  *expireDate = [self.result.additionalData objectForKey:@"gopay_expiration"];
-        
+        NSString  *expireDate = [self.result.additionalData objectForKey:@"gopay_expiration"];
         self.view.expireTimesLabel.text =   [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
         self.view.topWrapperView.hidden = YES;
         self.view.qrcodeWrapperView.hidden = NO;

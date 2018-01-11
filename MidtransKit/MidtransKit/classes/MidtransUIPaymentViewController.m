@@ -86,6 +86,21 @@
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
             break;
+        case MidtransPaymentFeatureBankTransferMandiriVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_ECHANNEL;
+            break;
+        case MidtransPaymentFeatureBankTransferPermataVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_PERMATA_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferBNIVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BNI_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferBCAVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BCA_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferOtherVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_ALL_VA;
+            break;
         default:
             paymentMethodSelected = nil;
             break;

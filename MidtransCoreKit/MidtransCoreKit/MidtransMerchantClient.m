@@ -251,8 +251,11 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if ([CONFIG customBCAVANumber].length > 0) {
         dictionaryParameters[@"bca_va"] = @{@"va_number":CONFIG.customBCAVANumber};
     }
-    if ([CONFIG customBCASubcompanyCode].length>0) {
+    if (CONFIG.customPermataVARecipientName) {
         dictionaryParameters[@"bca_va"] = @{@"sub_company_code":CONFIG.customBCASubcompanyCode};
+    }
+    if ([CONFIG customBCASubcompanyCode].length>0) {
+        dictionaryParameters[@"permata_va"] = @{@"recipient_name":[CONFIG.customPermataVARecipientName uppercaseString]};
     }
     if ( [CONFIG customBCASubcompanyCode].length>0 && [CONFIG customBCAVANumber].length > 0) {
          dictionaryParameters[@"bca_va"] = @{@"sub_company_code":CONFIG.customBCASubcompanyCode,

@@ -94,6 +94,7 @@
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
+    CONFIG.customPermataVARecipientName =@"Midtrans Employee";
     CONFIG.customBCASubcompanyCode = @"55555";
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
@@ -195,7 +196,7 @@
          }
          else {
 
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureBankTransferMandiriVA];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

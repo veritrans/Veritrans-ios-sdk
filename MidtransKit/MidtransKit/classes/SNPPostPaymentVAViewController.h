@@ -8,7 +8,7 @@
 
 #import "MidtransUIPaymentController.h"
 #import "MidtransUINextStepButton.h"
-@class MidtransTransactionResult,MidtransTransaction,MidtransPaymentListModel;
+@class MidtransTransactionResult,MidtransTransaction,MidtransPaymentListModel,MidtransPaymentRequestV2Response;
 @interface SNPPostPaymentVAViewController : MidtransUIPaymentController
 @property (nonatomic,strong)MidtransTransaction *transactionDetail;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;

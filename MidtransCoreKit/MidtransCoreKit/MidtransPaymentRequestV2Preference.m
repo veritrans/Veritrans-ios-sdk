@@ -16,6 +16,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceColorScheme = @"color_scheme"
 NSString *const kMidtransPaymentRequestV2PreferenceDisplayName = @"display_name";
 NSString *const kMidtransPaymentRequestV2PreferenceErrorUrl = @"error_url";
 NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
+NSString *const kMidtransPaymentRequestV2PreferenceOtherVAProcessor = @"other_va_processor";
 
 
 @interface MidtransPaymentRequestV2Preference ()
@@ -34,7 +35,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
 @synthesize displayName = _displayName;
 @synthesize errorUrl = _errorUrl;
 @synthesize logoUrl = _logoUrl;
-
+@synthesize otherVAProcessor = _otherVAProcessor;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
 {
@@ -56,6 +57,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
         self.displayName = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceDisplayName fromDictionary:dict];
         self.errorUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceErrorUrl fromDictionary:dict];
         self.logoUrl = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceLogoUrl fromDictionary:dict];
+        self.otherVAProcessor = [self objectOrNilForKey:kMidtransPaymentRequestV2PreferenceOtherVAProcessor fromDictionary:dict];
     }
     
     return self;
@@ -71,6 +73,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
     [mutableDict setValue:self.pendingUrl forKey:kMidtransPaymentRequestV2PreferencePendingUrl];
     [mutableDict setValue:self.colorScheme forKey:kMidtransPaymentRequestV2PreferenceColorScheme];
     [mutableDict setValue:self.displayName forKey:kMidtransPaymentRequestV2PreferenceDisplayName];
+    [mutableDict setValue:self.otherVAProcessor forKey:kMidtransPaymentRequestV2PreferenceOtherVAProcessor];
     [mutableDict setValue:self.errorUrl forKey:kMidtransPaymentRequestV2PreferenceErrorUrl];
     [mutableDict setValue:self.logoUrl forKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
     
@@ -104,6 +107,7 @@ NSString *const kMidtransPaymentRequestV2PreferenceLogoUrl = @"logo_url";
     self.displayName = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceDisplayName];
     self.errorUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceErrorUrl];
     self.logoUrl = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceLogoUrl];
+    self.otherVAProcessor = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2PreferenceOtherVAProcessor];
     return self;
 }
 

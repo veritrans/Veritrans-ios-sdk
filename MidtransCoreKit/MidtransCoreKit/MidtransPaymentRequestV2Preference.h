@@ -19,6 +19,7 @@
 @property (nonatomic, strong) NSString *colorScheme;
 @property (nonatomic, strong) NSString *displayName;
 @property (nonatomic, strong) NSString *errorUrl;
+@property (nonatomic, strong) NSString *otherVAProcessor;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

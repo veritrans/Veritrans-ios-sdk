@@ -8,6 +8,22 @@
     "name": "Bank Transfer"
   },
  {
+ "type": "bank_transfer",
+ "name": "Bank Mandiri"
+ },
+ {
+ "type": "bank_transfer",
+ "name": "Bank BCA"
+ },
+ {
+ "type": "bank_transfer",
+ "name": "Bank BNI"
+ },
+ {
+ "type": "bank_transfer",
+ "name": "Other Bank"
+ },
+ {
  "type": "danamon_online",
  "name": "Danamon Online"
  },

@@ -63,6 +63,7 @@
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     NSString *vaNumber;
     NSString *expireDate;
+    
     self.instructionUrl = [self.transactionResult.additionalData objectForKey:@"pdf_url"];
     if ([self.paymentMethod.title isEqualToString:@"BCA"]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bca_va_number"];

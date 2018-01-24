@@ -95,6 +95,7 @@
     NSString *paymentName  = vaTypeModel.shortName;
     [[SNPUITrackingManager shared] trackEventName:paymentName];
     MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    vc.response = self.paymentResponse;
     if (self.vaList.count == 1) {
         [vc showDismissButton:YES];
     }

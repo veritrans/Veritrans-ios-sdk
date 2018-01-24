@@ -42,6 +42,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+
     self.isShowInstruction = 0;
     self.currentInstruction = [NSMutableArray new];
     self.title = self.paymentMethod.title;
@@ -71,12 +72,28 @@
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
     }
+    if ([paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            self.headerView.keySMSviewConstraints.constant = 0.0f;
+            self.headerView.keyView.hidden = YES;
+        }
+    }
     self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
     [self.headerView.expandBankListButton addTarget:self action:@selector(displayBankList) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString* filenameByLanguage;
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        if (self.response.merchant.preference.otherVAProcessor.length > 0) {
+             filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.response.merchant.preference.otherVAProcessor];
+        } else {
+             filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+        }
+        
+    } else {
+         filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    }
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
@@ -102,7 +119,20 @@
         self.paymentType = VTVATypePermata;
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-        self.paymentType = VTVATypeOther;
+        if (self.response.merchant.preference.otherVAProcessor.length > 0) {
+            if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+                self.paymentType = VTVATypePermata;
+            }
+            else if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+                self.paymentType = VTVATypeBNI;
+            } else {
+                self.paymentType = VTVATypeOther;
+            }
+            
+        } else {
+           self.paymentType = VTVATypeOther;
+        }
+        
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
         self.paymentType = VTVATypeOther;
@@ -218,9 +248,21 @@
     }
     
     if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
+            self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+            self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+            self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        }
+        else if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA] && index == 1) {
+            self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+            self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+            self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        }
+        else {
         self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
         self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
         self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+        }
     } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
         self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
         self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;

@@ -38,15 +38,20 @@
     
     [self.navigationItem setHidesBackButton:YES];
     [self showBackButton:NO];
-    
+    NSLog(@"data-->%@",self.response);
     self.title = self.paymentMethod.title;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.estimatedRowHeight = 60;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+    if ([self.paymentMethod.title isEqualToString:@"Mandiri"] || [self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeaderBillPay" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeaderBillPay"];
         self.headerViewBillPay = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeaderBillPay"];
+        if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
+            self.headerViewBillPay.vaNumberLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Virtual Account Number"];
+            self.headerViewBillPay.companyCodeLabel.text =[VTClassHelper getTranslationFromAppBundleForString:@"Bank Code"];
+        }
+     
     }
     else {
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
@@ -85,22 +90,42 @@
         [self.headerViewBillPay.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
         
     }
+    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
+        self.headerViewBillPay.ButtonCopyConstraintsBottomTextField.constant = 0.0f;
+        if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+            vaNumber = [self.transactionResult.additionalData objectForKey:@"bni_va_number"];
+            expireDate = [self.transactionResult.additionalData objectForKey:@"bni_expiration"];
+            self.headerViewBillPay.companyCodeTextField.text =@"009 (Bank BNI)";
+        } else if([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
+            expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration"];
+            self.headerViewBillPay.companyCodeTextField.text =@"13 (Bank Permata)";
+        }
+        
+     
+        self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
+        [self.headerViewBillPay.expiredTimeLabel boldSubstring:expireDate];
+        self.headerViewBillPay.vaTextField.enabled = NO;
+        self.headerViewBillPay.vaTextField.text = vaNumber;
+        [self.headerViewBillPay.companyCodeCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
+        [self.headerViewBillPay.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
+        
+    }
     else if ([self.paymentMethod.title isEqualToString:@"Permata"]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }
+     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.response.merchant.preference.otherVAProcessor];
+    }
     
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+   
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
     }
-    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
-        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
-        guidePath = [VTBundle pathForResource:@"en_other_va" ofType:@"plist"];
-        vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
-        expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration"];
-    }
+
     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];
     self.headerView.vaTextField.enabled = NO;
@@ -111,15 +136,17 @@
     for (int i=0; i < [self.mainInstructions count]; i++) {
         VTGroupedInstruction *groupedIns = self.mainInstructions[i];
         if (i > 1) {
-            if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+            if ([self.paymentMethod.title isEqualToString:@"Mandiri"] ||  [self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
                 [self.headerViewBillPay.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
             }
             else {
                 [self.headerView.tabSwitch insertSegmentWithTitle:groupedIns.name atIndex:i animated:NO];
             }
             
-        } else {
-            if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+        }
+        
+        else {
+            if ([self.paymentMethod.title isEqualToString:@"Mandiri"] ||  [self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
                 [self.headerViewBillPay.tabSwitch setTitle:groupedIns.name forSegmentAtIndex:i];
             }
             else {
@@ -149,7 +176,7 @@
     }];
 }
 - (void)copyButtonDidTapped:(id)sender {
-    if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+    if ([self.paymentMethod.title isEqualToString:@"Mandiri"] || [self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
         
         if ([sender isEqual:self.headerViewBillPay.companyCodeCopyButton]) {
             [[UIPasteboard generalPasteboard] setString:self.headerViewBillPay.companyCodeTextField.text];
@@ -193,7 +220,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row == 0) {
-        if ([self.paymentMethod.title isEqualToString:@"Mandiri"]) {
+        if ([self.paymentMethod.title isEqualToString:@"Mandiri"]|| [self.paymentMethod.title isEqualToString:@"Other ATM Network"] ) {
             return self.headerViewBillPay;
         }
         else {

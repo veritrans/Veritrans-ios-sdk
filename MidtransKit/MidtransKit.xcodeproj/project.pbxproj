@@ -130,6 +130,8 @@
 		0C9635171FE11D7E00EF89DF /* en_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635101FE11D7D00EF89DF /* en_gopay.plist */; };
 		0C9635181FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */; };
 		0C9635191FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */; };
+		0CA5EB7F202C105600335C28 /* gopay_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA5EB7C202C105500335C28 /* gopay_button@2x.png */; };
+		0CA5EB80202C105600335C28 /* gopay_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA5EB7C202C105500335C28 /* gopay_button@2x.png */; };
 		0CBA28BF1F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */; };
 		0CBA28C01F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */; };
 		0CBA28C11F98B15800F651C7 /* MIDV2PaymentListViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */; };
@@ -1289,6 +1291,7 @@
 		0C96350F1FE11D7D00EF89DF /* id_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_gopay.plist; path = MidtransKit/resources/id_gopay.plist; sourceTree = SOURCE_ROOT; };
 		0C9635101FE11D7D00EF89DF /* en_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_gopay.plist; path = MidtransKit/resources/en_gopay.plist; sourceTree = SOURCE_ROOT; };
 		0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_ipad_gopay.plist; path = MidtransKit/resources/en_ipad_gopay.plist; sourceTree = SOURCE_ROOT; };
+		0CA5EB7C202C105500335C28 /* gopay_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gopay_button@2x.png"; path = "resources/gopay_button@2x.png"; sourceTree = "<group>"; };
 		0CBA28BD1F98B15200F651C7 /* MIDV2PaymentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDV2PaymentListViewController.h; path = classes/MIDV2PaymentListViewController.h; sourceTree = "<group>"; };
 		0CBA28BE1F98B15300F651C7 /* MIDV2PaymentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MIDV2PaymentListViewController.m; path = classes/MIDV2PaymentListViewController.m; sourceTree = "<group>"; };
 		0CBA28CD1F98B24900F651C7 /* MIDV2PaymentListView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDV2PaymentListView.h; path = classes/MIDV2PaymentListView.h; sourceTree = "<group>"; };
@@ -2351,6 +2354,7 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				0CA5EB7C202C105500335C28 /* gopay_button@2x.png */,
 				0CCD62242005D0B9006936E5 /* Other VA */,
 				0C1CF40B1FE8CD87006D9F51 /* Fill 57.png */,
 				0C1CF40C1FE8CD88006D9F51 /* Fill 57@2x.png */,
@@ -3471,6 +3475,7 @@
 				0CE1D2B71F67BA53003A012F /* token_key@2x.png in Resources */,
 				E58FCE031E94CFD500632085 /* mandiri_atm_3@2x.png in Resources */,
 				E57124841E9381290064F515 /* SourceSansPro-Light.ttf in Resources */,
+				0CA5EB80202C105600335C28 /* gopay_button@2x.png in Resources */,
 				0CC900241F701EDC0058E93C /* id_kioson.plist in Resources */,
 				E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */,
 				0C1CF3FF1FE898BD006D9F51 /* MidGopayViewController.xib in Resources */,
@@ -3666,6 +3671,7 @@
 				0CC9003D1F7026F60058E93C /* id_mandiri_ecash.plist in Resources */,
 				E5F1BB7A1E93701100ED659D /* VTMultiGuideController.xib in Resources */,
 				E57127321E93B3290064F515 /* en_other_va.plist in Resources */,
+				0CA5EB7F202C105600335C28 /* gopay_button@2x.png in Resources */,
 				0CCD623D2005D0BA006936E5 /* alto_affiliated.png in Resources */,
 				E58FCE781E94CFD600632085 /* VASuccessIcon@2x.png in Resources */,
 				E519C96E1E9B6F2000EF70DF /* bni_va4@2x.png in Resources */,

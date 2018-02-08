@@ -10,19 +10,13 @@
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>You will be redirected to the ‘GO-JEK’ app</string>
+		<string>‘GO-JEK’ app will open</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Check your payment details in the ‘GO-JEK’ app</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Done</string>
+		<string>Check your payment details then tap ‘Pay’ and your transaction is ‘done’</string>
 		<key>image</key>
 		<string></string>
 	</dict>

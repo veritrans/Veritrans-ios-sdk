@@ -4,25 +4,19 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tekan ‘Bayar dengan GO-PAY’</string>
+		<string>Klik ‘Bayar dengan GO-PAY’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Aplikasi ‘GO-JEK’ akan terbuka</string>
+		<string>Aplikasi ‘GO-PAY’ akan terbuka</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Periksa rincian pembayaran Anda di aplikasi ‘GO-JEK’ lalu tekan ‘PAY’</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Selesai.</string>
+		<string>Periksa rincian pembayaran Anda lalu klik ‘Pay’ dan transaksi anda ‘Selesai’</string>
 		<key>image</key>
 		<string></string>
 	</dict>

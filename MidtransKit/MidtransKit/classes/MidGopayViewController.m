@@ -69,6 +69,11 @@
     
     
 [self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GO-PAY"] forState:UIControlStateNormal];
+    UIImage *image = [UIImage imageNamed:@"gopay_button" inBundle:VTBundle compatibleWithTraitCollection:nil];
+    
+    [self.view.finishPaymentButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.view.finishPaymentButton.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
+    self.view.finishPaymentButton.imageView.tintColor = [UIColor whiteColor];
     
     if (IPAD) {
         NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];

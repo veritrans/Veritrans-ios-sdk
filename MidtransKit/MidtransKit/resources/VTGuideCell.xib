@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -44,11 +45,18 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gopay_scan_qr_instruction.png" translatesAutoresizingMaskIntoConstraints="NO" id="xpu-pA-Nrr">
-                        <rect key="frame" x="31" y="58.5" width="369" height="0.0"/>
+                        <rect key="frame" x="31" y="58.5" width="164" height="0.0"/>
                         <constraints>
+                            <constraint firstAttribute="width" constant="164" id="JZI-jo-j0X"/>
                             <constraint firstAttribute="height" id="Y3a-0n-g82"/>
                         </constraints>
                     </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Note: Scan QR button won't appear if your GO-PAY balance is less than Rp 10.000." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hhh-Q7-bq6" customClass="VTTapableLabel">
+                        <rect key="frame" x="31" y="173.5" width="362" height="30.5"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="uHq-x8-tpJ" firstAttribute="leading" secondItem="MBM-xz-qok" secondAttribute="leading" constant="13" id="2xK-PL-KBp"/>
@@ -59,16 +67,19 @@
                     <constraint firstAttribute="trailing" secondItem="N2Z-1S-9fx" secondAttribute="trailing" constant="13" id="JFI-Ur-sHa"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="NAG-In-ctW" secondAttribute="bottom" constant="13" id="Li9-Yk-xBJ"/>
                     <constraint firstItem="xpu-pA-Nrr" firstAttribute="top" secondItem="N2Z-1S-9fx" secondAttribute="bottom" constant="10" id="Nmr-tU-XvJ"/>
-                    <constraint firstAttribute="trailing" secondItem="xpu-pA-Nrr" secondAttribute="trailing" constant="13" id="bfy-W1-67l"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="N2Z-1S-9fx" secondAttribute="bottom" constant="20" id="dSg-7J-iuh"/>
                     <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="xpu-pA-Nrr" secondAttribute="bottom" id="dh3-cu-pZb"/>
+                    <constraint firstAttribute="trailing" secondItem="Hhh-Q7-bq6" secondAttribute="trailing" constant="20" id="guy-Gv-fR9"/>
+                    <constraint firstAttribute="bottom" secondItem="Hhh-Q7-bq6" secondAttribute="bottom" constant="14.5" id="nnk-Xh-iBW"/>
                     <constraint firstItem="NAG-In-ctW" firstAttribute="top" secondItem="MBM-xz-qok" secondAttribute="top" id="nxN-8X-AZy"/>
+                    <constraint firstItem="Hhh-Q7-bq6" firstAttribute="leading" secondItem="MBM-xz-qok" secondAttribute="leading" constant="31" id="uYU-9o-ngE"/>
                     <constraint firstItem="xpu-pA-Nrr" firstAttribute="leading" secondItem="uHq-x8-tpJ" secondAttribute="trailing" id="vRY-zn-vF3"/>
                     <constraint firstItem="uHq-x8-tpJ" firstAttribute="centerY" secondItem="NAG-In-ctW" secondAttribute="centerY" id="yts-oD-Kcs"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="bottomImageInstructionsConstraints" destination="Y3a-0n-g82" id="HWT-ta-Esz"/>
+                <outlet property="bottomNotes" destination="Hhh-Q7-bq6" id="EX4-8m-D1X"/>
                 <outlet property="contentLabel" destination="N2Z-1S-9fx" id="IBl-Fz-d8H"/>
                 <outlet property="illustrationView" destination="NAG-In-ctW" id="VrP-l4-TKf"/>
                 <outlet property="illustrationWidth" destination="C7M-9K-D2e" id="ZfP-5V-yaG"/>

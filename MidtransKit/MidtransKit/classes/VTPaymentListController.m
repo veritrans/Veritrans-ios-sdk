@@ -89,14 +89,14 @@
     }
     
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-    if (IPAD) {
-        NSArray *newPaymentList = [paymentList filteredArrayUsingPredicate:
-                                   [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *d) {
-            return ![[obj valueForKey:@"id"] isEqualToString:@"gopay"];
-        }]];
-        NSLog(@"newPaymentlist->%@",newPaymentList);
-        paymentList = newPaymentList;
-    }
+//    if (IPAD) {
+//        NSArray *newPaymentList = [paymentList filteredArrayUsingPredicate:
+//                                   [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *d) {
+//            return ![[obj valueForKey:@"id"] isEqualToString:@"gopay"];
+//        }]];
+//        NSLog(@"newPaymentlist->%@",newPaymentList);
+//        paymentList = newPaymentList;
+//    }
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading payment list"]];
     

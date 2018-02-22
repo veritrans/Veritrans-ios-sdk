@@ -56,7 +56,7 @@
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
     NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
-    if (![[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+    if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
         self.view.finishPaymentHeightConstraints.constant =  0.0f;
         self.view.topWrapperView.hidden = NO;
         self.view.transactionBottomDetailConstraints.constant = 0.0f;
@@ -125,6 +125,13 @@
     }
     if (IPAD && indexPath.row == 3) {
         cell.imageBottomInstruction.hidden = NO;
+         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+        cell.bottomNotes.hidden = NO;
+        cell.bottomImageInstructionsConstraints.constant = 120.0f;
+    }
+    if (IPAD && indexPath.row == 4) {
+        cell.imageBottomInstruction.hidden = NO;
+        [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
     }
     [cell setInstruction:self.guides[indexPath.row] number:indexPath.row+1];
@@ -133,6 +140,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IPAD && indexPath.row == 3) {
+        return 200;
+    }
+    if (IPAD && indexPath.row == 4) {
         return 200;
     }
     else {

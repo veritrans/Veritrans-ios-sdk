@@ -18,6 +18,7 @@
 @property (nonatomic) NSArray *guides;
 @property (strong, nonatomic) IBOutlet MIDGopayDetailView *view;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
+@property (nonatomic) NSInteger deltaTime;
 @end
 
 @implementation MidGopayDetailViewController
@@ -37,7 +38,7 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
      self.navigationItem.leftBarButtonItem = self.backBarButton;
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay using GO-PAY"];
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay With GO-PAY"];
     self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -47,6 +48,11 @@
     [self.view.guideTableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     if (IPAD) {
+        NSDateFormatter *expireFormatter = [[NSDateFormatter alloc]init];
+        [expireFormatter setDateFormat:@"dd MMMM  hh:mm"];
+        NSDate *endDate = [expireFormatter dateFromString:[self.result.additionalData objectForKey:@"gopay_expiration"]];
+        
+        self.deltaTime = [endDate timeIntervalSinceDate:self.result.transactionTime];
         NSString  *expireDate = [self.result.additionalData objectForKey:@"gopay_expiration"];
         self.view.expireTimesLabel.text =   [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
         self.view.topWrapperView.hidden = YES;
@@ -63,7 +69,6 @@
         [arrayOfGuide removeObjectsInRange:NSMakeRange(0, 2)];
         self.guides = arrayOfGuide;
         [self.view.guideTableView reloadData];
-        
         [self.view layoutIfNeeded];
 
         
@@ -192,6 +197,14 @@
     }
     if (IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
+        [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+        cell.bottomImageInstructionsConstraints.constant = 120.0f;
+         cell.bottomNotes.hidden = NO;
+    }
+    if (IPAD && indexPath.row == 2) {
+        cell.imageBottomInstruction.hidden = NO;
+        cell.bottomNotes.hidden = YES;
+        [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
     }
     [cell setInstruction:self.guides[indexPath.row] number:indexPath.row+1];
@@ -200,6 +213,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IPAD && indexPath.row == 1) {
+        return 200;
+    }
+    if (IPAD && indexPath.row == 2) {
         return 200;
     }
     else {

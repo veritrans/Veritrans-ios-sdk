@@ -112,7 +112,7 @@
     "install.gojek": "Install aplikasi GO-JEK dari Appstore",
     "Pay using GO-PAY": "Bayar dengan GO-PAY",
     "Pay Now with GO-PAY":"Bayar dengan",
-            "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Mohon selesaikan pembayaran ‘GO-PAY‘ via aplikasi ‘GO-JEK‘",
+    "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Pastikan Anda telah menginstall aplikasi GO-JEK di HP Anda dan memiliki saldo lebih dari Rp 10.000",
     "KlikBCA User ID":"KlikBCA User ID",
     "Bank Code":"Kode Bank",
     "Virtual Account Number":"Nomor Akun Virtual"

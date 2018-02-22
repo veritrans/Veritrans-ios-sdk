@@ -230,6 +230,10 @@
 		0CCD625A2005D0BA006936E5 /* prima_affiliated@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CCD62362005D0B9006936E5 /* prima_affiliated@3x.png */; };
 		0CD116101EDD5B14005884AD /* en_bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* en_bni_va.plist */; };
 		0CD116111EDD5B14005884AD /* en_bni_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CD1160F1EDD5B14005884AD /* en_bni_va.plist */; };
+		0CDAA761203EA193009419B3 /* gopay_scan_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDAA75D203EA192009419B3 /* gopay_scan_2.png */; };
+		0CDAA762203EA193009419B3 /* gopay_scan_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDAA760203EA192009419B3 /* gopay_scan_1.png */; };
+		0CDAA763203EA19D009419B3 /* gopay_scan_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDAA760203EA192009419B3 /* gopay_scan_1.png */; };
+		0CDAA764203EA19D009419B3 /* gopay_scan_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CDAA75D203EA192009419B3 /* gopay_scan_2.png */; };
 		0CE1D2661F62A670003A012F /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE1D2651F62A670003A012F /* test_badge@2x.png */; };
 		0CE1D2671F62A670003A012F /* test_badge@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE1D2651F62A670003A012F /* test_badge@2x.png */; };
 		0CE1D2691F62A68E003A012F /* maintain@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CE1D2681F62A68E003A012F /* maintain@3x.png */; };
@@ -1347,6 +1351,8 @@
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
 		0CD7EA941E03C4070036C187 /* MidtransPaymentGCIView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIView.h; path = classes/MidtransPaymentGCIView.h; sourceTree = "<group>"; };
 		0CD7EA951E03C4070036C187 /* MidtransPaymentGCIView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIView.m; path = classes/MidtransPaymentGCIView.m; sourceTree = "<group>"; };
+		0CDAA75D203EA192009419B3 /* gopay_scan_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gopay_scan_2.png; path = MidtransKit/resources/gopay_scan_2.png; sourceTree = SOURCE_ROOT; };
+		0CDAA760203EA192009419B3 /* gopay_scan_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gopay_scan_1.png; path = MidtransKit/resources/gopay_scan_1.png; sourceTree = SOURCE_ROOT; };
 		0CE1D2651F62A670003A012F /* test_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test_badge@2x.png"; path = "resources/test_badge@2x.png"; sourceTree = "<group>"; };
 		0CE1D2681F62A68E003A012F /* maintain@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "maintain@3x.png"; path = "resources/maintain@3x.png"; sourceTree = "<group>"; };
 		0CE1D26B1F62A6B5003A012F /* SNPMaintainView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPMaintainView.xib; path = MidtransKit/resources/SNPMaintainView.xib; sourceTree = SOURCE_ROOT; };
@@ -1989,6 +1995,8 @@
 			children = (
 				0C9634C81FE11A1400EF89DF /* gojek_icon.png */,
 				0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */,
+				0CDAA760203EA192009419B3 /* gopay_scan_1.png */,
+				0CDAA75D203EA192009419B3 /* gopay_scan_2.png */,
 				0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */,
 				0C9634CB1FE11A1400EF89DF /* gopay.png */,
 				0C9634CC1FE11A1400EF89DF /* gopay@2x.png */,
@@ -3335,6 +3343,7 @@
 				E58FCDB31E94CFD500632085 /* bni.png in Resources */,
 				E57124A41E9381320064F515 /* VTCvvInfoController.xib in Resources */,
 				3D4089381F7512F100B9A2EC /* bersama_preview@2x.png in Resources */,
+				0CDAA762203EA193009419B3 /* gopay_scan_1.png in Resources */,
 				3D4089481F75133200B9A2EC /* prima_preview.png in Resources */,
 				E57124A61E9381320064F515 /* VTGuideCell.xib in Resources */,
 				E58FCDB11E94CFD500632085 /* bni_badge@3x.png in Resources */,
@@ -3480,6 +3489,7 @@
 				E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */,
 				0C1CF3FF1FE898BD006D9F51 /* MidGopayViewController.xib in Resources */,
 				3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */,
+				0CDAA761203EA193009419B3 /* gopay_scan_2.png in Resources */,
 				0CCD62542005D0BA006936E5 /* prima@3x.png in Resources */,
 				E58FCE771E94CFD600632085 /* va@2x.png in Resources */,
 				E58FCE5D1E94CFD600632085 /* permata_atm_5@2x.png in Resources */,
@@ -3643,6 +3653,7 @@
 				0C9634FD1FE11A1F00EF89DF /* ic_chevron_down.png in Resources */,
 				E58FCDF01E94CFD500632085 /* indomaret@2x.png in Resources */,
 				E58FCE6E1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */,
+				0CDAA763203EA19D009419B3 /* gopay_scan_1.png in Resources */,
 				E58FCE821E94CFD600632085 /* visa-mastercard-jcb-amex@2x.png in Resources */,
 				E58FCDB81E94CFD500632085 /* bri.png in Resources */,
 				E58FCE341E94CFD600632085 /* other_atm_2@2x.png in Resources */,
@@ -3698,6 +3709,7 @@
 				E58FCE941E94CFD600632085 /* VisaDark@2x.png in Resources */,
 				0CE1D2691F62A68E003A012F /* maintain@3x.png in Resources */,
 				0C115B7C1F73A76900327915 /* en_lang.json in Resources */,
+				0CDAA764203EA19D009419B3 /* gopay_scan_2.png in Resources */,
 				E58FCDCA1E94CFD500632085 /* citi.png in Resources */,
 				E58FCE121E94CFD500632085 /* mandiri@2x.png in Resources */,
 				0C9635081FE11A1F00EF89DF /* ic_no_gopay@3x.png in Resources */,

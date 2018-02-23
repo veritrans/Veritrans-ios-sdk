@@ -18,7 +18,11 @@
 @property (nonatomic) NSArray *guides;
 @property (strong, nonatomic) IBOutlet MIDGopayDetailView *view;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
-@property (nonatomic) NSInteger deltaTime;
+@property int deltaTime;
+@property int currHours;
+@property int currMinute;
+@property int currSeconds;
+@property (nonatomic,strong )NSTimer *timer;
 @end
 
 @implementation MidGopayDetailViewController
@@ -48,13 +52,30 @@
     [self.view.guideTableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     if (IPAD) {
-        NSDateFormatter *expireFormatter = [[NSDateFormatter alloc]init];
-        [expireFormatter setDateFormat:@"dd MMMM  hh:mm"];
-        NSDate *endDate = [expireFormatter dateFromString:[self.result.additionalData objectForKey:@"gopay_expiration"]];
         
+        //Get current year
+        self.view.expireTimesLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your payment in"];
+        NSDate *currentYear=[[NSDate alloc]init];
+        currentYear=[NSDate date];
+        NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
+        [formatter1 setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        [formatter1 setDateFormat:@"yyyy"];
+        NSString *currentYearString = [formatter1 stringFromDate:currentYear];
+        
+        
+        NSDateFormatter *expireFormatter = [[NSDateFormatter alloc] init];
+        [expireFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+        [expireFormatter setDateFormat:@"dd MMMM HH:mm yyyy"];
+        
+        
+       
+        NSDate *endDate = [expireFormatter dateFromString: [[[self.result.additionalData objectForKey:@"gopay_expiration"] stringByReplacingOccurrencesOfString:@"WIB" withString:@""] stringByAppendingString:currentYearString]];
         self.deltaTime = [endDate timeIntervalSinceDate:self.result.transactionTime];
-        NSString  *expireDate = [self.result.additionalData objectForKey:@"gopay_expiration"];
-        self.view.expireTimesLabel.text =   [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
+        self.currSeconds = self.deltaTime % 60;
+        self.currMinute = (self.deltaTime / 60) % 60;
+        self.currHours = self.deltaTime / 3600;
+        [self startTimer];
+
         self.view.topWrapperView.hidden = YES;
         self.view.qrcodeWrapperView.hidden = NO;
         [self.view.finishPaymentButton setTitle:@"Finish Payment" forState:UIControlStateNormal];
@@ -81,6 +102,27 @@
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     // Do any additional setup after loading the view.
 }
+- (void)startTimer{
+    self.timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownFired) userInfo:nil repeats:YES];
+}
+- (void)countDownFired {
+    if((self.currMinute > 0 || self.currHours >= 0) && self.currMinute >=0){
+        if(self.currSeconds == 0) {
+            self.currMinute -=1;
+            self.currSeconds = 59;
+        }
+        else if(self.currSeconds > 0) {
+            self.currSeconds -= 1;
+        }
+        if(self.currMinute>-1)
+            [self.view.expireTimesLabel setText:[NSString stringWithFormat:@"%@ %@%d%@%02d",@" ",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete your payment in"],self.currMinute,@":",self.currSeconds]];
+    }
+    else {
+        [self.timer invalidate];
+        self.view.expireTimesLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Time's Up"];
+    }
+}
+
 - (void)backButtonDidTapped:(id)sender {
     NSString *title;
     NSString *content;

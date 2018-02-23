@@ -120,5 +120,7 @@
     "Pay using GO-PAY": "Pay using GO-PAY",
         "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Make sure you have installed GO-JEK app on your phone and have balance more than Rp 10.000",
     "Bank Code":"Bank Code",
-    "Virtual Account Number":"Virtual Account Number"
+    "Virtual Account Number":"Virtual Account Number",
+    "Please complete your payment in":"Please complete your payment in ",
+        "Time's Up":"Time's Up"
 }

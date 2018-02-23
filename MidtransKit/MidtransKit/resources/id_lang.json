@@ -115,6 +115,8 @@
     "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Pastikan Anda telah menginstall aplikasi GO-JEK di HP Anda dan memiliki saldo lebih dari Rp 10.000",
     "KlikBCA User ID":"KlikBCA User ID",
     "Bank Code":"Kode Bank",
-    "Virtual Account Number":"Nomor Akun Virtual"
+    "Virtual Account Number":"Nomor Akun Virtual",
+    "Please complete your payment in":"Harap selesaikan pembayaran dalam ",
+    "Time's Up":"Waktu Habis"
 
 }

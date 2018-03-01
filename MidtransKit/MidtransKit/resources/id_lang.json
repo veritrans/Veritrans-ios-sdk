@@ -40,7 +40,7 @@
     "creditcard.input.title": "Detil Kartu",
     "creditcard.list.title": "Pilih Kartu",
     "creditcard.twoclick.title": "Bayar Dengan Kartu Kredit",
-    "creditcard.error.invalid-bin": "nomor kartu kredit tidak terdapat didalam whitelist bin kartu kredit",
+    "creditcard.error.invalid-bin": "Kartu tidak berlaku untuk transaksi ini, coba gunakan kartu lain",
     "creditcard.promo-message": "Dengan kartu ini, anda mendapatkan diskon sejumlah %@ dari %@",
     "creditcard.promo-title": "Selamat",
     "creditcard.creditcard_number": "Nomor Kartu Kredit",

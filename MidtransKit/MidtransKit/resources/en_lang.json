@@ -44,7 +44,7 @@
     "creditcard.input.title": "Card Details",
     "creditcard.list.title": "Choose Card",
     "creditcard.twoclick.title": "Pay With Credit Card",
-    "creditcard.error.invalid-bin": "This card is not applicable, please use another one.",
+    "creditcard.error.invalid-bin": "Card is not eligible for this transaction, please try another card",
     "creditcard.promo-message": "With this card, you will get %@ discount from %@",
     "creditcard.promo-title": "Congratulations",
     "creditcard.creditcard_number": "Credit Card Number",

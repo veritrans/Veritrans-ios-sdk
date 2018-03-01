@@ -73,6 +73,7 @@
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                           customField:(nullable NSArray *)customField
                                             binFilter:(nullable NSArray *)binFilter
+                                   blacklistBinFilter:(nullable NSArray *)blackListBin
                                 transactionExpireTime:(nullable MidtransTransactionExpire *)expireTime
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
 

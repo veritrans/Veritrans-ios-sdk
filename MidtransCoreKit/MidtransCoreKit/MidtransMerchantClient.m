@@ -202,6 +202,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                           customField:(nullable NSArray *)customField
                                             binFilter:(nullable NSArray *)binFilter
+                                   blacklistBinFilter:(nullable NSArray *)blackListBin
                                 transactionExpireTime:(MidtransTransactionExpire *)expireTime
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
@@ -229,6 +230,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     if (binFilter.count > 0) {
         creditCardParameter[@"whitelist_bins"] = binFilter;
+    }
+    if (blackListBin.count > 0) {
+        creditCardParameter[@"blacklist_bins"] = blackListBin;
     }
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
@@ -328,7 +332,14 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
-   [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil binFilter:nil transactionExpireTime:nil completion:completion];
+   [self requestTransactionTokenWithTransactionDetails:transactionDetails
+                                           itemDetails:itemDetails
+                                       customerDetails:customerDetails
+                                           customField:nil
+                                             binFilter:nil
+                                    blacklistBinFilter:nil
+                                 transactionExpireTime:nil
+                                            completion:completion];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

@@ -49,6 +49,7 @@ UIAlertViewDelegate
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *headerViewHeightConstraints;
 @property (nonatomic,strong)NSMutableArray *installmentValueObject;
 @property (nonatomic) NSArray *bins;
+@property (nonatomic) NSArray *blackListBins;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
 @property (nonatomic) BOOL installmentAvailable,installmentRequired;
 @property (nonatomic,strong) NSString *installmentTerms;
@@ -166,6 +167,7 @@ UIAlertViewDelegate
         [self setupInstallmentView];
     }
     self.bins = self.creditCardInfo.whitelistBins;
+    self.blackListBins = self.creditCardInfo.blacklistBins;
     self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
                                                                 initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
                                                        options:kNilOptions error:nil];
@@ -717,10 +719,18 @@ UIAlertViewDelegate
         
     }
     
+    if (self.blackListBins.count) {
+        NSError *error;
+        if ([MidtransClient isCreditCardNumber:cardNumber containBlacklistBins:self.blackListBins error:&error]) {
+            [self.view isViewableError:error];
+            return;
+        }
+    }
+    
     if (self.bins.count) {
         NSError *error;
         if (![MidtransClient isCreditCardNumber:cardNumber eligibleForBins:self.bins error:&error]) {
-            [self handleRegisterCreditCardError:error];
+            [self.view isViewableError:error];
             return;
         }
     }
@@ -737,6 +747,7 @@ UIAlertViewDelegate
                                                                   grossAmount:self.token.transactionDetails.grossAmount];
     }
     else {
+        
         tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                grossAmount:self.token.transactionDetails.grossAmount
                                                                     secure:CC_CONFIG.secure3DEnabled];
@@ -805,6 +816,7 @@ UIAlertViewDelegate
     }
     MidtransTransaction *transaction = [[MidtransTransaction alloc]
                                         initWithPaymentDetails:paymentDetail token:self.token];
+    
     if (self.bniPointActive || self.mandiriPointActive) {
         [self hideLoading];
 

@@ -14,10 +14,15 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTSubGuideController.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransUIThemeManager.h"
+
 static NSString* const ClickpayAPPLI = @"3";
 
 @interface VTMandiriClickpayController () <MidtransUITextFieldDelegate>
-
+@property (nonatomic) BOOL isShowInstructions;
+@property (nonatomic,strong)VTSubGuideController *subGuide;
 @property (strong, nonatomic) IBOutlet MidtransUITextField *debitNumberTextField;
 @property (strong, nonatomic) IBOutlet MidtransUITextField *tokenTextField;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
@@ -26,6 +31,7 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (strong, nonatomic) IBOutlet UILabel *input2Label;
 @property (strong, nonatomic) IBOutlet UILabel *input3Label;
 @property (weak, nonatomic) IBOutlet UIView *instructionPage;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionviewHeightConstraints;
 
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
@@ -33,11 +39,21 @@ static NSString* const ClickpayAPPLI = @"3";
 @end
 
 @implementation VTMandiriClickpayController
+- (IBAction)reloadInstructionDidTapped:(id)sender {
+    if (!self.isShowInstructions) {
+        self.subGuide.view.hidden = NO;
+        self.isShowInstructions = 1;
+    } else {
+        self.subGuide.view.hidden = YES;
+        self.isShowInstructions =0;
+    }
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.isShowInstructions = NO;
     // Do any additional setup after loading the view.
-    
+    self.isShowInstructions = 0;
     self.title = self.paymentMethod.title;
     [self.view layoutIfNeeded];
     [self.keyTokenView setNeedsUpdateConstraints];
@@ -72,14 +88,21 @@ static NSString* const ClickpayAPPLI = @"3";
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
     }
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
-    VTSubGuideController *vc = [[VTSubGuideController alloc] initWithInstructions:instructions];
-    self.instructionviewHeightConstraints.constant = vc.view.frame.size.height-200;
+    self.subGuide = [[VTSubGuideController alloc] initWithInstructions:instructions];
+    self.instructionviewHeightConstraints.constant = self.subGuide.view.frame.size.height-200;
     [self.view updateConstraintsIfNeeded];
-    [self addSubViewController:vc toView:self.instructionPage];
-
+    [self addSubViewController:self.subGuide toView:self.instructionPage];
+    self.subGuide.view.hidden = YES;
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.debitNumberTextField];
     self.ccFormatter.numberLimit = 16;
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.amountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
@@ -89,31 +112,42 @@ static NSString* const ClickpayAPPLI = @"3";
         self.debitNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"clickpay.invalid-number"];
         return;
     }
-    
     if ([self.tokenTextField.text SNPisValidClickpayToken] == NO) {
         self.tokenTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"clickpay.invalid-token"];
         return;
     }
-    
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your payment"]];
-    
-    MidtransPaymentMandiriClickpay *paymentDetails = [[MidtransPaymentMandiriClickpay alloc] initWithCardNumber:self.debitNumberTextField.text
-                                                                                                  clickpayToken:self.tokenTextField.text];
-    
-    MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails
-                                                                                     token:self.token];
-    
+    MidtransCreditCard *mandiriClickpayCard = [[MidtransCreditCard alloc] initWithNumber:self.debitNumberTextField.text
+                                                                     expiryDate:nil
+                                                                            cvv:nil];
+    MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:mandiriClickpayCard
+                                                                                    grossAmount:self.token.transactionDetails.grossAmount
+                                                                                         secure:NO];
+    [[MidtransClient shared] generateToken:tokenRequest
+                                completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                                    if (error) {
+                                        [self hideLoading];
+                                        [self handleTransactionError:error];
+                                    } else {
+                                        [self payWithToken:token];
+                                    }
+                                }];
+}
+-(void) payWithToken:(NSString*) token {
+    MidtransPaymentMandiriClickpay * clickpay = [[MidtransPaymentMandiriClickpay alloc] initWithCardToken:token
+                                                                                            clickpayToken:self.tokenTextField.text];
+    MidtransTransaction *transaction = [[MidtransTransaction alloc]
+                                        initWithPaymentDetails:clickpay token:self.token];
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error) {
-        [self hideLoading];
-        if (error) {
-            [self handleTransactionError:error];
-        } else {
-            [self handleTransactionSuccess:result];
-        }
-    }];
+                                                 [self hideLoading];
+                                                 if (error) {
+                                                     [self handleTransactionError:error];
+                                                 } else {
+                                                     [self handleTransactionSuccess:result];
+                                                 }
+                                             }];
 }
-
 - (IBAction)clickpayHelpPressed:(UIButton *)sender {
     [self showGuideViewController];
 }

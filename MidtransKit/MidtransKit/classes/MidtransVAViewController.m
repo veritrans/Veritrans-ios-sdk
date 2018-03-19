@@ -16,16 +16,25 @@
 #import "MidtransUIToast.h"
 #import "MidtransUITableAlertViewController.h"
 #import "UIViewController+Modal.h"
-
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MidtransUIThemeManager.h"
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableViewHeightConstraints;
 @property (strong, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet UIButton *payButton;
 @property (nonatomic) MidtransVAHeader *headerView;
 @property (nonatomic) NSArray *mainInstructions;
 @property (nonatomic) NSArray *subInstructions;
-
+@property (nonatomic,strong) NSMutableArray *currentInstruction;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
+@property (nonatomic) NSArray *otherBankListATMBersama;
+@property (nonatomic) NSArray *otherBankListPrima;
+@property (nonatomic) NSArray *otherBankListAlto;
+@property (nonatomic) BOOL isShowInstruction;
+@property (nonatomic) CGFloat currentTableViewHieght;
 @property (nonatomic) MidtransVAType paymentType;
 @end
 
@@ -33,7 +42,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
+    self.isShowInstruction = 0;
+    self.currentInstruction = [NSMutableArray new];
     self.title = self.paymentMethod.title;
     id paymentID = self.paymentMethod.internalBaseClassIdentifier;
     self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
@@ -54,23 +65,38 @@
     self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-placeholder"];
     self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.email-note"];
     self.headerView.tutorialTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
+    [self.headerView.reloadButton addTarget:self action:@selector(reloadInstruction) forControlEvents:UIControlEventTouchUpInside];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     self.headerView.keySMSviewConstraints.constant = 0.0f;
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
     }
+    if ([paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+            self.headerView.keySMSviewConstraints.constant = 0.0f;
+            self.headerView.keyView.hidden = YES;
+        }
+    }
     self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
     [self.headerView.expandBankListButton addTarget:self action:@selector(displayBankList) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
     
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
+    NSString* filenameByLanguage;
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        if (self.response.merchant.preference.otherVAProcessor.length > 0) {
+             filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.response.merchant.preference.otherVAProcessor];
+        } else {
+             filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+        }
         
-        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"other_va"];
-        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    } else {
+         filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    }
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (guidePath == nil) {
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
     }
     self.mainInstructions = [VTClassHelper groupedInstructionsFromFilePath:guidePath];
     for (int i=0; i < [self.mainInstructions count]; i++) {
@@ -83,7 +109,6 @@
     }
     [self selectTabAtIndex:0];
     
-
     if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
         self.paymentType = VTVATypeBCA;
     }
@@ -94,13 +119,25 @@
         self.paymentType = VTVATypePermata;
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-        self.paymentType = VTVATypeOther;
+        if (self.response.merchant.preference.otherVAProcessor.length > 0) {
+            if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
+                self.paymentType = VTVATypePermata;
+            }
+            else if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+                self.paymentType = VTVATypeBNI;
+            } else {
+                self.paymentType = VTVATypeOther;
+            }
+            
+        } else {
+           self.paymentType = VTVATypeOther;
+        }
+        
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA]) {
         self.paymentType = VTVATypeOther;
     }
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
-       
         self.paymentType = VTVATypeBNI;
     }
     
@@ -108,8 +145,26 @@
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
     }];
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.amountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+    self.currentTableViewHieght = CGRectGetHeight(self.tableView.frame);
 }
-
+- (void)reloadInstruction {
+    if (!self.isShowInstruction) {
+        self.subInstructions = self.currentInstruction;
+        [self.tableView reloadData];
+        self.isShowInstruction = 1;
+    } else {
+        self.subInstructions = @[];
+        [self.tableView reloadData];
+        self.isShowInstruction = 0;
+    }
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+}
 -(void) displayBankList {
     
     MTOtherBankType type;
@@ -147,6 +202,7 @@
             SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
             
             postPaymentVAController.token = self.token;
+            postPaymentVAController.response = self.response;
             postPaymentVAController.paymentMethod = self.paymentMethod;
             postPaymentVAController.transactionDetail = transaction;
             postPaymentVAController.transactionResult = result;
@@ -154,7 +210,6 @@
         }
     }];
 }
-
 - (void)tabChanged:(UISegmentedControl *)sender {
     [self selectTabAtIndex:sender.selectedSegmentIndex];
 }
@@ -194,9 +249,21 @@
     }
     
     if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
+        if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
+            self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+            self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+            self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        }
+        else if ([self.response.merchant.preference.otherVAProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA] && index == 1) {
+            self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+            self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+            self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
+        }
+        else {
         self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
         self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
         self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+        }
     } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
         self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
         self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
@@ -208,6 +275,8 @@
         [self.headerView.expandBankListButton setTitle:nil forState:UIControlStateNormal];
     }
     self.subInstructions = groupedInst.instructions;
+    self.currentInstruction = [NSMutableArray arrayWithArray:self.subInstructions];
+    self.subInstructions = @[];
     [self.tableView reloadData];
 }
 
@@ -238,10 +307,12 @@
             dispatch_once(&onceToken, ^{
                 cell = [self.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
             });
+            if(indexPath.row %2 ==0) {
+                 cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+            }
             [cell setInstruction:self.subInstructions[indexPath.row-1] number:indexPath.row];
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
     }
 }
-
 @end

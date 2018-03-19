@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>BCA</string>
+		<key>description</key>
+		<string>Pay from BCA ATMs or internet banking</string>
+		<key>id</key>
+		<string>bca_va</string>
+		<key>shortName</key>
+		<string>atm bca</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Mandiri</string>
+		<key>description</key>
+		<string>Pay from Mandiri ATMs or internet banking</string>
+		<key>id</key>
+		<string>echannel</string>
+		<key>shortName</key>
+		<string>atm mandiri</string>
+	</dict>
+	<dict>
+		<key>shortName</key>
+		<string>atm permata</string>
+		<key>title</key>
+		<string>Permata</string>
+		<key>description</key>
+		<string>Pay from Permata ATMs or internet banking</string>
+		<key>id</key>
+		<string>permata_va</string>
+	</dict>
+	<dict>
+		<key>shortName</key>
+		<string>atm bni</string>
+		<key>title</key>
+		<string>BNI</string>
+		<key>description</key>
+		<string>Pay from BNI ATMs or internet banking</string>
+		<key>id</key>
+		<string>bni_va</string>
+	</dict>
+	<dict>
+		<key>shortName</key>
+		<string>atm all</string>
+		<key>title</key>
+		<string>Other ATM Network</string>
+		<key>description</key>
+		<string>Pay from ATMs or internet banking</string>
+		<key>id</key>
+		<string>other_va</string>
+	</dict>
+</array>
+</plist>

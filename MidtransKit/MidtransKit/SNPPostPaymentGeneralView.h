@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 @class MidtransUINextStepButton;
+@class MIdtransUIBorderedView;
 @interface SNPPostPaymentGeneralView : UIView
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 
 @end

@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class ACFloatingTextField;
 @interface MDOrderViewController : UIViewController
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *userNameTextField;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *emailTextField;
+@property (weak, nonatomic) IBOutlet ACFloatingTextField *phoneNumberTextfield;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end

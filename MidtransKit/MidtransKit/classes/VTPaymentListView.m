@@ -28,12 +28,20 @@
     self.shouldExpand = NO;
     
     self.headerView = [[VTBundle loadNibNamed:@"MidtransPaymentMethodHeader" owner:self options:nil] lastObject];
-    [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(headerTapped:)]];
     
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [UIView new];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
+}
+
+-(void)drawRect:(CGRect)rect {
+    
+    CGContextRef currentContext = UIGraphicsGetCurrentContext();
+    CGContextSetLineWidth(currentContext, 1);
+    CGContextMoveToPoint(currentContext,CGRectGetMinX(rect), CGRectGetMinY(rect));
+    CGContextAddLineToPoint(currentContext,CGRectGetMaxX(rect), CGRectGetMinY(rect));
+    CGContextStrokePath(currentContext);
 }
 
 - (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response {
@@ -44,11 +52,6 @@
     
     self.paymentMethods = paymentMethods;
     [self.tableView reloadData];
-}
-
-- (void)headerTapped:(id)sender {
-    MidtransTransactionDetailViewController *vc = [[MidtransTransactionDetailViewController alloc] init];
-    [vc presentAtPositionOfView:self.headerView items:self.items];
 }
 
 #pragma mark - UITableViewDataSource
@@ -82,11 +85,11 @@
     }
 }
 
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return self.headerView;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     return 50;
 }
 

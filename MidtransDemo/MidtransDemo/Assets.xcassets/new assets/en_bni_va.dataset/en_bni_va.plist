@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM BNI</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>On the main menu, choose ‘Other Transaction’</string>
+				<key>image</key>
+				<string>bni_va1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose Transfer</string>
+				<key>image</key>
+				<string>bni_va2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose ‘Savings Account’</string>
+				<key>image</key>
+				<string>bni_va3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose To BNI Account</string>
+				<key>image</key>
+				<string>bni_va4</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter BNI virtual account number and press Correct</string>
+				<key>image</key>
+				<string>bni_va5</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter the full amount to be paid and press Connect</string>
+				<key>image</key>
+				<string>bni_va6</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Your payment details will appear on the confirmation page. If the information is correct press Correct</string>
+				<key>image</key>
+				<string>bni_va7</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Mobile Banking</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Login to BNI Mobile Banking application</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose To BNI Account then Add New Account</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter your debit account number and destination account number</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter the full amount to be paid and press ‘Proceed’ </string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Your payment details will appear on confirmation page</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>If the information is correct then enter authentication token code and press ‘Proceed’ </string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Payment complete</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Internet Banking</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Visit https://ibank.bni.co.id then choose Enter</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter User ID and Password</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose Set Destination Account then Add Destination Account</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter name and VA number</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Enter authentication token code</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Now Destination/Favorite account number is successfully added</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Back to Transfer menu</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose Transfer to BNI Account, then choose destination/favorite account</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Choose Debit Account and enter amount, then enter authentication token code</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Payment complete</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

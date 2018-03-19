@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -28,7 +28,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="Email Address (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jUn-nX-II5">
-                        <rect key="frame" x="15" y="28" width="279" height="40"/>
+                        <rect key="frame" x="15" y="31" width="271" height="40"/>
                         <color key="backgroundColor" red="0.90035927299999996" green="0.95267838240000002" blue="0.98194116350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="hZQ-aI-3If"/>
@@ -38,7 +38,7 @@
                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                     </textField>
                     <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="tG4-Oo-AEf">
-                        <rect key="frame" x="15" y="223" width="345" height="31"/>
+                        <rect key="frame" x="15" y="226" width="345" height="31"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="2D3-6w-icC"/>
                         </constraints>
@@ -48,13 +48,13 @@
                         </segments>
                     </segmentedControl>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7y7-63-k3q">
-                        <rect key="frame" x="15" y="269" width="345" height="23"/>
+                        <rect key="frame" x="15" y="272" width="345" height="20"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="COMPANY CODE" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEf-SU-zeV">
-                        <rect key="frame" x="15" y="8" width="345" height="13"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Virtual Account Number" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xEf-SU-zeV">
+                        <rect key="frame" x="23" y="11" width="329" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="oty-3a-VyE"/>
                         </constraints>
@@ -63,7 +63,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDI-7A-8rK">
-                        <rect key="frame" x="302" y="30" width="58" height="35"/>
+                        <rect key="frame" x="294" y="33" width="58" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="RpB-V9-9va"/>
                             <constraint firstAttribute="width" constant="58" id="pdc-YU-vVN"/>
@@ -74,10 +74,10 @@
                         </state>
                     </button>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hxE-ML-DAL">
-                        <rect key="frame" x="15" y="161" width="342" height="47"/>
+                        <rect key="frame" x="16" y="164" width="333" height="47"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Please Complete your payment before" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Ht-Bt-iy1">
-                                <rect key="frame" x="5" y="6" width="329" height="36"/>
+                                <rect key="frame" x="5" y="6" width="313" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="ysJ-0v-CP9"/>
                                 </constraints>
@@ -88,7 +88,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.99020606280000001" green="0.92842739819999998" blue="0.71863287689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="2Ht-Bt-iy1" secondAttribute="trailing" constant="8" id="7fX-aP-vhH"/>
+                            <constraint firstAttribute="trailing" secondItem="2Ht-Bt-iy1" secondAttribute="trailing" constant="15" id="7fX-aP-vhH"/>
                             <constraint firstItem="2Ht-Bt-iy1" firstAttribute="top" secondItem="hxE-ML-DAL" secondAttribute="top" constant="6" id="8yl-um-u7g"/>
                             <constraint firstAttribute="bottom" secondItem="2Ht-Bt-iy1" secondAttribute="bottom" constant="5" id="b90-p0-Vbk"/>
                             <constraint firstItem="2Ht-Bt-iy1" firstAttribute="leading" secondItem="hxE-ML-DAL" secondAttribute="leading" constant="5" id="eZU-2y-Ikd"/>
@@ -96,7 +96,7 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="Email Address (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3hG-qH-POo">
-                        <rect key="frame" x="15" y="106" width="278" height="40"/>
+                        <rect key="frame" x="16" y="109" width="269" height="40"/>
                         <color key="backgroundColor" red="0.90035927299999996" green="0.95267838240000002" blue="0.98194116350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="7p1-61-wJd"/>
@@ -106,7 +106,7 @@
                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                     </textField>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Uw-m3-qVL">
-                        <rect key="frame" x="301" y="108" width="58" height="35"/>
+                        <rect key="frame" x="293" y="111" width="58" height="35"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="58" id="O9d-s8-gW7"/>
                             <constraint firstAttribute="height" constant="35" id="ii6-fc-lng"/>
@@ -117,7 +117,7 @@
                         </state>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="COMPANY CODE" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T5c-id-ozN">
-                        <rect key="frame" x="15" y="85" width="342" height="13"/>
+                        <rect key="frame" x="23" y="88" width="326" height="13"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="13" id="iI9-HT-ugK"/>
                         </constraints>
@@ -127,11 +127,11 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="hxE-ML-DAL" firstAttribute="leading" secondItem="YJC-ea-Dqi" secondAttribute="leadingMargin" constant="7" id="1by-zE-agK"/>
+                    <constraint firstItem="hxE-ML-DAL" firstAttribute="leading" secondItem="YJC-ea-Dqi" secondAttribute="leadingMargin" id="1by-zE-agK"/>
                     <constraint firstItem="2Uw-m3-qVL" firstAttribute="leading" secondItem="3hG-qH-POo" secondAttribute="trailing" constant="8" id="2e0-KP-ERB"/>
                     <constraint firstAttribute="trailingMargin" secondItem="2Uw-m3-qVL" secondAttribute="trailing" constant="8" id="FWa-7I-X9H"/>
                     <constraint firstItem="7y7-63-k3q" firstAttribute="top" secondItem="tG4-Oo-AEf" secondAttribute="bottom" constant="16" id="HFL-mb-VXE"/>
-                    <constraint firstItem="3hG-qH-POo" firstAttribute="leading" secondItem="YJC-ea-Dqi" secondAttribute="leadingMargin" constant="7" id="LNW-DS-QiC"/>
+                    <constraint firstItem="3hG-qH-POo" firstAttribute="leading" secondItem="YJC-ea-Dqi" secondAttribute="leadingMargin" id="LNW-DS-QiC"/>
                     <constraint firstItem="T5c-id-ozN" firstAttribute="top" secondItem="jUn-nX-II5" secondAttribute="bottom" constant="17" id="Nqi-gm-YNJ"/>
                     <constraint firstItem="7y7-63-k3q" firstAttribute="leading" secondItem="YJC-ea-Dqi" secondAttribute="leading" constant="15" id="P8X-VA-Ohz"/>
                     <constraint firstAttribute="trailingMargin" secondItem="xEf-SU-zeV" secondAttribute="trailing" constant="7" id="RKp-Yh-8AZ"/>
@@ -156,13 +156,16 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="ButtonCopyConstraintsBottomTextField" destination="O9d-s8-gW7" id="5kb-kV-R9g"/>
                 <outlet property="companyCodeCopyButton" destination="2Uw-m3-qVL" id="RAt-ff-5wU"/>
+                <outlet property="companyCodeLabel" destination="T5c-id-ozN" id="kks-tx-qgV"/>
                 <outlet property="companyCodeTextField" destination="3hG-qH-POo" id="MKI-3H-RMI"/>
                 <outlet property="expiredTimeBackground" destination="hxE-ML-DAL" id="Jvv-g2-Qdg"/>
                 <outlet property="expiredTimeLabel" destination="2Ht-Bt-iy1" id="qOr-ur-oNE"/>
                 <outlet property="tabSwitch" destination="tG4-Oo-AEf" id="kuC-ia-ta8"/>
                 <outlet property="tutorialTitleLabel" destination="7y7-63-k3q" id="IgL-17-MDE"/>
                 <outlet property="vaCopyButton" destination="eDI-7A-8rK" id="4bw-XA-SVT"/>
+                <outlet property="vaNumberLabel" destination="xEf-SU-zeV" id="fip-zC-hv2"/>
                 <outlet property="vaTextField" destination="jUn-nX-II5" id="tuz-9g-vWC"/>
             </connections>
             <point key="canvasLocation" x="-78.5" y="-405"/>

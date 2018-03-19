@@ -15,10 +15,7 @@
 #import "MidtransUIThemeManager.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransPaymentMethodHeader.h"
-
-@interface MidtransNewCreditCardView()
-@property (nonatomic) IBOutlet MidtransPaymentMethodHeader *headerView;
-@end
+#import "MIdtransUIBorderedView.h"
 
 @implementation MidtransNewCreditCardView
 
@@ -54,7 +51,7 @@
 }
 
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
-    self.headerView.priceAmountLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.totalAmountPrice.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
 }
 - (UIImage *)iconWithBankName:(NSString *)bankName {
     return [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];

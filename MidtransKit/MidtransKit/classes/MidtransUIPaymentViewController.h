@@ -36,6 +36,11 @@
 typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeatureCreditCard,
     MidtransPaymentFeatureBankTransfer,///va
+    MidtransPaymentFeatureBankTransferBCAVA,
+    MidtransPaymentFeatureBankTransferMandiriVA,
+    MidtransPaymentFeatureBankTransferBNIVA,
+    MidtransPaymentFeatureBankTransferPermataVA,
+    MidtransPaymentFeatureBankTransferOtherVA,
     MidtransPaymentFeatureKlikBCA,
     MidtransPaymentFeatureIndomaret,
     MidtransPaymentFeatureCIMBClicks,
@@ -46,11 +51,13 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeaturePermataVA,
     MidtransPaymentFeatureBRIEpay,
     MidtransPaymentFeatureTelkomselEcash,
+    MidtransPyamentFeatureDanamonOnline,
     MidtransPaymentFeatureIndosatDompetku,
     MidtransPaymentFeatureXLTunai,
     MidtransPaymentFeatureMandiriClickPay,
     MidtransPaymentFeatureKiosON,
     MidtransPaymentFeatureGCI,
+    MidtransPaymentFeatureGOPAY,
     MidtransPaymentCreditCardForm
 };
 @class MidtransUIPaymentViewController;

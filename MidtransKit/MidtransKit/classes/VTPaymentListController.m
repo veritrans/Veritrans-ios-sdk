@@ -5,12 +5,14 @@
 //  Created by Nanang Rafsanjani on 2/22/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
-
+#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
 #import "MidtransUIListCell.h"
 #import "VTPaymentHeader.h"
+#import "MidGopayViewController.h"
 #import "VTVAListController.h"
+#import "MidtransVAViewController.h"
 #import "VTMandiriClickpayController.h"
 #import "MidtransUIPaymentGeneralViewController.h"
 #import "MidtransUIPaymentDirectViewController.h"
@@ -85,7 +87,17 @@
     if (path == nil) {
         path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
     }
+    
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
+//    if (IPAD) {
+//        NSArray *newPaymentList = [paymentList filteredArrayUsingPredicate:
+//                                   [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *d) {
+//            return ![[obj valueForKey:@"id"] isEqualToString:@"gopay"];
+//        }]];
+//        NSLog(@"newPaymentlist->%@",newPaymentList);
+//        paymentList = newPaymentList;
+//    }
+    
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading payment list"]];
     
     if (self.token.tokenId.length == 0) {
@@ -100,6 +112,8 @@
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchant.preference.displayName;
+         [[NSUserDefaults standardUserDefaults] setObject:response.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+         [[NSUserDefaults standardUserDefaults] synchronize];
          if (response) {
              
              NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
@@ -124,7 +138,7 @@
                                                    @"shortName":@"atm transfer",
                                                    @"title":@"ATM/Bank Transfer"
                                                    };
-            
+             
              NSArray *paymentAvailable = response.enabledPayments;
              if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
@@ -148,6 +162,13 @@
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                          return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
                      }];
+                     if (index !=NSNotFound) {
+                         self.singlePayment = YES;
+                         model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                         model.status = enabledPayment.status;
+                         [self.paymentMethodList addObject:model];
+                         [self redirectToPaymentMethodAtIndex:0];
+                     }
                  }
                  else {
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
@@ -170,7 +191,6 @@
                          self.bankTransferOnly = 0;
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                          model.status = enabledPayment.status;
-
                          [self.paymentMethodList addObject:model];
                          
                      }
@@ -217,7 +237,6 @@
 - (void)reloadThemeColor {
     UIColor *color = [[MidtransUIThemeManager shared] themeColor];
     self.navigationController.navigationBar.tintColor = color;
-    self.view.headerView.backgroundColor = color;
 }
 
 - (UIColor *)colorFromSnapScheme:(NSString *)scheme {
@@ -244,6 +263,22 @@
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]){
+        
+        MidtransPaymentListModel *vaTypeModel = [[MidtransPaymentListModel alloc] initWithDictionary:[paymentMethod dictionaryRepresentation]];
+        
+        NSLog(@"data-->%@",vaTypeModel);
+        MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+        vc.response = self.responsePayment;
+        [vc showDismissButton:YES];
+        
+        [self.navigationController pushViewController:vc animated:!self.singlePayment];
+        return;
+    }
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
@@ -279,6 +314,7 @@
             }
         }
     }
+
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
@@ -287,6 +323,7 @@
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
+             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
@@ -318,6 +355,12 @@
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+        MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [midGopayVC showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
+    }
+
     else {
         MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];

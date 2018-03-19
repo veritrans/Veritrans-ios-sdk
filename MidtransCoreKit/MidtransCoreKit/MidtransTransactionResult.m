@@ -23,6 +23,8 @@
 @property (nonatomic, readwrite) NSString *indomaretPaymentCode;
 @property (nonatomic, readwrite) NSString *kiosonExpireTime;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCode;
+@property (nonatomic,readwrite) NSString *qrcodeUrl;
+@property (nonatomic,readwrite) NSString *deeplinkUrl;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCompanyCode;
 @property (nonatomic, readwrite) NSString *virtualAccountNumber;
 
@@ -77,7 +79,12 @@
             NSDictionary *vaData = response[@"va_numbers"][0];
             self.virtualAccountNumber = vaData[@"va_number"];
         }
-        
+        if (response[@"qr_code_url"]) {
+            self.qrcodeUrl = response[@"qr_code_url"];
+        }
+        if (response[@"deeplink_url"]) {
+            self.deeplinkUrl = response[@"deeplink_url"];
+        }
         if (response[@"permata_va_number"]) {
             self.virtualAccountNumber = response[@"permata_va_number"];
         }

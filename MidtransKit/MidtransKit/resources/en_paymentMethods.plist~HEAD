@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>title</key>
+		<string>Credit Card</string>
+		<key>description</key>
+		<string>Pay with Visa, MasterCard, or JCB</string>
+		<key>id</key>
+		<string>credit_card</string>
+		<key>identifier</key>
+		<string>credit_card</string>
+		<key>shortName</key>
+		<string>cc</string>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Kioson</string>
+		<key>description</key>
+		<string>Pay from Kioson Outlet</string>
+		<key>id</key>
+		<string>kioson</string>
+		<key>identifier</key>
+		<string>kioson</string>
+		<key>shortName</key>
+		<string>kioson</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>ATM/Bank Transfer</string>
+		<key>description</key>
+		<string>Pay from ATM Bersama, Prima or Alto</string>
+		<key>id</key>
+		<string>va</string>
+		<key>identifier</key>
+		<string>va</string>
+		<key>shortName</key>
+		<string>all bank</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>CIMB Clicks</string>
+		<key>description</key>
+		<string>Pay using CIMB Clicks account</string>
+		<key>id</key>
+		<string>cimb_clicks</string>
+		<key>identifier</key>
+		<string>cimb_clicks</string>
+		<key>shortName</key>
+		<string>cimb clicks</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Indomaret</string>
+		<key>description</key>
+		<string>Pay from Indomaret</string>
+		<key>id</key>
+		<string>indomaret</string>
+		<key>identifier</key>
+		<string>indomaret</string>
+		<key>shortName</key>
+		<string>indomaret</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>BCA KlikPay</string>
+		<key>description</key>
+		<string>Pay with BCA KlikPay</string>
+		<key>id</key>
+		<string>bca_klikpay</string>
+		<key>identifier</key>
+		<string>bca_klikpay</string>
+		<key>shortName</key>
+		<string>bca klikpay</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>KlikBCA</string>
+		<key>description</key>
+		<string>Pay using KlikBCA</string>
+		<key>id</key>
+		<string>bca_klikbca</string>
+		<key>identifier</key>
+		<string>bca_klikbca</string>
+		<key>shortName</key>
+		<string>bca klikbca</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>LINE Pay e-cash / mandiri e-cash</string>
+		<key>description</key>
+		<string>Pay with Mandiri e-Cash</string>
+		<key>id</key>
+		<string>mandiri_ecash</string>
+		<key>identifier</key>
+		<string>mandiri_ecash</string>
+		<key>shortName</key>
+		<string>mandiri ecash</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Mandiri Clickpay</string>
+		<key>description</key>
+		<string>Pay through your Mandiri Clickpay account</string>
+		<key>id</key>
+		<string>mandiri_clickpay</string>
+		<key>identifier</key>
+		<string>mandiri_clickpay</string>
+		<key>shortName</key>
+		<string>mandiri clickpay</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>e-Pay BRI</string>
+		<key>description</key>
+		<string>Pay using e-Pay BRI account</string>
+		<key>id</key>
+		<string>bri_epay</string>
+		<key>identifier</key>
+		<string>bri_epay</string>
+		<key>shortName</key>
+		<string>bri epay</string>
+	</dict>
+	<dict>
+		<key>title</key>
+		<string>Indosat Dompetku</string>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>description</key>
+		<string>Pay with Indosat Dompetku</string>
+		<key>id</key>
+		<string>indosat_dompetku</string>
+		<key>identifier</key>
+		<string>indosat_dompetku</string>
+		<key>shortName</key>
+		<string>indosat dompetku</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>XL Tunai</string>
+		<key>description</key>
+		<string>Pay with XL Tunai</string>
+		<key>id</key>
+		<string>xl_tunai</string>
+		<key>identifier</key>
+		<string>xl_tunai</string>
+		<key>shortName</key>
+		<string>xl tunai</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Telkomsel Cash</string>
+		<key>description</key>
+		<string>Pay through you Telkomsel Cash account</string>
+		<key>id</key>
+		<string>telkomsel_cash</string>
+		<key>identifier</key>
+		<string>telkomsel_cash</string>
+		<key>shortName</key>
+		<string>telkomsel cash</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>BCA</string>
+		<key>description</key>
+		<string>Pay from BCA ATMs or internet banking</string>
+		<key>id</key>
+		<string>bca_va</string>
+		<key>identifier</key>
+		<string>bca_va</string>
+		<key>shortName</key>
+		<string>atm bca</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Mandiri</string>
+		<key>description</key>
+		<string>Pay from Mandiri ATMs or internet banking</string>
+		<key>id</key>
+		<string>echannel</string>
+		<key>identifier</key>
+		<string>echannel</string>
+		<key>shortName</key>
+		<string>atm mandiri</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Permata</string>
+		<key>description</key>
+		<string>Pay from Permata ATMs or internet banking</string>
+		<key>id</key>
+		<string>permata_va</string>
+		<key>identifier</key>
+		<string>permata_va</string>
+		<key>shortName</key>
+		<string>atm permata</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Other ATM Network</string>
+		<key>description</key>
+		<string>Pay from ATMs or internet banking</string>
+		<key>id</key>
+		<string>all_va</string>
+		<key>identifier</key>
+		<string>all_va</string>
+		<key>shortName</key>
+		<string>atm all</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Gift Card Indonesia</string>
+		<key>description</key>
+		<string>Pay with Gift Card Indonesia</string>
+		<key>id</key>
+		<string>gci</string>
+		<key>identifier</key>
+		<string>gci</string>
+		<key>shortName</key>
+		<string>gci</string>
+	</dict>
+</array>
+</plist>

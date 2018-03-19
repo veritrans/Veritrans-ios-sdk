@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Klik ‘Bayar dengan GO-PAY’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Aplikasi ‘GO-PAY’ akan terbuka</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Periksa rincian pembayaran Anda lalu klik ‘Pay’ dan transaksi anda ‘Selesai’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

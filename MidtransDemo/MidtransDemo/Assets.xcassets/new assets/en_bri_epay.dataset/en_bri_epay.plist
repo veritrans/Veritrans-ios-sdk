@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>content</key>
+        <string>Please make sure that you have a User ID for BRI e-Pay and have registered your mTOKEN before going through with the payment</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+	
+    <dict>
+        <key>content</key>
+        <string>To obtain a User ID for BRI e-Pay, please register at the nearest BRI ATM</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+	
+    <dict>
+        <key>content</key>
+        <string>Please visit the nearest BRI branch office to register the mTOKEN</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+	
+    <dict>
+        <key>content</key>
+        <string>Payment via BRI e-Pay will be processed online and your BRI bank account balance will be deducted automatically based on your total amount</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+	
+    <dict>
+        <key>content</key>
+        <string>Your transaction will be cancelled if payment is not completed within 2 hours</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+</array>
+</plist>

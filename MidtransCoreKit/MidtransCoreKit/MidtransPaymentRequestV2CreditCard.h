@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSArray *savedTokens;
 @property (nonatomic, strong) NSArray *whitelistBins;
+@property (nonatomic, strong) NSArray *blacklistBins;
 @property (nonatomic, strong) MidtransPaymentRequestV2Installment *installments;
 @property (nonatomic, assign) BOOL saveCard;
 @property (nonatomic, assign) BOOL secure;

@@ -12,6 +12,10 @@
 #import "UIViewController+HeaderSubtitle.h"
 #import "MidtransUIStringHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
+#import "MidtransUINextStepButton.h"
+#import "MidtransUIThemeManager.h"
 
 @interface MidtransUIPaymentGeneralViewController () <MidtransPaymentWebControllerDelegate>
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentGeneralView *view;
@@ -58,6 +62,13 @@
     self.view.guideView.instructions = instructions;
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {
@@ -76,6 +87,9 @@
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
         paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];
+    }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]) {
+        paymentDetails = [[MidtransPaymentDanamonOnline alloc] init];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI]) {
         paymentDetails = [[MidtransPaymentXLTunai alloc] init];

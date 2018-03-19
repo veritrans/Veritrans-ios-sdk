@@ -7,6 +7,26 @@
     "type": "bank_transfer",
     "name": "Bank Transfer"
   },
+ {
+ "type": "bank_transfer",
+ "name": "Bank Mandiri"
+ },
+ {
+ "type": "bank_transfer",
+ "name": "Bank BCA"
+ },
+ {
+ "type": "bank_transfer",
+ "name": "Bank BNI"
+ },
+ {
+ "type": "bank_transfer",
+ "name": "Other Bank"
+ },
+ {
+ "type": "danamon_online",
+ "name": "Danamon Online"
+ },
   {
     "type": "bca_klikbca",
     "name": "Klikbca"
@@ -36,16 +56,8 @@
     "name": "Telkomsel Cash"
   },
   {
-    "type": "xl_tunai",
-    "name": "XL Tunai"
-  },
-  {
     "type": "indomaret",
     "name": "Indomaret"
-  },
-  {
-    "type": "indosat_dompetku",
-    "name": "Indosat Dompetku"
   },
   {
     "type": "kioson",

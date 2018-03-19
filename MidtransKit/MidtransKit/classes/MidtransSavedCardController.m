@@ -12,6 +12,8 @@
 #import "MidtransPaymentMethodHeader.h"
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransSavedCardFooter.h"
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
 #import "VTConfirmPaymentController.h"
 
 @interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource, MidtransNewCreditCardViewControllerDelegate>
@@ -22,6 +24,9 @@
 @property (nonatomic) MidtransSavedCardFooter *footerView;
 @property (nonatomic) NSArray *bankBinList;
 @property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountText;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end
 
 @implementation MidtransSavedCardController
@@ -57,10 +62,7 @@
     [super viewDidLoad];
     self.footerView = [[VTBundle loadNibNamed:@"MidtransSavedCardFooter" owner:self options:nil] lastObject];
     [self.footerView.addCardButton addTarget:self action:@selector(addCardPressed:) forControlEvents:UIControlEventTouchUpInside];
-    
-    self.headerView = [[VTBundle loadNibNamed:@"MidtransPaymentMethodHeader" owner:self options:nil] lastObject];
-    self.headerView.priceAmountLabel.text = self.token.itemDetails.formattedPriceAmount;
-    
+      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
@@ -68,7 +70,8 @@
     
     self.cards = [[NSMutableArray alloc] init];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.list.title"];
-    
+    [self.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     [self reloadSavedCards];
 }
 
@@ -83,17 +86,17 @@
         [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
                                                        completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
 
-            if (maskedCards.count) {
+            if (maskedCards.count > 0) {
                 [self.cards setArray:maskedCards];
                 [self.tableView reloadData];
             }
             else {
+                [self.tableView reloadData];
                 MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                                    paymentMethodName:self.paymentMethod
                                                                                                    andCreditCardData:self.creditCard
                                                                                         andCompleteResponseOfPayment:self.responsePayment];
                 vc.promos = self.promos;
-                vc.currentMaskedCards = self.cards;
                 [self.navigationController pushViewController:vc animated:NO];
             }
             
@@ -213,17 +216,12 @@
         }
     }
 }
-
+- (void)totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+}
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 55;
-}
-
-- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
-    return self.headerView;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 50;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {

@@ -8,6 +8,8 @@
 
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
+#import "AddAddressViewController.h"
+#import <ACFloatingTextfield_Objc/ACFloatingTextField.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/SNPFreeTextDataModels.h>
 #import "MDOptionManager.h"
@@ -15,15 +17,37 @@
 #import <JGProgressHUD/JGProgressHUD.h>
 
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UIView *amountView;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
 
 @implementation MDOrderViewController
-
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+    self.addressLabel.text = [NSString stringWithFormat:@" %@, %@ - %@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"],[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"],
+                              [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"],
+                              [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]
+                              ];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+    self.userNameTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+    self.phoneNumberTextfield.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+    
+    self.userNameTextField.text =[NSString stringWithFormat:@"%@ %@",[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"],[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]];
+    self.emailTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"];
+    
+    self.phoneNumberTextfield.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"];
+    
+    
+    self.emailTextField.enabled = NO;
+    self.userNameTextField.enabled = NO;
+    self.phoneNumberTextfield.enabled = NO;
+    
+    [self.editButton.imageView setContentMode:UIViewContentModeScaleAspectFit];
     self.title = @"Order Review";
     
     self.progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
@@ -31,6 +55,7 @@
     
     NSString *clientkey;
     NSString *merchantServer;
+    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
             clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
@@ -41,19 +66,19 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-    merchantServer = @"https://rakawm-snap.herokuapp.com";
         [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
            merchantServerURL:merchantServer];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
-    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
-    CC_CONFIG.saveCardEnabled = [[MDOptionManager shared].saveCardOption.value boolValue];
-    //CC_CONFIG.secure3DEnabled = YES;
+
+    CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
+    
+    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
+    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
@@ -67,6 +92,7 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
+    UICONFIG.hideStatusPage = NO;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
@@ -85,27 +111,29 @@
 }
 
 - (IBAction)bayarPressed:(id)sender {
-    MidtransAddress *addr = [MidtransAddress addressWithFirstName:@"first"
-                                                         lastName:@"last"
-                                                            phone:@"123123"
-                                                          address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
-                                                             city:@"Jakarta"
-                                                       postalCode:@"10220"
-                                                      countryCode:@"IDN"];
-    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"first"
-                                                                             lastName:@"last"
-                                                                                email:@"secure_email_rba1@example.com"
-                                                                                phone:@"123123"
-                                                                      shippingAddress:[MidtransAddress new]
-                                                                       billingAddress:[MidtransAddress new]];
-    cst.customerIdentifier = @"112232";
+    
+    MidtransAddress *addr = [MidtransAddress addressWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
+                                                         lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
+                                                            phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
+                                                          address:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"]
+                                                             city:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"]
+                                                       postalCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"]
+                                                      countryCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]];
+    
+    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
+                                                                             lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
+                                                                                email:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"]
+                                                                                phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
+                                                                      shippingAddress:addr
+                                                                       billingAddress:addr];
+    cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@501000
+                                                                   price:@255000
                                                                 quantity:@1];
     
-    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:[NSNumber numberWithInt:501000]];
+    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:@"1030927522"
+                                                                           andGrossAmount:[NSNumber numberWithInt:255000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -115,17 +143,25 @@
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
     NSArray *binFilter = @[];
-    if ([[MDOptionManager shared].bniPointOption.value boolValue]) {
-        binFilter = @[@"4"];
-    }
+    NSArray *blacklistBin = @[];
+    
+
+     binFilter = @[@"4"];
+    blacklistBin = @[@"41"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
-    MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
+    
+    NSDate *mydate = [NSDate date];
+    NSTimeInterval secondsInEightHours = 1 * 60 * 60;
+    NSDate *dateEightHoursAhead = [mydate dateByAddingTimeInterval:secondsInEightHours];
+    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:nil expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
     
     //NSArray *cf = @[MIDTRANS_CUSTOMFIELD_1:@{@"voucher_code":@"123",@"amount":@"123"}];
     NSMutableArray *arrayOfCustomField = [NSMutableArray new];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:@"VN00000015-sw4g4o0cws"}];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:@"0--14"}];
     
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
@@ -149,7 +185,8 @@
                                                                    customerDetails:cst
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
-                                                             transactionExpireTime:expr
+                                                                blacklistBinFilter:blacklistBin
+                                                             transactionExpireTime:expireTime
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
@@ -165,7 +202,7 @@
          }
          else {
 
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureBankTransferBNIVA];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }
@@ -177,6 +214,30 @@
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
 
+- (IBAction)editCustomerAddressButtonDidTapped:(id)sender {
+    if (self.editButton.isSelected ==  true) {
+        [self.editButton setSelected:NO];
+        self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+        self.userNameTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+        self.phoneNumberTextfield.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
+        
+        self.emailTextField.enabled = NO;
+        self.userNameTextField.enabled = NO;
+        self.phoneNumberTextfield.enabled = NO;
+        
+        
+    }else {
+        [self.editButton setSelected:YES];
+        self.emailTextField.backgroundColor = [UIColor clearColor];
+        self.userNameTextField.backgroundColor = [UIColor clearColor];
+        self.phoneNumberTextfield.backgroundColor = [UIColor clearColor];
+        
+        self.emailTextField.enabled = YES;
+        self.userNameTextField.enabled = YES;
+        self.phoneNumberTextfield.enabled = YES;
+        NSLog(@"edited");
+    }
+}
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"[MIDTRANS] success %@", result);
 }
@@ -189,5 +250,11 @@
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"[MIDTRANS] canceled");
 }
+
+- (IBAction)editAddressViewController:(id)sender {
+    AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];
+    [self.navigationController pushViewController:addAddressVC animated:YES];
+}
+
 
 @end

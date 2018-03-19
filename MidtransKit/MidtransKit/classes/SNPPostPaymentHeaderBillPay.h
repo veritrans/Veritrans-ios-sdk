@@ -11,5 +11,8 @@
 @interface SNPPostPaymentHeaderBillPay : SNPPostPaymentHeader
 @property (weak, nonatomic) IBOutlet UITextField *companyCodeTextField;
 @property (weak, nonatomic) IBOutlet UIButton *companyCodeCopyButton;
+@property (weak, nonatomic) IBOutlet UILabel *companyCodeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *vaNumberLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *ButtonCopyConstraintsBottomTextField;
 
 @end

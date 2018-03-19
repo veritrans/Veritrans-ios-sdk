@@ -176,19 +176,25 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                    andCreditCardToken:(NSString *_Nonnull)creditCardToken
                            completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion {
     NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/point_inquiry/%@",PRIVATECONFIG.snapURL, token, creditCardToken];
-    [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
-        if (!error) {
-            SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
-            if (completion) {
-                completion(pointResponse,NULL);
+    @try {
+        [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
+            if (!error) {
+                SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
+                if (completion) {
+                    completion(pointResponse,NULL);
+                }
             }
-        }
-        else {
-            if (completion) {
-                completion(NULL,error);
+            else {
+                if (completion) {
+                    completion(NULL,error);
+                }
             }
-        }
-    }];
+        }];
+    }
+    @catch (NSException * e) {
+        [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
+    }
+   
     
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
@@ -196,6 +202,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                           customField:(nullable NSArray *)customField
                                             binFilter:(nullable NSArray *)binFilter
+                                   blacklistBinFilter:(nullable NSArray *)blackListBin
                                 transactionExpireTime:(MidtransTransactionExpire *)expireTime
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *dictionaryParameters = [NSMutableDictionary new];
@@ -203,7 +210,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
-    
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         for (NSDictionary *dictionary in customField) {
             NSArray *key_dictionary=[dictionary allKeys];
@@ -224,6 +230,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     if (binFilter.count > 0) {
         creditCardParameter[@"whitelist_bins"] = binFilter;
+    }
+    if (blackListBin.count > 0) {
+        creditCardParameter[@"blacklist_bins"] = blackListBin;
     }
     if (CC_CONFIG.acquiringBankString) {
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
@@ -246,8 +255,18 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if ([CONFIG customBCAVANumber].length > 0) {
         dictionaryParameters[@"bca_va"] = @{@"va_number":CONFIG.customBCAVANumber};
     }
+    if (CONFIG.customPermataVARecipientName) {
+        dictionaryParameters[@"bca_va"] = @{@"sub_company_code":CONFIG.customBCASubcompanyCode};
+    }
+    if ([CONFIG customBCASubcompanyCode].length>0) {
+        dictionaryParameters[@"permata_va"] = @{@"recipient_name":[CONFIG.customPermataVARecipientName uppercaseString]};
+    }
+    if ( [CONFIG customBCASubcompanyCode].length>0 && [CONFIG customBCAVANumber].length > 0) {
+         dictionaryParameters[@"bca_va"] = @{@"sub_company_code":CONFIG.customBCASubcompanyCode,
+                                             @"va_number":CONFIG.customBCAVANumber
+                                             };
+    }
     if ([CONFIG customBNIVANumber].length > 0) {
-        
         dictionaryParameters[@"bni_va"] = @{@"va_number":CONFIG.customBNIVANumber};
     }
     
@@ -313,7 +332,14 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
-   [self requestTransactionTokenWithTransactionDetails:transactionDetails itemDetails:itemDetails customerDetails:customerDetails customField:nil binFilter:nil transactionExpireTime:nil completion:completion];
+   [self requestTransactionTokenWithTransactionDetails:transactionDetails
+                                           itemDetails:itemDetails
+                                       customerDetails:customerDetails
+                                           customField:nil
+                                             binFilter:nil
+                                    blacklistBinFilter:nil
+                                 transactionExpireTime:nil
+                                            completion:completion];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token

@@ -41,6 +41,8 @@
         self.tscSeparatorLineView.backgroundColor = [UIColor colorWithRed:0.60 green:0.60 blue:0.61 alpha:.65];
         self.tscSeparatorLineView.hidden = NO;
         self.tscTextStatusLabel.hidden = NO;
+    } else {
+        self.textStatusHeightConstraint.constant = 0;
     }
 }
 

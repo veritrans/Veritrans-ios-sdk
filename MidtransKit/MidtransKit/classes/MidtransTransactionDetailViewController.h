@@ -11,4 +11,7 @@
 
 @interface MidtransTransactionDetailViewController : UIViewController
 - (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items;
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items
+         withChangedGrossAmount:(NSString *)grossAmount
+                      pointName:(NSString *)pointName pointValue:(NSInteger)pointValue;
 @end

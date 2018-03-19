@@ -8,14 +8,14 @@
 
 #import "SNPPostPaymentFooter.h"
 #import "VTClassHelper.h"
+
+@interface SNPPostPaymentFooter()
+@end
 @implementation SNPPostPaymentFooter
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    self.downloadInstructionButton.layer.borderColor = self.downloadInstructionButton.tintColor.CGColor;
-    self.downloadInstructionButton.layer.borderWidth = 1.;
-    self.downloadInstructionButton.layer.cornerRadius = 5.;
-    [self.downloadInstructionButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"donwload.instruction"] forState:UIControlStateNormal];
+    [self.downloadInstructionButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"download.instruction"] forState:UIControlStateNormal];
     // Initialization code
 }
 

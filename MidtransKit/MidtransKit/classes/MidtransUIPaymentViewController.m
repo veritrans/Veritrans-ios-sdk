@@ -10,6 +10,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIPaymentViewController.h"
 #import "VTPaymentListController.h"
+#import "MIDV2PaymentListViewController.h"
 #import "VTClassHelper.h"
 #import "MidtransUIThemeManager.h"
 #import "VTKITConstant.h"
@@ -36,6 +37,9 @@
     switch (paymentFeature) {
         case MidtransPaymentFeatureCreditCard:
             paymentMethodSelected = MIDTRANS_PAYMENT_CREDIT_CARD;
+            break;
+        case MidtransPaymentFeatureGOPAY:
+            paymentMethodSelected = MIDTRANS_PAYMENT_GOPAY;
             break;
         case MidtransPaymentFeatureBankTransfer:
             paymentMethodSelected = MIDTRANS_PAYMENT_BANK_TRANSFER;
@@ -67,6 +71,9 @@
         case MidtransPaymentFeatureIndomaret:
             paymentMethodSelected = MIDTRANS_PAYMENT_INDOMARET;
             break;
+        case MidtransPyamentFeatureDanamonOnline:
+            paymentMethodSelected = MIDTRANS_PAYMENT_DANAMON_ONLINE;
+            break;
         case MidtransPaymentFeatureKiosON:
             paymentMethodSelected = MIDTRANS_PAYMENT_KIOS_ON;
             break;
@@ -78,6 +85,21 @@
             break;
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
+            break;
+        case MidtransPaymentFeatureBankTransferMandiriVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_ECHANNEL;
+            break;
+        case MidtransPaymentFeatureBankTransferPermataVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_PERMATA_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferBNIVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BNI_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferBCAVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BCA_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferOtherVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_ALL_VA;
             break;
         default:
             paymentMethodSelected = nil;

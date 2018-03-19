@@ -19,6 +19,7 @@
 @property (nonatomic) IBOutlet NSLayoutConstraint *tableHeightConstraint;
 @property (nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) NSArray *items;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomSpaceConstraint;
 @end
 
 @implementation MidtransTransactionDetailViewController
@@ -41,7 +42,6 @@
     [self.backgroundView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
     [self.headerView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(backgroundTapped:)]];
     
-    self.headerView.backgroundColor = [[MidtransUIThemeManager shared] themeColor];
 }
 
 - (void)backgroundTapped:(id)sender {
@@ -54,7 +54,37 @@
         [rootVC removeSubViewController:self];
     }];
 }
-
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items
+         withChangedGrossAmount:(NSString *)grossAmount
+                      pointName:(NSString *)pointName pointValue:(NSInteger)pointValue {
+    UIViewController *rootVC = [VTClassHelper rootViewController];
+    if (rootVC.navigationController) {
+        rootVC = rootVC.navigationController;
+    }
+    
+    self.view.alpha = 0.0;
+    [rootVC addSubViewController:self toView:rootVC.view];
+    
+    CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
+    //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+    self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
+   
+    NSMutableArray *mockItems = [NSMutableArray arrayWithArray:items];
+    if (pointValue>0) {
+         MidtransItemDetail *itemDetails =[[MidtransItemDetail alloc] initWithItemID:@"001" name:pointName price:[NSNumber numberWithInteger:-pointValue] quantity:@1];
+        [mockItems addObject:itemDetails];
+    }
+    self.items = [NSArray arrayWithArray:mockItems];
+    self.priceAmountLabel.text = grossAmount;
+    self.tableHeightConstraint.constant = [self calculateTableViewHeight];
+    
+    self.view.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        self.view.userInteractionEnabled = YES;
+    }];
+}
 - (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items {
     UIViewController *rootVC = [VTClassHelper rootViewController];
     if (rootVC.navigationController) {
@@ -65,7 +95,8 @@
     [rootVC addSubViewController:self toView:rootVC.view];
     
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
-    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+//    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+    self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
     
     self.items = items;
     self.priceAmountLabel.text = [items formattedPriceAmount];
@@ -88,6 +119,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransItemCell"];
     cell.itemDetail = self.items[indexPath.row];
+    cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
 

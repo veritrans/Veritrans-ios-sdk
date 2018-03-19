@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Pastikan bahwa Anda memiliki User ID untuk BRI e-Pay dan telah terdaftar untuk mTOKEN sebelum melanjutkan pembayaran.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Untuk mendapatkan User ID untuk BRI e-Pay, harap mendaftar pada ATM BRI terdekat</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Harap kunjungi kantor cabang BRI terdekat untuk mendaftar mTOKEN</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Pembayaran melalui BRI e-Pay akan diproses secara online dan saldo rekening BRI akan dikurangi secara otomatis berdasarkan total harga</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Transaksi akan dibatalkan apabila pembayaran tidak dilakukan dalam 2 jam</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

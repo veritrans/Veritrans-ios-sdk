@@ -34,6 +34,7 @@
 @property (nonatomic) MidtransLoadingView *loadingView;
 @property (nonatomic) SNPMaintainView *maintainView;
 @property (nonatomic) BOOL dismissButton;
+
 @end
 
 @implementation MidtransUIPaymentController
@@ -312,7 +313,7 @@
     }
 }
 -(void)showToastInviewWithMessage:(NSString *)message {
-    [MidtransUIToast createToast:@"Copied to clipboard" duration:1.5 containerView:self.view];
+    [MidtransUIToast createToast:message?message:@"Copied to clipboard" duration:1.5 containerView:self.view];
 }
 
 @end

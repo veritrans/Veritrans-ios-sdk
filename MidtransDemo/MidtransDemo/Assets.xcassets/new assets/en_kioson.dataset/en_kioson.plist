@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>After confirming your payment, we will issue you a unique Payment Code</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Note down your Payment Code and total amount. Don’t worry, we will also mail you a copy of the payment code along with the payment instructions</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Go to an Kioson Outlet near you and provide the cashier with the Payment Code</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>The cashier will open Kioson Cash Point and in the main menu the cashier will select  ‘Keagenan’</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Then select the merchant name</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Select sub-menu ‘Pembayaran’</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Enter your Payment Code</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Confirm your payment and print the receipt of your transaction</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Your transaction is successful! You should be receiving an email confirming your payment. Please keep your Kioson payment receipt just in case you need help via support</string>
+	</dict>
+</array>
+</plist>

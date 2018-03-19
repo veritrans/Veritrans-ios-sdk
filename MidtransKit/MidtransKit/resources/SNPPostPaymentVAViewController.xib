@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -20,7 +20,9 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SNPPostPaymentVAViewController">
             <connections>
                 <outlet property="finishPaymentButton" destination="sgi-C0-gbw" id="cJY-fV-1lv"/>
+                <outlet property="tableVIewConstraints" destination="GHK-YM-9AN" id="jFC-sJ-Rav"/>
                 <outlet property="tableView" destination="aZJ-84-F0O" id="gUd-py-47X"/>
+                <outlet property="totalAmountBorderedView" destination="cJb-M5-yYW" id="gn7-EA-iJ2"/>
                 <outlet property="totalAmountLabel" destination="MQT-JC-0iG" id="OzX-fB-SAn"/>
                 <outlet property="view" destination="iN0-l3-epB" id="CaS-PL-UJ2"/>
             </connections>
@@ -31,14 +33,17 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="aZJ-84-F0O">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="560"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="559"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="559" id="GHK-YM-9AN"/>
+                    </constraints>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sgi-C0-gbw" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="0.0" y="612" width="375" height="56"/>
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="56" id="khV-dQ-c1H"/>
+                        <constraint firstAttribute="height" constant="40" id="khV-dQ-c1H"/>
                     </constraints>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
                     <state key="normal" title="FINISH PAYMENT"/>
@@ -47,28 +52,39 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJb-M5-yYW" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="567" width="375" height="45"/>
+                    <rect key="frame" x="0.0" y="566" width="375" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MQT-JC-0iG">
-                            <rect key="frame" x="320.5" y="12.5" width="39.5" height="21.5"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <rect key="frame" x="293" y="0.0" width="42" height="45"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kdv-xP-PuC">
-                            <rect key="frame" x="15" y="14.5" width="73.5" height="16.5"/>
+                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="I3b-5K-vdc">
+                            <rect key="frame" x="345" y="14.5" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="15" id="78s-JM-E3L"/>
+                                <constraint firstAttribute="width" constant="15" id="dMu-k5-w3v"/>
+                            </constraints>
+                        </imageView>
                     </subviews>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstAttribute="bottom" secondItem="MQT-JC-0iG" secondAttribute="bottom" id="7zH-7l-yje"/>
+                        <constraint firstItem="MQT-JC-0iG" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="top" id="DH9-nQ-hSO"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="leading" secondItem="cJb-M5-yYW" secondAttribute="leading" constant="15" id="Fns-q3-Y54"/>
                         <constraint firstItem="Kdv-xP-PuC" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="Rzj-o8-QMF"/>
+                        <constraint firstAttribute="trailing" secondItem="I3b-5K-vdc" secondAttribute="trailing" constant="15" id="g1g-oy-QAV"/>
                         <constraint firstAttribute="height" constant="45" id="rc6-BX-R73"/>
+                        <constraint firstItem="I3b-5K-vdc" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="uW3-ro-402"/>
                         <constraint firstItem="MQT-JC-0iG" firstAttribute="centerY" secondItem="cJb-M5-yYW" secondAttribute="centerY" id="wrl-HV-CeF"/>
-                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="15" id="xXh-1N-TKK"/>
+                        <constraint firstAttribute="trailing" secondItem="MQT-JC-0iG" secondAttribute="trailing" constant="40" id="xXh-1N-TKK"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
@@ -78,13 +94,14 @@
                             <integer key="value" value="1"/>
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="sgi-C0-gbw" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="bottom" id="0Rn-Tv-oVT"/>
-                <constraint firstAttribute="trailing" secondItem="sgi-C0-gbw" secondAttribute="trailing" id="Mek-t0-WoE"/>
+                <constraint firstItem="sgi-C0-gbw" firstAttribute="top" secondItem="cJb-M5-yYW" secondAttribute="bottom" constant="8" id="0Rn-Tv-oVT"/>
+                <constraint firstAttribute="trailing" secondItem="sgi-C0-gbw" secondAttribute="trailing" constant="8" id="Mek-t0-WoE"/>
                 <constraint firstAttribute="trailing" secondItem="aZJ-84-F0O" secondAttribute="trailing" id="ScQ-Sq-vqm"/>
                 <constraint firstItem="aZJ-84-F0O" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Ssy-YE-adr"/>
                 <constraint firstItem="aZJ-84-F0O" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wos-bo-L77"/>
@@ -92,10 +109,13 @@
                 <constraint firstItem="cJb-M5-yYW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dPQ-HY-IiA"/>
                 <constraint firstItem="aZJ-84-F0O" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="fPk-W1-GkG"/>
                 <constraint firstItem="cJb-M5-yYW" firstAttribute="top" secondItem="aZJ-84-F0O" secondAttribute="bottom" constant="7" id="jVO-bf-cgX"/>
-                <constraint firstItem="sgi-C0-gbw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="l1i-Qq-iny"/>
-                <constraint firstAttribute="bottom" secondItem="sgi-C0-gbw" secondAttribute="bottom" constant="-1" id="qlE-2O-hhS"/>
+                <constraint firstItem="sgi-C0-gbw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="l1i-Qq-iny"/>
+                <constraint firstAttribute="bottom" secondItem="sgi-C0-gbw" secondAttribute="bottom" constant="8" id="qlE-2O-hhS"/>
             </constraints>
             <point key="canvasLocation" x="34.5" y="53.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
 </document>

@@ -12,9 +12,10 @@
 #import "MidtransUIButton.h"
 #import "SNPPostPaymentGeneralViewController.h"
 #import "VTClassHelper.h"
-
+#import "MIdtransUIBorderedView.h"
+#import "MidtransTransactionDetailViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-
+#import "MidtransUIThemeManager.h"
 @interface MidtransUIPaymentDirectViewController ()
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentDirectView *view;
 @property (nonatomic) MidtransVAType paymentType;
@@ -33,6 +34,17 @@
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
         self.view.topConstraints.constant = 40.0f;
         self.view.topViewConstraints.constant = 40.0f;
+        self.view.disclosureButtonImage.hidden = YES;
+    } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]  ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]  ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ) {
+        self.view.disclosureButtonImage.hidden = NO;
+    } else {
+        self.view.disclosureButtonImage.hidden = YES;
     }
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     [self addNavigationToTextFields:@[self.view.emailTextField]];
@@ -42,6 +54,13 @@
         self.view.instructionTitleLabel.text = [NSString stringWithFormat:@" Panduan pembayaran melalui %@", self.paymentMethod.title];
     }
     [self.view initViewWithPaymentID:self.paymentMethod.internalBaseClassIdentifier email:self.token.customerDetails.email];
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+    self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (void)setPaymentType:(MidtransVAType)paymentType {
     _paymentType = paymentType;

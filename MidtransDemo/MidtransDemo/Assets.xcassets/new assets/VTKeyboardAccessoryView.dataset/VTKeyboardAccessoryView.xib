@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Bold.ttf">
+            <string>SourceSansPro-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTKeyboardAccessoryView">
+            <connections>
+                <outlet property="doneButton" destination="24R-cM-Esc" id="NKG-Xl-TDk"/>
+                <outlet property="nextButton" destination="oxf-cH-7sI" id="3ks-F6-drs"/>
+                <outlet property="prevButton" destination="cSK-3H-8On" id="B8P-nm-uVd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="45"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cSK-3H-8On">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="fc1-d9-mXz"/>
+                    </constraints>
+                    <state key="normal" image="prevIcon.png"/>
+                    <connections>
+                        <action selector="prevPressed:" destination="-1" eventType="touchUpInside" id="hxh-wh-pfN"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oxf-cH-7sI">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="30" id="J5M-53-IOp"/>
+                    </constraints>
+                    <state key="normal" image="nextIcon.png"/>
+                    <connections>
+                        <action selector="nextPressed:" destination="-1" eventType="touchUpInside" id="kM6-w5-ZbR"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24R-cM-Esc">
+                    <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="15"/>
+                    <state key="normal" title="Done">
+                        <color key="titleColor" red="0.098039215686274508" green="0.63921568627450975" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="donePressed:" destination="-1" eventType="touchUpInside" id="Btx-7i-8Jt"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.92941176470588238" green="0.93333333333333335" blue="0.93725490196078431" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="oxf-cH-7sI" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="1mw-co-uCY"/>
+                <constraint firstAttribute="trailing" secondItem="24R-cM-Esc" secondAttribute="trailing" constant="8" id="3G7-vx-mS6"/>
+                <constraint firstItem="24R-cM-Esc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="6TQ-78-heJ"/>
+                <constraint firstItem="oxf-cH-7sI" firstAttribute="leading" secondItem="cSK-3H-8On" secondAttribute="trailing" id="8aO-Uv-Ve7"/>
+                <constraint firstAttribute="bottom" secondItem="oxf-cH-7sI" secondAttribute="bottom" id="BE1-7c-Foo"/>
+                <constraint firstAttribute="bottom" secondItem="24R-cM-Esc" secondAttribute="bottom" id="Gcb-5Y-c3C"/>
+                <constraint firstAttribute="bottom" secondItem="cSK-3H-8On" secondAttribute="bottom" id="IaH-LK-5ZO"/>
+                <constraint firstItem="cSK-3H-8On" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="TUT-7r-FHh"/>
+                <constraint firstItem="cSK-3H-8On" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="khu-3w-J57"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="358" y="119.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="nextIcon.png" width="8" height="13"/>
+        <image name="prevIcon.png" width="8" height="13"/>
+    </resources>
+</document>

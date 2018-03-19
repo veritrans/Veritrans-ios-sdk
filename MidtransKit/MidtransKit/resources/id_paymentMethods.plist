@@ -143,34 +143,6 @@
 		<string>bri epay</string>
 	</dict>
 	<dict>
-		<key>title</key>
-		<string>Indosat Dompetku</string>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>description</key>
-		<string>Bayar dengan Indosat Dompetku</string>
-		<key>id</key>
-		<string>indosat_dompetku</string>
-		<key>identifier</key>
-		<string>indosat_dompetku</string>
-		<key>shortName</key>
-		<string>indosat dompetku</string>
-	</dict>
-	<dict>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>title</key>
-		<string>XL Tunai</string>
-		<key>description</key>
-		<string>Bayar dengan XL Tunai</string>
-		<key>id</key>
-		<string>xl_tunai</string>
-		<key>identifier</key>
-		<string>xl_tunai</string>
-		<key>shortName</key>
-		<string>xl tunai</string>
-	</dict>
-	<dict>
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
@@ -253,6 +225,34 @@
 		<string>gci</string>
 		<key>shortName</key>
 		<string>gci</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Danamon Online</string>
+		<key>description</key>
+		<string>Bayar dengan akun Danamon Online</string>
+		<key>id</key>
+		<string>danamon_online</string>
+		<key>identifier</key>
+		<string>danamon_online</string>
+		<key>shortName</key>
+		<string>danamon online</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>GO-PAY</string>
+		<key>description</key>
+		<string>Bayar dengan GO-PAY</string>
+		<key>id</key>
+		<string>gopay</string>
+		<key>identifier</key>
+		<string>gopay</string>
+		<key>shortName</key>
+		<string>gopay</string>
 	</dict>
 </array>
 </plist>

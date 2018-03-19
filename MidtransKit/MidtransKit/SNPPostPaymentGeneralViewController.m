@@ -14,6 +14,8 @@
 #import "VTGuideCell.h"
 #import "UILabel+Boldify.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransTransactionDetailViewController.h"
+#import "MIdtransUIBorderedView.h"
 @interface SNPPostPaymentGeneralViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet SNPPostPaymentGeneralView *view;
@@ -57,7 +59,12 @@
      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
-    // Do any additional setup after loading the view from its nib.
+    [self.view.totalAmountBorderedView addGestureRecognizer:
+     [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+}
+- (void) totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.instrunctions.count;
@@ -81,6 +88,9 @@
         dispatch_once(&onceToken, ^{
             cell = [self.view.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
         });
+            if(indexPath.row %2 ==0) {
+                 cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+            }
         [cell setInstruction:self.instrunctions[indexPath.row] number:indexPath.row+1];
         return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }

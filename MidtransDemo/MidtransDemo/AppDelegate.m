@@ -24,6 +24,45 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     NSLog(@"Fonts:\n%@\n%@", [UIFont fontNamesForFamilyName:@"Bariol"], [UIFont fontNamesForFamilyName:@"Source Sans Pro"]);
 
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Budi" forKey:@"USER_DEMO_CONTENT_FIRST_NAME"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Utomo" forKey:@"USER_DEMO_CONTENT_LAST_NAME"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"0812222222222" forKey:@"USER_DEMO_CONTENT_PHONE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"demo.midtrans@midtrans.com" forKey:@"USER_DEMO_CONTENT_EMAIL"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_ADDRESS"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11" forKey:@"USER_DEMO_CONTENT_ADDRESS"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_CITY"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"Jakarta" forKey:@"USER_DEMO_CONTENT_CITY"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"10220" forKey:@"USER_DEMO_CONTENT_POSTAL_CODE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"] length]<1) {
+        [[NSUserDefaults standardUserDefaults] setObject:@"IDN" forKey:@"USER_DEMO_CONTENT_COUNTRY"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    /*
+     address:@"MidPlaza 2, 4th Floor Jl. Jend. Sudirman Kav.10-11"
+     city:@"Jakarta"
+     postalCode:@"10220"
+     countryCode:@"IDN"];
+     */
     [MDOptionManager shared];
     
     [Fabric with:@[[Crashlytics class]]];

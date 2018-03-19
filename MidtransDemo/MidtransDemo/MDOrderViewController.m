@@ -76,6 +76,7 @@
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
 
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
+    
     CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
     CC_CONFIG.authenticationType = MTAuthenticationType3DS;
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
@@ -95,8 +96,6 @@
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
-    CONFIG.customPermataVARecipientName =@"Midtrans Employee";
-    CONFIG.customBCASubcompanyCode = @"55555";
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
     
@@ -127,14 +126,14 @@
                                                                                 phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
-    cst.customerIdentifier = @"112232";
+    cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@501000
+                                                                   price:@255000
                                                                 quantity:@1];
     
-    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:[NSNumber numberWithInt:501000]];
+    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:@"1030927522"
+                                                                           andGrossAmount:[NSNumber numberWithInt:255000]];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -145,21 +144,24 @@
     
     NSArray *binFilter = @[];
     NSArray *blacklistBin = @[];
-    if ([[MDOptionManager shared].bniPointOption.value boolValue]) {
-        binFilter = @[@"4"];
-    }
-    if ([[MDOptionManager shared].mandiriPointOption.value boolValue]) {
-        binFilter = @[@"405651",@"409766",@"461699",@"461700",@"467840",@"483795",@"483796",@"409790",@"400376",@"400378",@"400385",@"400479",@"400481",@"405651",@"409766",@"413718",@"413719",@"414931",@"415016",@"415017",@"415018",@"415030",@"415031",@"415032",@"416230",@"416231",@"416232",@"421057",@"421195",@"421197",@"421313",@"425945",@"434075",@"437527",@"437528",@"437529",@"445076",@"450183",@"450184",@"450185",@"461699",@"461700",@"463199",@"468748",@"468749",@"468984",@"483795",@"483796",@"486682",@"489594",@"489764",@"490283",@"490284",@"512676",@"512724",@"523536",@"524325",@"537793",@"550615",@"557338",@"467840",@"409790"];
-    }
-     binFilter = @[@"48111"];
+    
+
+     binFilter = @[@"4"];
+    blacklistBin = @[@"41"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
-    MidtransTransactionExpire *expr = [MDOptionManager shared].expireTimeOption.value;
+    
+    NSDate *mydate = [NSDate date];
+    NSTimeInterval secondsInEightHours = 1 * 60 * 60;
+    NSDate *dateEightHoursAhead = [mydate dateByAddingTimeInterval:secondsInEightHours];
+    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:nil expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
     
     //NSArray *cf = @[MIDTRANS_CUSTOMFIELD_1:@{@"voucher_code":@"123",@"amount":@"123"}];
     NSMutableArray *arrayOfCustomField = [NSMutableArray new];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:@"VN00000015-sw4g4o0cws"}];
+    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:@"0--14"}];
     
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
@@ -184,7 +186,7 @@
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                                 blacklistBinFilter:blacklistBin
-                                                             transactionExpireTime:expr
+                                                             transactionExpireTime:expireTime
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
@@ -200,7 +202,7 @@
          }
          else {
 
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureBankTransferBNIVA];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }
@@ -248,9 +250,11 @@
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"[MIDTRANS] canceled");
 }
+
 - (IBAction)editAddressViewController:(id)sender {
     AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
+
 
 @end

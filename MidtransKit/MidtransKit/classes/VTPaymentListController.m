@@ -270,6 +270,8 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]){
         
         MidtransPaymentListModel *vaTypeModel = [[MidtransPaymentListModel alloc] initWithDictionary:[paymentMethod dictionaryRepresentation]];
+        
+        NSLog(@"data-->%@",vaTypeModel);
         MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
         vc.response = self.responsePayment;
         [vc showDismissButton:YES];

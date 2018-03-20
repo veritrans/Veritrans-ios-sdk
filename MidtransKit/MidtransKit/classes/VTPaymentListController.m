@@ -89,14 +89,6 @@
     }
     
     NSArray *paymentList = [NSArray arrayWithContentsOfFile:path];
-//    if (IPAD) {
-//        NSArray *newPaymentList = [paymentList filteredArrayUsingPredicate:
-//                                   [NSPredicate predicateWithBlock:^BOOL(id obj, NSDictionary *d) {
-//            return ![[obj valueForKey:@"id"] isEqualToString:@"gopay"];
-//        }]];
-//        NSLog(@"newPaymentlist->%@",newPaymentList);
-//        paymentList = newPaymentList;
-//    }
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading payment list"]];
     
@@ -158,10 +150,13 @@
              }
              for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index ;
+                 NSLog(@"dat--> %@",self.paymentMethodSelected);
                  if (self.paymentMethodSelected.length > 0) {
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                          return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
                      }];
+                     NSLog(@"index->%d",index);
+                     
                      if (index !=NSNotFound) {
                          self.singlePayment = YES;
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
@@ -268,10 +263,10 @@
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]){
-        
+  
         MidtransPaymentListModel *vaTypeModel = [[MidtransPaymentListModel alloc] initWithDictionary:[paymentMethod dictionaryRepresentation]];
-        
-        NSLog(@"data-->%@",vaTypeModel);
+       
+   
         MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
         vc.response = self.responsePayment;
         [vc showDismissButton:YES];

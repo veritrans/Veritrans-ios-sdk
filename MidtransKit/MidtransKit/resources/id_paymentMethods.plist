@@ -198,6 +198,20 @@
 		<key>shortName</key>
 		<string>atm permata</string>
 	</dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>BNI</string>
+        <key>description</key>
+        <string>Bayar dari ATM BNI atau internet banking</string>
+        <key>id</key>
+        <string>bni_va</string>
+        <key>identifier</key>
+        <string>bni_va</string>
+        <key>shortName</key>
+        <string>atm bni</string>
+    </dict>
 	<dict>
 		<key>status</key>
 		<string>&quot;&quot;</string>

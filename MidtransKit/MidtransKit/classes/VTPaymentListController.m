@@ -150,13 +150,12 @@
              }
              for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index ;
-                 NSLog(@"dat--> %@",self.paymentMethodSelected);
+
                  if (self.paymentMethodSelected.length > 0) {
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                          return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
                      }];
-                     NSLog(@"index->%d",index);
-                     
+
                      if (index !=NSNotFound) {
                          self.singlePayment = YES;
                          model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
@@ -173,7 +172,10 @@
                  
                  if (index != NSNotFound) {
                      if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
-                         self.bankTransferOnly = 1;
+                         if (response.enabledPayments.count == 1) {
+                             self.bankTransferOnly = 1;
+                         }
+                         
                          if (!vaAlreadyAdded) {
                                  model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
                                  model.status = enabledPayment.status;
@@ -191,7 +193,7 @@
                      }
                      mainIndex++;
                  }
-                 
+                  [self hideLoading];
                  if (response.enabledPayments.count) {
                      [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response];
                  }
@@ -205,6 +207,7 @@
                  self.singlePayment = YES;
                  [self redirectToPaymentMethodAtIndex:0];
              }
+             
          }
          else {
              [self hideLoading];

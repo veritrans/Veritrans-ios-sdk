@@ -95,13 +95,13 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘m-transfer’</string>
+				<string>Log in to your BCA Mobile app</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Transfer’</string>
+				<string>Choose ‘m-BCA’, then input your m-BCA access code</string>
 				<key>image</key>
 				<string></string>
 			</dict>

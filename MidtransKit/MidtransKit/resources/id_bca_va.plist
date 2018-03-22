@@ -95,55 +95,43 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘m-transfer’</string>
+				<string>Lakukan log in pada aplikasi BCA Mobile ‘BCA Mobile’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Transfer’</string>
+				<string>Pilih menu m-BCA, kemudian masukkan kode akses  ‘m-BCA’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘BCA Virtual Account’</string>
+				<string>Pilih ‘m-Transfer &gt; BCA Virtual Account’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘nomor rekening’ yang akan digunakan untuk pembayaran.</string>
+				<string>Pilih dari ‘Daftar Transfer’, atau masukkan nomor virtual account tujuan </string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan nomor BCA Virtual Account, lalu pilih ‘OK’</string>
+				<string>Masukkan jumlah yang ingin dibayarkan</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Nomor BCA Virtual Account dan nomor rekening Anda akan terlihat pada halaman konfirmasi rekening, kemudian pilih ‘Kirim’</string>
+				<string>Masukkan pin ‘m-BCA’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘OK’ pada halaman konfirmasi pembayaran.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Masukkan jumlah nominal yang akan ditransfer dan kemudian pilih ‘OK’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Transaksi Anda telah selesai.</string>
+				<string>Pembayaran selesai. Simpan notifikasi yang muncul sebagai bukti pembayaran</string>
 				<key>image</key>
 				<string></string>
 			</dict>

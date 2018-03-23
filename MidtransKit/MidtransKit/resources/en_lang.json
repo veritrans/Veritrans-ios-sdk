@@ -122,5 +122,7 @@
     "Bank Code":"Bank Code",
     "Virtual Account Number":"Virtual Account Number",
     "Please complete your payment in":"Please complete your payment in ",
-        "Time's Up":"Time's Up"
+        "Time's Up":"Time's Up",
+    "bni.point.toptitle":"How much points you want to redeem?",
+    "bni.point.secondtitle":"AMOUNT TO PAY AFTER REDEEM"
 }

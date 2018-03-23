@@ -235,7 +235,9 @@
                 <outlet property="payWithoutPointHeightConstraints" destination="eww-rb-kxQ" id="RA6-lZ-Dnq"/>
                 <outlet property="paymentWithoutPointButton" destination="laV-Jo-GO7" id="T38-I5-IWG"/>
                 <outlet property="pointBankImage" destination="gaQ-Ag-MFf" id="deY-qA-gtd"/>
+                <outlet property="pointBottomTitle" destination="gdF-BP-nc8" id="0YX-NV-3YC"/>
                 <outlet property="pointInputTextField" destination="6Sk-k1-kF7" id="4Sx-fP-U4Z"/>
+                <outlet property="pointTopTile" destination="ld7-Vv-zZT" id="uXy-el-zZ4"/>
                 <outlet property="pointTotalTtitle" destination="7Dz-Ir-Q39" id="Fq9-mf-uAO"/>
                 <outlet property="topTextLabel" destination="ld7-Vv-zZT" id="5fh-e3-8oe"/>
                 <outlet property="topTextfield" destination="fkR-Lu-ICq" id="8Jg-4J-cis"/>

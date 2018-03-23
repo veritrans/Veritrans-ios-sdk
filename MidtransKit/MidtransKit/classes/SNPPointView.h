@@ -22,6 +22,8 @@
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (weak, nonatomic) IBOutlet UIButton *paymentWithoutPointButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *payWithoutPointHeightConstraints;
+@property (weak, nonatomic) IBOutlet UILabel *pointTopTile;
+@property (weak, nonatomic) IBOutlet UILabel *pointBottomTitle;
 
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 @end

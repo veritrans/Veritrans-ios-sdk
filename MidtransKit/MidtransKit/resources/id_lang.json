@@ -117,6 +117,8 @@
     "Bank Code":"Kode Bank",
     "Virtual Account Number":"Nomor Akun Virtual",
     "Please complete your payment in":"Harap selesaikan pembayaran dalam ",
-    "Time's Up":"Waktu Habis"
+    "Time's Up":"Waktu Habis",
+    "bni.point.toptitle":"Berapa poin yang ingin anda tukarkan?",
+    "bni.point.secondtitle":"TOTAL PEMBAYARAN SETELAH TUKAR POIN"
 
 }

@@ -66,9 +66,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:@"SB-Mid-client-VxSfV7QK7G0EV4At"
+        [CONFIG setClientKey:clientkey
                  environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:@"http://api.tu-kang.com/dev/callback_midtrans/midtrans/"];
+           merchantServerURL:merchantServer];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
@@ -132,7 +132,7 @@
                                                                    price:@255000
                                                                 quantity:@1];
     
-    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:@"1030926239"
+    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
                                                                            andGrossAmount:[NSNumber numberWithInt:255000]];
     
     //configure theme

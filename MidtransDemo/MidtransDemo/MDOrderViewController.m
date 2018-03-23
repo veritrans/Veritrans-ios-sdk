@@ -66,9 +66,10 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    [CONFIG setClientKey:@"SB-Mid-client-VxSfV7QK7G0EV4At"
-             environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:@"http://api.tu-kang.com/dev/callback_midtrans/midtrans"];
+        [CONFIG setClientKey:clientkey
+                 environment:MidtransServerEnvironmentSandbox
+           merchantServerURL:merchantServer];
+    
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
     CC_CONFIG.tokenStorageEnabled = NO;

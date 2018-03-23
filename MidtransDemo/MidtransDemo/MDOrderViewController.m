@@ -66,10 +66,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:clientkey
-                 environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:merchantServer];
-    
+    [CONFIG setClientKey:@"SB-Mid-client-VxSfV7QK7G0EV4At"
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:@"http://api.tu-kang.com/dev/callback_midtrans/midtrans"];
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
     CC_CONFIG.tokenStorageEnabled = NO;
@@ -132,7 +131,7 @@
                                                                    price:@255000
                                                                 quantity:@1];
     
-    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:10]
+    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:@"1030927522"
                                                                            andGrossAmount:[NSNumber numberWithInt:255000]];
     
     //configure theme
@@ -144,7 +143,10 @@
     
     NSArray *binFilter = @[];
     NSArray *blacklistBin = @[];
+    
 
+     binFilter = @[@"4"];
+    blacklistBin = @[@"41"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     
@@ -199,7 +201,7 @@
          }
          else {
 
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureBankTransferBNIVA];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

@@ -38,8 +38,8 @@
     df.dateFormat = @"yy";
     NSInteger currentYear = [[df stringFromDate:[NSDate date]] integerValue];
     BOOL yearExpired = [self integerValue] < currentYear;
-    
-    if (formatValid && !yearExpired) {
+    BOOL yearGreaterThan10 = (currentYear+10)<[self integerValue];
+    if (formatValid && !yearExpired && !yearGreaterThan10) {
         return YES;
     }
     

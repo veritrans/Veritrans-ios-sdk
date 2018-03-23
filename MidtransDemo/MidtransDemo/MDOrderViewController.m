@@ -144,6 +144,7 @@
     
     NSArray *binFilter = @[];
     NSArray *blacklistBin = @[];
+
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     

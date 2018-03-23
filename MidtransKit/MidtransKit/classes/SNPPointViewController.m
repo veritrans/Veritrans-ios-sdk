@@ -58,8 +58,12 @@
     self.maskedCards = [NSMutableArray new];
     if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
         self.view.paymentWithoutPointButton.hidden = YES;
-        self.view.topTextfield.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"bni.point.toptitle"];
+        self.view.pointInputTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"bni.point.toptitle"];
+        
+        self.view.pointTopTile.text = [VTClassHelper getTranslationFromAppBundleForString:@"bni.point.toptitle"];
+        
         self.view.pointBottomTitle.text = [VTClassHelper getTranslationFromAppBundleForString:@"bni.point.secondtitle"];
+        
         self.view.payWithoutPointHeightConstraints.constant = 0.0f;
         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"];
     }

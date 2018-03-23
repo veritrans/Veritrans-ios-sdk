@@ -74,11 +74,14 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
+    NSLog(@"data-->%@",[MidtransDeviceHelper deviceCurrentLanguage]);
     NSString *language = [NSString stringWithFormat:@"%@_lang",[MidtransDeviceHelper deviceCurrentLanguage]];
-    if (![[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] ||![[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"id"] ) {
+   
+    if (![[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] && ![[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"id"] ) {
         language = @"en_lang";
     }
     NSDictionary *dictionary =  [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:language ofType:@"json"]] options:kNilOptions error:nil];
+     NSLog(@"lang-->%@ %@",language,[dictionary objectForKey:originalText]);
     return [dictionary objectForKey:originalText];
 }
 

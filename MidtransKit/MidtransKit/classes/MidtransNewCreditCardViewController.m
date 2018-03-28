@@ -51,13 +51,12 @@ UIAlertViewDelegate
 @property (nonatomic) NSArray *bins;
 @property (nonatomic) NSArray *blackListBins;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
-@property (nonatomic) BOOL installmentAvailable,installmentRequired;
+@property (nonatomic) BOOL installmentAvailable,installmentRequired,promoAvailable;
 @property (nonatomic,strong) NSString *installmentTerms;
 @property (nonatomic)NSInteger installmentCurrentIndex;
 @property (strong,nonatomic) NSMutableArray *addOnArray;
 @property (nonatomic) NSInteger constraintsHeight;
 @property (nonatomic,strong)NSArray *bankBinList;
-@property (nonatomic) MidtransObtainedPromo *obtainedPromo;
 @property (nonatomic) MidtransMaskedCreditCard *maskedCreditCard;
 @property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
 @property (nonatomic) BOOL bniPointActive;
@@ -160,12 +159,17 @@ UIAlertViewDelegate
     
     self.installment = [[MidtransPaymentRequestV2Installment alloc]
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
-    
+   
+    self.promos = self.responsePayment.promos;
+    if (self.promos.promos.count) {
+        self.promoAvailable = YES;
+    }
     if (self.installment.terms) {
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
         [self setupInstallmentView];
     }
+  
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
     self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
@@ -235,13 +239,6 @@ UIAlertViewDelegate
     [self.installmentsContentView setupInstallmentCollection];
 }
 
-- (void)setPromos:(NSArray<MidtransPromo *> *)promos {
-    _promos = [promos sortedArrayUsingComparator:^NSComparisonResult(MidtransPromo *obj1, MidtransPromo *obj2) {
-        double amount1 = [self calculateDiscountPromo:obj1];
-        double amount2 = [self calculateDiscountPromo:obj2];
-        return amount1 < amount2;
-    }];
-}
 
 - (double)calculateDiscountPromo:(MidtransPromo *)promo {
     double result = 0;
@@ -332,28 +329,20 @@ UIAlertViewDelegate
 }
 
 - (void)updatePromoViewWithCreditCardNumber:(NSString *)number {
-    MidtransPromo *promo = [self promoFromCreditCardNumber:number];
-    if (promo) {
-        __weak MidtransNewCreditCardViewController *weakSelf = self;
-        [MidtransPromoEngine obtainPromo:promo
-                       withPaymentAmount:self.token.transactionDetails.grossAmount
-                              completion:^(MidtransObtainedPromo *obtainedPromo, NSError *error)
-         {
-             if (obtainedPromo) {
-                 weakSelf.obtainedPromo = obtainedPromo;
-                 UIImage *icon = [UIImage imageNamed:@"ccOfferIcon" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                 self.view.creditCardNumberTextField.info3Icon = icon;
-             }
-             else {
-                 self.view.creditCardNumberTextField.info3Icon = nil;
-             }
-             [self.view.creditCardNumberTextField setNeedsLayout];
-             [self.view.creditCardNumberTextField layoutSubviews];
-         }];
-    }
-    else {
-        self.view.creditCardNumberTextField.info3Icon = nil;
-    }
+    NSMutableArray *searchResults = [[NSMutableArray alloc] init];
+    
+    [self.promos.promos enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        
+        MidtransPromoPromos *promoDetailObject = (MidtransPromoPromos *)obj;
+        
+        NSArray *debitCard  = [promoDetailObject.bins filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF contains[c] %@",number]];
+        NSLog(@"data-->%@",debitCard);
+//        if ([[contact name] isEqualToString:searchText])
+           // [searchResults addObject:contact];
+    }];
+    
+    //The search results array should now contain the matching items:
+    NSLog(@"Search Results:%@", searchResults);
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
@@ -371,9 +360,9 @@ UIAlertViewDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    [self updatePromoViewWithCreditCardNumber:originNumber];
-    
+    if (self.promoAvailable) {
+        [self updatePromoViewWithCreditCardNumber:originNumber];
+    }
     [self matchBINNumberWithInstallment:originNumber];
     
     [self updateCreditCardTextFieldInfoWithNumber:originNumber];
@@ -505,12 +494,12 @@ UIAlertViewDelegate
 
 - (void)textField_didInfo3Tap:(MidtransUITextField *)textField {
     if ([textField isEqual:self.view.creditCardNumberTextField]) {
-        NSString *sponsor = self.obtainedPromo.sponsorName;
-        NSString *message = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-message"], @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
+        //NSString *sponsor = self.obtainedPromo.sponsorName;
+        //NSString *message = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-message"], @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
         
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-title"]
-                                                          message:message
+                                                          message:@""
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
@@ -522,16 +511,16 @@ UIAlertViewDelegate
     }
 }
 
-- (MidtransPromo *)promoFromCreditCardNumber:(NSString *)ccNumber {
-    for (MidtransPromo *promo in self.promos) {
-        for (NSString *bin in promo.bins) {
-            if ([ccNumber containsString:bin]) {
-                return promo;
-            }
-        }
-    }
-    return nil;
-}
+//- (MidtransPromo *)promoFromCreditCardNumber:(NSString *)ccNumber {
+//    for (MidtransPromo *promo in self.promos) {
+//        for (NSString *bin in promo.bins) {
+//            if ([ccNumber containsString:bin]) {
+//                return promo;
+//            }
+//        }
+//    }
+//    return nil;
+//}
 
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
     if (binNumber.length >= 6) {
@@ -790,9 +779,6 @@ UIAlertViewDelegate
 
         return;
     }
-    if (self.obtainedPromo) {
-        tokenRequest.obtainedPromo = self.obtainedPromo;
-    }
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -811,9 +797,7 @@ UIAlertViewDelegate
                                                                                 saveCard:self.isSaveCard
                                                                              installment:self.installmentTerms];
     
-    if (self.obtainedPromo) {
-        paymentDetail.discountToken = self.obtainedPromo.discountToken;
-    }
+
     MidtransTransaction *transaction = [[MidtransTransaction alloc]
                                         initWithPaymentDetails:paymentDetail token:self.token];
     

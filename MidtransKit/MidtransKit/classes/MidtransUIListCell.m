@@ -11,13 +11,22 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @implementation MidtransUIListCell
-
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    self.promoNotificationView.layer.cornerRadius = 5.0f;
+    self.promoNotificationView.layer.masksToBounds = YES;
+}
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response {
     self.paymentMethodNameLabel.text = paymentList.title;
     self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
       NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
         imagePath = @"mandiri_va";
+    }
+    if ([paymentList.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
+        if (response.promos.promos) {
+            self.promoNotificationView.hidden =  NO;
+        }
     }
     else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         self.paymentMethodNameLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Credit/Debit Card"];

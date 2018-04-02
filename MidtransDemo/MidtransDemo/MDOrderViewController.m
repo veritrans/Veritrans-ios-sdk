@@ -147,7 +147,7 @@
     
 
      binFilter = @[@"4"];
-    blacklistBin = @[@"41"];
+    blacklistBin = @[@"40"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     

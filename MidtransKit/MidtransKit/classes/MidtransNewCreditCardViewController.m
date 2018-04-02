@@ -7,6 +7,7 @@
 //
 
 #import "MidtransNewCreditCardViewController.h"
+#import "MidtransCommonTSCViewController.h"
 #import "MidtransNewCreditCardView.h"
 #import "VTClassHelper.h"
 #import "MidtransUINextStepButton.h"
@@ -33,6 +34,7 @@ MidtransUITextFieldDelegate,
 MidtransUICardFormatterDelegate,
 MidtransInstallmentViewDelegate,
 Midtrans3DSControllerDelegate,
+MidtransCommonTSCViewControllerDelegate,
 UIAlertViewDelegate
 >
 
@@ -333,12 +335,12 @@ UIAlertViewDelegate
     
     [self.promos.promos enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
         
-        MidtransPromoPromos *promoDetailObject = (MidtransPromoPromos *)obj;
-        
-        NSArray *debitCard  = [promoDetailObject.bins filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF contains[c] %@",number]];
-        NSLog(@"data-->%@",debitCard);
-//        if ([[contact name] isEqualToString:searchText])
-           // [searchResults addObject:contact];
+//        MidtransPromoPromos *promoDetailObject = (MidtransPromoPromos *)obj;
+//
+//        NSArray *debitCard  = [promoDetailObject.bins filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF contains[c] %@",number]];
+//        NSLog(@"data-->%@",debitCard);
+////        if ([[contact name] isEqualToString:searchText])
+//           // [searchResults addObject:contact];
     }];
     
     //The search results array should now contain the matching items:
@@ -401,11 +403,25 @@ UIAlertViewDelegate
         self.mandiriPointActive = !sender.selected;
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-        self.bniPointActive = !sender.selected;
+       // self.bniPointActive = !sender.selected;
+        [self openCommonTSCWithBank:SNP_CORE_BNI_POINT];
     }
     [self.view.addOnTableView reloadData];
 }
 
+- (void)openCommonTSCWithBank:(NSString *)bank{
+    MidtransCommonTSCViewController *tscViewController = [[MidtransCommonTSCViewController alloc] initWithNibName:@"MidtransCommonTSCViewController" bundle:VTBundle];
+    tscViewController.delegate = self;
+    tscViewController.bankID = bank;
+    [self.navigationController pushViewController:tscViewController animated:YES];
+}
+
+- (void)agreeTermAndConditionDidtapped:(NSString *)bankName {
+    if ([bankName isEqualToString:SNP_CORE_BNI_POINT]) {
+        self.bniPointActive = true;
+         [self.view.addOnTableView reloadData];
+    }
+}
 - (void)informationButtonTap:(UIButton *)sender {
     AddOnConstructor *constructor = [self.addOnArray objectAtIndex:sender.tag];
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {

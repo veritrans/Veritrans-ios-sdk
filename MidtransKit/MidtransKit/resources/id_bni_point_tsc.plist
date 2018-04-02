@@ -16,13 +16,13 @@
         </dict>
         <dict>
             <key>content</key>
-            <string>Jika transaksi dibatalkan keseluruhan, maka dana dan poin akan dikembalikan ke Kartu Kredit pembeli. Jika transaksi dibatalkan sebagian, transaksi yang akan dikembalikan terlebih dahulu adalah transaksi Kartu Kredit, setelah itu dikembalikan dari poin.</string>
+            <string>ika transaksi dibatalkan keseluruhan, maka dana dan poin akan dikembalikan ke Kartu Kredit pembeli. Jika transaksi dibatalkan sebagian, transaksi yang akan dikembalikan terlebih dahulu adalah transaksi Kartu Kredit, setelah itu dikembalikan dari poin.</string>
             <key>image</key>
             <string></string>
         </dict>
         <dict>
             <key>content</key>
-            <string>Poin pemegang kartu yang sudah dikonversi ke dalam rupiah, terinformasi pada saat pemegang kartu memilih menggunakan BNI Reward Points dengan mengklik tombol pilihan \"BNI Reward Points\".</string>
+            <string>Poin pemegang kartu yang sudah dikonversi ke dalam rupiah, terinformasi pada saat pemegang kartu memilih menggunakan BNI Reward Points dengan mengklik tombol pilihan ‘BNI Reward Points‘.</string>
             <key>image</key>
             <string></string>
         </dict>

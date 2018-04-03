@@ -33,6 +33,21 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     }
     return instance;
 }
++(BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForPromo:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error {
+    for (NSString *promoBin in bins) {
+        if ([ccNumber containsString:promoBin]) {
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"Your card number is not eligible for promo", nil)};
+            *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                         code:MIDTRANS_ERROR_CODE_INVALID_BIN
+                                     userInfo:userInfo];
+            return YES;
+        }
+    }
+    
+    
+    return NO;
+    
+}
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error {
     for (NSString *blackListBins in bins) {
         if ([ccNumber containsString:blackListBins]) {

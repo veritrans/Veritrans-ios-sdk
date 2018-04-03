@@ -212,7 +212,7 @@ UIAlertViewDelegate
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     self.view.totalAmountPrice.textColor = [[MidtransUIThemeManager shared] themeColor];
 }
-- (void) totalAmountBorderedViewTapped:(id) sender {
+- (void)totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
     [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
@@ -331,20 +331,7 @@ UIAlertViewDelegate
 }
 
 - (void)updatePromoViewWithCreditCardNumber:(NSString *)number {
-    NSMutableArray *searchResults = [[NSMutableArray alloc] init];
-    
-    [self.promos.promos enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        
-//        MidtransPromoPromos *promoDetailObject = (MidtransPromoPromos *)obj;
-//
-//        NSArray *debitCard  = [promoDetailObject.bins filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF contains[c] %@",number]];
-//        NSLog(@"data-->%@",debitCard);
-////        if ([[contact name] isEqualToString:searchText])
-//           // [searchResults addObject:contact];
-    }];
-    
-    //The search results array should now contain the matching items:
-    NSLog(@"Search Results:%@", searchResults);
+
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
@@ -526,17 +513,6 @@ UIAlertViewDelegate
                                                     completion:nil];
     }
 }
-
-//- (MidtransPromo *)promoFromCreditCardNumber:(NSString *)ccNumber {
-//    for (MidtransPromo *promo in self.promos) {
-//        for (NSString *bin in promo.bins) {
-//            if ([ccNumber containsString:bin]) {
-//                return promo;
-//            }
-//        }
-//    }
-//    return nil;
-//}
 
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
     if (binNumber.length >= 6) {

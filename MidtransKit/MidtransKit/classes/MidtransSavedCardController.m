@@ -96,7 +96,7 @@
                                                                                                    paymentMethodName:self.paymentMethod
                                                                                                    andCreditCardData:self.creditCard
                                                                                         andCompleteResponseOfPayment:self.responsePayment];
-                vc.promos = self.promos;
+               // vc.promos = self.promos;
                 [self.navigationController pushViewController:vc animated:NO];
             }
             
@@ -129,7 +129,7 @@
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
-    vc.promos = self.promos;
+    //vc.promos = self.promos;
     vc.currentMaskedCards = self.cards;
     [self.navigationController pushViewController:vc animated:YES];
 }
@@ -175,7 +175,7 @@
                                                     maskedCard:card
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
-    vc.promos = self.promos;
+  //  vc.promos = self.promos;
     vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
@@ -189,14 +189,14 @@
     MidtransSavedCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransSavedCardCell"];
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     cell.maskedCard = card;
-    NSUInteger index = [self.promos indexOfObjectPassingTest:^BOOL(MidtransPromo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        for (NSString *bin in obj.bins) {
-            return [card.maskedNumber containsString:bin];
-        }
-        return NO;
-    }];
-    cell.havePromo = index != NSNotFound;
-    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
+//    NSUInteger index = [self.promos indexOfObjectPassingTest:^BOOL(MidtransPromo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        for (NSString *bin in obj.bins) {
+//            return [card.maskedNumber containsString:bin];
+//        }
+//        return NO;
+//    }];
+//    cell.havePromo = index != NSNotFound;
+//    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
     return cell;
 }
 

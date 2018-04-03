@@ -93,7 +93,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
         self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
         self.expire = [MidtransTransactionExpire modelObjectWithDictionary:[dict objectForKey:kMIdtransPaymentRequestV2ResponseExpire]];
         self.custom  = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseCustomField fromDictionary:dict];
-          self.promos = [MidtransPromoPromoDetails modelObjectWithDictionary:[dict objectForKey:kMidtransCheckoutResponsePromo]];
+        self.promos = [MidtransPromoPromoDetails modelObjectWithDictionary:[dict objectForKey:kMidtransCheckoutResponsePromo]];
     }
     
     

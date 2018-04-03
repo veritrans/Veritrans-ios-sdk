@@ -184,7 +184,7 @@ UIAlertViewDelegate
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-        [self updatePromoViewWithCreditCardNumber:self.maskedCreditCard.maskedNumber];
+      //  [self updatePromoViewWithCreditCardNumber:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
@@ -350,7 +350,7 @@ UIAlertViewDelegate
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (self.promoAvailable) {
-        [self updatePromoViewWithCreditCardNumber:originNumber];
+        NSLog(@"data-->%@",self.promos.promos);
     }
     [self matchBINNumberWithInstallment:originNumber];
     
@@ -497,9 +497,6 @@ UIAlertViewDelegate
 
 - (void)textField_didInfo3Tap:(MidtransUITextField *)textField {
     if ([textField isEqual:self.view.creditCardNumberTextField]) {
-        //NSString *sponsor = self.obtainedPromo.sponsorName;
-        //NSString *message = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-message"], @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
-        
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-title"]
                                                           message:@""

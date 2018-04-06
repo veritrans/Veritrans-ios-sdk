@@ -202,7 +202,7 @@
          }
          else {
 
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureBankTransferOtherVA];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }

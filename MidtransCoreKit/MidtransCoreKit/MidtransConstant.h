@@ -103,7 +103,7 @@ static NSString * const MIDTRANS_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your 
 
 static NSString *const MIDTRANS_SANDBOX_API_URL = @"https://api.sandbox.veritrans.co.id/v2";
 static NSString *const MIDTRANS_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
-static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1";
+static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.midtrans.com/snap/v1";
 static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://app.sandbox.midtrans.com/snap/v1/bank_bins";
 
 static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
@@ -154,6 +154,7 @@ static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
 static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";
+static NSString *const SNP_PROMO = @"SNP_PROMO";
 static NSString *const SNP_CORE_CREDIT_CARD_SAVE = @"CREDIT_CARD_SAVE";
 
 static NSString *const SNP_CORE_DEBIT_CARD = @"debit";

@@ -99,7 +99,7 @@
             paymentMethodSelected = MIDTRANS_PAYMENT_BCA_VA;
             break;
         case MidtransPaymentFeatureBankTransferOtherVA:
-            paymentMethodSelected = MIDTRANS_PAYMENT_ALL_VA;
+            paymentMethodSelected = MIDTRANS_PAYMENT_OTHER_VA;
             break;
         default:
             paymentMethodSelected = nil;

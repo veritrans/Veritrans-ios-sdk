@@ -261,7 +261,7 @@
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
-    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
+    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
@@ -294,7 +294,7 @@
                                                                                    paymentMethodName:paymentMethod
                                                                                    andCreditCardData:self.responsePayment.creditCard
                                                                         andCompleteResponseOfPayment:self.responsePayment];
-                vc.promos = self.responsePayment.promos;
+               // vc.promos = self.responsePayment.promos;
                 [vc showDismissButton:self.singlePayment];
                 [self.navigationController pushViewController:vc animated:!self.singlePayment];
                 

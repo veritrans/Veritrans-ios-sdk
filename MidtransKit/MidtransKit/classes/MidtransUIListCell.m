@@ -17,6 +17,7 @@
     self.promoNotificationView.layer.masksToBounds = YES;
 }
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response {
+    self.promoNotificationView.hidden =  YES;
     self.paymentMethodNameLabel.text = paymentList.title;
     self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
       NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
@@ -24,9 +25,9 @@
         imagePath = @"mandiri_va";
     }
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
-        if (response.promos.promos) {
-            self.promoNotificationView.hidden =  NO;
-        }
+//        if (response.promos.promos) {
+//            self.promoNotificationView.hidden =  NO;
+//        }
     }
     else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         self.paymentMethodNameLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Credit/Debit Card"];

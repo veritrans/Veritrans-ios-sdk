@@ -32,6 +32,15 @@
     
 }
 - (void)configurePaymentAddOnWithData:(AddOnConstructor *)addOn {
+    self.customValueLabel.hidden = YES;
+    if (addOn.addOnDescriptions.length > 0) {
+        self.addOnInformationButton.hidden = YES;
+        self.customValueLabel.hidden = NO;
+       
+        self.customValueLabel.text =  [NSNumber numberWithInt:[addOn.addOnDescriptions intValue]].formattedCurrencyNumber;
+    } else {
+        
+    }
     self.addOnTitleLabel.text = addOn.addOnTitle;
 }
 - (IBAction)addOnInformationButtonDIdTapped:(id)sender {

@@ -66,7 +66,10 @@ UIAlertViewDelegate
 @property (nonatomic) BOOL isSaveCard;
 @property (nonatomic,strong)AddOnConstructor *constructBNIPoint;
 @property (nonatomic,strong)AddOnConstructor *constructMandiriPoint;
-
+@property (nonatomic,strong) NSString *currentPromoSelected;
+@property (nonatomic,strong) NSString *prevPromoSelected;
+@property (nonatomic,strong) NSNumber *currentPromoIndex;
+@property (nonatomic,strong) NSNumber *prevPromoIndex;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -101,6 +104,8 @@ UIAlertViewDelegate
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    self.currentPromoSelected = @"";
+    self.currentPromoIndex = nil;
     [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
     self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];//(@"creditcard.input.title", nil);
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
@@ -141,9 +146,11 @@ UIAlertViewDelegate
     
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
+                                                   @"addOnDescriptions":@"",
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
     self.constructMandiriPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_MANDIRI_POINT,
+                                                   @"addOnDescriptions":@"",
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
@@ -151,6 +158,7 @@ UIAlertViewDelegate
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
+                                                                    @"addOnDescriptions":@"",
                                                                     @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Save card for later use"]}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
@@ -163,9 +171,19 @@ UIAlertViewDelegate
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
    
     self.promos = self.responsePayment.promos;
+    /*
     if (self.promos.promos.count) {
-        self.promoAvailable = YES;
+        for (MidtransPromoPromos *promos in self.promos.promos) {
+            AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{@"addOnName":SNP_PROMO,
+                             @"addOnTitle":promos.name,
+                             @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount]
+                             }];
+            [self.addOnArray addObject:promoConstructor];
+        }
+        [self updateAddOnContent];
+        self.promoAvailable = NO;
     }
+     */
     if (self.installment.terms) {
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
@@ -245,7 +263,7 @@ UIAlertViewDelegate
 - (double)calculateDiscountPromo:(MidtransPromo *)promo {
     double result = 0;
     if ([promo.discountType isEqualToString:@"PERCENTED"]) {
-        result = self.token.transactionDetails.grossAmount.doubleValue * (promo.discountAmount/100.);
+        result = self.token.transactionDetails.grossAmount.doubleValue * (promo.discountAmount/100.0);
     }
     else {
         result = promo.discountAmount;
@@ -262,23 +280,26 @@ UIAlertViewDelegate
     AddOnConstructor *payAddOn = [self.addOnArray objectAtIndex:indexPath.row];
     MidtransCreditCardAddOnComponentCell *cell = (MidtransCreditCardAddOnComponentCell *)[tableView dequeueReusableCellWithIdentifier:@"MidtransCreditCardAddOnComponentCell"];
     
-    cell.checkButton.selected = self.isSaveCard;
     cell.checkButton.tag = indexPath.row;
     cell.addOnInformationButton.tag = indexPath.row;
     [cell configurePaymentAddOnWithData:payAddOn];
     
     [cell.checkButton addTarget:self action:@selector(checkButtonTap:) forControlEvents:UIControlEventTouchUpInside];
     [cell.addOnInformationButton addTarget:self action:@selector(informationButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    
     if ([payAddOn.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         cell.checkButton.selected = self.isSaveCard;
+        return cell;
     }
     else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
         cell.checkButton.selected = self.bniPointActive;
     }
+    else if(indexPath.row == [self.currentPromoIndex integerValue]){
+        cell.checkButton.selected = !cell.checkButton.selected;
+    }
     else if ([payAddOn.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
         cell.checkButton.selected = self.mandiriPointActive;
     }
+
 
     return cell;
 }
@@ -331,7 +352,31 @@ UIAlertViewDelegate
 }
 
 - (void)updatePromoViewWithCreditCardNumber:(NSString *)number {
-
+//    NSUInteger index = [self.promos.promos indexOfObjectPassingTest:^BOOL(MidtransPromoPromos * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        for (NSString *bin in obj.bins) {
+//            return [number containsString:bin];
+//        }
+//        return NO;
+//    }];
+//
+//    if (index!=NSNotFound) {
+//        MidtransPromoPromos *promos = self.promos.promos[index];
+//        AddOnConstructor *promoConstruct = [[AddOnConstructor alloc]
+//         initWithDictionary:@{@"addOnName":@"SNP_PROMO",
+//                              @"addOnTitle":promos.name,
+//                              @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount]
+//                              }];
+//        NSInteger anIndex=[self.addOnArray indexOfObject:[promoConstruct dictionaryRepresentation]];
+//        if(NSNotFound == anIndex) {
+//            NSLog(@"not found");
+//
+//            [self.addOnArray addObject:[promoConstruct dictionaryRepresentation]];
+//            [self updateAddOnContent];
+//        } else {
+//         //   NSLog(@"data-->%d",anIndex);
+//        }
+//
+//    }
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
@@ -350,7 +395,7 @@ UIAlertViewDelegate
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
     if (self.promoAvailable) {
-        NSLog(@"data-->%@",self.promos.promos);
+        [self updatePromoViewWithCreditCardNumber:originNumber];
     }
     [self matchBINNumberWithInstallment:originNumber];
     
@@ -382,18 +427,28 @@ UIAlertViewDelegate
 }
 
 - (void)checkButtonTap:(UIButton *)sender {
+    self.currentPromoSelected = @"";
+    self.currentPromoIndex = @10000;
+    [self updateAddOnContent];
     AddOnConstructor *constructor = [self.addOnArray objectAtIndex:sender.tag];
+    if ([constructor.addOnName isEqualToString:SNP_PROMO]) {
+        self.currentPromoIndex = [NSNumber numberWithUnsignedInteger:sender.tag];
+//        self.currentPromoSelected = constructor.addOnTitle;
+        [self.view.addOnTableView reloadData];
+    }
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         self.isSaveCard = !sender.selected;
+        [self.view.addOnTableView reloadData];
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
         self.mandiriPointActive = !sender.selected;
+        [self.view.addOnTableView reloadData];
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-       // self.bniPointActive = !sender.selected;
         [self openCommonTSCWithBank:SNP_CORE_BNI_POINT];
+        [self.view.addOnTableView reloadData];
     }
-    [self.view.addOnTableView reloadData];
+    
 }
 
 - (void)openCommonTSCWithBank:(NSString *)bank{

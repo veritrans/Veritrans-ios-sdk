@@ -15,6 +15,7 @@
 @interface MidtransCreditCardAddOnComponentCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIButton *checkButton;
 @property (weak, nonatomic) IBOutlet UILabel *addOnTitleLabel;
+@property (weak, nonatomic) IBOutlet UILabel *customValueLabel;
 @property (weak, nonatomic) IBOutlet UIButton *addOnInformationButton;
 @property (weak,nonatomic) id<MidtransCreditCardAddOnComponentCellDelegate>delegate;
 - (void)configurePaymentAddOnWithData:(AddOnConstructor *)addOn;

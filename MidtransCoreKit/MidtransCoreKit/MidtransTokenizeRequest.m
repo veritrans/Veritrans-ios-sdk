@@ -150,9 +150,6 @@
         result[@"type"] = @"authorize";
     }
     
-    if (self.obtainedPromo) {
-        result[@"gross_amount"] = @(self.obtainedPromo.paymentAmount);
-    }
     
     return result;
 }

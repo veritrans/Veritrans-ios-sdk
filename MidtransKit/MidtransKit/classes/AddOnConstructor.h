@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSString *addOnTitle;
 @property (nonatomic, strong) NSString *addOnDescriptions;
 @property (nonatomic, strong) NSString *addOnName;
+@property (nonatomic, strong) NSString *addOnAddtional;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

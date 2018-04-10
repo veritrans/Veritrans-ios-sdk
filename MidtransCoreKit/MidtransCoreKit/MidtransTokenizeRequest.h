@@ -19,12 +19,12 @@
 @property (nonatomic) NSNumber *grossAmount;
 @property (nonatomic) BOOL installment;
 @property (nonatomic) BOOL point;
+@property (nonatomic) NSDictionary *promos;
 @property (nonatomic) NSNumber *installmentTerm;
 @property (nonatomic) NSString *token;
 @property (nonatomic) BOOL twoClick;
 @property (nonatomic) BOOL secure;
 
-@property (nonatomic) MidtransObtainedPromo *obtainedPromo;
 
 ///----------------
 /// @Initialization

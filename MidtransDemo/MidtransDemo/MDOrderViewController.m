@@ -68,7 +68,7 @@
     }
         [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
                  environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment"];
+           merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment/"];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;

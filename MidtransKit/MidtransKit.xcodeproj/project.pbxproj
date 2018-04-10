@@ -132,6 +132,10 @@
 		0C9635191FE11D7E00EF89DF /* en_ipad_gopay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */; };
 		0CA5EB7F202C105600335C28 /* gopay_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA5EB7C202C105500335C28 /* gopay_button@2x.png */; };
 		0CA5EB80202C105600335C28 /* gopay_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0CA5EB7C202C105500335C28 /* gopay_button@2x.png */; };
+		0CAD5C97207CBCF600E8956B /* MIDBarcode39Generator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CAD5C95207CBCF600E8956B /* MIDBarcode39Generator.h */; };
+		0CAD5C98207CBCF600E8956B /* MIDBarcode39Generator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CAD5C96207CBCF600E8956B /* MIDBarcode39Generator.m */; };
+		0CAD5C9D207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD5C9C207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib */; };
+		0CAD5C9E207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CAD5C9C207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib */; };
 		0CB8B7D02071EEF00067A0B8 /* MidtransCommonTSCViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7CD2071EEEF0067A0B8 /* MidtransCommonTSCViewController.h */; };
 		0CB8B7D12071EEF00067A0B8 /* MidtransCommonTSCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8B7CE2071EEEF0067A0B8 /* MidtransCommonTSCViewController.m */; };
 		0CB8B7D42071EF040067A0B8 /* MidtransCommonTSCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CB8B7CE2071EEEF0067A0B8 /* MidtransCommonTSCViewController.m */; };
@@ -1306,6 +1310,9 @@
 		0C9635101FE11D7D00EF89DF /* en_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_gopay.plist; path = MidtransKit/resources/en_gopay.plist; sourceTree = SOURCE_ROOT; };
 		0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_ipad_gopay.plist; path = MidtransKit/resources/en_ipad_gopay.plist; sourceTree = SOURCE_ROOT; };
 		0CA5EB7C202C105500335C28 /* gopay_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gopay_button@2x.png"; path = "resources/gopay_button@2x.png"; sourceTree = "<group>"; };
+		0CAD5C95207CBCF600E8956B /* MIDBarcode39Generator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDBarcode39Generator.h; sourceTree = "<group>"; };
+		0CAD5C96207CBCF600E8956B /* MIDBarcode39Generator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDBarcode39Generator.m; sourceTree = "<group>"; };
+		0CAD5C9C207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = SNPPostPaymentIndomaretHeader.xib; path = MidtransKit/resources/SNPPostPaymentIndomaretHeader.xib; sourceTree = SOURCE_ROOT; };
 		0CB8B7CD2071EEEF0067A0B8 /* MidtransCommonTSCViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransCommonTSCViewController.h; sourceTree = "<group>"; };
 		0CB8B7CE2071EEEF0067A0B8 /* MidtransCommonTSCViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransCommonTSCViewController.m; sourceTree = "<group>"; };
 		0CB8B7D62071EF420067A0B8 /* MidtransCommonTSCViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransCommonTSCViewController.xib; path = MidtransKit/resources/MidtransCommonTSCViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -2154,6 +2161,8 @@
 				E54F5C171E56C88E00B7592E /* UIColor+SNP_HexString.m */,
 				0CEF03261EA3E39700EA1EE0 /* UILabel+Boldify.h */,
 				0CEF03271EA3E39700EA1EE0 /* UILabel+Boldify.m */,
+				0CAD5C95207CBCF600E8956B /* MIDBarcode39Generator.h */,
+				0CAD5C96207CBCF600E8956B /* MIDBarcode39Generator.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -2381,6 +2390,7 @@
 				0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */,
 				0C108A0A1EEE37C400843A05 /* SNPPostPaymentGeneralHeader.xib */,
 				0CBA28D11F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib */,
+				0CAD5C9C207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib */,
 			);
 			name = Views;
 			path = ../MidtransResources;
@@ -3018,6 +3028,7 @@
 				E55F62D91E934A6D00C012C8 /* MidtransPaymentGCIViewController.h in Headers */,
 				E55F62DA1E934A6D00C012C8 /* MidtransPaymentGCIView.h in Headers */,
 				E55F62DB1E934A6D00C012C8 /* VTMultiGuideController.h in Headers */,
+				0CAD5C97207CBCF600E8956B /* MIDBarcode39Generator.h in Headers */,
 				0CEF032D1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.h in Headers */,
 				E55F62DC1E934A6D00C012C8 /* VTSingleGuideController.h in Headers */,
 				E55F62DD1E934A6D00C012C8 /* VTSubGuideController.h in Headers */,
@@ -3188,6 +3199,7 @@
 				0CE1D2C81F67BA99003A012F /* sms@3x.png in Resources */,
 				E58FCE251E94CFD600632085 /* other_alto_1@2x.png in Resources */,
 				E58FCE6D1E94CFD600632085 /* successIcon@2x.png in Resources */,
+				0CAD5C9E207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib in Resources */,
 				E5EBC2C11EB0726700A568D1 /* midtrans_logo_mid@2x.png in Resources */,
 				0C6FD11B1F9DDAAB00401628 /* mandiri_badge@2x.png in Resources */,
 				E519C9771E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
@@ -3773,6 +3785,7 @@
 				0CCD62372005D0BA006936E5 /* alto.png in Resources */,
 				E58FCE461E94CFD600632085 /* other_prima_4@2x.png in Resources */,
 				E58FCDAE1E94CFD500632085 /* bni_badge@2x.png in Resources */,
+				0CAD5C9D207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib in Resources */,
 				E58FCE201E94CFD600632085 /* midtrans_lock@2x.png in Resources */,
 				E58FCDD61E94CFD500632085 /* DeleteIcon@2x.png in Resources */,
 				0CC900531F702E150058E93C /* en_cimb_clicks.plist in Resources */,
@@ -4140,6 +4153,7 @@
 				0C1ADB981EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */,
 				E55F63471E934B1C00C012C8 /* VTXLTunaiSuccessController.m in Sources */,
 				0C32A9851EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m in Sources */,
+				0CAD5C98207CBCF600E8956B /* MIDBarcode39Generator.m in Sources */,
 				E55F63481E934B1C00C012C8 /* VTIndomaretSuccessController.m in Sources */,
 				0CEF03221EA3D12F00EA1EE0 /* SNPPostPaymentHeader.m in Sources */,
 				E55F63491E934B1C00C012C8 /* VTVASuccessStatusController.m in Sources */,

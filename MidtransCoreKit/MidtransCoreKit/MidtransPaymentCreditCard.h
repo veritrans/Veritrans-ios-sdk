@@ -28,6 +28,7 @@
  All BIN can have 1 to 8 digits.
  */
 @property (nonatomic) NSArray *_Nullable bins;
+@property (nonatomic) NSDictionary *_Nullable promos;
 
 /**
  The feature to be used during pre-authorization. Valid value: "authorize".
@@ -48,8 +49,24 @@
 /// @name Instantiation
 ///--------------------
 
-+ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard installment:(NSString *_Nullable)installment;
-+ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard point:(NSString *_Nullable)point;
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token
+                               customer:(MidtransCustomerDetails *_Nonnull)customer
+                               saveCard:(BOOL)saveCard
+                            installment:(NSString *_Nullable)installment;
 
-+ (instancetype _Nonnull)modelWithMaskedCard:(NSString *_Nonnull)maskedCard customer:(MidtransCustomerDetails *_Nonnull)customer saveCard:(BOOL)saveCard installment:(NSString *_Nullable)installment;
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token
+                               customer:(MidtransCustomerDetails *_Nonnull)customer
+                               saveCard:(BOOL)saveCard
+                                  point:(NSString *_Nullable)point;
+
++ (instancetype _Nonnull)modelWithMaskedCard:(NSString *_Nonnull)maskedCard
+                                    customer:(MidtransCustomerDetails *_Nonnull)customer
+                                    saveCard:(BOOL)saveCard
+                                 installment:(NSString *_Nullable)installment;
+
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token
+                               customer:(MidtransCustomerDetails *_Nonnull)customer
+                               saveCard:(BOOL)saveCard
+                            installment:(NSString *_Nullable)installment
+                                 promos:(NSDictionary *_Nullable)promos;
 @end

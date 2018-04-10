@@ -11,6 +11,7 @@
 NSString *const kAddOnConstructorAddOnTitle = @"addOnTitle";
 NSString *const kAddOnConstructorAddOnDescriptions = @"addOnDescriptions";
 NSString *const kAddOnConstructorAddOnName = @"addOnName";
+NSString *const kAddOnConstructorAddOnAddtional = @"addOnAdditional";
 
 
 @interface AddOnConstructor ()
@@ -24,6 +25,7 @@ NSString *const kAddOnConstructorAddOnName = @"addOnName";
 @synthesize addOnTitle = _addOnTitle;
 @synthesize addOnDescriptions = _addOnDescriptions;
 @synthesize addOnName = _addOnName;
+@synthesize addOnAddtional = _addOnAddtional;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -41,6 +43,7 @@ NSString *const kAddOnConstructorAddOnName = @"addOnName";
             self.addOnTitle = [self objectOrNilForKey:kAddOnConstructorAddOnTitle fromDictionary:dict];
             self.addOnDescriptions = [self objectOrNilForKey:kAddOnConstructorAddOnDescriptions fromDictionary:dict];
             self.addOnName = [self objectOrNilForKey:kAddOnConstructorAddOnName fromDictionary:dict];
+         self.addOnAddtional = [self objectOrNilForKey:kAddOnConstructorAddOnAddtional fromDictionary:dict];
 
     }
     
@@ -54,7 +57,7 @@ NSString *const kAddOnConstructorAddOnName = @"addOnName";
     [mutableDict setValue:self.addOnTitle forKey:kAddOnConstructorAddOnTitle];
     [mutableDict setValue:self.addOnDescriptions forKey:kAddOnConstructorAddOnDescriptions];
     [mutableDict setValue:self.addOnName forKey:kAddOnConstructorAddOnName];
-
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 

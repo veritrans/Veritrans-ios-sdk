@@ -8,10 +8,12 @@
 
 #import "SNPPostPaymentGeneralViewController.h"
 #import "SNPPostPaymentGeneralView.h"
+#import "UIImage+Scale.h"
 #import "SNPPostPaymentGeneralHeader.h"
 #import "MidtransUIToast.h"
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
+#import "MIDBarcode39Generator.h"
 #import "UILabel+Boldify.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
@@ -32,8 +34,9 @@
     [self showBackButton:NO];
     self.view.tableView.estimatedRowHeight = 60;
     self.view.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentGeneralHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentGeneralHeader"];
+    
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
+    [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentGeneralHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentGeneralHeader"];
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
     self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
     NSString *expireDate;
@@ -41,8 +44,21 @@
         expireDate =[self.transactionResult.additionalData objectForKey:@"kioson_expire_time"];
     }
     else  if ([self.title isEqualToString:@"Indomaret"]) {
+            self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
+        
         expireDate =[self.transactionResult.additionalData objectForKey:@"indomaret_expire_time"];
+        [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentIndomaretHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentIndomaretHeader"];
+        self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentIndomaretHeader"];
+        self.headerView.indomaretAccountNumber.text = self.transactionResult.indomaretPaymentCode;
+        
+        self.headerView.indomaretBarcodeCode.image =
+        [MIDBarcode39Generator code39ImageFromString:self.transactionResult.indomaretPaymentCode Width:400 Height:self.headerView.barcodeImageHeightConstant.constant];
+        self.headerView.indomaretBarcodeCode.contentMode = UIViewContentModeScaleToFill;
+    } else {
+        [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentGeneralHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentGeneralHeader"];
+        self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
     }
+    
      self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView updateFocusIfNeeded];
     self.view.tableView.tableHeaderView = self.headerView;

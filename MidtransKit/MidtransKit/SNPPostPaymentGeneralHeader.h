@@ -15,4 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *vaCopyButton;
 @property (weak, nonatomic) IBOutlet UIView *expiredTimeBackground;
 @property (weak, nonatomic) IBOutlet UILabel *topTextLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *indomaretBarcodeCode;
+@property (weak, nonatomic) IBOutlet UILabel *indomaretAccountNumber;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barcodeImageHeightConstant;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *barcodeImageWidthConstatnt;
 @end

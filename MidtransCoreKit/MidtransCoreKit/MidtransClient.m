@@ -51,7 +51,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error {
     for (NSString *blackListBins in bins) {
         if ([ccNumber containsString:blackListBins]) {
-            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"Your card number is not eligible for promo", nil)};
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"This card is not applicable for this transaction,please use another card", nil)};
             *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
                                          code:MIDTRANS_ERROR_CODE_INVALID_BIN
                                      userInfo:userInfo];
@@ -70,7 +70,7 @@ NSString *const REGISTER_CARD_URL = @"card/register";
         }
     }
     
-    NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"Your card number is not eligible for promo", nil)};
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"This card is not applicable for this transaction,please use another card", nil)};
     *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
                                  code:MIDTRANS_ERROR_CODE_INVALID_BIN
                              userInfo:userInfo];

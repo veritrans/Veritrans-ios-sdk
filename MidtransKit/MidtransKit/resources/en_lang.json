@@ -48,7 +48,7 @@
     "creditcard.promo-message": "With this card, you will get %@ discount from %@",
     "creditcard.promo-title": "Congratulations",
     "creditcard.creditcard_number": "Credit Card Number",
-    "creditcard.creditcard_valid_until": "Valid Until (MM/YY)",
+    "creditcard.creditcard_valid_until": "Expiration date (MM/YY)",
     "creditcard.creditcard_cvv": "CVV",
     "creditcard.add.new.card": "Add New Card",
     "creditcard.finish.payment": "Finish Payment",

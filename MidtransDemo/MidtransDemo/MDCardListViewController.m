@@ -66,7 +66,7 @@
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCard:(MidtransMaskedCreditCard *)result{
     NSLog(@"data-->%@",result);
-    [self saveCreditCardObject:result];
+   [self saveCreditCardObject:result];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCardFailed:(NSError *)error {
     NSLog(@"data-->%@",error);

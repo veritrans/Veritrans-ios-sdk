@@ -74,7 +74,7 @@
     return midtransKitBundle;
 }
 + (NSString *)getTranslationFromAppBundleForString:(NSString *)originalText {
-    NSLog(@"data-->%@",[MidtransDeviceHelper deviceCurrentLanguage]);
+   
     NSString *language = [NSString stringWithFormat:@"%@_lang",[MidtransDeviceHelper deviceCurrentLanguage]];
    
     if (![[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"en"] && ![[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"id"] ) {

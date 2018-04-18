@@ -32,10 +32,13 @@
 }
 
 - (BOOL)isValidYearExpiryDate:(NSError **)error {
-    [self stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
     BOOL formatValid = false;
-    if (([self length] == 2) || ([self length] == 4)){
+    NSString *expYear = self;
+    if (([expYear length] == 2) || ([expYear length] == 4)){
+        if (([expYear length] == 4)) {
+            
+            expYear = [NSString stringWithFormat:@"%ld",[expYear integerValue] - 2000];
+        }
         formatValid = true;
     }
     
@@ -44,8 +47,8 @@
     NSInteger currentYear = [[df stringFromDate:[NSDate date]] integerValue];
     
    
-    BOOL yearExpired = [self integerValue] < currentYear;
-    BOOL yearGreaterThan10 = (currentYear+10) < [self integerValue];
+    BOOL yearExpired = [expYear integerValue] < currentYear;
+    BOOL yearGreaterThan10 = (currentYear+10) < [expYear integerValue];
     
     if (formatValid && !yearExpired && !yearGreaterThan10) {
         return YES;

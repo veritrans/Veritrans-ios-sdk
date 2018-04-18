@@ -182,7 +182,6 @@
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }
-    
     @try {
         MidtransNetworkOperation *op = [MidtransNetworkOperation operationWithRequest:request
                                                                              callback:callback];

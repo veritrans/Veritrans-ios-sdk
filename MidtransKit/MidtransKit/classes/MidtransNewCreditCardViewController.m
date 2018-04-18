@@ -734,10 +734,11 @@ UIAlertViewDelegate
 
         MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]
                                                                         expiryMonth:expMonth
-                                                                         expiryYear:data[1]
+                                                                         expiryYear:expYear
                                                                                 cvv:self.view.cardCVVNumberTextField.text];
         [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
             [self hideLoading];
+            
             if (!error) {
                 [self handleSaveCardSuccess:maskedCreditCard];
             }

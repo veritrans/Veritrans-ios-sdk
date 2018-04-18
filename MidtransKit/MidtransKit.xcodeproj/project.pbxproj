@@ -37,8 +37,6 @@
 		0C32A9851EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C32A9831EA5221A001B3637 /* SNPPostPaymentHeaderBillPay.m */; };
 		0C32A9891EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */; };
 		0C32A98A1EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */; };
-		0C3C70931FEA28200086A6AB /* ic_chevron_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3C70901FEA281F0086A6AB /* ic_chevron_down.png */; };
-		0C3C70941FEA28200086A6AB /* ic_chevron_down.png in Resources */ = {isa = PBXBuildFile; fileRef = 0C3C70901FEA281F0086A6AB /* ic_chevron_down.png */; };
 		0C46FA841EEFCED8002342E2 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD741E94CFD500632085 /* TokenButtonIcon@2x.png */; };
 		0C46FA851EEFCF4D002342E2 /* TokenButtonIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD741E94CFD500632085 /* TokenButtonIcon@2x.png */; };
 		0C5DD8891E9E34F60004DD5D /* SNPPostPaymentVAViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */; };
@@ -3128,7 +3126,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = MID;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Midtrans;
 				TargetAttributes = {
 					E57120951E937B140064F515 = {
@@ -3437,7 +3435,6 @@
 				E58FCE531E94CFD600632085 /* pendingIcon@2x.png in Resources */,
 				0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */,
 				0CE1D2731F62A71E003A012F /* arrow@2x.png in Resources */,
-				0C3C70941FEA28200086A6AB /* ic_chevron_down.png in Resources */,
 				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
 				0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */,
 				0CC9002C1F70207D0058E93C /* id_telkomsel_cash.plist in Resources */,
@@ -3751,7 +3748,6 @@
 				E58FCE061E94CFD500632085 /* mandiri_atm_5@2x.png in Resources */,
 				3DECDFF31F9DAE610001AC9A /* see@2x.png in Resources */,
 				E58FCE7E1E94CFD600632085 /* visa-mastercard-amex@3x.png in Resources */,
-				0C3C70931FEA28200086A6AB /* ic_chevron_down.png in Resources */,
 				0CCD623F2005D0BA006936E5 /* alto_affiliated@2x.png in Resources */,
 				E58FCE921E94CFD600632085 /* Visa@2x.png in Resources */,
 				E58FCE4C1E94CFD600632085 /* other_prima_7@2x.png in Resources */,

@@ -730,9 +730,11 @@ UIAlertViewDelegate
         NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
         NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
         NSString *expYear = [NSString stringWithFormat:@"%ld",[data[1] integerValue]+2000];
+        
+
         MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]
                                                                         expiryMonth:expMonth
-                                                                         expiryYear:expYear
+                                                                         expiryYear:data[1]
                                                                                 cvv:self.view.cardCVVNumberTextField.text];
         [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
             [self hideLoading];

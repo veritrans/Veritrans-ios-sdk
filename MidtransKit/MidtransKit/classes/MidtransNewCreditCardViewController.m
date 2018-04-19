@@ -182,7 +182,7 @@ UIAlertViewDelegate
                                                                                                 @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
                                                                                                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
                              }];
-            [self.addOnArray addObject:promoConstructor];
+          //  [self.addOnArray addObject:promoConstructor];
         }
         [self updateAddOnContent];
         self.promoAvailable = NO;

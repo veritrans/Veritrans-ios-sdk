@@ -356,6 +356,7 @@ UIAlertViewDelegate
 }
 
 - (void)updatePromoViewWithCreditCardNumber:(NSString *)number {
+    
 //    NSUInteger index = [self.promos.promos indexOfObjectPassingTest:^BOOL(MidtransPromoPromos * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
 //        for (NSString *bin in obj.bins) {
 //            return [number containsString:bin];

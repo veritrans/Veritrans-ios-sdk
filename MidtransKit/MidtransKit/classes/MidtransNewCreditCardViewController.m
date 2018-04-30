@@ -208,15 +208,14 @@ UIAlertViewDelegate
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
     
-    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
-                                                                initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
-                                                       options:kNilOptions error:nil];
-    
     [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
         self.bankBinList = binResponse;
         if (self.maskedCreditCard) {
-            [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-            [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
+                [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
+            });
         }
     }];
     
@@ -225,10 +224,6 @@ UIAlertViewDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
-        
-        [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-        //  [self updatePromoViewWithCreditCardNumber:self.maskedCreditCard.maskedNumber];
-        [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
         self.view.cardExpireTextField.textColor = [UIColor grayColor];
@@ -438,8 +433,8 @@ UIAlertViewDelegate
         self.view.creditCardNumberTextField.info1Icon = nil;
     }
     UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-    
     self.view.creditCardNumberTextField.info2Icon = bankIcon;
+
 }
 
 #pragma mark - VTCardFormatterDelegate
@@ -772,8 +767,11 @@ UIAlertViewDelegate
                       duration:1
                        options:UIViewAnimationOptionCurveEaseInOut
                     animations:^{
-                        self.view.installmentView.hidden = !show;
-                        [self.installmentsContentView.installmentCollectionView reloadData];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            self.view.installmentView.hidden = !show;
+                            [self.installmentsContentView.installmentCollectionView reloadData];
+                        });
                         [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
                     }
                     completion:NULL];

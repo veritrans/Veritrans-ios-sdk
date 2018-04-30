@@ -211,11 +211,8 @@ UIAlertViewDelegate
     [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
         self.bankBinList = binResponse;
         if (self.maskedCreditCard) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-                [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
-            });
+            [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
+            [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         }
     }];
     
@@ -433,8 +430,9 @@ UIAlertViewDelegate
         self.view.creditCardNumberTextField.info1Icon = nil;
     }
     UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-    self.view.creditCardNumberTextField.info2Icon = bankIcon;
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.view.creditCardNumberTextField.info2Icon = bankIcon;
+    });
 }
 
 #pragma mark - VTCardFormatterDelegate
@@ -452,6 +450,7 @@ UIAlertViewDelegate
     
     [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
         self.bankBinList = binResponse;
+        [self matchBINNumberWithInstallment:originNumber];
         [self updateCreditCardTextFieldInfoWithNumber:originNumber];
     }];
 }

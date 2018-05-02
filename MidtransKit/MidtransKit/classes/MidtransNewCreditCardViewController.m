@@ -400,6 +400,9 @@ UIAlertViewDelegate
         [self.promoArray removeAllObjects];
         self.promoArray  = self.currentPromo;
     } else {
+        self.currentPromoSelected = @"";
+        self.currentPromoIndex = nil;
+        self.prevPromoIndex = nil;
        NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", number]];
         if (filtered.count) {
              [self.promoArray removeAllObjects];
@@ -475,6 +478,7 @@ UIAlertViewDelegate
         MidtransCreditCardAddOnComponentCell* cell = [self.view.promoTableView cellForRowAtIndexPath:indexPath];
         cell.checkButton.selected = NO;
         [self.view.promoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+         [self updateAmountTotal:[AddOnConstructor new]];
     } if (self.prevPromoIndex == self.currentPromoIndex){
         NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.prevPromoIndex integerValue] inSection:0];
         MidtransCreditCardAddOnComponentCell* cell = [self.view.promoTableView cellForRowAtIndexPath:indexPath];
@@ -486,7 +490,8 @@ UIAlertViewDelegate
     
     self.currentPromoSelected = constructor.addOnTitle;
     self.prevPromoIndex = self.currentPromoIndex;
-    [self updateAmountTotal:constructor];
+     [self updateAmountTotal:constructor];
+   
 }
 - (void)checkButtonTap:(UIButton *)sender {
     [self updateAddOnContent];

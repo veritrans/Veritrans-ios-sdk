@@ -192,7 +192,7 @@ UIAlertViewDelegate
                                                                                                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
                              }];
           [self.promoArray addObject:promoConstructor];
-            [self.currentPromo addObject:promoConstructor];
+          [self.currentPromo addObject:promoConstructor];
         }
         
         [self updatePromoContent];
@@ -217,7 +217,6 @@ UIAlertViewDelegate
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-      //  [self updatePromoViewWithCreditCardNumber:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
@@ -234,7 +233,6 @@ UIAlertViewDelegate
         self.view.cardExpireTextField.enabled = YES;
         self.view.creditCardNumberTextField.textColor = [UIColor darkTextColor];
         self.view.cardExpireTextField.textColor = [UIColor darkTextColor];
-        
         self.view.deleteButton.hidden = YES;
     }
     
@@ -398,7 +396,7 @@ UIAlertViewDelegate
     [self.promos dictionaryRepresentation];
     if (number.length == 0) {
         [self.promoArray removeAllObjects];
-        self.promoArray  = self.currentPromo;
+        [self.promoArray addObjectsFromArray:self.currentPromo];
     } else {
         self.currentPromoSelected = @"";
         self.currentPromoIndex = nil;

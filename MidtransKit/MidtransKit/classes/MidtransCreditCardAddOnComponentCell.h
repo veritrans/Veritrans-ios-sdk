@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet UIButton *addOnInformationButton;
 @property (weak,nonatomic) id<MidtransCreditCardAddOnComponentCellDelegate>delegate;
 - (void)configurePaymentAddOnWithData:(AddOnConstructor *)addOn;
+- (void)configurePromoWithData:(AddOnConstructor *)promo;
 @end

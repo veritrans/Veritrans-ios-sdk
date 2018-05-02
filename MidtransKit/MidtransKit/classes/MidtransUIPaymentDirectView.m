@@ -37,13 +37,10 @@
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self];
     }];
+    [self showInstrunctions];
 }
 - (void)showInstrunctions {
-    if(self.guides.count) {
-        self.guides = @[];
-    } else {
-        self.guides = self.mainGuides;
-    }
+    self.guides = self.mainGuides;
     [self.tableView reloadData];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

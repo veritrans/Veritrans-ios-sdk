@@ -14,9 +14,11 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *creditCardNumberTextField;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardExpireTextField;
+@property (weak, nonatomic) IBOutlet UITableView *promoTableView;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *cardCVVNumberTextField;
 @property (weak, nonatomic) IBOutlet UITableView *addOnTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *addOnTableViewHeightConstraints;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *promoTableViewHeightConstraints;
 @property (weak, nonatomic) IBOutlet UIView *secureBadgeWrapper;
 @property (weak, nonatomic) IBOutlet UIView *installmentView;
 @property (weak, nonatomic) IBOutlet UIButton *cvvInfoButton;

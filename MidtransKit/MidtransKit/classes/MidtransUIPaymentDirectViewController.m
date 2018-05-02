@@ -42,7 +42,7 @@
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]  ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ) {
-        self.view.disclosureButtonImage.hidden = NO;
+        self.view.disclosureButtonImage.hidden = YES;
     } else {
         self.view.disclosureButtonImage.hidden = YES;
     }

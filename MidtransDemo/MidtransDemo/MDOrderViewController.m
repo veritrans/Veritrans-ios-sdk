@@ -175,7 +175,7 @@
         NSLog(@"Got an error: %@", error);
         jsonString = @"";
     }
-    NSLog(@"Your JSON String is %@", jsonString);
+
     
     [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
 

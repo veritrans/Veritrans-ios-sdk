@@ -16,7 +16,6 @@
 @implementation NSString (utils)
 - (NSArray *)stringsBetween:(NSString *)string1 and:(NSString *)string2 {
     NSString *pattern = [NSString stringWithFormat:@"%@(.*?)%@", string1, string2];
-    NSLog(@"pattern: %@", pattern);
     NSRegularExpression *regex = [[NSRegularExpression alloc] initWithPattern:pattern options:0 error:nil];
     NSMutableArray *stringResult = [NSMutableArray new];
     [regex enumerateMatchesInString:self options:0 range:NSMakeRange(0, self.length) usingBlock:^(NSTextCheckingResult * _Nullable result, NSMatchingFlags flags, BOOL * _Nonnull stop) {

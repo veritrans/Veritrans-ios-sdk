@@ -197,19 +197,18 @@ UIAlertViewDelegate
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
     
-    [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
-        self.bankBinList = binResponse;
-        if (self.maskedCreditCard) {
-            [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-            [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
-        }
-    }];
+    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
+                                                                initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
+                                                       options:kNilOptions error:nil];
     
     if (self.maskedCreditCard) {
         self.view.creditCardNumberTextField.text = self.maskedCreditCard.formattedNumber;
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        
+        [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
+        [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
         self.view.cardExpireTextField.textColor = [UIColor grayColor];

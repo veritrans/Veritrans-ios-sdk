@@ -25,9 +25,9 @@
         imagePath = @"mandiri_va";
     }
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
-//        if (response.promos.promos) {
-//            self.promoNotificationView.hidden =  NO;
-//        }
+        if (response.promos.promos.count) {
+            self.promoNotificationView.hidden =  NO;
+        }
     }
     else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         self.paymentMethodNameLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Credit/Debit Card"];

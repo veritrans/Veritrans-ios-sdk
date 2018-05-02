@@ -81,7 +81,6 @@
         language = @"en_lang";
     }
     NSDictionary *dictionary =  [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:language ofType:@"json"]] options:kNilOptions error:nil];
-     NSLog(@"lang-->%@ %@",language,[dictionary objectForKey:originalText]);
     return [dictionary objectForKey:originalText];
 }
 

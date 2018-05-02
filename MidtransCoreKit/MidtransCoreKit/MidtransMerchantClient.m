@@ -209,7 +209,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
-   [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
+    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         for (NSDictionary *dictionary in customField) {
             NSArray *key_dictionary=[dictionary allKeys];

@@ -22,8 +22,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    NSLog(@"Fonts:\n%@\n%@", [UIFont fontNamesForFamilyName:@"Bariol"], [UIFont fontNamesForFamilyName:@"Source Sans Pro"]);
-
+   
     if ([[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"] length]<1) {
         [[NSUserDefaults standardUserDefaults] setObject:@"Budi" forKey:@"USER_DEMO_CONTENT_FIRST_NAME"];
         [[NSUserDefaults standardUserDefaults] synchronize];

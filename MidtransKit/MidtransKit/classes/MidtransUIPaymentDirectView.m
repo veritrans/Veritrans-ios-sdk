@@ -37,7 +37,7 @@
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self];
     }];
-    [self showInstrunctions];
+
 }
 - (void)showInstrunctions {
     self.guides = self.mainGuides;
@@ -116,7 +116,7 @@
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",paymentMethodID] ofType:@"plist"];
     }
     self.mainGuides = [VTClassHelper instructionsFromFilePath:guidePath];
-    [self.tableView reloadData];
+        [self showInstrunctions];
     
     if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
         self.headerView.emailTextField.keyboardType = UIKeyboardTypePhonePad;

@@ -71,7 +71,7 @@
            merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment/"];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = NO;
+    UICONFIG.hideStatusPage = YES;
     CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
 

@@ -400,7 +400,7 @@ UIAlertViewDelegate
         [self.promoArray removeAllObjects];
         self.promoArray  = self.currentPromo;
     } else {
-       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS %@", number]];
+       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", number]];
         if (filtered.count) {
              [self.promoArray removeAllObjects];
         }

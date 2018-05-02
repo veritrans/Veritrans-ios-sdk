@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet SNPPostPaymentGeneralView *view;
 @property (nonatomic,strong) NSArray *instrunctions;
+@property (nonatomic) BOOL showInstructions;
 @property (nonatomic) SNPPostPaymentGeneralHeader *headerView;
 @end
 
@@ -41,14 +42,14 @@
     self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
     NSString *expireDate;
     if ([self.title isEqualToString:@"Kioson"]) {
-        expireDate =[self.transactionResult.additionalData objectForKey:@"kioson_expire_time"];
+        expireDate = [self.transactionResult.additionalData objectForKey:@"kioson_expire_time"];
     }
     else  if ([self.title isEqualToString:@"Indomaret"]) {
         expireDate =[self.transactionResult.additionalData objectForKey:@"indomaret_expire_time"];
         [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentIndomaretHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentIndomaretHeader"];
         self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentIndomaretHeader"];
         self.headerView.indomaretAccountNumber.text = self.transactionResult.indomaretPaymentCode;
-        
+        [self.headerView.showInstructionsButton addTarget:self action:@selector(showInstructionsButtonDidTapped) forControlEvents:UIControlEventTouchUpInside];
         self.headerView.indomaretBarcodeCode.image =
         [MIDBarcode39Generator code39ImageFromString:self.transactionResult.indomaretPaymentCode Width:400 Height:self.headerView.barcodeImageHeightConstant.constant];
         self.headerView.indomaretBarcodeCode.contentMode = UIViewContentModeScaleToFill;
@@ -77,12 +78,15 @@
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 }
+- (void)showInstructionsButtonDidTapped{
+    self.showInstructions = !self.showInstructions;
+}
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
     [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.instrunctions.count;
+    return self.showInstructions?self.instrunctions.count:0;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];

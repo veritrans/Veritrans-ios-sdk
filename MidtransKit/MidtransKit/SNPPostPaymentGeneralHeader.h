@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *indomaretAccountNumber;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *barcodeImageHeightConstant;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *barcodeImageWidthConstatnt;
+@property (weak, nonatomic) IBOutlet UIButton *showInstructionsButton;
 @end

@@ -19,11 +19,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="315" id="qPT-yQ-HrP" customClass="SNPPostPaymentGeneralHeader">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="315"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="364" id="qPT-yQ-HrP" customClass="SNPPostPaymentGeneralHeader">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qPT-yQ-HrP" id="5uc-e2-FFw">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="314.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="363.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-XJ-Qxt">
@@ -81,6 +81,13 @@
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" fixedFrame="YES" text="Step by step Indomaret" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8E-vB-LTT">
+                        <rect key="frame" x="16" y="320" width="236.5" height="13"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="10"/>
+                        <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ELE-Fv-i4o" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="22" id="6Xu-Lq-pjE"/>
@@ -88,6 +95,7 @@
                     <constraint firstItem="9zF-XJ-Qxt" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" id="8qE-6o-VGJ"/>
                     <constraint firstItem="qvL-Km-ZtG" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="70" id="D7P-nK-lrK"/>
                     <constraint firstAttribute="trailing" secondItem="Wbl-jH-yAj" secondAttribute="trailing" constant="20" id="Ebj-gC-UqE"/>
+                    <constraint firstItem="w8a-4W-JUx" firstAttribute="top" secondItem="ELE-Fv-i4o" secondAttribute="bottom" constant="2" id="I3F-Kn-Kmu"/>
                     <constraint firstItem="9zF-XJ-Qxt" firstAttribute="width" secondItem="5uc-e2-FFw" secondAttribute="width" id="J8O-OM-KHZ"/>
                     <constraint firstAttribute="trailing" secondItem="qvL-Km-ZtG" secondAttribute="trailing" id="SuX-OD-h70"/>
                     <constraint firstItem="ELE-Fv-i4o" firstAttribute="top" secondItem="Wbl-jH-yAj" secondAttribute="bottom" constant="20" id="W0p-Kt-3HI"/>
@@ -99,7 +107,6 @@
                     <constraint firstItem="w8a-4W-JUx" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="16" id="nTn-9t-Wu4"/>
                     <constraint firstAttribute="trailing" secondItem="ELE-Fv-i4o" secondAttribute="trailing" constant="24" id="per-Sj-67X"/>
                     <constraint firstItem="HPg-zZ-2nw" firstAttribute="top" secondItem="ELE-Fv-i4o" secondAttribute="bottom" constant="8" id="sbK-bw-0Ia"/>
-                    <constraint firstAttribute="bottom" secondItem="w8a-4W-JUx" secondAttribute="bottom" constant="15.5" id="unL-DL-5ut"/>
                     <constraint firstAttribute="trailing" secondItem="HPg-zZ-2nw" secondAttribute="trailing" constant="20" id="vIM-iw-uRA"/>
                 </constraints>
             </tableViewCellContentView>
@@ -113,7 +120,7 @@
                 <outlet property="vaCopyButton" destination="HPg-zZ-2nw" id="Dgq-PW-KHe"/>
                 <outlet property="vaTextField" destination="w8a-4W-JUx" id="UIA-7t-LsD"/>
             </connections>
-            <point key="canvasLocation" x="-681.5" y="-792.5"/>
+            <point key="canvasLocation" x="-681.5" y="-768"/>
         </tableViewCell>
     </objects>
 </document>

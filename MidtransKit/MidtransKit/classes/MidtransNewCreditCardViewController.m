@@ -405,6 +405,9 @@ UIAlertViewDelegate
         [self updatePromoViewWithCreditCardNumber:originNumber];
     }
     
+    [self matchBINNumberWithInstallment:originNumber];
+    [self updateCreditCardTextFieldInfoWithNumber:originNumber];
+    
     [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
         self.bankBinList = binResponse;
         [self matchBINNumberWithInstallment:originNumber];

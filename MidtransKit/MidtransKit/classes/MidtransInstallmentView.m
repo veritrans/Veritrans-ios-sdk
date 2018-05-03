@@ -77,8 +77,12 @@
     [self.installmentCollectionView reloadData];
 }
 - (void)configureInstallmentView:(NSArray *)installmentContent {
-    self.installmentData = installmentContent;
-    [self.installmentCollectionView reloadData];
+    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.installmentData = installmentContent;
+        dispatch_async( dispatch_get_main_queue(), ^{
+            [self.installmentCollectionView reloadData];
+        });
+    });
 }
 - (IBAction)prevButtonDidtapped:(id)sender {
     if (self.installmentCurrentIndex > 0) {

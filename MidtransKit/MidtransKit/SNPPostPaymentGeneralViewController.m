@@ -80,6 +80,7 @@
 }
 - (void)showInstructionsButtonDidTapped{
     self.showInstructions = !self.showInstructions;
+    [self.view.tableView reloadData];
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

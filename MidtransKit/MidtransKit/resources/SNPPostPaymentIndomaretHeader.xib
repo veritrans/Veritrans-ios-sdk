@@ -27,7 +27,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9zF-XJ-Qxt">
-                        <rect key="frame" x="0.0" y="0.0" width="282.5" height="47"/>
+                        <rect key="frame" x="0.0" y="0.0" width="292" height="47"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" fixedFrame="YES" text="Please Complete your payment before" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUu-UA-xxs">
                                 <rect key="frame" x="5" y="6" width="313" height="36"/>
@@ -43,7 +43,7 @@
                         </constraints>
                     </view>
                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="123" placeholder="Email Address (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="w8a-4W-JUx">
-                        <rect key="frame" x="16" y="259" width="178.5" height="40"/>
+                        <rect key="frame" x="16" y="256.5" width="188" height="40"/>
                         <color key="backgroundColor" red="0.90035927299999996" green="0.95267838240000002" blue="0.98194116350000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="IOs-Ck-MMW"/>
@@ -53,13 +53,13 @@
                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                     </textField>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="VIRTUAL ACCOUNT NUMBER" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ELE-Fv-i4o">
-                        <rect key="frame" x="22" y="244" width="236.5" height="13"/>
+                        <rect key="frame" x="22" y="242.5" width="246" height="12"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="10"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPg-zZ-2nw">
-                        <rect key="frame" x="204.5" y="265" width="58" height="30"/>
+                        <rect key="frame" x="214" y="262.5" width="58" height="30"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="58" id="hhU-z7-Tie"/>
                         </constraints>
@@ -76,38 +76,56 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="VIRTUAL ACCOUNT NUMBER" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wbl-jH-yAj">
-                        <rect key="frame" x="19" y="205" width="243.5" height="19"/>
+                        <rect key="frame" x="19" y="205" width="253" height="17.5"/>
                         <fontDescription key="fontDescription" name="SourceSansPro-Bold" family="Source Sans Pro" pointSize="15"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" fixedFrame="YES" text="Step by step Indomaret" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8E-vB-LTT">
-                        <rect key="frame" x="16" y="320" width="236.5" height="13"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="10"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="200" verticalHuggingPriority="200" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" text="Step by step Indomaret" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h8E-vB-LTT">
+                        <rect key="frame" x="16" y="317.5" width="236.5" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="236.5" id="ouG-ql-dke"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                         <color key="textColor" red="0.42745098040000001" green="0.42745098040000001" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f6m-1X-mOH">
+                        <rect key="frame" x="272.5" y="313.5" width="58" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="58" id="lSL-9X-89r"/>
+                            <constraint firstAttribute="height" constant="30" id="yqp-y0-OBs"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" image="ic_chevron_down.png">
+                            <color key="titleColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="ELE-Fv-i4o" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="22" id="6Xu-Lq-pjE"/>
                     <constraint firstItem="9zF-XJ-Qxt" firstAttribute="top" secondItem="5uc-e2-FFw" secondAttribute="top" id="6z0-rg-NKm"/>
                     <constraint firstItem="9zF-XJ-Qxt" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" id="8qE-6o-VGJ"/>
+                    <constraint firstItem="f6m-1X-mOH" firstAttribute="leading" secondItem="h8E-vB-LTT" secondAttribute="trailing" constant="20" id="Azz-Jb-m3K"/>
                     <constraint firstItem="qvL-Km-ZtG" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="70" id="D7P-nK-lrK"/>
                     <constraint firstAttribute="trailing" secondItem="Wbl-jH-yAj" secondAttribute="trailing" constant="20" id="Ebj-gC-UqE"/>
                     <constraint firstItem="w8a-4W-JUx" firstAttribute="top" secondItem="ELE-Fv-i4o" secondAttribute="bottom" constant="2" id="I3F-Kn-Kmu"/>
                     <constraint firstItem="9zF-XJ-Qxt" firstAttribute="width" secondItem="5uc-e2-FFw" secondAttribute="width" id="J8O-OM-KHZ"/>
                     <constraint firstAttribute="trailing" secondItem="qvL-Km-ZtG" secondAttribute="trailing" id="SuX-OD-h70"/>
                     <constraint firstItem="ELE-Fv-i4o" firstAttribute="top" secondItem="Wbl-jH-yAj" secondAttribute="bottom" constant="20" id="W0p-Kt-3HI"/>
+                    <constraint firstItem="h8E-vB-LTT" firstAttribute="top" secondItem="w8a-4W-JUx" secondAttribute="bottom" constant="21" id="YRa-mo-YC7"/>
                     <constraint firstItem="qvL-Km-ZtG" firstAttribute="top" secondItem="9zF-XJ-Qxt" secondAttribute="bottom" constant="8" id="aON-Dj-naN"/>
                     <constraint firstAttribute="trailing" secondItem="9zF-XJ-Qxt" secondAttribute="trailing" id="bFv-bY-tde"/>
                     <constraint firstItem="Wbl-jH-yAj" firstAttribute="top" secondItem="qvL-Km-ZtG" secondAttribute="bottom" constant="16" id="cpY-4f-E0I"/>
                     <constraint firstItem="HPg-zZ-2nw" firstAttribute="leading" secondItem="w8a-4W-JUx" secondAttribute="trailing" constant="10" id="h7J-HJ-CcJ"/>
                     <constraint firstItem="Wbl-jH-yAj" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="19" id="jxA-aR-YXO"/>
                     <constraint firstItem="w8a-4W-JUx" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="16" id="nTn-9t-Wu4"/>
+                    <constraint firstAttribute="trailing" secondItem="f6m-1X-mOH" secondAttribute="trailing" constant="10" id="od5-PG-9kh"/>
+                    <constraint firstItem="h8E-vB-LTT" firstAttribute="leading" secondItem="5uc-e2-FFw" secondAttribute="leading" constant="16" id="otA-0h-IzA"/>
                     <constraint firstAttribute="trailing" secondItem="ELE-Fv-i4o" secondAttribute="trailing" constant="24" id="per-Sj-67X"/>
                     <constraint firstItem="HPg-zZ-2nw" firstAttribute="top" secondItem="ELE-Fv-i4o" secondAttribute="bottom" constant="8" id="sbK-bw-0Ia"/>
                     <constraint firstAttribute="trailing" secondItem="HPg-zZ-2nw" secondAttribute="trailing" constant="20" id="vIM-iw-uRA"/>
+                    <constraint firstItem="f6m-1X-mOH" firstAttribute="top" secondItem="HPg-zZ-2nw" secondAttribute="bottom" constant="21" id="wWg-se-BS0"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -116,6 +134,7 @@
                 <outlet property="expiredTimeLabel" destination="tUu-UA-xxs" id="R0w-Ke-To2"/>
                 <outlet property="indomaretAccountNumber" destination="Wbl-jH-yAj" id="g0y-Tw-SR1"/>
                 <outlet property="indomaretBarcodeCode" destination="qvL-Km-ZtG" id="hHj-nv-otZ"/>
+                <outlet property="showInstructionsButton" destination="f6m-1X-mOH" id="Mb9-vV-Cx5"/>
                 <outlet property="topTextLabel" destination="ELE-Fv-i4o" id="9oO-kX-Hdt"/>
                 <outlet property="vaCopyButton" destination="HPg-zZ-2nw" id="Dgq-PW-KHe"/>
                 <outlet property="vaTextField" destination="w8a-4W-JUx" id="UIA-7t-LsD"/>
@@ -123,4 +142,7 @@
             <point key="canvasLocation" x="-681.5" y="-768"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="ic_chevron_down.png" width="14" height="9"/>
+    </resources>
 </document>

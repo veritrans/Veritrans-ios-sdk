@@ -27,7 +27,7 @@
     
     self.titleLabel.text =[NSString stringWithFormat:@"%@ - %@",iconName, [[maskedCreditCard objectForKey:@"cardhash"] substringToIndex:4]];
     [self.bankImageView setImage:[UIImage imageNamed:[[self matchBankBIN:[maskedCreditCard objectForKey:@"cardhash"]] lowercaseString]]];
-    self.descLabel.text = [[self formattedCreditCardNumber:[maskedCreditCard objectForKey:@"cardhash"]] stringByReplacingOccurrencesOfString:@"X" withString:@"⋅"];
+    self.descLabel.text = [[self formattedCreditCardNumber:[maskedCreditCard objectForKey:@"maskedCard"]] stringByReplacingOccurrencesOfString:@"X" withString:@"⋅"];
      
 }
 - (NSString *)matchBankBIN:(NSString *)bin {

@@ -52,7 +52,7 @@
                             <constraint firstAttribute="width" constant="39" placeholder="YES" id="zU6-Q8-ldp"/>
                         </constraints>
                     </imageView>
-                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-FB-vAG">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sY0-FB-vAG">
                         <rect key="frame" x="224" y="17" width="39" height="26"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="39" placeholder="YES" id="HAS-4o-7PD"/>

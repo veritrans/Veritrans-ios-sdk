@@ -76,8 +76,8 @@
 }
 - (IBAction)saveCardButtonDidtapped:(id)sender {
 
-    NSString *clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-    NSString *merchantServer = @"https://rakawm-snap.herokuapp.com";
+    NSString *clientkey = @"your client key";
+    NSString *merchantServer = @"your merchant server url";
     [[MidtransNetworkLogger shared] startLogging];
     [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox

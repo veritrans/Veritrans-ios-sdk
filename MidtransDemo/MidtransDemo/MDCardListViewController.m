@@ -65,18 +65,19 @@
     return self.maskedCard.count;
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCard:(MidtransMaskedCreditCard *)result{
-    NSLog(@"data-->%@",result);
-   [self saveCreditCardObject:result];
+    ///response : {"status_code":"200","saved_token_id":"481111cJOyzkeZSgEEfBMeFofeaz1114","transaction_id":"24de5cfa-0123-45f7-99b2-eb73a364eec2","masked_card":"481111-1114"}
+    NSDictionary *data =@{@"cardhash":result.savedTokenId,@"maskedCard":result.maskedNumber};
+    [self saveCreditCardObject:data];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCardFailed:(NSError *)error {
-    NSLog(@"data-->%@",error);
+    
 }
 
-- (void)saveCreditCardObject:(MidtransMaskedCreditCard *)creditCardObject {
+- (void)saveCreditCardObject:(NSDictionary *)creditCardObject {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     NSArray *arrayOfRawCard = [userDefaults objectForKey:@"SAVED_CARD"];
     NSMutableArray *mutableDataArray =[NSMutableArray arrayWithArray:arrayOfRawCard];
-    [mutableDataArray addObject:[creditCardObject dictionaryValue]];
+    [mutableDataArray addObject:creditCardObject];
     [userDefaults setObject:mutableDataArray forKey:@"SAVED_CARD"];
     [userDefaults objectForKey:@"SAVED_CARD"];
     [userDefaults synchronize];

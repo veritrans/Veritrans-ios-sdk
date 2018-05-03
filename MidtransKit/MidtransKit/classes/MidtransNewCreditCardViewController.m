@@ -441,17 +441,13 @@ UIAlertViewDelegate
     if (self.promoAvailable) {
        [self updatePromoViewWithCreditCardNumber:originNumber];
     }
-    if (self.installmentAvailable) {
-        [self matchBINNumberWithInstallment:originNumber];
-    }
+     [self matchBINNumberWithInstallment:originNumber];
     
     [self updateCreditCardTextFieldInfoWithNumber:originNumber];
     
     [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
         self.bankBinList = binResponse;
-        if (self.installmentAvailable) {
-            [self matchBINNumberWithInstallment:originNumber];
-        }
+        [self matchBINNumberWithInstallment:originNumber];
         [self updateCreditCardTextFieldInfoWithNumber:originNumber];
     }];
 }

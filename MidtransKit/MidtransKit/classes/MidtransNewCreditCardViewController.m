@@ -207,6 +207,7 @@ UIAlertViewDelegate
   
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
+    
     self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
                                                                 initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
                                                        options:kNilOptions error:nil];
@@ -216,6 +217,7 @@ UIAlertViewDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
@@ -427,7 +429,9 @@ UIAlertViewDelegate
         self.view.creditCardNumberTextField.info1Icon = nil;
     }
     UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-    self.view.creditCardNumberTextField.info2Icon = bankIcon;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.view.creditCardNumberTextField.info2Icon = bankIcon;
+    });
 }
 
 #pragma mark - VTCardFormatterDelegate
@@ -440,7 +444,16 @@ UIAlertViewDelegate
     if (self.installmentAvailable) {
         [self matchBINNumberWithInstallment:originNumber];
     }
+    
     [self updateCreditCardTextFieldInfoWithNumber:originNumber];
+    
+    [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
+        self.bankBinList = binResponse;
+        if (self.installmentAvailable) {
+            [self matchBINNumberWithInstallment:originNumber];
+        }
+        [self updateCreditCardTextFieldInfoWithNumber:originNumber];
+    }];
 }
 - (void)reformatCardNumber {
     NSString *cardNumber = self.view.cardCVVNumberTextField.text;
@@ -754,8 +767,11 @@ UIAlertViewDelegate
                       duration:1
                        options:UIViewAnimationOptionCurveEaseInOut
                     animations:^{
-                        self.view.installmentView.hidden = !show;
-                        [self.installmentsContentView.installmentCollectionView reloadData];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            self.view.installmentView.hidden = !show;
+                            [self.installmentsContentView.installmentCollectionView reloadData];
+                        });
                         [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
                     }
                     completion:NULL];

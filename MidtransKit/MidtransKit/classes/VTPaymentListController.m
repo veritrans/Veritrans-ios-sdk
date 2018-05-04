@@ -105,6 +105,7 @@
      {
          self.title = response.merchant.preference.displayName;
          [[NSUserDefaults standardUserDefaults] setObject:response.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+         [[NSUserDefaults standardUserDefaults] setObject:response.merchant.merchantId forKey:MIDTRANS_CORE_MERCHANT_ID];
          [[NSUserDefaults standardUserDefaults] synchronize];
          if (response) {
              

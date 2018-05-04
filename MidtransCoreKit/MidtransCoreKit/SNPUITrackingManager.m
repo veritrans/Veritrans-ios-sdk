@@ -46,6 +46,10 @@
     if (merchant.length) {
         [defaultParameters setObject:merchant forKey:@"merchant"];
     }
+    NSString *merchantId = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_ID];
+    if (merchantId.length) {
+        [defaultParameters setObject:merchantId forKey:@"merchant_id"];
+    }
     return defaultParameters;
 }
 

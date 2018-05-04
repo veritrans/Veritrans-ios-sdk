@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSArray *enabledPrinciples;
 @property (nonatomic, strong) NSArray *pointBanks;
 @property (nonatomic, strong) MidtransPaymentRequestV2Preference *preference;
+@property (nonatomic, strong) NSString *merchantId;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

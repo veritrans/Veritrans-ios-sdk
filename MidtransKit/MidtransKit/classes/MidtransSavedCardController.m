@@ -135,8 +135,8 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
-      [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 Click tokens Available":@(true)}];
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
     
@@ -165,6 +165,7 @@
 }
 
 - (void)performTwoClicksWithCard:(MidtransMaskedCreditCard *)card {
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"2 Clicks tokens Available":@(true)}];
     MidtransNewCreditCardViewController *vc =
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                  paymentMethod:self.paymentMethod

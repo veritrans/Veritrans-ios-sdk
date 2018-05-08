@@ -12,6 +12,7 @@
 NSString *const kMidtransPaymentRequestV2MerchantClientKey = @"client_key";
 NSString *const kMidtransPaymentRequestV2MerchantEnabledPrinciples = @"enabled_principles";
 NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
+NSString *const kMidtransPaymentRequestV2MerchantId = @"merchant_id";
 NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
 
 
@@ -26,6 +27,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
 @synthesize clientKey = _clientKey;
 @synthesize enabledPrinciples = _enabledPrinciples;
 @synthesize preference = _preference;
+@synthesize merchantId = _merchantId;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -44,6 +46,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
             self.enabledPrinciples = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples fromDictionary:dict];
         self.pointBanks = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantPointBanks fromDictionary:dict];
             self.preference = [MidtransPaymentRequestV2Preference modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2MerchantPreference]];
+        self.merchantId = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantId fromDictionary:dict];
 
     }
     
@@ -78,6 +81,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForEnabledPrinciples] forKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples];
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForPointBanks] forKey:kMidtransPaymentRequestV2MerchantPointBanks];
     [mutableDict setValue:[self.preference dictionaryRepresentation] forKey:kMidtransPaymentRequestV2MerchantPreference];
+    [mutableDict setValue:self.merchantId forKey:kMidtransPaymentRequestV2MerchantId];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -104,7 +108,8 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     self.clientKey = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantClientKey];
     self.enabledPrinciples = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples];
     self.preference = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPreference];
-    self.preference = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPointBanks];
+    self.pointBanks = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPointBanks];
+    self.merchantId = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantId];
     return self;
 }
 
@@ -115,6 +120,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     [aCoder encodeObject:_enabledPrinciples forKey:kMidtransPaymentRequestV2MerchantEnabledPrinciples];
     [aCoder encodeObject:_preference forKey:kMidtransPaymentRequestV2MerchantPreference];
     [aCoder encodeObject:_pointBanks forKey:kMidtransPaymentRequestV2MerchantPointBanks];
+    [aCoder encodeObject:_merchantId forKey:kMidtransPaymentRequestV2MerchantId];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -127,6 +133,7 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
         copy.enabledPrinciples = [self.enabledPrinciples copyWithZone:zone];
         copy.preference = [self.preference copyWithZone:zone];
         copy.pointBanks = [self.pointBanks copyWithZone:zone];
+        copy.merchantId = [self.merchantId copyWithZone:zone];
     }
     
     return copy;

@@ -77,10 +77,15 @@
     [self.installmentCollectionView reloadData];
 }
 - (void)configureInstallmentView:(NSArray *)installmentContent {
-    dispatch_async( dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+    
+    __weak __typeof(self)weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.installmentData = installmentContent;
-        dispatch_async( dispatch_get_main_queue(), ^{
-            [self.installmentCollectionView reloadData];
+        
+        if (!weakSelf) return;
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf.installmentCollectionView reloadData];
         });
     });
 }

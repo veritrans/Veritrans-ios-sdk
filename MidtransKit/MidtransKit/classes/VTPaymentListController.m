@@ -108,7 +108,9 @@
          [[NSUserDefaults standardUserDefaults] setObject:response.merchant.merchantId forKey:MIDTRANS_CORE_MERCHANT_ID];
          [[NSUserDefaults standardUserDefaults] synchronize];
          if (response) {
-             
+             NSArray* strings = [response.enabledPayments valueForKeyPath:@"@distinctUnionOfObjects.type"];
+             [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_CORE_ENABLED_PAYMENTS];
+
              NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
              NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
              
@@ -151,7 +153,7 @@
              }
              for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
                  NSInteger index ;
-
+                 
                  if (self.paymentMethodSelected.length > 0) {
                      index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
                          return [obj[@"id"] isEqualToString:self.paymentMethodSelected];

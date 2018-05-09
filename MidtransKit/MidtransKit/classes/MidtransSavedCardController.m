@@ -73,12 +73,14 @@
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     [self reloadSavedCards];
-    
+
     NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeOneClick];
     BOOL oneClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
-    NSPredicate* twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
+    NSPredicate *twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
     BOOL twoClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 Click token Available": @(oneClickAvailable), @"2 Clicks token Available": @(twoClickAvailable)}];
+    BOOL installmentRequired = self.responsePayment.creditCard.installments.required;
+    BOOL installmentAvailable = self.responsePayment.creditCard.installments.terms.allKeys.count > 0;
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(installmentAvailable), @"installment required": @(installmentRequired), @"1 click token available": @(oneClickAvailable), @"2 clicks token available": @(twoClickAvailable)}];
 }
 
 - (void)reloadSavedCards {

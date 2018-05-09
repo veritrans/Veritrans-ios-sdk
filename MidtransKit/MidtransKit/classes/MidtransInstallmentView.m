@@ -77,8 +77,17 @@
     [self.installmentCollectionView reloadData];
 }
 - (void)configureInstallmentView:(NSArray *)installmentContent {
-    self.installmentData = installmentContent;
-    [self.installmentCollectionView reloadData];
+    
+    __weak __typeof(self)weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.installmentData = installmentContent;
+        
+        if (!weakSelf) return;
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf.installmentCollectionView reloadData];
+        });
+    });
 }
 - (IBAction)prevButtonDidtapped:(id)sender {
     if (self.installmentCurrentIndex > 0) {

@@ -73,6 +73,12 @@
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     [self reloadSavedCards];
+    
+    NSPredicate* oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeOneClick];
+    BOOL oneClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
+    NSPredicate* twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
+    BOOL twoClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 Click token Available": @(oneClickAvailable), @"2 Clicks token Available": @(twoClickAvailable)}];
 }
 
 - (void)reloadSavedCards {
@@ -136,7 +142,6 @@
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 Click tokens Available":@(true)}];
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
     
@@ -165,7 +170,6 @@
 }
 
 - (void)performTwoClicksWithCard:(MidtransMaskedCreditCard *)card {
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"2 Clicks tokens Available":@(true)}];
     MidtransNewCreditCardViewController *vc =
     [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                  paymentMethod:self.paymentMethod

@@ -800,7 +800,9 @@ UIAlertViewDelegate
         return;
     }
 
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_INSTALLMENT_AVAILABLE];
+    id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_INSTALLMENT_REQUIRED];
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"Installment Available": available, @"Installment Required": required}];
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,

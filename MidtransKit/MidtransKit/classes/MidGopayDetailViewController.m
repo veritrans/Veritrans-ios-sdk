@@ -43,7 +43,7 @@
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
      self.navigationItem.leftBarButtonItem = self.backBarButton;
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay With GO-PAY"];
-    self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
+    self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.view.guideTableView.tableFooterView = [UIView new];

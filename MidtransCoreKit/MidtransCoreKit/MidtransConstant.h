@@ -139,6 +139,9 @@ static NSString *const MIDTRANS_TRACKING_APP_GET_SNAP_TOKEN_FAIL = @"Fail Gettin
 static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_SUCCESS = @"Transaction Success";
 static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_ERROR = @"Transaction Failed";
 
+static NSString *const MIDTRANS_TRACKING_MERCHANT_NAME = @"merchant_name";
+static NSString *const MIDTRANS_TRACKING_MERCHANT_ID = @"merchant_id";
+
 static NSString *const MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS = @"item_details";
@@ -150,10 +153,6 @@ static NSString *const MIDTRANS_CORE_STATUS_CODE = @"status_code";
 static NSString *const MIDTRANS_CORE_SAVED_ID_TOKEN = @"saved_token_id";
 static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
-static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
-static NSString *const MIDTRANS_CORE_MERCHANT_ID = @"merchant_id";
-static NSString *const MIDTRANS_CORE_INSTALLMENT_AVAILABLE = @"installment_available";
-static NSString *const MIDTRANS_CORE_INSTALLMENT_REQUIRED = @"installment_required";
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
 static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";

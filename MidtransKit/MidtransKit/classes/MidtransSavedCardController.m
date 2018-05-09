@@ -135,9 +135,7 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
-    id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_INSTALLMENT_AVAILABLE];
-    id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_INSTALLMENT_REQUIRED];
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"Installment Available": available, @"Installment Required": required}];
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];

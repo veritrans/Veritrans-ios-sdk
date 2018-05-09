@@ -204,8 +204,7 @@ UIAlertViewDelegate
         self.installmentRequired = self.installment.required;
         [self setupInstallmentView];
     }
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentAvailable) forKey:MIDTRANS_CORE_INSTALLMENT_AVAILABLE];
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentRequired) forKey:MIDTRANS_CORE_INSTALLMENT_REQUIRED];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"Installment Available": @(self.installmentAvailable), @"Installment Required": @(self.installmentRequired)}];
   
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
@@ -800,9 +799,7 @@ UIAlertViewDelegate
         return;
     }
 
-    id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_INSTALLMENT_AVAILABLE];
-    id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_INSTALLMENT_REQUIRED];
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"Installment Available": available, @"Installment Required": required}];
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,

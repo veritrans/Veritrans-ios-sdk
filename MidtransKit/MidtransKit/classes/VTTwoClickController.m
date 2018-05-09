@@ -84,10 +84,8 @@ static dispatch_once_t * onceToken;
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
         [self setupInstallmentView];
-        
     }
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentAvailable) forKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
-    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentRequired) forKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(self.installmentAvailable), @"installment required": @(self.installmentRequired)}];
     self.bins = self.creditCardInfo.whitelistBins;
 }
 

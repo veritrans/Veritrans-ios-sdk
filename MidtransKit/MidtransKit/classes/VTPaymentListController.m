@@ -109,11 +109,11 @@
      {
          self.title = response.merchant.preference.displayName;
          [[NSUserDefaults standardUserDefaults] setObject:response.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
-         [[NSUserDefaults standardUserDefaults] setObject:response.merchant.merchantId forKey:MIDTRANS_CORE_MERCHANT_ID];
+         [[NSUserDefaults standardUserDefaults] setObject:response.merchant.merchantId forKey:MIDTRANS_TRACKING_MERCHANT_ID];
          [[NSUserDefaults standardUserDefaults] synchronize];
          if (response) {
              NSArray* strings = [response.enabledPayments valueForKeyPath:@"@distinctUnionOfObjects.type"];
-             [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_CORE_ENABLED_PAYMENTS];
+             [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
 
              NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
              NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];

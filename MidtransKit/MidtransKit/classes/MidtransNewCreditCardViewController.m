@@ -204,6 +204,8 @@ UIAlertViewDelegate
         self.installmentRequired = self.installment.required;
         [self setupInstallmentView];
     }
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentAvailable) forKey:MIDTRANS_CORE_INSTALLMENT_AVAILABLE];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentRequired) forKey:MIDTRANS_CORE_INSTALLMENT_REQUIRED];
   
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;

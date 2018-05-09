@@ -805,13 +805,11 @@ UIAlertViewDelegate
         }];
         return;
     }
-    
+    NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"installment available": @(self.installmentAvailable), @"installment required": @(self.installmentRequired)}];
     if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id": self.responsePayment.transactionDetails.orderId}];
-    } else {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+        [additionalData addEntriesFromDictionary:@{@"order id": self.responsePayment.transactionDetails.orderId}];
     }
-    
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:additionalData];
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];

@@ -145,12 +145,13 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
+    id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
+    id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
+    NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"installment available": available, @"installment required": required}];
     if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
-    } else {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+        [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     }
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 click tokens available":@(true)}];
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:additionalData];
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
     

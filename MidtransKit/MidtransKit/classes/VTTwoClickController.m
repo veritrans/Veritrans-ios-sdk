@@ -252,6 +252,7 @@ static dispatch_once_t * onceToken;
         if (error) {
             [self handleTransactionError:error];
         } else {
+            [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
             [self handleTransactionSuccess:result];
         }
     }];

@@ -1004,6 +1004,7 @@ UIAlertViewDelegate
              }
          }
          else {
+             [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
              if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                      return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];

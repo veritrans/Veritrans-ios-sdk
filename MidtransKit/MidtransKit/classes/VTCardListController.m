@@ -250,6 +250,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                 if (error) {
                     [self handleTransactionError:error];
                 } else {
+                    [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Order id": result.orderId}];
                     [self handleTransactionSuccess:result];
                 }
             }];

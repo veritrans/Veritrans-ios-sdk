@@ -190,8 +190,6 @@
      {
          [self hideLoading];
          if (error) {
-
-             
              UIAlertController *alertController = [UIAlertController
                                                    alertControllerWithTitle:@"ERROR"
                                                    message:error.localizedDescription
@@ -211,6 +209,7 @@
              [self presentViewController:alertController animated:YES completion:nil];
          }
          else {
+             [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Order id": result.orderId}];
              if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  [self.maskedCards addObject:result.maskedCreditCard];
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards

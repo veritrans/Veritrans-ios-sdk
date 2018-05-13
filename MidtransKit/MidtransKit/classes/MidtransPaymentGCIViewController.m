@@ -107,6 +107,7 @@
             
         }
         else {
+            [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Order id": result.orderId}];
             if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
                   self.attemptRetry+=1;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[result.transactionStatus capitalizedString]

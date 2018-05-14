@@ -211,7 +211,6 @@
              [self presentViewController:alertController animated:YES completion:nil];
          }
          else {
-             [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
              if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  [self.maskedCards addObject:result.maskedCreditCard];
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards

@@ -113,13 +113,12 @@
     }
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
-    
+
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
             if ( [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||  [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
                  SNPPostPaymentGeneralViewController *postPaymentVAController = [[SNPPostPaymentGeneralViewController alloc] initWithNibName:@"SNPPostPaymentGeneralViewController" bundle:VTBundle];
                 postPaymentVAController.token = self.token;

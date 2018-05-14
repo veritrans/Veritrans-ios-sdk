@@ -102,7 +102,6 @@
                 [alert show];
             }
             else {
-                [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
                [self handleTransactionError:error];
             }
             

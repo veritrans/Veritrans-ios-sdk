@@ -104,7 +104,6 @@
             [self handleTransactionError:error];
         }
         else {
-            [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
             if (result.redirectURL) {
                 MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithMerchant:self.merchant
                                                                                                    result:result

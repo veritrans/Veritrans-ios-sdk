@@ -797,8 +797,8 @@ UIAlertViewDelegate
         }];
         return;
     }
-
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
@@ -1004,7 +1004,6 @@ UIAlertViewDelegate
              }
          }
          else {
-             [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
              if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
                      return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];

@@ -44,7 +44,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SNPUITrackingManager shared] trackEventName:@"pg select payment"];
+    [[SNPUITrackingManager shared] trackEventName:@"pg select payment" additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
     self.view.delegate = self;
     if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
         MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
@@ -261,7 +261,7 @@
     
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]]];
+    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]] additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
@@ -301,7 +301,9 @@
                 
             }
             else {
-                [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
+                [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal",
+                                                                                                           @"Order id": self.responsePayment.transactionDetails.orderId
+                                                                                                           }];
                 MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod

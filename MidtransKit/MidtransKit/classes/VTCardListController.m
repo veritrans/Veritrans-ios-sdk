@@ -165,7 +165,9 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
 
 - (IBAction)addCardPressed:(id)sender {
     
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal",
+                                                                                               @"Order id":self.responsePayment.transactionDetails.orderId
+                                                                                               }];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
@@ -250,7 +252,6 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                 if (error) {
                     [self handleTransactionError:error];
                 } else {
-                    [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
                     [self handleTransactionSuccess:result];
                 }
             }];

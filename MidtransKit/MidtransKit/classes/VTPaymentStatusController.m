@@ -88,7 +88,8 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     
     switch (self.statusType) {
             case SNPStatusTypeError: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg error"];
+                [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:@{@"Transaction id": self.result.transactionId,
+                                                                                                 @"Order id": self.result.orderId}];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
@@ -100,7 +101,8 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypeSuccess: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg success"];
+                [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:@{@"Transaction id": self.result.transactionId,
+                                                                                                   @"Order id": self.result.orderId}];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
@@ -112,7 +114,8 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypePending: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg pending"];
+                [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:@{@"Transaction id": self.result.transactionId,
+                                                                                                   @"Order id": self.result.orderId}];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];

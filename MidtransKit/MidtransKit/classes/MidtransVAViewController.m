@@ -199,7 +199,6 @@
         if (error) {
             [self handleTransactionError:error];
         } else {
-            [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Transaction id": result.transactionId}];
             SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
             postPaymentVAController.token = self.token;
             postPaymentVAController.response = self.response;

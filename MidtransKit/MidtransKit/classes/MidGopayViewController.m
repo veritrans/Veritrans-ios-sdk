@@ -177,6 +177,7 @@
                                                      [self showToastInviewWithMessage:error.description];
                                                  }
                                                  else {
+                                                     [[SNPUITrackingManager shared] trackEventName:@"perform transaction" additionalParameters:@{@"Order id": result.orderId}];
                                                      if (IPAD) {
                                                          MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
                                                          gopayDetailVC.result = result;

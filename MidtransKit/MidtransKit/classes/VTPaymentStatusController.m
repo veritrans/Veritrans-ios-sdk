@@ -90,7 +90,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         [additionalData addEntriesFromDictionary:@{@"Transaction id": self.result.transactionId}];
     }
     if (self.result.orderId) {
-        [additionalData setValue:self.result.orderId forKey:@"Order id"];
+        [additionalData addEntriesFromDictionary:@{@"Order id": self.result.transactionId}];
     }
     switch (self.statusType) {
             case SNPStatusTypeError: {

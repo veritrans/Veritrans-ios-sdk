@@ -164,10 +164,11 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
 }
 
 - (IBAction)addCardPressed:(id)sender {
-    
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal",
-                                                                                               @"Order id":self.responsePayment.transactionDetails.orderId
-                                                                                               }];
+    NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
+    if (self.responsePayment.transactionDetails.orderId) {
+        [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+    }
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard

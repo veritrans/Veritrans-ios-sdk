@@ -44,7 +44,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SNPUITrackingManager shared] trackEventName:@"pg select payment" additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
+    NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
+    if (self.responsePayment.transactionDetails.orderId) {
+        [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+    }
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     self.view.delegate = self;
     if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
         MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
@@ -261,7 +265,12 @@
     
     MidtransPaymentListModel *paymentMethod = (MidtransPaymentListModel *)[self.paymentMethodList objectAtIndex:index];
     NSString *paymentMethodName = paymentMethod.shortName;
-    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]] additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
+    NSString *eventName = [NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
+    if (self.responsePayment.transactionDetails.orderId) {
+        [[SNPUITrackingManager shared] trackEventName:eventName additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
+    } else {
+        [[SNPUITrackingManager shared] trackEventName:eventName];
+    }
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
@@ -301,9 +310,12 @@
                 
             }
             else {
-                [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal",
-                                                                                                           @"Order id": self.responsePayment.transactionDetails.orderId
-                                                                                                           }];
+                NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
+                if (self.responsePayment.transactionDetails.orderId) {
+                    [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+                }
+                [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
+
                 MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod

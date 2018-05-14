@@ -85,11 +85,16 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
                                 NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
                                 NSForegroundColorAttributeName:[UIColor whiteColor]
                                 };
-    
+    NSMutableDictionary * additionalData = [[NSMutableDictionary alloc] init];
+    if (self.result.transactionId) {
+        [additionalData addEntriesFromDictionary:@{@"Transaction id": self.result.transactionId}];
+    }
+    if (self.result.orderId) {
+        [additionalData setValue:self.result.orderId forKey:@"Order id"];
+    }
     switch (self.statusType) {
             case SNPStatusTypeError: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:@{@"Transaction id": self.result.transactionId,
-                                                                                                 @"Order id": self.result.orderId}];
+                [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
@@ -101,8 +106,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypeSuccess: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:@{@"Transaction id": self.result.transactionId,
-                                                                                                   @"Order id": self.result.orderId}];
+                [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
@@ -114,8 +118,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypePending: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:@{@"Transaction id": self.result.transactionId,
-                                                                                                   @"Order id": self.result.orderId}];
+                [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];

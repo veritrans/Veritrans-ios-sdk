@@ -50,7 +50,7 @@
     if (merchantId.length) {
         [defaultParameters setObject:merchantId forKey:@"merchant_id"];
     }
-    NSArray *enabledPayments = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_ENABLED_PAYMENTS];
+    NSArray *enabledPayments = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
     if (enabledPayments) {
         [defaultParameters setObject:enabledPayments forKey:@"enabled_payments"];
     }

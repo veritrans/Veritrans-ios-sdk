@@ -42,11 +42,11 @@
     [defaultParameters setObject:[MidtransDeviceHelper deviceModel]?[MidtransDeviceHelper deviceModel]:@"simulator" forKey:MIDTRANS_TRACKING_DEVICE_MODEL];
     [defaultParameters setObject:[MidtransDeviceHelper deviceName]?[MidtransDeviceHelper deviceName]:@"simulator" forKey:MIDTRANS_TRACKING_DEVICE_TYPE];
     [defaultParameters setObject:[MidtransDeviceHelper deviceLanguage] forKey:MIDTRANS_TRACKING_DEVICE_LANGUAGE];
-    NSString *merchant = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
+    NSString *merchant = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_MERCHANT_NAME];
     if (merchant.length) {
         [defaultParameters setObject:merchant forKey:@"merchant"];
     }
-    NSString *merchantId = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_ID];
+    NSString *merchantId = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_MERCHANT_ID];
     if (merchantId.length) {
         [defaultParameters setObject:merchantId forKey:@"merchant_id"];
     }

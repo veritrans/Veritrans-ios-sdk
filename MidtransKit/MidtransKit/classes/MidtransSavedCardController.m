@@ -73,6 +73,10 @@
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     [self reloadSavedCards];
+    
+    BOOL installmentRequired = self.responsePayment.creditCard.installments.required;
+    BOOL installmentAvailable = self.responsePayment.creditCard.installments.terms.allKeys.count > 0;
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(installmentAvailable), @"installment required": @(installmentRequired)}];
 }
 
 - (void)reloadSavedCards {
@@ -135,7 +139,7 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
-      [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];

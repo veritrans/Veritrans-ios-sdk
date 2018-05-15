@@ -52,7 +52,7 @@
     }
     NSArray *enabledPayments = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
     if (enabledPayments) {
-        [defaultParameters setObject:enabledPayments forKey:@"enabled_payments"];
+        [defaultParameters setObject:enabledPayments forKey:@"enabled payments"];
     }
     return defaultParameters;
 }

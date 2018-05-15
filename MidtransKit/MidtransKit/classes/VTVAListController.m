@@ -32,7 +32,7 @@
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     if (self.paymentResponse.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"Order id": self.paymentResponse.transactionDetails.orderId}];
+        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     }
@@ -98,7 +98,7 @@
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:index];
     NSString *paymentName  = vaTypeModel.shortName;
     if (self.paymentResponse.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"Order id": self.paymentResponse.transactionDetails.orderId}];
+        [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:paymentName];
     }

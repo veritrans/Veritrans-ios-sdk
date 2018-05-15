@@ -126,7 +126,7 @@
 - (void)addCardPressed:(id)sender {
     NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
     if (self.responsePayment.transactionDetails.orderId) {
-        [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+        [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     }
     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
@@ -140,7 +140,7 @@
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
     if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     }
@@ -208,7 +208,7 @@
     if (CC_CONFIG.tokenStorageEnabled) {
         NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
         if (self.responsePayment.transactionDetails.orderId) {
-            [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+            [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
         }
         [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
 
@@ -221,7 +221,7 @@
         else {
             NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
             if (self.responsePayment.transactionDetails.orderId) {
-                [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+                [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
             }
             [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
             [self performTwoClicksWithCard:card];

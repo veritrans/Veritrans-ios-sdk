@@ -46,7 +46,7 @@
     [super viewDidLoad];
     NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
     if (self.responsePayment.transactionDetails.orderId) {
-        [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+        [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     }
     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     self.view.delegate = self;
@@ -267,7 +267,7 @@
     NSString *paymentMethodName = paymentMethod.shortName;
     NSString *eventName = [NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
     if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:eventName additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
+        [[SNPUITrackingManager shared] trackEventName:eventName additionalParameters:@{@"order id": self.responsePayment.transactionDetails.orderId}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:eventName];
     }
@@ -312,7 +312,7 @@
             else {
                 NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
                 if (self.responsePayment.transactionDetails.orderId) {
-                    [additionalData addEntriesFromDictionary:@{@"Order id":self.responsePayment.transactionDetails.orderId}];
+                    [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
                 }
                 [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
 

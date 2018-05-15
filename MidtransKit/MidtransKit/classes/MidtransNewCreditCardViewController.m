@@ -799,7 +799,7 @@ UIAlertViewDelegate
     }
     
     if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"Order id": self.responsePayment.transactionDetails.orderId}];
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id": self.responsePayment.transactionDetails.orderId}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     }

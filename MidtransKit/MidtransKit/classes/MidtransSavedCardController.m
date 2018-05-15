@@ -76,7 +76,7 @@
     
     BOOL installmentRequired = self.responsePayment.creditCard.installments.required;
     BOOL installmentAvailable = self.responsePayment.creditCard.installments.terms.allKeys.count > 0;
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"Installment Available": @(installmentAvailable), @"Installment Required": @(installmentRequired)}];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(installmentAvailable), @"installment required": @(installmentRequired)}];
 }
 
 - (void)reloadSavedCards {

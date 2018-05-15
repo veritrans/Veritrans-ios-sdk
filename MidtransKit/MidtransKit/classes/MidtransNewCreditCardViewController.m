@@ -204,7 +204,7 @@ UIAlertViewDelegate
         self.installmentRequired = self.installment.required;
         [self setupInstallmentView];
     }
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"Installment Available": @(self.installmentAvailable), @"Installment Required": @(self.installmentRequired)}];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(self.installmentAvailable), @"installment required": @(self.installmentRequired)}];
   
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;

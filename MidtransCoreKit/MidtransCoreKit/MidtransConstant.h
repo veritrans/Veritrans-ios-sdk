@@ -152,6 +152,7 @@ static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
 static NSString *const MIDTRANS_CORE_MERCHANT_ID = @"merchant_id";
+static NSString *const MIDTRANS_TRACKING_ENABLED_PAYMENTS = @"enabled_payments";
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
 static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";

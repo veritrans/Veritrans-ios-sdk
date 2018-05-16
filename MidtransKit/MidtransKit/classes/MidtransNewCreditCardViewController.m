@@ -250,7 +250,7 @@ UIAlertViewDelegate
     BOOL oneClickAvailable = [[self.creditCardInfo.savedTokens filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
     NSPredicate* twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
     BOOL twoClickAvailable = [[self.creditCardInfo.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 Click token Available": @(oneClickAvailable), @"2 Clicks token Available": @(twoClickAvailable)}];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 click token available": @(oneClickAvailable), @"2 clicks token available": @(twoClickAvailable)}];
 }
 - (void)totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];

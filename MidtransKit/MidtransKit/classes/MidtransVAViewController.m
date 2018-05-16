@@ -200,7 +200,6 @@
             [self handleTransactionError:error];
         } else {
             SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
-            
             postPaymentVAController.token = self.token;
             postPaymentVAController.response = self.response;
             postPaymentVAController.paymentMethod = self.paymentMethod;

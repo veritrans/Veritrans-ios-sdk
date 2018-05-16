@@ -797,8 +797,12 @@ UIAlertViewDelegate
         }];
         return;
     }
-
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    
+    if (self.responsePayment.transactionDetails.orderId) {
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id": self.responsePayment.transactionDetails.orderId}];
+    } else {
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    }
     
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,

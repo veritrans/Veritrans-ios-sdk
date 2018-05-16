@@ -106,6 +106,9 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypeSuccess: {
+                id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
+                id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
+                [additionalData addEntriesFromDictionary:@{@"installment available": available, @"installment required": required}];
                 [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
                 

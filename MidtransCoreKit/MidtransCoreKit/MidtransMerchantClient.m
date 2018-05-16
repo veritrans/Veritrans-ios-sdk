@@ -353,10 +353,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 if ([[paymentRequestV2.merchant.preference dictionaryRepresentation] count]) {
                     [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
                     [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
-                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.merchantId forKey:MIDTRANS_CORE_MERCHANT_ID];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.merchantId forKey:MIDTRANS_TRACKING_MERCHANT_ID];
                     NSArray* strings = [paymentRequestV2.enabledPayments valueForKeyPath:@"@distinctUnionOfObjects.type"];
                     [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
-
                     [[NSUserDefaults standardUserDefaults] setObject:token forKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }

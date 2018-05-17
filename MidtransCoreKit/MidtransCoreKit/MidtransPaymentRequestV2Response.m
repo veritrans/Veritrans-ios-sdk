@@ -155,8 +155,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
 
 #pragma mark - NSCoding Methods
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     self.promos = [aDecoder decodeObjectForKey:kMidtransCheckoutResponsePromo];
     self.transactionDetails = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseTransactionDetails];

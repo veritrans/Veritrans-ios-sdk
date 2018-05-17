@@ -106,10 +106,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypeSuccess: {
-                id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
-                id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
-                [additionalData addEntriesFromDictionary:@{@"installment available": available, @"installment required": required}];
-                [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
+                [[SNPUITrackingManager shared] trackEventName:@"pg success"];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];

@@ -120,9 +120,7 @@
     else {
         self.installmentCurrentIndex  = 0;
     }
-    __weak __typeof(self)weakSelf = self;
-    if (!weakSelf) return;
-    __strong __typeof(weakSelf)strongSelf = weakSelf;
+    __strong __typeof(self)strongSelf = self;
     dispatch_async(dispatch_get_main_queue(), ^{
         strongSelf.prevButton.enabled = NO;
         strongSelf.nextButton.enabled = YES;

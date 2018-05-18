@@ -921,7 +921,8 @@ UIAlertViewDelegate
     }
     if (self.bniPointActive || self.mandiriPointActive) {
         tokenRequest.point = YES;
-        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
+        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest
+                                                   completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
             [self hideLoading];
             if (error) {
                 

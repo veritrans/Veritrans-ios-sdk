@@ -223,7 +223,9 @@
         self.emailTextField.enabled = NO;
         self.userNameTextField.enabled = NO;
         self.phoneNumberTextfield.enabled = NO;
-        
+        [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:@"USER_DEMO_CONTENT_EMAIL"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.phoneNumberTextfield.text forKey:@"USER_DEMO_CONTENT_PHONE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
     }else {
         [self.editButton setSelected:YES];

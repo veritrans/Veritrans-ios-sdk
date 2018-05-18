@@ -125,8 +125,10 @@
         strongSelf.prevButton.enabled = NO;
         strongSelf.nextButton.enabled = YES;
         [strongSelf selectedIndex:0];
-        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:strongSelf.installmentCurrentIndex inSection:0];
-        [strongSelf.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        if ([strongSelf.installmentCollectionView numberOfItemsInSection:0] > 0) {
+            NSIndexPath *indexpath = [NSIndexPath indexPathForRow:strongSelf.installmentCurrentIndex inSection:0];
+            [strongSelf.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        }
         [strongSelf.installmentCollectionView reloadData];
     });
 }

@@ -27,9 +27,13 @@
 @property (weak, nonatomic) IBOutlet UIImageView *secureBadgeImage;
 @property (weak, nonatomic) IBOutlet MidtransPaymentMethodHeader *totalAmountText;
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;
+@property (weak, nonatomic) IBOutlet UIView *userDetailViewWrapper;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *userDetailViewWrapperConstraints;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountPrice;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
+@property (weak, nonatomic) IBOutlet MidtransUITextField *contactEmailTextField;
+@property (weak, nonatomic) IBOutlet MidtransUITextField *contactPhoneNumberTextField;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;

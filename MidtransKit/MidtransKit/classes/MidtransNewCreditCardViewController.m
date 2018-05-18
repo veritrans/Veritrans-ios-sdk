@@ -66,6 +66,7 @@ UIAlertViewDelegate
 @property (nonatomic) BOOL bniPointActive;
 @property (nonatomic) BOOL mandiriPointActive;
 @property (nonatomic) BOOL isSaveCard;
+@property (nonatomic) BOOL showUserForm;
 @property (nonatomic,strong)AddOnConstructor *constructBNIPoint;
 @property (nonatomic,strong)AddOnConstructor *constructMandiriPoint;
 @property (nonatomic,strong) NSString *currentPromoSelected;
@@ -165,7 +166,15 @@ UIAlertViewDelegate
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
-    
+    self.showUserForm = [CC_CONFIG showFormCredentialsUser];
+    self.view.userDetailViewWrapper.hidden = YES;
+    self.view.userDetailViewWrapperConstraints.constant = 0.0f;
+    if (self.showUserForm) {
+        self.view.contactEmailTextField.text = self.responsePayment.customerDetails.email;
+        self.view.contactPhoneNumberTextField.text = self.responsePayment.customerDetails.phone;
+        self.view.userDetailViewWrapper.hidden = NO;
+        self.view.userDetailViewWrapperConstraints.constant = 150.0f;
+    }
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
@@ -953,6 +962,10 @@ UIAlertViewDelegate
 }
 
 - (void)payWithToken:(NSString *)token {
+    self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
+    self.token.customerDetails.email = self.view.contactEmailTextField.text;
+    
+    
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.isSaveCard

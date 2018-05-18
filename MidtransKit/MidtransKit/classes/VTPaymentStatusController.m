@@ -106,7 +106,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
             
             case SNPStatusTypeSuccess: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg success"];
+                [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
                 
                 self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];

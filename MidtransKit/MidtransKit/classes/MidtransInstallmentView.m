@@ -120,12 +120,15 @@
     else {
         self.installmentCurrentIndex  = 0;
     }
-    self.prevButton.enabled = NO;
-    self.nextButton.enabled = YES;
-    [self selectedIndex:0];
-    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
-    [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    [self.installmentCollectionView reloadData];
+    __strong __typeof(self)strongSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        strongSelf.prevButton.enabled = NO;
+        strongSelf.nextButton.enabled = YES;
+        [strongSelf selectedIndex:0];
+        NSIndexPath *indexpath = [NSIndexPath indexPathForRow:strongSelf.installmentCurrentIndex inSection:0];
+        [strongSelf.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        [strongSelf.installmentCollectionView reloadData];
+    });
 }
 - (void)selectedIndex:(NSInteger)indexSelected {
     if ([self.delegate respondsToSelector:@selector(installmentSelectedIndex:)]) {

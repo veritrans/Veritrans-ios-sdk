@@ -981,20 +981,22 @@ UIAlertViewDelegate
                                         initWithPaymentDetails:paymentDetail token:self.token];
     
     if (self.selectedPromos){
-        NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
-        NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
-        
-        NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
-            @"promo_id":self.selectedPromos.addOnAddtional
-                                           };
-        
-        paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
-                                                                                    customer:self.token.customerDetails
-                                                                                    saveCard:self.isSaveCard
-                                                                                 installment:self.installmentTerms
-                                                           promos:promoConstructor];
-        transaction = [[MidtransTransaction alloc]
-                       initWithPaymentDetails:paymentDetail token:self.token];
+        if (self.selectedPromos.addOnAddtional) {
+            NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+            
+            NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
+                                               @"promo_id":self.selectedPromos.addOnAddtional
+                                               };
+            
+            paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                             customer:self.token.customerDetails
+                                                             saveCard:self.isSaveCard
+                                                          installment:self.installmentTerms
+                                                               promos:promoConstructor];
+            transaction = [[MidtransTransaction alloc]
+                           initWithPaymentDetails:paymentDetail token:self.token];
+        }
     }
     
     if (self.bniPointActive || self.mandiriPointActive) {

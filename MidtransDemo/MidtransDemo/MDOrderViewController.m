@@ -66,9 +66,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    [CONFIG setClientKey:clientkey
+    [CONFIG setClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
              environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:merchantServer];
+       merchantServerURL:@"https://rakawm-snap.herokuapp.com/installment/"];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = YES;

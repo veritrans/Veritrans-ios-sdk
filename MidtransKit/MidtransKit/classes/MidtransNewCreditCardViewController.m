@@ -259,6 +259,8 @@ UIAlertViewDelegate
     BOOL oneClickAvailable = [[self.creditCardInfo.savedTokens filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
     NSPredicate* twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
     BOOL twoClickAvailable = [[self.creditCardInfo.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@(oneClickAvailable) forKey:MIDTRANS_TRACKING_ONE_CLICK_AVAILABLE];
+    [[NSUserDefaults standardUserDefaults] setObject:@(twoClickAvailable) forKey:MIDTRANS_TRACKING_TWO_CLICK_AVAILABLE];
     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 click token available": @(oneClickAvailable), @"2 clicks token available": @(twoClickAvailable)}];
 }
 - (void)totalAmountBorderedViewTapped:(id) sender {
@@ -979,20 +981,22 @@ UIAlertViewDelegate
                                         initWithPaymentDetails:paymentDetail token:self.token];
     
     if (self.selectedPromos){
-        NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
-        NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
-        
-        NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
-            @"promo_id":self.selectedPromos.addOnAddtional
-                                           };
-        
-        paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
-                                                                                    customer:self.token.customerDetails
-                                                                                    saveCard:self.isSaveCard
-                                                                                 installment:self.installmentTerms
-                                                           promos:promoConstructor];
-        transaction = [[MidtransTransaction alloc]
-                       initWithPaymentDetails:paymentDetail token:self.token];
+        if (self.selectedPromos.addOnAddtional) {
+            NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+            
+            NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
+                                               @"promo_id":self.selectedPromos.addOnAddtional
+                                               };
+            
+            paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                             customer:self.token.customerDetails
+                                                             saveCard:self.isSaveCard
+                                                          installment:self.installmentTerms
+                                                               promos:promoConstructor];
+            transaction = [[MidtransTransaction alloc]
+                           initWithPaymentDetails:paymentDetail token:self.token];
+        }
     }
     
     if (self.bniPointActive || self.mandiriPointActive) {

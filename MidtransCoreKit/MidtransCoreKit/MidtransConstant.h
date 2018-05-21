@@ -143,6 +143,8 @@ static NSString *const MIDTRANS_TRACKING_MERCHANT_ID = @"merchant_id";
 static NSString *const MIDTRANS_TRACKING_ENABLED_PAYMENTS = @"enabled_payments";
 static NSString *const MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE = @"installment_available";
 static NSString *const MIDTRANS_TRACKING_INSTALLMENT_REQUIRED = @"installment_required";
+static NSString *const MIDTRANS_TRACKING_ONE_CLICK_AVAILABLE = @"one_click_available";
+static NSString *const MIDTRANS_TRACKING_TWO_CLICK_AVAILABLE = @"two_click_available";
 
 static NSString *const MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";

@@ -92,6 +92,18 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     if (self.result.orderId) {
         [additionalData addEntriesFromDictionary:@{@"order id": self.result.orderId}];
     }
+    if (self.result.maskedCreditCard) {
+        BOOL oneclick = [self.result.maskedCreditCard.tokenType isEqualToString:TokenTypeOneClick];
+        BOOL twoclick = [self.result.maskedCreditCard.tokenType isEqualToString:TokenTypeTwoClicks];
+        [additionalData addEntriesFromDictionary:@{@"1 click token available": @(oneclick),
+                                                   @"2 clicks token available": @(twoclick)}];
+    }
+    id available = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
+    id required = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
+    if (available && required) {
+        [additionalData addEntriesFromDictionary:@{@"installment available": available,
+                                                   @"installment required": required}];
+    }
     switch (self.statusType) {
             case SNPStatusTypeError: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];

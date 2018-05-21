@@ -80,6 +80,8 @@
     BOOL twoClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
     BOOL installmentRequired = self.responsePayment.creditCard.installments.required;
     BOOL installmentAvailable = self.responsePayment.creditCard.installments.terms.allKeys.count > 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@(installmentAvailable) forKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
+    [[NSUserDefaults standardUserDefaults] setObject:@(installmentRequired) forKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
     [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(installmentAvailable), @"installment required": @(installmentRequired), @"1 click token available": @(oneClickAvailable), @"2 clicks token available": @(twoClickAvailable)}];
 }
 

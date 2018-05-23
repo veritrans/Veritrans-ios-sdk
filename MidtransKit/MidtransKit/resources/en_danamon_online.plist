@@ -4,18 +4,6 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Danamon Online Banking must be completed through Danamon&apos;s website.</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Please make sure you have a User ID for Danamon Online Banking before going through the payment.</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
 		<string>Enter Danamon Online Banking User ID and Password and select the source of fund.</string>
 		<key>image</key>
 		<string></string>

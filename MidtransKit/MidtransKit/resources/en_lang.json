@@ -125,5 +125,8 @@
         "Time's Up":"Time's Up",
     "bni.point.toptitle":"How much points you want to redeem?",
     "bni.point.secondtitle":"AMOUNT TO PAY AFTER REDEEM",
-    "BNI Points Terms & Conditions":"BNI Points Terms & Conditions"
+    "BNI Points Terms & Conditions":"BNI Points Terms & Conditions",
+    "danamon.instructions.header1":"Danamon Online Banking must be completed through Danamon's website.",
+    "danamon.instructions.header2":"Please make sure you have a User ID for Danamon Online Banking before going through the payment."
+
 }

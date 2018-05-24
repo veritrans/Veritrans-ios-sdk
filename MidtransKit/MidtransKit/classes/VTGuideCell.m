@@ -168,6 +168,8 @@
         self.contentLabel.tapableText = instruction.content;
     }
     
+//    self.backgroundColor = (number % 2 == 0) ? [UIColor whiteColor] : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+
     UIImage *image = [UIImage imageNamed:instruction.image inBundle:VTBundle compatibleWithTraitCollection:nil];
     if (image) {
         self.illustrationView.image = image;

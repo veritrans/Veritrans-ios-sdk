@@ -120,6 +120,8 @@
     "Time's Up":"Waktu Habis",
     "bni.point.toptitle":"Berapa poin yang ingin anda tukarkan?",
     "bni.point.secondtitle":"TOTAL PEMBAYARAN SETELAH TUKAR POIN",
-    "BNI Points Terms & Conditions": "Syarat & Ketentuan BNI Point"
+    "BNI Points Terms & Conditions": "Syarat & Ketentuan BNI Point",
+    "danamon.instructions.header1":"Pembayaran melalui Danamon Online Banking harus diselesaikan di website Danamon.",
+    "danamon.instructions.header2":"Pastikan Anda telah memiliki User ID Danamon Online Banking sebelum melakukan pembayaran."
 
 }

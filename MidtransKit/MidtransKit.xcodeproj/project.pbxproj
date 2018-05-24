@@ -312,6 +312,12 @@
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		3D0E6C341FB95C6100E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
 		3D0E6C351FB95C6300E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
+		3D36593620B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */; };
+		3D36593720B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */; };
+		3D36593820B5258F00C07158 /* MIDDanamonOnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D36593420B5258F00C07158 /* MIDDanamonOnlineViewController.m */; };
+		3D36593920B5258F00C07158 /* MIDDanamonOnlineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D36593420B5258F00C07158 /* MIDDanamonOnlineViewController.m */; };
+		3D36593A20B5258F00C07158 /* MIDDanamonOnlineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D36593520B5258F00C07158 /* MIDDanamonOnlineViewController.xib */; };
+		3D36593B20B525B100C07158 /* MIDDanamonOnlineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D36593520B5258F00C07158 /* MIDDanamonOnlineViewController.xib */; };
 		3D4089101F74E35800B9A2EC /* en_mandiri_clickpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089061F74E35800B9A2EC /* en_mandiri_clickpay.plist */; };
 		3D4089111F74E35800B9A2EC /* en_permata_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089071F74E35800B9A2EC /* en_permata_va.plist */; };
 		3D4089121F74E35800B9A2EC /* id_bca_klikbca.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3D4089081F74E35800B9A2EC /* id_bca_klikbca.plist */; };
@@ -1452,6 +1458,9 @@
 		30E879861C88EDE1000C0F4B /* VTTwoClickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTTwoClickController.m; path = classes/VTTwoClickController.m; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/classes/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/classes/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
+		3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDDanamonOnlineViewController.h; path = classes/MIDDanamonOnlineViewController.h; sourceTree = "<group>"; };
+		3D36593420B5258F00C07158 /* MIDDanamonOnlineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MIDDanamonOnlineViewController.m; path = classes/MIDDanamonOnlineViewController.m; sourceTree = "<group>"; };
+		3D36593520B5258F00C07158 /* MIDDanamonOnlineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MIDDanamonOnlineViewController.xib; sourceTree = "<group>"; };
 		3D4089061F74E35800B9A2EC /* en_mandiri_clickpay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_mandiri_clickpay.plist; path = MidtransKit/resources/en_mandiri_clickpay.plist; sourceTree = SOURCE_ROOT; };
 		3D4089071F74E35800B9A2EC /* en_permata_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_permata_va.plist; path = MidtransKit/resources/en_permata_va.plist; sourceTree = SOURCE_ROOT; };
 		3D4089081F74E35800B9A2EC /* id_bca_klikbca.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_bca_klikbca.plist; path = MidtransKit/resources/id_bca_klikbca.plist; sourceTree = SOURCE_ROOT; };
@@ -2337,6 +2346,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				3D36593520B5258F00C07158 /* MIDDanamonOnlineViewController.xib */,
 				0CB8B7D62071EF420067A0B8 /* MidtransCommonTSCViewController.xib */,
 				0CCD621A20048FCA006936E5 /* MIDOtherVAViewController.xib */,
 				0CE1D2AA1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib */,
@@ -2634,12 +2644,22 @@
 				30E713101C85749F00AFB7B4 /* Credit Card */,
 				30E713111C857DF400AFB7B4 /* Clickpay */,
 				0CD7EA8B1E03A17E0036C187 /* GCI */,
+				3D36592A20B5180600C07158 /* Danamon Online */,
 				002CC9AB1D127C23003A1203 /* Guide */,
 				E583AFED1C8D6DB000C04512 /* Status */,
 				0CCD621020048F8D006936E5 /* MIDOtherVAViewController.h */,
 				0CCD621120048F8E006936E5 /* MIDOtherVAViewController.m */,
 			);
 			name = Payment;
+			sourceTree = "<group>";
+		};
+		3D36592A20B5180600C07158 /* Danamon Online */ = {
+			isa = PBXGroup;
+			children = (
+				3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */,
+				3D36593420B5258F00C07158 /* MIDDanamonOnlineViewController.m */,
+			);
+			name = "Danamon Online";
 			sourceTree = "<group>";
 		};
 		E503AEDC1C8E8C7200F097FF /* View */ = {
@@ -2838,6 +2858,7 @@
 				0CBA28C21F98B15800F651C7 /* MIDV2PaymentListViewController.h in Headers */,
 				E57120CD1E937B790064F515 /* MidtransUIThemeManager.h in Headers */,
 				E57120CE1E937B790064F515 /* MidtransUIFontSource.h in Headers */,
+				3D36593720B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */,
 				E57120A11E937B790064F515 /* MidtransUICustomAlertViewController.h in Headers */,
 				E57120A21E937B790064F515 /* MidtransInstallmentView.h in Headers */,
 				E57120A31E937B790064F515 /* MidtransInstallmentCollectionViewCell.h in Headers */,
@@ -3000,6 +3021,7 @@
 				E55F62B91E934A6D00C012C8 /* MidtransUIStringHelper.h in Headers */,
 				E55F62BC1E934A6D00C012C8 /* MidtransUICardFormatter.h in Headers */,
 				0C1ADB8B1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h in Headers */,
+				3D36593620B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */,
 				E55F62BE1E934A6D00C012C8 /* UIColor+SNP_HexString.h in Headers */,
 				E55F62C01E934A6D00C012C8 /* MidtransUIPaymentController.h in Headers */,
 				E55F62C11E934A6D00C012C8 /* MidtransUIPaymentDirectViewController.h in Headers */,
@@ -3498,6 +3520,7 @@
 				E58FCE431E94CFD600632085 /* other_prima_2@2x.png in Resources */,
 				3D8BF5D41F90BDC400F35C55 /* MidtransUITableAlertViewController.xib in Resources */,
 				E58FCE551E94CFD600632085 /* permata_atm_1@2x.png in Resources */,
+				3D36593B20B525B100C07158 /* MIDDanamonOnlineViewController.xib in Resources */,
 				0CCD62522005D0BA006936E5 /* prima@2x.png in Resources */,
 				E57124831E9381280064F515 /* SourceSansPro-Bold.ttf in Resources */,
 				0CE1D27C1F62A752003A012F /* bni_va@4x.png in Resources */,
@@ -3569,6 +3592,7 @@
 				E58FCE161E94CFD500632085 /* MasterCardDark@2x.png in Resources */,
 				0C93244E1F7B810B00D9A390 /* en_danamon_online.plist in Resources */,
 				0CE1D2CF1F67BBDE003A012F /* SNPPostPaymentGeneralViewController.xib in Resources */,
+				3D36593A20B5258F00C07158 /* MIDDanamonOnlineViewController.xib in Resources */,
 				0CC900291F7020780058E93C /* en_telkomsel_cash.plist in Resources */,
 				E5F1BB591E93701100ED659D /* MidtransLoadingView.xib in Resources */,
 				0C9635011FE11A1F00EF89DF /* ic_chevron_up@2x.png in Resources */,
@@ -3943,6 +3967,7 @@
 				E57122B71E937C040064F515 /* MidtransItemCell.m in Sources */,
 				E57122B81E937C040064F515 /* MidtransCollectionViewLayout.m in Sources */,
 				E57122B91E937C040064F515 /* MidtransLineView.m in Sources */,
+				3D36593920B5258F00C07158 /* MIDDanamonOnlineViewController.m in Sources */,
 				E57122BA1E937C040064F515 /* VTItemViewModel.m in Sources */,
 				E57122BB1E937C040064F515 /* VTPaymentStatusViewModel.m in Sources */,
 				E57122BC1E937C040064F515 /* VTVATransactionStatusViewModel.m in Sources */,
@@ -4119,6 +4144,7 @@
 				E55F632A1E934B1C00C012C8 /* MidtransVAHeader.m in Sources */,
 				0C9634C31FE119BC00EF89DF /* MIDGopayDetailView.m in Sources */,
 				0C108A051EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,
+				3D36593820B5258F00C07158 /* MIDDanamonOnlineViewController.m in Sources */,
 				0CBD65FE207DE875004DAE64 /* UIImage+Scale.m in Sources */,
 				E55F632B1E934B1C00C012C8 /* SNPPointViewController.m in Sources */,
 				E55F632C1E934B1C00C012C8 /* SNPPointView.m in Sources */,

@@ -88,6 +88,7 @@ static NSString * const ENDPOINT_CHECK_STATUS_RBA = @"%@/transactions/%@/status"
 static NSString * const ENDPOINT_TRANSACTION_DETAIL = @"%@/transactions/%@";
 static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
 
+static NSString * const NOTIFICATION_GOPAY_STATUS = @"NOTIFICATION_GOPAY_STATUS";
 /**
  *  MESSAGE CONSTANT
  */
@@ -158,6 +159,7 @@ static NSString *const MIDTRANS_CORE_SAVED_ID_TOKEN = @"saved_token_id";
 static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
+static NSString *const MIDTRANS_CORE_CURRENT_TOKEN = @"current_token";
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
 static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";

@@ -104,11 +104,13 @@
                                               otherButtonTitles:@"Ok", nil];
         [alert show];
     }
+    
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
          self.title = response.merchant.preference.displayName;
          [[NSUserDefaults standardUserDefaults] setObject:response.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+         [[NSUserDefaults standardUserDefaults] setObject:self.token.tokenId forKey:MIDTRANS_CORE_CURRENT_TOKEN];
          [[NSUserDefaults standardUserDefaults] setObject:response.merchant.merchantId forKey:MIDTRANS_TRACKING_MERCHANT_ID];
          [[NSUserDefaults standardUserDefaults] synchronize];
          if (response) {

@@ -44,6 +44,7 @@
  */
 - (void)performTransaction:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 - (void)performCheckStatusRBA:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
+- (void)performCheckStatusTransactionWcompletion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 /**
  Save credit card partial information to the Merchant Server. The partial
  credit card information is modeled using `MTMaskedCreditCard`. This `MTMaskedCreditCard` instance can be fetched using method `registerCreditCard:completion` in `VTClient`.
@@ -56,7 +57,7 @@
 
 - (void)fetchMaskedCardsCustomer:(MidtransCustomerDetails *_Nonnull)customer completion:(void(^_Nullable)(NSArray *_Nullable maskedCards, NSError *_Nullable error))completion;
 
-/*https://www.linkedin.com/feed/#
+/*
  * updated method, snapping
  */
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails

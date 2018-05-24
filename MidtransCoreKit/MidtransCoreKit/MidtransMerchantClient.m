@@ -52,6 +52,36 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     return instance;
 }
 
+- (void)performCheckStatusTransactionWcompletion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion{
+    
+    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+    [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
+    MidtransTransaction *transaction = [MidtransTransaction new];
+    [[MidtransNetworking shared] getFromURL:[transaction checkStatusTransaction] header:headers parameters:nil callback:^(id response, NSError *error) {
+        
+        NSString *paymentType = transaction.paymentType;
+        
+        if (response) {
+            MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
+            if ([paymentType isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+                if (completion) {
+                    completion(chargeResult, error);
+                }
+            }
+            else {
+                if (completion) {
+                    completion(chargeResult, error);
+                }
+            }
+        }
+        else {
+            if (completion) {
+                completion(nil, error);
+            }
+        }
+    }];
+    
+}
 - (void)performCheckStatusRBA:(MidtransTransaction *)transaction
                 completion:(void(^)(MidtransTransactionResult *result, NSError *error))completion {
     

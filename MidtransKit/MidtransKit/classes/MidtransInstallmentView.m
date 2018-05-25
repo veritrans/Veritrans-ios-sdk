@@ -77,8 +77,17 @@
     [self.installmentCollectionView reloadData];
 }
 - (void)configureInstallmentView:(NSArray *)installmentContent {
-    self.installmentData = installmentContent;
-    [self.installmentCollectionView reloadData];
+    
+    __weak __typeof(self)weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        self.installmentData = installmentContent;
+        
+        if (!weakSelf) return;
+        __strong __typeof(weakSelf)strongSelf = weakSelf;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [strongSelf.installmentCollectionView reloadData];
+        });
+    });
 }
 - (IBAction)prevButtonDidtapped:(id)sender {
     if (self.installmentCurrentIndex > 0) {
@@ -111,12 +120,17 @@
     else {
         self.installmentCurrentIndex  = 0;
     }
-    self.prevButton.enabled = NO;
-    self.nextButton.enabled = YES;
-    [self selectedIndex:0];
-    NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
-    [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
-    [self.installmentCollectionView reloadData];
+    __strong __typeof(self)strongSelf = self;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        strongSelf.prevButton.enabled = NO;
+        strongSelf.nextButton.enabled = YES;
+        [strongSelf selectedIndex:0];
+        if ([strongSelf.installmentCollectionView numberOfItemsInSection:0] > 0) {
+            NSIndexPath *indexpath = [NSIndexPath indexPathForRow:strongSelf.installmentCurrentIndex inSection:0];
+            [strongSelf.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        }
+        [strongSelf.installmentCollectionView reloadData];
+    });
 }
 - (void)selectedIndex:(NSInteger)indexSelected {
     if ([self.delegate respondsToSelector:@selector(installmentSelectedIndex:)]) {

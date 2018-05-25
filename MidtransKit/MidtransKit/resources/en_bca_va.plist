@@ -95,55 +95,43 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘m-transfer’</string>
+				<string>Log in to your BCA Mobile app</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Transfer’</string>
+				<string> Choose ‘m-BCA’, then input your m-BCA access code</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘BCA Virtual Account’</string>
+				<string> Choose ‘m-Transfer’, then choose BCA Virtual Account</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘account number’ that you want to use for payment</string>
+				<string>Input  ‘Virtual Account Number’ or choose an existing account from Daftar Transfer </string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Input BCA Virtual Account Number and click ‘OK’</string>
+				<string>Input the payable amount</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>BCA Virtual Account Number and your account information will appear on the payment confirmation page and then click ‘Send’</string>
+				<string>Input your ‘ m-BCA’ pin </string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Click ‘OK’ on the payment confirmation page</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter amount to be transferred then click ‘OK’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Your transaction is Done</string>
+				<string>Payment is finished. Save the notification as your payment receipt.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

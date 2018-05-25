@@ -73,6 +73,16 @@
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     [self reloadSavedCards];
+
+    NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeOneClick];
+    BOOL oneClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
+    NSPredicate *twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
+    BOOL twoClickAvailable = [[self.creditCard.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
+    BOOL installmentRequired = self.responsePayment.creditCard.installments.required;
+    BOOL installmentAvailable = self.responsePayment.creditCard.installments.terms.allKeys.count > 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@(installmentAvailable) forKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
+    [[NSUserDefaults standardUserDefaults] setObject:@(installmentRequired) forKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(installmentAvailable), @"installment required": @(installmentRequired), @"1 click token available": @(oneClickAvailable), @"2 clicks token available": @(twoClickAvailable)}];
 }
 
 - (void)reloadSavedCards {
@@ -96,7 +106,7 @@
                                                                                                    paymentMethodName:self.paymentMethod
                                                                                                    andCreditCardData:self.creditCard
                                                                                         andCompleteResponseOfPayment:self.responsePayment];
-                vc.promos = self.promos;
+               // vc.promos = self.promos;
                 [self.navigationController pushViewController:vc animated:NO];
             }
             
@@ -124,19 +134,25 @@
 }
 
 - (void)addCardPressed:(id)sender {
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"normal"}];
+    NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"normal"}];
+    if (self.responsePayment.transactionDetails.orderId) {
+        [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
+    }
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
-    vc.promos = self.promos;
+    //vc.promos = self.promos;
     vc.currentMaskedCards = self.cards;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
-      [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    
+    if (self.responsePayment.transactionDetails.orderId) {
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
+    }
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
     
@@ -144,11 +160,7 @@
         if (selectedIndex == 1) {
             [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             
-            MidtransPaymentCreditCard *paymentDetail =
-            [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber
-                                                  customer:self.token.customerDetails
-                                                  saveCard:NO
-                                               installment:nil];
+            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
             MidtransTransaction *transaction =
             [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
                                                           token:self.token];
@@ -160,7 +172,6 @@
                 if (error) {
                     [self handleTransactionError:error];
                 } else {
-                    
                     [self handleTransactionSuccess:result];
                 }
             }];
@@ -175,7 +186,7 @@
                                                     maskedCard:card
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
-    vc.promos = self.promos;
+  //  vc.promos = self.promos;
     vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
@@ -189,21 +200,26 @@
     MidtransSavedCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransSavedCardCell"];
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     cell.maskedCard = card;
-    NSUInteger index = [self.promos indexOfObjectPassingTest:^BOOL(MidtransPromo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        for (NSString *bin in obj.bins) {
-            return [card.maskedNumber containsString:bin];
-        }
-        return NO;
-    }];
-    cell.havePromo = index != NSNotFound;
-    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
+//    NSUInteger index = [self.promos indexOfObjectPassingTest:^BOOL(MidtransPromo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//        for (NSString *bin in obj.bins) {
+//            return [card.maskedNumber containsString:bin];
+//        }
+//        return NO;
+//    }];
+//    cell.havePromo = index != NSNotFound;
+//    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     if (CC_CONFIG.tokenStorageEnabled) {
-        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
+        NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
+        if (self.responsePayment.transactionDetails.orderId) {
+            [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
+        }
+        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
+
         [self performTwoClicksWithCard:card];
     }
     else {
@@ -211,7 +227,11 @@
             [self performOneClickWithCard:card];
         }
         else {
-              [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"card mode":@"two click"}];
+            NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
+            if (self.responsePayment.transactionDetails.orderId) {
+                [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
+            }
+            [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
             [self performTwoClicksWithCard:card];
         }
     }

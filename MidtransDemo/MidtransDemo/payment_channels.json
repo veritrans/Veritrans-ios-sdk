@@ -60,10 +60,6 @@
     "name": "Indomaret"
   },
   {
-    "type": "kioson",
-    "name": "KiosOn"
-  },
-  {
     "type": "gci",
     "name": "GCI"
   }

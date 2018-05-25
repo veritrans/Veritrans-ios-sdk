@@ -17,14 +17,14 @@ NSString *const kSNPMaskedCreditCardStatusCode = @"status_code";
 NSString *const kSNPMaskedCreditCardTransactionId = @"transaction_id";
 
 @interface MidtransMaskedCreditCard()
-@property (nonatomic, readwrite) NSString *maskedNumber;
-@property (nonatomic, readwrite) NSString *savedTokenId;
-@property (nonatomic,readwrite) NSString *statusCode;
-@property (nonatomic,readwrite) NSString *transactionId;
-@property (nonatomic, readwrite) NSString *type;
-@property (nonatomic, readwrite) NSString *tokenType;
-@property (nonatomic, readwrite) NSString *expiresAt;
-@property (nonatomic, readwrite) NSDictionary *data;
+@property (nonatomic, strong) NSString *maskedNumber;
+@property (nonatomic, strong) NSString *savedTokenId;
+@property (nonatomic,strong) NSString *statusCode;
+@property (nonatomic,strong) NSString *transactionId;
+@property (nonatomic, strong) NSString *type;
+@property (nonatomic, strong) NSString *tokenType;
+@property (nonatomic, strong) NSString *expiresAt;
+@property (nonatomic, strong) NSDictionary *data;
 @end
 
 @implementation MidtransMaskedCreditCard

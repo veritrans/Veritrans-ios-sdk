@@ -58,4 +58,5 @@
                 completion:(void (^_Nullable)(MidtransMaskedCreditCard *_Nullable maskedCreditCard, NSError *_Nullable error))completion;
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
++ (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForPromo:(NSArray *_Nonnull)bins error:(NSError *_Nullable)error;
 @end

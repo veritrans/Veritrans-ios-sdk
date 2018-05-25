@@ -42,6 +42,7 @@ typedef NS_ENUM(NSUInteger, MTAcquiringBank) {
 
 @property (nonatomic) MTCreditCardPaymentType paymentType;
 @property (nonatomic) BOOL setDefaultCreditSaveCardEnabled;
+@property (nonatomic) BOOL showFormCredentialsUser;
 
 /*
  Enable 3D secure credit card transaction

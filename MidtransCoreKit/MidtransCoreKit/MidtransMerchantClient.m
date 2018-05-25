@@ -52,6 +52,36 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     return instance;
 }
 
+- (void)performCheckStatusTransactionWcompletion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion{
+    
+    NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
+    [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
+    MidtransTransaction *transaction = [MidtransTransaction new];
+    [[MidtransNetworking shared] getFromURL:[transaction checkStatusTransaction] header:headers parameters:nil callback:^(id response, NSError *error) {
+        
+        NSString *paymentType = transaction.paymentType;
+        
+        if (response) {
+            MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
+            if ([paymentType isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+                if (completion) {
+                    completion(chargeResult, error);
+                }
+            }
+            else {
+                if (completion) {
+                    completion(chargeResult, error);
+                }
+            }
+        }
+        else {
+            if (completion) {
+                completion(nil, error);
+            }
+        }
+    }];
+    
+}
 - (void)performCheckStatusRBA:(MidtransTransaction *)transaction
                 completion:(void(^)(MidtransTransactionResult *result, NSError *error))completion {
     
@@ -209,7 +239,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [dictionaryParameters setObject:[transactionDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS];
     [dictionaryParameters setObject:[customerDetails dictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_CUSTOMER_DETAILS];
     [dictionaryParameters setObject:[itemDetails itemDetailsDictionaryValue] forKey:MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS];
-   [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
+    [dictionaryParameters setObject:customerDetails.customerIdentifier forKey:@"user_id"];
     if ([customField count] || [customField isEqual:[NSNull null]]) {
         for (NSDictionary *dictionary in customField) {
             NSArray *key_dictionary=[dictionary allKeys];
@@ -353,6 +383,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                 if ([[paymentRequestV2.merchant.preference dictionaryRepresentation] count]) {
                     [MidtransImageManager getImageFromURLwithUrl:paymentRequestV2.merchant.preference.logoUrl];
                     [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.preference.displayName forKey:MIDTRANS_CORE_MERCHANT_NAME];
+                    [[NSUserDefaults standardUserDefaults] setObject:paymentRequestV2.merchant.merchantId forKey:MIDTRANS_TRACKING_MERCHANT_ID];
+                    NSArray* strings = [paymentRequestV2.enabledPayments valueForKeyPath:@"@distinctUnionOfObjects.type"];
+                    [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
                     [[NSUserDefaults standardUserDefaults] setObject:token forKey:MIDTRANS_CORE_SAVED_ID_TOKEN];
                     [[NSUserDefaults standardUserDefaults] synchronize];
                 }

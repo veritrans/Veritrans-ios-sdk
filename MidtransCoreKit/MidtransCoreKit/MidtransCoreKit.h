@@ -68,7 +68,6 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransTransactionExpire.h"
 #import "MIdtransPaymentGCI.h"
 #import "MidtransNetworkLogger.h"
-#import "MidtransPromo.h"
 #import "SNPPointDataModels.h"
 #import "SNPFreeTextDataModels.h"
 #import "MidtransPromoEngine.h"
@@ -76,3 +75,4 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MIDGOPAYDataModels.h"
 #import "MidtransPaymentGOPAY.h"
 #import "MidtransPaymentDanamonOnline.h"
+#import "MidtransPromoDataModels.h"

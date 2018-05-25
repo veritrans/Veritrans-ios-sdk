@@ -31,7 +31,13 @@
     [super setSelected:selected animated:animated];
     
 }
+- (void)configurePromoWithData:(AddOnConstructor *)promo {
+   self.addOnTitleLabel.text = promo.addOnTitle;
+    self.addOnInformationButton.hidden = YES;
+    self.customValueLabel.text =  [NSNumber numberWithInt:[promo.addOnDescriptions intValue]].formattedCurrencyNumber;
+}
 - (void)configurePaymentAddOnWithData:(AddOnConstructor *)addOn {
+    self.customValueLabel.hidden = YES;
     self.addOnTitleLabel.text = addOn.addOnTitle;
 }
 - (IBAction)addOnInformationButtonDIdTapped:(id)sender {

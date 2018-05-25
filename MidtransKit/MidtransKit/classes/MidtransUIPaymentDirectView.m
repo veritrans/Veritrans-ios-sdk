@@ -15,6 +15,7 @@
 @interface MidtransUIPaymentDirectView() <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) MidtransDirectHeader *headerView;
 @property (nonatomic) NSArray *guides;
+@property (nonatomic) NSArray *mainGuides;
 @end
 
 @implementation MidtransUIPaymentDirectView
@@ -26,18 +27,22 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.estimatedRowHeight = 60;
-    
+    self.tableView.hidden = NO;
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransDirectHeader" bundle:VTBundle] forCellReuseIdentifier:@"MidtransDirectHeader"];
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransDirectHeader"];
-    
+    [self.headerView.showInstructionsButton addTarget:self action:@selector(showInstrunctions) forControlEvents:UIControlEventTouchUpInside];
     [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [[UIPasteboard generalPasteboard] setString:note.object];
         [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self];
     }];
-}
 
+}
+- (void)showInstrunctions {
+    self.guides = self.mainGuides;
+    [self.tableView reloadData];
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.guides.count+1;
 }
@@ -110,8 +115,8 @@
     if (guidePath == nil) {
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",paymentMethodID] ofType:@"plist"];
     }
-    self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
-    [self.tableView reloadData];
+    self.mainGuides = [VTClassHelper instructionsFromFilePath:guidePath];
+        [self showInstrunctions];
     
     if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU]) {
         self.headerView.emailTextField.keyboardType = UIKeyboardTypePhonePad;

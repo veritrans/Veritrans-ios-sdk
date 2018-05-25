@@ -14,7 +14,7 @@
 #import "MidtransPaymentRequestV2ItemDetails.h"
 #import "MidtransPaymentRequestV2Callbacks.h"
 #import "MidtransTransactionExpire.h"
-#import "MidtransPromo.h"
+#import "MidtransPromoDataModels.h"
 
 NSString *const kMidtransPaymentRequestV2ResponseTransactionDetails = @"transaction_details";
 NSString *const kMidtransPaymentRequestV2ResponseEnabledPayments = @"enabled_payments";
@@ -26,7 +26,7 @@ NSString *const kMidtransPaymentRequestV2ResponseToken = @"token";
 NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
 NSString *const kMIdtransPaymentRequestV2ResponseExpire  = @"expiry";
 NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
-NSString *const kMidtransCheckoutResponsePromo = @"promos";
+NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
 
 @interface MidtransPaymentRequestV2Response ()
 
@@ -43,6 +43,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
 @synthesize customerDetails = _customerDetails;
 @synthesize itemDetails = _itemDetails;
 @synthesize token = _token;
+@synthesize promos = _promos;
 @synthesize callbacks = _callbacks;
 
 
@@ -92,20 +93,10 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
         self.callbacks = [MidtransPaymentRequestV2Callbacks modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2ResponseCallbacks]];
         self.expire = [MidtransTransactionExpire modelObjectWithDictionary:[dict objectForKey:kMIdtransPaymentRequestV2ResponseExpire]];
         self.custom  = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseCustomField fromDictionary:dict];
+        self.promos = [MidtransPromoPromoDetails modelObjectWithDictionary:[dict objectForKey:kMidtransCheckoutResponsePromo]];
     }
     
-    NSObject *receivedMidtransPromo = [dict objectForKey:kMidtransCheckoutResponsePromo];
-    NSMutableArray *parsedMidtransPromo = [NSMutableArray array];
-    if ([receivedMidtransPromo isKindOfClass:[NSArray class]]) {
-        for (NSDictionary *item in (NSArray *)receivedMidtransPromo) {
-            if ([item isKindOfClass:[NSDictionary class]]) {
-                [parsedMidtransPromo addObject:[MidtransPromo modelObjectWithDictionary:item]];
-            }
-        }
-    } else if ([receivedMidtransPromo isKindOfClass:[NSDictionary class]]) {
-        [parsedMidtransPromo addObject:[MidtransPromo modelObjectWithDictionary:(NSDictionary *)receivedMidtransPromo]];
-    }
-    self.promos = [NSArray arrayWithArray:parsedMidtransPromo];
+    
     
     return self;
     
@@ -143,17 +134,8 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
     [mutableDict setValue:self.token forKey:kMidtransPaymentRequestV2ResponseToken];
     [mutableDict setValue:[self.callbacks dictionaryRepresentation] forKey:kMidtransPaymentRequestV2ResponseCallbacks];
     
-    NSMutableArray *tempArrayForPromo = [NSMutableArray array];
-    for (NSObject *subArrayObject in self.promos) {
-        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
-            // This class is a model object
-            [tempArrayForPromo addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
-        } else {
-            // Generic object
-            [tempArrayForPromo addObject:subArrayObject];
-        }
-    }
-    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForPromo] forKey:kMidtransCheckoutResponsePromo];
+   
+    [mutableDict setValue:self.promos forKey:kMidtransCheckoutResponsePromo];
     
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -173,8 +155,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
 
 #pragma mark - NSCoding Methods
 
-- (id)initWithCoder:(NSCoder *)aDecoder
-{
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     self.promos = [aDecoder decodeObjectForKey:kMidtransCheckoutResponsePromo];
     self.transactionDetails = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseTransactionDetails];
@@ -208,7 +189,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promos";
     MidtransPaymentRequestV2Response *copy = [[MidtransPaymentRequestV2Response alloc] init];
     
     if (copy) {
-        copy.promos = [self.promos copyWithZone:zone];
+       // copy.promos = [self.promos copyWithZone:zone];
         copy.transactionDetails = [self.transactionDetails copyWithZone:zone];
         copy.enabledPayments = [self.enabledPayments copyWithZone:zone];
         copy.creditCard = [self.creditCard copyWithZone:zone];

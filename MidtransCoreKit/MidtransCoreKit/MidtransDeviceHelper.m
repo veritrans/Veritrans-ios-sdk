@@ -40,8 +40,9 @@
     return hardware;
 }
 + (NSString *)deviceCurrentLanguage {
-    NSString * lang = [[NSLocale preferredLanguages] objectAtIndex:0];
-    NSDictionary *languageDic = [NSLocale componentsFromLocaleIdentifier:lang];
+    
+    NSString *localeID = [[NSLocale.preferredLanguages.firstObject componentsSeparatedByString:@"_"] firstObject];
+    NSDictionary *languageDic = [NSLocale componentsFromLocaleIdentifier:localeID];
     return [languageDic objectForKey:@"kCFLocaleLanguageCodeKey"];
 
 }

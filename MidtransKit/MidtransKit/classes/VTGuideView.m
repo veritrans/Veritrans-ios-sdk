@@ -69,6 +69,9 @@ static NSString *const cellIdentifier = @"VTGuideCell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     [cell setInstruction:self.instructions[indexPath.row] number:indexPath.row + 1];
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    }
     return cell;
 }
 

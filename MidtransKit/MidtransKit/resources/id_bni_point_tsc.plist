@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>content</key>
+            <string>Promo ini tidak dapat digabungkan dengan program cicilan Kartu Kredit BNI.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Hemat hingga 100% dengan BNI Reward Points langsung memotong transaksi yang dilakukan.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>ika transaksi dibatalkan keseluruhan, maka dana dan poin akan dikembalikan ke Kartu Kredit pembeli. Jika transaksi dibatalkan sebagian, transaksi yang akan dikembalikan terlebih dahulu adalah transaksi Kartu Kredit, setelah itu dikembalikan dari poin.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Poin pemegang kartu yang sudah dikonversi ke dalam rupiah, terinformasi pada saat pemegang kartu memilih menggunakan BNI Reward Points dengan mengklik tombol pilihan ‘BNI Reward Points‘.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Pemegang kartu dapat memilih jumlah poin yang akan ditukarkan tanpa minimum redeem.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Pembayaran poin ke merchant sama dengan pembayaran transaksi biasa.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+    </array>
+</plist>
+

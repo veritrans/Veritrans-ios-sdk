@@ -21,13 +21,29 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
 @property (nonatomic) NSString *_Nonnull creditCardToken;
 @property (nonatomic) MidtransCustomerDetails *customerDetails;
 @property (nonatomic) NSString *_Nullable installment;
+@property (nonatomic) NSDictionary *promos_selected;
 @property (nonatomic) NSString *maskedCard;
 @property (nonatomic) NSString *point;
 @property (nonatomic) BOOL saveCard;
 @end
 
 @implementation MidtransPaymentCreditCard
-
++ (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token
+                               customer:(MidtransCustomerDetails *_Nonnull)customer
+                               saveCard:(BOOL)saveCard
+                            installment:(NSString *)installment
+                                 promos:(NSDictionary *_Nullable)promos {
+    MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
+    if (installment !=nil) {
+        payment.installment = installment;
+    }
+    payment.customerDetails = customer;
+    payment.creditCardToken = token;
+    payment.saveCard = saveCard;
+    payment.promos = promos;
+    return payment;
+    
+}
 + (instancetype)modelWithToken:(NSString *)token customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment {
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
     if (installment !=nil) {
@@ -85,6 +101,9 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
     }
     if (self.discountToken) {
         value[@"discount_token"] = self.discountToken;
+    }
+    if (self.promos) {
+        value[@"promo_details"] = self.promos;
     }
     return value;
 }

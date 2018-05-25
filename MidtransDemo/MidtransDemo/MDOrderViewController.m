@@ -66,9 +66,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-        [CONFIG setClientKey:clientkey
-                 environment:MidtransServerEnvironmentSandbox
-           merchantServerURL:merchantServer];
+    [CONFIG setClientKey:clientkey
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:merchantServer];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
@@ -83,7 +83,7 @@
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
-    
+    CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
     NSDictionary *inquiryConstructor=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
@@ -132,8 +132,8 @@
                                                                    price:@255000
                                                                 quantity:@1];
     
-    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:@"1030927522"
-                                                                           andGrossAmount:[NSNumber numberWithInt:255000]];
+    MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
+                                                                           andGrossAmount:@255000];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -146,8 +146,7 @@
     NSArray *blacklistBin = @[];
     
 
-     binFilter = @[@"4"];
-    blacklistBin = @[@"41"];
+    binFilter = @[@"4"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     
@@ -176,7 +175,7 @@
         NSLog(@"Got an error: %@", error);
         jsonString = @"";
     }
-    NSLog(@"Your JSON String is %@", jsonString);
+
     
     [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
 
@@ -186,7 +185,7 @@
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                                 blacklistBinFilter:blacklistBin
-                                                             transactionExpireTime:expireTime
+                                                             transactionExpireTime:nil
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
@@ -202,7 +201,7 @@
          }
          else {
 
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:MidtransPaymentFeatureBankTransferBNIVA];
+             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
          }
@@ -224,7 +223,9 @@
         self.emailTextField.enabled = NO;
         self.userNameTextField.enabled = NO;
         self.phoneNumberTextfield.enabled = NO;
-        
+        [[NSUserDefaults standardUserDefaults] setObject:self.emailTextField.text forKey:@"USER_DEMO_CONTENT_EMAIL"];
+        [[NSUserDefaults standardUserDefaults] setObject:self.phoneNumberTextfield.text forKey:@"USER_DEMO_CONTENT_PHONE"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
         
     }else {
         [self.editButton setSelected:YES];

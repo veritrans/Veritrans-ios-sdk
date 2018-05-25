@@ -15,6 +15,7 @@
 #import "MidtransDirectHeader.h"
 #import "MidtransUINextStepButton.h"
 #import "VTGuideCell.h"
+#import "MidtransUIConfiguration.h"
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
 @interface MidGopayViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -34,8 +35,32 @@
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    NSLog(@"view did appear");
+}
+- (void)handleGopayStatus{
+    [[MidtransMerchantClient shared] performCheckStatusTransactionWcompletion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
+        if (!error) {
+            if (result.statusCode == 200) {
+                [self handleTransactionSuccess:result];
+            }
+        } else {
+            [self handleSaveCardError:error];
+        }
+    }];
+    
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleGopayStatus)
+                                                 name:NOTIFICATION_GOPAY_STATUS
+                                               object:nil];
+    
     self.title = @"GO-PAY";
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
@@ -56,7 +81,7 @@
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
     NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
-    if (![[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+    if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
         self.view.finishPaymentHeightConstraints.constant =  0.0f;
         self.view.topWrapperView.hidden = NO;
         self.view.transactionBottomDetailConstraints.constant = 0.0f;
@@ -188,8 +213,13 @@
                                                          if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
                                                              [[UIApplication sharedApplication] openURL:gojekConstructURL];
                                                          }
-                                                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                         if (UICONFIG.hideStatusPage) {
+                                                             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                                         } else {
+                                                             [self handleGopayStatus];
+                                                         }
+                                                         
                                                      }
                                                     
                                                  }

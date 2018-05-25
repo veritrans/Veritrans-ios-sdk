@@ -88,6 +88,7 @@ static NSString * const ENDPOINT_CHECK_STATUS_RBA = @"%@/transactions/%@/status"
 static NSString * const ENDPOINT_TRANSACTION_DETAIL = @"%@/transactions/%@";
 static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
 
+static NSString * const NOTIFICATION_GOPAY_STATUS = @"NOTIFICATION_GOPAY_STATUS";
 /**
  *  MESSAGE CONSTANT
  */
@@ -103,7 +104,7 @@ static NSString * const MIDTRANS_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your 
 
 static NSString *const MIDTRANS_SANDBOX_API_URL = @"https://api.sandbox.veritrans.co.id/v2";
 static NSString *const MIDTRANS_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
-static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.veritrans.co.id/snap/v1";
+static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.midtrans.com/snap/v1";
 static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://app.sandbox.midtrans.com/snap/v1/bank_bins";
 
 static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.veritrans.co.id/v2";
@@ -139,6 +140,13 @@ static NSString *const MIDTRANS_TRACKING_APP_GET_SNAP_TOKEN_FAIL = @"Fail Gettin
 static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_SUCCESS = @"Transaction Success";
 static NSString *const MIDTRANS_TRACKING_APP_TRANSACTION_ERROR = @"Transaction Failed";
 
+static NSString *const MIDTRANS_TRACKING_MERCHANT_ID = @"merchant_id";
+static NSString *const MIDTRANS_TRACKING_ENABLED_PAYMENTS = @"enabled_payments";
+static NSString *const MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE = @"installment_available";
+static NSString *const MIDTRANS_TRACKING_INSTALLMENT_REQUIRED = @"installment_required";
+static NSString *const MIDTRANS_TRACKING_ONE_CLICK_AVAILABLE = @"one_click_available";
+static NSString *const MIDTRANS_TRACKING_TWO_CLICK_AVAILABLE = @"two_click_available";
+
 static NSString *const MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE = @"charge";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_TRANSACTION_DETAILS = @"transaction_details";
 static NSString *const MIDTRANS_CORE_SNAP_PARAMETER_ITEM_DETAILS = @"item_details";
@@ -151,9 +159,11 @@ static NSString *const MIDTRANS_CORE_SAVED_ID_TOKEN = @"saved_token_id";
 static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
+static NSString *const MIDTRANS_CORE_CURRENT_TOKEN = @"current_token";
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
 static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";
+static NSString *const SNP_PROMO = @"SNP_PROMO";
 static NSString *const SNP_CORE_CREDIT_CARD_SAVE = @"CREDIT_CARD_SAVE";
 
 static NSString *const SNP_CORE_DEBIT_CARD = @"debit";

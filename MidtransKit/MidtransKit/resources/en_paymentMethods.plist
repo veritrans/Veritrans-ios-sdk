@@ -202,13 +202,27 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
+		<string>BNI</string>
+		<key>description</key>
+		<string>Pay from BNI ATMs or internet banking</string>
+		<key>id</key>
+		<string>bni_va</string>
+		<key>identifier</key>
+		<string>bni_va</string>
+		<key>shortName</key>
+		<string>atm bni</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
 		<string>Other ATM Network</string>
 		<key>description</key>
 		<string>Pay from ATMs or internet banking</string>
 		<key>id</key>
-		<string>all_va</string>
+		<string>other_va</string>
 		<key>identifier</key>
-		<string>all_va</string>
+		<string>other_va</string>
 		<key>shortName</key>
 		<string>atm all</string>
 	</dict>

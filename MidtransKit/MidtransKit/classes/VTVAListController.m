@@ -31,7 +31,11 @@
     [super viewDidLoad];
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
-    [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
+    if (self.paymentResponse.transactionDetails.orderId) {
+        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
+    } else {
+        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
+    }
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"virtualAccount"];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
@@ -93,7 +97,11 @@
 - (void)redirectToIndex:(NSInteger)index {
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:index];
     NSString *paymentName  = vaTypeModel.shortName;
-    [[SNPUITrackingManager shared] trackEventName:paymentName];
+    if (self.paymentResponse.transactionDetails.orderId) {
+        [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
+    } else {
+        [[SNPUITrackingManager shared] trackEventName:paymentName];
+    }
     MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
     vc.response = self.paymentResponse;
     if (self.vaList.count == 1) {

@@ -9,6 +9,7 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "VTClassHelper.h"
 #import "MidtransItemCell.h"
+#import "AddOnConstructor.h"
 #import "MidtransUIThemeManager.h"
 
 @interface MidtransTransactionDetailViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -53,6 +54,40 @@
         UIViewController *rootVC = [VTClassHelper rootViewController];
         [rootVC removeSubViewController:self];
     }];
+}
+
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo {
+    UIViewController *rootVC = [VTClassHelper rootViewController];
+    if (rootVC.navigationController) {
+        rootVC = rootVC.navigationController;
+    }
+    self.view.alpha = 0.0;
+    [rootVC addSubViewController:self toView:rootVC.view];
+    
+    CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
+    //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+    self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
+    MidtransItemDetail *itemDetails = items [0];
+    NSInteger grossAmount =[itemDetails.price integerValue] - [MidtransPromo.addOnDescriptions integerValue];
+    NSMutableArray *mockItems = [NSMutableArray arrayWithArray:items];
+    self.priceAmountLabel.text = [NSString stringWithFormat:@"%ld",(long)grossAmount];
+    
+    MidtransItemDetail *itemDetailsMain =[[MidtransItemDetail alloc] initWithItemID:@"001"
+                                                                               name:MidtransPromo.addOnTitle
+                                                                              price:[NSNumber numberWithInteger:-[MidtransPromo.addOnDescriptions integerValue]] quantity:@1];
+    
+    [mockItems addObject:itemDetailsMain];
+    
+    self.items = mockItems;
+    self.tableHeightConstraint.constant = [self calculateTableViewHeight];
+    
+    self.view.userInteractionEnabled = NO;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        self.view.userInteractionEnabled = YES;
+    }];
+    
 }
 - (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items
          withChangedGrossAmount:(NSString *)grossAmount

@@ -7,6 +7,7 @@
 //
 
 #import "MidtransNewCreditCardViewController.h"
+#import "MidtransCommonTSCViewController.h"
 #import "MidtransNewCreditCardView.h"
 #import "VTClassHelper.h"
 #import "MidtransUINextStepButton.h"
@@ -33,6 +34,7 @@ MidtransUITextFieldDelegate,
 MidtransUICardFormatterDelegate,
 MidtransInstallmentViewDelegate,
 Midtrans3DSControllerDelegate,
+MidtransCommonTSCViewControllerDelegate,
 UIAlertViewDelegate
 >
 
@@ -51,21 +53,27 @@ UIAlertViewDelegate
 @property (nonatomic) NSArray *bins;
 @property (nonatomic) NSArray *blackListBins;
 @property (nonatomic,strong) MidtransBinResponse *filteredBinObject;
-@property (nonatomic) BOOL installmentAvailable,installmentRequired;
+@property (nonatomic) BOOL installmentAvailable,installmentRequired,promoAvailable;
 @property (nonatomic,strong) NSString *installmentTerms;
 @property (nonatomic)NSInteger installmentCurrentIndex;
 @property (strong,nonatomic) NSMutableArray *addOnArray;
+@property (strong,nonatomic) NSMutableArray *promoArray;
+@property (nonatomic,strong) NSMutableArray *currentPromo;
 @property (nonatomic) NSInteger constraintsHeight;
 @property (nonatomic,strong)NSArray *bankBinList;
-@property (nonatomic) MidtransObtainedPromo *obtainedPromo;
 @property (nonatomic) MidtransMaskedCreditCard *maskedCreditCard;
 @property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
 @property (nonatomic) BOOL bniPointActive;
 @property (nonatomic) BOOL mandiriPointActive;
 @property (nonatomic) BOOL isSaveCard;
+@property (nonatomic) BOOL showUserForm;
 @property (nonatomic,strong)AddOnConstructor *constructBNIPoint;
 @property (nonatomic,strong)AddOnConstructor *constructMandiriPoint;
-
+@property (nonatomic,strong) NSString *currentPromoSelected;
+@property (nonatomic,strong) NSString *prevPromoSelected;
+@property (nonatomic,strong) NSNumber *currentPromoIndex;
+@property (nonatomic,strong) NSNumber *prevPromoIndex;
+@property (nonatomic,strong) AddOnConstructor *selectedPromos;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -100,6 +108,9 @@ UIAlertViewDelegate
 - (void)viewDidLoad {
 
     [super viewDidLoad];
+    self.prevPromoIndex = nil;
+    self.currentPromoSelected = @"";
+    self.currentPromoIndex = nil;
     [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
     self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];//(@"creditcard.input.title", nil);
     NSMutableArray *array = [[NSMutableArray alloc] initWithArray:self.responsePayment.merchant.enabledPrinciples];
@@ -131,25 +142,43 @@ UIAlertViewDelegate
     self.ccFormatter.numberLimit = 16;
     self.ccFormatter.delegate = self;
     self.addOnArray = [NSMutableArray new];
-    
+    self.promoArray = [NSMutableArray new];
+    self.currentPromo = [NSMutableArray new];
     [self.view configureAmountTotal:self.token];
     
     self.view.addOnTableView.delegate = self;
     self.view.addOnTableView.dataSource = self;
+    
+    self.view.promoTableView.delegate = self;
+    self.view.promoTableView.dataSource = self;
+    
+    [self.view.promoTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
+    
     [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
     
     self.constructBNIPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_BNI_POINT,
+                                                   @"addOnDescriptions":@"",
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem BNI Reward Point"]}];
     self.constructMandiriPoint = [[AddOnConstructor alloc]
                               initWithDictionary:@{@"addOnName":SNP_CORE_MANDIRI_POINT,
+                                                   @"addOnDescriptions":@"",
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
-    
+    self.showUserForm = [CC_CONFIG showFormCredentialsUser];
+    self.view.userDetailViewWrapper.hidden = YES;
+    self.view.userDetailViewWrapperConstraints.constant = 0.0f;
+    if (self.showUserForm) {
+        self.view.contactEmailTextField.text = self.responsePayment.customerDetails.email;
+        self.view.contactPhoneNumberTextField.text = self.responsePayment.customerDetails.phone;
+        self.view.userDetailViewWrapper.hidden = NO;
+        self.view.userDetailViewWrapperConstraints.constant = 150.0f;
+    }
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
+                                                                    @"addOnDescriptions":@"",
                                                                     @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Save card for later use"]}];
         if (![self.addOnArray containsObject:constructSaveCard]) {
             [self.addOnArray insertObject:constructSaveCard atIndex:0];
@@ -160,14 +189,35 @@ UIAlertViewDelegate
     
     self.installment = [[MidtransPaymentRequestV2Installment alloc]
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
-    
+   
+    self.promos = self.responsePayment.promos;
+ 
+    if (self.promos.promos.count) {
+        for (MidtransPromoPromos *promos in self.promos.promos) {
+            AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
+                                                                                                @"addOnName":SNP_PROMO,
+                                                                                                @"addOnTitle":promos.name,
+                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
+                                                                                                @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
+                             }];
+          [self.promoArray addObject:promoConstructor];
+          [self.currentPromo addObject:promoConstructor];
+        }
+        
+        [self updatePromoContent];
+        self.promoAvailable = YES;
+    }
+
     if (self.installment.terms) {
         self.installmentAvailable = YES;
         self.installmentRequired = self.installment.required;
         [self setupInstallmentView];
     }
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"installment available": @(self.installmentAvailable), @"installment required": @(self.installmentRequired)}];
+  
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
+    
     self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
                                                                 initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
                                                        options:kNilOptions error:nil];
@@ -177,8 +227,8 @@ UIAlertViewDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-        [self updatePromoViewWithCreditCardNumber:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
@@ -195,7 +245,6 @@ UIAlertViewDelegate
         self.view.cardExpireTextField.enabled = YES;
         self.view.creditCardNumberTextField.textColor = [UIColor darkTextColor];
         self.view.cardExpireTextField.textColor = [UIColor darkTextColor];
-        
         self.view.deleteButton.hidden = YES;
     }
     
@@ -205,10 +254,23 @@ UIAlertViewDelegate
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     self.view.totalAmountPrice.textColor = [[MidtransUIThemeManager shared] themeColor];
+    
+    NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeOneClick];
+    BOOL oneClickAvailable = [[self.creditCardInfo.savedTokens filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
+    NSPredicate* twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(tokenType)), TokenTypeTwoClicks];
+    BOOL twoClickAvailable = [[self.creditCardInfo.savedTokens filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
+    [[NSUserDefaults standardUserDefaults] setObject:@(oneClickAvailable) forKey:MIDTRANS_TRACKING_ONE_CLICK_AVAILABLE];
+    [[NSUserDefaults standardUserDefaults] setObject:@(twoClickAvailable) forKey:MIDTRANS_TRACKING_TWO_CLICK_AVAILABLE];
+    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:@{@"1 click token available": @(oneClickAvailable), @"2 clicks token available": @(twoClickAvailable)}];
 }
-- (void) totalAmountBorderedViewTapped:(id) sender {
+- (void)totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
+    if (!self.selectedPromos) {
+        [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
+    } else {
+        [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails WithPromoSelected:self.selectedPromos];
+    }
+    
 }
 - (IBAction)scanCardTapped:(id)sender {
     
@@ -235,18 +297,11 @@ UIAlertViewDelegate
     [self.installmentsContentView setupInstallmentCollection];
 }
 
-- (void)setPromos:(NSArray<MidtransPromo *> *)promos {
-    _promos = [promos sortedArrayUsingComparator:^NSComparisonResult(MidtransPromo *obj1, MidtransPromo *obj2) {
-        double amount1 = [self calculateDiscountPromo:obj1];
-        double amount2 = [self calculateDiscountPromo:obj2];
-        return amount1 < amount2;
-    }];
-}
 
 - (double)calculateDiscountPromo:(MidtransPromo *)promo {
     double result = 0;
     if ([promo.discountType isEqualToString:@"PERCENTED"]) {
-        result = self.token.transactionDetails.grossAmount.doubleValue * (promo.discountAmount/100.);
+        result = self.token.transactionDetails.grossAmount.doubleValue * (promo.discountAmount/100.0);
     }
     else {
         result = promo.discountAmount;
@@ -256,32 +311,60 @@ UIAlertViewDelegate
 
 #pragma mark - UITableViewDelegate
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.addOnArray.count;
+    if (tableView == self.view.addOnTableView) {
+        return self.addOnArray.count;
+    } else {
+         return self.promoArray.count;
+    }
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AddOnConstructor *payAddOn = [self.addOnArray objectAtIndex:indexPath.row];
-    MidtransCreditCardAddOnComponentCell *cell = (MidtransCreditCardAddOnComponentCell *)[tableView dequeueReusableCellWithIdentifier:@"MidtransCreditCardAddOnComponentCell"];
-    
-    cell.checkButton.selected = self.isSaveCard;
-    cell.checkButton.tag = indexPath.row;
-    cell.addOnInformationButton.tag = indexPath.row;
-    [cell configurePaymentAddOnWithData:payAddOn];
-    
-    [cell.checkButton addTarget:self action:@selector(checkButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.addOnInformationButton addTarget:self action:@selector(informationButtonTap:) forControlEvents:UIControlEventTouchUpInside];
-    
-    if ([payAddOn.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
-        cell.checkButton.selected = self.isSaveCard;
+    if (tableView == self.view.addOnTableView) {
+        AddOnConstructor *payAddOn = [self.addOnArray objectAtIndex:indexPath.row];
+        MidtransCreditCardAddOnComponentCell *cell = (MidtransCreditCardAddOnComponentCell *)[tableView dequeueReusableCellWithIdentifier:@"MidtransCreditCardAddOnComponentCell"];
+        
+        cell.checkButton.tag = indexPath.row;
+        cell.addOnInformationButton.tag = indexPath.row;
+        [cell configurePaymentAddOnWithData:payAddOn];
+        
+        [cell.checkButton addTarget:self action:@selector(checkButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+        [cell.addOnInformationButton addTarget:self action:@selector(informationButtonTap:) forControlEvents:UIControlEventTouchUpInside];
+        if ([payAddOn.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
+            cell.checkButton.selected = self.isSaveCard;
+            return cell;
+        }
+        else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
+            cell.checkButton.selected = self.bniPointActive;
+        }
+        else if(indexPath.row == [self.currentPromoIndex integerValue]){
+            cell.checkButton.selected = !cell.checkButton.selected;
+        }
+        else if ([payAddOn.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
+            cell.checkButton.selected = self.mandiriPointActive;
+        }
+        
+        
+        return cell;
+    }  else {
+        AddOnConstructor *payAddOn = [self.promoArray objectAtIndex:indexPath.row];
+        AddOnConstructor *payAddOnCurrent;
+        if (self.currentPromoIndex!=nil) {
+            payAddOnCurrent = [self.promoArray objectAtIndex:[self.currentPromoIndex integerValue]];
+        }
+        MidtransCreditCardAddOnComponentCell *cell = (MidtransCreditCardAddOnComponentCell *)[tableView dequeueReusableCellWithIdentifier:@"MidtransCreditCardAddOnComponentCell"];
+        cell.checkButton.tag = indexPath.row;
+        cell.addOnInformationButton.tag = indexPath.row;
+        [cell configurePromoWithData:payAddOn];
+        [cell.checkButton addTarget:self action:@selector(checkButtonTapPromo:) forControlEvents:UIControlEventTouchUpInside];
+        if ([payAddOnCurrent.addOnTitle isEqualToString:payAddOn.addOnTitle]) {
+            cell.checkButton.selected = YES;
+        } else {
+             cell.checkButton.selected = NO;
+        }
+        return cell;
     }
-    else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-        cell.checkButton.selected = self.bniPointActive;
-    }
-    else if ([payAddOn.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
-        cell.checkButton.selected = self.mandiriPointActive;
-    }
-
-    return cell;
+   
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -330,30 +413,35 @@ UIAlertViewDelegate
     self.view.addOnTableViewHeightConstraints.constant = self.addOnArray.count * 50;
     [self.view.addOnTableView reloadData];
 }
-
+- (void)updatePromoContent {
+    self.view.promoTableViewHeightConstraints.constant = self.promoArray.count * 50;
+    [self.view.promoTableView reloadData];
+}
 - (void)updatePromoViewWithCreditCardNumber:(NSString *)number {
-    MidtransPromo *promo = [self promoFromCreditCardNumber:number];
-    if (promo) {
-        __weak MidtransNewCreditCardViewController *weakSelf = self;
-        [MidtransPromoEngine obtainPromo:promo
-                       withPaymentAmount:self.token.transactionDetails.grossAmount
-                              completion:^(MidtransObtainedPromo *obtainedPromo, NSError *error)
-         {
-             if (obtainedPromo) {
-                 weakSelf.obtainedPromo = obtainedPromo;
-                 UIImage *icon = [UIImage imageNamed:@"ccOfferIcon" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                 self.view.creditCardNumberTextField.info3Icon = icon;
-             }
-             else {
-                 self.view.creditCardNumberTextField.info3Icon = nil;
-             }
-             [self.view.creditCardNumberTextField setNeedsLayout];
-             [self.view.creditCardNumberTextField layoutSubviews];
-         }];
+    [self.promos dictionaryRepresentation];
+    if (number.length == 0) {
+        [self.promoArray removeAllObjects];
+        [self.promoArray addObjectsFromArray:self.currentPromo];
+    } else {
+        self.currentPromoSelected = @"";
+        self.currentPromoIndex = nil;
+        self.prevPromoIndex = nil;
+       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", number]];
+        if (filtered.count) {
+             [self.promoArray removeAllObjects];
+        }
+        for (MidtransPromoPromos *promos in filtered) {
+            AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
+                                                                                                @"addOnName":SNP_PROMO,
+                                                                                                @"addOnTitle":promos.name,
+                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
+                                                                                                @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
+                                                                                                }];
+            [self.promoArray addObject:promoConstructor];
+        }
     }
-    else {
-        self.view.creditCardNumberTextField.info3Icon = nil;
-    }
+    [self updatePromoContent];
+
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
@@ -364,19 +452,27 @@ UIAlertViewDelegate
         self.view.creditCardNumberTextField.info1Icon = nil;
     }
     UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-    self.view.creditCardNumberTextField.info2Icon = bankIcon;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.view.creditCardNumberTextField.info2Icon = bankIcon;
+    });
 }
 
 #pragma mark - VTCardFormatterDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    
-    [self updatePromoViewWithCreditCardNumber:originNumber];
-    
-    [self matchBINNumberWithInstallment:originNumber];
+    if (self.promoAvailable) {
+       [self updatePromoViewWithCreditCardNumber:originNumber];
+    }
+     [self matchBINNumberWithInstallment:originNumber];
     
     [self updateCreditCardTextFieldInfoWithNumber:originNumber];
+    
+    [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
+        self.bankBinList = binResponse;
+        [self matchBINNumberWithInstallment:originNumber];
+        [self updateCreditCardTextFieldInfoWithNumber:originNumber];
+    }];
 }
 - (void)reformatCardNumber {
     NSString *cardNumber = self.view.cardCVVNumberTextField.text;
@@ -402,21 +498,72 @@ UIAlertViewDelegate
                                           onViewController:self.navigationController
                                                 completion:nil];
 }
-
+- (void)checkButtonTapPromo:(UIButton *)sender {
+    [self updatePromoContent];
+    AddOnConstructor *constructor = [self.promoArray objectAtIndex:sender.tag];
+    
+    self.currentPromoIndex = [NSNumber numberWithUnsignedInteger:sender.tag];
+    if (self.prevPromoIndex != nil){
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.prevPromoIndex integerValue] inSection:0];
+        MidtransCreditCardAddOnComponentCell* cell = [self.view.promoTableView cellForRowAtIndexPath:indexPath];
+        cell.checkButton.selected = NO;
+        [self.view.promoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+         [self updateAmountTotal:[AddOnConstructor new]];
+    } if (self.prevPromoIndex == self.currentPromoIndex){
+        NSIndexPath *indexPath = [NSIndexPath indexPathForRow:[self.prevPromoIndex integerValue] inSection:0];
+        MidtransCreditCardAddOnComponentCell* cell = [self.view.promoTableView cellForRowAtIndexPath:indexPath];
+        cell.checkButton.selected = NO;
+        self.currentPromoIndex = nil;
+        [self.view.promoTableView reloadRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        constructor = [AddOnConstructor new];
+    }
+    
+    self.currentPromoSelected = constructor.addOnTitle;
+    self.prevPromoIndex = self.currentPromoIndex;
+     [self updateAmountTotal:constructor];
+   
+}
 - (void)checkButtonTap:(UIButton *)sender {
+    [self updateAddOnContent];
     AddOnConstructor *constructor = [self.addOnArray objectAtIndex:sender.tag];
+   
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
         self.isSaveCard = !sender.selected;
+        [self.view.addOnTableView reloadData];
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
         self.mandiriPointActive = !sender.selected;
+        [self.view.addOnTableView reloadData];
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-        self.bniPointActive = !sender.selected;
+        [self openCommonTSCWithBank:SNP_CORE_BNI_POINT];
+        [self.view.addOnTableView reloadData];
     }
-    [self.view.addOnTableView reloadData];
+    
+}
+- (void)updateAmountTotal:(AddOnConstructor *)constructor{
+    if (constructor){
+        NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [constructor.addOnDescriptions integerValue];
+        NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+        self.selectedPromos = constructor;
+        self.view.totalAmountPrice.text =castingNumber.formattedCurrencyNumber;
+    } else {
+        self.view.totalAmountPrice.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    }
+}
+- (void)openCommonTSCWithBank:(NSString *)bank{
+    MidtransCommonTSCViewController *tscViewController = [[MidtransCommonTSCViewController alloc] initWithNibName:@"MidtransCommonTSCViewController" bundle:VTBundle];
+    tscViewController.delegate = self;
+    tscViewController.bankID = bank;
+    [self.navigationController pushViewController:tscViewController animated:YES];
 }
 
+- (void)agreeTermAndConditionDidtapped:(NSString *)bankName {
+    if ([bankName isEqualToString:SNP_CORE_BNI_POINT]) {
+        self.bniPointActive = true;
+         [self.view.addOnTableView reloadData];
+    }
+}
 - (void)informationButtonTap:(UIButton *)sender {
     AddOnConstructor *constructor = [self.addOnArray objectAtIndex:sender.tag];
     if ([constructor.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
@@ -505,12 +652,9 @@ UIAlertViewDelegate
 
 - (void)textField_didInfo3Tap:(MidtransUITextField *)textField {
     if ([textField isEqual:self.view.creditCardNumberTextField]) {
-        NSString *sponsor = self.obtainedPromo.sponsorName;
-        NSString *message = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-message"], @(self.obtainedPromo.discountAmount).formattedCurrencyNumber, sponsor];
-        
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.promo-title"]
-                                                          message:message
+                                                          message:@""
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil
@@ -520,17 +664,6 @@ UIAlertViewDelegate
                                               onViewController:self.navigationController
                                                     completion:nil];
     }
-}
-
-- (MidtransPromo *)promoFromCreditCardNumber:(NSString *)ccNumber {
-    for (MidtransPromo *promo in self.promos) {
-        for (NSString *bin in promo.bins) {
-            if ([ccNumber containsString:bin]) {
-                return promo;
-            }
-        }
-    }
-    return nil;
 }
 
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
@@ -653,8 +786,11 @@ UIAlertViewDelegate
                       duration:1
                        options:UIViewAnimationOptionCurveEaseInOut
                     animations:^{
-                        self.view.installmentView.hidden = !show;
-                        [self.installmentsContentView.installmentCollectionView reloadData];
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            
+                            self.view.installmentView.hidden = !show;
+                            [self.installmentsContentView.installmentCollectionView reloadData];
+                        });
                         [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
                     }
                     completion:NULL];
@@ -666,12 +802,15 @@ UIAlertViewDelegate
         NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
         NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
         NSString *expYear = [NSString stringWithFormat:@"%ld",[data[1] integerValue]+2000];
+        
+
         MidtransCreditCard *creditCard = [[MidtransCreditCard alloc] initWithNumber: [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]
                                                                         expiryMonth:expMonth
                                                                          expiryYear:expYear
                                                                                 cvv:self.view.cardCVVNumberTextField.text];
         [[MidtransClient shared] registerCreditCard:creditCard completion:^(MidtransMaskedCreditCard * _Nullable maskedCreditCard, NSError * _Nullable error) {
             [self hideLoading];
+            
             if (!error) {
                 [self handleSaveCardSuccess:maskedCreditCard];
             }
@@ -681,9 +820,13 @@ UIAlertViewDelegate
         }];
         return;
     }
-
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentAvailable) forKey:MIDTRANS_TRACKING_INSTALLMENT_AVAILABLE];
+    [[NSUserDefaults standardUserDefaults] setObject:@(self.installmentRequired) forKey:MIDTRANS_TRACKING_INSTALLMENT_REQUIRED];
+    NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"installment available": @(self.installmentAvailable), @"installment required": @(self.installmentRequired)}];
+    if (self.responsePayment.transactionDetails.orderId) {
+        [additionalData addEntriesFromDictionary:@{@"order id": self.responsePayment.transactionDetails.orderId}];
+    }
+    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:additionalData];
     if (self.installmentAvailable && self.installmentCurrentIndex !=0 && !self.bniPointActive && !self.mandiriPointActive) {
         self.installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName,
                                  [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
@@ -742,15 +885,35 @@ UIAlertViewDelegate
             self.view.cardCVVNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"CVV is invalid"];
             return;
         }
-        tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
-                                                                          cvv:self.view.cardCVVNumberTextField.text
-                                                                  grossAmount:self.token.transactionDetails.grossAmount];
+        
+        if (self.selectedPromos){
+            NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+            tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
+                                                                              cvv:self.view.cardCVVNumberTextField.text
+                                                                      grossAmount:castingNumber];
+        } else {
+            tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
+                                                                              cvv:self.view.cardCVVNumberTextField.text
+                                                                      grossAmount:self.token.transactionDetails.grossAmount];
+        }
+        
+    
     }
     else {
         
-        tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                               grossAmount:self.token.transactionDetails.grossAmount
-                                                                    secure:CC_CONFIG.secure3DEnabled];
+        if (self.selectedPromos){
+            NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+            tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
+                                                                   grossAmount:castingNumber
+                                                                        secure:CC_CONFIG.secure3DEnabled];
+        } else {
+            tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
+                                                                   grossAmount:self.token.transactionDetails.grossAmount
+                                                                        secure:CC_CONFIG.secure3DEnabled];
+        }
+        
     }
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
@@ -762,7 +925,8 @@ UIAlertViewDelegate
     }
     if (self.bniPointActive || self.mandiriPointActive) {
         tokenRequest.point = YES;
-        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
+        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest
+                                                   completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
             [self hideLoading];
             if (error) {
                 
@@ -790,9 +954,6 @@ UIAlertViewDelegate
 
         return;
     }
-    if (self.obtainedPromo) {
-        tokenRequest.obtainedPromo = self.obtainedPromo;
-    }
     
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
@@ -806,16 +967,37 @@ UIAlertViewDelegate
 }
 
 - (void)payWithToken:(NSString *)token {
+    self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
+    self.token.customerDetails.email = self.view.contactEmailTextField.text;
+    
+    
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.isSaveCard
                                                                              installment:self.installmentTerms];
     
-    if (self.obtainedPromo) {
-        paymentDetail.discountToken = self.obtainedPromo.discountToken;
-    }
+
     MidtransTransaction *transaction = [[MidtransTransaction alloc]
                                         initWithPaymentDetails:paymentDetail token:self.token];
+    
+    if (self.selectedPromos){
+        if (self.selectedPromos.addOnAddtional) {
+            NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+            
+            NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
+                                               @"promo_id":self.selectedPromos.addOnAddtional
+                                               };
+            
+            paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                             customer:self.token.customerDetails
+                                                             saveCard:self.isSaveCard
+                                                          installment:self.installmentTerms
+                                                               promos:promoConstructor];
+            transaction = [[MidtransTransaction alloc]
+                           initWithPaymentDetails:paymentDetail token:self.token];
+        }
+    }
     
     if (self.bniPointActive || self.mandiriPointActive) {
         [self hideLoading];

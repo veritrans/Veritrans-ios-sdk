@@ -13,4 +13,5 @@
 @property (strong, nonatomic) IBOutlet MidtransUITextField *emailTextField;
 @property (strong, nonatomic) IBOutlet UILabel *descLabel;
 @property (strong, nonatomic) IBOutlet UILabel *tutorialTitleLabel;
+@property (weak, nonatomic) IBOutlet UIButton *showInstructionsButton;
 @end

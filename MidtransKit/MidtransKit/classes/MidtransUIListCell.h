@@ -17,5 +17,6 @@
 @property (weak, nonatomic) IBOutlet UIView *tscSeparatorLineView;
 @property (weak, nonatomic) IBOutlet UILabel *tscTextStatusLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textStatusHeightConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *promoNotificationView;
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response;
 @end

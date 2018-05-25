@@ -38,7 +38,6 @@
     
     [self.navigationItem setHidesBackButton:YES];
     [self showBackButton:NO];
-    NSLog(@"data-->%@",self.response);
     self.title = self.paymentMethod.title;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;

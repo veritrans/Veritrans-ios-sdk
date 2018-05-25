@@ -29,9 +29,9 @@
 - (NSDictionary *)dictionaryValue {
     // Format MUST BE compatible with
     // http://docs.veritrans.co.id/en/api/methods.html#transaction_details_attr
-    
+    NSInteger grossAmount = [self.grossAmount integerValue];
     return @{@"order_id": self.orderId,
-             @"gross_amount": [self.grossAmount stringValue]};
+             @"gross_amount": [NSNumber numberWithInteger:grossAmount]};
 }
 
 @end

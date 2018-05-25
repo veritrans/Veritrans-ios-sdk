@@ -86,7 +86,7 @@
     "you can pay partly through the redemption of BNI Reward Point through your credit card": "Anda dapat membayar sebagian dengan Poin Reward BNI melalui Kartu Kredit Anda.",
     "This transaction must use installment": "Pembayaran harus menggunakan cicilan",
     "Your total BNI Reward Points is %i": "Poin Sekarang %i",
-    "Complete Payment at ATM": "Selesaikan Pembayaran di ATM",
+    "Complete Payment at ATM": "Selesaikan Pembayaran",
     "alert.title": "Perhatian",
     "alert.message-delete-card": "Anda yakin ingin menghapus kartu ini?",
     "alert.no": "Tidak",
@@ -117,6 +117,11 @@
     "Bank Code":"Kode Bank",
     "Virtual Account Number":"Nomor Akun Virtual",
     "Please complete your payment in":"Harap selesaikan pembayaran dalam ",
-    "Time's Up":"Waktu Habis"
+    "Time's Up":"Waktu Habis",
+    "bni.point.toptitle":"Berapa poin yang ingin anda tukarkan?",
+    "bni.point.secondtitle":"TOTAL PEMBAYARAN SETELAH TUKAR POIN",
+    "BNI Points Terms & Conditions": "Syarat & Ketentuan BNI Point",
+    "danamon.instructions.header1":"Pembayaran melalui Danamon Online Banking harus diselesaikan di website Danamon.",
+    "danamon.instructions.header2":"Pastikan Anda telah memiliki User ID Danamon Online Banking sebelum melakukan pembayaran."
 
 }

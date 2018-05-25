@@ -32,21 +32,32 @@
 }
 
 - (BOOL)isValidYearExpiryDate:(NSError **)error {
-    BOOL formatValid = ([self length] == 2) || ([self length] == 4);
+    BOOL formatValid = false;
+    NSString *expYear = self;
+    if (([expYear length] == 2) || ([expYear length] == 4)){
+        if (([expYear length] == 4)) {
+            
+            expYear = [NSString stringWithFormat:@"%ld",[expYear integerValue] - 2000];
+        }
+        formatValid = true;
+    }
     
     NSDateFormatter *df = [[NSDateFormatter alloc] init];
     df.dateFormat = @"yy";
     NSInteger currentYear = [[df stringFromDate:[NSDate date]] integerValue];
-    BOOL yearExpired = [self integerValue] < currentYear;
     
-    if (formatValid && !yearExpired) {
+   
+    BOOL yearExpired = [expYear integerValue] < currentYear;
+    BOOL yearGreaterThan10 = (currentYear+10) < [expYear integerValue];
+    
+    if (formatValid && !yearExpired && !yearGreaterThan10) {
         return YES;
     }
-    
-    NSString *errorMessage = NSLocalizedString(MIDTRANS_MESSAGE_EXPIRE_DATE_INVALID, nil);
-    *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_EXPIRY_DATE userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
-    
-    return NO;
+    else {
+        NSString *errorMessage = NSLocalizedString(MIDTRANS_MESSAGE_EXPIRE_DATE_INVALID, nil);
+        *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_INVALID_EXPIRY_DATE userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
+        return NO;
+    }
 }
 
 - (BOOL)isValidMonthExpiryDate:(NSError **)error {

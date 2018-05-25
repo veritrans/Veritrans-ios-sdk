@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidtransCommonTSCViewController">
+            <connections>
+                <outlet property="tableView" destination="CtW-rD-FCQ" id="CNk-LE-zxu"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="eId-3T-UT6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CtW-rD-FCQ">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hu-GN-ECX" customClass="MidtransUINextStepButton">
+                    <rect key="frame" x="8" y="617" width="359" height="40"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="4nf-uS-hKf"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
+                    <state key="normal" title="OK"/>
+                    <connections>
+                        <action selector="submitButtonDidTapped:" destination="-1" eventType="touchUpInside" id="9q8-q7-8sQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="CtW-rD-FCQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9MG-Wb-r7l"/>
+                <constraint firstAttribute="trailing" secondItem="CtW-rD-FCQ" secondAttribute="trailing" id="GWg-1E-6Sc"/>
+                <constraint firstItem="CtW-rD-FCQ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="PUn-Rg-bbZ"/>
+                <constraint firstItem="8Hu-GN-ECX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Uc1-NP-LZS"/>
+                <constraint firstAttribute="bottom" secondItem="8Hu-GN-ECX" secondAttribute="bottom" constant="10" id="jJv-el-wWF"/>
+                <constraint firstItem="CtW-rD-FCQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lCf-DW-FQa"/>
+                <constraint firstItem="8Hu-GN-ECX" firstAttribute="top" secondItem="CtW-rD-FCQ" secondAttribute="bottom" constant="10" id="mLq-GA-gzY"/>
+                <constraint firstAttribute="trailing" secondItem="8Hu-GN-ECX" secondAttribute="trailing" constant="8" id="trF-TK-aRu"/>
+            </constraints>
+            <point key="canvasLocation" x="25.5" y="52.5"/>
+        </view>
+    </objects>
+</document>

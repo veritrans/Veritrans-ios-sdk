@@ -17,6 +17,7 @@
 #import "MidtransUIPaymentGeneralViewController.h"
 #import "MidtransUIPaymentDirectViewController.h"
 #import "VTMandiriClickpayController.h"
+#import "MIDPaymentIndomaretViewController.h"
 #import "MidtransSavedCardController.h"
 #import "VTPaymentListView.h"
 #import "MidtransNewCreditCardViewController.h"
@@ -357,8 +358,7 @@
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:YES];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
-             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
@@ -382,7 +382,11 @@
         [midGopayVC showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     }
-
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
+        MIDPaymentIndomaretViewController* vc = [[MIDPaymentIndomaretViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [vc showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:vc animated:!self.singlePayment];
+    }
     else {
         MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];

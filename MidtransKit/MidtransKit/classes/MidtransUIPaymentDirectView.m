@@ -128,7 +128,7 @@
         
         if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
             self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"KlikBCA User ID"];
-            self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.klikbca.userid-note"];
+            self.headerView.descriptionHeightConstraint.constant = 0.0f;
         }
         else if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
             self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.telkomsel-cash.token-placeholder"];

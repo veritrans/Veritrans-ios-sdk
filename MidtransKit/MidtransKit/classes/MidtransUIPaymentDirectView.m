@@ -52,7 +52,7 @@
         return self.headerView;
     }
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
-    if(indexPath.row %2 ==0) {
+    if(indexPath.row % 2 > 0) {
          cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
     [cell setInstruction:self.guides[indexPath.row-1] number:indexPath.row];

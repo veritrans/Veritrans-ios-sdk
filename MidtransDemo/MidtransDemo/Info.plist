@@ -17,9 +17,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.9.1</string>
+	<string>1.11.1</string>
 	<key>CFBundleVersion</key>
-	<string>GOPAY-05</string>
+	<string>GOPAY-07</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>

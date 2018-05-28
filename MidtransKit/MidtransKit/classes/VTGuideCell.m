@@ -72,12 +72,12 @@
         [attrString endEditing];
         self.contentLabel.attributedText = attrString;
     }
-   else  if ([instruction.content containsString:@"Enter"]) {
+   else  if ([instruction.content containsString:@"Next"]) {
        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
        [attrString beginEditing];
        [attrString addAttribute:NSFontAttributeName
                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Enter"]];
+                          range:[attrString.string rangeOfString:@"Next"]];
        
        [attrString endEditing];
        self.contentLabel.attributedText = attrString;

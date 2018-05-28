@@ -21,7 +21,7 @@
 @implementation VTGuideCell
 
 - (void)setInstruction:(VTInstruction *)instruction number:(NSInteger)number {
-    self.numberLabel.text = [NSString stringWithFormat:@"%li", (long)number];
+    self.numberLabel.text = [NSString stringWithFormat:@"%li.", (long)number];
      if ([[instruction.content stringsBetween:@"**" and:@"**"] count]) {
         NSString *boldLabel = [[instruction.content stringsBetween:@"**" and:@"**"] firstObject];
         NSString *cleanString = [[instruction.content stringByReplacingOccurrencesOfString:@"**" withString:@""] stringByReplacingOccurrencesOfString:@"**" withString:@""];

@@ -10,7 +10,7 @@
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Please continue the payment through KlikBCA by opening &lt;link&gt;http://www.klikbca.com/&lt;/link&gt; on your browser, using the same User ID that you entered below.</string>
+		<string>Please continue the payment through KlikBCA by opening &lt;link&gt;http://www.klikbca.com/&lt;/link&gt; on your browser, using the same User ID that you entered above.</string>
 		<key>image</key>
 		<string></string>
 	</dict>

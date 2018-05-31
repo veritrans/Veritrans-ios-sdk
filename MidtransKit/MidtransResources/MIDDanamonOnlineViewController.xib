@@ -92,13 +92,13 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danamon Online step by step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvZ-28-me0">
-                    <rect key="frame" x="8" y="90" width="189" height="22"/>
+                    <rect key="frame" x="8" y="98" width="189" height="22"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
                     <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-hv-PhK">
-                    <rect key="frame" x="317" y="89.5" width="50" height="22"/>
+                    <rect key="frame" x="317" y="97.5" width="50" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Z9J-Rn-1Dg"/>
                     </constraints>
@@ -123,7 +123,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2hk-Es-ZxA">
-                    <rect key="frame" x="8" y="112" width="359" height="446"/>
+                    <rect key="frame" x="8" y="120" width="359" height="438"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
             </subviews>
@@ -143,7 +143,7 @@
                 <constraint firstItem="MvZ-28-me0" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Gh6-Z0-g4u"/>
                 <constraint firstItem="2hk-Es-ZxA" firstAttribute="top" secondItem="MvZ-28-me0" secondAttribute="bottom" id="RAj-Ll-Nku"/>
                 <constraint firstItem="MNz-TE-FOm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Xvr-Xl-kMw"/>
-                <constraint firstItem="MvZ-28-me0" firstAttribute="top" secondItem="X6E-5a-afy" secondAttribute="bottom" constant="8" id="aHd-gs-vO9"/>
+                <constraint firstItem="MvZ-28-me0" firstAttribute="top" secondItem="X6E-5a-afy" secondAttribute="bottom" constant="16" id="aHd-gs-vO9"/>
                 <constraint firstItem="7Sz-hv-PhK" firstAttribute="centerY" secondItem="MvZ-28-me0" secondAttribute="centerY" id="b8r-yb-p0b"/>
                 <constraint firstItem="17m-rK-HHh" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="dcU-cd-MQN"/>
                 <constraint firstItem="X6E-5a-afy" firstAttribute="height" secondItem="17m-rK-HHh" secondAttribute="height" id="lLv-f8-Y21"/>

@@ -167,12 +167,15 @@ UIAlertViewDelegate
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     self.showUserForm = [CC_CONFIG showFormCredentialsUser];
-    self.view.userDetailViewWrapper.hidden = YES;
+    self.view.userDetailViewWrapper.alpha = 0.0;
     self.view.userDetailViewWrapperConstraints.constant = 0.0f;
+    self.view.contactEmailTextField.text = self.responsePayment.customerDetails.email;
+    self.view.contactPhoneNumberTextField.text = self.responsePayment.customerDetails.phone;
     if (self.showUserForm) {
         self.view.contactEmailTextField.text = self.responsePayment.customerDetails.email;
         self.view.contactPhoneNumberTextField.text = self.responsePayment.customerDetails.phone;
         self.view.userDetailViewWrapper.hidden = NO;
+        self.view.userDetailViewWrapper.alpha = 1.0f;
         self.view.userDetailViewWrapperConstraints.constant = 150.0f;
     }
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {

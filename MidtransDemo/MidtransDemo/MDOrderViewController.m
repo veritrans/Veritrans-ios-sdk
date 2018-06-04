@@ -83,7 +83,7 @@
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
-    CC_CONFIG.showFormCredentialsUser = YES;
+    //CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
     NSDictionary *inquiryConstructor=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};

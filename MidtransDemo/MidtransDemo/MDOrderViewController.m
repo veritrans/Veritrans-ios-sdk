@@ -71,7 +71,7 @@
        merchantServerURL:merchantServer];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = NO;
+    UICONFIG.hideStatusPage = YES;
     CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
 
@@ -92,7 +92,7 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
-    UICONFIG.hideStatusPage = NO;
+    UICONFIG.hideStatusPage = YES;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;

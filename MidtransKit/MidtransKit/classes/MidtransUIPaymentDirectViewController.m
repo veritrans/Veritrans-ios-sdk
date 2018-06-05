@@ -32,8 +32,6 @@
     self.view.topConstraints.constant = 0.0f;
     self.view.topViewConstraints.constant = 0.0f;
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
-        self.view.topConstraints.constant = 40.0f;
-        self.view.topViewConstraints.constant = 40.0f;
         self.view.disclosureButtonImage.hidden = YES;
     } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||

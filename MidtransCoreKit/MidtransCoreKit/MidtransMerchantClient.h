@@ -42,6 +42,7 @@
  
  @param completion A callback that will be executed when the transaction finishes. If the transaction succeeded, the `result` variable will contain all the information provided from the server.
  */
+
 - (void)performTransaction:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 - (void)performCheckStatusRBA:(MidtransTransaction *_Nonnull)transaction completion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
 - (void)performCheckStatusTransactionWcompletion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion;
@@ -60,6 +61,9 @@
 /*
  * updated method, snapping
  */
+- (void)requestTransacationWithCurrentToken:(NSString *_Nonnull)token
+                                 completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails

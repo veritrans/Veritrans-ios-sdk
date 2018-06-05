@@ -52,7 +52,7 @@
         return self.headerView;
     }
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
-    if(indexPath.row %2 ==0) {
+    if(indexPath.row % 2 > 0) {
          cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
     [cell setInstruction:self.guides[indexPath.row-1] number:indexPath.row];
@@ -128,7 +128,7 @@
         
         if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA]) {
             self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"KlikBCA User ID"];
-            self.headerView.descLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.klikbca.userid-note"];
+            self.headerView.descriptionHeightConstraint.constant = 0.0f;
         }
         else if ([paymentMethodID isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH]) {
             self.headerView.emailTextField.placeholder = [VTClassHelper getTranslationFromAppBundleForString:@"payment.telkomsel-cash.token-placeholder"];

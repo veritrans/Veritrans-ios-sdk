@@ -71,7 +71,7 @@
        merchantServerURL:merchantServer];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = NO;
+    UICONFIG.hideStatusPage = YES;
     CC_CONFIG.tokenStorageEnabled = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
 
@@ -83,7 +83,7 @@
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
-    CC_CONFIG.showFormCredentialsUser = YES;
+    //CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
     NSDictionary *inquiryConstructor=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
@@ -92,7 +92,7 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
-    UICONFIG.hideStatusPage = NO;
+    UICONFIG.hideStatusPage = YES;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;

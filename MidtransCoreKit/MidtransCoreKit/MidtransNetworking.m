@@ -114,7 +114,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
-    
+    [request addValue:MIDTRANS_SDK_CURRENT_VERSION forHTTPHeaderField:@"X-Source-Version"];
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
     }
@@ -139,6 +139,7 @@
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
     [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
+    [request addValue:MIDTRANS_SDK_CURRENT_VERSION forHTTPHeaderField:@"X-Source-Version"];
     
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];
@@ -178,6 +179,7 @@
                                                            timeoutInterval:[CONFIG timeoutInterval]];
     [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
+    [request addValue:MIDTRANS_SDK_CURRENT_VERSION forHTTPHeaderField:@"X-Source-Version"];
     
     for (NSString *key in [header allKeys]) {
         [request addValue:header[key] forHTTPHeaderField:key];

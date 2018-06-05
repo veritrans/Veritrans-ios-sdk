@@ -227,6 +227,11 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
    
     
 }
+- (void)requestTransacationWithCurrentToken:(NSString *_Nonnull)token
+                                 completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+    
+    //NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+}
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails

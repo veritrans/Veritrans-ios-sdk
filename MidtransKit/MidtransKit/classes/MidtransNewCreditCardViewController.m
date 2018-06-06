@@ -127,6 +127,7 @@ UIAlertViewDelegate
     else {
         self.maskedCards = [NSMutableArray new];
     }
+    NSLog(@"self.maskedCards-->%@",self.maskedCards);
     self.bniPointActive = NO;
     self.mandiriPointActive = NO;
     self.installmentCurrentIndex = 0;
@@ -1043,16 +1044,17 @@ UIAlertViewDelegate
          else {
              if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                     return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
+                     NSString *masked = [[result.additionalData objectForKey:@"masked_card"] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
+                     return [masked isEqualToString:obj.maskedNumber];
                  }];
                  if (index == NSNotFound) {
-                    [self.maskedCards addObject:result.maskedCreditCard];
+                  //  [self.maskedCards addObject:result.maskedCreditCard];
                  }
                  
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
                                                          customer:self.token.customerDetails
                                                        completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                           
+
                                                        }];
              }
              if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {

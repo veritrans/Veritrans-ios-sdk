@@ -122,6 +122,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         NSString *paymentType = transaction.paymentType;
         
         if (response) {
+            NSLog(@"chargeResult-->%@",response);
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
                 if (completion) {
@@ -183,6 +184,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
              if (!error) {
                  for (NSDictionary *dictionary in requestResponse) {
                      MidtransMaskedCreditCard *card = [[MidtransMaskedCreditCard alloc] initWithDictionary:dictionary];
+                     NSLog(@"data--> %@",card);
                      [result addObject:card];
                  }
              }
@@ -228,9 +230,59 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
 }
 - (void)requestTransacationWithCurrentToken:(NSString *_Nonnull)token
-                                 completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
+                                 completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable regenerateToken, NSError *_Nullable error))completion {
     
-    //NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
+    [[MidtransNetworking shared] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
+        if (!error) {
+            MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
+            
+            if (completion) {
+                NSLog(@"response-->%@",response);
+                MidtransTransactionTokenResponse *token2;
+                
+                MidtransAddress *billAddressConstruct = [MidtransAddress addressWithFirstName:paymentRequestV2.customerDetails.billingAddress.firstName
+                                                                                      lastName:paymentRequestV2.customerDetails.billingAddress.firstName
+                                                                                         phone:paymentRequestV2.customerDetails.billingAddress.phone
+                                                                                       address:paymentRequestV2.customerDetails.billingAddress.firstName
+                                                                                          city:paymentRequestV2.customerDetails.billingAddress.city
+                                                                                    postalCode:paymentRequestV2.customerDetails.billingAddress.postalCode
+                                                                                   countryCode:paymentRequestV2.customerDetails.billingAddress.countryCode];
+                
+                                                         
+                NSNumber *amount =  [NSNumber numberWithInteger:[paymentRequestV2.transactionDetails.grossAmount integerValue]];
+                MidtransTransactionDetails *reConstructTransactionDetail = [[MidtransTransactionDetails alloc] initWithOrderID:paymentRequestV2.transactionDetails.orderId
+                                                                                                                andGrossAmount:amount];
+
+                
+                
+                MidtransCustomerDetails *customerDetailsMock = [[MidtransCustomerDetails alloc] initWithFirstName:paymentRequestV2.customerDetails.firstName
+                                                                                                         lastName:paymentRequestV2.customerDetails.firstName
+                                                                                                            email:paymentRequestV2.customerDetails.email
+                                                                                                            phone:paymentRequestV2.customerDetails.phone
+                                                                                                  shippingAddress:billAddressConstruct
+                                                                                                   billingAddress:billAddressConstruct];
+                NSMutableArray *itemDetails = [NSMutableArray new];
+                
+                for (MidtransPaymentRequestV2ItemDetails *detail in paymentRequestV2.itemDetails) {
+                    MidtransItemDetail *regenerate = [[MidtransItemDetail alloc]initWithItemID:detail.itemDetailsIdentifier name:detail.name price:[NSNumber numberWithDouble:detail.price] quantity:[NSNumber numberWithDouble:detail.quantity]];
+                    [itemDetails addObject:regenerate];
+                }
+                token2 = [MidtransTransactionTokenResponse modelObjectWithDictionary:@{@"token":token}
+                                                                  transactionDetails:reConstructTransactionDetail
+                                                                     customerDetails:customerDetailsMock
+                                                                         itemDetails:itemDetails];
+                
+                completion(token2,NULL);
+            }
+            
+        }
+        else {
+            if (completion) {
+                completion(NULL,error);
+            }
+        }
+    }];
 }
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails

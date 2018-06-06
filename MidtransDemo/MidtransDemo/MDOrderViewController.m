@@ -66,23 +66,19 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    [CONFIG setClientKey:clientkey
+    [CONFIG setClientKey:@"VT-client-wCSALF27ZAHMVa2U"
              environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:merchantServer];
+       merchantServerURL:@"https://tapri.ayopop.com/api/payments/ccPayment/v2/"];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = YES;
-    CC_CONFIG.tokenStorageEnabled = NO;
-    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
-
-    CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
-    
-    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
-    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
-    CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
-    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
-    CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
-    CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
+    [[MidtransCreditCardConfig shared] setPaymentType:MTCreditCardPaymentTypeTwoclick];
+    [MidtransCreditCardConfig shared].setDefaultCreditSaveCardEnabled = YES;
+    [[MidtransCreditCardConfig shared] setSaveCardEnabled:TRUE];
+    [[MidtransCreditCardConfig shared] setSecure3DEnabled:TRUE];
+    [[MidtransCreditCardConfig shared] setTokenStorageEnabled:TRUE];
+    [[MidtransUIConfiguration shared] setHideStatusPage:TRUE];
+    [[MidtransNetworkLogger shared] startLogging];
     //CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
@@ -120,20 +116,20 @@
                                                        postalCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"]
                                                       countryCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]];
     
-    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
-                                                                             lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
-                                                                                email:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"]
-                                                                                phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
+    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:@"Guru"
+                                                                             lastName:@"A"
+                                                                                email:@"ayopop.test@gmail.com"
+                                                                                phone:@"ayopop.test@gmail.com"
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
-    cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
-    MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
-                                                                    name:@"Midtrans Pillow"
-                                                                   price:@255000
+    cst.customerIdentifier = @"DE343BED-726A-4FD9-8E37-25E4138662A1";
+    MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:@"AP0054942"
+                                                                    name:@"(Telkomsel) Rp 11.000 Processing"
+                                                                   price:@11363
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:@255000];
+                                                                           andGrossAmount:@11363];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"

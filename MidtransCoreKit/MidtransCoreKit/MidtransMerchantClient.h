@@ -62,7 +62,7 @@
  * updated method, snapping
  */
 - (void)requestTransacationWithCurrentToken:(NSString *_Nonnull)token
-                                 completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion;
+                                 completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable regenerateToken, NSError *_Nullable error))completion;
 
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails

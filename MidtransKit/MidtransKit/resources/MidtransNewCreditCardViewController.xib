@@ -48,13 +48,13 @@
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l67-Ku-WeL">
                             <rect key="frame" x="15" y="18" width="76.666666666666671" height="15.333333333333336"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xe-08-1kx">
-                            <rect key="frame" x="330.66666666666669" y="0.0" width="43.333333333333314" height="50"/>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                            <rect key="frame" x="338" y="0.0" width="36" height="50"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="XOO-e2-kal">
@@ -71,12 +71,12 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{order Id}}" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBp-NV-YCD">
-                            <rect key="frame" x="221" y="49" width="178" height="17"/>
+                            <rect key="frame" x="212" y="49" width="178" height="17"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="17" id="HdC-qq-BVr"/>
                                 <constraint firstAttribute="width" constant="178" id="ZSJ-Fe-JR1"/>
                             </constraints>
-                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="11"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -86,7 +86,7 @@
                         <constraint firstItem="XOO-e2-kal" firstAttribute="centerY" secondItem="K39-0u-IJj" secondAttribute="centerY" constant="-12" id="5Jd-eh-CLv"/>
                         <constraint firstAttribute="trailing" secondItem="XOO-e2-kal" secondAttribute="trailing" constant="15" id="82V-0q-TTF"/>
                         <constraint firstItem="l67-Ku-WeL" firstAttribute="centerY" secondItem="9Xe-08-1kx" secondAttribute="centerY" id="Pwa-7l-a6P"/>
-                        <constraint firstItem="rBp-NV-YCD" firstAttribute="leading" secondItem="gQ9-MU-rFI" secondAttribute="trailing" constant="40" id="SQb-W4-u4P"/>
+                        <constraint firstItem="rBp-NV-YCD" firstAttribute="leading" secondItem="gQ9-MU-rFI" secondAttribute="trailing" constant="31" id="SQb-W4-u4P"/>
                         <constraint firstAttribute="trailing" secondItem="9Xe-08-1kx" secondAttribute="trailing" constant="40" id="TGE-sZ-ZdU"/>
                         <constraint firstItem="gQ9-MU-rFI" firstAttribute="leading" secondItem="K39-0u-IJj" secondAttribute="leading" constant="15" id="UpF-4H-Qvt"/>
                         <constraint firstAttribute="bottom" secondItem="9Xe-08-1kx" secondAttribute="bottom" constant="24" id="gFc-zv-2Qn"/>
@@ -95,7 +95,7 @@
                         <constraint firstItem="rBp-NV-YCD" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="top" constant="49" id="lxF-sN-v4g"/>
                         <constraint firstItem="9Xe-08-1kx" firstAttribute="top" secondItem="K39-0u-IJj" secondAttribute="top" id="mOU-1f-WZe"/>
                         <constraint firstItem="9Xe-08-1kx" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="l67-Ku-WeL" secondAttribute="trailing" constant="8" id="pJN-Cz-OiM"/>
-                        <constraint firstAttribute="trailing" secondItem="rBp-NV-YCD" secondAttribute="trailing" constant="15" id="qhl-XF-cei"/>
+                        <constraint firstAttribute="trailing" secondItem="rBp-NV-YCD" secondAttribute="trailing" constant="24" id="qhl-XF-cei"/>
                         <constraint firstAttribute="height" constant="74" id="sDC-EK-i1s"/>
                     </constraints>
                     <userDefinedRuntimeAttributes>

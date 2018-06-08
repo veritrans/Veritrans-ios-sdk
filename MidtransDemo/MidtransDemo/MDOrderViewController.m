@@ -66,9 +66,9 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    [CONFIG setClientKey:@"VT-client-wCSALF27ZAHMVa2U"
+    [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:@"https://tapri.ayopop.com/api/payments/ccPayment/v2/"];
+       merchantServerURL:merchantServer];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = YES;

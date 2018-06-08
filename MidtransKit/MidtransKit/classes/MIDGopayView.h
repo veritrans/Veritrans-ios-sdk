@@ -21,5 +21,6 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *transactionBottomDetailConstraints;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet UIButton *installGojekButton;
 @end

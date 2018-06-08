@@ -36,6 +36,7 @@
 @property (nonatomic) BOOL isShowInstruction;
 @property (nonatomic) CGFloat currentTableViewHieght;
 @property (nonatomic) MidtransVAType paymentType;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @end
 
 @implementation MidtransVAViewController
@@ -58,6 +59,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     self.amountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     
     self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransVAHeader"];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];

@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet UIButton *confirmPaymentButton;
 @end
 
@@ -41,6 +42,7 @@
     [self addSubViewController:self.subGuide toView:self.instructionPage];
 
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     self.instructionLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];

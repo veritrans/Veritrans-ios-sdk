@@ -54,7 +54,21 @@ NSString *const kSNPMaskedCreditCardTransactionId = @"transaction_id";
     }
     return self;
 }
-
+- (instancetype )initWithSavedTokenId:(NSString * _Nonnull)savedTokenId
+                         maskedNumber:(NSString * _Nonnull)maskedNumber
+                            tokenType:(NSString * _Nullable)tokenType
+                            expiresAt:(NSString *_Nullable)expiresAt {
+    
+    if (self = [super init]) {
+        self.maskedNumber = maskedNumber;
+        self.savedTokenId = savedTokenId;
+        self.expiresAt  = expiresAt;
+        self.statusCode = @"";
+        self.transactionId = @"";
+        self.type = [MidtransCreditCardHelper nameFromString:self.maskedNumber];
+    }
+    return self;
+}
 - (NSDictionary *)dictionaryValue {
     return @{kMTMaskedCreditCardIdentifier:self.savedTokenId,
              kMTMaskedCreditCardCardhash:self.maskedNumber,

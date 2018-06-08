@@ -1048,7 +1048,8 @@ UIAlertViewDelegate
                      return [masked isEqualToString:obj.maskedNumber];
                  }];
                  if (index == NSNotFound) {
-                  //  [self.maskedCards addObject:result.maskedCreditCard];
+                     MidtransMaskedCreditCard *constructMaskedCard = [[MidtransMaskedCreditCard alloc] initWithSavedTokenId:[result.additionalData valueForKey:@"saved_token_id"] maskedNumber:[result.additionalData valueForKey:@"masked_card"] tokenType:@"" expiresAt:@""];
+                     [self.maskedCards addObject:constructMaskedCard];
                  }
                  
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards

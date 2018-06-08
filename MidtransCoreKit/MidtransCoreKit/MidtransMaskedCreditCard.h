@@ -42,5 +42,18 @@ static NSString * _Nonnull const kMTMaskedCreditCardExpiresAt = @"expires_at";
 - (instancetype _Nonnull)initWithDictionary:(NSDictionary *_Nonnull)dictionary;
 
 - (instancetype _Nonnull)initWithData:(NSDictionary *_Nonnull)data;
+- (instancetype _Nonnull)initWithSavedTokenId:(NSString * _Nonnull)savedTokenId
+                         maskedNumber:(NSString * _Nonnull)maskedNumber
+                            tokenType:(NSString * _Nullable)tokenType
+                            expiresAt:(NSString *_Nullable)expiresAt;
 
+/*
+ self.savedTokenId = dictionary[kMTMaskedCreditCardIdentifier];
+ self.maskedNumber = dictionary[kMTMaskedCreditCardCardhash];
+ self.type = dictionary[kMTMaskedCreditCardType]?dictionary[kMTMaskedCreditCardType]:@"";
+ self.tokenType = dictionary[kMTMaskedCreditCardTokenType]?dictionary[kMTMaskedCreditCardTokenType]:@"";
+ self.expiresAt = dictionary[kMTMaskedCreditCardExpiresAt]?dictionary[kMTMaskedCreditCardExpiresAt]:@"";
+ self.statusCode = @"";
+ self.transactionId = @"";
+ */
 @end

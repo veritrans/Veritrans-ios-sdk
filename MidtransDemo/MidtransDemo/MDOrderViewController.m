@@ -71,18 +71,14 @@
        merchantServerURL:merchantServer];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = YES;
-    CC_CONFIG.tokenStorageEnabled = NO;
-    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
-    
-    CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
-    
-    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
-    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
-    CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
-    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
-    CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
-    CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
+    UICONFIG.hideStatusPage = NO;
+    [[MidtransCreditCardConfig shared] setPaymentType:MTCreditCardPaymentTypeTwoclick];
+    [MidtransCreditCardConfig shared].setDefaultCreditSaveCardEnabled = YES;
+    [[MidtransCreditCardConfig shared] setSaveCardEnabled:TRUE];
+    [[MidtransCreditCardConfig shared] setSecure3DEnabled:TRUE];
+    [[MidtransCreditCardConfig shared] setTokenStorageEnabled:TRUE];
+    [[MidtransUIConfiguration shared] setHideStatusPage:FALSE];
+    [[MidtransNetworkLogger shared] startLogging];
     //CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
@@ -92,7 +88,7 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;

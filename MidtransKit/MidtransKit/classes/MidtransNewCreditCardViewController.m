@@ -1044,7 +1044,7 @@ UIAlertViewDelegate
          else {
              if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                     NSString *masked = [[result.additionalData objectForKey:@"masked_card"] stringByReplacingOccurrencesOfString:@"-" withString:@"XXXXXX"];
+                     NSString *masked = [result.additionalData objectForKey:@"masked_card"];
                      return [masked isEqualToString:obj.maskedNumber];
                  }];
                  if (index == NSNotFound) {

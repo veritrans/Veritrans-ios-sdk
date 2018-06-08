@@ -66,12 +66,12 @@
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
             break;
     }
-    [CONFIG setClientKey:clientkey
+    [CONFIG setClientKey:@"VT-client-wCSALF27ZAHMVa2U"
              environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:merchantServer];
+       merchantServerURL:@"https://tapri.ayopop.com/api/payments/ccPayment/v2/"];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     [[MidtransCreditCardConfig shared] setPaymentType:MTCreditCardPaymentTypeTwoclick];
     [MidtransCreditCardConfig shared].setDefaultCreditSaveCardEnabled = YES;
     [[MidtransCreditCardConfig shared] setSaveCardEnabled:TRUE];
@@ -88,7 +88,7 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;

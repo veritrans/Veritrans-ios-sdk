@@ -72,11 +72,15 @@
     MidtransTransactionExpire *minute = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
                                                                                expireDuration:1
                                                                                  withUnitTime:MindtransTimeUnitTypeMinute];
+    MidtransTransactionExpire *fiveMinutes = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
+                                                                               expireDuration:5
+                                                                                 withUnitTime:MindtransTimeUnitTypeMinutes];
     MidtransTransactionExpire *hour = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date]
                                                                              expireDuration:1
                                                                                withUnitTime:MindtransTimeUnitTypeHour];
     options = @[[MDOption optionGeneralWithName:@"No Expiry" value:nil],
                 [MDOption optionGeneralWithName:@"1 Minute" value:minute],
+                [MDOption optionGeneralWithName:@"5 Minute" value:fiveMinutes],
                 [MDOption optionGeneralWithName:@"1 Hour" value:hour]];
     MDOptionView *optCustomExpiry = [MDOptionView viewWithIcon:[UIImage imageNamed:@"expiry"]
                                                  titleTemplate:@"%@"

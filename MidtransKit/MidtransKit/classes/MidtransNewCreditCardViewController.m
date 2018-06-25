@@ -201,7 +201,7 @@ UIAlertViewDelegate
             AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
                                                                                                 @"addOnName":SNP_PROMO,
                                                                                                 @"addOnTitle":promos.name,
-                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
+                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
                                                                                                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
                              }];
           [self.promoArray addObject:promoConstructor];
@@ -438,7 +438,7 @@ UIAlertViewDelegate
             AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
                                                                                                 @"addOnName":SNP_PROMO,
                                                                                                 @"addOnTitle":promos.name,
-                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
+                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
                                                                                                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
                                                                                                 }];
             [self.promoArray addObject:promoConstructor];

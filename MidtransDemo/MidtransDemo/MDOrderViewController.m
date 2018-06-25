@@ -125,11 +125,11 @@
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@2500
+                                                                   price:@100000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:@2500];
+                                                                           andGrossAmount:@100000];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -146,10 +146,7 @@
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     
-    NSDate *mydate = [NSDate date];
-    NSTimeInterval secondsInEightHours = 1 * 60 * 60;
-    NSDate *dateEightHoursAhead = [mydate dateByAddingTimeInterval:secondsInEightHours];
-    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:nil expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
+    //MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:nil expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
     

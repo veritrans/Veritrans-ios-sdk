@@ -190,6 +190,16 @@
                                              identifier:OPTBNIVA];
     [optBNIVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bniVAOption]];
     
+    /////////////
+    //custom field
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
+    MDOptionView *optCustomField = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+                                          titleTemplate:@"Custom Field %@d"
+                                                options:options
+                                             identifier:OPTCustomField];
+    [optCustomField selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].customFieldOption]];
+    
     
     /////////////
     //installment
@@ -231,6 +241,7 @@
                          optPermataVA,
                          optBCAVA,
                          optBNIVA,
+                         optCustomField,
                          optInstallment,
                          optPaymentChannels
                          ];
@@ -421,6 +432,15 @@
                                                                   checkLists:channelNames];
         alert.delegate = self;
         alert.predefinedCheckLists = usePredefinedValue? [option.value valueForKey:@"name"]: nil;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTCustomField]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom Field"
+                                                              predefinedText:option.value
+                                                            inputPlaceholder:@"Custom Field"];
+        alert.delegate = self;
+        alert.predefinedInputText = usePredefinedValue? option.value: nil;
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }

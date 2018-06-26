@@ -24,6 +24,7 @@
 @property (nonatomic) NSString *alertTitle;
 @property (nonatomic) NSArray <NSString*>*radioButtons;
 @property (nonatomic) NSArray <NSString*>*checkLists;
+@property (nonatomic) NSArray <NSString*>*textfields;
 
 @property (nonatomic) MDAlertInputCell *inputCell;
 @end
@@ -137,7 +138,9 @@
     
     switch (self.type) {
         case MDAlertOptionTypeInput:
-            height = 50;
+            for (int i=0; i < self.radioButtons.count; i++) {
+                height += 50;
+            }
             break;
         case MDAlertOptionTypeRadio:
             for (int i=0; i < self.radioButtons.count; i++) {
@@ -232,7 +235,7 @@
         return self.radioButtons.count;
     }
     else if (self.type == MDAlertOptionTypeInput) {
-        return 1;
+        return 3;
     }
     else {
         return self.checkLists.count;

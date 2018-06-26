@@ -41,6 +41,7 @@ typedef NS_ENUM(NSUInteger, MDAlertOptionType) {
 + (MDAlertViewController *)alertWithTitle:(NSString *)title
                            predefinedText:(NSString *)predefinedText
                          inputPlaceholder:(NSString *)placeholder;
+
 - (void)show;
 - (void)dismiss;
 

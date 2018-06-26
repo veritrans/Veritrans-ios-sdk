@@ -430,9 +430,13 @@ UIAlertViewDelegate
         self.currentPromoSelected = @"";
         self.currentPromoIndex = nil;
         self.prevPromoIndex = nil;
-       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", number]];
+       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", [NSString stringWithFormat:@"%@", number]]];
+        
         if (filtered.count) {
              [self.promoArray removeAllObjects];
+             [self updatePromoContent];
+        } else {
+             [self updatePromoContent];
         }
         for (MidtransPromoPromos *promos in filtered) {
             AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{

@@ -96,7 +96,6 @@
         [[MidtransMerchantClient shared] fetchMaskedCardsCustomer:self.token.customerDetails
                                                        completion:^(NSArray * _Nullable maskedCards, NSError * _Nullable error) {
 
-                                                           NSLog(@"maskedCards-->%@",maskedCards);
             if (maskedCards.count > 0) {
                 [self.cards setArray:maskedCards];
                 [self.tableView reloadData];

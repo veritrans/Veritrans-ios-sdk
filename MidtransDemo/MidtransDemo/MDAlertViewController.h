@@ -11,7 +11,8 @@
 typedef NS_ENUM(NSUInteger, MDAlertOptionType) {
     MDAlertOptionTypeInput = 1,
     MDAlertOptionTypeRadio = 2,
-    MDAlertOptionTypeCheck = 3
+    MDAlertOptionTypeCheck = 3,
+    MDAlertOptionTypeMultipleInput = 4
 };
 
 @class MDAlertViewController;
@@ -22,6 +23,7 @@ typedef NS_ENUM(NSUInteger, MDAlertOptionType) {
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyInput:(NSString *)inputText;
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyRadio:(id)value;
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values;
+- (void)alertViewController:(MDAlertViewController *)viewController didApplyMultipleInput:(NSArray *)multipleInputText;
 
 @end
 
@@ -33,6 +35,7 @@ typedef NS_ENUM(NSUInteger, MDAlertOptionType) {
 @property (nonatomic) NSString *inputPlaceholder;
 @property (nonatomic) NSString *inputText;
 @property (nonatomic) NSString *predefinedInputText;
+@property (nonatomic) NSArray *multipleInputTexts;
 @property (nonatomic) id predefinedRadio;
 @property (nonatomic) NSArray *predefinedCheckLists;
 
@@ -40,6 +43,9 @@ typedef NS_ENUM(NSUInteger, MDAlertOptionType) {
 + (MDAlertViewController *)alertWithTitle:(NSString *)title checkLists:(NSArray <NSString*>*)checkLists;
 + (MDAlertViewController *)alertWithTitle:(NSString *)title
                            predefinedText:(NSString *)predefinedText
+                         inputPlaceholder:(NSString *)placeholder;
++ (MDAlertViewController *)alertWithTitle:(NSString *)title
+                           multipleTextfields:(NSArray <NSString*>*)multipleTextfields
                          inputPlaceholder:(NSString *)placeholder;
 
 - (void)show;

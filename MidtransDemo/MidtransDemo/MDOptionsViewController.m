@@ -357,6 +357,18 @@
     
     [viewController dismiss];
 }
+- (void)alertViewController:(MDAlertViewController *)viewController didApplyMultipleInput:(NSArray *)multipleInputText {
+    NSUInteger index = viewController.tag;
+    MDOption *option = self.selectedOptionView.options[index];
+    option.value = multipleInputText;
+    option.subName = [NSString stringWithFormat:@"%@ Numbers", @(multipleInputText.count)];
+    
+    [self.selectedOptionView selectOptionAtIndex:index];
+    
+    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
+    
+    [viewController dismiss];
+}
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values {
     NSUInteger index = viewController.tag;
     MDOption *option = self.selectedOptionView.options[index];

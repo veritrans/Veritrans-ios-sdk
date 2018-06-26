@@ -61,6 +61,18 @@
     return vc;
 }
 
++ (MDAlertViewController *)alertWithTitle:(NSString *)title
+                       multipleTextfields:(NSArray <NSString*>*)multipleTextfields
+                         inputPlaceholder:(NSString *)placeholder {
+    MDAlertViewController *vc = [[MDAlertViewController alloc] initWithNibName:@"MDAlertViewController"
+                                                                        bundle:nil];
+    vc.alertTitle = title;
+    vc.multipleInputTexts = multipleTextfields;
+    vc.inputPlaceholder = placeholder;
+    vc.type = MDAlertOptionTypeMultipleInput;
+    return vc;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -94,6 +106,9 @@
                 [self tableView:self.tableView didSelectRowAtIndexPath:indexPath];
             }
         }
+    }
+    else if (self.type == MDAlertOptionTypeMultipleInput) {
+        self.applyButton.enabled = NO;
     }
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
@@ -138,13 +153,16 @@
     
     switch (self.type) {
         case MDAlertOptionTypeInput:
-            for (int i=0; i < self.radioButtons.count; i++) {
-                height += 50;
-            }
+            height = 50;
             break;
         case MDAlertOptionTypeRadio:
             for (int i=0; i < self.radioButtons.count; i++) {
                 height += 44;
+            }
+            break;
+        case MDAlertOptionTypeMultipleInput:
+            for (int i=0; i < self.multipleInputTexts.count; i++) {
+                height += 50;
             }
             break;
         default:
@@ -216,6 +234,11 @@
             [self.delegate alertViewController:self didApplyInput:self.inputText];
         }
     }
+    else if (self.type == MDAlertOptionTypeMultipleInput) {
+        if ([self.delegate respondsToSelector:@selector(alertViewController:didApplyMultipleInput:)]) {
+            [self.delegate alertViewController:self didApplyMultipleInput:self.multipleInputTexts];
+        }
+    }
     else {
         if ([self.delegate respondsToSelector:@selector(alertViewController:didApplyCheck:)]) {
             NSArray *indexPaths = self.tableView.indexPathsForSelectedRows;
@@ -235,6 +258,9 @@
         return self.radioButtons.count;
     }
     else if (self.type == MDAlertOptionTypeInput) {
+        return 1;
+    }
+    else if (self.type == MDAlertOptionTypeMultipleInput) {
         return 3;
     }
     else {
@@ -250,6 +276,13 @@
     else if (self.type == MDAlertOptionTypeInput) {
         return self.inputCell;
     }
+    else if (self.type == MDAlertOptionTypeMultipleInput) {
+        MDAlertInputCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MDAlertInputCell"];
+        cell.textField.hint = self.inputPlaceholder;
+        cell.textField.text = self.multipleInputTexts[indexPath.row];
+        [cell.textField addTarget:self action:@selector(inputTextChanged:) forControlEvents:UIControlEventEditingChanged];
+        return cell;
+    }
     else {
         MDAlertCheckCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MDAlertCheckCell"];
         cell.titleLabel.text = self.checkLists[indexPath.row];
@@ -257,7 +290,7 @@
     }
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (self.type == MDAlertOptionTypeInput) {
+    if (self.type == MDAlertOptionTypeInput || self.type == MDAlertOptionTypeMultipleInput) {
         return 50;
     }
     else {

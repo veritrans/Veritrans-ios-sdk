@@ -207,7 +207,7 @@
 //        return NO;
 //    }];
 //    cell.havePromo = index != NSNotFound;
-//    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
+    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
     return cell;
 }
 

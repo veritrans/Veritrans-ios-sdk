@@ -12,6 +12,8 @@
 #import "MDAlertCheckCell.h"
 #import "MDUtils.h"
 
+#define MDAlertInputCellHeight 50.f
+
 @interface MDAlertViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic) IBOutlet NSLayoutConstraint *tableHeightConstraint;
@@ -153,7 +155,7 @@
     
     switch (self.type) {
         case MDAlertOptionTypeInput:
-            height = 50;
+            height = MDAlertInputCellHeight;
             break;
         case MDAlertOptionTypeRadio:
             for (int i=0; i < self.radioButtons.count; i++) {
@@ -161,9 +163,7 @@
             }
             break;
         case MDAlertOptionTypeMultipleInput:
-            for (int i=0; i < self.multipleInputTexts.count; i++) {
-                height += 50;
-            }
+            height += 3 * MDAlertInputCellHeight;
             break;
         default:
             for (int i=0; i < self.checkLists.count; i++) {
@@ -280,6 +280,7 @@
         MDAlertInputCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MDAlertInputCell"];
         cell.textField.hint = self.inputPlaceholder;
         cell.textField.text = self.multipleInputTexts[indexPath.row];
+        cell.textField.tag = indexPath.row;
         [cell.textField addTarget:self action:@selector(inputTextChanged:) forControlEvents:UIControlEventEditingChanged];
         return cell;
     }
@@ -291,7 +292,7 @@
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (self.type == MDAlertOptionTypeInput || self.type == MDAlertOptionTypeMultipleInput) {
-        return 50;
+        return MDAlertInputCellHeight;
     }
     else {
         return 44;
@@ -302,8 +303,21 @@
 }
 
 - (void)inputTextChanged:(MDTextField *)textField {
-    self.inputText = textField.text;
-    self.applyButton.enabled = textField.text.length > 0;
+    if (self.type == MDAlertOptionTypeInput) {
+        self.inputText = textField.text;
+        self.applyButton.enabled = textField.text.length > 0;
+    }
+    else if (self.type == MDAlertOptionTypeMultipleInput) {
+        if (self.multipleInputTexts == nil) {
+            self.multipleInputTexts = @[textField.text];
+        }
+        else if (self.multipleInputTexts.count > textField.tag) {
+            NSMutableArray *mutable = [NSMutableArray arrayWithArray:self.multipleInputTexts];
+            self.multipleInputTexts = [NSArray arrayWithArray:mutable];
+        }
+        
+//        self.multipleInputTexts[textField.tag] = textField.text;
+    }
 }
 
 @end

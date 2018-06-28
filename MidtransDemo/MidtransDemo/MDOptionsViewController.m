@@ -449,10 +449,10 @@
     }
     else if ([idf isEqualToString:OPTCustomField]) {
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom Field"
-                                                              predefinedText:option.value
+                                                          multipleTextfields:@[option.value]
                                                             inputPlaceholder:@"Custom Field"];
         alert.delegate = self;
-        alert.predefinedInputText = usePredefinedValue? option.value: nil;
+        alert.multipleInputTexts = usePredefinedValue? @[option.value]: nil;
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }

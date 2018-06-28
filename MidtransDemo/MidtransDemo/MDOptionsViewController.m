@@ -361,7 +361,8 @@
     NSUInteger index = viewController.tag;
     MDOption *option = self.selectedOptionView.options[index];
     option.value = multipleInputText;
-    option.subName = [NSString stringWithFormat:@"%@ Numbers", @(multipleInputText.count)];
+    NSInteger count = [[multipleInputText filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.length > 0"]] count];
+    option.subName = [NSString stringWithFormat:@"%@ Fields", @(count)];
     
     [self.selectedOptionView selectOptionAtIndex:index];
     
@@ -449,10 +450,10 @@
     }
     else if ([idf isEqualToString:OPTCustomField]) {
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom Field"
-                                                          multipleTextfields:@[option.value]
+                                                          multipleTextfields:option.value
                                                             inputPlaceholder:@"Custom Field"];
         alert.delegate = self;
-        alert.multipleInputTexts = usePredefinedValue? @[option.value]: nil;
+        alert.multipleInputTexts = usePredefinedValue? option.value: nil;
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }

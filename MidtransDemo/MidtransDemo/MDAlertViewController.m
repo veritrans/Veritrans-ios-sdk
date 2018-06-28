@@ -110,6 +110,9 @@
         }
     }
     else if (self.type == MDAlertOptionTypeMultipleInput) {
+        if (self.multipleInputTexts == nil) {
+            self.multipleInputTexts = @[@"", @"", @""];
+        }
         self.applyButton.enabled = NO;
     }
     
@@ -308,15 +311,10 @@
         self.applyButton.enabled = textField.text.length > 0;
     }
     else if (self.type == MDAlertOptionTypeMultipleInput) {
-        if (self.multipleInputTexts == nil) {
-            self.multipleInputTexts = @[textField.text];
-        }
-        else if (self.multipleInputTexts.count > textField.tag) {
-            NSMutableArray *mutable = [NSMutableArray arrayWithArray:self.multipleInputTexts];
-            self.multipleInputTexts = [NSArray arrayWithArray:mutable];
-        }
-        
-//        self.multipleInputTexts[textField.tag] = textField.text;
+        NSMutableArray *mutable = [NSMutableArray arrayWithArray:self.multipleInputTexts];
+        [mutable replaceObjectAtIndex:textField.tag withObject:textField.text];
+        self.multipleInputTexts = [NSArray arrayWithArray:mutable];
+        self.applyButton.enabled = [self.multipleInputTexts componentsJoinedByString:@""].length > 0;
     }
 }
 

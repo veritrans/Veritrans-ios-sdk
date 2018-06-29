@@ -152,10 +152,15 @@
     
     NSMutableArray *arrayOfCustomField = [NSMutableArray new];
     NSArray *value = [[[MDOptionManager shared] customFieldOption] value];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:value[0]}];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:value[1]}];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
-    
+    if (value[0]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:value[0]}];
+    }
+    if (value[1]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:value[1]}];
+    }
+    if (value[2]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
+    }
 //    NSError *error;
 //    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
 //                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string

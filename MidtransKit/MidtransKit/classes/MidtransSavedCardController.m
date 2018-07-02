@@ -206,6 +206,7 @@
     MidtransSavedCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransSavedCardCell"];
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     cell.maskedCard = card;
+    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
     return cell;
 }
 

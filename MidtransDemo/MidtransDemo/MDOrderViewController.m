@@ -125,11 +125,11 @@
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@2000
+                                                                   price:@10000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:@2000];
+                                                                           andGrossAmount:@10000];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -150,27 +150,31 @@
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
     
-    //NSArray *cf = @[MIDTRANS_CUSTOMFIELD_1:@{@"voucher_code":@"123",@"amount":@"123"}];
     NSMutableArray *arrayOfCustomField = [NSMutableArray new];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:@"VN00000015-sw4g4o0cws"}];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:@"0--14"}];
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    NSString *jsonString;
-    if (jsonData) {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        //This is your JSON String
-        //NSUTF8StringEncoding encodes special characters using an escaping scheme
-    } else {
-        NSLog(@"Got an error: %@", error);
-        jsonString = @"";
+    NSArray *value = [[[MDOptionManager shared] customFieldOption] value];
+    if (value[0]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:value[0]}];
     }
-    
-    
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
+    if (value[1]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:value[1]}];
+    }
+    if (value[2]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
+    }
+//    NSError *error;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
+//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+//                                                         error:&error];
+//    NSString *jsonString;
+//    if (jsonData) {
+//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        //This is your JSON String
+//        //NSUTF8StringEncoding encodes special characters using an escaping scheme
+//    } else {
+//        NSLog(@"Got an error: %@", error);
+//        jsonString = @"";
+//    }
+//    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
     
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]

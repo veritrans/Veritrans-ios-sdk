@@ -190,6 +190,16 @@
                                              identifier:OPTBNIVA];
     [optBNIVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bniVAOption]];
     
+    /////////////
+    //custom field
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
+    MDOptionView *optCustomField = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+                                          titleTemplate:@"Custom Field %@d"
+                                                options:options
+                                             identifier:OPTCustomField];
+    [optCustomField selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].customFieldOption]];
+    
     
     /////////////
     //installment
@@ -231,6 +241,7 @@
                          optPermataVA,
                          optBCAVA,
                          optBNIVA,
+                         optCustomField,
                          optInstallment,
                          optPaymentChannels
                          ];
@@ -346,6 +357,19 @@
     
     [viewController dismiss];
 }
+- (void)alertViewController:(MDAlertViewController *)viewController didApplyMultipleInput:(NSArray *)multipleInputText {
+    NSUInteger index = viewController.tag;
+    MDOption *option = self.selectedOptionView.options[index];
+    option.value = multipleInputText;
+    NSInteger count = [[multipleInputText filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.length > 0"]] count];
+    option.subName = [NSString stringWithFormat:@"%@ Fields", @(count)];
+    
+    [self.selectedOptionView selectOptionAtIndex:index];
+    
+    [MDUtils saveOptionWithView:self.selectedOptionView option:option];
+    
+    [viewController dismiss];
+}
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values {
     NSUInteger index = viewController.tag;
     MDOption *option = self.selectedOptionView.options[index];
@@ -421,6 +445,15 @@
                                                                   checkLists:channelNames];
         alert.delegate = self;
         alert.predefinedCheckLists = usePredefinedValue? [option.value valueForKey:@"name"]: nil;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTCustomField]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom Field"
+                                                          multipleTextfields:option.value
+                                                            inputPlaceholder:@"Custom Field"];
+        alert.delegate = self;
+        alert.multipleInputTexts = usePredefinedValue? option.value: nil;
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }

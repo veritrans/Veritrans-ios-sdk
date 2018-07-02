@@ -27,6 +27,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountText;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @end
 
 @implementation MidtransSavedCardController
@@ -40,7 +41,9 @@
         self.paymentMethod = paymentMethod;
         self.responsePayment = responsePayment;
         self.creditCard = creditCard;
-        self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc] initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]] options:kNilOptions error:nil];
+        self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
+                                                                    initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
+                                                           options:kNilOptions error:nil];
     }
     return self;
 }
@@ -63,6 +66,7 @@
     self.footerView = [[VTBundle loadNibNamed:@"MidtransSavedCardFooter" owner:self options:nil] lastObject];
     [self.footerView.addCardButton addTarget:self action:@selector(addCardPressed:) forControlEvents:UIControlEventTouchUpInside];
       self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     self.tableView.tableFooterView = [UIView new];
@@ -150,8 +154,10 @@
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
     if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment" additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"
+                                 additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     }
+    
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
                                                grossAmount:self.token.transactionDetails.grossAmount];
@@ -200,14 +206,6 @@
     MidtransSavedCardCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransSavedCardCell"];
     MidtransMaskedCreditCard *card = self.cards[indexPath.row];
     cell.maskedCard = card;
-//    NSUInteger index = [self.promos indexOfObjectPassingTest:^BOOL(MidtransPromo * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        for (NSString *bin in obj.bins) {
-//            return [card.maskedNumber containsString:bin];
-//        }
-//        return NO;
-//    }];
-//    cell.havePromo = index != NSNotFound;
-//    cell.bankName = [self bankNameFromNumber:card.maskedNumber];
     return cell;
 }
 
@@ -240,6 +238,7 @@
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
     [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
 }
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     return 55;
 }

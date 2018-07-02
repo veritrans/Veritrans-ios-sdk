@@ -73,6 +73,7 @@
     self.instrunctions = [VTClassHelper instructionsFromFilePath:guidePath];
     
      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
     [self.view.totalAmountBorderedView addGestureRecognizer:

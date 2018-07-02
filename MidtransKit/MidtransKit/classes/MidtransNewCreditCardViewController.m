@@ -744,12 +744,14 @@ UIAlertViewDelegate
             }
             
             if (self.installmentAvailable) {
+                
                 if (!isDebitCard) {
                     self.installmentBankName = self.filteredBinObject.bank;
                     [self.installmentValueObject setArray:@[@"0"]];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
                     [self showInstallmentView:YES];
                 }
+                
             }
         }
         else {
@@ -778,11 +780,13 @@ UIAlertViewDelegate
         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
         self.filteredBinObject.bank = nil;
         self.view.creditCardNumberTextField.info2Icon = nil;
+        
         if (self.installmentValueObject.count > 0) {
             self.installmentCurrentIndex = 0;
             [self.installmentValueObject removeAllObjects];
             [self.installmentsContentView resetInstallmentIndex];
         }
+        
         [self showInstallmentView:NO];
         
     }

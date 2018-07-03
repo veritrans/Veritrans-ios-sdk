@@ -19,6 +19,10 @@
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UIView *amountView;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pricePerItemLabel;
+@property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property (strong, nonatomic) NSNumber *totalAmount;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
 
@@ -33,6 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.totalAmount = @10000;
+    NSString *formattedPrice = [self formatISOCurrencyNumber:self.totalAmount];
+    self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
+    [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
     self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
     self.userNameTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
     self.phoneNumberTextfield.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
@@ -41,7 +49,6 @@
     self.emailTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"];
     
     self.phoneNumberTextfield.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"];
-    
     
     self.emailTextField.enabled = NO;
     self.userNameTextField.enabled = NO;
@@ -125,11 +132,11 @@
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@200000
+                                                                   price:self.totalAmount
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:@200000];
+                                                                           andGrossAmount:self.totalAmount];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -277,5 +284,8 @@
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
 
-
+- (NSString *)formatISOCurrencyNumber:(NSNumber *) number {
+    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    return [currencyFormatter stringFromNumber:number];
+}
 @end

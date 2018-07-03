@@ -21,6 +21,7 @@ UICollectionViewDelegateFlowLayout
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
 @property (nonatomic) NSArray *images;
 @end
 
@@ -30,7 +31,8 @@ UICollectionViewDelegateFlowLayout
     [super viewDidLoad];
     
     self.title = @"Product Detail";
-    
+    NSNumber *price = @(10000);
+    self.priceLabel.text = [self formatISOCurrencyNumber:price];
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@""
                                      style:UIBarButtonItemStylePlain
@@ -64,6 +66,10 @@ UICollectionViewDelegateFlowLayout
     defaults_observe_object(@"md_color", ^(NSNotification *note){
         self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
     });
+}
+- (NSString *)formatISOCurrencyNumber:(NSNumber *) number {
+    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    return [currencyFormatter stringFromNumber:number];
 }
 - (void)profileButtonDidPressed:(id)sender{
     MDProfileViewController *profileVC = [[MDProfileViewController alloc] initWithNibName:@"MDProfileViewController" bundle:nil];

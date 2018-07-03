@@ -36,6 +36,7 @@
 - (instancetype)initWithTransactionResponse:(NSDictionary *)response {
     self = [super init];
     if (self) {
+        
         NSMutableDictionary *mResponse = [NSMutableDictionary dictionaryWithDictionary:response];
         self.statusCode = [[mResponse objectThenDeleteForKey:@"status_code"] integerValue];
         self.statusMessage = [mResponse objectThenDeleteForKey:@"status_message"];
@@ -43,7 +44,7 @@
         self.transactionStatus = [mResponse objectThenDeleteForKey:@"transaction_status"];
         self.orderId = [mResponse objectThenDeleteForKey:@"order_id"];
         self.paymentType = [mResponse objectThenDeleteForKey:@"payment_type"];
-        
+        NSLog(@"daata-->%@",mResponse);
         id rawGrossAmount = [mResponse objectThenDeleteForKey:@"gross_amount"];
         if (rawGrossAmount) {
             self.grossAmount = @([rawGrossAmount doubleValue]);

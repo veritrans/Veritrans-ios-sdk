@@ -54,6 +54,7 @@
 
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
     self.totalAmountPrice.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.orderIdTextLabel.text = tokenResponse.transactionDetails.orderId;
 }
 - (UIImage *)iconWithBankName:(NSString *)bankName {
     return [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];

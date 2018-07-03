@@ -33,6 +33,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountPrice;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *contactEmailTextField;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdTextLabel;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *contactPhoneNumberTextField;
 - (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
 - (BOOL)isViewableError:(NSError *)error;

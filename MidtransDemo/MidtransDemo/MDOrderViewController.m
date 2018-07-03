@@ -71,18 +71,14 @@
        merchantServerURL:merchantServer];
     
     //forced to use token storage
-    UICONFIG.hideStatusPage = YES;
-    CC_CONFIG.tokenStorageEnabled = NO;
-    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
-
-    CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
-    
-    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
-    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
-    CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
-    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
-    CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
-    CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
+    UICONFIG.hideStatusPage = NO;
+    [[MidtransCreditCardConfig shared] setPaymentType:MTCreditCardPaymentTypeTwoclick];
+    [MidtransCreditCardConfig shared].setDefaultCreditSaveCardEnabled = YES;
+    [[MidtransCreditCardConfig shared] setSaveCardEnabled:TRUE];
+    [[MidtransCreditCardConfig shared] setSecure3DEnabled:TRUE];
+    [[MidtransCreditCardConfig shared] setTokenStorageEnabled:TRUE];
+    [[MidtransUIConfiguration shared] setHideStatusPage:FALSE];
+    [[MidtransNetworkLogger shared] startLogging];
     //CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
@@ -92,7 +88,7 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
@@ -129,11 +125,11 @@
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@255000
+                                                                   price:@200000
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:@255000];
+                                                                           andGrossAmount:@200000];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -145,47 +141,71 @@
     NSArray *binFilter = @[];
     NSArray *blacklistBin = @[];
     
-
+    
     binFilter = @[@"4"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     
-    NSDate *mydate = [NSDate date];
-    NSTimeInterval secondsInEightHours = 1 * 60 * 60;
-    NSDate *dateEightHoursAhead = [mydate dateByAddingTimeInterval:secondsInEightHours];
-    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:nil expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
+    MidtransTransactionExpire * optExpireTime = [[[MDOptionManager shared] expireTimeOption] value];
+    MindtransTimeUnitType unit;
+    if ([optExpireTime.unit isEqualToString:@"MINUTE"]) {
+        unit = MindtransTimeUnitTypeMinute;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"MINUTES"]) {
+        unit = MindtransTimeUnitTypeMinutes;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"HOUR"]) {
+        unit = MindtransTimeUnitTypeHour;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"HOURS"]) {
+        unit = MindtransTimeUnitTypeHours;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"DAY"]) {
+        unit = MindtransTimeUnitTypeDay;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"DAYS"]) {
+        unit = MindtransTimeUnitTypeDays;
+    }
+    else {
+        unit = MindtransTimeUnitTypeHour;
+    }
+    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date] expireDuration:optExpireTime.duration withUnitTime:unit];
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
     
-    //NSArray *cf = @[MIDTRANS_CUSTOMFIELD_1:@{@"voucher_code":@"123",@"amount":@"123"}];
     NSMutableArray *arrayOfCustomField = [NSMutableArray new];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:@"VN00000015-sw4g4o0cws"}];
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:@"0--14"}];
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    NSString *jsonString;
-    if (jsonData) {
-        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        //This is your JSON String
-        //NSUTF8StringEncoding encodes special characters using an escaping scheme
-    } else {
-        NSLog(@"Got an error: %@", error);
-        jsonString = @"";
+    NSArray *value = [[[MDOptionManager shared] customFieldOption] value];
+    if (value[0]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:value[0]}];
     }
-
+    if (value[1]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_2:value[1]}];
+    }
+    if (value[2]) {
+        [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
+    }
+//    NSError *error;
+//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
+//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+//                                                         error:&error];
+//    NSString *jsonString;
+//    if (jsonData) {
+//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+//        //This is your JSON String
+//        //NSUTF8StringEncoding encodes special characters using an escaping scheme
+//    } else {
+//        NSLog(@"Got an error: %@", error);
+//        jsonString = @"";
+//    }
+//    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
     
-    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
-
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                                 blacklistBinFilter:blacklistBin
-                                                             transactionExpireTime:nil
+                                                             transactionExpireTime:expireTime
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
@@ -200,7 +220,7 @@
              [alert show];
          }
          else {
-
+             
              MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
              paymentVC.paymentDelegate = self;
              [self.navigationController presentViewController:paymentVC animated:YES completion:nil];

@@ -28,6 +28,7 @@
 @property (nonatomic) SNPPostPaymentHeader *headerView;
 @property (nonatomic) SNPPostPaymentHeaderBillPay *headerViewBillPay;
 @property (nonatomic) SNPPostPaymentFooter *footerView;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end
 
@@ -58,6 +59,7 @@
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentFooter" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentFooter"];
     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     self.footerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentFooter"];

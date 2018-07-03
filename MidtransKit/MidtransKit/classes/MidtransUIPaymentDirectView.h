@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 @property (weak, nonatomic) IBOutlet UILabel *topLabelText;
 @property (weak, nonatomic) IBOutlet UIImageView *disclosureButtonImage;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 
 - (void)initViewWithPaymentID:(NSString *)paymentMethodID email:(NSString *)email;
 - (MidtransVAType)paymentTypeWithID:(NSString *)paymentMethodID ;

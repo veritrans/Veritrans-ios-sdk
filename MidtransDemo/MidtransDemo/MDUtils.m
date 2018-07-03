@@ -62,6 +62,9 @@
     else if ([idf isEqualToString:OPTPermataVA]) {
         [MDOptionManager shared].permataVAOption = option;
     }
+    else if ([idf isEqualToString:OPTCustomField]) {
+        [MDOptionManager shared].customFieldOption = option;
+    }
     else if ([idf isEqualToString:OPTInstallment]) {
         [MDOptionManager shared].installmentOption = option;
     }

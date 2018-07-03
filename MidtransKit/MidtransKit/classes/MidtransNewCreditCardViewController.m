@@ -127,6 +127,7 @@ UIAlertViewDelegate
     else {
         self.maskedCards = [NSMutableArray new];
     }
+    NSLog(@"self.maskedCards-->%@",self.maskedCards);
     self.bniPointActive = NO;
     self.mandiriPointActive = NO;
     self.installmentCurrentIndex = 0;
@@ -200,7 +201,7 @@ UIAlertViewDelegate
             AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
                                                                                                 @"addOnName":SNP_PROMO,
                                                                                                 @"addOnTitle":promos.name,
-                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
+                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
                                                                                                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
                              }];
           [self.promoArray addObject:promoConstructor];
@@ -429,15 +430,19 @@ UIAlertViewDelegate
         self.currentPromoSelected = @"";
         self.currentPromoIndex = nil;
         self.prevPromoIndex = nil;
-       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", number]];
+       NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", [NSString stringWithFormat:@"%@", number]]];
+        
         if (filtered.count) {
              [self.promoArray removeAllObjects];
+             [self updatePromoContent];
+        } else {
+             [self updatePromoContent];
         }
         for (MidtransPromoPromos *promos in filtered) {
             AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
                                                                                                 @"addOnName":SNP_PROMO,
                                                                                                 @"addOnTitle":promos.name,
-                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.discountedGrossAmount],
+                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
                                                                                                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
                                                                                                 }];
             [self.promoArray addObject:promoConstructor];
@@ -739,12 +744,14 @@ UIAlertViewDelegate
             }
             
             if (self.installmentAvailable) {
+                
                 if (!isDebitCard) {
                     self.installmentBankName = self.filteredBinObject.bank;
                     [self.installmentValueObject setArray:@[@"0"]];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
                     [self showInstallmentView:YES];
                 }
+                
             }
         }
         else {
@@ -773,11 +780,13 @@ UIAlertViewDelegate
         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
         self.filteredBinObject.bank = nil;
         self.view.creditCardNumberTextField.info2Icon = nil;
+        
         if (self.installmentValueObject.count > 0) {
             self.installmentCurrentIndex = 0;
             [self.installmentValueObject removeAllObjects];
             [self.installmentsContentView resetInstallmentIndex];
         }
+        
         [self showInstallmentView:NO];
         
     }
@@ -1043,16 +1052,18 @@ UIAlertViewDelegate
          else {
              if ([CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
                  NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                     return [result.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
+                     NSString *masked = [result.additionalData objectForKey:@"masked_card"];
+                     return [masked isEqualToString:obj.maskedNumber];
                  }];
                  if (index == NSNotFound) {
-                    [self.maskedCards addObject:result.maskedCreditCard];
+                     MidtransMaskedCreditCard *constructMaskedCard = [[MidtransMaskedCreditCard alloc] initWithSavedTokenId:[result.additionalData valueForKey:@"saved_token_id"] maskedNumber:[result.additionalData valueForKey:@"masked_card"] tokenType:@"" expiresAt:@""];
+                     [self.maskedCards addObject:constructMaskedCard];
                  }
                  
                  [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
                                                          customer:self.token.customerDetails
                                                        completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                           
+
                                                        }];
              }
              if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {

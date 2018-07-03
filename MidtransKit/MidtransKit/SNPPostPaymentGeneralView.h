@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet MidtransUINextStepButton *finishPaymentButton;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 
 @end

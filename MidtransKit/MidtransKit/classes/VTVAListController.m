@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (nonatomic) NSArray *vaList;
 @end
 
@@ -60,8 +61,10 @@
     }
 
     self.vaList = vaListM;
+    
     self.tableView.tableFooterView = [UIView new];
     self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     if (self.vaList.count == 1) {
         [self redirectToIndex:0];
     }

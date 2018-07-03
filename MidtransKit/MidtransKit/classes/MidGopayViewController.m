@@ -71,6 +71,7 @@
     [self.view.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"MidtransDirectHeader"];
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
     
 
    

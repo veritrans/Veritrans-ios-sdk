@@ -38,7 +38,12 @@ NSString *const kMidtransPromoPromosName = @"name";
 {
     return [[self alloc] initWithDictionary:dict];
 }
-
+- (NSString *)removeAllWhitespace:(NSString *)string{
+    return [string stringByReplacingOccurrencesOfString:@"\\s" withString:@""
+                                              options:NSRegularExpressionSearch
+                                                range:NSMakeRange(0, [string length])]
+    ;
+}
 - (instancetype)initWithDictionary:(NSDictionary *)dict
 {
     self = [super init];
@@ -46,7 +51,12 @@ NSString *const kMidtransPromoPromosName = @"name";
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if(self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.bins = [self objectOrNilForKey:kMidtransPromoPromosBins fromDictionary:dict];
+        NSMutableArray *array = [NSMutableArray new];
+        for (int i =0; i<[[self objectOrNilForKey:kMidtransPromoPromosBins fromDictionary:dict] count]; i++) {
+            NSString *currValue  =[[[self objectOrNilForKey:kMidtransPromoPromosBins fromDictionary:dict] objectAtIndex:i] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+            [array addObject:currValue];
+        }
+            self.bins = array;
             self.discountType = [self objectOrNilForKey:kMidtransPromoPromosDiscountType fromDictionary:dict];
             self.promosIdentifier = [[self objectOrNilForKey:kMidtransPromoPromosId fromDictionary:dict] doubleValue];
             self.discountedGrossAmount = [[self objectOrNilForKey:kMidtransPromoPromosDiscountedGrossAmount fromDictionary:dict] doubleValue];

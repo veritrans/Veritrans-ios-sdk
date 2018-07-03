@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UIView *instructionPage;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 
 @end
 
@@ -37,6 +38,7 @@
     
     self.instructionHeaderLabel1.text = [VTClassHelper getTranslationFromAppBundleForString:@"danamon.instructions.header1"];
     self.instructionHeaderLabel2.text = [VTClassHelper getTranslationFromAppBundleForString:@"danamon.instructions.header2"];
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.danamonStepLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     self.totalAmountLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];

@@ -44,6 +44,7 @@
         self.bcaVAOption = [self unArchivedObject:@"md_bca_va"];
         self.bniVAOption = [self unArchivedObject:@"md_bni_va"];;
         self.bniPointOption = [self unArchivedObject:@"md_bni_point"];
+        self.customFieldOption = [self unArchivedObject:@"md_custom_field"];
         self.installmentOption = [self unArchivedObject:@"md_installment"];
         self.paymentChannel = [self unArchivedObject:@"md_payment_channel"];
     }
@@ -118,6 +119,10 @@
     _bniVAOption = bniVAOption;
     [self archiveObject:bniVAOption key:@"md_bni_va"];
 }
+- (void)setCustomFieldOption:(MDOption *)customFieldOption {
+    _customFieldOption = customFieldOption;
+    [self archiveObject:customFieldOption key:@"md_custom_field"];
+}
 - (void)setInstallmentOption:(MDOption *)installmentOption {
     _installmentOption = installmentOption;
     [self archiveObject:installmentOption key:@"md_installment"];
@@ -160,6 +165,7 @@
     self.bcaVAOption = nil;
     self.bniPointOption =nil;
     self.installmentOption =nil;
+    self.customFieldOption = nil;
     self.paymentChannel = nil;
 }
 @end

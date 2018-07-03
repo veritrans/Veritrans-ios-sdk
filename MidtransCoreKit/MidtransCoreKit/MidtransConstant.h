@@ -10,7 +10,7 @@
  *  error domain
  */
 
-static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.12.0";
+static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.12.1";
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";

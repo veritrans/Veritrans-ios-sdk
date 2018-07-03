@@ -122,7 +122,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         NSString *paymentType = transaction.paymentType;
         
         if (response) {
-            NSLog(@"chargeResult-->%@",response);
             MidtransTransactionResult *chargeResult = [[MidtransTransactionResult alloc] initWithTransactionResponse:response];
             if ([paymentType isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
                 if (completion) {

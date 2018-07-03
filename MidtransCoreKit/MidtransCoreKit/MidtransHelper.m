@@ -136,6 +136,7 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
 
 + (NSNumberFormatter *)multiCurrencyFormatter:(MidtransCurrency)currency {
     NSNumberFormatter *currencyFormatter = [MidtransHelper indonesianCurrencyFormatter];
+    currencyFormatter.numberStyle = NSNumberFormatterCurrencyISOCodeStyle;
     //  by default set to indonesian
     currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
     currencyFormatter.groupingSeparator = @".";

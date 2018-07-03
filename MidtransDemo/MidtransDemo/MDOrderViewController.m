@@ -146,7 +146,30 @@
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     
-    //MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:nil expireDuration:1 withUnitTime:MindtransTimeUnitTypeHour];
+    MidtransTransactionExpire * optExpireTime = [[[MDOptionManager shared] expireTimeOption] value];
+    MindtransTimeUnitType unit;
+    if ([optExpireTime.unit isEqualToString:@"MINUTE"]) {
+        unit = MindtransTimeUnitTypeMinute;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"MINUTES"]) {
+        unit = MindtransTimeUnitTypeMinutes;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"HOUR"]) {
+        unit = MindtransTimeUnitTypeHour;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"HOURS"]) {
+        unit = MindtransTimeUnitTypeHours;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"DAY"]) {
+        unit = MindtransTimeUnitTypeDay;
+    }
+    else if ([optExpireTime.unit isEqualToString:@"DAYS"]) {
+        unit = MindtransTimeUnitTypeDays;
+    }
+    else {
+        unit = MindtransTimeUnitTypeHour;
+    }
+    MidtransTransactionExpire *expireTime = [[MidtransTransactionExpire alloc] initWithExpireTime:[NSDate date] expireDuration:optExpireTime.duration withUnitTime:unit];
     //show hud
     [self.progressHUD showInView:self.navigationController.view];
     
@@ -182,7 +205,7 @@
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                                 blacklistBinFilter:blacklistBin
-                                                             transactionExpireTime:nil
+                                                             transactionExpireTime:expireTime
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {

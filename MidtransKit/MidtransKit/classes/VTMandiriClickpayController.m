@@ -33,6 +33,7 @@ static NSString* const ClickpayAPPLI = @"3";
 @property (weak, nonatomic) IBOutlet UIView *instructionPage;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *instructionviewHeightConstraints;
+@property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 
 @property (nonatomic) MidtransUICardFormatter *ccFormatter;
 
@@ -75,7 +76,7 @@ static NSString* const ClickpayAPPLI = @"3";
     self.input1Label.text = [MidtransMandiriClickpayHelper generateInput1FromCardNumber:self.debitNumberTextField.text];
     self.input2Label.text = [MidtransMandiriClickpayHelper generateInput2FromGrossAmount:self.token.transactionDetails.grossAmount];
     self.input3Label.text = [MidtransMandiriClickpayHelper generateInput3];
-    
+    self.orderIdLabel.text = self.token.transactionDetails.orderId;
     self.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.mandiriClickpayStepLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     self.keyTokenLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Key token device is required for this payment method"];

@@ -354,7 +354,7 @@
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]) {
-        MIDDanamonOnlineViewController* vc = [[MIDDanamonOnlineViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:YES];
     }

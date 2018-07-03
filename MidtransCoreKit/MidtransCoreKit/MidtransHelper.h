@@ -9,6 +9,11 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, MidtransCurrency) {
+    MidtransCurrencyIDR,
+    MidtransCurrencySGD
+};
+
 extern NSString *const MidtransMaskedCardsUpdated;
 
 @interface MidtransHelper : NSObject
@@ -32,6 +37,7 @@ extern NSString *const MidtransMaskedCardsUpdated;
 @interface NSObject (utilities)
 + (NSNumberFormatter *)indonesianCurrencyFormatter;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
++ (NSNumberFormatter *) multiCurrencyFormatter:(MidtransCurrency) currency;
 @end
 //
 //@interface NSDictionary (SafeObject)

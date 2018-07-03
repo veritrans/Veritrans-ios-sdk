@@ -133,5 +133,22 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
     }
     return currentFormatter;
 }
+
++ (NSNumberFormatter *)multiCurrencyFormatter:(MidtransCurrency)currency {
+    NSNumberFormatter *currencyFormatter = [MidtransHelper indonesianCurrencyFormatter];
+    //  by default set to indonesian
+    currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+    currencyFormatter.groupingSeparator = @".";
+    currencyFormatter.decimalSeparator = @",";
+    currencyFormatter.minimumFractionDigits = 0;
+    
+    if (currency == MidtransCurrencySGD) {
+        currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_SG"];
+        currencyFormatter.groupingSeparator = @",";
+        currencyFormatter.decimalSeparator = @".";
+        currencyFormatter.minimumFractionDigits = 2;
+    }
+    return currencyFormatter;
+}
 @end
 

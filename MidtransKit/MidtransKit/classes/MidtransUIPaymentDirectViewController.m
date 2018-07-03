@@ -47,6 +47,7 @@
     [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
     self.view.instructionTitleLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
     if ([[MidtransDeviceHelper deviceCurrentLanguage] isEqualToString:@"id"]) {
         self.view.instructionTitleLabel.text = [NSString stringWithFormat:@" Panduan pembayaran melalui %@", self.paymentMethod.title];

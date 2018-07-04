@@ -12,7 +12,6 @@
 
 @property (nonatomic, strong) NSString *orderId;
 @property (nonatomic, strong) NSString *grossAmount;
-@property (nonatomic, strong) NSString *currency;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

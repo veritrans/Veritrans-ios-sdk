@@ -20,7 +20,6 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
 @synthesize orderId = _orderId;
 @synthesize grossAmount = _grossAmount;
-@synthesize currency = _currency;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -72,7 +71,6 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
     self.orderId = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     self.grossAmount = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
-    self.currency = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2TransactionDetailsCurrency];
     return self;
 }
 
@@ -81,7 +79,6 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
     [aCoder encodeObject:_orderId forKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     [aCoder encodeObject:_grossAmount forKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
-    [aCoder encodeObject:_currency forKey:kMidtransPaymentRequestV2TransactionDetailsCurrency];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -92,7 +89,6 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
         copy.orderId = [self.orderId copyWithZone:zone];
         copy.grossAmount = [self.grossAmount copyWithZone:zone];
-        copy.currency = [self.currency copyWithZone:zone];
     }
     
     return copy;

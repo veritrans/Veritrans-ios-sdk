@@ -205,7 +205,7 @@
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                                 blacklistBinFilter:blacklistBin
-                                                             transactionExpireTime:expireTime
+                                                             transactionExpireTime:optExpireTime.duration>0? expireTime : nil
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {

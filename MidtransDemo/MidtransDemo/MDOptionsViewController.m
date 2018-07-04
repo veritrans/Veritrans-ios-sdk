@@ -89,12 +89,12 @@
     [optCustomExpiry selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].expireTimeOption]];
     
     ///////////
-    //expire time
+    //currency
     NSString *idr = [MidtransHelper stringFromCurrency:MidtransCurrencyIDR];
     NSString *sgd = [MidtransHelper stringFromCurrency:MidtransCurrencySGD];
     options = @[[MDOption optionGeneralWithName:idr value:idr],
                 [MDOption optionGeneralWithName:sgd value:sgd]];
-    MDOptionView *optCurrency = [MDOptionView viewWithIcon:[UIImage imageNamed:@"expiry"]
+    MDOptionView *optCurrency = [MDOptionView viewWithIcon:[UIImage imageNamed:@"dc_multicurrency"]
                                                  titleTemplate:@"Currency %@"
                                                        options:options
                                                     identifier:OPTCurrency];
@@ -182,7 +182,7 @@
     [optPermataVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].permataVAOption]];
     
     /////////////
-    //permata va
+    //bca va
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
     MDOptionView *optBCAVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
@@ -193,7 +193,7 @@
     
     
     /////////////
-    //permata va
+    //bni va
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
     MDOptionView *optBNIVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
@@ -206,7 +206,7 @@
     //custom field
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
-    MDOptionView *optCustomField = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+    MDOptionView *optCustomField = [MDOptionView viewWithIcon:[UIImage imageNamed:@"dc_field"]
                                           titleTemplate:@"Custom Field %@d"
                                                 options:options
                                              identifier:OPTCustomField];

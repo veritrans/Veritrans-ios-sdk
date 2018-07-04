@@ -37,6 +37,7 @@
         self.promoOption = [self unArchivedObject:@"md_promo"];
         self.preauthOption = [self unArchivedObject:@"md_preauth"];
         self.expireTimeOption = [self unArchivedObject:@"md_expire"];
+        self.currencyOption = [self unArchivedObject:@"md_currency"];
         self.colorOption = [self unArchivedObject:@"md_color"];
         self.ccTypeOption = [self unArchivedObject:@"md_cc_type"];
         self.mandiriPointOption = [self unArchivedObject:@"md_mandiri_point"];
@@ -76,6 +77,10 @@
 - (void)setExpireTimeOption:(MDOption *)expireTimeOption {
     _expireTimeOption = expireTimeOption;
     [self archiveObject:expireTimeOption key:@"md_expire"];
+}
+- (void)setCurrencyOption:(MDOption *)currencyOption {
+    _currencyOption = currencyOption;
+    [self archiveObject:currencyOption key:@"md_currency"];
 }
 - (void)setSaveCardOption:(MDOption *)saveCardOption {
     _saveCardOption = saveCardOption;
@@ -158,6 +163,7 @@
     self.promoOption = nil;
     self.preauthOption = nil;
     self.expireTimeOption = nil;
+    self.currencyOption = nil;
     self.mandiriPointOption = nil;
     self.colorOption = nil;
     self.ccTypeOption = nil;

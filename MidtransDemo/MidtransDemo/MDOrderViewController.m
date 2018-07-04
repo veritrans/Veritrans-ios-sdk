@@ -96,7 +96,7 @@
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
     UICONFIG.hideStatusPage = NO;
-    CONFIG.currency = MidtransCurrencySGD;
+    CONFIG.currency = [MidtransHelper currencyFromString:[MDOptionManager shared].currencyOption.value];
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
@@ -192,20 +192,6 @@
     if (value[2]) {
         [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
     }
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
-//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-//                                                         error:&error];
-//    NSString *jsonString;
-//    if (jsonData) {
-//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//        //This is your JSON String
-//        //NSUTF8StringEncoding encodes special characters using an escaping scheme
-//    } else {
-//        NSLog(@"Got an error: %@", error);
-//        jsonString = @"";
-//    }
-//    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
     
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]

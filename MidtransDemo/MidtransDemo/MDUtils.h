@@ -33,6 +33,7 @@ static NSString *const OPT3DSecure = @"OPT3DSecure";
 static NSString *const OPTAcquiringBank = @"OPTAcquiringBank";
 static NSString *const OPTAuthType = @"OPTAuthType";
 static NSString *const OPTCustomExpire = @"OPTCustomExpire";
+static NSString *const OPTCurrency = @"OPTCurrency";
 static NSString *const OPTSaveCard = @"OPTSaveCard";
 static NSString *const OPTPromo = @"OPTPromo";
 static NSString *const OPTPreauth = @"OPTPreauth";

@@ -12,6 +12,7 @@
 #import "MDOrderViewController.h"
 #import "MDUtils.h"
 #import "MDAlertViewController.h"
+#import "MDOptionManager.h"
 
 @interface MDProductViewController () <
 UICollectionViewDelegate,
@@ -30,7 +31,7 @@ UICollectionViewDelegateFlowLayout
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    CONFIG.currency = MidtransCurrencySGD;
+    CONFIG.currency = [MidtransHelper currencyFromString:[MDOptionManager shared].currencyOption.value];
     self.title = @"Product Detail";
     NSNumber *price = @(10000);
     self.priceLabel.text = [self formatISOCurrencyNumber:price];

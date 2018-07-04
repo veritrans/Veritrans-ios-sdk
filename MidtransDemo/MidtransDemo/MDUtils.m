@@ -47,6 +47,9 @@
     else if ([idf isEqualToString:OPTCustomExpire]) {
         [MDOptionManager shared].expireTimeOption = option;
     }
+    else if ([idf isEqualToString:OPTCurrency]) {
+        [MDOptionManager shared].currencyOption = option;
+    }
     else if ([idf isEqualToString:OPTAcquiringBank]) {
         [MDOptionManager shared].issuingBankOption = option;
     }

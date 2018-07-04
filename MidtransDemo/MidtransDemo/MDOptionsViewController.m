@@ -89,6 +89,18 @@
     [optCustomExpiry selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].expireTimeOption]];
     
     ///////////
+    //expire time
+    NSString *idr = [MidtransHelper stringFromCurrency:MidtransCurrencyIDR];
+    NSString *sgd = [MidtransHelper stringFromCurrency:MidtransCurrencySGD];
+    options = @[[MDOption optionGeneralWithName:idr value:idr],
+                [MDOption optionGeneralWithName:sgd value:sgd]];
+    MDOptionView *optCurrency = [MDOptionView viewWithIcon:[UIImage imageNamed:@"expiry"]
+                                                 titleTemplate:@"Currency %@"
+                                                       options:options
+                                                    identifier:OPTCurrency];
+    [optCurrency selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].currencyOption]];
+
+    ///////////
     //save card
     options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
                 [MDOption optionGeneralWithName:@"Enable" value:@YES]];
@@ -232,6 +244,7 @@
                          optAcqBank,
                          optAuth,
                          optCustomExpiry,
+                         optCurrency,
                          optSaveCard,
                          optPromo,
                          optPreauth,

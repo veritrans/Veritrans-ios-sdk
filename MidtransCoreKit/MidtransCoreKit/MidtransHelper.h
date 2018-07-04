@@ -19,6 +19,8 @@ extern NSString *const MidtransMaskedCardsUpdated;
 @interface MidtransHelper : NSObject
 + (id)nullifyIfNil:(id)object;
 + (NSBundle*)coreBundle;
++ (NSString *) stringFromCurrency:(MidtransCurrency)currency;
++ (MidtransCurrency) currencyFromString:(NSString *)string;
 @end
 
 @interface NSString (random)
@@ -38,6 +40,7 @@ extern NSString *const MidtransMaskedCardsUpdated;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
 + (NSNumberFormatter *) multiCurrencyFormatter:(MidtransCurrency) currency;
 @end
+
 //
 //@interface NSDictionary (SafeObject)
 //- (id)safeObjectForKey:(id)key;

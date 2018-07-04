@@ -9,7 +9,8 @@
 #import "MidtransHelper.h"
 
 NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
-
+NSString *const MIDTRANS_CORE_CURRENCY_IDR = @"IDR";
+NSString *const MIDTRANS_CORE_CURRENCY_SGD = @"SGD";
 
 @implementation MidtransHelper
 
@@ -35,6 +36,31 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
         
     });
     return kitBundle;
+}
++ (NSString *)stringFromCurrency:(MidtransCurrency)currency {
+    switch (currency) {
+        case MidtransCurrencyIDR:
+            return MIDTRANS_CORE_CURRENCY_IDR;
+            break;
+        case MidtransCurrencySGD:
+            return MIDTRANS_CORE_CURRENCY_SGD;
+            break;
+            
+        default:
+            return MIDTRANS_CORE_CURRENCY_IDR;
+            break;
+    }
+}
++ (MidtransCurrency)currencyFromString:(NSString *)string {
+    if ([string isEqualToString:MIDTRANS_CORE_CURRENCY_SGD]) {
+        return MidtransCurrencySGD;
+    }
+    else if ([string isEqualToString:MIDTRANS_CORE_CURRENCY_IDR]) {
+        return MidtransCurrencyIDR;
+    }
+    else {
+        return MidtransCurrencyIDR;
+    }
 }
 
 @end

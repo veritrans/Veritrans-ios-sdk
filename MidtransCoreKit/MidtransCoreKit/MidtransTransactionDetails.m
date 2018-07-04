@@ -42,7 +42,7 @@
     NSInteger grossAmount = [self.grossAmount integerValue];
     return @{@"order_id": self.orderId,
              @"gross_amount": [NSNumber numberWithInteger:grossAmount],
-             @"currency": @"IDR"
+             @"currency": [MidtransHelper stringFromCurrency:self.currency]
              };
 }
 

@@ -180,6 +180,9 @@ static NSString *const  MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE = @"Payment 
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR = @"credit_card_result_scan_expired_year";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH = @"credit_card_result_scan_expired_month";
 
+static NSString *const MIDTRANS_CORE_CURRENCY_IDR = @"IDR";
+static NSString *const MIDTRANS_CORE_CURRENCY_SGD = @"SGD";
+
 static NSInteger const MIDTRANS_ERROR_CODE_3DSECURE = -30;
 static NSInteger const MIDTRANS_ERROR_CODE_CANCELED_WEBPAYMENT = -31;
 

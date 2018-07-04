@@ -30,6 +30,7 @@ UICollectionViewDelegateFlowLayout
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CONFIG.currency = MidtransCurrencySGD;
     self.title = @"Product Detail";
     NSNumber *price = @(10000);
     self.priceLabel.text = [self formatISOCurrencyNumber:price];
@@ -69,6 +70,8 @@ UICollectionViewDelegateFlowLayout
 }
 - (NSString *)formatISOCurrencyNumber:(NSNumber *) number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    NSInteger count = [[currencyFormatter stringFromNumber:number] length];
+    currencyFormatter.formatWidth = count+1;
     return [currencyFormatter stringFromNumber:number];
 }
 - (void)profileButtonDidPressed:(id)sender{

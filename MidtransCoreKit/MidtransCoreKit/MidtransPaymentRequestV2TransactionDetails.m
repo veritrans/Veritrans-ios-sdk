@@ -10,7 +10,7 @@
 
 NSString *const kMidtransPaymentRequestV2TransactionDetailsOrderId = @"order_id";
 NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross_amount";
-
+NSString *const kMidtransPaymentRequestV2TransactionDetailsCurrency = @"currency";
 
 @interface MidtransPaymentRequestV2TransactionDetails ()
 
@@ -22,6 +22,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
 @synthesize orderId = _orderId;
 @synthesize grossAmount = _grossAmount;
+@synthesize currency = _currency;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -36,9 +37,9 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if (self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.orderId = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId fromDictionary:dict];
-            self.grossAmount = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount fromDictionary:dict];
-
+        self.orderId = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId fromDictionary:dict];
+        self.grossAmount = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount fromDictionary:dict];
+        self.currency = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsCurrency fromDictionary:dict];
     }
     
     return self;
@@ -50,7 +51,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.orderId forKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     [mutableDict setValue:self.grossAmount forKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
-
+    [mutableDict setValue:self.currency forKey:kMidtransPaymentRequestV2TransactionDetailsCurrency];
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
@@ -75,6 +76,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
     self.orderId = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     self.grossAmount = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
+    self.currency = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2TransactionDetailsCurrency];
     return self;
 }
 
@@ -83,6 +85,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
     [aCoder encodeObject:_orderId forKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     [aCoder encodeObject:_grossAmount forKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
+    [aCoder encodeObject:_currency forKey:kMidtransPaymentRequestV2TransactionDetailsCurrency];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -93,6 +96,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
 
         copy.orderId = [self.orderId copyWithZone:zone];
         copy.grossAmount = [self.grossAmount copyWithZone:zone];
+        copy.currency = [self.currency copyWithZone:zone];
     }
     
     return copy;

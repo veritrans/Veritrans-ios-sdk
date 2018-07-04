@@ -33,7 +33,6 @@ extern NSString *const MidtransMaskedCardsUpdated;
 - (id)objectThenDeleteForKey:(NSString *)key;
 @end
 
-
 @interface NSObject (utilities)
 + (NSNumberFormatter *)indonesianCurrencyFormatter;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;

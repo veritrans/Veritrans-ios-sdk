@@ -137,7 +137,7 @@
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:self.totalAmount];
+                                                                           andGrossAmount:self.totalAmount andCurrency:CONFIG.currency];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"

@@ -251,7 +251,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                                          
                 NSNumber *amount =  [NSNumber numberWithInteger:[paymentRequestV2.transactionDetails.grossAmount integerValue]];
                 MidtransTransactionDetails *reConstructTransactionDetail = [[MidtransTransactionDetails alloc] initWithOrderID:paymentRequestV2.transactionDetails.orderId
-                                                                                                                andGrossAmount:amount];
+                                                                                                                andGrossAmount:amount andCurrency:CONFIG.currency];
 
                 
                 

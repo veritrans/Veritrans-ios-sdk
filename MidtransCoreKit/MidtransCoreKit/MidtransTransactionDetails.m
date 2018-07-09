@@ -8,6 +8,7 @@
 
 #import "MidtransTransactionDetails.h"
 #import "MidtransHelper.h"
+#import "MidtransConfig.h"
 
 @interface MidtransTransactionDetails()
 
@@ -39,9 +40,26 @@
 - (NSDictionary *)dictionaryValue {
     // Format MUST BE compatible with
     // http://docs.veritrans.co.id/en/api/methods.html#transaction_details_attr
-    NSInteger grossAmount = [self.grossAmount integerValue];
+    NSNumber *amountNumber = nil;
+    switch ([CONFIG currency]) {
+        case MidtransCurrencyIDR:{
+            NSInteger grossAmount = [self.grossAmount integerValue];
+            amountNumber = [NSNumber numberWithInteger:grossAmount];
+        }
+            break;
+        case MidtransCurrencySGD:{
+            double grossAmount = [self.grossAmount doubleValue];
+            amountNumber = [NSNumber numberWithDouble:grossAmount];
+        }
+            break;
+        default:{
+            NSInteger grossAmount = [self.grossAmount integerValue];
+            amountNumber = [NSNumber numberWithInteger:grossAmount];
+        }
+            break;
+    }
     return @{@"order_id": self.orderId,
-             @"gross_amount": [NSNumber numberWithInteger:grossAmount],
+             @"gross_amount": amountNumber,
              @"currency": [MidtransHelper stringFromCurrency:self.currency]
              };
 }

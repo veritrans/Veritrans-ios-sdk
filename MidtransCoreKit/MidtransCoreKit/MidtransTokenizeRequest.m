@@ -81,6 +81,17 @@
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary new];
+    switch ([CONFIG currency]) {
+        case MidtransCurrencyIDR:
+            self.grossAmount = [NSNumber numberWithInteger:self.grossAmount.integerValue];
+            break;
+        case MidtransCurrencySGD:
+            self.grossAmount = [NSNumber numberWithDouble:self.grossAmount.doubleValue];
+            break;
+        default:
+            self.grossAmount = [NSNumber numberWithInteger:self.grossAmount.integerValue];
+            break;
+    }
     switch (self.featureType) {
         case MTCreditCardPaymentTypeTwoclick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],

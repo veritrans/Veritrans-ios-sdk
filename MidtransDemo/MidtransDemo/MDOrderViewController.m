@@ -273,6 +273,9 @@
 
 - (NSString *)formatISOCurrencyNumber:(NSNumber *) number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    currencyFormatter.formatWidth = 0;
+    NSInteger count = [[currencyFormatter stringFromNumber:number] length];
+    currencyFormatter.formatWidth = count+1;
     return [currencyFormatter stringFromNumber:number];
 }
 @end

@@ -40,6 +40,9 @@
 
 - (NSString *)formattedISOCurrencyNumber {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    currencyFormatter.formatWidth = 0;
+    NSInteger count = [[currencyFormatter stringFromNumber:self] length];
+    currencyFormatter.formatWidth = count+1;
     return [currencyFormatter stringFromNumber:self];
 }
 

@@ -161,13 +161,16 @@ NSString *const MIDTRANS_CORE_CURRENCY_SGD = @"SGD";
     NSNumberFormatter *currencyFormatter = [MidtransHelper indonesianCurrencyFormatter];
     currencyFormatter.numberStyle = NSNumberFormatterCurrencyISOCodeStyle;
     currencyFormatter.paddingPosition = NSNumberFormatterPadAfterPrefix;
-    //  by default set to indonesian
-    currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
-    currencyFormatter.minimumFractionDigits = 0;
-    
     if (currency == MidtransCurrencySGD) {
         currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_SG"];
         currencyFormatter.minimumFractionDigits = 2;
+        currencyFormatter.roundingMode = NSNumberFormatterRoundHalfEven;
+    }
+    else {
+        //  by default set to indonesian
+        currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+        currencyFormatter.minimumFractionDigits = 0;
+        currencyFormatter.roundingMode = NSNumberFormatterRoundDown;
     }
     return currencyFormatter;
 }

@@ -145,7 +145,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     }
     
     MidtransTransactionDetails *trxDetail = self.token.transactionDetails;
-    self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
+    self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
     self.orderIdLabel.text = trxDetail.orderId;
     self.paymentTypeLabel.text = self.paymentMethod.title;
     

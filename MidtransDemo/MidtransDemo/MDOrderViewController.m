@@ -271,7 +271,7 @@
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
 
-- (NSString *)formatISOCurrencyNumber:(NSNumber *) number {
+- (NSString *)formatISOCurrencyNumber:(NSNumber *)number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
     currencyFormatter.formatWidth = 0;
     NSInteger count = [[currencyFormatter stringFromNumber:number] length];

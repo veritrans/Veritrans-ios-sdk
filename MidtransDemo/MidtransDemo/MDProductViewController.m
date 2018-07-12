@@ -69,7 +69,7 @@ UICollectionViewDelegateFlowLayout
         self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
     });
 }
-- (NSString *)formatISOCurrencyNumber:(NSNumber *) number {
+- (NSString *)formatISOCurrencyNumber:(NSNumber *)number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
     currencyFormatter.formatWidth = 0;
     NSInteger count = [[currencyFormatter stringFromNumber:number] length];

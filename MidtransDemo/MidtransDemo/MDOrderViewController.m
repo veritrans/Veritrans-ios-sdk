@@ -138,7 +138,8 @@
     UIColor *color = [MDOptionManager shared].colorOption.value;
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
-    NSArray *binFilter = @[];
+    NSPredicate *predicateLength = [NSPredicate predicateWithFormat:@"SELF.length > 0"];
+    NSArray *binFilter = [[[[MDOptionManager shared] binFilterOption] value] filteredArrayUsingPredicate:predicateLength];
     NSArray *blacklistBin = @[];
     
     

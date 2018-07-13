@@ -389,11 +389,12 @@
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values {
     NSUInteger index = viewController.tag;
     MDOption *option = self.selectedOptionView.options[index];
-    option.value = [MDUtils paymentChannelsWithNames:values];
     if ([self.selectedOptionView.identifier isEqualToString:OPTBINFilter]) {
+        option.value = values;
         option.subName = [NSString stringWithFormat:@"%@ Banks", @(values.count)];
     }
     else {
+        option.value = [MDUtils paymentChannelsWithNames:values];
         option.subName = [NSString stringWithFormat:@"%@ Channels", @(values.count)];
     }
     [self.selectedOptionView selectOptionAtIndex:index];

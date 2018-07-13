@@ -52,10 +52,11 @@ NSString *const MIDTRANS_CORE_CURRENCY_SGD = @"SGD";
     }
 }
 + (MidtransCurrency)currencyFromString:(NSString *)string {
-    if ([string isEqualToString:MIDTRANS_CORE_CURRENCY_SGD]) {
+    NSString *uppercaseString = string.uppercaseString;
+    if ([uppercaseString.uppercaseString isEqualToString:MIDTRANS_CORE_CURRENCY_SGD]) {
         return MidtransCurrencySGD;
     }
-    else if ([string isEqualToString:MIDTRANS_CORE_CURRENCY_IDR]) {
+    else if ([uppercaseString isEqualToString:MIDTRANS_CORE_CURRENCY_IDR]) {
         return MidtransCurrencyIDR;
     }
     else {

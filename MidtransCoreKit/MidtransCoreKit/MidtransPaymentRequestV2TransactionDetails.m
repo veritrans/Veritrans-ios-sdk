@@ -36,6 +36,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
     if (self && [dict isKindOfClass:[NSDictionary class]]) {
         self.orderId = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId fromDictionary:dict];
         self.grossAmount = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount fromDictionary:dict];
+        
     }
     
     return self;

@@ -48,6 +48,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.orderId forKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     [mutableDict setValue:self.grossAmount forKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 

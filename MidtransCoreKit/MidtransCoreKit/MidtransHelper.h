@@ -38,7 +38,7 @@ extern NSString *const MidtransMaskedCardsUpdated;
 @interface NSObject (utilities)
 + (NSNumberFormatter *)indonesianCurrencyFormatter;
 + (NSDateFormatter *)dateFormatterWithIdentifier:(NSString *)identifier;
-+ (NSNumberFormatter *)multiCurrencyFormatter:(MidtransCurrency) currency;
++ (NSNumberFormatter *)multiCurrencyFormatter:(MidtransCurrency)currency;
 @end
 
 //

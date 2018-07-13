@@ -19,7 +19,7 @@
 @property (nonatomic, readonly) NSNumber *grossAmount;
 @property (nonatomic, readonly) MidtransCurrency currency;
 - (instancetype)initWithOrderID:(NSString *)orderID andGrossAmount:(NSNumber *)grossAmount;
-- (instancetype)initWithOrderID:(NSString *)orderID andGrossAmount:(NSNumber *)grossAmount andCurrency:(MidtransCurrency) currency;
+- (instancetype)initWithOrderID:(NSString *)orderID andGrossAmount:(NSNumber *)grossAmount andCurrency:(MidtransCurrency)currency;
 - (NSDictionary *)dictionaryValue;
 
 @end

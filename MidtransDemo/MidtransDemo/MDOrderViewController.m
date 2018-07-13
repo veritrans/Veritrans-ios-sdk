@@ -19,6 +19,10 @@
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 @property (strong, nonatomic) IBOutlet UIView *amountView;
+@property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pricePerItemLabel;
+@property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property (strong, nonatomic) NSNumber *totalAmount;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
 
@@ -33,6 +37,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.totalAmount = @(10000.55);
+    NSString *formattedPrice = [self formatISOCurrencyNumber:self.totalAmount];
+    self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
+    [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
     self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
     self.userNameTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
     self.phoneNumberTextfield.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
@@ -41,7 +49,6 @@
     self.emailTextField.text = [[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"];
     
     self.phoneNumberTextfield.text =[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"];
-    
     
     self.emailTextField.enabled = NO;
     self.userNameTextField.enabled = NO;
@@ -89,6 +96,7 @@
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
     UICONFIG.hideStatusPage = NO;
+    CONFIG.currency = [MidtransHelper currencyFromString:[MDOptionManager shared].currencyOption.value];
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
@@ -125,11 +133,11 @@
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
     MidtransItemDetail *itm = [[MidtransItemDetail alloc] initWithItemID:[NSString randomWithLength:20]
                                                                     name:@"Midtrans Pillow"
-                                                                   price:@200000
+                                                                   price:self.totalAmount
                                                                 quantity:@1];
     
     MidtransTransactionDetails *trx = [[MidtransTransactionDetails alloc] initWithOrderID:[NSString randomWithLength:20]
-                                                                           andGrossAmount:@200000];
+                                                                           andGrossAmount:self.totalAmount andCurrency:CONFIG.currency];
     
     //configure theme
     MidtransUIFontSource *font = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
@@ -184,20 +192,6 @@
     if (value[2]) {
         [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
     }
-//    NSError *error;
-//    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:@{@"voucher":@"123",@"code":@"data"} // Here you can pass array or dictionary
-//                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-//                                                         error:&error];
-//    NSString *jsonString;
-//    if (jsonData) {
-//        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-//        //This is your JSON String
-//        //NSUTF8StringEncoding encodes special characters using an escaping scheme
-//    } else {
-//        NSLog(@"Got an error: %@", error);
-//        jsonString = @"";
-//    }
-//    [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_1:jsonString}];
     
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
@@ -205,7 +199,7 @@
                                                                        customField:arrayOfCustomField
                                                                          binFilter:binFilter
                                                                 blacklistBinFilter:blacklistBin
-                                                             transactionExpireTime:expireTime
+                                                             transactionExpireTime:optExpireTime.duration>0? expireTime : nil
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
@@ -277,5 +271,11 @@
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
 
-
+- (NSString *)formatISOCurrencyNumber:(NSNumber *)number {
+    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    currencyFormatter.formatWidth = 0;
+    NSInteger count = [[currencyFormatter stringFromNumber:number] length];
+    currencyFormatter.formatWidth = count+1;
+    return [currencyFormatter stringFromNumber:number];
+}
 @end

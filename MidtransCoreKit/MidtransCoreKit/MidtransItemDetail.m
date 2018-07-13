@@ -8,6 +8,7 @@
 
 #import "MidtransItemDetail.h"
 #import "MidtransHelper.h"
+#import "MidtransConfig.h"
 
 @implementation NSArray (VTITemDetail)
 
@@ -44,6 +45,18 @@
 }
 
 - (NSDictionary *)dictionaryValue {
+    switch ([CONFIG currency]) {
+        case MidtransCurrencyIDR:
+            _price = [NSNumber numberWithInteger:_price.integerValue];
+            break;
+        case MidtransCurrencySGD:
+            _price = [NSNumber numberWithDouble:_price.doubleValue];
+            break;
+            
+        default:
+            _price = [NSNumber numberWithInteger:_price.integerValue];
+            break;
+    }
     return @{@"id":[MidtransHelper nullifyIfNil:_itemId],
              @"price":[MidtransHelper nullifyIfNil:_price],
              @"quantity":[MidtransHelper nullifyIfNil:_quantity],

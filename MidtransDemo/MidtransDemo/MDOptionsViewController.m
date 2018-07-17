@@ -489,10 +489,11 @@
     }
     else if ([idf isEqualToString:OPTBINFilter] && [option.name containsString:@"by Acquiring Bank"]) {
         NSArray *bankNames = @[@"BCA",
-                               @"Bank MEGA",
+                               @"MEGA",
                                @"BRI",
                                @"CIMB",
-                               @"Bank Mandiri",
+                               @"Mandiri",
+                               @"Danamon",
                                @"BNI",
                                @"Maybank"];
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Acquiring Bank"

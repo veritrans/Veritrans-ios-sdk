@@ -488,13 +488,11 @@
         [alert show];
     }
     else if ([idf isEqualToString:OPTBINFilter] && [option.name containsString:@"by Acquiring Bank"]) {
-        NSArray *bankNames = @[@"BCA",
-                               @"MEGA",
-                               @"BRI",
-                               @"CIMB",
+        NSArray *bankNames = @[@"BNI",
+                               @"BCA",
                                @"Mandiri",
-                               @"Danamon",
-                               @"BNI",
+                               @"CIMB",
+                               @"BRI",
                                @"Maybank"];
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Acquiring Bank"
                                                                   checkLists:bankNames];

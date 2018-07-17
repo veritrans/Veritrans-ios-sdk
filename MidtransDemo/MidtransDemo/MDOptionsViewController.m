@@ -102,7 +102,7 @@
     //BIN filter
     options = @[[MDOption optionGeneralWithName:@"Disable All" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Filter by Number" value:@""],
-                [MDOption optionCheckListWithName:@"Filter by Acquiring Bank" checkedList:nil]];
+                [MDOption optionCheckListWithName:@"Filter by Bank Name" checkedList:nil]];
     MDOptionView *optBINFilter = [MDOptionView viewWithIcon:[UIImage imageNamed:@"cc_whitelist"]
                                               titleTemplate:@"BIN Whitelist %@"
                                                     options:options
@@ -487,14 +487,14 @@
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }
-    else if ([idf isEqualToString:OPTBINFilter] && [option.name containsString:@"by Acquiring Bank"]) {
+    else if ([idf isEqualToString:OPTBINFilter] && [option.name containsString:@"by Bank Name"]) {
         NSArray *bankNames = @[@"BNI",
                                @"BCA",
                                @"Mandiri",
                                @"CIMB",
                                @"BRI",
                                @"Maybank"];
-        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Acquiring Bank"
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Bank"
                                                                   checkLists:bankNames];
         alert.delegate = self;
         alert.predefinedCheckLists = usePredefinedValue? option.value: nil;

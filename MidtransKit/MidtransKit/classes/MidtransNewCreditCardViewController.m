@@ -884,7 +884,8 @@ UIAlertViewDelegate
     
     if (self.bins.count) {
         NSError *error;
-        if (![MidtransClient isCreditCardNumber:cardNumber eligibleForBins:self.bins error:&error]) {
+        if (![MidtransClient isCreditCardNumber:cardNumber eligibleForBins:self.bins error:&error] &&
+            ![MidtransClient isBankName:self.filteredBinObject.bank eligibleForBankNames:self.bins error:&error]) {
             [self.view isViewableError:error];
             return;
         }

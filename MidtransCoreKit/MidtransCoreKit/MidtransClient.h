@@ -59,4 +59,5 @@
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForPromo:(NSArray *_Nonnull)bins error:(NSError *_Nullable)error;
++ (BOOL)isBankName:(NSString *_Nonnull)bankName eligibleForBankNames:(NSArray *_Nonnull)bankNames error:(NSError *_Nullable*_Nullable)error;
 @end

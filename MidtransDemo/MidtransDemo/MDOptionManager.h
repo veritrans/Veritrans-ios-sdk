@@ -18,6 +18,7 @@
 @property (nonatomic) MDOption *secure3DOption;
 @property (nonatomic) MDOption *issuingBankOption;
 @property (nonatomic) MDOption *expireTimeOption;
+@property (nonatomic) MDOption *currencyOption;
 @property (nonatomic) MDOption *saveCardOption;
 @property (nonatomic) MDOption *binFilterOption;
 @property (nonatomic) MDOption *promoOption;

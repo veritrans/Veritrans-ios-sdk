@@ -33,8 +33,17 @@
 @implementation NSNumber (formatter)
 
 - (NSString *)formattedCurrencyNumber {
-    NSNumberFormatter *nf = [NSNumberFormatter indonesianCurrencyFormatter];
-    return [NSString stringWithFormat:@"Rp %@", [nf stringFromNumber:self]];
+//    NSNumberFormatter *nf = [NSNumberFormatter indonesianCurrencyFormatter];
+//    return [NSString stringWithFormat:@"Rp %@", [nf stringFromNumber:self]];
+    return [self formattedISOCurrencyNumber];
+}
+
+- (NSString *)formattedISOCurrencyNumber {
+    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    currencyFormatter.formatWidth = 0;
+    NSInteger count = [[currencyFormatter stringFromNumber:self] length];
+    currencyFormatter.formatWidth = count+1;
+    return [currencyFormatter stringFromNumber:self];
 }
 
 @end

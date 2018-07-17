@@ -22,6 +22,7 @@
             <connections>
                 <outlet property="collectionView" destination="Alg-Zv-kxU" id="naE-TX-V2A"/>
                 <outlet property="pageControl" destination="990-k4-X61" id="TxO-7T-tpP"/>
+                <outlet property="priceLabel" destination="FKd-vY-21Z" id="DoL-37-DBT"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>

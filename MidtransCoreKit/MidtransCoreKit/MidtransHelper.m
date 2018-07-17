@@ -9,7 +9,8 @@
 #import "MidtransHelper.h"
 
 NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
-
+NSString *const MIDTRANS_CORE_CURRENCY_IDR = @"IDR";
+NSString *const MIDTRANS_CORE_CURRENCY_SGD = @"SGD";
 
 @implementation MidtransHelper
 
@@ -35,6 +36,32 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
         
     });
     return kitBundle;
+}
++ (NSString *)stringFromCurrency:(MidtransCurrency)currency {
+    switch (currency) {
+        case MidtransCurrencyIDR:
+            return MIDTRANS_CORE_CURRENCY_IDR;
+            break;
+        case MidtransCurrencySGD:
+            return MIDTRANS_CORE_CURRENCY_SGD;
+            break;
+            
+        default:
+            return MIDTRANS_CORE_CURRENCY_IDR;
+            break;
+    }
+}
++ (MidtransCurrency)currencyFromString:(NSString *)string {
+    NSString *uppercaseString = string.uppercaseString;
+    if ([uppercaseString.uppercaseString isEqualToString:MIDTRANS_CORE_CURRENCY_SGD]) {
+        return MidtransCurrencySGD;
+    }
+    else if ([uppercaseString isEqualToString:MIDTRANS_CORE_CURRENCY_IDR]) {
+        return MidtransCurrencyIDR;
+    }
+    else {
+        return MidtransCurrencyIDR;
+    }
 }
 
 @end
@@ -115,9 +142,6 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
     
     if (currentFormatter == nil) {
         currentFormatter = [NSNumberFormatter new];
-        currentFormatter.numberStyle = NSNumberFormatterDecimalStyle;
-        currentFormatter.groupingSeparator = @",";
-        currentFormatter.decimalSeparator = @".";
         [dictionary setObject:currentFormatter forKey:identifier];
     }
     
@@ -132,6 +156,24 @@ NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
         [dictionary setObject:currentFormatter forKey:identifier];
     }
     return currentFormatter;
+}
+
++ (NSNumberFormatter *)multiCurrencyFormatter:(MidtransCurrency)currency {
+    NSNumberFormatter *currencyFormatter = [MidtransHelper indonesianCurrencyFormatter];
+    currencyFormatter.numberStyle = NSNumberFormatterCurrencyISOCodeStyle;
+    currencyFormatter.paddingPosition = NSNumberFormatterPadAfterPrefix;
+    if (currency == MidtransCurrencySGD) {
+        currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"en_SG"];
+        currencyFormatter.minimumFractionDigits = 2;
+        currencyFormatter.roundingMode = NSNumberFormatterRoundHalfEven;
+    }
+    else {
+        //  by default set to indonesian
+        currencyFormatter.locale = [NSLocale localeWithLocaleIdentifier:@"id_ID"];
+        currencyFormatter.minimumFractionDigits = 0;
+        currencyFormatter.roundingMode = NSNumberFormatterRoundDown;
+    }
+    return currencyFormatter;
 }
 @end
 

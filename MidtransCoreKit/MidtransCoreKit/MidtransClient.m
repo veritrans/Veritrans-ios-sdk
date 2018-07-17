@@ -76,19 +76,6 @@ NSString *const REGISTER_CARD_URL = @"card/register";
                              userInfo:userInfo];
     return NO;
 }
-+(BOOL)isBankName:(NSString *)bankName eligibleForBankNames:(NSArray *)bankNames error:(NSError *__autoreleasing  _Nullable *)error {
-    for (NSString *whiteListedBankName in bankNames) {
-        if ([bankName containsString:whiteListedBankName]) {
-            return YES;
-        }
-    }
-    
-    NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"This card is not applicable for this transaction,please use another card", nil)};
-    *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
-                                 code:MIDTRANS_ERROR_CODE_INVALID_BIN
-                             userInfo:userInfo];
-    return NO;
-}
 - (void)requestCardBINForInstallmentWithCompletion:(void (^_Nullable)(NSArray *_Nullable binResponse, NSError *_Nullable error))completion {
     NSURLSession *session = [NSURLSession sharedSession];
     NSURL *url = [NSURL URLWithString:[PRIVATECONFIG binURL]];

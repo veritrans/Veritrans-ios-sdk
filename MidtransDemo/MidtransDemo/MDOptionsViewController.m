@@ -491,14 +491,14 @@
         NSArray *bankNames = @[@"BCA",
                                @"Bank MEGA",
                                @"BRI",
-                               @"Bank CIMB",
+                               @"CIMB",
                                @"Bank Mandiri",
                                @"BNI",
                                @"Maybank"];
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Acquiring Bank"
                                                                   checkLists:bankNames];
         alert.delegate = self;
-        alert.predefinedCheckLists = usePredefinedValue? [option.value valueForKey:@"name"]: nil;
+        alert.predefinedCheckLists = usePredefinedValue? option.value: nil;
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }

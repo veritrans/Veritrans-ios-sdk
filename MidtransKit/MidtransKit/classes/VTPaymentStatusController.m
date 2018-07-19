@@ -106,10 +106,12 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         [additionalData addEntriesFromDictionary:@{@"installment available": available,
                                                    @"installment required": required}];
     }
+    MidtransTransactionDetails *trxDetail = self.token.transactionDetails;
     switch (self.statusType) {
             case SNPStatusTypeError: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
+                self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
                 
                 self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
                 self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
@@ -122,6 +124,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             case SNPStatusTypeSuccess: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
+                self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
                 
                 self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
                 self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
@@ -134,6 +137,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             case SNPStatusTypePending: {
                 [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
+                self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
                 
                 self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
                 self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
@@ -144,8 +148,6 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             }
     }
     
-    MidtransTransactionDetails *trxDetail = self.token.transactionDetails;
-    self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
     self.orderIdLabel.text = trxDetail.orderId;
     self.paymentTypeLabel.text = self.paymentMethod.title;
     

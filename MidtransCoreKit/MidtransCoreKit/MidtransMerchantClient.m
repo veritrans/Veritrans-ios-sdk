@@ -249,7 +249,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                                                                    countryCode:paymentRequestV2.customerDetails.billingAddress.countryCode];
                 
                                                          
-                NSNumber *amount =  [NSNumber numberWithInteger:[paymentRequestV2.transactionDetails.grossAmount integerValue]];
+                NSNumber *amount =  [NSNumber numberWithDouble:[paymentRequestV2.transactionDetails.grossAmount doubleValue]];
                 MidtransTransactionDetails *reConstructTransactionDetail = [[MidtransTransactionDetails alloc] initWithOrderID:paymentRequestV2.transactionDetails.orderId
                                                                                                                 andGrossAmount:amount];
 

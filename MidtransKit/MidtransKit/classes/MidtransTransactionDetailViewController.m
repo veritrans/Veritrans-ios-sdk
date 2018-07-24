@@ -68,9 +68,9 @@
     //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
     self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
     MidtransItemDetail *itemDetails = items [0];
-    NSInteger grossAmount =[itemDetails.price integerValue] - [MidtransPromo.addOnDescriptions integerValue];
+    double grossAmount =[itemDetails.price doubleValue] - [MidtransPromo.addOnDescriptions doubleValue];
     NSMutableArray *mockItems = [NSMutableArray arrayWithArray:items];
-    self.priceAmountLabel.text = [NSString stringWithFormat:@"%ld",(long)grossAmount];
+    self.priceAmountLabel.text = [NSNumber numberWithDouble:grossAmount].formattedCurrencyNumber;
     
     MidtransItemDetail *itemDetailsMain =[[MidtransItemDetail alloc] initWithItemID:@"001"
                                                                                name:MidtransPromo.addOnTitle

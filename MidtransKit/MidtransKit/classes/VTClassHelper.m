@@ -163,23 +163,23 @@
 
 @implementation NSError (utilities)
 -(NSString *)localizedMidtransErrorMessage {
-    if ([self.localizedDescription isEqualToString:@"An unknown error occurred."]) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    if ([self.description isEqualToString:@"An unknown error occurred."]) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
     }
-    else if ([self.localizedDescription isEqualToString:@"The connection timed out."]) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    else if ([self.description isEqualToString:@"The connection timed out."]) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
     }
-    else if ([self.localizedDescription isEqualToString:@"The connection failed because the network connection was lost."]) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    else if ([self.description isEqualToString:@"The connection failed because the network connection was lost."]) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
     }
-    else if ([self.localizedDescription isEqualToString:@"The connection failed because the device is not connected to the internet."]) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    else if ([self.description isEqualToString:@"The connection failed because the device is not connected to the internet."]) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
     }
-    else if ([self.localizedDescription isEqualToString:@"The connection failed because a call is active."]) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    else if ([self.description isEqualToString:@"The connection failed because a call is active."]) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
     }
-    else if ([self.localizedDescription isEqualToString:@"The connection failed because data use is currently not allowed on the device."]) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    else if ([self.description isEqualToString:@"The connection failed because data use is currently not allowed on the device."]) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
     }
     else {
         return [VTClassHelper getTranslationFromAppBundleForString:@"error_others"];

@@ -138,8 +138,8 @@
     "The connection failed because the device is not connected to the internet.":"Koneksi gagal karena perangkat tidak tersambung ke internet.",
     "The connection failed because a call is active.":"Koneksi gagal karena panggilan telepon sedang aktif.",
     "The connection failed because data use is currently not allowed on the device.":"Koneksi gagal karena penggunaan data tidak diizinkan di perangkat ini.",
-    "Finish Payment":"Finish Payment",
-    "Make sure payment has been completed within the GO-JEK app.":"Make sure payment has been completed within the GO-JEK app.",
-    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app."
+    "Finish Payment":"Selesaikan Pembayaran",
+    "Make sure payment has been completed within the GO-JEK app.":"Pastikan pembayaran telah berhasil dilakukan di dalam aplikasi GO-JEK.",
+    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Pastikan kode QR berhasil dipindai dan pembayaran sudah dilakukan di dalam aplikasi GO-JEK."
 }
 

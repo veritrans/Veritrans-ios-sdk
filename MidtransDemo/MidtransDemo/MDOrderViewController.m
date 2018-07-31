@@ -200,7 +200,7 @@
      
      {
          if (error) {
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedMidtransErrorMessage delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
+             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
              [alert show];
          }
          else {

@@ -143,5 +143,4 @@
     "The connection failed because the device is not connected to the internet.":"The connection failed because the device is not connected to the internet.",
     "The connection failed because a call is active.":"The connection failed because a call is active.",
     "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device."
-    
 }

@@ -132,11 +132,11 @@
     "error_407":"Order Anda tidak lagi tersedia.",
     "error_500":"Kami sedang mengalami kendala teknis. Silakan coba lagi.",
     "error_others":"Transaksi tidak berhasil. Silakan ulangi lagi atau coba dengan metode pembayaran lain.",
-    "An unknown error occurred.":"An unknown error occurred.",
-    "The connection timed out.":"The connection timed out.",
-    "The connection failed because the network connection was lost.":"The connection failed because the network connection was lost.",
-    "The connection failed because the device is not connected to the internet.":"The connection failed because the device is not connected to the internet.",
-    "The connection failed because a call is active.":"The connection failed because a call is active.",
-    "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device."
+    "An unknown error occurred.":"Terjadi kesalahan.",
+    "The connection timed out.":"Waktu tunggu koneksi habis.",
+    "The connection failed because the network connection was lost.":"Koneksi gagal karena jaringan terputus.",
+    "The connection failed because the device is not connected to the internet.":"Koneksi gagal karena perangkat tidak tersambung ke internet.",
+    "The connection failed because a call is active.":"Koneksi gagal karena panggilan telepon sedang aktif.",
+    "The connection failed because data use is currently not allowed on the device.":"Koneksi gagal karena penggunaan data tidak diizinkan di perangkat ini."
 }
 

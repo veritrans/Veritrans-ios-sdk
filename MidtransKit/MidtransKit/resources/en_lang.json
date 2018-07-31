@@ -127,6 +127,21 @@
     "bni.point.secondtitle":"AMOUNT TO PAY AFTER REDEEM",
     "BNI Points Terms & Conditions":"BNI Reward Points Terms & Conditions",
     "danamon.instructions.header1":"Danamon Online Banking must be completed through Danamon's website.",
-    "danamon.instructions.header2":"Please make sure you have a User ID for Danamon Online Banking before going through the payment."
+    "danamon.instructions.header2":"Please make sure you have a User ID for Danamon Online Banking before going through the payment.",
+    "error_200":"Transaction success.",
+    "error_201":"Transaction is being processed.",
+    "error_202":"Transaction is denied. Please try again or use another payment method.",
+    "error_400":"Transaction cannot be processed. Please make sure you have entered the correct payment details.",
+    "error_502":"We are having issues connecting to the payment provider. Please try again.",
+    "error_406":"Order has been paid.",
+    "error_407":"Your order are no longer available.",
+    "error_500":"We are experiencing some unexpected system error. Please try again.",
+    "error_others":"Transaction is unsuccesful. Please try again with another card or with a different payment method.",
+    "An unknown error occurred.":"An unknown error occurred.",
+    "The connection timed out.":"The connection timed out.",
+    "The connection failed because the network connection was lost.":"The connection failed because the network connection was lost.",
+    "The connection failed because the device is not connected to the internet.":"The connection failed because the device is not connected to the internet.",
+    "The connection failed because a call is active.":"The connection failed because a call is active.",
+    "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device."
     
 }

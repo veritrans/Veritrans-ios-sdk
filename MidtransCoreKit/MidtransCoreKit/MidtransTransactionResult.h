@@ -105,4 +105,6 @@
                        paymentType:(NSString *)paymentType
                     additionalData:(NSDictionary *)additionalData;
 
+- (NSString*)codeForLocalization;
+
 @end

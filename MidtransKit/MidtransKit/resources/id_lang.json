@@ -122,6 +122,21 @@
     "bni.point.secondtitle":"TOTAL PEMBAYARAN SETELAH TUKAR POIN",
     "BNI Points Terms & Conditions": "Syarat & Ketentuan BNI Reward Points",
     "danamon.instructions.header1":"Pembayaran melalui Danamon Online Banking harus diselesaikan di website Danamon.",
-    "danamon.instructions.header2":"Pastikan Anda telah memiliki User ID Danamon Online Banking sebelum melakukan pembayaran."
-    
+    "danamon.instructions.header2":"Pastikan Anda telah memiliki User ID Danamon Online Banking sebelum melakukan pembayaran.",
+    "error_200":"Transaksi berhasil.",
+    "error_201":"Transaksi sedang diproses.",
+    "error_202":"Transaksi tidak berhasil. Silakan ulangi lagi atau coba dengan metode pembayaran lain.",
+    "error_400":"Transaksi tidak dapat diproses. Pastikan informasi pembayaran Anda benar.",
+    "error_502":"Kami mengalami kendala dengan Payment Provider. Silakan dicoba lagi.",
+    "error_406":"Pesanan telah dibayar.",
+    "error_407":"Order Anda tidak lagi tersedia.",
+    "error_500":"Kami sedang mengalami kendala teknis. Silakan coba lagi.",
+    "error_others":"Transaksi tidak berhasil. Silakan ulangi lagi atau coba dengan metode pembayaran lain.",
+    "An unknown error occurred.":"An unknown error occurred.",
+    "The connection timed out.":"The connection timed out.",
+    "The connection failed because the network connection was lost.":"The connection failed because the network connection was lost.",
+    "The connection failed because the device is not connected to the internet.":"The connection failed because the device is not connected to the internet.",
+    "The connection failed because a call is active.":"The connection failed because a call is active.",
+    "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device."
 }
+

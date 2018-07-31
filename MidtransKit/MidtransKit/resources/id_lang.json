@@ -137,6 +137,9 @@
     "The connection failed because the network connection was lost.":"Koneksi gagal karena jaringan terputus.",
     "The connection failed because the device is not connected to the internet.":"Koneksi gagal karena perangkat tidak tersambung ke internet.",
     "The connection failed because a call is active.":"Koneksi gagal karena panggilan telepon sedang aktif.",
-    "The connection failed because data use is currently not allowed on the device.":"Koneksi gagal karena penggunaan data tidak diizinkan di perangkat ini."
+    "The connection failed because data use is currently not allowed on the device.":"Koneksi gagal karena penggunaan data tidak diizinkan di perangkat ini.",
+    "Finish Payment":"Finish Payment",
+    "Make sure payment has been completed within the GO-JEK app.":"Make sure payment has been completed within the GO-JEK app.",
+    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app."
 }
 

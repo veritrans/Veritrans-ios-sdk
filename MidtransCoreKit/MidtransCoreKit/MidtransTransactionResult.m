@@ -117,4 +117,36 @@
     return [NSString stringWithFormat:@"statusCode = %li\nstatusMessage = %@\ntransactionId = %@\ntransactionStatus = %@\norderId = %@\npaymentType = %@\ngrossAmount = %@\ntransactionTime = %@\nadditionalData = %@\n", (long)self.statusCode, self.statusMessage, self.transactionId, self.transactionStatus, self.orderId, self.paymentType, self.grossAmount, self.transactionTime, self.additionalData];
 }
 
+-(NSString *)codeForLocalization {
+    switch (self.statusCode) {
+        case 200:
+            return @"error_200";
+            break;
+        case 201:
+            return @"error_201";
+            break;
+        case 202:
+            return @"error_202";
+            break;
+        case 400:
+            return @"error_400";
+            break;
+        case 502:
+            return @"error_502";
+            break;
+        case 406:
+            return @"error_406";
+            break;
+        case 407:
+            return @"error_407";
+            break;
+        case 500:
+            return @"error_500";
+            break;
+        default:
+            return @"error_others";
+            break;
+    }
+}
+
 @end

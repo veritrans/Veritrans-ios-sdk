@@ -200,12 +200,6 @@
      
      {
          if (error) {
-             if ([error.localizedDescription isKindOfClass:[NSArray class]]) {
-                 
-             }
-             else {
-                 
-             }
              UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
              [alert show];
          }

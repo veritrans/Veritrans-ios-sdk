@@ -370,6 +370,8 @@
 		3D659DE52106E5E300E57E6B /* MIDPaymentIndomaretViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D659DE22106E5E300E57E6B /* MIDPaymentIndomaretViewController.xib */; };
 		3D659DE62106E5E300E57E6B /* MIDDanamonOnlineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D659DE32106E5E300E57E6B /* MIDDanamonOnlineViewController.xib */; };
 		3D659DE72106E5E300E57E6B /* MIDDanamonOnlineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D659DE32106E5E300E57E6B /* MIDDanamonOnlineViewController.xib */; };
+		3D8AE6B421107F0C00C8D41B /* AlertErrorMessageTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8AE6B321107F0C00C8D41B /* AlertErrorMessageTests.m */; };
+		3D8AE6B621107F0C00C8D41B /* MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CDEC971E9340E80032DC3B /* MidtransKit.framework */; };
 		3D8BF5CF1F90BD8B00F35C55 /* MidtransUITableAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D8BF5CD1F90BD8B00F35C55 /* MidtransUITableAlertViewController.h */; };
 		3D8BF5D01F90BD8B00F35C55 /* MidtransUITableAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3D8BF5CE1F90BD8B00F35C55 /* MidtransUITableAlertViewController.m */; };
 		3D8BF5D41F90BDC400F35C55 /* MidtransUITableAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3D8BF5D31F90BDC400F35C55 /* MidtransUITableAlertViewController.xib */; };
@@ -1189,6 +1191,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		3D8AE6B721107F0C00C8D41B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 305494131C759EDF00938C17 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5CDEC961E9340E80032DC3B;
+			remoteInfo = MidtransKit;
+		};
 		E58FCE9D1E94D06900632085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
@@ -1490,6 +1499,9 @@
 		3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Semibold.ttf"; path = "MidtransKit/resources/SourceSansPro-Semibold.ttf"; sourceTree = SOURCE_ROOT; };
 		3D659DE22106E5E300E57E6B /* MIDPaymentIndomaretViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDPaymentIndomaretViewController.xib; path = MidtransKit/resources/MIDPaymentIndomaretViewController.xib; sourceTree = SOURCE_ROOT; };
 		3D659DE32106E5E300E57E6B /* MIDDanamonOnlineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDDanamonOnlineViewController.xib; path = MidtransKit/resources/MIDDanamonOnlineViewController.xib; sourceTree = SOURCE_ROOT; };
+		3D8AE6B121107F0C00C8D41B /* MidtransKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D8AE6B321107F0C00C8D41B /* AlertErrorMessageTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertErrorMessageTests.m; sourceTree = "<group>"; };
+		3D8AE6B521107F0C00C8D41B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3D8BF5CD1F90BD8B00F35C55 /* MidtransUITableAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUITableAlertViewController.h; path = classes/MidtransUITableAlertViewController.h; sourceTree = "<group>"; };
 		3D8BF5CE1F90BD8B00F35C55 /* MidtransUITableAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUITableAlertViewController.m; path = classes/MidtransUITableAlertViewController.m; sourceTree = "<group>"; };
 		3D8BF5D31F90BDC400F35C55 /* MidtransUITableAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUITableAlertViewController.xib; path = MidtransKit/classes/MidtransUITableAlertViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -1847,6 +1859,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		3D8AE6AE21107F0C00C8D41B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D8AE6B621107F0C00C8D41B /* MidtransKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E57120931E937B140064F515 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2195,6 +2215,7 @@
 				E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */,
 				E5CDEC981E9340E80032DC3B /* MidtransKit */,
 				E57123F51E9380E80064F515 /* MidtransKitResources */,
+				3D8AE6B221107F0C00C8D41B /* MidtransKitTests */,
 				3054941C1C759EDF00938C17 /* Products */,
 				305494991C75A4E700938C17 /* Frameworks */,
 			);
@@ -2206,6 +2227,7 @@
 				E5CDEC971E9340E80032DC3B /* MidtransKit.framework */,
 				E57120961E937B140064F515 /* libMidtransKitStatic.a */,
 				E57123F41E9380E80064F515 /* MidtransKit.bundle */,
+				3D8AE6B121107F0C00C8D41B /* MidtransKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -2682,6 +2704,15 @@
 			name = Indomaret;
 			sourceTree = "<group>";
 		};
+		3D8AE6B221107F0C00C8D41B /* MidtransKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D8AE6B321107F0C00C8D41B /* AlertErrorMessageTests.m */,
+				3D8AE6B521107F0C00C8D41B /* Info.plist */,
+			);
+			path = MidtransKitTests;
+			sourceTree = "<group>";
+		};
 		E503AEDC1C8E8C7200F097FF /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3110,6 +3141,24 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		3D8AE6B021107F0C00C8D41B /* MidtransKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D8AE6BD21107F0C00C8D41B /* Build configuration list for PBXNativeTarget "MidtransKitTests" */;
+			buildPhases = (
+				3D8AE6AD21107F0C00C8D41B /* Sources */,
+				3D8AE6AE21107F0C00C8D41B /* Frameworks */,
+				3D8AE6AF21107F0C00C8D41B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D8AE6B821107F0C00C8D41B /* PBXTargetDependency */,
+			);
+			name = MidtransKitTests;
+			productName = MidtransKitTests;
+			productReference = 3D8AE6B121107F0C00C8D41B /* MidtransKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		E57120951E937B140064F515 /* MidtransKitStatic */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E571209E1E937B140064F515 /* Build configuration list for PBXNativeTarget "MidtransKitStatic" */;
@@ -3173,6 +3222,11 @@
 				LastUpgradeCheck = 0920;
 				ORGANIZATIONNAME = Midtrans;
 				TargetAttributes = {
+					3D8AE6B021107F0C00C8D41B = {
+						CreatedOnToolsVersion = 9.4;
+						DevelopmentTeam = G92YEQF267;
+						ProvisioningStyle = Automatic;
+					};
 					E57120951E937B140064F515 = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = G92YEQF267;
@@ -3212,6 +3266,7 @@
 				E5CDEC961E9340E80032DC3B /* MidtransKit */,
 				E57120951E937B140064F515 /* MidtransKitStatic */,
 				E57123F31E9380E80064F515 /* MidtransKitResources */,
+				3D8AE6B021107F0C00C8D41B /* MidtransKitTests */,
 			);
 		};
 /* End PBXProject section */
@@ -3234,6 +3289,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		3D8AE6AF21107F0C00C8D41B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E57123F21E9380E80064F515 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -3973,6 +4035,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		3D8AE6AD21107F0C00C8D41B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D8AE6B421107F0C00C8D41B /* AlertErrorMessageTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E57120921E937B140064F515 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -4226,6 +4296,14 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		3D8AE6B821107F0C00C8D41B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5CDEC961E9340E80032DC3B /* MidtransKit */;
+			targetProxy = 3D8AE6B721107F0C00C8D41B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
 		305494221C759EDF00938C17 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -4325,6 +4403,54 @@
 				ONLY_ACTIVE_ARCH = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D8AE6B921107F0C00C8D41B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MidtransKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tommy.yohanes.MidtransKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D8AE6BA21107F0C00C8D41B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = MidtransKitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.tommy.yohanes.MidtransKitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -4471,6 +4597,15 @@
 			buildConfigurations = (
 				305494221C759EDF00938C17 /* Debug */,
 				305494231C759EDF00938C17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D8AE6BD21107F0C00C8D41B /* Build configuration list for PBXNativeTarget "MidtransKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D8AE6B921107F0C00C8D41B /* Debug */,
+				3D8AE6BA21107F0C00C8D41B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

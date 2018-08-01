@@ -163,13 +163,13 @@
 
 @implementation NSError (utilities)
 -(NSString *)localizedMidtransErrorMessage {
-    if ([self.description isEqualToString:@"An unknown error occurred."] ||
-        [self.description isEqualToString:@"The connection timed out."] ||
-        [self.description isEqualToString:@"The connection failed because the network connection was lost."] ||
-        [self.description isEqualToString:@"The connection failed because the device is not connected to the internet."] ||
-        [self.description isEqualToString:@"The connection failed because a call is active."] ||
-        [self.description isEqualToString:@"The connection failed because data use is currently not allowed on the device."] ) {
-        return [VTClassHelper getTranslationFromAppBundleForString:self.description];
+    if ([self.localizedDescription isEqualToString:@"An unknown error occurred."] ||
+        [self.localizedDescription isEqualToString:@"The connection timed out."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because the network connection was lost."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because the device is not connected to the internet."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because a call is active."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because data use is currently not allowed on the device."] ) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
     }
     else {
         return [VTClassHelper getTranslationFromAppBundleForString:@"error_others"];

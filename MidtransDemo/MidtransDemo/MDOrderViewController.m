@@ -79,11 +79,7 @@
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
-    [[MidtransCreditCardConfig shared] setPaymentType:MTCreditCardPaymentTypeTwoclick];
-    [MidtransCreditCardConfig shared].setDefaultCreditSaveCardEnabled = YES;
     [[MidtransCreditCardConfig shared] setSaveCardEnabled:TRUE];
-    [[MidtransCreditCardConfig shared] setSecure3DEnabled:TRUE];
-    [[MidtransCreditCardConfig shared] setTokenStorageEnabled:TRUE];
     [[MidtransUIConfiguration shared] setHideStatusPage:FALSE];
     [[MidtransNetworkLogger shared] startLogging];
     //CC_CONFIG.showFormCredentialsUser = YES;

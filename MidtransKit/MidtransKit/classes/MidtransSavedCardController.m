@@ -147,8 +147,7 @@
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
-    //vc.promos = self.promos;
-    vc.currentMaskedCards = self.cards;
+    vc.currentMaskedCards = nil;
     [self.navigationController pushViewController:vc animated:YES];
 }
 

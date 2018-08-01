@@ -42,6 +42,36 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3D8AE6B021107F0C00C8D41B"
+               BuildableName = "MidtransKitTests.xctest"
+               BlueprintName = "MidtransKitTests"
+               ReferencedContainer = "container:MidtransKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "E5C751651E8B912F001F47D9"
+               BuildableName = "MidtransDemoUITests.xctest"
+               BlueprintName = "MidtransDemoUITests"
+               ReferencedContainer = "container:../MidtransDemo/MidtransDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3D8584772111C52500899462"
+               BuildableName = "MidtransCoreKitTests.xctest"
+               BlueprintName = "MidtransCoreKitTests"
+               ReferencedContainer = "container:../MidtransCoreKit/MidtransCoreKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

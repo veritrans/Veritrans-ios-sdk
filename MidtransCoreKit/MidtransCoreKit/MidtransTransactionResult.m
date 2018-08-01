@@ -117,7 +117,7 @@
     return [NSString stringWithFormat:@"statusCode = %li\nstatusMessage = %@\ntransactionId = %@\ntransactionStatus = %@\norderId = %@\npaymentType = %@\ngrossAmount = %@\ntransactionTime = %@\nadditionalData = %@\n", (long)self.statusCode, self.statusMessage, self.transactionId, self.transactionStatus, self.orderId, self.paymentType, self.grossAmount, self.transactionTime, self.additionalData];
 }
 
--(NSString *)codeForLocalization {
+- (NSString *)codeForLocalization {
     switch (self.statusCode) {
         case 200:
             return @"error_200";

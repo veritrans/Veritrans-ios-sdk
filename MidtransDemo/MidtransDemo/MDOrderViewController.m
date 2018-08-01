@@ -188,7 +188,7 @@
     if (value[2]) {
         [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
     }
-    
+
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst

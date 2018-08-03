@@ -95,7 +95,7 @@
             if (self.attemptRetry<2) {
                 self.attemptRetry+=1;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                message:error.localizedDescription
+                                                                message:error.localizedMidtransErrorMessage
                                                                delegate:nil
                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                       otherButtonTitles:nil];
@@ -110,7 +110,7 @@
             if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
                   self.attemptRetry+=1;
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[result.transactionStatus capitalizedString]
-                                                                message:result.statusMessage
+                                                                message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
                                                                delegate:nil
                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                       otherButtonTitles:nil];

@@ -33,8 +33,6 @@
 @implementation NSNumber (formatter)
 
 - (NSString *)formattedCurrencyNumber {
-//    NSNumberFormatter *nf = [NSNumberFormatter indonesianCurrencyFormatter];
-//    return [NSString stringWithFormat:@"Rp %@", [nf stringFromNumber:self]];
     return [self formattedISOCurrencyNumber];
 }
 
@@ -161,6 +159,22 @@
     return topRootViewController;
 }
 
+@end
+
+@implementation NSError (utilities)
+-(NSString *)localizedMidtransErrorMessage {
+    if ([self.localizedDescription isEqualToString:@"An unknown error occurred."] ||
+        [self.localizedDescription isEqualToString:@"The connection timed out."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because the network connection was lost."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because the device is not connected to the internet."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because a call is active."] ||
+        [self.localizedDescription isEqualToString:@"The connection failed because data use is currently not allowed on the device."] ) {
+        return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
+    }
+    else {
+        return [VTClassHelper getTranslationFromAppBundleForString:@"error_others"];
+    }
+}
 @end
 
 @implementation NSString (utilities)

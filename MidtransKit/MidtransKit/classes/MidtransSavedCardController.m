@@ -105,6 +105,7 @@
                 [self.tableView reloadData];
             }
             else {
+                [self.cards removeAllObjects];
                 [self.tableView reloadData];
                 MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                                    paymentMethodName:self.paymentMethod

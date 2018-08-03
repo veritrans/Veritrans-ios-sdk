@@ -148,7 +148,11 @@
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
-    vc.currentMaskedCards = nil;
+    if ([[MidtransCreditCardConfig shared] paymentType] == MTCreditCardPaymentTypeOneclick && [[MidtransCreditCardConfig shared] tokenStorageEnabled] == NO) {
+        vc.currentMaskedCards = nil;
+    } else {
+        vc.currentMaskedCards = self.cards;
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 

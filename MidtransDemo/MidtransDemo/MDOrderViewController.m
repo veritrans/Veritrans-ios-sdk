@@ -67,10 +67,12 @@
         case MTCreditCardPaymentTypeOneclick:
             clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
             merchantServer = @"https://rakawm-snap.herokuapp.com";
+            CC_CONFIG.tokenStorageEnabled = NO;
             break;
         default:
             clientkey = @"VT-client-cwmvxnYb-CTkaAgz";
             merchantServer = @"https://demo-merchant-server.herokuapp.com";
+            CC_CONFIG.tokenStorageEnabled = YES;
             break;
     }
     [CONFIG setClientKey:clientkey
@@ -79,9 +81,13 @@
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
-    [[MidtransCreditCardConfig shared] setSaveCardEnabled:TRUE];
-    [[MidtransUIConfiguration shared] setHideStatusPage:FALSE];
-    [[MidtransNetworkLogger shared] startLogging];
+    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
+    CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
+    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
+    CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
+    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
+    CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
+    CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
     //CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
@@ -91,7 +97,6 @@
     
     NSDictionary *freeText = @{@"inquiry":@[inquiryConstructor,inquiryConstructor2],@"payment":@[paymentConstructor]};
     CONFIG.customFreeText = freeText;
-    UICONFIG.hideStatusPage = NO;
     CONFIG.currency = [MidtransHelper currencyFromString:[MDOptionManager shared].currencyOption.value];
     CONFIG.customPaymentChannels = [[MDOptionManager shared].paymentChannel.value valueForKey:@"type"];
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;

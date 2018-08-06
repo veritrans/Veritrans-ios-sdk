@@ -38,7 +38,7 @@
     [super viewDidLoad];
     
     self.totalAmount = @(10000.55);
-    NSString *formattedPrice = [self formatISOCurrencyNumber:self.totalAmount];
+    NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
     self.emailTextField.backgroundColor = [UIColor colorWithRed:0.93 green:0.93 blue:0.93 alpha:1.0];;
@@ -266,7 +266,7 @@
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
 
-- (NSString *)formatISOCurrencyNumber:(NSNumber *)number {
+- (NSString *)formattedISOCurrencyNumber:(NSNumber *)number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
     currencyFormatter.formatWidth = 0;
     NSInteger count = [[currencyFormatter stringFromNumber:number] length];

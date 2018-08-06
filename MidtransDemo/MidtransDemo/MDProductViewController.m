@@ -34,7 +34,7 @@ UICollectionViewDelegateFlowLayout
     CONFIG.currency = [MidtransHelper currencyFromString:[MDOptionManager shared].currencyOption.value];
     self.title = @"Product Detail";
     NSNumber *price = @(10000.55);
-    self.priceLabel.text = [self formatISOCurrencyNumber:price];
+    self.priceLabel.text = [self formattedISOCurrencyNumber:price];
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@""
                                      style:UIBarButtonItemStylePlain
@@ -69,7 +69,7 @@ UICollectionViewDelegateFlowLayout
         self.pageControl.currentPageIndicatorTintColor = [UIColor mdThemeColor];
     });
 }
-- (NSString *)formatISOCurrencyNumber:(NSNumber *)number {
+- (NSString *)formattedISOCurrencyNumber:(NSNumber *)number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
     currencyFormatter.formatWidth = 0;
     NSInteger count = [[currencyFormatter stringFromNumber:number] length];

@@ -27,6 +27,10 @@ extern NSString *const MidtransMaskedCardsUpdated;
 + (NSString *)randomWithLength:(NSUInteger)length;
 @end
 
+@interface NSNumber (format)
+- (NSString *)roundingWithoutCurrency;
+@end
+
 @interface UIApplication (utilities)
 + (UIViewController *)rootViewController;
 @end

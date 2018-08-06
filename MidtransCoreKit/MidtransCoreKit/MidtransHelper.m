@@ -7,6 +7,7 @@
 //
 
 #import "MidtransHelper.h"
+#import "MidtransConfig.h"
 
 NSString *const MIdtransMaskedCardsUpdated = @"vt_masked_cards_updated";
 NSString *const MIDTRANS_CORE_CURRENCY_IDR = @"IDR";
@@ -76,6 +77,16 @@ NSString *const MIDTRANS_CORE_CURRENCY_SGD = @"SGD";
         [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
     }
     return randomString;
+}
+
+@end
+
+@implementation NSNumber (format)
+
+- (NSString *)roundingWithoutCurrency {
+    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    currencyFormatter.numberStyle = NSNumberFormatterNoStyle;
+    return [currencyFormatter stringFromNumber:self];
 }
 
 @end

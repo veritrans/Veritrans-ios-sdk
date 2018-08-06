@@ -91,8 +91,9 @@
     ///////////
     //currency
     NSString *idr = [MidtransHelper stringFromCurrency:MidtransCurrencyIDR];
+    NSString *rp = @"Rp";
     NSString *sgd = [MidtransHelper stringFromCurrency:MidtransCurrencySGD];
-    options = @[[MDOption optionGeneralWithName:idr value:idr],
+    options = @[[MDOption optionGeneralWithName:rp value:idr],
                 [MDOption optionGeneralWithName:sgd value:sgd]];
     MDOptionView *optCurrency = [MDOptionView viewWithIcon:[UIImage imageNamed:@"dc_multicurrency"]
                                                  titleTemplate:@"Currency %@"

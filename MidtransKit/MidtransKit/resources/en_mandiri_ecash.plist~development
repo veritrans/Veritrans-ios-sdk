@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Make sure you have registered your mobile phone number for Mandiri e-Cash</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Tap ‘Confirm Payment’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Enter your phone number and PIN</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Please wait for an SMS from Mandiri e-Cash that contains your One Time Password (OTP)</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Enter the 6 digit OTP, then click ‘Confirm Payment’ to make payment</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>If you haven’t received the OTP or the OTP has expired, tap ‘back’ and retry your transaction</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

@@ -143,6 +143,34 @@
 		<string>bri epay</string>
 	</dict>
 	<dict>
+		<key>title</key>
+		<string>Indosat Dompetku</string>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>description</key>
+		<string>Pay with Indosat Dompetku</string>
+		<key>id</key>
+		<string>indosat_dompetku</string>
+		<key>identifier</key>
+		<string>indosat_dompetku</string>
+		<key>shortName</key>
+		<string>indosat dompetku</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>XL Tunai</string>
+		<key>description</key>
+		<string>Pay with XL Tunai</string>
+		<key>id</key>
+		<string>xl_tunai</string>
+		<key>identifier</key>
+		<string>xl_tunai</string>
+		<key>shortName</key>
+		<string>xl tunai</string>
+	</dict>
+	<dict>
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
@@ -202,27 +230,13 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
-		<string>BNI</string>
-		<key>description</key>
-		<string>Pay from BNI ATMs or internet banking</string>
-		<key>id</key>
-		<string>bni_va</string>
-		<key>identifier</key>
-		<string>bni_va</string>
-		<key>shortName</key>
-		<string>atm bni</string>
-	</dict>
-	<dict>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>title</key>
 		<string>Other ATM Network</string>
 		<key>description</key>
 		<string>Pay from ATMs or internet banking</string>
 		<key>id</key>
-		<string>other_va</string>
+		<string>all_va</string>
 		<key>identifier</key>
-		<string>other_va</string>
+		<string>all_va</string>
 		<key>shortName</key>
 		<string>atm all</string>
 	</dict>
@@ -240,47 +254,5 @@
 		<key>shortName</key>
 		<string>gci</string>
 	</dict>
-	<dict>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>title</key>
-		<string>Danamon Online</string>
-		<key>description</key>
-		<string>Pay with your Danamon Online account</string>
-		<key>id</key>
-		<string>danamon_online</string>
-		<key>identifier</key>
-		<string>danamon_online</string>
-		<key>shortName</key>
-		<string>danamon online</string>
-	</dict>
-	<dict>
-		<key>status</key>
-		<string>&quot;&quot;</string>
-		<key>title</key>
-		<string>GO-PAY</string>
-		<key>description</key>
-		<string>Pay with GO-PAY</string>
-		<key>id</key>
-		<string>gopay</string>
-		<key>identifier</key>
-		<string>gopay</string>
-		<key>shortName</key>
-		<string>gopay</string>
-	</dict>
-    <dict>
-        <key>status</key>
-        <string>&quot;&quot;</string>
-        <key>title</key>
-        <string>Akulaku</string>
-        <key>description</key>
-        <string>Pay with Akulaku</string>
-        <key>id</key>
-        <string>akulaku</string>
-        <key>identifier</key>
-        <string>akulaku</string>
-        <key>shortName</key>
-        <string>akulaku</string>
-    </dict>
 </array>
 </plist>

@@ -40,7 +40,8 @@
     self.title = self.paymentMethod.title;
     self.view.tokenViewConstraints.constant = 0.0f;
     self.view.topConstraints.constant = 0.0f;
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY]|| [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
+    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
+        [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
         if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
             self.view.tokenViewLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
             [self.view.tokenViewIcon setImage:[[UIImage imageNamed:@"sms" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
@@ -84,6 +85,9 @@
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY]) {
         paymentDetails = [[MidtransPaymentEpayBRI alloc] init];
+    }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
+        paymentDetails = [[MidtransPaymentAkulaku alloc] init];
     }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
         paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];

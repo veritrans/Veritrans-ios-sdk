@@ -1,0 +1,111 @@
+/*
+ Localizable.strings
+ MidtransKit
+ 
+ Created by Nanang Rafsanjani on 6/22/16.
+ Copyright © 2016 Veritrans. All rights reserved.
+ */
+
+"Processing your payment" = "Processing your payment";
+"Failed to open Instructions" = "Failed to open Instructions";
+"Calculating your Point" = "Calculating your Point";
+"Loading" = "Loading";
+"PIN cannot be empty" = "PIN cannot be empty";
+"Card Number cannot be empty" = "Card Number cannot be empty";
+"You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button" = "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button";
+"payment.failed" = "Payment Failed";
+"payment.pending" = "Payment Pending";
+"payment.pay-at" = "Pay at %@";
+"clickpay.invalid-number" = "Invalid Debit Number";
+"clickpay.invalid-token" = "Invalid Clickpay Token";
+"name.other-bank" = "Other ATM Network";
+"payment.how" = "How Can I Pay Via %@";
+"payment.klikbca.userid-note" = "An invoice will be sent to your KlikBCA account once you confirm payment.";
+"payment.email-placeholder" = "Email Address (optional)";
+"payment.email-note" = "We will send you the payment code along with payment instructions to your email address";
+"payment.klikbca.userid-warning" = "KlikBCA User ID should not be empty";
+"guide.header-subtitle" = "Payment Instructions";
+"payment.list.title" = "Select Payment";
+"payment.success" = "Payment Successful";
+"payment.pending" = "Payment Pending";
+"Close" = "Close";
+"payment.finish-button-title-via"="Complete Payment via %@";
+"payment.finish-button-title" = "Complete Payment At %@";
+"Complete Payment at ATM" = "Complete Payment at ATM";
+
+"payment.va.help-button-title" = "How Can I Pay Via %@ Bank Transfer?";
+"payment.va.confirm_button" = "See Account Number";
+
+"toast.copy-text" = "Copied to clipboard";
+
+"creditcard.input.title" = "Card Details";
+"creditcard.list.title" = "Choose Card";
+"creditcard.twoclick.title" = "Pay With Credit Card";
+"creditcard.error.invalid-bin" = "This card is not applicable, please use another one.";
+"creditcard.promo-message" = "With this card, you will get %@ discount from %@";
+"creditcard.promo-title" = "Congratulations";
+"creditcard.creditcard_number" = "Credit Card Number";
+"creditcard.creditcard_valid_until" = "Valid Until (MM/YY)";
+"creditcard.creditcard_cvv" = "CVV";
+"creditcard.add.new.card" = "Add New Card";
+"creditcard.finish.payment" = "Finish Payment";
+"creditcard.Save card for later use" = "Save card for later use";
+"creditcard.Redeem BNI Reward Point" = "Redeem BNI Reward Point";
+"creditcard.save card for later reuse" = "save card for later reuse";
+"creditcard.Mandiri Debit Card" = "Mandiri Debit Card";
+"creditcard.Mandiri Debit Card placeholder" = "Mandiri Debit Card Number";
+"va.list.title" = "Select Bank";
+"va.pay-button" = "See Account Number";
+
+"BNI Card" = "BNI Card";
+"Processing your transaction" = "Processing your transaction";
+
+"payment.telkomsel-cash.token-placeholder" = "T-Cash Token";
+"payment.telkomsel-cash.token-note" = "T-Cash payment must be completed through a registered telkomsel phone number";
+"payment.telkomsel-cash.header-title" = "Telkomsel Cash";
+"payment.telkomsel-cash.warning" = "Token should not be empty";
+
+"payment.indosat-dompetku.token-placeholder" = "Indosat Phone Number";
+"payment.indosat-dompetku.token-note" = "This payment must use a phone number that registered with Indosat Dompetku.";
+"payment.indosat-dompetku.header-title" = "Indosat Dompetku";
+"payment.indosat-dompetku.warning" = "Phone number should not be empty";
+
+"payment.kioson.note" = "Kioson payment must be completed through a Kioson Outlet";
+
+"kioson.pending.code-title" = "Payment Code";
+"kioson.pending.howto-title" = "How Can I Pay via Kioson";
+"kioson.pending.copy-title" = "Copy Payment Code";
+
+"gci.placeholder" = "Your gift card number";
+"No Installment" = "No Installment";
+"month.installments" = "%@ Month installment";
+"what is cvv?" = "what is cvv?";
+"The CVV is a 3 (or 6) digit number security code printed on the back of your card" = "The CVV is a 3 (or 6) digit number security code printed on the back of your card";
+"redeem bni reward point" = "redeem bni reward point";
+"you can pay partly through the redemption of BNI Reward Point through your credit card" = "you can pay partly through the redemption of BNI Reward Point through your credit card";
+"This transaction must use installment" = "This transaction must use installment";
+"Your total BNI Reward Points is %i" = "Your total BNI Reward Points is %i";
+
+"alert.title" = "Warning";
+"alert.message-delete-card" = "Are you sure to delete this card?";
+"alert.no" = "No";
+"alert.yes" = "Yes";
+"alert.invalid-payment-token" = "Payment token is invalid, please checkout again";
+
+"Delete Saved Card" = "delete this card";
+"Thank you!" = "Thank you!";
+"Ouch!" = "Ouch!";
+"Your payment can't be processed" = "Your payment can't be processed";
+"Your payment has been processed" = "Your payment has been processed";
+"Please complete payment to proceed" = "Please complete payment to proceed";
+"Loading payment list" = "Loading payment list";
+"Pay from ATM Bersama, Prima or Alto" = "Pay from ATM Bersama, Prima or Alto";
+"Credit/Debit Card" = "Credit/Debit Card";
+"Pay With" = "Pay With" ;
+"total.amount" = "Total Amount";
+"%@ step by step" = "%@ step by step";
+"SMS Charges may be applied for this payment method" = "SMS Charges may be applied for this payment method";
+"Key token device is required for this payment method" = "Key token device is required for this payment method";
+"confirm.payment" = "Confirm Payment";
+"Please complete payment before: %@" = "Please complete payment before :";
+"donwload.instruction" = "donwload instruction";

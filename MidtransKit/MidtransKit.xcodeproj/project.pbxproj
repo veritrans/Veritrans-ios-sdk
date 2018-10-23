@@ -854,6 +854,16 @@
 		E57127E11E93B7C50064F515 /* en_bca_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127231E93B3290064F515 /* en_bca_va.plist */; };
 		E57127EC1E93B7C50064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272E1E93B3290064F515 /* snap_colors.plist */; };
 		E57127F01E93B7C50064F515 /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = E55F62771E93498000C012C8 /* bin.json */; };
+		E57ACD81217F005F00A9977F /* akulaku.png in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD7E217F005F00A9977F /* akulaku.png */; };
+		E57ACD82217F005F00A9977F /* akulaku@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD7F217F005F00A9977F /* akulaku@3x.png */; };
+		E57ACD83217F005F00A9977F /* akulaku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD80217F005F00A9977F /* akulaku@2x.png */; };
+		E57ACD86217F009500A9977F /* en_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD84217F009500A9977F /* en_akulaku.plist */; };
+		E57ACD87217F009500A9977F /* en_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD84217F009500A9977F /* en_akulaku.plist */; };
+		E57ACD88217F009500A9977F /* id_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD85217F009500A9977F /* id_akulaku.plist */; };
+		E57ACD89217F009500A9977F /* id_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD85217F009500A9977F /* id_akulaku.plist */; };
+		E57ACD8A217F030A00A9977F /* akulaku.png in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD7E217F005F00A9977F /* akulaku.png */; };
+		E57ACD8B217F030A00A9977F /* akulaku@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD80217F005F00A9977F /* akulaku@2x.png */; };
+		E57ACD8C217F030A00A9977F /* akulaku@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD7F217F005F00A9977F /* akulaku@3x.png */; };
 		E58FCD881E94CFD500632085 /* AlertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD001E94CFD500632085 /* AlertBackground@2x.png */; };
 		E58FCD891E94CFD500632085 /* AlertBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD001E94CFD500632085 /* AlertBackground@2x.png */; };
 		E58FCD8A1E94CFD500632085 /* Amex@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD011E94CFD500632085 /* Amex@2x.png */; };
@@ -1007,8 +1017,6 @@
 		E58FCE1F1E94CFD600632085 /* mega@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4B1E94CFD500632085 /* mega@2x.png */; };
 		E58FCE201E94CFD600632085 /* midtrans_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4C1E94CFD500632085 /* midtrans_lock@2x.png */; };
 		E58FCE211E94CFD600632085 /* midtrans_lock@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4C1E94CFD500632085 /* midtrans_lock@2x.png */; };
-		E58FCE221E94CFD600632085 /* nextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4D1E94CFD500632085 /* nextIcon@2x.png */; };
-		E58FCE231E94CFD600632085 /* nextIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4D1E94CFD500632085 /* nextIcon@2x.png */; };
 		E58FCE241E94CFD600632085 /* other_alto_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4E1E94CFD500632085 /* other_alto_1@2x.png */; };
 		E58FCE251E94CFD600632085 /* other_alto_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4E1E94CFD500632085 /* other_alto_1@2x.png */; };
 		E58FCE261E94CFD600632085 /* other_alto_2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD4F1E94CFD500632085 /* other_alto_2@2x.png */; };
@@ -1197,6 +1205,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = E5CDEC961E9340E80032DC3B;
 			remoteInfo = MidtransKit;
+		};
+		E57ACD7C217F004100A9977F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D8584782111C52500899462;
+			remoteInfo = MidtransCoreKitTests;
 		};
 		E58FCE9D1E94D06900632085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1617,6 +1632,11 @@
 		E578DD0D1CFBFA980091760A /* VTBillpaySuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTBillpaySuccessController.m; path = classes/VTBillpaySuccessController.m; sourceTree = "<group>"; };
 		E578DD151CFC1BD50091760A /* MidtransUIToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIToast.h; path = classes/MidtransUIToast.h; sourceTree = "<group>"; };
 		E578DD161CFC1BD50091760A /* MidtransUIToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUIToast.m; path = classes/MidtransUIToast.m; sourceTree = "<group>"; };
+		E57ACD7E217F005F00A9977F /* akulaku.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = akulaku.png; sourceTree = "<group>"; };
+		E57ACD7F217F005F00A9977F /* akulaku@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "akulaku@3x.png"; sourceTree = "<group>"; };
+		E57ACD80217F005F00A9977F /* akulaku@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "akulaku@2x.png"; sourceTree = "<group>"; };
+		E57ACD84217F009500A9977F /* en_akulaku.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_akulaku.plist; path = MidtransKit/resources/en_akulaku.plist; sourceTree = SOURCE_ROOT; };
+		E57ACD85217F009500A9977F /* id_akulaku.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_akulaku.plist; path = MidtransKit/resources/id_akulaku.plist; sourceTree = SOURCE_ROOT; };
 		E57FFC871E125FDA002A875C /* MidtransItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransItemCell.h; path = classes/MidtransItemCell.h; sourceTree = "<group>"; };
 		E57FFC881E125FDA002A875C /* MidtransItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransItemCell.m; path = classes/MidtransItemCell.m; sourceTree = "<group>"; };
 		E58017E91D5868E1007D2DEC /* VTXLTunaiSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTXLTunaiSuccessController.h; path = classes/VTXLTunaiSuccessController.h; sourceTree = "<group>"; };
@@ -1704,7 +1724,6 @@
 		E58FCD4A1E94CFD500632085 /* mega.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mega.png; path = MidtransKit/resources/mega.png; sourceTree = SOURCE_ROOT; };
 		E58FCD4B1E94CFD500632085 /* mega@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "mega@2x.png"; path = "MidtransKit/resources/mega@2x.png"; sourceTree = SOURCE_ROOT; };
 		E58FCD4C1E94CFD500632085 /* midtrans_lock@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "midtrans_lock@2x.png"; path = "MidtransKit/resources/midtrans_lock@2x.png"; sourceTree = SOURCE_ROOT; };
-		E58FCD4D1E94CFD500632085 /* nextIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "nextIcon@2x.png"; path = "MidtransKit/resources/nextIcon@2x.png"; sourceTree = SOURCE_ROOT; };
 		E58FCD4E1E94CFD500632085 /* other_alto_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "other_alto_1@2x.png"; path = "MidtransKit/resources/other_alto_1@2x.png"; sourceTree = SOURCE_ROOT; };
 		E58FCD4F1E94CFD500632085 /* other_alto_2@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "other_alto_2@2x.png"; path = "MidtransKit/resources/other_alto_2@2x.png"; sourceTree = SOURCE_ROOT; };
 		E58FCD501E94CFD500632085 /* other_alto_3@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "other_alto_3@2x.png"; path = "MidtransKit/resources/other_alto_3@2x.png"; sourceTree = SOURCE_ROOT; };
@@ -2321,6 +2340,8 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				E57ACD84217F009500A9977F /* en_akulaku.plist */,
+				E57ACD85217F009500A9977F /* id_akulaku.plist */,
 				0C9635101FE11D7D00EF89DF /* en_gopay.plist */,
 				0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */,
 				0C96350F1FE11D7D00EF89DF /* id_gopay.plist */,
@@ -2445,6 +2466,9 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				E57ACD7E217F005F00A9977F /* akulaku.png */,
+				E57ACD80217F005F00A9977F /* akulaku@2x.png */,
+				E57ACD7F217F005F00A9977F /* akulaku@3x.png */,
 				0CA5EB7C202C105500335C28 /* gopay_button@2x.png */,
 				0CCD62242005D0B9006936E5 /* Other VA */,
 				0C1CF40B1FE8CD87006D9F51 /* Fill 57.png */,
@@ -2554,7 +2578,6 @@
 				E58FCD4A1E94CFD500632085 /* mega.png */,
 				E58FCD4B1E94CFD500632085 /* mega@2x.png */,
 				E58FCD4C1E94CFD500632085 /* midtrans_lock@2x.png */,
-				E58FCD4D1E94CFD500632085 /* nextIcon@2x.png */,
 				E58FCD631E94CFD500632085 /* other_va@2x.png */,
 				E58FCD641E94CFD500632085 /* padlock1@2x.png */,
 				E58FCD651E94CFD500632085 /* pendingIcon@2x.png */,
@@ -2878,6 +2901,7 @@
 			children = (
 				E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */,
 				E58FCEA01E94D06900632085 /* libMidtransCoreKit.a */,
+				E57ACD7D217F004100A9977F /* MidtransCoreKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3272,6 +3296,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		E57ACD7D217F004100A9977F /* MidtransCoreKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MidtransCoreKitTests.xctest;
+			remoteRef = E57ACD7C217F004100A9977F /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -3339,7 +3370,6 @@
 				E571248B1E9381320064F515 /* MidtransLoadingView.xib in Resources */,
 				E58FCDF91E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				E58FCDC31E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
-				E58FCE231E94CFD600632085 /* nextIcon@2x.png in Resources */,
 				0C9634DF1FE11A1400EF89DF /* gojek_icon@2x.png in Resources */,
 				E58FCDE51E94CFD500632085 /* gci@2x.png in Resources */,
 				0CCD623A2005D0BA006936E5 /* alto@2x.png in Resources */,
@@ -3430,6 +3460,7 @@
 				E58FCDF71E94CFD500632085 /* JCB@2x.png in Resources */,
 				E58FCD891E94CFD500632085 /* AlertBackground@2x.png in Resources */,
 				0CD116111EDD5B14005884AD /* en_bni_va.plist in Resources */,
+				E57ACD83217F005F00A9977F /* akulaku@2x.png in Resources */,
 				E58FCDDB1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC91E94CFD500632085 /* cimb@2x.png in Resources */,
 				0C9634EA1FE11A1400EF89DF /* ic_chevron_up.png in Resources */,
@@ -3465,6 +3496,7 @@
 				0CCD62582005D0BA006936E5 /* prima_affiliated@2x.png in Resources */,
 				E58FCE591E94CFD600632085 /* permata_atm_3@2x.png in Resources */,
 				3D40893F1F75130300B9A2EC /* alto_preview.png in Resources */,
+				E57ACD82217F005F00A9977F /* akulaku@3x.png in Resources */,
 				3D4089151F74E35800B9A2EC /* id_bni_va.plist in Resources */,
 				E57124A11E9381320064F515 /* VTCardListController.xib in Resources */,
 				E57124A21E9381320064F515 /* VTCCBackView.xib in Resources */,
@@ -3473,6 +3505,7 @@
 				0CE1D26D1F62A6B5003A012F /* SNPMaintainView.xib in Resources */,
 				0CCD623E2005D0BA006936E5 /* alto_affiliated.png in Resources */,
 				0C9324461F7B7F5900D9A390 /* danamon_online@3x.png in Resources */,
+				E57ACD81217F005F00A9977F /* akulaku.png in Resources */,
 				0C93244A1F7B7F6400D9A390 /* danamon_online.png in Resources */,
 				E58FCE7F1E94CFD600632085 /* visa-mastercard-amex@3x.png in Resources */,
 				E58FCE931E94CFD600632085 /* Visa@2x.png in Resources */,
@@ -3514,6 +3547,7 @@
 				E58FCE471E94CFD600632085 /* other_prima_4@2x.png in Resources */,
 				E58FCDAF1E94CFD500632085 /* bni_badge@2x.png in Resources */,
 				0C9324441F7B7F5400D9A390 /* danamon_online@2x.png in Resources */,
+				E57ACD87217F009500A9977F /* en_akulaku.plist in Resources */,
 				E58FCE211E94CFD600632085 /* midtrans_lock@2x.png in Resources */,
 				0CE1D26A1F62A68E003A012F /* maintain@3x.png in Resources */,
 				E58FCDD71E94CFD500632085 /* DeleteIcon@2x.png in Resources */,
@@ -3545,6 +3579,7 @@
 				0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */,
 				0CC9002C1F70207D0058E93C /* id_telkomsel_cash.plist in Resources */,
 				0CCD62402005D0BA006936E5 /* alto_affiliated@2x.png in Resources */,
+				E57ACD89217F009500A9977F /* id_akulaku.plist in Resources */,
 				E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */,
 				E58FCE891E94CFD600632085 /* visa-mastercard-jcb@2x.png in Resources */,
 				E57124AD1E9381320064F515 /* VTPaymentListController.xib in Resources */,
@@ -3671,6 +3706,7 @@
 				E58FCD9A1E94CFD500632085 /* bca_atm_2@2x.png in Resources */,
 				0CCD62472005D0BA006936E5 /* atm_bersama@3x.png in Resources */,
 				0C115B7E1F73A77200327915 /* id_lang.json in Resources */,
+				E57ACD8A217F030A00A9977F /* akulaku.png in Resources */,
 				E58FCE321E94CFD600632085 /* other_atm_1@2x.png in Resources */,
 				0CE1D2B41F67BA53003A012F /* token_key@1.5x.png in Resources */,
 				0CE1D2C11F67BA99003A012F /* sms.png in Resources */,
@@ -3710,6 +3746,7 @@
 				3DECDFE91F9DAE610001AC9A /* download@3x.png in Resources */,
 				0C9634F51FE11A1F00EF89DF /* gojek_icon@2x.png in Resources */,
 				3DECDFE51F9DAE610001AC9A /* download.png in Resources */,
+				E57ACD88217F009500A9977F /* id_akulaku.plist in Resources */,
 				3D4089261F74E43200B9A2EC /* en_paymentMethods.plist in Resources */,
 				E58FCE301E94CFD600632085 /* other_alto_7@2x.png in Resources */,
 				E5F1BB841E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
@@ -3727,7 +3764,6 @@
 				0C9635021FE11A1F00EF89DF /* ic_chevron_up@3x.png in Resources */,
 				E58FCDC21E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
 				0C96350C1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */,
-				E58FCE221E94CFD600632085 /* nextIcon@2x.png in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
 				0CC900231F701EDB0058E93C /* id_kioson.plist in Resources */,
@@ -3818,6 +3854,7 @@
 				E58FCDF61E94CFD500632085 /* JCB@2x.png in Resources */,
 				3D4089351F7512F100B9A2EC /* bersama_preview.png in Resources */,
 				0CD116101EDD5B14005884AD /* en_bni_va.plist in Resources */,
+				E57ACD8B217F030A00A9977F /* akulaku@2x.png in Resources */,
 				E58FCD881E94CFD500632085 /* AlertBackground@2x.png in Resources */,
 				E58FCDDA1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC81E94CFD500632085 /* cimb@2x.png in Resources */,
@@ -3882,6 +3919,7 @@
 				E5F1BB6D1E93701100ED659D /* VTAddCardController.xib in Resources */,
 				0C9635001FE11A1F00EF89DF /* ic_chevron_up.png in Resources */,
 				E5F1BB851E93701100ED659D /* MidtransUIPaymentListHeader.xib in Resources */,
+				E57ACD86217F009500A9977F /* en_akulaku.plist in Resources */,
 				E58FCDB01E94CFD500632085 /* bni_badge@3x.png in Resources */,
 				0C9634F91FE11A1F00EF89DF /* gopay@3x.png in Resources */,
 				0C1CF4121FE8CD89006D9F51 /* Fill 57@3x.png in Resources */,
@@ -3966,6 +4004,7 @@
 				E58FCE2A1E94CFD600632085 /* other_alto_4@2x.png in Resources */,
 				0C9634FA1FE11A1F00EF89DF /* gopay_scan_qr_instruction.png in Resources */,
 				E5F1BB691E93701100ED659D /* MidtransUIToast.xib in Resources */,
+				E57ACD8C217F030A00A9977F /* akulaku@3x.png in Resources */,
 				0CEF031C1EA3CCBF00EA1EE0 /* SNPPostPaymentVAViewController.xib in Resources */,
 				E5F1BB781E93701100ED659D /* VTKlikbcaSuccessController.xib in Resources */,
 				0CE1D27E1F62A766003A012F /* cc_badge@2x.png in Resources */,

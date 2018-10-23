@@ -105,6 +105,7 @@
                 [self.tableView reloadData];
             }
             else {
+                [self.cards removeAllObjects];
                 [self.tableView reloadData];
                 MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithToken:self.token
                                                                                                    paymentMethodName:self.paymentMethod
@@ -147,8 +148,11 @@
                                                                                        paymentMethodName:self.paymentMethod
                                                                                        andCreditCardData:self.creditCard
                                                                             andCompleteResponseOfPayment:self.responsePayment];
-    //vc.promos = self.promos;
-    vc.currentMaskedCards = self.cards;
+    if ([[MidtransCreditCardConfig shared] paymentType] == MTCreditCardPaymentTypeOneclick && [[MidtransCreditCardConfig shared] tokenStorageEnabled] == NO) {
+        vc.currentMaskedCards = nil;
+    } else {
+        vc.currentMaskedCards = self.cards;
+    }
     [self.navigationController pushViewController:vc animated:YES];
 }
 

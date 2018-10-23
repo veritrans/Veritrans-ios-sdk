@@ -26,7 +26,10 @@
                 <outlet property="amountView" destination="eeh-aL-78U" id="B4P-ml-yYq"/>
                 <outlet property="editButton" destination="8Yf-ZT-OrY" id="CDW-2E-LEx"/>
                 <outlet property="emailTextField" destination="h7v-67-rKM" id="hsa-eA-IlS"/>
+                <outlet property="payButton" destination="Ebn-Qu-Y8z" id="AYI-Ga-cAu"/>
                 <outlet property="phoneNumberTextfield" destination="p2S-4l-kcS" id="8NM-7b-LAo"/>
+                <outlet property="pricePerItemLabel" destination="08Q-dj-7dZ" id="5La-8z-2bN"/>
+                <outlet property="totalAmountLabel" destination="uFk-Qv-i9H" id="6xp-WS-2VT"/>
                 <outlet property="userNameTextField" destination="rBp-0P-m83" id="UFv-qA-OZB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>

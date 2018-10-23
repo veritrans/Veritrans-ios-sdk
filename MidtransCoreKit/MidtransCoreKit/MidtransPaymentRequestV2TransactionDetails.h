@@ -6,8 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-
+#import "MidtransHelper.h"
 
 @interface MidtransPaymentRequestV2TransactionDetails : NSObject <NSCoding, NSCopying>
 

@@ -54,9 +54,8 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      codeCoverageEnabled = "YES">
+      codeCoverageEnabled = "YES"
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
@@ -66,6 +65,16 @@
                BuildableName = "MidtransDemoUITests.xctest"
                BlueprintName = "MidtransDemoUITests"
                ReferencedContainer = "container:MidtransDemo.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "3D8AE6B021107F0C00C8D41B"
+               BuildableName = "MidtransKitTests.xctest"
+               BlueprintName = "MidtransKitTests"
+               ReferencedContainer = "container:../MidtransKit/MidtransKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -85,7 +94,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

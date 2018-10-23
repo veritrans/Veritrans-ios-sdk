@@ -126,10 +126,10 @@
 - (void)backButtonDidTapped:(id)sender {
     NSString *title;
     NSString *content;
-    title = @"Finish Payment";
-    content = @"Make sure payment has been completed within the GO-JEK app.";
+    title = [VTClassHelper getTranslationFromAppBundleForString:@"Finish Payment"];
+    content = [VTClassHelper getTranslationFromAppBundleForString:@"Make sure payment has been completed within the GO-JEK app."];
     if (IPAD) {
-        content = @"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.";
+        content = [VTClassHelper getTranslationFromAppBundleForString:@"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app."];
     }
     UIAlertController *alertController = [UIAlertController
                                           alertControllerWithTitle:title

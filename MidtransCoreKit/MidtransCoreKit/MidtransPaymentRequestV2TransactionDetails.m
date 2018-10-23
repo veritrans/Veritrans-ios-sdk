@@ -7,10 +7,8 @@
 
 #import "MidtransPaymentRequestV2TransactionDetails.h"
 
-
 NSString *const kMidtransPaymentRequestV2TransactionDetailsOrderId = @"order_id";
 NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross_amount";
-
 
 @interface MidtransPaymentRequestV2TransactionDetails ()
 
@@ -36,9 +34,9 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
     // This check serves to make sure that a non-NSDictionary object
     // passed into the model class doesn't break the parsing.
     if (self && [dict isKindOfClass:[NSDictionary class]]) {
-            self.orderId = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId fromDictionary:dict];
-            self.grossAmount = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount fromDictionary:dict];
-
+        self.orderId = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsOrderId fromDictionary:dict];
+        self.grossAmount = [self objectOrNilForKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount fromDictionary:dict];
+        
     }
     
     return self;
@@ -50,7 +48,7 @@ NSString *const kMidtransPaymentRequestV2TransactionDetailsGrossAmount = @"gross
     NSMutableDictionary *mutableDict = [NSMutableDictionary dictionary];
     [mutableDict setValue:self.orderId forKey:kMidtransPaymentRequestV2TransactionDetailsOrderId];
     [mutableDict setValue:self.grossAmount forKey:kMidtransPaymentRequestV2TransactionDetailsGrossAmount];
-
+    
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 

@@ -89,6 +89,19 @@
     [optCustomExpiry selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].expireTimeOption]];
     
     ///////////
+    //currency
+    NSString *idr = [MidtransHelper stringFromCurrency:MidtransCurrencyIDR];
+    NSString *rp = @"Rp";
+    NSString *sgd = [MidtransHelper stringFromCurrency:MidtransCurrencySGD];
+    options = @[[MDOption optionGeneralWithName:rp value:idr],
+                [MDOption optionGeneralWithName:sgd value:sgd]];
+    MDOptionView *optCurrency = [MDOptionView viewWithIcon:[UIImage imageNamed:@"dc_multicurrency"]
+                                                 titleTemplate:@"Currency %@"
+                                                       options:options
+                                                    identifier:OPTCurrency];
+    [optCurrency selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].currencyOption]];
+
+    ///////////
     //save card
     options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
                 [MDOption optionGeneralWithName:@"Enable" value:@YES]];
@@ -97,6 +110,17 @@
                                                    options:options
                                                 identifier:OPTSaveCard];
     [optSaveCard selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].saveCardOption]];
+    
+    ///////////
+    //BIN filter
+    options = @[[MDOption optionGeneralWithName:@"Disable All" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Filter by Number" value:@""],
+                [MDOption optionCheckListWithName:@"Filter by Bank Name" checkedList:nil]];
+    MDOptionView *optBINFilter = [MDOptionView viewWithIcon:[UIImage imageNamed:@"cc_whitelist"]
+                                              titleTemplate:@"BIN Whitelist %@"
+                                                    options:options
+                                                 identifier:OPTBINFilter];
+    [optBINFilter selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].binFilterOption]];
     
     ///////////
     //3d secure
@@ -170,7 +194,7 @@
     [optPermataVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].permataVAOption]];
     
     /////////////
-    //permata va
+    //bca va
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
     MDOptionView *optBCAVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
@@ -181,7 +205,7 @@
     
     
     /////////////
-    //permata va
+    //bni va
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
     MDOptionView *optBNIVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
@@ -194,7 +218,7 @@
     //custom field
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
                 [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
-    MDOptionView *optCustomField = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+    MDOptionView *optCustomField = [MDOptionView viewWithIcon:[UIImage imageNamed:@"dc_field"]
                                           titleTemplate:@"Custom Field %@d"
                                                 options:options
                                              identifier:OPTCustomField];
@@ -232,7 +256,9 @@
                          optAcqBank,
                          optAuth,
                          optCustomExpiry,
+                         optCurrency,
                          optSaveCard,
+                         optBINFilter,
                          optPromo,
                          optPreauth,
                          optTheme,
@@ -362,8 +388,12 @@
     MDOption *option = self.selectedOptionView.options[index];
     option.value = multipleInputText;
     NSInteger count = [[multipleInputText filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF.length > 0"]] count];
-    option.subName = [NSString stringWithFormat:@"%@ Fields", @(count)];
-    
+    if ([self.selectedOptionView.identifier isEqualToString:OPTBINFilter]) {
+        option.subName = [NSString stringWithFormat:@"%@ Numbers", @(count)];
+    }
+    else {
+        option.subName = [NSString stringWithFormat:@"%@ Fields", @(count)];
+    }
     [self.selectedOptionView selectOptionAtIndex:index];
     
     [MDUtils saveOptionWithView:self.selectedOptionView option:option];
@@ -373,9 +403,14 @@
 - (void)alertViewController:(MDAlertViewController *)viewController didApplyCheck:(NSArray *)values {
     NSUInteger index = viewController.tag;
     MDOption *option = self.selectedOptionView.options[index];
-    option.value = [MDUtils paymentChannelsWithNames:values];
-    option.subName = [NSString stringWithFormat:@"%@ Channels", @(values.count)];
-    
+    if ([self.selectedOptionView.identifier isEqualToString:OPTBINFilter]) {
+        option.value = values;
+        option.subName = [NSString stringWithFormat:@"%@ Banks", @(values.count)];
+    }
+    else {
+        option.value = [MDUtils paymentChannelsWithNames:values];
+        option.subName = [NSString stringWithFormat:@"%@ Channels", @(values.count)];
+    }
     [self.selectedOptionView selectOptionAtIndex:index];
     [MDUtils saveOptionWithView:self.selectedOptionView option:option];
     
@@ -454,6 +489,29 @@
                                                             inputPlaceholder:@"Custom Field"];
         alert.delegate = self;
         alert.multipleInputTexts = usePredefinedValue? option.value: nil;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTBINFilter] && [option.name containsString:@"by Number"]) {
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Add BIN Numbers"
+                                                          multipleTextfields:option.value
+                                                            inputPlaceholder:@"BIN Number"];
+        alert.delegate = self;
+        alert.multipleInputTexts = usePredefinedValue? option.value: nil;
+        alert.tag = [optionView.options indexOfObject:option];
+        [alert show];
+    }
+    else if ([idf isEqualToString:OPTBINFilter] && [option.name containsString:@"by Bank Name"]) {
+        NSArray *bankNames = @[@"BNI",
+                               @"BCA",
+                               @"Mandiri",
+                               @"CIMB",
+                               @"BRI",
+                               @"Maybank"];
+        MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Select Bank"
+                                                                  checkLists:bankNames];
+        alert.delegate = self;
+        alert.predefinedCheckLists = usePredefinedValue? option.value: nil;
         alert.tag = [optionView.options indexOfObject:option];
         [alert show];
     }

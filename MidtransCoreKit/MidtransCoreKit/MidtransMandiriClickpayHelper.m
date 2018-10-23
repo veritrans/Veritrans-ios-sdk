@@ -7,6 +7,7 @@
 //
 
 #import "MidtransMandiriClickpayHelper.h"
+#import "MidtransHelper.h"
 
 @implementation MidtransMandiriClickpayHelper
 
@@ -25,7 +26,7 @@
 }
 
 + (NSString *_Nonnull)generateInput2FromGrossAmount:(NSNumber *_Nonnull)grossAmount {
-    return [grossAmount stringValue];
+    return [grossAmount roundingWithoutCurrency];
 }
 
 + (NSString *_Nonnull)generateInput3 {

@@ -201,7 +201,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     return [paymentType isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
-    [paymentType isEqualToString:MIDTRANS_PAYMENT_AKULAKU] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY];
 }
 - (void)requestCustomerPointWithToken:(NSString * _Nonnull )token
@@ -250,7 +249,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                                                                    countryCode:paymentRequestV2.customerDetails.billingAddress.countryCode];
                 
                                                          
-                NSNumber *amount =  [NSNumber numberWithInteger:[paymentRequestV2.transactionDetails.grossAmount integerValue]];
+                NSNumber *amount =  [NSNumber numberWithDouble:[paymentRequestV2.transactionDetails.grossAmount doubleValue]];
                 MidtransTransactionDetails *reConstructTransactionDetail = [[MidtransTransactionDetails alloc] initWithOrderID:paymentRequestV2.transactionDetails.orderId
                                                                                                                 andGrossAmount:amount];
 

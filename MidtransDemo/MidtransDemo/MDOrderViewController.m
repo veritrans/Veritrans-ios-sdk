@@ -62,8 +62,8 @@
             merchantServer = @"https://rakawm-snap.herokuapp.com";
             break;
         default:
-            clientkey = @"VT-client-cwmvxnYb-CTkaAgz";
-            merchantServer = @"https://demo-merchant-server.herokuapp.com";
+            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
+            merchantServer = @"https://dev-mobile-store.herokuapp.com";
             break;
     }
     [CONFIG setClientKey:clientkey

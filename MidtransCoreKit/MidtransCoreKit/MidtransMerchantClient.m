@@ -201,6 +201,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     return [paymentType isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
+    [paymentType isEqualToString:MIDTRANS_PAYMENT_AKULAKU] ||
     [paymentType isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY];
 }
 - (void)requestCustomerPointWithToken:(NSString * _Nonnull )token

@@ -147,11 +147,10 @@
     UIColor *color = [MDOptionManager shared].colorOption.value;
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
-    NSArray *binFilter = @[];
+    NSPredicate *predicateLength = [NSPredicate predicateWithFormat:@"SELF.length > 0"];
+    NSArray *binFilter = [[[[[MDOptionManager shared] binFilterOption] value] filteredArrayUsingPredicate:predicateLength] valueForKey:@"lowercaseString"];
     NSArray *blacklistBin = @[];
     
-    
-    binFilter = @[@"4"];
     //configure expire time
     [[MidtransNetworkLogger shared] startLogging];
     

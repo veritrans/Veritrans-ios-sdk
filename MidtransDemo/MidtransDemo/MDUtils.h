@@ -35,6 +35,7 @@ static NSString *const OPTAuthType = @"OPTAuthType";
 static NSString *const OPTCustomExpire = @"OPTCustomExpire";
 static NSString *const OPTCurrency = @"OPTCurrency";
 static NSString *const OPTSaveCard = @"OPTSaveCard";
+static NSString *const OPTBINFilter = @"OPTBINFilter";
 static NSString *const OPTPromo = @"OPTPromo";
 static NSString *const OPTPreauth = @"OPTPreauth";
 static NSString *const OPTColor = @"OPTColor";

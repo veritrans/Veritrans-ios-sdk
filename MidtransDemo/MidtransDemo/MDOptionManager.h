@@ -20,6 +20,7 @@
 @property (nonatomic) MDOption *expireTimeOption;
 @property (nonatomic) MDOption *currencyOption;
 @property (nonatomic) MDOption *saveCardOption;
+@property (nonatomic) MDOption *binFilterOption;
 @property (nonatomic) MDOption *promoOption;
 @property (nonatomic) MDOption *preauthOption;
 @property (nonatomic) MDOption *colorOption;

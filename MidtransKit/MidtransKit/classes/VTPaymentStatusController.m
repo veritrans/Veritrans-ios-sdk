@@ -138,7 +138,6 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
                 [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
                 self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
                 self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
-                
                 self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
                 self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
                 self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment to proceed"];

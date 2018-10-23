@@ -34,6 +34,7 @@
         self.authTypeOption = [self unArchivedObject:@"auth_type"];
         self.issuingBankOption = [self unArchivedObject:@"md_bank"];
         self.saveCardOption = [self unArchivedObject:@"md_savecard"];
+        self.binFilterOption = [self unArchivedObject:@"md_bin_filter"];
         self.promoOption = [self unArchivedObject:@"md_promo"];
         self.preauthOption = [self unArchivedObject:@"md_preauth"];
         self.expireTimeOption = [self unArchivedObject:@"md_expire"];
@@ -85,6 +86,10 @@
 - (void)setSaveCardOption:(MDOption *)saveCardOption {
     _saveCardOption = saveCardOption;
     [self archiveObject:saveCardOption key:@"md_savecard"];
+}
+- (void)setBINFilterOption:(MDOption *)binFilterOption {
+    _binFilterOption = binFilterOption;
+    [self archiveObject:binFilterOption key:@"md_bin_filter"];
 }
 - (void)setPromoOption:(MDOption *)promoOption {
     _promoOption = promoOption;
@@ -160,6 +165,7 @@
     self.authTypeOption = nil;
     self.issuingBankOption = nil;
     self.saveCardOption = nil;
+    self.binFilterOption = nil;
     self.promoOption = nil;
     self.preauthOption = nil;
     self.expireTimeOption = nil;

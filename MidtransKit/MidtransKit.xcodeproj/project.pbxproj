@@ -1198,6 +1198,13 @@
 			remoteGlobalIDString = E5CDEC961E9340E80032DC3B;
 			remoteInfo = MidtransKit;
 		};
+		E55E2A3E21816ED400225869 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D8584782111C52500899462;
+			remoteInfo = MidtransCoreKitTests;
+		};
 		E58FCE9D1E94D06900632085 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
@@ -2878,6 +2885,7 @@
 			children = (
 				E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */,
 				E58FCEA01E94D06900632085 /* libMidtransCoreKit.a */,
+				E55E2A3F21816ED400225869 /* MidtransCoreKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3272,6 +3280,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		E55E2A3F21816ED400225869 /* MidtransCoreKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MidtransCoreKitTests.xctest;
+			remoteRef = E55E2A3E21816ED400225869 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -4541,7 +4556,8 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
@@ -4555,6 +4571,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -4568,7 +4585,8 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = G92YEQF267;
@@ -4582,6 +4600,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";

@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.11.1</string>
 	<key>CFBundleVersion</key>
-	<string>GOPAY-07</string>
+	<string>71</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -63,6 +63,9 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>

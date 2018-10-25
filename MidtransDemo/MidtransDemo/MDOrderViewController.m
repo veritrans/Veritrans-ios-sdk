@@ -70,8 +70,8 @@
             CC_CONFIG.tokenStorageEnabled = NO;
             break;
         default:
-            clientkey = @"VT-client-cwmvxnYb-CTkaAgz";
-            merchantServer = @"https://demo-merchant-server.herokuapp.com";
+            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
+            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
             CC_CONFIG.tokenStorageEnabled = YES;
             break;
     }

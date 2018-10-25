@@ -101,6 +101,13 @@
 			remoteGlobalIDString = E5CDEC961E9340E80032DC3B;
 			remoteInfo = MidtransKit;
 		};
+		E5360C8A2180298C00D3622E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E524BCEC1E9E244D0004812E /* MidtransKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D8AE6B121107F0C00C8D41B;
+			remoteInfo = MidtransKitTests;
+		};
 		E5C7516B1E8B912F001F47D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E56436EA1E83A72F008726D0 /* Project object */;
@@ -277,6 +284,7 @@
 				E524BCF41E9E244D0004812E /* MidtransKit.framework */,
 				E524BCF61E9E244D0004812E /* libMidtransKitStatic.a */,
 				E524BCF81E9E244D0004812E /* MidtransKit.bundle */,
+				E5360C8B2180298C00D3622E /* MidtransKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -495,9 +503,8 @@
 				E56436EF1E83A72F008726D0 /* Frameworks */,
 				E56436F01E83A72F008726D0 /* Resources */,
 				23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */,
-				BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */,
 				E58FCEB31E94D0F000632085 /* Embed Frameworks */,
-				0CA57CD61E9D0CE600B33FAF /* ShellScript */,
+				E56FD2FF21802B5C00AAA098 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -539,7 +546,7 @@
 					E56436F11E83A72F008726D0 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = G92YEQF267;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					E5C751651E8B912F001F47D9 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -596,6 +603,13 @@
 			remoteRef = E524BCF71E9E244D0004812E /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		E5360C8B2180298C00D3622E /* MidtransKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MidtransKitTests.xctest;
+			remoteRef = E5360C8A2180298C00D3622E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -642,19 +656,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0CA57CD61E9D0CE600B33FAF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 1;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc";
-		};
 		23E038F99D1E3E03FCDD24CD /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -683,20 +684,23 @@
 			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		BE72D85E7735D2B7131EA1FE /* [CP] Copy Pods Resources */ = {
+		E56FD2FF21802B5C00AAA098 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "[CP] Copy Pods Resources";
+			inputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
+			);
+			outputFileListPaths = (
+			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc\n";
 		};
 		ED480F2D901C8292729174EA /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -897,15 +901,20 @@
 			baseConfigurationReference = 43E258C4808D9947B420F8BB /* Pods-MidtransDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Nanang Rafsanjani (77WYT367ML)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nanang Rafsanjani (77WYT367ML)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = G92YEQF267;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MidtransDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "SDK Demo Dev";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -915,14 +924,19 @@
 			baseConfigurationReference = C3B4ED61247674E371E11702 /* Pods-MidtransDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: MIDTRANS, PT (G92YEQF267)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIDTRANS, PT (G92YEQF267)";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = G92YEQF267;
-				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MidtransDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "SDK Demo Stg";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -932,6 +946,10 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = G92YEQF267;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MidtransDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.MidtransDemoUITests;
@@ -945,6 +963,10 @@
 			buildSettings = {
 				DEVELOPMENT_TEAM = G92YEQF267;
 				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MidtransDemoUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo.MidtransDemoUITests;

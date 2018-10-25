@@ -34,6 +34,9 @@
     if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY]) {
         self.title = @"BRI E-Pay";
     }
+    else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
+        self.title = @"Akulaku";
+    }
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
         self.title = @"BCA KlikPay";
     }
@@ -82,10 +85,11 @@
 
 - (void)webViewDidFinishLoad:(UIWebView *)webView {
     NSString *requestURL = webView.request.URL.absoluteString;
-    
+
     if (([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] && [requestURL containsString:@"cimb-clicks/response"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] && [requestURL containsString:@"id="]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
+        ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU] && [requestURL containsString:@"akulaku/callback"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] && [requestURL containsString:@"briPayment"])) {
         
         if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {

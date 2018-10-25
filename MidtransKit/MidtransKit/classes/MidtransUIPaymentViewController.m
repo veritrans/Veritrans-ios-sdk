@@ -86,6 +86,9 @@
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
             break;
+        case MidtransPaymentFeatureAkulaku:
+            paymentMethodSelected = MIDTRANS_PAYMENT_AKULAKU;
+            break;
         case MidtransPaymentFeatureBankTransferMandiriVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_ECHANNEL;
             break;

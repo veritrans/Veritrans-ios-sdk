@@ -34,9 +34,11 @@
         self.authTypeOption = [self unArchivedObject:@"auth_type"];
         self.issuingBankOption = [self unArchivedObject:@"md_bank"];
         self.saveCardOption = [self unArchivedObject:@"md_savecard"];
+        self.binFilterOption = [self unArchivedObject:@"md_bin_filter"];
         self.promoOption = [self unArchivedObject:@"md_promo"];
         self.preauthOption = [self unArchivedObject:@"md_preauth"];
         self.expireTimeOption = [self unArchivedObject:@"md_expire"];
+        self.currencyOption = [self unArchivedObject:@"md_currency"];
         self.colorOption = [self unArchivedObject:@"md_color"];
         self.ccTypeOption = [self unArchivedObject:@"md_cc_type"];
         self.mandiriPointOption = [self unArchivedObject:@"md_mandiri_point"];
@@ -77,9 +79,17 @@
     _expireTimeOption = expireTimeOption;
     [self archiveObject:expireTimeOption key:@"md_expire"];
 }
+- (void)setCurrencyOption:(MDOption *)currencyOption {
+    _currencyOption = currencyOption;
+    [self archiveObject:currencyOption key:@"md_currency"];
+}
 - (void)setSaveCardOption:(MDOption *)saveCardOption {
     _saveCardOption = saveCardOption;
     [self archiveObject:saveCardOption key:@"md_savecard"];
+}
+- (void)setBINFilterOption:(MDOption *)binFilterOption {
+    _binFilterOption = binFilterOption;
+    [self archiveObject:binFilterOption key:@"md_bin_filter"];
 }
 - (void)setPromoOption:(MDOption *)promoOption {
     _promoOption = promoOption;
@@ -155,9 +165,11 @@
     self.authTypeOption = nil;
     self.issuingBankOption = nil;
     self.saveCardOption = nil;
+    self.binFilterOption = nil;
     self.promoOption = nil;
     self.preauthOption = nil;
     self.expireTimeOption = nil;
+    self.currencyOption = nil;
     self.mandiriPointOption = nil;
     self.colorOption = nil;
     self.ccTypeOption = nil;

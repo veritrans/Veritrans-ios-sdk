@@ -42,6 +42,10 @@
 - (NSString *)formattedCurrencyNumber;
 @end
 
+@interface NSError (utilities)
+- (NSString*)localizedMidtransErrorMessage;
+@end
+
 @interface NSString (utilities)
 - (BOOL)isNumeric;
 - (NSString *)formattedCreditCardNumber;

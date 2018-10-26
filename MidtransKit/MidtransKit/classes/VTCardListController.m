@@ -122,7 +122,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
                                                            [self hideLoading];
                                                            if (!maskedCards) {
                                                                [self showAlertViewWithTitle:@"Error"
-                                                                                 andMessage:error.localizedDescription
+                                                                                 andMessage:error.localizedMidtransErrorMessage
                                                                              andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
                                                                return;
                                                            }
@@ -291,7 +291,7 @@ andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response *)responsePayment
              self.editingCell = false;
          } else {
              [self showAlertViewWithTitle:@"Error"
-                               andMessage:error.localizedDescription
+                               andMessage:error.localizedMidtransErrorMessage
                            andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
          }
          

@@ -21,6 +21,7 @@ We provide an API-only implementation for all payment types. This allows users t
 12. BRI E-Pay
 13. Kios ON
 14. GCI
+15. Akulaku
 
 ### Misc
 1. Save Card  Without Charge
@@ -403,6 +404,29 @@ if (error) {
 }
 }];
 ```
+
+### 15. Akulaku
+
+```
+MidtransPaymentAkulaku *paymentDetails = [[MidtransPaymentAkulaku alloc] init];
+
+MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:transaction_token];
+
+[[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
+	if (error) {
+		//handle error
+	} else {
+		if (result.redirectURL) {
+			//transaction need to continue via webcontainer
+			MidtransPaymentWebController *vc = [[MidtransPaymentWebController alloc] initWithTransactionResult:result paymentIdentifier:@"akulaku"];
+			vc.delegate = self;
+			//present the web container
+			[self.navigationController pushViewController:vc animated:YES];
+		}
+	}
+}];
+```
+
 ### Save card without Charge
 accepted Format
 

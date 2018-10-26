@@ -39,6 +39,7 @@ static NSString * const MIDTRANS_PAYMENT_BCA_KLIKPAY = @"bca_klikpay";
 static NSString * const MIDTRANS_PAYMENT_KLIK_BCA = @"bca_klikbca";
 static NSString * const MIDTRANS_PAYMENT_GOPAY = @"gopay";
 static NSString * const MIDTRANS_PAYMENT_INDOMARET = @"indomaret";
+static NSString * const MIDTRANS_PAYMENT_AKULAKU = @"akulaku";
 static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const MIDTRANS_PAYMENT_DANAMON_ONLINE = @"danamon_online";
 static NSString * const MIDTRANS_PAYMENT_CSTORE = @"cstore";
@@ -179,7 +180,6 @@ static NSString *const  MIDTRANS_UIKIT_TRACKING_SELECT_PAYMENT_TYPE = @"Payment 
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_CARD_NUMBER = @"credit_card_result_scan";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_YEAR = @"credit_card_result_scan_expired_year";
 //static NSString *const MIDTRANS_CORE_CREDIT_CARD_SCANNER_OUTPUT_EXPIRED_MONTH = @"credit_card_result_scan_expired_month";
-
 
 static NSInteger const MIDTRANS_ERROR_CODE_3DSECURE = -30;
 static NSInteger const MIDTRANS_ERROR_CODE_CANCELED_WEBPAYMENT = -31;

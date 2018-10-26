@@ -11,8 +11,8 @@ target 'MidtransDemo' do
     pod 'ACFloatingTextfield-Objc'
     pod 'IQKeyboardManager'
     pod 'Fabric'
-    pod 'BKMoneyKit', '~> 0.0'
     pod 'Crashlytics'
+    pod 'BKMoneyKit', '~> 0.0'
     pod 'MaterialControls'
 end
 

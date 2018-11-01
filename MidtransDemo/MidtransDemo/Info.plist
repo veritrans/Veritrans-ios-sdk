@@ -23,9 +23,11 @@
 		<dict>
 			<key>CFBundleTypeRole</key>
 			<string>None</string>
+			<key>CFBundleURLName</key>
+			<string>com.midtrans.demo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>demo.midtrans://</string>
+				<string>demo.midtrans</string>
 			</array>
 		</dict>
 	</array>

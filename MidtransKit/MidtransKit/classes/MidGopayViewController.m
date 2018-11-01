@@ -42,7 +42,7 @@
     [super viewDidAppear:animated];
     NSLog(@"view did appear");
 }
-- (void)handleGopayStatus{
+- (void)handleGopayStatus {
     [[MidtransMerchantClient shared] performCheckStatusTransactionWcompletion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
         if (!error) {
             if (result.statusCode == 200) {
@@ -59,6 +59,10 @@
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleGopayStatus)
                                                  name:NOTIFICATION_GOPAY_STATUS
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(handleGopayStatus)
+                                                 name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     
     self.title = @"GO-PAY";
@@ -83,13 +87,13 @@
     } else {
         NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
         if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
-            self.view.finishPaymentHeightConstraints.constant =  0.0f;
-            self.view.topWrapperView.hidden = NO;
-            self.view.transactionBottomDetailConstraints.constant = 0.0f;
+            self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+            self.view.topWrapperView.hidden = YES;
             
         } else {
-            self.view.topWrapperView.hidden = YES;
-            self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+            self.view.topWrapperView.hidden = NO;
+            self.view.transactionBottomDetailConstraints.constant = 0.0f;
+            self.view.finishPaymentHeightConstraints.constant =  0.0f;
         }
     }
     

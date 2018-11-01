@@ -94,7 +94,7 @@
 
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
-    [[NSNotificationCenter defaultCenter] postNotificationName:NOTIFICATION_GOPAY_STATUS object:self];
+    
 
 }
 
@@ -113,5 +113,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    NSLog(@"URL: %@", url);
+    [MIDUrlHandler handleUrl:url];
+    
+    return YES;
+}
 
 @end

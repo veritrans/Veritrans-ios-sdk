@@ -79,6 +79,11 @@
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
+//    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
+//             environment:MidtransServerEnvironmentProduction
+//       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
+    
+    
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
@@ -103,6 +108,8 @@
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
+    
+    CONFIG.callbackSchemeURL = @"demo.midtrans://";
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;

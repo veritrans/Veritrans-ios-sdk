@@ -360,6 +360,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         dictionaryParameters[@"enabled_payments"] = CONFIG.customPaymentChannels;
     }
     
+    if ([CONFIG callbackSchemeURL].length > 0) {
+        NSDictionary *gopay = @{@"enable_callback": @YES,
+                                @"callback_url": [CONFIG callbackSchemeURL]};
+        dictionaryParameters[@"gopay"] = gopay;
+    }
+    
     NSError *error;
     if (![customerDetails isValidCustomerData:&error]) {
         if (completion) completion (nil, error);

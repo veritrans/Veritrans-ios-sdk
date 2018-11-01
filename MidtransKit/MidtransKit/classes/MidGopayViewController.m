@@ -81,15 +81,15 @@
         self.view.topWrapperView.hidden = YES;
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
-    NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
-    if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
-        self.view.finishPaymentHeightConstraints.constant =  0.0f;
-        self.view.topWrapperView.hidden = NO;
-        self.view.transactionBottomDetailConstraints.constant = 0.0f;
-        
-    } else {
-        self.view.topWrapperView.hidden = YES;
-         self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+        NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
+        if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+            self.view.finishPaymentHeightConstraints.constant =  0.0f;
+            self.view.topWrapperView.hidden = NO;
+            self.view.transactionBottomDetailConstraints.constant = 0.0f;
+            
+        } else {
+            self.view.topWrapperView.hidden = YES;
+            self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         }
     }
     

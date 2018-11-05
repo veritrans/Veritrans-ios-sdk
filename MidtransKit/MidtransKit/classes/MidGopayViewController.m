@@ -24,7 +24,10 @@
 @property (nonatomic) MidtransDirectHeader *headerView;
 @end
 
-@implementation MidGopayViewController
+@implementation MidGopayViewController {
+    MidtransTransactionResult *payResult;
+}
+
 @dynamic view;
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod
@@ -42,7 +45,7 @@
     [super viewDidAppear:animated];
     NSLog(@"view did appear");
 }
-- (void)handleGopayStatus{
+- (void)handleGopayStatus:(id)sender {
     [[MidtransMerchantClient shared] performCheckStatusTransactionWcompletion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
         if (!error) {
             if (result.statusCode == 200) {
@@ -56,8 +59,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleGopayStatus)
+                                             selector:@selector(handleGopayStatus:)
                                                  name:NOTIFICATION_GOPAY_STATUS
                                                object:nil];
     
@@ -81,15 +85,15 @@
         self.view.topWrapperView.hidden = YES;
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
-    NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
-    if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
-        self.view.finishPaymentHeightConstraints.constant =  0.0f;
-        self.view.topWrapperView.hidden = NO;
-        self.view.transactionBottomDetailConstraints.constant = 0.0f;
-        
-    } else {
-        self.view.topWrapperView.hidden = YES;
-         self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+        NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
+        if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+            self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+            self.view.topWrapperView.hidden = YES;
+            
+        } else {
+            self.view.topWrapperView.hidden = NO;
+            self.view.transactionBottomDetailConstraints.constant = 0.0f;
+            self.view.finishPaymentHeightConstraints.constant =  0.0f;
         }
     }
     
@@ -190,7 +194,19 @@
 - (IBAction)installGOJEKappButtonDidTapped:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
 }
+- (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
+    NSURL *gojekConstructURL = [NSURL URLWithString:[result.additionalData objectForKey:@"deeplink_url"]];
+    if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
+        [[UIApplication sharedApplication] openURL:gojekConstructURL];
+    }
+}
+
 - (IBAction)finishPaymentButtonDidTapped:(id)sender {
+    if (payResult) {
+        [self openGojekAppWithResult:payResult];
+        return;
+    }
+    
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
     paymentDetails = [[MidtransPaymentGOPAY alloc] init];
@@ -210,17 +226,14 @@
                                                      } else {
                                                          NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
                                                          [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-                                                         NSURL *gojekConstructURL = [NSURL URLWithString:[result.additionalData objectForKey:@"deeplink_url"]];
-                                                         if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
-                                                             [[UIApplication sharedApplication] openURL:gojekConstructURL];
-                                                         }
+                                                         
+                                                         payResult = result;
+                                                         
+                                                         [self openGojekAppWithResult:result];
+                                                         
                                                          if (UICONFIG.hideStatusPage) {
                                                              [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                                                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                                         } else {
-                                                             [self handleGopayStatus];
                                                          }
-                                                         
                                                      }
                                                     
                                                  }

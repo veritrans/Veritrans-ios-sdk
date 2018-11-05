@@ -33,7 +33,7 @@ UICollectionViewDelegateFlowLayout
     
     CONFIG.currency = [MidtransHelper currencyFromString:[MDOptionManager shared].currencyOption.value];
     self.title = @"Product Detail";
-    NSNumber *price = @(10000.55);
+    NSNumber *price = @(1);
     self.priceLabel.text = [self formattedISOCurrencyNumber:price];
     self.navigationItem.backBarButtonItem =
     [[UIBarButtonItem alloc] initWithTitle:@""

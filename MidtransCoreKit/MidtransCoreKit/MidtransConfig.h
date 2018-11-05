@@ -38,6 +38,7 @@
 @property (nonatomic) NSString *customBCASubcompanyCode;
 @property (nonatomic) NSString *customPermataVARecipientName;
 @property (nonatomic) NSString *customBNIVANumber;
+@property (nonatomic) NSString *callbackSchemeURL;
 
 @property (nonatomic) NSArray *customPaymentChannels;
 @property (nonatomic) NSDictionary *customFreeText;

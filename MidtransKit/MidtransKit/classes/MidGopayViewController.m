@@ -45,7 +45,7 @@
     [super viewDidAppear:animated];
     NSLog(@"view did appear");
 }
-- (void)handleGopayStatus {
+- (void)handleGopayStatus:(id)sender {
     [[MidtransMerchantClient shared] performCheckStatusTransactionWcompletion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
         if (!error) {
             if (result.statusCode == 200) {
@@ -59,13 +59,10 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleGopayStatus)
+                                             selector:@selector(handleGopayStatus:)
                                                  name:NOTIFICATION_GOPAY_STATUS
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleGopayStatus)
-                                                 name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     
     self.title = @"GO-PAY";
@@ -236,11 +233,7 @@
                                                          
                                                          if (UICONFIG.hideStatusPage) {
                                                              [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                                                [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                                         } else {
-                                                             [self handleGopayStatus];
                                                          }
-                                                         
                                                      }
                                                     
                                                  }

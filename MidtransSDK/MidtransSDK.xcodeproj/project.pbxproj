@@ -16,6 +16,7 @@
 		E5D3C7CC2192D7710090DDAE /* MidtransSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7CB2192D7710090DDAE /* MidtransSDKTests.m */; };
 		E5D3C7D72192D7710090DDAE /* MidtransSDKUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7D62192D7710090DDAE /* MidtransSDKUITests.m */; };
 		E5D3C7E72192D8B30090DDAE /* MTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7E62192D8B30090DDAE /* MTClient.m */; };
+		E5D3C7EB2192DB400090DDAE /* MTClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7EA2192DB400090DDAE /* MTClientTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		E5D3C7D82192D7710090DDAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E5D3C7E52192D8B30090DDAE /* MTClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTClient.h; sourceTree = "<group>"; };
 		E5D3C7E62192D8B30090DDAE /* MTClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTClient.m; sourceTree = "<group>"; };
+		E5D3C7EA2192DB400090DDAE /* MTClientTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTClientTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			children = (
 				E5D3C7CB2192D7710090DDAE /* MidtransSDKTests.m */,
 				E5D3C7CD2192D7710090DDAE /* Info.plist */,
+				E5D3C7EA2192DB400090DDAE /* MTClientTest.m */,
 			);
 			path = MidtransSDKTests;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5D3C7CC2192D7710090DDAE /* MidtransSDKTests.m in Sources */,
+				E5D3C7EB2192DB400090DDAE /* MTClientTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

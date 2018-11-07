@@ -26,8 +26,8 @@
 }
     
 - (void)configureClientKey:(NSString *)clientKey
-               environment:(MTEnvironment)environment
-         merchantServerURL:(NSString *)merchantServerURL {
+         merchantServerURL:(NSString *)merchantServerURL
+               environment:(MTEnvironment)environment {
     self.clientKey = clientKey;
     self.merchantServerURL = merchantServerURL;
     if (environment) {

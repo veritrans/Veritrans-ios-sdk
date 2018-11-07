@@ -40,8 +40,8 @@ typedef NS_ENUM(NSUInteger, MTEnvironment) {
 @property (readonly) MTEnvironment environment;
 
 - (void)configureClientKey:(NSString *)clientKey
-               environment:(MTEnvironment)environment
-         merchantServerURL:(NSString *)merchantServerURL;
+         merchantServerURL:(NSString *)merchantServerURL
+               environment:(MTEnvironment)environment;
 + (MTClient *)shared;
 
 @end

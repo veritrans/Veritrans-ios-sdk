@@ -19,7 +19,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [[MTClient shared] configureClientKey:@"" environment:MTEnvironmentSandbox merchantServerURL:@""];
+    [[MTClient shared] configureClientKey:nil merchantServerURL:nil environment:MTEnvironmentSandbox];
     
     return YES;
 }

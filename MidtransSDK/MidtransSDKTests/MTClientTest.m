@@ -24,7 +24,7 @@
 }
 
 - (void)testInitialize {
-    [[MTClient shared] configureClientKey:nil environment:MTEnvironmentSandbox merchantServerURL:nil];
+    
 }
 
 - (void)testPerformanceExample {

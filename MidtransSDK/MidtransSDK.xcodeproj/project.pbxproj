@@ -1,0 +1,598 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E5D3C7B42192D7700090DDAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7B32192D7700090DDAE /* AppDelegate.m */; };
+		E5D3C7B72192D7700090DDAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7B62192D7700090DDAE /* ViewController.m */; };
+		E5D3C7BA2192D7700090DDAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D3C7B82192D7700090DDAE /* Main.storyboard */; };
+		E5D3C7BC2192D7710090DDAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E5D3C7BB2192D7710090DDAE /* Assets.xcassets */; };
+		E5D3C7BF2192D7710090DDAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E5D3C7BD2192D7710090DDAE /* LaunchScreen.storyboard */; };
+		E5D3C7C22192D7710090DDAE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7C12192D7710090DDAE /* main.m */; };
+		E5D3C7CC2192D7710090DDAE /* MidtransSDKTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7CB2192D7710090DDAE /* MidtransSDKTests.m */; };
+		E5D3C7D72192D7710090DDAE /* MidtransSDKUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7D62192D7710090DDAE /* MidtransSDKUITests.m */; };
+		E5D3C7E72192D8B30090DDAE /* MTClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7E62192D8B30090DDAE /* MTClient.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E5D3C7C82192D7710090DDAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5D3C7A72192D7700090DDAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5D3C7AE2192D7700090DDAE;
+			remoteInfo = MidtransSDK;
+		};
+		E5D3C7D32192D7710090DDAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E5D3C7A72192D7700090DDAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E5D3C7AE2192D7700090DDAE;
+			remoteInfo = MidtransSDK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		E5D3C7AF2192D7700090DDAE /* MidtransSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidtransSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D3C7B22192D7700090DDAE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		E5D3C7B32192D7700090DDAE /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		E5D3C7B52192D7700090DDAE /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		E5D3C7B62192D7700090DDAE /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		E5D3C7B92192D7700090DDAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E5D3C7BB2192D7710090DDAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E5D3C7BE2192D7710090DDAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E5D3C7C02192D7710090DDAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D3C7C12192D7710090DDAE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E5D3C7C72192D7710090DDAE /* MidtransSDKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransSDKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D3C7CB2192D7710090DDAE /* MidtransSDKTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransSDKTests.m; sourceTree = "<group>"; };
+		E5D3C7CD2192D7710090DDAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D3C7D22192D7710090DDAE /* MidtransSDKUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransSDKUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E5D3C7D62192D7710090DDAE /* MidtransSDKUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransSDKUITests.m; sourceTree = "<group>"; };
+		E5D3C7D82192D7710090DDAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E5D3C7E52192D8B30090DDAE /* MTClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTClient.h; sourceTree = "<group>"; };
+		E5D3C7E62192D8B30090DDAE /* MTClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTClient.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E5D3C7AC2192D7700090DDAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D3C7C42192D7710090DDAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D3C7CF2192D7710090DDAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E5D3C7A62192D7700090DDAE = {
+			isa = PBXGroup;
+			children = (
+				E5D3C7E42192D7C40090DDAE /* Core */,
+				E5D3C7B12192D7700090DDAE /* MidtransSDK */,
+				E5D3C7CA2192D7710090DDAE /* MidtransSDKTests */,
+				E5D3C7D52192D7710090DDAE /* MidtransSDKUITests */,
+				E5D3C7B02192D7700090DDAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E5D3C7B02192D7700090DDAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E5D3C7AF2192D7700090DDAE /* MidtransSDK.app */,
+				E5D3C7C72192D7710090DDAE /* MidtransSDKTests.xctest */,
+				E5D3C7D22192D7710090DDAE /* MidtransSDKUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E5D3C7B12192D7700090DDAE /* MidtransSDK */ = {
+			isa = PBXGroup;
+			children = (
+				E5D3C7B22192D7700090DDAE /* AppDelegate.h */,
+				E5D3C7B32192D7700090DDAE /* AppDelegate.m */,
+				E5D3C7B52192D7700090DDAE /* ViewController.h */,
+				E5D3C7B62192D7700090DDAE /* ViewController.m */,
+				E5D3C7B82192D7700090DDAE /* Main.storyboard */,
+				E5D3C7BB2192D7710090DDAE /* Assets.xcassets */,
+				E5D3C7BD2192D7710090DDAE /* LaunchScreen.storyboard */,
+				E5D3C7C02192D7710090DDAE /* Info.plist */,
+				E5D3C7C12192D7710090DDAE /* main.m */,
+			);
+			path = MidtransSDK;
+			sourceTree = "<group>";
+		};
+		E5D3C7CA2192D7710090DDAE /* MidtransSDKTests */ = {
+			isa = PBXGroup;
+			children = (
+				E5D3C7CB2192D7710090DDAE /* MidtransSDKTests.m */,
+				E5D3C7CD2192D7710090DDAE /* Info.plist */,
+			);
+			path = MidtransSDKTests;
+			sourceTree = "<group>";
+		};
+		E5D3C7D52192D7710090DDAE /* MidtransSDKUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E5D3C7D62192D7710090DDAE /* MidtransSDKUITests.m */,
+				E5D3C7D82192D7710090DDAE /* Info.plist */,
+			);
+			path = MidtransSDKUITests;
+			sourceTree = "<group>";
+		};
+		E5D3C7E42192D7C40090DDAE /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E5D3C7E52192D8B30090DDAE /* MTClient.h */,
+				E5D3C7E62192D8B30090DDAE /* MTClient.m */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E5D3C7AE2192D7700090DDAE /* MidtransSDK */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D3C7DB2192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDK" */;
+			buildPhases = (
+				E5D3C7AB2192D7700090DDAE /* Sources */,
+				E5D3C7AC2192D7700090DDAE /* Frameworks */,
+				E5D3C7AD2192D7700090DDAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MidtransSDK;
+			productName = MidtransSDK;
+			productReference = E5D3C7AF2192D7700090DDAE /* MidtransSDK.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E5D3C7C62192D7710090DDAE /* MidtransSDKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D3C7DE2192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDKTests" */;
+			buildPhases = (
+				E5D3C7C32192D7710090DDAE /* Sources */,
+				E5D3C7C42192D7710090DDAE /* Frameworks */,
+				E5D3C7C52192D7710090DDAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5D3C7C92192D7710090DDAE /* PBXTargetDependency */,
+			);
+			name = MidtransSDKTests;
+			productName = MidtransSDKTests;
+			productReference = E5D3C7C72192D7710090DDAE /* MidtransSDKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E5D3C7D12192D7710090DDAE /* MidtransSDKUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E5D3C7E12192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDKUITests" */;
+			buildPhases = (
+				E5D3C7CE2192D7710090DDAE /* Sources */,
+				E5D3C7CF2192D7710090DDAE /* Frameworks */,
+				E5D3C7D02192D7710090DDAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E5D3C7D42192D7710090DDAE /* PBXTargetDependency */,
+			);
+			name = MidtransSDKUITests;
+			productName = MidtransSDKUITests;
+			productReference = E5D3C7D22192D7710090DDAE /* MidtransSDKUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E5D3C7A72192D7700090DDAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Midtrans;
+				TargetAttributes = {
+					E5D3C7AE2192D7700090DDAE = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					E5D3C7C62192D7710090DDAE = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E5D3C7AE2192D7700090DDAE;
+					};
+					E5D3C7D12192D7710090DDAE = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = E5D3C7AE2192D7700090DDAE;
+					};
+				};
+			};
+			buildConfigurationList = E5D3C7AA2192D7700090DDAE /* Build configuration list for PBXProject "MidtransSDK" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E5D3C7A62192D7700090DDAE;
+			productRefGroup = E5D3C7B02192D7700090DDAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E5D3C7AE2192D7700090DDAE /* MidtransSDK */,
+				E5D3C7C62192D7710090DDAE /* MidtransSDKTests */,
+				E5D3C7D12192D7710090DDAE /* MidtransSDKUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E5D3C7AD2192D7700090DDAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D3C7BF2192D7710090DDAE /* LaunchScreen.storyboard in Resources */,
+				E5D3C7BC2192D7710090DDAE /* Assets.xcassets in Resources */,
+				E5D3C7BA2192D7700090DDAE /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D3C7C52192D7710090DDAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D3C7D02192D7710090DDAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E5D3C7AB2192D7700090DDAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D3C7B72192D7700090DDAE /* ViewController.m in Sources */,
+				E5D3C7E72192D8B30090DDAE /* MTClient.m in Sources */,
+				E5D3C7C22192D7710090DDAE /* main.m in Sources */,
+				E5D3C7B42192D7700090DDAE /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D3C7C32192D7710090DDAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D3C7CC2192D7710090DDAE /* MidtransSDKTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5D3C7CE2192D7710090DDAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E5D3C7D72192D7710090DDAE /* MidtransSDKUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E5D3C7C92192D7710090DDAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5D3C7AE2192D7700090DDAE /* MidtransSDK */;
+			targetProxy = E5D3C7C82192D7710090DDAE /* PBXContainerItemProxy */;
+		};
+		E5D3C7D42192D7710090DDAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E5D3C7AE2192D7700090DDAE /* MidtransSDK */;
+			targetProxy = E5D3C7D32192D7710090DDAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E5D3C7B82192D7700090DDAE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5D3C7B92192D7700090DDAE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E5D3C7BD2192D7710090DDAE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E5D3C7BE2192D7710090DDAE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E5D3C7D92192D7710090DDAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		E5D3C7DA2192D7710090DDAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E5D3C7DC2192D7710090DDAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.mobile.MidtransSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E5D3C7DD2192D7710090DDAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransSDK/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.mobile.MidtransSDK;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		E5D3C7DF2192D7710090DDAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.mobile.MidtransSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MidtransSDK.app/MidtransSDK";
+			};
+			name = Debug;
+		};
+		E5D3C7E02192D7710090DDAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransSDKTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.mobile.MidtransSDKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MidtransSDK.app/MidtransSDK";
+			};
+			name = Release;
+		};
+		E5D3C7E22192D7710090DDAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransSDKUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.mobile.MidtransSDKUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MidtransSDK;
+			};
+			name = Debug;
+		};
+		E5D3C7E32192D7710090DDAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = G92YEQF267;
+				INFOPLIST_FILE = MidtransSDKUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.mobile.MidtransSDKUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = MidtransSDK;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E5D3C7AA2192D7700090DDAE /* Build configuration list for PBXProject "MidtransSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D3C7D92192D7710090DDAE /* Debug */,
+				E5D3C7DA2192D7710090DDAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D3C7DB2192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D3C7DC2192D7710090DDAE /* Debug */,
+				E5D3C7DD2192D7710090DDAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D3C7DE2192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D3C7DF2192D7710090DDAE /* Debug */,
+				E5D3C7E02192D7710090DDAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E5D3C7E12192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDKUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E5D3C7E22192D7710090DDAE /* Debug */,
+				E5D3C7E32192D7710090DDAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E5D3C7A72192D7700090DDAE /* Project object */;
+}

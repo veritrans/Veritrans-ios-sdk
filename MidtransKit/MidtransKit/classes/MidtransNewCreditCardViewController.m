@@ -674,96 +674,76 @@ UIAlertViewDelegate
     }
 }
 
+- (void)updateInstallmentView:(NSString *)fixedBin {
+    if (self.installmentAvailable) {
+        NSPredicate *filter = [NSPredicate predicateWithFormat:@"SELF CONTAINS %@", fixedBin];
+        NSArray *filtered = [self.creditCardInfo.whitelistBins filteredArrayUsingPredicate:filter];
+        if (filtered.count) {
+            NSString *bank = self.creditCardInfo.installments.terms.allKeys.firstObject;
+            NSArray *terms = [self.creditCardInfo.installments.terms objectForKey:bank];
+            
+            self.installmentBankName = bank;
+            [self.installmentValueObject setArray:@[@"0"]];
+            [self.installmentValueObject addObjectsFromArray:terms];
+            [self showInstallmentView:YES];
+        }
+    }
+}
+
+- (void)updateLoyaltyPointView:(NSArray *)filtered {
+    if (filtered.count) {
+        self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
+        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI]) {
+            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                    [self.addOnArray addObject:self.constructMandiriPoint];
+                    [self updateAddOnContent];
+                }
+            }
+        } else if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
+            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] ) {
+                if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+                    [self.addOnArray addObject:self.constructBNIPoint];
+                    [self updateAddOnContent];
+                }
+            }
+        }
+    }
+}
+
+- (void)updateDebitCardView:(NSArray *)debitCards {
+    MidtransBinResponse *debitCardObject = [[MidtransBinResponse alloc] initWithDictionary:[debitCards firstObject]];
+    if ([debitCardObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
+        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
+        self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
+    } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
+        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
+        self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
+    }
+}
+
 - (void)matchBINNumberWithInstallment:(NSString *)binNumber {
     if (binNumber.length >= 6) {
         if (self.installmentValueObject.count) {
             return;
         }
         
+        NSString *fixedBin = [binNumber substringToIndex:6];
+        
         NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                                  @"SELF['bins'] CONTAINS %@", [binNumber substringToIndex:6]];
+                                  @"SELF['bins'] CONTAINS %@", fixedBin];
         NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
-        BOOL isDebitCard = NO;
-        if (filtered.count) {
-            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-            if (filtered.count > 1) {
-                NSArray *debitCard  = [filtered filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF['bank'] CONTAINS 'debit'"]];
-                if (debitCard.count) {
-                    MidtransBinResponse *debitCardObject = [[MidtransBinResponse alloc] initWithDictionary:[debitCard firstObject]];
-                    if ([debitCardObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
-                        isDebitCard = YES;
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
-                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
-                                [self.addOnArray addObject:self.constructMandiriPoint];
-                                [self updateAddOnContent];
-                            }
-                        }
-                    } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
-                        isDebitCard = YES;
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
-                    }
-                }
-                
-            }
-            else {
-                
-                if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
-                    if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                        
-                    }
-                    else if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
-                    }
-                    isDebitCard = YES;
-                }
-                else {
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI]) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
-                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
-                                [self.addOnArray addObject:self.constructMandiriPoint];
-                                [self updateAddOnContent];
-                            }
-                        }
-                    }
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] ) {
-                            if (![self.addOnArray containsObject:self.constructBNIPoint]) {
-                                [self.addOnArray addObject:self.constructBNIPoint];
-                                [self updateAddOnContent];
-                            }
-                        }
-                        
-                    }
-                }
-            }
-            
-            if (self.installmentAvailable) {
-                
-                if (!isDebitCard) {
-                    self.installmentBankName = self.filteredBinObject.bank;
-                    [self.installmentValueObject setArray:@[@"0"]];
-                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
-                    [self showInstallmentView:YES];
-                }
-                
-            }
-        }
-        else {
+        NSArray *debitCards  = [filtered filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF['bank'] CONTAINS 'debit'"]];
+        BOOL isDebitCard = debitCards.count > 0;
+        
+        if (isDebitCard) {
+            [self updateDebitCardView:debitCards];
+        } else {
             self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
-            if ([[self.installment.terms objectForKey:@"offline"] count]) {
-                if (!isDebitCard) {
-                    self.installmentBankName = @"offline";
-                    [self.installmentValueObject setArray:@[@"0"]];
-                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
-                    [self showInstallmentView:YES];
-                }
-            }
+            
+            [self updateLoyaltyPointView:filtered];
+            
+            [self updateInstallmentView:fixedBin];
         }
     }
     else {
@@ -774,8 +754,7 @@ UIAlertViewDelegate
         if ([self.addOnArray containsObject:self.constructMandiriPoint]) {
             [self.addOnArray removeObject:self.constructMandiriPoint];
             [self updateAddOnContent];
-        }
-        
+        }        
         
         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
         self.filteredBinObject.bank = nil;

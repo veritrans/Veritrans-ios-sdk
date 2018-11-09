@@ -83,14 +83,16 @@
              environment:MidtransServerEnvironmentProduction
        merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
     
-    
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
-    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
+    
+//    CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
+    CC_CONFIG.predefinedInstallment = [MidtransPaymentRequestV2Installment modelWithTerms:@{@"offline":@[@3,@6,@12]} isRequired:YES];
+    
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
     //CC_CONFIG.showFormCredentialsUser = YES;
@@ -155,7 +157,9 @@
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
     
     NSPredicate *predicateLength = [NSPredicate predicateWithFormat:@"SELF.length > 0"];
-    NSArray *binFilter = [[[[[MDOptionManager shared] binFilterOption] value] filteredArrayUsingPredicate:predicateLength] valueForKey:@"lowercaseString"];
+    //["493496", "451197", "493497", "493498", "493499", "544304", "514934", "552339", "553074"]
+//    NSArray *binFilter = [[[[[MDOptionManager shared] binFilterOption] value] filteredArrayUsingPredicate:predicateLength] valueForKey:@"lowercaseString"];
+    NSArray *whitelistBin = @[@"493496", @"451197", @"493497", @"493498", @"493499", @"544304", @"514934", @"552339", @"553074"];
     NSArray *blacklistBin = @[];
     
     //configure expire time
@@ -204,7 +208,7 @@
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
                                                                        customField:arrayOfCustomField
-                                                                         binFilter:binFilter
+                                                                         binFilter:whitelistBin
                                                                 blacklistBinFilter:blacklistBin
                                                              transactionExpireTime:optExpireTime.duration>0? expireTime : nil
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)

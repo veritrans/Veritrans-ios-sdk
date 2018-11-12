@@ -745,13 +745,14 @@ UIAlertViewDelegate
             
             if (self.installmentAvailable) {
                 
+                BOOL isOffline = [[self.installment.terms objectForKey:@"offline"] count];
+                self.installmentBankName = isOffline ? @"offline" : self.filteredBinObject.bank;
+                
                 if (!isDebitCard) {
-                    self.installmentBankName = self.filteredBinObject.bank;
                     [self.installmentValueObject setArray:@[@"0"]];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
                     [self showInstallmentView:YES];
                 }
-                
             }
         }
         else {

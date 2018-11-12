@@ -743,15 +743,19 @@ UIAlertViewDelegate
                 }
             }
             
-            if (self.installmentAvailable) {
+            if (self.installmentAvailable) {                
+                if ([self.filteredBinObject.bank isEqualToString:@"other"]) {
+                    self.installmentBankName = @"offline";
+                }
+                else {
+                    self.installmentBankName = self.filteredBinObject.bank;
+                }
                 
                 if (!isDebitCard) {
-                    self.installmentBankName = self.filteredBinObject.bank;
                     [self.installmentValueObject setArray:@[@"0"]];
                     [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
                     [self showInstallmentView:YES];
                 }
-                
             }
         }
         else {

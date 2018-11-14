@@ -1,5 +1,5 @@
 //
-//  MTClientTest.m
+//  MIDClientTest.m
 //  MidtransSDKTests
 //
 //  Created by Nanang Rafsanjani on 07/11/18.
@@ -7,13 +7,13 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MTClient.h"
+#import "MIDClient.h"
 
-@interface MTClientTest : XCTestCase
+@interface MIDClientTest : XCTestCase
 
 @end
 
-@implementation MTClientTest
+@implementation MIDClientTest
 
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.

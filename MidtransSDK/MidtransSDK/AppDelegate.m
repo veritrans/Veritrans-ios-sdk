@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MTClient.h"
+#import "MIDClient.h"
 
 @interface AppDelegate ()
 
@@ -18,8 +18,14 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    [[MIDClient shared] configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
+                         merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
+                               environment:MIDEnvironmentSandbox];
     
-    [[MTClient shared] configureClientKey:nil merchantServerURL:nil environment:MTEnvironmentSandbox];
+//    [[MIDClient shared] configureClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
+//                         merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"
+//                               environment:MIDEnvironmentProduction];
     
     return YES;
 }

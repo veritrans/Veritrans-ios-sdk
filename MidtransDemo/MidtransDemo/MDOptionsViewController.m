@@ -231,7 +231,8 @@
                 [MDOption optionComposer:MDComposerTypeRadio name:@"Mandiri" value:[MDUtils installmentOfBank:@"mandiri" isRequired:NO]],
                  [MDOption optionComposer:MDComposerTypeRadio name:@"CIMB" value:[MDUtils installmentOfBank:@"cimb" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[MDUtils installmentOfBank:@"bca" isRequired:NO]],
-                [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[MDUtils installmentOfBank:@"bni" isRequired:NO]]];
+                [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[MDUtils installmentOfBank:@"bni" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"Offline" value:[MDUtils installmentOfBank:@"offline" isRequired:NO]]];
     MDOptionView *optInstallment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"installment"]
                                                 titleTemplate:@"Installment %@"
                                                       options:options
@@ -425,24 +426,26 @@
         MidtransPaymentRequestV2Installment *term = option.value;
         term.required = [value isEqualToString:@"Required"]? YES: NO;
         
+        //auto adjust bank config
         NSString *bank = term.terms.allKeys.firstObject;
-        MTAcquiringBank bankAcq;
-        
-        if ([bank isEqualToString:BankBCAKey]) {
-            bankAcq = MTAcquiringBankBCA;
+        if (![bank isEqualToString:@"offline"]) {
+            MTAcquiringBank bankAcq;
+            if ([bank isEqualToString:BankBCAKey]) {
+                bankAcq = MTAcquiringBankBCA;
+            }
+            else if ([bank isEqualToString:BankMandiriKey]) {
+                bankAcq = MTAcquiringBankMandiri;
+            }
+            else {
+                bankAcq = MTAcquiringBankUnknown;
+            }
+            
+            MDOptionView *view = [self optionView:OPTAcquiringBank];
+            NSUInteger index = [view.options indexOfObjectPassingTest:^BOOL(MDOption * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [obj.value integerValue] == bankAcq;
+            }];
+            [view selectOptionAtIndex:index];
         }
-        else if ([bank isEqualToString:BankMandiriKey]) {
-            bankAcq = MTAcquiringBankMandiri;
-        }
-        else {
-            bankAcq = MTAcquiringBankBNI;
-        }
-        
-        MDOptionView *view = [self optionView:OPTAcquiringBank];
-        NSUInteger index = [view.options indexOfObjectPassingTest:^BOOL(MDOption * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            return [obj.value integerValue] == bankAcq;
-        }];
-        [view selectOptionAtIndex:index];
     }
     
     [self.selectedOptionView selectOptionAtIndex:index];

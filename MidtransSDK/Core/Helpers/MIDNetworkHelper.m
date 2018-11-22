@@ -74,3 +74,12 @@
 }
 
 @end
+
+@implementation NSError (builder)
+
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message {
+    NSError *error = [NSError errorWithDomain:@"error.midtrans.com" code:code userInfo:@{NSLocalizedDescriptionKey: message}];
+    return error;
+}
+
+@end

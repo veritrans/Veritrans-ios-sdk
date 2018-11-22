@@ -9,6 +9,7 @@
 #import "MIDNetwork.h"
 #import "MIDNetworkConstants.h"
 #import "MIDRequestBuilder.h"
+#import "MIDNetworkHelper.h"
 
 @implementation MIDNetwork {
     NSURLSession *session;
@@ -34,6 +35,10 @@
     NSURLRequest *request = [MIDRequestBuilder buildRequestFrom:service];
 
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSInteger code = [(NSHTTPURLResponse *) response statusCode];
+        
+        
         if (error) {
             completion(nil, error);
         } else {
@@ -42,7 +47,13 @@
             if (error) {
                 completion(nil, error);
             } else {
-                completion(responseObject, nil);
+                BOOL isSuccess = (code >= 200) && (code < 300);
+                if (isSuccess) {
+                    completion(responseObject, nil);
+                } else {
+                    NSError *error = [NSError errorWithCode:code message:responseObject[@"error_messages"]];
+                    completion(nil, error);
+                }
             }
         }
     }];

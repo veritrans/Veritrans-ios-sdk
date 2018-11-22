@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDMappable.h"
+#import "MIDCheckoutOption.h"
 #import "MIDAddress.h"
 
-@interface MIDCustomer : NSObject<MIDMappable>
+@interface MIDCheckoutCustomer : NSObject<MIDCheckoutOption>
 
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;
@@ -18,5 +18,12 @@
 @property (nonatomic) NSString *phone;
 @property (nonatomic) MIDAddress *billingAddress;
 @property (nonatomic) MIDAddress *shippingAddress;
+
+- (instancetype)initWithFirstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                            email:(NSString *)email
+                            phone:(NSString *)phone
+                   billingAddress:(MIDAddress *)billingAddress
+                  shippingAddress:(MIDAddress *)shippingAddress;
 
 @end

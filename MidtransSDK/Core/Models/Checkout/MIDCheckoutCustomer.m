@@ -6,10 +6,10 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDCustomer.h"
+#import "MIDCheckoutCustomer.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDCustomer
+@implementation MIDCheckoutCustomer
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
@@ -19,17 +19,22 @@
     [result setValue:self.phone forKey:@"phone"];
     [result setValue:[self.billingAddress dictionaryValue] forKey:@"billing_address"];
     [result setValue:[self.shippingAddress dictionaryValue] forKey:@"shipping_address"];
-    return result;
+    return @{@"customer_details": result};
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithFirstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                            email:(NSString *)email
+                            phone:(NSString *)phone
+                   billingAddress:(MIDAddress *)billingAddress
+                  shippingAddress:(MIDAddress *)shippingAddress {
     if (self = [super init]) {
-        self.firstName = [dictionary objectOrNilForKey:@"first_name"];
-        self.lastName = [dictionary objectOrNilForKey:@"last_name"];
-        self.email = [dictionary objectOrNilForKey:@"email"];
-        self.phone = [dictionary objectOrNilForKey:@"phone"];
-        self.billingAddress = [dictionary objectOrNilForKey:@"billing_address"];
-        self.shippingAddress = [dictionary objectOrNilForKey:@"shipping_address"];
+        self.firstName = firstName;
+        self.lastName = lastName;
+        self.email = email;
+        self.phone = phone;
+        self.billingAddress = billingAddress;
+        self.shippingAddress = shippingAddress;
     }
     return self;
 }

@@ -23,15 +23,21 @@
     return result;
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary { 
+- (instancetype)initWithID:(NSString *)itemID
+                     price:(NSNumber * _Nonnull)price
+                  quantity:(NSNumber * _Nonnull)quantity
+                      name:(NSString * _Nonnull)name
+                     brand:(NSString *)brand
+                  category:(NSString *)category
+              merchantName:(NSString *)merchantName {
     if (self = [super init]) {
-        self.itemID = [dictionary objectOrNilForKey:@"id"];
-        self.price = [dictionary objectOrNilForKey:@"price"];
-        self.quantity = [dictionary objectOrNilForKey:@"quantity"];
-        self.name = [dictionary objectOrNilForKey:@"name"];
-        self.brand = [dictionary objectOrNilForKey:@"brand"];
-        self.category = [dictionary objectOrNilForKey:@"category"];
-        self.merchantName = [dictionary objectOrNilForKey:@"merchant_name"];
+        self.itemID = itemID;
+        self.price = price;
+        self.quantity = quantity;
+        self.name = name;
+        self.brand = brand;
+        self.category = category;
+        self.merchantName = merchantName;
     }
     return self;
 }

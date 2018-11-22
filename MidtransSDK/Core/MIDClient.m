@@ -11,6 +11,7 @@
 #import "MIDNetworkService.h"
 #import "MIDVendor.h"
 #import "MIDNetwork.h"
+#import "MIDNetworkHelper.h"
 
 @interface MIDClient()
 @property (readwrite, nonnull) NSString *clientKey;
@@ -49,9 +50,13 @@
     [[MIDVendor shared] applyEnvironment:environment];
 }
 
-- (void)checkoutWith:(MIDCheckoutRequest *)request
+- (void)checkoutWith:(MIDCheckoutTransaction *)transaction
+             options:(NSArray <NSObject <MIDCheckoutOption>*> * _Nullable)options
           completion:(void (^_Nullable) (MIDToken *_Nullable token, NSError *_Nullable error))completion {
-    NSDictionary *params = [request dictionaryValue];
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:transaction.dictionaryValue];
+    for (id option in options) {
+        [params addEntriesFromDictionary:[option dictionaryValue]];
+    }
     MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:self.merchantServerURL
                                                                        path:@"/charge"
                                                                      method:MIDNetworkMethodPOST
@@ -66,8 +71,12 @@
     }];
 }
 
-- (void)fetchPaymentInformationWithToken:(NSString *)token
-                              completion:(void (^_Nullable) (MIDPaymentInfo *_Nullable info, NSError *_Nullable error))completion {
+- (void)getPaymentInfoWithToken:(NSString *)token
+                     completion:(void (^_Nullable) (MIDPaymentInfo *_Nullable info, NSError *_Nullable error))completion {
+    if (token.length == 0) {
+        [NSException raise:@"MIDInvalidParameterException" format:@"Your token is empty."];
+    }
+    
     NSString *path = [NSString stringWithFormat:@"/transactions/%@", token];
     MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].snapURL
                                                                        path:path
@@ -77,6 +86,24 @@
         if (response) {
             MIDPaymentInfo *info = [[MIDPaymentInfo alloc] initWithDictionary:response];
             completion(info, nil);
+        } else {
+            completion(nil, error);
+        }
+    }];
+}
+
+- (void)performPayment:(NSObject <MIDPayment>*)payment
+                 token:(NSString *)token
+            completion:(void (^_Nullable) (MIDPaymentResult *_Nullable result, NSError *_Nullable error))completion {
+    NSString *path = [NSString stringWithFormat:@"/transactions/%@/pay", token];
+    MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].snapURL
+                                                                       path:path
+                                                                     method:MIDNetworkMethodPOST
+                                                                 parameters:payment.dictionaryValue];
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
+        if (response) {
+            MIDPaymentResult *result = [[MIDPaymentResult alloc] initWithDictionary:response];
+            completion(result, nil);
         } else {
             completion(nil, error);
         }

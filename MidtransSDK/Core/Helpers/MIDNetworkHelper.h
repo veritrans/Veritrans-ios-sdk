@@ -20,3 +20,7 @@
 - (NSString *)queryStringValue;
 - (NSArray *)pairsOfArray:(NSArray *)values key:(NSString *)key;
 @end
+
+@interface NSError (builder)
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message;
+@end

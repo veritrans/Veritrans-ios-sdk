@@ -24,16 +24,23 @@
     return result;
 }
 
-- (instancetype)initWithDictionary:(NSDictionary *)dictionary {
+- (instancetype)initWithFirstName:(NSString *)firstName
+                         lastName:(NSString *)lastName
+                            email:(NSString *)email
+                            phone:(NSString *)phone
+                          address:(NSString *)address
+                             city:(NSString *)city
+                       postalCode:(NSString *)postalCode
+                      countryCode:(NSString *)countryCode {
     if (self = [super init]) {
-        self.firstName = [dictionary objectOrNilForKey:@"first_name"];
-        self.lastName = [dictionary objectOrNilForKey:@"last_name"];
-        self.email = [dictionary objectOrNilForKey:@"email"];
-        self.phone = [dictionary objectOrNilForKey:@"phone"];
-        self.address = [dictionary objectOrNilForKey:@"address"];
-        self.city = [dictionary objectOrNilForKey:@"city"];
-        self.postalCode = [dictionary objectOrNilForKey:@"postal_code"];
-        self.countryCode = [dictionary objectOrNilForKey:@"country_code"];
+        self.firstName = firstName;
+        self.lastName = lastName;
+        self.email = email;
+        self.phone = phone;
+        self.address = address;
+        self.city = city;
+        self.postalCode = postalCode;
+        self.countryCode = countryCode;
     }
     return self;
 }

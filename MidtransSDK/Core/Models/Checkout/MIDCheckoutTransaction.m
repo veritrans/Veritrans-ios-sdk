@@ -6,16 +6,16 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDTransaction.h"
+#import "MIDCheckoutTransaction.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDTransaction
+@implementation MIDCheckoutTransaction
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [result setValue:self.orderID forKey:@"order_id"];
     [result setValue:self.grossAmount forKey:@"gross_amount"];
-    return result;
+    return @{@"transaction_details": result};
 }
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
@@ -26,11 +26,12 @@
     return self;
 }
 
-+ (instancetype)modelWithOrderID:(NSString *)orderID grossAmount:(NSNumber *)grossAmount {
-    NSDictionary *dict = @{@"order_id": orderID,
-                           @"gross_amount": grossAmount
-                           };
-    return [[MIDTransaction alloc] initWithDictionary:dict];
+- (instancetype)initWithOrderID:(NSString *)orderID grossAmount:(NSNumber *)grossAmount {
+    if (self = [super init]) {
+        self.orderID = orderID;
+        self.grossAmount = grossAmount;
+    }
+    return self;
 }
 
 @end

@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDMappable.h"
+#import "MIDModelEnums.h"
 
 @interface NSDictionary (extract)
 
@@ -15,8 +16,27 @@
 
 @end
 
+@interface NSMutableDictionary (extract)
+
+- (void)setIfNotNilValue:(id)value forKey:(NSString *)key;
+
+@end
+
 @interface NSArray (parse)
 
 - (NSArray *)dictionaryValues;
+- (NSArray *)mapToArray:(Class)type;
+
+@end
+
+@interface NSString (helper)
++ (NSString *)nameOfBank:(MIDAcquiringBank)bank;
++ (NSString *)nameOfChannel:(MIDAcquiringChannel)channel;
++ (NSString *)nameOfCreditCardTransactionType:(MIDCreditCardTransactionType)type;
++ (NSString *)nameOfExpiryUnit:(MIDExpiryTimeUnit)unit;
++ (NSString *)typeOfPayment:(MIDGeneralPaymentType)payment;
++ (NSString *)typeOfVirtualAccount:(MIDVirtualAccountType)type;
+
++ (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
 
 @end

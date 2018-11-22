@@ -16,22 +16,48 @@
 @implementation MIDClientTest
 
 - (void)setUp {
-    // Put setup code here. This method is called before the invocation of each test method in the class.
+    [[MIDClient shared] configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
+                         merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
+                               environment:MIDEnvironmentSandbox];
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
-- (void)testInitialize {
+- (void)testFetchPaymentSuccess {
+    XCTestExpectation *promise = [XCTestExpectation new];
     
+    NSDate *date = [NSDate new];
+    NSString *orderID = [NSString stringWithFormat:@"%f", date.timeIntervalSince1970];
+    MIDTransaction *trans = [MIDTransaction modelWithOrderID:orderID grossAmount:@1000];
+    MIDCheckoutRequest *req = [[MIDCheckoutRequest alloc] initWithTransaction:trans];
+    [[MIDClient shared] checkoutWith:req completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+     {
+         XCTAssertNotNil(token.token);
+         
+         [[MIDClient shared] fetchPaymentInfoWithToken:token.token
+                                            completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+          {
+              XCTAssertNil(error, @"Request create token error.");
+              [promise fulfill];
+          }];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:60];
 }
 
-- (void)testPerformanceExample {
-    // This is an example of a performance test case.
-    [self measureBlock:^{
-        // Put the code you want to measure the time of here.
-    }];
+- (void)testFetchPaymentError {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [[MIDClient shared] fetchPaymentInfoWithToken:@""
+                                       completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+     {
+         XCTAssertNil(error, @"Request create token error.");
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:60];
 }
 
 @end

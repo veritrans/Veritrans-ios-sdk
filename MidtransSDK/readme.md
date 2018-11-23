@@ -56,7 +56,7 @@ You can choose to install the Stripe iOS SDK via your favorite method. We suppor
 	```
 
 #### Integration
-#####After you're done installing the SDK, configure it with your Midtrans API keys and merchant url.
+After you're done installing the SDK, configure it with your Stripe API keys.
 
 
 

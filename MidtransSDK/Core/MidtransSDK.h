@@ -13,3 +13,4 @@
 #import "MIDCheckoutCreditCard.h"
 #import "MIDOnlinePayment.h"
 #import "MIDCheckoutGoPay.h"
+#import "MIDVirtualAccountPayment.h"

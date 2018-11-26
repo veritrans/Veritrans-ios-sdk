@@ -10,7 +10,7 @@ We also expose the low-level APIs that power those elements to make it easy to b
 3. [Install and configure the SDK] (#install-and-configure-sdk)
 4. [Integration] (#sdk-integration)
 5. [Checkout] (#sdk-checkout)
- * Standard
+ * [Standard] (#sdk-checkout-standard)
  * Custom with Options
  		- Customer info
 		- Items info
@@ -99,12 +99,12 @@ After you're done installing the SDK, configure it with your Stripe API keys.
 @end
 
 ```
-#### <a id="*sdk*-checkout"></a> Checkout
+#### <a id="sdk-checkout"></a> Checkout
 **Checkout provides your customers with a streamlined, mobile-ready payment experience.**
 
 Checkout securely accepts your customer's payment details and directly passes them to Midtrans servers. Midtrans returns a token representation of those payment details, which can then be submitted to your server for use.
 	
-###Standard
+###<a id="sdk-checkout-standard"></a> Standard
 
 Our SDK provides a class called `MIDClient`, which is designed to make building your app's checkout flow as easy as possible. It handles payment options such as payment chanels, customer information and can also be used to collect shipping info.
 
@@ -142,6 +142,38 @@ Then you can put it all together to generate the checkout token with this simple
     }];
  }
 ```
+
+### Custom with Options
+This guide covers how to use the individual components of our SDK.
+
+> **This guide assumes you've already followed the Getting Started section of our main tutorial to install and configure our SDK.**
+
+**Customer info**
+
+The `MIDCheckoutCustomer` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
+
+```
+ MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:@"Customer Firstname"
+                                                                         lastName:@"Customer Last Name"
+                                                                            email:@"customer@somemail.com"
+                                                                            phone:@"00000000"
+                                                                   billingAddress:nil
+                                                                  shippingAddress:nil];
+```
+**Items info**
+
+The `MIDItem ` class makes it easy to let your apps manage the item information that will be attached on checkout process.
+
+```
+   MIDItem *items = [[MIDItem alloc] initWithID:@"items id"
+                                           price:2000
+                                        quantity:1
+                                            name:@"Item Name"
+                                           brand:@"Brand"
+                                        category:@"Some Category"
+                                    merchantName:@"Merchant Name"];
+```
+
 
 
 

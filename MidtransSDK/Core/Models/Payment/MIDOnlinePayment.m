@@ -6,12 +6,12 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDGeneralPayment.h"
+#import "MIDOnlinePayment.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDGeneralPayment
+@implementation MIDOnlinePayment
 
-- (instancetype)initWithType:(MIDGeneralPaymentType)type {
+- (instancetype)initWithType:(MIDOnlinePaymentType)type {
     if (self = [super init]) {
         self.type = type;
     }

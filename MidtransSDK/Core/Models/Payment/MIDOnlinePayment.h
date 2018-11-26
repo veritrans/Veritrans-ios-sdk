@@ -12,11 +12,11 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDGeneralPayment : NSObject<MIDPayment>
+@interface MIDOnlinePayment : NSObject<MIDPayment>
 
-@property (nonatomic) MIDGeneralPaymentType type;
+@property (nonatomic) MIDOnlinePaymentType type;
 
-- (instancetype)initWithType:(MIDGeneralPaymentType)type;
+- (instancetype)initWithType:(MIDOnlinePaymentType)type;
 
 @end
 

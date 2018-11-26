@@ -7,8 +7,31 @@ We also expose the low-level APIs that power those elements to make it easy to b
 
 1. Create a merchant account in MAP
 2. Setup your merchant accounts settings, in particular Notification URL.
-3. Install and configure the SDK
-4. Integration
+3. [Install and configure the SDK] (#install-and-configure-sdk)
+4. [Integration] (#sdk-integration)
+5. Checkout
+ * Standard
+ * Custom with Options
+ 		- Customer info
+		- Items info
+   		- Credit card options
+   		- Gopay options
+   		- Custom expired
+   		- Custom fields
+ * Get payment info
+ * Charge
+ 		- Credit Card
+		- VA / Bank Transfer
+		- CIMB Clicks
+		- Indomaret
+		- BCA KlikPay
+		- Klikbca
+		- Mandiri E-Cash
+		- Mandiri Clickpay
+		- BRI E-Pay
+		- Kios ON
+		- Akulaku
+
 
 ### Supported Payments
 1. Credit Card
@@ -24,7 +47,7 @@ We also expose the low-level APIs that power those elements to make it easy to b
 11. Akulaku
 
 
-#### Install and configure the SDK
+#### <a id="install-and-configure-sdk"></a> Install and configure the SDK
 You can choose to install the Stripe iOS SDK via your favorite method. We support CocoaPods and manual installation with both static and dynamic frameworks.
 
 1. If you haven't already, install the latest version of [Cococapods](https://cocoapods.org/).
@@ -55,7 +78,7 @@ You can choose to install the Stripe iOS SDK via your favorite method. We suppor
 	pod update MidtransCoreKit
 	```
 
-#### Integration
+#### <a id="sdk-integration"></a> Integration
 After you're done installing the SDK, configure it with your Stripe API keys.
 
 

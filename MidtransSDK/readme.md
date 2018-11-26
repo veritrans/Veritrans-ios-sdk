@@ -9,7 +9,7 @@ We also expose the low-level APIs that power those elements to make it easy to b
 2. Setup your merchant accounts settings, in particular Notification URL.
 3. [Install and configure the SDK] (#install-and-configure-sdk)
 4. [Integration] (#sdk-integration)
-5. Checkout
+5. [Checkout] (#sdk-checkout)
  * Standard
  * Custom with Options
  		- Customer info
@@ -99,3 +99,49 @@ After you're done installing the SDK, configure it with your Stripe API keys.
 @end
 
 ```
+#### <a id="*sdk*-checkout"></a> Checkout
+**Checkout provides your customers with a streamlined, mobile-ready payment experience.**
+
+Checkout securely accepts your customer's payment details and directly passes them to Midtrans servers. Midtrans returns a token representation of those payment details, which can then be submitted to your server for use.
+	
+###Standard
+
+Our SDK provides a class called `MIDClient`, which is designed to make building your app's checkout flow as easy as possible. It handles payment options such as payment chanels, customer information and can also be used to collect shipping info.
+
+**Setting checkout and host view controller**
+
+To work with Midtrans Checkout, you'll need to write a class that conforms to STPPaymentContextDelegate. (Note, the code samples in this section are simply examples – your own implementation may differ depending on the structure of your app). Midtrans Checkout has 3 required parameters:
+
+ **Order ID**
+ 
+ This value must be unique, you can use it once
+ 
+  `NSString *orderID = @"some order id";`
+ 
+**Transaction Detail**
+
+This method is called, as you might expect, when the payment context's eg Order id, and gross amount of transaction
+
+```
+MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
+``` 
+
+
+
+Then you can put it all together to generate the checkout token with this simple method
+	
+```
+- (void) checkout {
+  NSDate *date = [NSDate new];
+  NSString *orderID = @"Some unique order id"
+  MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
+    
+  [[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
+        NSLog(@"Token: %@", token.dictionaryValue);
+        [self fetchPaymentInfo:token.token];
+    }];
+ }
+```
+
+
+

@@ -20,9 +20,12 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"payment_type":[NSString typeOfVirtualAccount:self.type],
-             @"customer_details":@{@"email":self.email}
-             };
+    NSMutableDictionary *result = [NSMutableDictionary new];
+    [result setValue:[NSString typeOfVirtualAccount:self.type] forKey:@"payment_type"];
+    if (self.email) {
+        [result setValue:@{@"email":self.email} forKey:@"customer_details"];
+    }
+    return result;
 }
 
 @end

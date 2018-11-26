@@ -29,7 +29,7 @@
 		E55122DE2196066400DA3621 /* MIDModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122DD2196066400DA3621 /* MIDModelHelper.m */; };
 		E55122E1219607DE00DA3621 /* MIDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122E0219607DE00DA3621 /* MIDItem.m */; };
 		E55CBF75219BF0C300721462 /* MIDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7E62192D8B30090DDAE /* MIDClient.m */; };
-		E581884821A5097E00B10645 /* MIDGeneralPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E581884621A5097E00B10645 /* MIDGeneralPayment.m */; };
+		E581884821A5097E00B10645 /* MIDOnlinePayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E581884621A5097E00B10645 /* MIDOnlinePayment.m */; };
 		E581884B21A50ACB00B10645 /* MIDMandiriClickpayPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E581884A21A50ACB00B10645 /* MIDMandiriClickpayPayment.m */; };
 		E58CC6BA21A65072007879FB /* MIDCheckoutExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = E58CC6B921A65072007879FB /* MIDCheckoutExpiry.m */; };
 		E58CC6BD21A65705007879FB /* MIDCustomField.m in Sources */ = {isa = PBXBuildFile; fileRef = E58CC6BC21A65705007879FB /* MIDCustomField.m */; };
@@ -117,8 +117,8 @@
 		E55122DF219607DE00DA3621 /* MIDItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDItem.h; sourceTree = "<group>"; };
 		E55122E0219607DE00DA3621 /* MIDItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDItem.m; sourceTree = "<group>"; };
 		E581884521A5043B00B10645 /* MIDPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDPayment.h; sourceTree = "<group>"; };
-		E581884621A5097E00B10645 /* MIDGeneralPayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDGeneralPayment.m; sourceTree = "<group>"; };
-		E581884721A5097E00B10645 /* MIDGeneralPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDGeneralPayment.h; sourceTree = "<group>"; };
+		E581884621A5097E00B10645 /* MIDOnlinePayment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDOnlinePayment.m; sourceTree = "<group>"; };
+		E581884721A5097E00B10645 /* MIDOnlinePayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDOnlinePayment.h; sourceTree = "<group>"; };
 		E581884921A50ACB00B10645 /* MIDMandiriClickpayPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDMandiriClickpayPayment.h; sourceTree = "<group>"; };
 		E581884A21A50ACB00B10645 /* MIDMandiriClickpayPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDMandiriClickpayPayment.m; sourceTree = "<group>"; };
 		E58CC6B821A65072007879FB /* MIDCheckoutExpiry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCheckoutExpiry.h; sourceTree = "<group>"; };
@@ -331,8 +331,8 @@
 		E581884121A502A300B10645 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				E581884721A5097E00B10645 /* MIDGeneralPayment.h */,
-				E581884621A5097E00B10645 /* MIDGeneralPayment.m */,
+				E581884721A5097E00B10645 /* MIDOnlinePayment.h */,
+				E581884621A5097E00B10645 /* MIDOnlinePayment.m */,
 				E581884921A50ACB00B10645 /* MIDMandiriClickpayPayment.h */,
 				E581884A21A50ACB00B10645 /* MIDMandiriClickpayPayment.m */,
 				E5915B2721A50C5200B66855 /* MIDVirtualAccountPayment.h */,
@@ -557,7 +557,7 @@
 			files = (
 				E5163C0F2196CC9C00A24E59 /* MIDPaymentInfo.m in Sources */,
 				E58CC6C421A6A283007879FB /* MIDCheckoutGoPay.m in Sources */,
-				E581884821A5097E00B10645 /* MIDGeneralPayment.m in Sources */,
+				E581884821A5097E00B10645 /* MIDOnlinePayment.m in Sources */,
 				E597353721A2A07F005C9BA0 /* MIDCheckoutCreditCard.m in Sources */,
 				E5163C1521972E2E00A24E59 /* MIDCreditCardInfo.m in Sources */,
 				E597353A21A2AA55005C9BA0 /* MIDCheckoutInstallment.m in Sources */,

@@ -59,7 +59,7 @@
         
         [self fetchPaymentInfo:token.token];
         
-//        [self payWithToken:token.token];
+        [self payWithToken:token.token];
     }];
 }
 
@@ -70,7 +70,11 @@
 }
 
 - (void)payWithToken:(NSString *)token {
-    MIDGeneralPayment *payment = [[MIDGeneralPayment alloc] initWithType:MIDGeneralPaymentTypeGoPay];
+//    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeBCA email:nil];
+//    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeEchannel email:nil];
+//    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypePermata email:nil];
+    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeBNI email:nil];
+    
     [[MIDClient shared] performPayment:payment token:token completion:^(MIDPaymentResult * _Nullable result, NSError * _Nullable error) {
         NSLog(@"Payment result: %@", result.dictionaryValue);
     }];

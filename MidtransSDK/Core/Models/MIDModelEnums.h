@@ -28,16 +28,16 @@ typedef NS_ENUM(NSUInteger, MIDCreditCardTransactionType) {
     MIDCreditCardTransactionTypeAuthorize
 };
 
-typedef NS_ENUM(NSUInteger, MIDGeneralPaymentType) {
-    MIDGeneralPaymentTypeAkulaku,
-    MIDGeneralPaymentTypeBRIEpay,
-    MIDGeneralPaymentTypeBCAKlikPay,
-    MIDGeneralPaymentTypeMandiriEcash,
-    MIDGeneralPaymentTypeCIMBClicks,
-    MIDGeneralPaymentTypeIndomaret,
-    MIDGeneralPaymentTypeKiosOn,
-    MIDGeneralPaymentTypeDanamonOnline,
-    MIDGeneralPaymentTypeGoPay
+typedef NS_ENUM(NSUInteger, MIDOnlinePaymentType) {
+    MIDOnlinePaymentTypeAkulaku,
+    MIDOnlinePaymentTypeBRIEpay,
+    MIDOnlinePaymentTypeBCAKlikPay,
+    MIDOnlinePaymentTypeMandiriEcash,
+    MIDOnlinePaymentTypeCIMBClicks,
+    MIDOnlinePaymentTypeIndomaret,
+    MIDOnlinePaymentTypeKiosOn,
+    MIDOnlinePaymentTypeDanamonOnline,
+    MIDOnlinePaymentTypeGoPay
 };
 
 typedef NS_ENUM(NSUInteger, MIDVirtualAccountType) {
@@ -45,8 +45,7 @@ typedef NS_ENUM(NSUInteger, MIDVirtualAccountType) {
     MIDVirtualAccountTypeBCA,
     MIDVirtualAccountTypePermata,
     MIDVirtualAccountTypeBNI,
-    MIDVirtualAccountTypeOther,
-    MIDVirtualAccountTypeAll
+    MIDVirtualAccountTypeOther
 };
 
 typedef NS_ENUM(NSUInteger, MIDExpiryTimeUnit) {

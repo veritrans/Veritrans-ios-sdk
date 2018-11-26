@@ -34,7 +34,7 @@
 + (NSString *)nameOfChannel:(MIDAcquiringChannel)channel;
 + (NSString *)nameOfCreditCardTransactionType:(MIDCreditCardTransactionType)type;
 + (NSString *)nameOfExpiryUnit:(MIDExpiryTimeUnit)unit;
-+ (NSString *)typeOfPayment:(MIDGeneralPaymentType)payment;
++ (NSString *)typeOfPayment:(MIDOnlinePaymentType)payment;
 + (NSString *)typeOfVirtualAccount:(MIDVirtualAccountType)type;
 
 + (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;

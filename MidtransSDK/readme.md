@@ -48,7 +48,7 @@ We also expose the low-level APIs that power those elements to make it easy to b
 
 
 #### <a id="install-and-configure-sdk"></a> Install and configure the SDK
-You can choose to install the Stripe iOS SDK via your favorite method. We support CocoaPods and manual installation with both static and dynamic frameworks.
+You can choose to install the Midtrans iOS SDK via your favorite method. We support CocoaPods and manual installation with both static and dynamic frameworks.
 
 1. If you haven't already, install the latest version of [Cococapods](https://cocoapods.org/).
 2. Add this line to your Podfile:
@@ -79,7 +79,7 @@ You can choose to install the Stripe iOS SDK via your favorite method. We suppor
 	```
 
 #### <a id="sdk-integration"></a> Integration
-After you're done installing the SDK, configure it with your Stripe API keys.
+After you're done installing the SDK, configure it with your Midtrans API keys.
 
 
 

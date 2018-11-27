@@ -26,6 +26,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *transactionTime;
 
 /**
+ Online payment web URL
+ */
+@property (nonatomic) NSString *redirectURL;
+
+/**
  Virtual Account information for BCA.
  */
 @property (nonatomic) NSString *bcaExpiration;
@@ -62,6 +67,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *gopayExpiration;
 @property (nonatomic) NSString *gopayExpirationRaw;
 @property (nonatomic) NSString *deepLinkURL;
+
+/**
+ Indomaret payment information.
+ */
+@property (nonatomic) NSString *indomaretExpireTime;
+@property (nonatomic) NSString *paymentCode;
 
 @end
 

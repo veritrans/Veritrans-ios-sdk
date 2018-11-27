@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MIDClient.h"
-
+#import "MIDCheckoutRequest"
 @interface MIDClientTest : XCTestCase
 
 @end

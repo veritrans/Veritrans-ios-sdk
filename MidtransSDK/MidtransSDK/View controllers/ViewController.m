@@ -48,7 +48,6 @@
 //                                                                    billingAddress:nil
 //                                                                   shippingAddress:nil];
     
- 
     MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"demo.midtrans"];
     
     NSDate *date = [NSDate new];

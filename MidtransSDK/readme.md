@@ -11,11 +11,11 @@ We also expose the low-level APIs that power those elements to make it easy to b
 4. [Integration] (#sdk-integration)
 5. [Checkout] (#sdk-checkout)
  * [Standard] (#sdk-checkout-standard)
- * Custom with Options
- 		- Customer info
-		- Items info
-   		- Credit card options
-   		- Gopay options
+ * [Custom with Options] (#sdk-checkout-custom)
+ 		- [Customer info](#sdk-checkout-custom-customer-info)
+		- [Items info](#sdk-checkout-custom-items-info)
+   		- [Credit card options] (#sdk-checkout-custom-items-cc-options)
+   		- [Gopay options] (#sdk-checkout-custom-items-gopay-options)
    		- Custom expired
    		- Custom fields
  * Get payment info
@@ -143,12 +143,12 @@ Then you can put it all together to generate the checkout token with this simple
  }
 ```
 
-### Custom with Options
+### <a id="sdk-checkout-custom"></a> Custom with Options
 This guide covers how to use the individual components of our SDK.
 
 > **This guide assumes you've already followed the Getting Started section of our main tutorial to install and configure our SDK.**
 
-**Customer info**
+**<a id="sdk-checkout-custom-customer-info"></a>Customer info**
 
 The `MIDCheckoutCustomer` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
 
@@ -160,7 +160,7 @@ The `MIDCheckoutCustomer` class makes it easy to let your apps manage their cust
                                                                    billingAddress:nil
                                                                   shippingAddress:nil];
 ```
-**Items info**
+**<a id="sdk-checkout-custom-items-info"></a>Items info**
 
 The `MIDItem ` class makes it easy to let your apps manage the item information that will be attached on checkout process.
 
@@ -174,6 +174,60 @@ The `MIDItem ` class makes it easy to let your apps manage the item information 
                                     merchantName:@"Merchant Name"];
 ```
 
+and put it when do checkout
+
+```
+[[MIDClient shared] checkoutWith:trx options:@[items] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+```
 
 
+**<a id="sdk-checkout-custom-items-cc-options"></a>Credit Card Options**
 
+The`MIDCheckoutCreditCard ` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
+
+```
+  MIDCheckoutCreditCard *creditCardOptions = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                          enableSecure:NO
+                                                                        enableSaveCard:NO
+                                                                         acquiringBank:MIDAcquiringBankNone
+                                                                      acquiringChannel:MIDAcquiringChannelNone
+                                                                           installment:nil
+                                                                         whiteListBins:nil];
+```
+
+and put it when do checkout
+
+```
+[[MIDClient shared] checkoutWith:trx options:@[creditCardOptions] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+```
+**<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Options**
+
+The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callback that will be attached on checkout process, but first you need to define your host app deeplink that make sure your apps will called back after transaction has been process by GO-JEK apps
+
+```
+<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>None</string>
+			<key>CFBundleURLName</key>
+			<string>com.midtrans.demo</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>yourapps.prefix</string>
+			</array>
+		</dict>
+	</array>
+```
+
+Set up the option
+
+```
+    MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yourapps.prefix"];
+```
+
+and put it when do checkout
+
+```
+[[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+```

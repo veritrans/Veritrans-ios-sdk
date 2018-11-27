@@ -23,6 +23,8 @@
 		E5163C2121972EA000A24E59 /* MIDMerchantInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5163C2021972EA000A24E59 /* MIDMerchantInfo.m */; };
 		E5163C2421972EB900A24E59 /* MIDPromoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5163C2321972EB900A24E59 /* MIDPromoInfo.m */; };
 		E5163C2721972EDE00A24E59 /* MIDTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5163C2621972EDE00A24E59 /* MIDTransactionInfo.m */; };
+		E5317FFD21AD2C6E005C0940 /* MIDGoPayPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5317FFC21AD2C6E005C0940 /* MIDGoPayPayment.m */; };
+		E531800021AD2C80005C0940 /* MIDIndomaretPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5317FFF21AD2C80005C0940 /* MIDIndomaretPayment.m */; };
 		E55122D12195EE0200DA3621 /* MIDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122D02195EE0200DA3621 /* MIDConfig.m */; };
 		E55122D62195FFBB00DA3621 /* MIDRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122D52195FFBB00DA3621 /* MIDRequestBuilder.m */; };
 		E55122DB2196056F00DA3621 /* MIDCheckoutCustomer.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122DA2196056F00DA3621 /* MIDCheckoutCustomer.m */; };
@@ -105,6 +107,10 @@
 		E5163C2521972EDE00A24E59 /* MIDTransactionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTransactionInfo.h; sourceTree = "<group>"; };
 		E5163C2621972EDE00A24E59 /* MIDTransactionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTransactionInfo.m; sourceTree = "<group>"; };
 		E518D4D321991A8E009C19FF /* MidtransSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MidtransSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5317FFB21AD2C6E005C0940 /* MIDGoPayPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDGoPayPayment.h; sourceTree = "<group>"; };
+		E5317FFC21AD2C6E005C0940 /* MIDGoPayPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDGoPayPayment.m; sourceTree = "<group>"; };
+		E5317FFE21AD2C80005C0940 /* MIDIndomaretPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDIndomaretPayment.h; sourceTree = "<group>"; };
+		E5317FFF21AD2C80005C0940 /* MIDIndomaretPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDIndomaretPayment.m; sourceTree = "<group>"; };
 		E55122CF2195EE0200DA3621 /* MIDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDConfig.h; sourceTree = "<group>"; };
 		E55122D02195EE0200DA3621 /* MIDConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDConfig.m; sourceTree = "<group>"; };
 		E55122D42195FFBB00DA3621 /* MIDRequestBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDRequestBuilder.h; sourceTree = "<group>"; };
@@ -341,6 +347,10 @@
 				E5915B2B21A510A400B66855 /* MIDKlikbcaPayment.m */,
 				E5915B2D21A511CC00B66855 /* MIDTelkomselCashPayment.h */,
 				E5915B2E21A511CC00B66855 /* MIDTelkomselCashPayment.m */,
+				E5317FFB21AD2C6E005C0940 /* MIDGoPayPayment.h */,
+				E5317FFC21AD2C6E005C0940 /* MIDGoPayPayment.m */,
+				E5317FFE21AD2C80005C0940 /* MIDIndomaretPayment.h */,
+				E5317FFF21AD2C80005C0940 /* MIDIndomaretPayment.m */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -573,6 +583,7 @@
 				E581884B21A50ACB00B10645 /* MIDMandiriClickpayPayment.m in Sources */,
 				E5163BFD219614A600A24E59 /* MIDAddress.m in Sources */,
 				E58CC6C121A663FB007879FB /* MIDPaymentResult.m in Sources */,
+				E5317FFD21AD2C6E005C0940 /* MIDGoPayPayment.m in Sources */,
 				E5163C2121972EA000A24E59 /* MIDMerchantInfo.m in Sources */,
 				E5D3C7E72192D8B30090DDAE /* MIDClient.m in Sources */,
 				E597353021A28A0C005C9BA0 /* MIDCheckoutItem.m in Sources */,
@@ -585,6 +596,7 @@
 				E515DF402195B87B006E615A /* MIDNetwork.m in Sources */,
 				E58CC6BA21A65072007879FB /* MIDCheckoutExpiry.m in Sources */,
 				E515DF4B2195E757006E615A /* MIDNetworkHelper.m in Sources */,
+				E531800021AD2C80005C0940 /* MIDIndomaretPayment.m in Sources */,
 				E5163C1221972D7800A24E59 /* MIDCallbackInfo.m in Sources */,
 				E5915B2921A50C5200B66855 /* MIDVirtualAccountPayment.m in Sources */,
 				E515DF4E2195E9C4006E615A /* MIDVendor.m in Sources */,

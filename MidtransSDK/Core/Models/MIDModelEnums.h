@@ -34,10 +34,8 @@ typedef NS_ENUM(NSUInteger, MIDOnlinePaymentType) {
     MIDOnlinePaymentTypeBCAKlikPay,
     MIDOnlinePaymentTypeMandiriEcash,
     MIDOnlinePaymentTypeCIMBClicks,
-    MIDOnlinePaymentTypeIndomaret,
     MIDOnlinePaymentTypeKiosOn,
-    MIDOnlinePaymentTypeDanamonOnline,
-    MIDOnlinePaymentTypeGoPay
+    MIDOnlinePaymentTypeDanamonOnline
 };
 
 typedef NS_ENUM(NSUInteger, MIDVirtualAccountType) {

@@ -95,16 +95,12 @@
 
 + (NSString *)typeOfPayment:(MIDOnlinePaymentType)payment {
     switch (payment) {
-        case MIDOnlinePaymentTypeGoPay:
-            return @"gopay";
         case MIDOnlinePaymentTypeKiosOn:
             return @"kioson";
         case MIDOnlinePaymentTypeAkulaku:
             return @"akulaku";
         case MIDOnlinePaymentTypeBRIEpay:
             return @"bri_epay";
-        case MIDOnlinePaymentTypeIndomaret:
-            return @"indomaret";
         case MIDOnlinePaymentTypeCIMBClicks:
             return @"cimb_clicks";
         case MIDOnlinePaymentTypeBCAKlikPay:

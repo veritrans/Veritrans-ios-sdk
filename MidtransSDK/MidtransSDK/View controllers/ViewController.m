@@ -55,7 +55,7 @@
     MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
     
     [[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
-        NSLog(@"Token: %@", token.dictionaryValue);
+//        NSLog(@"Token: %@", token.dictionaryValue);
         
         [self fetchPaymentInfo:token.token];
         
@@ -65,7 +65,7 @@
 
 - (void)fetchPaymentInfo:(NSString *)token {
     [[MIDClient shared] getPaymentInfoWithToken:token completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
-        NSLog(@"Payment info: %@", info.dictionaryValue);
+//        NSLog(@"Payment info: %@", info.dictionaryValue);
     }];
 }
 
@@ -73,7 +73,18 @@
 //    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeBCA email:nil];
 //    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeEchannel email:nil];
 //    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypePermata email:nil];
-    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeBNI email:nil];
+//    MIDVirtualAccountPayment *payment = [[MIDVirtualAccountPayment alloc] initWithType:MIDVirtualAccountTypeBNI email:nil];
+    
+//    MIDOnlinePayment *payment = [[MIDOnlinePayment alloc] initWithType:MIDOnlinePaymentTypeBRIEpay];
+//    MIDOnlinePayment *payment = [[MIDOnlinePayment alloc] initWithType:MIDOnlinePaymentTypeBCAKlikPay];
+//    MIDOnlinePayment *payment = [[MIDOnlinePayment alloc] initWithType:MIDOnlinePaymentTypeCIMBClicks];
+//    MIDOnlinePayment *payment = [[MIDOnlinePayment alloc] initWithType:MIDOnlinePaymentTypeMandiriEcash];
+//    MIDOnlinePayment *payment = [[MIDOnlinePayment alloc] initWithType:MIDOnlinePaymentTypeDanamonOnline];
+//    MIDOnlinePayment *payment = [[MIDOnlinePayment alloc] initWithType:MIDOnlinePaymentTypeAkulaku];
+    
+//    MIDGoPayPayment *payment = [MIDGoPayPayment new];
+    
+    MIDIndomaretPayment *payment = [MIDIndomaretPayment new];
     
     [[MIDClient shared] performPayment:payment token:token completion:^(MIDPaymentResult * _Nullable result, NSError * _Nullable error) {
         NSLog(@"Payment result: %@", result.dictionaryValue);

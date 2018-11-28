@@ -25,6 +25,8 @@
     [result setValue:self.transactionStatus forKey:@"transaction_status"];
     [result setValue:self.transactionTime forKey:@"transaction_time"];
     
+    [result setValue:self.redirectURL forKey:@"redirect_url"];
+    
     [result setValue:self.bcaExpiration forKey:@"bca_expiration"];
     [result setValue:self.bcaVANumber forKey:@"bca_va_number"];
     [result setValue:self.bniExpiration forKey:@"bni_expiration"];
@@ -40,6 +42,9 @@
     [result setValue:self.qrCodeURL forKey:@"qr_code_url"];
     [result setValue:self.gopayExpiration forKey:@"gopay_expiration"];
     [result setValue:self.gopayExpirationRaw forKey:@"gopay_expiration_raw"];
+    
+    [result setValue:self.indomaretExpireTime forKey:@"indomaret_expire_time"];
+    [result setValue:self.paymentCode forKey:@"payment_code"];
     return result;
 }
 
@@ -57,6 +62,8 @@
         self.transactionStatus = [dictionary objectOrNilForKey:@"transaction_status"];
         self.transactionTime = [dictionary objectOrNilForKey:@"transaction_time"];
         
+        self.redirectURL = [dictionary objectOrNilForKey:@"redirect_url"];
+        
         self.bcaExpiration = [dictionary objectOrNilForKey:@"bca_expiration"];
         self.bcaVANumber = [dictionary objectOrNilForKey:@"bca_va_number"];
         self.bniExpiration = [dictionary objectOrNilForKey:@"bni_expiration"];
@@ -72,6 +79,9 @@
         self.gopayExpirationRaw = [dictionary objectOrNilForKey:@"gopay_expiration_raw"];
         self.qrCodeURL = [dictionary objectOrNilForKey:@"qr_code_url"];
         self.deepLinkURL = [dictionary objectOrNilForKey:@"deeplink_url"];
+        
+        self.indomaretExpireTime = [dictionary objectOrNilForKey:@"indomaret_expire_time"];
+        self.paymentCode = [dictionary objectOrNilForKey:@"payment_code"];
     }
     return self;
 }

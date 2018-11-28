@@ -14,3 +14,5 @@
 #import "MIDOnlinePayment.h"
 #import "MIDCheckoutGoPay.h"
 #import "MIDVirtualAccountPayment.h"
+#import "MIDGoPayPayment.h"
+#import "MIDIndomaretPayment.h"

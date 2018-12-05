@@ -7,12 +7,14 @@
 //
 
 #import "MIDClient.h"
+
 #import "MIDCheckoutTransaction.h"
 #import "MIDCheckoutCustomer.h"
 #import "MIDCheckoutItem.h"
 #import "MIDCheckoutCreditCard.h"
-#import "MIDOnlinePayment.h"
 #import "MIDCheckoutGoPay.h"
-#import "MIDVirtualAccountPayment.h"
-#import "MIDGoPayPayment.h"
-#import "MIDIndomaretPayment.h"
+
+#import "MIDBankTransferCharge.h"
+#import "MIDEWalletCharge.h"
+#import "MIDStoreCharge.h"
+#import "MIDDirectDebitCharge.h"

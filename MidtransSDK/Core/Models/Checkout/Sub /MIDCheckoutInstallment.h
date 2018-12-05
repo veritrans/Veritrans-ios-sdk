@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 
-@interface MIDCheckoutInstallment : NSObject<MIDCheckoutOption>
+@interface MIDCheckoutInstallment : NSObject<MIDCheckoutable>
 
 @property (nonatomic) BOOL required;
 @property (nonatomic) NSDictionary <NSString *, NSArray *> *terms;

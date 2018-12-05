@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 
-@interface MIDAddress : NSObject<MIDCheckoutOption>
+@interface MIDAddress : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;

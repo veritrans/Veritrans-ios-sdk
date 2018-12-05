@@ -1,0 +1,40 @@
+//
+//  MIDPaymentResult.h
+//  MidtransSDK
+//
+//  Created by Nanang Rafsanjani on 22/11/18.
+//  Copyright © 2018 Midtrans. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+#import "MIDModelHelper.h"
+#import "MIDMappable.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+@interface MIDPaymentResult : NSObject<MIDMappable>
+
+@property (nonatomic) NSString *currency;
+@property (nonatomic) NSString *finishRedirectURL;
+@property (nonatomic) NSString *grossAmount;
+@property (nonatomic) NSString *orderID;
+@property (nonatomic) NSString *paymentType;
+@property (nonatomic) NSNumber *statusCode;
+@property (nonatomic) NSString *statusMessage;
+@property (nonatomic) NSString *transactionID;
+@property (nonatomic) NSString *transactionStatus;
+@property (nonatomic) NSString *transactionTime;
+
+/**
+ Fraud status for credit card payment
+ */
+@property (nonatomic) NSString *fraudStatus;
+
+/**
+ Download URL for payment guide.
+ */
+@property (nonatomic) NSString *pdfURL;
+
+@end
+
+NS_ASSUME_NONNULL_END

@@ -18,10 +18,10 @@ We also expose the low-level APIs that power those elements to make it easy to b
    		- [Gopay options] (#sdk-checkout-custom-items-gopay-options)
    		- Custom expired
    		- Custom fields
- * Get payment info
- * Charge
+ * [Get payment info] (#sdk-get-payment-info)
+ * [Charge] (#sdk-charge)
  		- Credit Card
-		- VA / Bank Transfer
+		- [VA / Bank Transfer] (#sdk-charge-bank-transfer)
 		- CIMB Clicks
 		- Indomaret
 		- BCA KlikPay
@@ -89,13 +89,16 @@ After you're done installing the SDK, configure it with your Midtrans API keys.
 
 
 @implementation AppDelegate
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-	[[MIDClient shared] configureClientKey:`client_key`
-						 merchantServerURL:`merchant url`
-						 environment:'environment'];
-    	return YES;
-	}
+	[MIDClient configureClientKey:`client_key`
+				merchantServerURL:`merchant url`
+					  environment:'environment'];
+					  
+	return YES;
+}
+
 @end
 
 ```
@@ -123,7 +126,9 @@ To work with Midtrans Checkout, you'll need to write a class that conforms to ST
 This method is called, as you might expect, when the payment context's eg Order id, and gross amount of transaction
 
 ```
-MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
+NSString *orderID = <random string>
+MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
+                                                                  grossAmount:@1000];
 ``` 
 
 
@@ -131,16 +136,12 @@ MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:or
 Then you can put it all together to generate the checkout token with this simple method
 	
 ```
-- (void) checkout {
-  NSDate *date = [NSDate new];
-  NSString *orderID = @"Some unique order id"
-  MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
-    
-  [[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
-        NSLog(@"Token: %@", token.dictionaryValue);
-        [self fetchPaymentInfo:token.token];
-    }];
- }
+[MIDClient checkoutWith:trx
+                options:nil
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
 
 ### <a id="sdk-checkout-custom"></a> Custom with Options
@@ -160,24 +161,41 @@ The `MIDCheckoutCustomer` class makes it easy to let your apps manage their cust
                                                                    billingAddress:nil
                                                                   shippingAddress:nil];
 ```
+
+and put it when do checkout
+
+```
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[customer]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
+```
+
 **<a id="sdk-checkout-custom-items-info"></a>Items info**
 
 The `MIDItem ` class makes it easy to let your apps manage the item information that will be attached on checkout process.
 
 ```
-   MIDItem *items = [[MIDItem alloc] initWithID:@"items id"
-                                           price:2000
-                                        quantity:1
-                                            name:@"Item Name"
-                                           brand:@"Brand"
-                                        category:@"Some Category"
-                                    merchantName:@"Merchant Name"];
+MIDItem *items = [[MIDItem alloc] initWithID:@"items id"
+                                       price:2000
+                                    quantity:1
+                                        name:@"Item Name"
+                                       brand:@"Brand"
+                                    category:@"Some Category"
+                                merchantName:@"Merchant Name"];
 ```
 
 and put it when do checkout
 
 ```
-[[MIDClient shared] checkoutWith:trx options:@[items] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[items]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
 
 
@@ -186,19 +204,24 @@ and put it when do checkout
 The`MIDCheckoutCreditCard ` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
 
 ```
-  MIDCheckoutCreditCard *creditCardOptions = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
-                                                                          enableSecure:NO
-                                                                        enableSaveCard:NO
-                                                                         acquiringBank:MIDAcquiringBankNone
-                                                                      acquiringChannel:MIDAcquiringChannelNone
-                                                                           installment:nil
-                                                                         whiteListBins:nil];
+MIDCheckoutCreditCard *creditCardOptions = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                      enableSecure:NO
+                                                                    enableSaveCard:NO
+                                                                     acquiringBank:MIDAcquiringBankNone
+                                                                  acquiringChannel:MIDAcquiringChannelNone
+                                                                       installment:nil
+                                                                     whiteListBins:nil];
 ```
 
 and put it when do checkout
 
 ```
-[[MIDClient shared] checkoutWith:trx options:@[creditCardOptions] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[creditCardOptions]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
 **<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Options**
 
@@ -223,11 +246,74 @@ The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callba
 Set up the option
 
 ```
-    MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yourapps.prefix"];
+MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yourapps.prefix"];
 ```
 
 and put it when do checkout
 
 ```
-[[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[gopay]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
+
+### <a id="sdk-get-payment-info"></a> Get Payment Info
+
+### <a id="sdk-charge"></a> Charge
+
+**<a id="sdk-charge-bank-transfer"></a>VA / Bank Transfer**
+
+1. BCA
+
+	```
+	[MIDBankTransferCharge bcaWithToken:<snap token>
+                                  email:<email>
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+         //handle result or error
+
+     }];
+	```
+
+2. Permata
+
+	```
+    [MIDBankTransferCharge permataWithToken:<snap token>
+                                      email:<email>
+                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
+    {
+        
+        //handle result or error
+
+    }];	
+	```
+	
+3. BNI
+
+	```
+ 	[MIDBankTransferCharge bniWithToken:<snap token>
+                                  email:<email>
+                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
+    {
+        
+        //handle result or error
+
+    }];
+	```
+	
+4. Mandiri
+
+	```
+	[MIDBankTransferCharge mandiriWithToken:<snap token>
+                                      email:<email>
+                                 completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
+    {
+        
+        //handle result or error
+                                    
+    }];
+	```

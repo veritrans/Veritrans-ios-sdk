@@ -22,5 +22,5 @@
 @end
 
 @interface NSError (builder)
-+ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message;
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message reasons:(id)reason;
 @end

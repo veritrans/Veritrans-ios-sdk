@@ -10,6 +10,7 @@
 #import "MIDNetworkConstants.h"
 #import "MIDRequestBuilder.h"
 #import "MIDNetworkHelper.h"
+#import "MIDModelHelper.h"
 
 @implementation MIDNetwork {
     NSURLSession *session;
@@ -37,8 +38,7 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSInteger code = [(NSHTTPURLResponse *) response statusCode];
-        
-        
+
         if (error) {
             completion(nil, error);
         } else {
@@ -47,11 +47,25 @@
             if (error) {
                 completion(nil, error);
             } else {
+                NSNumber *_serverStatusCode = responseObject[@"status_code"];
+                if (_serverStatusCode) {
+                    code = [_serverStatusCode integerValue];
+                }
+                
                 BOOL isSuccess = (code >= 200) && (code < 300);
                 if (isSuccess) {
                     completion(responseObject, nil);
+                    
                 } else {
-                    NSError *error = [NSError errorWithCode:code message:responseObject[@"error_messages"]];
+                    NSString *_message = @"Request failed.";
+                    if (responseObject[@"error_message"]) {
+                        _message = responseObject[@"error_message"];
+                        
+                    } else if (responseObject[@"status_message"]) {
+                        _message = responseObject[@"status_message"];
+                        
+                    }
+                    NSError *error = [NSError errorWithCode:code message:_message reasons:responseObject[@"validation_messages"]];
                     completion(nil, error);
                 }
             }

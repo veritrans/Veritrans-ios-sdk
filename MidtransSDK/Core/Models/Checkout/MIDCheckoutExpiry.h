@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 #import "MIDModelEnums.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDCheckoutExpiry : NSObject<MIDCheckoutOption>
+@interface MIDCheckoutExpiry : NSObject<MIDCheckoutable>
 
 @property (nonatomic) MIDExpiryTimeUnit unit;
 @property (nonatomic) NSDate *startDate;

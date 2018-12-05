@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDCheckoutGoPay : NSObject<MIDCheckoutOption>
+@interface MIDCheckoutGoPay : NSObject<MIDCheckoutable>
 
 - (instancetype)initWithCallbackSchemeURL:(NSString *)callbackURL;
 

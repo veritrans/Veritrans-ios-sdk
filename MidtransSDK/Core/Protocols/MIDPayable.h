@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MIDPayment <NSObject>
+@protocol MIDPayable <NSObject>
 - (NSDictionary *)dictionaryValue;
 @end
 

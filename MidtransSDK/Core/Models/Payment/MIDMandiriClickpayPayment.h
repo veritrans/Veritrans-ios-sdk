@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDPayment.h"
+#import "MIDPayable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDMandiriClickpayPayment : NSObject<MIDPayment>
+@interface MIDMandiriClickpayPayment : NSObject<MIDPayable>
 
 @property (nonatomic) NSString *cardToken;
 @property (nonatomic) NSString *clickpayToken;

@@ -24,8 +24,10 @@
     return shared;
 }
 
-- (void)applyEnvironment:(MIDEnvironment)env {
-    switch (env) {
+- (void)setEnvironment:(MIDEnvironment)environment {
+    _environment = environment;
+    
+    switch (_environment) {
         case MIDEnvironmentSandbox:
             self.snapURL = SNAP_SANDBOX;
             break;

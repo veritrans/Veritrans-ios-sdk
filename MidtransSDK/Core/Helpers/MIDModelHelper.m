@@ -93,36 +93,36 @@
     }
 }
 
-+ (NSString *)typeOfPayment:(MIDOnlinePaymentType)payment {
++ (NSString *)typeOfPayment:(MIDWebPaymentType)payment {
     switch (payment) {
-        case MIDOnlinePaymentTypeKiosOn:
+        case MIDWebPaymentTypeKiosOn:
             return @"kioson";
-        case MIDOnlinePaymentTypeAkulaku:
+        case MIDWebPaymentTypeAkulaku:
             return @"akulaku";
-        case MIDOnlinePaymentTypeBRIEpay:
+        case MIDWebPaymentTypeBRIEpay:
             return @"bri_epay";
-        case MIDOnlinePaymentTypeCIMBClicks:
+        case MIDWebPaymentTypeCIMBClicks:
             return @"cimb_clicks";
-        case MIDOnlinePaymentTypeBCAKlikPay:
+        case MIDWebPaymentTypeBCAKlikPay:
             return @"bca_klikpay";
-        case MIDOnlinePaymentTypeMandiriEcash:
+        case MIDWebPaymentTypeMandiriEcash:
             return @"mandiri_ecash";
-        case MIDOnlinePaymentTypeDanamonOnline:
+        case MIDWebPaymentTypeDanamonOnline:
             return @"danamon_online";
     }
 }
 
-+ (NSString *)typeOfVirtualAccount:(MIDVirtualAccountType)type {
++ (NSString *)typeOfVirtualAccount:(MIDBankTransferType)type {
     switch (type) {
-        case MIDVirtualAccountTypeBCA:
+        case MIDBankTransferTypeBCA:
             return @"bca_va";
-        case MIDVirtualAccountTypeBNI:
+        case MIDBankTransferTypeBNI:
             return @"bni_va";
-        case MIDVirtualAccountTypeOther:
+        case MIDBankTransferTypeOther:
             return @"other_va";
-        case MIDVirtualAccountTypePermata:
+        case MIDBankTransferTypePermata:
             return @"permata_va";
-        case MIDVirtualAccountTypeEchannel:
+        case MIDBankTransferTypeEchannel:
             return @"echannel";
     }
 }

@@ -11,11 +11,11 @@
  */
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDCheckoutTransaction : NSObject<MIDCheckoutOption>
+@interface MIDCheckoutTransaction : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSString *orderID;
 @property (nonatomic) NSNumber *grossAmount;

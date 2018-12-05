@@ -6,9 +6,9 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDGoPayPayment.h"
+#import "MIDGopayPayment.h"
 
-@implementation MIDGoPayPayment
+@implementation MIDGopayPayment
 
 - (NSDictionary *)dictionaryValue {
     return @{@"payment_type": @"gopay"};

@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDCustomField : NSObject<MIDCheckoutOption>
+@interface MIDCustomField : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSString *customField1;
 @property (nonatomic) NSString *customField2;

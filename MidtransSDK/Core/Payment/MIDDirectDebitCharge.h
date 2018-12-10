@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDWebPaymentResult.h"
+#import "MIDClickpayResult.h"
+#import "MIDKlikbcaResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -25,10 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)danamonOnlineWithToken:(NSString *)token
                     completion:(void (^_Nullable) (MIDWebPaymentResult *_Nullable result, NSError *_Nullable error))completion;
 
-+ (void)mandiriClickpayWithToken:(NSString *)token
-                       cardToken:(NSString *)cardToken
++ (void)mandiriClickpayWithToken:(NSString *)snapToken
+                      cardNumber:(NSString *)cardNumber
                    clickpayToken:(NSString *)clickpayToken
-                      completion:(void (^_Nullable) (id *_Nullable result, NSError *_Nullable error))completion;
+                      completion:(void (^_Nullable) (MIDClickpayResult *_Nullable result, NSError *_Nullable error))completion;
+
++ (void)klikbcaWithToken:(NSString *)token
+                  userID:(NSString *)userID
+              completion:(void (^)(MIDKlikbcaResult *_Nullable result, NSError *_Nullable error))completion;
 
 @end
 

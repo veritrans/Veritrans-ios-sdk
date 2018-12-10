@@ -10,6 +10,8 @@
 #import "MIDPaymentHelper.h"
 #import "MIDWebPayment.h"
 #import "MIDMandiriClickpayPayment.h"
+#import "MIDClickpayTokenize.h"
+#import "MIDKlikbcaPayment.h"
 
 @implementation MIDDirectDebitCharge
 
@@ -29,16 +31,49 @@
     [self payWithToken:token type:MIDWebPaymentTypeDanamonOnline completion:completion];
 }
 
-+ (void)mandiriClickpayWithToken:(NSString *)token cardToken:(NSString *)cardToken clickpayToken:(NSString *)clickpayToken completion:(void (^)(__autoreleasing id * _Nullable, NSError * _Nullable))completion {
-    MIDMandiriClickpayPayment *payment = [[MIDMandiriClickpayPayment alloc] initWithCardToken:cardToken clickpayToken:clickpayToken];
-    [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
-        if (response) {
-//            MIDWebPaymentResult *result = [[MIDWebPaymentResult alloc] initWithDictionary:response];
-//            completion(result, nil);
++ (void)klikbcaWithToken:(NSString *)token
+                  userID:(NSString *)userID
+              completion:(void (^)(MIDKlikbcaResult *_Nullable result, NSError *_Nullable error))completion {
+    MIDKlikbcaPayment *payment = [[MIDKlikbcaPayment alloc] initWithUserID:userID];
+    [MIDPaymentHelper performPayment:payment
+                               token:token
+                          completion:^(id _Nullable response, NSError *_Nullable error)
+     {
+         if (response) {
+             MIDKlikbcaResult *result = [[MIDKlikbcaResult alloc] initWithDictionary:response];
+             completion(result, nil);
+         } else {
+             completion(nil, error);
+         }
+     }];
+}
+
++ (void)mandiriClickpayWithToken:(NSString *)snapToken
+                      cardNumber:(NSString *)cardNumber
+                   clickpayToken:(NSString *)clickpayToken
+                      completion:(void (^)(MIDClickpayResult *_Nullable result, NSError *_Nullable error))completion {
+    MIDClickpayTokenize *request = [[MIDClickpayTokenize alloc] initWithCardNumber:cardNumber];
+    [MIDPaymentHelper getTokenWithRequest:request completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+        if (token) {
+            MIDMandiriClickpayPayment *payment = [[MIDMandiriClickpayPayment alloc] initWithCardToken:token
+                                                                                        clickpayToken:clickpayToken];
+            [MIDPaymentHelper performPayment:payment
+                                       token:snapToken
+                                  completion:^(id _Nullable response, NSError *_Nullable error)
+             {
+                 if (response) {
+                     MIDClickpayResult *result = [[MIDClickpayResult alloc] initWithDictionary:response];
+                     completion(result, nil);
+                 } else {
+                     completion(nil, error);
+                 }
+             }];
+            
         } else {
-//            completion(nil, error);
+            
         }
     }];
+
 }
 
 #pragma mark private functions

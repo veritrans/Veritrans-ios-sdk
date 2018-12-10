@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDGopayResult.h"
+#import "MIDWebPaymentResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,9 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)tcashWithToken:(NSString *)token
            phoneNumber:(NSString *)phoneNumber
             completion:(void (^_Nullable) (MIDPaymentResult *_Nullable result, NSError *_Nullable error))completion;
+
++ (void)mandiriECashWithToken:(NSString *)token
+                   completion:(void (^_Nullable) (MIDWebPaymentResult *_Nullable result, NSError *_Nullable error))completion;
 
 @end
 

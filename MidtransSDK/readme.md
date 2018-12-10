@@ -1,9 +1,9 @@
-### Overview
+# Overview
 Midtarns iOS SDK makes it easy to build an excellent payment experience in your iOS app. It provides powerful, customizable to collect your users' payment details.
 
 We also expose the low-level APIs that power those elements to make it easy to build fully custom forms. This guide will take you all the way from integrating our SDK to accepting payments from your users via our payment method that we provide
 
-### Prerequsites
+# Content
 
 1. Create a merchant account in MAP
 2. Setup your merchant accounts settings, in particular Notification URL.
@@ -38,7 +38,7 @@ We also expose the low-level APIs that power those elements to make it easy to b
 	- [Customer Financing](#sdk-charge-customer-financing)
 		- Akulaku
 
-#### <a id="install-and-configure-sdk"></a> Install and configure the SDK
+## <a id="install-and-configure-sdk"></a> Install and configure the SDK
 You can choose to install the Midtrans iOS SDK via your favorite method. We support CocoaPods and manual installation with both static and dynamic frameworks.
 
 1. If you haven't already, install the latest version of [Cococapods](https://cocoapods.org/).
@@ -69,7 +69,7 @@ You can choose to install the Midtrans iOS SDK via your favorite method. We supp
 	pod update MidtransCoreKit
 	```
 
-#### <a id="sdk-integration"></a> Integration
+## <a id="sdk-integration"></a> Integration
 After you're done installing the SDK, configure it with your Midtrans API keys.
 
 
@@ -93,20 +93,14 @@ After you're done installing the SDK, configure it with your Midtrans API keys.
 @end
 
 ```
-#### <a id="sdk-checkout"></a> Checkout
+## <a id="sdk-checkout"></a> Checkout
 **Checkout provides your customers with a streamlined, mobile-ready payment experience.**
 
 Checkout securely accepts your customer's payment details and directly passes them to Midtrans servers. Midtrans returns a token representation of those payment details, which can then be submitted to your server for use.
 	
-###<a id="sdk-checkout-standard"></a> Standard
+### <a id="sdk-checkout-standard"></a> Standard Checkout
 
-Our SDK provides a class called `MIDClient`, which is designed to make building your app's checkout flow as easy as possible. It handles payment options such as payment chanels, customer information and can also be used to collect shipping info.
-
-**Setting checkout and host view controller**
-
-To work with Midtrans Checkout, you'll need to write a class that conforms to STPPaymentContextDelegate. (Note, the code samples in this section are simply examples – your own implementation may differ depending on the structure of your app). Midtrans Checkout has 3 required parameters:
-
- **Order ID**
+**Order ID**
  
  This value must be unique, you can use it once
  
@@ -135,12 +129,12 @@ Then you can put it all together to generate the checkout token with this simple
  }];
 ```
 
-### <a id="sdk-checkout-custom"></a> Custom with Options
+### <a id="sdk-checkout-custom"></a> Custom Checkout with Options
 This guide covers how to use the individual components of our SDK.
 
 > **This guide assumes you've already followed the Getting Started section of our main tutorial to install and configure our SDK.**
 
-**<a id="sdk-checkout-custom-customer-info"></a>Customer info**
+**<a id="sdk-checkout-custom-customer-info"></a>Customer info option**
 
 The `MIDCheckoutCustomer` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
 
@@ -164,7 +158,7 @@ and put it when do checkout
  }];
 ```
 
-**<a id="sdk-checkout-custom-items-info"></a>Items info**
+**<a id="sdk-checkout-custom-items-info"></a>Items info option**
 
 The `MIDItem ` class makes it easy to let your apps manage the item information that will be attached on checkout process.
 
@@ -190,7 +184,7 @@ and put it when do checkout
 ```
 
 
-**<a id="sdk-checkout-custom-items-cc-options"></a>Credit Card Options**
+**<a id="sdk-checkout-custom-items-cc-options"></a>Credit Card Option**
 
 The`MIDCheckoutCreditCard ` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
 
@@ -214,7 +208,7 @@ and put it when do checkout
      
  }];
 ```
-**<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Options**
+**<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Option**
 
 The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callback that will be attached on checkout process, but first you need to define your host app deeplink that make sure your apps will called back after transaction has been process by GO-JEK apps
 
@@ -251,7 +245,7 @@ and put it when do checkout
  }];
 ```
 
-**<a id="sdk-checkout-custom-expiry"></a>Custom Expiry**
+**<a id="sdk-checkout-custom-expiry"></a>Custom Expiry Option**
 
 ```
 MIDCheckoutExpiry *customExpiry = [[MIDCheckoutExpiry alloc] initWithStartDate:<expiry date>
@@ -269,7 +263,7 @@ and put it when do checkout
  }];
 ```
 
-**<a id="sdk-checkout-custom-fields"></a>Custom Fields**
+**<a id="sdk-checkout-custom-fields"></a>Custom Fields Option**
 
 ```
 MIDCustomField *customField = [[MIDCustomField alloc] initWithCustomField1:<field 1>
@@ -289,7 +283,7 @@ and put it when do checkout
 ```
 
 
-### <a id="sdk-get-payment-info"></a> Get Payment Info
+## <a id="sdk-get-payment-info"></a> Get Payment Info
 
 ```
 [MIDClient getPaymentInfoWithToken:<snap token>
@@ -299,7 +293,7 @@ and put it when do checkout
  }];
 ```
 
-### <a id="sdk-charge"></a> Charge
+## <a id="sdk-charge"></a> Charge
 
 **<a id="sdk-charge-bank-transfer"></a>VA / Bank Transfer**
 

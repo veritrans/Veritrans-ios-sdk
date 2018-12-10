@@ -12,6 +12,7 @@
 @interface MIDVendor : NSObject
 
 @property (readonly) NSString *snapURL;
+@property (readonly) NSString *midtransURL;
 @property (nonatomic) NSString *merchantURL;
 @property (nonatomic) NSString *clientKey;
 @property (nonatomic) MIDEnvironment environment;

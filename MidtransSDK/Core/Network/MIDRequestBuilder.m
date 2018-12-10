@@ -23,7 +23,10 @@
     return [self buildRequest:method header:header requestURL:url parameters:params];
 }
 
-+ (NSURLRequest *)buildRequest:(MIDHTTPMethod)method header:(NSDictionary *)header requestURL:(NSURL *)requestURL parameters:(NSDictionary *)parameters {
++ (NSURLRequest *)buildRequest:(MIDHTTPMethod)method
+                        header:(NSDictionary *)header
+                    requestURL:(NSURL *)requestURL
+                    parameters:(NSDictionary *)parameters {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:[MIDConfig shared].requestTimeout];
@@ -33,7 +36,7 @@
         [request addValue:header[key] forHTTPHeaderField:key];
     }
     
-    if (parameters) {
+    if (parameters && (method != MIDNetworkMethodGET)) {
         NSData *body = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:nil];
         [request setHTTPBody:body];
     }

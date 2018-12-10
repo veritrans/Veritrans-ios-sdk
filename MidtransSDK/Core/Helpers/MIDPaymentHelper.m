@@ -31,4 +31,20 @@
     }];
 }
 
++ (void)getTokenWithRequest:(NSObject <MIDTokenizable> *)request
+                 completion:(void (^)(NSString *_Nullable token, NSError *_Nullable error))completion {
+    NSString *path = @"token";
+    MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].midtransURL
+                                                                       path:path
+                                                                     method:MIDNetworkMethodGET
+                                                                 parameters:request.dictionaryValue];
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
+        if (response) {
+            completion(response[@"token_id"], nil);
+        } else {
+            completion(nil, error);
+        }
+    }];
+}
+
 @end

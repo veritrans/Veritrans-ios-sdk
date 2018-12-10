@@ -11,6 +11,7 @@
 
 @interface MIDVendor ()
 @property (readwrite) NSString *snapURL;
+@property (readwrite) NSString *midtransURL;
 @end
 
 @implementation MIDVendor
@@ -30,11 +31,14 @@
     switch (_environment) {
         case MIDEnvironmentSandbox:
             self.snapURL = SNAP_SANDBOX;
+            self.midtransURL = MID_SANDBOX;
             break;
         case MIDEnvironmentStaging:
             self.snapURL = SNAP_STAGGING;
+            self.midtransURL = MID_STAGGING;
         default:
             self.snapURL = SNAP_PROD;
+            self.midtransURL = MID_PROD;
             break;
     }
 }

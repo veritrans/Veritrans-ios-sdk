@@ -27,14 +27,14 @@
 
 - (id)init {
     if (self = [super init]) {
-        session = [NSURLSession sharedSession];
+        NSURLSessionConfiguration *config = [NSURLSessionConfiguration defaultSessionConfiguration];
+        session = [NSURLSession sessionWithConfiguration:config];
     }
     return self;
 }
 
 - (void)request:(MIDNetworkService *)service completion:(void(^_Nullable)(id _Nullable response, NSError * _Nullable error))completion {
     NSURLRequest *request = [MIDRequestBuilder buildRequestFrom:service];
-
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         
         NSInteger code = [(NSHTTPURLResponse *) response statusCode];

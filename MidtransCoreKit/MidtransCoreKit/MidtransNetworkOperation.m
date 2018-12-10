@@ -131,45 +131,52 @@ NSString *const kMTNetworkOperationError = @"mt_error";
         [object setObject:[_responseData SNPvalidateUTF8] forKey:kMTNetworkOperationResponse];
     [[NSNotificationCenter defaultCenter] postNotificationName:MTNetworkingDidFinishRequest object:object];
     
-    if (responseObject[MIDTRANS_CORE_STATUS_CODE]) {
-        NSInteger code = [responseObject[MIDTRANS_CORE_STATUS_CODE] integerValue];
-        if (code/100 == 2) {
-            if (self.callback) self.callback(responseObject, nil);
-        }
-        else if (code == 400) {
-            id statusMessage = responseObject[@"status_message"];
-            id validationMessage = responseObject[@"validation_messages"];
-            
-            NSMutableDictionary *userInfo = [NSMutableDictionary new];
-            if (statusMessage) {
-                userInfo[NSLocalizedDescriptionKey] = statusMessage;
+    if ([responseObject isKindOfClass:[NSArray class]] || [responseObject isKindOfClass:[NSMutableArray class]]) {
+        if (self.callback) self.callback(responseObject, nil);
+        
+    } else {
+        if (responseObject[MIDTRANS_CORE_STATUS_CODE]) {
+            NSInteger code = [responseObject[MIDTRANS_CORE_STATUS_CODE] integerValue];
+            if (code/100 == 2) {
+                if (self.callback) self.callback(responseObject, nil);
             }
-            
-            if (validationMessage) {
-                userInfo[NSLocalizedFailureReasonErrorKey] = validationMessage;
+            else if (code == 400) {
+                id statusMessage = responseObject[@"status_message"];
+                id validationMessage = responseObject[@"validation_messages"];
+                
+                NSMutableDictionary *userInfo = [NSMutableDictionary new];
+                if (statusMessage) {
+                    userInfo[NSLocalizedDescriptionKey] = statusMessage;
+                }
+                
+                if (validationMessage) {
+                    userInfo[NSLocalizedFailureReasonErrorKey] = validationMessage;
+                }
+                
+                NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                                     code:code
+                                                 userInfo:userInfo];
+                if (self.callback) self.callback(nil, error);
             }
-            
-            NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
-                                                 code:code
-                                             userInfo:userInfo];
-            if (self.callback) self.callback(nil, error);
+            else {
+                id statusMessage = responseObject[@"status_message"];
+                NSMutableDictionary *userInfo = [NSMutableDictionary new];
+                if (statusMessage) {
+                    userInfo[NSLocalizedDescriptionKey] = statusMessage;
+                }
+                
+                NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                                     code:code
+                                                 userInfo:userInfo];
+                if (self.callback) self.callback(nil, error);
+            }
         }
         else {
-            id statusMessage = responseObject[@"status_message"];
-            NSMutableDictionary *userInfo = [NSMutableDictionary new];
-            if (statusMessage) {
-                userInfo[NSLocalizedDescriptionKey] = statusMessage;
-            }
-            
-            NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
-                                                 code:code
-                                             userInfo:userInfo];
-            if (self.callback) self.callback(nil, error);
+            if (self.callback) self.callback(responseObject, nil);
         }
     }
-    else {
-        if (self.callback) self.callback(responseObject, nil);
-    }
+    
+    
     
     [self finish];
 }

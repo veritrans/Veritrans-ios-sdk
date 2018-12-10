@@ -60,29 +60,28 @@
     self.progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.progressHUD.textLabel.text = @"Loading...";
     
-//    NSString *clientkey;
-//    NSString *merchantServer;
-//    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
-//    switch (CC_CONFIG.paymentType) {
-//        case MTCreditCardPaymentTypeOneclick:
-//            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-//            merchantServer = @"https://rakawm-snap.herokuapp.com";
-//            CC_CONFIG.tokenStorageEnabled = NO;
-//            break;
-//        default:
-//            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
-//            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
-//            CC_CONFIG.tokenStorageEnabled = YES;
-//            break;
-//    }
-//    [CONFIG setClientKey:clientkey
-//             environment:MidtransServerEnvironmentSandbox
-//       merchantServerURL:merchantServer];
+    NSString *clientkey;
+    NSString *merchantServer;
+    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
+    switch (CC_CONFIG.paymentType) {
+        case MTCreditCardPaymentTypeOneclick:
+            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+            merchantServer = @"https://rakawm-snap.herokuapp.com";
+            CC_CONFIG.tokenStorageEnabled = NO;
+            break;
+        default:
+            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
+            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
+            CC_CONFIG.tokenStorageEnabled = YES;
+            break;
+    }
+    [CONFIG setClientKey:clientkey
+             environment:MidtransServerEnvironmentSandbox
+       merchantServerURL:merchantServer];
     
-    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
-             environment:MidtransServerEnvironmentProduction
-       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
-    
+//    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
+//             environment:MidtransServerEnvironmentProduction
+//       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
     
     //forced to use token storage
     UICONFIG.hideStatusPage = NO;

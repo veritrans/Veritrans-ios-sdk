@@ -7,21 +7,21 @@ We also expose the low-level APIs that power those elements to make it easy to b
 
 - Create a merchant account in MAP
 - Setup your merchant accounts settings, in particular Notification URL.
-- [Install and configure the SDK] (#install-and-configure-sdk)
-- [Integration] (#sdk-integration)
-- [Checkout] (#sdk-checkout)
-- [Standard] (#sdk-checkout-standard)
-- [Custom with Options] (#sdk-checkout-custom)
+- [Install and configure the SDK](#install-and-configure-sdk)
+- [Integration](#sdk-integration)
+- [Checkout](#sdk-checkout)
+- [Standard](#sdk-checkout-standard)
+- [Custom with Options](#sdk-checkout-custom)
 	- [Customer info](#sdk-checkout-custom-customer-info)
 	- [Items info](#sdk-checkout-custom-items-info)
-   	- [Credit card options] (#sdk-checkout-custom-items-cc-options)
-   	- [Gopay options] (#sdk-checkout-custom-items-gopay-options)
+   	- [Credit card options](#sdk-checkout-custom-items-cc-options)
+   	- [Gopay options](#sdk-checkout-custom-items-gopay-options)
    	- Custom expired
    	- Custom fields
- - [Get payment info] (#sdk-get-payment-info)
- - [Charge] (#sdk-charge)
+ - [Get payment info](#sdk-get-payment-info)
+ - [Charge](#sdk-charge)
  	- Credit Card
-	- [VA / Bank Transfer] (#sdk-charge-bank-transfer)
+	- [VA / Bank Transfer](#sdk-charge-bank-transfer)
 	- CIMB Clicks
 	- Indomaret
 	- BCA KlikPay

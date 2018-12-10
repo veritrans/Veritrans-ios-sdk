@@ -32,14 +32,24 @@
     NSString *orderID = [NSString stringWithFormat:@"%f", date.timeIntervalSince1970];
     MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
     
-    [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
+    MIDCustomField *customField = [[MIDCustomField alloc] initWithCustomField1:@""
+                                                                  customField2:@""
+                                                                  customField3:@""];
+    
+    MIDCheckoutExpiry *customExpiry = [[MIDCheckoutExpiry alloc] initWithStartDate:[NSDate date]
+                                                                          duration:@1
+                                                                              unit:MIDExpiryTimeUnitDay];
+    
+    [MIDClient checkoutWith:trx options:@[customField] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
         NSString *_token = token.token;
         XCTAssertNotNil(_token);
         
-        [MIDClient getPaymentInfoWithToken:_token completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
-            XCTAssertNil(error, @"Request create token error.");
-            [promise fulfill];
-        }];
+        [MIDClient getPaymentInfoWithToken:_token
+                                completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+         {
+             XCTAssertNil(error, @"Request create token error.");
+             [promise fulfill];
+         }];
     }];
     
     [self waitForExpectations:@[promise] timeout:120];

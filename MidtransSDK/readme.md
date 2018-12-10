@@ -16,8 +16,8 @@ We also expose the low-level APIs that power those elements to make it easy to b
 		- [Items info](#sdk-checkout-custom-items-info)
 		- [Credit card options](#sdk-checkout-custom-items-cc-options)
 		- [Gopay options](#sdk-checkout-custom-items-gopay-options)
-		- Custom expired
-		- Custom fields
+		- [Custom expired](#sdk-checkout-custom-expiry)
+		- [Custom fields](#sdk-checkout-custom-fields)
 6. [Get payment info](#sdk-get-payment-info)
 7. [Charge](#sdk-charge)
 	- [Bank Transfer](#sdk-charge-bank-transfer)
@@ -251,7 +251,53 @@ and put it when do checkout
  }];
 ```
 
+**<a id="sdk-checkout-custom-expiry"></a>Custom Expiry**
+
+```
+MIDCheckoutExpiry *customExpiry = [[MIDCheckoutExpiry alloc] initWithStartDate:<expiry date>
+                                                                      duration:<expiry duration>
+                                                                          unit:<duration unit>];
+```
+and put it when do checkout
+
+```
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[customExpiry]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
+```
+
+**<a id="sdk-checkout-custom-fields"></a>Custom Fields**
+
+```
+MIDCustomField *customField = [[MIDCustomField alloc] initWithCustomField1:<field 1>
+                                                              customField2:<field 2>
+                                                              customField3:<field 3>];
+```
+
+and put it when do checkout
+
+```
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[customField]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
+```
+
+
 ### <a id="sdk-get-payment-info"></a> Get Payment Info
+
+```
+[MIDClient getPaymentInfoWithToken:<snap token>
+                        completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+ {
+	
+ }];
+```
 
 ### <a id="sdk-charge"></a> Charge
 

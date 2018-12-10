@@ -13,6 +13,8 @@
 #import "MIDCheckoutItem.h"
 #import "MIDCheckoutCreditCard.h"
 #import "MIDCheckoutGoPay.h"
+#import "MIDCustomField.h"
+#import "MIDCheckoutExpiry.h"
 
 #import "MIDBankTransferCharge.h"
 #import "MIDEWalletCharge.h"

@@ -7,16 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDPayment.h"
+#import "MIDPayable.h"
 #import "MIDModelEnums.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDOnlinePayment : NSObject<MIDPayment>
+@interface MIDWebPayment : NSObject<MIDPayable>
 
-@property (nonatomic) MIDOnlinePaymentType type;
+@property (nonatomic) MIDWebPaymentType type;
 
-- (instancetype)initWithType:(MIDOnlinePaymentType)type;
+- (instancetype)initWithType:(MIDWebPaymentType)type;
 
 @end
 

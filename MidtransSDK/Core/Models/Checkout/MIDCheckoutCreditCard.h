@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 #import "MIDCheckoutInstallment.h"
 #import "MIDModelEnums.h"
 
-@interface MIDCheckoutCreditCard : NSObject<MIDCheckoutOption>
+@interface MIDCheckoutCreditCard : NSObject<MIDCheckoutable>
 
 @property (nonatomic) BOOL saveCard;
 @property (nonatomic) BOOL secure;

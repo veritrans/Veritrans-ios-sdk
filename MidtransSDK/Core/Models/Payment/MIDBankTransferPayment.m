@@ -6,12 +6,12 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDVirtualAccountPayment.h"
+#import "MIDBankTransferPayment.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDVirtualAccountPayment
+@implementation MIDBankTransferPayment
 
-- (instancetype)initWithType:(MIDVirtualAccountType)type email:(NSString *)email {
+- (instancetype)initWithType:(MIDBankTransferType)type email:(NSString *)email {
     if (self = [super init]) {
         self.type = type;
         self.email = email;

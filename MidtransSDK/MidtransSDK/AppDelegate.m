@@ -19,9 +19,9 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    [[MIDClient shared] configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
-                         merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
-                               environment:MIDEnvironmentSandbox];
+    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
+                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
+                      environment:MIDEnvironmentSandbox];
     
 //    [[MIDClient shared] configureClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
 //                         merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"

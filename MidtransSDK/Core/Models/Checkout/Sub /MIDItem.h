@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 
-@interface MIDItem : NSObject<MIDCheckoutOption>
+@interface MIDItem : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSString *itemID;
 @property (nonatomic, nonnull) NSNumber *price;

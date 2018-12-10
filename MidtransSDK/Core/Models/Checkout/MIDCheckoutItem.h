@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDCheckoutOption.h"
+#import "MIDCheckoutable.h"
 #import "MIDItem.h"
 
-@interface MIDCheckoutItem : NSObject<MIDCheckoutOption>
+@interface MIDCheckoutItem : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSArray <MIDItem *> *items;
 

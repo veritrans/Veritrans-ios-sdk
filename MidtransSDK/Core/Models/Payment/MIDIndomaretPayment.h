@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDPayment.h"
+#import "MIDPayable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDIndomaretPayment : NSObject<MIDPayment>
+@interface MIDIndomaretPayment : NSObject<MIDPayable>
 
 @end
 

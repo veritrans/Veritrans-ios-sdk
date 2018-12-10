@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MIDCheckoutOption <NSObject>
+@protocol MIDCheckoutable <NSObject>
 
 - (NSDictionary *)dictionaryValue;
 

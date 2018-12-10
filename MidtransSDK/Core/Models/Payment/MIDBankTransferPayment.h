@@ -7,17 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "MIDPayment.h"
+#import "MIDPayable.h"
 #import "MIDModelEnums.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDVirtualAccountPayment : NSObject<MIDPayment>
+@interface MIDBankTransferPayment : NSObject<MIDPayable>
 
-@property (nonatomic) MIDVirtualAccountType type;
+@property (nonatomic) MIDBankTransferType type;
 @property (nonatomic, nullable) NSString *email;
 
-- (instancetype)initWithType:(MIDVirtualAccountType)type email:(NSString * _Nullable)email;
+- (instancetype)initWithType:(MIDBankTransferType)type email:(NSString * _Nullable)email;
 
 @end
 

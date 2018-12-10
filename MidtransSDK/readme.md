@@ -1,53 +1,44 @@
-### Overview
+# Overview
 Midtarns iOS SDK makes it easy to build an excellent payment experience in your iOS app. It provides powerful, customizable to collect your users' payment details.
 
 We also expose the low-level APIs that power those elements to make it easy to build fully custom forms. This guide will take you all the way from integrating our SDK to accepting payments from your users via our payment method that we provide
 
-### Prerequsites
+# Content
 
 1. Create a merchant account in MAP
 2. Setup your merchant accounts settings, in particular Notification URL.
-3. [Install and configure the SDK] (#install-and-configure-sdk)
-4. [Integration] (#sdk-integration)
-5. [Checkout] (#sdk-checkout)
- * [Standard] (#sdk-checkout-standard)
- * [Custom with Options] (#sdk-checkout-custom)
- 		- [Customer info](#sdk-checkout-custom-customer-info)
+3. [Install and configure the SDK](#install-and-configure-sdk)
+4. [Integration](#sdk-integration)
+5. [Checkout](#sdk-checkout)
+	 * [Standard](#sdk-checkout-standard)
+	 * [Custom with Options](#sdk-checkout-custom)
+	 	- [Customer info](#sdk-checkout-custom-customer-info)
 		- [Items info](#sdk-checkout-custom-items-info)
-   		- [Credit card options] (#sdk-checkout-custom-items-cc-options)
-   		- [Gopay options] (#sdk-checkout-custom-items-gopay-options)
-   		- Custom expired
-   		- Custom fields
- * Get payment info
- * Charge
- 		- Credit Card
-		- VA / Bank Transfer
-		- CIMB Clicks
-		- Indomaret
-		- BCA KlikPay
-		- Klikbca
-		- Mandiri E-Cash
-		- Mandiri Clickpay
-		- BRI E-Pay
-		- Kios ON
+		- [Credit card options](#sdk-checkout-custom-items-cc-options)
+		- [Gopay options](#sdk-checkout-custom-items-gopay-options)
+		- [Custom expired](#sdk-checkout-custom-expiry)
+		- [Custom fields](#sdk-checkout-custom-fields)
+6. [Get payment info](#sdk-get-payment-info)
+7. [Charge](#sdk-charge)
+	- [Bank Transfer](#sdk-charge-bank-transfer)
+	- [Direct Debit](#sdk-charge-direct-debit)
+		- [Mandiri Clickpay](#sdk-charge-mandiri-clickpay)
+		- [CIMB Clicks](#sdk-charge-cimb-clicks)
+		- [ePay BRI](#sdk-charge-epay-bri)
+		- [BCA KlikPay](#sdk-charge-bca-klikpay)
+		- [KlikBCA](#sdk-charge-klikbca)
+	- [Convenience Store](#sdk-charge-convenience-store)
+		- [Indomaret](#sdk-charge-indomaret)
+	- [e-Wallet](#sdk-charge-wallet)
+		- [Telkomsel Cash](#sdk-charge-tcash)
+		- [Mandiri E-Cash](#sdk-charge-ecash)
+		- [Go-Pay](#sdk-charge-gopay)
+	- [Card Payment](#sdk-charge-card-payment)
+		- Credit Card
+	- [Customer Financing](#sdk-charge-customer-financing)
 		- Akulaku
 
-
-### Supported Payments
-1. Credit Card
-2. VA / Bank Transfer
-3. CIMB Clicks
-4. Indomaret
-5. BCA KlikPay
-6. Klikbca
-7. Mandiri E-Cash
-8. Mandiri Clickpay
-9. BRI E-Pay
-10. Kios ON
-11. Akulaku
-
-
-#### <a id="install-and-configure-sdk"></a> Install and configure the SDK
+## <a id="install-and-configure-sdk"></a> Install and configure the SDK
 You can choose to install the Midtrans iOS SDK via your favorite method. We support CocoaPods and manual installation with both static and dynamic frameworks.
 
 1. If you haven't already, install the latest version of [Cococapods](https://cocoapods.org/).
@@ -78,7 +69,7 @@ You can choose to install the Midtrans iOS SDK via your favorite method. We supp
 	pod update MidtransCoreKit
 	```
 
-#### <a id="sdk-integration"></a> Integration
+## <a id="sdk-integration"></a> Integration
 After you're done installing the SDK, configure it with your Midtrans API keys.
 
 
@@ -89,30 +80,27 @@ After you're done installing the SDK, configure it with your Midtrans API keys.
 
 
 @implementation AppDelegate
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
 
-	[[MIDClient shared] configureClientKey:`client_key`
-						 merchantServerURL:`merchant url`
-						 environment:'environment'];
-    	return YES;
-	}
+	[MIDClient configureClientKey:<midtrans client key>
+				merchantServerURL:<merchant server url>
+					  environment:<system environment>];
+					  
+	return YES;
+}
+
 @end
 
 ```
-#### <a id="sdk-checkout"></a> Checkout
+## <a id="sdk-checkout"></a> Checkout
 **Checkout provides your customers with a streamlined, mobile-ready payment experience.**
 
 Checkout securely accepts your customer's payment details and directly passes them to Midtrans servers. Midtrans returns a token representation of those payment details, which can then be submitted to your server for use.
 	
-###<a id="sdk-checkout-standard"></a> Standard
+### <a id="sdk-checkout-standard"></a> Standard Checkout
 
-Our SDK provides a class called `MIDClient`, which is designed to make building your app's checkout flow as easy as possible. It handles payment options such as payment chanels, customer information and can also be used to collect shipping info.
-
-**Setting checkout and host view controller**
-
-To work with Midtrans Checkout, you'll need to write a class that conforms to STPPaymentContextDelegate. (Note, the code samples in this section are simply examples – your own implementation may differ depending on the structure of your app). Midtrans Checkout has 3 required parameters:
-
- **Order ID**
+**Order ID**
  
  This value must be unique, you can use it once
  
@@ -123,7 +111,9 @@ To work with Midtrans Checkout, you'll need to write a class that conforms to ST
 This method is called, as you might expect, when the payment context's eg Order id, and gross amount of transaction
 
 ```
-MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
+NSString *orderID = <unique string>
+MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
+                                                                  grossAmount:<transaction amount>];
 ``` 
 
 
@@ -131,76 +121,94 @@ MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:or
 Then you can put it all together to generate the checkout token with this simple method
 	
 ```
-- (void) checkout {
-  NSDate *date = [NSDate new];
-  NSString *orderID = @"Some unique order id"
-  MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
-    
-  [[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
-        NSLog(@"Token: %@", token.dictionaryValue);
-        [self fetchPaymentInfo:token.token];
-    }];
- }
+[MIDClient checkoutWith:trx
+                options:nil
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
 
-### <a id="sdk-checkout-custom"></a> Custom with Options
+### <a id="sdk-checkout-custom"></a> Custom Checkout with Options
 This guide covers how to use the individual components of our SDK.
 
 > **This guide assumes you've already followed the Getting Started section of our main tutorial to install and configure our SDK.**
 
-**<a id="sdk-checkout-custom-customer-info"></a>Customer info**
+**<a id="sdk-checkout-custom-customer-info"></a>Customer info option**
 
 The `MIDCheckoutCustomer` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
 
 ```
- MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:@"Customer Firstname"
-                                                                         lastName:@"Customer Last Name"
-                                                                            email:@"customer@somemail.com"
-                                                                            phone:@"00000000"
-                                                                   billingAddress:nil
-                                                                  shippingAddress:nil];
+ MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:<first name>
+	                                                                   lastName:<last name>
+	                                                                      email:<email>
+	                                                                      phone:<phone number>
+	                                                             billingAddress:<billing address>
+	                                                            shippingAddress:<shipping address>];
 ```
-**<a id="sdk-checkout-custom-items-info"></a>Items info**
+
+and put it when do checkout
+
+```
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[customer]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
+```
+
+**<a id="sdk-checkout-custom-items-info"></a>Items info option**
 
 The `MIDItem ` class makes it easy to let your apps manage the item information that will be attached on checkout process.
 
 ```
-   MIDItem *items = [[MIDItem alloc] initWithID:@"items id"
-                                           price:2000
-                                        quantity:1
-                                            name:@"Item Name"
-                                           brand:@"Brand"
-                                        category:@"Some Category"
-                                    merchantName:@"Merchant Name"];
+MIDItem *items = [[MIDItem alloc] initWithID:<item id>
+                                       price:<price of item>
+                                    quantity:<qty of item>
+                                        name:<item name>
+                                       brand:<item brand>
+                                    category:<item category>
+                                merchantName:<merchant name>];
 ```
 
 and put it when do checkout
 
 ```
-[[MIDClient shared] checkoutWith:trx options:@[items] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[items]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
 
 
-**<a id="sdk-checkout-custom-items-cc-options"></a>Credit Card Options**
+**<a id="sdk-checkout-custom-items-cc-options"></a>Credit Card Option**
 
 The`MIDCheckoutCreditCard ` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
 
 ```
-  MIDCheckoutCreditCard *creditCardOptions = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
-                                                                          enableSecure:NO
-                                                                        enableSaveCard:NO
-                                                                         acquiringBank:MIDAcquiringBankNone
-                                                                      acquiringChannel:MIDAcquiringChannelNone
-                                                                           installment:nil
-                                                                         whiteListBins:nil];
+MIDCheckoutCreditCard *creditCardOptions = [[MIDCheckoutCreditCard alloc] initWithTransactionType:<trx type>
+				                                                                     enableSecure:<enable 3ds>
+				                                                                   enableSaveCard:<enable card storage>
+				                                                                    acquiringBank:<acq bank>
+				                                                                 acquiringChannel:<acq channel>
+				                                                                      installment:<installment>
+				                                                                    whiteListBins:<whitelisted bins>];
 ```
 
 and put it when do checkout
 
 ```
-[[MIDClient shared] checkoutWith:trx options:@[creditCardOptions] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[creditCardOptions]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
-**<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Options**
+**<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Option**
 
 The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callback that will be attached on checkout process, but first you need to define your host app deeplink that make sure your apps will called back after transaction has been process by GO-JEK apps
 
@@ -223,11 +231,221 @@ The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callba
 Set up the option
 
 ```
-    MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yourapps.prefix"];
+MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yourapps.prefix"];
 ```
 
 and put it when do checkout
 
 ```
-[[MIDClient shared] checkoutWith:trx options:@[gopay] completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {}];
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[gopay]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
 ```
+
+**<a id="sdk-checkout-custom-expiry"></a>Custom Expiry Option**
+
+```
+MIDCheckoutExpiry *customExpiry = [[MIDCheckoutExpiry alloc] initWithStartDate:<expiry date>
+                                                                      duration:<expiry duration>
+                                                                          unit:<duration unit>];
+```
+and put it when do checkout
+
+```
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[customExpiry]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
+```
+
+**<a id="sdk-checkout-custom-fields"></a>Custom Fields Option**
+
+```
+MIDCustomField *customField = [[MIDCustomField alloc] initWithCustomField1:<field 1>
+                                                              customField2:<field 2>
+                                                              customField3:<field 3>];
+```
+
+and put it when do checkout
+
+```
+[MIDClient checkoutWith:<MIDCheckoutTransaction>
+                options:@[customField]
+             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+ {
+     
+ }];
+```
+
+
+## <a id="sdk-get-payment-info"></a> Get Payment Info
+
+```
+[MIDClient getPaymentInfoWithToken:<snap token>
+                        completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+ {
+	
+ }];
+```
+
+## <a id="sdk-charge"></a> Charge
+
+**<a id="sdk-charge-bank-transfer"></a>VA / Bank Transfer**
+
+1. BCA
+
+	```
+	[MIDBankTransferCharge bcaWithToken:<snap token>
+                                  email:<email>
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+         //handle result or error
+
+     }];
+	```
+
+2. Permata
+
+	```
+    [MIDBankTransferCharge permataWithToken:<snap token>
+                                      email:<email>
+                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
+    {
+        
+        //handle result or error
+
+    }];	
+	```
+	
+3. BNI
+
+	```
+ 	[MIDBankTransferCharge bniWithToken:<snap token>
+                                  email:<email>
+                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
+    {
+        
+        //handle result or error
+
+    }];
+	```
+	
+4. Mandiri
+
+	```
+	[MIDBankTransferCharge mandiriWithToken:<snap token>
+                                      email:<email>
+                                 completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
+    {
+        
+        //handle result or error
+                                    
+    }];
+	```
+	
+**<a id="sdk-charge-direct-debit"></a>Direct Debit**
+
+1. <a id="sdk-charge-mandiri-clickpay"></a>Mandiri Clickpay
+
+	```
+    [MIDDirectDebitCharge mandiriClickpayWithToken:<snap token>
+                                        cardNumber:<debit number>
+                                     clickpayToken:<clickpay token>
+                                        completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];
+	```
+
+2. <a id="sdk-charge-cimb-clicks"></a>CIMB Clicks
+
+	```
+    [MIDDirectDebitCharge cimbClicksWithToken:<snap token>
+                                   completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];	
+	```
+	
+3. <a id="sdk-charge-epay-bri"></a>ePay BRI
+
+	```
+	[MIDDirectDebitCharge briEpayWithToken:<snap token>
+                                completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];
+	```
+	
+4. <a id="sdk-charge-bca-klikpay"></a>BCA KlikPay
+
+	```
+	[MIDDirectDebitCharge bcaKlikPayWithToken:<snap token>
+                                   completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+     {
+			//handle result or error
+     }];
+	```
+	
+5. <a id="sdk-charge-klikbca"></a>KlikBCA
+
+	```
+	[MIDDirectDebitCharge klikbcaWithToken:<snap token>
+                                    userID:<klikbca user id>
+                                completion:^(MIDKlikbcaResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];
+	```
+	
+**<a id="sdk-charge-convenience-store"></a>Convenience Store**
+
+1. <a id="sdk-charge-indomaret"></a>Indomaret
+
+	```
+	[MIDStoreCharge indomaretWithToken:<snap token>
+                            completion:^(MIDIndomaretResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];
+	```
+	
+**<a id="sdk-charge-wallet"></a>E-Wallet**
+
+1. <a id="sdk-charge-gopay"></a>Go-Pay
+
+	```
+    [MIDEWalletCharge gopayWithToken:<snap token>
+                          completion:^(MIDGopayResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];
+	```
+
+2. <a id="sdk-charge-tcash"></a>Telkomsel Cash
+
+	```
+    [MIDEWalletCharge tcashWithToken:<snap token>
+                         phoneNumber:<telkomsel sim card number>
+                          completion:^(MIDPaymentResult * _Nullable result, NSError * _Nullable error)
+     {
+         //handle result or error
+     }];	
+	```
+	
+3. <a id="sdk-charge-ecash"></a>Mandiri e-Cash
+
+	```
+	[MIDEWalletCharge mandiriECashWithToken:token
+	                             completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+	 {
+	     //handle result or error
+	 }];
+
+	```

@@ -77,8 +77,17 @@
 
 @implementation NSError (builder)
 
-+ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message {
-    NSError *error = [NSError errorWithDomain:@"error.midtrans.com" code:code userInfo:@{NSLocalizedDescriptionKey: message}];
++ (NSError *)errorWithCode:(NSInteger)code message:(NSString *)message reasons:(id)reason {
+    NSMutableDictionary *info = [NSMutableDictionary new];
+    if (message) {
+        [info setObject:message forKey:NSLocalizedDescriptionKey];
+    }
+    
+    if (reason) {
+        [info setObject:reason forKey:NSLocalizedFailureReasonErrorKey];
+    }
+    
+    NSError *error = [NSError errorWithDomain:@"error.midtrans.com" code:code userInfo:info];
     return error;
 }
 

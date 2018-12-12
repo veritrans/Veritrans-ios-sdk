@@ -127,7 +127,7 @@ UIAlertViewDelegate
     else {
         self.maskedCards = [NSMutableArray new];
     }
-    NSLog(@"self.maskedCards-->%@",self.maskedCards);
+
     self.bniPointActive = NO;
     self.mandiriPointActive = NO;
     self.installmentCurrentIndex = 0;

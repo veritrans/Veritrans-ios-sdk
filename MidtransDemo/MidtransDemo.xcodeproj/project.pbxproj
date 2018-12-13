@@ -904,6 +904,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Nanang Rafsanjani (77WYT367ML)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nanang Rafsanjani (77WYT367ML)";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G92YEQF267;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -927,6 +928,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: MIDTRANS, PT (G92YEQF267)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIDTRANS, PT (G92YEQF267)";
 				CODE_SIGN_STYLE = Manual;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G92YEQF267;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -936,7 +938,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "SDK Demo Stg";
+				PROVISIONING_PROFILE_SPECIFIER = "SDK Demo Adhoc";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

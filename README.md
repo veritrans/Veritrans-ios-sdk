@@ -18,7 +18,7 @@ If you are using Swift, please read the integration guide [here](https://github.
 To see the implementation guides please read [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransCoreKit/code_usage.md)
 
 ##### 3. Sample / Demo App
-To see the sample app (contais UI flow), you can clone this project, enter project's directory, run `pod install` then now you can open the `MidtransSDK.xcworkspace` file.
+To see the sample app (contais UI flow), you can clone this project, enter project's directory `cd MidtransDemo`, run `pod install` then now you can open the `MidtransDemo.xcworkspace` file.
 
 dependencies
 ##### 4. Backend (merchant server) implementation

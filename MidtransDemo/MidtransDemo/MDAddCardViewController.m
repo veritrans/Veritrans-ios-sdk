@@ -9,7 +9,7 @@
 #import "MDAddCardViewController.h"
 #import <JGProgressHUD/JGProgressHUD.h>
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <ACFloatingTextfield_Objc/ACFloatingTextField.h>
+#import <ACFloatingTextField.h>
 #import <CHRTextFieldFormatter/CHRTextFieldFormatter.h>
 #import <CHRTextFieldFormatter/CHRCardNumberMask.h>
 

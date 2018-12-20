@@ -20,3 +20,4 @@
 #import "MIDEWalletCharge.h"
 #import "MIDStoreCharge.h"
 #import "MIDDirectDebitCharge.h"
+#import "MIDCreditCardCharge.h"

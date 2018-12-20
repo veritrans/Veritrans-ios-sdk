@@ -70,7 +70,7 @@
              }];
             
         } else {
-            
+            completion(nil, error);
         }
     }];
 

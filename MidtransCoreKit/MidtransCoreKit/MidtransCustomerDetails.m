@@ -56,7 +56,9 @@
         if (phone.length > 0) {
             self.phone = phone;
         }
-        self.email = email;
+        if (email.length > 0) {
+            self.email = email;
+        }
         self.shippingAddress = shippingAddress;
         self.billingAddress = billingAddress;
     }

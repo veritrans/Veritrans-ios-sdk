@@ -168,7 +168,7 @@ UIAlertViewDelegate
     
     self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
     self.showUserForm = [CC_CONFIG showFormCredentialsUser];
-    self.view.userDetailViewWrapper.alpha = 0.0;
+    self.view.userDetailViewWrapper.hidden = YES;
     self.view.userDetailViewWrapperConstraints.constant = 0.0f;
     self.view.contactEmailTextField.text = self.responsePayment.customerDetails.email;
     self.view.contactPhoneNumberTextField.text = self.responsePayment.customerDetails.phone;
@@ -176,7 +176,6 @@ UIAlertViewDelegate
         self.view.contactEmailTextField.text = self.responsePayment.customerDetails.email;
         self.view.contactPhoneNumberTextField.text = self.responsePayment.customerDetails.phone;
         self.view.userDetailViewWrapper.hidden = NO;
-        self.view.userDetailViewWrapper.alpha = 1.0f;
         self.view.userDetailViewWrapperConstraints.constant = 150.0f;
     }
     if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
@@ -984,10 +983,14 @@ UIAlertViewDelegate
 }
 
 - (void)payWithToken:(NSString *)token {
-    self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
-    self.token.customerDetails.email = self.view.contactEmailTextField.text;
+    if (self.view.contactPhoneNumberTextField.text.length > 0) {
+        self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
+    }
     
-    
+    if (self.view.contactEmailTextField.text.length > 0) {
+        self.token.customerDetails.email = self.view.contactEmailTextField.text;
+    }
+        
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.isSaveCard

@@ -984,10 +984,13 @@ UIAlertViewDelegate
 }
 
 - (void)payWithToken:(NSString *)token {
-    self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
-    self.token.customerDetails.email = self.view.contactEmailTextField.text;
+    if (self.view.contactPhoneNumberTextField.text.length > 0) {
+        self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
+    }
     
-    
+    if (self.view.contactEmailTextField.text.length > 0) {
+        self.token.customerDetails.email = self.view.contactEmailTextField.text;
+    }
     MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.isSaveCard

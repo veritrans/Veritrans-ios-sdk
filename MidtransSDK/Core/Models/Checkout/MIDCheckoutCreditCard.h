@@ -13,7 +13,6 @@
 
 @interface MIDCheckoutCreditCard : NSObject<MIDCheckoutable>
 
-@property (nonatomic) BOOL saveCard;
 @property (nonatomic) BOOL secure;
 @property (nonatomic) MIDAcquiringBank bank;
 @property (nonatomic) MIDAcquiringChannel channel;
@@ -26,14 +25,12 @@
  
  @param type Credit card transaction type. Default: MIDCreditCardTransactionTypeAuthorizeCapture
  @param secure Use 3D-Secure authentication when using credit card. Default: false
- @param saveCard Set enable if you want to save recently used card
  @param bank Acquiring bank. Options: bca, bni, mandiri, cimb, bri, danamon, maybank, mega
  @param channel Acquiring channel. Options: migs
  @param installment Credit card payment with installment
  */
 - (instancetype)initWithTransactionType:(MIDCreditCardTransactionType)type
                            enableSecure:(BOOL)secure
-                         enableSaveCard:(BOOL)saveCard
                           acquiringBank:(MIDAcquiringBank)bank
                        acquiringChannel:(MIDAcquiringChannel)channel
                             installment:(MIDCheckoutInstallment *)installment

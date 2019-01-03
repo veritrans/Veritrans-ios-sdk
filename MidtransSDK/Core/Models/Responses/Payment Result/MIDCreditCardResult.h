@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *approvalCode;
 @property (nonatomic) NSString *bank;
 @property (nonatomic) NSString *cardType;
-@property (nonatomic) NSString *fraudStatus;
-@property (nonatomic) NSString *maskedCard;
+@property (nonatomic) NSString *cardToken;
+@property (nonatomic) NSString *cardTokenExpireDate;
 
 @end
 

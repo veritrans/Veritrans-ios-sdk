@@ -8,18 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDCreditCardResult.h"
+#import "MIDModelEnums.h"
+#import "MIDChargeInstallment.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDCreditCardCharge : NSObject
 
-+ (void)normalWithToken:(NSString *)token
-             cardNumber:(NSString *)cardNumber
-                    cvv:(NSString *)cvv
-            expireMonth:(NSString *)expireMonth
-             expireYear:(NSString *)expireYear
-                   bank:(NSString *_Nullable)bank
-             completion:(void (^)(MIDCreditCardResult *_Nullable result, NSError *_Nullable error))completion;
++ (void)chargeWithToken:(NSString *)snapToken
+              cardToken:(NSString *)cardToken
+                   save:(BOOL)save
+            installment:(MIDChargeInstallment *_Nullable)installment
+                  point:(NSNumber *_Nullable)point
+             completion:(void (^_Nullable)(MIDCreditCardResult *_Nullable result, NSError *_Nullable error))completion;
 
 @end
 

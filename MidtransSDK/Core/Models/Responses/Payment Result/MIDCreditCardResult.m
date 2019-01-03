@@ -15,8 +15,8 @@
         self.approvalCode = [dictionary objectOrNilForKey:@"approval_code"];
         self.bank = [dictionary objectOrNilForKey:@"bank"];
         self.cardType = [dictionary objectOrNilForKey:@"card_type"];
-        self.fraudStatus = [dictionary objectOrNilForKey:@"fraud_status"];
-        self.maskedCard = [dictionary objectOrNilForKey:@"masked_card"];
+        self.cardToken = [dictionary objectOrNilForKey:@"saved_token_id"];
+        self.cardTokenExpireDate = [dictionary objectOrNilForKey:@"saved_token_id_expired_at"];
     }
     return self;
 }
@@ -26,8 +26,8 @@
     [result setValue:self.approvalCode forKey:@"approval_code"];
     [result setValue:self.bank forKey:@"bank"];
     [result setValue:self.cardType forKey:@"card_type"];
-    [result setValue:self.fraudStatus forKey:@"fraud_status"];
-    [result setValue:self.maskedCard forKey:@"masked_card"];
+    [result setValue:self.cardToken forKey:@"saved_token_id"];
+    [result setValue:self.cardTokenExpireDate forKey:@"saved_token_id_expired_at"];
     return result;
 }
 

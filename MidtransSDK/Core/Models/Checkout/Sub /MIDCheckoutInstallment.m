@@ -7,22 +7,30 @@
 //
 
 #import "MIDCheckoutInstallment.h"
+#import "MIDModelHelper.h"
 
 @implementation MIDCheckoutInstallment
 
++ (instancetype)modelWithTerms:(NSArray<MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required {
+    MIDCheckoutInstallment *obj = [MIDCheckoutInstallment new];
+    obj.terms = terms;
+    obj.required = required;
+    return obj;
+}
+
 - (nonnull NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    [result setValue: @(self.required) forKey: @"required"];
-    [result setValue: self.terms forKey: @"terms"];
+    [result setValue: [NSString stringFromBool:self.required] forKey: @"required"];
+    [result setValue: [self installmentTerms] forKey: @"terms"];
     return result;
 }
 
-- (instancetype)initWithTerms:(NSDictionary <NSString *, NSArray *> *)terms required:(BOOL)required {
-    if (self = [super init]) {
-        self.terms = terms;
-        self.required = required;
+- (NSDictionary *)installmentTerms {
+    NSMutableDictionary *result = [NSMutableDictionary new];
+    for (MIDCheckoutInstallmentTerm *term in self.terms) {
+        [result addEntriesFromDictionary:term.dictionaryValue];
     }
-    return self;
+    return result;
 }
 
 @end

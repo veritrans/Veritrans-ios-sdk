@@ -31,12 +31,7 @@
         self.merchant = [[MIDMerchantInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"merchant"]];
         self.promo = [[MIDPromoInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"promo_details"]];
         self.transaction = [[MIDTransactionInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"transaction_details"]];
-        
-        NSMutableArray *_payments = [NSMutableArray new];
-        for (NSDictionary *dict in [dictionary objectOrNilForKey:@"enabled_payments"]) {
-            [_payments addObject:[[MIDPaymentMethodInfo alloc] initWithDictionary:dict]];
-        }
-        self.enabledPayments = _payments;
+        self.enabledPayments = [[dictionary objectOrNilForKey:@"enabled_payments"] mapToArray:[MIDPaymentMethodInfo class]];
     }
     return self;
 }

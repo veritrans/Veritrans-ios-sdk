@@ -16,7 +16,7 @@
 
 + (void)performPayment:(NSObject<MIDPayable> *)payment
                  token:(NSString *)token
-            completion:(void (^)(id _Nullable response, NSError * _Nullable))completion {
+            completion:(void (^)(id _Nullable response, NSError *_Nullable error))completion {
     NSString *path = [NSString stringWithFormat:@"/transactions/%@/pay", token];
     MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].snapURL
                                                                        path:path
@@ -32,7 +32,7 @@
 }
 
 + (void)getTokenWithRequest:(NSObject <MIDTokenizable> *)request
-                 completion:(void (^)(NSString *_Nullable token, NSError *_Nullable error))completion {
+                 completion:(void (^)(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error))completion {
     NSString *path = @"token";
     MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].midtransURL
                                                                        path:path
@@ -40,7 +40,8 @@
                                                                  parameters:request.dictionaryValue];
     [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
         if (response) {
-            completion(response[@"token_id"], nil);
+            MIDTokenizeResponse *result = [[MIDTokenizeResponse alloc] initWithDictionary:response];
+            completion(result, nil);
         } else {
             completion(nil, error);
         }

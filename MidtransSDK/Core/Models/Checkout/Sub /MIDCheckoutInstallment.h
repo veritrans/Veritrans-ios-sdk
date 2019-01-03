@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDCheckoutable.h"
+#import "MIDCheckoutInstallmentTerm.h"
 
 @interface MIDCheckoutInstallment : NSObject<MIDCheckoutable>
 
 @property (nonatomic) BOOL required;
-@property (nonatomic) NSDictionary <NSString *, NSArray *> *terms;
+@property (nonatomic) NSArray <MIDCheckoutInstallmentTerm *> *terms;
 
 /**
  Credit card payment with installment
@@ -20,6 +21,6 @@
  @param terms Available installment terms
  @param required Force installment when using credit card. Default: false
  */
-- (instancetype)initWithTerms:(NSDictionary <NSString *, NSArray *> *)terms required:(BOOL)required;
++ (instancetype)modelWithTerms:(NSArray <MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required;
 
 @end

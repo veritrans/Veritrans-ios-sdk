@@ -10,23 +10,43 @@
 #import "MIDModelHelper.h"
 #import "MIDVendor.h"
 
+@interface MIDCreditCardTokenize()
+
+@end
+
 @implementation MIDCreditCardTokenize
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary new];
     
     [result setValue:[MIDVendor shared].clientKey forKey:@"client_key"];
-    [result setValue:self.cardNumber forKey:@"card_number"];
-    [result setValue:self.cardCVV forKey:@"card_cvv"];
-    [result setValue:self.cardExpMonth forKey:@"card_exp_month"];
-    [result setValue:self.cardExpYear forKey:@"card_exp_year"];
-    [result setValue:[NSString nameOfBank:self.bank] forKey:@"bank"];
-    [result setValue:@(self.secure) forKey:@"secure"];
-    [result setValue:self.grossAmount forKey:@"gross_amount"];
-    [result setValue:self.installmentTerm forKey:@"installment_term"];
+    
+    [result setValue:self.number forKey:@"card_number"];
+    [result setValue:self.expMonth forKey:@"card_exp_month"];
+    [result setValue:self.expYear forKey:@"card_exp_year"];
     [result setValue:self.tokenID forKey:@"token_id"];
-    [result setValue:[NSString nameOfCreditCardTransactionType:self.type] forKey:@"type"];
-    [result setValue:@(self.point) forKey:@"point"];
+    [result setValue:self.cvv forKey:@"card_cvv"];
+    
+    if (_config.grossAmount) {
+        if (_config.currency == MIDCurrencySGD) {
+            [result setValue:@(_config.grossAmount.doubleValue) forKey:@"gross_amount"];
+        } else {
+            [result setValue:@(_config.grossAmount.integerValue) forKey:@"gross_amount"];
+        }
+    }
+    
+    if (_config.installmentTerm > 0) {
+        [result setValue:[NSString stringFromBool:YES] forKey:@"installment"];
+        [result setValue:@(_config.installmentTerm) forKey:@"installment_term"];
+    }
+    
+    [result setValue:[NSString nameOfBank:_config.bank] forKey:@"bank"];
+    [result setValue:[NSString nameOfCreditCardTransactionType:_config.type] forKey:@"type"];
+    [result setValue:[NSString nameOfCurrency:_config.currency] forKey:@"currency"];
+    [result setValue:[NSString nameOfChannel:_config.channel] forKey:@"channel"];
+    
+    [result setValue:[NSString stringFromBool:_config.enable3ds] forKey:@"secure"];
+    [result setValue:[NSString stringFromBool:_config.enablePoint] forKey:@"point"];
     
     return result;
 }

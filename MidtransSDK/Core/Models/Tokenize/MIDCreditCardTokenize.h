@@ -9,21 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "MIDTokenizable.h"
 #import "MIDModelEnums.h"
+#import "MIDTokenizeConfig.h"
 
 @interface MIDCreditCardTokenize : NSObject <MIDTokenizable>
 
-@property (nonatomic) NSString *cardNumber;
-@property (nonatomic) NSString *cardCVV;
-@property (nonatomic) NSString *cardExpMonth;
-@property (nonatomic) NSString *cardExpYear;
-@property (nonatomic) MIDAcquiringBank bank;
-@property (nonatomic) BOOL secure;
-@property (nonatomic) NSString *grossAmount;
-@property (nonatomic) NSString *installmentTerm;
+@property (nonatomic) NSString *number;
+@property (nonatomic) NSString *expMonth;
+@property (nonatomic) NSString *expYear;
 @property (nonatomic) NSString *tokenID;
-@property (nonatomic) MIDCreditCardTransactionType type;
-@property (nonatomic) BOOL point;
+@property (nonatomic) NSString *cvv;
 
-
+@property (nonatomic) MIDTokenizeConfig *config;
 
 @end

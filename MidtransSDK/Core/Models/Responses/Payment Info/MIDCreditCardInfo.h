@@ -8,13 +8,19 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDMappable.h"
+#import "MIDSavedCardInfo.h"
+#import "MIDModelEnums.h"
+#import "MIDInstallmentInfo.h"
 
 @interface MIDCreditCardInfo : NSObject <MIDMappable>
 
+@property (nonatomic) NSArray <MIDSavedCardInfo *> *savedCards;
 @property (nonatomic) NSArray <NSString *> *blacklistBins;
 @property (nonatomic) NSArray <NSString *> *whitelistBins;
-@property (nonatomic) NSNumber *saveCard;
-@property (nonatomic) NSNumber *secure;
-@property (nonatomic) NSNumber *merchantSaveCard;
+@property (nonatomic) MIDInstallmentInfo *installment;
+@property (nonatomic) BOOL saveCard;
+@property (nonatomic) BOOL secure;
+@property (nonatomic) BOOL merchantSaveCard;
+@property (nonatomic) MIDCreditCardTransactionType type;
 
 @end

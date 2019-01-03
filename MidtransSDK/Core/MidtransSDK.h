@@ -13,6 +13,7 @@
 #import "MIDCheckoutItem.h"
 #import "MIDCheckoutCreditCard.h"
 #import "MIDCheckoutGoPay.h"
+#import "MIDCheckoutIdentifier.h"
 #import "MIDCustomField.h"
 #import "MIDCheckoutExpiry.h"
 
@@ -21,3 +22,4 @@
 #import "MIDStoreCharge.h"
 #import "MIDDirectDebitCharge.h"
 #import "MIDCreditCardCharge.h"
+#import "MIDCreditCardTokenizer.h"

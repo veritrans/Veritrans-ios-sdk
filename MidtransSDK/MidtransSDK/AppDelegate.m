@@ -19,10 +19,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
-                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
+    //for 1click
+    [MIDClient configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
+                merchantServerURL:@"http://localhost/charge/index.php"
                       environment:MIDEnvironmentSandbox];
     
+//    [MIDClient configureClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+//                merchantServerURL:@"https://rakawm-snap.herokuapp.com"
+//                      environment:MIDEnvironmentSandbox];
+    
+    //for normal
+//    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
+//                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
+//                      environment:MIDEnvironmentSandbox];
+    
+    //for production
 //    [[MIDClient shared] configureClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
 //                         merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"
 //                               environment:MIDEnvironmentProduction];

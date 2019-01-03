@@ -10,6 +10,7 @@
 #import "MIDCreditCardResult.h"
 #import "MIDModelEnums.h"
 #import "MIDChargeInstallment.h"
+#import "MIDPointResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,6 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
             installment:(MIDChargeInstallment *_Nullable)installment
                   point:(NSNumber *_Nullable)point
              completion:(void (^_Nullable)(MIDCreditCardResult *_Nullable result, NSError *_Nullable error))completion;
+
++ (void)getPointWithToken:(NSString *)snapToken
+                cardToken:(NSString *)cardToken
+               completion:(void (^_Nullable)(MIDPointResponse *_Nullable result, NSError *_Nullable error))completion;
 
 @end
 

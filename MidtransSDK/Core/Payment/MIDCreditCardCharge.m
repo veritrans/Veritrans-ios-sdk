@@ -39,10 +39,23 @@
         }
     }];
 }
+
++ (void)getPointWithToken:(NSString *)snapToken
+                cardToken:(NSString *)cardToken
+               completion:(void (^_Nullable)(MIDPointResponse *_Nullable result, NSError *_Nullable error))completion {
+    
+    NSString *path = [NSString stringWithFormat:@"/transactions/%@/point_inquiry/%@",snapToken, cardToken];
+    MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].snapURL
+                                                                       path:path
+                                                                     method:MIDNetworkMethodGET
+                                                                 parameters:nil];
+    [[MIDNetwork shared] request:service completion:^(id _Nullable response, NSError * _Nullable error) {
+        if (response) {
+            MIDPointResponse *result = [[MIDPointResponse alloc] initWithDictionary:response];
+            completion(result, nil);
         } else {
             completion(nil, error);
         }
-        
     }];
 }
 

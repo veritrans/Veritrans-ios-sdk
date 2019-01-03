@@ -17,6 +17,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *cardType;
 @property (nonatomic) NSString *cardToken;
 @property (nonatomic) NSString *cardTokenExpireDate;
+@property (nonatomic) NSString *pointBalanceAmount;
+@property (nonatomic) NSString *pointRedeemAmount;
+@property (nonatomic) NSString *pointRedeemQuantity;
 
 @end
 

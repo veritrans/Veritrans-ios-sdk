@@ -9,14 +9,16 @@
 #import <Foundation/Foundation.h>
 #import "MIDPayable.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @interface MIDCreditCardPayment : NSObject<MIDPayable>
 
-@property (nonatomic) NSString *maskedCardNumber;
 @property (nonatomic) NSString *creditCardToken;
+
+@property (nonatomic) NSString *installment;
+@property (nonatomic) NSNumber *point;
 @property (nonatomic) BOOL saveCard;
 
-@end
+@property (nonatomic) NSString *email;
+@property (nonatomic) NSString *fullName;
+@property (nonatomic) NSString *phoneNumber;
 
-NS_ASSUME_NONNULL_END
+@end

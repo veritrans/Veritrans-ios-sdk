@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MIDPayable.h"
 #import "MIDTokenizable.h"
+#import "MIDTokenizeResponse.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,10 +17,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)performPayment:(NSObject<MIDPayable> *)payment
                  token:(NSString *)token
-            completion:(void (^)(id _Nullable response, NSError * _Nullable))completion;
+            completion:(void (^)(id _Nullable response, NSError *_Nullable error))completion;
 
 + (void)getTokenWithRequest:(NSObject <MIDTokenizable> *)request
-                 completion:(void (^)(NSString *_Nullable token, NSError *_Nullable error))completion;
+                 completion:(void (^)(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error))completion;
 
 @end
 

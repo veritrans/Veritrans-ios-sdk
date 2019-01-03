@@ -34,9 +34,14 @@
 + (NSString *)nameOfChannel:(MIDAcquiringChannel)channel;
 + (NSString *)nameOfCreditCardTransactionType:(MIDCreditCardTransactionType)type;
 + (NSString *)nameOfExpiryUnit:(MIDExpiryTimeUnit)unit;
++ (NSString *)nameOfCurrency:(MIDCurrency)currency;
 + (NSString *)typeOfPayment:(MIDWebPaymentType)payment;
 + (NSString *)typeOfVirtualAccount:(MIDBankTransferType)type;
 
 + (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
+
++ (NSString *)stringFromBool:(BOOL)boolean;
+
+- (MIDCreditCardTransactionType)creditCardTransactionType;
 
 @end

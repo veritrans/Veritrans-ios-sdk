@@ -84,6 +84,15 @@
     }
 }
 
++ (NSString *)nameOfCurrency:(MIDCurrency)currency {
+    switch (currency) {
+        case MIDCurrencyIDR:
+            return @"IDR";
+        case MIDCurrencySGD:
+            return @"SGD";
+    }
+}
+
 + (NSString *)nameOfCreditCardTransactionType:(MIDCreditCardTransactionType)type {
     switch (type) {
         case MIDCreditCardTransactionTypeAuthorize:
@@ -149,6 +158,18 @@
     df.calendar = [[NSCalendar alloc] initWithCalendarIdentifier: NSCalendarIdentifierGregorian];
     [df setDateFormat: format];
     return [df stringFromDate: date];
+}
+
++ (NSString *)stringFromBool:(BOOL)boolean {
+    return boolean ? @"true" : @"false";
+}
+
+- (MIDCreditCardTransactionType)creditCardTransactionType {
+    if ([self isEqualToString:@"authorize"]) {
+        return MIDCreditCardTransactionTypeAuthorize;
+    } else {
+        return MIDCreditCardTransactionTypeAuthorizeCapture;
+    }
 }
 
 @end

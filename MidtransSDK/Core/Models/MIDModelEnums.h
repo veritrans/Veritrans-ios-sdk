@@ -54,3 +54,13 @@ typedef NS_ENUM(NSUInteger, MIDExpiryTimeUnit) {
     MIDExpiryTimeUnitMinute,
     MIDExpiryTimeUnitMinutes
 };
+
+typedef NS_ENUM(NSInteger, MIDCurrency) {
+    MIDCurrencyIDR,
+    MIDCurrencySGD
+};
+
+typedef NS_ENUM(NSInteger, MIDSavedCardType) {
+    MIDSavedCardTypeOneClick,
+    MIDSavedCardTypeTwoClick
+};

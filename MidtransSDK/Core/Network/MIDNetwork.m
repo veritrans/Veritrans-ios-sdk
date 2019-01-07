@@ -43,7 +43,9 @@
             completion(nil, error);
         } else {
             NSError *error;
-            id responseObject = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            id responseObject = [NSJSONSerialization JSONObjectWithData:data
+                                                                options:NSJSONReadingAllowFragments
+                                                                  error:&error];
             if (error) {
                 completion(nil, error);
             } else {
@@ -67,6 +69,9 @@
                             
                         } else if (responseObject[@"status_message"]) {
                             _message = responseObject[@"status_message"];
+                            
+                        } else if (responseObject[@"error_messages"]) {
+                            _message = responseObject[@"error_messages"];
                             
                         }
                         NSError *error = [NSError errorWithCode:code message:_message reasons:responseObject[@"validation_messages"]];

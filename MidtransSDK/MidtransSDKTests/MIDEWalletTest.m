@@ -24,7 +24,7 @@
 - (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
     NSDate *date = [NSDate new];
     NSString *orderID = [NSString stringWithFormat:@"%f", date.timeIntervalSince1970];
-    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@1000];
+    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:orderID grossAmount:@1000 currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
         NSString *_token = token.token;

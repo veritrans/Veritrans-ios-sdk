@@ -21,7 +21,7 @@
 
     //for 1click
     [MIDClient configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
-                merchantServerURL:@"http://localhost/charge/index.php"
+                merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
                       environment:MIDEnvironmentSandbox];
     
 //    [MIDClient configureClientKey:@"VT-client-E4f1bsi1LpL1p5cF"

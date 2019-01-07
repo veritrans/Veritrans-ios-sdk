@@ -172,4 +172,12 @@
     }
 }
 
+- (MIDCurrency)currencyType {
+    if ([self isEqualToString:@"SGD"]) {
+        return MIDCurrencySGD;
+    } else {
+        return MIDCurrencyIDR;
+    }
+}
+
 @end

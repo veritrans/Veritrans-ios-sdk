@@ -17,22 +17,17 @@
     NSString *snapToken;
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
-}
-
 - (IBAction)checkoutPressed:(id)sender {
     NSString *orderID = [NSString stringWithFormat:@"%f", [NSDate new].timeIntervalSince1970];
-    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID grossAmount:@200000];
+    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:orderID
+                                                               grossAmount:@20000
+                                                                  currency:MIDCurrencyIDR];
     
     MIDCheckoutIdentifier *identifier = [[MIDCheckoutIdentifier alloc] initWithUserIdentifier:@"jukiginanjar"];
     MIDCheckoutCreditCard *cc = [MIDCheckoutCreditCard new];
     cc.secure = YES;
-    
     NSArray *terms = @[[MIDCheckoutInstallmentTerm modelWithBank:MIDAcquiringBankBCA terms:@[@3, @6]],
-                       [MIDCheckoutInstallmentTerm modelWithBank:MIDAcquiringBankBNI terms:@[@6, @12]]
-                       ];
+                       [MIDCheckoutInstallmentTerm modelWithBank:MIDAcquiringBankBNI terms:@[@6, @12]]];
     cc.installment = [MIDCheckoutInstallment modelWithTerms:terms required:YES];
     
     [MIDClient checkoutWith:trx
@@ -41,7 +36,7 @@
      {
          NSLog(@"Token: %@", token.dictionaryValue);
          
-         [self fetchPaymentInfo:token.token];
+         //         [self fetchPaymentInfo:token.token];
      }];
 }
 
@@ -49,7 +44,7 @@
     [MIDClient getPaymentInfoWithToken:token completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
         NSLog(@"Payment info: %@", info.dictionaryValue);
         
-        [self payWithToken:token];
+        //        [self payWithToken:token];
     }];
 }
 
@@ -81,12 +76,12 @@
                                     completion:^(MIDTokenizeResponse *_Nullable token, NSError * _Nullable error)
      {
          
-//         [MIDCreditCardCharge getPointWithToken:snapToken
-//                                      cardToken:token.tokenID
-//                                     completion:^(MIDPointResponse *_Nullable result, NSError * _Nullable error)
-//          {
-//
-//          }];
+         //         [MIDCreditCardCharge getPointWithToken:snapToken
+         //                                      cardToken:token.tokenID
+         //                                     completion:^(MIDPointResponse *_Nullable result, NSError * _Nullable error)
+         //          {
+         //
+         //          }];
          
          [MIDCreditCardCharge chargeWithToken:snapToken
                                     cardToken:token.tokenID
@@ -95,7 +90,7 @@
                                         point:@20000
                                    completion:^(MIDCreditCardResult * _Nullable result, NSError * _Nullable error)
           {
-
+              
           }];
      }];
     

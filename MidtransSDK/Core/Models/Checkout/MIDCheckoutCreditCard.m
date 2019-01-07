@@ -18,26 +18,28 @@
     [result setValue:[NSString nameOfBank:self.bank] forKey:@"bank"];
     [result setValue:[NSString nameOfCreditCardTransactionType:self.type] forKey:@"type"];
     [result setValue:self.whiteListBins forKey:@"whitelist_bins"];
+    [result setValue:self.blackListBins forKey:@"blacklist_bins"];
     [result setValue:[self.installment dictionaryValue] forKey:@"installment"];
     [result setValue:@YES forKey:@"save_card"];
     return @{@"credit_card": result};
 }
 
-- (instancetype)initWithTransactionType:(MIDCreditCardTransactionType)type
-                           enableSecure:(BOOL)secure
-                          acquiringBank:(MIDAcquiringBank)bank
-                       acquiringChannel:(MIDAcquiringChannel)channel
-                            installment:(MIDCheckoutInstallment *)installment
-                          whiteListBins:(NSArray <NSString *> *)bins {
-    if (self = [super init]) {
-        self.type = type;
-        self.secure = secure;
-        self.bank = bank;
-        self.channel = channel;
-        self.installment = installment;
-        self.whiteListBins = bins;
-    }
-    return self;
++ (instancetype)modelWithTransactionType:(MIDCreditCardTransactionType)type
+                            enableSecure:(BOOL)secure
+                           acquiringBank:(MIDAcquiringBank)bank
+                        acquiringChannel:(MIDAcquiringChannel)channel
+                             installment:(MIDCheckoutInstallment *)installment
+                           whiteListBins:(NSArray<NSString *> *)whiteListBins
+                           blackListBins:(NSArray<NSString *> *)blackListBins {    
+    MIDCheckoutCreditCard *obj = [MIDCheckoutCreditCard new];
+    obj.type = type;
+    obj.secure = secure;
+    obj.bank = bank;
+    obj.channel = channel;
+    obj.installment = installment;
+    obj.whiteListBins = whiteListBins;
+    obj.blackListBins = blackListBins;
+    return obj;
 }
 
 @end

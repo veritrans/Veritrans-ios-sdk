@@ -43,5 +43,6 @@
 + (NSString *)stringFromBool:(BOOL)boolean;
 
 - (MIDCreditCardTransactionType)creditCardTransactionType;
+- (MIDCurrency)currencyType;
 
 @end

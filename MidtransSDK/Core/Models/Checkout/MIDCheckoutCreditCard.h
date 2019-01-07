@@ -18,6 +18,7 @@
 @property (nonatomic) MIDAcquiringChannel channel;
 @property (nonatomic) MIDCreditCardTransactionType type;
 @property (nonatomic) NSArray <NSString *> *whiteListBins;
+@property (nonatomic) NSArray <NSString *> *blackListBins;
 @property (nonatomic) MIDCheckoutInstallment *installment;
 
 /**
@@ -29,11 +30,12 @@
  @param channel Acquiring channel. Options: migs
  @param installment Credit card payment with installment
  */
-- (instancetype)initWithTransactionType:(MIDCreditCardTransactionType)type
-                           enableSecure:(BOOL)secure
-                          acquiringBank:(MIDAcquiringBank)bank
-                       acquiringChannel:(MIDAcquiringChannel)channel
-                            installment:(MIDCheckoutInstallment *)installment
-                          whiteListBins:(NSArray <NSString *> *)bins;
++ (instancetype)modelWithTransactionType:(MIDCreditCardTransactionType)type
+                            enableSecure:(BOOL)secure
+                           acquiringBank:(MIDAcquiringBank)bank
+                        acquiringChannel:(MIDAcquiringChannel)channel
+                             installment:(MIDCheckoutInstallment *)installment
+                           whiteListBins:(NSArray <NSString *> *)whiteListBins
+                           blackListBins:(NSArray <NSString *> *)blackListBins;
 
 @end

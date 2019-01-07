@@ -12,6 +12,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDCheckoutable.h"
+#import "MIDModelEnums.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic) NSString *orderID;
 @property (nonatomic) NSNumber *grossAmount;
+@property (nonatomic) MIDCurrency currency;
 
 /**
  Specific information regarding the transaction
@@ -28,7 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param grossAmount Amount to be charged
  substring it covered.
  */
-- (instancetype)initWithOrderID:(NSString *)orderID grossAmount:(NSNumber *)grossAmount;
++ (instancetype)modelWithOrderID:(NSString *)orderID
+                     grossAmount:(NSNumber *)grossAmount
+                        currency:(MIDCurrency)currency;
 
 @end
 

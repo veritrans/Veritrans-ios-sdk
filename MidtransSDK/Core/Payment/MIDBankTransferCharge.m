@@ -43,7 +43,7 @@
 + (void)mandiriWithToken:(NSString *)token
                    email:(NSString *)email
               completion:(void (^_Nullable) (MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error))completion {
-    MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypePermata email:email];
+    MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypeEchannel email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDMandiriBankTransferResult *result = [[MIDMandiriBankTransferResult alloc] initWithDictionary:response];

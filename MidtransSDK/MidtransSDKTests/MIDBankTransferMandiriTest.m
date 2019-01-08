@@ -1,5 +1,5 @@
 //
-//  MIDBankTransferBNITest.m
+//  MIDBankTransferMandiriTest.m
 //  MidtransSDKTests
 //
 //  Created by Arie.Prasetiyo on 08/01/19.
@@ -8,41 +8,40 @@
 
 #import <XCTest/XCTest.h>
 #import "MIDTestHelper.h"
-
-@interface MIDBankTransferBNITest : XCTestCase
+@interface MIDBankTransferMandiriTest : XCTestCase
 
 @end
 
-@implementation MIDBankTransferBNITest
+@implementation MIDBankTransferMandiriTest
 static NSString *_email = @"test-mobile@midtrans.com";
 
 - (void)setUp {
-     [MIDTestHelper setup];
+    [MIDTestHelper setup];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
 - (void)tearDown {
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
- 
-- (void)testForBNI {
+
+- (void)testForMandiri {
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge bniWithToken:token email:_email completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error) {
-            XCTAssertNotNil(result.vaNumber, @"va bni test is error");
+        [MIDBankTransferCharge mandiriWithToken:token email:_email completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error) {
+            XCTAssertNotNil(result.key, @"va bni test is error");
             [promise fulfill];
         }];
     }];
     
     [self waitForExpectations:@[promise] timeout:120];
 }
-- (void)testTokenNotFoundBNI {
+- (void)testTokenNotFoundMandiri {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [MIDBankTransferCharge bniWithToken:nil
+    [MIDBankTransferCharge mandiriWithToken:nil
                                   email:_email
-                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
+                             completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

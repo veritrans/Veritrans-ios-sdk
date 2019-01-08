@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MidtransSDK.h"
+#import "MIDTestHelper.h"
 
 @interface MIDBankTransferTest : XCTestCase
 
@@ -18,9 +18,7 @@
 static NSString *_email = @"jukiginanjar@yahoo.com";
 
 - (void)setUp {
-    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
-                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
-                      environment:MIDEnvironmentSandbox];
+    [MIDTestHelper setup];
 }
 
 - (void)tearDown {
@@ -31,11 +29,44 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge bcaWithToken:token email:_email completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error) {
-            XCTAssertNotNil(result.vaNumber, @"va bca test is error");
-            [promise fulfill];
-        }];
+        [MIDBankTransferCharge bcaWithToken:token
+                                      email:_email
+                                 completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+         {
+             XCTAssertNotNil(result.vaNumber, @"va bca test is error");
+             [promise fulfill];
+         }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testTokenNotFoundBCA {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDBankTransferCharge bcaWithToken:nil
+                                  email:_email
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404);
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testTokenErrorBCA {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDBankTransferCharge bcaWithToken:@"random_token_error"
+                                  email:_email
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404);
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)testForPermata {
@@ -47,6 +78,8 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
             [promise fulfill];
         }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)testForBNI {
@@ -58,6 +91,8 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
             [promise fulfill];
         }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)testForMandiri {
@@ -69,12 +104,14 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
             [promise fulfill];
         }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
-    NSDate *date = [NSDate new];
-    NSString *orderID = [NSString stringWithFormat:@"%f", date.timeIntervalSince1970];
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:orderID grossAmount:@1000 currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
+                                                               grossAmount:@1000
+                                                                  currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
         NSString *_token = token.token;

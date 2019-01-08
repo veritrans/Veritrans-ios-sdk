@@ -82,18 +82,6 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     [self waitForExpectations:@[promise] timeout:120];
 }
 
-- (void)testForBNI {
-    XCTestExpectation *promise = [XCTestExpectation new];
-    
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge bniWithToken:token email:_email completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error) {
-            XCTAssertNotNil(result.vaNumber, @"va bni test is error");
-            [promise fulfill];
-        }];
-    }];
-    
-    [self waitForExpectations:@[promise] timeout:120];
-}
 
 - (void)testForMandiri {
     XCTestExpectation *promise = [XCTestExpectation new];

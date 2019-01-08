@@ -100,4 +100,17 @@
     [self waitForExpectations:@[promise] timeout:120];
 }
 
+- (void)testTokenFailedFetchPayment {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDClient getPaymentInfoWithToken:@"random_failed_token"
+                            completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404);
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
 @end

@@ -85,6 +85,7 @@
 		E5D3C7EB2192DB400090DDAE /* MIDClientTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7EA2192DB400090DDAE /* MIDClientTest.m */; };
 		E5EBB4D621C38F8900D317A2 /* MIDCreditCardPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EBB4D521C38F8900D317A2 /* MIDCreditCardPayment.m */; };
 		E5EBB4DA21C396A800D317A2 /* MIDCreditCardResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E5EBB4D921C396A800D317A2 /* MIDCreditCardResult.m */; };
+		ECAC031521E459A100D5B561 /* MIDBankTransferBNITest.m in Sources */ = {isa = PBXBuildFile; fileRef = ECAC031421E459A100D5B561 /* MIDBankTransferBNITest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -264,6 +265,7 @@
 		E5EBB4D521C38F8900D317A2 /* MIDCreditCardPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCreditCardPayment.m; sourceTree = "<group>"; };
 		E5EBB4D821C396A800D317A2 /* MIDCreditCardResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCreditCardResult.h; sourceTree = "<group>"; };
 		E5EBB4D921C396A800D317A2 /* MIDCreditCardResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCreditCardResult.m; sourceTree = "<group>"; };
+		ECAC031421E459A100D5B561 /* MIDBankTransferBNITest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDBankTransferBNITest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -595,6 +597,7 @@
 				E5C7CD2D21BD56E900C22045 /* MIDEWalletTest.m */,
 				E5C7CD2F21BD56FA00C22045 /* MIDStoreTest.m */,
 				E5C7CD3121BD570F00C22045 /* MIDDirectDebitTest.m */,
+				ECAC031421E459A100D5B561 /* MIDBankTransferBNITest.m */,
 			);
 			path = MidtransSDKTests;
 			sourceTree = "<group>";
@@ -837,6 +840,7 @@
 				E55CBF75219BF0C300721462 /* MIDClient.m in Sources */,
 				E5C7CD3021BD56FA00C22045 /* MIDStoreTest.m in Sources */,
 				E5C7CD2E21BD56E900C22045 /* MIDEWalletTest.m in Sources */,
+				ECAC031521E459A100D5B561 /* MIDBankTransferBNITest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

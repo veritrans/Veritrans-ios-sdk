@@ -23,6 +23,7 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
 }
 
+
 - (void)testSuccessMinimalCheckout {
     XCTestExpectation *promise = [XCTestExpectation new];
     
@@ -95,6 +96,38 @@
               XCTAssertNil(error, @"Request create token error.");
               [promise fulfill];
           }];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testFailedCheckoutWithNoOrderId {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:nil
+                                                               grossAmount:@20000
+                                                                  currency:MIDCurrencyIDR];
+    [MIDClient checkoutWith:trx
+                    options:nil
+                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 400);
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testFailedCheckoutWithNoTransactionParameters {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
+                                                               grossAmount:@20000
+                                                                  currency:MIDCurrencyIDR];
+    [MIDClient checkoutWith:nil
+                    options:nil
+                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 400);
+         [promise fulfill];
      }];
     
     [self waitForExpectations:@[promise] timeout:120];

@@ -101,6 +101,19 @@
     [self waitForExpectations:@[promise] timeout:120];
 }
 
+- (void)testTokenFailedFetchPayment {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDClient getPaymentInfoWithToken:@"random_failed_token"
+                            completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404);
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
 - (void)testFailedCheckoutWithNoOrderId {
     XCTestExpectation *promise = [XCTestExpectation new];
     MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:nil
@@ -119,9 +132,6 @@
 
 - (void)testFailedCheckoutWithNoTransactionParameters {
     XCTestExpectation *promise = [XCTestExpectation new];
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
-                                                               grossAmount:@20000
-                                                                  currency:MIDCurrencyIDR];
     [MIDClient checkoutWith:nil
                     options:nil
                  completion:^(MIDToken * _Nullable token, NSError * _Nullable error)

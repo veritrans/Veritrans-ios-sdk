@@ -15,7 +15,7 @@
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [result setValue:self.itemID forKey:@"id"];
     [result setValue:self.price forKey:@"price"];
-    [result setValue:self.quantity forKey:@"quantity"];
+    [result setValue:@(self.quantity) forKey:@"quantity"];
     [result setValue:self.name forKey:@"name"];
     [result setValue:self.brand forKey:@"brand"];
     [result setValue:self.category forKey:@"category"];
@@ -25,7 +25,7 @@
 
 - (instancetype)initWithID:(NSString *)itemID
                      price:(NSNumber * _Nonnull)price
-                  quantity:(NSNumber * _Nonnull)quantity
+                  quantity:(NSInteger)quantity
                       name:(NSString * _Nonnull)name
                      brand:(NSString *)brand
                   category:(NSString *)category

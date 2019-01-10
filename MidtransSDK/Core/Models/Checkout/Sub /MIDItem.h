@@ -13,7 +13,7 @@
 
 @property (nonatomic) NSString *itemID;
 @property (nonatomic, nonnull) NSNumber *price;
-@property (nonatomic, nonnull) NSNumber *quantity;
+@property (nonatomic) NSInteger quantity;
 @property (nonatomic, nonnull) NSString *name;
 @property (nonatomic) NSString *brand;
 @property (nonatomic) NSString *category;
@@ -29,12 +29,12 @@
  @param category Category of the item
  @param merchantName Merchant selling the item
  */
-- (instancetype)initWithID:(NSString *)itemID
-                     price:(NSNumber * _Nonnull)price
-                  quantity:(NSNumber * _Nonnull)quantity
-                      name:(NSString * _Nonnull)name
-                     brand:(NSString *)brand
-                  category:(NSString *)category
-              merchantName:(NSString *)merchantName;
+- (instancetype _Nonnull)initWithID:(NSString *)itemID
+                              price:(NSNumber * _Nonnull)price
+                           quantity:(NSInteger)quantity
+                               name:(NSString * _Nonnull)name
+                              brand:(NSString *)brand
+                           category:(NSString *)category
+                       merchantName:(NSString *)merchantName;
 
 @end

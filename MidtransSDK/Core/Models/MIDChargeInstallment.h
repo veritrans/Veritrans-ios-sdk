@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDChargeInstallment : NSObject
 
-+ (instancetype)modelWithBank:(MIDAcquiringBank)bank term:(NSInteger)term;
+- (instancetype)initWithBank:(MIDAcquiringBank)bank term:(NSInteger)term;
 
 - (NSString *)value;
 

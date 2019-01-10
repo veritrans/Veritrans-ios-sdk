@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) MIDAcquiringBank bank;
 @property (nonatomic) NSArray <NSNumber *> *terms;
 
-+ (instancetype)modelWithBank:(MIDAcquiringBank)bank terms:(NSArray <NSNumber *> *)terms;
+- (instancetype)initWithBank:(MIDAcquiringBank)bank terms:(NSArray <NSNumber *> *)terms;
 
 @end
 

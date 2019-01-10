@@ -28,14 +28,13 @@
     return self;
 }
 
-+ (instancetype)modelWithOrderID:(NSString *)orderID
-                     grossAmount:(NSNumber *)grossAmount
-                        currency:(MIDCurrency)currency {
-    MIDCheckoutTransaction *obj = [MIDCheckoutTransaction new];
-    obj.orderID = orderID;
-    obj.grossAmount = grossAmount;
-    obj.currency = currency;
-    return obj;
+- (instancetype)initWithOrderID:(NSString *)orderID grossAmount:(NSNumber *)grossAmount currency:(MIDCurrency)currency {
+    if (self = [super init]) {
+        self.orderID = orderID;
+        self.grossAmount = grossAmount;
+        self.currency = currency;
+    }
+    return self;
 }
 
 @end

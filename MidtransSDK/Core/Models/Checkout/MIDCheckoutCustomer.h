@@ -19,11 +19,11 @@
 @property (nonatomic) MIDAddress *billingAddress;
 @property (nonatomic) MIDAddress *shippingAddress;
 
-- (instancetype)initWithFirstName:(NSString *)firstName
-                         lastName:(NSString *)lastName
-                            email:(NSString *)email
-                            phone:(NSString *)phone
-                   billingAddress:(MIDAddress *)billingAddress
-                  shippingAddress:(MIDAddress *)shippingAddress;
+- (instancetype _Nonnull)initWithFirstName:(NSString *)firstName
+                                  lastName:(NSString *)lastName
+                                     email:(NSString *)email
+                                     phone:(NSString *)phone
+                            billingAddress:(MIDAddress *)billingAddress
+                           shippingAddress:(MIDAddress *)shippingAddress;
 
 @end

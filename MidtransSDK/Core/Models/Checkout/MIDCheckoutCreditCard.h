@@ -30,12 +30,12 @@
  @param channel Acquiring channel. Options: migs
  @param installment Credit card payment with installment
  */
-+ (instancetype)modelWithTransactionType:(MIDCreditCardTransactionType)type
-                            enableSecure:(BOOL)secure
-                           acquiringBank:(MIDAcquiringBank)bank
-                        acquiringChannel:(MIDAcquiringChannel)channel
-                             installment:(MIDCheckoutInstallment *)installment
-                           whiteListBins:(NSArray <NSString *> *)whiteListBins
-                           blackListBins:(NSArray <NSString *> *)blackListBins;
+- (instancetype _Nonnull)initWithTransactionType:(MIDCreditCardTransactionType)type
+                                    enableSecure:(BOOL)secure
+                                   acquiringBank:(MIDAcquiringBank)bank
+                                acquiringChannel:(MIDAcquiringChannel)channel
+                                     installment:(MIDCheckoutInstallment *)installment
+                                   whiteListBins:(NSArray <NSString *> *)whiteListBins
+                                   blackListBins:(NSArray <NSString *> *)blackListBins;
 
 @end

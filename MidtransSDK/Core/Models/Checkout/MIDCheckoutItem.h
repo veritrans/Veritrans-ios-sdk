@@ -14,6 +14,6 @@
 
 @property (nonatomic) NSArray <MIDItem *> *items;
 
-- (instancetype)initWithItems:(NSArray <MIDItem *> *)items;
+- (instancetype _Nonnull)initWithItems:(NSArray <MIDItem *> *)items;
 
 @end

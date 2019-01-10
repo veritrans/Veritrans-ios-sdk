@@ -27,9 +27,9 @@
 - (void)testSuccessMinimalCheckout {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
-                                                               grossAmount:@20000
-                                                                  currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx
                     options:nil
@@ -45,9 +45,9 @@
 - (void)testDecimalGrossAmountFailedCheckout {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
-                                                               grossAmount:@20000.50
-                                                                  currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
+                                                                      grossAmount:@20000.50
+                                                                         currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx
                     options:nil
@@ -63,10 +63,9 @@
 - (void)testZeroGrossAmountFailedCheckout {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    NSString *orderID = [MIDTestHelper orderID];
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:orderID
-                                                               grossAmount:@0
-                                                                  currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
+                                                                      grossAmount:@0
+                                                                         currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx
                     options:nil
@@ -82,9 +81,9 @@
 - (void)testFetchPayment {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
-                                                               grossAmount:@20000
-                                                                  currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx
                     options:nil
@@ -116,9 +115,11 @@
 
 - (void)testFailedCheckoutWithNoOrderId {
     XCTestExpectation *promise = [XCTestExpectation new];
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:nil
-                                                               grossAmount:@20000
-                                                                  currency:MIDCurrencyIDR];
+    
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:nil
+                                                                      grossAmount:@20000.50
+                                                                         currency:MIDCurrencyIDR];
+    
     [MIDClient checkoutWith:trx
                     options:nil
                  completion:^(MIDToken * _Nullable token, NSError * _Nullable error)

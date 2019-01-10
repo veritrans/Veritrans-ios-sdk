@@ -69,6 +69,7 @@
 		E597353A21A2AA55005C9BA0 /* MIDCheckoutInstallment.m in Sources */ = {isa = PBXBuildFile; fileRef = E597353921A2AA55005C9BA0 /* MIDCheckoutInstallment.m */; };
 		E5C07D8721DC9A5A0020C858 /* MIDCheckoutIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C07D8621DC9A5A0020C858 /* MIDCheckoutIdentifier.m */; };
 		E5C07D8A21DC9F840020C858 /* MIDTokenizeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C07D8921DC9F840020C858 /* MIDTokenizeResponse.m */; };
+		E5C34D7B21E6032E002361C8 /* MIDSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */; };
 		E5C7CD2E21BD56E900C22045 /* MIDEWalletTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C7CD2D21BD56E900C22045 /* MIDEWalletTest.m */; };
 		E5C7CD3021BD56FA00C22045 /* MIDStoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C7CD2F21BD56FA00C22045 /* MIDStoreTest.m */; };
 		E5C7CD3221BD570F00C22045 /* MIDDirectDebitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C7CD3121BD570F00C22045 /* MIDDirectDebitTest.m */; };
@@ -237,6 +238,7 @@
 		E5C07D8621DC9A5A0020C858 /* MIDCheckoutIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCheckoutIdentifier.m; sourceTree = "<group>"; };
 		E5C07D8821DC9F830020C858 /* MIDTokenizeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTokenizeResponse.h; sourceTree = "<group>"; };
 		E5C07D8921DC9F840020C858 /* MIDTokenizeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTokenizeResponse.m; sourceTree = "<group>"; };
+		E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDSwiftViewController.swift; sourceTree = "<group>"; };
 		E5C7CD2D21BD56E900C22045 /* MIDEWalletTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDEWalletTest.m; sourceTree = "<group>"; };
 		E5C7CD2F21BD56FA00C22045 /* MIDStoreTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDStoreTest.m; sourceTree = "<group>"; };
 		E5C7CD3121BD570F00C22045 /* MIDDirectDebitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDDirectDebitTest.m; sourceTree = "<group>"; };
@@ -418,6 +420,7 @@
 			children = (
 				E5D3C7B52192D7700090DDAE /* ViewController.h */,
 				E5D3C7B62192D7700090DDAE /* ViewController.m */,
+				E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */,
 			);
 			path = "View controllers";
 			sourceTree = "<group>";
@@ -795,6 +798,7 @@
 				E597253021B8D7C100CC2E30 /* MIDClickpayTokenize.m in Sources */,
 				E545E0C421B50183005C1EB3 /* MIDBankTransferCharge.m in Sources */,
 				E581884B21A50ACB00B10645 /* MIDMandiriClickpayPayment.m in Sources */,
+				E5C34D7B21E6032E002361C8 /* MIDSwiftViewController.swift in Sources */,
 				E537341721DDE25F0095746A /* MIDPointResponse.m in Sources */,
 				E53A0B3F21BA222600BA0BE0 /* MIDKlikbcaResult.m in Sources */,
 				E5163BFD219614A600A24E59 /* MIDAddress.m in Sources */,
@@ -1047,6 +1051,7 @@
 		E5D3C7DF2192D7710090DDAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G92YEQF267;
@@ -1066,6 +1071,7 @@
 		E5D3C7E02192D7710090DDAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G92YEQF267;
@@ -1085,6 +1091,7 @@
 		E5D3C7E22192D7710090DDAE /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G92YEQF267;
 				INFOPLIST_FILE = MidtransSDKUITests/Info.plist;
@@ -1103,6 +1110,7 @@
 		E5D3C7E32192D7710090DDAE /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = G92YEQF267;
 				INFOPLIST_FILE = MidtransSDKUITests/Info.plist;

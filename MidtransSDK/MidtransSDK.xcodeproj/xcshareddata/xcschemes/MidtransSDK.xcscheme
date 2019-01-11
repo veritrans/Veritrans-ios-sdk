@@ -37,6 +37,11 @@
                BlueprintName = "MidtransSDKTests"
                ReferencedContainer = "container:MidtransSDK.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "(null)">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

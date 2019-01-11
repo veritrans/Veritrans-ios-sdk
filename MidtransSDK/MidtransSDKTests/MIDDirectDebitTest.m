@@ -7,7 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "MidtransSDK.h"
+#import "MIDTestHelper.h"
 
 @interface MIDDirectDebitTest : XCTestCase
 
@@ -22,9 +22,9 @@
 }
 
 - (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
-    NSDate *date = [NSDate new];
-    NSString *orderID = [NSString stringWithFormat:@"%f", date.timeIntervalSince1970];
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:orderID grossAmount:@1000 currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
         NSString *_token = token.token;

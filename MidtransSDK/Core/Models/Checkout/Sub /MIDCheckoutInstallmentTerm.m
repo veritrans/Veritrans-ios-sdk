@@ -11,11 +11,12 @@
 
 @implementation MIDCheckoutInstallmentTerm
 
-+ (instancetype)modelWithBank:(MIDAcquiringBank)bank terms:(NSArray<NSNumber *> *)terms {
-    MIDCheckoutInstallmentTerm *obj = [MIDCheckoutInstallmentTerm new];
-    obj.bank = bank;
-    obj.terms = terms;
-    return obj;
+- (instancetype)initWithBank:(MIDAcquiringBank)bank terms:(NSArray<NSNumber *> *)terms {
+    if (self = [super init]) {
+        self.bank = bank;
+        self.terms = terms;
+    }
+    return self;
 }
 
 - (NSDictionary *)dictionaryValue {

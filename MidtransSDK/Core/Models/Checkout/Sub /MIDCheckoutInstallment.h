@@ -21,6 +21,6 @@
  @param terms Available installment terms
  @param required Force installment when using credit card. Default: false
  */
-+ (instancetype)modelWithTerms:(NSArray <MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required;
+- (instancetype _Nonnull)initWithTerms:(NSArray <MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required;
 
 @end

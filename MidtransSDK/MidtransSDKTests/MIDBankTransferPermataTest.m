@@ -53,9 +53,9 @@ static NSString *_email = @"test-mobile@midtrans.com";
 }
 
 - (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:[MIDTestHelper orderID]
-                                                               grossAmount:@1000000
-                                                                  currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
         NSString *_token = token.token;

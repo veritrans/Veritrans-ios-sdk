@@ -30,9 +30,9 @@ NS_ASSUME_NONNULL_BEGIN
  @param grossAmount Amount to be charged
  substring it covered.
  */
-+ (instancetype)modelWithOrderID:(NSString *)orderID
-                     grossAmount:(NSNumber *)grossAmount
-                        currency:(MIDCurrency)currency;
+- (instancetype)initWithOrderID:(NSString *)orderID
+                    grossAmount:(NSNumber *)grossAmount
+                       currency:(MIDCurrency)currency;
 
 @end
 

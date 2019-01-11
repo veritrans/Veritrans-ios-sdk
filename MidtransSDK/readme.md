@@ -73,26 +73,27 @@ You can choose to install the Midtrans iOS SDK via your favorite method. We supp
 After you're done installing the SDK, configure it with your Midtrans API keys.
 
 
+ObjC
+
+``` 
+[MIDClient configureClientKey:@"VT-client-ABCDEFG-KM1234"
+			merchantServerURL:@"https://merchant-server.com/charge/index.php"
+				  environment:MIDEnvironmentSandbox];
 
 ```
-#import "AppDelegate"
-#import <Midtrans/MidtransCoreKit.h>
 
+Swift
 
-@implementation AppDelegate
-
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-
-	[MIDClient configureClientKey:<midtrans client key>
-				merchantServerURL:<merchant server url>
-					  environment:<system environment>];
-					  
-	return YES;
-}
-
-@end
+``` 
+MIDClient.configureClientKey(
+    "VT-client-ABCDEFG-KM1234",
+    merchantServerURL: "https://merchant-server.com/charge/index.php",
+    environment: .sandbox
+)
 
 ```
+
+
 ## <a id="sdk-checkout"></a> Checkout
 **Checkout provides your customers with a streamlined, mobile-ready payment experience.**
 
@@ -104,29 +105,51 @@ Checkout securely accepts your customer's payment details and directly passes th
  
  This value must be unique, you can use it once
  
-  `NSString *orderID = @"some order id";`
+  `NSString *orderID = @"unique_string";`
  
 **Transaction Detail**
 
 This method is called, as you might expect, when the payment context's eg Order id, and gross amount of transaction
 
+Objective C
+
 ```
-NSString *orderID = <unique string>
 MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
-                                                                  grossAmount:<transaction amount>];
+                                                                  grossAmount:@15000
+                                                                     currency:MIDCurrencyIDR];
+``` 
+
+Swift
+
+```
+let trx = MIDCheckoutTransaction(
+    orderID: orderID,
+    grossAmount: 15000,
+    currency: .IDR
+)
 ``` 
 
 
 
 Then you can put it all together to generate the checkout token with this simple method
 	
+Objective C	
+
 ```
 [MIDClient checkoutWith:trx
                 options:nil
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
+     NSString *snapToken = token.token;
  }];
+```
+
+Swift
+
+```
+MIDClient.checkout(with: trx, options: nil) { (token, error) in
+	let snapToken = token?.token ?? ""
+}
 ```
 
 ### <a id="sdk-checkout-custom"></a> Custom Checkout with Options
@@ -138,49 +161,110 @@ This guide covers how to use the individual components of our SDK.
 
 The `MIDCheckoutCustomer` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
 
-```
- MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:<first name>
-	                                                                   lastName:<last name>
-	                                                                      email:<email>
-	                                                                      phone:<phone number>
-	                                                             billingAddress:<billing address>
-	                                                            shippingAddress:<shipping address>];
-```
-
-and put it when do checkout
+Objective C
 
 ```
-[MIDClient checkoutWith:<MIDCheckoutTransaction>
+MIDAddress *addr = [[MIDAddress alloc] initWithFirstName:@"susan"
+                                                lastName:@"bahtiar"
+                                                   email:@"susan_bahtiar@gmail.com"
+                                                   phone:@"08123456789"
+                                                 address:@"Kemayoran"
+                                                    city:@"Jakarta"
+                                              postalCode:@"10610"
+                                             countryCode:@"IDN"];
+MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:@"susan"
+                                                                      lastName:@"bahtiar"
+                                                                         email:@"susan_bahtiar@gmail.com"
+                                                                         phone:@"08123456789"
+                                                                billingAddress:addr
+                                                               shippingAddress:addr];
+	                                                            
+//and put it at checkout options
+	                                                            
+[MIDClient checkoutWith:trx
                 options:@[customer]
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
- }];
+		NSString *snapToken = token.token;   
+ }];	                                                            
 ```
+
+Swift
+
+```
+let address = MIDAddress(
+    firstName: "susan",
+    lastName: "bahtiar",
+    email: "susan_bahtiar@gmail.com",
+    phone: "085293837657",
+    address: "Kemayoran",
+    city: "Jakarta",
+    postalCode: "10610",
+    countryCode: "IDN"
+)
+let customer = MIDCheckoutCustomer(
+    firstName: "susan",
+    lastName: "bahtiar",
+    email: "susan_bahtiar@gmail.com",
+    phone: "085293837657",
+    billingAddress: address,
+    shippingAddress: address
+)
+
+//and put it at checkout options
+
+MIDClient.checkout(with: trx, options: [customer]) { (token, error) in
+	let snapToken = token?.token ?? ""
+}
+
+```
+
 
 **<a id="sdk-checkout-custom-items-info"></a>Items info option**
 
 The `MIDItem ` class makes it easy to let your apps manage the item information that will be attached on checkout process.
 
-```
-MIDItem *items = [[MIDItem alloc] initWithID:<item id>
-                                       price:<price of item>
-                                    quantity:<qty of item>
-                                        name:<item name>
-                                       brand:<item brand>
-                                    category:<item category>
-                                merchantName:<merchant name>];
-```
-
-and put it when do checkout
+Objective C
 
 ```
-[MIDClient checkoutWith:<MIDCheckoutTransaction>
+MIDItem *item = [[MIDItem alloc] initWithID:@"item1"
+                                      price:@15000
+                                   quantity:1
+                                       name:@"Tooth paste"
+                                      brand:@"Pepsodent"
+                                   category:@"Health care"
+                               merchantName:@"Neo Store"];
+MIDCheckoutItem *checkoutItem = [[MIDCheckoutItem alloc] initWithItems:@[item]];
+    
+//and put it at checkout options
+
+[MIDClient checkoutWith:trx
                 options:@[items]
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
+     NSString *snapToken = token.token;
  }];
+```
+
+Swift
+
+```
+let item = MIDItem(
+    id: "item1",
+    price: 15000,
+    quantity: 1,
+    name: "Tooth paste",
+    brand: "Pepsodent",
+    category: "health care",
+    merchantName: "Neo Store"
+)
+let checkoutItem = MIDCheckoutItem(items: [item])
+    
+//and put it at checkout options
+    
+MIDClient.checkout(with: trx, options: [checkoutItem]) { (token, error) in
+	let snapToken = token?.token ?? ""
+}
 ```
 
 
@@ -188,26 +272,55 @@ and put it when do checkout
 
 The`MIDCheckoutCreditCard ` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
 
-```
-MIDCheckoutCreditCard *creditCardOptions = [[MIDCheckoutCreditCard alloc] initWithTransactionType:<trx type>
-				                                                                     enableSecure:<enable 3ds>
-				                                                                   enableSaveCard:<enable card storage>
-				                                                                    acquiringBank:<acq bank>
-				                                                                 acquiringChannel:<acq channel>
-				                                                                      installment:<installment>
-				                                                                    whiteListBins:<whitelisted bins>];
-```
-
-and put it when do checkout
+Objective C
 
 ```
-[MIDClient checkoutWith:<MIDCheckoutTransaction>
-                options:@[creditCardOptions]
+NSArray *whitelistBins = @[@"48111111", @"41111111"];
+NSArray *blacklistBins = @[@"49111111", @"44111111"];
+MIDCheckoutInstallmentTerm *term = [[MIDCheckoutInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+                                                                              terms:@[@6, @12]];
+MIDCheckoutInstallment *installment = [[MIDCheckoutInstallment alloc] initWithTerms:@[term] required:YES];
+MIDCheckoutCreditCard *cc = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                      enableSecure:YES
+                                                                     acquiringBank:MIDAcquiringBankBCA
+                                                                  acquiringChannel:MIDAcquiringChannelMIGS
+                                                                       installment:installment
+                                                                     whiteListBins:whitelistBins
+                                                                     blackListBins:blacklistBins];
+
+//and put it at checkout options
+
+[MIDClient checkoutWith:trx
+                options:@[cc]
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
+     NSString *snapToken = token.token;
  }];
 ```
+Swift
+
+```
+let whitelistBins = ["48111111", "41111111"]
+let blacklistBins = ["49111111", "44111111"]
+let term = MIDCheckoutInstallmentTerm(bank: .BCA, terms: [6, 12])
+let installment = MIDCheckoutInstallment(terms: [term], required: true)
+let cc = MIDCheckoutCreditCard(
+    transactionType: .authorizeCapture,
+    enableSecure: true,
+    acquiringBank: .BCA,
+    acquiringChannel: .MIGS,
+    installment: installment,
+    whiteListBins: whitelistBins,
+    blackListBins: blacklistBins
+)
+    
+//and put it at checkout options
+    
+MIDClient.checkout(with: trx, options: [cc]) { (token, error) in
+    let snapToken = token?.token ?? ""
+}
+```
+
 **<a id="sdk-checkout-custom-items-gopay-options"></a>GO-PAY Option**
 
 The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callback that will be attached on checkout process, but first you need to define your host app deeplink that make sure your apps will called back after transaction has been process by GO-JEK apps
@@ -228,69 +341,118 @@ The`MIDCheckoutGoPay ` class makes it easy to let your apps manage GO-PAY callba
 	</array>
 ```
 
-Set up the option
+Set up the checkout option
+
+Objective C
 
 ```
-MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yourapps.prefix"];
-```
-
-and put it when do checkout
-
-```
-[MIDClient checkoutWith:<MIDCheckoutTransaction>
+MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yoururlscheme://"];
+    
+//and put it at checkout options
+    
+[MIDClient checkoutWith:trx
                 options:@[gopay]
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
+	
  }];
+```
+
+Swift
+
+```
+let gopay = MIDCheckoutGoPay(callbackSchemeURL: "yoururlscheme://")
+        
+//and put it at checkout options
+    
+MIDClient.checkout(with: trx, options: [gopay]) { (token, error) in
+    let snapToken = token?.token ?? ""
+}
 ```
 
 **<a id="sdk-checkout-custom-expiry"></a>Custom Expiry Option**
 
-```
-MIDCheckoutExpiry *customExpiry = [[MIDCheckoutExpiry alloc] initWithStartDate:<expiry date>
-                                                                      duration:<expiry duration>
-                                                                          unit:<duration unit>];
-```
-and put it when do checkout
+Objective C
 
 ```
-[MIDClient checkoutWith:<MIDCheckoutTransaction>
-                options:@[customExpiry]
+MIDCheckoutExpiry *expiry = [[MIDCheckoutExpiry alloc] initWithStartDate:[NSDate date]
+                                                                duration:1
+                                                                    unit:MIDExpiryTimeUnitDay];
+    
+//and put it at checkout options
+    
+[MIDClient checkoutWith:trx
+                options:@[expiry]
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
+		NSString *snapToken = token.token;
  }];
+```
+
+Swift
+
+```
+let customExpiry = MIDCheckoutExpiry(start: Date(), duration: 1, unit: .day)
+        
+//and put it at checkout options
+    
+MIDClient.checkout(with: trx, options: [customExpiry]) { (token, error) in
+    let snapToken = token?.token ?? ""
+}
 ```
 
 **<a id="sdk-checkout-custom-fields"></a>Custom Fields Option**
 
 ```
-MIDCustomField *customField = [[MIDCustomField alloc] initWithCustomField1:<field 1>
-                                                              customField2:<field 2>
-                                                              customField3:<field 3>];
-```
+MIDCustomField *customField = [[MIDCustomField alloc] initWithCustomField1:@"field content 1"
+                                                              customField2:@"field content 2"
+                                                              customField3:@"field content 3"];
 
-and put it when do checkout
+//and put it at checkout options
 
-```
-[MIDClient checkoutWith:<MIDCheckoutTransaction>
+[MIDClient checkoutWith:trx
                 options:@[customField]
              completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
  {
-     
+     NSString *snapToken = token.token;
  }];
+```
+
+Swift
+
+```
+let customField = MIDCustomField(
+    customField1: "field content 1",
+    customField2: "field content 2",
+    customField3: "field content 3"
+)
+    
+//and put it at checkout options
+    
+MIDClient.checkout(with: trx, options: [customField]) { (token, error) in
+    let snapToken = token?.token ?? ""
+}
 ```
 
 
 ## <a id="sdk-get-payment-info"></a> Get Payment Info
 
+Objective C
+
 ```
-[MIDClient getPaymentInfoWithToken:<snap token>
+[MIDClient getPaymentInfoWithToken:snapToken
                         completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
  {
 	
  }];
+```
+
+Swift
+
+```
+MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
+    
+})
 ```
 
 ## <a id="sdk-charge"></a> Charge
@@ -299,148 +461,267 @@ and put it when do checkout
 
 1. BCA
 
+	Objective C
+	
 	```
-	[MIDBankTransferCharge bcaWithToken:<snap token>
-                                  email:<email>
+	[MIDBankTransferCharge bcaWithToken:snapToken
+                                  email:@"susan_bahtiar@gmail.com"
                              completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
      {
-         
-         //handle result or error
 
      }];
 	```
+	
+	Swift
+	
+	```
+	MIDBankTransferCharge.bca(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+                
+    })
+	```
 
 2. Permata
-
+	
+	Objective C
+	
 	```
-    [MIDBankTransferCharge permataWithToken:<snap token>
-                                      email:<email>
+    [MIDBankTransferCharge permataWithToken:snapToken
+                                      email:@"susan_bahtiar@gmail.com"
                                  completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
-    {
-        
-        //handle result or error
+    {        
 
     }];	
 	```
 	
+	Swift
+	
+	```
+	MIDBankTransferCharge.permata(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+         
+    })
+	```
+	
 3. BNI
 
+	Objective C
+	
 	```
- 	[MIDBankTransferCharge bniWithToken:<snap token>
-                                  email:<email>
+ 	[MIDBankTransferCharge bniWithToken:snapToken
+                                  email:@"susan_bahtiar@gmail.com"
                              completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
     {
-        
-        //handle result or error
-
+   
     }];
 	```
 	
-4. Mandiri
-
+	Swift
+	
 	```
-	[MIDBankTransferCharge mandiriWithToken:<snap token>
-                                      email:<email>
+	MIDBankTransferCharge.bni(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+                
+    })
+	```
+	
+4. Mandiri
+	
+	Objective C
+	
+	```
+	[MIDBankTransferCharge mandiriWithToken:snapToken
+                                      email:@"susan_bahtiar@gmail.com"
                                  completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
     {
-        
-        //handle result or error
-                                    
+		    
     }];
+	```
+	
+	Swift
+	
+	```
+	MIDBankTransferCharge.mandiri(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+        
+    })
 	```
 	
 **<a id="sdk-charge-direct-debit"></a>Direct Debit**
 
 1. <a id="sdk-charge-mandiri-clickpay"></a>Mandiri Clickpay
 
+	Objective C
+	
 	```
-    [MIDDirectDebitCharge mandiriClickpayWithToken:<snap token>
-                                        cardNumber:<debit number>
-                                     clickpayToken:<clickpay token>
+    [MIDDirectDebitCharge mandiriClickpayWithToken:snapToken
+                                        cardNumber:@"4111111111111111"
+                                     clickpayToken:@"000000"
                                         completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
      {
-         //handle result or error
+
      }];
 	```
+	
+	Swift
+	
+	```
+	MIDDirectDebitCharge.mandiriClickpay(
+        withToken: snapToken,
+        cardNumber: "4111111111111111",
+        clickpayToken: "000000",
+        completion: { (result, error) in
+     	      
+    })
+	```
+	
 
 2. <a id="sdk-charge-cimb-clicks"></a>CIMB Clicks
 
+	Objective C
+	
 	```
-    [MIDDirectDebitCharge cimbClicksWithToken:<snap token>
+    [MIDDirectDebitCharge cimbClicksWithToken:snapToken
                                    completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
      {
          //handle result or error
      }];	
 	```
 	
+	Swift
+	
+	```
+	MIDDirectDebitCharge.cimbClicks(withToken: snapToken, completion: { (result, error) in
+                
+	})
+	```
+	
 3. <a id="sdk-charge-epay-bri"></a>ePay BRI
 
+	Objective C
+	
 	```
-	[MIDDirectDebitCharge briEpayWithToken:<snap token>
+	[MIDDirectDebitCharge briEpayWithToken:snapToken
                                 completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
      {
-         //handle result or error
+
      }];
+	```
+	
+	Swift
+	
+	```
+	MIDDirectDebitCharge.briEpay(withToken: snapToken, completion: { (result, error) in
+                
+    })
 	```
 	
 4. <a id="sdk-charge-bca-klikpay"></a>BCA KlikPay
 
+	Objective C
+	
 	```
-	[MIDDirectDebitCharge bcaKlikPayWithToken:<snap token>
+	[MIDDirectDebitCharge bcaKlikPayWithToken:snapToken
                                    completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
      {
-			//handle result or error
+
      }];
+	```
+	
+	Swift
+	
+	```
+	MIDDirectDebitCharge.bcaKlikPay(withToken: snapToken, completion: { (result, error) in
+                
+	})
 	```
 	
 5. <a id="sdk-charge-klikbca"></a>KlikBCA
 
+	Objective C
+	
 	```
-	[MIDDirectDebitCharge klikbcaWithToken:<snap token>
-                                    userID:<klikbca user id>
+	[MIDDirectDebitCharge klikbcaWithToken:snapToken
+                                    userID:@"SUSAN0707"
                                 completion:^(MIDKlikbcaResult * _Nullable result, NSError * _Nullable error)
      {
          //handle result or error
      }];
 	```
 	
+	Swift
+	
+	```
+	MIDDirectDebitCharge.klikbca(withToken: snapToken, userID: "SUSAN0707", completion: { (result, error) in
+                
+    })
+	```
+	
 **<a id="sdk-charge-convenience-store"></a>Convenience Store**
 
 1. <a id="sdk-charge-indomaret"></a>Indomaret
 
+	Objective C
+	
 	```
-	[MIDStoreCharge indomaretWithToken:<snap token>
+	[MIDStoreCharge indomaretWithToken:snapToken
                             completion:^(MIDIndomaretResult * _Nullable result, NSError * _Nullable error)
      {
-         //handle result or error
+
      }];
+	```
+	
+	Swift
+	
+	```
+	MIDStoreCharge.indomaret(withToken: snapToken, completion: { (result, error) in
+                
+    })
 	```
 	
 **<a id="sdk-charge-wallet"></a>E-Wallet**
 
 1. <a id="sdk-charge-gopay"></a>Go-Pay
 
+	Objective C
+	
 	```
-    [MIDEWalletCharge gopayWithToken:<snap token>
+    [MIDEWalletCharge gopayWithToken:snapToken
                           completion:^(MIDGopayResult * _Nullable result, NSError * _Nullable error)
      {
          //handle result or error
      }];
 	```
+	
+	Swift
+	
+	```
+	MIDEWalletCharge.gopay(withToken: snapToken, completion: { (result, error) in
+                
+    })
+	```
 
 2. <a id="sdk-charge-tcash"></a>Telkomsel Cash
 
+	Objective C
+	
 	```
-    [MIDEWalletCharge tcashWithToken:<snap token>
-                         phoneNumber:<telkomsel sim card number>
+    [MIDEWalletCharge tcashWithToken:snapToken
+                         phoneNumber:@"0811111111"
                           completion:^(MIDPaymentResult * _Nullable result, NSError * _Nullable error)
      {
-         //handle result or error
+
      }];	
+	```
+	
+	Swift
+	
+	```
+	MIDEWalletCharge.tcash(withToken: snapToken, phoneNumber: "0811111111", completion: { (result, error) in
+                
+    })
 	```
 	
 3. <a id="sdk-charge-ecash"></a>Mandiri e-Cash
 
+	Objective C
+	
 	```
 	[MIDEWalletCharge mandiriECashWithToken:token
 	                             completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
@@ -448,4 +729,12 @@ and put it when do checkout
 	     //handle result or error
 	 }];
 
+	```
+
+	Swift
+	
+	```
+	MIDEWalletCharge.mandiriECash(withToken: snapToken, completion: { (result, error) in
+                
+    })
 	```

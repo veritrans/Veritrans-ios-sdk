@@ -19,24 +19,65 @@
 
 - (IBAction)checkoutPressed:(id)sender {
     NSString *orderID = [NSString stringWithFormat:@"%f", [NSDate new].timeIntervalSince1970];
-    MIDCheckoutTransaction *trx = [MIDCheckoutTransaction modelWithOrderID:orderID
-                                                               grossAmount:@20000
-                                                                  currency:MIDCurrencyIDR];
+    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
     
     MIDCheckoutIdentifier *identifier = [[MIDCheckoutIdentifier alloc] initWithUserIdentifier:@"jukiginanjar"];
-    MIDCheckoutCreditCard *cc = [MIDCheckoutCreditCard new];
-    cc.secure = YES;
-    NSArray *terms = @[[MIDCheckoutInstallmentTerm modelWithBank:MIDAcquiringBankBCA terms:@[@3, @6]],
-                       [MIDCheckoutInstallmentTerm modelWithBank:MIDAcquiringBankBNI terms:@[@6, @12]]];
-    cc.installment = [MIDCheckoutInstallment modelWithTerms:terms required:YES];
+    
+    NSArray *whitelistBins = @[@"48111111", @"41111111"];
+    NSArray *blacklistBins = @[@"49111111", @"44111111"];
+    MIDCheckoutInstallmentTerm *term = [[MIDCheckoutInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+                                                                                  terms:@[@6, @12]];
+    MIDCheckoutInstallment *installment = [[MIDCheckoutInstallment alloc] initWithTerms:@[term] required:YES];
+    MIDCheckoutCreditCard *cc = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                          enableSecure:YES
+                                                                         acquiringBank:MIDAcquiringBankBCA
+                                                                      acquiringChannel:MIDAcquiringChannelMIGS
+                                                                           installment:installment
+                                                                         whiteListBins:whitelistBins
+                                                                         blackListBins:blacklistBins];
+    
+    MIDAddress *addr = [[MIDAddress alloc] initWithFirstName:@"susan"
+                                                    lastName:@"bahtiar"
+                                                       email:@"susan_bahtiar@gmail.com"
+                                                       phone:@"08123456789"
+                                                     address:@"Kemayoran"
+                                                        city:@"Jakarta"
+                                                  postalCode:@"10610"
+                                                 countryCode:@"IDN"];
+    MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:@"susan"
+                                                                          lastName:@"bahtiar"
+                                                                             email:@"susan_bahtiar@gmail.com"
+                                                                             phone:@"08123456789"
+                                                                    billingAddress:addr
+                                                                   shippingAddress:addr];
+    
+    MIDItem *item = [[MIDItem alloc] initWithID:@"item1"
+                                          price:@15000
+                                       quantity:1
+                                           name:@"Tooth paste"
+                                          brand:@"Pepsodent"
+                                       category:@"Health care"
+                                   merchantName:@"Neo Store"];
+    MIDCheckoutItem *checkoutItem = [[MIDCheckoutItem alloc] initWithItems:@[item]];
+    
+    MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yoururlscheme://"];
+    
+    MIDCheckoutExpiry *expiry = [[MIDCheckoutExpiry alloc] initWithStartDate:[NSDate date]
+                                                                    duration:1
+                                                                        unit:MIDExpiryTimeUnitDay];
+    
+    //and put it at checkout options
     
     [MIDClient checkoutWith:trx
-                    options:@[identifier, cc]
+                    options:@[expiry]
                  completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
      {
+         NSString *snapToken = token.token;
          NSLog(@"Token: %@", token.dictionaryValue);
          
-         //         [self fetchPaymentInfo:token.token];
+         [self fetchPaymentInfo:token.token];
      }];
 }
 
@@ -86,7 +127,7 @@
          [MIDCreditCardCharge chargeWithToken:snapToken
                                     cardToken:token.tokenID
                                          save:YES
-                                  installment:[MIDChargeInstallment modelWithBank:MIDAcquiringBankBCA term:3]
+                                  installment:[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:3]
                                         point:@20000
                                    completion:^(MIDCreditCardResult * _Nullable result, NSError * _Nullable error)
           {

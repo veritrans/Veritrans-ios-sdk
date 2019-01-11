@@ -11,7 +11,7 @@
 
 @implementation MIDCheckoutExpiry
 
-- (instancetype)initWithStartDate:(NSDate *)date duration:(NSNumber *)duration unit:(MIDExpiryTimeUnit)unit {
+- (instancetype)initWithStartDate:(NSDate *)date duration:(NSInteger)duration unit:(MIDExpiryTimeUnit)unit {
     if (self = [super init]) {
         self.startDate = date;
         self.duration = duration;
@@ -24,7 +24,7 @@
 - (NSDictionary *)dictionaryValue {
     NSString *startTime = [NSString stringFromDate:self.startDate format:@"yyyy-MM-dd HH:mm:ss Z"];
     NSDictionary *expiry =  @{@"start_time": startTime,
-                              @"duration": self.duration,
+                              @"duration": @(self.duration),
                               @"unit": [NSString nameOfExpiryUnit: self.unit]
                               };
     return @{@"expiry": expiry};

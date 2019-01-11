@@ -11,11 +11,12 @@
 
 @implementation MIDCheckoutInstallment
 
-+ (instancetype)modelWithTerms:(NSArray<MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required {
-    MIDCheckoutInstallment *obj = [MIDCheckoutInstallment new];
-    obj.terms = terms;
-    obj.required = required;
-    return obj;
+- (instancetype)initWithTerms:(NSArray<MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required {
+    if (self = [super init]) {
+        self.terms = terms;
+        self.required = required;
+    }
+    return self;
 }
 
 - (nonnull NSDictionary *)dictionaryValue {

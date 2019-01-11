@@ -24,22 +24,17 @@
     return @{@"credit_card": result};
 }
 
-+ (instancetype)modelWithTransactionType:(MIDCreditCardTransactionType)type
-                            enableSecure:(BOOL)secure
-                           acquiringBank:(MIDAcquiringBank)bank
-                        acquiringChannel:(MIDAcquiringChannel)channel
-                             installment:(MIDCheckoutInstallment *)installment
-                           whiteListBins:(NSArray<NSString *> *)whiteListBins
-                           blackListBins:(NSArray<NSString *> *)blackListBins {    
-    MIDCheckoutCreditCard *obj = [MIDCheckoutCreditCard new];
-    obj.type = type;
-    obj.secure = secure;
-    obj.bank = bank;
-    obj.channel = channel;
-    obj.installment = installment;
-    obj.whiteListBins = whiteListBins;
-    obj.blackListBins = blackListBins;
-    return obj;
+- (instancetype)initWithTransactionType:(MIDCreditCardTransactionType)type enableSecure:(BOOL)secure acquiringBank:(MIDAcquiringBank)bank acquiringChannel:(MIDAcquiringChannel)channel installment:(MIDCheckoutInstallment *)installment whiteListBins:(NSArray<NSString *> *)whiteListBins blackListBins:(NSArray<NSString *> *)blackListBins {
+    if (self = [super init]) {
+        self.type = type;
+        self.secure = secure;
+        self.bank = bank;
+        self.channel = channel;
+        self.installment = installment;
+        self.whiteListBins = whiteListBins;
+        self.blackListBins = blackListBins;
+    }
+    return self;
 }
 
 @end

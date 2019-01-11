@@ -20,13 +20,13 @@
 @property (nonatomic) NSString *postalCode;
 @property (nonatomic) NSString *countryCode;
 
-- (instancetype)initWithFirstName:(NSString *)firstName
-                         lastName:(NSString *)lastName
-                            email:(NSString *)email
-                            phone:(NSString *)phone
-                          address:(NSString *)address
-                             city:(NSString *)city
-                       postalCode:(NSString *)postalCode
-                      countryCode:(NSString *)countryCode;
+- (instancetype _Nonnull)initWithFirstName:(NSString *)firstName
+                                  lastName:(NSString *)lastName
+                                     email:(NSString *)email
+                                     phone:(NSString *)phone
+                                   address:(NSString *)address
+                                      city:(NSString *)city
+                                postalCode:(NSString *)postalCode
+                               countryCode:(NSString *)countryCode;
 
 @end

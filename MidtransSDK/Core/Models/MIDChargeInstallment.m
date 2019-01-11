@@ -18,11 +18,12 @@
 
 @implementation MIDChargeInstallment
 
-+ (instancetype)modelWithBank:(MIDAcquiringBank)bank term:(NSInteger)term {
-    MIDChargeInstallment *obj = [MIDChargeInstallment new];
-    obj.bank = bank;
-    obj.term = term;
-    return obj;
+- (instancetype)initWithBank:(MIDAcquiringBank)bank term:(NSInteger)term {
+    if (self = [super init]) {
+        self.bank = bank;
+        self.term = term;
+    }
+    return self;
 }
 
 - (NSString *)value {

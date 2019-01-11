@@ -23,9 +23,10 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"card_number": self.cardNumber,
-             @"client_key": [MIDVendor shared].clientKey
-             };
+    NSMutableDictionary *result = [NSMutableDictionary new];
+    [result setValue:self.cardNumber forKey:@"card_number"];
+    [result setValue:[MIDVendor shared].clientKey forKey:@"client_key"];
+    return result;
 }
 
 @end

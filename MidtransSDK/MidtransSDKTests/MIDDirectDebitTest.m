@@ -69,36 +69,4 @@
     }];
 }
 
-- (void)testForKlikbca {
-    XCTestExpectation *promise = [XCTestExpectation new];
-    
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        NSString *klikbcaUser = @"JUKI0303";
-        [MIDDirectDebitCharge klikbcaWithToken:token
-                                        userID:klikbcaUser
-                                    completion:^(MIDKlikbcaResult * _Nullable result, NSError * _Nullable error)
-         {
-             XCTAssertNotNil(result.approvalCode, @"klikbca test is error");
-             [promise fulfill];
-         }];
-    }];
-}
-
-- (void)testForMandiriClickpay {
-    XCTestExpectation *promise = [XCTestExpectation new];
-    
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        NSString *cardNumber = @"4111111111111111";
-        NSString *clickpayToken = @"000000";
-        [MIDDirectDebitCharge mandiriClickpayWithToken:token
-                                            cardNumber:cardNumber
-                                         clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
-         {
-             XCTAssertNotNil(result.approvalCode, @"clickpay online test is error");
-             [promise fulfill];
-         }];
-    }];
-}
-
 @end

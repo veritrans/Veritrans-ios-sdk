@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <XCTest/XCTest.h>
 #import "MIDTransSDK.h"
 
 NS_ASSUME_NONNULL_BEGIN
@@ -15,6 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (NSString *)orderID;
 + (void)setup;
+
+@end
+
+@interface XCTestCase (helper)
+
+- (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion;
 
 @end
 

@@ -16,21 +16,7 @@
 @implementation MIDStoreTest
 
 - (void)setUp {
-    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
-                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
-                      environment:MIDEnvironmentSandbox];
-}
-
-- (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
-    MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
-                                                                      grossAmount:@20000
-                                                                         currency:MIDCurrencyIDR];
-    
-    [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
-        NSString *_token = token.token;
-        XCTAssertNotNil(_token);
-        completion(_token, error);
-    }];
+    [MIDTestHelper setup];
 }
 
 - (void)testForIndomaret {

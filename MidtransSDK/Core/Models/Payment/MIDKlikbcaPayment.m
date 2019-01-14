@@ -18,9 +18,12 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    return @{@"payment_type" : @"bca_klikbca",
-             @"payment_params" : @{@"user_id":self.userID}
-             };
+    NSMutableDictionary *result = [NSMutableDictionary new];
+    [result setValue:@"bca_klikbca" forKey:@"payment_type"];    
+    if (self.userID) {
+        [result setValue:@{@"user_id":self.userID} forKey:@"payment_params"];
+    }
+    return result;
 }
 
 @end

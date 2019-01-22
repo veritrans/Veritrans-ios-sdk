@@ -10,7 +10,7 @@
 #import "MIDCheckoutable.h"
 #import "MIDAddress.h"
 
-@interface MIDCheckoutCustomer : NSObject<MIDCheckoutable>
+@interface MIDCustomerDetails : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSString *firstName;
 @property (nonatomic) NSString *lastName;

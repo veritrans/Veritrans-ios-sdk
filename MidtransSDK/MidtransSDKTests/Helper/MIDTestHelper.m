@@ -20,13 +20,22 @@
                       environment:MIDEnvironmentSandbox];
 }
 
++ (NSNumber *)grossAmount {
+    return @200000;
+}
+
 @end
 
 @implementation XCTestCase (helper)
 
 - (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
+    [self getTokenWithOptions:nil completion:completion];
+}
+
+- (void)getTokenWithOptions:(NSArray <NSObject <MIDCheckoutable>*> * _Nullable)options
+                 completion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
     MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
-                                                                      grossAmount:@20000
+                                                                      grossAmount:[MIDTestHelper grossAmount]
                                                                          currency:MIDCurrencyIDR];
     
     [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {

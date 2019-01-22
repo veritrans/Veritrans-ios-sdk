@@ -6,10 +6,10 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDCheckoutItem.h"
+#import "MIDCheckoutItems.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDCheckoutItem
+@implementation MIDCheckoutItems
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];

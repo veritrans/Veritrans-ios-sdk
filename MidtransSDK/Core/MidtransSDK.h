@@ -9,9 +9,9 @@
 #import "MIDClient.h"
 
 #import "MIDCheckoutTransaction.h"
-#import "MIDCheckoutCustomer.h"
-#import "MIDCheckoutItem.h"
-#import "MIDCheckoutCreditCard.h"
+#import "MIDCustomerDetails.h"
+#import "MIDCheckoutItems.h"
+#import "MIDCreditCard.h"
 #import "MIDCheckoutGoPay.h"
 #import "MIDCheckoutIdentifier.h"
 #import "MIDCustomField.h"

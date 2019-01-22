@@ -27,16 +27,16 @@
     
     NSArray *whitelistBins = @[@"48111111", @"41111111"];
     NSArray *blacklistBins = @[@"49111111", @"44111111"];
-    MIDCheckoutInstallmentTerm *term = [[MIDCheckoutInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+    MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
                                                                                   terms:@[@6, @12]];
-    MIDCheckoutInstallment *installment = [[MIDCheckoutInstallment alloc] initWithTerms:@[term] required:YES];
-    MIDCheckoutCreditCard *cc = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
-                                                                          enableSecure:YES
-                                                                         acquiringBank:MIDAcquiringBankBCA
-                                                                      acquiringChannel:MIDAcquiringChannelMIGS
-                                                                           installment:installment
-                                                                         whiteListBins:whitelistBins
-                                                                         blackListBins:blacklistBins];
+    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:YES];
+    MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                          enableSecure:NO
+                                                                         acquiringBank:MIDAcquiringBankNone
+                                                                      acquiringChannel:MIDAcquiringChannelNone
+                                                                           installment:nil
+                                                                         whiteListBins:nil
+                                                                         blackListBins:nil];
     
     MIDAddress *addr = [[MIDAddress alloc] initWithFirstName:@"susan"
                                                     lastName:@"bahtiar"
@@ -46,7 +46,7 @@
                                                         city:@"Jakarta"
                                                   postalCode:@"10610"
                                                  countryCode:@"IDN"];
-    MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:@"susan"
+    MIDCustomerDetails *customer = [[MIDCustomerDetails alloc] initWithFirstName:@"susan"
                                                                           lastName:@"bahtiar"
                                                                              email:@"susan_bahtiar@gmail.com"
                                                                              phone:@"08123456789"
@@ -60,7 +60,7 @@
                                           brand:@"Pepsodent"
                                        category:@"Health care"
                                    merchantName:@"Neo Store"];
-    MIDCheckoutItem *checkoutItem = [[MIDCheckoutItem alloc] initWithItems:@[item]];
+    MIDCheckoutItems *checkoutItem = [[MIDCheckoutItems alloc] initWithItems:@[item]];
     
     MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yoururlscheme://"];
     

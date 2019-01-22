@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *grossAmount;
 @property (nonatomic) NSString *orderID;
 @property (nonatomic) NSString *paymentType;
-@property (nonatomic) NSNumber *statusCode;
+@property (nonatomic) NSInteger statusCode;
 @property (nonatomic) NSString *statusMessage;
 @property (nonatomic) NSString *transactionID;
 @property (nonatomic) NSString *transactionStatus;

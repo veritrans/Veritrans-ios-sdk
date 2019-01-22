@@ -6,12 +6,12 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDCheckoutInstallment.h"
+#import "MIDInstallment.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDCheckoutInstallment
+@implementation MIDInstallment
 
-- (instancetype)initWithTerms:(NSArray<MIDCheckoutInstallmentTerm *> *)terms required:(BOOL)required {
+- (instancetype)initWithTerms:(NSArray<MIDInstallmentTerm *> *)terms required:(BOOL)required {
     if (self = [super init]) {
         self.terms = terms;
         self.required = required;
@@ -28,7 +28,7 @@
 
 - (NSDictionary *)installmentTerms {
     NSMutableDictionary *result = [NSMutableDictionary new];
-    for (MIDCheckoutInstallmentTerm *term in self.terms) {
+    for (MIDInstallmentTerm *term in self.terms) {
         [result addEntriesFromDictionary:term.dictionaryValue];
     }
     return result;

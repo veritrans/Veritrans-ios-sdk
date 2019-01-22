@@ -159,7 +159,7 @@ This guide covers how to use the individual components of our SDK.
 
 **<a id="sdk-checkout-custom-customer-info"></a>Customer info option**
 
-The `MIDCheckoutCustomer` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
+The `MIDCustomerDetails` class makes it easy to let your apps manage their customer information that will be attached on checkout process.
 
 Objective C
 
@@ -172,7 +172,7 @@ MIDAddress *addr = [[MIDAddress alloc] initWithFirstName:@"susan"
                                                     city:@"Jakarta"
                                               postalCode:@"10610"
                                              countryCode:@"IDN"];
-MIDCheckoutCustomer *customer = [[MIDCheckoutCustomer alloc] initWithFirstName:@"susan"
+MIDCustomerDetails *customer = [[MIDCustomerDetails alloc] initWithFirstName:@"susan"
                                                                       lastName:@"bahtiar"
                                                                          email:@"susan_bahtiar@gmail.com"
                                                                          phone:@"08123456789"
@@ -202,7 +202,7 @@ let address = MIDAddress(
     postalCode: "10610",
     countryCode: "IDN"
 )
-let customer = MIDCheckoutCustomer(
+let customer = MIDCustomerDetails(
     firstName: "susan",
     lastName: "bahtiar",
     email: "susan_bahtiar@gmail.com",
@@ -234,7 +234,7 @@ MIDItem *item = [[MIDItem alloc] initWithID:@"item1"
                                       brand:@"Pepsodent"
                                    category:@"Health care"
                                merchantName:@"Neo Store"];
-MIDCheckoutItem *checkoutItem = [[MIDCheckoutItem alloc] initWithItems:@[item]];
+MIDCheckoutItems *checkoutItem = [[MIDCheckoutItems alloc] initWithItems:@[item]];
     
 //and put it at checkout options
 
@@ -258,7 +258,7 @@ let item = MIDItem(
     category: "health care",
     merchantName: "Neo Store"
 )
-let checkoutItem = MIDCheckoutItem(items: [item])
+let checkoutItem = MIDCheckoutItems(items: [item])
     
 //and put it at checkout options
     
@@ -270,17 +270,17 @@ MIDClient.checkout(with: trx, options: [checkoutItem]) { (token, error) in
 
 **<a id="sdk-checkout-custom-items-cc-options"></a>Credit Card Option**
 
-The`MIDCheckoutCreditCard ` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
+The`MIDCreditCard` class makes it easy to let your apps manage credit card setting  information that will be attached on checkout process.
 
 Objective C
 
 ```
 NSArray *whitelistBins = @[@"48111111", @"41111111"];
 NSArray *blacklistBins = @[@"49111111", @"44111111"];
-MIDCheckoutInstallmentTerm *term = [[MIDCheckoutInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
                                                                               terms:@[@6, @12]];
-MIDCheckoutInstallment *installment = [[MIDCheckoutInstallment alloc] initWithTerms:@[term] required:YES];
-MIDCheckoutCreditCard *cc = [[MIDCheckoutCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:YES];
+MIDCreditCard *cc = [[MIDCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
                                                                       enableSecure:YES
                                                                      acquiringBank:MIDAcquiringBankBCA
                                                                   acquiringChannel:MIDAcquiringChannelMIGS
@@ -302,9 +302,9 @@ Swift
 ```
 let whitelistBins = ["48111111", "41111111"]
 let blacklistBins = ["49111111", "44111111"]
-let term = MIDCheckoutInstallmentTerm(bank: .BCA, terms: [6, 12])
-let installment = MIDCheckoutInstallment(terms: [term], required: true)
-let cc = MIDCheckoutCreditCard(
+let term = MIDInstallmentTerm(bank: .BCA, terms: [6, 12])
+let installment = MIDInstallment(terms: [term], required: true)
+let cc = MIDCreditCard(
     transactionType: .authorizeCapture,
     enableSecure: true,
     acquiringBank: .BCA,

@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "MIDNetworkEnums.h"
 #import "MIDCheckoutTransaction.h"
-#import "MIDCheckoutCustomer.h"
-#import "MIDCheckoutItem.h"
+#import "MIDCustomerDetails.h"
+#import "MIDCheckoutItems.h"
 #import "MIDToken.h"
 #import "MIDPaymentInfo.h"
 

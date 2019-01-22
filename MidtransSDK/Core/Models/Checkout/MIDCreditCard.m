@@ -6,10 +6,10 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDCheckoutCreditCard.h"
+#import "MIDCreditCard.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDCheckoutCreditCard
+@implementation MIDCreditCard
 
 - (nonnull NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
@@ -24,7 +24,7 @@
     return @{@"credit_card": result};
 }
 
-- (instancetype)initWithTransactionType:(MIDCreditCardTransactionType)type enableSecure:(BOOL)secure acquiringBank:(MIDAcquiringBank)bank acquiringChannel:(MIDAcquiringChannel)channel installment:(MIDCheckoutInstallment *)installment whiteListBins:(NSArray<NSString *> *)whiteListBins blackListBins:(NSArray<NSString *> *)blackListBins {
+- (instancetype)initWithCreditCardTransactionType:(MIDCreditCardTransactionType)type enableSecure:(BOOL)secure acquiringBank:(MIDAcquiringBank)bank acquiringChannel:(MIDAcquiringChannel)channel installment:(MIDInstallment *)installment whiteListBins:(NSArray<NSString *> *)whiteListBins blackListBins:(NSArray<NSString *> *)blackListBins {
     if (self = [super init]) {
         self.type = type;
         self.secure = secure;

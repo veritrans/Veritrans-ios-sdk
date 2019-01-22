@@ -6,10 +6,10 @@
 //  Copyright © 2019 Midtrans. All rights reserved.
 //
 
-#import "MIDCheckoutInstallmentTerm.h"
+#import "MIDInstallmentTerm.h"
 #import "MIDModelHelper.h"
 
-@implementation MIDCheckoutInstallmentTerm
+@implementation MIDInstallmentTerm
 
 - (instancetype)initWithBank:(MIDAcquiringBank)bank terms:(NSArray<NSNumber *> *)terms {
     if (self = [super init]) {

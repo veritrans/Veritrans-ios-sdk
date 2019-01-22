@@ -8,10 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDCheckoutable.h"
-#import "MIDCheckoutInstallment.h"
+#import "MIDInstallment.h"
 #import "MIDModelEnums.h"
 
-@interface MIDCheckoutCreditCard : NSObject<MIDCheckoutable>
+@interface MIDCreditCard : NSObject<MIDCheckoutable>
 
 @property (nonatomic) BOOL secure;
 @property (nonatomic) MIDAcquiringBank bank;
@@ -19,7 +19,7 @@
 @property (nonatomic) MIDCreditCardTransactionType type;
 @property (nonatomic) NSArray <NSString *> *whiteListBins;
 @property (nonatomic) NSArray <NSString *> *blackListBins;
-@property (nonatomic) MIDCheckoutInstallment *installment;
+@property (nonatomic) MIDInstallment *installment;
 
 /**
  Credit card payment options
@@ -30,12 +30,12 @@
  @param channel Acquiring channel. Options: migs
  @param installment Credit card payment with installment
  */
-- (instancetype _Nonnull)initWithTransactionType:(MIDCreditCardTransactionType)type
-                                    enableSecure:(BOOL)secure
-                                   acquiringBank:(MIDAcquiringBank)bank
-                                acquiringChannel:(MIDAcquiringChannel)channel
-                                     installment:(MIDCheckoutInstallment *)installment
-                                   whiteListBins:(NSArray <NSString *> *)whiteListBins
-                                   blackListBins:(NSArray <NSString *> *)blackListBins;
+- (instancetype _Nonnull)initWithCreditCardTransactionType:(MIDCreditCardTransactionType)type
+                                              enableSecure:(BOOL)secure
+                                             acquiringBank:(MIDAcquiringBank)bank
+                                          acquiringChannel:(MIDAcquiringChannel)channel
+                                               installment:(MIDInstallment *)installment
+                                             whiteListBins:(NSArray <NSString *> *)whiteListBins
+                                             blackListBins:(NSArray <NSString *> *)blackListBins;
 
 @end

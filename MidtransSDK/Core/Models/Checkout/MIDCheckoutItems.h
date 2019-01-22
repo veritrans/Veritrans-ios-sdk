@@ -10,7 +10,7 @@
 #import "MIDCheckoutable.h"
 #import "MIDItem.h"
 
-@interface MIDCheckoutItem : NSObject<MIDCheckoutable>
+@interface MIDCheckoutItems : NSObject<MIDCheckoutable>
 
 @property (nonatomic) NSArray <MIDItem *> *items;
 

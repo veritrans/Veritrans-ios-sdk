@@ -36,7 +36,7 @@ class MIDSwiftViewController: UIViewController {
             postalCode: "10610",
             countryCode: "IDN"
         )
-        let customer = MIDCheckoutCustomer(
+        let customer = MIDCustomerDetails(
             firstName: "susan",
             lastName: "bahtiar",
             email: "susan_bahtiar@gmail.com",
@@ -54,13 +54,13 @@ class MIDSwiftViewController: UIViewController {
             category: "health care",
             merchantName: "Neo Store"
         )
-        let checkoutItem = MIDCheckoutItem(items: [item])
+        let checkoutItem = MIDCheckoutItems(items: [item])
         
         let whitelistBins = ["48111111", "41111111"]
         let blacklistBins = ["49111111", "44111111"]
-        let term = MIDCheckoutInstallmentTerm(bank: .BCA, terms: [6, 12])
-        let installment = MIDCheckoutInstallment(terms: [term], required: true)
-        let cc = MIDCheckoutCreditCard(
+        let term = MIDInstallmentTerm(bank: .BCA, terms: [6, 12])
+        let installment = MIDInstallment(terms: [term], required: true)
+        let cc = MIDCreditCard(
             transactionType: .authorizeCapture,
             enableSecure: true,
             acquiringBank: .BCA,

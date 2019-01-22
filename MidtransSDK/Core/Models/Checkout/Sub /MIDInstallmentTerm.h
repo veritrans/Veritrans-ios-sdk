@@ -12,7 +12,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDCheckoutInstallmentTerm : NSObject <MIDCheckoutable>
+@interface MIDInstallmentTerm : NSObject <MIDCheckoutable>
 
 @property (nonatomic) MIDAcquiringBank bank;
 @property (nonatomic) NSArray <NSNumber *> *terms;

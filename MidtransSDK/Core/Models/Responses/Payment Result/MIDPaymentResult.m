@@ -18,7 +18,7 @@
     [result setValue:self.grossAmount forKey:@"gross_amount"];
     [result setValue:self.orderID forKey:@"order_id"];
     [result setValue:self.paymentType forKey:@"payment_type"];
-    [result setValue:self.statusCode forKey:@"status_code"];
+    [result setValue:@(self.statusCode) forKey:@"status_code"];
     [result setValue:self.statusMessage forKey:@"status_message"];
     [result setValue:self.transactionID forKey:@"transaction_id"];
     [result setValue:self.transactionStatus forKey:@"transaction_status"];
@@ -36,7 +36,7 @@
         self.grossAmount = [dictionary objectOrNilForKey:@"gross_amount"];
         self.orderID = [dictionary objectOrNilForKey:@"order_id"];
         self.paymentType = [dictionary objectOrNilForKey:@"payment_type"];
-        self.statusCode = [dictionary objectOrNilForKey:@"status_code"];
+        self.statusCode = [[dictionary objectOrNilForKey:@"status_code"] integerValue];
         self.statusMessage = [dictionary objectOrNilForKey:@"status_message"];
         self.transactionID = [dictionary objectOrNilForKey:@"transaction_id"];
         self.transactionStatus = [dictionary objectOrNilForKey:@"transaction_status"];

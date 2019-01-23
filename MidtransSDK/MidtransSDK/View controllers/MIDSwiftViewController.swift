@@ -140,11 +140,7 @@ class MIDSwiftViewController: UIViewController {
             MIDEWalletCharge.gopay(withToken: snapToken, completion: { (result, error) in
                 
             })
-            
-            MIDEWalletCharge.tcash(withToken: snapToken, phoneNumber: "0811111111", completion: { (result, error) in
-                
-            })
-            
+
             MIDEWalletCharge.mandiriECash(withToken: snapToken, completion: { (result, error) in
                 
             })

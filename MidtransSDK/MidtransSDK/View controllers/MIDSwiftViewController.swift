@@ -61,7 +61,7 @@ class MIDSwiftViewController: UIViewController {
         let term = MIDInstallmentTerm(bank: .BCA, terms: [6, 12])
         let installment = MIDInstallment(terms: [term], required: true)
         let cc = MIDCreditCard(
-            transactionType: .authorizeCapture,
+            creditCardTransactionType: .authorizeCapture,
             enableSecure: true,
             acquiringBank: .BCA,
             acquiringChannel: .MIGS,

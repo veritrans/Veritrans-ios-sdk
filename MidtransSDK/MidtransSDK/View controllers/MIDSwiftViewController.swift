@@ -105,6 +105,10 @@ class MIDSwiftViewController: UIViewController {
                 
             })
             
+            MIDBankTransferCharge.other(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+                
+            })
+            
             MIDDirectDebitCharge.mandiriClickpay(
                 withToken: snapToken,
                 cardNumber: "4111111111111111",

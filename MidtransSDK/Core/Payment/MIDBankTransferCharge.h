@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
                email:(NSString *)email
           completion:(void (^_Nullable) (MIDBNIBankTransferResult *_Nullable result, NSError *_Nullable error))completion;
 
++ (void)otherWithToken:(NSString *)token
+                 email:(NSString *)email
+            completion:(void (^_Nullable) (id _Nullable result, NSError *_Nullable error))completion;
 @end
 
 NS_ASSUME_NONNULL_END

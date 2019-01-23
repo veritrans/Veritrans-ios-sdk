@@ -105,7 +105,7 @@ class MIDSwiftViewController: UIViewController {
                 
             })
             
-            MIDBankTransferCharge.other(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+            MIDBankTransferCharge.otherBank(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
                 
             })
             

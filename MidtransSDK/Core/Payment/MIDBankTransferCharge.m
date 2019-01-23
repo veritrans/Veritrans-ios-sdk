@@ -68,9 +68,9 @@
     }];
 }
 
-+ (void)otherWithToken:(NSString *)token
-                 email:(NSString *)email
-            completion:(void (^_Nullable) (id _Nullable result, NSError *_Nullable error))completion {
++ (void)otherBankWithToken:(NSString *)token
+                     email:(NSString *)email
+                completion:(void (^_Nullable) (id _Nullable result, NSError *_Nullable error))completion {
     MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypeOther email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
         if (response) {

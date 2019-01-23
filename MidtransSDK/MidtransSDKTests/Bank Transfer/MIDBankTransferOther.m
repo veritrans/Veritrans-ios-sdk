@@ -26,7 +26,7 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge otherWithToken:token email:_email completion:^(id _Nullable result, NSError * _Nullable error) {
+        [MIDBankTransferCharge otherBankWithToken:token email:_email completion:^(id _Nullable result, NSError * _Nullable error) {
             XCTAssertNotNil(result, @"test other va is error");
             [promise fulfill];
         }];
@@ -38,10 +38,10 @@ static NSString *_email = @"test-mobile@midtrans.com";
 - (void)testTokenNotFoundOther {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [MIDBankTransferCharge otherWithToken:nil email:_email completion:^(id _Nullable result, NSError * _Nullable error) {
-         XCTAssertTrue(error.code == 404);
-         [promise fulfill];
-     }];
+    [MIDBankTransferCharge otherBankWithToken:nil email:_email completion:^(id _Nullable result, NSError * _Nullable error) {
+        XCTAssertTrue(error.code == 404);
+        [promise fulfill];
+    }];
     
     [self waitForExpectations:@[promise] timeout:120];
 }

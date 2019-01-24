@@ -30,20 +30,8 @@
              [promise fulfill];
          }];
     }];
-}
-
-- (void)testForTCash {
-    XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDEWalletCharge tcashWithToken:token
-                             phoneNumber:@"0811111111"
-                              completion:^(MIDPaymentResult * _Nullable result, NSError * _Nullable error)
-         {
-             XCTAssertNotNil(result.orderID, @"T-Cash test is error");
-             [promise fulfill];
-         }];
-    }];
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)testForMandiriEcash {
@@ -57,6 +45,34 @@
              [promise fulfill];
          }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testEmptyTokenGopay {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDEWalletCharge gopayWithToken:nil
+                          completion:^(MIDGopayResult * _Nullable result, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404, @"error should be 404");
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testEmptyTokenMandiriEcash {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDEWalletCharge mandiriECashWithToken:nil
+                                 completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404, @"error should be 404");
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 @end

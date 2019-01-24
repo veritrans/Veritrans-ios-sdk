@@ -61,7 +61,7 @@ class MIDSwiftViewController: UIViewController {
         let term = MIDInstallmentTerm(bank: .BCA, terms: [6, 12])
         let installment = MIDInstallment(terms: [term], required: true)
         let cc = MIDCreditCard(
-            transactionType: .authorizeCapture,
+            creditCardTransactionType: .authorizeCapture,
             enableSecure: true,
             acquiringBank: .BCA,
             acquiringChannel: .MIGS,
@@ -105,6 +105,10 @@ class MIDSwiftViewController: UIViewController {
                 
             })
             
+            MIDBankTransferCharge.otherBank(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+                
+            })
+            
             MIDDirectDebitCharge.mandiriClickpay(
                 withToken: snapToken,
                 cardNumber: "4111111111111111",
@@ -136,11 +140,7 @@ class MIDSwiftViewController: UIViewController {
             MIDEWalletCharge.gopay(withToken: snapToken, completion: { (result, error) in
                 
             })
-            
-            MIDEWalletCharge.tcash(withToken: snapToken, phoneNumber: "0811111111", completion: { (result, error) in
-                
-            })
-            
+
             MIDEWalletCharge.mandiriECash(withToken: snapToken, completion: { (result, error) in
                 
             })

@@ -18,7 +18,7 @@
 }
 
 - (IBAction)checkoutPressed:(id)sender {
-    NSString *orderID = [NSString stringWithFormat:@"%f", [NSDate new].timeIntervalSince1970];
+    NSString *orderID = [[NSString stringWithFormat:@"%f", [NSDate new].timeIntervalSince1970] stringByReplacingOccurrencesOfString:@"." withString:@""];
     MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
                                                                       grossAmount:@20000
                                                                          currency:MIDCurrencyIDR];
@@ -71,7 +71,7 @@
     //and put it at checkout options
     
     [MIDClient checkoutWith:trx
-                    options:@[expiry]
+                    options:@[cc]
                  completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
      {
          NSString *snapToken = token.token;
@@ -85,7 +85,7 @@
     [MIDClient getPaymentInfoWithToken:token completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
         NSLog(@"Payment info: %@", info.dictionaryValue);
         
-        //        [self payWithToken:token];
+        [self payWithToken:token];
     }];
 }
 
@@ -102,14 +102,15 @@
     //     }];
     
     //    NSString *mandiriNumber = @"4617006959746656";
-    NSString *bniNumber = @"4105058689481467";
+//    NSString *bniNumber = @"4105058689481467";
+    NSString *cardNumber = @"4811111111111114";
     
     MIDTokenizeConfig *config = [MIDTokenizeConfig new];
-    config.enable3ds = YES;
-    config.enablePoint = YES;
-    config.grossAmount = @200000;
-    config.installmentTerm = 3;
-    [MIDCreditCardTokenizer tokenizeCardNumber:bniNumber
+//    config.enable3ds = YES;
+//    config.enablePoint = YES;
+    config.grossAmount = @20000;
+//    config.installmentTerm = 6;
+    [MIDCreditCardTokenizer tokenizeCardNumber:cardNumber
                                            cvv:@"123"
                                    expireMonth:@"02"
                                     expireYear:@"20"
@@ -127,8 +128,8 @@
          [MIDCreditCardCharge chargeWithToken:snapToken
                                     cardToken:token.tokenID
                                          save:YES
-                                  installment:[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:3]
-                                        point:@20000
+                                  installment:nil//[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6]
+                                        point:nil//@20000
                                    completion:^(MIDCreditCardResult * _Nullable result, NSError * _Nullable error)
           {
               

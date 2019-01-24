@@ -30,7 +30,21 @@
              [promise fulfill];
          }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
+
+- (void)testEmptyTokenBCAKlikPay {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDDirectDebitCharge bcaKlikPayWithToken:nil completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+        XCTAssertTrue(error.code == 404, @"error code should be 404");
+        [promise fulfill];
+    }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
 
 - (void)testForCIMBClicks {
     XCTestExpectation *promise = [XCTestExpectation new];
@@ -43,6 +57,19 @@
              [promise fulfill];
          }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testEmptyTokenCIMBClicks {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDDirectDebitCharge cimbClicksWithToken:nil completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+        XCTAssertTrue(error.code == 404, @"error code should be 404");
+        [promise fulfill];
+    }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)testForBRIEpay {
@@ -56,6 +83,19 @@
              [promise fulfill];
          }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testEmptyTokenBRIEpay {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDDirectDebitCharge briEpayWithToken:nil completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+        XCTAssertTrue(error.code == 404, @"error code should be 404");
+        [promise fulfill];
+    }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 - (void)testForDanamonOnline {
@@ -67,6 +107,19 @@
             [promise fulfill];
         }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testEmptyTokenDanamonOnline {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDDirectDebitCharge danamonOnlineWithToken:nil completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+        XCTAssertTrue(error.code == 404, @"error code should be 404");
+        [promise fulfill];
+    }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 @end

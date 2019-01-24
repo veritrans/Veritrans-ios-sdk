@@ -8,6 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import "MIDTestHelper.h"
+
 @interface MIDBankTransferPermataTest : XCTestCase
 
 @end

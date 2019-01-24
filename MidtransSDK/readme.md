@@ -543,6 +543,24 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
     })
 	```
 	
+5. Other
+	
+	Objective C
+	
+	```
+	[MIDBankTransferCharge otherWithToken:token email:@"susan_bahtiar@gmail.com" completion:^(id _Nullable result, NSError * _Nullable error) {
+		
+    }];
+	```
+	
+	Swift
+	
+	```
+	MIDBankTransferCharge.other(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+                
+    })
+	```
+	
 **<a id="sdk-charge-direct-debit"></a>Direct Debit**
 
 1. <a id="sdk-charge-mandiri-clickpay"></a>Mandiri Clickpay

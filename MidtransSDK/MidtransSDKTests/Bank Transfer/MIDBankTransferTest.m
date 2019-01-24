@@ -69,31 +69,4 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     [self waitForExpectations:@[promise] timeout:120];
 }
 
-- (void)testForPermata {
-    XCTestExpectation *promise = [XCTestExpectation new];
-    
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge permataWithToken:token email:_email completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error) {
-            XCTAssertNotNil(result.vaNumber, @"va permata test is error");
-            [promise fulfill];
-        }];
-    }];
-    
-    [self waitForExpectations:@[promise] timeout:120];
-}
-
-
-- (void)testForMandiri {
-    XCTestExpectation *promise = [XCTestExpectation new];
-    
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge mandiriWithToken:token email:_email completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error) {
-            XCTAssertNotNil(result.code, @"va mandiri test is error");
-            [promise fulfill];
-        }];
-    }];
-    
-    [self waitForExpectations:@[promise] timeout:120];
-}
-
 @end

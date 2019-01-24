@@ -16,10 +16,10 @@
 #import "MIDCheckoutIdentifier.h"
 #import "MIDCustomField.h"
 #import "MIDCheckoutExpiry.h"
-
 #import "MIDBankTransferCharge.h"
 #import "MIDEWalletCharge.h"
 #import "MIDStoreCharge.h"
 #import "MIDDirectDebitCharge.h"
 #import "MIDCreditCardCharge.h"
+#import "MIDCardlessCreditCharge.h"
 #import "MIDCreditCardTokenizer.h"

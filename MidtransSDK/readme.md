@@ -33,10 +33,10 @@ We also expose the low-level APIs that power those elements to make it easy to b
 		- [Telkomsel Cash](#sdk-charge-tcash)
 		- [Mandiri E-Cash](#sdk-charge-ecash)
 		- [Go-Pay](#sdk-charge-gopay)
-	- [Card Payment](#sdk-charge-card-payment)
+	- [Credit Card Payment](#sdk-charge-credit-card-payment)
 		- Credit Card
 	- [Customer Financing](#sdk-charge-customer-financing)
-		- Akulaku
+		- [Akulaku](#sdk-charge-akulaku)
 
 ## <a id="install-and-configure-sdk"></a> Install and configure the SDK
 You can choose to install the Midtrans iOS SDK via your favorite method. We support CocoaPods and manual installation with both static and dynamic frameworks.
@@ -756,3 +756,28 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
                 
     })
 	```
+	
+**<a id="sdk-charge-credit-card-payment"></a>Credit Card Payment**
+
+**<a id="sdk-charge-customer-financing"></a>Customer Financing**
+
+1. <a id="sdk-charge-akulaku"></a>Akulaku
+
+	Objective C
+	
+	```
+	[MIDCardlessCreditCharge akulakuWithToken:snapToken
+                                   completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
+
+	```
+
+	Swift
+	
+	```
+	MIDCardlessCreditCharge.akulaku(withToken: snapToken, completion: { (result, error) in
+                
+    })
+   ```

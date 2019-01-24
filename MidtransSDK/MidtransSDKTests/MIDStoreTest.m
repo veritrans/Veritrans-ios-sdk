@@ -30,6 +30,21 @@
              [promise fulfill];
          }];
     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
+}
+
+- (void)testEmptyTokenIndomaret {
+    XCTestExpectation *promise = [XCTestExpectation new];
+    
+    [MIDStoreCharge indomaretWithToken:nil
+                            completion:^(MIDIndomaretResult * _Nullable result, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404, @"indomaret transaction should be error 404");
+         [promise fulfill];
+     }];
+    
+    [self waitForExpectations:@[promise] timeout:120];
 }
 
 @end

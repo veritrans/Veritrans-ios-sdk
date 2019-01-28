@@ -211,6 +211,7 @@
     return;
 }
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
+    
     if (UICONFIG.hideStatusPage) {
         [self dismissDemoBadge];
         NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};

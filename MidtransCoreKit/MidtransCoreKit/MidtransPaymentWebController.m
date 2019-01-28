@@ -60,7 +60,10 @@
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     
-    [self.webView loadRequest:[NSURLRequest requestWithURL:self.result.redirectURL]];
+    NSString *urlBase = [NSString stringWithFormat:@"%@",self.result.redirectURL];
+    NSURL *url = [NSURL URLWithString:[urlBase stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+
+    [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }
 
 - (void)closePressed:(id)sender {
@@ -77,7 +80,6 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-    
     if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
         [self.delegate webPaymentController:self transactionError:error];
     }
@@ -91,7 +93,6 @@
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU] && [requestURL containsString:@"akulaku/callback"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] && [requestURL containsString:@"briPayment"])) {
-        
         if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
             [self.delegate webPaymentController_transactionPending:self];
         }
@@ -114,5 +115,20 @@
         }
     }
 }
-
+- (BOOL)webView:(__unused UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType
+{
+    
+    if (![request.URL.scheme isEqual:@"http"] &&
+        ![request.URL.scheme isEqual:@"https"] &&
+        ![request.URL.scheme isEqual:@"about:blank"]) {
+        if ([[UIApplication sharedApplication]canOpenURL:request.URL]) {
+            [[UIApplication sharedApplication]openURL:request.URL];
+        }
+        return NO;
+    }
+    
+    return YES;
+    
+}
 @end

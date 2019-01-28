@@ -28,15 +28,15 @@
     NSArray *whitelistBins = @[@"48111111", @"41111111"];
     NSArray *blacklistBins = @[@"49111111", @"44111111"];
     MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
-                                                                                  terms:@[@6, @12]];
+                                                                  terms:@[@6, @12]];
     MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:YES];
     MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
-                                                                          enableSecure:NO
-                                                                         acquiringBank:MIDAcquiringBankNone
-                                                                      acquiringChannel:MIDAcquiringChannelNone
-                                                                           installment:nil
-                                                                         whiteListBins:nil
-                                                                         blackListBins:nil];
+                                                                  authentication:MIDAuthenticationNone
+                                                                   acquiringBank:MIDAcquiringBankNone
+                                                                acquiringChannel:MIDAcquiringChannelNone
+                                                                     installment:installment
+                                                                   whiteListBins:nil
+                                                                   blackListBins:nil];
     
     MIDAddress *addr = [[MIDAddress alloc] initWithFirstName:@"susan"
                                                     lastName:@"bahtiar"
@@ -47,11 +47,11 @@
                                                   postalCode:@"10610"
                                                  countryCode:@"IDN"];
     MIDCustomerDetails *customer = [[MIDCustomerDetails alloc] initWithFirstName:@"susan"
-                                                                          lastName:@"bahtiar"
-                                                                             email:@"susan_bahtiar@gmail.com"
-                                                                             phone:@"08123456789"
-                                                                    billingAddress:addr
-                                                                   shippingAddress:addr];
+                                                                        lastName:@"bahtiar"
+                                                                           email:@"susan_bahtiar@gmail.com"
+                                                                           phone:@"08123456789"
+                                                                  billingAddress:addr
+                                                                 shippingAddress:addr];
     
     MIDItem *item = [[MIDItem alloc] initWithID:@"item1"
                                           price:@15000
@@ -72,7 +72,7 @@
     
     [MIDClient checkoutWith:trx
                     options:@[cc]
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          NSString *snapToken = token.token;
          NSLog(@"Token: %@", token.dictionaryValue);
@@ -82,7 +82,7 @@
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {
-    [MIDClient getPaymentInfoWithToken:token completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
+    [MIDClient getPaymentInfoWithToken:token completion:^(MIDPaymentInfo *_Nullable info, NSError *_Nullable error) {
         NSLog(@"Payment info: %@", info.dictionaryValue);
         
         [self payWithToken:token];
@@ -96,31 +96,31 @@
     //                                    save:YES
     //                             installment:nil
     //                                   point:nil
-    //                              completion:^(MIDCreditCardResult * _Nullable result, NSError * _Nullable error)
+    //                              completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
     //     {
     //
     //     }];
     
     //    NSString *mandiriNumber = @"4617006959746656";
-//    NSString *bniNumber = @"4105058689481467";
+    //        NSString *bniNumber = @"4105058689481467";
     NSString *cardNumber = @"4811111111111114";
     
     MIDTokenizeConfig *config = [MIDTokenizeConfig new];
-//    config.enable3ds = YES;
-//    config.enablePoint = YES;
+    config.enable3ds = YES;
+    //    config.enablePoint = YES;
     config.grossAmount = @20000;
-//    config.installmentTerm = 6;
+    config.installmentTerm = 6;
     [MIDCreditCardTokenizer tokenizeCardNumber:cardNumber
                                            cvv:@"123"
                                    expireMonth:@"02"
                                     expireYear:@"20"
                                         config:config
-                                    completion:^(MIDTokenizeResponse *_Nullable token, NSError * _Nullable error)
+                                    completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
      {
          
          //         [MIDCreditCardCharge getPointWithToken:snapToken
          //                                      cardToken:token.tokenID
-         //                                     completion:^(MIDPointResponse *_Nullable result, NSError * _Nullable error)
+         //                                     completion:^(MIDPointResponse *_Nullable result, NSError *_Nullable error)
          //          {
          //
          //          }];
@@ -128,9 +128,9 @@
          [MIDCreditCardCharge chargeWithToken:snapToken
                                     cardToken:token.tokenID
                                          save:YES
-                                  installment:nil//[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6]
+                                  installment:[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6]
                                         point:nil//@20000
-                                   completion:^(MIDCreditCardResult * _Nullable result, NSError * _Nullable error)
+                                   completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
           {
               
           }];

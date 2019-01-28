@@ -14,7 +14,7 @@
 @property (nonatomic) NSString *bank;
 @property (nonatomic) NSString *maskedCard;
 @property (nonatomic) NSString *secureURL;
-@property (nonatomic) NSString *statusCode;
+@property (nonatomic) NSInteger statusCode;
 @property (nonatomic) NSString *statusMessage;
 @property (nonatomic) NSString *tokenID;
 

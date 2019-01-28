@@ -75,19 +75,13 @@
             CC_CONFIG.tokenStorageEnabled = YES;
             break;
     }
-    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
+    [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentProduction
-       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
+       merchantServerURL:merchantServer];
     
-//    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
-//             environment:MidtransServerEnvironmentProduction
-//       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
-    
-    //forced to use token storage
     UICONFIG.hideStatusPage = NO;
-    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
+    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
-    CC_CONFIG.secure3DEnabled =[[MDOptionManager shared].secure3DOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];

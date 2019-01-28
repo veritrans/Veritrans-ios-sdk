@@ -183,7 +183,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
              if (!error) {
                  for (NSDictionary *dictionary in requestResponse) {
                      MidtransMaskedCreditCard *card = [[MidtransMaskedCreditCard alloc] initWithDictionary:dictionary];
-                     NSLog(@"data--> %@",card);
+      
                      [result addObject:card];
                  }
              }
@@ -237,7 +237,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
             
             if (completion) {
-                NSLog(@"response-->%@",response);
                 MidtransTransactionTokenResponse *token2;
                 
                 MidtransAddress *billAddressConstruct = [MidtransAddress addressWithFirstName:paymentRequestV2.customerDetails.billingAddress.firstName
@@ -312,7 +311,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     NSMutableDictionary *creditCardParameter = [NSMutableDictionary new];
     [creditCardParameter setValue:@(CC_CONFIG.saveCardEnabled) forKey:@"save_card"];
-    [creditCardParameter setValue:@(CC_CONFIG.secure3DEnabled) forKey:@"secure"];
+    
     if (CC_CONFIG.predefinedInstallment) {
         creditCardParameter[@"installment"] = CC_CONFIG.predefinedInstallment.dictionaryRepresentation;
     }
@@ -326,7 +325,23 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         creditCardParameter[@"bank"] = CC_CONFIG.acquiringBankString;
     }
     if (CC_CONFIG.authenticationTypeString!=nil || [CC_CONFIG.authenticationTypeString length]>0) {
-        creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
+        if (CC_CONFIG.authenticationType == MTAuthenticationTypeNone) {
+            [creditCardParameter setValue:@"false" forKey:@"secure"];
+            creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
+        }
+        else  if(CC_CONFIG.authenticationType == MTAuthenticationType3DS) {
+            [creditCardParameter setValue:@"true" forKey:@"secure"];
+            creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
+        }
+        else  if(CC_CONFIG.authenticationType == MTAuthenticationTypeRBA) {
+            [creditCardParameter setValue:@"false" forKey:@"secure"];
+            creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
+        }
+        else  if(CC_CONFIG.authenticationType == MTAuthenticationTypeRBASecure) {
+            [creditCardParameter setValue:@"true" forKey:@"secure"];
+            creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
+        }
+        
     }
     if (CC_CONFIG.preauthEnabled) {
         creditCardParameter[@"type"] = @"authorize";

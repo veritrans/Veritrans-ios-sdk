@@ -60,6 +60,7 @@
     
     options = @[[MDOption optionGeneralWithName:@"None" value:@(MTAuthenticationTypeNone)],
                 [MDOption optionGeneralWithName:@"RBA" value:@(MTAuthenticationTypeRBA)],
+                 [MDOption optionGeneralWithName:@"RBA Secure" value:@(MTAuthenticationTypeRBA)],
                 [MDOption optionGeneralWithName:@"3DS" value:@(MTAuthenticationType3DS)]];
     MDOptionView *optAuth = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
                                             titleTemplate:@"Auth Type %@"

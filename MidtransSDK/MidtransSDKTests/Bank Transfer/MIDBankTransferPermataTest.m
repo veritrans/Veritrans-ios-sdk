@@ -28,10 +28,10 @@ static NSString *_email = @"test-mobile@midtrans.com";
 - (void)testForPermata {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDBankTransferCharge permataWithToken:token
                                           email:_email
-                                     completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error) {
+                                     completion:^(MIDPermataBankTransferResult *_Nullable result, NSError *_Nullable error) {
             XCTAssertNotNil(result.vaNumber, @"va bni test is error");
             [promise fulfill];
         }];
@@ -44,7 +44,7 @@ static NSString *_email = @"test-mobile@midtrans.com";
     
     [MIDBankTransferCharge permataWithToken:nil
                                       email:_email
-                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
+                                 completion:^(MIDPermataBankTransferResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

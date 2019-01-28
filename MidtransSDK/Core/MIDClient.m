@@ -29,7 +29,7 @@
 }
 
 + (void)checkoutWith:(MIDCheckoutTransaction *)transaction
-             options:(NSArray <NSObject <MIDCheckoutable>*> * _Nullable)options
+             options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
           completion:(void (^_Nullable) (MIDToken *_Nullable token, NSError *_Nullable error))completion {
     NSMutableDictionary *params = [[NSMutableDictionary alloc] initWithDictionary:transaction.dictionaryValue];
     for (id option in options) {
@@ -39,7 +39,7 @@
                                                                        path:@"/charge"
                                                                      method:MIDNetworkMethodPOST
                                                                  parameters:params];
-    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDToken *token = [[MIDToken alloc] initWithDictionary:response];
             completion(token, nil);
@@ -60,7 +60,7 @@
                                                                        path:path
                                                                      method:MIDNetworkMethodGET
                                                                  parameters:nil];
-    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDPaymentInfo *info = [[MIDPaymentInfo alloc] initWithDictionary:response];
             completion(info, nil);

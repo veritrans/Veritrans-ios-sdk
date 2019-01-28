@@ -33,7 +33,7 @@
     
     [MIDClient checkoutWith:trx
                     options:nil
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          XCTAssertNotNil(token.token);
          [promise fulfill];
@@ -51,7 +51,7 @@
     
     [MIDClient checkoutWith:trx
                     options:nil
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 400);
          [promise fulfill];
@@ -69,7 +69,7 @@
     
     [MIDClient checkoutWith:trx
                     options:nil
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 400);
          [promise fulfill];
@@ -87,7 +87,7 @@
     
     [MIDClient checkoutWith:trx
                     options:nil
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 400);
          [promise fulfill];
@@ -100,7 +100,7 @@
     XCTestExpectation *promise = [XCTestExpectation new];
     [MIDClient checkoutWith:nil
                     options:nil
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 400);
          [promise fulfill];

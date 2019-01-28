@@ -22,7 +22,7 @@
                                                                        path:path
                                                                      method:MIDNetworkMethodPOST
                                                                  parameters:payment.dictionaryValue];
-    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError *_Nullable error) {
         if (response) {
             completion(response, nil);
         } else {
@@ -38,7 +38,7 @@
                                                                        path:path
                                                                      method:MIDNetworkMethodGET
                                                                  parameters:request.dictionaryValue];
-    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError * _Nullable error) {
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDTokenizeResponse *result = [[MIDTokenizeResponse alloc] initWithDictionary:response];
             completion(result, nil);

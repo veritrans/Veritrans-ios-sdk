@@ -28,10 +28,10 @@
     
     [MIDClient checkoutWith:trx
                     options:nil
-                 completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
      {
          [MIDClient getPaymentInfoWithToken:token.token
-                                 completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+                                 completion:^(MIDPaymentInfo *_Nullable info, NSError *_Nullable error)
           {
               XCTAssertNil(error, @"Request create token error.");
               [promise fulfill];
@@ -45,7 +45,7 @@
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDClient getPaymentInfoWithToken:@"random_failed_token"
-                            completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error)
+                            completion:^(MIDPaymentInfo *_Nullable info, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

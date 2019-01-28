@@ -22,7 +22,7 @@
 @implementation MIDNetworkService
 
 - (instancetype)initWithBaseURL:(NSString * _Nonnull)baseURL
-                           path:(NSString * _Nullable)path
+                           path:(NSString *_Nullable)path
                          method:(MIDHTTPMethod)method
                      parameters:(NSDictionary *_Nullable)parameters {
     if (self = [super init]) {

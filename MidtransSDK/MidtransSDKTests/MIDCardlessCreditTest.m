@@ -22,8 +22,8 @@
 - (void)testSuccessAkulaku {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDCardlessCreditCharge akulakuWithToken:token completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
+        [MIDCardlessCreditCharge akulakuWithToken:token completion:^(MIDWebPaymentResult *_Nullable result, NSError *_Nullable error) {
             XCTAssertTrue(result.statusCode == 201, @"akulaku transaction status should be pending.");
             [promise fulfill];
         }];
@@ -35,7 +35,7 @@
 - (void)testEmptyTokenAkulaku {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [MIDCardlessCreditCharge akulakuWithToken:nil completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+    [MIDCardlessCreditCharge akulakuWithToken:nil completion:^(MIDWebPaymentResult *_Nullable result, NSError *_Nullable error) {
         XCTAssertTrue(error.code == 404, @"akulaku transaction should error 404 (empty token).");
         [promise fulfill];
     }];

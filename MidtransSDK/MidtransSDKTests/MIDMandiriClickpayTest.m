@@ -22,13 +22,13 @@
 - (void)testSuccessMandiriClickpay {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"4111111111111111";
         NSString *clickpayToken = @"000000";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
+                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertTrue([result.transactionStatus isEqualToString:@"settlement"]);
              [promise fulfill];
@@ -41,13 +41,13 @@
 - (void)testDenyMandiriClickpay {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"4111111111111111";
         NSString *clickpayToken = @"111111";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
+                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertTrue([result.transactionStatus isEqualToString:@"deny"]);
              [promise fulfill];
@@ -60,13 +60,13 @@
 - (void)testEmptyNumberMandiriClickpay {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"";
         NSString *clickpayToken = @"000000";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
+                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertTrue(error.code == 400);
              [promise fulfill];
@@ -79,13 +79,13 @@
 - (void)testEmptyClickpayTokenMandiriClickpay {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"4111111111111111";
         NSString *clickpayToken = @"";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
+                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertTrue(error.code == 400);
              [promise fulfill];
@@ -103,7 +103,7 @@
     [MIDDirectDebitCharge mandiriClickpayWithToken:nil
                                         cardNumber:cardNumber
                                      clickpayToken:clickpayToken
-                                        completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
+                                        completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

@@ -28,10 +28,10 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
 - (void)testForBCA {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDBankTransferCharge bcaWithToken:token
                                       email:_email
-                                 completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+                                 completion:^(MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertNotNil(result.vaNumber, @"va bca test is error");
              [promise fulfill];
@@ -46,7 +46,7 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     
     [MIDBankTransferCharge bcaWithToken:nil
                                   email:_email
-                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+                             completion:^(MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];
@@ -60,7 +60,7 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     
     [MIDBankTransferCharge bcaWithToken:@"random_token_error"
                                   email:_email
-                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+                             completion:^(MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

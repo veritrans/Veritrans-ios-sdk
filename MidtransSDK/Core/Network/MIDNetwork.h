@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MIDNetwork : NSObject
 
 + (MIDNetwork *)shared;
-- (void)request:(MIDNetworkService *)service completion:(void(^_Nullable)(id _Nullable response, NSError * _Nullable error))completion;
+- (void)request:(MIDNetworkService *)service completion:(void(^_Nullable)(id _Nullable response, NSError *_Nullable error))completion;
 
 @end
 

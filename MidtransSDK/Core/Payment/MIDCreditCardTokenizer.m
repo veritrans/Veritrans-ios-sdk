@@ -26,7 +26,7 @@
     obj.expYear = expireYear;
     obj.config = config;
     
-    [MIDPaymentHelper getTokenWithRequest:obj completion:^(MIDTokenizeResponse *_Nullable token, NSError * _Nullable error) {
+    [MIDPaymentHelper getTokenWithRequest:obj completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error) {
         completion(token, error);
     }];
 }
@@ -41,7 +41,7 @@
     obj.cvv = cvv;
     obj.config = config;
     
-    [MIDPaymentHelper getTokenWithRequest:obj completion:^(MIDTokenizeResponse *_Nullable token, NSError * _Nullable error) {
+    [MIDPaymentHelper getTokenWithRequest:obj completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error) {
         completion(token, error);
     }];
 }

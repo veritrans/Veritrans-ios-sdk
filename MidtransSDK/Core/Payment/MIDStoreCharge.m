@@ -12,7 +12,7 @@
 
 @implementation MIDStoreCharge
 
-+ (void)indomaretWithToken:(NSString *)token completion:(void (^)(MIDIndomaretResult * _Nullable, NSError * _Nullable))completion {
++ (void)indomaretWithToken:(NSString *)token completion:(void (^)(MIDIndomaretResult *_Nullable, NSError *_Nullable))completion {
     MIDIndomaretPayment *payment = [MIDIndomaretPayment new];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
         if (response) {

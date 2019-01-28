@@ -32,13 +32,13 @@
     [self getTokenWithOptions:nil completion:completion];
 }
 
-- (void)getTokenWithOptions:(NSArray <NSObject <MIDCheckoutable>*> * _Nullable)options
+- (void)getTokenWithOptions:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
                  completion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion {
     MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:[MIDTestHelper orderID]
                                                                       grossAmount:[MIDTestHelper grossAmount]
                                                                          currency:MIDCurrencyIDR];
     
-    [MIDClient checkoutWith:trx options:nil completion:^(MIDToken * _Nullable token, NSError * _Nullable error) {
+    [MIDClient checkoutWith:trx options:options completion:^(MIDToken *_Nullable token, NSError *_Nullable error) {
         NSString *_token = token.token;
         XCTAssertNotNil(_token);
         completion(_token, error);

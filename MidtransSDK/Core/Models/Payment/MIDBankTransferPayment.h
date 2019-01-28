@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) MIDBankTransferType type;
 @property (nonatomic, nullable) NSString *email;
 
-- (instancetype)initWithType:(MIDBankTransferType)type email:(NSString * _Nullable)email;
+- (instancetype)initWithType:(MIDBankTransferType)type email:(NSString *_Nullable)email;
 
 @end
 

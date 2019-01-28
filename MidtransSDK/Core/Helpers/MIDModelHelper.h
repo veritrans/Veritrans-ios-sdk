@@ -35,6 +35,7 @@
 + (NSString *)nameOfCreditCardTransactionType:(MIDCreditCardTransactionType)type;
 + (NSString *)nameOfExpiryUnit:(MIDExpiryTimeUnit)unit;
 + (NSString *)nameOfCurrency:(MIDCurrency)currency;
++ (NSString *)nameOfAuth:(MIDAuthentication)auth;
 + (NSString *)typeOfPayment:(MIDWebPaymentType)payment;
 + (NSString *)typeOfVirtualAccount:(MIDBankTransferType)type;
 

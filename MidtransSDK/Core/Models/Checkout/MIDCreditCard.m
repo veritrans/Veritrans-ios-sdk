@@ -12,8 +12,9 @@
 @implementation MIDCreditCard
 
 - (nonnull NSDictionary *)dictionaryValue {
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    [result setValue:[NSString stringFromBool:self.secure] forKey:@"secure"];
+    NSMutableDictionary *result = [NSMutableDictionary dictionary];    
+    [result setValue:[self secureEnabled] forKey:@"secure"];
+    [result setValue:[NSString nameOfAuth:self.authentication] forKey:@"authentication"];
     [result setValue:[NSString nameOfChannel:self.channel] forKey:@"channel"];
     [result setValue:[NSString nameOfBank:self.bank] forKey:@"bank"];
     [result setValue:[NSString nameOfCreditCardTransactionType:self.type] forKey:@"type"];
@@ -24,10 +25,16 @@
     return @{@"credit_card": result};
 }
 
-- (instancetype)initWithCreditCardTransactionType:(MIDCreditCardTransactionType)type enableSecure:(BOOL)secure acquiringBank:(MIDAcquiringBank)bank acquiringChannel:(MIDAcquiringChannel)channel installment:(MIDInstallment *)installment whiteListBins:(NSArray<NSString *> *)whiteListBins blackListBins:(NSArray<NSString *> *)blackListBins {
+- (instancetype _Nonnull)initWithCreditCardTransactionType:(MIDCreditCardTransactionType)type
+                                            authentication:(MIDAuthentication)authentication
+                                             acquiringBank:(MIDAcquiringBank)bank
+                                          acquiringChannel:(MIDAcquiringChannel)channel
+                                               installment:(MIDInstallment *)installment
+                                             whiteListBins:(NSArray <NSString *> *)whiteListBins
+                                             blackListBins:(NSArray <NSString *> *)blackListBins {
     if (self = [super init]) {
         self.type = type;
-        self.secure = secure;
+        self.authentication = authentication;
         self.bank = bank;
         self.channel = channel;
         self.installment = installment;
@@ -35,6 +42,17 @@
         self.blackListBins = blackListBins;
     }
     return self;
+}
+
+- (NSString *)secureEnabled {
+    switch (self.authentication) {
+        case MIDAuthenticationRBASecure:
+        case MIDAuthentication3DS:
+            return @"true";
+            
+        default:
+            return @"false";
+    }
 }
 
 @end

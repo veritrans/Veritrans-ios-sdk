@@ -75,9 +75,9 @@
             CC_CONFIG.tokenStorageEnabled = YES;
             break;
     }
-    [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:merchantServer];
+    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
+             environment:MidtransServerEnvironmentProduction
+       merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"];
     
 //    [CONFIG setClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
 //             environment:MidtransServerEnvironmentProduction

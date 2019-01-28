@@ -47,6 +47,8 @@
 		E55122DE2196066400DA3621 /* MIDModelHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122DD2196066400DA3621 /* MIDModelHelper.m */; };
 		E55122E1219607DE00DA3621 /* MIDItem.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122E0219607DE00DA3621 /* MIDItem.m */; };
 		E552253E21D3635900F0217E /* MIDCreditCardTokenizer.m in Sources */ = {isa = PBXBuildFile; fileRef = E552253D21D3635900F0217E /* MIDCreditCardTokenizer.m */; };
+		E5594B5721F99BFA003ED198 /* MIDCardlessCreditCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = E5594B5621F99BFA003ED198 /* MIDCardlessCreditCharge.m */; };
+		E5594B5921F99D81003ED198 /* MIDCardlessCreditTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5594B5821F99D81003ED198 /* MIDCardlessCreditTest.m */; };
 		E55CBF75219BF0C300721462 /* MIDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7E62192D8B30090DDAE /* MIDClient.m */; };
 		E55D708D21E8735800718EDF /* MIDMandiriClickpayTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D708C21E8735800718EDF /* MIDMandiriClickpayTest.m */; };
 		E55D708F21E8747A00718EDF /* MIDCheckoutTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E55D708E21E8747A00718EDF /* MIDCheckoutTest.m */; };
@@ -193,6 +195,9 @@
 		E55122E0219607DE00DA3621 /* MIDItem.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDItem.m; sourceTree = "<group>"; };
 		E552253C21D3635900F0217E /* MIDCreditCardTokenizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCreditCardTokenizer.h; sourceTree = "<group>"; };
 		E552253D21D3635900F0217E /* MIDCreditCardTokenizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCreditCardTokenizer.m; sourceTree = "<group>"; };
+		E5594B5521F99BFA003ED198 /* MIDCardlessCreditCharge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCardlessCreditCharge.h; sourceTree = "<group>"; };
+		E5594B5621F99BFA003ED198 /* MIDCardlessCreditCharge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCardlessCreditCharge.m; sourceTree = "<group>"; };
+		E5594B5821F99D81003ED198 /* MIDCardlessCreditTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCardlessCreditTest.m; sourceTree = "<group>"; };
 		E55D708C21E8735800718EDF /* MIDMandiriClickpayTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDMandiriClickpayTest.m; sourceTree = "<group>"; };
 		E55D708E21E8747A00718EDF /* MIDCheckoutTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCheckoutTest.m; sourceTree = "<group>"; };
 		E55D709021E8782C00718EDF /* MIDKlikbcaTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDKlikbcaTest.m; sourceTree = "<group>"; };
@@ -471,6 +476,8 @@
 				E500E05221BF8BF7001E694B /* MIDCreditCardCharge.m */,
 				E552253C21D3635900F0217E /* MIDCreditCardTokenizer.h */,
 				E552253D21D3635900F0217E /* MIDCreditCardTokenizer.m */,
+				E5594B5521F99BFA003ED198 /* MIDCardlessCreditCharge.h */,
+				E5594B5621F99BFA003ED198 /* MIDCardlessCreditCharge.m */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -625,6 +632,7 @@
 				E55D708C21E8735800718EDF /* MIDMandiriClickpayTest.m */,
 				E55D709021E8782C00718EDF /* MIDKlikbcaTest.m */,
 				E530597721EECB3900545CF4 /* MIDCreditCardTest.m */,
+				E5594B5821F99D81003ED198 /* MIDCardlessCreditTest.m */,
 			);
 			path = MidtransSDKTests;
 			sourceTree = "<group>";
@@ -806,6 +814,7 @@
 				E537342021DE03B00095746A /* MIDInstallmentInfo.m in Sources */,
 				E55122DB2196056F00DA3621 /* MIDCustomerDetails.m in Sources */,
 				E545E0DB21B518EE005C1EB3 /* MIDPaymentHelper.m in Sources */,
+				E5594B5721F99BFA003ED198 /* MIDCardlessCreditCharge.m in Sources */,
 				E55122E1219607DE00DA3621 /* MIDItem.m in Sources */,
 				E57F6F9821B65320003CF48F /* MIDEWalletCharge.m in Sources */,
 				E55122D62195FFBB00DA3621 /* MIDRequestBuilder.m in Sources */,
@@ -868,6 +877,7 @@
 				E5C7CD3221BD570F00C22045 /* MIDDirectDebitTest.m in Sources */,
 				E55D708D21E8735800718EDF /* MIDMandiriClickpayTest.m in Sources */,
 				E55CBF75219BF0C300721462 /* MIDClient.m in Sources */,
+				E5594B5921F99D81003ED198 /* MIDCardlessCreditTest.m in Sources */,
 				E5C7CD3021BD56FA00C22045 /* MIDStoreTest.m in Sources */,
 				E55D709121E8782C00718EDF /* MIDKlikbcaTest.m in Sources */,
 				E55D708F21E8747A00718EDF /* MIDCheckoutTest.m in Sources */,

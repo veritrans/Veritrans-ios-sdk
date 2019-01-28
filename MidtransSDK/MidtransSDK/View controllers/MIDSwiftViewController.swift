@@ -144,6 +144,10 @@ class MIDSwiftViewController: UIViewController {
             MIDEWalletCharge.mandiriECash(withToken: snapToken, completion: { (result, error) in
                 
             })
+            
+            MIDCardlessCreditCharge.akulaku(withToken: snapToken, completion: { (result, error) in
+                
+            })
         }
         
         

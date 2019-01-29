@@ -43,17 +43,10 @@ NSString *const vPaymentGatewayMIGS = @"migs";
         case MTAuthenticationTypeNone:
             return @"none";
         case MTAuthenticationTypeRBA:
-            return @"rba";
-            break;
         case MTAuthenticationTypeRBASecure:
             return @"rba";
-            break;
         case MTAuthenticationType3DS:
             return @"3ds";
-            break;
-        default:
-            return nil;
-            break;
     }
 }
 - (NSString *)channel {

@@ -13,7 +13,7 @@
 
 - (nonnull NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];    
-    [result setValue:[self secureEnabled] forKey:@"secure"];
+    [result setValue:@(self.secureEnabled) forKey:@"secure"];
     [result setValue:[NSString nameOfAuth:self.authentication] forKey:@"authentication"];
     [result setValue:[NSString nameOfChannel:self.channel] forKey:@"channel"];
     [result setValue:[NSString nameOfBank:self.bank] forKey:@"bank"];
@@ -44,14 +44,14 @@
     return self;
 }
 
-- (NSString *)secureEnabled {
+- (BOOL)secureEnabled {
     switch (self.authentication) {
         case MIDAuthenticationRBASecure:
         case MIDAuthentication3DS:
-            return @"true";
+            return YES;
             
         default:
-            return @"false";
+            return NO;
     }
 }
 

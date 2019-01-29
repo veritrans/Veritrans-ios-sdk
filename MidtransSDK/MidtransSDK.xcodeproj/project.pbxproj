@@ -73,6 +73,7 @@
 		E597353021A28A0C005C9BA0 /* MIDCheckoutItems.m in Sources */ = {isa = PBXBuildFile; fileRef = E597352F21A28A0C005C9BA0 /* MIDCheckoutItems.m */; };
 		E597353721A2A07F005C9BA0 /* MIDCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E597353621A2A07F005C9BA0 /* MIDCreditCard.m */; };
 		E597353A21A2AA55005C9BA0 /* MIDInstallment.m in Sources */ = {isa = PBXBuildFile; fileRef = E597353921A2AA55005C9BA0 /* MIDInstallment.m */; };
+		E59A0E0921FF043800236207 /* MIDTokenizeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E59A0E0821FF043800236207 /* MIDTokenizeTest.m */; };
 		E5C07D8721DC9A5A0020C858 /* MIDCheckoutIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C07D8621DC9A5A0020C858 /* MIDCheckoutIdentifier.m */; };
 		E5C07D8A21DC9F840020C858 /* MIDTokenizeResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C07D8921DC9F840020C858 /* MIDTokenizeResponse.m */; };
 		E5C34D7B21E6032E002361C8 /* MIDSwiftViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */; };
@@ -247,6 +248,7 @@
 		E597353821A2AA55005C9BA0 /* MIDInstallment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDInstallment.h; sourceTree = "<group>"; };
 		E597353921A2AA55005C9BA0 /* MIDInstallment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDInstallment.m; sourceTree = "<group>"; };
 		E597353B21A2BD3F005C9BA0 /* MIDModelEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDModelEnums.h; sourceTree = "<group>"; };
+		E59A0E0821FF043800236207 /* MIDTokenizeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTokenizeTest.m; sourceTree = "<group>"; };
 		E5C07D8521DC9A5A0020C858 /* MIDCheckoutIdentifier.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCheckoutIdentifier.h; sourceTree = "<group>"; };
 		E5C07D8621DC9A5A0020C858 /* MIDCheckoutIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCheckoutIdentifier.m; sourceTree = "<group>"; };
 		E5C07D8821DC9F830020C858 /* MIDTokenizeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTokenizeResponse.h; sourceTree = "<group>"; };
@@ -586,6 +588,15 @@
 			path = Tokenize;
 			sourceTree = "<group>";
 		};
+		E59A0E0721FF042A00236207 /* Credit Card */ = {
+			isa = PBXGroup;
+			children = (
+				E530597721EECB3900545CF4 /* MIDCreditCardTest.m */,
+				E59A0E0821FF043800236207 /* MIDTokenizeTest.m */,
+			);
+			path = "Credit Card";
+			sourceTree = "<group>";
+		};
 		E5D3C7A62192D7700090DDAE = {
 			isa = PBXGroup;
 			children = (
@@ -621,6 +632,7 @@
 		E5D3C7CA2192D7710090DDAE /* MidtransSDKTests */ = {
 			isa = PBXGroup;
 			children = (
+				E59A0E0721FF042A00236207 /* Credit Card */,
 				E53C0D1C21E34A0E0006852E /* Helper */,
 				E586B86121F83D430018875B /* Bank Transfer */,
 				E5D3C7CD2192D7710090DDAE /* Info.plist */,
@@ -631,7 +643,6 @@
 				E5C7CD3121BD570F00C22045 /* MIDDirectDebitTest.m */,
 				E55D708C21E8735800718EDF /* MIDMandiriClickpayTest.m */,
 				E55D709021E8782C00718EDF /* MIDKlikbcaTest.m */,
-				E530597721EECB3900545CF4 /* MIDCreditCardTest.m */,
 				E5594B5821F99D81003ED198 /* MIDCardlessCreditTest.m */,
 			);
 			path = MidtransSDKTests;
@@ -875,6 +886,7 @@
 				ECAC031721E45E9200D5B561 /* MIDBankTransferMandiriTest.m in Sources */,
 				E543E24F21B7767700969B7F /* MIDBankTransferTest.m in Sources */,
 				E5C7CD3221BD570F00C22045 /* MIDDirectDebitTest.m in Sources */,
+				E59A0E0921FF043800236207 /* MIDTokenizeTest.m in Sources */,
 				E55D708D21E8735800718EDF /* MIDMandiriClickpayTest.m in Sources */,
 				E55CBF75219BF0C300721462 /* MIDClient.m in Sources */,
 				E5594B5921F99D81003ED198 /* MIDCardlessCreditTest.m in Sources */,

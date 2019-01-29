@@ -27,8 +27,8 @@ static NSString *_email = @"test-mobile@midtrans.com";
 - (void)testForMandiri {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
-        [MIDBankTransferCharge mandiriWithToken:token email:_email completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
+        [MIDBankTransferCharge mandiriWithToken:token email:_email completion:^(MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error) {
             XCTAssertNotNil(result.key, @"va bni test is error");
             [promise fulfill];
         }];
@@ -41,7 +41,7 @@ static NSString *_email = @"test-mobile@midtrans.com";
     
     [MIDBankTransferCharge mandiriWithToken:nil
                                   email:_email
-                             completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
+                             completion:^(MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

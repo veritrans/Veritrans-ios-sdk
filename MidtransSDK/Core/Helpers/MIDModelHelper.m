@@ -75,6 +75,20 @@
     }
 }
 
++ (NSString *)nameOfAuth:(MIDAuthentication)auth {
+    switch (auth) {
+        case MIDAuthenticationRBASecure:
+        case MIDAuthenticationRBA:
+            return @"rba";
+            
+        case MIDAuthentication3DS:
+            return @"3ds";
+            
+        default:
+            return nil;
+    }
+}
+
 + (NSString *)nameOfChannel:(MIDAcquiringChannel)channel {
     switch (channel) {
         case MIDAcquiringChannelMIGS:

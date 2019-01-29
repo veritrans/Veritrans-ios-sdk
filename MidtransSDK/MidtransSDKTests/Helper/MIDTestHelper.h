@@ -23,6 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface XCTestCase (helper)
 
 - (void)getTokenWithCompletion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion;
+- (void)getTokenWithOptions:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
+                 completion:(void (^_Nullable) (NSString *_Nullable token, NSError *_Nullable error))completion;
 
 @end
 

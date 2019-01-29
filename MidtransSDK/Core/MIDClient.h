@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
                environment:(MIDEnvironment)environment;
 
 + (void)checkoutWith:(MIDCheckoutTransaction *)transaction
-             options:(NSArray <NSObject <MIDCheckoutable>*> * _Nullable)options
+             options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
           completion:(void (^_Nullable) (MIDToken *_Nullable token, NSError *_Nullable error))completion;
 
 + (void)getPaymentInfoWithToken:(NSString *)token

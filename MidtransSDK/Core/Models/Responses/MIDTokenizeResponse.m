@@ -16,7 +16,7 @@
     [result setValue:self.bank forKey:@"bank"];
     [result setValue:self.maskedCard forKey:@"hash"];
     [result setValue:self.secureURL forKey:@"redirect_url"];
-    [result setValue:self.statusCode forKey:@"status_code"];
+    [result setValue:@(self.statusCode) forKey:@"status_code"];
     [result setValue:self.statusMessage forKey:@"status_message"];
     [result setValue:self.tokenID forKey:@"token_id"];
     return result;
@@ -27,7 +27,7 @@
         self.bank = [dictionary objectOrNilForKey:@"bank"];
         self.maskedCard = [dictionary objectOrNilForKey:@"hash"];
         self.secureURL = [dictionary objectOrNilForKey:@"redirect_url"];
-        self.statusCode = [dictionary objectOrNilForKey:@"status_code"];
+        self.statusCode = [[dictionary objectOrNilForKey:@"status_code"] integerValue];
         self.statusMessage = [dictionary objectOrNilForKey:@"status_message"];
         self.tokenID = [dictionary objectOrNilForKey:@"token_id"];
     }

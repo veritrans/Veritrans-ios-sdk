@@ -22,11 +22,11 @@
 - (void)testSuccessKlikbca {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *klikbcaUser = @"SUSAN0707";
         [MIDDirectDebitCharge klikbcaWithToken:token
                                         userID:klikbcaUser
-                                    completion:^(MIDKlikbcaResult * _Nullable result, NSError * _Nullable error)
+                                    completion:^(MIDKlikbcaResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertNotNil(result.approvalCode, @"klikbca test is error");
              [promise fulfill];
@@ -39,10 +39,10 @@
 - (void)testEmptyUserKlikbca {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDDirectDebitCharge klikbcaWithToken:token
                                         userID:nil
-                                    completion:^(MIDKlikbcaResult * _Nullable result, NSError * _Nullable error)
+                                    completion:^(MIDKlikbcaResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertTrue(error.code == 400);
              [promise fulfill];
@@ -57,7 +57,7 @@
     
     [MIDDirectDebitCharge klikbcaWithToken:nil
                                     userID:@"SUSAN0707"
-                                completion:^(MIDKlikbcaResult * _Nullable result, NSError * _Nullable error)
+                                completion:^(MIDKlikbcaResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

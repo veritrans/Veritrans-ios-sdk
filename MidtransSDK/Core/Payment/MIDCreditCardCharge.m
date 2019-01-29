@@ -30,7 +30,7 @@
     payment.installment = installment.value;
     payment.point = point;
     
-    [MIDPaymentHelper performPayment:payment token:snapToken completion:^(id  _Nullable response, NSError * _Nullable error) {
+    [MIDPaymentHelper performPayment:payment token:snapToken completion:^(id  _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDCreditCardResult *result = [[MIDCreditCardResult alloc] initWithDictionary:response];
             completion(result, nil);
@@ -49,7 +49,7 @@
                                                                        path:path
                                                                      method:MIDNetworkMethodGET
                                                                  parameters:nil];
-    [[MIDNetwork shared] request:service completion:^(id _Nullable response, NSError * _Nullable error) {
+    [[MIDNetwork shared] request:service completion:^(id _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDPointResponse *result = [[MIDPointResponse alloc] initWithDictionary:response];
             completion(result, nil);

@@ -22,9 +22,9 @@
 - (void)testForGopay {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDEWalletCharge gopayWithToken:token
-                              completion:^(MIDGopayResult * _Nullable result, NSError * _Nullable error)
+                              completion:^(MIDGopayResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertNotNil(result.qrCodeURL, @"gopay test is error");
              [promise fulfill];
@@ -37,9 +37,9 @@
 - (void)testForMandiriEcash {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [self getTokenWithCompletion:^(NSString * _Nullable token, NSError * _Nullable error) {
+    [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDEWalletCharge mandiriECashWithToken:token
-                                     completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+                                     completion:^(MIDWebPaymentResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertNotNil(result.redirectURL, @"Mandiri e-cash test is error");
              [promise fulfill];
@@ -53,7 +53,7 @@
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDEWalletCharge gopayWithToken:nil
-                          completion:^(MIDGopayResult * _Nullable result, NSError * _Nullable error)
+                          completion:^(MIDGopayResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404, @"error should be 404");
          [promise fulfill];
@@ -66,7 +66,7 @@
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDEWalletCharge mandiriECashWithToken:nil
-                                 completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error)
+                                 completion:^(MIDWebPaymentResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404, @"error should be 404");
          [promise fulfill];

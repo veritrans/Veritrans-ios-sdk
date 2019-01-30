@@ -77,7 +77,6 @@
 
 + (NSString *)nameOfAuth:(MIDAuthentication)auth {
     switch (auth) {
-        case MIDAuthenticationRBASecure:
         case MIDAuthenticationRBA:
             return @"rba";
             
@@ -85,7 +84,7 @@
             return @"3ds";
             
         default:
-            return nil;
+            return @"none";
     }
 }
 

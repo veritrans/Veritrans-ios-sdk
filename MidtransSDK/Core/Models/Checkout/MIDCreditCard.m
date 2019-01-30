@@ -46,7 +46,6 @@
 
 - (BOOL)secureEnabled {
     switch (self.authentication) {
-        case MIDAuthenticationRBASecure:
         case MIDAuthentication3DS:
             return YES;
             

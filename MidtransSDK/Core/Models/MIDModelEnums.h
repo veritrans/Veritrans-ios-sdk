@@ -21,8 +21,7 @@ typedef NS_ENUM(NSUInteger, MIDAcquiringBank) {
 typedef NS_ENUM(NSUInteger, MIDAuthentication) {
     MIDAuthenticationNone,
     MIDAuthentication3DS,
-    MIDAuthenticationRBA,
-    MIDAuthenticationRBASecure
+    MIDAuthenticationRBA
 };
 
 typedef NS_ENUM(NSUInteger, MIDAcquiringChannel) {

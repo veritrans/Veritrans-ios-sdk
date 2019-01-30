@@ -80,7 +80,6 @@
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
-    CC_CONFIG.authenticationType = MTAuthenticationType3DS;
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;

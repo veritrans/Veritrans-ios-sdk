@@ -337,11 +337,6 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             [creditCardParameter setValue:@"false" forKey:@"secure"];
             creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
         }
-        else  if(CC_CONFIG.authenticationType == MTAuthenticationTypeRBASecure) {
-            [creditCardParameter setValue:@"true" forKey:@"secure"];
-            creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
-        }
-        
     }
     if (CC_CONFIG.preauthEnabled) {
         creditCardParameter[@"type"] = @"authorize";

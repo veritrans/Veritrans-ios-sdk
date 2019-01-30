@@ -20,8 +20,7 @@ typedef NS_ENUM(NSUInteger, MTCreditCardPaymentType) {
 typedef NS_ENUM(NSUInteger, MTAuthenticationType) {
     MTAuthenticationTypeNone,
     MTAuthenticationType3DS,
-    MTAuthenticationTypeRBA,
-    MTAuthenticationTypeRBASecure
+    MTAuthenticationTypeRBA
     
 };
 

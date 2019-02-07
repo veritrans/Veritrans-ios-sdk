@@ -20,7 +20,6 @@
 @property (nonatomic) MIDInstallmentInfo *installment;
 @property (nonatomic) BOOL saveCard;
 @property (nonatomic) BOOL secure;
-@property (nonatomic) BOOL merchantSaveCard;
 @property (nonatomic) MIDCreditCardTransactionType type;
 
 @end

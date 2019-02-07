@@ -13,7 +13,7 @@
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    [result setValue:self.currency forKey:@"currency"];
+    [result setValue:[NSString nameOfCurrency:self.currency] forKey:@"currency"];
     [result setValue:self.grossAmount forKey:@"gross_amount"];
     [result setValue:self.orderID forKey:@"order_id"];
     return result;
@@ -21,7 +21,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super init]) {
-        self.currency = [dictionary objectOrNilForKey:@"currency"];
+        self.currency = [[dictionary objectOrNilForKey:@"currency"] currencyType];
         self.grossAmount = [dictionary objectOrNilForKey:@"gross_amount"];
         self.orderID = [dictionary objectOrNilForKey:@"order_id"];
     }

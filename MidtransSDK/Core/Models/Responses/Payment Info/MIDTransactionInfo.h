@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDMappable.h"
+#import "MIDModelEnums.h"
 
 @interface MIDTransactionInfo : NSObject <MIDMappable>
 
-@property (nonatomic) NSString *currency;
+@property (nonatomic) MIDCurrency currency;
 @property (nonatomic) NSNumber *grossAmount;
 @property (nonatomic) NSString *orderID;
 

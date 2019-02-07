@@ -76,7 +76,7 @@
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentProduction
+             environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;

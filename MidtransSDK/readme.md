@@ -34,7 +34,12 @@ We also expose the low-level APIs that power those elements to make it easy to b
 		- [Mandiri E-Cash](#sdk-charge-ecash)
 		- [Go-Pay](#sdk-charge-gopay)
 	- [Credit Card Payment](#sdk-charge-credit-card-payment)
-		- Credit Card
+		- [Standard](#sdk-charge-cc-standard)
+		- [Installment](#sdk-charge-cc-installment)
+		- [Pre Authorize](#sdk-charge-cc-preauth)
+		- [One Click](#sdk-charge-cc-1click)
+		- [Two Clicks](#sdk-charge-cc-2clicks)
+		- [Point](#sdk-charge-cc-point)
 	- [Customer Financing](#sdk-charge-customer-financing)
 		- [Akulaku](#sdk-charge-akulaku)
 
@@ -758,6 +763,341 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	```
 	
 **<a id="sdk-charge-credit-card-payment"></a>Credit Card Payment**
+
+1. <a id="sdk-charge-cc-standard"></a>Standard
+
+	- Checkout
+	
+	```
+	MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
+                                                                         
+	[MIDClient checkoutWith:trx
+	                options:nil
+	             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+	 {
+	     NSString *snapToken = token.token;
+	 }];
+	```
+	
+	- Generate token ID
+	
+	```
+	[MIDCreditCardTokenizer tokenizeCardNumber:@"4811111111111114"
+                                           cvv:@"123"
+                                   expireMonth:@"02"
+                                    expireYear:@"20"
+                                        config:nil
+                                    completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
+     {
+         NSString *tokenID = token.tokenID;
+     }];
+	```
+	
+	- Charge with token ID
+	
+	```
+	[MIDCreditCardCharge chargeWithToken:snapToken
+                               cardToken:tokenID
+                                    save:NO
+                             installment:nil
+                                   point:nil
+                               completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+      {
+          
+      }];
+	```
+	
+2. <a id="sdk-charge-cc-installment"></a>Installment
+
+	- Checkout
+	
+	```
+	MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
+                                                                         
+	MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+                                                                  terms:@[@6, @12]];
+	                                                                              
+	MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:YES];
+	
+	MIDCreditCard *cc = [[MIDCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                          enableSecure:YES
+                                                         acquiringBank:MIDAcquiringBankNone
+                                                      acquiringChannel:MIDAcquiringChannelNone
+                                                           installment:installment
+                                                         whiteListBins:nil
+                                                         blackListBins:nil];
+
+	[MIDClient checkoutWith:trx
+	                options:@[cc]
+	             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+	 {
+	     NSString *snapToken = token.token;
+	 }];
+	```
+		
+	- Generate token id
+	
+	```
+	MIDTokenizeConfig *config = [MIDTokenizeConfig new];
+	config.enable3ds = YES;
+	config.grossAmount = @20000;
+	config.installmentTerm = 6;
+	    
+	[MIDCreditCardTokenizer tokenizeCardNumber:@"4811111111111114"
+	                                       cvv:@"123"
+	                               expireMonth:@"02"
+	                                expireYear:@"20"
+	                                    config:config
+	                                completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
+	 {
+	     NSString *tokenID = token.tokenID;
+	 }];
+          
+    ```
+    
+    - Charge
+     
+    ```
+    
+	MIDChargeInstallment *installment = [[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6];
+		
+	[MIDCreditCardCharge chargeWithToken:snapToken
+	                           cardToken:tokenID
+	                                save:NO
+	                         installment:installment
+	                               point:nil
+	                          completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+	  {
+	      
+	  }];
+	
+	```
+	
+3. <a id="sdk-charge-cc-preauth"></a>Pre Authorisation
+	
+	- Checkout
+	
+	```
+	MIDCheckoutTransaction *trx = [[MIDCheckoutTransaction alloc] initWithOrderID:orderID
+                                                                      grossAmount:@20000
+                                                                         currency:MIDCurrencyIDR];
+                                                                         
+	MIDCreditCard *cc = [[MIDCreditCard alloc] initWithTransactionType:MIDCreditCardTransactionTypeAuthorize
+                                                          enableSecure:YES
+                                                         acquiringBank:MIDAcquiringBankNone
+                                                      acquiringChannel:MIDAcquiringChannelNone
+                                                           installment:nil
+                                                         whiteListBins:nil
+                                                         blackListBins:nil];
+
+	[MIDClient checkoutWith:trx
+	                options:@[cc]
+	             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+	 {
+	     NSString *snapToken = token.token;
+	 }];
+	```
+	
+	- Generate Token ID
+	
+	```
+	MIDTokenizeConfig *config = [MIDTokenizeConfig new];
+	config.enable3ds = YES;
+	config.grossAmount = @20000;
+	config.type = MIDCreditCardTransactionTypeAuthorize;
+	    
+	[MIDCreditCardTokenizer tokenizeCardNumber:@"4811111111111114"
+	                                       cvv:@"123"
+	                               expireMonth:@"02"
+	                                expireYear:@"20"
+	                                    config:config
+	                                completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
+	 {
+	     NSString *tokenID = token.tokenID;
+	 }];
+          
+    ```
+    
+	- Charge
+	
+	```    
+	MIDChargeInstallment *installment = [[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6];
+		
+	[MIDCreditCardCharge chargeWithToken:snapToken
+	                           cardToken:tokenID
+	                                save:NO
+	                         installment:nil
+	                               point:nil
+	                          completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+	  {
+	      
+	  }];	
+	```
+	
+4. <a id="sdk-charge-cc-1click"></a>One Click
+	
+	* Initial Transaction
+		- Checkout
+
+		```
+		MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+	                                                                  authentication:MIDAuthentication3DS //enable 3d secure
+	                                                                   acquiringBank:MIDAcquiringBankBCA
+	                                                                acquiringChannel:MIDAcquiringChannelNone
+	                                                                     installment:nil
+	                                                                   whiteListBins:nil
+	                                                                   blackListBins:nil];
+	                                                                   
+		[MIDClient checkoutWith:trx
+	                options:@[cc]
+	             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+		 {
+		     NSString *snapToken = token.token;
+		 }];	                                                                   
+		```
+		
+		- Generate Token ID
+
+		```
+		MIDTokenizeConfig *config = [MIDTokenizeConfig new];
+		config.enable3ds = YES; //enable 3d secure
+		config.grossAmount = @20000;
+		    
+		[MIDCreditCardTokenizer tokenizeCardNumber:@"4811111111111114"
+		                                       cvv:@"123"
+		                               expireMonth:@"02"
+		                                expireYear:@"20"
+		                                    config:config
+		                                completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
+		 {
+		     NSString *tokenID = token.tokenID;
+		 }];          
+	    ```
+		
+		- Charge
+
+		```
+		[MIDCreditCardCharge chargeWithToken:snapToken
+	                               cardToken:tokenID
+	                                    save:YES //enable save
+	                             installment:nil
+	                                   point:nil
+	                              completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+	    {
+		    //use this for next one click transaction
+	     	NSString *savedTokenID = result.cardToken; 
+	    }];
+		```
+	
+	* Following Transaction		
+		- Checkout
+
+		```
+		[MIDClient checkoutWith:trx
+	                options:nil
+	             completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
+		 {
+		     NSString *snapToken = token.token;
+		 }];
+		```
+		
+		- Charge
+
+		```
+		[MIDCreditCardCharge chargeWithToken:snapToken
+	                               cardToken:savedTokenID
+	                                    save:NO
+	                             installment:nil
+	                                   point:nil
+	                              completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+	    {
+			
+	    }];
+		```
+
+5. <a id="sdk-charge-cc-2clicks"></a>Two Clicks
+	
+	* Initial Transaction
+		Same with One Clicks intial transaction
+	
+	* Following Transaction		
+		The only difference between One click and Two clicks is that Two clicks still needs tokenizing process (getting Token ID). You need to re-tokenize the CVV number and the **savedTokenID** from the Initial Transaction charge.
+		
+		```
+		MIDTokenizeConfig *config = [MIDTokenizeConfig new];
+		config.enable3ds = YES; //enable 3d secure
+		config.grossAmount = @20000;
+		
+		[MIDCreditCardTokenizer tokenizeCardToken:savedTokenID
+                                               cvv:@"123"
+                                            config:config
+                                        completion:^(MIDTokenizeResponse * _Nullable token, NSError * _Nullable error)
+          {
+            	 
+          }];
+		
+		```
+	
+6. <a id="sdk-charge-cc-point"></a>Point
+	
+	This example is for BNI 
+	
+	- Checkout
+	
+	```
+	MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                  authentication:MIDAuthentication3DS
+                                                                   acquiringBank:MIDAcquiringBankBNI
+                                                                acquiringChannel:MIDAcquiringChannelNone
+                                                                     installment:nil
+                                                                   whiteListBins:nil
+                                                                   blackListBins:nil];
+	                                                                   
+	[MIDClient checkoutWith:trx
+	                options:@[cc]
+	             completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
+	 {
+	     NSString *snapToken = token.token;
+	 }];                                                                   
+	```
+	
+	- Generate Token ID
+	
+	```
+	MIDTokenizeConfig *config = [MIDTokenizeConfig new];
+   config.enable3ds = YES;
+   config.enablePoint = YES;
+   config.grossAmount = @20000;
+   
+	[MIDCreditCardTokenizer tokenizeCardNumber:@"4105058689481467"
+	                                       cvv:@"123"
+	                               expireMonth:@"02"
+	                                expireYear:@"20"
+	                                    config:config
+	                                completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
+	 {
+	     NSString *tokenID = token.tokenID;
+	 }];
+   
+	```
+	
+	- Charge
+
+	```
+	[MIDCreditCardCharge chargeWithToken:snapToken
+	                           cardToken:tokenID
+	                                save:NO
+	                         installment:nil
+	                               point:@20000
+	                          completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+	  {
+	  	   
+	  }];
+	```
 
 **<a id="sdk-charge-customer-financing"></a>Customer Financing**
 

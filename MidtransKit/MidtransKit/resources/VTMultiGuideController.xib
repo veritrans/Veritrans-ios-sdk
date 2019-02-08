@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -39,7 +40,7 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-gN-bJF">
-                    <rect key="frame" x="344" y="632" width="8" height="13"/>
+                    <rect key="frame" x="344" y="632.5" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="Qgt-Oa-IQV"/>
                         <constraint firstAttribute="width" constant="8" id="pWk-KN-W7w"/>
@@ -59,7 +60,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="6sJ-9u-PaJ" secondAttribute="bottom" constant="8" id="03n-bF-19B"/>
+                <constraint firstItem="w3q-iQ-Knb" firstAttribute="bottom" secondItem="6sJ-9u-PaJ" secondAttribute="bottom" constant="8" id="03n-bF-19B"/>
                 <constraint firstItem="hyu-CU-LvS" firstAttribute="top" secondItem="gpC-ng-qW3" secondAttribute="bottom" constant="1" id="4f0-l0-mPB"/>
                 <constraint firstItem="gpC-ng-qW3" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" constant="10" id="BL2-na-8GU"/>
                 <constraint firstAttribute="trailing" secondItem="hyu-CU-LvS" secondAttribute="trailing" id="Gu4-Md-Bo1"/>
@@ -72,6 +73,7 @@
                 <constraint firstItem="gpC-ng-qW3" firstAttribute="top" secondItem="gOp-vP-Ndk" secondAttribute="top" constant="8" id="rgh-Tz-y6K"/>
                 <constraint firstAttribute="trailing" secondItem="6sJ-9u-PaJ" secondAttribute="trailing" constant="8" id="tgV-th-Nq1"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="w3q-iQ-Knb"/>
         </view>
     </objects>
     <resources>

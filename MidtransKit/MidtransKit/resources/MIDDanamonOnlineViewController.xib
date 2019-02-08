@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -49,13 +50,13 @@
                     </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Danamon Online step by step" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MvZ-28-me0">
-                    <rect key="frame" x="8" y="98" width="199" height="22"/>
+                    <rect key="frame" x="8" y="98" width="189" height="22"/>
                     <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="15"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Sz-hv-PhK">
-                    <rect key="frame" x="317" y="97.5" width="50" height="22"/>
+                    <rect key="frame" x="317" y="98" width="50" height="22"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="Z9J-Rn-1Dg"/>
                     </constraints>
@@ -87,13 +88,13 @@
                     <rect key="frame" x="0.0" y="537" width="375" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ua-82-ayA">
-                            <rect key="frame" x="15" y="18" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="17" width="75.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wyh-cR-Ytd">
-                            <rect key="frame" x="299" y="0.0" width="36" height="50"/>
+                            <rect key="frame" x="303.5" y="0.0" width="31.5" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -105,7 +106,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="leb-8m-TmP">
-                            <rect key="frame" x="15" y="49" width="127" height="15.5"/>
+                            <rect key="frame" x="15" y="49" width="127" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -170,11 +171,12 @@
                 <constraint firstItem="2f6-aS-mz8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="jZn-Gt-gGS"/>
                 <constraint firstItem="X6E-5a-afy" firstAttribute="height" secondItem="17m-rK-HHh" secondAttribute="height" id="lLv-f8-Y21"/>
                 <constraint firstItem="R3v-ga-00t" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="mCK-l1-ViR"/>
-                <constraint firstAttribute="bottom" secondItem="R3v-ga-00t" secondAttribute="bottom" constant="8" id="oqg-R8-BHK"/>
+                <constraint firstItem="HWc-Xn-BpO" firstAttribute="bottom" secondItem="R3v-ga-00t" secondAttribute="bottom" constant="8" id="oqg-R8-BHK"/>
                 <constraint firstItem="7Sz-hv-PhK" firstAttribute="trailing" secondItem="X6E-5a-afy" secondAttribute="trailing" id="tlD-ky-rey"/>
                 <constraint firstAttribute="trailing" secondItem="2hk-Es-ZxA" secondAttribute="trailing" constant="8" id="ueL-pa-WOb"/>
                 <constraint firstItem="R3v-ga-00t" firstAttribute="top" secondItem="2f6-aS-mz8" secondAttribute="bottom" constant="8" id="y8O-hh-Ofa"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="HWc-Xn-BpO"/>
             <point key="canvasLocation" x="41.5" y="54.5"/>
         </view>
     </objects>

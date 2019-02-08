@@ -60,30 +60,24 @@
     self.progressHUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleDark];
     self.progressHUD.textLabel.text = @"Loading...";
     
-//    NSString *clientkey;
-//    NSString *merchantServer;
-//    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
-//    switch (CC_CONFIG.paymentType) {
-//        case MTCreditCardPaymentTypeOneclick:
-//            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-//            merchantServer = @"https://rakawm-snap.herokuapp.com";
-//            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-//            merchantServer = @"https://rakawm-snap.herokuapp.com";
-//            CC_CONFIG.tokenStorageEnabled = NO;
-//            break;
-//        default:
-//            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
-//            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
-//            CC_CONFIG.tokenStorageEnabled = YES;
-//            break;
-//    }
-//    [CONFIG setClientKey:clientkey
-//             environment:MidtransServerEnvironmentProduction
-//       merchantServerURL:merchantServer];
-    
-    [CONFIG setClientKey:@"VT-client-6_dY49SlR_Ph32_1"
+    NSString *clientkey;
+    NSString *merchantServer;
+    CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
+    switch (CC_CONFIG.paymentType) {
+        case MTCreditCardPaymentTypeOneclick:
+            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
+            merchantServer = @"https://rakawm-snap.herokuapp.com";
+            CC_CONFIG.tokenStorageEnabled = NO;
+            break;
+        default:
+            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
+            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
+            CC_CONFIG.tokenStorageEnabled = YES;
+            break;
+    }
+    [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox
-       merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"];
+       merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];

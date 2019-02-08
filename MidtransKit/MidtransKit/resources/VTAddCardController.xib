@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
@@ -42,10 +39,10 @@
                                     <rect key="frame" x="16" y="8" width="288" height="51"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cc_badge.png" translatesAutoresizingMaskIntoConstraints="NO" id="Zx1-o7-sA4">
-                                            <rect key="frame" x="144" y="0.0" width="136" height="51"/>
+                                            <rect key="frame" x="143.5" y="0.0" width="136.5" height="51"/>
                                         </imageView>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="midtrans_lock.png" translatesAutoresizingMaskIntoConstraints="NO" id="9eO-MS-A71">
-                                            <rect key="frame" x="8" y="10" width="111" height="31"/>
+                                            <rect key="frame" x="8" y="10" width="110.5" height="31"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="31" id="2He-8I-PJF"/>
                                             </constraints>
@@ -235,13 +232,13 @@
                     <rect key="frame" x="0.0" y="468" width="320" height="44"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G5o-vj-Rom">
-                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="14" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.5568627451" green="0.56078431370000004" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="89S-8I-cU7">
-                            <rect key="frame" x="271" y="12.5" width="9" height="20"/>
+                            <rect key="frame" x="271" y="11.5" width="9" height="21.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -286,8 +283,9 @@
                 <constraint firstAttribute="trailing" secondItem="m7b-l4-Xll" secondAttribute="trailing" id="Zkq-zW-42B"/>
                 <constraint firstItem="m7b-l4-Xll" firstAttribute="leading" secondItem="1nQ-9Y-DIG" secondAttribute="leading" id="mi8-Pw-gin"/>
                 <constraint firstAttribute="trailing" secondItem="RcJ-63-gQW" secondAttribute="trailing" constant="8" id="rv9-37-QAv"/>
-                <constraint firstAttribute="bottom" secondItem="RcJ-63-gQW" secondAttribute="bottom" constant="8" id="vif-k3-0Ae"/>
+                <constraint firstItem="U5H-r3-kxn" firstAttribute="bottom" secondItem="RcJ-63-gQW" secondAttribute="bottom" constant="8" id="vif-k3-0Ae"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="U5H-r3-kxn"/>
             <connections>
                 <outlet property="amountLabel" destination="89S-8I-cU7" id="r28-0A-UXo"/>
                 <outlet property="cardCvv" destination="8Nn-gz-tW4" id="77R-by-odN"/>

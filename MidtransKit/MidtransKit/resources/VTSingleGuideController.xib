@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -22,11 +23,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wV9-Ui-wJU">
-                    <rect key="frame" x="8" y="603" width="359" height="56"/>
+                    <rect key="frame" x="8" y="714" width="359" height="56"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EWG-kK-ISp" customClass="MidtransUINextStepButton">
                             <rect key="frame" x="0.0" y="16" width="359" height="40"/>
@@ -41,7 +42,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="GiC-AU-fCy">
-                            <rect key="frame" x="343" y="29" width="8" height="13"/>
+                            <rect key="frame" x="343" y="29.666666666666629" width="8" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="8" id="3fz-8c-rWk"/>
                                 <constraint firstAttribute="height" constant="13" id="8SZ-jO-3OK"/>
@@ -59,13 +60,13 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W6r-Bg-my9">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="595"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="706"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wV9-Ui-wJU" secondAttribute="bottom" constant="8" id="G4G-AA-9lZ"/>
+                <constraint firstItem="BmZ-eo-3IT" firstAttribute="bottom" secondItem="wV9-Ui-wJU" secondAttribute="bottom" constant="8" id="G4G-AA-9lZ"/>
                 <constraint firstAttribute="trailing" secondItem="wV9-Ui-wJU" secondAttribute="trailing" constant="8" id="U3a-dV-G2b"/>
                 <constraint firstItem="W6r-Bg-my9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UIv-Hn-cEb"/>
                 <constraint firstAttribute="trailing" secondItem="W6r-Bg-my9" secondAttribute="trailing" id="kvB-j7-Z5f"/>
@@ -73,6 +74,7 @@
                 <constraint firstItem="wV9-Ui-wJU" firstAttribute="top" secondItem="W6r-Bg-my9" secondAttribute="bottom" constant="8" id="yeg-zb-hrS"/>
                 <constraint firstItem="wV9-Ui-wJU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zpz-jC-Mic"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="BmZ-eo-3IT"/>
         </view>
     </objects>
     <resources>

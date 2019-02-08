@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -34,7 +35,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0E-ny-Zs0" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="8" y="683" width="398" height="40"/>
+                    <rect key="frame" x="8" y="688" width="398" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="YfF-GY-5MI"/>
@@ -46,27 +47,27 @@
                     </connections>
                 </button>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xxN-vw-CNQ">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="601"/>
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="606"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="9uX-Fq-Xtj">
-                    <rect key="frame" x="391" y="697" width="8" height="13"/>
+                    <rect key="frame" x="391" y="701.66666666666663" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="NGI-UR-g0L"/>
                         <constraint firstAttribute="width" constant="8" id="tqQ-ah-qng"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jGS-wi-do7" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="601" width="414" height="74"/>
+                    <rect key="frame" x="0.0" y="606" width="414" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WX5-0b-wNM">
-                            <rect key="frame" x="15" y="18" width="76.666666666666671" height="15.333333333333336"/>
+                            <rect key="frame" x="15" y="16.666666666666629" width="73.666666666666671" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lg8-Nr-kXc">
-                            <rect key="frame" x="330.66666666666669" y="0.0" width="43.333333333333314" height="50"/>
+                            <rect key="frame" x="336.66666666666669" y="0.0" width="37.333333333333314" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -78,7 +79,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7b-TR-kFe">
-                            <rect key="frame" x="15" y="49" width="166" height="15.333333333333329"/>
+                            <rect key="frame" x="15" y="49" width="166" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -134,12 +135,13 @@
                 <constraint firstAttribute="trailing" secondItem="xxN-vw-CNQ" secondAttribute="trailing" id="aIG-vO-87S"/>
                 <constraint firstItem="jGS-wi-do7" firstAttribute="width" secondItem="1gO-fv-cPn" secondAttribute="width" id="aOD-Kv-dWB"/>
                 <constraint firstAttribute="trailing" secondItem="f0E-ny-Zs0" secondAttribute="trailing" constant="8" id="cBw-ID-Qws"/>
-                <constraint firstAttribute="bottom" secondItem="f0E-ny-Zs0" secondAttribute="bottom" constant="13" id="cYh-CJ-dTq"/>
+                <constraint firstItem="oMP-O5-onE" firstAttribute="bottom" secondItem="f0E-ny-Zs0" secondAttribute="bottom" constant="8" id="cYh-CJ-dTq"/>
                 <constraint firstItem="f0E-ny-Zs0" firstAttribute="leading" secondItem="1gO-fv-cPn" secondAttribute="leading" constant="8" id="jj5-Ue-UPj"/>
                 <constraint firstItem="jGS-wi-do7" firstAttribute="leading" secondItem="1gO-fv-cPn" secondAttribute="leading" id="lX8-Wo-U3h"/>
                 <constraint firstItem="jGS-wi-do7" firstAttribute="top" secondItem="xxN-vw-CNQ" secondAttribute="bottom" id="sCH-NP-yet"/>
                 <constraint firstItem="9uX-Fq-Xtj" firstAttribute="centerY" secondItem="f0E-ny-Zs0" secondAttribute="centerY" id="wxf-Oa-tGg"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="oMP-O5-onE"/>
             <point key="canvasLocation" x="-105" y="173"/>
         </view>
     </objects>

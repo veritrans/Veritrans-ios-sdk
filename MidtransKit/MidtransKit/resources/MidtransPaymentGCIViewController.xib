@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <deployment version="2304" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="HelveticaNeue.ttc">
-            <string>HelveticaNeue</string>
-        </array>
         <array key="SourceSansPro-Regular.ttf">
             <string>SourceSansPro-Regular</string>
         </array>
@@ -105,13 +103,13 @@
                     <rect key="frame" x="0.0" y="606" width="414" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jYX-ug-7Ph">
-                            <rect key="frame" x="15" y="18" width="76.666666666666671" height="15.333333333333336"/>
+                            <rect key="frame" x="15" y="16.666666666666629" width="73.666666666666671" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ar1-2H-egb">
-                            <rect key="frame" x="330.66666666666669" y="0.0" width="43.333333333333314" height="50"/>
+                            <rect key="frame" x="336.66666666666669" y="0.0" width="37.333333333333314" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -123,7 +121,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gO0-VM-1c3">
-                            <rect key="frame" x="15" y="49" width="166" height="15.333333333333329"/>
+                            <rect key="frame" x="15" y="49" width="166" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -181,8 +179,9 @@
                 <constraint firstItem="0Dm-zH-Vuz" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Rgx-we-UXZ"/>
                 <constraint firstItem="0Dm-zH-Vuz" firstAttribute="top" secondItem="WQi-FL-s23" secondAttribute="bottom" constant="8" id="bJO-IM-BwZ"/>
                 <constraint firstAttribute="trailing" secondItem="WQi-FL-s23" secondAttribute="trailing" id="jc2-dk-NIA"/>
-                <constraint firstAttribute="bottom" secondItem="0Dm-zH-Vuz" secondAttribute="bottom" constant="8" id="nUe-Sn-XbD"/>
+                <constraint firstItem="Oyr-XM-fNA" firstAttribute="bottom" secondItem="0Dm-zH-Vuz" secondAttribute="bottom" constant="8" id="nUe-Sn-XbD"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="Oyr-XM-fNA"/>
             <connections>
                 <outlet property="amountTotalLabel" destination="ar1-2H-egb" id="lNH-Kv-NJ2"/>
                 <outlet property="confirmButton" destination="0Dm-zH-Vuz" id="xbz-b9-EGg"/>

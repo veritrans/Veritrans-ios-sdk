@@ -70,6 +70,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DDACCED5220BEB27007503EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E5CDEC971E9340E80032DC3B;
+			remoteInfo = MidtransKit;
+		};
+		DDACCED7220BEB27007503EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E57120961E937B140064F515;
+			remoteInfo = MidtransKitStatic;
+		};
+		DDACCED9220BEB27007503EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = E57123F41E9380E80064F515;
+			remoteInfo = MidtransKitResources;
+		};
+		DDACCEDB220BEB27007503EC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 3D8AE6B121107F0C00C8D41B;
+			remoteInfo = MidtransKitTests;
+		};
 		E5C7516B1E8B912F001F47D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E56436EA1E83A72F008726D0 /* Project object */;
@@ -119,6 +147,7 @@
 		6B524B13962DAF2333F2443B /* Pods-MidtransDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemoUITests/Pods-MidtransDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		96D8FE5F299C0BB0FFE16AFF /* Pods-MidtransDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemoUITests/Pods-MidtransDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9F2FB9DC837424A9DE9E4EF /* libPods-MidtransDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
 		E529544B1EBAF8E60076BEC8 /* MDAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAlertViewController.h; sourceTree = "<group>"; };
 		E529544C1EBAF8E60076BEC8 /* MDAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAlertViewController.m; sourceTree = "<group>"; };
 		E529544D1EBAF8E60076BEC8 /* MDAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDAlertViewController.xib; sourceTree = "<group>"; };
@@ -234,6 +263,17 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		DDACCECE220BEB26007503EC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDACCED6220BEB27007503EC /* MidtransKit.framework */,
+				DDACCED8220BEB27007503EC /* libMidtransKitStatic.a */,
+				DDACCEDA220BEB27007503EC /* MidtransKit.bundle */,
+				DDACCEDC220BEB27007503EC /* MidtransKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		E52954521EBB00EC0076BEC8 /* alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -256,6 +296,7 @@
 		E56436E91E83A72F008726D0 = {
 			isa = PBXGroup;
 			children = (
+				DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */,
 				E56436F41E83A72F008726D0 /* MidtransDemo */,
 				E5C751671E8B912F001F47D9 /* MidtransDemoUITests */,
 				E56436F31E83A72F008726D0 /* Products */,
@@ -509,6 +550,12 @@
 			mainGroup = E56436E91E83A72F008726D0;
 			productRefGroup = E56436F31E83A72F008726D0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DDACCECE220BEB26007503EC /* Products */;
+					ProjectRef = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E56436F11E83A72F008726D0 /* MidtransDemo */,
@@ -516,6 +563,37 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		DDACCED6220BEB27007503EC /* MidtransKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = MidtransKit.framework;
+			remoteRef = DDACCED5220BEB27007503EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDACCED8220BEB27007503EC /* libMidtransKitStatic.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libMidtransKitStatic.a;
+			remoteRef = DDACCED7220BEB27007503EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDACCEDA220BEB27007503EC /* MidtransKit.bundle */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MidtransKit.bundle;
+			remoteRef = DDACCED9220BEB27007503EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDACCEDC220BEB27007503EC /* MidtransKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = MidtransKitTests.xctest;
+			remoteRef = DDACCEDB220BEB27007503EC /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		E56436F01E83A72F008726D0 /* Resources */ = {
@@ -768,7 +846,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -815,7 +893,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;

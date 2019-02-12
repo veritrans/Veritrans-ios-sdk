@@ -76,6 +76,20 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
+		<string>Alfamart</string>
+		<key>description</key>
+		<string>Pay from Alfamart</string>
+		<key>id</key>
+		<string>alfamart</string>
+		<key>identifier</key>
+		<string>alfamart</string>
+		<key>shortName</key>
+		<string>alfamart</string>
+	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
 		<string>BCA KlikPay</string>
 		<key>description</key>
 		<string>Pay with BCA KlikPay</string>
@@ -268,19 +282,19 @@
 		<key>shortName</key>
 		<string>gopay</string>
 	</dict>
-    <dict>
-        <key>status</key>
-        <string>&quot;&quot;</string>
-        <key>title</key>
-        <string>Akulaku</string>
-        <key>description</key>
-        <string>Pay with Akulaku</string>
-        <key>id</key>
-        <string>akulaku</string>
-        <key>identifier</key>
-        <string>akulaku</string>
-        <key>shortName</key>
-        <string>akulaku</string>
-    </dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Akulaku</string>
+		<key>description</key>
+		<string>Pay with Akulaku</string>
+		<key>id</key>
+		<string>akulaku</string>
+		<key>identifier</key>
+		<string>akulaku</string>
+		<key>shortName</key>
+		<string>akulaku</string>
+	</dict>
 </array>
 </plist>

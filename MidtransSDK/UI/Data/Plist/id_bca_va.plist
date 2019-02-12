@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM BCA</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Pada menu utama, pilih ‘Transaksi Lainnya’</string>
+				<key>image</key>
+				<string>bca_atm_1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Transfer’</string>
+				<key>image</key>
+				<string>bca_atm_2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Ke Rek BCA Virtual Account’</string>
+				<key>image</key>
+				<string>bca_atm_3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan Nomor Rekening pembayaran anda(11 digit) lalu tekan ‘Benar’</string>
+				<key>image</key>
+				<string>bca_atm_4</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan Jumlah Tagihan yang akan Anda bayar lalu tekan ‘Benar’</string>
+				<key>image</key>
+				<string>bca_atm_5</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Detail pembayaran Anda akan muncul pada halaman konfirmasi. jika informasi telah sesuai tekan Ya ‘Ya’</string>
+				<key>image</key>
+				<string>bca_atm_6</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>KlikBCA</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Pilih menu ‘Transfer Dana’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Transfer ke BCA Virtual Account’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>‘Masukkan nomor BCA Virtual Account’ atau ‘Pilih Dari Daftar Transfer’ dan klik ‘Lanjutkan’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Jumlah yang harus dibayarkan, nomor rekening dan nama merchant akan tampil pada halaman konfirmasi pembayaran, jika informasi benar, klik ‘Lanjutkan’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Ambil ‘BCA token’ Anda dan masukkan KEYBCA Response ‘APPLI 1’ dan klik ‘Submit’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Transaksi Anda selesai.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>m-BCA</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Lakukan log in pada aplikasi BCA Mobile ‘BCA Mobile’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih menu m-BCA, kemudian masukkan kode akses  ‘m-BCA’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘m-Transfer &gt; BCA Virtual Account’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih dari ‘Daftar Transfer’, atau masukkan nomor virtual account tujuan </string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan jumlah yang ingin dibayarkan</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan pin ‘m-BCA’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pembayaran selesai. Simpan notifikasi yang muncul sebagai bukti pembayaran</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Aktifkan token Mandiri Anda dengan menekan [token_button]</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan password token Mandiri Anda.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Tekan 3 ketika APPLI ditampilkan.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan ‘masukan 1’ dan tekan [token_button] selama 3 detik.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan ‘masukan 2’ dan tekan [token_button] selama 3 detik.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan ‘masukan 3’ dan tekan [token_button] selama 3 detik.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan response code pada token Mandiri Anda pada kolom challenge token.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

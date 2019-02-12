@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTVAListController">
+            <connections>
+                <outlet property="orderIdLabel" destination="xGS-nl-G5O" id="OqP-4X-TED"/>
+                <outlet property="tableView" destination="QzD-tQ-HgG" id="LAT-8w-3g9"/>
+                <outlet property="totalAmountBorderedView" destination="Q86-di-Zrj" id="mRa-Dv-TiQ"/>
+                <outlet property="totalAmountLabel" destination="NLe-xT-dqj" id="ncl-vY-0sn"/>
+                <outlet property="totalAmountTextLabel" destination="5In-mU-7Wv" id="Mnm-2d-FwF"/>
+                <outlet property="view" destination="KiP-We-xFP" id="Go9-m2-geL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="KiP-We-xFP">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q86-di-Zrj" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="662" width="414" height="74"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5In-mU-7Wv">
+                            <rect key="frame" x="15" y="18" width="76.666666666666671" height="15.333333333333336"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NLe-xT-dqj">
+                            <rect key="frame" x="330.66666666666669" y="0.0" width="43.333333333333314" height="50"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="18"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="Rbo-kF-MPe">
+                            <rect key="frame" x="379" y="15" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="20" id="5Kf-O2-7Le"/>
+                                <constraint firstAttribute="height" constant="20" id="m6p-hM-BIz"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zpc-KD-Kif">
+                            <rect key="frame" x="15" y="49" width="166" height="15.333333333333329"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{order Id}}" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xGS-nl-G5O">
+                            <rect key="frame" x="221" y="49" width="178" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="jYF-of-yD8"/>
+                                <constraint firstAttribute="width" constant="178" id="mQw-Rq-g4f"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="5In-mU-7Wv" firstAttribute="centerY" secondItem="NLe-xT-dqj" secondAttribute="centerY" id="5Od-AV-IIZ"/>
+                        <constraint firstItem="Zpc-KD-Kif" firstAttribute="leading" secondItem="Q86-di-Zrj" secondAttribute="leading" constant="15" id="80b-3I-Wsf"/>
+                        <constraint firstItem="Zpc-KD-Kif" firstAttribute="top" secondItem="Q86-di-Zrj" secondAttribute="top" constant="49" id="85t-lt-7tG"/>
+                        <constraint firstItem="Rbo-kF-MPe" firstAttribute="centerY" secondItem="Q86-di-Zrj" secondAttribute="centerY" constant="-12" id="Eag-Ft-rfR"/>
+                        <constraint firstItem="NLe-xT-dqj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="5In-mU-7Wv" secondAttribute="trailing" constant="8" id="OvO-dT-0On"/>
+                        <constraint firstItem="5In-mU-7Wv" firstAttribute="leading" secondItem="Q86-di-Zrj" secondAttribute="leading" constant="15" id="T0D-Cl-0hH"/>
+                        <constraint firstAttribute="height" constant="74" id="b7J-4M-7fr"/>
+                        <constraint firstItem="NLe-xT-dqj" firstAttribute="top" secondItem="Q86-di-Zrj" secondAttribute="top" id="gC0-Tt-zPF"/>
+                        <constraint firstAttribute="trailing" secondItem="Rbo-kF-MPe" secondAttribute="trailing" constant="15" id="iqq-B2-kbD"/>
+                        <constraint firstAttribute="trailing" secondItem="NLe-xT-dqj" secondAttribute="trailing" constant="40" id="kap-Pv-1TD"/>
+                        <constraint firstItem="xGS-nl-G5O" firstAttribute="top" secondItem="Q86-di-Zrj" secondAttribute="top" constant="49" id="mfc-ky-fcs"/>
+                        <constraint firstItem="xGS-nl-G5O" firstAttribute="leading" secondItem="Zpc-KD-Kif" secondAttribute="trailing" constant="40" id="qrD-la-LuN"/>
+                        <constraint firstAttribute="trailing" secondItem="xGS-nl-G5O" secondAttribute="trailing" constant="15" id="rI4-r4-Eqv"/>
+                        <constraint firstAttribute="bottom" secondItem="NLe-xT-dqj" secondAttribute="bottom" constant="24" id="tNv-oy-FOX"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                            <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QzD-tQ-HgG">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="662"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="separatorColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <inset key="separatorInset" minX="70" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="qMF-WN-Mxe"/>
+                        <outlet property="delegate" destination="-1" id="EOO-Yq-vAm"/>
+                    </connections>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Q86-di-Zrj" firstAttribute="width" secondItem="KiP-We-xFP" secondAttribute="width" id="0yJ-hr-9pZ"/>
+                <constraint firstAttribute="trailing" secondItem="Q86-di-Zrj" secondAttribute="trailing" id="AvC-cA-udh"/>
+                <constraint firstAttribute="bottom" secondItem="Q86-di-Zrj" secondAttribute="bottom" id="JHq-OW-N9n"/>
+                <constraint firstItem="QzD-tQ-HgG" firstAttribute="leading" secondItem="KiP-We-xFP" secondAttribute="leading" id="Rug-mm-c8W"/>
+                <constraint firstItem="QzD-tQ-HgG" firstAttribute="width" secondItem="KiP-We-xFP" secondAttribute="width" id="aOj-MV-CZ2"/>
+                <constraint firstAttribute="trailing" secondItem="QzD-tQ-HgG" secondAttribute="trailing" id="fWE-aB-v2s"/>
+                <constraint firstItem="QzD-tQ-HgG" firstAttribute="top" secondItem="KiP-We-xFP" secondAttribute="top" id="ldB-nl-ndn"/>
+                <constraint firstItem="Q86-di-Zrj" firstAttribute="top" secondItem="QzD-tQ-HgG" secondAttribute="bottom" id="s8Q-vS-1b5"/>
+                <constraint firstItem="Q86-di-Zrj" firstAttribute="leading" secondItem="KiP-We-xFP" secondAttribute="leading" id="xuB-L7-pZo"/>
+            </constraints>
+            <point key="canvasLocation" x="-496" y="-175"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
+</document>

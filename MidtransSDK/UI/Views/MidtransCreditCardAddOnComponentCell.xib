@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MidtransCreditCardAddOnComponentCell" id="KGk-i7-Jjw" customClass="MidtransCreditCardAddOnComponentCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content for" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mjt-ZA-2iZ">
+                        <rect key="frame" x="47" y="11" width="240" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="Y9a-Ks-flu"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                        <color key="textColor" red="0.011764705882352941" green="0.011764705882352941" blue="0.011764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xDn-eM-QDh" customClass="MidtransUIButton">
+                        <rect key="frame" x="284" y="11" width="21" height="22"/>
+                        <state key="normal" image="hint.png"/>
+                        <connections>
+                            <action selector="addOnInformationButtonDIdTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="DbE-7w-EaN"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5i2-wu-Kbq" customClass="MidtransUIButton">
+                        <rect key="frame" x="15" y="11" width="22" height="22"/>
+                        <accessibility key="accessibilityConfiguration" identifier="mt_checkbox">
+                            <accessibilityTraits key="traits" button="YES"/>
+                        </accessibility>
+                        <state key="normal" backgroundImage="checkbox_uncheck.png"/>
+                        <state key="selected" backgroundImage="checkbox_checked.png"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="custom value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Fd-AI-ruZ">
+                        <rect key="frame" x="197" y="10" width="108" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="108" id="9Ql-wa-Eoj"/>
+                            <constraint firstAttribute="height" constant="22" id="KRv-Ur-9eH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                        <color key="textColor" red="0.98039215690000003" green="0.80000000000000004" blue="0.078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Mjt-ZA-2iZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="2qV-n3-lNa"/>
+                    <constraint firstItem="5i2-wu-Kbq" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="GJd-zf-00n"/>
+                    <constraint firstItem="5i2-wu-Kbq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Jdd-d9-j6w"/>
+                    <constraint firstItem="xDn-eM-QDh" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="KhK-QV-eUA"/>
+                    <constraint firstAttribute="trailing" secondItem="xDn-eM-QDh" secondAttribute="trailing" constant="15" id="Lyn-y9-sm7"/>
+                    <constraint firstAttribute="bottom" secondItem="7Fd-AI-ruZ" secondAttribute="bottom" constant="11.5" id="UMz-Sd-glU"/>
+                    <constraint firstAttribute="trailing" secondItem="7Fd-AI-ruZ" secondAttribute="trailing" constant="15" id="WV7-dv-wyr"/>
+                    <constraint firstItem="Mjt-ZA-2iZ" firstAttribute="leading" secondItem="5i2-wu-Kbq" secondAttribute="trailing" constant="10" id="YYC-sO-0Sq"/>
+                    <constraint firstItem="xDn-eM-QDh" firstAttribute="leading" secondItem="Mjt-ZA-2iZ" secondAttribute="trailing" constant="-3" id="odd-1g-OeG"/>
+                    <constraint firstItem="7Fd-AI-ruZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="xWb-OJ-o11"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="addOnInformationButton" destination="xDn-eM-QDh" id="WZ4-dB-dF2"/>
+                <outlet property="addOnTitleLabel" destination="Mjt-ZA-2iZ" id="QjD-SM-p3p"/>
+                <outlet property="checkButton" destination="5i2-wu-Kbq" id="WFl-7c-Ulz"/>
+                <outlet property="customValueLabel" destination="7Fd-AI-ruZ" id="WhZ-OG-021"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkbox_checked.png" width="22" height="22"/>
+        <image name="checkbox_uncheck.png" width="22" height="22"/>
+        <image name="hint.png" width="21" height="21"/>
+    </resources>
+</document>

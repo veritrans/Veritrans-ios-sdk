@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Setelah melakukan Konfirmasi Pembayaran, Anda akan diberikan Kode Pembayaran yang unik.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Salinlah Kode Pembayaran Anda dan jumlah pembayaran yang akan dibayarkan. Jangan khawatir, Kami juga akan mengirimkan salinan kode pembayaran dan instruksi pembayaran melalui email.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Kunjungi Indomaret terdekat dan berikan nomor Kode Pembayaran atau kode barcode Anda ke kasir untuk dipindai.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Kasir Indomaret akan mengkonfirmasi transaksi dengan menanyakan jumlah transaksi dan nama merchant.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Konfirmasi Pembayaran Anda ke kasir</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Transaksi Anda berhasil! Anda akan menerima email konfirmasi pembayaran. Harap simpan struk pembayaran Indomaret Anda, apabila Anda memerlukan bantuan via support.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

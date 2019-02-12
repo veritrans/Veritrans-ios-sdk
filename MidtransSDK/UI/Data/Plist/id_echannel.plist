@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM Mandiri</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Pada menu utama, pilih ‘Pembayaran/Pembelian’</string>
+				<key>image</key>
+				<string>mandiri_atm_1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Lainnya’</string>
+				<key>image</key>
+				<string>mandiri_atm_2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Multi Payment’</string>
+				<key>image</key>
+				<string>mandiri_atm_3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan 70012 (kode perusahaan Midtrans) dan tekan ’Benar’</string>
+				<key>image</key>
+				<string>mandiri_atm_4</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan kode pembayaran anda dan tekan ‘Benar’</string>
+				<key>image</key>
+				<string>mandiri_atm_5</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Detil pembayaran anda akan muncul di halaman konfirmasi pembayaran. Jika informasi tersebut benar tekan ‘Ya’</string>
+				<key>image</key>
+				<string>mandiri_atm_6</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Internet Banking</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Login ke Mandiri Internet Banking (ib.bankmandiri.co.id)</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Dari menu utama pilih ‘Pembayaran’, lalu pilih ’Multi Payment’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih akun anda di ‘Dari Akun’, lalu ‘Nama Penagihan’ pilih ‘Midtrans’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan ‘Kode Pembayaran’ dan anda akan menerima detil pembayaran anda.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Konfirmasi pembayaran anda dengan menggunakan Token Mandiri anda.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

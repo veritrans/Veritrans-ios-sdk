@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Pastikan no. HP anda telah terdaftar untuk Mandiri e-cash.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Klik ‘Confirm Payment’</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan nomor ponsel dan PIN Anda.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Harap tunggu sampai Anda menerima SMS dari Mandiri e-cash berisi One Time Password (OTP).</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Masukkan kode 6 angka OTP yang diterima, kemudian tekan tombol ‘Bayar’ untuk melakukan pembayaran.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Jika Anda belum menerima OTP atau jika OTP sudah kadaluarsa, klik ‘Batal’ dan ulangi transaksi.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

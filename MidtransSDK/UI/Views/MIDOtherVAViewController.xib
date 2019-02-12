@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MIDOtherVAViewController">
+            <connections>
+                <outlet property="buttonDisclosure" destination="uhC-wg-lkS" id="L2L-69-Zug"/>
+                <outlet property="segmentedControl" destination="ffY-a0-FrB" id="2nc-we-DzB"/>
+                <outlet property="smallLogo" destination="Xxq-O0-diy" id="i4Q-Os-JY7"/>
+                <outlet property="smallTextLabel" destination="orO-5y-SKa" id="u3G-Kw-5Iy"/>
+                <outlet property="tableview" destination="mog-gx-aBV" id="VNd-O1-ZIY"/>
+                <outlet property="totalAmountLabel" destination="UWG-PA-ZaE" id="MKC-yE-KPg"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffY-a0-FrB" customClass="HMSegmentedControl">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="hFc-x2-F1k"/>
+                    </constraints>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yI6-18-Fsa">
+                    <rect key="frame" x="0.0" y="46" width="375" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Key token device is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="orO-5y-SKa">
+                            <rect key="frame" x="45" y="14" width="286.5" height="14"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="token_key.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xxq-O0-diy">
+                            <rect key="frame" x="20.5" y="12" width="20.5" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="CVg-qw-aCX"/>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="FjF-Pm-76F"/>
+                                <constraint firstAttribute="width" constant="20" id="sJ0-gJ-hl7"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99752849340000005" green="0.95564955470000001" blue="0.77139037850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="3ko-ZY-2CH"/>
+                        <constraint firstItem="orO-5y-SKa" firstAttribute="centerX" secondItem="yI6-18-Fsa" secondAttribute="centerX" id="HMO-lQ-jcj"/>
+                        <constraint firstItem="orO-5y-SKa" firstAttribute="leading" secondItem="Xxq-O0-diy" secondAttribute="trailing" constant="4" id="Umc-xY-im2"/>
+                        <constraint firstItem="Xxq-O0-diy" firstAttribute="bottom" secondItem="yI6-18-Fsa" secondAttribute="bottomMargin" id="nyY-db-dSc"/>
+                        <constraint firstItem="orO-5y-SKa" firstAttribute="centerY" secondItem="yI6-18-Fsa" secondAttribute="centerY" id="yky-ST-IEE"/>
+                    </constraints>
+                </view>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mog-gx-aBV">
+                    <rect key="frame" x="0.0" y="108" width="375" height="452"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="p7W-Ow-yQK"/>
+                        <outlet property="delegate" destination="-1" id="hdw-On-9uR"/>
+                    </connections>
+                </tableView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BAYAR DI ATM BANK MANAPUN YANG BERLOGO ATM BERSAMA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1O-mu-b20">
+                    <rect key="frame" x="16" y="94" width="343" height="14"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plp-P7-lX6" customClass="MidtransUINextStepButton">
+                    <rect key="frame" x="8" y="613" width="359" height="40"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="kk7-QG-Jgj"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="18"/>
+                    <state key="normal" title="Confirm Payment"/>
+                    <connections>
+                        <action selector="confirmPaymentButtonDidTapped:" destination="-1" eventType="touchUpInside" id="ioM-4Z-6WU"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I9o-fU-K9D" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="560" width="375" height="45"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWG-PA-ZaE">
+                            <rect key="frame" x="293" y="13" width="42" height="20"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ax8-GL-Bpc">
+                            <rect key="frame" x="15" y="15" width="77" height="15.5"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageView:uhC-wg-lkS:image" translatesAutoresizingMaskIntoConstraints="NO" id="uhC-wg-lkS">
+                            <rect key="frame" x="345" y="15" width="15" height="15"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="15" id="2vP-7j-SOn"/>
+                                <constraint firstAttribute="height" constant="15" id="ri2-oZ-jZc"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="uhC-wg-lkS" secondAttribute="trailing" constant="15" id="A9c-k0-LZI"/>
+                        <constraint firstAttribute="height" constant="45" id="PZG-E4-tt9"/>
+                        <constraint firstItem="ax8-GL-Bpc" firstAttribute="leading" secondItem="I9o-fU-K9D" secondAttribute="leading" constant="15" id="V2a-qx-q0k"/>
+                        <constraint firstAttribute="trailing" secondItem="UWG-PA-ZaE" secondAttribute="trailing" constant="40" id="ga0-E3-gac"/>
+                        <constraint firstItem="UWG-PA-ZaE" firstAttribute="centerY" secondItem="I9o-fU-K9D" secondAttribute="centerY" id="oNe-MI-xFK"/>
+                        <constraint firstItem="ax8-GL-Bpc" firstAttribute="centerY" secondItem="I9o-fU-K9D" secondAttribute="centerY" id="sP9-NP-NnX"/>
+                        <constraint firstItem="uhC-wg-lkS" firstAttribute="centerY" secondItem="I9o-fU-K9D" secondAttribute="centerY" id="uJi-fn-Zt5"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                            <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Plp-P7-lX6" firstAttribute="top" secondItem="I9o-fU-K9D" secondAttribute="bottom" constant="8" id="1Eg-Kt-Pb6"/>
+                <constraint firstItem="ffY-a0-FrB" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="3wV-NV-ln4"/>
+                <constraint firstItem="Plp-P7-lX6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="6Pj-TM-sB2"/>
+                <constraint firstAttribute="trailing" secondItem="I9o-fU-K9D" secondAttribute="trailing" id="74L-JK-fat"/>
+                <constraint firstItem="mog-gx-aBV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="7Eq-0t-esi"/>
+                <constraint firstItem="ffY-a0-FrB" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="E05-TC-BpN"/>
+                <constraint firstAttribute="trailing" secondItem="ffY-a0-FrB" secondAttribute="trailing" id="LCW-JM-2Kn"/>
+                <constraint firstAttribute="trailing" secondItem="yI6-18-Fsa" secondAttribute="trailing" id="Mgb-vK-Fao"/>
+                <constraint firstItem="yI6-18-Fsa" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="NCl-eX-TV1"/>
+                <constraint firstAttribute="trailing" secondItem="mog-gx-aBV" secondAttribute="trailing" id="SYY-Ss-nPf"/>
+                <constraint firstItem="R1O-mu-b20" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="16" id="TAj-0M-nOa"/>
+                <constraint firstItem="R1O-mu-b20" firstAttribute="top" secondItem="yI6-18-Fsa" secondAttribute="bottom" constant="8" id="TmL-Ct-zhs"/>
+                <constraint firstItem="I9o-fU-K9D" firstAttribute="top" secondItem="mog-gx-aBV" secondAttribute="bottom" id="To5-wP-Xiz"/>
+                <constraint firstItem="mog-gx-aBV" firstAttribute="top" secondItem="R1O-mu-b20" secondAttribute="bottom" id="Vqc-Gc-62x"/>
+                <constraint firstAttribute="trailing" secondItem="Plp-P7-lX6" secondAttribute="trailing" constant="8" id="cL9-TM-Krg"/>
+                <constraint firstAttribute="bottom" secondItem="Plp-P7-lX6" secondAttribute="bottom" constant="14" id="jcD-0Z-tcS"/>
+                <constraint firstItem="I9o-fU-K9D" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="px1-sk-gUe"/>
+                <constraint firstAttribute="trailing" secondItem="R1O-mu-b20" secondAttribute="trailing" constant="16" id="q9M-Ze-wJ5"/>
+                <constraint firstItem="yI6-18-Fsa" firstAttribute="top" secondItem="ffY-a0-FrB" secondAttribute="bottom" id="tt9-rm-jZZ"/>
+            </constraints>
+            <point key="canvasLocation" x="-177.5" y="148.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="imageView:uhC-wg-lkS:image" width="12" height="12">
+            <mutableData key="keyedArchiveRepresentation">
+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
+aQBsAEcAZQBuAGUAcgBlAGwAIABSAEcAQgAtAGIAZQBzAGsAcgBpAHYAZQBsAHMAZQBQAGUAcgBmAGkA
+bAAgAFIARwBCACAAZwBlAG4A6AByAGkAYwBDHqUAdQAgAGgA7ABuAGgAIABSAEcAQgAgAEMAaAB1AG4A
+ZwBQAGUAcgBmAGkAbAAgAFIARwBCACAARwBlAG4A6QByAGkAYwBvBBcEMAQzBDAEOwRMBD0EOAQ5ACAE
+PwRABD4ERAQwBDkEOwAgAFIARwBCAFAAcgBvAGYAaQBsACAAZwDpAG4A6QByAGkAcQB1AGUAIABSAFYA
+QgDBAGwAdABhAGwA4QBuAG8AcwAgAFIARwBCACAAcAByAG8AZgBpAGyQGnUoACAAUgBHAEIAIIJyX2lj
+z4/wAEcAZQBuAGUAcgBpAHMAawAgAFIARwBCAC0AcAByAG8AZgBpAGwATwBiAGUAYwBuAP0AIABSAEcA
+QgAgAHAAcgBvAGYAaQBsBeQF6AXVBeQF2QXcACAAUgBHAEIAIAXbBdwF3AXZAFAAcgBvAGYAaQBsAG8A
+IABSAEcAQgAgAGcAZQBuAGUAcgBpAGMAbwBQAHIAbwBmAGkAbAAgAFIARwBCACAAZwBlAG4AZQByAGkA
+YwBBAGwAbABnAGUAbQBlAGkAbgBlAHMAIABSAEcAQgAtAFAAcgBvAGYAaQBsx3y8GAAgAFIARwBCACDV
+BLhc0wzHfGZukBoAIABSAEcAQgAgY8+P8GWHTvZOAIIsACAAUgBHAEIAIDDXMO0w1TChMKQw6wOTA7UD
+vQO5A7oDzAAgA8ADwQO/A8YDrwO7ACAAUgBHAEIAUABlAHIAZgBpAGwAIABSAEcAQgAgAGcAZQBuAOkA
+cgBpAGMAbwBBAGwAZwBlAG0AZQBlAG4AIABSAEcAQgAtAHAAcgBvAGYAaQBlAGwOQg4bDiMORA4fDiUO
+TAAgAFIARwBCACAOFw4xDkgOJw5EDhsARwBlAG4AZQBsACAAUgBHAEIAIABQAHIAbwBmAGkAbABpAFkA
+bABlAGkAbgBlAG4AIABSAEcAQgAtAHAAcgBvAGYAaQBpAGwAaQBHAGUAbgBlAHIAaQENAGsAaQAgAFIA
+RwBCACAAcAByAG8AZgBpAGwAVQBuAGkAdwBlAHIAcwBhAGwAbgB5ACAAcAByAG8AZgBpAGwAIABSAEcA
+QgQeBDEESQQ4BDkAIAQ/BEAEPgREBDgEOwRMACAAUgBHAEIGRQZEBkEAIAYqBjkGMQZKBkEAIABSAEcA
+QgAgBicGRAY5BicGRQBHAGUAbgBlAHIAaQBjACAAUgBHAEIAIABQAHIAbwBmAGkAbABldGV4dAAAAABD
+b3B5cmlnaHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLgBYWVogAAAAAAAA81IA
+AQAAAAEWz1hZWiAAAAAAAAB0TQAAPe4AAAPQWFlaIAAAAAAAAFp1AACscwAAFzRYWVogAAAAAAAAKBoA
+ABWfAAC4NmN1cnYAAAAAAAAAAQHNAABzZjMyAAAAAAABDEIAAAXe///zJgAAB5IAAP2R///7ov///aMA
+AAPcAADAbNIlJicoWiRjbGFzc25hbWVYJGNsYXNzZXNfEBBOU0JpdG1hcEltYWdlUmVwoycpKlpOU0lt
+YWdlUmVwWE5TT2JqZWN00iUmLC1XTlNBcnJheaIsKtIlJi8wXk5TTXV0YWJsZUFycmF5oy8sKtMyMwo0
+NTZXTlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAzSJSY4OVdOU0NvbG9yojgq0iUmOzxXTlNJbWFn
+ZaI7Kl8QD05TS2V5ZWRBcmNoaXZlctE/QFRyb290gAEACAARABoAIwAtADIANwBGAEwAVwBeAGUAcgB5
+AIEAgwCFAIoAjACOAJcAnACnAKkAqwCtALIAtQC3ALkAuwC9AMIA2QDbAN0LvwvEC88L2AvrC+8L+gwD
+DAgMEAwTDBgMJwwrDDIMOgxHDEwMTgxQDFUMXQxgDGUMbQxwDIIMhQyKAAAAAAAAAgEAAAAAAAAAQQAA
+AAAAAAAAAAAAAAAADIw
+</mutableData>
+        </image>
+        <image name="token_key.png" width="11" height="16"/>
+    </resources>
+</document>

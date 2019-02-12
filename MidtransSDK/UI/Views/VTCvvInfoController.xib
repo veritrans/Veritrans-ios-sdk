@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11542" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTCvvInfoController">
+            <connections>
+                <outlet property="backgroundView" destination="E61-8m-AMf" id="wq4-uW-jiN"/>
+                <outlet property="view" destination="2IY-wR-vqY" id="Pch-4c-zKL"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="2IY-wR-vqY">
+            <rect key="frame" x="0.0" y="0.0" width="270" height="300"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Yh-yQ-ajQ" customClass="VTAlertBackgroundView">
+                    <rect key="frame" x="0.0" y="0.0" width="270" height="300"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rBJ-QW-fhI" customClass="MidtransUIButton">
+                    <rect key="frame" x="0.0" y="253" width="270" height="47"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="47" id="Wqm-H7-1ii"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <state key="normal" title="OK"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="color" keyPath="topLineColor">
+                            <color key="value" red="0.30196078430000001" green="0.30196078430000001" blue="0.30196078430000001" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="okPressed:" destination="-1" eventType="touchUpInside" id="xdg-YR-sDa"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CreditCardBackSmall.png" translatesAutoresizingMaskIntoConstraints="NO" id="E61-8m-AMf">
+                    <rect key="frame" x="44" y="63" width="182" height="114"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="182" id="lB6-LS-Sff"/>
+                        <constraint firstAttribute="height" constant="114" id="oNk-00-LKi"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What is CVV?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="quZ-lD-kP5">
+                    <rect key="frame" x="90" y="33" width="90" height="22"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                    <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The CVV is a 3 (or 6) digit number security code printed on the back of your card" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" preferredMaxLayoutWidth="200" translatesAutoresizingMaskIntoConstraints="NO" id="5yn-n4-4j7">
+                    <rect key="frame" x="37" y="185" width="197" height="60"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                    <color key="textColor" red="0.01176470588" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="rBJ-QW-fhI" secondAttribute="trailing" id="3NI-J1-lpS"/>
+                <constraint firstItem="quZ-lD-kP5" firstAttribute="centerX" secondItem="2IY-wR-vqY" secondAttribute="centerX" id="B0j-1Z-PRV"/>
+                <constraint firstItem="5yn-n4-4j7" firstAttribute="centerX" secondItem="2IY-wR-vqY" secondAttribute="centerX" id="EkF-h0-4By"/>
+                <constraint firstItem="E61-8m-AMf" firstAttribute="centerX" secondItem="2IY-wR-vqY" secondAttribute="centerX" id="GyR-es-sMI"/>
+                <constraint firstItem="4Yh-yQ-ajQ" firstAttribute="top" secondItem="2IY-wR-vqY" secondAttribute="top" id="PN7-P7-y8B"/>
+                <constraint firstAttribute="bottom" secondItem="rBJ-QW-fhI" secondAttribute="bottom" id="Yu5-iO-7HJ"/>
+                <constraint firstItem="4Yh-yQ-ajQ" firstAttribute="leading" secondItem="2IY-wR-vqY" secondAttribute="leading" id="aUT-js-naS"/>
+                <constraint firstItem="rBJ-QW-fhI" firstAttribute="top" secondItem="5yn-n4-4j7" secondAttribute="bottom" constant="8" id="agO-e8-6zn"/>
+                <constraint firstItem="E61-8m-AMf" firstAttribute="centerY" secondItem="2IY-wR-vqY" secondAttribute="centerY" constant="-30" id="ezY-Qv-fIf"/>
+                <constraint firstAttribute="trailing" secondItem="4Yh-yQ-ajQ" secondAttribute="trailing" id="nNA-va-TKA"/>
+                <constraint firstItem="E61-8m-AMf" firstAttribute="top" secondItem="quZ-lD-kP5" secondAttribute="bottom" constant="8" id="oF8-Vb-Eu6"/>
+                <constraint firstItem="rBJ-QW-fhI" firstAttribute="leading" secondItem="2IY-wR-vqY" secondAttribute="leading" id="rWc-b2-dJy"/>
+                <constraint firstAttribute="bottom" secondItem="4Yh-yQ-ajQ" secondAttribute="bottom" id="th0-Be-ADv"/>
+                <constraint firstItem="5yn-n4-4j7" firstAttribute="top" secondItem="E61-8m-AMf" secondAttribute="bottom" constant="8" id="w0k-Bf-REP"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="CreditCardBackSmall.png" width="182" height="114"/>
+    </resources>
+</document>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>name</key>
+            <string>ATM Permata</string>
+            <key>guides</key>
+            <array>
+                <dict>
+                    <key>content</key>
+                    <string>On the main menu choose ‘Others Transaction’</string>
+                    <key>image</key>
+                    <string>permata_atm_1</string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose ‘Payment’</string>
+                    <key>image</key>
+                    <string>permata_atm_2</string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose ‘Other Payment’</string>
+                    <key>image</key>
+                    <string>permata_atm_3</string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose ‘Virtual Account’</string>
+                    <key>image</key>
+                    <string>permata_atm_4</string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Enter 16 digits payment Account No. and press ‘Correct’</string>
+                    <key>image</key>
+                    <string>permata_atm_5</string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
+                    <key>image</key>
+                    <string>permata_atm_6</string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose your payment account and press ‘Correct’</string>
+                    <key>image</key>
+                    <string>permata_atm_7</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Alto</string>
+            <key>guides</key>
+            <array>
+                <dict>
+                    <key>content</key>
+                    <string>On the main menu choose ‘Others Transaction’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose ‘Payment’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose ‘Other Payment’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose ‘Virtual Account’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Enter 16 digits payment Account No. and press ‘Correct’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                
+                <dict>
+                    <key>content</key>
+                    <string>Choose your payment account and press ‘Correct’</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+            </array>
+        </dict>
+    </array>
+</plist>

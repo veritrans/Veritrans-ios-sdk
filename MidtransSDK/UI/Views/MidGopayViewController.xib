@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue-Medium</string>
+        </array>
+        <array key="SourceSansPro-Regular.ttf">
+            <string>SourceSansPro-Regular</string>
+        </array>
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidGopayViewController">
+            <connections>
+                <outlet property="view" destination="Yam-FI-530" id="4We-8P-lI8"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="Yam-FI-530" customClass="MIDGopayView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="822"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-NC-hLV">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GO-JEK app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-dZ-Mle">
+                            <rect key="frame" x="76.333333333333343" y="13.333333333333336" width="262.66666666666663" height="14"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gojek_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-hw-1CB">
+                            <rect key="frame" x="52" y="12" width="20.333333333333329" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="JeF-50-S9Z"/>
+                                <constraint firstAttribute="height" constant="20" id="cvj-9D-J8J"/>
+                                <constraint firstAttribute="width" constant="20" id="fbs-vi-JSa"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.99752849340000005" green="0.95564955470000001" blue="0.77139037850000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="sJe-hw-1CB" firstAttribute="bottom" secondItem="Y5U-NC-hLV" secondAttribute="bottomMargin" id="K3j-pG-V8q"/>
+                        <constraint firstAttribute="height" constant="40" id="Y1T-XL-9vW"/>
+                        <constraint firstItem="QNo-dZ-Mle" firstAttribute="centerX" secondItem="Y5U-NC-hLV" secondAttribute="centerX" id="nSO-Fg-KM6"/>
+                        <constraint firstItem="QNo-dZ-Mle" firstAttribute="leading" secondItem="sJe-hw-1CB" secondAttribute="trailing" constant="4" id="q0k-ru-ne6"/>
+                        <constraint firstItem="QNo-dZ-Mle" firstAttribute="centerY" secondItem="Y5U-NC-hLV" secondAttribute="centerY" id="sf0-z6-ZY3"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8x-V1-Alg" customClass="MidtransUINextStepButton">
+                    <rect key="frame" x="8" y="773" width="398" height="40"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="GD5-FD-qrL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="18"/>
+                    <state key="normal" title="Confirm Payment"/>
+                    <connections>
+                        <action selector="finishPaymentButtonDidTapped:" destination="-1" eventType="touchUpInside" id="cPT-B4-RHQ"/>
+                    </connections>
+                </button>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pX0-Tu-wuZ">
+                    <rect key="frame" x="0.0" y="40" width="414" height="659"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                </tableView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QS6-Er-iLj">
+                    <rect key="frame" x="0.0" y="40" width="414" height="659"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_no_gopay.png" translatesAutoresizingMaskIntoConstraints="NO" id="AMa-cV-OCw">
+                            <rect key="frame" x="67" y="120" width="279" height="80"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="80" id="MA4-GE-uXG"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whoops" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xg-Nq-qIQ">
+                            <rect key="frame" x="166.33333333333334" y="210" width="82" height="25.666666666666657"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="22"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, we couldn't find GO-JEK app installed on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucl-1f-JoG">
+                            <rect key="frame" x="103" y="243.66666666666666" width="208" height="59.666666666666657"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="208" id="4yR-GO-QZh"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Are-Z5-Oob">
+                            <rect key="frame" x="8" y="621" width="398" height="30"/>
+                            <color key="tintColor" red="0.091509331753330828" green="0.60178134854116272" blue="0.89301327720207258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <state key="normal" title="Install GO-JEK app from Appstore">
+                                <color key="titleColor" red="0.0063865571279999997" green="0.62833845619999995" blue="0.78163856269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="installGOJEKappButtonDidTapped:" destination="-1" eventType="touchUpInside" id="uXw-CY-GUC"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="Are-Z5-Oob" firstAttribute="leading" secondItem="QS6-Er-iLj" secondAttribute="leading" constant="8" id="6JV-wl-fja"/>
+                        <constraint firstItem="AMa-cV-OCw" firstAttribute="leading" secondItem="QS6-Er-iLj" secondAttribute="leading" constant="67" id="A89-IW-sjX"/>
+                        <constraint firstAttribute="trailing" secondItem="Are-Z5-Oob" secondAttribute="trailing" constant="8" id="Amq-mL-3Pj"/>
+                        <constraint firstItem="3Xg-Nq-qIQ" firstAttribute="top" secondItem="AMa-cV-OCw" secondAttribute="bottom" constant="10" id="G3U-F3-1JM"/>
+                        <constraint firstItem="AMa-cV-OCw" firstAttribute="top" secondItem="QS6-Er-iLj" secondAttribute="top" constant="120" id="O7l-gZ-MZ5"/>
+                        <constraint firstItem="ucl-1f-JoG" firstAttribute="top" secondItem="3Xg-Nq-qIQ" secondAttribute="bottom" constant="8" id="WUt-VM-DfD"/>
+                        <constraint firstItem="ucl-1f-JoG" firstAttribute="centerX" secondItem="QS6-Er-iLj" secondAttribute="centerX" id="bAL-gq-Wj6"/>
+                        <constraint firstAttribute="trailing" secondItem="AMa-cV-OCw" secondAttribute="trailing" constant="68" id="i5a-j7-fgi"/>
+                        <constraint firstAttribute="bottom" secondItem="Are-Z5-Oob" secondAttribute="bottom" constant="8" id="w0n-HZ-adL"/>
+                        <constraint firstItem="3Xg-Nq-qIQ" firstAttribute="centerX" secondItem="QS6-Er-iLj" secondAttribute="centerX" id="xHv-1C-aG3"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJu-Zb-7tT" customClass="MIdtransUIBorderedView">
+                    <rect key="frame" x="0.0" y="699" width="414" height="74"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFi-JX-Qb1">
+                            <rect key="frame" x="15" y="17.666666666666629" width="76.666666666666671" height="16.333333333333329"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2m5-VU-zGm">
+                            <rect key="frame" x="338" y="0.0" width="36" height="50"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon-help.png" translatesAutoresizingMaskIntoConstraints="NO" id="vwp-GH-UiH">
+                            <rect key="frame" x="379" y="15" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="4CP-jS-kzx"/>
+                                <constraint firstAttribute="width" constant="20" id="G1k-ww-Mve"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ejS-ph-qSL">
+                            <rect key="frame" x="15" y="49" width="166" height="15.333333333333329"/>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="{{order Id}}" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oqx-ek-yHO">
+                            <rect key="frame" x="212" y="49" width="178" height="17"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="17" id="2wq-98-VgO"/>
+                                <constraint firstAttribute="width" constant="178" id="kcT-gS-zTX"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="11"/>
+                            <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="vwp-GH-UiH" firstAttribute="centerY" secondItem="cJu-Zb-7tT" secondAttribute="centerY" constant="-12" id="1pS-fM-IoU"/>
+                        <constraint firstAttribute="trailing" secondItem="vwp-GH-UiH" secondAttribute="trailing" constant="15" id="5gr-wt-KaV"/>
+                        <constraint firstItem="SFi-JX-Qb1" firstAttribute="leading" secondItem="cJu-Zb-7tT" secondAttribute="leading" constant="15" id="94t-VS-v50"/>
+                        <constraint firstAttribute="bottom" secondItem="2m5-VU-zGm" secondAttribute="bottom" constant="24" id="Cm2-a9-m8s"/>
+                        <constraint firstItem="SFi-JX-Qb1" firstAttribute="centerY" secondItem="2m5-VU-zGm" secondAttribute="centerY" id="FqF-GZ-Kd6"/>
+                        <constraint firstItem="2m5-VU-zGm" firstAttribute="top" secondItem="cJu-Zb-7tT" secondAttribute="top" id="Nv2-VF-FSR"/>
+                        <constraint firstAttribute="trailing" secondItem="Oqx-ek-yHO" secondAttribute="trailing" constant="24" id="VxT-A9-I2K"/>
+                        <constraint firstItem="Oqx-ek-yHO" firstAttribute="leading" secondItem="ejS-ph-qSL" secondAttribute="trailing" constant="31" id="Xb0-7f-I7r"/>
+                        <constraint firstItem="ejS-ph-qSL" firstAttribute="top" secondItem="cJu-Zb-7tT" secondAttribute="top" constant="49" id="azS-4q-OxX"/>
+                        <constraint firstItem="Oqx-ek-yHO" firstAttribute="top" secondItem="cJu-Zb-7tT" secondAttribute="top" constant="49" id="cYA-4U-jdN"/>
+                        <constraint firstItem="ejS-ph-qSL" firstAttribute="leading" secondItem="cJu-Zb-7tT" secondAttribute="leading" constant="15" id="ey2-Mc-51d"/>
+                        <constraint firstAttribute="height" constant="74" id="m07-5J-GsC"/>
+                        <constraint firstItem="2m5-VU-zGm" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="SFi-JX-Qb1" secondAttribute="trailing" constant="8" id="qUS-a6-4JT"/>
+                        <constraint firstAttribute="trailing" secondItem="2m5-VU-zGm" secondAttribute="trailing" constant="40" id="zdR-Qi-qdT"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderLineWidth">
+                            <integer key="value" value="1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="borderLineColor">
+                            <color key="value" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="bottomLine" value="YES"/>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="pX0-Tu-wuZ" firstAttribute="top" secondItem="Y5U-NC-hLV" secondAttribute="bottom" id="4Qg-sK-NbD"/>
+                <constraint firstItem="Y5U-NC-hLV" firstAttribute="width" secondItem="Yam-FI-530" secondAttribute="width" id="9ZP-Hf-xXP"/>
+                <constraint firstAttribute="trailing" secondItem="pX0-Tu-wuZ" secondAttribute="trailing" id="AEH-lA-YnG"/>
+                <constraint firstItem="QS6-Er-iLj" firstAttribute="leading" secondItem="Yam-FI-530" secondAttribute="leading" id="B2P-yI-upg"/>
+                <constraint firstAttribute="bottom" secondItem="s8x-V1-Alg" secondAttribute="bottom" constant="9" id="CXx-s5-xYc"/>
+                <constraint firstAttribute="trailing" secondItem="s8x-V1-Alg" secondAttribute="trailing" constant="8" id="Cze-u7-tbc"/>
+                <constraint firstItem="QS6-Er-iLj" firstAttribute="top" secondItem="Y5U-NC-hLV" secondAttribute="bottom" id="L3E-88-FsP"/>
+                <constraint firstAttribute="trailing" secondItem="QS6-Er-iLj" secondAttribute="trailing" id="Lcq-nN-ZDO"/>
+                <constraint firstItem="Y5U-NC-hLV" firstAttribute="top" secondItem="Yam-FI-530" secondAttribute="top" id="NPG-sQ-hpH"/>
+                <constraint firstItem="pX0-Tu-wuZ" firstAttribute="leading" secondItem="Yam-FI-530" secondAttribute="leading" id="PBF-Ej-zsU"/>
+                <constraint firstItem="cJu-Zb-7tT" firstAttribute="top" secondItem="pX0-Tu-wuZ" secondAttribute="bottom" id="SU3-U9-vZ0"/>
+                <constraint firstAttribute="trailing" secondItem="Y5U-NC-hLV" secondAttribute="trailing" id="Shb-2N-82d"/>
+                <constraint firstItem="s8x-V1-Alg" firstAttribute="leading" secondItem="Yam-FI-530" secondAttribute="leading" constant="8" id="Tbh-QI-70i"/>
+                <constraint firstAttribute="trailing" secondItem="cJu-Zb-7tT" secondAttribute="trailing" id="a0Y-3K-aSj"/>
+                <constraint firstItem="Y5U-NC-hLV" firstAttribute="leading" secondItem="Yam-FI-530" secondAttribute="leading" id="dqP-3V-pkt"/>
+                <constraint firstItem="s8x-V1-Alg" firstAttribute="top" secondItem="cJu-Zb-7tT" secondAttribute="bottom" id="qAT-Pc-DUD"/>
+                <constraint firstItem="cJu-Zb-7tT" firstAttribute="top" secondItem="QS6-Er-iLj" secondAttribute="bottom" id="ssx-ww-F00"/>
+                <constraint firstItem="cJu-Zb-7tT" firstAttribute="leading" secondItem="Yam-FI-530" secondAttribute="leading" id="zoh-02-Oul"/>
+            </constraints>
+            <connections>
+                <outlet property="amountLabel" destination="2m5-VU-zGm" id="Fh6-bg-jG7"/>
+                <outlet property="finishPaymentButton" destination="s8x-V1-Alg" id="3Z1-Hx-gLf"/>
+                <outlet property="finishPaymentHeightConstraints" destination="GD5-FD-qrL" id="gFK-Zh-8T7"/>
+                <outlet property="gopayTopViewHeightConstraints" destination="Y1T-XL-9vW" id="Lkj-FY-zbo"/>
+                <outlet property="gopayTopViewWrapper" destination="Y5U-NC-hLV" id="OVX-Hs-xIz"/>
+                <outlet property="installGojekButton" destination="Are-Z5-Oob" id="sFg-3d-xXM"/>
+                <outlet property="orderIdLabel" destination="Oqx-ek-yHO" id="ezY-MD-5UJ"/>
+                <outlet property="tableView" destination="pX0-Tu-wuZ" id="uYi-hH-MFa"/>
+                <outlet property="topNoticeLabel" destination="QNo-dZ-Mle" id="pYr-bc-GSv"/>
+                <outlet property="topNoticeLogo" destination="sJe-hw-1CB" id="ocv-FZ-ZYz"/>
+                <outlet property="topWrapperView" destination="QS6-Er-iLj" id="av8-Cj-H4S"/>
+                <outlet property="totalAmountLabel" destination="SFi-JX-Qb1" id="M83-UK-eYg"/>
+                <outlet property="transactionDetailWrapper" destination="cJu-Zb-7tT" id="K6e-Ss-9vI"/>
+            </connections>
+            <point key="canvasLocation" x="-175" y="-1249"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gojek_icon.png" width="14" height="16"/>
+        <image name="ic_no_gopay.png" width="73" height="79"/>
+        <image name="icon-help.png" width="12" height="12"/>
+    </resources>
+</document>

@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "MIDClient.h"
+#import "MidtransUISDK.h"
 
 @interface AppDelegate ()
 
@@ -18,25 +18,34 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
-    //for 1click
-    [MIDClient configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
-                merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
-                      environment:MIDEnvironmentSandbox];
     
-//    [MIDClient configureClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
-//                merchantServerURL:@"https://rakawm-snap.herokuapp.com"
-//                      environment:MIDEnvironmentSandbox];
+    MidtransUIFontSource *customFont = [[MidtransUIFontSource alloc] initWithFontNameBold:@"SourceSansPro-Bold"
+                                                                          fontNameRegular:@"SourceSansPro-Regular"
+                                                                            fontNameLight:@"SourceSansPro-Light"];
+    
+    [MidtransKit configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
+                  merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
+                        environment:MIDEnvironmentSandbox
+                              color:[UIColor blackColor]
+                               font:customFont];
+    
+    //    [MIDClient configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
+    //                merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
+    //                      environment:MIDEnvironmentSandbox];
+    
+    //    [MIDClient configureClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+    //                merchantServerURL:@"https://rakawm-snap.herokuapp.com"
+    //                      environment:MIDEnvironmentSandbox];
     
     //for normal
-//    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
-//                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
-//                      environment:MIDEnvironmentSandbox];
+    //    [MIDClient configureClientKey:@"SB-Mid-client-txZHOj6jPP0_G8En"
+    //                merchantServerURL:@"https://dev-mobile-store.herokuapp.com/"
+    //                      environment:MIDEnvironmentSandbox];
     
     //for production
-//    [[MIDClient shared] configureClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
-//                         merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"
-//                               environment:MIDEnvironmentProduction];
+    //    [[MIDClient shared] configureClientKey:@"VT-client-yrHf-c8Sxr-ck8tx"
+    //                         merchantServerURL:@"https://midtrans-mobile-snap.herokuapp.com"
+    //                               environment:MIDEnvironmentProduction];
     
     return YES;
 }

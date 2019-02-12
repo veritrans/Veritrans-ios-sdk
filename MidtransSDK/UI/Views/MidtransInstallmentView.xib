@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MidtransInstallmentView">
+            <rect key="frame" x="0.0" y="0.0" width="300" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="L8e-84-qD0">
+                    <rect key="frame" x="37" y="8" width="226" height="34"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="34" id="Kq7-fN-fWf"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ow5-bb-68H">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OJg-dT-NGZ">
+                    <rect key="frame" x="0.0" y="10" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="29" id="3zM-Qi-iC9"/>
+                        <constraint firstAttribute="height" constant="29" id="LCE-PO-k5q"/>
+                    </constraints>
+                    <state key="normal" image="icon_btn_min_.png"/>
+                    <connections>
+                        <action selector="prevButtonDidtapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="YaS-kQ-uc4"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yhw-HV-xrp">
+                    <rect key="frame" x="271" y="10" width="29" height="29"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="Ir5-9y-WPu"/>
+                        <constraint firstAttribute="width" constant="29" id="aU1-Op-Gpe"/>
+                    </constraints>
+                    <state key="normal" image="icon_btn_plus_.png"/>
+                    <connections>
+                        <action selector="nextButtonDidTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="9os-xJ-g3v"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="OJg-dT-NGZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="6I8-i7-Z2N"/>
+                <constraint firstItem="Yhw-HV-xrp" firstAttribute="leading" secondItem="L8e-84-qD0" secondAttribute="trailing" constant="8" id="7nd-24-IrQ"/>
+                <constraint firstAttribute="trailing" secondItem="Yhw-HV-xrp" secondAttribute="trailing" id="Uho-ON-a0f"/>
+                <constraint firstItem="L8e-84-qD0" firstAttribute="leading" secondItem="OJg-dT-NGZ" secondAttribute="trailing" constant="8" id="ctK-rm-oYD"/>
+                <constraint firstItem="OJg-dT-NGZ" firstAttribute="centerY" secondItem="L8e-84-qD0" secondAttribute="centerY" id="fvW-fc-lnI"/>
+                <constraint firstItem="L8e-84-qD0" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="pdU-3S-xE3"/>
+                <constraint firstItem="Yhw-HV-xrp" firstAttribute="centerY" secondItem="L8e-84-qD0" secondAttribute="centerY" id="thZ-hF-VnT"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="installmentCollectionView" destination="L8e-84-qD0" id="iau-hL-AFA"/>
+                <outlet property="nextButton" destination="Yhw-HV-xrp" id="4sE-C0-a5x"/>
+                <outlet property="prevButton" destination="OJg-dT-NGZ" id="woK-yn-iC8"/>
+            </connections>
+            <point key="canvasLocation" x="21" y="-232"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_btn_min_.png" width="34" height="34"/>
+        <image name="icon_btn_plus_.png" width="34" height="34"/>
+    </resources>
+</document>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="SourceSansPro-Semibold.ttf">
+            <string>SourceSansPro-Semibold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VTMultiGuideController">
+            <connections>
+                <outlet property="containerView" destination="hyu-CU-LvS" id="Skw-De-dqw"/>
+                <outlet property="segmentController" destination="gpC-ng-qW3" id="os0-eA-SNV"/>
+                <outlet property="view" destination="gOp-vP-Ndk" id="yRo-K6-UQs"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="gOp-vP-Ndk">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6sJ-9u-PaJ" customClass="MidtransUINextStepButton">
+                    <rect key="frame" x="8" y="619" width="359" height="40"/>
+                    <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="aH5-92-XjL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="17"/>
+                    <state key="normal" title="Ok, I Got it"/>
+                    <connections>
+                        <action selector="gotitPressed:" destination="-1" eventType="touchUpInside" id="fSq-t6-ofi"/>
+                    </connections>
+                </button>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-gN-bJF">
+                    <rect key="frame" x="344" y="632" width="8" height="13"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="13" id="Qgt-Oa-IQV"/>
+                        <constraint firstAttribute="width" constant="8" id="pWk-KN-W7w"/>
+                    </constraints>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-CU-LvS">
+                    <rect key="frame" x="0.0" y="37" width="375" height="574"/>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+                <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gpC-ng-qW3" customClass="VTSegmentedControl">
+                    <rect key="frame" x="10" y="8" width="355" height="29"/>
+                    <segments>
+                        <segment title="First"/>
+                        <segment title="Second"/>
+                    </segments>
+                </segmentedControl>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="6sJ-9u-PaJ" secondAttribute="bottom" constant="8" id="03n-bF-19B"/>
+                <constraint firstItem="hyu-CU-LvS" firstAttribute="top" secondItem="gpC-ng-qW3" secondAttribute="bottom" constant="1" id="4f0-l0-mPB"/>
+                <constraint firstItem="gpC-ng-qW3" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" constant="10" id="BL2-na-8GU"/>
+                <constraint firstAttribute="trailing" secondItem="hyu-CU-LvS" secondAttribute="trailing" id="Gu4-Md-Bo1"/>
+                <constraint firstItem="r4e-gN-bJF" firstAttribute="centerY" secondItem="6sJ-9u-PaJ" secondAttribute="centerY" id="aFI-Q7-2gn"/>
+                <constraint firstAttribute="trailing" secondItem="gpC-ng-qW3" secondAttribute="trailing" constant="10" id="cOv-uT-dM2"/>
+                <constraint firstItem="6sJ-9u-PaJ" firstAttribute="top" secondItem="hyu-CU-LvS" secondAttribute="bottom" constant="8" id="f1B-PD-Koc"/>
+                <constraint firstItem="6sJ-9u-PaJ" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" constant="8" id="hW7-qM-szb"/>
+                <constraint firstItem="r4e-gN-bJF" firstAttribute="trailing" secondItem="6sJ-9u-PaJ" secondAttribute="trailing" constant="-15" id="qIe-qb-4WK"/>
+                <constraint firstItem="hyu-CU-LvS" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" id="rcJ-Ne-gcC"/>
+                <constraint firstItem="gpC-ng-qW3" firstAttribute="top" secondItem="gOp-vP-Ndk" secondAttribute="top" constant="8" id="rgh-Tz-y6K"/>
+                <constraint firstAttribute="trailing" secondItem="6sJ-9u-PaJ" secondAttribute="trailing" constant="8" id="tgV-th-Nq1"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="DisclosureIndicator.png" width="8" height="13"/>
+    </resources>
+</document>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Setelah melakukan Konfirmasi Pembayaran, Anda akan diberikan Kode Pembayaran yang unik.</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Salinlah Kode Pembayaran Anda dan jumlah pembayaran pembayaran yang akan dibayarkan. Jangan khawatir, Kami akan mengirimkan salinan Kode Pembayaran dan Instruksi Pembayaran melalui email.</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Kunjungi outlet Kioson terdekat dan berikan nomor Kode Pembayaran Anda ke kasir.</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Kasir akan membuka menu Kioson Cash Point, kemudian kasir akan memilih ‘Keagenan‘</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Pilih nama merchant.</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Pilih sub menu ‘Pembayaran’</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Masukkan kode pembayaran anda dan dan detail pembayaran anda akan ditampilkan.</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Konfirmasi pembayaran  Anda dan cetak bukti pembayarannya.</string>
+	</dict>
+	<dict>
+		<key></key>
+		<string></string>
+		<key>content</key>
+		<string>Transaksi Anda berhasil! Anda akan menerima email konfirmasi pembayaran. Harap simpan struk pembayaran Kioson Anda, apabila Anda memerlukan bantuan via support.</string>
+	</dict>
+</array>
+</plist>

@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "MidtransSDK.h"
+#import "MidtransUISDK.h"
 
 @interface ViewController ()
 

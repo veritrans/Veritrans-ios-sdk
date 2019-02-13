@@ -177,6 +177,83 @@
     return boolean ? @"true" : @"false";
 }
 
++ (NSString *)stringFromPaymentMethod:(MIDPaymentMethod)method {
+    switch (method) {
+        case MIDPaymentMethodCreditCard:
+            return @"credit_card";
+        case MIDPaymentMethodBCAVA:
+            return @"bca_va";
+        case MIDPaymentMethodMandiriVA:
+            return @"echannel";
+        case MIDPaymentMethodBNIVA:
+            return @"bni_va";
+        case MIDPaymentMethodPermataVA:
+            return @"permata_va";
+        case MIDPaymentMethodOtherVA:
+            return @"other_va";
+        case MIDPaymentMethodGopay:
+            return @"gopay";
+        case MIDPaymentMethodKlikbca:
+            return @"bca_klikbca";
+        case MIDPaymentMethodBCAKlikpay:
+            return @"bca_klikpay";
+        case MIDPaymentMethodMandiriClickpay:
+            return @"mandiri_clickpay";
+        case MIDPaymentMethodCIMBClicks:
+            return @"cimb_clicks";
+        case MIDPaymentMethodDanamonOnline:
+            return @"danamon_online";
+        case MIDPaymentMethodBRIEpay:
+            return @"bri_epay";
+        case MIDPaymentMethodMandiriECash:
+            return @"mandiri_ecash";
+        case MIDPaymentMethodIndomaret:
+            return @"indomaret";
+        case MIDPaymentMethodAkulaku:
+            return @"akulaku";
+        default:
+            return nil;
+    }
+}
+
+- (MIDPaymentMethod)paymentMethod {
+    if ([self isEqualToString:@"credit_card"]) {
+        return MIDPaymentMethodCreditCard;
+    } else if ([self isEqualToString:@"bca_va"]) {
+        return MIDPaymentMethodBCAVA;
+    } else if ([self isEqualToString:@"echannel"]) {
+        return MIDPaymentMethodMandiriVA;
+    } else if ([self isEqualToString:@"bni_va"]) {
+        return MIDPaymentMethodBNIVA;
+    } else if ([self isEqualToString:@"permata_va"]) {
+        return MIDPaymentMethodPermataVA;
+    } else if ([self isEqualToString:@"other_va"]) {
+        return MIDPaymentMethodOtherVA;
+    } else if ([self isEqualToString:@"gopay"]) {
+        return MIDPaymentMethodGopay;
+    } else if ([self isEqualToString:@"bca_klikbca"]) {
+        return MIDPaymentMethodKlikbca;
+    } else if ([self isEqualToString:@"bca_klikpay"]) {
+        return MIDPaymentMethodBCAKlikpay;
+    } else if ([self isEqualToString:@"mandiri_clickpay"]) {
+        return MIDPaymentMethodMandiriClickpay;
+    } else if ([self isEqualToString:@"cimb_clicks"]) {
+        return MIDPaymentMethodCIMBClicks;
+    } else if ([self isEqualToString:@"danamon_online"]) {
+        return MIDPaymentMethodDanamonOnline;
+    } else if ([self isEqualToString:@"bri_epay"]) {
+        return MIDPaymentMethodBRIEpay;
+    } else if ([self isEqualToString:@"mandiri_ecash"]) {
+        return MIDPaymentMethodMandiriECash;
+    } else if ([self isEqualToString:@"indomaret"]) {
+        return MIDPaymentMethodIndomaret;
+    } else if ([self isEqualToString:@"akulaku"]) {
+        return MIDPaymentMethodAkulaku;
+    } else {
+        return MIDPaymentMethodUnknown;
+    }
+}
+
 - (MIDCreditCardTransactionType)creditCardTransactionType {
     if ([self isEqualToString:@"authorize"]) {
         return MIDCreditCardTransactionTypeAuthorize;

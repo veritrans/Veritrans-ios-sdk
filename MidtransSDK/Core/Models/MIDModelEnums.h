@@ -70,3 +70,23 @@ typedef NS_ENUM(NSInteger, MIDSavedCardType) {
     MIDSavedCardTypeOneClick,
     MIDSavedCardTypeTwoClick
 };
+
+typedef NS_ENUM(NSInteger, MIDPaymentMethod) {
+    MIDPaymentMethodUnknown,
+    MIDPaymentMethodCreditCard,
+    MIDPaymentMethodBCAVA,
+    MIDPaymentMethodMandiriVA,
+    MIDPaymentMethodBNIVA,
+    MIDPaymentMethodPermataVA,
+    MIDPaymentMethodOtherVA,
+    MIDPaymentMethodGopay,
+    MIDPaymentMethodKlikbca,
+    MIDPaymentMethodBCAKlikpay,
+    MIDPaymentMethodMandiriClickpay,
+    MIDPaymentMethodCIMBClicks,
+    MIDPaymentMethodDanamonOnline,
+    MIDPaymentMethodBRIEpay,
+    MIDPaymentMethodMandiriECash,
+    MIDPaymentMethodIndomaret,
+    MIDPaymentMethodAkulaku
+};

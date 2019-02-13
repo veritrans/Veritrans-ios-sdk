@@ -16,6 +16,7 @@
 #import "MIDVendorUI.h"
 
 @interface MIDPaymentController ()
+@property (nonatomic) MIDPaymentMethod paymentMethod;
 @property (nonatomic) MIDCheckoutTransaction *transaction;
 @property (nonatomic) NSArray <NSObject <MIDCheckoutable>*> *options;
 
@@ -25,19 +26,51 @@
 @implementation MIDPaymentController
 
 - (instancetype)initWithTransaction:(MIDCheckoutTransaction *)transaction
-                            options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options {
+                            options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
+                      paymentMethod:(MIDPaymentMethod)paymentMethod {
     if (self = [super initWithNibName:@"MIDPaymentController" bundle:VTBundle]) {
         self.transaction = transaction;
         self.options = options;
+        self.paymentMethod = paymentMethod;
     }
     return self;
+}
+
+- (void)openPaymentPageWithInfo:(MIDPaymentInfo * _Nullable)info {
+    [MIDVendorUI shared].info = info;
+    
+    UIViewController *vc = [self selectedViewController];
+    UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    [self addChildViewController:nvc];
+    [self.view addSubview:nvc.view];
+    [nvc didMoveToParentViewController:self];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[main]-0-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"main": nvc.view}]];
+    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[main]-0-|"
+                                                                      options:0
+                                                                      metrics:nil
+                                                                        views:@{@"main": nvc.view}]];
+}
+
+- (UIViewController *)selectedViewController {
+    switch (self.paymentMethod) {
+        case MIDPaymentMethodBCAVA:
+            //not the correct view controller, it's just for example
+            return [UIViewController new];
+            
+        default:
+            return [[VTPaymentListController alloc] initWithNibName:@"VTPaymentListController" bundle:VTBundle];
+    }
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // need to be in main thread to make the animation work
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-        //show loading
         [self showLoadingWithText:@"Loading..."];
     }];
     
@@ -49,39 +82,12 @@
              NSString *snapToken = token.token;
              
              [MIDClient getPaymentInfoWithToken:snapToken completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
-                 //hide loading
                  [self hideLoading];
                  
-                 [MIDVendorUI shared].info = info;
-                 
-                 VTPaymentListController *vc = [[VTPaymentListController alloc] initWithNibName:@"VTPaymentListController" bundle:VTBundle];
-                 UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
-                 
-                 [self addChildViewController:nvc];
-                 [self.view addSubview:nvc.view];
-                 [nvc didMoveToParentViewController:self];
-                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[main]-0-|"
-                                                                                   options:0
-                                                                                   metrics:nil
-                                                                                     views:@{@"main": nvc.view}]];
-                 [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[main]-0-|"
-                                                                                   options:0
-                                                                                   metrics:nil
-                                                                                     views:@{@"main": nvc.view}]];
-
-//                 MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-//                 [self addChildViewController:paymentVC];
-//                 [self.view addSubview:paymentVC.view];
-//                 [paymentVC didMoveToParentViewController:self];
+                 [self openPaymentPageWithInfo:info];
              }];
          }];
     }
-}
-
-- (void)viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    
-    
 }
 
 - (void)showLoadingWithText:(NSString *)text {

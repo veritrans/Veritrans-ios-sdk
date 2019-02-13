@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MidtransKit : NSObject
 
+// init functions
 + (void)configureClientKey:(NSString *)clientKey
          merchantServerURL:(NSString *)merchantServerURL
                environment:(MIDEnvironment)environment;
@@ -26,9 +27,19 @@ NS_ASSUME_NONNULL_BEGIN
                      color:(UIColor *_Nullable)color
                       font:(MidtransUIFontSource *_Nullable)font;
 
+// present functions
+
++ (void)presentPaymentPageAt:(UIViewController *)presenter
+                 transaction:(MIDCheckoutTransaction *)transaction;
+
 + (void)presentPaymentPageAt:(UIViewController *)presenter
                  transaction:(MIDCheckoutTransaction *)transaction
                      options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options;
+
++ (void)presentPaymentPageAt:(UIViewController *)presenter
+                 transaction:(MIDCheckoutTransaction *)transaction
+                     options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
+               paymentMethod:(MIDPaymentMethod)paymentMethod;
 
 @end
 

@@ -70,7 +70,10 @@
                                                                         unit:MIDExpiryTimeUnitDay];
     
     //and put it at checkout options
-    [MidtransKit presentPaymentPageAt:self transaction:trx options:@[customer, checkoutItem]];
+    [MidtransKit presentPaymentPageAt:self
+                          transaction:trx
+                              options:@[customer, checkoutItem]
+                        paymentMethod:MIDPaymentMethodUnknown];
     
 //    [MIDClient checkoutWith:trx
 //                    options:@[cc]

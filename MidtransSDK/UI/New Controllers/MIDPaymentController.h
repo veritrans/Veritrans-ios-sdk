@@ -15,7 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MIDPaymentController : UIViewController
 
 - (instancetype)initWithTransaction:(MIDCheckoutTransaction *)transaction
-                            options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options;
+                            options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
+                      paymentMethod:(MIDPaymentMethod)paymentMethod;
 
 @end
 

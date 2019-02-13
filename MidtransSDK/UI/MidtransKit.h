@@ -26,6 +26,10 @@ NS_ASSUME_NONNULL_BEGIN
                      color:(UIColor *_Nullable)color
                       font:(MidtransUIFontSource *_Nullable)font;
 
++ (void)presentPaymentPageAt:(UIViewController *)presenter
+                 transaction:(MIDCheckoutTransaction *)transaction
+                     options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options;
+
 @end
 
 NS_ASSUME_NONNULL_END

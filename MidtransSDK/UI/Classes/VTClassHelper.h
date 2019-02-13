@@ -63,6 +63,7 @@
 
 @interface NSArray (Item)
 - (NSString *)formattedPriceAmount;
+- (NSString *)formattedGrossAmount;
 @end
 
 @interface MidtransMaskedCreditCard (utilities)

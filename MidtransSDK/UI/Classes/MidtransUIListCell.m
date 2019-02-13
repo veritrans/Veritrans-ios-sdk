@@ -16,33 +16,33 @@
     self.promoNotificationView.layer.cornerRadius = 5.0f;
     self.promoNotificationView.layer.masksToBounds = YES;
 }
-- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response {
+- (void)configureWithModel:(MidtransPaymentListModel *)model info:(MIDPaymentInfo *)info {
     self.promoNotificationView.hidden =  YES;
-    self.paymentMethodNameLabel.text = paymentList.title;
-    self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
-      NSString *imagePath =[NSString stringWithFormat:@"%@",paymentList.internalBaseClassIdentifier];
-    if ([paymentList.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
+    self.paymentMethodNameLabel.text = model.title;
+    self.paymentMethodDescriptionLabel.text = model.internalBaseClassDescription;
+    NSString *imagePath =[NSString stringWithFormat:@"%@",model.internalBaseClassIdentifier];
+    if ([model.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
         imagePath = @"mandiri_va";
     }
-    if ([paymentList.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
-        if (response.promos.promos.count) {
+    if ([model.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
+        if (info.promo.promos.count) {
             self.promoNotificationView.hidden =  NO;
         }
     }
-    else if ([paymentList.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
+    else if ([model.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         self.paymentMethodNameLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Credit/Debit Card"];
-        NSArray *capArray = [response.merchant.enabledPrinciples valueForKeyPath:@"capitalizedString"];
+        NSArray *capArray = [info.merchant.enabledPrinciples valueForKeyPath:@"capitalizedString"];
         self.paymentMethodDescriptionLabel.text =  [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Pay With"],[capArray componentsJoinedByString:@", "]];
         if ([capArray containsObject:@"Jcb"]) {
             self.paymentMethodDescriptionLabel.text = [self.paymentMethodDescriptionLabel.text stringByReplacingOccurrencesOfString:@"Jcb" withString:@"JCB"];
         }
-        imagePath = [response.merchant.enabledPrinciples componentsJoinedByString:@"-"];
+        imagePath = [info.merchant.enabledPrinciples componentsJoinedByString:@"-"];
         
     }
     self.paymentMethodLogo.image = [UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil];
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];
-    if ([paymentList.status isEqualToString:@"down"]) {
+    if ([model.status isEqualToString:@"down"]) {
         self.contentView.backgroundColor = [UIColor colorWithRed:0.98 green:0.98 blue:0.98 alpha:1.0];
         self.paymentMethodNameLabel.alpha = 0.4f;
         self.paymentMethodDescriptionLabel.alpha = 0.4f;

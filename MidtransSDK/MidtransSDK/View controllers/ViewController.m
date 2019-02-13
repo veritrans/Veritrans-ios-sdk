@@ -55,7 +55,7 @@
                                                                  shippingAddress:addr];
     
     MIDItem *item = [[MIDItem alloc] initWithID:@"item1"
-                                          price:@15000
+                                          price:@20000
                                        quantity:1
                                            name:@"Tooth paste"
                                           brand:@"Pepsodent"
@@ -70,16 +70,17 @@
                                                                         unit:MIDExpiryTimeUnitDay];
     
     //and put it at checkout options
+    [MidtransKit presentPaymentPageAt:self transaction:trx options:@[customer, checkoutItem]];
     
-    [MIDClient checkoutWith:trx
-                    options:@[cc]
-                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
-     {
-         NSString *snapToken = token.token;
-         NSLog(@"Token: %@", token.dictionaryValue);
-         
-         [self fetchPaymentInfo:token.token];
-     }];
+//    [MIDClient checkoutWith:trx
+//                    options:@[cc]
+//                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
+//     {
+//         NSString *snapToken = token.token;
+//         NSLog(@"Token: %@", token.dictionaryValue);
+//
+//         [self fetchPaymentInfo:token.token];
+//     }];
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {

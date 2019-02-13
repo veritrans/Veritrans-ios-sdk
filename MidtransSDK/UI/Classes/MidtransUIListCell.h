@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MidtransSDK.h"
+
 @class MidtransPaymentListModel,MidtransPaymentRequestV2Response;
 @interface MidtransUIListCell : UITableViewCell
 @property (nonatomic) NSDictionary *item;
@@ -18,5 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tscTextStatusLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textStatusHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *promoNotificationView;
-- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response;
+
+- (void)configureWithModel:(MidtransPaymentListModel *)model info:(MIDPaymentInfo *)info;
+
 @end

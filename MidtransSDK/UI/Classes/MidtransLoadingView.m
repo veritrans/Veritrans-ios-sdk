@@ -63,9 +63,11 @@
 - (void)hide {
     [UIView animateWithDuration:0.15f animations:^{
         self.alpha = 0.0f;
+        
     } completion:^(BOOL finished) {
+        [self removeFromSuperview];
         [self stopAnimating];
-        [self.superview sendSubviewToBack:self];
+        
     }];
 }
 - (void)showInView:(UIView *)view withText:(NSString *)text {
@@ -79,8 +81,10 @@
     
     [UIView animateWithDuration:0.15f animations:^{
         self.alpha = 1.0f;
+        
     } completion:^(BOOL finished) {
         [self startAnimating];
+        
     }];
 }
 

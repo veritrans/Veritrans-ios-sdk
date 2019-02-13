@@ -14,10 +14,10 @@
 #import "MidtransTransactionDetailViewController.h"
 
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>
-@property (nonatomic) NSArray *paymentMethods;
 @property (nonatomic) BOOL shouldExpand;
-@property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
-@property (nonatomic) NSArray *items;
+
+@property (nonatomic) NSArray <MidtransPaymentListModel *> *models;
+@property (nonatomic) MIDPaymentInfo *info;
 @end
 
 @implementation VTPaymentListView
@@ -36,7 +36,6 @@
 }
 
 -(void)drawRect:(CGRect)rect {
-    
     CGContextRef currentContext = UIGraphicsGetCurrentContext();
     CGContextSetLineWidth(currentContext, 1);
     CGContextMoveToPoint(currentContext,CGRectGetMinX(rect), CGRectGetMinY(rect));
@@ -44,13 +43,30 @@
     CGContextStrokePath(currentContext);
 }
 
-- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response {
+- (NSArray *)loadPaymentMethodDetails {
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"paymentMethods"];
+    NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (path == nil) {
+        path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
+    }
+    return [NSArray arrayWithContentsOfFile:path];
+}
+
+- (void)setPaymentInfo:(MIDPaymentInfo *)info {
+    self.info = info;
     
-    self.responsePayment = response;
-    self.items = items;
-    self.headerView.priceAmountLabel.text = [items formattedPriceAmount];
+    self.headerView.priceAmountLabel.text = [info.items formattedGrossAmount];
     
-    self.paymentMethods = paymentMethods;
+    NSArray *details = [self loadPaymentMethodDetails];
+    
+    NSMutableArray *models = [NSMutableArray new];
+    [info.enabledPayments enumerateObjectsUsingBlock:^(MIDPaymentMethodInfo * _Nonnull info, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSInteger index = [details indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:info.type]];
+        }];
+        [models addObject:[[MidtransPaymentListModel alloc] initWithDictionary:details[index]]];
+    }];
+    self.models = models;
     [self.tableView reloadData];
 }
 
@@ -61,7 +77,7 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.paymentMethods.count;
+    return self.models.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -69,14 +85,14 @@
     if (!cell) {
         cell = [[MidtransUIListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MidtransUIListCell"];
     }
-    [cell configurePaymetnList:self.paymentMethods[indexPath.row] withFullPaymentResponse:self.responsePayment];
+    [cell configureWithModel:self.models[indexPath.row] info:self.info];
     return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
+        MidtransPaymentListModel *paymentModel = self.models[indexPath.row];
     if ([paymentModel.status isEqualToString:@"down"]) {
         return;
     }
@@ -94,7 +110,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-     MidtransPaymentListModel *paymentModel = self.paymentMethods[indexPath.row];
+     MidtransPaymentListModel *paymentModel = self.models[indexPath.row];
     if ([paymentModel.status isEqualToString:@"down"]) {
         return 120;
     }

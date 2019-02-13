@@ -11,6 +11,8 @@
 #import "MidtransLoadingView.h"
 #import "MidtransPaymentMethodHeader.h"
 
+#import "MidtransSDK.h"
+
 @class VTPaymentListView,MidtransPaymentRequestV2Response;
 
 @protocol VTPaymentListViewDelegate <NSObject>
@@ -25,6 +27,7 @@
 @property (nonatomic) MidtransPaymentMethodHeader *headerView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *secureBadgeImage;
-- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response;
+
+- (void)setPaymentInfo:(MIDPaymentInfo *)info;
 
 @end

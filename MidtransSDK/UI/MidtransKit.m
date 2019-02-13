@@ -8,6 +8,7 @@
 
 #import "MidtransKit.h"
 #import "MidtransUIThemeManager.h"
+#import "MIDPaymentController.h"
 
 @implementation MidtransKit
 
@@ -33,6 +34,17 @@
                       environment:environment];
     
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
+}
+
++ (void)presentPaymentPageWithToken:(NSString *)token {
+    
+}
+
++ (void)presentPaymentPageAt:(UIViewController *)presenter
+                 transaction:(MIDCheckoutTransaction *)transaction
+                     options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options {
+    MIDPaymentController *vc = [[MIDPaymentController alloc] initWithTransaction:transaction options:options];
+    [presenter presentViewController:vc animated:YES completion:nil];
 }
 
 @end

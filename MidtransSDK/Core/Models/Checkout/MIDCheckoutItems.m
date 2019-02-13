@@ -12,9 +12,12 @@
 @implementation MIDCheckoutItems
 
 - (NSDictionary *)dictionaryValue {
-    NSMutableDictionary *result = [NSMutableDictionary dictionary];
-    [result setValue:[self.items dictionaryValues] forKey:@"item_details"];
-    return @{@"item_details": result};
+    NSArray *values = [self.items dictionaryValues];
+    if (values) {
+        return @{@"item_details": values};
+    } else {
+        return nil;
+    }    
 }
 
 - (instancetype)initWithItems:(NSArray <MIDItem *> *)items {

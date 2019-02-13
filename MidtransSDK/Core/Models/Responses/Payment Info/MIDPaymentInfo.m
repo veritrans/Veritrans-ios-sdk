@@ -20,6 +20,8 @@
     [result setValue:self.token forKey:@"token"];
     [result setValue:[self.transaction dictionaryValue] forKey:@"transaction_details"];
     [result setValue:[self.enabledPayments dictionaryValues] forKey:@"enabled_payments"];
+    [result setValue:[self.items dictionaryValues] forKey:@"item_details"];
+    [result setValue:[self.customer dictionaryValue] forKey:@"customer_details"];
     return result;
 }
 
@@ -32,6 +34,8 @@
         self.promo = [[MIDPromoInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"promo_details"]];
         self.transaction = [[MIDTransactionInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"transaction_details"]];
         self.enabledPayments = [[dictionary objectOrNilForKey:@"enabled_payments"] mapToArray:[MIDPaymentMethodInfo class]];
+        self.items = [[dictionary objectOrNilForKey:@"item_details"] mapToArray:[MIDItemInfo class]];
+        self.customer = [[MIDCustomerInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"customer_details"]];
     }
     return self;
 }

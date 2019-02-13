@@ -40,10 +40,11 @@
 + (NSString *)typeOfVirtualAccount:(MIDBankTransferType)type;
 
 + (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
-
 + (NSString *)stringFromBool:(BOOL)boolean;
++ (NSString *)stringFromPaymentMethod:(MIDPaymentMethod)method;
 
 - (MIDCreditCardTransactionType)creditCardTransactionType;
 - (MIDCurrency)currencyType;
+- (MIDPaymentMethod)paymentMethod;
 
 @end

@@ -9,6 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "VTItemViewModel.h"
 #import "MidtransUIPaymentController.h"
+#import "MidtransSDK.h"
+
 @interface VTPaymentListController : MidtransUIPaymentController
 @property (nonatomic,strong)NSString *paymentMethodSelected;
+
+- (instancetype)initWithPaymentInfo:(MIDPaymentInfo *)info;
+
 @end

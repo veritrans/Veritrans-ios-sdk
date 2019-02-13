@@ -7,7 +7,7 @@
 //
 
 #import "MidtransUIBaseViewController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+//#import <MidtransCoreKit/MidtransCoreKit.h>
 #import <MidtransCoreKit/MidtransPaymentListModel.h>
 #import "VTPaymentStatusViewModel.h"
 #import "VTPaymentStatusController.h"

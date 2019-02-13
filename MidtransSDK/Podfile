@@ -4,6 +4,6 @@
 target 'MidtransSDK' do
 
   # Pods for MidtransSDK
-  pod 'MidtransCoreKit', :path => '/Users/nanang/Workspace/Midtrans/Veritrans-ios-sdk [OLD]/'
+  pod 'MidtransCoreKit'
 
 end

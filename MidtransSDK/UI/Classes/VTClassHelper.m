@@ -8,6 +8,8 @@
 
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransSDK.h"
+
 @implementation NSMutableAttributedString (Helper)
 
 - (void)replaceCharacterString:(NSString *)characterString withIcon:(UIImage *)icon {
@@ -251,6 +253,14 @@
     double priceAmount = 0;
     for (MidtransItemDetail *item in self) {
         priceAmount += (item.price.doubleValue * item.quantity.integerValue);
+    }
+    return @(priceAmount).formattedCurrencyNumber;
+}
+
+- (NSString *)formattedGrossAmount {
+    double priceAmount = 0;
+    for (MIDItemInfo *item in self) {
+        priceAmount += (item.price.doubleValue * item.quantity);
     }
     return @(priceAmount).formattedCurrencyNumber;
 }

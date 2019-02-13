@@ -38,19 +38,27 @@
     NSURLSessionDataTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData *_Nullable data, NSURLResponse *_Nullable response, NSError *_Nullable error) {
         
         NSInteger code = [(NSHTTPURLResponse *) response statusCode];
-
+        
         if (error) {
-            completion(nil, error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                completion(nil, error);
+            });
+            
         } else {
             NSError *error;
             id responseObject = [NSJSONSerialization JSONObjectWithData:data
                                                                 options:NSJSONReadingAllowFragments
                                                                   error:&error];
             if (error) {
-                completion(nil, error);
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    completion(nil, error);
+                });
+                
             } else {
                 if ([responseObject isKindOfClass:[NSArray class]]) {
-                    completion(responseObject, error);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        completion(responseObject, error);
+                    });
                     
                 } else {
                     NSNumber *_serverStatusCode = responseObject[@"status_code"];
@@ -60,7 +68,9 @@
                     
                     BOOL isSuccess = (code >= 200) && (code < 300);
                     if (isSuccess) {
-                        completion(responseObject, nil);
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completion(responseObject, nil);
+                        });
                         
                     } else {
                         NSString *_message = @"Request failed.";
@@ -75,7 +85,9 @@
                             
                         }
                         NSError *error = [NSError errorWithCode:code message:_message reasons:responseObject[@"validation_messages"]];
-                        completion(nil, error);
+                        dispatch_async(dispatch_get_main_queue(), ^{
+                            completion(nil, error);
+                        });
                     }
                 }
             }

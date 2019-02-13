@@ -68,6 +68,7 @@
  Payment code for Indomaret transaction, will not be nil if use Indomaret transaction
  */
 @property (nonatomic, readonly) NSString *indomaretPaymentCode;
+@property (nonatomic, readonly) NSString *alfamartPaymentCode;
 /**
  Billpay code & company code transaction, will not be nil if use Mandiri Billpay/ Mandiri VA transaction
  */

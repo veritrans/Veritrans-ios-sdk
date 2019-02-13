@@ -385,7 +385,7 @@
         [midGopayVC showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] || [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALFAMART]) {
         MIDPaymentIndomaretViewController* vc = [[MIDPaymentIndomaretViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];

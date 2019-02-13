@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>content</key>
+            <string>Silakan pergi ke gerai Alfamart, Alfamidi, or Dan+Dan terdekat dan berikanlah nomorKode Pembayaran Anda ke kasir.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Kasir akan mengkonfirmasi transaksi dengan menanyakan jumlah transaksi dan nama merchant.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Konfirmasikan pembayaran Anda ke kasir.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Transaksi Anda berhasil! Anda akan mendapatkan email konfirmasi pembayaran dan simpanlah struk transaksi Anda.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+    </array>
+</plist>

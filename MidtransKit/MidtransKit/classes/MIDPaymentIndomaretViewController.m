@@ -61,7 +61,11 @@
     [self showLoadingWithText:nil];
     [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
     id<MidtransPaymentDetails> paymentDetails;
-    paymentDetails = [[MidtransPaymentIndomaret alloc] init];
+    if([self.paymentMethod.shortName isEqualToString:MIDTRANS_PAYMENT_ALFAMART]) {
+        paymentDetails = [[MidtransPaymentAlfamart alloc] init];
+    } else {
+        paymentDetails = [[MidtransPaymentIndomaret alloc] init];
+    }
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];

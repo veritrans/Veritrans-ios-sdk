@@ -21,6 +21,7 @@
 @property (nonatomic, readwrite) NSDate *transactionTime;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 @property (nonatomic, readwrite) NSString *indomaretPaymentCode;
+@property (nonatomic, readwrite) NSString *alfamartPaymentCode;
 @property (nonatomic, readwrite) NSString *kiosonExpireTime;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCode;
 @property (nonatomic, readwrite) NSString *qrcodeUrl;
@@ -38,13 +39,13 @@
     if (self) {
         
         NSMutableDictionary *mResponse = [NSMutableDictionary dictionaryWithDictionary:response];
+        NSLog(@"data-->%@",mResponse);
         self.statusCode = [[mResponse objectThenDeleteForKey:@"status_code"] integerValue];
         self.statusMessage = [mResponse objectThenDeleteForKey:@"status_message"];
         self.transactionId = [mResponse objectThenDeleteForKey:@"transaction_id"];
         self.transactionStatus = [mResponse objectThenDeleteForKey:@"transaction_status"];
         self.orderId = [mResponse objectThenDeleteForKey:@"order_id"];
         self.paymentType = [mResponse objectThenDeleteForKey:@"payment_type"];
-        NSLog(@"daata-->%@",mResponse);
         id rawGrossAmount = [mResponse objectThenDeleteForKey:@"gross_amount"];
         if (rawGrossAmount) {
             self.grossAmount = @([rawGrossAmount doubleValue]);
@@ -68,6 +69,7 @@
              self.kiosonExpireTime = response[@"kioson_expire_time"];
         }
         if (response[@"payment_code"]) {
+            ///consider its same with alfamart
             self.indomaretPaymentCode = response[@"payment_code"];
         }
         

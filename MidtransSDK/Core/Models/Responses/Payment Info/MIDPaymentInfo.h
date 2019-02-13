@@ -14,6 +14,8 @@
 #import "MIDPromoInfo.h"
 #import "MIDTransactionInfo.h"
 #import "MIDPaymentMethodInfo.h"
+#import "MIDCustomerInfo.h"
+#import "MIDItemInfo.h"
 
 @interface MIDPaymentInfo : NSObject <MIDMappable>
 
@@ -24,5 +26,8 @@
 @property (nonatomic) NSString *token;
 @property (nonatomic) MIDTransactionInfo *transaction;
 @property (nonatomic) NSArray <MIDPaymentMethodInfo *> *enabledPayments;
+@property (nonatomic) NSArray <MIDItemInfo *> *items;
+@property (nonatomic) MIDCustomerInfo *customer;
+
 
 @end

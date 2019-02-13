@@ -8,11 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDMappable.h"
+#import "MIDModelEnums.h"
 
 @interface MIDPaymentMethodInfo : NSObject <MIDMappable>
 
-@property (nonatomic) NSString *status;
-@property (nonatomic) NSString *type;
+@property (nonatomic) BOOL isActive;
+@property (nonatomic) MIDPaymentMethod type;
 @property (nonatomic) NSString *category;
 
 @end

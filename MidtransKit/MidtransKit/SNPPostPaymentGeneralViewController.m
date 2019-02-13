@@ -56,6 +56,7 @@
         self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
     }
     else  if ([self.paymentMethod.shortName isEqualToString:@"alfamart"]) {
+        
         expireDate =[self.transactionResult.additionalData objectForKey:@"alfamart_expire_time"];
         [self.view.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentIndomaretHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentIndomaretHeader"];
         self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentIndomaretHeader"];
@@ -65,6 +66,7 @@
         [MIDBarcode39Generator code39ImageFromString:self.transactionResult.indomaretPaymentCode Width:400 Height:self.headerView.barcodeImageHeightConstant.constant];
         self.headerView.indomaretBarcodeCode.contentMode = UIViewContentModeScaleToFill;
         self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
+        self.headerView.descriptionText.text = @"Step by step Alfamart";
     }
     
     else {

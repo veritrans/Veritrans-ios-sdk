@@ -111,12 +111,12 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-        MidtransPaymentListModel *paymentModel = self.models[indexPath.row];
+    MidtransPaymentListModel *paymentModel = self.models[indexPath.row];
     if ([paymentModel.status isEqualToString:@"down"]) {
         return;
     }
-    if ([self.delegate respondsToSelector:@selector(paymentListView:didSelectAtIndex:)]) {
-        [self.delegate paymentListView:self didSelectAtIndex:indexPath.row];
+    if ([self.delegate respondsToSelector:@selector(paymentListView:didSelectModel:)]) {
+        [self.delegate paymentListView:self didSelectModel:self.models[indexPath.row]];
     }
 }
 

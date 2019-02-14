@@ -15,6 +15,10 @@
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
+#import "MIDVendorUI.h"
+#import "MIDArrayHelper.h"
+
+#import "MidtransSDK.h"
 
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) MidtransCustomerDetails *customer;
@@ -28,43 +32,48 @@
 
 @implementation VTVAListController
 
+- (MIDPaymentInfo *)info {
+    return [MIDVendorUI shared].info;
+}
+
+- (NSString *)orderID {
+    return self.info.transaction.orderID;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
-    if (self.paymentResponse.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
+    if (self.orderID) {
+        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"order id": self.orderID}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
-    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"virtualAccount"];
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:@"en_virtualAccount" ofType:@"plist"];
-    }
     
-    NSMutableArray *vaListM = [NSMutableArray new];
-    NSArray *paymentList = [NSArray arrayWithContentsOfFile:guidePath];
-
-    NSArray *paymentAvailable = self.paymentResponse.enabledPayments;
-    for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
-        NSInteger index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            return [obj[@"id"] isEqualToString:enabledPayment.type];
+    NSArray *details = [self loadPaymentMethodDetails];
+    
+    NSArray *payments = [self.info.enabledPayments filter:^BOOL(MIDPaymentMethodInfo *obj) {
+        return obj.category == MIDPaymentCategoryBankTransfer;
+    }];
+    
+    //map to payment list model
+    NSMutableArray *models = [NSMutableArray new];
+    [payments enumerateObjectsUsingBlock:^(MIDPaymentMethodInfo * _Nonnull info, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSInteger index = [details indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:info.type]];
         }];
         if (index != NSNotFound) {
-            if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
-                 MidtransPaymentListModel *paymentmodel= [[MidtransPaymentListModel alloc]initWithDictionary:paymentList[index]];
-                [vaListM addObject:paymentmodel];
-            }
+            [models addObject:[[MidtransPaymentListModel alloc] initWithDictionary:details[index]]];
         }
-    }
-
-    self.vaList = vaListM;
+    }];
+    
+    self.vaList = models;
     
     self.tableView.tableFooterView = [UIView new];
-    self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
-    self.orderIdLabel.text = self.token.transactionDetails.orderId;
+    self.totalAmountLabel.text = self.info.items.formattedGrossAmount;
+    self.orderIdLabel.text = self.orderID;
     if (self.vaList.count == 1) {
         [self redirectToIndex:0];
     }
@@ -77,9 +86,18 @@
     [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
 }
 
+- (NSArray *)loadPaymentMethodDetails {
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"paymentMethods"];
+    NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (path == nil) {
+        path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
+    }
+    return [NSArray arrayWithContentsOfFile:path];
+}
+
 #pragma mark - UITableViewDataSource
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-
+    
     return 80;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -88,7 +106,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
-//    [cell configurePaymetnList:self.vaList[indexPath.row] withFullPaymentResponse:self.paymentResponse];
+    [cell configureWithModel:self.vaList[indexPath.row] info:self.info];
     return cell;
 }
 
@@ -97,19 +115,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self redirectToIndex:indexPath.row];
 }
+
 - (void)redirectToIndex:(NSInteger)index {
     MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:index];
     NSString *paymentName  = vaTypeModel.shortName;
-    if (self.paymentResponse.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
+    if (self.orderID) {
+        [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.orderID}];
     } else {
         [[SNPUITrackingManager shared] trackEventName:paymentName];
     }
-    MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
-    vc.response = self.paymentResponse;
-    if (self.vaList.count == 1) {
-        [vc showDismissButton:YES];
-    }
-    [self.navigationController pushViewController:vc animated:YES];
+    
+    //    MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
+    //    vc.response = self.paymentResponse;
+    //    if (self.vaList.count == 1) {
+    //        [vc showDismissButton:YES];
+    //    }
+    //    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

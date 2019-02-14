@@ -39,6 +39,14 @@
 
 @implementation MidtransUIPaymentController
 
+-(instancetype)init {
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    if (self) {
+
+    }
+    return self;
+}
+
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
     if (self) {

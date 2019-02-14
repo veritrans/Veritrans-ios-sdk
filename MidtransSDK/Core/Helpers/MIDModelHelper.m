@@ -177,6 +177,17 @@
     return boolean ? @"true" : @"false";
 }
 
++ (NSString *)stringOfPaymentCategory:(MIDPaymentCategory)category {
+    switch (category) {
+        case MIDPaymentCategoryStore:
+            return @"cstore";
+        case MIDPaymentCategoryBankTransfer:
+            return @"bank_transfer";
+        default:
+            return nil;
+    }
+}
+
 + (NSString *)stringFromPaymentMethod:(MIDPaymentMethod)method {
     switch (method) {
         case MIDPaymentMethodCreditCard:
@@ -213,6 +224,16 @@
             return @"akulaku";
         default:
             return nil;
+    }
+}
+
+- (MIDPaymentCategory)paymentCategory {
+    if ([self isEqualToString:@"bank_transfer"]) {
+        return MIDPaymentCategoryBankTransfer;
+    } else if ([self isEqualToString:@"cstore"]) {
+        return MIDPaymentCategoryStore;
+    } else {
+        return MIDPaymentCategoryGeneral;
     }
 }
 

@@ -2351,7 +2351,6 @@
 				E5AE72A82212A2C50064FE00 /* MidtransVAHeader.xib */,
 				E5AE72D42212A2C90064FE00 /* MidtransVAViewController.xib */,
 				E5AE72DB2212A2CA0064FE00 /* MIDV2PaymentListViewController.xib */,
-				E5AE72CE2212A2C80064FE00 /* snap_colors.plist */,
 				E5AE72C22212A2C70064FE00 /* SNPMaintainView.xib */,
 				E5AE72BE2212A2C70064FE00 /* SNPPointViewController.xib */,
 				E5AE72A12212A2C40064FE00 /* SNPPostPaymentFooter.xib */,
@@ -2389,6 +2388,7 @@
 		E5AE73202212A3050064FE00 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				E5AE72CE2212A2C80064FE00 /* snap_colors.plist */,
 				E5AE725C2212A2A80064FE00 /* en_akulaku.plist */,
 				E5AE72582212A2A70064FE00 /* en_bca_klikbca.plist */,
 				E5AE72662212A2AB0064FE00 /* en_bca_klikpay.plist */,

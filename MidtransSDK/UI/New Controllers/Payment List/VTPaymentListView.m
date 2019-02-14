@@ -12,6 +12,7 @@
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
+#import "MIDArrayHelper.h"
 
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL shouldExpand;
@@ -59,13 +60,31 @@
     
     NSArray *details = [self loadPaymentMethodDetails];
     
+    NSArray *payments = [info.enabledPayments filter:^BOOL(MIDPaymentMethodInfo *obj) {
+        return obj.category != MIDPaymentCategoryBankTransfer;
+    }];
+    
+    //map to payment list model
     NSMutableArray *models = [NSMutableArray new];
-    [info.enabledPayments enumerateObjectsUsingBlock:^(MIDPaymentMethodInfo * _Nonnull info, NSUInteger idx, BOOL * _Nonnull stop) {
+    [payments enumerateObjectsUsingBlock:^(MIDPaymentMethodInfo * _Nonnull info, NSUInteger idx, BOOL * _Nonnull stop) {
         NSInteger index = [details indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
             return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:info.type]];
         }];
-        [models addObject:[[MidtransPaymentListModel alloc] initWithDictionary:details[index]]];
+        if (index != NSNotFound) {
+            [models addObject:[[MidtransPaymentListModel alloc] initWithDictionary:details[index]]];
+        }
     }];
+    
+    //create VA group model
+    NSString *_desc = [VTClassHelper getTranslationFromAppBundleForString:@"Pay from ATM Bersama, Prima or Alto"];
+    NSDictionary *_dict = @{@"description":_desc,
+                            @"id":@"va",
+                            @"identifier":@"va",
+                            @"shortName":@"atm transfer",
+                            @"title":@"ATM/Bank Transfer"
+                            };
+    [models insertObject:[[MidtransPaymentListModel alloc] initWithDictionary:_dict] atIndex:1];
+    
     self.models = models;
     [self.tableView reloadData];
 }

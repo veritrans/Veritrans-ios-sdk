@@ -14,6 +14,6 @@
 
 @property (nonatomic) BOOL isActive;
 @property (nonatomic) MIDPaymentMethod type;
-@property (nonatomic) NSString *category;
+@property (nonatomic) MIDPaymentCategory category;
 
 @end

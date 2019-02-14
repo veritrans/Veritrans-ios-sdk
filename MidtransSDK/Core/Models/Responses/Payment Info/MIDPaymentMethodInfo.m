@@ -15,7 +15,7 @@
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [result setValue:[self stringStatus:self.isActive] forKey:@"status"];
     [result setValue:[NSString stringFromPaymentMethod:self.type] forKey:@"type"];
-    [result setValue:self.category forKey:@"category"];
+    [result setValue:[NSString stringOfPaymentCategory:self.category] forKey:@"category"];
     return result;
 }
 
@@ -23,7 +23,7 @@
     if (self = [super init]) {
         self.isActive = [self statusFromString:[dictionary objectOrNilForKey:@"status"]];
         self.type = [[dictionary objectOrNilForKey:@"type"] paymentMethod];
-        self.category = [dictionary objectOrNilForKey:@"category"];
+        self.category = [[dictionary objectOrNilForKey:@"category"] paymentCategory];
     }
     return self;
 }

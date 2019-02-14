@@ -1754,8 +1754,6 @@
 				E5AE6F232212A06F0064FE00 /* VTSubGuideController.m */,
 				E5AE6F6A2212A07C0064FE00 /* VTTwoClickController.h */,
 				E5AE6EEC2212A0620064FE00 /* VTTwoClickController.m */,
-				E5AE6F072212A0670064FE00 /* VTVAListController.h */,
-				E5AE6EF42212A0630064FE00 /* VTVAListController.m */,
 				E5AE6F112212A06A0064FE00 /* VTVASuccessStatusController.h */,
 				E5AE6F312212A0720064FE00 /* VTVASuccessStatusController.m */,
 				E5AE6FA12212A0850064FE00 /* VTXLTunaiSuccessController.h */,
@@ -1792,6 +1790,8 @@
 				E5AE72CD2212A2C80064FE00 /* VTPaymentListController.xib */,
 				E5AE6F7A2212A07E0064FE00 /* VTPaymentListView.h */,
 				E5AE6F162212A06B0064FE00 /* VTPaymentListView.m */,
+				E5AE6F072212A0670064FE00 /* VTVAListController.h */,
+				E5AE6EF42212A0630064FE00 /* VTVAListController.m */,
 			);
 			path = "Payment List";
 			sourceTree = "<group>";

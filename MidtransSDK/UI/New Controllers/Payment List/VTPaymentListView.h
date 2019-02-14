@@ -16,7 +16,7 @@
 @class VTPaymentListView,MidtransPaymentRequestV2Response;
 
 @protocol VTPaymentListViewDelegate <NSObject>
-- (void)paymentListView:(VTPaymentListView *)view didSelectAtIndex:(NSUInteger)index;
+- (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MidtransPaymentListModel *)model;
 @end
 
 @interface VTPaymentListView : UIView

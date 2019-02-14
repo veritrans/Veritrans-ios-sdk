@@ -16,6 +16,7 @@
 @property (nonatomic,strong) MidtransTransactionTokenResponse *token;
 @property (nonatomic,strong) MidtransPaymentListModel *paymentMethod;
 
+-(instancetype)init;
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod;
 

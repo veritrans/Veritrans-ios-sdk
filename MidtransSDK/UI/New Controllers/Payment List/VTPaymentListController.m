@@ -272,8 +272,11 @@
 
 #pragma mark - VTPaymentListViewDelegate
 
-- (void)paymentListView:(VTPaymentListView *)view didSelectAtIndex:(NSUInteger)index {
-    [self redirectToPaymentMethodAtIndex:index];
+- (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MidtransPaymentListModel *)model {
+    if ([model.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
+        VTVAListController *vc = [[VTVAListController alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }
 }
 
 #pragma mark - Helper

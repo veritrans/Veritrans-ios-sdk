@@ -37,4 +37,5 @@
 - (void)handleSaveCardError:(NSError *)error;
 
 - (MIDPaymentInfo *)info;
+- (NSString *)snapToken;
 @end

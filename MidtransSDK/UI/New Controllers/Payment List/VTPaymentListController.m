@@ -292,6 +292,16 @@
             MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
         }
+        else if (method == MIDPaymentMethodKlikbca) {
+            MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithPaymentMethod:model];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
+        
+        //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
+        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
+        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
+        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||
+        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
     }
 }
 

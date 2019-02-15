@@ -89,23 +89,19 @@ class MIDSwiftViewController: UIViewController {
                 
             })
             
-            MIDBankTransferCharge.bca(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+            MIDBankTransferCharge.bca(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
             })
-            
-            MIDBankTransferCharge.permata(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+            MIDBankTransferCharge.permata(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
             })
-            
-            MIDBankTransferCharge.bni(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+            MIDBankTransferCharge.bni(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
             })
-            
-            MIDBankTransferCharge.mandiri(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+            MIDBankTransferCharge.mandiri(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
             })
-            
-            MIDBankTransferCharge.otherBank(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+            MIDBankTransferCharge.otherBank(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
             })
             

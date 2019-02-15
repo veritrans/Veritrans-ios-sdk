@@ -49,4 +49,6 @@
 - (MIDPaymentMethod)paymentMethod;
 - (MIDPaymentCategory)paymentCategory;
 
+- (NSNumber *)toNumber;
+
 @end

@@ -22,7 +22,7 @@
     [result setValue:self.statusMessage forKey:@"status_message"];
     [result setValue:self.transactionID forKey:@"transaction_id"];
     [result setValue:self.transactionStatus forKey:@"transaction_status"];
-    [result setValue:self.transactionTime forKey:@"transaction_time"];    
+    [result setValue:[self dateToString:self.transactionTime] forKey:@"transaction_time"];
 
     [result setValue:self.pdfURL forKey:@"pdf_url"];
     return result;
@@ -33,18 +33,30 @@
         self.currency = [dictionary objectOrNilForKey:@"currency"];
         self.finishRedirectURL = [dictionary objectOrNilForKey:@"finish_redirect_url"];
         self.fraudStatus = [dictionary objectOrNilForKey:@"fraud_status"];
-        self.grossAmount = [dictionary objectOrNilForKey:@"gross_amount"];
+        self.grossAmount = [[dictionary objectOrNilForKey:@"gross_amount"] toNumber];
         self.orderID = [dictionary objectOrNilForKey:@"order_id"];
         self.paymentType = [dictionary objectOrNilForKey:@"payment_type"];
         self.statusCode = [[dictionary objectOrNilForKey:@"status_code"] integerValue];
         self.statusMessage = [dictionary objectOrNilForKey:@"status_message"];
         self.transactionID = [dictionary objectOrNilForKey:@"transaction_id"];
         self.transactionStatus = [dictionary objectOrNilForKey:@"transaction_status"];
-        self.transactionTime = [dictionary objectOrNilForKey:@"transaction_time"];        
+        self.transactionTime = [self stringToDate:[dictionary objectOrNilForKey:@"transaction_time"]];
 
         self.pdfURL = [dictionary objectOrNilForKey:@"pdf_url"];
     }
     return self;
+}
+
+- (NSString *)dateToString:(NSDate *)date {
+    NSDateFormatter *df = [NSDateFormatter new];
+    df.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    return [df stringFromDate:date];
+}
+
+- (NSDate *)stringToDate:(NSString *)string {
+    NSDateFormatter *df = [NSDateFormatter new];
+    df.dateFormat = @"yyyy-MM-dd HH:mm:ss";
+    return [df dateFromString:string];
 }
 
 @end

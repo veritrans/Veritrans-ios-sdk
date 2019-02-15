@@ -14,7 +14,10 @@
 @end
 
 @implementation MIDBankTransferBNITest
-static NSString *_email = @"test-mobile@midtrans.com";
+
+static NSString *_email = @"jukiginanjar@yahoo.com";
+static NSString *_phone = @"085223768857";
+static NSString *_name = @"susan";
 
 - (void)setUp {
      [MIDTestHelper setup];
@@ -29,10 +32,15 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
-        [MIDBankTransferCharge bniWithToken:token email:_email completion:^(MIDBNIBankTransferResult *_Nullable result, NSError *_Nullable error) {
-            XCTAssertNotNil(result.vaNumber, @"va bni test is error");
-            [promise fulfill];
-        }];
+        [MIDBankTransferCharge bniWithToken:token
+                                       name:_name
+                                      email:_email
+                                      phone:_phone
+                                 completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
+         {
+             XCTAssertNotNil(result.vaNumber, @"va bni test is error");
+             [promise fulfill];
+         }];
     }];
     
     [self waitForExpectations:@[promise] timeout:120];
@@ -41,8 +49,10 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDBankTransferCharge bniWithToken:nil
+                                   name:_name
                                   email:_email
-                             completion:^(MIDBNIBankTransferResult *_Nullable result, NSError *_Nullable error)
+                                  phone:_phone
+                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

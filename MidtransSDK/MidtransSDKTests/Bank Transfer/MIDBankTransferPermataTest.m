@@ -14,7 +14,10 @@
 @end
 
 @implementation MIDBankTransferPermataTest
-static NSString *_email = @"test-mobile@midtrans.com";
+
+static NSString *_email = @"jukiginanjar@yahoo.com";
+static NSString *_phone = @"085223768857";
+static NSString *_name = @"susan";
 
 - (void)setUp {
     [MIDTestHelper setup];
@@ -30,11 +33,14 @@ static NSString *_email = @"test-mobile@midtrans.com";
     
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDBankTransferCharge permataWithToken:token
+                                           name:_name
                                           email:_email
-                                     completion:^(MIDPermataBankTransferResult *_Nullable result, NSError *_Nullable error) {
-            XCTAssertNotNil(result.vaNumber, @"va bni test is error");
-            [promise fulfill];
-        }];
+                                          phone:_phone
+                                     completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
+         {
+             XCTAssertNotNil(result.vaNumber, @"va bni test is error");
+             [promise fulfill];
+         }];
     }];
     
     [self waitForExpectations:@[promise] timeout:120];
@@ -43,8 +49,10 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDBankTransferCharge permataWithToken:nil
+                                       name:_name
                                       email:_email
-                                 completion:^(MIDPermataBankTransferResult *_Nullable result, NSError *_Nullable error)
+                                      phone:_phone
+                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

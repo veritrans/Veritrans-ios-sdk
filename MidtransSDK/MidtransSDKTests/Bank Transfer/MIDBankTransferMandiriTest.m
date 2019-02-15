@@ -13,7 +13,10 @@
 @end
 
 @implementation MIDBankTransferMandiriTest
-static NSString *_email = @"test-mobile@midtrans.com";
+
+static NSString *_email = @"jukiginanjar@yahoo.com";
+static NSString *_phone = @"085223768857";
+static NSString *_name = @"susan";
 
 - (void)setUp {
     [MIDTestHelper setup];
@@ -28,10 +31,15 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
-        [MIDBankTransferCharge mandiriWithToken:token email:_email completion:^(MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error) {
-            XCTAssertNotNil(result.key, @"va bni test is error");
-            [promise fulfill];
-        }];
+        [MIDBankTransferCharge mandiriWithToken:token
+                                           name:_name
+                                          email:_email
+                                          phone:_phone
+                                     completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
+         {
+             XCTAssertNotNil(result.key, @"va bni test is error");
+             [promise fulfill];
+         }];
     }];
     
     [self waitForExpectations:@[promise] timeout:120];
@@ -40,8 +48,10 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDBankTransferCharge mandiriWithToken:nil
-                                  email:_email
-                             completion:^(MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error)
+                                       name:_name
+                                      email:_email
+                                      phone:_phone
+                                 completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

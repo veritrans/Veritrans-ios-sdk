@@ -9,13 +9,15 @@
 #import <XCTest/XCTest.h>
 #import "MIDTestHelper.h"
 
-static NSString *_email = @"test-mobile@midtrans.com";
-
 @interface MIDBankTransferOther : XCTestCase
 
 @end
 
 @implementation MIDBankTransferOther
+
+static NSString *_email = @"jukiginanjar@yahoo.com";
+static NSString *_phone = @"085223768857";
+static NSString *_name = @"susan";
 
 - (void)setUp {
     [MIDTestHelper setup];
@@ -26,10 +28,15 @@ static NSString *_email = @"test-mobile@midtrans.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
-        [MIDBankTransferCharge otherBankWithToken:token email:_email completion:^(id _Nullable result, NSError *_Nullable error) {
-            XCTAssertNotNil(result, @"test other va is error");
-            [promise fulfill];
-        }];
+        [MIDBankTransferCharge otherBankWithToken:token
+                                             name:_name
+                                            email:_email
+                                            phone:_phone
+                                       completion:^(id _Nullable result, NSError * _Nullable error)
+         {
+             XCTAssertNotNil(result, @"test other va is error");
+             [promise fulfill];
+         }];
     }];
     
     [self waitForExpectations:@[promise] timeout:120];
@@ -38,10 +45,15 @@ static NSString *_email = @"test-mobile@midtrans.com";
 - (void)testTokenNotFoundOther {
     XCTestExpectation *promise = [XCTestExpectation new];
     
-    [MIDBankTransferCharge otherBankWithToken:nil email:_email completion:^(id _Nullable result, NSError *_Nullable error) {
-        XCTAssertTrue(error.code == 404);
-        [promise fulfill];
-    }];
+    [MIDBankTransferCharge otherBankWithToken:nil
+                                         name:_name
+                                        email:_email
+                                        phone:_phone
+                                   completion:^(id _Nullable result, NSError * _Nullable error)
+     {
+         XCTAssertTrue(error.code == 404);
+         [promise fulfill];
+     }];
     
     [self waitForExpectations:@[promise] timeout:120];
 }

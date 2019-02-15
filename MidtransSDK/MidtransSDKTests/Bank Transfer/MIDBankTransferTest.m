@@ -16,6 +16,8 @@
 @implementation MIDBankTransferTest
 
 static NSString *_email = @"jukiginanjar@yahoo.com";
+static NSString *_phone = @"085223768857";
+static NSString *_name = @"susan";
 
 - (void)setUp {
     [MIDTestHelper setup];
@@ -30,8 +32,10 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDBankTransferCharge bcaWithToken:token
+                                       name:_name
                                       email:_email
-                                 completion:^(MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error)
+                                      phone:_phone
+                                 completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
          {
              XCTAssertNotNil(result.vaNumber, @"va bca test is error");
              [promise fulfill];
@@ -45,8 +49,10 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDBankTransferCharge bcaWithToken:nil
+                                   name:_name
                                   email:_email
-                             completion:^(MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error)
+                                  phone:_phone
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];
@@ -59,8 +65,10 @@ static NSString *_email = @"jukiginanjar@yahoo.com";
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDBankTransferCharge bcaWithToken:@"random_token_error"
+                                   name:_name
                                   email:_email
-                             completion:^(MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error)
+                                  phone:_phone
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)    
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

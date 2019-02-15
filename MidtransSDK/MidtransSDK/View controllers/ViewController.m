@@ -75,15 +75,15 @@
                               options:@[customer, checkoutItem]
                         paymentMethod:MIDPaymentMethodUnknown];
     
-//    [MIDClient checkoutWith:trx
-//                    options:@[cc]
-//                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
-//     {
-//         NSString *snapToken = token.token;
-//         NSLog(@"Token: %@", token.dictionaryValue);
-//
-//         [self fetchPaymentInfo:token.token];
-//     }];
+    //    [MIDClient checkoutWith:trx
+    //                    options:@[cc]
+    //                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
+    //     {
+    //         NSString *snapToken = token.token;
+    //         NSLog(@"Token: %@", token.dictionaryValue);
+    //
+    //         [self fetchPaymentInfo:token.token];
+    //     }];
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {
@@ -140,7 +140,51 @@
               
           }];
      }];
+        
+    [MIDBankTransferCharge bcaWithToken:snapToken
+                                   name:@"susan"
+                                  email:@"susan_bahtiar@gmail.com"
+                                  phone:@"085223768857"
+                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
     
+    [MIDBankTransferCharge permataWithToken:snapToken
+                                       name:@"susan"
+                                      email:@"susan_bahtiar@gmail.com"
+                                      phone:@"085223768857"
+                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
+    
+    [MIDBankTransferCharge bniWithToken:snapToken
+                                   name:@"susan"
+                                  email:@"susan_bahtiar@gmail.com"
+                                  phone:@"085223768857"
+                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
+    
+    [MIDBankTransferCharge mandiriWithToken:snapToken
+                                       name:@"susan"
+                                      email:@"susan_bahtiar@gmail.com"
+                                      phone:@"085223768857"
+                                 completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
+    
+    [MIDBankTransferCharge otherBankWithToken:snapToken
+                                         name:@"susan"
+                                        email:@"susan_bahtiar@gmail.com"
+                                        phone:@"085223768857"
+                                   completion:^(id _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
 }
 
 @end

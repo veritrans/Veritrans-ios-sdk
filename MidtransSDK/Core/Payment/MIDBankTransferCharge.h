@@ -18,23 +18,33 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MIDBankTransferCharge : NSObject
 
 + (void)bcaWithToken:(NSString *)token
-               email:(NSString *)email
+                name:(NSString *_Nullable)name
+               email:(NSString *_Nullable)email
+               phone:(NSString *_Nullable)phone
           completion:(void (^_Nullable) (MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error))completion;
 
 + (void)permataWithToken:(NSString *)token
-                   email:(NSString *)email
+                    name:(NSString *_Nullable)name
+                   email:(NSString *_Nullable)email
+                   phone:(NSString *_Nullable)phone
               completion:(void (^_Nullable) (MIDPermataBankTransferResult *_Nullable result, NSError *_Nullable error))completion;
 
 + (void)mandiriWithToken:(NSString *)token
-                   email:(NSString *)email
+                    name:(NSString *_Nullable)name
+                   email:(NSString *_Nullable)email
+                   phone:(NSString *_Nullable)phone
               completion:(void (^_Nullable) (MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error))completion;
 
 + (void)bniWithToken:(NSString *)token
-               email:(NSString *)email
+                name:(NSString *_Nullable)name
+               email:(NSString *_Nullable)email
+               phone:(NSString *_Nullable)phone
           completion:(void (^_Nullable) (MIDBNIBankTransferResult *_Nullable result, NSError *_Nullable error))completion;
 
 + (void)otherBankWithToken:(NSString *)token
-                     email:(NSString *)email
+                      name:(NSString *_Nullable)name
+                     email:(NSString *_Nullable)email
+                     phone:(NSString *_Nullable)phone
                 completion:(void (^_Nullable) (id _Nullable result, NSError *_Nullable error))completion;
 @end
 

@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
+
 @class AddOnConstructor;
 @interface MidtransTransactionDetailViewController : UIViewController
 - (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items;

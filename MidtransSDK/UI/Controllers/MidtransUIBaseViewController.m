@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "MidtransUIThemeManager.h"
 #import "VTBackBarButtonItem.h"
+#import "MIDVendorUI.h"
 
 @interface MidtransUIBaseViewController ()
 
@@ -17,9 +18,8 @@
 
 @implementation MidtransUIBaseViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    //self.navigationItem.backBarButtonItem = [[VTBackBarButtonItem alloc] initWithTitle:UILocalizedString(@"Back", nil)];
+- (MIDPaymentInfo *)info {
+    return [MIDVendorUI shared].info;
 }
 
 @end

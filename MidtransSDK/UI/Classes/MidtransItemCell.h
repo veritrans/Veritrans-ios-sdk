@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
+
+#import "MidtransSDK.h"
 
 @interface MidtransItemCell : UITableViewCell
-@property (nonatomic) MidtransItemDetail *itemDetail;
+@property (nonatomic) MIDItemInfo *itemInfo;
 @end

@@ -10,13 +10,14 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransLoadingView.h"
 #import "MidtransPaymentMethodHeader.h"
+#import "MIDPaymentDetail.h"
 
 #import "MidtransSDK.h"
 
 @class VTPaymentListView,MidtransPaymentRequestV2Response;
 
 @protocol VTPaymentListViewDelegate <NSObject>
-- (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MidtransPaymentListModel *)model;
+- (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MIDPaymentDetail *)model;
 @end
 
 @interface VTPaymentListView : UIView

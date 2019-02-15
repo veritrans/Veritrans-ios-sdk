@@ -21,7 +21,6 @@
 #import "MidtransSavedCardController.h"
 #import "VTPaymentListView.h"
 #import "MidtransNewCreditCardViewController.h"
-#import "MidtransPaymentGCIViewController.h"
 #import "MIDDanamonOnlineViewController.h"
 #import "MidtransTransactionDetailViewController.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
@@ -272,10 +271,23 @@
 
 #pragma mark - VTPaymentListViewDelegate
 
-- (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MidtransPaymentListModel *)model {
-    if ([model.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
+- (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MIDPaymentDetail *)model {
+    if ([model.paymentID isEqualToString:@"va"]) {
         VTVAListController *vc = [[VTVAListController alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else {
+        MIDPaymentMethod method = model.method;
+        if (method == MIDPaymentMethodCIMBClicks ||
+            method == MIDPaymentMethodMandiriECash ||
+            method == MIDPaymentMethodBCAKlikpay ||
+            method == MIDPaymentMethodBRIEpay ||
+            method == MIDPaymentMethodAkulaku) {
+            
+            MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithModel:model];
+            [vc showDismissButton:self.singlePayment];
+            [self.navigationController pushViewController:vc animated:!self.singlePayment];            
+        }
     }
 }
 
@@ -290,11 +302,11 @@
     //    } else {
     //        [[SNPUITrackingManager shared] trackEventName:eventName];
     //    }
-    //    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]){
+    //    if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_ECHANNEL] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]){
     //
     //        MidtransPaymentListModel *vaTypeModel = [[MidtransPaymentListModel alloc] initWithDictionary:[paymentMethod dictionaryRepresentation]];
     //
@@ -307,7 +319,7 @@
     //        return;
     //    }
     //
-    //    if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
+    //    if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
     //        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
     //            MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
     //                                                                  initWithToken:self.token
@@ -347,19 +359,19 @@
     //        }
     //    }
     //
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_VA]) {
     //        VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
     //                                                         paymentMethodName:paymentMethod];
     //        vc.paymentResponse = self.responsePayment;
     //                        [vc showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:vc animated:!self.singlePayment];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_AKULAKU] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_XL_TUNAI])
     //    {
     //        MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithToken:self.token
     //                                                                                                 paymentMethodName:paymentMethod
@@ -367,37 +379,37 @@
     //        [vc showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:vc animated:!self.singlePayment];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]) {
     //        MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
     //        [vc showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:vc animated:YES];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||
-    //             [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||
+    //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
     //        MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithToken:self.token
     //                                                                                               paymentMethodName:paymentMethod];
     //        [vc showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:vc animated:!self.singlePayment];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GCI]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_GCI]) {
     //        MidtransPaymentGCIViewController *vc = [[MidtransPaymentGCIViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
     //        [self.navigationController pushViewController:vc animated:YES];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_CLICKPAY]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_MANDIRI_CLICKPAY]) {
     //        VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithToken:self.token
     //                                                                           paymentMethodName:paymentMethod];
     //        [vc showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:vc animated:!self.singlePayment];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
     //        MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
     //        [midGopayVC showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     //    }
-    //    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
+    //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
     //        MIDPaymentIndomaretViewController* vc = [[MIDPaymentIndomaretViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
     //        [vc showDismissButton:self.singlePayment];
     //        [self.navigationController pushViewController:vc animated:!self.singlePayment];

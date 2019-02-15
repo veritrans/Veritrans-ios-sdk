@@ -16,20 +16,20 @@
     self.promoNotificationView.layer.cornerRadius = 5.0f;
     self.promoNotificationView.layer.masksToBounds = YES;
 }
-- (void)configureWithModel:(MidtransPaymentListModel *)model info:(MIDPaymentInfo *)info {
+- (void)configureWithModel:(MIDPaymentDetail *)model info:(MIDPaymentInfo *)info {
     self.promoNotificationView.hidden =  YES;
     self.paymentMethodNameLabel.text = model.title;
-    self.paymentMethodDescriptionLabel.text = model.internalBaseClassDescription;
-    NSString *imagePath =[NSString stringWithFormat:@"%@",model.internalBaseClassIdentifier];
-    if ([model.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
+    self.paymentMethodDescriptionLabel.text = model.paymentDescription;
+    NSString *imagePath =[NSString stringWithFormat:@"%@",model.paymentID];
+    if ([model.paymentID isEqualToString:@"echannel"]) {
         imagePath = @"mandiri_va";
     }
-    if ([model.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
+    if ([model.paymentID isEqualToString:@"credit_card"]) {
         if (info.promo.promos.count) {
             self.promoNotificationView.hidden =  NO;
         }
     }
-    else if ([model.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
+    else if ([model.paymentID isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
         self.paymentMethodNameLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Credit/Debit Card"];
         NSArray *capArray = [info.merchant.enabledPrinciples valueForKeyPath:@"capitalizedString"];
         self.paymentMethodDescriptionLabel.text =  [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Pay With"],[capArray componentsJoinedByString:@", "]];

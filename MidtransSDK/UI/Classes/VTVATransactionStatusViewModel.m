@@ -11,15 +11,26 @@
 
 @implementation VTVATransactionStatusViewModel
 
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult
+- (instancetype)initWithTransactionResult:(MIDPaymentResult *)transactionResult
                         paymentIdentifier:(NSString *)paymentIdentifier {
+    
     if (self = [super initWithTransactionResult:transactionResult]) {
-        if ([paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_ECHANNEL]) {
-            self.billpayCode = transactionResult.mandiriBillpayCode;
-            self.companyCode = transactionResult.mandiriBillpayCompanyCode;
+        if ([transactionResult isKindOfClass:[MIDMandiriBankTransferResult class]]) {
+            MIDMandiriBankTransferResult *_result = (MIDMandiriBankTransferResult *)transactionResult;
+            self.billpayCode = _result.key;
+            self.companyCode = _result.code;
         }
-        else {
-            self.vaNumber = transactionResult.virtualAccountNumber;
+        else if ([transactionResult isKindOfClass:[MIDBNIBankTransferResult class]]) {
+            MIDBNIBankTransferResult *result = (MIDBNIBankTransferResult *)transactionResult;
+            self.vaNumber = result.vaNumber;
+        }
+        else if ([transactionResult isKindOfClass:[MIDBCABankTransferResult class]]) {
+            MIDBCABankTransferResult *result = (MIDBCABankTransferResult *)transactionResult;
+            self.vaNumber = result.vaNumber;
+        }
+        else if ([transactionResult isKindOfClass:[MIDPermataBankTransferResult class]]) {
+            MIDPermataBankTransferResult *result = (MIDPermataBankTransferResult *)transactionResult;
+            self.vaNumber = result.vaNumber;
         }
     }
     return self;

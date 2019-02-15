@@ -8,8 +8,7 @@
 
 #import "VTPaymentStatusViewModel.h"
 #import "VTClassHelper.h"
-
-#import <MidtransCoreKit/MidtransPaymentBankTransfer.h>
+#import "MidtransSDK.h"
 
 @interface VTVATransactionStatusViewModel : VTPaymentStatusViewModel
 
@@ -18,7 +17,7 @@
 @property (nonatomic) NSString *companyCode;
 @property (nonatomic, assign) MidtransVAType vaType;
 
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult
+- (instancetype)initWithTransactionResult:(MIDPaymentResult *)transactionResult
                         paymentIdentifier:(NSString *)paymentIdentifier;
 
 @end

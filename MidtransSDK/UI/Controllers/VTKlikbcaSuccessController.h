@@ -10,7 +10,6 @@
 #import "VTPaymentStatusViewModel.h"
 
 @interface VTKlikbcaSuccessController : MidtransUIPaymentController
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
-            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-                    viewModel:(VTPaymentStatusViewModel *)viewModel;
+- (instancetype)initWithPaymentMethodName:(MIDPaymentDetail *)paymentMethod
+                                viewModel:(VTPaymentStatusViewModel *)viewModel;
 @end

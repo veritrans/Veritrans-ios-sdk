@@ -10,5 +10,6 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTPendingStatusController : MidtransUIPaymentController
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod result:(MidtransTransactionResult *)result;
+- (instancetype)initWithPaymentMethodName:(MIDPaymentDetail *)paymentMethod
+                                   result:(MIDPaymentResult *)result;
 @end

@@ -14,6 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MIDVendorUI : NSObject
 
 @property (nonatomic) MIDPaymentInfo *info;
+@property (nonatomic) NSString *snapToken;
 
 + (MIDVendorUI *)shared;
 

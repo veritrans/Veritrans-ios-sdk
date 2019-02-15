@@ -80,6 +80,7 @@
                      completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
          {
              NSString *snapToken = token.token;
+             [MIDVendorUI shared].snapToken = snapToken;
              
              [MIDClient getPaymentInfoWithToken:snapToken completion:^(MIDPaymentInfo * _Nullable info, NSError * _Nullable error) {
                  [self hideLoading];

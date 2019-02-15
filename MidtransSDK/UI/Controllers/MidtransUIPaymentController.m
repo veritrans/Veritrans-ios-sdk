@@ -315,4 +315,7 @@
     return [MIDVendorUI shared].info;
 }
 
+- (NSString *)snapToken {
+    return [MIDVendorUI shared].snapToken;
+}
 @end

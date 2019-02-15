@@ -7,8 +7,8 @@
 //
 
 #import "MidtransUIPaymentController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MidtransKit.h"
 
 @interface VTSingleGuideController : MidtransUIPaymentController
-- (instancetype)initWithPaymentMethodModel:(MidtransPaymentListModel *)model;
+- (instancetype)initWithPaymentMethodModel:(MIDPaymentDetail *)model;
 @end

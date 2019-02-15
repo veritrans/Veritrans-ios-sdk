@@ -24,12 +24,13 @@
     self.separatorInset = UIEdgeInsetsMake(0.f, self.bounds.size.width, 0.f, 0.f);
 }
 
-- (void)setItemDetail:(MidtransItemDetail *)itemDetail {
-    _itemDetail = itemDetail;
-    double total = [itemDetail.price doubleValue] * [itemDetail.quantity doubleValue];
+- (void)setItemInfo:(MIDItemInfo *)itemInfo {
+    _itemInfo = itemInfo;
+    
+    double total = [itemInfo.price doubleValue] * itemInfo.quantity;
     self.priceLabel.text = [NSNumber numberWithDouble:total].formattedCurrencyNumber;
-    self.nameLabel.text = itemDetail.name;
-    self.qtyLabel.text = [NSString stringWithFormat:@"x%@", itemDetail.quantity];
+    self.nameLabel.text = itemInfo.name;
+    self.qtyLabel.text = [NSString stringWithFormat:@"x%ld", (long)itemInfo.quantity];
     
     [self.contentView setNeedsLayout];
     [self.contentView layoutIfNeeded];

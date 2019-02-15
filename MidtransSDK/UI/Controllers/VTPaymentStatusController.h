@@ -7,18 +7,19 @@
 //
 
 #import "MidtransUIBaseViewController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDPaymentDetail.h"
+
+#import "MidtransSDK.h"
 
 @interface VTPaymentStatusController : MidtransUIBaseViewController
 
-+ (instancetype)successTransactionWithResult:(MidtransTransactionResult *)result
-                                       token:(MidtransTransactionTokenResponse *)token
-                               paymentMethod:(MidtransPaymentListModel *)paymentMethod;
++ (instancetype)successTransactionWithResult:(MIDPaymentResult *)result
+                               paymentMethod:(MIDPaymentDetail *)paymentMethod;
+
 + (instancetype)errorTransactionWithError:(NSError *)error
-                                    token:(MidtransTransactionTokenResponse *)token
-                            paymentMethod:(MidtransPaymentListModel *)paymentMethod;
-+ (instancetype)pendingTransactionWithResult:(MidtransTransactionResult *)result
-                                       token:(MidtransTransactionTokenResponse *)token
-                               paymentMethod:(MidtransPaymentListModel *)paymentMethod;
+                            paymentMethod:(MIDPaymentDetail *)paymentMethod;
+
++ (instancetype)pendingTransactionWithResult:(MIDPaymentResult *)result
+                               paymentMethod:(MIDPaymentDetail *)paymentMethod;
 
 @end

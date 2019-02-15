@@ -291,4 +291,10 @@
     }
 }
 
+- (NSNumber *)toNumber {
+    NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
+    f.numberStyle = NSNumberFormatterDecimalStyle;
+    return [f numberFromString:self];
+}
+
 @end

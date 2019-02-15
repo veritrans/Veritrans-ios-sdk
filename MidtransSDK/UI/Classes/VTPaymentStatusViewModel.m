@@ -11,17 +11,17 @@
 
 
 @interface VTPaymentStatusViewModel()
-@property (nonatomic) MidtransTransactionResult *transactionResult;
+@property (nonatomic) MIDPaymentResult *transactionResult;
 @end
 
 @implementation VTPaymentStatusViewModel
 
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)transactionResult {
+- (instancetype)initWithTransactionResult:(MIDPaymentResult *)transactionResult {
     if (self = [super init]) {
         self.transactionResult = transactionResult;
         self.totalAmount = transactionResult.grossAmount.formattedCurrencyNumber;
-        self.orderId = transactionResult.orderId;
-        self.additionalData = transactionResult.additionalData;
+        self.orderId = transactionResult.orderID;
+        
         NSDateFormatter *formatter = [NSObject dateFormatterWithIdentifier:@"vt.date"];
         formatter.dateFormat = @"dd/MM/yyyy, HH:mm:ss";
         self.transactionTime = [formatter stringFromDate:transactionResult.transactionTime];

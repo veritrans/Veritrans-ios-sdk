@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDBNIBankTransferResult : MIDPaymentResult
 
-@property (nonatomic) NSString *expiration;
 @property (nonatomic) NSString *vaNumber;
 
 @end

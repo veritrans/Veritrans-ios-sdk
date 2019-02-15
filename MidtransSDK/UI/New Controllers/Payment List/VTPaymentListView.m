@@ -17,7 +17,7 @@
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL shouldExpand;
 
-@property (nonatomic) NSArray <MidtransPaymentListModel *> *models;
+@property (nonatomic) NSArray <MIDPaymentDetail *> *models;
 @property (nonatomic) MIDPaymentInfo *info;
 @end
 
@@ -56,7 +56,7 @@
 - (void)setPaymentInfo:(MIDPaymentInfo *)info {
     self.info = info;
     
-    self.headerView.priceAmountLabel.text = [info.items formattedGrossAmount];
+    self.headerView.priceAmountLabel.text = info.transaction.grossAmount.formattedCurrencyNumber;
     
     NSArray *details = [self loadPaymentMethodDetails];
     
@@ -71,7 +71,7 @@
             return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:info.type]];
         }];
         if (index != NSNotFound) {
-            [models addObject:[[MidtransPaymentListModel alloc] initWithDictionary:details[index]]];
+            [models addObject:[[MIDPaymentDetail alloc] initWithDictionary:details[index]]];
         }
     }];
     
@@ -83,7 +83,7 @@
                             @"shortName":@"atm transfer",
                             @"title":@"ATM/Bank Transfer"
                             };
-    [models insertObject:[[MidtransPaymentListModel alloc] initWithDictionary:_dict] atIndex:1];
+    [models insertObject:[[MIDPaymentDetail alloc] initWithDictionary:_dict] atIndex:1];
     
     self.models = models;
     [self.tableView reloadData];
@@ -111,7 +111,7 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MidtransPaymentListModel *paymentModel = self.models[indexPath.row];
+    MIDPaymentDetail *paymentModel = self.models[indexPath.row];
     if ([paymentModel.status isEqualToString:@"down"]) {
         return;
     }
@@ -129,7 +129,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-     MidtransPaymentListModel *paymentModel = self.models[indexPath.row];
+     MIDPaymentDetail *paymentModel = self.models[indexPath.row];
     if ([paymentModel.status isEqualToString:@"down"]) {
         return 120;
     }

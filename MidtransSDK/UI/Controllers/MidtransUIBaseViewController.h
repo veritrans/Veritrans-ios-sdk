@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MidtransSDK.h"
 
 @interface MidtransUIBaseViewController : UIViewController
+
+- (MIDPaymentInfo *)info;
 
 @end

@@ -17,6 +17,7 @@
 #import "MidtransUIThemeManager.h"
 #import "MIDVendorUI.h"
 #import "MIDArrayHelper.h"
+#import "MIDPaymentDetail.h"
 
 #import "MidtransSDK.h"
 
@@ -65,14 +66,14 @@
             return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:info.type]];
         }];
         if (index != NSNotFound) {
-            [models addObject:[[MidtransPaymentListModel alloc] initWithDictionary:details[index]]];
+            [models addObject:[[MIDPaymentDetail alloc] initWithDictionary:details[index]]];
         }
     }];
     
     self.vaList = models;
     
     self.tableView.tableFooterView = [UIView new];
-    self.totalAmountLabel.text = self.info.items.formattedGrossAmount;
+    self.totalAmountLabel.text = self.info.transaction.grossAmount.formattedCurrencyNumber;
     self.orderIdLabel.text = self.orderID;
     if (self.vaList.count == 1) {
         [self redirectToIndex:0];
@@ -83,7 +84,7 @@
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.info.items];
 }
 
 - (NSArray *)loadPaymentMethodDetails {
@@ -117,7 +118,7 @@
 }
 
 - (void)redirectToIndex:(NSInteger)index {
-    MidtransPaymentListModel *vaTypeModel = (MidtransPaymentListModel *)[self.vaList objectAtIndex:index];
+    MIDPaymentDetail *vaTypeModel = (MIDPaymentDetail *)[self.vaList objectAtIndex:index];
     NSString *paymentName  = vaTypeModel.shortName;
     if (self.orderID) {
         [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.orderID}];

@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDMandiriBankTransferResult : MIDPaymentResult
 
-@property (nonatomic) NSString *expiration;
 @property (nonatomic) NSString *key;
 @property (nonatomic) NSString *code;
 

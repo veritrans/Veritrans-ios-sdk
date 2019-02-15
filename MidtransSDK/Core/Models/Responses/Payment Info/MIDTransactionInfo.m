@@ -22,8 +22,9 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super init]) {
         self.currency = [[dictionary objectOrNilForKey:@"currency"] currencyType];
-        self.grossAmount = [dictionary objectOrNilForKey:@"gross_amount"];
         self.orderID = [dictionary objectOrNilForKey:@"order_id"];
+        self.grossAmount = [[dictionary objectOrNilForKey:@"gross_amount"] toNumber];
+        
     }
     return self;
 }

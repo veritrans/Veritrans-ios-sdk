@@ -35,7 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [[SNPUITrackingManager shared] trackEventName:@"pg order summary"];
+    
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransItemCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransItemCell"];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -56,7 +58,7 @@
     }];
 }
 
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo {
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray <MIDItemInfo *> *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo {
     UIViewController *rootVC = [VTClassHelper rootViewController];
     if (rootVC.navigationController) {
         rootVC = rootVC.navigationController;
@@ -67,14 +69,17 @@
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
     //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
     self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
-    MidtransItemDetail *itemDetails = items [0];
+    MIDItemInfo *itemDetails = items [0];
     double grossAmount =[itemDetails.price doubleValue] - [MidtransPromo.addOnDescriptions doubleValue];
     NSMutableArray *mockItems = [NSMutableArray arrayWithArray:items];
     self.priceAmountLabel.text = [NSNumber numberWithDouble:grossAmount].formattedCurrencyNumber;
     
-    MidtransItemDetail *itemDetailsMain =[[MidtransItemDetail alloc] initWithItemID:@"001"
-                                                                               name:MidtransPromo.addOnTitle
-                                                                              price:[NSNumber numberWithInteger:-[MidtransPromo.addOnDescriptions integerValue]] quantity:@1];
+    NSDictionary *_dict = @{@"id": @"001",
+                            @"name": MidtransPromo.addOnTitle,
+                            @"price": [NSNumber numberWithInteger:-[MidtransPromo.addOnDescriptions integerValue]],
+                            @"quantity": @1
+                            };
+    MIDItemInfo *itemDetailsMain = [[MIDItemInfo alloc] initWithDictionary:_dict];
     
     [mockItems addObject:itemDetailsMain];
     
@@ -89,9 +94,12 @@
     }];
     
 }
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items
+- (void)presentAtPositionOfView:(UIView *)view
+                          items:(NSArray <MIDItemInfo *> *)items
          withChangedGrossAmount:(NSString *)grossAmount
-                      pointName:(NSString *)pointName pointValue:(NSInteger)pointValue {
+                      pointName:(NSString *)pointName
+                     pointValue:(NSInteger)pointValue {
+    
     UIViewController *rootVC = [VTClassHelper rootViewController];
     if (rootVC.navigationController) {
         rootVC = rootVC.navigationController;
@@ -103,10 +111,15 @@
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
     //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
     self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
-   
+    
     NSMutableArray *mockItems = [NSMutableArray arrayWithArray:items];
     if (pointValue>0) {
-         MidtransItemDetail *itemDetails =[[MidtransItemDetail alloc] initWithItemID:@"001" name:pointName price:[NSNumber numberWithInteger:-pointValue] quantity:@1];
+        NSDictionary *_dict = @{@"id": @"001",
+                                @"name": pointName,
+                                @"price": [NSNumber numberWithInteger:-pointValue],
+                                @"quantity": @1
+                                };
+        MIDItemInfo *itemDetails =[[MIDItemInfo alloc] initWithDictionary:_dict];
         [mockItems addObject:itemDetails];
     }
     self.items = [NSArray arrayWithArray:mockItems];
@@ -120,7 +133,7 @@
         self.view.userInteractionEnabled = YES;
     }];
 }
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items {
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray <MIDItemInfo *>*)items {
     UIViewController *rootVC = [VTClassHelper rootViewController];
     if (rootVC.navigationController) {
         rootVC = rootVC.navigationController;
@@ -130,7 +143,7 @@
     [rootVC addSubViewController:self toView:rootVC.view];
     
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
-//    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
+    //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
     self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
     
     self.items = items;
@@ -153,7 +166,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransItemCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransItemCell"];
-    cell.itemDetail = self.items[indexPath.row];
+    cell.itemInfo = self.items[indexPath.row];
     cell.backgroundColor = [UIColor whiteColor];
     return cell;
 }
@@ -168,7 +181,7 @@
         dispatch_once(&onceToken, ^{
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransItemCell"];
         });
-        cell.itemDetail = self.items[i];
+        cell.itemInfo = self.items[i];
         result += [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     }
     return result;
@@ -180,7 +193,7 @@
     dispatch_once(&onceToken, ^{
         cell = [self.tableView dequeueReusableCellWithIdentifier:@"MidtransItemCell"];
     });
-    cell.itemDetail = self.items[indexPath.row];
+    cell.itemInfo = self.items[indexPath.row];
     return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
 

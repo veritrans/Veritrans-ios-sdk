@@ -26,14 +26,13 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 @property (strong, nonatomic) IBOutlet MidtransUIButton *codeCopyButton;
 @property (strong, nonatomic) IBOutlet MidtransUINextStepButton *finishButton;
 
-@property (nonatomic) MidtransTransactionResult *result;
+@property (nonatomic) MIDPaymentResult *result;
 @end
 
 @implementation VTPendingStatusController
 
-
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token paymentMethodName:(MidtransPaymentListModel *)paymentMethod result:(MidtransTransactionResult *)result {
-    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
+- (instancetype)initWithPaymentMethodName:(MIDPaymentDetail *)paymentMethod result:(MIDPaymentResult *)result {
+    if (self = [super initWithPaymentMethod:paymentMethod]) {
         self.result = result;
     }
     return self;
@@ -44,16 +43,14 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
     [[SNPUITrackingManager shared] trackEventName:@"pg pending"];
     self.title = UILocalizedString(@"payment.pending",nil);
     self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
-    self.orderIDLabel.text = self.result.orderId;
-    self.expiryDateLabel.text = self.result.additionalData[kVTPendingStatusControllerKiosonExpireTime];
-    self.paymentCodeLabel.text = self.result.additionalData[kVTPendingStatusControllerPaymentCode];
+    self.orderIDLabel.text = self.result.orderID;
+    self.expiryDateLabel.text = self.result.expiration;
     
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KIOS_ON]) {
-        self.paymentCodeTitleLabel.text = UILocalizedString(@"kioson.pending.code-title", nil);
-        [self.paymentGuideButton setTitle:UILocalizedString(@"kioson.pending.howto-title", nil) forState:UIControlStateNormal];
-        [self.codeCopyButton setTitle:UILocalizedString(@"kioson.pending.copy-title", nil) forState:UIControlStateNormal];
+    if ([self.result isKindOfClass:[MIDIndomaretResult class]]) {
+        MIDIndomaretResult *_result = self.result;
+        self.paymentCodeLabel.text = _result.paymentCode;
     }
-    
+
     [self.paymentGuideButton addTarget:self action:@selector(guidePressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.codeCopyButton addTarget:self action:@selector(copyCodePressed:) forControlEvents:UIControlEventTouchUpInside];
     [self.finishButton addTarget:self action:@selector(finishPressed:) forControlEvents:UIControlEventTouchUpInside];

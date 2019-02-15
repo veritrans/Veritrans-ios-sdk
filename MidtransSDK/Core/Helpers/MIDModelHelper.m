@@ -222,6 +222,8 @@
             return @"indomaret";
         case MIDPaymentMethodAkulaku:
             return @"akulaku";
+        case MIDPaymentMethodTelkomselCash:
+            return @"telkomsel_cash";
         default:
             return nil;
     }
@@ -270,6 +272,8 @@
         return MIDPaymentMethodIndomaret;
     } else if ([self isEqualToString:@"akulaku"]) {
         return MIDPaymentMethodAkulaku;
+    } else if ([self isEqualToString:@"telkomsel_cash"]) {
+        return MIDPaymentMethodTelkomselCash;
     } else {
         return MIDPaymentMethodUnknown;
     }

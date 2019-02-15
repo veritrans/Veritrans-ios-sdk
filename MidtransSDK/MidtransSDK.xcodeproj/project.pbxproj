@@ -1695,8 +1695,6 @@
 				E5AE6EF72212A0630064FE00 /* MIdtransUIDetailedTitleController.m */,
 				E5AE6F902212A0820064FE00 /* MidtransUIPaymentController.h */,
 				E5AE6EE22212A0610064FE00 /* MidtransUIPaymentController.m */,
-				E5AE6FA72212A0860064FE00 /* MidtransUIPaymentDirectViewController.h */,
-				E5AE6F9B2212A0840064FE00 /* MidtransUIPaymentDirectViewController.m */,
 				E5AE6F652212A07B0064FE00 /* MidtransUIPaymentViewController.h */,
 				E5AE6FB42212A0880064FE00 /* MidtransUIPaymentViewController.m */,
 				E5AE6FA82212A0860064FE00 /* MidtransUITableAlertViewController.h */,
@@ -1755,6 +1753,7 @@
 				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
 				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
 				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E5B3D2832216A1D700BF14D8 /* Direct Debit */,
 				E5B3D2822216969C00BF14D8 /* Danamon Online */,
 				E5EDAEAC22153AC000552AF3 /* General */,
 				E570D14B22141FB1004F0099 /* Payment List */,
@@ -2438,6 +2437,15 @@
 				E5AE72AD2212A2C50064FE00 /* MIDDanamonOnlineViewController.xib */,
 			);
 			path = "Danamon Online";
+			sourceTree = "<group>";
+		};
+		E5B3D2832216A1D700BF14D8 /* Direct Debit */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6FA72212A0860064FE00 /* MidtransUIPaymentDirectViewController.h */,
+				E5AE6F9B2212A0840064FE00 /* MidtransUIPaymentDirectViewController.m */,
+			);
+			path = "Direct Debit";
 			sourceTree = "<group>";
 		};
 		E5D3C7A62192D7700090DDAE = {

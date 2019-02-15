@@ -13,7 +13,9 @@
 @implementation MIDBankTransferCharge
 
 + (void)bcaWithToken:(NSString *)token
-               email:(NSString *)email
+                name:(NSString *_Nullable)name
+               email:(NSString *_Nullable)email
+               phone:(NSString *_Nullable)phone
           completion:(void (^_Nullable) (MIDBCABankTransferResult *_Nullable result, NSError *_Nullable error))completion {
     MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypeBCA email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
@@ -27,7 +29,9 @@
 }
 
 + (void)permataWithToken:(NSString *)token
-                   email:(NSString *)email
+                    name:(NSString *_Nullable)name
+                   email:(NSString *_Nullable)email
+                   phone:(NSString *_Nullable)phone
               completion:(void (^_Nullable) (MIDPermataBankTransferResult *_Nullable result, NSError *_Nullable error))completion {
     MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypePermata email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
@@ -41,7 +45,9 @@
 }
 
 + (void)mandiriWithToken:(NSString *)token
-                   email:(NSString *)email
+                    name:(NSString *_Nullable)name
+                   email:(NSString *_Nullable)email
+                   phone:(NSString *_Nullable)phone
               completion:(void (^_Nullable) (MIDMandiriBankTransferResult *_Nullable result, NSError *_Nullable error))completion {
     MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypeEchannel email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
@@ -55,7 +61,9 @@
 }
 
 + (void)bniWithToken:(NSString *)token
-               email:(NSString *)email
+                name:(NSString *_Nullable)name
+               email:(NSString *_Nullable)email
+               phone:(NSString *_Nullable)phone
           completion:(void (^_Nullable) (MIDBNIBankTransferResult *_Nullable result, NSError *_Nullable error))completion {
     MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypeBNI email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
@@ -69,7 +77,9 @@
 }
 
 + (void)otherBankWithToken:(NSString *)token
-                     email:(NSString *)email
+                      name:(NSString *_Nullable)name
+                     email:(NSString *_Nullable)email
+                     phone:(NSString *_Nullable)phone
                 completion:(void (^_Nullable) (id _Nullable result, NSError *_Nullable error))completion {
     MIDBankTransferPayment *payment = [[MIDBankTransferPayment alloc] initWithType:MIDBankTransferTypeOther email:email];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {

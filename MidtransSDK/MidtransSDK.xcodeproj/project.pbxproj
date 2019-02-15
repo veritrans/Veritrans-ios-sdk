@@ -1677,8 +1677,6 @@
 				E5AE6EDE2212A0610064FE00 /* MidGopayViewController.h */,
 				E5AE6F782212A07E0064FE00 /* MBXPageViewController_vt.h */,
 				E5AE6EF32212A0630064FE00 /* MBXPageViewController_vt.m */,
-				E5AE6FA52212A0860064FE00 /* MIDDanamonOnlineViewController.h */,
-				E5AE6EEB2212A0620064FE00 /* MIDDanamonOnlineViewController.m */,
 				E5AE6EE92212A0620064FE00 /* MidGopayDetailViewController.h */,
 				E5AE6F3B2212A0730064FE00 /* MidGopayDetailViewController.m */,
 				E5AE6F512212A0770064FE00 /* MidtransNewCreditCardViewController.h */,
@@ -1752,9 +1750,12 @@
 		E56FA9492212FA7C003DC10D /* New Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E5EDAEB122153B8600552AF3 /* MIDWebPaymentController.h */,
+				E5EDAEB222153B8600552AF3 /* MIDWebPaymentController.m */,
 				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
 				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
 				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E5B3D2822216969C00BF14D8 /* Danamon Online */,
 				E5EDAEAC22153AC000552AF3 /* General */,
 				E570D14B22141FB1004F0099 /* Payment List */,
 			);
@@ -2302,7 +2303,6 @@
 			isa = PBXGroup;
 			children = (
 				E56FA9402212A5F0003DC10D /* SNPPostPaymentVAViewController.xib */,
-				E5AE72AD2212A2C50064FE00 /* MIDDanamonOnlineViewController.xib */,
 				E5AE72C82212A2C80064FE00 /* MidGopayDetailViewController.xib */,
 				E5AE72B62212A2C60064FE00 /* MidGopayViewController.xib */,
 				E5AE72C62212A2C70064FE00 /* MIDOtherVAViewController.xib */,
@@ -2430,6 +2430,16 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		E5B3D2822216969C00BF14D8 /* Danamon Online */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6FA52212A0860064FE00 /* MIDDanamonOnlineViewController.h */,
+				E5AE6EEB2212A0620064FE00 /* MIDDanamonOnlineViewController.m */,
+				E5AE72AD2212A2C50064FE00 /* MIDDanamonOnlineViewController.xib */,
+			);
+			path = "Danamon Online";
+			sourceTree = "<group>";
+		};
 		E5D3C7A62192D7700090DDAE = {
 			isa = PBXGroup;
 			children = (
@@ -2512,8 +2522,6 @@
 		E5EDAEAC22153AC000552AF3 /* General */ = {
 			isa = PBXGroup;
 			children = (
-				E5EDAEB122153B8600552AF3 /* MIDWebPaymentController.h */,
-				E5EDAEB222153B8600552AF3 /* MIDWebPaymentController.m */,
 				E5AE6F802212A07F0064FE00 /* MidtransUIPaymentGeneralViewController.h */,
 				E5AE6EE02212A0610064FE00 /* MidtransUIPaymentGeneralViewController.m */,
 				E5AE72DC2212A2CA0064FE00 /* MidtransUIPaymentGeneralViewController.xib */,

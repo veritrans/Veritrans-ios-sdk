@@ -23,10 +23,10 @@
 #import "MidtransNewCreditCardViewController.h"
 #import "MIDDanamonOnlineViewController.h"
 #import "MidtransTransactionDetailViewController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIThemeManager.h"
 #import "UIColor+SNP_HexString.h"
 #import "MIDVendorUI.h"
+#import "MIDDanamonOnlineViewController.h"
 
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
@@ -287,6 +287,10 @@
             MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithModel:model];
             [vc showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:vc animated:!self.singlePayment];            
+        }
+        else if (method == MIDPaymentMethodDanamonOnline) {
+            MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithPaymentMethod:model];
+            [self.navigationController pushViewController:vc animated:YES];
         }
     }
 }

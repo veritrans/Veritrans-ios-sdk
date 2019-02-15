@@ -470,19 +470,21 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	
 	```
 	[MIDBankTransferCharge bcaWithToken:snapToken
+                                   name:@"susan"
                                   email:@"susan_bahtiar@gmail.com"
+                                  phone:@"085223768857"
                              completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
      {
-
+         
      }];
 	```
 	
 	Swift
 	
 	```
-	MIDBankTransferCharge.bca(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+	MIDBankTransferCharge.bca(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
-    })
+            })
 	```
 
 2. Permata
@@ -491,19 +493,21 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	
 	```
     [MIDBankTransferCharge permataWithToken:snapToken
+                                       name:@"susan"
                                       email:@"susan_bahtiar@gmail.com"
+                                      phone:@"085223768857"
                                  completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
-    {        
-
-    }];	
+     {
+         
+     }];	
 	```
 	
 	Swift
 	
 	```
-	MIDBankTransferCharge.permata(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
-         
-    })
+	MIDBankTransferCharge.permata(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
+                
+            })
 	```
 	
 3. BNI
@@ -512,17 +516,19 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	
 	```
  	[MIDBankTransferCharge bniWithToken:snapToken
+                                   name:@"susan"
                                   email:@"susan_bahtiar@gmail.com"
+                                  phone:@"085223768857"
                              completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
-    {
-   
-    }];
+     {
+         
+     }];
 	```
 	
 	Swift
 	
 	```
-	MIDBankTransferCharge.bni(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+	MIDBankTransferCharge.bni(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
     })
 	```
@@ -533,19 +539,21 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	
 	```
 	[MIDBankTransferCharge mandiriWithToken:snapToken
+                                       name:@"susan"
                                       email:@"susan_bahtiar@gmail.com"
+                                      phone:@"085223768857"
                                  completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
-    {
-		    
-    }];
+     {
+         
+     }];
 	```
 	
 	Swift
 	
 	```
-	MIDBankTransferCharge.mandiri(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
-        
-    })
+	MIDBankTransferCharge.mandiri(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
+                
+   })
 	```
 	
 5. Other
@@ -553,17 +561,22 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	Objective C
 	
 	```
-	[MIDBankTransferCharge otherWithToken:token email:@"susan_bahtiar@gmail.com" completion:^(id _Nullable result, NSError * _Nullable error) {
-		
-    }];
+	[MIDBankTransferCharge otherBankWithToken:snapToken
+                                         name:@"susan"
+                                        email:@"susan_bahtiar@gmail.com"
+                                        phone:@"085223768857"
+                                   completion:^(id _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
 	```
 	
 	Swift
 	
 	```
-	MIDBankTransferCharge.other(withToken: snapToken, email: "susan_bahtiar@gmail.com", completion: { (result, error) in
+	MIDBankTransferCharge.otherBank(withToken: snapToken, name: "susan", email: "susan_bahtiar@gmail.com", phone: "085223768857", completion: { (result, error) in
                 
-    })
+   })
 	```
 	
 **<a id="sdk-charge-direct-debit"></a>Direct Debit**

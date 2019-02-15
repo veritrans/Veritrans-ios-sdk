@@ -38,7 +38,7 @@
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.internalBaseClassIdentifier];
      NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.paymentID] ofType:@"plist"];
     }
     
     if ([_model.title isEqualToString:@"Other ATM Network"]) {

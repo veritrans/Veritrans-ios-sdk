@@ -13,13 +13,13 @@
 
 @interface VTSingleGuideController ()
 @property (strong, nonatomic) IBOutlet UIView *containerView;
-@property (strong, nonatomic) MidtransPaymentListModel *model;
+@property (strong, nonatomic) MIDPaymentDetail *model;
 @end
 
 @implementation VTSingleGuideController
 @dynamic view;
 
-- (instancetype)initWithPaymentMethodModel:(MidtransPaymentListModel *)model {
+- (instancetype)initWithPaymentMethodModel:(MIDPaymentDetail *)model {
     self = [super initWithNibName:[self.class description] bundle:VTBundle];
     if (self) {
         self.model = model;
@@ -31,10 +31,10 @@
     [super viewDidLoad];
     self.title = self.model.title;
     
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.internalBaseClassIdentifier];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.paymentID];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",_model.internalBaseClassIdentifier] ofType:@"plist"];
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",_model.paymentID] ofType:@"plist"];
     }
     
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];

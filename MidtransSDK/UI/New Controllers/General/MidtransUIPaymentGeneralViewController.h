@@ -7,11 +7,11 @@
 //
 
 #import "MidtransUIPaymentController.h"
-
+#import "MIDPaymentDetail.h"
 #import "MidtransSDK.h"
 
 @interface MidtransUIPaymentGeneralViewController : MidtransUIPaymentController
 
-- (instancetype)initWithModel:(MidtransPaymentListModel *)model;
+- (instancetype)initWithModel:(MIDPaymentDetail *)model;
 
 @end

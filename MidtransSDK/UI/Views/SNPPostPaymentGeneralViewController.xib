@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -25,11 +26,11 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Bok-Rm-EbP" customClass="SNPPostPaymentGeneralView">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="QLe-sD-jYO">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="537"/>
+                    <rect key="frame" x="0.0" y="44" width="375" height="604"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="-1" id="mMO-tb-b20"/>
@@ -37,7 +38,7 @@
                     </connections>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cav-Dr-p3x" customClass="MidtransUINextStepButton">
-                    <rect key="frame" x="8" y="619" width="359" height="40"/>
+                    <rect key="frame" x="8" y="730" width="359" height="40"/>
                     <color key="backgroundColor" red="0.098039215690000001" green="0.63921568630000003" blue="0.93725490199999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="40" id="zEI-RS-Tyr"/>
@@ -49,16 +50,16 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pMa-w0-5ca" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="537" width="375" height="74"/>
+                    <rect key="frame" x="0.0" y="648" width="375" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYM-Xg-Dvs">
-                            <rect key="frame" x="15" y="18" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="16.666666666666629" width="75.666666666666671" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Tp-c6-kOJ">
-                            <rect key="frame" x="299" y="0.0" width="36" height="50"/>
+                            <rect key="frame" x="303.66666666666669" y="0.0" width="31.333333333333314" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="15"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -70,7 +71,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Order Id" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5as-bn-kGp">
-                            <rect key="frame" x="15" y="49" width="127" height="15.5"/>
+                            <rect key="frame" x="15" y="49" width="127" height="16.666666666666671"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
@@ -125,10 +126,11 @@
                 <constraint firstAttribute="trailing" secondItem="QLe-sD-jYO" secondAttribute="trailing" id="PHJ-24-iDY"/>
                 <constraint firstItem="pMa-w0-5ca" firstAttribute="top" secondItem="QLe-sD-jYO" secondAttribute="bottom" id="Sc4-N6-bBy"/>
                 <constraint firstAttribute="trailing" secondItem="cav-Dr-p3x" secondAttribute="trailing" constant="8" id="TbT-Q8-J4N"/>
-                <constraint firstItem="QLe-sD-jYO" firstAttribute="top" secondItem="Bok-Rm-EbP" secondAttribute="top" id="axs-ib-cbv"/>
-                <constraint firstAttribute="bottom" secondItem="cav-Dr-p3x" secondAttribute="bottom" constant="8" id="m9f-HH-Xix"/>
+                <constraint firstItem="QLe-sD-jYO" firstAttribute="top" secondItem="qCd-4A-Xtj" secondAttribute="top" id="axs-ib-cbv"/>
+                <constraint firstItem="qCd-4A-Xtj" firstAttribute="bottom" secondItem="cav-Dr-p3x" secondAttribute="bottom" constant="8" id="m9f-HH-Xix"/>
                 <constraint firstItem="cav-Dr-p3x" firstAttribute="top" secondItem="pMa-w0-5ca" secondAttribute="bottom" constant="8" id="ujX-zk-aee"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="qCd-4A-Xtj"/>
             <connections>
                 <outlet property="finishPaymentButton" destination="cav-Dr-p3x" id="vEe-IE-tVL"/>
                 <outlet property="orderIdLabel" destination="JCi-RX-o3d" id="mkS-4O-CEx"/>

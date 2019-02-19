@@ -12,6 +12,8 @@
 #import "VTPaymentStatusViewModel.h"
 #import "VTPaymentStatusController.h"
 #import "MidtransUIPaymentViewController.h"
+#import "MidtransSDK.h"
+
 @interface MidtransUIPaymentController : MidtransUIBaseViewController
 
 @property (nonatomic,strong) MIDPaymentDetail *paymentMethod;

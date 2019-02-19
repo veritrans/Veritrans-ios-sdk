@@ -1587,6 +1587,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E51A188D221A9A84002CD267 /* Mandiri Clickpay */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F572212A0780064FE00 /* VTMandiriClickpayController.h */,
+				E5AE6EFD2212A0640064FE00 /* VTMandiriClickpayController.m */,
+				E5AE729E2212A2C30064FE00 /* VTMandiriClickpayController.xib */,
+			);
+			path = "Mandiri Clickpay";
+			sourceTree = "<group>";
+		};
 		E53C0D1C21E34A0E0006852E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1622,14 +1632,7 @@
 			children = (
 				E58CC6BF21A663FB007879FB /* MIDPaymentResult.h */,
 				E58CC6C021A663FB007879FB /* MIDPaymentResult.m */,
-				E545E0CD21B503B0005C1EB3 /* MIDBCABankTransferResult.h */,
-				E545E0CE21B503B0005C1EB3 /* MIDBCABankTransferResult.m */,
-				E545E0D021B503C1005C1EB3 /* MIDBNIBankTransferResult.h */,
-				E545E0D121B503C1005C1EB3 /* MIDBNIBankTransferResult.m */,
-				E545E0D321B503CD005C1EB3 /* MIDPermataBankTransferResult.h */,
-				E545E0D421B503CD005C1EB3 /* MIDPermataBankTransferResult.m */,
-				E545E0D621B503DA005C1EB3 /* MIDMandiriBankTransferResult.h */,
-				E545E0D721B503DA005C1EB3 /* MIDMandiriBankTransferResult.m */,
+				E5531CB5221ABA1D00D78111 /* Bank Trasnfer */,
 				E5D21D5321B636570082ABF8 /* MIDGopayResult.h */,
 				E5D21D5421B636570082ABF8 /* MIDGopayResult.m */,
 				E5D21D5621B637800082ABF8 /* MIDIndomaretResult.h */,
@@ -1660,6 +1663,32 @@
 				E57ADEDD21D48419001B52AB /* MIDTokenizeConfig.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		E5531CB5221ABA1D00D78111 /* Bank Trasnfer */ = {
+			isa = PBXGroup;
+			children = (
+				E545E0CD21B503B0005C1EB3 /* MIDBCABankTransferResult.h */,
+				E545E0CE21B503B0005C1EB3 /* MIDBCABankTransferResult.m */,
+				E545E0D021B503C1005C1EB3 /* MIDBNIBankTransferResult.h */,
+				E545E0D121B503C1005C1EB3 /* MIDBNIBankTransferResult.m */,
+				E545E0D321B503CD005C1EB3 /* MIDPermataBankTransferResult.h */,
+				E545E0D421B503CD005C1EB3 /* MIDPermataBankTransferResult.m */,
+				E545E0D621B503DA005C1EB3 /* MIDMandiriBankTransferResult.h */,
+				E545E0D721B503DA005C1EB3 /* MIDMandiriBankTransferResult.m */,
+			);
+			path = "Bank Trasnfer";
+			sourceTree = "<group>";
+		};
+		E5531CB6221AC4AA00D78111 /* Bank Transfer */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F072212A0670064FE00 /* VTVAListController.h */,
+				E5AE6EF42212A0630064FE00 /* VTVAListController.m */,
+				E5AE6F752212A07E0064FE00 /* MidtransVAViewController.h */,
+				E5AE6F592212A0790064FE00 /* MidtransVAViewController.m */,
+			);
+			path = "Bank Transfer";
 			sourceTree = "<group>";
 		};
 		E56FA9432212B661003DC10D /* Controllers */ = {
@@ -1699,8 +1728,6 @@
 				E5AE6FB42212A0880064FE00 /* MidtransUIPaymentViewController.m */,
 				E5AE6FA82212A0860064FE00 /* MidtransUITableAlertViewController.h */,
 				E5AE6FB02212A0880064FE00 /* MidtransUITableAlertViewController.m */,
-				E5AE6F752212A07E0064FE00 /* MidtransVAViewController.h */,
-				E5AE6F592212A0790064FE00 /* MidtransVAViewController.m */,
 				E5AE6F422212A0750064FE00 /* MIDV2PaymentListViewController.h */,
 				E5AE6F0D2212A0690064FE00 /* MIDV2PaymentListViewController.m */,
 				E5AE6F852212A0800064FE00 /* SNPPointViewController.h */,
@@ -1725,8 +1752,6 @@
 				E5AE6F582212A0790064FE00 /* VTIndomaretSuccessController.m */,
 				E5AE6F372212A0730064FE00 /* VTKlikbcaSuccessController.h */,
 				E5AE6F7B2212A07F0064FE00 /* VTKlikbcaSuccessController.m */,
-				E5AE6F572212A0780064FE00 /* VTMandiriClickpayController.h */,
-				E5AE6EFD2212A0640064FE00 /* VTMandiriClickpayController.m */,
 				E5AE6F1A2212A06C0064FE00 /* VTMultiGuideController.h */,
 				E5AE6F472212A0760064FE00 /* VTMultiGuideController.m */,
 				E5AE6F3C2212A0740064FE00 /* VTPaymentStatusController.h */,
@@ -1753,10 +1778,12 @@
 				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
 				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
 				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E5531CB6221AC4AA00D78111 /* Bank Transfer */,
+				E570D14B22141FB1004F0099 /* Payment List */,
+				E51A188D221A9A84002CD267 /* Mandiri Clickpay */,
 				E5B3D2832216A1D700BF14D8 /* Direct Debit */,
 				E5B3D2822216969C00BF14D8 /* Danamon Online */,
 				E5EDAEAC22153AC000552AF3 /* General */,
-				E570D14B22141FB1004F0099 /* Payment List */,
 			);
 			path = "New Controllers";
 			sourceTree = "<group>";
@@ -1778,8 +1805,6 @@
 				E5AE72CD2212A2C80064FE00 /* VTPaymentListController.xib */,
 				E5AE6F7A2212A07E0064FE00 /* VTPaymentListView.h */,
 				E5AE6F162212A06B0064FE00 /* VTPaymentListView.m */,
-				E5AE6F072212A0670064FE00 /* VTVAListController.h */,
-				E5AE6EF42212A0630064FE00 /* VTVAListController.m */,
 			);
 			path = "Payment List";
 			sourceTree = "<group>";
@@ -2352,7 +2377,6 @@
 				E5AE72B32212A2C60064FE00 /* VTIndomaretSuccessController.xib */,
 				E5AE72D92212A2C90064FE00 /* VTKeyboardAccessoryView.xib */,
 				E5AE72C02212A2C70064FE00 /* VTKlikbcaSuccessController.xib */,
-				E5AE729E2212A2C30064FE00 /* VTMandiriClickpayController.xib */,
 				E5AE72AC2212A2C50064FE00 /* VTMultiGuideController.xib */,
 				E5AE72A22212A2C40064FE00 /* VTPaymentStatusController.xib */,
 				E5AE72D82212A2C90064FE00 /* VTPendingStatusController.xib */,

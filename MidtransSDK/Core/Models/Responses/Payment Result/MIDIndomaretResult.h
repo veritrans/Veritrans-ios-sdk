@@ -12,7 +12,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDIndomaretResult : MIDPaymentResult
 
-@property (nonatomic) NSString *expireTime;
 @property (nonatomic) NSString *paymentCode;
 
 @end

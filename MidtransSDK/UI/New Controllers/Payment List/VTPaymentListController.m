@@ -27,6 +27,7 @@
 #import "UIColor+SNP_HexString.h"
 #import "MIDVendorUI.h"
 #import "MIDDanamonOnlineViewController.h"
+#import "VTMandiriClickpayController.h"
 
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
@@ -273,7 +274,7 @@
 
 - (void)paymentListView:(VTPaymentListView *)view didSelectModel:(MIDPaymentDetail *)model {
     if ([model.paymentID isEqualToString:@"va"]) {
-        VTVAListController *vc = [[VTVAListController alloc] init];
+        VTVAListController *vc = [[VTVAListController alloc] initWithPaymentMethod:model];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
@@ -299,12 +300,10 @@
             MIDPaymentIndomaretViewController *vc = [[MIDPaymentIndomaretViewController alloc]initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        
-        //    else if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
-        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||
-        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_INDOSAT_DOMPETKU] ||
-        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_KIOS_ON] ||
-        //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
+        else if (method == MIDPaymentMethodMandiriClickpay) {
+            VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithPaymentMethod:model];
+            [self.navigationController pushViewController:vc animated:YES];
+        }        
     }
 }
 

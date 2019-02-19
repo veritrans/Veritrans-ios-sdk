@@ -18,13 +18,16 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *finishRedirectURL;
 @property (nonatomic) NSNumber *grossAmount;
 @property (nonatomic) NSString *orderID;
-@property (nonatomic) NSString *paymentType;
+@property (nonatomic) MIDPaymentMethod paymentMethod;
 @property (nonatomic) NSInteger statusCode;
 @property (nonatomic) NSString *statusMessage;
 @property (nonatomic) NSString *transactionID;
 @property (nonatomic) NSString *transactionStatus;
 @property (nonatomic) NSDate *transactionTime;
 
+/**
+ Expire date for pending transaction type
+ */
 @property (nonatomic) NSString *expiration;
 
 /**

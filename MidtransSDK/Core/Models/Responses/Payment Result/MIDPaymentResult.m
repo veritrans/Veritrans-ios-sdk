@@ -17,7 +17,7 @@
     [result setValue:self.fraudStatus forKey:@"fraud_status"];
     [result setValue:self.grossAmount forKey:@"gross_amount"];
     [result setValue:self.orderID forKey:@"order_id"];
-    [result setValue:self.paymentType forKey:@"payment_type"];
+    [result setValue:[NSString stringFromPaymentMethod:self.paymentMethod] forKey:@"payment_type"];
     [result setValue:@(self.statusCode) forKey:@"status_code"];
     [result setValue:self.statusMessage forKey:@"status_message"];
     [result setValue:self.transactionID forKey:@"transaction_id"];
@@ -35,7 +35,7 @@
         self.fraudStatus = [dictionary objectOrNilForKey:@"fraud_status"];
         self.grossAmount = [[dictionary objectOrNilForKey:@"gross_amount"] toNumber];
         self.orderID = [dictionary objectOrNilForKey:@"order_id"];
-        self.paymentType = [dictionary objectOrNilForKey:@"payment_type"];
+        self.paymentMethod = [[dictionary objectOrNilForKey:@"payment_type"] paymentMethod];
         self.statusCode = [[dictionary objectOrNilForKey:@"status_code"] integerValue];
         self.statusMessage = [dictionary objectOrNilForKey:@"status_message"];
         self.transactionID = [dictionary objectOrNilForKey:@"transaction_id"];

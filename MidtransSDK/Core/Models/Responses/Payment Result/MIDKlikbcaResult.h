@@ -13,7 +13,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MIDKlikbcaResult : MIDPaymentResult
 
 @property (nonatomic) NSString *approvalCode;
-@property (nonatomic) NSString *expireTime;
 @property (nonatomic) NSString *redirectURL;
 
 @end

@@ -97,8 +97,8 @@
 }
 
 #pragma mark - UITableViewDataSource
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
     return 80;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -125,12 +125,8 @@
     } else {
         [[SNPUITrackingManager shared] trackEventName:paymentName];
     }
-    
-    //    MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithToken:self.token paymentMethodName:vaTypeModel];
-    //    vc.response = self.paymentResponse;
-    //    if (self.vaList.count == 1) {
-    //        [vc showDismissButton:YES];
-    //    }
-    //    [self.navigationController pushViewController:vc animated:YES];
+
+    MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithPaymentMethod:self.vaList[index]];
+    [self.navigationController pushViewController:vc animated:YES];    
 }
 @end

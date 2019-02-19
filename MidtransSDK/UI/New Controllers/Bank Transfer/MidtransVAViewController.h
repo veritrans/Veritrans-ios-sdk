@@ -7,7 +7,9 @@
 //
 
 #import "MidtransUIPaymentController.h"
+
 @class MidtransPaymentRequestV2Response;
+
 @interface MidtransVAViewController : MidtransUIPaymentController
-@property (nonatomic,strong) MidtransPaymentRequestV2Response *response;
+
 @end

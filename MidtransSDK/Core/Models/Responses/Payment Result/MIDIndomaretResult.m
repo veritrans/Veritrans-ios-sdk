@@ -12,7 +12,7 @@
 
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super initWithDictionary:dictionary]) {
-        self.expireTime = [dictionary objectOrNilForKey:@"indomaret_expire_time"];
+        self.expiration = [dictionary objectOrNilForKey:@"indomaret_expire_time"];
         self.paymentCode = [dictionary objectOrNilForKey:@"payment_code"];
     }
     return self;
@@ -20,7 +20,7 @@
 
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionaryWithDictionary:[super dictionaryValue]];
-    [result setValue:self.expireTime forKey:@"indomaret_expire_time"];
+    [result setValue:self.expiration forKey:@"indomaret_expire_time"];
     [result setValue:self.paymentCode forKey:@"payment_code"];
     return result;
 }

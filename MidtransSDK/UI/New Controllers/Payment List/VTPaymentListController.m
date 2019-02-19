@@ -296,6 +296,9 @@
         else if (method == MIDPaymentMethodKlikbca) {
             MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
+        } else if (method == MIDPaymentMethodIndomaret) {
+            MIDPaymentIndomaretViewController *vc = [[MIDPaymentIndomaretViewController alloc]initWithPaymentMethod:model];
+            [self.navigationController pushViewController:vc animated:YES];
         }
         else if (method == MIDPaymentMethodMandiriClickpay) {
             VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithPaymentMethod:model];

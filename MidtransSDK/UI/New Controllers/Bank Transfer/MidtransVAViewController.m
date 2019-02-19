@@ -260,14 +260,13 @@
                                                 phone:nil
                                            completion:^(id _Nullable result, NSError * _Nullable error)
              {
-                 NSString *paymentType = result[@"payment_type"];
-                 MIDPaymentResult *_result;
-                 if ([paymentType isEqualToString:[NSString stringFromPaymentMethod:MIDPaymentMethodPermataVA]]) {
-                     _result = [[MIDPermataBankTransferResult alloc] initWithDictionary:result];
-                 } else if ([paymentType isEqualToString:[NSString stringFromPaymentMethod:MIDPaymentMethodBNIVA]]) {
-                     _result = [[MIDBNIBankTransferResult alloc] initWithDictionary:result];
+                 MIDPermataBankTransferResult *permataResult = [[MIDPermataBankTransferResult alloc] initWithDictionary:result];
+                 if (permataResult.vaNumber) {
+                     [self handleError:error result:permataResult];
+                 } else {
+                     MIDBNIBankTransferResult *bniResult = [[MIDBNIBankTransferResult alloc] initWithDictionary:result];
+                     [self handleError:error result:bniResult];
                  }
-                 [self handleError:error result:_result];
              }];
             break;
         }

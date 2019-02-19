@@ -123,6 +123,12 @@
         }];
         
     }
+    else if (method == MIDPaymentMethodIndomaret) {
+        [MIDDirectDebitCharge danamonOnlineWithToken:snapToken completion:^(MIDWebPaymentResult * _Nullable result, NSError * _Nullable error) {
+            [self handlePaymentCompletion:result error:error];
+        }];
+        
+    }
 }
 
 - (void)handlePaymentCompletion:(MIDWebPaymentResult *)result error:(NSError *)error {

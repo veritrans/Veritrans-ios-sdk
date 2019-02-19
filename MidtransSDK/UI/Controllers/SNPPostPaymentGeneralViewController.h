@@ -9,6 +9,5 @@
 #import "MidtransUIPaymentController.h"
 @class MidtransTransactionResult,MidtransTransaction,MidtransPaymentListModel;
 @interface SNPPostPaymentGeneralViewController : MidtransUIPaymentController
-@property (nonatomic,strong)MidtransTransaction *transactionDetail;
-@property (nonatomic,strong)MidtransTransactionResult *transactionResult;
+- (instancetype)initWithPaymentResult:(MIDPaymentResult *)result paymentMethod:(MIDPaymentDetail *)paymentMethod;
 @end

@@ -1587,6 +1587,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		E51A188D221A9A84002CD267 /* Mandiri */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F572212A0780064FE00 /* VTMandiriClickpayController.h */,
+				E5AE6EFD2212A0640064FE00 /* VTMandiriClickpayController.m */,
+				E5AE729E2212A2C30064FE00 /* VTMandiriClickpayController.xib */,
+			);
+			path = Mandiri;
+			sourceTree = "<group>";
+		};
 		E53C0D1C21E34A0E0006852E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1725,8 +1735,6 @@
 				E5AE6F582212A0790064FE00 /* VTIndomaretSuccessController.m */,
 				E5AE6F372212A0730064FE00 /* VTKlikbcaSuccessController.h */,
 				E5AE6F7B2212A07F0064FE00 /* VTKlikbcaSuccessController.m */,
-				E5AE6F572212A0780064FE00 /* VTMandiriClickpayController.h */,
-				E5AE6EFD2212A0640064FE00 /* VTMandiriClickpayController.m */,
 				E5AE6F1A2212A06C0064FE00 /* VTMultiGuideController.h */,
 				E5AE6F472212A0760064FE00 /* VTMultiGuideController.m */,
 				E5AE6F3C2212A0740064FE00 /* VTPaymentStatusController.h */,
@@ -1753,10 +1761,11 @@
 				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
 				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
 				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E570D14B22141FB1004F0099 /* Payment List */,
+				E51A188D221A9A84002CD267 /* Mandiri */,
 				E5B3D2832216A1D700BF14D8 /* Direct Debit */,
 				E5B3D2822216969C00BF14D8 /* Danamon Online */,
 				E5EDAEAC22153AC000552AF3 /* General */,
-				E570D14B22141FB1004F0099 /* Payment List */,
 			);
 			path = "New Controllers";
 			sourceTree = "<group>";
@@ -2352,7 +2361,6 @@
 				E5AE72B32212A2C60064FE00 /* VTIndomaretSuccessController.xib */,
 				E5AE72D92212A2C90064FE00 /* VTKeyboardAccessoryView.xib */,
 				E5AE72C02212A2C70064FE00 /* VTKlikbcaSuccessController.xib */,
-				E5AE729E2212A2C30064FE00 /* VTMandiriClickpayController.xib */,
 				E5AE72AC2212A2C50064FE00 /* VTMultiGuideController.xib */,
 				E5AE72A22212A2C40064FE00 /* VTPaymentStatusController.xib */,
 				E5AE72D82212A2C90064FE00 /* VTPendingStatusController.xib */,

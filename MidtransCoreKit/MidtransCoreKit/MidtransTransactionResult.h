@@ -78,6 +78,7 @@
 /*kioson*/
 
 @property (nonatomic, readonly) NSString *kiosonExpireTime;
+@property (nonatomic, readonly) NSString *alfamartExpireTime;
 /**
  Virtual account number transaction, will not be nil if use bank transfer transaction except for Mandiri, because it's considered as Billpay
  */

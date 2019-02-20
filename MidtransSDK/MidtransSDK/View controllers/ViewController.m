@@ -75,15 +75,15 @@
                               options:@[customer, checkoutItem]
                         paymentMethod:MIDPaymentMethodUnknown];
     
-    //    [MIDClient checkoutWith:trx
-    //                    options:@[cc]
-    //                 completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
-    //     {
-    //         NSString *snapToken = token.token;
-    //         NSLog(@"Token: %@", token.dictionaryValue);
-    //
-    //         [self fetchPaymentInfo:token.token];
-    //     }];
+//        [MIDClient checkoutWith:trx
+//                        options:@[customer, checkoutItem]
+//                     completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
+//         {
+//             NSString *snapToken = token.token;
+//             NSLog(@"Token: %@", token.dictionaryValue);
+//
+//             [self fetchPaymentInfo:token.token];
+//         }];
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {
@@ -95,6 +95,13 @@
 }
 
 - (void)payWithToken:(NSString *)snapToken {
+    [MIDEWalletCharge telkomselCashWithToken:snapToken
+                                    customer:@"0811111111"
+                                  completion:^(MIDTelkomselCashResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
+    
     //    NSString *savedToken = @"481111YsuAbkgTENXrcXGdqAssTN1114";
     //    [MIDCreditCardCharge chargeWithToken:snapToken
     //                               cardToken:savedToken
@@ -108,83 +115,83 @@
     
     //    NSString *mandiriNumber = @"4617006959746656";
     //        NSString *bniNumber = @"4105058689481467";
-    NSString *cardNumber = @"4811111111111114";
-    
-    MIDTokenizeConfig *config = [MIDTokenizeConfig new];
-    config.enable3ds = YES;
-    //    config.enablePoint = YES;
-    config.grossAmount = @20000;
-    config.installmentTerm = 6;
-    [MIDCreditCardTokenizer tokenizeCardNumber:cardNumber
-                                           cvv:@"123"
-                                   expireMonth:@"02"
-                                    expireYear:@"20"
-                                        config:config
-                                    completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
-     {
-         
-         //         [MIDCreditCardCharge getPointWithToken:snapToken
-         //                                      cardToken:token.tokenID
-         //                                     completion:^(MIDPointResponse *_Nullable result, NSError *_Nullable error)
-         //          {
-         //
-         //          }];
-         
-         [MIDCreditCardCharge chargeWithToken:snapToken
-                                    cardToken:token.tokenID
-                                         save:YES
-                                  installment:[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6]
-                                        point:nil//@20000
-                                   completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
-          {
-              
-          }];
-     }];
-        
-    [MIDBankTransferCharge bcaWithToken:snapToken
-                                   name:@"susan"
-                                  email:@"susan_bahtiar@gmail.com"
-                                  phone:@"085223768857"
-                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
-     {
-         
-     }];
-    
-    [MIDBankTransferCharge permataWithToken:snapToken
-                                       name:@"susan"
-                                      email:@"susan_bahtiar@gmail.com"
-                                      phone:@"085223768857"
-                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
-     {
-         
-     }];
-    
-    [MIDBankTransferCharge bniWithToken:snapToken
-                                   name:@"susan"
-                                  email:@"susan_bahtiar@gmail.com"
-                                  phone:@"085223768857"
-                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
-     {
-         
-     }];
-    
-    [MIDBankTransferCharge mandiriWithToken:snapToken
-                                       name:@"susan"
-                                      email:@"susan_bahtiar@gmail.com"
-                                      phone:@"085223768857"
-                                 completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
-     {
-         
-     }];
-    
-    [MIDBankTransferCharge otherBankWithToken:snapToken
-                                         name:@"susan"
-                                        email:@"susan_bahtiar@gmail.com"
-                                        phone:@"085223768857"
-                                   completion:^(id _Nullable result, NSError * _Nullable error)
-     {
-         
-     }];
+//    NSString *cardNumber = @"4811111111111114";
+//
+//    MIDTokenizeConfig *config = [MIDTokenizeConfig new];
+//    config.enable3ds = YES;
+//    //    config.enablePoint = YES;
+//    config.grossAmount = @20000;
+//    config.installmentTerm = 6;
+//    [MIDCreditCardTokenizer tokenizeCardNumber:cardNumber
+//                                           cvv:@"123"
+//                                   expireMonth:@"02"
+//                                    expireYear:@"20"
+//                                        config:config
+//                                    completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error)
+//     {
+//
+//         //         [MIDCreditCardCharge getPointWithToken:snapToken
+//         //                                      cardToken:token.tokenID
+//         //                                     completion:^(MIDPointResponse *_Nullable result, NSError *_Nullable error)
+//         //          {
+//         //
+//         //          }];
+//
+//         [MIDCreditCardCharge chargeWithToken:snapToken
+//                                    cardToken:token.tokenID
+//                                         save:YES
+//                                  installment:[[MIDChargeInstallment alloc] initWithBank:MIDAcquiringBankBCA term:6]
+//                                        point:nil//@20000
+//                                   completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
+//          {
+//
+//          }];
+//     }];
+//
+//    [MIDBankTransferCharge bcaWithToken:snapToken
+//                                   name:@"susan"
+//                                  email:@"susan_bahtiar@gmail.com"
+//                                  phone:@"085223768857"
+//                             completion:^(MIDBCABankTransferResult * _Nullable result, NSError * _Nullable error)
+//     {
+//
+//     }];
+//
+//    [MIDBankTransferCharge permataWithToken:snapToken
+//                                       name:@"susan"
+//                                      email:@"susan_bahtiar@gmail.com"
+//                                      phone:@"085223768857"
+//                                 completion:^(MIDPermataBankTransferResult * _Nullable result, NSError * _Nullable error)
+//     {
+//
+//     }];
+//
+//    [MIDBankTransferCharge bniWithToken:snapToken
+//                                   name:@"susan"
+//                                  email:@"susan_bahtiar@gmail.com"
+//                                  phone:@"085223768857"
+//                             completion:^(MIDBNIBankTransferResult * _Nullable result, NSError * _Nullable error)
+//     {
+//
+//     }];
+//
+//    [MIDBankTransferCharge mandiriWithToken:snapToken
+//                                       name:@"susan"
+//                                      email:@"susan_bahtiar@gmail.com"
+//                                      phone:@"085223768857"
+//                                 completion:^(MIDMandiriBankTransferResult * _Nullable result, NSError * _Nullable error)
+//     {
+//
+//     }];
+//
+//    [MIDBankTransferCharge otherBankWithToken:snapToken
+//                                         name:@"susan"
+//                                        email:@"susan_bahtiar@gmail.com"
+//                                        phone:@"085223768857"
+//                                   completion:^(id _Nullable result, NSError * _Nullable error)
+//     {
+//
+//     }];
 }
 
 @end

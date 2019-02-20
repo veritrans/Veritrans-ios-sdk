@@ -287,23 +287,25 @@
             
             MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithModel:model];
             [vc showDismissButton:self.singlePayment];
-            [self.navigationController pushViewController:vc animated:!self.singlePayment];            
+            [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
         else if (method == MIDPaymentMethodDanamonOnline) {
             MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
         }
-        else if (method == MIDPaymentMethodKlikbca) {
+        else if (method == MIDPaymentMethodKlikbca ||
+                 method == MIDPaymentMethodTelkomselCash) {
             MidtransUIPaymentDirectViewController *vc = [[MidtransUIPaymentDirectViewController alloc] initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
-        } else if (method == MIDPaymentMethodIndomaret) {
+        }
+        else if (method == MIDPaymentMethodIndomaret) {
             MIDPaymentIndomaretViewController *vc = [[MIDPaymentIndomaretViewController alloc]initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
         }
         else if (method == MIDPaymentMethodMandiriClickpay) {
             VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
-        }        
+        }
     }
 }
 

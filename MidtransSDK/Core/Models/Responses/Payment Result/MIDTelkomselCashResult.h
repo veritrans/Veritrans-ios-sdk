@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MIDPaymentResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDTelkomselCashResult : MIDPaymentResult
 
-@property (nonatomic) NSString *settlementTime
+@property (nonatomic) NSString *settlementTime;
 
 @end
 

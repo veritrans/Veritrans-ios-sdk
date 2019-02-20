@@ -79,6 +79,16 @@
                         options:self.options
                      completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
          {
+             if (error) {
+                 UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
+                                                                                message:error.localizedDescription
+                                                                         preferredStyle:UIAlertControllerStyleAlert];
+                 [alert addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                     [self dismissViewControllerAnimated:YES completion:nil];
+                 }]];
+                 return;
+             }
+             
              NSString *snapToken = token.token;
              [MIDVendorUI shared].snapToken = snapToken;
              

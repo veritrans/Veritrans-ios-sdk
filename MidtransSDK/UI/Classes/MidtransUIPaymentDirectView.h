@@ -7,9 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
+
 #import "MidtransUITextField.h"
 #import "MidtransUIButton.h"
+#import "MidtransSDK.h"
+#import "MIDPaymentDetail.h"
+
 @class MIdtransUIBorderedView;
 
 @interface MidtransUIPaymentDirectView : UIView
@@ -24,8 +27,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *disclosureButtonImage;
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 
-- (void)initViewWithPaymentID:(NSString *)paymentMethodID email:(NSString *)email;
-- (MidtransVAType)paymentTypeWithID:(NSString *)paymentMethodID ;
+- (void)initViewWithPaymentMethod:(MIDPaymentDetail *)paymentMethod email:(NSString *)email;
 - (MidtransUITextField *)emailTextField;
 - (UILabel *)instructionTitleLabel;
 

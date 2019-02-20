@@ -23,11 +23,17 @@
                                                                           fontNameRegular:@"SourceSansPro-Regular"
                                                                             fontNameLight:@"SourceSansPro-Light"];
     
-    [MidtransKit configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
-                  merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
+    [MidtransKit configureClientKey:@"VT-client-E4f1bsi1LpL1p5cF"
+                  merchantServerURL:@"https://rakawm-snap.herokuapp.com/"
                         environment:MIDEnvironmentSandbox
-                              color:[UIColor blackColor]
+                              color:[UIColor redColor]
                                font:customFont];
+    
+//    [MidtransKit configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
+//                  merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
+//                        environment:MIDEnvironmentSandbox
+//                              color:[UIColor blackColor]
+//                               font:customFont];
     
     //    [MIDClient configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
     //                merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"

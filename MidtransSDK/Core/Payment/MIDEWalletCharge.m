@@ -11,6 +11,7 @@
 #import "MIDPaymentHelper.h"
 #import "MIDGopayPayment.h"
 #import "MIDWebPayment.h"
+#import "MIDTelkomselCashPayment.h"
 
 @implementation MIDEWalletCharge
 
@@ -33,6 +34,20 @@
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDWebPaymentResult *result = [[MIDWebPaymentResult alloc] initWithDictionary:response];
+            completion(result, nil);
+        } else {
+            completion(nil, error);
+        }
+    }];
+}
+
++ (void)telkomselCashWithToken:(NSString *)snapToken
+                      customer:(NSString *)customer
+                    completion:(void (^_Nullable) (MIDTelkomselCashResult *_Nullable result, NSError *_Nullable error))completion {
+    MIDTelkomselCashPayment *payment = [[MIDTelkomselCashPayment alloc] initWithCustomer:customer];
+    [MIDPaymentHelper performPayment:payment token:snapToken completion:^(id _Nullable response, NSError *_Nullable error) {
+        if (response) {
+            MIDTelkomselCashResult *result = [[MIDTelkomselCashResult alloc] initWithDictionary:response];
             completion(result, nil);
         } else {
             completion(nil, error);

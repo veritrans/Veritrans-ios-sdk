@@ -97,7 +97,6 @@
 }
 - (void)dismissButtonDidTapped:(id)sender {
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
-    sleep(2);
     if (self.dismissButton) {
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
     }

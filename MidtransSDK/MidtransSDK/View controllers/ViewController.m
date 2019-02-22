@@ -72,18 +72,7 @@
     //and put it at checkout options
     [MidtransKit presentPaymentPageAt:self
                           transaction:trx
-                              options:@[customer, checkoutItem]
-                        paymentMethod:MIDPaymentMethodUnknown];
-    
-//        [MIDClient checkoutWith:trx
-//                        options:@[customer, checkoutItem]
-//                     completion:^(MIDToken *_Nullable token, NSError *_Nullable error)
-//         {
-//             NSString *snapToken = token.token;
-//             NSLog(@"Token: %@", token.dictionaryValue);
-//
-//             [self fetchPaymentInfo:token.token];
-//         }];
+                              options:@[customer, checkoutItem]];    
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {

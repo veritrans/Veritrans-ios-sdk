@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @property (nonatomic,strong) VTSubGuideController *subGuide;
 @property (weak, nonatomic) IBOutlet UIView *instructionPage;
+@property (weak, nonatomic) IBOutlet UILabel *headerViewAlfamartLabel;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
 @end
 
@@ -41,8 +42,6 @@
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     self.subGuide = [[VTSubGuideController alloc] initWithInstructions:instructions];
     [self addSubViewController:self.subGuide toView:self.instructionPage];
-    NSLog(@"data %@",instructions);
-    
     // Do any additional setup after loading the view.
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
@@ -58,6 +57,7 @@
         } else {
             MIDAlfamartPostPaymentViewController *postPaymentVAController = [[MIDAlfamartPostPaymentViewController alloc] initWithNibName:@"MIDAlfamartPostPaymentViewController" bundle:VTBundle];
             postPaymentVAController.transactionResult =  result;
+            postPaymentVAController.token = self.token;
             [self.navigationController pushViewController:postPaymentVAController animated:YES];
         }
     }];

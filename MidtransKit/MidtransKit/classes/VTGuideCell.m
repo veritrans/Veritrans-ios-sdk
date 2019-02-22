@@ -72,6 +72,116 @@
         [attrString endEditing];
         self.contentLabel.attributedText = attrString;
     }
+   else  if ([instruction.content containsString:@"Payment Code"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Payment Code"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"total amount"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"total amount"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Alfamart, Alfamidi,or Dan+Dan"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Alfamart, Alfamidi,or Dan+Dan"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Alfamidi"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Alfamidi"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Dan+Dan"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Dan+Dan"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Alfamart"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Alfamart"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Alfamidi"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Alfamidi"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Dan+Dan"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Dan+Dan"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"transaction amount"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"transaction amount"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"Code number"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"Code number"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
+   else  if ([instruction.content containsString:@"merchant name"]) {
+       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+       [attrString beginEditing];
+       [attrString addAttribute:NSFontAttributeName
+                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                          range:[attrString.string rangeOfString:@"merchant name"]];
+       
+       [attrString endEditing];
+       self.contentLabel.attributedText = attrString;
+   }
    else  if ([instruction.content containsString:@"Next"]) {
        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
        [attrString beginEditing];

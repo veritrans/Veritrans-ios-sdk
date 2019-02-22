@@ -19,6 +19,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MIDAlfamartViewController">
             <connections>
+                <outlet property="headerViewAlfamartLabel" destination="Dnl-1f-3V3" id="RtE-0S-3nr"/>
                 <outlet property="instructionPage" destination="cJg-3B-9IT" id="c5G-qT-cBe"/>
                 <outlet property="orderIdLabel" destination="3Qv-Sc-1uC" id="n1U-xe-veV"/>
                 <outlet property="totalAmountLabel" destination="ORp-W5-vjM" id="Gkv-TY-gmv"/>
@@ -174,25 +175,109 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJg-3B-9IT">
-                    <rect key="frame" x="0.0" y="33" width="375" height="505"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="476"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydi-8k-rpc">
+                    <rect key="frame" x="0.0" y="33" width="375" height="29"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnl-1f-3V3">
+                            <rect key="frame" x="8" y="5" width="304" height="15.5"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Pay form any">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Alfamart">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
+                                        <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=", ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Alfamidi">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
+                                        <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" or ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Dan+Dan">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
+                                        <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="outlet">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="29" id="S34-Rn-kxS"/>
+                        <constraint firstItem="Dnl-1f-3V3" firstAttribute="top" secondItem="ydi-8k-rpc" secondAttribute="top" constant="5" id="hzc-Qu-9Wz"/>
+                        <constraint firstItem="Dnl-1f-3V3" firstAttribute="leading" secondItem="ydi-8k-rpc" secondAttribute="leading" constant="8" id="pzY-Sj-EN3"/>
+                        <constraint firstAttribute="trailing" secondItem="Dnl-1f-3V3" secondAttribute="trailing" constant="63" id="wjI-YK-eNE"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="u0c-UB-DDd" secondAttribute="trailing" id="7nh-9Y-MY4"/>
                 <constraint firstAttribute="trailing" secondItem="Ytg-XY-HfZ" secondAttribute="trailing" id="7zU-iF-TcS"/>
-                <constraint firstItem="cJg-3B-9IT" firstAttribute="top" secondItem="u0c-UB-DDd" secondAttribute="bottom" id="AoJ-zQ-dUL"/>
                 <constraint firstItem="Ytg-XY-HfZ" firstAttribute="top" secondItem="cJg-3B-9IT" secondAttribute="bottom" constant="-1" id="HjK-62-D7L"/>
                 <constraint firstItem="u0c-UB-DDd" firstAttribute="top" secondItem="TZE-bG-lC3" secondAttribute="top" id="HjS-4G-BV7"/>
                 <constraint firstAttribute="trailing" secondItem="cJg-3B-9IT" secondAttribute="trailing" id="O4g-SW-5ul"/>
                 <constraint firstAttribute="trailing" secondItem="PE6-32-a4e" secondAttribute="trailing" constant="8" id="PqQ-sL-ktB"/>
+                <constraint firstItem="ydi-8k-rpc" firstAttribute="leading" secondItem="TZE-bG-lC3" secondAttribute="leading" id="aS0-hO-B8t"/>
                 <constraint firstItem="PE6-32-a4e" firstAttribute="top" secondItem="Ytg-XY-HfZ" secondAttribute="bottom" constant="8" id="cVF-yB-igK"/>
                 <constraint firstItem="cJg-3B-9IT" firstAttribute="leading" secondItem="TZE-bG-lC3" secondAttribute="leading" id="gun-f2-NNS"/>
+                <constraint firstItem="cJg-3B-9IT" firstAttribute="top" secondItem="ydi-8k-rpc" secondAttribute="bottom" id="hse-7d-9Wp"/>
                 <constraint firstAttribute="bottom" secondItem="PE6-32-a4e" secondAttribute="bottom" constant="8" id="kIp-6j-kvg"/>
                 <constraint firstItem="Ytg-XY-HfZ" firstAttribute="leading" secondItem="TZE-bG-lC3" secondAttribute="leading" id="udm-vw-L8G"/>
                 <constraint firstItem="u0c-UB-DDd" firstAttribute="leading" secondItem="TZE-bG-lC3" secondAttribute="leading" id="wS6-Iu-59s"/>
                 <constraint firstItem="PE6-32-a4e" firstAttribute="leading" secondItem="TZE-bG-lC3" secondAttribute="leading" constant="8" id="xBV-rj-utC"/>
+                <constraint firstAttribute="trailing" secondItem="ydi-8k-rpc" secondAttribute="trailing" id="yn9-9M-rP2"/>
+                <constraint firstItem="ydi-8k-rpc" firstAttribute="top" secondItem="u0c-UB-DDd" secondAttribute="bottom" id="z24-St-dTh"/>
             </constraints>
             <point key="canvasLocation" x="23.199999999999999" y="50.824587706146929"/>
         </view>

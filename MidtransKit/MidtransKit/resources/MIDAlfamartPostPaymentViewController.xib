@@ -19,7 +19,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MIDAlfamartPostPaymentViewController">
             <connections>
+                <outlet property="expandingButton" destination="9AE-Fb-AFM" id="Kyd-tO-4yn"/>
                 <outlet property="expireTimeLabelText" destination="AxL-qO-APk" id="kdW-Do-n2u"/>
+                <outlet property="guide1View" destination="jsu-Tu-Qb2" id="t0d-4F-3QA"/>
+                <outlet property="instructionPage" destination="dP1-21-p3K" id="Qjh-Tj-V8Y"/>
                 <outlet property="orderIdLabel" destination="Jf7-WN-NBL" id="R86-Ug-7OI"/>
                 <outlet property="paymentCodeLabel" destination="DDn-NL-jmu" id="D1x-4z-54R"/>
                 <outlet property="totalAmountLabel" destination="psn-uy-ZG2" id="Gcm-Ue-H1I"/>
@@ -112,8 +115,8 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="INSTRUCTIONS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L06-t9-6QP">
-                    <rect key="frame" x="16" y="145" width="92" height="18"/>
-                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="14"/>
+                    <rect key="frame" x="16" y="145" width="85" height="16.5"/>
+                    <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
                     <color key="textColor" red="0.60777515169999996" green="0.60788232090000005" blue="0.60776835679999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -132,7 +135,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5h-58-Weg">
-                    <rect key="frame" x="0.0" y="176" width="375" height="1"/>
+                    <rect key="frame" x="0.0" y="174.5" width="375" height="1"/>
                     <color key="backgroundColor" red="0.94499540328979492" green="0.94515722990036011" blue="0.94498521089553833" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="1" id="NcW-od-L3P"/>
@@ -230,11 +233,100 @@
                         </userDefinedRuntimeAttribute>
                         <userDefinedRuntimeAttribute type="boolean" keyPath="topLine" value="YES"/>
                     </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="confirmPaymentButtonDidtapped:" destination="-1" eventType="touchUpInside" id="va2-dm-Kfi"/>
+                    </connections>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jsu-Tu-Qb2">
+                    <rect key="frame" x="0.0" y="179" width="375" height="29"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fb-UM-TJf">
+                            <rect key="frame" x="20" y="5" width="292" height="15.5"/>
+                            <attributedString key="attributedText">
+                                <fragment content="Pay form any">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Alfamart">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
+                                        <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=", ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Alfamidi">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
+                                        <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" or ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="Dan+Dan">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
+                                        <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content=" ">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="13" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="outlet">
+                                    <attributes>
+                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                            </attributedString>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="8Fb-UM-TJf" firstAttribute="leading" secondItem="jsu-Tu-Qb2" secondAttribute="leading" constant="20" id="8gU-cz-nHZ"/>
+                        <constraint firstAttribute="height" constant="29" id="rOu-fR-p0n"/>
+                        <constraint firstAttribute="trailing" secondItem="8Fb-UM-TJf" secondAttribute="trailing" constant="63" id="uvL-a5-zH7"/>
+                        <constraint firstItem="8Fb-UM-TJf" firstAttribute="top" secondItem="jsu-Tu-Qb2" secondAttribute="top" constant="5" id="zFa-0f-M2C"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dP1-21-p3K">
+                    <rect key="frame" x="0.0" y="208" width="375" height="327"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gTC-T0-yd3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="0jU-UX-HCc"/>
+                <constraint firstItem="963-eZ-XbZ" firstAttribute="top" secondItem="dP1-21-p3K" secondAttribute="bottom" id="3Z9-4i-zXg"/>
                 <constraint firstAttribute="trailing" secondItem="9AE-Fb-AFM" secondAttribute="trailing" constant="10" id="Bpj-bO-rZX"/>
                 <constraint firstAttribute="trailing" secondItem="963-eZ-XbZ" secondAttribute="trailing" id="CjD-Rg-NaH"/>
                 <constraint firstItem="OO9-H5-LFb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="FjE-JO-c2Y"/>
@@ -242,22 +334,28 @@
                 <constraint firstItem="p5h-58-Weg" firstAttribute="top" secondItem="L06-t9-6QP" secondAttribute="bottom" constant="13" id="Pgp-Lk-jiV"/>
                 <constraint firstItem="OO9-H5-LFb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qc8-5U-zpv"/>
                 <constraint firstItem="vAt-zu-dbZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qyb-KD-ad1"/>
+                <constraint firstAttribute="trailing" secondItem="dP1-21-p3K" secondAttribute="trailing" id="R6L-ec-zdo"/>
                 <constraint firstAttribute="bottom" secondItem="gTC-T0-yd3" secondAttribute="bottom" constant="10" id="RUm-QB-HHC"/>
                 <constraint firstAttribute="trailing" secondItem="p5h-58-Weg" secondAttribute="trailing" id="SK4-dm-Xs3"/>
+                <constraint firstItem="dP1-21-p3K" firstAttribute="top" secondItem="jsu-Tu-Qb2" secondAttribute="bottom" id="Spu-Zj-pY0"/>
                 <constraint firstItem="gTC-T0-yd3" firstAttribute="top" secondItem="963-eZ-XbZ" secondAttribute="bottom" constant="8" id="U4B-Ge-rHh"/>
                 <constraint firstItem="OO6-bJ-fws" firstAttribute="top" secondItem="vAt-zu-dbZ" secondAttribute="bottom" constant="8" id="WkR-lS-Gvi"/>
                 <constraint firstItem="L06-t9-6QP" firstAttribute="top" secondItem="OO6-bJ-fws" secondAttribute="bottom" constant="8" id="ZOp-hc-MRq"/>
                 <constraint firstAttribute="trailing" secondItem="gTC-T0-yd3" secondAttribute="trailing" constant="10" id="bSR-Xx-XJA"/>
                 <constraint firstItem="L06-t9-6QP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="16" id="dCb-nA-Cct"/>
+                <constraint firstItem="jsu-Tu-Qb2" firstAttribute="top" secondItem="p5h-58-Weg" secondAttribute="bottom" constant="3.5" id="dNG-hX-yO3"/>
                 <constraint firstItem="vAt-zu-dbZ" firstAttribute="top" secondItem="AxL-qO-APk" secondAttribute="bottom" constant="6" id="e1a-ue-ny7"/>
                 <constraint firstItem="OO6-bJ-fws" firstAttribute="leading" secondItem="vAt-zu-dbZ" secondAttribute="leading" id="hfX-fE-0FZ"/>
+                <constraint firstAttribute="trailing" secondItem="jsu-Tu-Qb2" secondAttribute="trailing" id="ic7-O9-ulv"/>
                 <constraint firstItem="OO6-bJ-fws" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="jNe-IB-UsT"/>
                 <constraint firstItem="9AE-Fb-AFM" firstAttribute="top" secondItem="OO6-bJ-fws" secondAttribute="bottom" constant="2" id="nKQ-hJ-a5H"/>
                 <constraint firstItem="963-eZ-XbZ" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="nKo-0F-qyU"/>
                 <constraint firstAttribute="trailing" secondItem="OO9-H5-LFb" secondAttribute="trailing" id="wqO-sl-ZdC"/>
+                <constraint firstItem="dP1-21-p3K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="xRD-5G-QoE"/>
+                <constraint firstItem="jsu-Tu-Qb2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zmf-Jy-iWa"/>
                 <constraint firstItem="p5h-58-Weg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="zuB-MY-c9f"/>
             </constraints>
-            <point key="canvasLocation" x="39.200000000000003" y="46.326836581709152"/>
+            <point key="canvasLocation" x="-194.40000000000001" y="31.934032983508249"/>
         </view>
     </objects>
     <resources>

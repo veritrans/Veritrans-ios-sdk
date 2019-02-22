@@ -65,7 +65,8 @@ static NSString *cardNumber = @"4811111111111114";
     
     MIDTokenizeConfig *config = [MIDTokenizeConfig new];
     config.grossAmount = @200000;
-    config.bank = MIDBankTransferTypeBCA;
+    config.bank = MIDAcquiringBankBCA;
+    config.enable3ds = YES;
     [MIDCreditCardTokenizer tokenizeCardNumber:cardNumber
                                            cvv:@"123"
                                    expireMonth:@"02"

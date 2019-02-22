@@ -738,18 +738,18 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	Objective C
 	
 	```
-    [MIDEWalletCharge tcashWithToken:snapToken
-                         phoneNumber:@"0811111111"
-                          completion:^(MIDPaymentResult * _Nullable result, NSError * _Nullable error)
+    [MIDEWalletCharge telkomselCashWithToken:snapToken
+                                    customer:@"0811111111"
+                                  completion:^(MIDTelkomselCashResult * _Nullable result, NSError * _Nullable error)
      {
-
-     }];	
+         
+     }];
 	```
 	
 	Swift
 	
 	```
-	MIDEWalletCharge.tcash(withToken: snapToken, phoneNumber: "0811111111", completion: { (result, error) in
+	MIDEWalletCharge.telkomselCash(withToken: snapToken, customer: "0811111111", completion: { (result, error) in
                 
     })
 	```

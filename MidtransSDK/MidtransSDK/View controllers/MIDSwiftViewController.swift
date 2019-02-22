@@ -141,6 +141,10 @@ class MIDSwiftViewController: UIViewController {
                 
             })
             
+            MIDEWalletCharge.telkomselCash(withToken: snapToken, customer: "0811111111", completion: { (result, error) in
+                
+            })
+            
             MIDCardlessCreditCharge.akulaku(withToken: snapToken, completion: { (result, error) in
                 
             })

@@ -78,3 +78,4 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransPaymentDanamonOnline.h"
 #import "MidtransPromoDataModels.h"
 #import "MIDUrlHandler.h"
+#import "MidtransPaymentAlfa.h"

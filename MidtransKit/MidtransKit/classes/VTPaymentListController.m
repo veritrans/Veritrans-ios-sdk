@@ -27,7 +27,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIThemeManager.h"
 #import "UIColor+SNP_HexString.h"
-
+#import "MIDAlfamartViewController.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
@@ -359,6 +359,11 @@
         MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:YES];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALFAMART]) {
+        MIDAlfamartViewController *vc = [[MIDAlfamartViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [vc showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KLIK_BCA] ||
              [paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_TELKOMSEL_CASH] ||

@@ -288,7 +288,7 @@
 		<key>title</key>
 		<string>Alfamart</string>
 		<key>description</key>
-		<string>Pay with Alfamart</string>
+		<string>Pay from an Alfamart, Alfamidi, or Dan+Dan outlet</string>
 		<key>id</key>
 		<string>alfamart</string>
 		<key>identifier</key>

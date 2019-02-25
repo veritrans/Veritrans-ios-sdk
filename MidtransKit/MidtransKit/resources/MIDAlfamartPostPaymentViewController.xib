@@ -243,65 +243,78 @@
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Fb-UM-TJf">
                             <rect key="frame" x="20" y="5" width="292" height="15.5"/>
                             <attributedString key="attributedText">
-                                <fragment content="Pay form any">
+                                <fragment content="Pay fr">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                        <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="o">
+                                    <attributes>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                        <font key="NSFont" size="12" name="HelveticaNeue"/>
+                                    </attributes>
+                                </fragment>
+                                <fragment content="m any">
+                                    <attributes>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="12" name="HelveticaNeue"/>
                                         <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content=" ">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="13" name="HelveticaNeue"/>
                                         <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="Alfamart">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
                                         <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content=", ">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="13" name="HelveticaNeue"/>
                                         <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="Alfamidi">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
                                         <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content=" or ">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="13" name="HelveticaNeue"/>
                                         <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="Dan+Dan">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="12" name="HelveticaNeue-Medium"/>
                                         <font key="NSOriginalFont" size="13" name="HelveticaNeue-Medium"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content=" ">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="13" name="HelveticaNeue"/>
                                         <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                     </attributes>
                                 </fragment>
                                 <fragment content="outlet">
                                     <attributes>
-                                        <color key="NSColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                         <font key="NSFont" size="12" name="HelveticaNeue"/>
                                         <font key="NSOriginalFont" size="17" name="HelveticaNeue"/>
                                     </attributes>

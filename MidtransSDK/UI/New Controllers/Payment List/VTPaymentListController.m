@@ -286,7 +286,6 @@
             method == MIDPaymentMethodAkulaku) {
             
             MidtransUIPaymentGeneralViewController *vc = [[MidtransUIPaymentGeneralViewController alloc] initWithModel:model];
-            [vc showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:vc animated:!self.singlePayment];
         }
         else if (method == MIDPaymentMethodDanamonOnline) {

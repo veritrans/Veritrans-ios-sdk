@@ -12,6 +12,12 @@
 #import "MidtransLoadingView.h"
 #import "MIDArrayHelper.h"
 #import "VTPaymentListController.h"
+#import "MidtransVAViewController.h"
+#import "MidtransUIPaymentDirectViewController.h"
+#import "MIDPaymentIndomaretViewController.h"
+#import "VTMandiriClickpayController.h"
+#import "MIDDanamonOnlineViewController.h"
+#import "MidtransUIPaymentGeneralViewController.h"
 
 #import "MIDVendorUI.h"
 
@@ -39,7 +45,7 @@
 - (void)openPaymentPageWithInfo:(MIDPaymentInfo * _Nullable)info {
     [MIDVendorUI shared].info = info;
     
-    UIViewController *vc = [self selectedViewController];
+    UIViewController *vc = [self selectedViewController:self.paymentMethod];
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:vc];
     
     [self addChildViewController:nvc];
@@ -55,15 +61,77 @@
                                                                         views:@{@"main": nvc.view}]];
 }
 
-- (UIViewController *)selectedViewController {
-    switch (self.paymentMethod) {
-        case MIDPaymentMethodBCAVA:
-            //not the correct view controller, it's just for example
-            return [UIViewController new];
-            
-        default:
-            return [[VTPaymentListController alloc] initWithNibName:@"VTPaymentListController" bundle:VTBundle];
+- (NSArray *)loadPaymentMethodDetails {
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", @"paymentMethods"];
+    NSString *path = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    if (path == nil) {
+        path = [VTBundle pathForResource:@"en_paymentMethods" ofType:@"plist"];
     }
+    return [NSArray arrayWithContentsOfFile:path];
+}
+
+- (MIDPaymentDetail *)paymentMethodObject:(MIDPaymentMethod)pm {
+    NSArray *details = [self loadPaymentMethodDetails];
+    NSInteger index = [details indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:pm]];
+    }];
+    if (index == NSNotFound) {
+        return nil;
+    } else {
+        return [[MIDPaymentDetail alloc] initWithDictionary:details[index]];
+    }
+}
+
+- (UIViewController *)selectedViewController:(MIDPaymentMethod)pm {
+    MidtransUIPaymentController *vc;
+    MIDPaymentDetail *model = [self paymentMethodObject:pm];
+    
+    //return all payment pages if the spesific payment isn't available
+    if (model == nil) {
+        return [[VTPaymentListController alloc] initWithNibName:@"VTPaymentListController" bundle:VTBundle];
+    }
+    
+    switch (pm) {
+        case MIDPaymentMethodBCAVA:
+        case MIDPaymentMethodMandiriVA:
+        case MIDPaymentMethodPermataVA:
+        case MIDPaymentMethodBNIVA:
+        case MIDPaymentMethodOtherVA:{
+            vc = [[MidtransVAViewController alloc] initWithPaymentMethod:model];
+            break;
+        }
+        case MIDPaymentMethodBCAKlikpay:
+        case MIDPaymentMethodCIMBClicks:
+        case MIDPaymentMethodBRIEpay:
+        case MIDPaymentMethodMandiriECash:
+        case MIDPaymentMethodAkulaku: {
+            vc = [[MidtransUIPaymentGeneralViewController alloc] initWithModel:model];
+            break;
+        }
+        case MIDPaymentMethodKlikbca:
+        case MIDPaymentMethodTelkomselCash: {
+            vc = [[MidtransUIPaymentDirectViewController alloc] initWithPaymentMethod:model];
+            break;
+        }
+        case MIDPaymentMethodIndomaret: {
+            vc = [[MIDPaymentIndomaretViewController alloc]initWithPaymentMethod:model];
+            break;
+        }
+        case MIDPaymentMethodMandiriClickpay: {
+            vc = [[VTMandiriClickpayController alloc] initWithPaymentMethod:model];
+            break;
+        }
+        case MIDPaymentMethodDanamonOnline: {
+            vc = [[MIDDanamonOnlineViewController alloc] initWithPaymentMethod:model];
+            break;
+        }
+        default:
+            vc = [[VTPaymentListController alloc] initWithNibName:@"VTPaymentListController" bundle:VTBundle];
+            break;
+    }
+    
+    [vc showDismissButton:YES];
+    return vc;
 }
 
 - (void)viewDidLoad {

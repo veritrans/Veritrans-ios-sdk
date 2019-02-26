@@ -31,6 +31,7 @@
 		E531800021AD2C80005C0940 /* MIDIndomaretPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5317FFF21AD2C80005C0940 /* MIDIndomaretPayment.m */; };
 		E5344031221CDEBA002E9692 /* MIDTelkomselCashPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5344030221CDEBA002E9692 /* MIDTelkomselCashPayment.m */; };
 		E5344034221CFCB0002E9692 /* MIDTelkomselCashResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E5344033221CFCB0002E9692 /* MIDTelkomselCashResult.m */; };
+		E534403E221FAB2D002E9692 /* PaymentListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E534403D221FAB2D002E9692 /* PaymentListViewController.m */; };
 		E537341721DDE25F0095746A /* MIDPointResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = E537341621DDE25F0095746A /* MIDPointResponse.m */; };
 		E537341A21DDEF490095746A /* MIDInstallmentTerm.m in Sources */ = {isa = PBXBuildFile; fileRef = E537341921DDEF490095746A /* MIDInstallmentTerm.m */; };
 		E537342021DE03B00095746A /* MIDInstallmentInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E537341F21DE03B00095746A /* MIDInstallmentInfo.m */; };
@@ -659,6 +660,8 @@
 		E5344030221CDEBA002E9692 /* MIDTelkomselCashPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTelkomselCashPayment.m; sourceTree = "<group>"; };
 		E5344032221CFCB0002E9692 /* MIDTelkomselCashResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTelkomselCashResult.h; sourceTree = "<group>"; };
 		E5344033221CFCB0002E9692 /* MIDTelkomselCashResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTelkomselCashResult.m; sourceTree = "<group>"; };
+		E534403C221FAB2D002E9692 /* PaymentListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaymentListViewController.h; sourceTree = "<group>"; };
+		E534403D221FAB2D002E9692 /* PaymentListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PaymentListViewController.m; sourceTree = "<group>"; };
 		E537341521DDE25F0095746A /* MIDPointResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDPointResponse.h; sourceTree = "<group>"; };
 		E537341621DDE25F0095746A /* MIDPointResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDPointResponse.m; sourceTree = "<group>"; };
 		E537341821DDEF490095746A /* MIDInstallmentTerm.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDInstallmentTerm.h; sourceTree = "<group>"; };
@@ -1575,6 +1578,8 @@
 			children = (
 				E5D3C7B52192D7700090DDAE /* ViewController.h */,
 				E5D3C7B62192D7700090DDAE /* ViewController.m */,
+				E534403C221FAB2D002E9692 /* PaymentListViewController.h */,
+				E534403D221FAB2D002E9692 /* PaymentListViewController.m */,
 				E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */,
 			);
 			path = "View controllers";
@@ -3216,6 +3221,7 @@
 				E5C07D8A21DC9F840020C858 /* MIDTokenizeResponse.m in Sources */,
 				E570D144221408C4004F0099 /* MIDItemInfo.m in Sources */,
 				E5AE6FCC2212A0890064FE00 /* VTMandiriClickpayController.m in Sources */,
+				E534403E221FAB2D002E9692 /* PaymentListViewController.m in Sources */,
 				E5AE70012212A0890064FE00 /* VTSegmentedControl.m in Sources */,
 				E5D21D5521B636570082ABF8 /* MIDGopayResult.m in Sources */,
 				E5317FFD21AD2C6E005C0940 /* MIDGopayPayment.m in Sources */,

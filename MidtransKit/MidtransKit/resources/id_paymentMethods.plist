@@ -282,5 +282,19 @@
 		<key>shortName</key>
 		<string>akulaku</string>
 	</dict>
+	<dict>
+		<key>status</key>
+		<string>&quot;&quot;</string>
+		<key>title</key>
+		<string>Alfamart</string>
+		<key>description</key>
+		<string>Bayar dari Alfamart, Alfamidi, atau cabang Dan+Dan</string>
+		<key>id</key>
+		<string>alfamart</string>
+		<key>identifier</key>
+		<string>alfamart</string>
+		<key>shortName</key>
+		<string>alfamart</string>
+	</dict>
 </array>
 </plist>

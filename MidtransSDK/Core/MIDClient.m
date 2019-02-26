@@ -70,4 +70,20 @@
     }];
 }
 
++ (void)getPaymentStatusWithToken:(NSString *)token
+                       completion:(void (^_Nullable) (MIDPaymentResult *_Nullable result, NSError *_Nullable error))completion {
+    NSString *path = [NSString stringWithFormat:@"/transactions/%@/status", token];
+    MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].snapURL
+                                                                       path:path
+                                                                     method:MIDNetworkMethodGET
+                                                                 parameters:nil];
+    [[MIDNetwork shared] request:service completion:^(id  _Nullable response, NSError *_Nullable error) {
+        if (response) {
+            
+        } else {
+            completion(nil, error);
+        }
+    }];
+}
+
 @end

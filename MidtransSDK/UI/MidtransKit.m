@@ -9,8 +9,11 @@
 #import "MidtransKit.h"
 #import "MidtransUIThemeManager.h"
 #import "MIDPaymentController.h"
+#import "MIDConstants.h"
 
 @implementation MidtransKit
+
+#pragma mark - Initialisation
 
 + (void)configureClientKey:(NSString *)clientKey
          merchantServerURL:(NSString *)merchantServerURL
@@ -35,6 +38,8 @@
     
     [MidtransUIThemeManager applyCustomThemeColor:color themeFont:font];
 }
+
+#pragma mark - Presentation
 
 + (void)presentPaymentPageAt:(UIViewController *)presenter
                  transaction:(MIDCheckoutTransaction *)transaction {
@@ -61,6 +66,18 @@
                                                                          options:options
                                                                    paymentMethod:paymentMethod];
     [presenter presentViewController:vc animated:YES completion:nil];
+}
+
+#pragma mark - Helper
+
++ (void)handleGopayURL:(NSURL *)URL {
+    NSMutableDictionary *params = [[NSMutableDictionary alloc] init];
+    for (NSString *param in [URL.query componentsSeparatedByString:@"&"]) {
+        NSArray *elts = [param componentsSeparatedByString:@"="];
+        if([elts count] < 2) continue;
+        [params setObject:[elts lastObject] forKey:[elts firstObject]];
+    }
+    [[NSNotificationCenter defaultCenter] postNotificationName:notifGopayStatus object:params];
 }
 
 @end

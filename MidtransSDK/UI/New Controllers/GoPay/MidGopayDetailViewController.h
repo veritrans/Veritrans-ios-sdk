@@ -7,7 +7,9 @@
 //
 
 #import "MidtransUIPaymentController.h"
-@class MidtransTransactionResult;
+
 @interface MidGopayDetailViewController : MidtransUIPaymentController
-@property (nonatomic,strong) MidtransTransactionResult *result;
+
+- (instancetype)initWithResult:(MIDGopayResult *)result paymentMethod:(MIDPaymentDetail *)paymentMethod;
+
 @end

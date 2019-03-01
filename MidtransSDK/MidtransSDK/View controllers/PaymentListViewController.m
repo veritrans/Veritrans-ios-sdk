@@ -88,10 +88,17 @@
     
     MIDPaymentMethod method = [_payments[indexPath.row] integerValue];
     
+    NSMutableArray *options = [NSMutableArray arrayWithObject:@[customer, checkoutItem]];
+    
+    if (method == MIDPaymentMethodGopay) {
+        MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"revamp.gopay://"];
+        [options addObject:gopay];
+    }
+    
     //and put it at checkout options
     [MidtransKit presentPaymentPageAt:self
                           transaction:trx
-                              options:@[customer, checkoutItem]
+                              options:options
                         paymentMethod:method];
 }
 

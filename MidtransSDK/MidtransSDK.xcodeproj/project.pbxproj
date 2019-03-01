@@ -1367,6 +1367,7 @@
 		E5C07D8621DC9A5A0020C858 /* MIDCheckoutIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCheckoutIdentifier.m; sourceTree = "<group>"; };
 		E5C07D8821DC9F830020C858 /* MIDTokenizeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTokenizeResponse.h; sourceTree = "<group>"; };
 		E5C07D8921DC9F840020C858 /* MIDTokenizeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTokenizeResponse.m; sourceTree = "<group>"; };
+		E5C3045F2225205B00CFA46F /* MIDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDConstants.h; sourceTree = "<group>"; };
 		E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDSwiftViewController.swift; sourceTree = "<group>"; };
 		E5C7CD2D21BD56E900C22045 /* MIDEWalletTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDEWalletTest.m; sourceTree = "<group>"; };
 		E5C7CD2F21BD56FA00C22045 /* MIDStoreTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDStoreTest.m; sourceTree = "<group>"; };
@@ -1608,6 +1609,19 @@
 			path = "Mandiri Clickpay";
 			sourceTree = "<group>";
 		};
+		E52E42632224F0AF00810403 /* GoPay */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6EDE2212A0610064FE00 /* MidGopayViewController.h */,
+				E5AE6EE62212A0620064FE00 /* MidGopayViewController.m */,
+				E5AE72B62212A2C60064FE00 /* MidGopayViewController.xib */,
+				E5AE6EE92212A0620064FE00 /* MidGopayDetailViewController.h */,
+				E5AE6F3B2212A0730064FE00 /* MidGopayDetailViewController.m */,
+				E5AE72C82212A2C80064FE00 /* MidGopayDetailViewController.xib */,
+			);
+			path = GoPay;
+			sourceTree = "<group>";
+		};
 		E53C0D1C21E34A0E0006852E /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1711,16 +1725,12 @@
 				E5AE702C2212A0A60064FE00 /* MidtransCommonTSCViewController.m */,
 				E5AE702A2212A0A50064FE00 /* SNPPostPaymentGeneralViewController.h */,
 				E5AE702E2212A0A70064FE00 /* SNPPostPaymentGeneralViewController.m */,
-				E5AE6EE62212A0620064FE00 /* MidGopayViewController.m */,
 				E5AE6F8C2212A0810064FE00 /* MIDOtherVAViewController.h */,
 				E5AE6F762212A07E0064FE00 /* MIDOtherVAViewController.m */,
 				E5AE6F452212A0750064FE00 /* MIDPaymentIndomaretViewController.h */,
 				E5AE6F222212A06E0064FE00 /* MIDPaymentIndomaretViewController.m */,
-				E5AE6EDE2212A0610064FE00 /* MidGopayViewController.h */,
 				E5AE6F782212A07E0064FE00 /* MBXPageViewController_vt.h */,
 				E5AE6EF32212A0630064FE00 /* MBXPageViewController_vt.m */,
-				E5AE6EE92212A0620064FE00 /* MidGopayDetailViewController.h */,
-				E5AE6F3B2212A0730064FE00 /* MidGopayDetailViewController.m */,
 				E5AE6F512212A0770064FE00 /* MidtransNewCreditCardViewController.h */,
 				E5AE6F532212A0780064FE00 /* MidtransNewCreditCardViewController.m */,
 				E5AE6F4A2212A0760064FE00 /* MidtransPaymentStatusViewController.h */,
@@ -1791,6 +1801,7 @@
 				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
 				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
 				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E52E42632224F0AF00810403 /* GoPay */,
 				E5531CB6221AC4AA00D78111 /* Bank Transfer */,
 				E570D14B22141FB1004F0099 /* Payment List */,
 				E51A188D221A9A84002CD267 /* Mandiri Clickpay */,
@@ -1806,6 +1817,7 @@
 			children = (
 				E570D1392213D201004F0099 /* MIDArrayHelper.h */,
 				E570D13A2213D201004F0099 /* MIDArrayHelper.m */,
+				E5C3045F2225205B00CFA46F /* MIDConstants.h */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -2342,8 +2354,6 @@
 			isa = PBXGroup;
 			children = (
 				E56FA9402212A5F0003DC10D /* SNPPostPaymentVAViewController.xib */,
-				E5AE72C82212A2C80064FE00 /* MidGopayDetailViewController.xib */,
-				E5AE72B62212A2C60064FE00 /* MidGopayViewController.xib */,
 				E5AE72C62212A2C70064FE00 /* MIDOtherVAViewController.xib */,
 				E5AE72AF2212A2C50064FE00 /* MIDPaymentIndomaretViewController.xib */,
 				E5AE72B12212A2C50064FE00 /* MidtransCommonTSCViewController.xib */,

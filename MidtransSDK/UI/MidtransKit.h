@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
                      options:(NSArray <NSObject <MIDCheckoutable>*> *_Nullable)options
                paymentMethod:(MIDPaymentMethod)paymentMethod;
 
+//helper
+
++ (void)handleGopayURL:(NSURL *)URL;
+
 @end
 
 NS_ASSUME_NONNULL_END

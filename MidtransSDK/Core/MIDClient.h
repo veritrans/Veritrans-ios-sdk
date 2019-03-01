@@ -13,6 +13,7 @@
 #import "MIDCheckoutItems.h"
 #import "MIDToken.h"
 #import "MIDPaymentInfo.h"
+#import "MIDPaymentResult.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -28,6 +29,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)getPaymentInfoWithToken:(NSString *)token
                      completion:(void (^_Nullable) (MIDPaymentInfo *_Nullable info, NSError *_Nullable error))completion;
+
++ (void)getPaymentStatusWithToken:(NSString *)token
+                       completion:(void (^_Nullable) (MIDPaymentResult *_Nullable result, NSError *_Nullable error))completion;
 
 @end
 

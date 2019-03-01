@@ -63,7 +63,7 @@
                                    merchantName:@"Neo Store"];
     MIDCheckoutItems *checkoutItem = [[MIDCheckoutItems alloc] initWithItems:@[item]];
     
-    MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"yoururlscheme://"];
+    MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"revamp.midtrans://"];
     
     MIDCheckoutExpiry *expiry = [[MIDCheckoutExpiry alloc] initWithStartDate:[NSDate date]
                                                                     duration:1
@@ -72,7 +72,7 @@
     //and put it at checkout options
     [MidtransKit presentPaymentPageAt:self
                           transaction:trx
-                              options:@[customer, checkoutItem]];    
+                              options:@[customer, checkoutItem, gopay]];
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {

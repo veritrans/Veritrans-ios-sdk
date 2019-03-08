@@ -13,7 +13,7 @@
 }
 
 - (NSDictionary *)dictionaryValue {
-    NSDictionary *gopay = @{@"enable_callback": @"true",
+    NSDictionary *gopay = @{@"enable_callback": @YES,
                             @"callback_url": _callbackURL
                             };
     return @{@"gopay":gopay};

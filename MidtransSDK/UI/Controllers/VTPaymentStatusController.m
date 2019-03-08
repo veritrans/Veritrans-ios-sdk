@@ -11,6 +11,7 @@
 #import "VTKITConstant.h"
 #import "MidtransUIThemeManager.h"
 #import "MIDVendorUI.h"
+#import "MIDUITrackingManager.h"
 
 typedef NS_ENUM(NSUInteger, SNPStatusType) {
     SNPStatusTypeSuccess = 1,
@@ -104,7 +105,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     
     switch (self.statusType) {
         case SNPStatusTypeError: {
-            [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
+            [[MIDUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
             self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
             self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
             
@@ -117,7 +118,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         }
             
         case SNPStatusTypeSuccess: {
-            [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
+            [[MIDUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
             self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
             self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
             
@@ -130,7 +131,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         }
             
         case SNPStatusTypePending: {
-            [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
+            [[MIDUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
             self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
             self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
             self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];

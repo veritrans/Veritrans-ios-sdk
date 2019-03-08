@@ -145,5 +145,7 @@
     "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device.",
     "Finish Payment":"Finish Payment",
     "Make sure payment has been completed within the GO-JEK app.":"Make sure payment has been completed within the GO-JEK app.",
-    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app."
+    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.",
+    "CVV is invalid": "CVV is invalid"
+    
 }

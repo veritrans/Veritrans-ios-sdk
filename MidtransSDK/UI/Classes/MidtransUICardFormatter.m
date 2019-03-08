@@ -7,7 +7,7 @@
 //
 
 #import "MidtransUICardFormatter.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDCreditCardHelper.h"
 
 NSInteger const amexLimit = 15;
 
@@ -48,8 +48,8 @@ NSInteger const amexLimit = 15;
     NSString *cardNumberWithoutSpaces =
     [self removeNonDigits:textField.text andPreserveCursorPosition:&targetCursorPosition];
     
-    MidtransCreditCardType cctype = [MidtransCreditCardHelper typeFromString:cardNumberWithoutSpaces];
-    NSInteger cardLimit = cctype == VTCreditCardTypeAmex ? amexLimit : self.numberLimit;
+    MIDCreditCardType cctype = [MIDCreditCardHelper typeFromString:cardNumberWithoutSpaces];
+    NSInteger cardLimit = cctype == MIDCreditCardTypeAmex ? amexLimit : self.numberLimit;
     
     if ([cardNumberWithoutSpaces length] > cardLimit) {
         // If the user is trying to enter more than 19 digits, we prevent

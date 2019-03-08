@@ -22,6 +22,7 @@
                    save:(BOOL)save
             installment:(MIDChargeInstallment *_Nullable)installment
                   point:(NSNumber *_Nullable)point
+                  promo:(MIDPromoOption *_Nullable)promo
              completion:(void (^_Nullable)(MIDCreditCardResult *_Nullable result, NSError *_Nullable error))completion {
     
     MIDCreditCardPayment *payment = [MIDCreditCardPayment new];
@@ -29,11 +30,29 @@
     payment.saveCard = save;
     payment.installment = installment.value;
     payment.point = point;
+    payment.promo = promo;
     
     [MIDPaymentHelper performPayment:payment token:snapToken completion:^(id  _Nullable response, NSError *_Nullable error) {
         if (response) {
             MIDCreditCardResult *result = [[MIDCreditCardResult alloc] initWithDictionary:response];
             completion(result, nil);
+        } else {
+            completion(nil, error);
+        }
+    }];
+}
+
++ (void)deleteSavedCard:(NSString *)maskedCard
+              snapToken:(NSString *)snapToken
+             completion:(void (^_Nullable)(id _Nullable result, NSError *_Nullable error))completion {
+    NSString *path = [NSString stringWithFormat:@"/transactions/%@/saved_tokens/%@", snapToken, maskedCard];
+    MIDNetworkService *service = [[MIDNetworkService alloc] initWithBaseURL:[MIDVendor shared].snapURL
+                                                                       path:path
+                                                                     method:MIDNetworkMethodDELETE
+                                                                 parameters:nil];
+    [[MIDNetwork shared] request:service completion:^(id _Nullable response, NSError *_Nullable error) {
+        if (response) {
+            completion(response, nil);
         } else {
             completion(nil, error);
         }

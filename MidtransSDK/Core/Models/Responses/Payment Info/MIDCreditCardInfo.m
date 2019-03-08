@@ -28,8 +28,8 @@
         self.blacklistBins = [dictionary objectOrNilForKey:@"blacklist_bins"];
         self.whitelistBins = [dictionary objectOrNilForKey:@"whitelist_bins"];
         self.savedCards = [[dictionary objectOrNilForKey:@"saved_tokens"] mapToArray:[MIDSavedCardInfo class]];
-        self.saveCard = [dictionary objectOrNilForKey:@"save_card"];
-        self.secure = [dictionary objectOrNilForKey:@"secure"];
+        self.saveCard = [[dictionary objectOrNilForKey:@"save_card"] boolValue];
+        self.secure = [[dictionary objectOrNilForKey:@"secure"] boolValue];
         self.installment = [[MIDInstallmentInfo alloc] initWithDictionary:[dictionary objectOrNilForKey:@"installment"]];
         self.type = [[dictionary objectOrNilForKey:@"type"] creditCardTransactionType];
     }

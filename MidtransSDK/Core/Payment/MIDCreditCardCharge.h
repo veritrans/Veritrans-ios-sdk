@@ -11,6 +11,7 @@
 #import "MIDModelEnums.h"
 #import "MIDChargeInstallment.h"
 #import "MIDPointResponse.h"
+#import "MIDPromoOption.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -21,7 +22,12 @@ NS_ASSUME_NONNULL_BEGIN
                    save:(BOOL)save
             installment:(MIDChargeInstallment *_Nullable)installment
                   point:(NSNumber *_Nullable)point
+                  promo:(MIDPromoOption *_Nullable)promo
              completion:(void (^_Nullable)(MIDCreditCardResult *_Nullable result, NSError *_Nullable error))completion;
+
++ (void)deleteSavedCard:(NSString *)maskedCard
+              snapToken:(NSString *)snapToken
+             completion:(void (^_Nullable)(id _Nullable result, NSError *_Nullable error))completion;
 
 + (void)getPointWithToken:(NSString *)snapToken
                 cardToken:(NSString *)cardToken

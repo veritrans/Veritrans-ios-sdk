@@ -7,7 +7,7 @@
 //
 
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDCreditCardHelper.h"
 #import "MidtransSDK.h"
 
 @implementation NSMutableAttributedString (Helper)
@@ -259,33 +259,63 @@
 
 @end
 
-@implementation MidtransMaskedCreditCard (utilities)
+//@implementation MidtransMaskedCreditCard (utilities)
+//
+//- (NSString *)formattedNumber {
+//    NSInteger currentLength = self.maskedNumber.length-1; // minus 1 is because dash char
+//    NSInteger dotCount = 16 - currentLength;
+//    NSMutableString *dotString = [NSMutableString new];
+//    for (int i=0; i < dotCount; i++) {
+//        [dotString appendString:@"\u2022"];
+//    }
+//    return [[self.maskedNumber stringByReplacingOccurrencesOfString:@"-" withString:dotString] formattedCreditCardNumber];
+//}
+//
+//- (UIImage *)darkIcon {
+//    switch ([MIDCreditCardHelper typeFromString:self.maskedNumber]) {
+//        case MIDCreditCardTypeVisa:
+//            return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+//        case MIDCreditCardTypeJCB:
+//            return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+//        case MIDCreditCardTypeMasterCard:
+//            return [UIImage imageNamed:@"MasterCardDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+//        case MIDCreditCardTypeAmex:
+//            return [UIImage imageNamed:@"AmexDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
+//        default:
+//            return nil;
+//    }
+//}
+//
+//
+//@end
+
+
+@implementation MIDSavedCardInfo (utilities)
 
 - (NSString *)formattedNumber {
-    NSInteger currentLength = self.maskedNumber.length-1; // minus 1 is because dash char
+    NSInteger currentLength = self.maskedCard.length-1; // minus 1 is because dash char
     NSInteger dotCount = 16 - currentLength;
     NSMutableString *dotString = [NSMutableString new];
     for (int i=0; i < dotCount; i++) {
         [dotString appendString:@"\u2022"];
     }
-    return [[self.maskedNumber stringByReplacingOccurrencesOfString:@"-" withString:dotString] formattedCreditCardNumber];
+    return [[self.maskedCard stringByReplacingOccurrencesOfString:@"-" withString:dotString] formattedCreditCardNumber];
 }
 
 - (UIImage *)darkIcon {
-    switch ([MidtransCreditCardHelper typeFromString:self.maskedNumber]) {
-        case VTCreditCardTypeVisa:
+    switch ([MIDCreditCardHelper typeFromString:self.maskedCard]) {
+        case MIDCreditCardTypeVisa:
             return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeJCB:
+        case MIDCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeMasterCard:
+        case MIDCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCardDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeAmex:
+        case MIDCreditCardTypeAmex:
             return [UIImage imageNamed:@"AmexDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         default:
             return nil;
     }
 }
-
 
 @end
 

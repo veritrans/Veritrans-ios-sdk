@@ -18,7 +18,8 @@
 #import "VTMandiriClickpayController.h"
 #import "MIDDanamonOnlineViewController.h"
 #import "MidtransUIPaymentGeneralViewController.h"
-
+#import "MidtransNewCreditCardViewController.h"
+#import "MidtransSavedCardController.h"
 #import "MIDVendorUI.h"
 
 @interface MIDPaymentController ()
@@ -125,6 +126,16 @@
             vc = [[MIDDanamonOnlineViewController alloc] initWithPaymentMethod:model];
             break;
         }
+        case MIDPaymentMethodCreditCard: {
+            NSArray *cards = [MIDVendorUI shared].info.creditCard.savedCards;
+            if (cards.count > 0) {
+                vc = [[MidtransSavedCardController alloc] initWithPaymentMethod:model];
+            }
+            else {
+                vc = [[MidtransNewCreditCardViewController alloc] initWithPaymentMethod:model];
+            }
+            break;
+        }
         default:
             vc = [[VTPaymentListController alloc] initWithNibName:@"VTPaymentListController" bundle:VTBundle];
             break;
@@ -141,19 +152,29 @@
     [[NSOperationQueue mainQueue] addOperationWithBlock:^{
         [self showLoadingWithText:@"Loading..."];
     }];
-    
+
     if (self.transaction != nil) {
         [MIDClient checkoutWith:self.transaction
                         options:self.options
                      completion:^(MIDToken * _Nullable token, NSError * _Nullable error)
          {
              if (error) {
+                 NSString *message;
+                 if ([error.localizedDescription isKindOfClass:[NSArray class]]) {
+                     NSArray *messages = (NSArray *)error.localizedDescription;
+                     message = messages.firstObject;
+                 }
+                 else {
+                     message = error.localizedDescription;
+                 }
                  UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error"
-                                                                                message:error.localizedDescription
+                                                                                message:message
                                                                          preferredStyle:UIAlertControllerStyleAlert];
                  [alert addAction:[UIAlertAction actionWithTitle:@"Close" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
                      [self dismissViewControllerAnimated:YES completion:nil];
                  }]];
+                 [self presentViewController:alert animated:YES completion:nil];
+                 
                  return;
              }
              

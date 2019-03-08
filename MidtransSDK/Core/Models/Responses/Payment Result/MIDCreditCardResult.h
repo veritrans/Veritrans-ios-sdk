@@ -21,6 +21,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *pointRedeemAmount;
 @property (nonatomic) NSString *pointRedeemQuantity;
 
+@property (nonatomic) NSString *RBAURL;
+
 @end
 
 NS_ASSUME_NONNULL_END

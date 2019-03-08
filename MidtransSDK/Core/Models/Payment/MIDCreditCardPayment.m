@@ -40,6 +40,7 @@
     [result setValue:self.installment forKey:@"installment"];
     [result setValue:self.point forKey:@"point"];
     [result setValue:[NSString stringFromBool:self.saveCard] forKey:@"save_card"];
+    [result setValue:[self.promo dictionaryValue] forKey:@"promo_details"];
     return result;
 }
 

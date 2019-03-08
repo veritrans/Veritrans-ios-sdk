@@ -12,6 +12,7 @@
 #import "MidtransUIToast.h"
 #import "VTKITConstant.h"
 #import "MidtransUINextStepButton.h"
+#import "MIDUITrackingManager.h"
 
 NSString *const kVTPendingStatusControllerPaymentCode = @"payment_code";
 NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_time";
@@ -40,7 +41,7 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [[SNPUITrackingManager shared] trackEventName:@"pg pending"];
+    [[MIDUITrackingManager shared] trackEventName:@"pg pending"];
     self.title = UILocalizedString(@"payment.pending",nil);
     self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
     self.orderIDLabel.text = self.result.orderID;

@@ -71,14 +71,18 @@
     }];
 }
 - (void)showInView:(UIView *)view withText:(NSString *)text {
+    self.loadingTitleLabel.text = text ? text : @"Loading";
+    
+    if ([view.subviews containsObject:self]) {
+        return;
+    }
+    
     self.alpha = 0;
     self.translatesAutoresizingMaskIntoConstraints = NO;
     [view addSubview:self];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-0-[loading]-0-|" options:0 metrics:0 views:@{@"loading":self}]];
     [view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-0-[loading]-0-|" options:0 metrics:0 views:@{@"loading":self}]];
-    
-    self.loadingTitleLabel.text = text?text:@"Loading";
-    
+
     [UIView animateWithDuration:0.15f animations:^{
         self.alpha = 1.0f;
         

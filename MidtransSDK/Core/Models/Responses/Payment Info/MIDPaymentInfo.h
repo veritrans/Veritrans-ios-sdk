@@ -29,5 +29,4 @@
 @property (nonatomic) NSArray <MIDItemInfo *> *items;
 @property (nonatomic) MIDCustomerInfo *customer;
 
-
 @end

@@ -9,8 +9,7 @@
 #import "VTErrorStatusController.h"
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
-
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDUITrackingManager.h"
 
 @interface VTErrorStatusController ()
 
@@ -36,7 +35,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [[SNPUITrackingManager shared] trackEventName:@"pg error"];
+    [[MIDUITrackingManager shared] trackEventName:@"pg error"];
     self.title = UILocalizedString(@"payment.failed",nil);
     
     self.navigationItem.hidesBackButton = YES;

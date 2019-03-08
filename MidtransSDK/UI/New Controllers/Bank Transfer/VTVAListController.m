@@ -18,6 +18,7 @@
 #import "MIDVendorUI.h"
 #import "MIDArrayHelper.h"
 #import "MIDPaymentDetail.h"
+#import "MIDUITrackingManager.h"
 
 #import "MidtransSDK.h"
 
@@ -47,9 +48,9 @@
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"va.list.title"];
     if (self.orderID) {
-        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"order id": self.orderID}];
+        [[MIDUITrackingManager shared] trackEventName:@"pg select atm transfer" additionalParameters:@{@"order id": self.orderID}];
     } else {
-        [[SNPUITrackingManager shared] trackEventName:@"pg select atm transfer"];
+        [[MIDUITrackingManager shared] trackEventName:@"pg select atm transfer"];
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
     
@@ -121,9 +122,9 @@
     MIDPaymentDetail *vaTypeModel = (MIDPaymentDetail *)[self.vaList objectAtIndex:index];
     NSString *paymentName  = vaTypeModel.shortName;
     if (self.orderID) {
-        [[SNPUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.orderID}];
+        [[MIDUITrackingManager shared] trackEventName:paymentName additionalParameters:@{@"order id": self.orderID}];
     } else {
-        [[SNPUITrackingManager shared] trackEventName:paymentName];
+        [[MIDUITrackingManager shared] trackEventName:paymentName];
     }
 
     MidtransVAViewController *vc = [[MidtransVAViewController alloc] initWithPaymentMethod:self.vaList[index]];

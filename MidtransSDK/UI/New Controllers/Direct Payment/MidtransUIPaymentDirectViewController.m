@@ -15,6 +15,7 @@
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
+#import "MIDUITrackingManager.h"
 
 @interface MidtransUIPaymentDirectViewController ()
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentDirectView *view;
@@ -36,7 +37,7 @@
         self.view.disclosureButtonImage.hidden = YES;
     }
     
-    [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
+    [[MIDUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@",self.paymentMethod.shortName]];
     
     [self addNavigationToTextFields:@[self.view.emailTextField]];
     self.view.totalAmountLabel.text = self.info.transaction.grossAmount.formattedCurrencyNumber;
@@ -58,7 +59,7 @@
 
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+    [[MIDUITrackingManager shared] trackEventName:@"btn confirm payment"];
     
     if (self.paymentMethod.method == MIDPaymentMethodKlikbca) {
         NSString *_email = self.view.emailTextField.text;

@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MIDCheckoutable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDPromoOption : NSObject
+@interface MIDPromoOption : NSObject<MIDCheckoutable>
+
+- (instancetype)initWithID:(NSString *)promoID discountedGrossAmount:(NSNumber *)grossAmount;
+
+@property (nonatomic) NSString *promoID;
+@property (nonatomic) NSNumber *discountedGrossAmount;
 
 @end
 

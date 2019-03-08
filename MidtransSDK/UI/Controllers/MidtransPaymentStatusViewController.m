@@ -13,13 +13,13 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 @interface MidtransPaymentStatusViewController ()
 @property (strong, nonatomic) IBOutlet MIdtransPaymentStatusView *view;
-@property (nonnull,strong) MidtransTransactionResult *result;
+@property (nonnull,strong) MIDPaymentResult *result;
 @end
 
 @implementation MidtransPaymentStatusViewController
 @dynamic view;
 
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)result {
+- (instancetype)initWithTransactionResult:(MIDPaymentResult *)result {
     self = [super initWithNibName:@"MidtransPaymentStatusViewController" bundle:VTBundle];
     if (self) {
         self.result = result;
@@ -42,7 +42,7 @@
 }
 
 - (IBAction)FinishButtonDidTapped:(id)sender {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:[self.result dictionaryValue]};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

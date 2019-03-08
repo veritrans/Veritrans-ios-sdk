@@ -28,6 +28,7 @@
 #import "MIDVendorUI.h"
 #import "MIDDanamonOnlineViewController.h"
 #import "VTMandiriClickpayController.h"
+#import "MIDUITrackingManager.h"
 
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
@@ -57,17 +58,9 @@
     if (self.info.transaction.orderID) {
         [additionalData addEntriesFromDictionary:@{@"order id":self.info.transaction.orderID}];
     }
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
+    [[MIDUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     self.view.delegate = self;
-    if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
-        MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];
-        creditCardVC.saveCreditCardOnly = YES;
-        creditCardVC.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.add.new.card"];
-        [creditCardVC showDismissButton:creditCardVC.saveCreditCardOnly];
-        [self.navigationController pushViewController:creditCardVC animated:!creditCardVC.saveCreditCardOnly];
-        return;
-        
-    }
+
     self.tableHeaderHeight = DEFAULT_HEADER_HEIGHT;
     self.title =  [VTClassHelper getTranslationFromAppBundleForString:@"payment.list.title"];
     self.singlePayment = false;
@@ -305,6 +298,17 @@
             VTMandiriClickpayController *vc = [[VTMandiriClickpayController alloc] initWithPaymentMethod:model];
             [self.navigationController pushViewController:vc animated:YES];
         }
+        else if (method == MIDPaymentMethodCreditCard) {
+            NSArray *cards = [MIDVendorUI shared].info.creditCard.savedCards;
+            if (cards.count > 0) {
+                MidtransSavedCardController *vc = [[MidtransSavedCardController alloc] initWithPaymentMethod:model];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+            else {
+                MidtransNewCreditCardViewController *vc = [[MidtransNewCreditCardViewController alloc] initWithPaymentMethod:model];
+                [self.navigationController pushViewController:vc animated:YES];
+            }
+        }
     }
 }
 
@@ -315,9 +319,9 @@
     //    NSString *paymentMethodName = paymentMethod.shortName;
     //    NSString *eventName = [NSString stringWithFormat:@"pg %@",[paymentMethodName stringByReplacingOccurrencesOfString:@"_" withString:@" "]];
     //    if (self.responsePayment.transactionDetails.orderId) {
-    //        [[SNPUITrackingManager shared] trackEventName:eventName additionalParameters:@{@"order id": self.responsePayment.transactionDetails.orderId}];
+    //        [[MIDUITrackingManager shared] trackEventName:eventName additionalParameters:@{@"order id": self.responsePayment.transactionDetails.orderId}];
     //    } else {
-    //        [[SNPUITrackingManager shared] trackEventName:eventName];
+    //        [[MIDUITrackingManager shared] trackEventName:eventName];
     //    }
     //    if ([paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA] ||
     //             [paymentMethod.paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
@@ -362,7 +366,7 @@
     //                if (self.responsePayment.transactionDetails.orderId) {
     //                    [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     //                }
-    //                [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
+    //                [[MIDUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     //
     //                MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
     //                                                                      initWithToken:self.token

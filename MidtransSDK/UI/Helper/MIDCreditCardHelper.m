@@ -1,16 +1,17 @@
 //
-//  MIdtransCreditCardHelper.m
+//  MIDCreditCardHelper.m
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/23/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MidtransCreditCardHelper.h"
-#import "MidtransLuhn.h"
+#import "MIDCreditCardHelper.h"
+#import "MIDLuhn.h"
 #import "MidtransHelper.h"
 #import "MidtransConstant.h"
 #import "NSString+MidtransValidation.h"
+
 @implementation NSString (CreditCard)
 
 - (BOOL)isNumeric {
@@ -36,7 +37,6 @@
     NSString *expYear = self;
     if (([expYear length] == 2) || ([expYear length] == 4)){
         if (([expYear length] == 4)) {
-            
             expYear = [NSString stringWithFormat:@"%ld",[expYear integerValue] - 2000];
         }
         formatValid = true;
@@ -46,7 +46,7 @@
     df.dateFormat = @"yy";
     NSInteger currentYear = [[df stringFromDate:[NSDate date]] integerValue];
     
-   
+    
     BOOL yearExpired = [expYear integerValue] < currentYear;
     BOOL yearGreaterThan10 = (currentYear+10) < [expYear integerValue];
     
@@ -94,7 +94,7 @@
     }
 }
 - (BOOL)isValidCreditCardNumber:(NSError **)error {
-    if ([MidtransLuhn validateString:self]) {
+    if ([MIDLuhn validateString:self]) {
         return YES;
     } else {
         NSString *errorMessage = NSLocalizedString(MIDTRANS_MESSAGE_CARD_INVALID, nil);
@@ -105,7 +105,7 @@
 
 @end
 
-@implementation MidtransCreditCard (Validation)
+@implementation MIDCreditCardModel (Validation)
 
 - (BOOL)isValidCreditCard:(NSError **)error {
     if ([self.number isValidCreditCardNumber:error] == NO) {
@@ -129,16 +129,16 @@
 
 @end
 
-@implementation MidtransCreditCardHelper
+@implementation MIDCreditCardHelper
 
-+ (MidtransCreditCardType)typeFromString:(NSString *)string {
++ (MIDCreditCardType)typeFromString:(NSString *)string {
     NSString *formattedString = [string formattedStringForProcessing];
-    NSArray *enums = @[@(VTCreditCardTypeVisa), @(VTCreditCardTypeMasterCard), @(VTCreditCardTypeJCB), @(VTCreditCardTypeAmex)];
+    NSArray *enums = @[@(MIDCreditCardTypeVisa), @(MIDCreditCardTypeMasterCard), @(MIDCreditCardTypeJCB), @(MIDCreditCardTypeAmex)];
     
-    __block MidtransCreditCardType type = VTCreditCardTypeUnknown;
+    __block MIDCreditCardType type = MIDCreditCardTypeUnknown;
     [enums enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-        MidtransCreditCardType _type = [obj integerValue];
-        NSPredicate *predicate = [MidtransCreditCardHelper predicateForType:_type];
+        MIDCreditCardType _type = [obj integerValue];
+        NSPredicate *predicate = [MIDCreditCardHelper predicateForType:_type];
         BOOL isCurrentType = [predicate evaluateWithObject:formattedString];
         if (isCurrentType) {
             type = _type;
@@ -150,32 +150,32 @@
 
 + (NSString *)nameFromString:(NSString *)string {
     switch ([self typeFromString:string]) {
-        case VTCreditCardTypeAmex:
+        case MIDCreditCardTypeAmex:
             return CREDIT_CARD_TYPE_AMEX;
-        case VTCreditCardTypeJCB:
+        case MIDCreditCardTypeJCB:
             return CREDIT_CARD_TYPE_JCB;
-        case VTCreditCardTypeMasterCard:
+        case MIDCreditCardTypeMasterCard:
             return CREDIT_CARD_TYPE_MASTER_CARD;
-        case VTCreditCardTypeVisa:
+        case MIDCreditCardTypeVisa:
             return CREDIT_CARD_TYPE_VISA;
         default:
             return @"";
     }
 }
 
-+ (NSPredicate *)predicateForType:(MidtransCreditCardType)type {
++ (NSPredicate *)predicateForType:(MIDCreditCardType)type {
     NSString *regex = nil;
     switch (type) {
-        case VTCreditCardTypeAmex:
+        case MIDCreditCardTypeAmex:
             regex = MIDTRANS_AMEX_REGEX;
             break;
-        case VTCreditCardTypeJCB:
+        case MIDCreditCardTypeJCB:
             regex = MIDTRANS_JCB_REGEX;
             break;
-        case VTCreditCardTypeMasterCard:
+        case MIDCreditCardTypeMasterCard:
             regex = MIDTRANS_MASTER_CARD_REGEX;
             break;
-        case VTCreditCardTypeVisa:
+        case MIDCreditCardTypeVisa:
             regex = MIDTRANS_VISA_REGEX;
             break;
         default:
@@ -183,6 +183,51 @@
     }
     return [NSPredicate predicateWithFormat:@"SELF MATCHES [c] %@", regex];
 }
+
++(BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForPromo:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error {
+    for (NSString *promoBin in bins) {
+        if ([ccNumber containsString:promoBin]) {
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"Your card number is not eligible for promo", nil)};
+            *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                         code:MIDTRANS_ERROR_CODE_INVALID_BIN
+                                     userInfo:userInfo];
+            return YES;
+        }
+    }
+    
+    
+    return NO;
+    
+}
++ (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error {
+    for (NSString *blackListBins in bins) {
+        if ([ccNumber containsString:blackListBins]) {
+            NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"This card is not applicable for this transaction,please use another card", nil)};
+            *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                         code:MIDTRANS_ERROR_CODE_INVALID_BIN
+                                     userInfo:userInfo];
+            return YES;
+        }
+    }
+    
+    
+    return NO;
+    
+}
++ (BOOL)isCreditCardNumber:(NSString *)ccNumber eligibleForBins:(NSArray *)bins error:(NSError **)error {
+    for (NSString *whiteListedBin in bins) {
+        if ([ccNumber containsString:whiteListedBin]) {
+            return YES;
+        }
+    }
+    
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey:NSLocalizedString(@"This card is not applicable for this transaction,please use another card", nil)};
+    *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                 code:MIDTRANS_ERROR_CODE_INVALID_BIN
+                             userInfo:userInfo];
+    return NO;
+}
+
 @end
 
 @implementation UITextField (helper)

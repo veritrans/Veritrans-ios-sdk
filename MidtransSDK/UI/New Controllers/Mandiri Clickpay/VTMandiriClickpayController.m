@@ -11,7 +11,7 @@
 #import "MidtransUITextField.h"
 #import "MidtransUIHudView.h"
 #import "MidtransUICardFormatter.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDCreditCardHelper.h"
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTSubGuideController.h"
 #import "MidtransTransactionDetailViewController.h"

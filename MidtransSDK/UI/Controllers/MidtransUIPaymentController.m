@@ -27,6 +27,7 @@
 #import "VTIndomaretSuccessController.h"
 #import "VTKlikbcaSuccessController.h"
 #import "MIDVendorUI.h"
+#import "MIDUITrackingManager.h"
 
 @interface MidtransUIPaymentController () <SNPMaintainViewDelegate>
 @property (nonatomic) VTKeyboardAccessoryView *keyboardAccessoryView;
@@ -182,9 +183,9 @@
     }
 }
 
-- (void)handleTransactionResult:(MidtransTransactionResult *)result {
+- (void)handleTransactionResult:(MIDPaymentResult *)result {
     if (UICONFIG.hideStatusPage) {
-        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:[result dictionaryValue]};
         [self dismissDemoBadge];
         [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
@@ -202,12 +203,12 @@
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
-- (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-    [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_SUCCESS object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    return;
-}
+//- (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result {
+//    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+//    [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_SUCCESS object:nil userInfo:userInfo];
+//    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+//    return;
+//}
 - (void)handleSaveCardError:(NSError *)error {
     NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:error};
     [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_FAILED object:nil userInfo:userInfo];
@@ -296,14 +297,14 @@
         [paymentID isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
         [paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA] || [paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
         
-        [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ va overview",[self.paymentMethod.title lowercaseString]]];
+        [[MIDUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ va overview",[self.paymentMethod.title lowercaseString]]];
         VTMultiGuideController *vc = [[VTMultiGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
     }
     else {
         VTSingleGuideController *vc = [[VTSingleGuideController alloc] initWithPaymentMethodModel:self.paymentMethod];
         [self.navigationController pushViewController:vc animated:YES];
-        [[SNPUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ overview",self.paymentMethod.shortName]];
+        [[MIDUITrackingManager shared] trackEventName:[NSString stringWithFormat:@"pg %@ overview",self.paymentMethod.shortName]];
     }
 }
 -(void)showToastInviewWithMessage:(NSString *)message {

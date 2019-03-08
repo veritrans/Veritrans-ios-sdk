@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -40,13 +41,13 @@
                     </connections>
                 </button>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ewV-xR-rxD">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="465"/>
+                    <rect key="frame" x="0.0" y="20" width="320" height="445"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zxt-ff-qnD">
                             <rect key="frame" x="0.0" y="0.0" width="320" height="432"/>
                             <subviews>
                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bni_badge.png" translatesAutoresizingMaskIntoConstraints="NO" id="gaQ-Ag-MFf">
-                                    <rect key="frame" x="75" y="40" width="171" height="71"/>
+                                    <rect key="frame" x="74.5" y="40" width="171" height="71"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="71" id="5bx-BY-8M4"/>
                                         <constraint firstAttribute="width" constant="171" id="bYl-1f-cTx"/>
@@ -175,13 +176,13 @@
                     <rect key="frame" x="0.0" y="462" width="320" height="50"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3hS-WI-qoh">
-                            <rect key="frame" x="15" y="17.5" width="77" height="15.5"/>
+                            <rect key="frame" x="15" y="17" width="73.5" height="16.5"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.7843137255" green="0.78039215689999997" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rp. 0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsLetterSpacingToFitWidth="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="96a-4j-fTn">
-                            <rect key="frame" x="239" y="0.0" width="41" height="50"/>
+                            <rect key="frame" x="244.5" y="0.0" width="35.5" height="50"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -218,11 +219,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" constant="8" id="4OQ-cc-I2s"/>
+                <constraint firstItem="B73-KE-zhp" firstAttribute="bottom" secondItem="d31-MR-59L" secondAttribute="bottom" constant="8" id="4OQ-cc-I2s"/>
                 <constraint firstItem="d31-MR-59L" firstAttribute="top" secondItem="Tp0-jv-NQb" secondAttribute="bottom" constant="8" id="AiM-G4-Zs2"/>
                 <constraint firstItem="d31-MR-59L" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="IpG-Ig-wCi"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Lk8-XO-S4j"/>
-                <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Rnk-zw-dbE"/>
+                <constraint firstItem="ewV-xR-rxD" firstAttribute="top" secondItem="B73-KE-zhp" secondAttribute="top" id="Rnk-zw-dbE"/>
                 <constraint firstItem="ewV-xR-rxD" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ScF-5q-gHf"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="W4B-OY-OPT"/>
                 <constraint firstItem="Tp0-jv-NQb" firstAttribute="top" secondItem="ewV-xR-rxD" secondAttribute="bottom" constant="-3" id="fHa-dU-sJk"/>
@@ -230,6 +231,7 @@
                 <constraint firstAttribute="trailing" secondItem="d31-MR-59L" secondAttribute="trailing" constant="8" id="jI0-bL-5lR"/>
                 <constraint firstAttribute="trailing" secondItem="Tp0-jv-NQb" secondAttribute="trailing" id="xhS-6T-ZgW"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="B73-KE-zhp"/>
             <connections>
                 <outlet property="finalAmountTextField" destination="FBY-wa-CTh" id="T6q-ZH-C94"/>
                 <outlet property="payWithoutPointHeightConstraints" destination="eww-rb-kxQ" id="RA6-lZ-Dnq"/>
@@ -245,7 +247,7 @@
                 <outlet property="totalAmountLabel" destination="3hS-WI-qoh" id="Bn7-tJ-nV1"/>
                 <outlet property="totalAmountPriceLabel" destination="96a-4j-fTn" id="0UG-jg-VSp"/>
             </connections>
-            <point key="canvasLocation" x="-177" y="-69"/>
+            <point key="canvasLocation" x="-178.125" y="-69.718309859154928"/>
         </view>
     </objects>
     <resources>

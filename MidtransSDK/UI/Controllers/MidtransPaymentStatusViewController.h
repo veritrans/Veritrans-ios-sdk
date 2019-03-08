@@ -9,5 +9,5 @@
 #import "MidtransUIPaymentController.h"
 @class MidtransTransactionResult;
 @interface MidtransPaymentStatusViewController : MidtransUIPaymentController
-- (instancetype)initWithTransactionResult:(MidtransTransactionResult *)result;
+- (instancetype)initWithTransactionResult:(MIDPaymentResult *)result;
 @end

@@ -1,5 +1,5 @@
 //
-//  MIdtransCreditCardHelper.h
+//  MIDCreditCardHelper.h
 //  iossdk-gojek
 //
 //  Created by Akbar Taufiq Herlangga on 3/23/16.
@@ -8,16 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-#import "MidtransCreditCard.h"
+#import "MIDCreditCardModel.h"
 
 static NSString * const ExpiryDateSeparator = @" / ";
 
-typedef NS_ENUM(NSInteger, MidtransCreditCardType) {
-    VTCreditCardTypeVisa,
-    VTCreditCardTypeMasterCard,
-    VTCreditCardTypeJCB,
-    VTCreditCardTypeAmex,
-    VTCreditCardTypeUnknown
+typedef NS_ENUM(NSInteger, MIDCreditCardType) {
+    MIDCreditCardTypeVisa,
+    MIDCreditCardTypeMasterCard,
+    MIDCreditCardTypeJCB,
+    MIDCreditCardTypeAmex,
+    MIDCreditCardTypeUnknown
 };
 
 @interface NSString (CreditCard)
@@ -27,12 +27,16 @@ typedef NS_ENUM(NSInteger, MidtransCreditCardType) {
 - (BOOL)isValidCreditCardNumber:(NSError **)error;
 @end
 
-@interface MidtransCreditCardHelper : NSObject
-+ (MidtransCreditCardType)typeFromString:(NSString *)string;
+@interface MIDCreditCardHelper : NSObject
++ (MIDCreditCardType)typeFromString:(NSString *)string;
 + (NSString *)nameFromString:(NSString *)string;
+
++ (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForPromo:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
++ (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
++ (BOOL)isCreditCardNumber:(NSString *)ccNumber eligibleForBins:(NSArray *)bins error:(NSError **)error;
 @end
 
-@interface MidtransCreditCard (Validation)
+@interface MIDCreditCardModel (Validation)
 - (BOOL)isValidCreditCard:(NSError **)error;
 @end
 

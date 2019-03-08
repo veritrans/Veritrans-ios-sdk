@@ -6,15 +6,19 @@
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
 
-#import "MidtransLuhn.h"
 #import "NSString+MidtransValidation.h"
-@implementation NSString (MTLuhn)
+
+@implementation NSString (luhn)
 
 - (NSString *) formattedStringForProcessing {
     NSCharacterSet *illegalCharacters = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSArray *components = [self componentsSeparatedByCharactersInSet:illegalCharacters];
     return [components componentsJoinedByString:@""];
 }
+
+@end
+
+@interface MIDLuhn : NSObject
 
 @end
 

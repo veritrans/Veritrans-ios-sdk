@@ -15,9 +15,9 @@
 #import "MidtransHelper.h"
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 
-@implementation NSDictionary (SNPUITrackingManager)
+@implementation NSDictionary (MIDUITrackingManager)
 
-- (NSMutableDictionary*)SNPUITrackingManageraddDefaultParameter{
+- (NSMutableDictionary*)MIDUITrackingManageraddDefaultParameter{
     NSString *token = [PRIVATECONFIG mixpanelToken];
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
@@ -72,7 +72,7 @@
 - (void)trackEventName:(NSString *)eventName additionalParameters:(NSDictionary *)additionalParameters {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
     
-    parameters  = [parameters SNPUITrackingManageraddDefaultParameter];
+    parameters  = [parameters MIDUITrackingManageraddDefaultParameter];
     [parameters addEntriesFromDictionary:additionalParameters];
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
@@ -81,7 +81,7 @@
 }
 - (void)trackEventName:(NSString *)eventName {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
-    parameters  = [parameters SNPUITrackingManageraddDefaultParameter];
+    parameters  = [parameters MIDUITrackingManageraddDefaultParameter];
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
     [self sendTrackingData:event];
@@ -123,7 +123,9 @@
             responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
         }
         
-        callback(responseDictionary, error);
+        if (callback) {
+            callback(responseDictionary, error);
+        }
     }];
     [dataTask resume];
 }

@@ -31,11 +31,11 @@
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(MIDPaymentResult *)result;
 -(void)handleTransactionPending:(MIDPaymentResult *)result;
--(void)handleTransactionResult:(MidtransTransactionResult *)result;
+- (void)handleTransactionResult:(MIDPaymentResult *)result;
 -(void)showGuideViewController;
 -(void)showToastInviewWithMessage:(NSString *)message;
 -(void)showAlertViewWithTitle:(NSString *)title andMessage:(NSString *)message andButtonTitle:(NSString *)buttonTitle;
-- (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result;
+//- (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result;
 - (void)handleSaveCardError:(NSError *)error;
 
 - (MIDPaymentInfo *)info;

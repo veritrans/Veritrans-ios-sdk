@@ -23,6 +23,7 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTInstruction.h"
 #import "VTGroupedInstruction.h"
+#import "MidtransSDK.h"
 
 @interface NSMutableAttributedString (Helper)
 - (void)replaceCharacterString:(NSString *)characterString withIcon:(UIImage *)icon;
@@ -65,7 +66,12 @@
 - (NSString *)formattedPriceAmount;
 @end
 
-@interface MidtransMaskedCreditCard (utilities)
+//@interface MidtransMaskedCreditCard (utilities)
+//- (NSString *)formattedNumber;
+//- (UIImage *)darkIcon;
+//@end
+
+@interface MIDSavedCardInfo (utilities)
 - (NSString *)formattedNumber;
 - (UIImage *)darkIcon;
 @end

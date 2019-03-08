@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDPayable.h"
+#import "MIDPromoOption.h"
 
 @interface MIDCreditCardPayment : NSObject<MIDPayable>
 
@@ -20,5 +21,7 @@
 @property (nonatomic) NSString *email;
 @property (nonatomic) NSString *fullName;
 @property (nonatomic) NSString *phoneNumber;
+
+@property (nonatomic) MIDPromoOption *promo;
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "MidtransSDK.h"
+
 @class MidtransUITextField;
 @class MIdtransUIBorderedView;
 @class MidtransTransactionTokenResponse,MidtransUINextStepButton,MidtransPaymentMethodHeader;
@@ -35,7 +37,7 @@
 @property (weak, nonatomic) IBOutlet MidtransUITextField *contactEmailTextField;
 @property (weak, nonatomic) IBOutlet UILabel *orderIdTextLabel;
 @property (weak, nonatomic) IBOutlet MidtransUITextField *contactPhoneNumberTextField;
-- (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
+- (void)configureAmountTotal:(MIDPaymentInfo *)info;
 - (BOOL)isViewableError:(NSError *)error;
 - (UIImage *)iconDarkWithNumber:(NSString *)number;
 - (UIImage *)iconWithNumber:(NSString *)number;

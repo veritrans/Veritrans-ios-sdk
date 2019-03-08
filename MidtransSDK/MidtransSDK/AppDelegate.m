@@ -19,8 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    [MidtransKit configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
-                  merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Credential" ofType:@"plist"];
+    NSDictionary *cred = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    
+    [MidtransKit configureClientKey:cred[@"CLIENT_KEY"]
+                  merchantServerURL:cred[@"MERCHANT_URL"]
                         environment:MIDEnvironmentSandbox];
     
     return YES;

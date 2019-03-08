@@ -20,6 +20,7 @@
         self.pointBalanceAmount = [dictionary objectOrNilForKey:@"point_balance_amount"];
         self.pointRedeemAmount = [dictionary objectOrNilForKey:@"point_redeem_amount"];
         self.pointRedeemQuantity = [dictionary objectOrNilForKey:@"point_redeem_quantity"];
+        self.RBAURL = [dictionary objectOrNilForKey:@"redirect_url"];
     }
     return self;
 }
@@ -34,6 +35,7 @@
     [result setValue:self.pointBalanceAmount forKey:@"point_balance_amount"];
     [result setValue:self.pointRedeemAmount forKey:@"point_redeem_amount"];
     [result setValue:self.pointRedeemQuantity forKey:@"point_redeem_quantity"];
+    [result setValue:self.RBAURL forKey:@"redirect_url"];
     return result;
 }
 

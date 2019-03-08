@@ -11,6 +11,7 @@
 #import "MidtransItemCell.h"
 #import "AddOnConstructor.h"
 #import "MidtransUIThemeManager.h"
+#import "MIDUITrackingManager.h"
 
 @interface MidtransTransactionDetailViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) IBOutlet UILabel *priceAmountLabel;
@@ -36,7 +37,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [[SNPUITrackingManager shared] trackEventName:@"pg order summary"];
+    [[MIDUITrackingManager shared] trackEventName:@"pg order summary"];
     
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransItemCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransItemCell"];
     self.tableView.delegate = self;

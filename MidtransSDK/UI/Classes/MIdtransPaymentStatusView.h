@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MidtransTransactionResult;
+#import "MidtransSDK.h"
+
 @interface MIdtransPaymentStatusView : UIView
 @property (weak, nonatomic) IBOutlet UIImageView *paymentStatusIcon;
 @property (weak, nonatomic) IBOutlet UIView *paymentStatusWrapperView;
@@ -17,5 +18,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *paymentStatusOrderIdNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentStatusTransactionTimeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentStatusPaymentTypeLabel;
-- (void)configureWithTransactionResult:(MidtransTransactionResult *)result;
+- (void)configureWithTransactionResult:(MIDPaymentResult *)result;
 @end

@@ -21,11 +21,9 @@
 @interface SNPPointViewController ()<UITextFieldDelegate, MID3DSControllerDelegate>
 @property (strong, nonatomic) IBOutlet SNPPointView *view;
 @property (nonatomic,strong) NSString *creditCardToken;
-//@property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic,strong)MIDPointResponse *pointResponse;
 @property (nonatomic) NSInteger attemptRetry;
 @property (nonatomic) BOOL savedCard;
-//@property (nonatomic,strong) MidtransPaymentCreditCard *transaction;
 @property (nonatomic,strong) NSMutableArray *pointRedeem;
 @property (nonatomic,strong) NSString *point;
 @property (nonatomic) NSInteger currentPoint;
@@ -157,12 +155,18 @@
 }
 
 - (void)secureAuthenticationSuccess:(MID3DSController *)viewController {
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+    
     [self executeTransaction];
 }
 
-- (void)secureAuthenticationRBASuccess:(MID3DSController *)viewController {}
+- (void)secureAuthenticationRBASuccess:(MID3DSController *)viewController {
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 - (void)secureAuthenticationError:(MID3DSController *)viewController error:(NSError *)error {
+    [viewController dismissViewControllerAnimated:YES completion:nil];
+    
     [self handleTransactionError:error];
 }
 

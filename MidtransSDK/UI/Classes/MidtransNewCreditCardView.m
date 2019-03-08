@@ -13,9 +13,10 @@
 #import "MidtransUINextStepButton.h"
 #import "MidtransUITextField.h"
 #import "MidtransUIThemeManager.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDCreditCardHelper.h"
 #import "MidtransPaymentMethodHeader.h"
 #import "MIdtransUIBorderedView.h"
+#import "MIDUITrackingManager.h"
 
 @implementation MidtransNewCreditCardView
 
@@ -52,22 +53,22 @@
     return [[UIImage imageNamed:imageName inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate];
 }
 
-- (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
-    self.totalAmountPrice.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
-    self.orderIdTextLabel.text = tokenResponse.transactionDetails.orderId;
+- (void)configureAmountTotal:(MIDPaymentInfo *)info {
+    self.totalAmountPrice.text = info.transaction.grossAmount.formattedCurrencyNumber;
+    self.orderIdTextLabel.text = info.transaction.orderID;
 }
 - (UIImage *)iconWithBankName:(NSString *)bankName {
     return [UIImage imageNamed:[bankName lowercaseString] inBundle:VTBundle compatibleWithTraitCollection:nil];
 }
 - (UIImage *)iconDarkWithNumber:(NSString *)number {
-    switch ([MidtransCreditCardHelper typeFromString:number]) {
-        case VTCreditCardTypeVisa:
+    switch ([MIDCreditCardHelper typeFromString:number]) {
+        case MIDCreditCardTypeVisa:
             return [UIImage imageNamed:@"VisaDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeJCB:
+        case MIDCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCBDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeMasterCard:
+        case MIDCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCardDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeAmex:
+        case MIDCreditCardTypeAmex:
             return [UIImage imageNamed:@"AmexDark" inBundle:VTBundle compatibleWithTraitCollection:nil];
         default:
             return nil;
@@ -75,14 +76,14 @@
 }
 
 - (UIImage *)iconWithNumber:(NSString *)number {
-    switch ([MidtransCreditCardHelper typeFromString:number]) {
-        case VTCreditCardTypeVisa:
+    switch ([MIDCreditCardHelper typeFromString:number]) {
+        case MIDCreditCardTypeVisa:
             return [UIImage imageNamed:@"Visa" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeJCB:
+        case MIDCreditCardTypeJCB:
             return [UIImage imageNamed:@"JCB" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeMasterCard:
+        case MIDCreditCardTypeMasterCard:
             return [UIImage imageNamed:@"MasterCard" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        case VTCreditCardTypeAmex:
+        case MIDCreditCardTypeAmex:
             return [UIImage imageNamed:@"Amex" inBundle:VTBundle compatibleWithTraitCollection:nil];
         default:
             return nil;
@@ -116,6 +117,6 @@
     }
 }
 - (void)sendTrackingEvent:(NSString *)eventName {
-    [[SNPUITrackingManager shared] trackEventName:eventName];
+    [[MIDUITrackingManager shared] trackEventName:eventName];
 }
 @end

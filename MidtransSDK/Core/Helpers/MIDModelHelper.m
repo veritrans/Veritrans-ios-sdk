@@ -295,6 +295,35 @@
     }
 }
 
+- (MIDAcquiringBank)acquiringBank {
+    if ([self isEqualToString:@"bca"]) {
+        return MIDAcquiringBankBCA;
+    }
+    else if ([self isEqualToString:@"bni"]) {
+        return MIDAcquiringBankBNI;
+    }
+    else if ([self isEqualToString:@"bri"]) {
+        return MIDAcquiringBankBRI;
+    }
+    else if ([self isEqualToString:@"cimb"]) {
+        return MIDAcquiringBankCIMB;
+    }
+    else if ([self isEqualToString:@"mega"]) {
+        return MIDAcquiringBankMega;
+    }
+    else if ([self isEqualToString:@"danamon"]) {
+        return MIDAcquiringBankDanamon;
+    }
+    else if ([self isEqualToString:@"mandiri"]) {
+        return MIDAcquiringBankMandiri;
+    }
+    else if ([self isEqualToString:@"maybank"]) {
+        return MIDAcquiringBankMaybank;
+    } else {
+        return MIDAcquiringBankNone;
+    }
+}
+
 - (NSNumber *)toNumber {
     NSNumberFormatter *f = [[NSNumberFormatter alloc] init];
     f.numberStyle = NSNumberFormatterDecimalStyle;

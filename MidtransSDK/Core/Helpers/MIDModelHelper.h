@@ -48,6 +48,7 @@
 - (MIDCurrency)currencyType;
 - (MIDPaymentMethod)paymentMethod;
 - (MIDPaymentCategory)paymentCategory;
+- (MIDAcquiringBank)acquiringBank;
 
 - (NSNumber *)toNumber;
 

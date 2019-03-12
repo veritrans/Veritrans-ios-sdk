@@ -10,10 +10,10 @@
 
 @implementation MIDPromoOption
 
-- (instancetype)initWithID:(NSString *)promoID discountedGrossAmount:(NSNumber *)grossAmount {
+- (instancetype)initWithPromoID:(NSNumber *)promoID discountedGrossAmount:(NSNumber *)discountedGrossAmount {
     if (self = [super init]) {
         self.promoID = promoID;
-        self.discountedGrossAmount = grossAmount;
+        self.discountedGrossAmount = discountedGrossAmount;
     }
     return self;
 }

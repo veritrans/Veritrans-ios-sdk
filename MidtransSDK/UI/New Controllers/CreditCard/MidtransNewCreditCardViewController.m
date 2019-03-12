@@ -937,9 +937,8 @@ MidtransCommonTSCViewControllerDelegate
     MIDPromoOption *promo;
     if (self.selectedPromos){
         if (self.selectedPromos.addOnAddtional) {
-            NSInteger totalOrder = self.info.transaction.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
-            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
-            promo = [[MIDPromoOption alloc] initWithID:self.selectedPromos.addOnAddtional discountedGrossAmount:castingNumber];
+            MIDPromo *_promo = self.info.promo.promos[self.currentPromoIndex.integerValue];
+            promo = [[MIDPromoOption alloc] initWithPromoID:_promo.promoID discountedGrossAmount:_promo.discountedGrossAmount];
         }
     }
     
@@ -969,7 +968,7 @@ MidtransCommonTSCViewControllerDelegate
                                     save:self.isSaveCard
                              installment:installment
                                    point:nil
-                                   promo: promo
+                                   promo:promo
                               completion:^(MIDCreditCardResult * _Nullable result, NSError * _Nullable error)
      {
          

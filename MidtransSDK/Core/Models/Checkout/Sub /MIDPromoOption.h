@@ -13,9 +13,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDPromoOption : NSObject<MIDCheckoutable>
 
-- (instancetype)initWithID:(NSString *)promoID discountedGrossAmount:(NSNumber *)grossAmount;
+- (instancetype)initWithPromoID:(NSNumber *)promoID discountedGrossAmount:(NSNumber *)discountedGrossAmount;
 
-@property (nonatomic) NSString *promoID;
+@property (nonatomic) NSNumber *promoID;
 @property (nonatomic) NSNumber *discountedGrossAmount;
 
 @end

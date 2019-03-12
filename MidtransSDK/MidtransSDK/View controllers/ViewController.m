@@ -24,21 +24,6 @@
                                                                       grossAmount:@20000
                                                                          currency:MIDCurrencyIDR];
     
-    MIDCheckoutIdentifier *identifier = [[MIDCheckoutIdentifier alloc] initWithUserIdentifier:@"jukiginanjar"];
-    
-    NSArray *whitelistBins = @[@"48111111", @"41111111"];
-    NSArray *blacklistBins = @[@"49111111", @"44111111"];
-    MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
-                                                                  terms:@[@6, @12]];
-    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:NO];
-    MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
-                                                                  authentication:MIDAuthentication3DS
-                                                                   acquiringBank:MIDAcquiringBankNone
-                                                                acquiringChannel:MIDAcquiringChannelNone
-                                                                     installment:nil
-                                                                   whiteListBins:nil
-                                                                   blackListBins:nil];
-    
     MIDAddress *addr = [[MIDAddress alloc] initWithFirstName:@"susan"
                                                     lastName:@"bahtiar"
                                                        email:@"susan_bahtiar@gmail.com"
@@ -68,6 +53,22 @@
     MIDCheckoutExpiry *expiry = [[MIDCheckoutExpiry alloc] initWithStartDate:[NSDate date]
                                                                     duration:1
                                                                         unit:MIDExpiryTimeUnitDay];
+    
+    //Credit card configurations
+    MIDCheckoutIdentifier *identifier = [[MIDCheckoutIdentifier alloc] initWithUserIdentifier:@"jukiginanjar"];
+    
+    NSArray *whitelistBins = @[@"48111111", @"41111111"];
+    NSArray *blacklistBins = @[@"49111111", @"44111111"];
+    MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+                                                                  terms:@[@6, @12]];
+    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:NO];
+    MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
+                                                                  authentication:MIDAuthentication3DS
+                                                                   acquiringBank:MIDAcquiringBankNone
+                                                                acquiringChannel:MIDAcquiringChannelNone
+                                                                     installment:nil
+                                                                   whiteListBins:nil
+                                                                   blackListBins:nil];
     
     //and put it at checkout options
     [MidtransKit presentPaymentPageAt:self

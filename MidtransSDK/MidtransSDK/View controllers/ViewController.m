@@ -59,9 +59,12 @@
     
     NSArray *whitelistBins = @[@"48111111", @"41111111"];
     NSArray *blacklistBins = @[@"49111111", @"44111111"];
+    
     MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
-                                                                  terms:@[@6, @12]];
+                                                                  terms:@[@6, @12, @24]];
+    
     MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:NO];
+    
     MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
                                                                   authentication:MIDAuthentication3DS
                                                                    acquiringBank:MIDAcquiringBankNone

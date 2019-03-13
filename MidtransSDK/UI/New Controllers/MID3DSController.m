@@ -33,12 +33,20 @@
     self.navigationItem.leftBarButtonItem = closeButton;
     self.title =self.titleOveride.length?self.titleOveride:NSLocalizedString(@"3D Secure", nil);
     self.title = @"Credit Card";
+    self.view.backgroundColor = [UIColor whiteColor];
+    
     self.webView = [UIWebView new];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     self.webView.delegate = self;
     [self.view addSubview:self.webView];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
+    
+    NSArray *constraints = @[[self.webView.topAnchor constraintEqualToAnchor:self.topLayoutGuide.bottomAnchor],
+                             [self.webView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor],
+                             [self.webView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                             [self.webView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor]
+                             ];
+    [NSLayoutConstraint activateConstraints:constraints];
+    
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.secureURL]];
 }
 

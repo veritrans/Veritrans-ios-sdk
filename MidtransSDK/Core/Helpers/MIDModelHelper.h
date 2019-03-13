@@ -41,7 +41,7 @@
 
 + (NSString *)stringFromDate:(NSDate *)date format:(NSString *)format;
 + (NSString *)stringFromBool:(BOOL)boolean;
-+ (NSString *)stringFromPaymentMethod:(MIDPaymentMethod)method;
++ (NSString *)stringOfPaymentMethod:(MIDPaymentMethod)method;
 + (NSString *)stringOfPaymentCategory:(MIDPaymentCategory)category;
 
 - (MIDCreditCardTransactionType)creditCardTransactionType;

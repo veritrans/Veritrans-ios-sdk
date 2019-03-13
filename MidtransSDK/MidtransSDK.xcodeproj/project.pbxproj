@@ -46,6 +46,13 @@
 		E545E0D521B503CD005C1EB3 /* MIDPermataBankTransferResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E545E0D421B503CD005C1EB3 /* MIDPermataBankTransferResult.m */; };
 		E545E0D821B503DA005C1EB3 /* MIDMandiriBankTransferResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E545E0D721B503DA005C1EB3 /* MIDMandiriBankTransferResult.m */; };
 		E545E0DB21B518EE005C1EB3 /* MIDPaymentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E545E0DA21B518EE005C1EB3 /* MIDPaymentHelper.m */; };
+		E54D6AC22238BE5600BC7D7D /* id_alfamart.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC02238BE5600BC7D7D /* id_alfamart.plist */; };
+		E54D6AC32238BE5600BC7D7D /* en_alfamart.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC12238BE5600BC7D7D /* en_alfamart.plist */; };
+		E54D6AC72238E20F00BC7D7D /* dandan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC42238E20E00BC7D7D /* dandan@2x.png */; };
+		E54D6AC82238E20F00BC7D7D /* dandan.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC52238E20E00BC7D7D /* dandan.png */; };
+		E54D6AC92238E20F00BC7D7D /* dandan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC62238E20E00BC7D7D /* dandan@3x.png */; };
+		E54D6ACC2238E30900BC7D7D /* alfamidi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6ACA2238E30800BC7D7D /* alfamidi@2x.png */; };
+		E54D6ACD2238E30900BC7D7D /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6ACB2238E30800BC7D7D /* alfamidi@3x.png */; };
 		E55122D12195EE0200DA3621 /* MIDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122D02195EE0200DA3621 /* MIDConfig.m */; };
 		E55122D62195FFBB00DA3621 /* MIDRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122D52195FFBB00DA3621 /* MIDRequestBuilder.m */; };
 		E55122DB2196056F00DA3621 /* MIDCustomerDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122DA2196056F00DA3621 /* MIDCustomerDetails.m */; };
@@ -98,6 +105,19 @@
 		E597353721A2A07F005C9BA0 /* MIDCreditCard.m in Sources */ = {isa = PBXBuildFile; fileRef = E597353621A2A07F005C9BA0 /* MIDCreditCard.m */; };
 		E597353A21A2AA55005C9BA0 /* MIDInstallment.m in Sources */ = {isa = PBXBuildFile; fileRef = E597353921A2AA55005C9BA0 /* MIDInstallment.m */; };
 		E59A0E0921FF043800236207 /* MIDTokenizeTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E59A0E0821FF043800236207 /* MIDTokenizeTest.m */; };
+		E59E05082238AD9C00EDAFF7 /* alfamart_1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59E05022238AD9B00EDAFF7 /* alfamart_1@3x.png */; };
+		E59E05092238AD9C00EDAFF7 /* alfamart_1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59E05032238AD9B00EDAFF7 /* alfamart_1@2x.png */; };
+		E59E050A2238AD9C00EDAFF7 /* alfamart@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59E05042238AD9B00EDAFF7 /* alfamart@2x.png */; };
+		E59E050B2238AD9C00EDAFF7 /* alfamart.png in Resources */ = {isa = PBXBuildFile; fileRef = E59E05052238AD9C00EDAFF7 /* alfamart.png */; };
+		E59E050C2238AD9C00EDAFF7 /* alfamart@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E59E05062238AD9C00EDAFF7 /* alfamart@3x.png */; };
+		E59E050D2238AD9C00EDAFF7 /* alfamart_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E59E05072238AD9C00EDAFF7 /* alfamart_1.png */; };
+		E59E05162238ADBD00EDAFF7 /* MIDAlfamartView.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E050E2238ADBC00EDAFF7 /* MIDAlfamartView.m */; };
+		E59E05172238ADBD00EDAFF7 /* MIDAlfamartPostPaymentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E050F2238ADBC00EDAFF7 /* MIDAlfamartPostPaymentViewController.m */; };
+		E59E05182238ADBD00EDAFF7 /* MIDAlfamartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E05122238ADBC00EDAFF7 /* MIDAlfamartViewController.m */; };
+		E59E05192238ADBD00EDAFF7 /* MIDAlfamartPostPaymentView.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E05152238ADBD00EDAFF7 /* MIDAlfamartPostPaymentView.m */; };
+		E59E051C2238ADCA00EDAFF7 /* MIDAlfamartPostPaymentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59E051A2238ADCA00EDAFF7 /* MIDAlfamartPostPaymentViewController.xib */; };
+		E59E051D2238ADCA00EDAFF7 /* MIDAlfamartViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E59E051B2238ADCA00EDAFF7 /* MIDAlfamartViewController.xib */; };
+		E59E05222238AE2700EDAFF7 /* MIDAlfamartPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E05212238AE2700EDAFF7 /* MIDAlfamartPayment.m */; };
 		E5AE6EC3221283DA0064FE00 /* MidtransKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6EC2221283DA0064FE00 /* MidtransKit.m */; };
 		E5AE6FB82212A0890064FE00 /* VTGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6ED62212A0600064FE00 /* VTGuideView.m */; };
 		E5AE6FB92212A0890064FE00 /* VTVATransactionStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6ED72212A0600064FE00 /* VTVATransactionStatusViewModel.m */; };
@@ -557,7 +577,7 @@
 		E5C7CD3021BD56FA00C22045 /* MIDStoreTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C7CD2F21BD56FA00C22045 /* MIDStoreTest.m */; };
 		E5C7CD3221BD570F00C22045 /* MIDDirectDebitTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5C7CD3121BD570F00C22045 /* MIDDirectDebitTest.m */; };
 		E5D21D5521B636570082ABF8 /* MIDGopayResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D21D5421B636570082ABF8 /* MIDGopayResult.m */; };
-		E5D21D5821B637800082ABF8 /* MIDIndomaretResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D21D5721B637800082ABF8 /* MIDIndomaretResult.m */; };
+		E5D21D5821B637800082ABF8 /* MIDCStoreResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D21D5721B637800082ABF8 /* MIDCStoreResult.m */; };
 		E5D22B8B222D56BC00982149 /* MID3DSController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D22B8A222D56BC00982149 /* MID3DSController.m */; };
 		E5D3C7B42192D7700090DDAE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7B32192D7700090DDAE /* AppDelegate.m */; };
 		E5D3C7B72192D7700090DDAE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7B62192D7700090DDAE /* ViewController.m */; };
@@ -682,6 +702,13 @@
 		E545E0D721B503DA005C1EB3 /* MIDMandiriBankTransferResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDMandiriBankTransferResult.m; sourceTree = "<group>"; };
 		E545E0D921B518EE005C1EB3 /* MIDPaymentHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDPaymentHelper.h; sourceTree = "<group>"; };
 		E545E0DA21B518EE005C1EB3 /* MIDPaymentHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDPaymentHelper.m; sourceTree = "<group>"; };
+		E54D6AC02238BE5600BC7D7D /* id_alfamart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = id_alfamart.plist; sourceTree = "<group>"; };
+		E54D6AC12238BE5600BC7D7D /* en_alfamart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = en_alfamart.plist; sourceTree = "<group>"; };
+		E54D6AC42238E20E00BC7D7D /* dandan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dandan@2x.png"; sourceTree = "<group>"; };
+		E54D6AC52238E20E00BC7D7D /* dandan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dandan.png; sourceTree = "<group>"; };
+		E54D6AC62238E20E00BC7D7D /* dandan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dandan@3x.png"; sourceTree = "<group>"; };
+		E54D6ACA2238E30800BC7D7D /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamidi@2x.png"; sourceTree = "<group>"; };
+		E54D6ACB2238E30800BC7D7D /* alfamidi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamidi@3x.png"; sourceTree = "<group>"; };
 		E55122CF2195EE0200DA3621 /* MIDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDConfig.h; sourceTree = "<group>"; };
 		E55122D02195EE0200DA3621 /* MIDConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDConfig.m; sourceTree = "<group>"; };
 		E55122D42195FFBB00DA3621 /* MIDRequestBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDRequestBuilder.h; sourceTree = "<group>"; };
@@ -777,6 +804,24 @@
 		E597353921A2AA55005C9BA0 /* MIDInstallment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDInstallment.m; sourceTree = "<group>"; };
 		E597353B21A2BD3F005C9BA0 /* MIDModelEnums.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDModelEnums.h; sourceTree = "<group>"; };
 		E59A0E0821FF043800236207 /* MIDTokenizeTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTokenizeTest.m; sourceTree = "<group>"; };
+		E59E05022238AD9B00EDAFF7 /* alfamart_1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamart_1@3x.png"; sourceTree = "<group>"; };
+		E59E05032238AD9B00EDAFF7 /* alfamart_1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamart_1@2x.png"; sourceTree = "<group>"; };
+		E59E05042238AD9B00EDAFF7 /* alfamart@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamart@2x.png"; sourceTree = "<group>"; };
+		E59E05052238AD9C00EDAFF7 /* alfamart.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alfamart.png; sourceTree = "<group>"; };
+		E59E05062238AD9C00EDAFF7 /* alfamart@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamart@3x.png"; sourceTree = "<group>"; };
+		E59E05072238AD9C00EDAFF7 /* alfamart_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alfamart_1.png; sourceTree = "<group>"; };
+		E59E050E2238ADBC00EDAFF7 /* MIDAlfamartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDAlfamartView.m; sourceTree = "<group>"; };
+		E59E050F2238ADBC00EDAFF7 /* MIDAlfamartPostPaymentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDAlfamartPostPaymentViewController.m; sourceTree = "<group>"; };
+		E59E05102238ADBC00EDAFF7 /* MIDAlfamartViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDAlfamartViewController.h; sourceTree = "<group>"; };
+		E59E05112238ADBC00EDAFF7 /* MIDAlfamartPostPaymentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDAlfamartPostPaymentView.h; sourceTree = "<group>"; };
+		E59E05122238ADBC00EDAFF7 /* MIDAlfamartViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDAlfamartViewController.m; sourceTree = "<group>"; };
+		E59E05132238ADBC00EDAFF7 /* MIDAlfamartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDAlfamartView.h; sourceTree = "<group>"; };
+		E59E05142238ADBC00EDAFF7 /* MIDAlfamartPostPaymentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDAlfamartPostPaymentViewController.h; sourceTree = "<group>"; };
+		E59E05152238ADBD00EDAFF7 /* MIDAlfamartPostPaymentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDAlfamartPostPaymentView.m; sourceTree = "<group>"; };
+		E59E051A2238ADCA00EDAFF7 /* MIDAlfamartPostPaymentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIDAlfamartPostPaymentViewController.xib; sourceTree = "<group>"; };
+		E59E051B2238ADCA00EDAFF7 /* MIDAlfamartViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MIDAlfamartViewController.xib; sourceTree = "<group>"; };
+		E59E05202238AE2700EDAFF7 /* MIDAlfamartPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDAlfamartPayment.h; sourceTree = "<group>"; };
+		E59E05212238AE2700EDAFF7 /* MIDAlfamartPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDAlfamartPayment.m; sourceTree = "<group>"; };
 		E5AE6EC1221283DA0064FE00 /* MidtransKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransKit.h; sourceTree = "<group>"; };
 		E5AE6EC2221283DA0064FE00 /* MidtransKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransKit.m; sourceTree = "<group>"; };
 		E5AE6ED42212A0600064FE00 /* MidtransUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUITextField.h; sourceTree = "<group>"; };
@@ -1355,8 +1400,8 @@
 		E5C7CD3121BD570F00C22045 /* MIDDirectDebitTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDDirectDebitTest.m; sourceTree = "<group>"; };
 		E5D21D5321B636570082ABF8 /* MIDGopayResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDGopayResult.h; sourceTree = "<group>"; };
 		E5D21D5421B636570082ABF8 /* MIDGopayResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDGopayResult.m; sourceTree = "<group>"; };
-		E5D21D5621B637800082ABF8 /* MIDIndomaretResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDIndomaretResult.h; sourceTree = "<group>"; };
-		E5D21D5721B637800082ABF8 /* MIDIndomaretResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDIndomaretResult.m; sourceTree = "<group>"; };
+		E5D21D5621B637800082ABF8 /* MIDCStoreResult.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCStoreResult.h; sourceTree = "<group>"; };
+		E5D21D5721B637800082ABF8 /* MIDCStoreResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCStoreResult.m; sourceTree = "<group>"; };
 		E5D22B89222D56BC00982149 /* MID3DSController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MID3DSController.h; sourceTree = "<group>"; };
 		E5D22B8A222D56BC00982149 /* MID3DSController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MID3DSController.m; sourceTree = "<group>"; };
 		E5D3C7AF2192D7700090DDAE /* MidtransSDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MidtransSDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1673,8 +1718,8 @@
 				E58CC6C021A663FB007879FB /* MIDPaymentResult.m */,
 				E5D21D5321B636570082ABF8 /* MIDGopayResult.h */,
 				E5D21D5421B636570082ABF8 /* MIDGopayResult.m */,
-				E5D21D5621B637800082ABF8 /* MIDIndomaretResult.h */,
-				E5D21D5721B637800082ABF8 /* MIDIndomaretResult.m */,
+				E5D21D5621B637800082ABF8 /* MIDCStoreResult.h */,
+				E5D21D5721B637800082ABF8 /* MIDCStoreResult.m */,
 				E543E24B21B75B8F00969B7F /* MIDWebPaymentResult.h */,
 				E543E24C21B75B8F00969B7F /* MIDWebPaymentResult.m */,
 				E597253221B9555400CC2E30 /* MIDClickpayResult.h */,
@@ -1803,6 +1848,7 @@
 				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
 				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
 				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E59E05012238AD7A00EDAFF7 /* Alfamart */,
 				E5D2F32F222FAE7B00F6E34D /* Indomaret */,
 				E52E42632224F0AF00810403 /* GoPay */,
 				E5531CB6221AC4AA00D78111 /* Bank Transfer */,
@@ -1867,6 +1913,8 @@
 				E5EBB4D521C38F8900D317A2 /* MIDCreditCardPayment.m */,
 				E534402F221CDEBA002E9692 /* MIDTelkomselCashPayment.h */,
 				E5344030221CDEBA002E9692 /* MIDTelkomselCashPayment.m */,
+				E59E05202238AE2700EDAFF7 /* MIDAlfamartPayment.h */,
+				E59E05212238AE2700EDAFF7 /* MIDAlfamartPayment.m */,
 			);
 			path = Payment;
 			sourceTree = "<group>";
@@ -1920,6 +1968,23 @@
 			path = "Credit Card";
 			sourceTree = "<group>";
 		};
+		E59E05012238AD7A00EDAFF7 /* Alfamart */ = {
+			isa = PBXGroup;
+			children = (
+				E59E05142238ADBC00EDAFF7 /* MIDAlfamartPostPaymentViewController.h */,
+				E59E050F2238ADBC00EDAFF7 /* MIDAlfamartPostPaymentViewController.m */,
+				E59E051A2238ADCA00EDAFF7 /* MIDAlfamartPostPaymentViewController.xib */,
+				E59E05102238ADBC00EDAFF7 /* MIDAlfamartViewController.h */,
+				E59E05122238ADBC00EDAFF7 /* MIDAlfamartViewController.m */,
+				E59E051B2238ADCA00EDAFF7 /* MIDAlfamartViewController.xib */,
+				E59E05112238ADBC00EDAFF7 /* MIDAlfamartPostPaymentView.h */,
+				E59E05152238ADBD00EDAFF7 /* MIDAlfamartPostPaymentView.m */,
+				E59E05132238ADBC00EDAFF7 /* MIDAlfamartView.h */,
+				E59E050E2238ADBC00EDAFF7 /* MIDAlfamartView.m */,
+			);
+			path = Alfamart;
+			sourceTree = "<group>";
+		};
 		E5AE6EC0221283AC0064FE00 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1942,6 +2007,17 @@
 		E5AE70412212A0B30064FE00 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				E54D6ACA2238E30800BC7D7D /* alfamidi@2x.png */,
+				E54D6ACB2238E30800BC7D7D /* alfamidi@3x.png */,
+				E54D6AC52238E20E00BC7D7D /* dandan.png */,
+				E54D6AC42238E20E00BC7D7D /* dandan@2x.png */,
+				E54D6AC62238E20E00BC7D7D /* dandan@3x.png */,
+				E59E05072238AD9C00EDAFF7 /* alfamart_1.png */,
+				E59E05032238AD9B00EDAFF7 /* alfamart_1@2x.png */,
+				E59E05022238AD9B00EDAFF7 /* alfamart_1@3x.png */,
+				E59E05052238AD9C00EDAFF7 /* alfamart.png */,
+				E59E05042238AD9B00EDAFF7 /* alfamart@2x.png */,
+				E59E05062238AD9C00EDAFF7 /* alfamart@3x.png */,
 				E56FA93B2212A5B5003DC10D /* ic_chevron_down.png */,
 				E56FA93A2212A5B5003DC10D /* ic_chevron_down@2x.png */,
 				E56FA93C2212A5B6003DC10D /* ic_chevron_down@3x.png */,
@@ -2385,6 +2461,8 @@
 		E5AE73202212A3050064FE00 /* Plist */ = {
 			isa = PBXGroup;
 			children = (
+				E54D6AC12238BE5600BC7D7D /* en_alfamart.plist */,
+				E54D6AC02238BE5600BC7D7D /* id_alfamart.plist */,
 				E5AE72CE2212A2C80064FE00 /* snap_colors.plist */,
 				E5AE725C2212A2A80064FE00 /* en_akulaku.plist */,
 				E5AE72582212A2A70064FE00 /* en_bca_klikbca.plist */,
@@ -2758,6 +2836,7 @@
 				E5AE71542212A2030064FE00 /* sms@3x.png in Resources */,
 				E5AE705B2212A1960064FE00 /* scan_cam@2x.png in Resources */,
 				E5AE71592212A2030064FE00 /* other_alto_2@2x.png in Resources */,
+				E59E050C2238AD9C00EDAFF7 /* alfamart@3x.png in Resources */,
 				E5AE72242212A2650064FE00 /* ic_chevron_up.png in Resources */,
 				E5AE71C92212A2040064FE00 /* CreditCardBack@2x.png in Resources */,
 				E5AE71AC2212A2040064FE00 /* bni_va3@2x.png in Resources */,
@@ -2794,6 +2873,7 @@
 				E5AE72752212A2AD0064FE00 /* en_permata_va.plist in Resources */,
 				E5AE71BE2212A2040064FE00 /* gopay_button@2x.png in Resources */,
 				E5EDAEB8221565BC00552AF3 /* OCRAEXT.TTF in Resources */,
+				E59E050A2238AD9C00EDAFF7 /* alfamart@2x.png in Resources */,
 				E5AE712A2212A2030064FE00 /* bca_va@2x.png in Resources */,
 				E5AE716B2212A2030064FE00 /* permata_atm_7@2x.png in Resources */,
 				E5AE72EE2212A2CA0064FE00 /* VTMultiGuideController.xib in Resources */,
@@ -2848,6 +2928,7 @@
 				E5AE711F2212A2030064FE00 /* Fill 57@3x.png in Resources */,
 				E5AE719A2212A2040064FE00 /* bni@2x.png in Resources */,
 				E5AE71AB2212A2040064FE00 /* CreditCardBackSmall@2x.png in Resources */,
+				E54D6AC92238E20F00BC7D7D /* dandan@3x.png in Resources */,
 				E5AE713F2212A2030064FE00 /* mandiri.png in Resources */,
 				E5AE71622212A2030064FE00 /* visa-mastercard-jcb-amex.png in Resources */,
 				E5AE71792212A2030064FE00 /* telkomsel_cash@2x.png in Resources */,
@@ -2866,11 +2947,14 @@
 				E5AE72F52212A2CA0064FE00 /* VTIndomaretSuccessController.xib in Resources */,
 				E5AE71A32212A2040064FE00 /* visa-mastercard-jcb-amex@2x.png in Resources */,
 				E5AE71892212A2040064FE00 /* bca_klikpay@2x.png in Resources */,
+				E59E050B2238AD9C00EDAFF7 /* alfamart.png in Resources */,
 				E5AE72342212A2650064FE00 /* ic_chevron_up@3x.png in Resources */,
 				E5AE71C72212A2040064FE00 /* other_alto_7@2x.png in Resources */,
 				E5AE71C52212A2040064FE00 /* mandiri_atm_1@2x.png in Resources */,
+				E54D6ACD2238E30900BC7D7D /* alfamidi@3x.png in Resources */,
 				E5AE72DF2212A2CA0064FE00 /* MidtransPaymentMethodHeader.xib in Resources */,
 				E5AE71312212A2030064FE00 /* bca_atm_1@2x.png in Resources */,
+				E54D6AC72238E20F00BC7D7D /* dandan@2x.png in Resources */,
 				E5AE715B2212A2030064FE00 /* sms@1.5x.png in Resources */,
 				E5AE71AA2212A2040064FE00 /* other_atm_4@2x.png in Resources */,
 				E5AE71D82212A2040064FE00 /* bni.png in Resources */,
@@ -2891,6 +2975,7 @@
 				E5AE70532212A1960064FE00 /* akulaku@3x.png in Resources */,
 				E5AE71BD2212A2040064FE00 /* other_prima_7@2x.png in Resources */,
 				E5AE71A72212A2040064FE00 /* mandiri@2x.png in Resources */,
+				E54D6AC22238BE5600BC7D7D /* id_alfamart.plist in Resources */,
 				E5AE73252212A3210064FE00 /* bin.json in Resources */,
 				E5AE71A22212A2040064FE00 /* VASuccessIcon@2x.png in Resources */,
 				E5AE71642212A2030064FE00 /* prevIcon@2x.png in Resources */,
@@ -2931,6 +3016,7 @@
 				E5D3C7BA2192D7700090DDAE /* Main.storyboard in Resources */,
 				E5AE722A2212A2650064FE00 /* ic_no_gopay@3x.png in Resources */,
 				E5AE714C2212A2030064FE00 /* TokenButtonIcon@2x.png in Resources */,
+				E59E051C2238ADCA00EDAFF7 /* MIDAlfamartPostPaymentViewController.xib in Resources */,
 				E5AE71D02212A2040064FE00 /* permata_atm_6@2x.png in Resources */,
 				E5AE72042212A2540064FE00 /* alto_affiliated.png in Resources */,
 				E5AE71BA2212A2040064FE00 /* bca_atm_2@2x.png in Resources */,
@@ -2946,6 +3032,7 @@
 				E5AE71FB2212A2540064FE00 /* prima_affiliated@2x.png in Resources */,
 				E5AE72092212A2540064FE00 /* prima@3x.png in Resources */,
 				E5AE71902212A2040064FE00 /* icon_btn_plus_@2x.png in Resources */,
+				E54D6AC32238BE5600BC7D7D /* en_alfamart.plist in Resources */,
 				E5AE717D2212A2040064FE00 /* maintain@2x.png in Resources */,
 				E5AE71C32212A2040064FE00 /* visa-mastercard@2x.png in Resources */,
 				E5AE71732212A2030064FE00 /* bca_klikbca@2x.png in Resources */,
@@ -2955,6 +3042,7 @@
 				E5AE71A12212A2040064FE00 /* sms@2x.png in Resources */,
 				E5AE71452212A2030064FE00 /* echannel@2x.png in Resources */,
 				E5AE70512212A1960064FE00 /* see@2x.png in Resources */,
+				E54D6ACC2238E30900BC7D7D /* alfamidi@2x.png in Resources */,
 				E5AE72952212A2AD0064FE00 /* en_bri_epay.plist in Resources */,
 				E5AE715F2212A2030064FE00 /* mandiri_atm_3@2x.png in Resources */,
 				E5AE72262212A2650064FE00 /* gopay_scan_qr_instruction.png in Resources */,
@@ -2964,6 +3052,7 @@
 				E5AE72E12212A2CA0064FE00 /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				E5AE71722212A2030064FE00 /* bni_va6@2x.png in Resources */,
 				E5AE71D42212A2040064FE00 /* mandiri_va@2x.png in Resources */,
+				E54D6AC82238E20F00BC7D7D /* dandan.png in Resources */,
 				E5AE72FC2212A2CA0064FE00 /* MidtransTransactionDetailViewController.xib in Resources */,
 				E5AE717B2212A2030064FE00 /* trash-icon@2x.png in Resources */,
 				E5AE71672212A2030064FE00 /* anz@2x.png in Resources */,
@@ -2988,6 +3077,7 @@
 				E5AE716C2212A2030064FE00 /* bca.png in Resources */,
 				E5AE722C2212A2650064FE00 /* gojek_icon@3x.png in Resources */,
 				E5AE71572212A2030064FE00 /* test_badge@2x.png in Resources */,
+				E59E05092238AD9C00EDAFF7 /* alfamart_1@2x.png in Resources */,
 				E5AE72E02212A2CA0064FE00 /* VTMandiriClickpayController.xib in Resources */,
 				E5AE71632212A2030064FE00 /* other_prima_5@2x.png in Resources */,
 				E5AE72F82212A2CA0064FE00 /* MidGopayViewController.xib in Resources */,
@@ -2999,6 +3089,7 @@
 				E5AE71B22212A2040064FE00 /* other_alto_4@2x.png in Resources */,
 				E5AE72322212A2650064FE00 /* gopay@2x.png in Resources */,
 				E5AE727B2212A2AD0064FE00 /* id_bca_klikbca.plist in Resources */,
+				E59E050D2238AD9C00EDAFF7 /* alfamart_1.png in Resources */,
 				E5AE71822212A2040064FE00 /* cimb_clicks@2x.png in Resources */,
 				E5AE72772212A2AD0064FE00 /* en_other_va.plist in Resources */,
 				E5AE715E2212A2030064FE00 /* citi.png in Resources */,
@@ -3024,6 +3115,7 @@
 				E5AE71502212A2030064FE00 /* maintain@3x.png in Resources */,
 				E5AE730D2212A2CA0064FE00 /* VTVASuccessStatusController.xib in Resources */,
 				E5AE712B2212A2030064FE00 /* midtrans_logo_mid@2x.png in Resources */,
+				E59E05082238AD9C00EDAFF7 /* alfamart_1@3x.png in Resources */,
 				E5AE73062212A2CA0064FE00 /* MidtransSavedCardController.xib in Resources */,
 				E5AE73122212A2CA0064FE00 /* VTSubGuideController.xib in Resources */,
 				E5AE71362212A2030064FE00 /* pendingIcon@2x.png in Resources */,
@@ -3072,6 +3164,7 @@
 				E5AE71662212A2030064FE00 /* check@2x.png in Resources */,
 				E5AE71942212A2040064FE00 /* plus-icon@2x.png in Resources */,
 				E5AE727C2212A2AD0064FE00 /* id_telkomsel_cash.plist in Resources */,
+				E59E051D2238ADCA00EDAFF7 /* MIDAlfamartViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3197,6 +3290,7 @@
 				E5AE6FE92212A0890064FE00 /* VTVASuccessStatusController.m in Sources */,
 				E5EBB4DA21C396A800D317A2 /* MIDCreditCardResult.m in Sources */,
 				E5AE70142212A0890064FE00 /* MidtransUIToast.m in Sources */,
+				E59E05162238ADBD00EDAFF7 /* MIDAlfamartView.m in Sources */,
 				E5AE6FE32212A0890064FE00 /* VTPendingStatusController.m in Sources */,
 				E5AE70162212A0890064FE00 /* MidtransUIListCell.m in Sources */,
 				E5AE6FBC2212A0890064FE00 /* MidtransUIPaymentGeneralViewController.m in Sources */,
@@ -3262,19 +3356,22 @@
 				E5AE6FD12212A0890064FE00 /* MidtransUIRoundedLabel.m in Sources */,
 				E5AE6FEF2212A0890064FE00 /* MidGopayDetailViewController.m in Sources */,
 				E5AE6EC3221283DA0064FE00 /* MidtransKit.m in Sources */,
+				E59E05172238ADBD00EDAFF7 /* MIDAlfamartPostPaymentViewController.m in Sources */,
 				E5AE6FDF2212A0890064FE00 /* MIDPaymentIndomaretViewController.m in Sources */,
 				E5AE6FC12212A0890064FE00 /* AddOnConstructor.m in Sources */,
 				E5AE6FD52212A0890064FE00 /* MIDGopayView.m in Sources */,
 				E5AE6FE82212A0890064FE00 /* UIViewController+Modal.m in Sources */,
 				E5AE6FFA2212A0890064FE00 /* VTIndomaretSuccessController.m in Sources */,
 				E5AE6FFC2212A0890064FE00 /* UIFont+IBCustomFonts.m in Sources */,
-				E5D21D5821B637800082ABF8 /* MIDIndomaretResult.m in Sources */,
+				E59E05222238AE2700EDAFF7 /* MIDAlfamartPayment.m in Sources */,
+				E5D21D5821B637800082ABF8 /* MIDCStoreResult.m in Sources */,
 				E5AE6FF52212A0890064FE00 /* VTGroupedInstruction.m in Sources */,
 				E5163BFA219613FD00A24E59 /* MIDCheckoutTransaction.m in Sources */,
 				E5163C2721972EDE00A24E59 /* MIDTransactionInfo.m in Sources */,
 				E5AE70112212A0890064FE00 /* VTPaymentStatusViewModel.m in Sources */,
 				E57ADEE121D4A992001B52AB /* MIDChargeInstallment.m in Sources */,
 				E5AE6FCD2212A0890064FE00 /* UIViewController+HeaderSubtitle.m in Sources */,
+				E59E05192238ADBD00EDAFF7 /* MIDAlfamartPostPaymentView.m in Sources */,
 				E5AE6FF62212A0890064FE00 /* MidtransNewCreditCardView.m in Sources */,
 				E5AE6FDA2212A0890064FE00 /* MidtransUICardFormatter.m in Sources */,
 				E5D3C7C22192D7710090DDAE /* main.m in Sources */,
@@ -3307,6 +3404,7 @@
 				E5AE70212212A0890064FE00 /* NSString+TextDirectionality.m in Sources */,
 				E5AE6FBF2212A0890064FE00 /* MidGopayViewController.m in Sources */,
 				E5AE6FFE2212A0890064FE00 /* UIColor+VTColor.m in Sources */,
+				E59E05182238ADBD00EDAFF7 /* MIDAlfamartViewController.m in Sources */,
 				E5AE6FD72212A0890064FE00 /* MidtransSavedCardController.m in Sources */,
 				E5AE701B2212A0890064FE00 /* MidtransUIFontSource.m in Sources */,
 				E5C07D8721DC9A5A0020C858 /* MIDCheckoutIdentifier.m in Sources */,

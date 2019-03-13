@@ -52,7 +52,7 @@
     self.headerView.topTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"kioson.pending.code-title"];
     NSString *expireDate;
     if (self.paymentMethod.method == MIDPaymentMethodIndomaret) {
-        MIDIndomaretResult *result = (MIDIndomaretResult *)self.paymentResult;
+        MIDCStoreResult *result = (MIDCStoreResult *)self.paymentResult;
         
         expireDate = result.expiration;
         

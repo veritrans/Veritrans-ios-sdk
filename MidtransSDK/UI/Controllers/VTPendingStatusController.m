@@ -47,8 +47,8 @@ NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_tim
     self.orderIDLabel.text = self.result.orderID;
     self.expiryDateLabel.text = self.result.expiration;
     
-    if ([self.result isKindOfClass:[MIDIndomaretResult class]]) {
-        MIDIndomaretResult *_result = self.result;
+    if ([self.result isKindOfClass:[MIDCStoreResult class]]) {
+        MIDCStoreResult *_result = self.result;
         self.paymentCodeLabel.text = _result.paymentCode;
     }
 

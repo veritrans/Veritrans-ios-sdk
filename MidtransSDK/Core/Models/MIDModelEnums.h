@@ -89,7 +89,8 @@ typedef NS_ENUM(NSInteger, MIDPaymentMethod) {
     MIDPaymentMethodMandiriECash,
     MIDPaymentMethodIndomaret,
     MIDPaymentMethodAkulaku,
-    MIDPaymentMethodTelkomselCash
+    MIDPaymentMethodTelkomselCash,
+    MIDPaymentMethodAlfamart
 };
 
 typedef NS_ENUM(NSInteger, MIDPaymentCategory) {

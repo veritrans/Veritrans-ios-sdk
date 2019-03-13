@@ -14,7 +14,7 @@
 - (void)configureWithTransactionResult:(MIDPaymentResult *)result {
     if ([result.fraudStatus isEqualToString:@"challenge"]) {
         self.paymentStatusWrapperView.backgroundColor = [UIColor orangeColor];
-        self.paymentStatusPaymentTypeLabel.text =  [[[NSString stringFromPaymentMethod:result.paymentMethod] stringByReplacingOccurrencesOfString:@"_" withString:@" "] capitalizedString];
+        self.paymentStatusPaymentTypeLabel.text =  [[[NSString stringOfPaymentMethod:result.paymentMethod] stringByReplacingOccurrencesOfString:@"_" withString:@" "] capitalizedString];
         NSDateFormatter *formatter = [NSObject dateFormatterWithIdentifier:@"vt.date"];
         formatter.dateFormat = @"dd/MM/yyyy, HH:mm:ss";
         self.paymentStatusTransactionTimeLabel.text = [formatter stringFromDate:result.transactionTime];

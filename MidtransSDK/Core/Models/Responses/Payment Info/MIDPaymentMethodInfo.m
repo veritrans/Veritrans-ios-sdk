@@ -14,7 +14,7 @@
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [result setValue:[self stringStatus:self.isActive] forKey:@"status"];
-    [result setValue:[NSString stringFromPaymentMethod:self.type] forKey:@"type"];
+    [result setValue:[NSString stringOfPaymentMethod:self.type] forKey:@"type"];
     [result setValue:[NSString stringOfPaymentCategory:self.category] forKey:@"category"];
     return result;
 }

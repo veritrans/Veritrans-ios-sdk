@@ -25,7 +25,7 @@
         NSDateFormatter *formatter = [NSObject dateFormatterWithIdentifier:@"vt.date"];
         formatter.dateFormat = @"dd/MM/yyyy, HH:mm:ss";
         self.transactionTime = [formatter stringFromDate:transactionResult.transactionTime];
-        NSString *paymentTypeString = [[NSString stringFromPaymentMethod:transactionResult.paymentMethod] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
+        NSString *paymentTypeString = [[NSString stringOfPaymentMethod:transactionResult.paymentMethod] stringByReplacingOccurrencesOfString:@"_" withString:@" "];
         self.paymentType = [paymentTypeString capitalizedString];
     }
     return self;

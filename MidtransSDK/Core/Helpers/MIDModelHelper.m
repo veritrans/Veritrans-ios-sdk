@@ -188,7 +188,7 @@
     }
 }
 
-+ (NSString *)stringFromPaymentMethod:(MIDPaymentMethod)method {
++ (NSString *)stringOfPaymentMethod:(MIDPaymentMethod)method {
     switch (method) {
         case MIDPaymentMethodCreditCard:
             return @"credit_card";
@@ -224,6 +224,8 @@
             return @"akulaku";
         case MIDPaymentMethodTelkomselCash:
             return @"telkomsel_cash";
+        case MIDPaymentMethodAlfamart:
+            return @"alfamart";
         default:
             return nil;
     }
@@ -274,6 +276,8 @@
         return MIDPaymentMethodAkulaku;
     } else if ([self isEqualToString:@"telkomsel_cash"]) {
         return MIDPaymentMethodTelkomselCash;
+    } else if ([self isEqualToString:@"alfamart"]) {
+        return MIDPaymentMethodAlfamart;
     } else {
         return MIDPaymentMethodUnknown;
     }

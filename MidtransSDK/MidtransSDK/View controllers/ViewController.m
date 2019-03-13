@@ -60,10 +60,12 @@
     NSArray *whitelistBins = @[@"48111111", @"41111111"];
     NSArray *blacklistBins = @[@"49111111", @"44111111"];
     
-    MIDInstallmentTerm *term = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+    MIDInstallmentTerm *term1 = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
+                                                                  terms:@[@6, @12, @24]];
+    MIDInstallmentTerm *term2 = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBNI
                                                                   terms:@[@6, @12, @24]];
     
-    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term] required:NO];
+    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term1, term2] required:NO];
     
     MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
                                                                   authentication:MIDAuthentication3DS
@@ -77,6 +79,7 @@
     [MidtransKit presentPaymentPageAt:self
                           transaction:trx
                               options:@[cc, customer, checkoutItem, gopay, identifier]];
+
 }
 
 - (void)fetchPaymentInfo:(NSString *)token {

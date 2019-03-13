@@ -17,7 +17,7 @@
     [result setValue:self.fraudStatus forKey:@"fraud_status"];
     [result setValue:self.grossAmount forKey:@"gross_amount"];
     [result setValue:self.orderID forKey:@"order_id"];
-    [result setValue:[NSString stringFromPaymentMethod:self.paymentMethod] forKey:@"payment_type"];
+    [result setValue:[NSString stringOfPaymentMethod:self.paymentMethod] forKey:@"payment_type"];
     [result setValue:@(self.statusCode) forKey:@"status_code"];
     [result setValue:self.statusMessage forKey:@"status_message"];
     [result setValue:self.transactionID forKey:@"transaction_id"];

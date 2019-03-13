@@ -64,7 +64,7 @@
     NSMutableArray *models = [NSMutableArray new];
     [payments enumerateObjectsUsingBlock:^(MIDPaymentMethodInfo * _Nonnull info, NSUInteger idx, BOOL * _Nonnull stop) {
         NSInteger index = [details indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-            return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:info.type]];
+            return [obj[@"id"] isEqualToString:[NSString stringOfPaymentMethod:info.type]];
         }];
         if (index != NSNotFound) {
             [models addObject:[[MIDPaymentDetail alloc] initWithDictionary:details[index]]];

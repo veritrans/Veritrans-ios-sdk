@@ -76,7 +76,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"payment_cell"];
     MIDPaymentMethod method = [_payments[indexPath.row] integerValue];
-    cell.textLabel.text = [NSString stringFromPaymentMethod:method];
+    cell.textLabel.text = [NSString stringOfPaymentMethod:method];
     return cell;
 }
 

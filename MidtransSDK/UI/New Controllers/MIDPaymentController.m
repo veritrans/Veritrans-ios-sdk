@@ -74,7 +74,7 @@
 - (MIDPaymentDetail *)paymentMethodObject:(MIDPaymentMethod)pm {
     NSArray *details = [self loadPaymentMethodDetails];
     NSInteger index = [details indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        return [obj[@"id"] isEqualToString:[NSString stringFromPaymentMethod:pm]];
+        return [obj[@"id"] isEqualToString:[NSString stringOfPaymentMethod:pm]];
     }];
     if (index == NSNotFound) {
         return nil;

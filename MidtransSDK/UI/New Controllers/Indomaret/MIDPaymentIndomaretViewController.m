@@ -61,7 +61,7 @@
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];
     [[MIDUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    [MIDStoreCharge indomaretWithToken:self.snapToken completion:^(MIDIndomaretResult * _Nullable result, NSError * _Nullable error) {
+    [MIDStoreCharge indomaretWithToken:self.snapToken completion:^(MIDCStoreResult * _Nullable result, NSError * _Nullable error) {
         [self hideLoading];
         if (error) {
             [self handleTransactionError:error];

@@ -8,15 +8,28 @@
 
 #import "MIDStoreCharge.h"
 #import "MIDIndomaretPayment.h"
+#import "MIDAlfamartPayment.h"
 #import "MIDPaymentHelper.h"
 
 @implementation MIDStoreCharge
 
-+ (void)indomaretWithToken:(NSString *)token completion:(void (^)(MIDIndomaretResult *_Nullable, NSError *_Nullable))completion {
++ (void)indomaretWithToken:(NSString *)token completion:(void (^)(MIDCStoreResult *_Nullable result, NSError *_Nullable error))completion {
     MIDIndomaretPayment *payment = [MIDIndomaretPayment new];
     [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
         if (response) {
-            MIDIndomaretResult *result = [[MIDIndomaretResult alloc] initWithDictionary:response];
+            MIDCStoreResult *result = [[MIDCStoreResult alloc] initWithDictionary:response];
+            completion(result, nil);
+        } else {
+            completion(nil, error);
+        }
+    }];
+}
+
++ (void)alfamartWithToken:(NSString *)token completion:(void (^)(MIDCStoreResult *_Nullable result, NSError *_Nullable error))completion {
+    MIDAlfamartPayment *payment = [MIDAlfamartPayment new];
+    [MIDPaymentHelper performPayment:payment token:token completion:^(id _Nullable response, NSError *_Nullable error) {
+        if (response) {
+            MIDCStoreResult *result = [[MIDCStoreResult alloc] initWithDictionary:response];
             completion(result, nil);
         } else {
             completion(nil, error);

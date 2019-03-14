@@ -36,10 +36,15 @@
     
     self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:@selector(closePressed:)];
     
-    [self.view addSubview:self.webView];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
-    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     
+    [self.view addSubview:self.webView];
+    NSArray *constraints = @[[self.webView.topAnchor constraintEqualToAnchor:self.topLayoutGuide.bottomAnchor],
+                             [self.webView.bottomAnchor constraintEqualToAnchor:self.bottomLayoutGuide.topAnchor],
+                             [self.webView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                             [self.webView.trailingAnchor constraintEqualToAnchor:self.view.trailingAnchor]
+                             ];
+    [NSLayoutConstraint activateConstraints:constraints];
+
     NSString *urlBase = [NSString stringWithFormat:@"%@", self.paymentURL];
     NSURL *url = [NSURL URLWithString:[urlBase stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
     

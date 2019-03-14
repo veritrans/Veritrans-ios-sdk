@@ -66,7 +66,7 @@
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HhN-9s-kLY" customClass="VTGuideView">
-                    <rect key="frame" x="0.0" y="40" width="375" height="505"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="485"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LgO-G4-U0Y">
@@ -170,13 +170,13 @@
                 <constraint firstAttribute="trailing" secondItem="HhN-9s-kLY" secondAttribute="trailing" id="7mj-hO-akh"/>
                 <constraint firstItem="caE-g5-XQM" firstAttribute="centerY" secondItem="sZp-ii-eEw" secondAttribute="centerY" id="98G-q7-MXI"/>
                 <constraint firstItem="caE-g5-XQM" firstAttribute="trailing" secondItem="sZp-ii-eEw" secondAttribute="trailing" constant="-15" id="C7V-lo-L6a"/>
-                <constraint firstItem="HhN-9s-kLY" firstAttribute="top" secondItem="Fth-eH-mzp" secondAttribute="top" constant="40" id="ExC-va-0O5"/>
                 <constraint firstItem="sZp-ii-eEw" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" constant="8" id="Lnq-Ak-mLy"/>
                 <constraint firstItem="LgO-G4-U0Y" firstAttribute="top" secondItem="qDy-Wr-jzk" secondAttribute="top" id="OFJ-zn-cpg"/>
                 <constraint firstItem="9lM-Cg-QkR" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="RWS-AD-qOb"/>
                 <constraint firstItem="HhN-9s-kLY" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="Uww-Xr-uWK"/>
                 <constraint firstAttribute="trailing" secondItem="LgO-G4-U0Y" secondAttribute="trailing" id="e6K-LS-eO3"/>
                 <constraint firstItem="LgO-G4-U0Y" firstAttribute="leading" secondItem="Fth-eH-mzp" secondAttribute="leading" id="haC-WR-U7Q"/>
+                <constraint firstItem="HhN-9s-kLY" firstAttribute="top" secondItem="LgO-G4-U0Y" secondAttribute="bottom" id="i8P-Dh-740"/>
                 <constraint firstItem="9lM-Cg-QkR" firstAttribute="top" secondItem="HhN-9s-kLY" secondAttribute="bottom" id="mnC-xO-JBC"/>
                 <constraint firstAttribute="trailing" secondItem="sZp-ii-eEw" secondAttribute="trailing" constant="8" id="xBh-PN-TcB"/>
                 <constraint firstItem="qDy-Wr-jzk" firstAttribute="bottom" secondItem="sZp-ii-eEw" secondAttribute="bottom" constant="8" id="zmS-Dt-fGE"/>
@@ -190,12 +190,11 @@
                 <outlet property="tokenViewConstraints" destination="cfB-9E-uy4" id="3kV-9T-Vxr"/>
                 <outlet property="tokenViewIcon" destination="YcC-5e-PBF" id="kL6-gY-KE2"/>
                 <outlet property="tokenViewLabel" destination="uvS-gN-gch" id="P3W-Jg-ibJ"/>
-                <outlet property="topConstraints" destination="ExC-va-0O5" id="IRA-Ev-gOD"/>
                 <outlet property="totalAmountBorderedView" destination="9lM-Cg-QkR" id="eri-fu-cwj"/>
                 <outlet property="totalAmountLabel" destination="yz9-NX-FBx" id="axN-Hd-9yr"/>
                 <outlet property="totalAmountLabelText" destination="sFL-tK-2Xi" id="dG5-nI-Xih"/>
             </connections>
-            <point key="canvasLocation" x="24.5" y="51.5"/>
+            <point key="canvasLocation" x="23.199999999999999" y="50.824587706146929"/>
         </view>
     </objects>
     <resources>

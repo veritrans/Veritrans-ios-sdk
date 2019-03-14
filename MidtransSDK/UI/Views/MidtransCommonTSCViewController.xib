@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -26,7 +27,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="CtW-rD-FCQ">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="607"/>
+                    <rect key="frame" x="0.0" y="20" width="375" height="587"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Hu-GN-ECX" customClass="MidtransUINextStepButton">
@@ -44,16 +45,17 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstItem="CtW-rD-FCQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9MG-Wb-r7l"/>
+                <constraint firstItem="CtW-rD-FCQ" firstAttribute="top" secondItem="gdy-bV-gBd" secondAttribute="top" id="9MG-Wb-r7l"/>
                 <constraint firstAttribute="trailing" secondItem="CtW-rD-FCQ" secondAttribute="trailing" id="GWg-1E-6Sc"/>
                 <constraint firstItem="CtW-rD-FCQ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="PUn-Rg-bbZ"/>
                 <constraint firstItem="8Hu-GN-ECX" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="8" id="Uc1-NP-LZS"/>
-                <constraint firstAttribute="bottom" secondItem="8Hu-GN-ECX" secondAttribute="bottom" constant="10" id="jJv-el-wWF"/>
+                <constraint firstItem="gdy-bV-gBd" firstAttribute="bottom" secondItem="8Hu-GN-ECX" secondAttribute="bottom" constant="10" id="jJv-el-wWF"/>
                 <constraint firstItem="CtW-rD-FCQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lCf-DW-FQa"/>
                 <constraint firstItem="8Hu-GN-ECX" firstAttribute="top" secondItem="CtW-rD-FCQ" secondAttribute="bottom" constant="10" id="mLq-GA-gzY"/>
                 <constraint firstAttribute="trailing" secondItem="8Hu-GN-ECX" secondAttribute="trailing" constant="8" id="trF-TK-aRu"/>
             </constraints>
-            <point key="canvasLocation" x="25.5" y="52.5"/>
+            <viewLayoutGuide key="safeArea" id="gdy-bV-gBd"/>
+            <point key="canvasLocation" x="24.800000000000001" y="51.724137931034484"/>
         </view>
     </objects>
 </document>

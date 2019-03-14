@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -41,7 +42,7 @@
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="GiC-AU-fCy">
-                            <rect key="frame" x="343" y="29" width="8" height="13"/>
+                            <rect key="frame" x="343" y="29.5" width="8" height="13"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="8" id="3fz-8c-rWk"/>
                                 <constraint firstAttribute="height" constant="13" id="8SZ-jO-3OK"/>
@@ -65,14 +66,16 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="wV9-Ui-wJU" secondAttribute="bottom" constant="8" id="G4G-AA-9lZ"/>
+                <constraint firstItem="6kG-Rf-mjw" firstAttribute="bottom" secondItem="wV9-Ui-wJU" secondAttribute="bottom" constant="8" id="G4G-AA-9lZ"/>
                 <constraint firstAttribute="trailing" secondItem="wV9-Ui-wJU" secondAttribute="trailing" constant="8" id="U3a-dV-G2b"/>
                 <constraint firstItem="W6r-Bg-my9" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="UIv-Hn-cEb"/>
                 <constraint firstAttribute="trailing" secondItem="W6r-Bg-my9" secondAttribute="trailing" id="kvB-j7-Z5f"/>
-                <constraint firstItem="W6r-Bg-my9" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qa5-YW-sAo"/>
+                <constraint firstItem="W6r-Bg-my9" firstAttribute="top" secondItem="6kG-Rf-mjw" secondAttribute="top" constant="-20" id="qa5-YW-sAo"/>
                 <constraint firstItem="wV9-Ui-wJU" firstAttribute="top" secondItem="W6r-Bg-my9" secondAttribute="bottom" constant="8" id="yeg-zb-hrS"/>
                 <constraint firstItem="wV9-Ui-wJU" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="zpz-jC-Mic"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="6kG-Rf-mjw"/>
+            <point key="canvasLocation" x="130.40000000000001" y="153.37331334332833"/>
         </view>
     </objects>
     <resources>

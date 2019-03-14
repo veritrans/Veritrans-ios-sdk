@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -51,13 +52,13 @@
                             <rect key="frame" x="0.0" y="79.5" width="290" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OE1-gw-LLe">
-                                    <rect key="frame" x="250.5" y="12.5" width="39.5" height="21.5"/>
+                                    <rect key="frame" x="250.5" y="11.5" width="39.5" height="21.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TuX-gT-57J">
-                                    <rect key="frame" x="0.0" y="14.5" width="73.5" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="14" width="73.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -86,13 +87,13 @@
                             <rect key="frame" x="0.0" y="124.5" width="290" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="gXS-8D-C8T">
-                                    <rect key="frame" x="250.5" y="12.5" width="39.5" height="21.5"/>
+                                    <rect key="frame" x="250.5" y="11.5" width="39.5" height="21.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCG-4X-vCe">
-                                    <rect key="frame" x="0.0" y="14.5" width="45.5" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="14" width="45.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -121,13 +122,13 @@
                             <rect key="frame" x="0.0" y="169.5" width="290" height="45"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbO-hA-ri4">
-                                    <rect key="frame" x="250.5" y="12.5" width="39.5" height="21.5"/>
+                                    <rect key="frame" x="250.5" y="11.5" width="39.5" height="21.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="17"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fS-Ew-BOB">
-                                    <rect key="frame" x="0.0" y="14.5" width="77.5" height="16.5"/>
+                                    <rect key="frame" x="0.0" y="14" width="77.5" height="16.5"/>
                                     <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="13"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
@@ -187,7 +188,7 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="cross.png" translatesAutoresizingMaskIntoConstraints="NO" id="jQ3-iY-KP0">
-                    <rect key="frame" x="115.5" y="64" width="89" height="113"/>
+                    <rect key="frame" x="115.5" y="84" width="89" height="93"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -195,13 +196,14 @@
                 <constraint firstItem="F93-t7-8ab" firstAttribute="leading" secondItem="fTn-JL-gpj" secondAttribute="leading" id="BtL-E2-bAG"/>
                 <constraint firstAttribute="bottom" secondItem="F93-t7-8ab" secondAttribute="bottom" id="Ntm-ud-XN7"/>
                 <constraint firstAttribute="trailing" secondItem="Q4p-tw-MEW" secondAttribute="trailing" constant="15" id="brk-Hn-nt7"/>
-                <constraint firstItem="jQ3-iY-KP0" firstAttribute="top" secondItem="fTn-JL-gpj" secondAttribute="top" constant="64" id="cNG-iN-ZZv"/>
+                <constraint firstItem="jQ3-iY-KP0" firstAttribute="top" secondItem="cY9-Fa-5Un" secondAttribute="top" constant="64" id="cNG-iN-ZZv"/>
                 <constraint firstItem="jQ3-iY-KP0" firstAttribute="centerX" secondItem="fTn-JL-gpj" secondAttribute="centerX" id="kij-2U-crd"/>
                 <constraint firstItem="Q4p-tw-MEW" firstAttribute="leading" secondItem="fTn-JL-gpj" secondAttribute="leading" constant="15" id="rmg-Jz-zfA"/>
                 <constraint firstItem="Q4p-tw-MEW" firstAttribute="centerY" secondItem="fTn-JL-gpj" secondAttribute="centerY" id="tXF-xI-L4I"/>
                 <constraint firstAttribute="trailing" secondItem="F93-t7-8ab" secondAttribute="trailing" id="wDX-u6-EN5"/>
                 <constraint firstItem="Q4p-tw-MEW" firstAttribute="top" secondItem="jQ3-iY-KP0" secondAttribute="bottom" id="zjG-34-LdG"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="cY9-Fa-5Un"/>
             <point key="canvasLocation" x="33.5" y="54.5"/>
         </view>
     </objects>

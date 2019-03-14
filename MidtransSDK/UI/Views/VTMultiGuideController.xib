@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -39,18 +40,18 @@
                     </connections>
                 </button>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DisclosureIndicator.png" translatesAutoresizingMaskIntoConstraints="NO" id="r4e-gN-bJF">
-                    <rect key="frame" x="344" y="632" width="8" height="13"/>
+                    <rect key="frame" x="344" y="632.5" width="8" height="13"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="13" id="Qgt-Oa-IQV"/>
                         <constraint firstAttribute="width" constant="8" id="pWk-KN-W7w"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hyu-CU-LvS">
-                    <rect key="frame" x="0.0" y="37" width="375" height="574"/>
+                    <rect key="frame" x="0.0" y="57" width="375" height="554"/>
                     <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                 </view>
                 <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="gpC-ng-qW3" customClass="VTSegmentedControl">
-                    <rect key="frame" x="10" y="8" width="355" height="29"/>
+                    <rect key="frame" x="10" y="28" width="355" height="29"/>
                     <segments>
                         <segment title="First"/>
                         <segment title="Second"/>
@@ -59,7 +60,7 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="6sJ-9u-PaJ" secondAttribute="bottom" constant="8" id="03n-bF-19B"/>
+                <constraint firstItem="DML-f3-D4g" firstAttribute="bottom" secondItem="6sJ-9u-PaJ" secondAttribute="bottom" constant="8" id="03n-bF-19B"/>
                 <constraint firstItem="hyu-CU-LvS" firstAttribute="top" secondItem="gpC-ng-qW3" secondAttribute="bottom" constant="1" id="4f0-l0-mPB"/>
                 <constraint firstItem="gpC-ng-qW3" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" constant="10" id="BL2-na-8GU"/>
                 <constraint firstAttribute="trailing" secondItem="hyu-CU-LvS" secondAttribute="trailing" id="Gu4-Md-Bo1"/>
@@ -69,9 +70,10 @@
                 <constraint firstItem="6sJ-9u-PaJ" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" constant="8" id="hW7-qM-szb"/>
                 <constraint firstItem="r4e-gN-bJF" firstAttribute="trailing" secondItem="6sJ-9u-PaJ" secondAttribute="trailing" constant="-15" id="qIe-qb-4WK"/>
                 <constraint firstItem="hyu-CU-LvS" firstAttribute="leading" secondItem="gOp-vP-Ndk" secondAttribute="leading" id="rcJ-Ne-gcC"/>
-                <constraint firstItem="gpC-ng-qW3" firstAttribute="top" secondItem="gOp-vP-Ndk" secondAttribute="top" constant="8" id="rgh-Tz-y6K"/>
+                <constraint firstItem="gpC-ng-qW3" firstAttribute="top" secondItem="DML-f3-D4g" secondAttribute="top" constant="8" id="rgh-Tz-y6K"/>
                 <constraint firstAttribute="trailing" secondItem="6sJ-9u-PaJ" secondAttribute="trailing" constant="8" id="tgV-th-Nq1"/>
             </constraints>
+            <viewLayoutGuide key="safeArea" id="DML-f3-D4g"/>
         </view>
     </objects>
     <resources>

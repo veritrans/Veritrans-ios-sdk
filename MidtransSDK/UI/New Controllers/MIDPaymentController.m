@@ -21,6 +21,8 @@
 #import "MidtransNewCreditCardViewController.h"
 #import "MidtransSavedCardController.h"
 #import "MIDVendorUI.h"
+#import "MIDAlfamartViewController.h"
+#import "MidGopayViewController.h"
 
 @interface MIDPaymentController ()
 @property (nonatomic) MIDPaymentMethod paymentMethod;
@@ -118,6 +120,9 @@
             vc = [[MIDPaymentIndomaretViewController alloc]initWithPaymentMethod:model];
             break;
         }
+        case MIDPaymentMethodAlfamart: {
+            vc = [[MIDAlfamartViewController alloc] initWithPaymentMethod:model];
+        }
         case MIDPaymentMethodMandiriClickpay: {
             vc = [[VTMandiriClickpayController alloc] initWithPaymentMethod:model];
             break;
@@ -134,6 +139,10 @@
             else {
                 vc = [[MidtransNewCreditCardViewController alloc] initWithPaymentMethod:model];
             }
+            break;
+        }
+        case MIDPaymentMethodGopay: {
+            vc = [[MidGopayViewController alloc] initWithPaymentMethod:model];
             break;
         }
         default:

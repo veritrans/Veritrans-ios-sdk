@@ -166,6 +166,10 @@
                 [self.navigationController pushViewController:vc animated:YES];
             }
         }
+        else if (method == MIDPaymentMethodGopay) {
+            MidGopayViewController *vc = [[MidGopayViewController alloc] initWithPaymentMethod:model];
+            [self.navigationController pushViewController:vc animated:YES];
+        }
     }
 }
 

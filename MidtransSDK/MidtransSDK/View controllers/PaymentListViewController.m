@@ -59,7 +59,10 @@
                   @(MIDPaymentMethodMandiriECash),
                   @(MIDPaymentMethodIndomaret),
                   @(MIDPaymentMethodAkulaku),
-                  @(MIDPaymentMethodTelkomselCash)
+                  @(MIDPaymentMethodTelkomselCash),
+                  @(MIDPaymentMethodGopay),
+                  @(MIDPaymentMethodAlfamart),
+                  @(MIDPaymentMethodCreditCard)
                   ];
 }
 
@@ -88,7 +91,7 @@
     
     MIDPaymentMethod method = [_payments[indexPath.row] integerValue];
     
-    NSMutableArray *options = [NSMutableArray arrayWithObject:@[customer, checkoutItem]];
+    NSMutableArray *options = [NSMutableArray arrayWithArray:@[customer, checkoutItem]];
     
     if (method == MIDPaymentMethodGopay) {
         MIDCheckoutGoPay *gopay = [[MIDCheckoutGoPay alloc] initWithCallbackSchemeURL:@"revamp.gopay://"];

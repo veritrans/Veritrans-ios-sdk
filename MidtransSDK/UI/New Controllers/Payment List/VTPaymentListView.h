@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransLoadingView.h"
 #import "MidtransPaymentMethodHeader.h"
 #import "MIDPaymentDetail.h"

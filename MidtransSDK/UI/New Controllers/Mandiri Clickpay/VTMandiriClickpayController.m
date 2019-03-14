@@ -17,6 +17,9 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransUIThemeManager.h"
+#import "MidtransMandiriClickpayHelper.h"
+#import "MidtransDeviceHelper.h"
+#import "NSString+MidtransValidation.h"
 
 static NSString* const ClickpayAPPLI = @"3";
 

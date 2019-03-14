@@ -10,7 +10,6 @@
 #import "VTClassHelper.h"
 #import "MidtransUIListCell.h"
 #import "MidtransUIPaymentDirectViewController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransVAViewController.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
@@ -19,11 +18,11 @@
 #import "MIDArrayHelper.h"
 #import "MIDPaymentDetail.h"
 #import "MIDUITrackingManager.h"
+#import "MidtransDeviceHelper.h"
 
 #import "MidtransSDK.h"
 
 @interface VTVAListController ()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic) MidtransCustomerDetails *customer;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountTextLabel;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;

@@ -14,10 +14,11 @@
 #import "MidtransUIToast.h"
 #import "VTGuideCell.h"
 #import "UILabel+Boldify.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
+#import "MidtransDeviceHelper.h"
+#import "MIDConstants.h"
 
 @interface SNPPostPaymentVAViewController ()<UITableViewDataSource,UITableViewDelegate>
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *tableVIewConstraints;

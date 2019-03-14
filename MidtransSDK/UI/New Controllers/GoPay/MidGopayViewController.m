@@ -10,13 +10,13 @@
 #import "MIDGopayView.h"
 #import "MidGopayDetailViewController.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
 #import "MidtransDirectHeader.h"
 #import "MidtransUINextStepButton.h"
 #import "VTGuideCell.h"
 #import "MidtransUIConfiguration.h"
 #import "MIDConstants.h"
+#import "MidtransDeviceHelper.h"
 
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 

@@ -13,6 +13,7 @@
 #import "VTKITConstant.h"
 #import "MidtransUINextStepButton.h"
 #import "MIDUITrackingManager.h"
+#import "MIDConstants.h"
 
 NSString *const kVTPendingStatusControllerPaymentCode = @"payment_code";
 NSString *const kVTPendingStatusControllerKiosonExpireTime = @"kioson_expire_time";

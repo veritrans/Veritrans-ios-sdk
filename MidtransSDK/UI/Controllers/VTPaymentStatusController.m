@@ -12,6 +12,7 @@
 #import "MidtransUIThemeManager.h"
 #import "MIDVendorUI.h"
 #import "MIDUITrackingManager.h"
+#import "MIDConstants.h"
 
 typedef NS_ENUM(NSUInteger, SNPStatusType) {
     SNPStatusTypeSuccess = 1,

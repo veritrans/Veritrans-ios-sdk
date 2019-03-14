@@ -8,7 +8,7 @@
 
 #import "MidtransUIListCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDConstants.h"
 
 @implementation MidtransUIListCell
 - (void)awakeFromNib {

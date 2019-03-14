@@ -7,7 +7,8 @@
 //
 
 #import "MidtransImageManager.h"
-#import "MidtransConstant.h"
+#import "MIDConstants.h"
+
 @implementation MidtransImageManager
 +(void)getImageFromURLwithUrl:(NSString*)imageUrlString {
     NSData *data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imageUrlString]];

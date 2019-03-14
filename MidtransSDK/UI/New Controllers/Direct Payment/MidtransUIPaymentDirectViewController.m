@@ -16,6 +16,8 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
 #import "MIDUITrackingManager.h"
+#import "MIDConstants.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MidtransUIPaymentDirectViewController ()
 @property (strong, nonatomic) IBOutlet MidtransUIPaymentDirectView *view;

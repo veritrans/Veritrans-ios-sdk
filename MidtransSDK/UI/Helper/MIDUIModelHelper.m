@@ -9,8 +9,9 @@
 #import "MIDUIModelHelper.h"
 #import "MIDCreditCardHelper.h"
 #import "MIDLuhn.h"
-
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDConstants.h"
+#import "MidtransDeviceHelper.h"
+#import "NSString+MidtransValidation.h"
 
 @implementation MIDUIModelHelper
 

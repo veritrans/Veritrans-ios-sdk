@@ -17,6 +17,7 @@
 #import "MidtransPaymentMethodHeader.h"
 #import "MIdtransUIBorderedView.h"
 #import "MIDUITrackingManager.h"
+#import "MIDConstants.h"
 
 @implementation MidtransNewCreditCardView
 

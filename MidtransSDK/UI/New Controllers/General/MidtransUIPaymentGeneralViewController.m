@@ -16,7 +16,7 @@
 #import "MidtransUINextStepButton.h"
 #import "MidtransUIThemeManager.h"
 #import "MIDWebPaymentController.h"
-
+#import "MidtransDeviceHelper.h"
 #import "MIDVendorUI.h"
 
 @interface MidtransUIPaymentGeneralViewController () <MIDWebPaymentControllerDelegate, MIDWebPaymentControllerDataSource>

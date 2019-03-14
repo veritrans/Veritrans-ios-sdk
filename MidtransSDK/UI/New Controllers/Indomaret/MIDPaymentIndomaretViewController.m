@@ -14,6 +14,7 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "VTSubGuideController.h"
 #import "MIDUITrackingManager.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MIDPaymentIndomaretViewController ()
 @property (nonatomic,strong) VTSubGuideController *subGuide;

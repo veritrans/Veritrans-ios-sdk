@@ -17,6 +17,7 @@
 #import "VTConfirmPaymentController.h"
 #import "MIDUITrackingManager.h"
 #import "MIDVendorUI.h"
+#import "MIDConstants.h"
 
 @interface MidtransSavedCardController () <UITableViewDelegate, UITableViewDataSource, MidtransNewCreditCardViewControllerDelegate>
 @property (nonatomic) IBOutlet UITableView *tableView;
@@ -149,29 +150,17 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    MIDSavedCardInfo *card = self.savedCards[indexPath.row];
-    
-    if (CC_CONFIG.tokenStorageEnabled) {
+    MIDSavedCardInfo *card = self.savedCards[indexPath.row];    
+    if ([card.type isEqualToString:TokenTypeTwoClicks]) {
+        [self performOneClickWithCard:card];
+    }
+    else {
         NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
         if (self.info.transaction.orderID) {
             [additionalData addEntriesFromDictionary:@{@"order id":self.info.transaction.orderID}];
         }
         [[MIDUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
-        
         [self performTwoClicksWithCard:card];
-    }
-    else {
-        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
-            [self performOneClickWithCard:card];
-        }
-        else {
-            NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
-            if (self.info.transaction.orderID) {
-                [additionalData addEntriesFromDictionary:@{@"order id":self.info.transaction.orderID}];
-            }
-            [[MIDUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
-            [self performTwoClicksWithCard:card];
-        }
     }
 }
 - (void)totalAmountBorderedViewTapped:(id) sender {

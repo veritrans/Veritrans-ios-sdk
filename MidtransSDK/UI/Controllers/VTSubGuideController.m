@@ -11,8 +11,6 @@
 #import "VTClassHelper.h"
 #import "VTGuideView.h"
 
-#import <MidtransCoreKit/MidtransCoreKit.h>
-
 @interface VTSubGuideController ()
 
 @property (strong, nonatomic) NSArray <VTInstruction*>*instructions;

@@ -13,9 +13,9 @@
 #import "MidtransUIThemeManager.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MIDWebPaymentController.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MIDDanamonOnlineViewController () <MIDWebPaymentControllerDelegate, MIDWebPaymentControllerDataSource>
-@property (nonatomic) MidtransPaymentRequestV2Merchant *merchant;
 @property (nonatomic) BOOL isShowInstructions;
 @property (nonatomic,strong) VTSubGuideController *subGuide;
 @property (weak, nonatomic) IBOutlet UILabel *instructionHeaderLabel1;

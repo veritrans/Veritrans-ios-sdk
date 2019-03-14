@@ -9,7 +9,7 @@
 #import "MIDCreditCardHelper.h"
 #import "MIDLuhn.h"
 #import "MidtransHelper.h"
-#import "MidtransConstant.h"
+#import "MIDConstants.h"
 #import "NSString+MidtransValidation.h"
 
 @implementation NSString (CreditCard)

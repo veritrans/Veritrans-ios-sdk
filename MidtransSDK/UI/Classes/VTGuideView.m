@@ -10,7 +10,7 @@
 #import "VTGuideCell.h"
 #import "VTClassHelper.h"
 #import "MidtransUIToast.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDConstants.h"
 
 static NSString *const cellIdentifier = @"VTGuideCell";
 

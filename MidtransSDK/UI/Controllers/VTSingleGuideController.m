@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTSubGuideController.h"
+#import "MidtransDeviceHelper.h"
 
 @interface VTSingleGuideController ()
 @property (strong, nonatomic) IBOutlet UIView *containerView;

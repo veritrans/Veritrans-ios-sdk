@@ -136,7 +136,7 @@ MidtransCommonTSCViewControllerDelegate
                                                        @"addOnDescriptions":@"",
                                                        @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
-    self.showUserForm = [CC_CONFIG showFormCredentialsUser];
+    self.showUserForm = YES;
     self.view.userDetailViewWrapper.hidden = YES;
     self.view.userDetailViewWrapperConstraints.constant = 0.0f;
     self.view.contactEmailTextField.text = self.info.customer.email;
@@ -410,12 +410,12 @@ MidtransCommonTSCViewControllerDelegate
         } else {
             [self updatePromoContent];
         }
-        for (MidtransPromoPromos *promos in filtered) {
+        for (MIDPromo *promo in filtered) {
             AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
                                                                                                 @"addOnName":SNP_PROMO,
-                                                                                                @"addOnTitle":promos.name,
-                                                                                                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
-                                                                                                @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
+                                                                                                @"addOnTitle":promo.name,
+                                                                                                @"addOnDescriptions":promo.calculatedDiscountAmount,
+                                                                                                @"addOnAdditional":promo.promoID
                                                                                                 }];
             [self.promoArray addObject:promoConstructor];
         }

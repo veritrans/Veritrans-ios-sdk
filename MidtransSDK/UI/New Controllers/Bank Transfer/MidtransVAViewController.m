@@ -12,13 +12,14 @@
 #import "VTClassHelper.h"
 #import "SNPPostPaymentVAViewController.h"
 #import "VTGuideCell.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIToast.h"
 #import "MidtransUITableAlertViewController.h"
 #import "UIViewController+Modal.h"
 #import "MIdtransUIBorderedView.h"
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
+#import "MIDConstants.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MidtransVAViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet UITableView *tableView;

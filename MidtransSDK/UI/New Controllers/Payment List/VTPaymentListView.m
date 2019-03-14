@@ -10,9 +10,9 @@
 #import "MidtransUIListCell.h"
 #import "MidtransItemCell.h"
 #import "VTClassHelper.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
 #import "MIDArrayHelper.h"
+#import "MidtransDeviceHelper.h"
 
 @interface VTPaymentListView()<UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) BOOL shouldExpand;

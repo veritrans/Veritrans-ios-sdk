@@ -9,6 +9,8 @@
 #import "MIdtransPaymentStatusView.h"
 #import "UIColor+VTColor.h"
 #import "VTClassHelper.h"
+#import "MidtransHelper.h"
+
 @implementation MIdtransPaymentStatusView
 
 - (void)configureWithTransactionResult:(MIDPaymentResult *)result {

@@ -9,8 +9,7 @@
 #import "VTKlikbcaSuccessController.h"
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
-
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDConstants.h"
 
 @interface VTKlikbcaSuccessController ()
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
@@ -21,16 +20,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *transactionTimeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet UILabel *transactionExpiredTime;
-
-@property (nonatomic) VTPaymentStatusViewModel *successViewModel;
+@property (nonatomic) MIDKlikbcaResult *result;
 @end
 
 @implementation VTKlikbcaSuccessController
 
-- (instancetype)initWithPaymentMethodName:(MIDPaymentDetail *)paymentMethod viewModel:(VTPaymentStatusViewModel *)viewModel {
-    self = [super initWithPaymentMethod:paymentMethod];
-    if (self) {
-        self.successViewModel = viewModel;
+- (instancetype)initWithPaymentMethod:(MIDPaymentDetail *)paymentMethod result:(MIDKlikbcaResult *)result {
+    if (self = [super initWithPaymentMethod:paymentMethod]) {
+        self.result = result;
     }
     return self;
 }
@@ -42,10 +39,10 @@
     [self.navigationItem setHidesBackButton:YES];
     [self showDismissButton:YES];
     [self showBackButton:NO];
-    self.amountLabel.text = self.successViewModel.totalAmount;
-    self.orderIdLabel.text = self.successViewModel.orderId;
-    self.transactionTimeLabel.text = self.successViewModel.transactionTime;
-    self.transactionExpiredTime.text = [self.successViewModel.additionalData objectForKey:@"bca_klikbca_expire_time"];
+    self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
+    self.orderIdLabel.text = self.result.orderID;
+    self.transactionTimeLabel.text = self.result.transactionTime.formattedTransactionTime;
+    self.transactionExpiredTime.text = self.result.expiration;
     
     [self.finishButton setTitle:[NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"payment.finish-button-title-via"], @"KlikBCA"] forState:UIControlStateNormal];
 }
@@ -55,7 +52,7 @@
 }
 
 - (IBAction)finishPressed:(UIButton *)sender {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.successViewModel.transactionResult};
+    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result.dictionaryValue};
     [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
     
     [self dismissViewControllerAnimated:YES completion:nil];

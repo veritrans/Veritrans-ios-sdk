@@ -10,6 +10,9 @@
 #import "VTClassHelper.h"
 #import "VTSubGuideController.h"
 #import "MidtransUIToast.h"
+#import "MidtransDeviceHelper.h"
+#import "MIDConstants.h"
+
 @interface MIDAlfamartPostPaymentViewController ()
 @property (weak, nonatomic) IBOutlet UILabel *paymentCodeLabel;
 @property (weak, nonatomic) IBOutlet UILabel *expireTimeLabelText;

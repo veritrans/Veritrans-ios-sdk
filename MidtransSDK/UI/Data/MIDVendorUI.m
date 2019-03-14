@@ -7,6 +7,7 @@
 //
 
 #import "MIDVendorUI.h"
+#import "MIDConstants.h"
 
 @implementation MIDVendorUI
 
@@ -17,6 +18,17 @@
         shared = [[self alloc] init];
     });
     return shared;
+}
+
+- (NSString *)mixpanelToken {
+    switch (self.environment) {
+        case MIDEnvironmentSandbox:
+            return MIDTRANS_SANDBOX_MIXPANEL;
+        case MIDEnvironmentProduction:
+            return MIDTRANS_PRODUCTION_MIXPANEL;
+        case MIDEnvironmentStaging:
+            return MIDTRANS_STAGING_MIXPANEL;
+    }
 }
 
 @end

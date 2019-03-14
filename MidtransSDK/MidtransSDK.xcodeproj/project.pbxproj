@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9915172C84224CE0B4F24847 /* libPods-MidtransSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B56AAE59D9E66B7675DC7A72 /* libPods-MidtransSDK.a */; };
 		E500E05321BF8BF7001E694B /* MIDCreditCardCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = E500E05221BF8BF7001E694B /* MIDCreditCardCharge.m */; };
 		E500E05621BF8CD4001E694B /* MIDCreditCardTokenize.m in Sources */ = {isa = PBXBuildFile; fileRef = E500E05521BF8CD4001E694B /* MIDCreditCardTokenize.m */; };
 		E5051F42222D31DB00CAA893 /* MIDPromoOption.m in Sources */ = {isa = PBXBuildFile; fileRef = E5051F41222D31DB00CAA893 /* MIDPromoOption.m */; };
@@ -27,6 +26,7 @@
 		E5163C2121972EA000A24E59 /* MIDMerchantInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5163C2021972EA000A24E59 /* MIDMerchantInfo.m */; };
 		E5163C2421972EB900A24E59 /* MIDPromoInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5163C2321972EB900A24E59 /* MIDPromoInfo.m */; };
 		E5163C2721972EDE00A24E59 /* MIDTransactionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = E5163C2621972EDE00A24E59 /* MIDTransactionInfo.m */; };
+		E5215D2F223A2DE10011A009 /* MidtransDeviceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5215D2D223A2DE00011A009 /* MidtransDeviceHelper.m */; };
 		E530597821EECB3900545CF4 /* MIDCreditCardTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E530597721EECB3900545CF4 /* MIDCreditCardTest.m */; };
 		E5317FFD21AD2C6E005C0940 /* MIDGopayPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5317FFC21AD2C6E005C0940 /* MIDGopayPayment.m */; };
 		E531800021AD2C80005C0940 /* MIDIndomaretPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E5317FFF21AD2C80005C0940 /* MIDIndomaretPayment.m */; };
@@ -53,6 +53,10 @@
 		E54D6AC92238E20F00BC7D7D /* dandan@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC62238E20E00BC7D7D /* dandan@3x.png */; };
 		E54D6ACC2238E30900BC7D7D /* alfamidi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6ACA2238E30800BC7D7D /* alfamidi@2x.png */; };
 		E54D6ACD2238E30900BC7D7D /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6ACB2238E30800BC7D7D /* alfamidi@3x.png */; };
+		E54D6AD82238ECF600BC7D7D /* MidtransHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D6AD72238ECF600BC7D7D /* MidtransHelper.m */; };
+		E54D6ADB2238EE1000BC7D7D /* NSString+MidtransValidation.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D6ADA2238EE0F00BC7D7D /* NSString+MidtransValidation.m */; };
+		E54D6ADE2238EE9A00BC7D7D /* MidtransImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D6ADD2238EE9A00BC7D7D /* MidtransImageManager.m */; };
+		E54D6AE12238F76900BC7D7D /* MidtransMandiriClickpayHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E54D6ADF2238F76900BC7D7D /* MidtransMandiriClickpayHelper.m */; };
 		E55122D12195EE0200DA3621 /* MIDConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122D02195EE0200DA3621 /* MIDConfig.m */; };
 		E55122D62195FFBB00DA3621 /* MIDRequestBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122D52195FFBB00DA3621 /* MIDRequestBuilder.m */; };
 		E55122DB2196056F00DA3621 /* MIDCustomerDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = E55122DA2196056F00DA3621 /* MIDCustomerDetails.m */; };
@@ -120,7 +124,6 @@
 		E59E05222238AE2700EDAFF7 /* MIDAlfamartPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E59E05212238AE2700EDAFF7 /* MIDAlfamartPayment.m */; };
 		E5AE6EC3221283DA0064FE00 /* MidtransKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6EC2221283DA0064FE00 /* MidtransKit.m */; };
 		E5AE6FB82212A0890064FE00 /* VTGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6ED62212A0600064FE00 /* VTGuideView.m */; };
-		E5AE6FB92212A0890064FE00 /* VTVATransactionStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6ED72212A0600064FE00 /* VTVATransactionStatusViewModel.m */; };
 		E5AE6FBB2212A0890064FE00 /* VTErrorStatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6EDC2212A0610064FE00 /* VTErrorStatusController.m */; };
 		E5AE6FBC2212A0890064FE00 /* MidtransUIPaymentGeneralViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6EE02212A0610064FE00 /* MidtransUIPaymentGeneralViewController.m */; };
 		E5AE6FBD2212A0890064FE00 /* MidtransUIPaymentController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6EE22212A0610064FE00 /* MidtransUIPaymentController.m */; };
@@ -193,13 +196,11 @@
 		E5AE70062212A0890064FE00 /* VTGuideCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F702212A07D0064FE00 /* VTGuideCell.m */; };
 		E5AE70092212A0890064FE00 /* VTKlikbcaSuccessController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F7B2212A07F0064FE00 /* VTKlikbcaSuccessController.m */; };
 		E5AE700A2212A0890064FE00 /* MIdtransUIBorderedView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F7D2212A07F0064FE00 /* MIdtransUIBorderedView.m */; };
-		E5AE700B2212A0890064FE00 /* VTItemViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F7F2212A07F0064FE00 /* VTItemViewModel.m */; };
 		E5AE700C2212A0890064FE00 /* VTPaymentHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F822212A0800064FE00 /* VTPaymentHeader.m */; };
 		E5AE700D2212A0890064FE00 /* VTClassHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F832212A0800064FE00 /* VTClassHelper.m */; };
 		E5AE700E2212A0890064FE00 /* MidtransUIHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F842212A0800064FE00 /* MidtransUIHudView.m */; };
 		E5AE700F2212A0890064FE00 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F882212A0810064FE00 /* HMSegmentedControl.m */; };
 		E5AE70102212A0890064FE00 /* SNPPostPaymentVAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F8A2212A0810064FE00 /* SNPPostPaymentVAViewController.m */; };
-		E5AE70112212A0890064FE00 /* VTPaymentStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F8D2212A0810064FE00 /* VTPaymentStatusViewModel.m */; };
 		E5AE70122212A0890064FE00 /* VTSingleGuideController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F8E2212A0810064FE00 /* VTSingleGuideController.m */; };
 		E5AE70132212A0890064FE00 /* VTCvvInfoController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F8F2212A0820064FE00 /* VTCvvInfoController.m */; };
 		E5AE70142212A0890064FE00 /* MidtransUIToast.m in Sources */ = {isa = PBXBuildFile; fileRef = E5AE6F912212A0820064FE00 /* MidtransUIToast.m */; };
@@ -624,9 +625,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7E12484F3F0CF0D618528E8E /* Pods-MidtransSDK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransSDK.release.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransSDK/Pods-MidtransSDK.release.xcconfig"; sourceTree = "<group>"; };
-		B56AAE59D9E66B7675DC7A72 /* libPods-MidtransSDK.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransSDK.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		BA16D0C7532ADD6641EAA514 /* Pods-MidtransSDK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransSDK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransSDK/Pods-MidtransSDK.debug.xcconfig"; sourceTree = "<group>"; };
 		E500E05121BF8BF7001E694B /* MIDCreditCardCharge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCreditCardCharge.h; sourceTree = "<group>"; };
 		E500E05221BF8BF7001E694B /* MIDCreditCardCharge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCreditCardCharge.m; sourceTree = "<group>"; };
 		E500E05421BF8CD4001E694B /* MIDCreditCardTokenize.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCreditCardTokenize.h; sourceTree = "<group>"; };
@@ -668,6 +666,8 @@
 		E5163C2521972EDE00A24E59 /* MIDTransactionInfo.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTransactionInfo.h; sourceTree = "<group>"; };
 		E5163C2621972EDE00A24E59 /* MIDTransactionInfo.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTransactionInfo.m; sourceTree = "<group>"; };
 		E518D4D321991A8E009C19FF /* MidtransSDK-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MidtransSDK-Bridging-Header.h"; sourceTree = "<group>"; };
+		E5215D2D223A2DE00011A009 /* MidtransDeviceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransDeviceHelper.m; sourceTree = "<group>"; };
+		E5215D2E223A2DE10011A009 /* MidtransDeviceHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransDeviceHelper.h; sourceTree = "<group>"; };
 		E530597721EECB3900545CF4 /* MIDCreditCardTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCreditCardTest.m; sourceTree = "<group>"; };
 		E5317FFB21AD2C6E005C0940 /* MIDGopayPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDGopayPayment.h; sourceTree = "<group>"; };
 		E5317FFC21AD2C6E005C0940 /* MIDGopayPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDGopayPayment.m; sourceTree = "<group>"; };
@@ -709,6 +709,15 @@
 		E54D6AC62238E20E00BC7D7D /* dandan@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dandan@3x.png"; sourceTree = "<group>"; };
 		E54D6ACA2238E30800BC7D7D /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamidi@2x.png"; sourceTree = "<group>"; };
 		E54D6ACB2238E30800BC7D7D /* alfamidi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alfamidi@3x.png"; sourceTree = "<group>"; };
+		E54D6ACF2238EBE900BC7D7D /* MIDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDConstants.h; sourceTree = "<group>"; };
+		E54D6AD62238ECF600BC7D7D /* MidtransHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransHelper.h; sourceTree = "<group>"; };
+		E54D6AD72238ECF600BC7D7D /* MidtransHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransHelper.m; sourceTree = "<group>"; };
+		E54D6AD92238EE0F00BC7D7D /* NSString+MidtransValidation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MidtransValidation.h"; sourceTree = "<group>"; };
+		E54D6ADA2238EE0F00BC7D7D /* NSString+MidtransValidation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MidtransValidation.m"; sourceTree = "<group>"; };
+		E54D6ADC2238EE9A00BC7D7D /* MidtransImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransImageManager.h; sourceTree = "<group>"; };
+		E54D6ADD2238EE9A00BC7D7D /* MidtransImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransImageManager.m; sourceTree = "<group>"; };
+		E54D6ADF2238F76900BC7D7D /* MidtransMandiriClickpayHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransMandiriClickpayHelper.m; sourceTree = "<group>"; };
+		E54D6AE02238F76900BC7D7D /* MidtransMandiriClickpayHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransMandiriClickpayHelper.h; sourceTree = "<group>"; };
 		E55122CF2195EE0200DA3621 /* MIDConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDConfig.h; sourceTree = "<group>"; };
 		E55122D02195EE0200DA3621 /* MIDConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDConfig.m; sourceTree = "<group>"; };
 		E55122D42195FFBB00DA3621 /* MIDRequestBuilder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDRequestBuilder.h; sourceTree = "<group>"; };
@@ -827,7 +836,6 @@
 		E5AE6ED42212A0600064FE00 /* MidtransUITextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUITextField.h; sourceTree = "<group>"; };
 		E5AE6ED52212A0600064FE00 /* AddOnConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddOnConstructor.h; sourceTree = "<group>"; };
 		E5AE6ED62212A0600064FE00 /* VTGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTGuideView.m; sourceTree = "<group>"; };
-		E5AE6ED72212A0600064FE00 /* VTVATransactionStatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTVATransactionStatusViewModel.m; sourceTree = "<group>"; };
 		E5AE6ED92212A0610064FE00 /* VTErrorStatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTErrorStatusController.h; sourceTree = "<group>"; };
 		E5AE6EDA2212A0610064FE00 /* MidtransSavedCardCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardCell.h; sourceTree = "<group>"; };
 		E5AE6EDB2212A0610064FE00 /* MidtransLineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransLineView.h; sourceTree = "<group>"; };
@@ -977,7 +985,6 @@
 		E5AE6F7B2212A07F0064FE00 /* VTKlikbcaSuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTKlikbcaSuccessController.m; sourceTree = "<group>"; };
 		E5AE6F7D2212A07F0064FE00 /* MIdtransUIBorderedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransUIBorderedView.m; sourceTree = "<group>"; };
 		E5AE6F7E2212A07F0064FE00 /* SNPPostPaymentVAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNPPostPaymentVAViewController.h; sourceTree = "<group>"; };
-		E5AE6F7F2212A07F0064FE00 /* VTItemViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTItemViewModel.m; sourceTree = "<group>"; };
 		E5AE6F802212A07F0064FE00 /* MidtransUIPaymentGeneralViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentGeneralViewController.h; sourceTree = "<group>"; };
 		E5AE6F812212A07F0064FE00 /* VTBillpaySuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTBillpaySuccessController.h; sourceTree = "<group>"; };
 		E5AE6F822212A0800064FE00 /* VTPaymentHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentHeader.m; sourceTree = "<group>"; };
@@ -990,7 +997,6 @@
 		E5AE6F892212A0810064FE00 /* MIDV2PaymentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDV2PaymentListView.h; sourceTree = "<group>"; };
 		E5AE6F8A2212A0810064FE00 /* SNPPostPaymentVAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNPPostPaymentVAViewController.m; sourceTree = "<group>"; };
 		E5AE6F8B2212A0810064FE00 /* MidtransUINextStepButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUINextStepButton.h; sourceTree = "<group>"; };
-		E5AE6F8D2212A0810064FE00 /* VTPaymentStatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTPaymentStatusViewModel.m; sourceTree = "<group>"; };
 		E5AE6F8E2212A0810064FE00 /* VTSingleGuideController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTSingleGuideController.m; sourceTree = "<group>"; };
 		E5AE6F8F2212A0820064FE00 /* VTCvvInfoController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTCvvInfoController.m; sourceTree = "<group>"; };
 		E5AE6F902212A0820064FE00 /* MidtransUIPaymentController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentController.h; sourceTree = "<group>"; };
@@ -1004,10 +1010,8 @@
 		E5AE6F992212A0840064FE00 /* VTIndomaretSuccessController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTIndomaretSuccessController.h; sourceTree = "<group>"; };
 		E5AE6F9A2212A0840064FE00 /* VTBillpaySuccessController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTBillpaySuccessController.m; sourceTree = "<group>"; };
 		E5AE6F9B2212A0840064FE00 /* MidtransUIPaymentDirectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIPaymentDirectViewController.m; sourceTree = "<group>"; };
-		E5AE6F9C2212A0850064FE00 /* VTPaymentStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTPaymentStatusViewModel.h; sourceTree = "<group>"; };
 		E5AE6F9D2212A0850064FE00 /* MidtransVAHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransVAHeader.m; sourceTree = "<group>"; };
 		E5AE6F9E2212A0850064FE00 /* MidtransUIFontSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIFontSource.m; sourceTree = "<group>"; };
-		E5AE6F9F2212A0850064FE00 /* VTItemViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTItemViewModel.h; sourceTree = "<group>"; };
 		E5AE6FA02212A0850064FE00 /* MidtransSavedCardFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransSavedCardFooter.h; sourceTree = "<group>"; };
 		E5AE6FA22212A0860064FE00 /* VTInstruction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VTInstruction.m; sourceTree = "<group>"; };
 		E5AE6FA42212A0860064FE00 /* MidtransUIConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUIConfiguration.m; sourceTree = "<group>"; };
@@ -1015,7 +1019,6 @@
 		E5AE6FA72212A0860064FE00 /* MidtransUIPaymentDirectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUIPaymentDirectViewController.h; sourceTree = "<group>"; };
 		E5AE6FA82212A0860064FE00 /* MidtransUITableAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUITableAlertViewController.h; sourceTree = "<group>"; };
 		E5AE6FAA2212A0870064FE00 /* MidtransUICustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransUICustomAlertViewController.h; sourceTree = "<group>"; };
-		E5AE6FAC2212A0870064FE00 /* VTVATransactionStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VTVATransactionStatusViewModel.h; sourceTree = "<group>"; };
 		E5AE6FAD2212A0870064FE00 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
 		E5AE6FAE2212A0870064FE00 /* MidtransUINextStepButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransUINextStepButton.m; sourceTree = "<group>"; };
 		E5AE6FAF2212A0880064FE00 /* MidtransLoadingIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransLoadingIndicator.h; sourceTree = "<group>"; };
@@ -1393,7 +1396,6 @@
 		E5C07D8621DC9A5A0020C858 /* MIDCheckoutIdentifier.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDCheckoutIdentifier.m; sourceTree = "<group>"; };
 		E5C07D8821DC9F830020C858 /* MIDTokenizeResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDTokenizeResponse.h; sourceTree = "<group>"; };
 		E5C07D8921DC9F840020C858 /* MIDTokenizeResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDTokenizeResponse.m; sourceTree = "<group>"; };
-		E5C3045F2225205B00CFA46F /* MIDConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDConstants.h; sourceTree = "<group>"; };
 		E5C34D7A21E6032E002361C8 /* MIDSwiftViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDSwiftViewController.swift; sourceTree = "<group>"; };
 		E5C7CD2D21BD56E900C22045 /* MIDEWalletTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDEWalletTest.m; sourceTree = "<group>"; };
 		E5C7CD2F21BD56FA00C22045 /* MIDStoreTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDStoreTest.m; sourceTree = "<group>"; };
@@ -1448,7 +1450,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9915172C84224CE0B4F24847 /* libPods-MidtransSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1472,18 +1473,8 @@
 		791EA1D6B93E24C8FF56524C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				B56AAE59D9E66B7675DC7A72 /* libPods-MidtransSDK.a */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		CD1935E05014A847E9A47B55 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BA16D0C7532ADD6641EAA514 /* Pods-MidtransSDK.debug.xcconfig */,
-				7E12484F3F0CF0D618528E8E /* Pods-MidtransSDK.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		E515DF3C2195B84A006E615A /* Providers */ = {
@@ -1735,6 +1726,14 @@
 			path = "Payment Result";
 			sourceTree = "<group>";
 		};
+		E54D6ACE2238EBDB00BC7D7D /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				E54D6ACF2238EBE900BC7D7D /* MIDConstants.h */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		E55122D72196026C00DA3621 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -1865,9 +1864,18 @@
 		E570D1352213D1B9004F0099 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E5215D2E223A2DE10011A009 /* MidtransDeviceHelper.h */,
+				E5215D2D223A2DE00011A009 /* MidtransDeviceHelper.m */,
+				E54D6AE02238F76900BC7D7D /* MidtransMandiriClickpayHelper.h */,
+				E54D6ADF2238F76900BC7D7D /* MidtransMandiriClickpayHelper.m */,
+				E54D6ADC2238EE9A00BC7D7D /* MidtransImageManager.h */,
+				E54D6ADD2238EE9A00BC7D7D /* MidtransImageManager.m */,
+				E54D6AD92238EE0F00BC7D7D /* NSString+MidtransValidation.h */,
+				E54D6ADA2238EE0F00BC7D7D /* NSString+MidtransValidation.m */,
+				E54D6AD62238ECF600BC7D7D /* MidtransHelper.h */,
+				E54D6AD72238ECF600BC7D7D /* MidtransHelper.m */,
 				E570D1392213D201004F0099 /* MIDArrayHelper.h */,
 				E570D13A2213D201004F0099 /* MIDArrayHelper.m */,
-				E5C3045F2225205B00CFA46F /* MIDConstants.h */,
 				E586302D222D57DD002D4F26 /* MIDViewHelper.h */,
 				E586302E222D57DD002D4F26 /* MIDViewHelper.m */,
 				E57782E3222E2D3A0036DDF9 /* MIDUIModelHelper.h */,
@@ -1988,6 +1996,7 @@
 		E5AE6EC0221283AC0064FE00 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E54D6ACE2238EBDB00BC7D7D /* Constants */,
 				E5EDAEB422154C9900552AF3 /* Models */,
 				E570D1352213D1B9004F0099 /* Helper */,
 				E56FA9492212FA7C003DC10D /* New Controllers */,
@@ -2374,8 +2383,6 @@
 				E5AE6ED62212A0600064FE00 /* VTGuideView.m */,
 				E5AE6F2A2212A0700064FE00 /* VTInstruction.h */,
 				E5AE6FA22212A0860064FE00 /* VTInstruction.m */,
-				E5AE6F9F2212A0850064FE00 /* VTItemViewModel.h */,
-				E5AE6F7F2212A07F0064FE00 /* VTItemViewModel.m */,
 				E5AE6F292212A0700064FE00 /* VTKeyboardAccessoryView.h */,
 				E5AE6FB22212A0880064FE00 /* VTKeyboardAccessoryView.m */,
 				E5AE6F082212A0670064FE00 /* VTKITConstant.h */,
@@ -2383,14 +2390,10 @@
 				E5AE6F0A2212A0680064FE00 /* VTNoteTitleLabel.m */,
 				E5AE6F412212A0750064FE00 /* VTPaymentHeader.h */,
 				E5AE6F822212A0800064FE00 /* VTPaymentHeader.m */,
-				E5AE6F9C2212A0850064FE00 /* VTPaymentStatusViewModel.h */,
-				E5AE6F8D2212A0810064FE00 /* VTPaymentStatusViewModel.m */,
 				E5AE6F6D2212A07C0064FE00 /* VTSegmentedControl.h */,
 				E5AE6F662212A07B0064FE00 /* VTSegmentedControl.m */,
 				E5AE6F062212A0660064FE00 /* VTTapableLabel.h */,
 				E5AE6EEA2212A0620064FE00 /* VTTapableLabel.m */,
-				E5AE6FAC2212A0870064FE00 /* VTVATransactionStatusViewModel.h */,
-				E5AE6ED72212A0600064FE00 /* VTVATransactionStatusViewModel.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -2590,7 +2593,6 @@
 				E5D3C7CA2192D7710090DDAE /* MidtransSDKTests */,
 				E5D3C7D52192D7710090DDAE /* MidtransSDKUITests */,
 				E5D3C7B02192D7700090DDAE /* Products */,
-				CD1935E05014A847E9A47B55 /* Pods */,
 				791EA1D6B93E24C8FF56524C /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -2691,7 +2693,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5D3C7DB2192D7710090DDAE /* Build configuration list for PBXNativeTarget "MidtransSDK" */;
 			buildPhases = (
-				FEAF39D9A644A77548EDDCF7 /* [CP] Check Pods Manifest.lock */,
 				E5D3C7AB2192D7700090DDAE /* Sources */,
 				E5D3C7AC2192D7700090DDAE /* Frameworks */,
 				E5D3C7AD2192D7700090DDAE /* Resources */,
@@ -3184,31 +3185,6 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
-/* Begin PBXShellScriptBuildPhase section */
-		FEAF39D9A644A77548EDDCF7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MidtransSDK-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
-
 /* Begin PBXSourcesBuildPhase section */
 		E5D3C7AB2192D7700090DDAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -3222,6 +3198,7 @@
 				E5AE6FF82212A0890064FE00 /* SNPPostPaymentHeader.m in Sources */,
 				E5AE6FC32212A0890064FE00 /* MIDDanamonOnlineViewController.m in Sources */,
 				E5AE6FE42212A0890064FE00 /* VTConfirmPaymentController.m in Sources */,
+				E54D6AE12238F76900BC7D7D /* MidtransMandiriClickpayHelper.m in Sources */,
 				E5AE6FF32212A0890064FE00 /* MidtransLineView.m in Sources */,
 				E5AE6FF02212A0890064FE00 /* MidtransInstallmentCollectionViewCell.m in Sources */,
 				E5AE6FFF2212A0890064FE00 /* MidtransUIStringHelper.m in Sources */,
@@ -3251,7 +3228,6 @@
 				E5AE6FC02212A0890064FE00 /* MidtransUIPaymentDirectView.m in Sources */,
 				E597353A21A2AA55005C9BA0 /* MIDInstallment.m in Sources */,
 				E5AE70392212A0AB0064FE00 /* MIDGopayDetailView.m in Sources */,
-				E5AE700B2212A0890064FE00 /* VTItemViewModel.m in Sources */,
 				E5AE6FCA2212A0890064FE00 /* MIdtransUIDetailedTitleController.m in Sources */,
 				E55122D12195EE0200DA3621 /* MIDConfig.m in Sources */,
 				E5AE70242212A0890064FE00 /* MidtransLoadingIndicator.m in Sources */,
@@ -3267,6 +3243,7 @@
 				E56FA9472212B68A003DC10D /* MIDPaymentController.m in Sources */,
 				E55122DB2196056F00DA3621 /* MIDCustomerDetails.m in Sources */,
 				E5AE6FCF2212A0890064FE00 /* SNPPostPaymentFooter.m in Sources */,
+				E54D6ADB2238EE1000BC7D7D /* NSString+MidtransValidation.m in Sources */,
 				E545E0DB21B518EE005C1EB3 /* MIDPaymentHelper.m in Sources */,
 				E5594B5721F99BFA003ED198 /* MIDCardlessCreditCharge.m in Sources */,
 				E5AE6FC22212A0890064FE00 /* VTTapableLabel.m in Sources */,
@@ -3303,6 +3280,7 @@
 				E5AE701E2212A0890064FE00 /* MidtransUIConfiguration.m in Sources */,
 				E5AE6FE02212A0890064FE00 /* VTSubGuideController.m in Sources */,
 				E570D13B2213D201004F0099 /* MIDArrayHelper.m in Sources */,
+				E54D6ADE2238EE9A00BC7D7D /* MidtransImageManager.m in Sources */,
 				E5AE70032212A0890064FE00 /* MidtransUITextField.m in Sources */,
 				E5163C1B21972E6F00A24E59 /* MIDNotificationSettingsInfo.m in Sources */,
 				E5D3C7B72192D7700090DDAE /* ViewController.m in Sources */,
@@ -3318,6 +3296,7 @@
 				E5AE6FDD2212A0890064FE00 /* MidtransSavedCardCell.m in Sources */,
 				E5C34D7B21E6032E002361C8 /* MIDSwiftViewController.swift in Sources */,
 				E537341721DDE25F0095746A /* MIDPointResponse.m in Sources */,
+				E5215D2F223A2DE10011A009 /* MidtransDeviceHelper.m in Sources */,
 				E53A0B3F21BA222600BA0BE0 /* MIDKlikbcaResult.m in Sources */,
 				E5AE6FE12212A0890064FE00 /* VTPaymentListController.m in Sources */,
 				E5AE6FF92212A0890064FE00 /* MidtransNewCreditCardViewController.m in Sources */,
@@ -3368,7 +3347,6 @@
 				E5AE6FF52212A0890064FE00 /* VTGroupedInstruction.m in Sources */,
 				E5163BFA219613FD00A24E59 /* MIDCheckoutTransaction.m in Sources */,
 				E5163C2721972EDE00A24E59 /* MIDTransactionInfo.m in Sources */,
-				E5AE70112212A0890064FE00 /* VTPaymentStatusViewModel.m in Sources */,
 				E57ADEE121D4A992001B52AB /* MIDChargeInstallment.m in Sources */,
 				E5AE6FCD2212A0890064FE00 /* UIViewController+HeaderSubtitle.m in Sources */,
 				E59E05192238ADBD00EDAFF7 /* MIDAlfamartPostPaymentView.m in Sources */,
@@ -3398,7 +3376,6 @@
 				E5AE6FBE2212A0890064FE00 /* MidtransCollectionViewLayout.m in Sources */,
 				E5163C1E21972E8800A24E59 /* MIDPreferenceInfo.m in Sources */,
 				E55122DE2196066400DA3621 /* MIDModelHelper.m in Sources */,
-				E5AE6FB92212A0890064FE00 /* VTVATransactionStatusViewModel.m in Sources */,
 				E5AE700E2212A0890064FE00 /* MidtransUIHudView.m in Sources */,
 				E5AE70132212A0890064FE00 /* VTCvvInfoController.m in Sources */,
 				E5AE70212212A0890064FE00 /* NSString+TextDirectionality.m in Sources */,
@@ -3414,6 +3391,7 @@
 				E5AE6FC82212A0890064FE00 /* MBXPageViewController_vt.m in Sources */,
 				E5AE70222212A0890064FE00 /* MidtransUINextStepButton.m in Sources */,
 				E5AE70182212A0890064FE00 /* VTBillpaySuccessController.m in Sources */,
+				E54D6AD82238ECF600BC7D7D /* MidtransHelper.m in Sources */,
 				E5AE6FE22212A0890064FE00 /* UILabel+Boldify.m in Sources */,
 				E5D3C7B42192D7700090DDAE /* AppDelegate.m in Sources */,
 				E5344034221CFCB0002E9692 /* MIDTelkomselCashResult.m in Sources */,
@@ -3601,7 +3579,6 @@
 		};
 		E5D3C7DC2192D7710090DDAE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA16D0C7532ADD6641EAA514 /* Pods-MidtransSDK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -3623,7 +3600,6 @@
 		};
 		E5D3C7DD2192D7710090DDAE /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7E12484F3F0CF0D618528E8E /* Pods-MidtransSDK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

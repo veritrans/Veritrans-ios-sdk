@@ -7,18 +7,17 @@
 //
 
 #import "MIDUITrackingManager.h"
-#import "MidtransPrivateConfig.h"
-#import "MidtransConstant.h"
-
-#import "MidtransNetworking.h"
 #import "MidtransDeviceHelper.h"
 #import "MidtransHelper.h"
+#import "MIDConstants.h"
+#import "MIDVendorUI.h"
+
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 
 @implementation NSDictionary (MIDUITrackingManager)
 
 - (NSMutableDictionary*)MIDUITrackingManageraddDefaultParameter{
-    NSString *token = [PRIVATECONFIG mixpanelToken];
+    NSString *token = [MIDVendorUI shared].mixpanelToken;
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
     [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];

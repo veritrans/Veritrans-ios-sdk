@@ -7,7 +7,6 @@
 //
 
 #import <CoreText/CoreText.h>
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransUIPaymentViewController.h"
 #import "VTPaymentListController.h"
 #import "MIDV2PaymentListViewController.h"

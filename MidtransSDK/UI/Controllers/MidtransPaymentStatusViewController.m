@@ -10,7 +10,8 @@
 #import "MIdtransPaymentStatusView.h"
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
+#import "MIDConstants.h"
+
 @interface MidtransPaymentStatusViewController ()
 @property (strong, nonatomic) IBOutlet MIdtransPaymentStatusView *view;
 @property (nonnull,strong) MIDPaymentResult *result;

@@ -7,9 +7,7 @@
 //
 
 #import "MidtransUIPaymentController.h"
-#import "VTPaymentStatusViewModel.h"
 
 @interface VTKlikbcaSuccessController : MidtransUIPaymentController
-- (instancetype)initWithPaymentMethodName:(MIDPaymentDetail *)paymentMethod
-                                viewModel:(VTPaymentStatusViewModel *)viewModel;
+- (instancetype)initWithPaymentMethod:(MIDPaymentDetail *)paymentMethod result:(MIDKlikbcaResult *)result;
 @end

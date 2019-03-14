@@ -23,6 +23,7 @@
 #import "MIDVendorUI.h"
 #import "MIDAlfamartViewController.h"
 #import "MidGopayViewController.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MIDPaymentController ()
 @property (nonatomic) MIDPaymentMethod paymentMethod;

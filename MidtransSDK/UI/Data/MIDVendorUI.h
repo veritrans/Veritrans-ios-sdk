@@ -13,11 +13,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDVendorUI : NSObject
 
+@property (nonatomic) MIDEnvironment environment;
 @property (nonatomic) MIDPaymentInfo *info;
 @property (nonatomic) NSString *snapToken;
 @property (nonatomic) NSString *userID;
 
 + (MIDVendorUI *)shared;
+
+- (NSString *)mixpanelToken;
 
 @end
 

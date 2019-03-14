@@ -9,6 +9,10 @@
 #import "VTClassHelper.h"
 #import "MIDCreditCardHelper.h"
 #import "MidtransSDK.h"
+#import "MidtransDeviceHelper.h"
+#import "MIDConstants.h"
+#import "MidtransHelper.h"
+#import "MIDVendorUI.h"
 
 @implementation NSMutableAttributedString (Helper)
 
@@ -39,7 +43,8 @@
 }
 
 - (NSString *)formattedISOCurrencyNumber {
-    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];
+    MIDCurrency curr = [MIDVendorUI shared].info.transaction.currency;
+    NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:curr];
     currencyFormatter.formatWidth = 0;
     NSInteger count = [[currencyFormatter stringFromNumber:self] length];
     currencyFormatter.formatWidth = count+1;
@@ -319,3 +324,13 @@
 
 @end
 
+@implementation NSDate (payment)
+
+- (NSString *)formattedTransactionTime {
+    NSDateFormatter *formatter = [NSObject dateFormatterWithIdentifier:@"vt.date"];
+    formatter.dateFormat = @"dd/MM/yyyy, HH:mm:ss";
+    return [formatter stringFromDate:self];
+    
+}
+
+@end

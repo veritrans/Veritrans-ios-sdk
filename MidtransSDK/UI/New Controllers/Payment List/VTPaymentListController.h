@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "VTItemViewModel.h"
 #import "MidtransUIPaymentController.h"
 #import "MidtransSDK.h"
 

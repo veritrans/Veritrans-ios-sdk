@@ -10,8 +10,6 @@
 #import "MIDViewHelper.h"
 #import "MIDConstants.h"
 
-#import <MidtransCoreKit.h>
-
 @interface MID3DSController ()<UIWebViewDelegate, UIAlertViewDelegate>
 @property (nonatomic) NSURL *secureURL;
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "MidtransUIPaymentController.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface VTPendingStatusController : MidtransUIPaymentController
 - (instancetype)initWithPaymentMethodName:(MIDPaymentDetail *)paymentMethod

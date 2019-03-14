@@ -30,6 +30,8 @@
 #import "VTMandiriClickpayController.h"
 #import "MIDUITrackingManager.h"
 #import "MIDAlfamartViewController.h"
+#import "MidtransImageManager.h"
+#import "MIDConstants.h"
 
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;

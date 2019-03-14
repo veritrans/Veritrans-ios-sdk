@@ -16,6 +16,7 @@
 #import "VTSubGuideController.h"
 #import "MIDAlfamartPostPaymentViewController.h"
 #import "MIDUITrackingManager.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MIDAlfamartViewController ()
 @property (strong, nonatomic) IBOutlet MIDAlfamartView *view;

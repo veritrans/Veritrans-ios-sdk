@@ -9,6 +9,9 @@
 #import "MidtransCommonTSCViewController.h"
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
+#import "MidtransDeviceHelper.h"
+#import "MIDConstants.h"
+
 @interface MidtransCommonTSCViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)NSArray *guides;
 @end

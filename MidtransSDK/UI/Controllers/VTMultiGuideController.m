@@ -13,17 +13,18 @@
 #import "UIViewController+HeaderSubtitle.h"
 #import "VTInstruction.h"
 #import "VTGroupedInstruction.h"
+#import "MidtransDeviceHelper.h"
 
 @interface VTMultiGuideController ()<MBXPageControllerDataSource_vt, MBXPageControllerDataDelegate_vt>
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentController;
 @property (weak, nonatomic) IBOutlet UIView *containerView;
 @property (strong, nonatomic) NSMutableArray *guideViewControllers;
-@property (strong, nonatomic) MidtransPaymentListModel *model;
+@property (strong, nonatomic) MIDPaymentDetail *model;
 @end
 
 @implementation VTMultiGuideController
 
-- (instancetype)initWithPaymentMethodModel:(MidtransPaymentListModel *)model {
+- (instancetype)initWithPaymentMethodModel:(MIDPaymentDetail *)model {
     self = [super initWithNibName:[self.class description] bundle:VTBundle];
     if (self) {
         self.model = model;
@@ -35,7 +36,7 @@
     [super viewDidLoad];
     
     self.title = self.paymentMethod.title;
-    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.internalBaseClassIdentifier];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", _model.paymentID];
      NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.paymentID] ofType:@"plist"];

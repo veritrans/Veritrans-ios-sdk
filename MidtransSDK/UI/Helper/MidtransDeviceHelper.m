@@ -7,7 +7,7 @@
 //
 
 #import "MidtransDeviceHelper.h"
-#import "MidtransConstant.h"
+#import "MIDConstants.h"
 #import <ifaddrs.h>
 #import <UIKit/UIKit.h>
 #import <arpa/inet.h>

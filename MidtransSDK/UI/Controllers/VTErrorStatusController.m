@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
 #import "MIDUITrackingManager.h"
+#import "MIDConstants.h"
 
 @interface VTErrorStatusController ()
 

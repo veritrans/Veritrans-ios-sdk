@@ -15,9 +15,11 @@
 #import "VTGuideCell.h"
 #import "MIDBarcode39Generator.h"
 #import "UILabel+Boldify.h"
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidtransTransactionDetailViewController.h"
 #import "MIdtransUIBorderedView.h"
+#import "MidtransDeviceHelper.h"
+#import "MIDConstants.h"
+
 @interface SNPPostPaymentGeneralViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (strong, nonatomic) IBOutlet SNPPostPaymentGeneralView *view;

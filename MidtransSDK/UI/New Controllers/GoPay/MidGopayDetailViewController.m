@@ -6,7 +6,7 @@
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
-#import <MidtransCoreKit/MidtransCoreKit.h>
+
 #import "MidGopayDetailViewController.h"
 #import "MIDGopayDetailView.h"
 #import "MidtransDirectHeader.h"
@@ -14,6 +14,8 @@
 #import "MIdtransUIBorderedView.h"
 #import "VTGuideCell.h"
 #import "VTClassHelper.h"
+#import "MidtransDeviceHelper.h"
+#import "MIDConstants.h"
 
 @interface MidGopayDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) NSArray *guides;
@@ -56,7 +58,7 @@
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = self.backBarButton;
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay With GO-PAY"];
-    self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
+    self.view.merchantName.text = self.info.merchant.preference.displayName;
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.view.guideTableView.tableFooterView = [UIView new];
@@ -93,10 +95,10 @@
         self.view.qrcodeWrapperView.hidden = NO;
         [self.view.finishPaymentButton setTitle:@"Finish Payment" forState:UIControlStateNormal];
         [self fetchQRCode];
-        NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
+        NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", self.paymentMethod.paymentID];
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         if (guidePath == nil) {
-            guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@",MIDTRANS_PAYMENT_GOPAY] ofType:@"plist"];
+            guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@",self.paymentMethod.paymentID] ofType:@"plist"];
         }
         NSMutableArray *arrayOfGuide = [NSMutableArray new];
         arrayOfGuide = [NSMutableArray arrayWithArray:[VTClassHelper instructionsFromFilePath:guidePath]];

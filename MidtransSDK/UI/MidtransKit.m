@@ -10,6 +10,7 @@
 #import "MidtransUIThemeManager.h"
 #import "MIDPaymentController.h"
 #import "MIDConstants.h"
+#import "MIDVendorUI.h"
 
 @implementation MidtransKit
 
@@ -18,6 +19,8 @@
 + (void)configureClientKey:(NSString *)clientKey
          merchantServerURL:(NSString *)merchantServerURL
                environment:(MIDEnvironment)environment {
+    
+    [MIDVendorUI shared].environment = environment;
     
     [MIDClient configureClientKey:clientKey
                 merchantServerURL:merchantServerURL
@@ -31,6 +34,8 @@
                environment:(MIDEnvironment)environment
                      color:(UIColor *)color
                       font:(MidtransUIFontSource *)font {
+    
+    [MIDVendorUI shared].environment = environment;
     
     [MIDClient configureClientKey:clientKey
                 merchantServerURL:merchantServerURL

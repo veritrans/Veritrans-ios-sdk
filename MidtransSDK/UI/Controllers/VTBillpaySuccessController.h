@@ -7,10 +7,7 @@
 //
 
 #import "MidtransUIPaymentController.h"
-#import "VTVATransactionStatusViewModel.h"
 
 @interface VTBillpaySuccessController : MidtransUIPaymentController
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
-            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-                  statusModel:(VTVATransactionStatusViewModel *)statusModel;
+- (instancetype)initWithPaymentMethod:(MIDPaymentDetail *)paymentMethod result:(MIDMandiriBankTransferResult *)result;
 @end

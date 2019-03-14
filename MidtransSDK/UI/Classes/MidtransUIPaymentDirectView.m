@@ -11,6 +11,8 @@
 #import "VTClassHelper.h"
 #import "VTGuideCell.h"
 #import "MidtransUIToast.h"
+#import "MIDConstants.h"
+#import "MidtransDeviceHelper.h"
 
 @interface MidtransUIPaymentDirectView() <UITableViewDelegate, UITableViewDataSource>
 @property (nonatomic) MidtransDirectHeader *headerView;

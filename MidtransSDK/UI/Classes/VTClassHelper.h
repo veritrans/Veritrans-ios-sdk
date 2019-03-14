@@ -20,7 +20,6 @@
 #define snpRGBA(r, g, b, a) \
 [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:(a)]
 
-#import <MidtransCoreKit/MidtransCoreKit.h>
 #import "VTInstruction.h"
 #import "VTGroupedInstruction.h"
 #import "MidtransSDK.h"
@@ -74,4 +73,8 @@
 @interface MIDSavedCardInfo (utilities)
 - (NSString *)formattedNumber;
 - (UIImage *)darkIcon;
+@end
+
+@interface NSDate (payment)
+- (NSString *)formattedTransactionTime;
 @end

@@ -14,6 +14,7 @@
     if (self = [super init]) {
         self.cardToken = cardToken;
         self.clickpayToken = clickpayToken;
+        self.input3 = input3;
     }
     return self;
 }

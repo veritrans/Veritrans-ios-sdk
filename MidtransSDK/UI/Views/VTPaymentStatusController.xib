@@ -192,8 +192,8 @@
                         <constraint firstItem="lgI-fH-OAB" firstAttribute="top" secondItem="Wgn-Uj-lHt" secondAttribute="bottom" id="zYB-Qg-ebm"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="cross.png" translatesAutoresizingMaskIntoConstraints="NO" id="RXm-F6-Ij7">
-                    <rect key="frame" x="143" y="84" width="89" height="142.5"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="cross.png" translatesAutoresizingMaskIntoConstraints="NO" id="RXm-F6-Ij7">
+                    <rect key="frame" x="143" y="28" width="89" height="198.5"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -204,7 +204,7 @@
                 <constraint firstAttribute="bottom" secondItem="6eZ-uw-SLD" secondAttribute="bottom" id="LQO-UA-eG1"/>
                 <constraint firstItem="VC9-pB-rjM" firstAttribute="centerY" secondItem="Sq4-FM-hWR" secondAttribute="centerY" id="TPf-AX-Pyf"/>
                 <constraint firstAttribute="trailing" secondItem="6eZ-uw-SLD" secondAttribute="trailing" id="WSN-oI-llx"/>
-                <constraint firstItem="RXm-F6-Ij7" firstAttribute="top" secondItem="rPQ-lU-5xx" secondAttribute="top" constant="64" id="Zm6-aB-dMy"/>
+                <constraint firstItem="RXm-F6-Ij7" firstAttribute="top" secondItem="rPQ-lU-5xx" secondAttribute="top" constant="8" id="Zm6-aB-dMy"/>
                 <constraint firstItem="VC9-pB-rjM" firstAttribute="leading" secondItem="Sq4-FM-hWR" secondAttribute="leading" constant="15" id="gwL-rG-5QW"/>
                 <constraint firstItem="6eZ-uw-SLD" firstAttribute="leading" secondItem="Sq4-FM-hWR" secondAttribute="leading" id="zHP-kH-BFT"/>
             </constraints>

@@ -187,8 +187,8 @@
                         <constraint firstAttribute="trailing" secondItem="ZCx-y6-0Zp" secondAttribute="trailing" id="yYb-qi-JCh"/>
                     </constraints>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" image="cross.png" translatesAutoresizingMaskIntoConstraints="NO" id="jQ3-iY-KP0">
-                    <rect key="frame" x="115.5" y="84" width="89" height="93"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" image="cross.png" translatesAutoresizingMaskIntoConstraints="NO" id="jQ3-iY-KP0">
+                    <rect key="frame" x="115.5" y="28" width="89" height="149"/>
                 </imageView>
             </subviews>
             <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -196,7 +196,7 @@
                 <constraint firstItem="F93-t7-8ab" firstAttribute="leading" secondItem="fTn-JL-gpj" secondAttribute="leading" id="BtL-E2-bAG"/>
                 <constraint firstAttribute="bottom" secondItem="F93-t7-8ab" secondAttribute="bottom" id="Ntm-ud-XN7"/>
                 <constraint firstAttribute="trailing" secondItem="Q4p-tw-MEW" secondAttribute="trailing" constant="15" id="brk-Hn-nt7"/>
-                <constraint firstItem="jQ3-iY-KP0" firstAttribute="top" secondItem="cY9-Fa-5Un" secondAttribute="top" constant="64" id="cNG-iN-ZZv"/>
+                <constraint firstItem="jQ3-iY-KP0" firstAttribute="top" secondItem="cY9-Fa-5Un" secondAttribute="top" constant="8" id="cNG-iN-ZZv"/>
                 <constraint firstItem="jQ3-iY-KP0" firstAttribute="centerX" secondItem="fTn-JL-gpj" secondAttribute="centerX" id="kij-2U-crd"/>
                 <constraint firstItem="Q4p-tw-MEW" firstAttribute="leading" secondItem="fTn-JL-gpj" secondAttribute="leading" constant="15" id="rmg-Jz-zfA"/>
                 <constraint firstItem="Q4p-tw-MEW" firstAttribute="centerY" secondItem="fTn-JL-gpj" secondAttribute="centerY" id="tXF-xI-L4I"/>

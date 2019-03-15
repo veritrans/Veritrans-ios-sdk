@@ -109,6 +109,7 @@ class MIDSwiftViewController: UIViewController {
                 withToken: snapToken,
                 cardNumber: "4111111111111111",
                 clickpayToken: "000000",
+                input3: "12345",
                 completion: { (result, error) in
                     
             })

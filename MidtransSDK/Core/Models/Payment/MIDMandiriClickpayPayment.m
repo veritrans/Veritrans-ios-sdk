@@ -10,7 +10,7 @@
 
 @implementation MIDMandiriClickpayPayment
 
-- (instancetype)initWithCardToken:(NSString *)cardToken clickpayToken:(NSString *)clickpayToken {
+- (instancetype)initWithCardToken:(NSString *)cardToken clickpayToken:(NSString *)clickpayToken input3:(NSString *)input3 {
     if (self = [super init]) {
         self.cardToken = cardToken;
         self.clickpayToken = clickpayToken;
@@ -20,22 +20,12 @@
 
 - (NSDictionary *)dictionaryValue {
     NSDictionary *params = @{@"token_id":self.cardToken,
-                             @"input3":[self generateInput3],
+                             @"input3":self.input3,
                              @"token":self.clickpayToken
                              };
     return @{@"payment_type":@"mandiri_clickpay",
              @"payment_params":params
              };
-}
-
-- (NSString *)generateInput3 {
-    NSString *letters = @"0123456789";
-    NSInteger len = 5;
-    NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
-    for (int i=0; i < len; i++) {
-        [randomString appendFormat: @"%C", [letters characterAtIndex: arc4random_uniform((int)[letters length])]];
-    }
-    return randomString;
 }
 
 @end

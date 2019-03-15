@@ -128,6 +128,7 @@ static NSString* const ClickpayAPPLI = @"3";
     [MIDDirectDebitCharge mandiriClickpayWithToken:self.snapToken
                                         cardNumber:_cardNumber
                                      clickpayToken:self.tokenTextField.text
+                                            input3:self.input3Label.text
                                         completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
      {
          [self hideLoading];

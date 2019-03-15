@@ -27,10 +27,14 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)danamonOnlineWithToken:(NSString *)token
                     completion:(void (^_Nullable) (MIDWebPaymentResult *_Nullable result, NSError *_Nullable error))completion;
 
+/**
+ Input3 is random number with 5 maximum length
+ */
 + (void)mandiriClickpayWithToken:(NSString *)snapToken
                       cardNumber:(NSString *)cardNumber
                    clickpayToken:(NSString *)clickpayToken
-                      completion:(void (^_Nullable) (MIDClickpayResult *_Nullable result, NSError *_Nullable error))completion;
+                          input3:(NSString *)input3
+                      completion:(void (^)(MIDClickpayResult *_Nullable result, NSError *_Nullable error))completion;
 
 + (void)klikbcaWithToken:(NSString *)token
                   userID:(NSString *)userID

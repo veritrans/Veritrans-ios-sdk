@@ -51,12 +51,14 @@
 + (void)mandiriClickpayWithToken:(NSString *)snapToken
                       cardNumber:(NSString *)cardNumber
                    clickpayToken:(NSString *)clickpayToken
+                          input3:(NSString *)input3
                       completion:(void (^)(MIDClickpayResult *_Nullable result, NSError *_Nullable error))completion {
     MIDClickpayTokenize *request = [[MIDClickpayTokenize alloc] initWithCardNumber:cardNumber];
     [MIDPaymentHelper getTokenWithRequest:request completion:^(MIDTokenizeResponse *_Nullable token, NSError *_Nullable error) {
         if (token) {
             MIDMandiriClickpayPayment *payment = [[MIDMandiriClickpayPayment alloc] initWithCardToken:token.tokenID
-                                                                                        clickpayToken:clickpayToken];
+                                                                                        clickpayToken:clickpayToken
+                                                                                               input3:input3];
             [MIDPaymentHelper performPayment:payment
                                        token:snapToken
                                   completion:^(id _Nullable response, NSError *_Nullable error)

@@ -16,7 +16,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSString *cardToken;
 @property (nonatomic) NSString *clickpayToken;
 
-- (instancetype)initWithCardToken:(NSString *)cardToken clickpayToken:(NSString *)clickpayToken;
+/**
+ Input3 is random number with 5 maximum length
+ */
+@property (nonatomic) NSString *input3;
+
+- (instancetype)initWithCardToken:(NSString *)cardToken clickpayToken:(NSString *)clickpayToken input3:(NSString *)input3;
 
 @end
 

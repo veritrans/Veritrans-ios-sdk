@@ -586,9 +586,10 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
 	Objective C
 	
 	```
-    [MIDDirectDebitCharge mandiriClickpayWithToken:snapToken
+	[MIDDirectDebitCharge mandiriClickpayWithToken:snapToken
                                         cardNumber:@"4111111111111111"
                                      clickpayToken:@"000000"
+                                            input3:@"12345"
                                         completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
      {
 
@@ -602,6 +603,7 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
         withToken: snapToken,
         cardNumber: "4111111111111111",
         clickpayToken: "000000",
+        input3: "12345",
         completion: { (result, error) in
      	      
     })

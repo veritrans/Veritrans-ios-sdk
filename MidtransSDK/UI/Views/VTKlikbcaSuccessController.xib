@@ -73,7 +73,7 @@
                     </constraints>
                 </imageView>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vPx-DF-RfN">
-                    <rect key="frame" x="0.0" y="20" width="375" height="556"/>
+                    <rect key="frame" x="0.0" y="28" width="375" height="548"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EvZ-Yt-UeE">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
@@ -307,7 +307,7 @@
                 <constraint firstItem="Nj7-1k-VrZ" firstAttribute="top" secondItem="eAz-Fh-BEL" secondAttribute="bottom" id="jOX-LY-rc3"/>
                 <constraint firstAttribute="trailing" secondItem="vPx-DF-RfN" secondAttribute="trailing" id="mto-YI-rQ3"/>
                 <constraint firstItem="fyY-7R-Njb" firstAttribute="trailing" secondItem="Nj7-1k-VrZ" secondAttribute="trailing" constant="-15" id="rqJ-gw-3Xy"/>
-                <constraint firstItem="vPx-DF-RfN" firstAttribute="top" secondItem="8nF-Yi-eRm" secondAttribute="top" id="vUN-gL-low"/>
+                <constraint firstItem="vPx-DF-RfN" firstAttribute="top" secondItem="8nF-Yi-eRm" secondAttribute="top" constant="8" id="vUN-gL-low"/>
                 <constraint firstAttribute="bottom" secondItem="Nj7-1k-VrZ" secondAttribute="bottom" id="wLh-zb-Tkv"/>
                 <constraint firstItem="eAz-Fh-BEL" firstAttribute="leading" secondItem="Nj7-1k-VrZ" secondAttribute="leading" id="www-ga-LQs"/>
             </constraints>

@@ -41,7 +41,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="j9s-ZM-Szx" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="259" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="223" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="M1M-Ac-N2B">
                             <rect key="frame" x="265.5" y="12" width="39.5" height="21.5"/>
@@ -79,7 +79,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="esG-UV-3BY" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="214" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="178" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXp-Ut-KqY">
                             <rect key="frame" x="265.5" y="12" width="39.5" height="21.5"/>
@@ -113,7 +113,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C7g-aK-yUo">
-                    <rect key="frame" x="0.0" y="89" width="320" height="110"/>
+                    <rect key="frame" x="0.0" y="53" width="320" height="110"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q5Q-wD-J7a">
                             <rect key="frame" x="120.5" y="44.5" width="79.5" height="21.5"/>
@@ -138,14 +138,14 @@
                     </constraints>
                 </view>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="VASuccessIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="pQp-of-u6G">
-                    <rect key="frame" x="135" y="64" width="50" height="50"/>
+                    <rect key="frame" x="135" y="28" width="50" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="NeK-0U-6vk"/>
                         <constraint firstAttribute="width" constant="50" id="pGh-KF-8H5"/>
                     </constraints>
                 </imageView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mky-Yo-t5V" customClass="MIdtransUIBorderedView">
-                    <rect key="frame" x="0.0" y="304" width="320" height="45"/>
+                    <rect key="frame" x="0.0" y="268" width="320" height="45"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBe-WT-Bx1">
                             <rect key="frame" x="265.5" y="12" width="39.5" height="21.5"/>
@@ -184,7 +184,7 @@
                 <constraint firstAttribute="trailing" secondItem="C7g-aK-yUo" secondAttribute="trailing" id="0Ua-Ec-k5w"/>
                 <constraint firstItem="j9s-ZM-Szx" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="1LS-Cl-Wbg"/>
                 <constraint firstAttribute="trailing" secondItem="mky-Yo-t5V" secondAttribute="trailing" id="5IJ-h9-sDF"/>
-                <constraint firstItem="pQp-of-u6G" firstAttribute="top" secondItem="Gxw-3e-GX3" secondAttribute="top" constant="44" id="D65-rR-fyI"/>
+                <constraint firstItem="pQp-of-u6G" firstAttribute="top" secondItem="Gxw-3e-GX3" secondAttribute="top" constant="8" id="D65-rR-fyI"/>
                 <constraint firstItem="esG-UV-3BY" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="FRx-A2-Ail"/>
                 <constraint firstItem="C7g-aK-yUo" firstAttribute="leading" secondItem="zlS-A2-aUc" secondAttribute="leading" id="GOM-rg-k68"/>
                 <constraint firstAttribute="trailing" secondItem="esG-UV-3BY" secondAttribute="trailing" id="HEk-yY-zN4"/>

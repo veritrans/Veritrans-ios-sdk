@@ -8,7 +8,6 @@
 
 #import "MidtransUIBaseViewController.h"
 #import "VTPaymentStatusController.h"
-#import "MidtransUIPaymentViewController.h"
 #import "MidtransSDK.h"
 
 @interface MidtransUIPaymentController : MidtransUIBaseViewController

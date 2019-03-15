@@ -718,11 +718,9 @@ MidtransCommonTSCViewControllerDelegate
                     self.installmentBankName = self.filteredBinObject.bank;
                 }
                 
-                if (!isDebitCard) {
-                    [self.installmentValueObject setArray:@[@"0"]];
-                    [self.installmentValueObject addObjectsFromArray:[self.installmentInfo.terms objectForKey:self.installmentBankName]];
-                    [self showInstallmentView:YES];
-                }
+                [self.installmentValueObject setArray:@[@"0"]];
+                [self.installmentValueObject addObjectsFromArray:[self.installmentInfo.terms objectForKey:self.installmentBankName]];
+                [self showInstallmentView:YES];
             }
         }
         else {

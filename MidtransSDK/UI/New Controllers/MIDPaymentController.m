@@ -8,7 +8,6 @@
 
 #import "MIDPaymentController.h"
 #import "VTClassHelper.h"
-#import "MidtransUIPaymentViewController.h"
 #import "MidtransLoadingView.h"
 #import "MIDArrayHelper.h"
 #import "VTPaymentListController.h"

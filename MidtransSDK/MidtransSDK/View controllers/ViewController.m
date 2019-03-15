@@ -62,16 +62,16 @@
     
     MIDInstallmentTerm *term1 = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBCA
                                                                   terms:@[@6, @12, @24]];
-    MIDInstallmentTerm *term2 = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankBNI
+    MIDInstallmentTerm *term2 = [[MIDInstallmentTerm alloc] initWithBank:MIDAcquiringBankMandiri
                                                                   terms:@[@6, @12, @24]];
     
-    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term1, term2] required:NO];
+    MIDInstallment *installment = [[MIDInstallment alloc] initWithTerms:@[term1, term2] required:YES];
     
     MIDCreditCard *cc = [[MIDCreditCard alloc] initWithCreditCardTransactionType:MIDCreditCardTransactionTypeAuthorizeCapture
                                                                   authentication:MIDAuthentication3DS
                                                                    acquiringBank:MIDAcquiringBankNone
                                                                 acquiringChannel:MIDAcquiringChannelNone
-                                                                     installment:nil
+                                                                     installment:installment
                                                                    whiteListBins:nil
                                                                    blackListBins:nil];
     

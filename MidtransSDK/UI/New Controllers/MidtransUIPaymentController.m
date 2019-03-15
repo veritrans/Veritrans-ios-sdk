@@ -7,7 +7,6 @@
 //
 
 #import "MidtransUIPaymentController.h"
-#import "MidtransUIPaymentViewController.h"
 #import "VTClassHelper.h"
 #import "SNPMaintainView.h"
 #import "MidtransUIHudView.h"

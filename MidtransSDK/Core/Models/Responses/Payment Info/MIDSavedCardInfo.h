@@ -8,13 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "MIDMappable.h"
+#import "MIDModelEnums.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface MIDSavedCardInfo : NSObject<MIDMappable>
 
 @property (nonatomic) NSString *token;
-@property (nonatomic) NSString *type;
+@property (nonatomic) MIDCardTokenType tokenType;
 @property (nonatomic) NSString *maskedCard;
 @property (nonatomic) NSString *expireDate;
 

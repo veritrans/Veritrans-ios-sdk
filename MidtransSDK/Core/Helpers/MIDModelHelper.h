@@ -43,7 +43,9 @@
 + (NSString *)stringFromBool:(BOOL)boolean;
 + (NSString *)stringOfPaymentMethod:(MIDPaymentMethod)method;
 + (NSString *)stringOfPaymentCategory:(MIDPaymentCategory)category;
++ (NSString *)stringOfCreditCardType:(MIDCardTokenType)type;
 
+- (MIDCardTokenType)cardTokenType;
 - (MIDCreditCardTransactionType)creditCardTransactionType;
 - (MIDCurrency)currencyType;
 - (MIDPaymentMethod)paymentMethod;

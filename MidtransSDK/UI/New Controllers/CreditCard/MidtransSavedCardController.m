@@ -64,9 +64,9 @@
     [self.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     
-    NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(type)), TokenTypeOneClick];
+    NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K == %i", NSStringFromSelector(@selector(tokenType)), MIDCardTokenTypeOneClick];
     BOOL oneClickAvailable = [[self.savedCards filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
-    NSPredicate *twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(type)), TokenTypeTwoClicks];
+    NSPredicate *twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K == %i", NSStringFromSelector(@selector(tokenType)), MIDCardTokenTypeTwoClick];
     BOOL twoClickAvailable = [[self.savedCards filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
     BOOL installmentRequired = self.info.creditCard.installment.required;
     BOOL installmentAvailable = self.info.creditCard.installment.terms.allKeys.count > 0;
@@ -151,7 +151,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     MIDSavedCardInfo *card = self.savedCards[indexPath.row];    
-    if ([card.type isEqualToString:TokenTypeTwoClicks]) {
+    if (card.tokenType == MIDCardTokenTypeOneClick) {
         [self performOneClickWithCard:card];
     }
     else {

@@ -231,6 +231,23 @@
     }
 }
 
++ (NSString *)stringOfCreditCardType:(MIDCardTokenType)type {
+    switch (type) {
+        case MIDCardTokenTypeOneClick:
+            return @"one_click";
+        default:
+            return @"two_clicks";
+    }
+}
+
+- (MIDCardTokenType)cardTokenType {
+    if ([self isEqualToString:@"one_click"]) {
+        return MIDCardTokenTypeOneClick;
+    } else {
+        return MIDCardTokenTypeTwoClick;
+    }
+}
+
 - (MIDPaymentCategory)paymentCategory {
     if ([self isEqualToString:@"bank_transfer"]) {
         return MIDPaymentCategoryBankTransfer;

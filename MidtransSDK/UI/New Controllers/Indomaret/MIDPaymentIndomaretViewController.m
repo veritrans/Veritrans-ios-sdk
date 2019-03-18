@@ -42,7 +42,7 @@
     NSArray *instructions = [VTClassHelper instructionsFromFilePath:guidePath];
     self.subGuide = [[VTSubGuideController alloc] initWithInstructions:instructions];
     [self addSubViewController:self.subGuide toView:self.instructionPage];
-
+    
     self.amountLabel.text = self.info.transaction.grossAmount.formattedCurrencyNumber;
     self.orderIdLabel.text = self.info.transaction.orderID;
     self.instructionLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"%@ step by step"], self.paymentMethod.title];
@@ -74,5 +74,5 @@
     }];
 }
 
-    @end
-    
+@end
+

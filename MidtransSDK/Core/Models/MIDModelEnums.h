@@ -66,9 +66,9 @@ typedef NS_ENUM(NSInteger, MIDCurrency) {
     MIDCurrencySGD
 };
 
-typedef NS_ENUM(NSInteger, MIDSavedCardType) {
-    MIDSavedCardTypeOneClick,
-    MIDSavedCardTypeTwoClick
+typedef NS_ENUM(NSInteger, MIDCardTokenType) {
+    MIDCardTokenTypeOneClick,
+    MIDCardTokenTypeTwoClick
 };
 
 typedef NS_ENUM(NSInteger, MIDPaymentMethod) {

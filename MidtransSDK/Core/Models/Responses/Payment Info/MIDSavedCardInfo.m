@@ -14,7 +14,7 @@
 - (NSDictionary *)dictionaryValue {
     NSMutableDictionary *result = [NSMutableDictionary dictionary];
     [result setValue:self.token forKey:@"token"];
-    [result setValue:self.type forKey:@"token_type"];
+    [result setValue:[NSString stringOfCreditCardType:self.tokenType] forKey:@"token_type"];
     [result setValue:self.maskedCard forKey:@"masked_card"];
     [result setValue:self.expireDate forKey:@"expires_at"];
     return result;
@@ -23,7 +23,7 @@
 - (instancetype)initWithDictionary:(NSDictionary *)dictionary {
     if (self = [super init]) {
         self.token = [dictionary objectOrNilForKey:@"token"];
-        self.type = [dictionary objectOrNilForKey:@"token_type"];
+        self.tokenType = [[dictionary objectOrNilForKey:@"token_type"] cardTokenType];
         self.maskedCard = [dictionary objectOrNilForKey:@"masked_card"];
         self.expireDate = [dictionary objectOrNilForKey:@"expires_at"];
     }

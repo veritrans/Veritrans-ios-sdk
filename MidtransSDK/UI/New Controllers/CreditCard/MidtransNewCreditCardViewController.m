@@ -224,9 +224,9 @@ MidtransCommonTSCViewControllerDelegate
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     self.view.totalAmountPrice.textColor = [[MidtransUIThemeManager shared] themeColor];
     
-    NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(type)), TokenTypeOneClick];
+    NSPredicate *oneClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K == %i", NSStringFromSelector(@selector(tokenType)), MIDCardTokenTypeTwoClick];
     BOOL oneClickAvailable = [[self.info.creditCard.savedCards filteredArrayUsingPredicate:oneClickPredicateFilter] count] > 0;
-    NSPredicate *twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K like %@", NSStringFromSelector(@selector(type)), TokenTypeTwoClicks];
+    NSPredicate *twoClickPredicateFilter = [NSPredicate predicateWithFormat:@"%K == %i", NSStringFromSelector(@selector(tokenType)), MIDCardTokenTypeTwoClick];
     BOOL twoClickAvailable = [[self.info.creditCard.savedCards filteredArrayUsingPredicate:twoClickPredicateFilter] count] > 0;
     [[NSUserDefaults standardUserDefaults] setObject:@(oneClickAvailable) forKey:MIDTRANS_TRACKING_ONE_CLICK_AVAILABLE];
     [[NSUserDefaults standardUserDefaults] setObject:@(twoClickAvailable) forKey:MIDTRANS_TRACKING_TWO_CLICK_AVAILABLE];

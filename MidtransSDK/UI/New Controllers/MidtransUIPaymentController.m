@@ -37,7 +37,9 @@
 
 @end
 
-@implementation MidtransUIPaymentController
+@implementation MidtransUIPaymentController {
+    UIImageView *testBadgeView;
+}
 
 -(instancetype)init {
     self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
@@ -103,9 +105,24 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     if (self.navigationController.viewControllers.count > 1) {
         [self showBackButton:YES];
     }
+    
+    if ([MIDVendorUI shared].environment != MIDEnvironmentProduction) {
+        testBadgeView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"test_badge"]];
+        testBadgeView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addSubview:testBadgeView];
+        NSArray *constraints = @[[testBadgeView.leadingAnchor constraintEqualToAnchor:self.view.leadingAnchor],
+                                 [testBadgeView.bottomAnchor constraintEqualToAnchor:self.view.bottomAnchor]
+                                 ];
+        [NSLayoutConstraint activateConstraints:constraints];
+    }    
+}
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [self.view bringSubviewToFront:testBadgeView];
 }
 -(void)showAlertViewWithTitle:(NSString *)title
                    andMessage:(NSString *)message

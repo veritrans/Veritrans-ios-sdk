@@ -70,25 +70,37 @@
     [self.view configureAmountTotal:self.info];
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Calculating your Point"]];
     
-    [MIDCreditCardCharge getPointWithToken:self.snapToken cardToken:self.creditCardToken completion:^(MIDPointResponse * _Nullable result, NSError * _Nullable error) {
-        if (!error) {
-            self.currentPoint = [result.balanceAmount intValue];
-            
-            self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[result.balanceAmount intValue]];
-            if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
-                self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[result.balanceAmount intValue]];
-                self.view.topTextfield.hidden = YES;
-                
-            } else {
-                self.view.topTextfield.hidden = NO;
-                self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Current fiesta point %i"],[result.balanceAmount intValue]];
-                self.view.topTextfield.text = [NSNumber numberWithInteger:0 - [result.balanceAmount integerValue]].formattedCurrencyNumber;
-            }
-            
-            [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[result.balanceAmount intValue]]];
-            [self hideLoading];
-        }
-    }];
+    [MIDCreditCardCharge getPointWithToken:self.snapToken
+                                 cardToken:self.creditCardToken
+                                completion:^(MIDPointResponse * _Nullable result, NSError * _Nullable error)
+     {
+         if (error) {
+             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Error" message:error.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+             [alert addAction:[UIAlertAction actionWithTitle:UILocalizedString(@"Close", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                 [self hideLoading];
+                 [self.navigationController popViewControllerAnimated:YES];
+             }]];
+             [self presentViewController:alert animated:YES completion:nil];
+             
+         } else {
+             [self hideLoading];
+             
+             self.currentPoint = [result.balanceAmount intValue];
+             
+             self.view.pointInputTextField.text = [NSString stringWithFormat:@"%i",[result.balanceAmount intValue]];
+             if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
+                 self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[result.balanceAmount intValue]];
+                 self.view.topTextfield.hidden = YES;
+                 
+             } else {
+                 self.view.topTextfield.hidden = NO;
+                 self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Current fiesta point %i"],[result.balanceAmount intValue]];
+                 self.view.topTextfield.text = [NSNumber numberWithInteger:0 - [result.balanceAmount integerValue]].formattedCurrencyNumber;
+             }
+             
+             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[result.balanceAmount intValue]]];
+         }
+     }];
     
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];

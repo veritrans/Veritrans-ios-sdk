@@ -893,8 +893,6 @@ MidtransCommonTSCViewControllerDelegate
         _cardTokenID = response.tokenID;
         
         if (pointEnabled) {
-            [self hideLoading];
-            
             SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithPaymentMethod:self.paymentMethod cardToken:response.tokenID];
             pointVC.isSaveCard = self.isSaveCard;
             pointVC.secureURL = response.secureURL;
@@ -907,6 +905,8 @@ MidtransCommonTSCViewControllerDelegate
             }
             
             [self.navigationController pushViewController:pointVC animated:YES];
+            
+            [self hideLoading];
         }
         else {
             if (response.secureURL) {

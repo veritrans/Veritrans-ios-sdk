@@ -46,6 +46,7 @@
 		E545E0D521B503CD005C1EB3 /* MIDPermataBankTransferResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E545E0D421B503CD005C1EB3 /* MIDPermataBankTransferResult.m */; };
 		E545E0D821B503DA005C1EB3 /* MIDMandiriBankTransferResult.m in Sources */ = {isa = PBXBuildFile; fileRef = E545E0D721B503DA005C1EB3 /* MIDMandiriBankTransferResult.m */; };
 		E545E0DB21B518EE005C1EB3 /* MIDPaymentHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E545E0DA21B518EE005C1EB3 /* MIDPaymentHelper.m */; };
+		E54B1C942241F4E5003200EF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E54B1C962241F4E5003200EF /* Localizable.strings */; };
 		E54D6AC22238BE5600BC7D7D /* id_alfamart.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC02238BE5600BC7D7D /* id_alfamart.plist */; };
 		E54D6AC32238BE5600BC7D7D /* en_alfamart.plist in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC12238BE5600BC7D7D /* en_alfamart.plist */; };
 		E54D6AC72238E20F00BC7D7D /* dandan@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E54D6AC42238E20E00BC7D7D /* dandan@2x.png */; };
@@ -701,6 +702,8 @@
 		E545E0D721B503DA005C1EB3 /* MIDMandiriBankTransferResult.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDMandiriBankTransferResult.m; sourceTree = "<group>"; };
 		E545E0D921B518EE005C1EB3 /* MIDPaymentHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDPaymentHelper.h; sourceTree = "<group>"; };
 		E545E0DA21B518EE005C1EB3 /* MIDPaymentHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDPaymentHelper.m; sourceTree = "<group>"; };
+		E54B1C952241F4E5003200EF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		E54B1C972241F4FE003200EF /* id */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = id; path = id.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E54D6AC02238BE5600BC7D7D /* id_alfamart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = id_alfamart.plist; sourceTree = "<group>"; };
 		E54D6AC12238BE5600BC7D7D /* en_alfamart.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = en_alfamart.plist; sourceTree = "<group>"; };
 		E54D6AC42238E20E00BC7D7D /* dandan@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "dandan@2x.png"; sourceTree = "<group>"; };
@@ -1859,6 +1862,28 @@
 		E570D1352213D1B9004F0099 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E5AE70372212A0AA0064FE00 /* MIDBarcode39Generator.h */,
+				E5AE70312212A0A80064FE00 /* MIDBarcode39Generator.m */,
+				E5AE702F2212A0A70064FE00 /* UIImage+Scale.h */,
+				E5AE70322212A0A80064FE00 /* UIImage+Scale.m */,
+				E5AE6EFA2212A0640064FE00 /* IHKeyboardAvoiding_vt.h */,
+				E5AE6EF22212A0630064FE00 /* IHKeyboardAvoiding_vt.m */,
+				E5AE6F5A2212A0790064FE00 /* MidtransUICardFormatter.h */,
+				E5AE6F182212A06C0064FE00 /* MidtransUICardFormatter.m */,
+				E5AE6F5F2212A07A0064FE00 /* MidtransUIStringHelper.h */,
+				E5AE6F602212A07A0064FE00 /* MidtransUIStringHelper.m */,
+				E5AE6EF52212A0630064FE00 /* UIColor+SNP_HexString.h */,
+				E5AE6F2F2212A0710064FE00 /* UIColor+SNP_HexString.m */,
+				E5AE6EEF2212A0630064FE00 /* UIColor+VTColor.h */,
+				E5AE6F5D2212A07A0064FE00 /* UIColor+VTColor.m */,
+				E5AE6F5B2212A0790064FE00 /* UIFont+IBCustomFonts.m */,
+				E5AE6EF92212A0640064FE00 /* UILabel+Boldify.h */,
+				E5AE6F252212A06F0064FE00 /* UILabel+Boldify.m */,
+				E5AE6F672212A07B0064FE00 /* UIView+Toast.h */,
+				E5AE6F982212A0840064FE00 /* UIView+Toast.m */,
+				E5AE6F322212A0720064FE00 /* VTClassHelper.h */,
+				E5AE6F832212A0800064FE00 /* VTClassHelper.m */,
+				E5AE6F082212A0670064FE00 /* VTKITConstant.h */,
 				E5215D2E223A2DE10011A009 /* MidtransDeviceHelper.h */,
 				E5215D2D223A2DE00011A009 /* MidtransDeviceHelper.m */,
 				E54D6AE02238F76900BC7D7D /* MidtransMandiriClickpayHelper.h */,
@@ -2004,6 +2029,7 @@
 				E5AE6EC1221283DA0064FE00 /* MidtransKit.h */,
 				E5AE6EC2221283DA0064FE00 /* MidtransKit.m */,
 				E56FA9422212A7F2003DC10D /* MidtransUISDK.h */,
+				E54B1C962241F4E5003200EF /* Localizable.strings */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -2273,8 +2299,6 @@
 		E5AE70422212A0C70064FE00 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E5AE70372212A0AA0064FE00 /* MIDBarcode39Generator.h */,
-				E5AE70312212A0A80064FE00 /* MIDBarcode39Generator.m */,
 				E5AE702D2212A0A70064FE00 /* MIDGopayDetailView.h */,
 				E5AE702B2212A0A60064FE00 /* MIDGopayDetailView.m */,
 				E5AE70342212A0A90064FE00 /* SNPMaintainView.h */,
@@ -2283,8 +2307,6 @@
 				E5AE70362212A0AA0064FE00 /* SNPPostPaymentGeneralHeader.m */,
 				E5AE70382212A0AB0064FE00 /* SNPPostPaymentGeneralView.h */,
 				E5AE70352212A0AA0064FE00 /* SNPPostPaymentGeneralView.m */,
-				E5AE702F2212A0A70064FE00 /* UIImage+Scale.h */,
-				E5AE70322212A0A80064FE00 /* UIImage+Scale.m */,
 				E5AE6F142212A06B0064FE00 /* MidtransCollectionViewLayout.h */,
 				E5AE6EE42212A0620064FE00 /* MidtransCollectionViewLayout.m */,
 				E5AE6F872212A0800064FE00 /* MidtransDirectHeader.h */,
@@ -2295,8 +2317,6 @@
 				E5AE6EE82212A0620064FE00 /* AddOnConstructor.m */,
 				E5AE6EDF2212A0610064FE00 /* HMSegmentedControl.h */,
 				E5AE6F882212A0810064FE00 /* HMSegmentedControl.m */,
-				E5AE6EFA2212A0640064FE00 /* IHKeyboardAvoiding_vt.h */,
-				E5AE6EF22212A0630064FE00 /* IHKeyboardAvoiding_vt.m */,
 				E5AE6EEE2212A0630064FE00 /* MIDGopayView.h */,
 				E5AE6F0E2212A0690064FE00 /* MIDGopayView.m */,
 				E5AE6EDB2212A0610064FE00 /* MidtransLineView.h */,
@@ -2315,8 +2335,6 @@
 				E5AE6F7D2212A07F0064FE00 /* MIdtransUIBorderedView.m */,
 				E5AE6F102212A0690064FE00 /* MidtransUIButton.h */,
 				E5AE6FB32212A0880064FE00 /* MidtransUIButton.m */,
-				E5AE6F5A2212A0790064FE00 /* MidtransUICardFormatter.h */,
-				E5AE6F182212A06C0064FE00 /* MidtransUICardFormatter.m */,
 				E5AE6F732212A07D0064FE00 /* MidtransUIConfiguration.h */,
 				E5AE6FA42212A0860064FE00 /* MidtransUIConfiguration.m */,
 				E5AE6EE52212A0620064FE00 /* MidtransUIFontSource.h */,
@@ -2333,8 +2351,6 @@
 				E5AE6F642212A07B0064FE00 /* MidtransUIPaymentGeneralView.m */,
 				E5AE6EED2212A0620064FE00 /* MidtransUIRoundedLabel.h */,
 				E5AE6F092212A0670064FE00 /* MidtransUIRoundedLabel.m */,
-				E5AE6F5F2212A07A0064FE00 /* MidtransUIStringHelper.h */,
-				E5AE6F602212A07A0064FE00 /* MidtransUIStringHelper.m */,
 				E5AE6ED42212A0600064FE00 /* MidtransUITextField.h */,
 				E5AE6F692212A07C0064FE00 /* MidtransUITextField.m */,
 				E5AE6F722212A07D0064FE00 /* MidtransUITheme.h */,
@@ -2355,21 +2371,10 @@
 				E5AE6F4D2212A0770064FE00 /* SNPPostPaymentHeader.m */,
 				E5AE6F612212A07A0064FE00 /* SNPPostPaymentHeaderBillPay.h */,
 				E5AE6F352212A0720064FE00 /* SNPPostPaymentHeaderBillPay.m */,
-				E5AE6EF52212A0630064FE00 /* UIColor+SNP_HexString.h */,
-				E5AE6F2F2212A0710064FE00 /* UIColor+SNP_HexString.m */,
-				E5AE6EEF2212A0630064FE00 /* UIColor+VTColor.h */,
-				E5AE6F5D2212A07A0064FE00 /* UIColor+VTColor.m */,
-				E5AE6F5B2212A0790064FE00 /* UIFont+IBCustomFonts.m */,
-				E5AE6EF92212A0640064FE00 /* UILabel+Boldify.h */,
-				E5AE6F252212A06F0064FE00 /* UILabel+Boldify.m */,
-				E5AE6F672212A07B0064FE00 /* UIView+Toast.h */,
-				E5AE6F982212A0840064FE00 /* UIView+Toast.m */,
 				E5AE6EF62212A0630064FE00 /* VTAlertBackgroundView.h */,
 				E5AE6F1D2212A06D0064FE00 /* VTAlertBackgroundView.m */,
 				E5AE6F622212A07B0064FE00 /* VTBackBarButtonItem.h */,
 				E5AE6F432212A0750064FE00 /* VTBackBarButtonItem.m */,
-				E5AE6F322212A0720064FE00 /* VTClassHelper.h */,
-				E5AE6F832212A0800064FE00 /* VTClassHelper.m */,
 				E5AE6F742212A07D0064FE00 /* VTGroupedInstruction.h */,
 				E5AE6F482212A0760064FE00 /* VTGroupedInstruction.m */,
 				E5AE6F332212A0720064FE00 /* VTGuideCell.h */,
@@ -2380,7 +2385,6 @@
 				E5AE6FA22212A0860064FE00 /* VTInstruction.m */,
 				E5AE6F292212A0700064FE00 /* VTKeyboardAccessoryView.h */,
 				E5AE6FB22212A0880064FE00 /* VTKeyboardAccessoryView.m */,
-				E5AE6F082212A0670064FE00 /* VTKITConstant.h */,
 				E5AE6F1F2212A06E0064FE00 /* VTNoteTitleLabel.h */,
 				E5AE6F0A2212A0680064FE00 /* VTNoteTitleLabel.m */,
 				E5AE6F412212A0750064FE00 /* VTPaymentHeader.h */,
@@ -2768,6 +2772,7 @@
 			knownRegions = (
 				en,
 				Base,
+				id,
 			);
 			mainGroup = E5D3C7A62192D7700090DDAE;
 			productRefGroup = E5D3C7B02192D7700090DDAE /* Products */;
@@ -2975,6 +2980,7 @@
 				E5AE73252212A3210064FE00 /* bin.json in Resources */,
 				E5AE71A22212A2040064FE00 /* VASuccessIcon@2x.png in Resources */,
 				E5AE71642212A2030064FE00 /* prevIcon@2x.png in Resources */,
+				E54B1C942241F4E5003200EF /* Localizable.strings in Resources */,
 				E5AE727E2212A2AD0064FE00 /* id_kioson.plist in Resources */,
 				E5AE71AF2212A2040064FE00 /* danamon_online.png in Resources */,
 				E5AE72782212A2AD0064FE00 /* id_mandiri_ecash.plist in Resources */,
@@ -3440,6 +3446,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		E54B1C962241F4E5003200EF /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E54B1C952241F4E5003200EF /* en */,
+				E54B1C972241F4FE003200EF /* id */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		E5D3C7B82192D7700090DDAE /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3463,6 +3478,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -3522,6 +3538,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -1639,6 +1639,10 @@
 		E52E42632224F0AF00810403 /* GoPay */ = {
 			isa = PBXGroup;
 			children = (
+				E5AE702D2212A0A70064FE00 /* MIDGopayDetailView.h */,
+				E5AE702B2212A0A60064FE00 /* MIDGopayDetailView.m */,
+				E5AE6EEE2212A0630064FE00 /* MIDGopayView.h */,
+				E5AE6F0E2212A0690064FE00 /* MIDGopayView.m */,
 				E5AE6EDE2212A0610064FE00 /* MidGopayViewController.h */,
 				E5AE6EE62212A0620064FE00 /* MidGopayViewController.m */,
 				E5AE72B62212A2C60064FE00 /* MidGopayViewController.xib */,
@@ -1784,17 +1788,16 @@
 			path = "Bank Transfer";
 			sourceTree = "<group>";
 		};
-		E56FA9432212B661003DC10D /* Controllers */ = {
+		E56FA9432212B661003DC10D /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				E5AE70422212A0C70064FE00 /* Components */,
 				E5AE70292212A0A50064FE00 /* MidtransCommonTSCViewController.h */,
 				E5AE702C2212A0A60064FE00 /* MidtransCommonTSCViewController.m */,
 				E5AE702A2212A0A50064FE00 /* SNPPostPaymentGeneralViewController.h */,
 				E5AE702E2212A0A70064FE00 /* SNPPostPaymentGeneralViewController.m */,
 				E5AE6F782212A07E0064FE00 /* MBXPageViewController_vt.h */,
 				E5AE6EF32212A0630064FE00 /* MBXPageViewController_vt.m */,
-				E5AE6F4A2212A0760064FE00 /* MidtransPaymentStatusViewController.h */,
-				E5AE6F042212A0660064FE00 /* MidtransPaymentStatusViewController.m */,
 				E5AE6F932212A0820064FE00 /* MidtransTransactionDetailViewController.h */,
 				E5AE6F392212A0730064FE00 /* MidtransTransactionDetailViewController.m */,
 				E5AE6F862212A0800064FE00 /* MidtransUIBaseViewController.h */,
@@ -1807,44 +1810,32 @@
 				E5AE6FB02212A0880064FE00 /* MidtransUITableAlertViewController.m */,
 				E5AE6F422212A0750064FE00 /* MIDV2PaymentListViewController.h */,
 				E5AE6F0D2212A0690064FE00 /* MIDV2PaymentListViewController.m */,
-				E5AE6F7E2212A07F0064FE00 /* SNPPostPaymentVAViewController.h */,
-				E5AE6F8A2212A0810064FE00 /* SNPPostPaymentVAViewController.m */,
 				E5AE6EE12212A0610064FE00 /* UIViewController+HeaderSubtitle.h */,
 				E5AE6F002212A0650064FE00 /* UIViewController+HeaderSubtitle.m */,
 				E5AE6FB62212A0890064FE00 /* UIViewController+Modal.h */,
 				E5AE6F302212A0710064FE00 /* UIViewController+Modal.m */,
-				E5AE6F812212A07F0064FE00 /* VTBillpaySuccessController.h */,
-				E5AE6F9A2212A0840064FE00 /* VTBillpaySuccessController.m */,
-				E5AE6ED92212A0610064FE00 /* VTErrorStatusController.h */,
-				E5AE6EDC2212A0610064FE00 /* VTErrorStatusController.m */,
-				E5AE6F372212A0730064FE00 /* VTKlikbcaSuccessController.h */,
-				E5AE6F7B2212A07F0064FE00 /* VTKlikbcaSuccessController.m */,
-				E5AE6F1A2212A06C0064FE00 /* VTMultiGuideController.h */,
-				E5AE6F472212A0760064FE00 /* VTMultiGuideController.m */,
-				E5AE6F3C2212A0740064FE00 /* VTPaymentStatusController.h */,
-				E5AE6EFB2212A0640064FE00 /* VTPaymentStatusController.m */,
-				E5AE6EF82212A0640064FE00 /* VTPendingStatusController.h */,
-				E5AE6F262212A06F0064FE00 /* VTPendingStatusController.m */,
-				E5AE6F712212A07D0064FE00 /* VTSingleGuideController.h */,
-				E5AE6F8E2212A0810064FE00 /* VTSingleGuideController.m */,
-				E5AE6EFC2212A0640064FE00 /* VTSubGuideController.h */,
-				E5AE6F232212A06F0064FE00 /* VTSubGuideController.m */,
+				E5AE72B12212A2C50064FE00 /* MidtransCommonTSCViewController.xib */,
+				E5AE72C32212A2C70064FE00 /* MidtransLoadingView.xib */,
+				E5AE729D2212A2C30064FE00 /* MidtransPaymentMethodHeader.xib */,
+				E5AE72BA2212A2C60064FE00 /* MidtransTransactionDetailViewController.xib */,
+				E5AE72B52212A2C60064FE00 /* MidtransUICustomAlertViewController.xib */,
+				E5AE72C12212A2C70064FE00 /* MidtransUITableAlertViewController.xib */,
+				E5AE72DD2212A2CA0064FE00 /* MidtransUIToast.xib */,
+				E5AE72DB2212A2CA0064FE00 /* MIDV2PaymentListViewController.xib */,
 			);
-			path = Controllers;
+			path = Other;
 			sourceTree = "<group>";
 		};
-		E56FA9492212FA7C003DC10D /* New Controllers */ = {
+		E56FA9492212FA7C003DC10D /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E5AE6F902212A0820064FE00 /* MidtransUIPaymentController.h */,
-				E5AE6EE22212A0610064FE00 /* MidtransUIPaymentController.m */,
-				E5EDAEB122153B8600552AF3 /* MIDWebPaymentController.h */,
-				E5EDAEB222153B8600552AF3 /* MIDWebPaymentController.m */,
-				E5D22B89222D56BC00982149 /* MID3DSController.h */,
-				E5D22B8A222D56BC00982149 /* MID3DSController.m */,
-				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
-				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
-				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+				E56FA9432212B661003DC10D /* Other */,
+				E5D564222243459900633CB2 /* Base */,
+				E5D56423224345A100633CB2 /* Main */,
+				E5D564212243458000633CB2 /* WebView */,
+				E5D564202243440E00633CB2 /* Status */,
+				E5D5641F2243437700633CB2 /* Guide */,
+				E5D5641E224342D500633CB2 /* Klikbca */,
 				E59E05012238AD7A00EDAFF7 /* Alfamart */,
 				E5D2F32F222FAE7B00F6E34D /* Indomaret */,
 				E52E42632224F0AF00810403 /* GoPay */,
@@ -1856,12 +1847,14 @@
 				E5EDAEAC22153AC000552AF3 /* General */,
 				E53CCB1F2229228900B7A893 /* CreditCard */,
 			);
-			path = "New Controllers";
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		E570D1352213D1B9004F0099 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				E5AE6F632212A07B0064FE00 /* NSString+TextDirectionality.h */,
+				E5AE6FAD2212A0870064FE00 /* NSString+TextDirectionality.m */,
 				E5AE70372212A0AA0064FE00 /* MIDBarcode39Generator.h */,
 				E5AE70312212A0A80064FE00 /* MIDBarcode39Generator.m */,
 				E5AE702F2212A0A70064FE00 /* UIImage+Scale.h */,
@@ -1913,6 +1906,8 @@
 		E570D14B22141FB1004F0099 /* Payment List */ = {
 			isa = PBXGroup;
 			children = (
+				E5AE6F892212A0810064FE00 /* MIDV2PaymentListView.h */,
+				E5AE6F962212A0830064FE00 /* MIDV2PaymentListView.m */,
 				E5AE6F282212A06F0064FE00 /* VTPaymentListController.h */,
 				E5AE6F242212A06F0064FE00 /* VTPaymentListController.m */,
 				E5AE72CD2212A2C80064FE00 /* VTPaymentListController.xib */,
@@ -2016,16 +2011,14 @@
 		E5AE6EC0221283AC0064FE00 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E5D5641D2243422100633CB2 /* Utils */,
 				E54D6ACE2238EBDB00BC7D7D /* Constants */,
 				E5EDAEB422154C9900552AF3 /* Models */,
 				E570D1352213D1B9004F0099 /* Helper */,
-				E56FA9492212FA7C003DC10D /* New Controllers */,
-				E56FA9432212B661003DC10D /* Controllers */,
-				E5AE729B2212A2B90064FE00 /* Views */,
+				E56FA9492212FA7C003DC10D /* Controllers */,
 				E5AE723E2212A29A0064FE00 /* Data */,
 				E5AE72382212A2800064FE00 /* Fonts */,
 				E5AE70412212A0B30064FE00 /* Images */,
-				E5AE70422212A0C70064FE00 /* Classes */,
 				E5AE6EC1221283DA0064FE00 /* MidtransKit.h */,
 				E5AE6EC2221283DA0064FE00 /* MidtransKit.m */,
 				E56FA9422212A7F2003DC10D /* MidtransUISDK.h */,
@@ -2296,17 +2289,14 @@
 			path = Images;
 			sourceTree = "<group>";
 		};
-		E5AE70422212A0C70064FE00 /* Classes */ = {
+		E5AE70422212A0C70064FE00 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E5AE702D2212A0A70064FE00 /* MIDGopayDetailView.h */,
-				E5AE702B2212A0A60064FE00 /* MIDGopayDetailView.m */,
-				E5AE70342212A0A90064FE00 /* SNPMaintainView.h */,
-				E5AE70332212A0A90064FE00 /* SNPMaintainView.m */,
-				E5AE70302212A0A80064FE00 /* SNPPostPaymentGeneralHeader.h */,
-				E5AE70362212A0AA0064FE00 /* SNPPostPaymentGeneralHeader.m */,
-				E5AE70382212A0AB0064FE00 /* SNPPostPaymentGeneralView.h */,
-				E5AE70352212A0AA0064FE00 /* SNPPostPaymentGeneralView.m */,
+				E5AE72A42212A2C40064FE00 /* MidtransDirectHeader.xib */,
+				E5AE72A02212A2C40064FE00 /* MidtransItemCell.xib */,
+				E5AE72BB2212A2C60064FE00 /* MidtransUIListCell.xib */,
+				E5AE72B82212A2C60064FE00 /* MidtransUIPaymentListHeader.xib */,
+				E5AE72D92212A2C90064FE00 /* VTKeyboardAccessoryView.xib */,
 				E5AE6F142212A06B0064FE00 /* MidtransCollectionViewLayout.h */,
 				E5AE6EE42212A0620064FE00 /* MidtransCollectionViewLayout.m */,
 				E5AE6F872212A0800064FE00 /* MidtransDirectHeader.h */,
@@ -2317,8 +2307,6 @@
 				E5AE6EE82212A0620064FE00 /* AddOnConstructor.m */,
 				E5AE6EDF2212A0610064FE00 /* HMSegmentedControl.h */,
 				E5AE6F882212A0810064FE00 /* HMSegmentedControl.m */,
-				E5AE6EEE2212A0630064FE00 /* MIDGopayView.h */,
-				E5AE6F0E2212A0690064FE00 /* MIDGopayView.m */,
 				E5AE6EDB2212A0610064FE00 /* MidtransLineView.h */,
 				E5AE6F442212A0750064FE00 /* MidtransLineView.m */,
 				E5AE6FAF2212A0880064FE00 /* MidtransLoadingIndicator.h */,
@@ -2329,16 +2317,10 @@
 				E5AE6F492212A0760064FE00 /* MidtransNewCreditCardView.m */,
 				E5AE6F152212A06B0064FE00 /* MidtransPaymentMethodHeader.h */,
 				E5AE6FB52212A0880064FE00 /* MidtransPaymentMethodHeader.m */,
-				E5AE6F6C2212A07C0064FE00 /* MIdtransPaymentStatusView.h */,
-				E5AE6EF12212A0630064FE00 /* MIdtransPaymentStatusView.m */,
 				E5AE6F0B2212A0680064FE00 /* MIdtransUIBorderedView.h */,
 				E5AE6F7D2212A07F0064FE00 /* MIdtransUIBorderedView.m */,
 				E5AE6F102212A0690064FE00 /* MidtransUIButton.h */,
 				E5AE6FB32212A0880064FE00 /* MidtransUIButton.m */,
-				E5AE6F732212A07D0064FE00 /* MidtransUIConfiguration.h */,
-				E5AE6FA42212A0860064FE00 /* MidtransUIConfiguration.m */,
-				E5AE6EE52212A0620064FE00 /* MidtransUIFontSource.h */,
-				E5AE6F9E2212A0850064FE00 /* MidtransUIFontSource.m */,
 				E5AE6F1E2212A06D0064FE00 /* MidtransUIHudView.h */,
 				E5AE6F842212A0800064FE00 /* MidtransUIHudView.m */,
 				E5AE6F5E2212A07A0064FE00 /* MidtransUIListCell.h */,
@@ -2353,36 +2335,14 @@
 				E5AE6F092212A0670064FE00 /* MidtransUIRoundedLabel.m */,
 				E5AE6ED42212A0600064FE00 /* MidtransUITextField.h */,
 				E5AE6F692212A07C0064FE00 /* MidtransUITextField.m */,
-				E5AE6F722212A07D0064FE00 /* MidtransUITheme.h */,
-				E5AE6F3E2212A0740064FE00 /* MidtransUITheme.m */,
-				E5AE6F552212A0780064FE00 /* MidtransUIThemeManager.h */,
-				E5AE6F382212A0730064FE00 /* MidtransUIThemeManager.m */,
 				E5AE6F792212A07E0064FE00 /* MidtransUIToast.h */,
 				E5AE6F912212A0820064FE00 /* MidtransUIToast.m */,
 				E5AE6F942212A0820064FE00 /* MidtransUIXibView.h */,
 				E5AE6EF02212A0630064FE00 /* MidtransUIXibView.m */,
-				E5AE6F892212A0810064FE00 /* MIDV2PaymentListView.h */,
-				E5AE6F962212A0830064FE00 /* MIDV2PaymentListView.m */,
-				E5AE6F632212A07B0064FE00 /* NSString+TextDirectionality.h */,
-				E5AE6FAD2212A0870064FE00 /* NSString+TextDirectionality.m */,
-				E5AE6F2B2212A0700064FE00 /* SNPPostPaymentFooter.h */,
-				E5AE6F022212A0650064FE00 /* SNPPostPaymentFooter.m */,
-				E5AE6F362212A0730064FE00 /* SNPPostPaymentHeader.h */,
-				E5AE6F4D2212A0770064FE00 /* SNPPostPaymentHeader.m */,
-				E5AE6F612212A07A0064FE00 /* SNPPostPaymentHeaderBillPay.h */,
-				E5AE6F352212A0720064FE00 /* SNPPostPaymentHeaderBillPay.m */,
 				E5AE6EF62212A0630064FE00 /* VTAlertBackgroundView.h */,
 				E5AE6F1D2212A06D0064FE00 /* VTAlertBackgroundView.m */,
 				E5AE6F622212A07B0064FE00 /* VTBackBarButtonItem.h */,
 				E5AE6F432212A0750064FE00 /* VTBackBarButtonItem.m */,
-				E5AE6F742212A07D0064FE00 /* VTGroupedInstruction.h */,
-				E5AE6F482212A0760064FE00 /* VTGroupedInstruction.m */,
-				E5AE6F332212A0720064FE00 /* VTGuideCell.h */,
-				E5AE6F702212A07D0064FE00 /* VTGuideCell.m */,
-				E5AE6F562212A0780064FE00 /* VTGuideView.h */,
-				E5AE6ED62212A0600064FE00 /* VTGuideView.m */,
-				E5AE6F2A2212A0700064FE00 /* VTInstruction.h */,
-				E5AE6FA22212A0860064FE00 /* VTInstruction.m */,
 				E5AE6F292212A0700064FE00 /* VTKeyboardAccessoryView.h */,
 				E5AE6FB22212A0880064FE00 /* VTKeyboardAccessoryView.m */,
 				E5AE6F1F2212A06E0064FE00 /* VTNoteTitleLabel.h */,
@@ -2394,7 +2354,7 @@
 				E5AE6F062212A0660064FE00 /* VTTapableLabel.h */,
 				E5AE6EEA2212A0620064FE00 /* VTTapableLabel.m */,
 			);
-			path = Classes;
+			path = Components;
 			sourceTree = "<group>";
 		};
 		E5AE72382212A2800064FE00 /* Fonts */ = {
@@ -2418,46 +2378,6 @@
 				E570D1332213BA3C004F0099 /* MIDVendorUI.m */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		E5AE729B2212A2B90064FE00 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				E56FA9402212A5F0003DC10D /* SNPPostPaymentVAViewController.xib */,
-				E5AE72B12212A2C50064FE00 /* MidtransCommonTSCViewController.xib */,
-				E5AE72A42212A2C40064FE00 /* MidtransDirectHeader.xib */,
-				E5AE72A02212A2C40064FE00 /* MidtransItemCell.xib */,
-				E5AE72C32212A2C70064FE00 /* MidtransLoadingView.xib */,
-				E5AE729D2212A2C30064FE00 /* MidtransPaymentMethodHeader.xib */,
-				E5AE72B72212A2C60064FE00 /* MidtransPaymentStatusViewController.xib */,
-				E5AE72BA2212A2C60064FE00 /* MidtransTransactionDetailViewController.xib */,
-				E5AE72B52212A2C60064FE00 /* MidtransUICustomAlertViewController.xib */,
-				E5AE72BB2212A2C60064FE00 /* MidtransUIListCell.xib */,
-				E5AE72B82212A2C60064FE00 /* MidtransUIPaymentListHeader.xib */,
-				E5AE72C12212A2C70064FE00 /* MidtransUITableAlertViewController.xib */,
-				E5AE72DD2212A2CA0064FE00 /* MidtransUIToast.xib */,
-				E5AE72DB2212A2CA0064FE00 /* MIDV2PaymentListViewController.xib */,
-				E5AE72C22212A2C70064FE00 /* SNPMaintainView.xib */,
-				E5AE72A12212A2C40064FE00 /* SNPPostPaymentFooter.xib */,
-				E5AE72D62212A2C90064FE00 /* SNPPostPaymentGeneralHeader.xib */,
-				E5AE72B02212A2C50064FE00 /* SNPPostPaymentGeneralViewController.xib */,
-				E5AE72BF2212A2C70064FE00 /* SNPPostPaymentHeader.xib */,
-				E5AE72D12212A2C80064FE00 /* SNPPostPaymentHeaderBillPay.xib */,
-				E5AE72D32212A2C90064FE00 /* SNPPostPaymentIndomaretHeader.xib */,
-				E5AE72BD2212A2C60064FE00 /* VTBillpaySuccessController.xib */,
-				E5AE72A62212A2C40064FE00 /* VTErrorStatusController.xib */,
-				E5AE72C52212A2C70064FE00 /* VTGuideCell.xib */,
-				E5AE729C2212A2C30064FE00 /* VTGuideView.xib */,
-				E5AE72B32212A2C60064FE00 /* VTIndomaretSuccessController.xib */,
-				E5AE72D92212A2C90064FE00 /* VTKeyboardAccessoryView.xib */,
-				E5AE72C02212A2C70064FE00 /* VTKlikbcaSuccessController.xib */,
-				E5AE72AC2212A2C50064FE00 /* VTMultiGuideController.xib */,
-				E5AE72A22212A2C40064FE00 /* VTPaymentStatusController.xib */,
-				E5AE72D82212A2C90064FE00 /* VTPendingStatusController.xib */,
-				E5AE72A32212A2C40064FE00 /* VTSingleGuideController.xib */,
-				E5AE72D02212A2C80064FE00 /* VTSubGuideController.xib */,
-			);
-			path = Views;
 			sourceTree = "<group>";
 		};
 		E5AE73202212A3050064FE00 /* Plist */ = {
@@ -2579,6 +2499,7 @@
 				E5AE72AF2212A2C50064FE00 /* MIDPaymentIndomaretViewController.xib */,
 				E5AE6F992212A0840064FE00 /* VTIndomaretSuccessController.h */,
 				E5AE6F582212A0790064FE00 /* VTIndomaretSuccessController.m */,
+				E5AE72B32212A2C60064FE00 /* VTIndomaretSuccessController.xib */,
 			);
 			path = Indomaret;
 			sourceTree = "<group>";
@@ -2660,6 +2581,133 @@
 				E597353421A29475005C9BA0 /* MidtransSDK.h */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		E5D5641D2243422100633CB2 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F732212A07D0064FE00 /* MidtransUIConfiguration.h */,
+				E5AE6FA42212A0860064FE00 /* MidtransUIConfiguration.m */,
+				E5AE6EE52212A0620064FE00 /* MidtransUIFontSource.h */,
+				E5AE6F9E2212A0850064FE00 /* MidtransUIFontSource.m */,
+				E5AE6F722212A07D0064FE00 /* MidtransUITheme.h */,
+				E5AE6F3E2212A0740064FE00 /* MidtransUITheme.m */,
+				E5AE6F552212A0780064FE00 /* MidtransUIThemeManager.h */,
+				E5AE6F382212A0730064FE00 /* MidtransUIThemeManager.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E5D5641E224342D500633CB2 /* Klikbca */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F372212A0730064FE00 /* VTKlikbcaSuccessController.h */,
+				E5AE6F7B2212A07F0064FE00 /* VTKlikbcaSuccessController.m */,
+				E5AE72C02212A2C70064FE00 /* VTKlikbcaSuccessController.xib */,
+			);
+			path = Klikbca;
+			sourceTree = "<group>";
+		};
+		E5D5641F2243437700633CB2 /* Guide */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F742212A07D0064FE00 /* VTGroupedInstruction.h */,
+				E5AE6F482212A0760064FE00 /* VTGroupedInstruction.m */,
+				E5AE6F332212A0720064FE00 /* VTGuideCell.h */,
+				E5AE6F702212A07D0064FE00 /* VTGuideCell.m */,
+				E5AE6F562212A0780064FE00 /* VTGuideView.h */,
+				E5AE6ED62212A0600064FE00 /* VTGuideView.m */,
+				E5AE6F2A2212A0700064FE00 /* VTInstruction.h */,
+				E5AE6FA22212A0860064FE00 /* VTInstruction.m */,
+				E5AE6F1A2212A06C0064FE00 /* VTMultiGuideController.h */,
+				E5AE6F472212A0760064FE00 /* VTMultiGuideController.m */,
+				E5AE6F712212A07D0064FE00 /* VTSingleGuideController.h */,
+				E5AE6F8E2212A0810064FE00 /* VTSingleGuideController.m */,
+				E5AE6EFC2212A0640064FE00 /* VTSubGuideController.h */,
+				E5AE6F232212A06F0064FE00 /* VTSubGuideController.m */,
+				E5AE72C52212A2C70064FE00 /* VTGuideCell.xib */,
+				E5AE729C2212A2C30064FE00 /* VTGuideView.xib */,
+				E5AE72AC2212A2C50064FE00 /* VTMultiGuideController.xib */,
+				E5AE72A32212A2C40064FE00 /* VTSingleGuideController.xib */,
+				E5AE72D02212A2C80064FE00 /* VTSubGuideController.xib */,
+			);
+			path = Guide;
+			sourceTree = "<group>";
+		};
+		E5D564202243440E00633CB2 /* Status */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE70342212A0A90064FE00 /* SNPMaintainView.h */,
+				E5AE70332212A0A90064FE00 /* SNPMaintainView.m */,
+				E5AE70302212A0A80064FE00 /* SNPPostPaymentGeneralHeader.h */,
+				E5AE70362212A0AA0064FE00 /* SNPPostPaymentGeneralHeader.m */,
+				E5AE70382212A0AB0064FE00 /* SNPPostPaymentGeneralView.h */,
+				E5AE70352212A0AA0064FE00 /* SNPPostPaymentGeneralView.m */,
+				E5AE6F4A2212A0760064FE00 /* MidtransPaymentStatusViewController.h */,
+				E5AE6F042212A0660064FE00 /* MidtransPaymentStatusViewController.m */,
+				E5AE6F2B2212A0700064FE00 /* SNPPostPaymentFooter.h */,
+				E5AE6F022212A0650064FE00 /* SNPPostPaymentFooter.m */,
+				E5AE6F362212A0730064FE00 /* SNPPostPaymentHeader.h */,
+				E5AE6F4D2212A0770064FE00 /* SNPPostPaymentHeader.m */,
+				E5AE6F612212A07A0064FE00 /* SNPPostPaymentHeaderBillPay.h */,
+				E5AE6F352212A0720064FE00 /* SNPPostPaymentHeaderBillPay.m */,
+				E5AE6F6C2212A07C0064FE00 /* MIdtransPaymentStatusView.h */,
+				E5AE6EF12212A0630064FE00 /* MIdtransPaymentStatusView.m */,
+				E5AE6F7E2212A07F0064FE00 /* SNPPostPaymentVAViewController.h */,
+				E5AE6F8A2212A0810064FE00 /* SNPPostPaymentVAViewController.m */,
+				E5AE6F812212A07F0064FE00 /* VTBillpaySuccessController.h */,
+				E5AE6F9A2212A0840064FE00 /* VTBillpaySuccessController.m */,
+				E5AE6ED92212A0610064FE00 /* VTErrorStatusController.h */,
+				E5AE6EDC2212A0610064FE00 /* VTErrorStatusController.m */,
+				E5AE6F3C2212A0740064FE00 /* VTPaymentStatusController.h */,
+				E5AE6EFB2212A0640064FE00 /* VTPaymentStatusController.m */,
+				E5AE6EF82212A0640064FE00 /* VTPendingStatusController.h */,
+				E5AE6F262212A06F0064FE00 /* VTPendingStatusController.m */,
+				E56FA9402212A5F0003DC10D /* SNPPostPaymentVAViewController.xib */,
+				E5AE72B72212A2C60064FE00 /* MidtransPaymentStatusViewController.xib */,
+				E5AE72C22212A2C70064FE00 /* SNPMaintainView.xib */,
+				E5AE72A12212A2C40064FE00 /* SNPPostPaymentFooter.xib */,
+				E5AE72D62212A2C90064FE00 /* SNPPostPaymentGeneralHeader.xib */,
+				E5AE72B02212A2C50064FE00 /* SNPPostPaymentGeneralViewController.xib */,
+				E5AE72BF2212A2C70064FE00 /* SNPPostPaymentHeader.xib */,
+				E5AE72D12212A2C80064FE00 /* SNPPostPaymentHeaderBillPay.xib */,
+				E5AE72D32212A2C90064FE00 /* SNPPostPaymentIndomaretHeader.xib */,
+				E5AE72BD2212A2C60064FE00 /* VTBillpaySuccessController.xib */,
+				E5AE72A62212A2C40064FE00 /* VTErrorStatusController.xib */,
+				E5AE72A22212A2C40064FE00 /* VTPaymentStatusController.xib */,
+				E5AE72D82212A2C90064FE00 /* VTPendingStatusController.xib */,
+			);
+			path = Status;
+			sourceTree = "<group>";
+		};
+		E5D564212243458000633CB2 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				E5EDAEB122153B8600552AF3 /* MIDWebPaymentController.h */,
+				E5EDAEB222153B8600552AF3 /* MIDWebPaymentController.m */,
+				E5D22B89222D56BC00982149 /* MID3DSController.h */,
+				E5D22B8A222D56BC00982149 /* MID3DSController.m */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
+		E5D564222243459900633CB2 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				E5AE6F902212A0820064FE00 /* MidtransUIPaymentController.h */,
+				E5AE6EE22212A0610064FE00 /* MidtransUIPaymentController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		E5D56423224345A100633CB2 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				E56FA9442212B68A003DC10D /* MIDPaymentController.h */,
+				E56FA9452212B68A003DC10D /* MIDPaymentController.m */,
+				E56FA9462212B68A003DC10D /* MIDPaymentController.xib */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		E5EDAEAC22153AC000552AF3 /* General */ = {

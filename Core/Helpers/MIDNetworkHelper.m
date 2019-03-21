@@ -32,7 +32,7 @@
 
 @end
 
-@implementation NSDictionary (parse)
+@implementation NSDictionary (core_parse)
 
 - (NSString *)queryStringValue {
     NSMutableArray *pairs = [NSMutableArray array];

@@ -7,7 +7,7 @@
 //
 
 #import "MID3DSController.h"
-#import "MIDViewHelper.h"
+#import "MidtransHelper.h"
 #import "MIDConstants.h"
 
 @interface MID3DSController ()<UIWebViewDelegate, UIAlertViewDelegate>

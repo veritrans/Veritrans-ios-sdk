@@ -16,7 +16,7 @@
 - (NSString *)MIDURLEncodedString;
 @end
 
-@interface NSDictionary (parse)
+@interface NSDictionary (core_parse)
 - (NSString *)queryStringValue;
 - (NSArray *)pairsOfArray:(NSArray *)values key:(NSString *)key;
 @end

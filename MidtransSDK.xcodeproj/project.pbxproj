@@ -95,7 +95,6 @@
 		E57F6FA121B653A6003CF48F /* MIDStoreCharge.m in Sources */ = {isa = PBXBuildFile; fileRef = E57F6FA021B653A6003CF48F /* MIDStoreCharge.m */; };
 		E581884821A5097E00B10645 /* MIDWebPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E581884621A5097E00B10645 /* MIDWebPayment.m */; };
 		E581884B21A50ACB00B10645 /* MIDMandiriClickpayPayment.m in Sources */ = {isa = PBXBuildFile; fileRef = E581884A21A50ACB00B10645 /* MIDMandiriClickpayPayment.m */; };
-		E586302F222D57DD002D4F26 /* MIDViewHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E586302E222D57DD002D4F26 /* MIDViewHelper.m */; };
 		E586B86021F83D370018875B /* MIDBankTransferOther.m in Sources */ = {isa = PBXBuildFile; fileRef = E586B85F21F83D370018875B /* MIDBankTransferOther.m */; };
 		E587FDDE223251BF00E9E388 /* Credential.plist in Resources */ = {isa = PBXBuildFile; fileRef = E587FDDD223251BF00E9E388 /* Credential.plist */; };
 		E58CC6BA21A65072007879FB /* MIDCheckoutExpiry.m in Sources */ = {isa = PBXBuildFile; fileRef = E58CC6B921A65072007879FB /* MIDCheckoutExpiry.m */; };
@@ -784,8 +783,6 @@
 		E581884721A5097E00B10645 /* MIDWebPayment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDWebPayment.h; sourceTree = "<group>"; };
 		E581884921A50ACB00B10645 /* MIDMandiriClickpayPayment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDMandiriClickpayPayment.h; sourceTree = "<group>"; };
 		E581884A21A50ACB00B10645 /* MIDMandiriClickpayPayment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDMandiriClickpayPayment.m; sourceTree = "<group>"; };
-		E586302D222D57DD002D4F26 /* MIDViewHelper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDViewHelper.h; sourceTree = "<group>"; };
-		E586302E222D57DD002D4F26 /* MIDViewHelper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDViewHelper.m; sourceTree = "<group>"; };
 		E586B85F21F83D370018875B /* MIDBankTransferOther.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDBankTransferOther.m; sourceTree = "<group>"; };
 		E587FDDD223251BF00E9E388 /* Credential.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Credential.plist; sourceTree = "<group>"; };
 		E58CC6B821A65072007879FB /* MIDCheckoutExpiry.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDCheckoutExpiry.h; sourceTree = "<group>"; };
@@ -1891,8 +1888,6 @@
 				E54D6AD72238ECF600BC7D7D /* MidtransHelper.m */,
 				E570D1392213D201004F0099 /* MIDArrayHelper.h */,
 				E570D13A2213D201004F0099 /* MIDArrayHelper.m */,
-				E586302D222D57DD002D4F26 /* MIDViewHelper.h */,
-				E586302E222D57DD002D4F26 /* MIDViewHelper.m */,
 				E57782E3222E2D3A0036DDF9 /* MIDUIModelHelper.h */,
 				E57782E4222E2D3A0036DDF9 /* MIDUIModelHelper.m */,
 				E5E999E7222E4E4800381894 /* MIDCreditCardHelper.h */,
@@ -3370,7 +3365,6 @@
 				E5AE703E2212A0AB0064FE00 /* SNPMaintainView.m in Sources */,
 				E5163C2121972EA000A24E59 /* MIDMerchantInfo.m in Sources */,
 				E5AE703A2212A0AB0064FE00 /* MidtransCommonTSCViewController.m in Sources */,
-				E586302F222D57DD002D4F26 /* MIDViewHelper.m in Sources */,
 				E5AE70232212A0890064FE00 /* MidtransUITableAlertViewController.m in Sources */,
 				E5AE6FC72212A0890064FE00 /* IHKeyboardAvoiding_vt.m in Sources */,
 				E5AE6FEB2212A0890064FE00 /* SNPPostPaymentHeaderBillPay.m in Sources */,

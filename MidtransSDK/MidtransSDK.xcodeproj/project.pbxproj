@@ -589,6 +589,8 @@
 		E5D3C7D72192D7710090DDAE /* MidtransSDKUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7D62192D7710090DDAE /* MidtransSDKUITests.m */; };
 		E5D3C7E72192D8B30090DDAE /* MIDClient.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7E62192D8B30090DDAE /* MIDClient.m */; };
 		E5D3C7EB2192DB400090DDAE /* MIDGetPaymentTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5D3C7EA2192DB400090DDAE /* MIDGetPaymentTest.m */; };
+		E5D564242243467100633CB2 /* Credential.plist in Resources */ = {isa = PBXBuildFile; fileRef = E587FDDD223251BF00E9E388 /* Credential.plist */; };
+		E5D564252243467100633CB2 /* Credential.plist in Resources */ = {isa = PBXBuildFile; fileRef = E587FDDD223251BF00E9E388 /* Credential.plist */; };
 		E5E999E5222E4BDE00381894 /* MIDCreditCardModel.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E999E4222E4BDE00381894 /* MIDCreditCardModel.m */; };
 		E5E999E8222E4E4800381894 /* MIDCreditCardHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E999E6222E4E4800381894 /* MIDCreditCardHelper.m */; };
 		E5E999EB222E4FBF00381894 /* MIDLuhn.m in Sources */ = {isa = PBXBuildFile; fileRef = E5E999EA222E4FBF00381894 /* MIDLuhn.m */; };
@@ -3222,6 +3224,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D564242243467100633CB2 /* Credential.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3229,6 +3232,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E5D564252243467100633CB2 /* Credential.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

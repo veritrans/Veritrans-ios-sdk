@@ -25,10 +25,12 @@
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"4111111111111111";
         NSString *clickpayToken = @"000000";
+        NSString *input3 = @"12345";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
+                                                input3:input3
+                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
          {
              XCTAssertTrue([result.transactionStatus isEqualToString:@"settlement"]);
              [promise fulfill];
@@ -44,10 +46,12 @@
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"4111111111111111";
         NSString *clickpayToken = @"111111";
+        NSString *input3 = @"12345";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
+                                                input3:input3
+                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
          {
              XCTAssertTrue([result.transactionStatus isEqualToString:@"deny"]);
              [promise fulfill];
@@ -63,10 +67,12 @@
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"";
         NSString *clickpayToken = @"000000";
+        NSString *input3 = @"12345";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
+                                                input3:input3
+                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
          {
              XCTAssertTrue(error.code == 400);
              [promise fulfill];
@@ -82,10 +88,12 @@
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         NSString *cardNumber = @"4111111111111111";
         NSString *clickpayToken = @"";
+        NSString *input3 = @"12345";
         [MIDDirectDebitCharge mandiriClickpayWithToken:token
                                             cardNumber:cardNumber
                                          clickpayToken:clickpayToken
-                                            completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
+                                                input3:input3
+                                            completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
          {
              XCTAssertTrue(error.code == 400);
              [promise fulfill];
@@ -100,10 +108,12 @@
     
     NSString *cardNumber = @"4111111111111111";
     NSString *clickpayToken = @"000000";
+    NSString *input3 = @"12345";
     [MIDDirectDebitCharge mandiriClickpayWithToken:nil
                                         cardNumber:cardNumber
                                      clickpayToken:clickpayToken
-                                        completion:^(MIDClickpayResult *_Nullable result, NSError *_Nullable error)
+                                            input3:input3
+                                        completion:^(MIDClickpayResult * _Nullable result, NSError * _Nullable error)
      {
          XCTAssertTrue(error.code == 404);
          [promise fulfill];

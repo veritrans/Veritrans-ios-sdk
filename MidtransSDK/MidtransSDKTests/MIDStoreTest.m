@@ -24,7 +24,7 @@
     
     [self getTokenWithCompletion:^(NSString *_Nullable token, NSError *_Nullable error) {
         [MIDStoreCharge indomaretWithToken:token
-                                completion:^(MIDIndomaretResult *_Nullable result, NSError *_Nullable error)
+                                completion:^(MIDCStoreResult *_Nullable result, NSError *_Nullable error)
          {
              XCTAssertNotNil(result.paymentCode, @"indomaret test is error");
              [promise fulfill];
@@ -38,7 +38,7 @@
     XCTestExpectation *promise = [XCTestExpectation new];
     
     [MIDStoreCharge indomaretWithToken:nil
-                            completion:^(MIDIndomaretResult *_Nullable result, NSError *_Nullable error)
+                            completion:^(MIDCStoreResult *_Nullable result, NSError *_Nullable error)
      {
          XCTAssertTrue(error.code == 404, @"indomaret transaction should be error 404");
          [promise fulfill];

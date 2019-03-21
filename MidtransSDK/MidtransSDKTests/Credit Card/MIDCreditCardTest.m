@@ -39,6 +39,7 @@ static NSString *cardNumber = @"4811111111111114";
                                              save:NO
                                       installment:nil
                                             point:nil
+                                            promo:nil
                                        completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
               {
                   XCTAssertTrue(result.statusCode == 200);
@@ -77,6 +78,7 @@ static NSString *cardNumber = @"4811111111111114";
                                              save:YES
                                       installment:nil
                                             point:nil
+                                            promo:nil
                                        completion:^(MIDCreditCardResult *_Nullable result, NSError *_Nullable error)
               {
                   XCTAssertTrue(result.cardToken != nil);

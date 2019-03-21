@@ -15,8 +15,11 @@
 }
 
 + (void)setup {
-    [MIDClient configureClientKey:@"VT-client-UlfSUChIo-KM9sne"
-                merchantServerURL:@"https://juki-merchant-server.herokuapp.com/charge/index.php"
+    NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"Credential" ofType:@"plist"];
+    NSDictionary *cred = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+
+    [MIDClient configureClientKey:cred[@"CLIENT_KEY"]
+                merchantServerURL:cred[@"MERCHANT_URL"]
                       environment:MIDEnvironmentSandbox];
 }
 

@@ -46,7 +46,10 @@
     [NSLayoutConstraint activateConstraints:constraints];
 
     NSString *urlBase = [NSString stringWithFormat:@"%@", self.paymentURL];
-    NSURL *url = [NSURL URLWithString:[urlBase stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+    NSMutableCharacterSet *sets = [NSMutableCharacterSet new];
+    [sets formUnionWithCharacterSet:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    [sets formUnionWithCharacterSet:[NSCharacterSet URLHostAllowedCharacterSet]];
+    NSURL *url = [NSURL URLWithString:[urlBase stringByAddingPercentEncodingWithAllowedCharacters:sets]];
     
     [self.webView loadRequest:[NSURLRequest requestWithURL:url]];
 }

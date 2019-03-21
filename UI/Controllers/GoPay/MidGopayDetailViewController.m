@@ -215,14 +215,13 @@
     [self showLoadingWithText:@"Loading QR Code"];
     self.view.qrcodeReloadImage.hidden = YES;
     NSString *imageUrl = self.paymentResult.qrCodeURL;
-    [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+    [[NSURLSession sharedSession] dataTaskWithRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         [self hideLoading];
         if (!error) {
             self.view.qrcodeImage.image = [UIImage imageWithData:data];
         } else {
             self.view.qrcodeReloadImage.hidden = NO;
         }
-        
     }];
 }
 - (void)didReceiveMemoryWarning {

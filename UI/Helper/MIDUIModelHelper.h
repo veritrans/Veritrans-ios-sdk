@@ -26,3 +26,7 @@
 - (BOOL)isValidValue:(NSError **)error;
 - (BOOL)isValidCreditCardNumber:(NSError **)error;
 @end
+
+@interface MIDCreditCardModel (Validation)
+- (BOOL)isValidCreditCard:(NSError **)error;
+@end

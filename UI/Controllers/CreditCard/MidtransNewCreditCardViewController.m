@@ -33,6 +33,7 @@
 #import "MIDCreditCardHelper.h"
 #import "MIDUITrackingManager.h"
 #import "MIDVendorUI.h"
+#import "MIDUIModelHelper.h"
 
 @interface MidtransNewCreditCardViewController () <
 UITableViewDelegate,

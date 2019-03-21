@@ -20,13 +20,6 @@ typedef NS_ENUM(NSInteger, MIDCreditCardType) {
     MIDCreditCardTypeUnknown
 };
 
-@interface NSString (CreditCard)
-- (BOOL)isValidCVVWithCreditCardNumber:(NSString *)cardNumber error:(NSError **)error;
-- (BOOL)isValidExpiryDate:(NSError **)error;
-- (BOOL)isValidValue:(NSError **)error;//// just for gift card
-- (BOOL)isValidCreditCardNumber:(NSError **)error;
-@end
-
 @interface MIDCreditCardHelper : NSObject
 + (MIDCreditCardType)typeFromString:(NSString *)string;
 + (NSString *)nameFromString:(NSString *)string;
@@ -34,10 +27,6 @@ typedef NS_ENUM(NSInteger, MIDCreditCardType) {
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber eligibleForPromo:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 + (BOOL)isCreditCardNumber:(NSString *_Nonnull)ccNumber containBlacklistBins:(NSArray *_Nonnull)bins error:(NSError *_Nullable*_Nullable)error;
 + (BOOL)isCreditCardNumber:(NSString *)ccNumber eligibleForBins:(NSArray *)bins error:(NSError **)error;
-@end
-
-@interface MIDCreditCardModel (Validation)
-- (BOOL)isValidCreditCard:(NSError **)error;
 @end
 
 @interface UITextField (helper)

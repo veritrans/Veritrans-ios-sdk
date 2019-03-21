@@ -52,12 +52,18 @@
 }
 
 - (void)closePressed:(id)sender {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm Navigation", nil)
-                                                    message:NSLocalizedString(@"Are you sure want to leave this page?", nil)
-                                                   delegate:self
-                                          cancelButtonTitle:NSLocalizedString(@"NO", nil)
-                                          otherButtonTitles:NSLocalizedString(@"YES", nil), nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:NSLocalizedString(@"Confirm Navigation", nil)
+                                                                   message:NSLocalizedString(@"Are you sure want to leave this page?", nil)
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"NO", nil) style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"YES", nil) style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentControllerDidPending:)]) {
+            [self.delegate webPaymentControllerDidPending:self];
+        }
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 #pragma mark - UIWebViewDelegate
@@ -84,16 +90,6 @@
 - (NSError *)transactionError {
     NSError *error = [[NSError alloc] initWithDomain:@"error.midtrans.com" code:0 userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Transaction canceled by user", nil)}];
     return error;
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        if ([self.delegate respondsToSelector:@selector(webPaymentControllerDidPending:)]) {
-            [self.delegate webPaymentControllerDidPending:self];
-        }
-    }
 }
 
 - (BOOL)webView:(__unused UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request

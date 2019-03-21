@@ -220,12 +220,7 @@
              else {
                  if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
                      self.attemptRetry+=1;
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                     message:[VTClassHelper getTranslationFromAppBundleForString:[result codeForLocalization]]
-                                                                    delegate:nil
-                                                           cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                           otherButtonTitles:nil];
-                     [alert show];
+                     [self showErrorAlert:result];
                  }
                  else {
                      [self handleTransactionSuccess:result];
@@ -233,6 +228,14 @@
              }
          }
      }];
+}
+
+- (void)showErrorAlert:(MIDCreditCardResult *)result {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"ERROR" message:[VTClassHelper getTranslationFromAppBundleForString:[result codeForLocalization]] preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        [alert dismissViewControllerAnimated:YES completion:nil];
+    }]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 @end

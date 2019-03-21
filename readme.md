@@ -29,6 +29,7 @@ We also expose the low-level APIs that power those elements to make it easy to b
 		- [KlikBCA](#sdk-charge-klikbca)
 	- [Convenience Store](#sdk-charge-convenience-store)
 		- [Indomaret](#sdk-charge-indomaret)
+		- [Alfamart](#sdk-charge-alfamart)
 	- [e-Wallet](#sdk-charge-wallet)
 		- [Telkomsel Cash](#sdk-charge-tcash)
 		- [Mandiri E-Cash](#sdk-charge-ecash)
@@ -712,6 +713,27 @@ MIDClient.getPaymentInfo(withToken: snapToken, completion: { (info, error) in
                 
     })
 	```
+
+1. <a id="sdk-charge-alfamart"></a>Alfamart
+
+	Objective C
+	
+	```
+	[MIDStoreCharge alfamartWithToken:snapToken
+                           completion:^(MIDCStoreResult * _Nullable result, NSError * _Nullable error)
+     {
+         
+     }];
+	```
+	
+	Swift
+	
+	```
+	MIDStoreCharge.alfamart(withToken: snapToken, completion: { (result, error) in
+                
+    })
+	```
+	
 	
 **<a id="sdk-charge-wallet"></a>E-Wallet**
 

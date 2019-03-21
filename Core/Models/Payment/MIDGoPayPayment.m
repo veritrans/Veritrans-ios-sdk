@@ -6,7 +6,7 @@
 //  Copyright © 2018 Midtrans. All rights reserved.
 //
 
-#import "MIDGopayPayment.h"
+#import "MIDGoPayPayment.h"
 
 @implementation MIDGopayPayment
 

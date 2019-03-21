@@ -20,8 +20,8 @@
 - (BOOL)tapBackgroundToClose;
 
 
-- (void)dismissCustomViewController:(void(^)())completion;
-- (void)presentCustomViewController:(UIViewController *)customViewController onViewController:(UIViewController *)presentingViewController completion:(void(^)())completion;
-- (void)presentCustomViewController:(UIViewController *)customViewController completion:(void (^)())completion;
+- (void)dismissCustomViewController:(void(^)(void))completion;
+- (void)presentCustomViewController:(UIViewController *)customViewController onViewController:(UIViewController *)presentingViewController completion:(void(^)(void))completion;
+- (void)presentCustomViewController:(UIViewController *)customViewController completion:(void (^)(void))completion;
 
 @end

@@ -125,7 +125,7 @@
 
 #pragma mark - Present View Controller
 
-- (void)dismissCustomViewController:(void(^)())completion {
+- (void)dismissCustomViewController:(void(^)(void))completion {
     id objectController = [self lastObjectController];
     
     UIViewController *viewController = objectController[@"view_controller"];
@@ -161,12 +161,12 @@
     }];
 }
 
-- (void)presentCustomViewController:(UIViewController *)customViewController completion:(void (^)())completion {
+- (void)presentCustomViewController:(UIViewController *)customViewController completion:(void (^)(void))completion {
     self.modalSize = self.preferredContentSize;
     [self presentCustomViewController:customViewController onViewController:self completion:completion];
 }
 
-- (void)presentCustomViewController:(UIViewController *)customViewController onViewController:(UIViewController *)presentingViewController completion:(void(^)())completion {
+- (void)presentCustomViewController:(UIViewController *)customViewController onViewController:(UIViewController *)presentingViewController completion:(void(^)(void))completion {
     
     if (customViewController.resizeWhenKeyboardShown) {
         [[NSNotificationCenter defaultCenter] addObserver:customViewController selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];

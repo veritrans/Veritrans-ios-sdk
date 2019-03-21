@@ -192,11 +192,15 @@
     
     UIApplication *application = [UIApplication sharedApplication];
     NSURL *URL = [NSURL URLWithString:self.instructionUrl];
-    [application openURL:URL options:@{} completionHandler:^(BOOL success) {
-        if (!success) {
-            [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"Failed to open Instructions"] duration:1.5 containerView:self.view];
-        }
-    }];
+    if (@available(iOS 10.0, *)) {
+        [application openURL:URL options:@{} completionHandler:^(BOOL success) {
+            if (!success) {
+                [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"Failed to open Instructions"] duration:1.5 containerView:self.view];
+            }
+        }];
+    } else {
+        [application openURL:URL];
+    }
 }
 
 - (void)copyButtonDidTapped:(id)sender {

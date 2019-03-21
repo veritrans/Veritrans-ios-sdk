@@ -10,9 +10,6 @@
 #import "VTClassHelper.h"
 #import "MidtransUIThemeManager.h"
 
-@interface NSString (utils)
-@end
-
 @implementation NSString (utils)
 - (NSArray *)stringsBetween:(NSString *)string1 and:(NSString *)string2 {
     NSString *pattern = [NSString stringWithFormat:@"%@(.*?)%@", string1, string2];

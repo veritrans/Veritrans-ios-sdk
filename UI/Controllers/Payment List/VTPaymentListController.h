@@ -12,7 +12,4 @@
 
 @interface VTPaymentListController : MidtransUIPaymentController
 @property (nonatomic,strong)NSString *paymentMethodSelected;
-
-- (instancetype)initWithPaymentInfo:(MIDPaymentInfo *)info;
-
 @end

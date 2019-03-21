@@ -179,8 +179,8 @@ static CGFloat const kInfoPadding = 5;
 - (void)showWarningLabel:(BOOL)animated {
     _warningLabel.text = _warning;
     
-    void (^showBlock)() = ^{
-        _warningLabel.alpha = 1.0;
+    void (^showBlock)(void) = ^{
+        self->_warningLabel.alpha = 1.0;
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -196,8 +196,8 @@ static CGFloat const kInfoPadding = 5;
 }
 
 - (void)hideWarningLabel:(BOOL)animated {
-    void (^hideBlock)() = ^{
-        _warningLabel.alpha = 0.0f;
+    void (^hideBlock)(void) = ^{
+        self->_warningLabel.alpha = 0.0f;
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -213,8 +213,9 @@ static CGFloat const kInfoPadding = 5;
 }
 
 - (void)showFloatingLabel:(BOOL)animated {
-    void (^showBlock)() = ^{
-        _floatingLabel.alpha = 1.0f;
+    __weak MidtransUITextField *wself = self;
+    void (^showBlock)(void) = ^{
+        wself.floatingLabel.alpha = 1.0f;
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {
@@ -230,8 +231,10 @@ static CGFloat const kInfoPadding = 5;
 }
 
 - (void)hideFloatingLabel:(BOOL)animated {
-    void (^hideBlock)() = ^{
-        _floatingLabel.alpha = 0.0f;
+    __weak MidtransUITextField *wself = self;
+    
+    void (^hideBlock)(void) = ^{
+        wself.floatingLabel.alpha = 0.0f;
     };
     
     if (animated || 0 != _animateEvenIfNotFirstResponder) {

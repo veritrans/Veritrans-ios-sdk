@@ -36,15 +36,11 @@
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
-@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate, UIAlertViewDelegate>
+@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
-//@property (nonatomic,strong) NSMutableArray *paymentMethodList;
-//@property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
 @property (nonatomic) BOOL singlePayment;
 @property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
-
-//@property (nonatomic) MIDPaymentInfo *info;
 @end
 
 @implementation VTPaymentListController;
@@ -173,12 +169,6 @@
             [self.navigationController pushViewController:vc animated:YES];
         }
     }
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

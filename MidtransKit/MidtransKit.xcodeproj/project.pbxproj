@@ -1336,7 +1336,7 @@
 		0C32A9881EA5222D001B3637 /* SNPPostPaymentHeaderBillPay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentHeaderBillPay.xib; path = MidtransKit/resources/SNPPostPaymentHeaderBillPay.xib; sourceTree = SOURCE_ROOT; };
 		0C3998461E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUICustomAlertViewController.h; path = classes/MidtransUICustomAlertViewController.h; sourceTree = "<group>"; };
 		0C3998471E39DAF300CF5F6D /* MidtransUICustomAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUICustomAlertViewController.m; path = classes/MidtransUICustomAlertViewController.m; sourceTree = "<group>"; };
-		0C3C70901FEA281F0086A6AB /* ic_chevron_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_chevron_down.png; path = resources/gopay/ic_chevron_down.png; sourceTree = "<group>"; };
+		0C3C70901FEA281F0086A6AB /* ic_chevron_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_chevron_down.png; path = resources/ic_chevron_down.png; sourceTree = "<group>"; };
 		0C5DD8861E9E34F60004DD5D /* SNPPostPaymentVAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPostPaymentVAViewController.h; path = classes/SNPPostPaymentVAViewController.h; sourceTree = "<group>"; };
 		0C5DD8871E9E34F60004DD5D /* SNPPostPaymentVAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPostPaymentVAViewController.m; path = classes/SNPPostPaymentVAViewController.m; sourceTree = "<group>"; };
 		0C5DD88C1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentVAViewController.xib; path = MidtransKit/resources/SNPPostPaymentVAViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -1360,28 +1360,28 @@
 		0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidGopayViewController.m; path = classes/MidGopayViewController.m; sourceTree = "<group>"; };
 		0C9634BF1FE119BA00EF89DF /* MIDGopayDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDGopayDetailView.h; sourceTree = "<group>"; };
 		0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDGopayDetailView.m; sourceTree = "<group>"; };
-		0C9634C81FE11A1400EF89DF /* gojek_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gojek_icon.png; sourceTree = "<group>"; };
-		0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gojek_icon@2x.png"; sourceTree = "<group>"; };
-		0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gojek_icon@3x.png"; sourceTree = "<group>"; };
-		0C9634CB1FE11A1400EF89DF /* gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gopay.png; sourceTree = "<group>"; };
-		0C9634CC1FE11A1400EF89DF /* gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay@2x.png"; sourceTree = "<group>"; };
-		0C9634CD1FE11A1400EF89DF /* gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay@3x.png"; sourceTree = "<group>"; };
-		0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gopay_scan_qr_instruction.png; sourceTree = "<group>"; };
-		0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay_scan_qr_instruction@2x.png"; sourceTree = "<group>"; };
-		0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gopay_scan_qr_instruction@3x.png"; sourceTree = "<group>"; };
-		0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_chevron_down.png; sourceTree = "<group>"; };
-		0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_down@2x.png"; sourceTree = "<group>"; };
-		0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_down@3x.png"; sourceTree = "<group>"; };
-		0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_chevron_up.png; sourceTree = "<group>"; };
-		0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_up@2x.png"; sourceTree = "<group>"; };
-		0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_chevron_up@3x.png"; sourceTree = "<group>"; };
-		0C9634D71FE11A1400EF89DF /* ic_gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_gopay.png; sourceTree = "<group>"; };
-		0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_gopay@2x.png"; sourceTree = "<group>"; };
-		0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_gopay@3x.png"; sourceTree = "<group>"; };
-		0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ic_no_gopay.png; sourceTree = "<group>"; };
-		0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_no_gopay@2x.png"; sourceTree = "<group>"; };
-		0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ic_no_gopay@3x.png"; sourceTree = "<group>"; };
-		0C9634DD1FE11A1400EF89DF /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reload.png; sourceTree = "<group>"; };
+		0C9634C81FE11A1400EF89DF /* gojek_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gojek_icon.png; path = resources/gojek_icon.png; sourceTree = "<group>"; };
+		0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gojek_icon@2x.png"; path = "resources/gojek_icon@2x.png"; sourceTree = "<group>"; };
+		0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gojek_icon@3x.png"; path = "resources/gojek_icon@3x.png"; sourceTree = "<group>"; };
+		0C9634CB1FE11A1400EF89DF /* gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gopay.png; path = resources/gopay.png; sourceTree = "<group>"; };
+		0C9634CC1FE11A1400EF89DF /* gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gopay@2x.png"; path = "resources/gopay@2x.png"; sourceTree = "<group>"; };
+		0C9634CD1FE11A1400EF89DF /* gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gopay@3x.png"; path = "resources/gopay@3x.png"; sourceTree = "<group>"; };
+		0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = gopay_scan_qr_instruction.png; path = resources/gopay_scan_qr_instruction.png; sourceTree = "<group>"; };
+		0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gopay_scan_qr_instruction@2x.png"; path = "resources/gopay_scan_qr_instruction@2x.png"; sourceTree = "<group>"; };
+		0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "gopay_scan_qr_instruction@3x.png"; path = "resources/gopay_scan_qr_instruction@3x.png"; sourceTree = "<group>"; };
+		0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_chevron_down.png; path = resources/ic_chevron_down.png; sourceTree = "<group>"; };
+		0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_down@2x.png"; path = "resources/ic_chevron_down@2x.png"; sourceTree = "<group>"; };
+		0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_down@3x.png"; path = "resources/ic_chevron_down@3x.png"; sourceTree = "<group>"; };
+		0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_chevron_up.png; path = resources/ic_chevron_up.png; sourceTree = "<group>"; };
+		0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_up@2x.png"; path = "resources/ic_chevron_up@2x.png"; sourceTree = "<group>"; };
+		0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_chevron_up@3x.png"; path = "resources/ic_chevron_up@3x.png"; sourceTree = "<group>"; };
+		0C9634D71FE11A1400EF89DF /* ic_gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_gopay.png; path = resources/ic_gopay.png; sourceTree = "<group>"; };
+		0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_gopay@2x.png"; path = "resources/ic_gopay@2x.png"; sourceTree = "<group>"; };
+		0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_gopay@3x.png"; path = "resources/ic_gopay@3x.png"; sourceTree = "<group>"; };
+		0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ic_no_gopay.png; path = resources/ic_no_gopay.png; sourceTree = "<group>"; };
+		0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_no_gopay@2x.png"; path = "resources/ic_no_gopay@2x.png"; sourceTree = "<group>"; };
+		0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "ic_no_gopay@3x.png"; path = "resources/ic_no_gopay@3x.png"; sourceTree = "<group>"; };
+		0C9634DD1FE11A1400EF89DF /* reload.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reload.png; path = resources/reload.png; sourceTree = "<group>"; };
 		0C96350B1FE11BDD00EF89DF /* MidGopayDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidGopayDetailViewController.xib; path = MidtransKit/resources/MidGopayDetailViewController.xib; sourceTree = SOURCE_ROOT; };
 		0C96350E1FE11D7C00EF89DF /* id_ipad_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_ipad_gopay.plist; path = MidtransKit/resources/id_ipad_gopay.plist; sourceTree = SOURCE_ROOT; };
 		0C96350F1FE11D7D00EF89DF /* id_gopay.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_gopay.plist; path = MidtransKit/resources/id_gopay.plist; sourceTree = SOURCE_ROOT; };
@@ -1430,24 +1430,24 @@
 		0CCD621A20048FCA006936E5 /* MIDOtherVAViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDOtherVAViewController.xib; path = MidtransKit/resources/MIDOtherVAViewController.xib; sourceTree = SOURCE_ROOT; };
 		0CCD621D20049339006936E5 /* HMSegmentedControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = HMSegmentedControl.h; path = classes/HMSegmentedControl.h; sourceTree = "<group>"; };
 		0CCD621E20049339006936E5 /* HMSegmentedControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = HMSegmentedControl.m; path = classes/HMSegmentedControl.m; sourceTree = "<group>"; };
-		0CCD62252005D0B9006936E5 /* alto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alto.png; sourceTree = "<group>"; };
-		0CCD62262005D0B9006936E5 /* alto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alto@2x.png"; sourceTree = "<group>"; };
-		0CCD62272005D0B9006936E5 /* alto@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alto@3x.png"; sourceTree = "<group>"; };
-		0CCD62282005D0B9006936E5 /* alto_affiliated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = alto_affiliated.png; sourceTree = "<group>"; };
-		0CCD62292005D0B9006936E5 /* alto_affiliated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alto_affiliated@2x.png"; sourceTree = "<group>"; };
-		0CCD622A2005D0B9006936E5 /* alto_affiliated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alto_affiliated@3x.png"; sourceTree = "<group>"; };
-		0CCD622B2005D0B9006936E5 /* atm_bersama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = atm_bersama.png; sourceTree = "<group>"; };
-		0CCD622C2005D0B9006936E5 /* atm_bersama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm_bersama@2x.png"; sourceTree = "<group>"; };
-		0CCD622D2005D0B9006936E5 /* atm_bersama@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "atm_bersama@3x.png"; sourceTree = "<group>"; };
-		0CCD622E2005D0B9006936E5 /* bersama_affiliated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bersama_affiliated.png; sourceTree = "<group>"; };
-		0CCD622F2005D0B9006936E5 /* bersama_affiliated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bersama_affiliated@2x.png"; sourceTree = "<group>"; };
-		0CCD62302005D0B9006936E5 /* bersama_affiliated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bersama_affiliated@3x.png"; sourceTree = "<group>"; };
-		0CCD62312005D0B9006936E5 /* prima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prima.png; sourceTree = "<group>"; };
-		0CCD62322005D0B9006936E5 /* prima@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prima@2x.png"; sourceTree = "<group>"; };
-		0CCD62332005D0B9006936E5 /* prima@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prima@3x.png"; sourceTree = "<group>"; };
-		0CCD62342005D0B9006936E5 /* prima_affiliated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = prima_affiliated.png; sourceTree = "<group>"; };
-		0CCD62352005D0B9006936E5 /* prima_affiliated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prima_affiliated@2x.png"; sourceTree = "<group>"; };
-		0CCD62362005D0B9006936E5 /* prima_affiliated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "prima_affiliated@3x.png"; sourceTree = "<group>"; };
+		0CCD62252005D0B9006936E5 /* alto.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alto.png; path = resources/alto.png; sourceTree = "<group>"; };
+		0CCD62262005D0B9006936E5 /* alto@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alto@2x.png"; path = "resources/alto@2x.png"; sourceTree = "<group>"; };
+		0CCD62272005D0B9006936E5 /* alto@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alto@3x.png"; path = "resources/alto@3x.png"; sourceTree = "<group>"; };
+		0CCD62282005D0B9006936E5 /* alto_affiliated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alto_affiliated.png; path = resources/alto_affiliated.png; sourceTree = "<group>"; };
+		0CCD62292005D0B9006936E5 /* alto_affiliated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alto_affiliated@2x.png"; path = "resources/alto_affiliated@2x.png"; sourceTree = "<group>"; };
+		0CCD622A2005D0B9006936E5 /* alto_affiliated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alto_affiliated@3x.png"; path = "resources/alto_affiliated@3x.png"; sourceTree = "<group>"; };
+		0CCD622B2005D0B9006936E5 /* atm_bersama.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = atm_bersama.png; path = resources/atm_bersama.png; sourceTree = "<group>"; };
+		0CCD622C2005D0B9006936E5 /* atm_bersama@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "atm_bersama@2x.png"; path = "resources/atm_bersama@2x.png"; sourceTree = "<group>"; };
+		0CCD622D2005D0B9006936E5 /* atm_bersama@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "atm_bersama@3x.png"; path = "resources/atm_bersama@3x.png"; sourceTree = "<group>"; };
+		0CCD622E2005D0B9006936E5 /* bersama_affiliated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bersama_affiliated.png; path = resources/bersama_affiliated.png; sourceTree = "<group>"; };
+		0CCD622F2005D0B9006936E5 /* bersama_affiliated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bersama_affiliated@2x.png"; path = "resources/bersama_affiliated@2x.png"; sourceTree = "<group>"; };
+		0CCD62302005D0B9006936E5 /* bersama_affiliated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "bersama_affiliated@3x.png"; path = "resources/bersama_affiliated@3x.png"; sourceTree = "<group>"; };
+		0CCD62312005D0B9006936E5 /* prima.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prima.png; path = resources/prima.png; sourceTree = "<group>"; };
+		0CCD62322005D0B9006936E5 /* prima@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima@2x.png"; path = "resources/prima@2x.png"; sourceTree = "<group>"; };
+		0CCD62332005D0B9006936E5 /* prima@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima@3x.png"; path = "resources/prima@3x.png"; sourceTree = "<group>"; };
+		0CCD62342005D0B9006936E5 /* prima_affiliated.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = prima_affiliated.png; path = resources/prima_affiliated.png; sourceTree = "<group>"; };
+		0CCD62352005D0B9006936E5 /* prima_affiliated@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_affiliated@2x.png"; path = "resources/prima_affiliated@2x.png"; sourceTree = "<group>"; };
+		0CCD62362005D0B9006936E5 /* prima_affiliated@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "prima_affiliated@3x.png"; path = "resources/prima_affiliated@3x.png"; sourceTree = "<group>"; };
 		0CD1160F1EDD5B14005884AD /* en_bni_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_bni_va.plist; path = MidtransKit/resources/en_bni_va.plist; sourceTree = SOURCE_ROOT; };
 		0CD7EA8C1E03A1A40036C187 /* MidtransPaymentGCIViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransPaymentGCIViewController.h; path = classes/MidtransPaymentGCIViewController.h; sourceTree = "<group>"; };
 		0CD7EA8D1E03A1A40036C187 /* MidtransPaymentGCIViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransPaymentGCIViewController.m; path = classes/MidtransPaymentGCIViewController.m; sourceTree = "<group>"; };
@@ -1467,16 +1467,16 @@
 		0CE1D2911F67A08C003A012F /* SNPPostPaymentGeneralHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SNPPostPaymentGeneralHeader.xib; path = MidtransKit/resources/SNPPostPaymentGeneralHeader.xib; sourceTree = SOURCE_ROOT; };
 		0CE1D2941F67A0C8003A012F /* MidtransNewCreditCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransNewCreditCardViewController.xib; path = MidtransKit/resources/MidtransNewCreditCardViewController.xib; sourceTree = SOURCE_ROOT; };
 		0CE1D29A1F67B6CA003A012F /* test_badge@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "test_badge@2x.png"; path = "resources/test_badge@2x.png"; sourceTree = "<group>"; };
-		0CE1D29E1F67B861003A012F /* visa-mastercard-amex-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-amex-seal@2x.png"; sourceTree = "<group>"; };
-		0CE1D29F1F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-jcb-amex-seal@2x.png"; sourceTree = "<group>"; };
-		0CE1D2A01F67B861003A012F /* visa-mastercard-jcb-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-jcb-seal@2x.png"; sourceTree = "<group>"; };
-		0CE1D2A11F67B861003A012F /* visa-mastercard-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "visa-mastercard-seal@2x.png"; sourceTree = "<group>"; };
+		0CE1D29E1F67B861003A012F /* visa-mastercard-amex-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visa-mastercard-amex-seal@2x.png"; path = "resources/visa-mastercard-amex-seal@2x.png"; sourceTree = "<group>"; };
+		0CE1D29F1F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visa-mastercard-jcb-amex-seal@2x.png"; path = "resources/visa-mastercard-jcb-amex-seal@2x.png"; sourceTree = "<group>"; };
+		0CE1D2A01F67B861003A012F /* visa-mastercard-jcb-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visa-mastercard-jcb-seal@2x.png"; path = "resources/visa-mastercard-jcb-seal@2x.png"; sourceTree = "<group>"; };
+		0CE1D2A11F67B861003A012F /* visa-mastercard-seal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "visa-mastercard-seal@2x.png"; path = "resources/visa-mastercard-seal@2x.png"; sourceTree = "<group>"; };
 		0CE1D2AA1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUIPaymentDirectViewController.xib; path = MidtransKit/resources/MidtransUIPaymentDirectViewController.xib; sourceTree = SOURCE_ROOT; };
-		0CE1D2AD1F67BA53003A012F /* token_key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = token_key.png; path = resources/token_key_icon/token_key.png; sourceTree = "<group>"; };
-		0CE1D2AE1F67BA53003A012F /* token_key@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@1.5x.png"; path = "resources/token_key_icon/token_key@1.5x.png"; sourceTree = "<group>"; };
-		0CE1D2AF1F67BA53003A012F /* token_key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@2x.png"; path = "resources/token_key_icon/token_key@2x.png"; sourceTree = "<group>"; };
-		0CE1D2B01F67BA53003A012F /* token_key@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@3x.png"; path = "resources/token_key_icon/token_key@3x.png"; sourceTree = "<group>"; };
-		0CE1D2B11F67BA53003A012F /* token_key@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@4x.png"; path = "resources/token_key_icon/token_key@4x.png"; sourceTree = "<group>"; };
+		0CE1D2AD1F67BA53003A012F /* token_key.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = token_key.png; path = resources/token_key.png; sourceTree = "<group>"; };
+		0CE1D2AE1F67BA53003A012F /* token_key@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@1.5x.png"; path = "resources/token_key@1.5x.png"; sourceTree = "<group>"; };
+		0CE1D2AF1F67BA53003A012F /* token_key@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@2x.png"; path = "resources/token_key@2x.png"; sourceTree = "<group>"; };
+		0CE1D2B01F67BA53003A012F /* token_key@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@3x.png"; path = "resources/token_key@3x.png"; sourceTree = "<group>"; };
+		0CE1D2B11F67BA53003A012F /* token_key@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "token_key@4x.png"; path = "resources/token_key@4x.png"; sourceTree = "<group>"; };
 		0CE1D2BC1F67BA99003A012F /* sms.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sms.png; path = resources/sms.png; sourceTree = "<group>"; };
 		0CE1D2BD1F67BA99003A012F /* sms@1.5x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sms@1.5x.png"; path = "resources/sms@1.5x.png"; sourceTree = "<group>"; };
 		0CE1D2BE1F67BA99003A012F /* sms@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "sms@2x.png"; path = "resources/sms@2x.png"; sourceTree = "<group>"; };
@@ -1567,15 +1567,15 @@
 		3DECDF721F99BABD0001AC9A /* icon-help@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@2x.png"; path = "resources/icon-help@2x.png"; sourceTree = "<group>"; };
 		3DECDF731F99BABD0001AC9A /* icon-help@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@3x.png"; path = "resources/icon-help@3x.png"; sourceTree = "<group>"; };
 		3DECDF741F99BABD0001AC9A /* icon-help@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-help@4x.png"; path = "resources/icon-help@4x.png"; sourceTree = "<group>"; };
-		3DECDFDC1F9DAE610001AC9A /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = download.png; sourceTree = "<group>"; };
-		3DECDFDD1F9DAE610001AC9A /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@2x.png"; sourceTree = "<group>"; };
-		3DECDFDE1F9DAE610001AC9A /* download@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "download@3x.png"; sourceTree = "<group>"; };
-		3DECDFDF1F9DAE610001AC9A /* scan_cam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scan_cam.png; sourceTree = "<group>"; };
-		3DECDFE01F9DAE610001AC9A /* scan_cam@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_cam@2x.png"; sourceTree = "<group>"; };
-		3DECDFE11F9DAE610001AC9A /* scan_cam@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scan_cam@3x.png"; sourceTree = "<group>"; };
-		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = see.png; sourceTree = "<group>"; };
-		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "see@2x.png"; sourceTree = "<group>"; };
-		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "see@3x.png"; sourceTree = "<group>"; };
+		3DECDFDC1F9DAE610001AC9A /* download.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = download.png; path = resources/download.png; sourceTree = "<group>"; };
+		3DECDFDD1F9DAE610001AC9A /* download@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "download@2x.png"; path = "resources/download@2x.png"; sourceTree = "<group>"; };
+		3DECDFDE1F9DAE610001AC9A /* download@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "download@3x.png"; path = "resources/download@3x.png"; sourceTree = "<group>"; };
+		3DECDFDF1F9DAE610001AC9A /* scan_cam.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = scan_cam.png; path = resources/scan_cam.png; sourceTree = "<group>"; };
+		3DECDFE01F9DAE610001AC9A /* scan_cam@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scan_cam@2x.png"; path = "resources/scan_cam@2x.png"; sourceTree = "<group>"; };
+		3DECDFE11F9DAE610001AC9A /* scan_cam@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "scan_cam@3x.png"; path = "resources/scan_cam@3x.png"; sourceTree = "<group>"; };
+		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = see.png; path = resources/see.png; sourceTree = "<group>"; };
+		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@2x.png"; path = "resources/see@2x.png"; sourceTree = "<group>"; };
+		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@3x.png"; path = "resources/see@3x.png"; sourceTree = "<group>"; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -2134,38 +2134,6 @@
 			name = "Post Payment";
 			sourceTree = "<group>";
 		};
-		0C9634C71FE11A1400EF89DF /* gopay */ = {
-			isa = PBXGroup;
-			children = (
-				0C9634C81FE11A1400EF89DF /* gojek_icon.png */,
-				0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */,
-				0CDAA760203EA192009419B3 /* gopay_scan_1.png */,
-				0CDAA75D203EA192009419B3 /* gopay_scan_2.png */,
-				0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */,
-				0C9634CB1FE11A1400EF89DF /* gopay.png */,
-				0C9634CC1FE11A1400EF89DF /* gopay@2x.png */,
-				0C9634CD1FE11A1400EF89DF /* gopay@3x.png */,
-				0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */,
-				0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */,
-				0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */,
-				0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */,
-				0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */,
-				0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */,
-				0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */,
-				0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */,
-				0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */,
-				0C9634D71FE11A1400EF89DF /* ic_gopay.png */,
-				0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */,
-				0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */,
-				0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */,
-				0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */,
-				0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */,
-				0C9634DD1FE11A1400EF89DF /* reload.png */,
-			);
-			name = gopay;
-			path = resources/gopay;
-			sourceTree = "<group>";
-		};
 		0CB8B7CA2071EEA70067A0B8 /* Common TC */ = {
 			isa = PBXGroup;
 			children = (
@@ -2186,32 +2154,6 @@
 			name = "Payment List";
 			sourceTree = "<group>";
 		};
-		0CCD62242005D0B9006936E5 /* Other VA */ = {
-			isa = PBXGroup;
-			children = (
-				0CCD62252005D0B9006936E5 /* alto.png */,
-				0CCD62262005D0B9006936E5 /* alto@2x.png */,
-				0CCD62272005D0B9006936E5 /* alto@3x.png */,
-				0CCD62282005D0B9006936E5 /* alto_affiliated.png */,
-				0CCD62292005D0B9006936E5 /* alto_affiliated@2x.png */,
-				0CCD622A2005D0B9006936E5 /* alto_affiliated@3x.png */,
-				0CCD622B2005D0B9006936E5 /* atm_bersama.png */,
-				0CCD622C2005D0B9006936E5 /* atm_bersama@2x.png */,
-				0CCD622D2005D0B9006936E5 /* atm_bersama@3x.png */,
-				0CCD622E2005D0B9006936E5 /* bersama_affiliated.png */,
-				0CCD622F2005D0B9006936E5 /* bersama_affiliated@2x.png */,
-				0CCD62302005D0B9006936E5 /* bersama_affiliated@3x.png */,
-				0CCD62312005D0B9006936E5 /* prima.png */,
-				0CCD62322005D0B9006936E5 /* prima@2x.png */,
-				0CCD62332005D0B9006936E5 /* prima@3x.png */,
-				0CCD62342005D0B9006936E5 /* prima_affiliated.png */,
-				0CCD62352005D0B9006936E5 /* prima_affiliated@2x.png */,
-				0CCD62362005D0B9006936E5 /* prima_affiliated@3x.png */,
-			);
-			name = "Other VA";
-			path = "resources/Other VA";
-			sourceTree = "<group>";
-		};
 		0CD7EA8B1E03A17E0036C187 /* GCI */ = {
 			isa = PBXGroup;
 			children = (
@@ -2221,18 +2163,6 @@
 				0CD7EA951E03C4070036C187 /* MidtransPaymentGCIView.m */,
 			);
 			name = GCI;
-			sourceTree = "<group>";
-		};
-		0CE1D29D1F67B861003A012F /* Secured Seal */ = {
-			isa = PBXGroup;
-			children = (
-				0CE1D29E1F67B861003A012F /* visa-mastercard-amex-seal@2x.png */,
-				0CE1D29F1F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png */,
-				0CE1D2A01F67B861003A012F /* visa-mastercard-jcb-seal@2x.png */,
-				0CE1D2A11F67B861003A012F /* visa-mastercard-seal@2x.png */,
-			);
-			name = "Secured Seal";
-			path = "resources/Secured Seal";
 			sourceTree = "<group>";
 		};
 		0CF74F211E6E8454006C0393 /* Point */ = {
@@ -2546,7 +2476,24 @@
 				ECB02165221A93620037C0E1 /* alfamart@2x.png */,
 				ECB02166221A93620037C0E1 /* alfamart@3x.png */,
 				0CA5EB7C202C105500335C28 /* gopay_button@2x.png */,
-				0CCD62242005D0B9006936E5 /* Other VA */,
+				0CCD62252005D0B9006936E5 /* alto.png */,
+				0CCD62262005D0B9006936E5 /* alto@2x.png */,
+				0CCD62272005D0B9006936E5 /* alto@3x.png */,
+				0CCD62282005D0B9006936E5 /* alto_affiliated.png */,
+				0CCD62292005D0B9006936E5 /* alto_affiliated@2x.png */,
+				0CCD622A2005D0B9006936E5 /* alto_affiliated@3x.png */,
+				0CCD622B2005D0B9006936E5 /* atm_bersama.png */,
+				0CCD622C2005D0B9006936E5 /* atm_bersama@2x.png */,
+				0CCD622D2005D0B9006936E5 /* atm_bersama@3x.png */,
+				0CCD622E2005D0B9006936E5 /* bersama_affiliated.png */,
+				0CCD622F2005D0B9006936E5 /* bersama_affiliated@2x.png */,
+				0CCD62302005D0B9006936E5 /* bersama_affiliated@3x.png */,
+				0CCD62312005D0B9006936E5 /* prima.png */,
+				0CCD62322005D0B9006936E5 /* prima@2x.png */,
+				0CCD62332005D0B9006936E5 /* prima@3x.png */,
+				0CCD62342005D0B9006936E5 /* prima_affiliated.png */,
+				0CCD62352005D0B9006936E5 /* prima_affiliated@2x.png */,
+				0CCD62362005D0B9006936E5 /* prima_affiliated@3x.png */,
 				0C1CF40B1FE8CD87006D9F51 /* Fill 57.png */,
 				0C1CF40C1FE8CD88006D9F51 /* Fill 57@2x.png */,
 				0C1CF40D1FE8CD88006D9F51 /* Fill 57@3x.png */,
@@ -2575,9 +2522,87 @@
 				0CE1D2761F62A752003A012F /* bni_va@4x.png */,
 				E5EBC2BE1EB0726700A568D1 /* midtrans_logo_mid@2x.png */,
 				E5EBC2BF1EB0726700A568D1 /* midtrans_logo_right@2x.png */,
-				E519C8FD1E9B6ED100EF70DF /* instructions */,
+				3D40893B1F75130300B9A2EC /* alto_preview.png */,
+				3D40893C1F75130300B9A2EC /* alto_preview@2x.png */,
+				3D40893D1F75130300B9A2EC /* alto_preview@3x.png */,
+				3D4089321F7512F100B9A2EC /* bersama_preview.png */,
+				3D4089331F7512F100B9A2EC /* bersama_preview@2x.png */,
+				3D4089341F7512F100B9A2EC /* bersama_preview@3x.png */,
+				3D4089441F75133200B9A2EC /* prima_preview.png */,
+				3D4089451F75133200B9A2EC /* prima_preview@2x.png */,
+				3D4089461F75133200B9A2EC /* prima_preview@3x.png */,
+				E58FCD4E1E94CFD500632085 /* other_alto_1@2x.png */,
+				E58FCD4F1E94CFD500632085 /* other_alto_2@2x.png */,
+				E58FCD501E94CFD500632085 /* other_alto_3@2x.png */,
+				E58FCD511E94CFD500632085 /* other_alto_4@2x.png */,
+				E58FCD521E94CFD500632085 /* other_alto_5@2x.png */,
+				E58FCD531E94CFD500632085 /* other_alto_6@2x.png */,
+				E58FCD541E94CFD500632085 /* other_alto_7@2x.png */,
+				E58FCD551E94CFD500632085 /* other_atm_1@2x.png */,
+				E58FCD561E94CFD500632085 /* other_atm_2@2x.png */,
+				E58FCD571E94CFD500632085 /* other_atm_3@2x.png */,
+				E58FCD581E94CFD500632085 /* other_atm_4@2x.png */,
+				E58FCD591E94CFD500632085 /* other_atm_5@2x.png */,
+				E58FCD5A1E94CFD500632085 /* other_atm_6@2x.png */,
+				E58FCD5B1E94CFD500632085 /* other_atm_7@2x.png */,
+				E58FCD5C1E94CFD500632085 /* other_prima_1@2x.png */,
+				E58FCD5D1E94CFD500632085 /* other_prima_2@2x.png */,
+				E58FCD5E1E94CFD500632085 /* other_prima_3@2x.png */,
+				E58FCD5F1E94CFD500632085 /* other_prima_4@2x.png */,
+				E58FCD601E94CFD500632085 /* other_prima_5@2x.png */,
+				E58FCD611E94CFD500632085 /* other_prima_6@2x.png */,
+				E58FCD621E94CFD500632085 /* other_prima_7@2x.png */,
+				E58FCD661E94CFD500632085 /* permata_atm_1@2x.png */,
+				E58FCD671E94CFD500632085 /* permata_atm_2@2x.png */,
+				E58FCD681E94CFD500632085 /* permata_atm_3@2x.png */,
+				E58FCD691E94CFD500632085 /* permata_atm_4@2x.png */,
+				E58FCD6A1E94CFD500632085 /* permata_atm_5@2x.png */,
+				E58FCD6B1E94CFD500632085 /* permata_atm_6@2x.png */,
+				E58FCD6C1E94CFD500632085 /* permata_atm_7@2x.png */,
+				E58FCD3B1E94CFD500632085 /* mandiri_atm_1@2x.png */,
+				E58FCD3C1E94CFD500632085 /* mandiri_atm_2@2x.png */,
+				E58FCD3D1E94CFD500632085 /* mandiri_atm_3@2x.png */,
+				E58FCD3E1E94CFD500632085 /* mandiri_atm_4@2x.png */,
+				E58FCD3F1E94CFD500632085 /* mandiri_atm_5@2x.png */,
+				E58FCD401E94CFD500632085 /* mandiri_atm_6@2x.png */,
+				E58FCD081E94CFD500632085 /* bca_atm_1@2x.png */,
+				E58FCD091E94CFD500632085 /* bca_atm_2@2x.png */,
+				E58FCD0A1E94CFD500632085 /* bca_atm_3@2x.png */,
+				E58FCD0B1E94CFD500632085 /* bca_atm_4@2x.png */,
+				E58FCD0C1E94CFD500632085 /* bca_atm_5@2x.png */,
+				E58FCD0D1E94CFD500632085 /* bca_atm_6@2x.png */,
+				E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */,
+				E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */,
+				E519C9571E9B6F2000EF70DF /* bni_va3@2x.png */,
+				E519C9591E9B6F2000EF70DF /* bni_va4@2x.png */,
+				E519C95B1E9B6F2000EF70DF /* bni_va5@2x.png */,
+				E519C95D1E9B6F2000EF70DF /* bni_va6@2x.png */,
+				E519C95F1E9B6F2000EF70DF /* bni_va7@2x.png */,
 				E55976381EA71B760044342A /* check@2x.png */,
-				0C9634C71FE11A1400EF89DF /* gopay */,
+				0CDAA760203EA192009419B3 /* gopay_scan_1.png */,
+				0CDAA75D203EA192009419B3 /* gopay_scan_2.png */,
+				0C9634C81FE11A1400EF89DF /* gojek_icon.png */,
+				0C9634C91FE11A1400EF89DF /* gojek_icon@2x.png */,
+				0C9634CA1FE11A1400EF89DF /* gojek_icon@3x.png */,
+				0C9634CB1FE11A1400EF89DF /* gopay.png */,
+				0C9634CC1FE11A1400EF89DF /* gopay@2x.png */,
+				0C9634CD1FE11A1400EF89DF /* gopay@3x.png */,
+				0C9634CE1FE11A1400EF89DF /* gopay_scan_qr_instruction.png */,
+				0C9634CF1FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png */,
+				0C9634D01FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png */,
+				0C9634D11FE11A1400EF89DF /* ic_chevron_down.png */,
+				0C9634D21FE11A1400EF89DF /* ic_chevron_down@2x.png */,
+				0C9634D31FE11A1400EF89DF /* ic_chevron_down@3x.png */,
+				0C9634D41FE11A1400EF89DF /* ic_chevron_up.png */,
+				0C9634D51FE11A1400EF89DF /* ic_chevron_up@2x.png */,
+				0C9634D61FE11A1400EF89DF /* ic_chevron_up@3x.png */,
+				0C9634D71FE11A1400EF89DF /* ic_gopay.png */,
+				0C9634D81FE11A1400EF89DF /* ic_gopay@2x.png */,
+				0C9634D91FE11A1400EF89DF /* ic_gopay@3x.png */,
+				0C9634DA1FE11A1400EF89DF /* ic_no_gopay.png */,
+				0C9634DB1FE11A1400EF89DF /* ic_no_gopay@2x.png */,
+				0C9634DC1FE11A1400EF89DF /* ic_no_gopay@3x.png */,
+				0C9634DD1FE11A1400EF89DF /* reload.png */,
 				E55976391EA71B760044342A /* cross@2x.png */,
 				0CE1D27D1F62A766003A012F /* cc_badge@2x.png */,
 				E559763A1EA71B760044342A /* pending@2x.png */,
@@ -2621,7 +2646,10 @@
 				E58FCD2A1E94CFD500632085 /* DisclosureIndicatorGray@2x.png */,
 				E58FCD2B1E94CFD500632085 /* echannel@2x.png */,
 				E58FCD2C1E94CFD500632085 /* emptyCardIcon@2x.png */,
-				0CE1D29D1F67B861003A012F /* Secured Seal */,
+				0CE1D29E1F67B861003A012F /* visa-mastercard-amex-seal@2x.png */,
+				0CE1D29F1F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png */,
+				0CE1D2A01F67B861003A012F /* visa-mastercard-jcb-seal@2x.png */,
+				0CE1D2A11F67B861003A012F /* visa-mastercard-seal@2x.png */,
 				E58FCD2D1E94CFD500632085 /* errorIcon@2x.png */,
 				E58FCD2E1E94CFD500632085 /* gci@2x.png */,
 				E58FCD2F1E94CFD500632085 /* hint.png */,
@@ -2863,69 +2891,6 @@
 				E517C2E11C96C1C4009AE6AA /* PopAnimator.m */,
 			);
 			name = Animators;
-			sourceTree = "<group>";
-		};
-		E519C8FD1E9B6ED100EF70DF /* instructions */ = {
-			isa = PBXGroup;
-			children = (
-				3D40893B1F75130300B9A2EC /* alto_preview.png */,
-				3D40893C1F75130300B9A2EC /* alto_preview@2x.png */,
-				3D40893D1F75130300B9A2EC /* alto_preview@3x.png */,
-				3D4089321F7512F100B9A2EC /* bersama_preview.png */,
-				3D4089331F7512F100B9A2EC /* bersama_preview@2x.png */,
-				3D4089341F7512F100B9A2EC /* bersama_preview@3x.png */,
-				3D4089441F75133200B9A2EC /* prima_preview.png */,
-				3D4089451F75133200B9A2EC /* prima_preview@2x.png */,
-				3D4089461F75133200B9A2EC /* prima_preview@3x.png */,
-				E58FCD4E1E94CFD500632085 /* other_alto_1@2x.png */,
-				E58FCD4F1E94CFD500632085 /* other_alto_2@2x.png */,
-				E58FCD501E94CFD500632085 /* other_alto_3@2x.png */,
-				E58FCD511E94CFD500632085 /* other_alto_4@2x.png */,
-				E58FCD521E94CFD500632085 /* other_alto_5@2x.png */,
-				E58FCD531E94CFD500632085 /* other_alto_6@2x.png */,
-				E58FCD541E94CFD500632085 /* other_alto_7@2x.png */,
-				E58FCD551E94CFD500632085 /* other_atm_1@2x.png */,
-				E58FCD561E94CFD500632085 /* other_atm_2@2x.png */,
-				E58FCD571E94CFD500632085 /* other_atm_3@2x.png */,
-				E58FCD581E94CFD500632085 /* other_atm_4@2x.png */,
-				E58FCD591E94CFD500632085 /* other_atm_5@2x.png */,
-				E58FCD5A1E94CFD500632085 /* other_atm_6@2x.png */,
-				E58FCD5B1E94CFD500632085 /* other_atm_7@2x.png */,
-				E58FCD5C1E94CFD500632085 /* other_prima_1@2x.png */,
-				E58FCD5D1E94CFD500632085 /* other_prima_2@2x.png */,
-				E58FCD5E1E94CFD500632085 /* other_prima_3@2x.png */,
-				E58FCD5F1E94CFD500632085 /* other_prima_4@2x.png */,
-				E58FCD601E94CFD500632085 /* other_prima_5@2x.png */,
-				E58FCD611E94CFD500632085 /* other_prima_6@2x.png */,
-				E58FCD621E94CFD500632085 /* other_prima_7@2x.png */,
-				E58FCD661E94CFD500632085 /* permata_atm_1@2x.png */,
-				E58FCD671E94CFD500632085 /* permata_atm_2@2x.png */,
-				E58FCD681E94CFD500632085 /* permata_atm_3@2x.png */,
-				E58FCD691E94CFD500632085 /* permata_atm_4@2x.png */,
-				E58FCD6A1E94CFD500632085 /* permata_atm_5@2x.png */,
-				E58FCD6B1E94CFD500632085 /* permata_atm_6@2x.png */,
-				E58FCD6C1E94CFD500632085 /* permata_atm_7@2x.png */,
-				E58FCD3B1E94CFD500632085 /* mandiri_atm_1@2x.png */,
-				E58FCD3C1E94CFD500632085 /* mandiri_atm_2@2x.png */,
-				E58FCD3D1E94CFD500632085 /* mandiri_atm_3@2x.png */,
-				E58FCD3E1E94CFD500632085 /* mandiri_atm_4@2x.png */,
-				E58FCD3F1E94CFD500632085 /* mandiri_atm_5@2x.png */,
-				E58FCD401E94CFD500632085 /* mandiri_atm_6@2x.png */,
-				E58FCD081E94CFD500632085 /* bca_atm_1@2x.png */,
-				E58FCD091E94CFD500632085 /* bca_atm_2@2x.png */,
-				E58FCD0A1E94CFD500632085 /* bca_atm_3@2x.png */,
-				E58FCD0B1E94CFD500632085 /* bca_atm_4@2x.png */,
-				E58FCD0C1E94CFD500632085 /* bca_atm_5@2x.png */,
-				E58FCD0D1E94CFD500632085 /* bca_atm_6@2x.png */,
-				E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */,
-				E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */,
-				E519C9571E9B6F2000EF70DF /* bni_va3@2x.png */,
-				E519C9591E9B6F2000EF70DF /* bni_va4@2x.png */,
-				E519C95B1E9B6F2000EF70DF /* bni_va5@2x.png */,
-				E519C95D1E9B6F2000EF70DF /* bni_va6@2x.png */,
-				E519C95F1E9B6F2000EF70DF /* bni_va7@2x.png */,
-			);
-			name = instructions;
 			sourceTree = "<group>";
 		};
 		E55976401EA71CA00044342A /* status */ = {
@@ -3373,6 +3338,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				id,
 			);

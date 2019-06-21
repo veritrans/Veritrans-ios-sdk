@@ -23,7 +23,6 @@
 		0CE373B01EC064C2000C80A9 /* MDSaveCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */; };
 		0CE373B11EC064C2000C80A9 /* MDSaveCardFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */; };
 		162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */; };
-		6CEBB605DB96D6121488EC2B /* libPods-MidtransDemoUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9F2FB9DC837424A9DE9E4EF /* libPods-MidtransDemoUITests.a */; };
 		E529544E1EBAF8E60076BEC8 /* MDAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E529544C1EBAF8E60076BEC8 /* MDAlertViewController.m */; };
 		E52954561EBB01890076BEC8 /* MDAlertInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52954541EBB01890076BEC8 /* MDAlertInputCell.m */; };
 		E52954571EBB01890076BEC8 /* MDAlertInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52954551EBB01890076BEC8 /* MDAlertInputCell.xib */; };
@@ -144,8 +143,6 @@
 		0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSaveCardFooter.m; sourceTree = "<group>"; };
 		0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDSaveCardFooter.xib; sourceTree = "<group>"; };
 		5C11021525267A24FA5F14A7 /* Pods-MidtransDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.debug.xcconfig"; sourceTree = "<group>"; };
-		6B524B13962DAF2333F2443B /* Pods-MidtransDemoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemoUITests/Pods-MidtransDemoUITests.release.xcconfig"; sourceTree = "<group>"; };
-		96D8FE5F299C0BB0FFE16AFF /* Pods-MidtransDemoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemoUITests/Pods-MidtransDemoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		C9F2FB9DC837424A9DE9E4EF /* libPods-MidtransDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
 		E529544B1EBAF8E60076BEC8 /* MDAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAlertViewController.h; sourceTree = "<group>"; };
@@ -233,7 +230,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CEBB605DB96D6121488EC2B /* libPods-MidtransDemoUITests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,8 +253,6 @@
 			children = (
 				5C11021525267A24FA5F14A7 /* Pods-MidtransDemo.debug.xcconfig */,
 				F724BE8B0AB574A14BDDE958 /* Pods-MidtransDemo.release.xcconfig */,
-				96D8FE5F299C0BB0FFE16AFF /* Pods-MidtransDemoUITests.debug.xcconfig */,
-				6B524B13962DAF2333F2443B /* Pods-MidtransDemoUITests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -502,7 +496,6 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5C7516D1E8B912F001F47D9 /* Build configuration list for PBXNativeTarget "MidtransDemoUITests" */;
 			buildPhases = (
-				57168526CF21E9912DD0E6B5 /* [CP] Check Pods Manifest.lock */,
 				E5C751621E8B912F001F47D9 /* Sources */,
 				E5C751631E8B912F001F47D9 /* Frameworks */,
 				E5C751641E8B912F001F47D9 /* Resources */,
@@ -639,28 +632,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		57168526CF21E9912DD0E6B5 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MidtransDemoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 		CEDED3EB7D698C258676F030 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -713,7 +684,6 @@
 				"${PODS_CONFIGURATION_BUILD_DIR}/BKMoneyKit/BKMoneyKit.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/MidtransKit/MidtransKit.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
@@ -722,7 +692,6 @@
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BKMoneyKit.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/IQKeyboardManager.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/JGProgressHUD.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MidtransKit.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -949,7 +918,6 @@
 		};
 		E5C7516E1E8B912F001F47D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96D8FE5F299C0BB0FFE16AFF /* Pods-MidtransDemoUITests.debug.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = G92YEQF267;
 				ENABLE_BITCODE = YES;
@@ -967,7 +935,6 @@
 		};
 		E5C7516F1E8B912F001F47D9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6B524B13962DAF2333F2443B /* Pods-MidtransDemoUITests.release.xcconfig */;
 			buildSettings = {
 				DEVELOPMENT_TEAM = G92YEQF267;
 				ENABLE_BITCODE = YES;

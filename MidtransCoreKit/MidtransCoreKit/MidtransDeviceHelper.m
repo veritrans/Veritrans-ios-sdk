@@ -116,56 +116,6 @@
     
     return [NSNumber numberWithFloat:tot_cpu];
 }
-+ (NSString *)deviceCurrentNetwork {
-    
-    NSArray *subviews = nil;
-    id statusBar = [[UIApplication sharedApplication] valueForKey:@"statusBar"];
-    if ([statusBar isKindOfClass:NSClassFromString(@"UIStatusBar_Modern")]) {
-        subviews = [[[statusBar valueForKey:@"statusBar"] valueForKey:@"foregroundView"] subviews];
-    } else {
-        subviews = [[statusBar valueForKey:@"foregroundView"] subviews];
-    }
-    NSNumber *dataNetworkItemView = nil;
-    
-    for (id subview in subviews) {
-        if([subview isKindOfClass:[NSClassFromString(@"UIStatusBarDataNetworkItemView") class]]) {
-            dataNetworkItemView = subview;
-            break;
-        }
-    }
-    NSString *networkType = @"-";
-    switch ([[dataNetworkItemView valueForKey:@"dataNetworkType"] integerValue]) {
-        case 0:
-            networkType = @"No wifi or cellular";
-            break;
-            
-        case 1:
-            networkType = @"2G";
-            break;
-            
-        case 2:
-            networkType = @"3G";
-            break;
-            
-        case 3:
-            networkType = @"4G";
-            break;
-            
-        case 4:
-            networkType = @"LTE";
-            break;
-            
-        case 5:
-            networkType = @"Wifi";
-            break;
-            
-            
-        default:
-            networkType = @"-";
-            break;
-    }
-    
-    return networkType;
-}
+
 
 @end

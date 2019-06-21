@@ -16,7 +16,6 @@
 + (NSString *)deviceName;
 + (NSString *)deviceCurrentLanguage;
 + (NSNumber *)currentCPUUsage;
-+ (NSString *)deviceCurrentNetwork;
 + (NSString *)applicationName;
 + (NSString *)applicationVersion;
 @end

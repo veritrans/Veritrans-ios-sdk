@@ -680,7 +680,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/BKMoneyKit/BKMoneyKit.bundle",
 				"${PODS_ROOT}/IQKeyboardManager/IQKeyboardManager/Resources/IQKeyboardManager.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/JGProgressHUD/JGProgressHUD.bundle",
@@ -695,7 +695,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

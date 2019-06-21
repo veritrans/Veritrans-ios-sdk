@@ -15,12 +15,12 @@ target 'MidtransDemo' do
     pod 'BKMoneyKit', '~> 0.0'
     pod 'MaterialControls'
     
-    pod 'MidtransKit', :path => '../'
-    pod 'MidtransCoreKit', :path => '../'
-    
-    target 'MidtransDemoUITests' do
-        inherit! :search_paths
-        # Pods for testing
-    end
+#    pod 'MidtransKit', :path => '../'
+#    pod 'MidtransCoreKit', :path => '../'
+#    
+#    target 'MidtransDemoUITests' do
+#        inherit! :search_paths
+#        # Pods for testing
+#    end
     
 end

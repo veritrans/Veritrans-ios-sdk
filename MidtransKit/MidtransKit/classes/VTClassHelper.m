@@ -209,6 +209,11 @@
     return CGSizeMake(ceilf(rect.size.width), ceilf(rect.size.height));
 }
 
+- (NSString *)formattedCurrencyNumber {
+    NSNumber *number = @(self.doubleValue);
+    return number.formattedCurrencyNumber;
+}
+
 @end
 
 @implementation UILabel (utilities)

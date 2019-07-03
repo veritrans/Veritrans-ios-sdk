@@ -50,6 +50,7 @@
 - (BOOL)isNumeric;
 - (NSString *)formattedCreditCardNumber;
 - (CGSize)sizeWithFont:(UIFont *)font constraint:(CGSize)constraint;
+- (NSString *)formattedCurrencyNumber;
 @end
 
 @interface UILabel (utilities)

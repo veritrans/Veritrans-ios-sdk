@@ -65,7 +65,7 @@
     [super viewDidLoad];
     self.footerView = [[VTBundle loadNibNamed:@"MidtransSavedCardFooter" owner:self options:nil] lastObject];
     [self.footerView.addCardButton addTarget:self action:@selector(addCardPressed:) forControlEvents:UIControlEventTouchUpInside];
-      self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+      self.totalAmountLabel.text = [self.token.transactionDetails.grossAmount formattedCurrencyNumber];
     self.orderIdLabel.text = self.token.transactionDetails.orderId;
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -241,7 +241,7 @@
 }
 - (void)totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

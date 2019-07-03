@@ -55,7 +55,7 @@
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 - (IBAction)confirmPaymentDidTapped:(id)sender {
     [self showLoadingWithText:nil];

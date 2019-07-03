@@ -72,7 +72,7 @@
     }
     self.instrunctions = [VTClassHelper instructionsFromFilePath:guidePath];
     
-     self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+     self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
@@ -85,7 +85,7 @@
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
+    [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.showInstructions?self.instrunctions.count:0;

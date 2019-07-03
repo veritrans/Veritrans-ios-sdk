@@ -58,7 +58,7 @@
         self.headerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentHeader"];
     }
     [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentFooter" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentFooter"];
-    self.totalAmountLabel.text = [self.token.itemDetails formattedPriceAmount];
+    self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.orderIdLabel.text = self.token.transactionDetails.orderId;
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
@@ -165,7 +165,7 @@
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 - (void)downloadButtonDidtapped:(id)sender {
     UIApplication *application = [UIApplication sharedApplication];

@@ -103,7 +103,7 @@ static NSString* const ClickpayAPPLI = @"3";
 }
 - (void) totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
-    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails];
+    [transactionViewController presentAtPositionOfView:self.totalAmountBorderedView items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 
 - (IBAction)confirmPaymentPressed:(UIButton *)sender {

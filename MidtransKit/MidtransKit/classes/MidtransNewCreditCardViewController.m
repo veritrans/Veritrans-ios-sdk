@@ -269,9 +269,9 @@ UIAlertViewDelegate
 - (void)totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
     if (!self.selectedPromos) {
-        [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails];
+        [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
     } else {
-        [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails WithPromoSelected:self.selectedPromos];
+        [transactionViewController presentAtPositionOfView:self.view.totalAmountBorderedView items:self.token.itemDetails WithPromoSelected:self.selectedPromos grossAmount:self.token.transactionDetails.grossAmount];
     }
     
 }

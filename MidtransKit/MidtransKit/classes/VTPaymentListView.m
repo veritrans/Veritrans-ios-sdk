@@ -48,7 +48,8 @@
     
     self.responsePayment = response;
     self.items = items;
-    self.headerView.priceAmountLabel.text = [items formattedPriceAmount];
+    
+    self.headerView.priceAmountLabel.text = response.transactionDetails.grossAmount.formattedCurrencyNumber;
     
     self.paymentMethods = paymentMethods;
     [self.tableView reloadData];

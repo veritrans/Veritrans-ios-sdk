@@ -10,9 +10,9 @@
 #import <MidtransCoreKit/MidtransCoreKit.h>
 @class AddOnConstructor;
 @interface MidtransTransactionDetailViewController : UIViewController
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items;
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items grossAmount:(NSNumber *)grossAmount;
 - (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items
          withChangedGrossAmount:(NSString *)grossAmount
                       pointName:(NSString *)pointName pointValue:(NSInteger)pointValue;
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo;
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo grossAmount:(NSNumber*)grossAmount;
 @end

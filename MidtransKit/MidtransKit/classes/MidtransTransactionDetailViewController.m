@@ -56,7 +56,7 @@
     }];
 }
 
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo {
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items WithPromoSelected:(AddOnConstructor *)MidtransPromo grossAmount:(NSNumber*)grossAmount {
     UIViewController *rootVC = [VTClassHelper rootViewController];
     if (rootVC.navigationController) {
         rootVC = rootVC.navigationController;
@@ -67,10 +67,8 @@
     CGRect generalRect = [rootVC.view convertRect:view.frame fromView:view.superview];
     //    self.topSpaceConstraint.constant = CGRectGetMinY(generalRect);
     self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
-    MidtransItemDetail *itemDetails = items [0];
-    double grossAmount =[itemDetails.price doubleValue] - [MidtransPromo.addOnDescriptions doubleValue];
     NSMutableArray *mockItems = [NSMutableArray arrayWithArray:items];
-    self.priceAmountLabel.text = [NSNumber numberWithDouble:grossAmount].formattedCurrencyNumber;
+    self.priceAmountLabel.text = grossAmount.formattedCurrencyNumber;
     
     MidtransItemDetail *itemDetailsMain =[[MidtransItemDetail alloc] initWithItemID:@"001"
                                                                                name:MidtransPromo.addOnTitle
@@ -120,7 +118,7 @@
         self.view.userInteractionEnabled = YES;
     }];
 }
-- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items {
+- (void)presentAtPositionOfView:(UIView *)view items:(NSArray *)items grossAmount:(NSNumber *)grossAmount {
     UIViewController *rootVC = [VTClassHelper rootViewController];
     if (rootVC.navigationController) {
         rootVC = rootVC.navigationController;
@@ -134,7 +132,7 @@
     self.bottomSpaceConstraint.constant = CGRectGetHeight(generalRect);
     
     self.items = items;
-    self.priceAmountLabel.text = [items formattedPriceAmount];
+    self.priceAmountLabel.text = grossAmount.formattedCurrencyNumber;
     self.tableHeightConstraint.constant = [self calculateTableViewHeight];
     
     self.view.userInteractionEnabled = NO;

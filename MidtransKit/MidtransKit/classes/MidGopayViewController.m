@@ -62,9 +62,8 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleGopayStatus:)
-                                                 name:NOTIFICATION_GOPAY_STATUS
+                                                 name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    
     self.title = @"GO-PAY";
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;

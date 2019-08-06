@@ -12,6 +12,7 @@
 static NSString *const MIDTRANS_SANDBOX_PROMO_URL = @"https://promo.vt-stage.info/v2";
 static NSString *const MIDTRANS_STAGING_PROMO_URL = @"https://promo.vt-stage.info/v2";
 static NSString *const MIDTRANS_PRODUCTION_PROMO_URL = @"https://promo.vt-stage.info/v2";
+static NSString *const MIDTRANS_UAT_PROMO_URL = @"https://promo.vt-stage.info/v2";
 
 @interface MidtransPrivateConfig()
 @property (nonatomic) NSString *baseUrl;
@@ -47,6 +48,13 @@ static NSString *const MIDTRANS_PRODUCTION_PROMO_URL = @"https://promo.vt-stage.
         [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_STAGING_SNAP];
         [[MidtransPrivateConfig shared] setBinURL:MIDTRANS_STAGING_BIN_URL];
         [[MidtransPrivateConfig shared] setPromoEngineURL:MIDTRANS_STAGING_PROMO_URL];
+    }
+    else if (env == MidtransServerEnvironmentUat) {
+        [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_UAT_API_URL];
+        [[MidtransPrivateConfig shared] setMixpanelToken: MIDTRANS_UAT_MIXPANEL];
+        [[MidtransPrivateConfig shared] setSnapURL: MIDTRANS_UAT_SNAP];
+        [[MidtransPrivateConfig shared] setBinURL:MIDTRANS_UAT_BIN_URL];
+        [[MidtransPrivateConfig shared] setPromoEngineURL:MIDTRANS_UAT_PROMO_URL];
     }
     else {
         [[MidtransPrivateConfig shared] setBaseUrl: MIDTRANS_SANDBOX_API_URL];

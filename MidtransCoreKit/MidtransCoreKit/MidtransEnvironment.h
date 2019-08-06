@@ -23,7 +23,10 @@ typedef NS_ENUM(NSUInteger, MidtransServerEnvironment) {
      Production payment environment. This server type should be used only when the product ready to be released.
      */
     MidtransServerEnvironmentProduction,
-    
+    /**
+     UAT payment environment. This server type is used for user acceptance testing.
+     */
+    MidtransServerEnvironmentUat,
     /**
      Unknown payment environment. Internal usage only.
      */

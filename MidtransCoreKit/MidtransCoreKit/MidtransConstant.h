@@ -115,6 +115,13 @@ static NSString *const MIDTRANS_PRODUCTION_SNAP = @"https://app.midtrans.com/sna
 static NSString *const MIDTRANS_PRODUCTION_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
 static NSString *const MIDTRANS_PRODUCTION_BIN_URL = @"https://app.midtrans.com/snap/v1/bank_bins";
 
+/*uat*/
+
+static NSString *const MIDTRANS_UAT_API_URL = @"https://api.stg.midtrans.com/v2";
+static NSString *const MIDTRANS_UAT_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
+static NSString *const MIDTRANS_UAT_SNAP = @"https://app.stg.midtrans.com/snap/v1";
+static NSString *const MIDTRANS_UAT_BIN_URL = @"https://app.stg.midtrans.com/snap/v1/bank_bins";
+
 /*staging*/
 
 static NSString *const MIDTRANS_STAGING_API_URL = @"https://api.stg.veritrans.co.id/v2";

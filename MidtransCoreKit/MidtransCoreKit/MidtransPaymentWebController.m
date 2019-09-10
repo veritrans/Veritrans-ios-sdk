@@ -9,9 +9,10 @@
 #import "MidtransPaymentWebController.h"
 #import "MidtransHelper.h"
 #import "MidtransConstant.h"
+#import <WebKit/WebKit.h>
 
-@interface MidtransPaymentWebController () <UIWebViewDelegate, UIAlertViewDelegate>
-@property (nonatomic) UIWebView *webView;
+@interface MidtransPaymentWebController () <WKNavigationDelegate, UIAlertViewDelegate>
+@property (nonatomic) WKWebView *webView;
 @property (nonatomic) NSString *paymentIdentifier;
 @property (nonatomic, readwrite) MidtransTransactionResult *result;
 @property (nonatomic) MidtransPaymentRequestV2Merchant *merchant;
@@ -47,10 +48,16 @@
         self.title = @"CIMB Clicks";
     }
     
-    self.webView = [UIWebView new];
+    //equal to uiwebview pageToFit, also disable zooming automatically//
+    NSString *source = [NSString stringWithFormat:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';var head = document.getElementsByTagName('head')[0];head.appendChild(meta);"];
+    WKUserScript *script = [[WKUserScript alloc]initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:true];
+    WKUserContentController *userContentController = [WKUserContentController new];
+    WKWebViewConfiguration *config = [WKWebViewConfiguration new];
+    config.userContentController = userContentController;
+    [userContentController addUserScript:script];
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.webView.scalesPageToFit = YES;
-    self.webView.delegate = self;
+    self.webView.navigationDelegate = self;
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -76,18 +83,23 @@
     [alert show];
 }
 
+- (NSError *)transactionError {
+    NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_CANCELED_WEBPAYMENT userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Transaction canceled by user", nil)}];
+    return error;
+}
+
 #pragma mark - UIWebViewDelegate
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     if ([self.delegate respondsToSelector:@selector(webPaymentController:transactionError:)]) {
         [self.delegate webPaymentController:self transactionError:error];
     }
 }
 
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
-    NSString *requestURL = webView.request.URL.absoluteString;
-
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
+    NSString *requestURL = webView.URL.absoluteString;
+    
     if (([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] && [requestURL containsString:@"cimb-clicks/response"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] && [requestURL containsString:@"id="]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
@@ -101,9 +113,15 @@
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
 }
 
-- (NSError *)transactionError {
-    NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN code:MIDTRANS_ERROR_CODE_CANCELED_WEBPAYMENT userInfo:@{NSLocalizedDescriptionKey:NSLocalizedString(@"Transaction canceled by user", nil)}];
-    return error;
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (![webView.URL.scheme isEqual:@"http"] &&
+        ![webView.URL.scheme isEqual:@"https"] &&
+        ![webView.URL.scheme isEqual:@"about:blank"]) {
+        if ([[UIApplication sharedApplication]canOpenURL:webView.URL]) {
+            [[UIApplication sharedApplication]openURL:webView.URL];
+        }
+    }
+    decisionHandler(WKNavigationActionPolicyAllow);
 }
 
 #pragma mark - UIAlertViewDelegate
@@ -114,21 +132,5 @@
             [self.delegate webPaymentController_transactionPending:self];
         }
     }
-}
-- (BOOL)webView:(__unused UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request
- navigationType:(UIWebViewNavigationType)navigationType
-{
-    
-    if (![request.URL.scheme isEqual:@"http"] &&
-        ![request.URL.scheme isEqual:@"https"] &&
-        ![request.URL.scheme isEqual:@"about:blank"]) {
-        if ([[UIApplication sharedApplication]canOpenURL:request.URL]) {
-            [[UIApplication sharedApplication]openURL:request.URL];
-        }
-        return NO;
-    }
-    
-    return YES;
-    
 }
 @end

@@ -537,6 +537,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -670,7 +671,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 9c3548eaa37c57b1cdd980bc882bad96410b970a b4332ac9cd56b3fe3ee8ce6189f8f21e7f68a575fe70537788d16a0f2416cebc\n";
+			shellScript = "FabricApiKey=$(sed -n '2p' < fabric_config.txt)\nFabricSecretKey=$(sed -n '4p' < fabric_config.txt)\nINFO_PLIST=\"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n/usr/libexec/PlistBuddy -c \"Set :Fabric:APIKey $FabricApiKey\" \"$INFO_PLIST\"\n\n\"${PODS_ROOT}/Fabric/run\" $FabricApiKey $FabricSecretKey\n";
 		};
 		EC135A9896725303FB9B255A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;

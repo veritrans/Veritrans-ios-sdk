@@ -45,8 +45,10 @@
     [super viewDidAppear:animated];
     NSLog(@"view did appear");
 }
+
 - (void)handleGopayStatus:(id)sender {
-    [[MidtransMerchantClient shared] performCheckStatusTransactionWcompletion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
+    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_CURRENT_TOKEN];
+   [[MidtransMerchantClient shared] performCheckStatusTransactionWithToken:token completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
         if (!error) {
             if (result.statusCode == 200) {
                 [self handleTransactionSuccess:result];

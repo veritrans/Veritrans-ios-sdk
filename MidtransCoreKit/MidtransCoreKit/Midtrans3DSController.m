@@ -46,11 +46,15 @@
     
     //equal to uiwebview pageToFit, also disable zooming automatically//
     NSString *source = [NSString stringWithFormat:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';var head = document.getElementsByTagName('head')[0];head.appendChild(meta);"];
+    
     WKUserScript *script = [[WKUserScript alloc]initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:true];
+   
     WKUserContentController *userContentController = [WKUserContentController new];
     WKWebViewConfiguration *config = [WKWebViewConfiguration new];
+    
     config.userContentController = userContentController;
     [userContentController addUserScript:script];
+    
     self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
     self.webView.navigationDelegate = self;

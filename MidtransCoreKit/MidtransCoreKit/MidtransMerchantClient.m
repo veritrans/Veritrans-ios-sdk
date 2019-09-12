@@ -52,12 +52,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     return instance;
 }
 
-- (void)performCheckStatusTransactionWcompletion:(void(^_Nullable)(MidtransTransactionResult *_Nullable result, NSError *_Nullable error))completion{
+- (void)performCheckStatusTransactionWithToken:(NSString *_Nonnull)token completion:(void (^_Nonnull)(MidtransTransactionResult * _Nullable, NSError * _Nullable))completion {
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
     MidtransTransaction *transaction = [MidtransTransaction new];
-    [[MidtransNetworking shared] getFromURL:[transaction checkStatusTransaction] header:headers parameters:nil callback:^(id response, NSError *error) {
+    [[MidtransNetworking shared] getFromURL:[transaction checkStatusTransaction:token] header:headers parameters:nil callback:^(id response, NSError *error) {
         
         NSString *paymentType = transaction.paymentType;
         

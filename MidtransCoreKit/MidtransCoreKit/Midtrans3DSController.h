@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <WebKit/WebKit.h>
 #import "MidtransTransactionResult.h"
 @class MidtransTransaction,MidtransTransactionResult;
 @protocol Midtrans3DSControllerDelegate<NSObject>
@@ -15,7 +16,7 @@
 @end
 
 @interface Midtrans3DSController : UIViewController
-@property (nonatomic, strong) UIWebView *webView;
+@property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, readonly) NSURL *secureURL;
 @property (nonatomic, readonly) NSString *token;
 @property (nonatomic, strong) MidtransTransaction *transcationData;

@@ -49,7 +49,7 @@
 - (NSDictionary *)dictionaryValue;
 
 - (NSString *)paymentType;
-- (NSString *)checkStatusTransaction;
+- (NSString *)checkStatusTransaction:(NSString *)token;
 - (NSString *)chargeURL;
 
 - (NSString *)checkStatusRBA;

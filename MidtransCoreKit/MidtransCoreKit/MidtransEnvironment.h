@@ -27,7 +27,6 @@ typedef NS_ENUM(NSUInteger, MidtransServerEnvironment) {
      UAT payment environment. This server type is used for user acceptance testing.
      */
     MidtransServerEnvironmentUat,
-
     
     /**
      Unknown payment environment. Internal usage only.

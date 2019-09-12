@@ -11,7 +11,7 @@
 #import "MidtransConstant.h"
 #import "MidtransMerchantClient.h"
 #import "MidtransTransaction.h"
-@interface Midtrans3DSController() <UIWebViewDelegate, UIAlertViewDelegate>
+@interface Midtrans3DSController() <WKNavigationDelegate, UIAlertViewDelegate>
 @property (nonatomic) NSURL *secureURL;
 @property (nonatomic) NSString *token;
 @property (nonatomic) UIViewController *rootViewController;
@@ -43,10 +43,23 @@
     self.navigationItem.leftBarButtonItem = closeButton;
     self.title =self.titleOveride.length?self.titleOveride:NSLocalizedString(@"3D Secure", nil);
     self.title = @"Credit Card";
-    self.webView = [UIWebView new];
+    
+    //equal to uiwebview pageToFit, also disable zooming automatically//
+    NSString *source = [NSString stringWithFormat:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';var head = document.getElementsByTagName('head')[0];head.appendChild(meta);"];
+    
+    WKUserScript *script = [[WKUserScript alloc]initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:true];
+   
+    WKUserContentController *userContentController = [WKUserContentController new];
+    WKWebViewConfiguration *config = [WKWebViewConfiguration new];
+    
+    config.userContentController = userContentController;
+    [userContentController addUserScript:script];
+    
+    self.webView = [[WKWebView alloc] initWithFrame:CGRectZero configuration:config];
     self.webView.translatesAutoresizingMaskIntoConstraints = NO;
-    self.webView.delegate = self;
+    self.webView.navigationDelegate = self;
     [self.view addSubview:self.webView];
+    
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|[view]|" options:0 metrics:0 views:@{@"view":self.webView}]];
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.secureURL]];
@@ -69,14 +82,21 @@
     self.completion = completion;
 }
 
+- (void)scaleTo3DSSize {
+    //    400x800 is the standard 3ds page size
+    CGFloat factor = CGRectGetWidth(self.webView.frame) / 400.;
+    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = %f;", factor];
+    [self.webView evaluateJavaScript:jsCommand completionHandler:nil];
+}
+
 #pragma mark - UIWebViewDelegate
 
-- (void)webViewDidStartLoad:(UIWebView *)webView {
+- (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
     [self scaleTo3DSSize];
 }
 
-- (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+- (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self dismissViewControllerAnimated:YES completion:^{
@@ -84,20 +104,14 @@
     }];
 }
 
-- (void)scaleTo3DSSize {
-    //400x800 is the standard 3ds page size
-    CGFloat factor = CGRectGetWidth(self.webView.frame) / 400.;
-    NSString *jsCommand = [NSString stringWithFormat:@"document.body.style.zoom = %f;", factor];
-    [self.webView stringByEvaluatingJavaScriptFromString:jsCommand];
-}
-- (void)webViewDidFinishLoad:(UIWebView *)webView {
+- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self scaleTo3DSSize];
     //filter request
-    NSURLRequest *request = webView.request;
+    NSURL *request = webView.URL;
     ////this is for rba
-    if (request.URL.pathComponents.count >3 && [request.URL.pathComponents[4] isEqualToString:@"callback"] ) {
+    if (request.pathComponents.count >3 && [request.pathComponents[4] isEqualToString:@"callback"] ) {
         
         [[MidtransMerchantClient shared] performCheckStatusRBA:self.transcationData completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
             if (error) {
@@ -116,7 +130,7 @@
             }
         }];
     }
-    if (request.URL.pathComponents.count > 3 && [request.URL.pathComponents[3] isEqualToString:@"callback"]) {
+    if (request.pathComponents.count > 3 && [request.pathComponents[3] isEqualToString:@"callback"]) {
         
         [self dismissViewControllerAnimated:YES completion:^{
             if (self.completion) self.completion(nil);

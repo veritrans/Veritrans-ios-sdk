@@ -453,13 +453,17 @@ UIAlertViewDelegate
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
     if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
-        self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+        dispatch_async(dispatch_get_main_queue(), ^{
+                  self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+        });
     }
     else {
-        self.view.creditCardNumberTextField.info1Icon = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.view.creditCardNumberTextField.info1Icon = nil;
+        });
     }
-    UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
     dispatch_async(dispatch_get_main_queue(), ^{
+        UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
         self.view.creditCardNumberTextField.info2Icon = bankIcon;
     });
 }
@@ -758,7 +762,9 @@ UIAlertViewDelegate
             }
         }
         else {
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
+            });
             if ([[self.installment.terms objectForKey:@"offline"] count]) {
                 if (!isDebitCard) {
                     self.installmentBankName = @"offline";
@@ -779,10 +785,11 @@ UIAlertViewDelegate
             [self updateAddOnContent];
         }
         
-        
-        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
-        self.filteredBinObject.bank = nil;
-        self.view.creditCardNumberTextField.info2Icon = nil;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
+            self.filteredBinObject.bank = nil;
+            self.view.creditCardNumberTextField.info2Icon = nil;
+        });
         
         if (self.installmentValueObject.count > 0) {
             self.installmentCurrentIndex = 0;
@@ -797,18 +804,20 @@ UIAlertViewDelegate
 }
 
 - (void)showInstallmentView:(BOOL)show {
-    [UIView transitionWithView:self.view.installmentView
-                      duration:1
-                       options:UIViewAnimationOptionCurveEaseInOut
-                    animations:^{
-                        dispatch_async(dispatch_get_main_queue(), ^{
-                            
-                            self.view.installmentView.hidden = !show;
-                            [self.installmentsContentView.installmentCollectionView reloadData];
-                        });
-                        [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
-                    }
-                    completion:NULL];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [UIView transitionWithView:self.view.installmentView
+                             duration:1
+                              options:UIViewAnimationOptionCurveEaseInOut
+                           animations:^{
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   
+                                   self.view.installmentView.hidden = !show;
+                                   [self.installmentsContentView.installmentCollectionView reloadData];
+                               });
+                               [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
+                           }
+                           completion:NULL];
+    });
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {

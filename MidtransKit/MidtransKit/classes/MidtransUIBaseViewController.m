@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //self.navigationItem.backBarButtonItem = [[VTBackBarButtonItem alloc] initWithTitle:UILocalizedString(@"Back", nil)];
+    if (@available(iOS 13.0, *)) {
+        self.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
 }
 
 @end

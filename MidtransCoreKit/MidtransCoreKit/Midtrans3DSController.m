@@ -78,6 +78,7 @@
 
 - (void)showWithCompletion:(void(^)(NSError *error))completion {
     UINavigationController *nvc = [[UINavigationController alloc] initWithRootViewController:self];
+    nvc.modalPresentationStyle = UIModalPresentationFullScreen;
     [self.rootViewController presentViewController:nvc animated:YES completion:nil];
     self.completion = completion;
 }

@@ -23,12 +23,14 @@
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
     vc.paymentMethodSelected = nil;
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     return self;
 }
 - (instancetype)initCreditCardForm {
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:nil paymentMethodName:nil];
     vc.paymentMethodSelected = MIDTRANS_CREDIT_CARD_FORM;
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     return self;
 
 }
@@ -112,10 +114,11 @@
     VTPaymentListController *vc = [[VTPaymentListController alloc] initWithToken:token paymentMethodName:nil];
     vc.paymentMethodSelected = paymentMethodSelected;
     self = [[MidtransUIPaymentViewController alloc] initWithRootViewController:vc];
+    self.modalPresentationStyle = UIModalPresentationFullScreen;
     return self;
 }
-- (void)viewDidLoad {
-    [super viewDidLoad];
+
+- (void)viewWillAppear:(BOOL)animated{
     if ([[MidtransConfig shared] environment]!=MidtransServerEnvironmentProduction) {
         UIWindow *currentWindow = [UIApplication sharedApplication].keyWindow;
         
@@ -126,6 +129,9 @@
         
         [currentWindow addSubview:badgeImageView];
     }
+}
+- (void)viewDidLoad {
+    [super viewDidLoad];
     self.navigationBar.translucent = false;
     // to remove 1 px border below nav bar
     

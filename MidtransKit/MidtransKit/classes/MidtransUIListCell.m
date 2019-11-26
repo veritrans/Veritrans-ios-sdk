@@ -53,6 +53,13 @@
         self.tscTextStatusLabel.hidden = NO;
     } else {
         self.textStatusHeightConstraint.constant = 0;
+        self.contentView.backgroundColor = UIColor.clearColor;
+        self.paymentMethodNameLabel.alpha = 1;
+        self.paymentMethodDescriptionLabel.alpha = 1;
+        self.paymentMethodLogo.alpha = 1;
+        self.tscSeparatorLineView.hidden = YES;
+        self.tscTextStatusLabel.hidden = YES;
+
     }
 }
 

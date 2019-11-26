@@ -262,47 +262,50 @@
 
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
-                                                       delegate:self
-                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
-                                              otherButtonTitles:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"], nil];
-        [alert setTag:indexPath.row];
-        [alert show];
+        
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
+                                    message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *noButton = [UIAlertAction
+                                   actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+        UIAlertAction *yesButton = [UIAlertAction
+                                    actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"]
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action) {
+            [self confirmDeleteSavedCard:indexPath.row];
+        }];
+        [alert addAction:noButton];
+        [alert addAction:yesButton];
+        [self presentViewController:alert animated:YES completion:nil];
     }
 }
 
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        NSUInteger cardIndex = alertView.tag;
-        [self showLoadingWithText:nil];
-        if (CC_CONFIG.tokenStorageEnabled == YES) {
+- (void)confirmDeleteSavedCard:(NSUInteger)cardIndex{
+    [self showLoadingWithText:nil];
+    if (CC_CONFIG.tokenStorageEnabled == YES) {
+        [self.cards removeObjectAtIndex:cardIndex];
+        [[MidtransMerchantClient shared] saveMaskedCards:self.cards
+                                                customer:self.token.customerDetails
+                                              completion:^(id  _Nullable result, NSError * _Nullable error) {
+            [self hideLoading];
+            [self reloadSavedCards];
+        }];
+    } else {
+        MidtransMaskedCreditCard *maskedCard = self.cards[cardIndex];
+        [[MidtransMerchantClient shared] deleteMaskedCreditCard:maskedCard token:self.token completion:^(BOOL success) {
+            [self hideLoading];
+            
+            if (success == NO) {
+                return;
+            }
             [self.cards removeObjectAtIndex:cardIndex];
-            [[MidtransMerchantClient shared] saveMaskedCards:self.cards
-                                                    customer:self.token.customerDetails
-                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                      [self hideLoading];
-                                                      [self reloadSavedCards];
-                                                  }];
-        } else {
-            MidtransMaskedCreditCard *maskedCard = self.cards[cardIndex];
-            [[MidtransMerchantClient shared] deleteMaskedCreditCard:maskedCard token:self.token completion:^(BOOL success) {
-                [self hideLoading];
-                
-                if (success == NO) {
-                    return;
-                }
-             [self.cards removeObjectAtIndex:cardIndex];
-                [self.tableView reloadData];
-    
-            }];
-        }
-        
+            [self.tableView reloadData];
+            
+        }];
     }
-        
-       
 }
 
 #pragma mark - MidtransNewCreditCardViewControllerDelegate

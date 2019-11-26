@@ -203,8 +203,17 @@
      
      {
          if (error) {
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-             [alert show];
+             
+             UIAlertController *alert = [UIAlertController
+                                                alertControllerWithTitle:@"Error"
+                                                message:error.localizedDescription
+                                                preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okButton = [UIAlertAction
+                                               actionWithTitle:@"Close"
+                                               style:UIAlertActionStyleDefault
+                                               handler:nil];
+                    [alert addAction:okButton];
+                    [self presentViewController:alert animated:YES completion:nil];
          }
          else {
              

@@ -11,7 +11,7 @@
 #import "MidtransConstant.h"
 #import "MidtransMerchantClient.h"
 #import "MidtransTransaction.h"
-@interface Midtrans3DSController() <WKNavigationDelegate, UIAlertViewDelegate>
+@interface Midtrans3DSController() <WKNavigationDelegate>
 @property (nonatomic) NSURL *secureURL;
 @property (nonatomic) NSString *token;
 @property (nonatomic) UIViewController *rootViewController;

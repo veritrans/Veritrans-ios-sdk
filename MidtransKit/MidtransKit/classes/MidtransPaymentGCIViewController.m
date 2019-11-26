@@ -94,12 +94,16 @@
         if (error) {
             if (self.attemptRetry<2) {
                 self.attemptRetry+=1;
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                message:error.localizedMidtransErrorMessage
-                                                               delegate:nil
-                                                      cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                      otherButtonTitles:nil];
-                [alert show];
+                UIAlertController *alert = [UIAlertController
+                                            alertControllerWithTitle:@"ERROR"
+                                            message:error.localizedMidtransErrorMessage
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelButton = [UIAlertAction
+                                               actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                               style:UIAlertActionStyleDefault
+                                               handler:nil];
+                [alert addAction:cancelButton];
+                [self presentViewController:alert animated:YES completion:nil];
             }
             else {
                [self handleTransactionError:error];
@@ -109,12 +113,17 @@
         else {
             if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
                   self.attemptRetry+=1;
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[result.transactionStatus capitalizedString]
-                                                                message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
-                                                               delegate:nil
-                                                      cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                      otherButtonTitles:nil];
-                [alert show];
+                
+                UIAlertController *alert = [UIAlertController
+                                            alertControllerWithTitle:[result.transactionStatus capitalizedString]
+                                            message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelButton = [UIAlertAction
+                                               actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                               style:UIAlertActionStyleDefault
+                                               handler:nil];
+                [alert addAction:cancelButton];
+                [self presentViewController:alert animated:YES completion:nil];
             }
             else {
              [self handleTransactionSuccess:result];

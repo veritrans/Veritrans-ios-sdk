@@ -237,12 +237,17 @@ static dispatch_once_t * onceToken;
         installmentTerms = [NSString stringWithFormat:@"%@_%@",self.installmentBankName, [[self.installment.terms  objectForKey:self.installmentBankName] objectAtIndex:self.installmentCurrentIndex -1]];
     }
     if (self.installmentRequired && self.installmentCurrentIndex==0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
-                                                       delegate:nil
-                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                              otherButtonTitles:nil];
-        [alert show];
+        
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:@"ERROR"
+                                    message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelButton = [UIAlertAction
+                                       actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                       style:UIAlertActionStyleDefault
+                                       handler:nil];
+        [alert addAction:cancelButton];
+        [self presentViewController:alert animated:YES completion:nil];
         return;
     }
     

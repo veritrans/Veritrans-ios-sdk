@@ -105,12 +105,16 @@
                    andMessage:(NSString *)message
                andButtonTitle:(NSString *)buttonTitle {
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
-                                                    message:message
-                                                   delegate:nil
-                                          cancelButtonTitle:buttonTitle
-                                          otherButtonTitles:nil];
-    [alert show];
+   UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:title
+                                message:message
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:buttonTitle
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 - (void)addNavigationToTextFields:(NSArray <UITextField*>*)fields {
     _keyboardAccessoryView = [[VTKeyboardAccessoryView alloc] initWithFrame:CGRectZero fields:fields];

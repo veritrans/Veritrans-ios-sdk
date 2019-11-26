@@ -281,6 +281,7 @@
         if (type == MTCreditCardPaymentTypeOneclick) {
             [opt3ds selectOptionAtIndex:1];
             [optSaveCard selectOptionAtIndex:1];
+            [optAuth selectOptionAtIndex:3];
         }
         else if (type == MTCreditCardPaymentTypeTwoclick) {
             [optSaveCard selectOptionAtIndex:1];

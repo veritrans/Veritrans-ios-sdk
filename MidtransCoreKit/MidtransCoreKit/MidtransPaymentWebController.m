@@ -11,7 +11,7 @@
 #import "MidtransConstant.h"
 #import <WebKit/WebKit.h>
 
-@interface MidtransPaymentWebController () <WKNavigationDelegate, UIAlertViewDelegate>
+@interface MidtransPaymentWebController () <WKNavigationDelegate>
 @property (nonatomic) WKWebView *webView;
 @property (nonatomic) NSString *paymentIdentifier;
 @property (nonatomic, readwrite) MidtransTransactionResult *result;
@@ -78,13 +78,25 @@
 }
 
 - (void)closePressed:(id)sender {
-    
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Confirm Navigation", nil)
-                                                    message:NSLocalizedString(@"Are you sure want to leave this page?", nil)
-                                                   delegate:self
-                                          cancelButtonTitle:NSLocalizedString(@"NO", nil)
-                                          otherButtonTitles:NSLocalizedString(@"YES", nil), nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:NSLocalizedString(@"Confirm Navigation", nil)
+                                message:NSLocalizedString(@"Are you sure want to leave this page?", nil)
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *noButton = [UIAlertAction
+                               actionWithTitle:NSLocalizedString(@"NO", nil)
+                               style:UIAlertActionStyleDefault
+                               handler:nil];
+    UIAlertAction *yesButton = [UIAlertAction
+                                actionWithTitle:NSLocalizedString(@"YES", nil)
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
+            [self.delegate webPaymentController_transactionPending:self];
+        }
+    }];
+    [alert addAction:noButton];
+    [alert addAction:yesButton];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (NSError *)transactionError {
@@ -126,15 +138,5 @@
         }
     }
     decisionHandler(WKNavigationActionPolicyAllow);
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
-            [self.delegate webPaymentController_transactionPending:self];
-        }
-    }
 }
 @end

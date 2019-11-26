@@ -301,6 +301,15 @@
             if (success == NO) {
                 return;
             }
+            
+            NSMutableArray *savedTokensM = self.creditCard.savedTokens.mutableCopy;
+            NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [maskedCard.maskedNumber isEqualToString:savedToken.maskedCard];
+            }];
+            if (index != NSNotFound) {
+                [savedTokensM removeObjectAtIndex:index];
+            }
+            self.creditCard.savedTokens = savedTokensM;
             [self.cards removeObjectAtIndex:cardIndex];
             [self.tableView reloadData];
             

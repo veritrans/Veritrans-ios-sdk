@@ -65,14 +65,12 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-            merchantServer = @"https://rakawm-snap.herokuapp.com";
-            CC_CONFIG.tokenStorageEnabled = NO;
+            clientkey = @"SB-Mid-client-61XuGAwQ8Bj8LxSS";
+            merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
             break;
         default:
-            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
-            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
-            CC_CONFIG.tokenStorageEnabled = YES;
+            clientkey = @"SB-Mid-client-zt7XrRxPQXZNvuBY";
+            merchantServer = @"https://charmenzy-mid-mobile-sandbox.herokuapp.com/";
             break;
     }
     [CONFIG setClientKey:clientkey

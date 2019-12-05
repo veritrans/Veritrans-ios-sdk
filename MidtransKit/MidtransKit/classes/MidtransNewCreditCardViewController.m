@@ -34,8 +34,7 @@ MidtransUITextFieldDelegate,
 MidtransUICardFormatterDelegate,
 MidtransInstallmentViewDelegate,
 Midtrans3DSControllerDelegate,
-MidtransCommonTSCViewControllerDelegate,
-UIAlertViewDelegate
+MidtransCommonTSCViewControllerDelegate
 >
 
 @property (strong, nonatomic) IBOutlet MidtransNewCreditCardView *view;
@@ -280,13 +279,65 @@ UIAlertViewDelegate
 }
 
 - (void)deleteCardPressed:(id)sender {
-    UIAlertView *alert =
-    [[UIAlertView alloc] initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
-                               message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
-                              delegate:self
-                     cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
-                     otherButtonTitles:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"], nil];
-    [alert show];
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.title"]
+                                message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.message-delete-card"]
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *noButton = [UIAlertAction
+                               actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.no"]
+                               style:UIAlertActionStyleDefault
+                               handler:nil];
+    UIAlertAction *yesButton = [UIAlertAction
+                                actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"alert.yes"]
+                                style:UIAlertActionStyleDefault
+                                handler:^(UIAlertAction * action) {
+        [self confirmedDeleteSavedCard];
+    }];
+    [alert addAction:noButton];
+    [alert addAction:yesButton];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
+-(void)confirmedDeleteSavedCard {
+    [self showLoadingWithText:nil];
+    if ([CC_CONFIG tokenStorageEnabled]) {
+        NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+            return [self.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
+        }];
+        if (index != NSNotFound) {
+            [self.maskedCards removeObjectAtIndex:index];
+        }
+        
+        [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
+                                                customer:self.token.customerDetails
+                                              completion:^(id  _Nullable result, NSError * _Nullable error) {
+            [self hideLoading];
+            if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                [self.delegate didDeleteSavedCard];
+            }
+        }];
+    } else {
+        [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
+            [self hideLoading];
+            
+            if (success == NO) {
+                return;
+            }
+            
+            NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
+            NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
+                return [self.maskedCreditCard.maskedNumber isEqualToString:savedToken.maskedCard];
+            }];
+            if (index != NSNotFound) {
+                [savedTokensM removeObjectAtIndex:index];
+            }
+            self.creditCardInfo.savedTokens = savedTokensM;
+            
+            if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
+                [self.delegate didDeleteSavedCard];
+            }
+        }];
+    }
 }
 
 - (void)setupInstallmentView {
@@ -848,12 +899,16 @@ UIAlertViewDelegate
     }
     
     if (self.installmentRequired && self.installmentCurrentIndex == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
-                                                       delegate:nil
-                                              cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                              otherButtonTitles:nil];
-        [alert show];
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:@"ERROR"
+                                    message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelButton = [UIAlertAction
+                                       actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                       style:UIAlertActionStyleDefault
+                                       handler:nil];
+        [alert addAction:cancelButton];
+        [self presentViewController:alert animated:YES completion:nil];
         return;
     }
     
@@ -1046,12 +1101,16 @@ UIAlertViewDelegate
          if (error) {
              if (self.attemptRetry < 2) {
                  self.attemptRetry += 1;
-                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                 message:error.localizedMidtransErrorMessage
-                                                                delegate:nil
-                                                       cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                       otherButtonTitles:nil];
-                 [alert show];
+                 UIAlertController *alert = [UIAlertController
+                                             alertControllerWithTitle:@"ERROR"
+                                             message:error.localizedMidtransErrorMessage
+                                             preferredStyle:UIAlertControllerStyleAlert];
+                 UIAlertAction *cancelButton = [UIAlertAction
+                                                actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                style:UIAlertActionStyleDefault
+                                                handler:nil];
+                 [alert addAction:cancelButton];
+                 [self presentViewController:alert animated:YES completion:nil];
              }
              else {
                  [self handleTransactionError:error];
@@ -1085,12 +1144,16 @@ UIAlertViewDelegate
              else {
                  if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
                      self.attemptRetry+=1;
-                     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"ERROR"
-                                                                     message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
-                                                                    delegate:nil
-                                                           cancelButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                           otherButtonTitles:nil];
-                     [alert show];
+                     UIAlertController *alert = [UIAlertController
+                                                 alertControllerWithTitle:@"ERROR"
+                                                 message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
+                                                 preferredStyle:UIAlertControllerStyleAlert];
+                     UIAlertAction *cancelButton = [UIAlertAction
+                                                    actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                    style:UIAlertActionStyleDefault
+                                                    handler:nil];
+                     [alert addAction:cancelButton];
+                     [self presentViewController:alert animated:YES completion:nil];
                  }
                  else {
                      if (result.statusCode == 201) {
@@ -1138,51 +1201,6 @@ UIAlertViewDelegate
 
 -(void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
-}
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    if (buttonIndex == 1) {
-        [self showLoadingWithText:nil];
-        if ([CC_CONFIG tokenStorageEnabled]) {
-            NSUInteger index = [self.maskedCards indexOfObjectPassingTest:^BOOL(MidtransMaskedCreditCard *obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.maskedNumber isEqualToString:obj.maskedNumber];
-            }];
-            if (index != NSNotFound) {
-                [self.maskedCards removeObjectAtIndex:index];
-            }
-            
-            [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
-                                                    customer:self.token.customerDetails
-                                                  completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                      [self hideLoading];
-                                                      if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
-                                                          [self.delegate didDeleteSavedCard];
-                                                      }
-                                                  }];
-        } else {
-        [[MidtransMerchantClient shared] deleteMaskedCreditCard:self.maskedCreditCard token:self.token completion:^(BOOL success) {
-            [self hideLoading];
-            
-            if (success == NO) {
-                return;
-            }
-            
-            NSMutableArray *savedTokensM = self.creditCardInfo.savedTokens.mutableCopy;
-            NSUInteger index = [savedTokensM indexOfObjectPassingTest:^BOOL(MidtransPaymentRequestV2SavedTokens *savedToken, NSUInteger idx, BOOL * _Nonnull stop) {
-                return [self.maskedCreditCard.maskedNumber isEqualToString:savedToken.maskedCard];
-            }];
-            if (index != NSNotFound) {
-                [savedTokensM removeObjectAtIndex:index];
-            }
-            self.creditCardInfo.savedTokens = savedTokensM;
-            
-            if ([self.delegate respondsToSelector:@selector(didDeleteSavedCard)]) {
-                [self.delegate didDeleteSavedCard];
-            }
-        }];
-        }}
 }
 
 #pragma mark - observer

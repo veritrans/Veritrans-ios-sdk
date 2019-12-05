@@ -65,14 +65,12 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
-            merchantServer = @"https://rakawm-snap.herokuapp.com";
-            CC_CONFIG.tokenStorageEnabled = NO;
+            clientkey = @"SB-Mid-client-61XuGAwQ8Bj8LxSS";
+            merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
             break;
         default:
-            clientkey = @"SB-Mid-client-txZHOj6jPP0_G8En";
-            merchantServer = @"https://dev-mobile-store.herokuapp.com/";
-            CC_CONFIG.tokenStorageEnabled = YES;
+            clientkey = @"SB-Mid-client-zt7XrRxPQXZNvuBY";
+            merchantServer = @"https://charmenzy-mid-mobile-sandbox.herokuapp.com/";
             break;
     }
     [CONFIG setClientKey:clientkey
@@ -80,6 +78,8 @@
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
+    CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
+    CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
@@ -203,8 +203,17 @@
      
      {
          if (error) {
-             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:nil cancelButtonTitle:@"Close" otherButtonTitles:nil];
-             [alert show];
+             
+             UIAlertController *alert = [UIAlertController
+                                                alertControllerWithTitle:@"Error"
+                                                message:error.localizedDescription
+                                                preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *okButton = [UIAlertAction
+                                               actionWithTitle:@"Close"
+                                               style:UIAlertActionStyleDefault
+                                               handler:nil];
+                    [alert addAction:okButton];
+                    [self presentViewController:alert animated:YES completion:nil];
          }
          else {
              

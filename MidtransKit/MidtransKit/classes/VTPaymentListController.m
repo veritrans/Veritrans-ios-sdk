@@ -31,7 +31,7 @@
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
-@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate, UIAlertViewDelegate>
+@interface VTPaymentListController () <UITableViewDelegate, VTPaymentListViewDelegate>
 @property (strong, nonatomic) IBOutlet VTPaymentListView *view;
 @property (nonatomic,strong) NSMutableArray *paymentMethodList;
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
@@ -99,12 +99,20 @@
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Loading payment list"]];
     
     if (self.token.tokenId.length == 0) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                        message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.invalid-payment-token"]
-                                                       delegate:self
-                                              cancelButtonTitle:nil
-                                              otherButtonTitles:@"Ok", nil];
-        [alert show];
+        
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:@"Error"
+                                    message:[VTClassHelper getTranslationFromAppBundleForString:@"alert.invalid-payment-token"]
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okButton = [UIAlertAction
+                                   actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                   style:UIAlertActionStyleDefault
+                                   handler:^(UIAlertAction *action) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        }];
+        [alert addAction:okButton];
+        [self presentViewController:alert animated:YES completion:nil];
+
     }
     
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
@@ -401,11 +409,4 @@
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
 }
-
-#pragma mark - UIAlertViewDelegate
-
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-}
-
 @end

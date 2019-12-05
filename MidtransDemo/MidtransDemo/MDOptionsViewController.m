@@ -281,9 +281,13 @@
         if (type == MTCreditCardPaymentTypeOneclick) {
             [opt3ds selectOptionAtIndex:1];
             [optSaveCard selectOptionAtIndex:1];
+            [optAuth selectOptionAtIndex:3];
+            [opt3ds selectOptionAtIndex:1];
         }
         else if (type == MTCreditCardPaymentTypeTwoclick) {
             [optSaveCard selectOptionAtIndex:1];
+            [opt3ds selectOptionAtIndex:0];
+            [optAuth selectOptionAtIndex:0];
         }
     });
 

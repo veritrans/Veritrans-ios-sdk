@@ -522,7 +522,7 @@
 					E56436F11E83A72F008726D0 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = G92YEQF267;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 					};
 					E5C751651E8B912F001F47D9 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -875,9 +875,7 @@
 			baseConfigurationReference = 5C11021525267A24FA5F14A7 /* Pods-MidtransDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nanang Rafsanjani (77WYT367ML)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nanang Rafsanjani (77WYT367ML)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G92YEQF267;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -889,7 +887,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "SDK Demo Dev";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -899,9 +897,7 @@
 			baseConfigurationReference = F724BE8B0AB574A14BDDE958 /* Pods-MidtransDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: MIDTRANS, PT (G92YEQF267)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: MIDTRANS, PT (G92YEQF267)";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = G92YEQF267;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -912,7 +908,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "SDK Demo Adhoc";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

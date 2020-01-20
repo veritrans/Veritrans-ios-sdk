@@ -150,7 +150,7 @@ static dispatch_once_t * onceToken;
                     animations:^{
                         self.installmentVIew.hidden = !show;
                         [self.installmentsContentView.installmentCollectionView reloadData];
-                        [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
+                        [self.installmentsContentView configureInstallmentView:self.installmentValueObject isInstallmentRequired:self.installmentRequired];
                     }
      
                     completion:NULL];

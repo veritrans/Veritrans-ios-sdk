@@ -14,12 +14,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *prevButton;
 @property (nonatomic,strong) NSArray *installmentData;
 @property (nonatomic,strong) NSArray *pointData;
+@property (nonatomic) BOOL isInstallmentRequired;
 
 @property (weak, nonatomic) IBOutlet UIButton *nextButton;
 @property (nonatomic, weak) id<MidtransInstallmentViewDelegate>delegate;
 @property (weak, nonatomic) IBOutlet UICollectionView *installmentCollectionView;
 - (void)setupInstallmentCollection;
 - (void)resetInstallmentIndex;
-- (void)configureInstallmentView:(NSArray *)installmentContent;
+- (void)configureInstallmentView:(NSArray *)installmentContent isInstallmentRequired:(BOOL)isInstallmentRequired;
 - (void)configurePointView:(NSArray *)pointData;
 @end

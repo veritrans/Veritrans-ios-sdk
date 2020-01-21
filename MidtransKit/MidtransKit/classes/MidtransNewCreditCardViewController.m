@@ -165,7 +165,7 @@ MidtransCommonTSCViewControllerDelegate
                                                    @"addOnDescriptions":@"",
                                                    @"addOnTitle":[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Redeem MANDIRI Point"]}];
     
-    self.isSaveCard = [CC_CONFIG setDefaultCreditSaveCardEnabled];
+    self.isSaveCard = self.responsePayment.creditCard.saveCard;
     self.showUserForm = [CC_CONFIG showFormCredentialsUser];
     self.view.userDetailViewWrapper.hidden = YES;
     self.view.userDetailViewWrapperConstraints.constant = 0.0f;
@@ -177,7 +177,7 @@ MidtransCommonTSCViewControllerDelegate
         self.view.userDetailViewWrapper.hidden = NO;
         self.view.userDetailViewWrapperConstraints.constant = 150.0f;
     }
-    if ([CC_CONFIG saveCardEnabled] && (self.maskedCreditCard == nil)) {
+    if (self.responsePayment.creditCard.saveCard && (self.maskedCreditCard == nil)) {
         AddOnConstructor *constructSaveCard = [[AddOnConstructor alloc]
                                                initWithDictionary:@{@"addOnName":SNP_CORE_CREDIT_CARD_SAVE,
                                                                     @"addOnDescriptions":@"",
@@ -857,7 +857,7 @@ MidtransCommonTSCViewControllerDelegate
                             self.view.installmentView.hidden = !show;
                             [self.installmentsContentView.installmentCollectionView reloadData];
                         });
-                        [self.installmentsContentView configureInstallmentView:self.installmentValueObject];
+                        [self.installmentsContentView configureInstallmentView:self.installmentValueObject isInstallmentRequired:self.installmentRequired];
                     }
                     completion:NULL];
 }
@@ -960,13 +960,9 @@ MidtransCommonTSCViewControllerDelegate
         if (self.selectedPromos){
             NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
             NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
-            tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
-                                                                              cvv:self.view.cardCVVNumberTextField.text
-                                                                      grossAmount:castingNumber];
+            tokenRequest = [[MidtransTokenizeRequest alloc]initWithCreditCardToken:self.maskedCreditCard.savedTokenId cvv:self.view.cardCVVNumberTextField.text grossAmount:castingNumber secure:self.responsePayment.creditCard.secure paymentTokenType:self.tokenType];
         } else {
-            tokenRequest = [[MidtransTokenizeRequest alloc] initWithTwoClickToken:self.maskedCreditCard.savedTokenId
-                                                                              cvv:self.view.cardCVVNumberTextField.text
-                                                                      grossAmount:self.token.transactionDetails.grossAmount];
+            tokenRequest = [[MidtransTokenizeRequest alloc]initWithCreditCardToken:self.maskedCreditCard.savedTokenId cvv:self.view.cardCVVNumberTextField.text grossAmount:self.token.transactionDetails.grossAmount secure:self.responsePayment.creditCard.secure paymentTokenType:self.tokenType];
         }
         
     
@@ -977,12 +973,10 @@ MidtransCommonTSCViewControllerDelegate
             NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
             NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
             tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                   grossAmount:castingNumber
-                                                                        secure:CC_CONFIG.secure3DEnabled];
+                                                                   grossAmount:castingNumber];
         } else {
             tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                   grossAmount:self.token.transactionDetails.grossAmount
-                                                                        secure:CC_CONFIG.secure3DEnabled];
+                                                                   grossAmount:self.token.transactionDetails.grossAmount];
         }
         
     }

@@ -15,36 +15,32 @@
 @interface MidtransTokenizeRequest()
 @property (nonatomic, readwrite) NSString *type;
 @property (nonatomic, readwrite) NSString *cvv;
-@property (nonatomic, readwrite) MTCreditCardPaymentType featureType;
+@property (nonatomic, readwrite) MTCreditCardPaymentType tokenType;
 @end
 
 @implementation MidtransTokenizeRequest
 
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
-                       grossAmount:(NSNumber *)grossAmount
-                            secure:(BOOL)secure {
+                       grossAmount:(NSNumber *)grossAmount {
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.cvv = creditCard.cvv;
         self.grossAmount = grossAmount;
-        self.featureType =MTCreditCardPaymentTypeNormal;
-        self.secure = secure;
+        self.tokenType = MTCreditCardPaymentTypeNormal;
     }
     return self;
 }
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
                        grossAmount:(NSNumber *)grossAmount
                        installment:(BOOL)installment
-                   installmentTerm:(NSNumber *)installmentTerm
-                            secure:(BOOL)secure{
+                   installmentTerm:(NSNumber *)installmentTerm{
     if (self = [super init]) {
         self.creditCard = creditCard;
         self.installment = installment;
         self.installmentTerm = installmentTerm;
         self.cvv = creditCard.cvv;
         self.grossAmount = grossAmount;
-        self.featureType = MTCreditCardPaymentTypeNormal;
-        self.secure = secure;
+        self.tokenType = MTCreditCardPaymentTypeNormal;
     }
     return self;
 }
@@ -59,8 +55,7 @@
         self.installmentTerm = installmentTerm;
         self.token = token;
         self.cvv = cvv;
-        self.secure = YES;
-        self.featureType = MTCreditCardPaymentTypeTwoclick;
+        self.tokenType = MTCreditCardPaymentTypeTwoclick;
     }
     return self;
     
@@ -73,8 +68,23 @@
         self.grossAmount = grossAmount;
         self.token = token;
         self.cvv = cvv;
-        self.secure = YES;
-        self.featureType = MTCreditCardPaymentTypeTwoclick;
+        self.tokenType = MTCreditCardPaymentTypeTwoclick;
+    }
+    return self;
+}
+
+- (instancetype)initWithCreditCardToken:(NSString *)token
+                                    cvv:(NSString *)cvv
+                            grossAmount:(NSNumber *)grossAmount
+                                 secure:(BOOL)secure
+                       paymentTokenType:(MTCreditCardPaymentType)tokenType {
+    
+    if (self = [super init]) {
+        self.token = token;
+        self.cvv = cvv;
+        self.grossAmount = grossAmount;
+        self.secure = secure;
+        self.tokenType = tokenType;
     }
     return self;
 }
@@ -92,10 +102,9 @@
             self.grossAmount = [NSNumber numberWithInteger:self.grossAmount.integerValue];
             break;
     }
-    switch (self.featureType) {
+    switch (self.tokenType) {
         case MTCreditCardPaymentTypeTwoclick: {
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
-                                    @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"currency":[MidtransHelper stringFromCurrency:[CONFIG currency]],
                                     @"two_click":@"true",
@@ -108,7 +117,6 @@
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"currency":[MidtransHelper stringFromCurrency:[CONFIG currency]]
                                     }];
@@ -126,7 +134,6 @@
             [result setDictionary:@{@"client_key":[CONFIG clientKey],
                                     @"card_number":self.creditCard.number,
                                     @"card_type":[MidtransCreditCardHelper nameFromString: self.creditCard.number],
-                                    @"secure":self.secure ? @"true":@"false",
                                     @"gross_amount":[MidtransHelper nullifyIfNil:self.grossAmount],
                                     @"currency":[MidtransHelper stringFromCurrency:[CONFIG currency]],
                                     @"installment":self.installment? @"true":@"false",
@@ -165,6 +172,7 @@
         result[@"type"] = @"authorize";
     }
     
+    [result setObject:@"ios" forKey:@"x_source"];
     
     return result;
 }

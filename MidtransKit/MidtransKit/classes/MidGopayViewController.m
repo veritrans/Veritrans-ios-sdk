@@ -86,16 +86,22 @@
         self.view.topWrapperView.hidden = YES;
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
-        NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX_OLD];
-        if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+        if (MidtransConfig.shared.environment == MidtransServerEnvironmentProduction) {
+            NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX_OLD];
+            if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+                self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+                self.view.topWrapperView.hidden = YES;
+                
+            } else {
+                self.view.topWrapperView.hidden = NO;
+                self.view.transactionBottomDetailConstraints.constant = 0.0f;
+                self.view.finishPaymentHeightConstraints.constant =  0.0f;
+            }
+        } else {
             self.view.gopayTopViewHeightConstraints.constant = 0.0f;
             self.view.topWrapperView.hidden = YES;
-            
-        } else {
-            self.view.topWrapperView.hidden = NO;
-            self.view.transactionBottomDetailConstraints.constant = 0.0f;
-            self.view.finishPaymentHeightConstraints.constant =  0.0f;
         }
+        
     }
     
     
@@ -197,7 +203,6 @@
 }
 - (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
     NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
-    gojekDeeplinkString = [gojekDeeplinkString stringByReplacingOccurrencesOfString:MIDTRANS_GOPAY_PREFIX_OLD withString:MIDTRANS_GOPAY_PREFIX_NEW];
     NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
     if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
         [[UIApplication sharedApplication] openURL:deeplinkURL];

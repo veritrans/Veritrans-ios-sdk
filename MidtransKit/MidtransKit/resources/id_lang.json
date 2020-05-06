@@ -78,6 +78,8 @@
     "kioson.pending.howto-title": "Bagaimana saya dapat melakukan pembayaran dengan Kioson?",
     "kioson.pending.copy-title": "Salin Kode Pembayaran",
     "gci.placeholder": "Nomor kartu gift card anda",
+    "Choose installment terms": "Pilih masa cicilan",
+    "installment-on-one-click": "Harus menggunakan cicilan, pembayaran tidak dapat dilakukan dengan kartu one click",
     "No Installment": "Tanpa cicilan",
     "month.installments": "cicilan %@ bulan ",
     "what is cvv?": "Apa itu CVV?",

@@ -18,9 +18,13 @@
 - (void)configurePointWithThext:(NSNumber *)number {
     self.installmentLabel.text =[NSString stringWithFormat:@"%@",number.formattedCurrencyNumber];
 }
-- (void)configureInstallmentWithText:(NSString *)title {
+- (void)configureInstallmentWithText:(NSString *)title isInstallmentRquired:(BOOL)isInstallmentRequired{
     if ([title isEqualToString:@"0"]) {
-         self.installmentLabel.text =[VTClassHelper getTranslationFromAppBundleForString:@"No Installment"];
+        if(isInstallmentRequired) {
+            self.installmentLabel.text =[VTClassHelper getTranslationFromAppBundleForString:@"Choose installment terms"];
+        } else {
+            self.installmentLabel.text =[VTClassHelper getTranslationFromAppBundleForString:@"No Installment"];
+        }
     }
     else {
         self.installmentLabel.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"month.installments"],title];

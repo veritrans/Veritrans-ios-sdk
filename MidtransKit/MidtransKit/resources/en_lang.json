@@ -82,6 +82,8 @@
     "kioson.pending.copy-title": "Copy payment Code",
     
     "gci.placeholder": "Your gift card number",
+    "Choose installment terms": "Choose installment terms",
+    "installment-on-one-click": "Installment is required, unable to pay with one click card",
     "No Installment": "No Installment",
     "month.installments": "%@ Month installment",
     "what is cvv?": "what is cvv?",

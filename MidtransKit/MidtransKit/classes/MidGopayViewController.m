@@ -86,16 +86,22 @@
         self.view.topWrapperView.hidden = YES;
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
     } else {
-        NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
-        if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+        if (MidtransConfig.shared.environment == MidtransServerEnvironmentProduction) {
+            NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX_OLD];
+            if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+                self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+                self.view.topWrapperView.hidden = YES;
+                
+            } else {
+                self.view.topWrapperView.hidden = NO;
+                self.view.transactionBottomDetailConstraints.constant = 0.0f;
+                self.view.finishPaymentHeightConstraints.constant =  0.0f;
+            }
+        } else {
             self.view.gopayTopViewHeightConstraints.constant = 0.0f;
             self.view.topWrapperView.hidden = YES;
-            
-        } else {
-            self.view.topWrapperView.hidden = NO;
-            self.view.transactionBottomDetailConstraints.constant = 0.0f;
-            self.view.finishPaymentHeightConstraints.constant =  0.0f;
         }
+        
     }
     
     
@@ -196,9 +202,10 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
 }
 - (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
-    NSURL *gojekConstructURL = [NSURL URLWithString:[result.additionalData objectForKey:@"deeplink_url"]];
-    if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
-        [[UIApplication sharedApplication] openURL:gojekConstructURL];
+    NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
+    NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
+    if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
+        [[UIApplication sharedApplication] openURL:deeplinkURL];
     }
 }
 

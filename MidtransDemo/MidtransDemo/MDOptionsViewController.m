@@ -58,12 +58,12 @@
     
     ////// auth type
     
-    options = @[[MDOption optionGeneralWithName:@"None" value:@(MTAuthenticationTypeNone)],
-                [MDOption optionGeneralWithName:@"RBA" value:@(MTAuthenticationTypeRBA)],
-                 [MDOption optionGeneralWithName:@"RBA Secure" value:@(MTAuthenticationTypeRBA)],
-                [MDOption optionGeneralWithName:@"3DS" value:@(MTAuthenticationType3DS)]];
+    options = @[[MDOption optionGeneralWithName:@"Disabled" value:@(MTAuthenticationTypeNone)],
+                [MDOption optionGeneralWithName:@"RBA - Case non 3DS" value:@(MTAuthenticationTypeRBA)],
+                 [MDOption optionGeneralWithName:@"RBA - Case 3DS" value:@(MTAuthenticationTypeRBA)],
+                [MDOption optionGeneralWithName:@"Enable 3DS" value:@(MTAuthenticationType3DS)]];
     MDOptionView *optAuth = [MDOptionView viewWithIcon:[UIImage imageNamed:@"bank"]
-                                            titleTemplate:@"Auth Type %@"
+                                            titleTemplate:@"Authentication %@"
                                                   options:options
                                                identifier:OPTAuthType];
     [optAuth selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].authTypeOption]];
@@ -122,17 +122,6 @@
                                                     options:options
                                                  identifier:OPTBINFilter];
     [optBINFilter selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].binFilterOption]];
-    
-    ///////////
-    //3d secure
-    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
-                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
-    MDOptionView *opt3ds = [MDOptionView viewWithIcon:[UIImage imageNamed:@"3ds"]
-                                        titleTemplate:@"3D Secure %@d"
-                                              options:options
-                                           identifier:OPT3DSecure];
-    [opt3ds selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].secure3DOption]];
-    
     
     ///////////
     //promo
@@ -254,7 +243,6 @@
     }
     self.optionViews = @[
                          optType,
-                         opt3ds,
                          optAcqBank,
                          optAuth,
                          optCustomExpiry,
@@ -279,14 +267,11 @@
     defaults_observe_object(@"md_cc_type", ^(id note) {
         MTCreditCardPaymentType type = [[MDOptionManager shared].ccTypeOption.value integerValue];
         if (type == MTCreditCardPaymentTypeOneclick) {
-            [opt3ds selectOptionAtIndex:1];
             [optSaveCard selectOptionAtIndex:1];
             [optAuth selectOptionAtIndex:3];
-            [opt3ds selectOptionAtIndex:1];
         }
         else if (type == MTCreditCardPaymentTypeTwoclick) {
             [optSaveCard selectOptionAtIndex:1];
-            [opt3ds selectOptionAtIndex:0];
             [optAuth selectOptionAtIndex:0];
         }
     });

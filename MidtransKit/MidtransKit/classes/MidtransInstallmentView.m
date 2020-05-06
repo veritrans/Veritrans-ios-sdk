@@ -32,7 +32,7 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     MidtransInstallmentCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"installmentCell" forIndexPath:indexPath];
     if (self.installmentData.count){
-          [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]]];
+        [cell configureInstallmentWithText:[NSString stringWithFormat:@"%@",self.installmentData[indexPath.row]] isInstallmentRquired:self.isInstallmentRequired];
     }
     else {
       [cell configurePointWithThext:(NSNumber *)self.pointData[indexPath.row]];
@@ -76,11 +76,12 @@
     self.installmentCurrentIndex = self.pointData.count;
     [self.installmentCollectionView reloadData];
 }
-- (void)configureInstallmentView:(NSArray *)installmentContent {
+- (void)configureInstallmentView:(NSArray *)installmentContent isInstallmentRequired:(BOOL)isInstallmentRequired {
     
     __weak __typeof(self)weakSelf = self;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         self.installmentData = installmentContent;
+        self.isInstallmentRequired = isInstallmentRequired;
         
         if (!weakSelf) return;
         __strong __typeof(weakSelf)strongSelf = weakSelf;

@@ -201,7 +201,9 @@ static NSInteger const MIDTRANS_ERROR_CODE_INVALID_CUSTOMER_DETAILS = -40;
 
 static NSInteger const MIDTRANS_ERROR_CODE_INVALID_VALUE = -50;
 
-static NSString *const MIDTRANS_GOPAY_PREFIX = @"gojek://";
+static NSString *const MIDTRANS_GOPAY_PREFIX_OLD = @"gojek://";
+static NSString *const MIDTRANS_GOPAY_PREFIX_NEW = @"https://gojek.link/";
+
 /**
  *  if needed we maybe need it as is to detect ios version and also device version
  *

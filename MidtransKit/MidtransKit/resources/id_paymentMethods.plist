@@ -258,9 +258,9 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
-		<string>GO-PAY</string>
+		<string>GoPay</string>
 		<key>description</key>
-		<string>Bayar dengan GO-PAY</string>
+		<string>Bayar dengan GoPay</string>
 		<key>id</key>
 		<string>gopay</string>
 		<key>identifier</key>

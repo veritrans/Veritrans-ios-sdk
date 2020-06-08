@@ -4,13 +4,13 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Klik ‘Bayar dengan GO-PAY’</string>
+		<string>Klik ‘Bayar dengan GoPay’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Aplikasi ‘GO-PAY’ akan terbuka</string>
+		<string>Aplikasi ‘GoPay’ akan terbuka</string>
 		<key>image</key>
 		<string></string>
 	</dict>

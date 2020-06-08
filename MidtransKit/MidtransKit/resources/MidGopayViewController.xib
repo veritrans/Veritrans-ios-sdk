@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina5_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -31,14 +29,14 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-NC-hLV">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="GO-JEK app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-dZ-Mle">
-                            <rect key="frame" x="86.000000000000014" y="12.333333333333332" width="242.33333333333337" height="15.333333333333332"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gojek app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-dZ-Mle">
+                            <rect key="frame" x="90.666666666666686" y="12.333333333333332" width="233" height="15.333333333333332"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gojek_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-hw-1CB">
-                            <rect key="frame" x="62" y="12" width="20" height="20"/>
+                            <rect key="frame" x="66.666666666666671" y="12" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="JeF-50-S9Z"/>
                                 <constraint firstAttribute="height" constant="20" id="cvj-9D-J8J"/>
@@ -86,7 +84,7 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, we couldn't find GO-JEK app installed on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucl-1f-JoG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, we couldn't find Gojek app installed on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucl-1f-JoG">
                             <rect key="frame" x="103" y="245.66666666666671" width="208" height="64.333333333333343"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="208" id="4yR-GO-QZh"/>
@@ -98,7 +96,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Are-Z5-Oob">
                             <rect key="frame" x="8" y="536" width="398" height="30"/>
                             <color key="tintColor" red="0.091509331753330828" green="0.60178134854116272" blue="0.89301327720207258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Install GO-JEK app from Appstore">
+                            <state key="normal" title="Install Gojek app from Appstore">
                                 <color key="titleColor" red="0.0063865571279999997" green="0.62833845619999995" blue="0.78163856269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -228,7 +226,7 @@
         </view>
     </objects>
     <resources>
-        <image name="gojek_icon.png" width="14" height="16"/>
+        <image name="gojek_icon.png" width="16" height="16"/>
         <image name="ic_no_gopay.png" width="73" height="79"/>
         <image name="icon-help.png" width="12" height="12"/>
     </resources>

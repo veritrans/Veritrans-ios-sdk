@@ -111,10 +111,10 @@
     "confirm.payment": "Konfirmasi Pembayaran",
     "Please complete payment before: %@": "Silakan menyelesaikan pembayaran sebelum:",
     "download.instruction": "Unduh Instruksi Pembayaran",
-    "install.gojek": "Install aplikasi GO-JEK dari App Store",
-    "Pay using GO-PAY": "Bayar dengan GO-PAY",
-    "Pay Now with GO-PAY":"Bayar dengan GO-PAY sekarang",
-    "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Pastikan Anda telah melakukan instalasi aplikasi GO-JEK di HP Anda dan memiliki saldo lebih dari Rp 10.000.",
+    "install.gojek": "Install aplikasi Gojek dari App Store",
+    "Pay using GoPay": "Bayar dengan GoPay",
+    "Pay Now with GoPay":"Bayar dengan GoPay sekarang",
+    "Please complete your ‘GoPay‘ payment via ‘Gojek‘ app": "Pastikan Anda telah melakukan instalasi aplikasi Gojek di HP Anda dan memiliki saldo lebih dari Rp 10.000.",
     "KlikBCA User ID":"KlikBCA User ID",
     "Bank Code":"Kode Bank",
     "Virtual Account Number":"Nomor Akun Virtual",
@@ -141,7 +141,7 @@
     "The connection failed because a call is active.":"Koneksi gagal karena panggilan telepon sedang aktif.",
     "The connection failed because data use is currently not allowed on the device.":"Koneksi gagal karena penggunaan data tidak diizinkan di perangkat ini.",
     "Finish Payment":"Selesaikan Pembayaran",
-    "Make sure payment has been completed within the GO-JEK app.":"Pastikan pembayaran telah berhasil dilakukan di dalam aplikasi GO-JEK.",
-    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Pastikan kode QR berhasil dipindai dan pembayaran sudah dilakukan di dalam aplikasi GO-JEK."
+    "Make sure payment has been completed within the Gojek app.":"Pastikan pembayaran telah berhasil dilakukan di dalam aplikasi Gojek.",
+    "Make sure the QR code successfully scanned and payment has been completed within the Gojek app.":"Pastikan kode QR berhasil dipindai dan pembayaran sudah dilakukan di dalam aplikasi Gojek."
 }
 

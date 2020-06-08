@@ -66,7 +66,7 @@
                                              selector:@selector(handleGopayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    self.title = @"GO-PAY";
+    self.title = @"GoPay";
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
     self.view.tableView.tableFooterView = [UIView new];
@@ -84,7 +84,7 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
+        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GoPay‘ payment via ‘Gojek‘ app"];
     } else {
         if (MidtransConfig.shared.environment == MidtransServerEnvironmentProduction) {
             NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX_OLD];
@@ -105,7 +105,7 @@
     }
     
     
-[self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GO-PAY"] forState:UIControlStateNormal];
+[self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GoPay"] forState:UIControlStateNormal];
     UIImage *image = [UIImage imageNamed:@"gopay_button" inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     [self.view.finishPaymentButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];

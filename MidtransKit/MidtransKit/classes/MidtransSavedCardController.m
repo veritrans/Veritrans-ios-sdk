@@ -24,6 +24,7 @@
 @property (nonatomic) MidtransSavedCardFooter *footerView;
 @property (nonatomic) NSArray *bankBinList;
 @property (nonatomic) MidtransPaymentRequestV2Response * responsePayment;
+@property (nonatomic) MTCreditCardPaymentType tokenType;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountText;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *totalAmountBorderedView;
@@ -157,36 +158,50 @@
 }
 
 - (void)performOneClickWithCard:(MidtransMaskedCreditCard *)card {
-    if (self.responsePayment.transactionDetails.orderId) {
-        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"
-                                 additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
-    }
-    
-    [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
-    VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
-                                               grossAmount:self.token.transactionDetails.grossAmount];
-    
-    [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
-        if (selectedIndex == 1) {
-            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-            
-            MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
-            MidtransTransaction *transaction =
-            [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
-                                                          token:self.token];
-            
-            [[MidtransMerchantClient shared] performTransaction:transaction
-                                                     completion:^(MidtransTransactionResult *result, NSError *error) {
-                [self hideLoading];
-                
-                if (error) {
-                    [self handleTransactionError:error];
-                } else {
-                    [self handleTransactionSuccess:result];
-                }
-            }];
+    if(self.responsePayment.creditCard.installments.required) {
+        UIAlertController *alert = [UIAlertController
+                                    alertControllerWithTitle:@"ERROR"
+                                    message:[VTClassHelper getTranslationFromAppBundleForString:@"installment-on-one-click"]
+                                    preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *cancelButton = [UIAlertAction
+                                       actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                       style:UIAlertActionStyleDefault
+                                       handler:nil];
+        [alert addAction:cancelButton];
+        [self presentViewController:alert animated:YES completion:nil];
+        return;
+    } else {
+        if (self.responsePayment.transactionDetails.orderId) {
+            [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"
+                                     additionalParameters:@{@"order id":self.responsePayment.transactionDetails.orderId}];
         }
-    }];
+        
+        [[SNPUITrackingManager shared] trackEventName:@"btn confirm payment"];
+        VTConfirmPaymentController *vc = [[VTConfirmPaymentController alloc] initWithCardNumber:card.maskedNumber
+                                                   grossAmount:self.token.transactionDetails.grossAmount];
+        
+        [vc showOnViewController:self.navigationController clickedButtonsCompletion:^(NSUInteger selectedIndex) {
+            if (selectedIndex == 1) {
+                [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+                
+                MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
+                MidtransTransaction *transaction =
+                [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
+                                                              token:self.token];
+                
+                [[MidtransMerchantClient shared] performTransaction:transaction
+                                                         completion:^(MidtransTransactionResult *result, NSError *error) {
+                    [self hideLoading];
+                    
+                    if (error) {
+                        [self handleTransactionError:error];
+                    } else {
+                        [self handleTransactionSuccess:result];
+                    }
+                }];
+            }
+        }];
+    }
 }
 
 - (void)performTwoClicksWithCard:(MidtransMaskedCreditCard *)card {
@@ -197,6 +212,7 @@
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
   //  vc.promos = self.promos;
+    vc.tokenType = self.tokenType;
     vc.currentMaskedCards = self.cards;
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:YES];
@@ -226,7 +242,17 @@
         [self performTwoClicksWithCard:card];
     }
     else {
-        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeOneclick) {
+        NSString *tokenTypeString = [[self.responsePayment.creditCard.savedTokens valueForKey:@"tokenType"] objectAtIndex:indexPath.row];
+        
+        if ([tokenTypeString isEqualToString:@"one_click"]) {
+            self.tokenType = MTCreditCardPaymentTypeOneclick;
+        } else if ([tokenTypeString isEqualToString:@"two_clicks"]) {
+            self.tokenType = MTCreditCardPaymentTypeTwoclick;
+        } else {
+            self.tokenType = MTCreditCardPaymentTypeNormal;
+        }
+            
+        if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
             [self performOneClickWithCard:card];
         }
         else {

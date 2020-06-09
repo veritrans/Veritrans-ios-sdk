@@ -85,9 +85,6 @@
         case MidtransPaymentFeatureGCI:
             paymentMethodSelected = MIDTRANS_PAYMENT_GCI;
             break;
-        case MidtransPaymentCreditCardForm:
-            paymentMethodSelected = MIDTRANS_CREDIT_CARD_FORM;
-            break;
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
             break;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "MidtransCreditCard.h"
 #import "MidtransObtainedPromo.h"
-
+#import "MidtransCreditCardConfig.h"
 /**
  `MidtransTokenizeRequest` is plain data object that represent a request to tokenize a credit card.
  */
@@ -35,11 +35,9 @@
  
  @param creditCard The credit card to be tokenized.
  @param grossAmount The amount to charge.
- @param secure To activate 3D secure payment.
  */
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
-                       grossAmount:(NSNumber *)grossAmount
-                            secure:(BOOL)secure;
+                       grossAmount:(NSNumber *)grossAmount;
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard;
 - (instancetype)initWithTwoClickToken:(NSString *)token
                                   cvv:(NSString *)cvv
@@ -50,9 +48,13 @@
 - (instancetype)initWithCreditCard:(MidtransCreditCard *)creditCard
                        grossAmount:(NSNumber *)grossAmount
                        installment:(BOOL)installment
-                   installmentTerm:(NSNumber *)installmentTerm
-                            secure:(BOOL)secure;
+                   installmentTerm:(NSNumber *)installmentTerm;
 
+- (instancetype)initWithCreditCardToken:(NSString *)token
+                                    cvv:(NSString *)cvv
+                            grossAmount:(NSNumber *)grossAmount
+                                 secure:(BOOL)secure
+                       paymentTokenType:(MTCreditCardPaymentType)paymentTokenType;
 /**
  Get a `VTTokenizeReqeust` for two-clicks transaction.
  

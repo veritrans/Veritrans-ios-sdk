@@ -4,13 +4,13 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tap ‘Pay Now with GO-PAY’</string>
+		<string>Tap ‘Pay Now with GoPay’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>‘GO-JEK’ app will open</string>
+		<string>‘Gojek’ app will open</string>
 		<key>image</key>
 		<string></string>
 	</dict>

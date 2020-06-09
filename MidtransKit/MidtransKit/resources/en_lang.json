@@ -82,6 +82,8 @@
     "kioson.pending.copy-title": "Copy payment Code",
     
     "gci.placeholder": "Your gift card number",
+    "Choose installment terms": "Choose installment terms",
+    "installment-on-one-click": "Installment is required, unable to pay with one click card",
     "No Installment": "No Installment",
     "month.installments": "%@ Month installment",
     "what is cvv?": "what is cvv?",
@@ -115,10 +117,10 @@
     "confirm.payment": "Confirm payment",
     "Please complete payment before: %@": "Please complete payment before:",
     "download.instruction": "Download instruction",
-    "install.gojek": "Install GO-JEK app from App Store",
-    "Pay Now with GO-PAY":"Pay Now with",
-    "Pay using GO-PAY": "Pay using GO-PAY",
-    "Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app": "Make sure you have GO-JEK app installed on your phone and have GO-PAY balance more than Rp 10.000.",
+    "install.gojek": "Install Gojek app from App Store",
+    "Pay Now with GoPay":"Pay Now with",
+    "Pay using GoPay": "Pay using GoPay",
+    "Please complete your ‘GoPay‘ payment via ‘Gojek‘ app": "Make sure you have Gojek app installed on your phone and have GoPay balance more than Rp 10.000.",
     "Bank Code":"Bank Code",
     "Virtual Account Number":"Virtual Account Number",
     "Please complete your payment in":"Please complete your payment in:",
@@ -144,6 +146,6 @@
     "The connection failed because a call is active.":"The connection failed because a call is active.",
     "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device.",
     "Finish Payment":"Finish Payment",
-    "Make sure payment has been completed within the GO-JEK app.":"Make sure payment has been completed within the GO-JEK app.",
-    "Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app.":"Make sure the QR code successfully scanned and payment has been completed within the GO-JEK app."
+    "Make sure payment has been completed within the Gojek app.":"Make sure payment has been completed within the Gojek app.",
+    "Make sure the QR code successfully scanned and payment has been completed within the Gojek app.":"Make sure the QR code successfully scanned and payment has been completed within the Gojek app."
 }

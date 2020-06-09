@@ -66,7 +66,7 @@
                                              selector:@selector(handleGopayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    self.title = @"GO-PAY";
+    self.title = @"GoPay";
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
     self.view.tableView.tableFooterView = [UIView new];
@@ -84,22 +84,28 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GO-PAY‘ payment via ‘GO-JEK‘ app"];
+        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GoPay‘ payment via ‘Gojek‘ app"];
     } else {
-        NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX];
-        if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+        if (MidtransConfig.shared.environment == MidtransServerEnvironmentProduction) {
+            NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX_OLD];
+            if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
+                self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+                self.view.topWrapperView.hidden = YES;
+                
+            } else {
+                self.view.topWrapperView.hidden = NO;
+                self.view.transactionBottomDetailConstraints.constant = 0.0f;
+                self.view.finishPaymentHeightConstraints.constant =  0.0f;
+            }
+        } else {
             self.view.gopayTopViewHeightConstraints.constant = 0.0f;
             self.view.topWrapperView.hidden = YES;
-            
-        } else {
-            self.view.topWrapperView.hidden = NO;
-            self.view.transactionBottomDetailConstraints.constant = 0.0f;
-            self.view.finishPaymentHeightConstraints.constant =  0.0f;
         }
+        
     }
     
     
-[self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GO-PAY"] forState:UIControlStateNormal];
+[self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GoPay"] forState:UIControlStateNormal];
     UIImage *image = [UIImage imageNamed:@"gopay_button" inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     [self.view.finishPaymentButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -196,9 +202,10 @@
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
 }
 - (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
-    NSURL *gojekConstructURL = [NSURL URLWithString:[result.additionalData objectForKey:@"deeplink_url"]];
-    if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
-        [[UIApplication sharedApplication] openURL:gojekConstructURL];
+    NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
+    NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
+    if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
+        [[UIApplication sharedApplication] openURL:deeplinkURL];
     }
 }
 

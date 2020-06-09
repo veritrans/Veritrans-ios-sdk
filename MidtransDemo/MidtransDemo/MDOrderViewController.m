@@ -78,7 +78,6 @@
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
-    CC_CONFIG.secure3DEnabled = [[MDOptionManager shared].secure3DOption.value boolValue];
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];

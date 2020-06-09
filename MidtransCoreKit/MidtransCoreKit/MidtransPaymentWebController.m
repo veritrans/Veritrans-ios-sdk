@@ -48,7 +48,7 @@
         self.title = @"CIMB Clicks";
     }
     
-    //equal to uiwebview pageToFit, also disable zooming automatically//
+    //equal to pageToFit, also disable zooming automatically//
     NSString *source = [NSString stringWithFormat:@"var meta = document.createElement('meta');meta.name = 'viewport';meta.content = 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no';var head = document.getElementsByTagName('head')[0];head.appendChild(meta);"];
    
     WKUserScript *script = [[WKUserScript alloc]initWithSource:source injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:true];
@@ -104,7 +104,7 @@
     return error;
 }
 
-#pragma mark - UIWebViewDelegate
+#pragma mark - WKNavigationDelegate
 
 - (void)webView:(WKWebView *)webView didFailNavigation:(WKNavigation *)navigation withError:(NSError *)error{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];

@@ -122,8 +122,7 @@ static NSString* const ClickpayAPPLI = @"3";
                                                                      expiryDate:nil
                                                                             cvv:nil];
     MidtransTokenizeRequest *tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:mandiriClickpayCard
-                                                                                    grossAmount:self.token.transactionDetails.grossAmount
-                                                                                         secure:NO];
+                                                                                    grossAmount:self.token.transactionDetails.grossAmount];
     [[MidtransClient shared] generateToken:tokenRequest
                                 completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                                     if (error) {

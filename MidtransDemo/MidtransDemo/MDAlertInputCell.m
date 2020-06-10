@@ -15,7 +15,7 @@
     [super awakeFromNib];
     // Initialization code
     
-    self.textField.highlightColor = [UIColor mdThemeColor];
+//    self.textField.highlightColor = [UIColor mdThemeColor];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

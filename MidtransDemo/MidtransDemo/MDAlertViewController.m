@@ -19,7 +19,7 @@
 @property (nonatomic) IBOutlet NSLayoutConstraint *tableHeightConstraint;
 @property (nonatomic) IBOutlet NSLayoutConstraint *keyboardHeightConstraint;
 @property (nonatomic) IBOutlet UILabel *titleLabel;
-@property (nonatomic) IBOutlet MDButton *applyButton;
+@property (nonatomic) IBOutlet UIButton *applyButton;
 @property (nonatomic) IBOutlet UIView *contentView;
 @property (nonatomic) IBOutlet UIView *dimmedView;
 
@@ -89,7 +89,7 @@
     
     if (self.type == MDAlertOptionTypeInput) {
         self.inputCell = [self.tableView dequeueReusableCellWithIdentifier:@"MDAlertInputCell"];
-        self.inputCell.textField.hint = self.inputPlaceholder;
+        self.inputCell.textField.placeholder = self.inputPlaceholder;
         self.inputCell.textField.text = self.predefinedInputText;
         [self.inputCell.textField addTarget:self action:@selector(inputTextChanged:) forControlEvents:UIControlEventEditingChanged];
         self.applyButton.enabled = NO;
@@ -281,7 +281,7 @@
     }
     else if (self.type == MDAlertOptionTypeMultipleInput) {
         MDAlertInputCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"MDAlertInputCell"];
-        cell.textField.hint = self.inputPlaceholder;
+        cell.textField.placeholder = self.inputPlaceholder;
         cell.textField.text = self.multipleInputTexts[indexPath.row];
         cell.textField.tag = indexPath.row;
         [cell.textField addTarget:self action:@selector(inputTextChanged:) forControlEvents:UIControlEventEditingChanged];
@@ -305,7 +305,7 @@
     
 }
 
-- (void)inputTextChanged:(MDTextField *)textField {
+- (void)inputTextChanged:(UITextField *)textField {
     if (self.type == MDAlertOptionTypeInput) {
         self.inputText = textField.text;
         self.applyButton.enabled = textField.text.length > 0;

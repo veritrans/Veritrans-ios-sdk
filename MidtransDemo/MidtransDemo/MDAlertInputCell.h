@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MaterialControls/MaterialControls.h>
 
 @interface MDAlertInputCell : UITableViewCell
-@property (nonatomic) IBOutlet MDTextField *textField;
+@property (nonatomic) IBOutlet UITextField *textField;
 @end

@@ -136,7 +136,14 @@ MidtransCommonTSCViewControllerDelegate
     self.view.creditCardNumberTextField.delegate = self;
     self.view.cardCVVNumberTextField.delegate = self;
     self.view.cardExpireTextField.delegate = self;
-    [self addNavigationToTextFields:@[self.view.creditCardNumberTextField,self.view.cardExpireTextField,self.view.cardCVVNumberTextField]];
+    self.view.contactPhoneNumberTextField.delegate = self;
+    self.view.contactEmailTextField.delegate = self;
+    [self addNavigationToTextFields:@[self.view.creditCardNumberTextField,
+                                      self.view.cardExpireTextField,
+                                      self.view.cardCVVNumberTextField,
+                                      self.view.contactPhoneNumberTextField,
+                                      self.view.contactEmailTextField
+    ]];
     
     self.ccFormatter = [[MidtransUICardFormatter alloc] initWithTextField:self.view.creditCardNumberTextField];
     self.ccFormatter.numberLimit = 16;

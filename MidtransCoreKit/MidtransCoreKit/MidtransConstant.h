@@ -67,6 +67,7 @@ static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
 static NSString *const TRANSACTION_SUCCESS = @"vtTRANSACTION_SUCCESS";
 static NSString *const TRANSACTION_PENDING = @"vtTRANSACTION_PENDING";
 static NSString *const TRANSACTION_FAILED = @"vtTRANSACTION_FAILED";
+static NSString *const TRANSACTION_DENY = @"vtTRANSACTION_DENY";
 static NSString *const TRANSACTION_CANCELED = @"vtTRANSACTION_CANCELED";
 
 static NSString *const SAVE_CARD_FAILED = @"vtSAVE_CARD_FAILED";

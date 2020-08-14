@@ -238,10 +238,6 @@
                                                          payResult = result;
                                                          
                                                          [self openGojekAppWithResult:result];
-                                                         
-                                                         if (UICONFIG.hideStatusPage) {
-                                                             [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                                         }
                                                      }
                                                     
                                                  }

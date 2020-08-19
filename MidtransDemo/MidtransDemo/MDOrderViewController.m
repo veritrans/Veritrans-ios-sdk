@@ -69,8 +69,8 @@
             merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
             break;
         default:
-            clientkey = @"SB-Mid-client-zt7XrRxPQXZNvuBY";
-            merchantServer = @"https://charmenzy-mid-mobile-sandbox.herokuapp.com/";
+            clientkey = @"VT-client-yrHf-c8Sxr-ck8tx";
+            merchantServer = @"https://promo-engine-sample-server.herokuapp.com/";
             break;
     }
     [CONFIG setClientKey:clientkey
@@ -266,6 +266,10 @@
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"[MIDTRANS] canceled");
 }
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result{
+    NSLog(@"[MIDTRANS] Deny %@", result);
+}
+
 
 - (IBAction)editAddressViewController:(id)sender {
     AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];

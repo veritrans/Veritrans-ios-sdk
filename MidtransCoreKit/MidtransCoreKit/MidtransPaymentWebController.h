@@ -23,6 +23,7 @@
 
 
 @protocol MidtransPaymentWebControllerDelegate <NSObject>
+@optional
 
 - (void)webPaymentController_transactionFinished:(MidtransPaymentWebController *_Nonnull)webPaymentController;
 - (void)webPaymentController_transactionPending:(MidtransPaymentWebController *_Nonnull)webPaymentController;

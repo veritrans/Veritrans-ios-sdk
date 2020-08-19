@@ -150,7 +150,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
                 }
                 
                 if (validationMessage) {
-                    userInfo[NSLocalizedFailureReasonErrorKey] = validationMessage;
+                    userInfo[NSLocalizedFailureReasonErrorKey] = [validationMessage firstObject];
                 }
                 
                 NSError *error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN

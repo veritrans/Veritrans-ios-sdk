@@ -14,7 +14,8 @@
 typedef NS_ENUM(NSUInteger, SNPStatusType) {
     SNPStatusTypeSuccess = 1,
     SNPStatusTypeError = 2,
-    SNPStatusTypePending = 3
+    SNPStatusTypePending = 3,
+    SNPStatusTypeDeny = 4
 };
 
 @interface VTPaymentStatusController ()
@@ -72,6 +73,14 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     return vc;
 }
 
++ (instancetype)denyTransactionWithResult:(MidtransTransactionResult *)result token:(MidtransTransactionTokenResponse *)token paymentMethod:(MidtransPaymentListModel *)paymentMethod{
+    VTPaymentStatusController *vc = [[VTPaymentStatusController alloc] initWithNibName:NSStringFromClass([VTPaymentStatusController class]) bundle:VTBundle];
+    vc.statusType = SNPStatusTypeDeny;
+    vc.result = result;
+    vc.token = token;
+    vc.paymentMethod = paymentMethod;
+    return vc;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -145,6 +154,17 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
                 [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(250, 175, 63)]];
                 break;
             }
+            case SNPStatusTypeDeny: {
+                [[SNPUITrackingManager shared] trackEventName:@"pg deny" additionalParameters:additionalData];
+                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
+                self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
+                self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
+                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
+                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"message.payment.deny"];
+                
+                 [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(212, 56, 92)]];
+                break;
+            }
     }
     
     self.orderIdLabel.text = trxDetail.orderId;
@@ -184,6 +204,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             case SNPStatusTypePending: {
                 NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
                 [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+                break;
+            }
+            case SNPStatusTypeDeny: {
+                NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_DENY object:nil userInfo:userInfo];
                 break;
             }
     }

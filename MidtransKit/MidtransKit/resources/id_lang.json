@@ -19,6 +19,8 @@
     "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button": "Anda akan diarahkan ke halaman BCA KlikPay setelah menekan tombol 'Konfirmasi Pembayaran'",
     "payment.failed": "Pembayaran gagal",
     "payment.pending": "Menunggu pembayaran",
+    "payment.deny":"Pembayaran tidak berhasil",
+    "message.payment.deny":"Transaksi anda ditolak! Silakan ulangi lagi, atau coba dengan metode pembayaran lain.",
     "payment.pay-at": "Pembayaran di %@",
     "clickpay.invalid-number": "Masukkan nomor kartu debit yang benar",
     "clickpay.invalid-token": "Masukkan token ClickPay yang benar",

@@ -43,7 +43,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.isShowInstruction = 0;
     self.currentInstruction = [NSMutableArray new];
     self.title = self.paymentMethod.title;
@@ -88,13 +88,13 @@
     NSString* filenameByLanguage;
     if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
         if (self.response.merchant.preference.otherVAProcessor.length > 0) {
-             filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.response.merchant.preference.otherVAProcessor];
+            filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.response.merchant.preference.otherVAProcessor];
         } else {
-             filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+            filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
         }
         
     } else {
-         filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     }
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
@@ -132,7 +132,7 @@
             }
             
         } else {
-           self.paymentType = VTVATypeOther;
+            self.paymentType = VTVATypeOther;
         }
         
     }
@@ -189,8 +189,9 @@
 }
 
 - (IBAction)payPressed:(id)sender {
-    MidtransPaymentBankTransfer *paymentDetails = [[MidtransPaymentBankTransfer alloc] initWithBankTransferType:self.paymentType
-                                                                                                          email:self.headerView.emailTextField.text];
+    MidtransPaymentBankTransfer *paymentDetails = [[MidtransPaymentBankTransfer alloc]
+                                                   initWithBankTransferType:self.paymentType
+                                                   email:self.headerView.emailTextField.text];
     self.token.customerDetails.email = self.headerView.emailTextField.text;
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails
                                                                                      token:self.token];
@@ -199,7 +200,21 @@
     [[MidtransMerchantClient shared] performTransaction:transaction completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
         if (error) {
-            [self handleTransactionError:error];
+            if ( error.code == 400 && error.localizedMidtransErrorMessage){
+                UIAlertController *alert = [UIAlertController
+                                            alertControllerWithTitle:@"ERROR"
+                                            message:error.localizedMidtransErrorMessage
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *cancelButton = [UIAlertAction
+                                               actionWithTitle:[VTClassHelper
+                                                                getTranslationFromAppBundleForString:@"Close"]
+                                               style:UIAlertActionStyleDefault
+                                               handler:nil];
+                [alert addAction:cancelButton];
+                [self presentViewController:alert animated:YES completion:nil];
+            } else {
+                [self handleTransactionError:error];
+            }
         } else {
             SNPPostPaymentVAViewController *postPaymentVAController = [[SNPPostPaymentVAViewController alloc] initWithNibName:@"SNPPostPaymentVAViewController" bundle:VTBundle];
             postPaymentVAController.token = self.token;
@@ -261,9 +276,9 @@
             self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
         }
         else {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
-        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+            self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
+            self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
+            self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
         }
     } else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
         self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
@@ -309,7 +324,7 @@
                 cell = [self.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
             });
             if(indexPath.row %2 ==0) {
-                 cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+                cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
             }
             [cell setInstruction:self.subInstructions[indexPath.row-1] number:indexPath.row];
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;

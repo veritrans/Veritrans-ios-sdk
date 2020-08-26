@@ -51,7 +51,7 @@
             self.headerViewBillPay.vaNumberLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Virtual Account Number"];
             self.headerViewBillPay.companyCodeLabel.text =[VTClassHelper getTranslationFromAppBundleForString:@"Bank Code"];
         }
-     
+        
     }
     else {
         [self.tableView registerNib:[UINib nibWithNibName:@"SNPPostPaymentHeader" bundle:VTBundle] forCellReuseIdentifier:@"SNPPostPaymentHeader"];
@@ -103,7 +103,7 @@
             self.headerViewBillPay.companyCodeTextField.text =@"13 (Bank Permata)";
         }
         
-     
+        
         self.headerViewBillPay.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
         [self.headerViewBillPay.expiredTimeLabel boldSubstring:expireDate];
         self.headerViewBillPay.vaTextField.enabled = NO;
@@ -116,17 +116,17 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"permata_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"permata_expiration" ];
     }
-     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
+    NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentMethod.internalBaseClassIdentifier];
     if ([self.paymentMethod.title isEqualToString:@"Other ATM Network"]) {
         filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.response.merchant.preference.otherVAProcessor];
     }
     
-   
+    
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
         guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",self.paymentMethod.internalBaseClassIdentifier] ofType:@"plist"];
     }
-
+    
     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView.expiredTimeLabel boldSubstring:expireDate];
     self.headerView.vaTextField.enabled = NO;
@@ -234,7 +234,7 @@
     }
     VTGuideCell *cell = [tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
     if(indexPath.row %2 ==0) {
-         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+        cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
     [cell setInstruction:self.subInstructions[indexPath.row-1] number:indexPath.row];
     return cell;
@@ -265,20 +265,10 @@
     }
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    }];
 }
-
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

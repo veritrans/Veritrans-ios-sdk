@@ -77,7 +77,7 @@
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
-    UICONFIG.hideStatusPage = NO;
+    UICONFIG.hideStatusPage = YES;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
@@ -190,7 +190,7 @@
     if (value[2]) {
         [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
     }
-
+    
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
@@ -201,29 +201,29 @@
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
-         if (error) {
-             
-             UIAlertController *alert = [UIAlertController
-                                                alertControllerWithTitle:@"Error"
-                                                message:error.localizedDescription
-                                                preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *okButton = [UIAlertAction
-                                               actionWithTitle:@"Close"
-                                               style:UIAlertActionStyleDefault
-                                               handler:nil];
-                    [alert addAction:okButton];
-                    [self presentViewController:alert animated:YES completion:nil];
-         }
-         else {
-             
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-             paymentVC.paymentDelegate = self;
-             [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
-         }
-         
-         //hide hud
-         [self.progressHUD dismissAnimated:YES];
-     }];
+        if (error) {
+            
+            UIAlertController *alert = [UIAlertController
+                                        alertControllerWithTitle:@"Error"
+                                        message:error.localizedDescription
+                                        preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okButton = [UIAlertAction
+                                       actionWithTitle:@"Close"
+                                       style:UIAlertActionStyleDefault
+                                       handler:nil];
+            [alert addAction:okButton];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else {
+            
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            paymentVC.paymentDelegate = self;
+            [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+        }
+        
+        //hide hud
+        [self.progressHUD dismissAnimated:YES];
+    }];
 }
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
@@ -256,20 +256,65 @@
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"[MIDTRANS] success %@", result);
+    
+    [self showAlertWithResult:result];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
     NSLog(@"[MIDTRANS] pending %@", result);
+    [self showAlertWithResult:result];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
     NSLog(@"[MIDTRANS] error %@", error);
+    [self showAlertWithError:error];
 }
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"[MIDTRANS] canceled");
+    [self showAlertCancelled];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result{
     NSLog(@"[MIDTRANS] Deny %@", result);
+    [self showAlertWithResult:result];
 }
 
+- (void)showAlertWithResult:(MidtransTransactionResult *)result {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:[NSString stringWithFormat:@"Payment using %@", result.paymentType]
+                                message:[NSString stringWithFormat:@"Transaction id %@ status is %@", result.transactionId, result.transactionStatus]
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Close"
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+- (void)showAlertWithError:(NSError *)error {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"Error"
+                                message:[NSString stringWithFormat:@"Transaction error : %@", error.localizedFailureReason]
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Close"
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+- (void)showAlertCancelled {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"Transaction Cancelled"
+                                message:@"Transaction is cancelled by user"
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Close"
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
 
 - (IBAction)editAddressViewController:(id)sender {
     AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];

@@ -280,9 +280,10 @@
                                    style:UIAlertActionStyleDefault
                                    handler:^(UIAlertAction *action)
                                    {
-            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:payResult};
-            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-            [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:payResult};
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+            }];
         }];
         
         [alertController addAction:cancelAction];

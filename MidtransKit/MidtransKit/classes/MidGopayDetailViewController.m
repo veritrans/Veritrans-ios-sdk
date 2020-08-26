@@ -41,7 +41,7 @@
                    action:@selector(backButtonDidTapped:)
          forControlEvents:UIControlEventTouchUpInside];
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-     self.navigationItem.leftBarButtonItem = self.backBarButton;
+    self.navigationItem.leftBarButtonItem = self.backBarButton;
     self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay With GoPay"];
     self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
@@ -68,14 +68,14 @@
         [expireFormatter setDateFormat:@"dd MMMM HH:mm yyyy"];
         
         
-       
+        
         NSDate *endDate = [expireFormatter dateFromString: [[[self.result.additionalData objectForKey:@"gopay_expiration"] stringByReplacingOccurrencesOfString:@"WIB" withString:@""] stringByAppendingString:currentYearString]];
         self.deltaTime = [endDate timeIntervalSinceDate:self.result.transactionTime];
         self.currSeconds = self.deltaTime % 60;
         self.currMinute = (self.deltaTime / 60) % 60;
         self.currHours = self.deltaTime / 3600;
         [self startTimer];
-
+        
         self.view.topWrapperView.hidden = YES;
         self.view.qrcodeWrapperView.hidden = NO;
         [self.view.finishPaymentButton setTitle:@"Finish Payment" forState:UIControlStateNormal];
@@ -91,10 +91,10 @@
         self.guides = arrayOfGuide;
         [self.view.guideTableView reloadData];
         [self.view layoutIfNeeded];
-
+        
         
     } else {
-
+        
         self.view.topWrapperView.hidden = NO;
         self.view.qrcodeWrapperView.hidden = YES;
     }
@@ -140,65 +140,65 @@
                                    style:UIAlertActionStyleCancel
                                    handler:^(UIAlertAction *action)
                                    {
-                                       NSLog(@"Cancel action");
-                                   }];
+        NSLog(@"Cancel action");
+    }];
     
     UIAlertAction *okAction = [UIAlertAction
                                actionWithTitle:NSLocalizedString(@"OK", @"OK action")
                                style:UIAlertActionStyleDefault
                                handler:^(UIAlertAction *action)
                                {
-                                   NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
-                                   [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-                                   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                                   [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-                               }];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+        }];
+    }];
     
     [alertController addAction:cancelAction];
     [alertController addAction:okAction];
     [self presentViewController:alertController animated:YES completion:nil];
-
     
-   
+    
+    
 }
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     if (self.isMovingFromParentViewController || self.isBeingDismissed) {
-        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
-        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+        }];
     }
     
 }
 - (IBAction)gopayLogoButtonDidtapped:(id)sender {
-     [self processCheckOut];
+    [self processCheckOut];
 }
 - (IBAction)finishButtonDidTapped:(id)sender {
     [self processCheckOut];
 }
 - (void)processCheckOut {
     if (IPAD) {
-        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
-        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+        }];
     } else {
-        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
-        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
         NSURL *gojekConstructURL = [NSURL URLWithString:[self.result.additionalData objectForKey:@"deeplink_url"]];
         if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
             [[UIApplication sharedApplication] openURL:gojekConstructURL];
         }
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+        }];
         // "gojek://gopay/merchanttransfer?tref=i3VwApFnnG&amount=10000&activity=GP:RR"
         
     }
 }
 - (void)fetchQRCode {
     [self showLoadingWithText:@"Loading QR Code"];
-     self.view.qrcodeReloadImage.hidden = YES;
+    self.view.qrcodeReloadImage.hidden = YES;
     NSString *imageUrl = [self.result.additionalData objectForKey:@"qr_code_url"];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         [self hideLoading];
@@ -241,7 +241,7 @@
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
-         cell.bottomNotes.hidden = NO;
+        cell.bottomNotes.hidden = NO;
     }
     if (IPAD && indexPath.row == 2) {
         cell.imageBottomInstruction.hidden = NO;
@@ -276,14 +276,5 @@
         
     }
 }
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

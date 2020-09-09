@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -29,6 +27,7 @@
                 <outlet property="payButton" destination="Ebn-Qu-Y8z" id="AYI-Ga-cAu"/>
                 <outlet property="phoneNumberTextfield" destination="p2S-4l-kcS" id="8NM-7b-LAo"/>
                 <outlet property="pricePerItemLabel" destination="08Q-dj-7dZ" id="5La-8z-2bN"/>
+                <outlet property="snaptokenTextField" destination="cHY-6h-4cr" id="sDh-eZ-hr1"/>
                 <outlet property="totalAmountLabel" destination="uFk-Qv-i9H" id="6xp-WS-2VT"/>
                 <outlet property="userNameTextField" destination="rBp-0P-m83" id="UFv-qA-OZB"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -68,8 +67,28 @@
                     <rect key="frame" x="0.0" y="48" width="375" height="564"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SMo-Uu-97R">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="479"/>
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="479.5"/>
                             <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="YZD-eg-Ecl">
+                                    <rect key="frame" x="122" y="439" width="133" height="64"/>
+                                    <subviews>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Snaptoken" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cHY-6h-4cr">
+                                            <rect key="frame" x="0.0" y="0.0" width="133" height="34"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tJ-DF-fXu">
+                                            <rect key="frame" x="0.0" y="34" width="133" height="30"/>
+                                            <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <state key="normal" title="Pay with snaptoken">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="payWithSnapPressed:" destination="-1" eventType="touchUpInside" id="eCg-uL-oZO"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                </stackView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6vF-F7-Bve">
                                     <rect key="frame" x="8" y="328" width="359" height="89.5"/>
                                     <subviews>
@@ -127,7 +146,7 @@ Indonesia</string>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EE8-RM-hGA">
-                                    <rect key="frame" x="8" y="435" width="359" height="1"/>
+                                    <rect key="frame" x="8" y="435.5" width="359" height="1"/>
                                     <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="1" id="rX1-bg-cHJ"/>
@@ -153,7 +172,7 @@ Indonesia</string>
                                             </constraints>
                                         </imageView>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqq-fw-pzR">
-                                            <rect key="frame" x="48" y="26" width="245.5" height="38"/>
+                                            <rect key="frame" x="48" y="26" width="245.5" height="38.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Midtrans Pillow" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vsM-HU-HbE">
                                                     <rect key="frame" x="0.0" y="0.0" width="245.5" height="20.5"/>
@@ -162,7 +181,7 @@ Indonesia</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Qty 1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1eZ-RL-n9D">
-                                                    <rect key="frame" x="0.0" y="20" width="245.5" height="18"/>
+                                                    <rect key="frame" x="0.0" y="20.5" width="245.5" height="18"/>
                                                     <fontDescription key="fontDescription" name="SourceSansPro-Light" family="Source Sans Pro" pointSize="14"/>
                                                     <color key="textColor" red="0.30196078431372547" green="0.30588235294117649" blue="0.31372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -222,7 +241,6 @@ Indonesia</string>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="peO-1H-aHA"/>
                                     </constraints>
-                                    <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits"/>
                                     <userDefinedRuntimeAttributes>
@@ -238,7 +256,6 @@ Indonesia</string>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="L3h-Wp-yRA"/>
                                     </constraints>
-                                    <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     <userDefinedRuntimeAttributes>
@@ -252,7 +269,6 @@ Indonesia</string>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="44" id="A24-DU-gJ5"/>
                                     </constraints>
-                                    <nil key="textColor"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                     <userDefinedRuntimeAttributes>
@@ -279,10 +295,12 @@ Indonesia</string>
                                 <constraint firstItem="h7v-67-rKM" firstAttribute="top" secondItem="rBp-0P-m83" secondAttribute="bottom" constant="8" id="0P8-i3-6Hy"/>
                                 <constraint firstItem="2vF-Ez-Dvh" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="8" id="2ph-U2-Ht2"/>
                                 <constraint firstAttribute="trailing" secondItem="v3t-TN-St2" secondAttribute="trailing" constant="8" id="3vD-5V-yb7"/>
+                                <constraint firstAttribute="bottom" secondItem="YZD-eg-Ecl" secondAttribute="bottom" id="58H-Nt-Zum"/>
                                 <constraint firstItem="v3t-TN-St2" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="8" id="5UR-RK-i2p"/>
                                 <constraint firstItem="p2S-4l-kcS" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="15" id="5Y0-mx-luW"/>
                                 <constraint firstAttribute="trailing" secondItem="8Yf-ZT-OrY" secondAttribute="trailing" constant="5" id="7Bq-hP-8Is"/>
                                 <constraint firstAttribute="trailing" secondItem="EE8-RM-hGA" secondAttribute="trailing" constant="8" id="7E0-Dl-vww"/>
+                                <constraint firstItem="YZD-eg-Ecl" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="8" id="Ak7-pO-2nJ"/>
                                 <constraint firstAttribute="trailing" secondItem="rBp-0P-m83" secondAttribute="trailing" constant="18" id="Br0-Xc-Fa1"/>
                                 <constraint firstAttribute="trailing" secondItem="p2S-4l-kcS" secondAttribute="trailing" constant="18" id="Dh3-dV-GDC"/>
                                 <constraint firstAttribute="trailing" secondItem="6vF-F7-Bve" secondAttribute="trailing" constant="8" id="G7Q-5M-1o0"/>
@@ -291,16 +309,17 @@ Indonesia</string>
                                 <constraint firstItem="EE8-RM-hGA" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="8" id="P5k-BA-NdU"/>
                                 <constraint firstItem="6vF-F7-Bve" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="8" id="RdU-Bh-R6H"/>
                                 <constraint firstItem="UJr-ZA-lZw" firstAttribute="top" secondItem="SMo-Uu-97R" secondAttribute="top" constant="17" id="WJ0-l5-uYa"/>
+                                <constraint firstAttribute="trailing" secondItem="YZD-eg-Ecl" secondAttribute="trailing" constant="8" id="Xzt-d1-nRE"/>
                                 <constraint firstItem="h7v-67-rKM" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="15" id="Zn2-yH-0Y5"/>
                                 <constraint firstAttribute="trailing" secondItem="UJr-ZA-lZw" secondAttribute="trailing" constant="18" id="ah2-Sk-563"/>
-                                <constraint firstAttribute="bottom" secondItem="EE8-RM-hGA" secondAttribute="bottom" constant="43" id="hbc-2l-MK9"/>
+                                <constraint firstItem="YZD-eg-Ecl" firstAttribute="top" secondItem="EE8-RM-hGA" secondAttribute="bottom" id="eOj-Xl-byn"/>
                                 <constraint firstItem="8Yf-ZT-OrY" firstAttribute="top" secondItem="v3t-TN-St2" secondAttribute="bottom" constant="8" id="lYG-tM-Iwv"/>
                                 <constraint firstItem="p2S-4l-kcS" firstAttribute="top" secondItem="h7v-67-rKM" secondAttribute="bottom" constant="10" id="mDS-Q4-8HA"/>
                                 <constraint firstItem="rBp-0P-m83" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="15" id="n1Z-8d-yLm"/>
                                 <constraint firstAttribute="trailing" secondItem="nbb-Ba-bH3" secondAttribute="trailing" constant="16" id="nL7-dt-SEk"/>
                                 <constraint firstAttribute="trailing" secondItem="2vF-Ez-Dvh" secondAttribute="trailing" constant="108" id="nMx-Lz-W1P"/>
                                 <constraint firstItem="EE8-RM-hGA" firstAttribute="top" secondItem="6vF-F7-Bve" secondAttribute="bottom" constant="18" id="p8R-cJ-hNq"/>
-                                <constraint firstItem="6vF-F7-Bve" firstAttribute="top" secondItem="p2S-4l-kcS" secondAttribute="bottom" constant="33" id="svW-WO-LfE"/>
+                                <constraint firstItem="6vF-F7-Bve" firstAttribute="top" secondItem="p2S-4l-kcS" secondAttribute="bottom" constant="8" id="svW-WO-LfE"/>
                                 <constraint firstItem="UJr-ZA-lZw" firstAttribute="leading" secondItem="SMo-Uu-97R" secondAttribute="leading" constant="8" id="vr4-vH-NyM"/>
                                 <constraint firstItem="rBp-0P-m83" firstAttribute="top" secondItem="2vF-Ez-Dvh" secondAttribute="bottom" constant="8" id="w8t-1T-hss"/>
                                 <constraint firstAttribute="trailing" secondItem="h7v-67-rKM" secondAttribute="trailing" constant="18" id="xZ9-Cf-7Pi"/>

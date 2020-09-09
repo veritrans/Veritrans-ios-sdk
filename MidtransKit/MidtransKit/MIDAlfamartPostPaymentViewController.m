@@ -38,8 +38,8 @@
     // Do any additional setup after loading the view.
     self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.orderIdLabel.text = self.token.transactionDetails.orderId;
-     self.title = @"Alfamart";
-
+    self.title = @"Alfamart";
+    
     NSString* filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_alfamart"];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
@@ -67,10 +67,10 @@
     self.instructionPage.hidden = !self.instructionPage.hidden;
 }
 - (IBAction)confirmPaymentButtonDidtapped:(id)sender {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    }];
 }
 
 @end

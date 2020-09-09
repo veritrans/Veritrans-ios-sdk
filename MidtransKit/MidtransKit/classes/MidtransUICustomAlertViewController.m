@@ -106,7 +106,7 @@
         if ([self.delegate respondsToSelector:@selector(didSelectOKButtonAlertViewController:)]) {
             [self.delegate didSelectOKButtonAlertViewController:self];
         }
-          [self dismissCustomViewController:nil];
+        [self dismissCustomViewController:nil];
     });
 }
 

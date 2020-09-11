@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalAmount = @(1);
+    self.totalAmount = @(100000);
     NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];

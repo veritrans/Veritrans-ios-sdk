@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pricePerItemLabel;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property (weak, nonatomic) IBOutlet UITextField *snaptokenTextField;
 @property (strong, nonatomic) NSNumber *totalAmount;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
@@ -37,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalAmount = @(1);
+    self.totalAmount = @(100000);
     NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
@@ -77,7 +78,7 @@
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
-    UICONFIG.hideStatusPage = YES;
+    UICONFIG.hideStatusPage = NO;
     CC_CONFIG.authenticationType = [[MDOptionManager shared].authTypeOption.value integerValue];
     CC_CONFIG.saveCardEnabled =[[MDOptionManager shared].saveCardOption.value boolValue];
     CC_CONFIG.acquiringBank = [[MDOptionManager shared].issuingBankOption.value integerValue];
@@ -123,10 +124,10 @@
                                                        postalCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"]
                                                       countryCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]];
     
-    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
-                                                                             lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
-                                                                                email:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"]
-                                                                                phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
+    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:self.userNameTextField.text
+                                                                             lastName:nil
+                                                                                email:self.emailTextField.text
+                                                                                phone:self.phoneNumberTextfield.text
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
@@ -320,6 +321,32 @@
     AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
+- (IBAction)payWithSnapPressed:(id)sender {
+    if (!self.snaptokenTextField.text.SNPisEmpty)
+    [[MidtransMerchantClient shared]requestTransacationWithCurrentToken:self.snaptokenTextField.text completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
+            if (error) {
+                UIAlertController *alert = [UIAlertController
+                                            alertControllerWithTitle:@"Error"
+                                            message:error.localizedDescription
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okButton = [UIAlertAction
+                                           actionWithTitle:@"Close"
+                                           style:UIAlertActionStyleDefault
+                                           handler:nil];
+                [alert addAction:okButton];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            else {
+                
+                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                paymentVC.paymentDelegate = self;
+                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+            }
+            //hide hud
+            [self.progressHUD dismissAnimated:YES];
+        }];
+}
+
 
 - (NSString *)formattedISOCurrencyNumber:(NSNumber *)number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];

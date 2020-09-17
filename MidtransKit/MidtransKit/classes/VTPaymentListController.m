@@ -305,7 +305,7 @@
     }
     
     if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
-        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal) {
+        if ([CC_CONFIG paymentType] == MTCreditCardPaymentTypeNormal && !PRIVATECONFIG.isSnapTokenFlow) {
             MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc]
                                                                   initWithToken:self.token
                                                                   paymentMethodName:paymentMethod

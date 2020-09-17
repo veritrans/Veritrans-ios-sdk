@@ -19,6 +19,7 @@
 @property (nonatomic, readonly) NSString *binURL;
 @property (nonatomic, readonly) NSString *promoEngineURL;
 @property (nonatomic, assign) MidtransServerEnvironment env;
+@property (nonatomic, readwrite) BOOL isSnapTokenFlow;
 
 + (MidtransPrivateConfig *)shared;
 

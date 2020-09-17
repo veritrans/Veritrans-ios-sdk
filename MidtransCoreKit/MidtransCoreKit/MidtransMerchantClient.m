@@ -83,7 +83,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
 }
 - (void)performCheckStatusRBA:(MidtransTransaction *)transaction
-                completion:(void(^)(MidtransTransactionResult *result, NSError *error))completion {
+                   completion:(void(^)(MidtransTransactionResult *result, NSError *error))completion {
     
     NSMutableDictionary *headers = [[NSMutableDictionary alloc] init];
     [headers addEntriesFromDictionary:[CONFIG merchantClientData]];
@@ -175,24 +175,24 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-         if (data) {
-             NSMutableArray *result = [[NSMutableArray alloc] init];
-             NSError *error;
-             id requestResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
-             
-             if (!error) {
-                 for (NSDictionary *dictionary in requestResponse) {
-                     MidtransMaskedCreditCard *card = [[MidtransMaskedCreditCard alloc] initWithDictionary:dictionary];
-      
-                     [result addObject:card];
-                 }
-             }
-             if (completion) completion(result, nil);
-         }
-         else {
-             if (completion) completion(nil, error);
-         }
-     }];
+        if (data) {
+            NSMutableArray *result = [[NSMutableArray alloc] init];
+            NSError *error;
+            id requestResponse = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingAllowFragments error:&error];
+            
+            if (!error) {
+                for (NSDictionary *dictionary in requestResponse) {
+                    MidtransMaskedCreditCard *card = [[MidtransMaskedCreditCard alloc] initWithDictionary:dictionary];
+                    
+                    [result addObject:card];
+                }
+            }
+            if (completion) completion(result, nil);
+        }
+        else {
+            if (completion) completion(nil, error);
+        }
+    }];
 }
 
 #pragma mark - Helper
@@ -225,55 +225,63 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     @catch (NSException * e) {
         [[SNPErrorLogManager shared] trackException:e className:[[self class] description]];
     }
-   
+    
     
 }
 - (void)requestTransacationWithCurrentToken:(NSString *_Nonnull)token
                                  completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable regenerateToken, NSError *_Nullable error))completion {
     
+    PRIVATECONFIG.isSnapTokenFlow = YES;
     NSString *URL = [NSString stringWithFormat:ENDPOINT_TRANSACTION_DETAIL, [PRIVATECONFIG snapURL], token];
     [[MidtransNetworking shared] getFromURL:URL parameters:nil callback:^(id response, NSError *error) {
         if (!error) {
-            MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
-            
-            if (completion) {
-                MidtransTransactionTokenResponse *token2;
+            id errorResponse = response[@"error_messages"];
+            if (errorResponse) {
+                error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                            code:0
+                                        userInfo:@{NSLocalizedDescriptionKey:[self getErrorMessageFromErrorResponse:errorResponse]}];
+                completion(NULL,error);
+            } else {
+                MidtransPaymentRequestV2Response *paymentRequestV2 = [[MidtransPaymentRequestV2Response alloc] initWithDictionary:(NSDictionary *)response];
                 
-                MidtransAddress *billAddressConstruct = [MidtransAddress addressWithFirstName:paymentRequestV2.customerDetails.billingAddress.firstName
-                                                                                      lastName:paymentRequestV2.customerDetails.billingAddress.firstName
-                                                                                         phone:paymentRequestV2.customerDetails.billingAddress.phone
-                                                                                       address:paymentRequestV2.customerDetails.billingAddress.firstName
-                                                                                          city:paymentRequestV2.customerDetails.billingAddress.city
-                                                                                    postalCode:paymentRequestV2.customerDetails.billingAddress.postalCode
-                                                                                   countryCode:paymentRequestV2.customerDetails.billingAddress.countryCode];
-                
-                                                         
-                NSNumber *amount =  [NSNumber numberWithDouble:[paymentRequestV2.transactionDetails.grossAmount doubleValue]];
-                MidtransTransactionDetails *reConstructTransactionDetail = [[MidtransTransactionDetails alloc] initWithOrderID:paymentRequestV2.transactionDetails.orderId
-                                                                                                                andGrossAmount:amount];
-
-                
-                
-                MidtransCustomerDetails *customerDetailsMock = [[MidtransCustomerDetails alloc] initWithFirstName:paymentRequestV2.customerDetails.firstName
-                                                                                                         lastName:paymentRequestV2.customerDetails.firstName
-                                                                                                            email:paymentRequestV2.customerDetails.email
-                                                                                                            phone:paymentRequestV2.customerDetails.phone
-                                                                                                  shippingAddress:billAddressConstruct
-                                                                                                   billingAddress:billAddressConstruct];
-                NSMutableArray *itemDetails = [NSMutableArray new];
-                
-                for (MidtransPaymentRequestV2ItemDetails *detail in paymentRequestV2.itemDetails) {
-                    MidtransItemDetail *regenerate = [[MidtransItemDetail alloc]initWithItemID:detail.itemDetailsIdentifier name:detail.name price:[NSNumber numberWithDouble:detail.price] quantity:[NSNumber numberWithDouble:detail.quantity]];
-                    [itemDetails addObject:regenerate];
+                if (completion) {
+                    MidtransTransactionTokenResponse *token2;
+                    
+                    MidtransAddress *billAddressConstruct = [MidtransAddress addressWithFirstName:paymentRequestV2.customerDetails.billingAddress.firstName
+                                                                                         lastName:paymentRequestV2.customerDetails .billingAddress.firstName
+                                                                                            phone:paymentRequestV2.customerDetails.billingAddress.phone
+                                                                                          address:paymentRequestV2.customerDetails.billingAddress.firstName
+                                                                                             city:paymentRequestV2.customerDetails.billingAddress.city
+                                                                                       postalCode:paymentRequestV2.customerDetails.billingAddress.postalCode
+                                                                                      countryCode:paymentRequestV2.customerDetails.billingAddress.countryCode];
+                    
+                    
+                    NSNumber *amount =  [NSNumber numberWithDouble:[paymentRequestV2.transactionDetails.grossAmount doubleValue]];
+                    MidtransTransactionDetails *reConstructTransactionDetail = [[MidtransTransactionDetails alloc] initWithOrderID:paymentRequestV2.transactionDetails.orderId
+                                                                                                                    andGrossAmount:amount];
+                    
+                    
+                    
+                    MidtransCustomerDetails *customerDetailsMock = [[MidtransCustomerDetails alloc] initWithFirstName:paymentRequestV2.customerDetails.firstName
+                                                                                                             lastName:paymentRequestV2.customerDetails.firstName
+                                                                                                                email:paymentRequestV2.customerDetails.email
+                                                                                                                phone:paymentRequestV2.customerDetails.phone
+                                                                                                      shippingAddress:billAddressConstruct
+                                                                                                       billingAddress:billAddressConstruct];
+                    NSMutableArray *itemDetails = [NSMutableArray new];
+                    
+                    for (MidtransPaymentRequestV2ItemDetails *detail in paymentRequestV2.itemDetails) {
+                        MidtransItemDetail *regenerate = [[MidtransItemDetail alloc]initWithItemID:detail.itemDetailsIdentifier name:detail.name price:[NSNumber numberWithDouble:detail.price] quantity:[NSNumber numberWithDouble:detail.quantity]];
+                        [itemDetails addObject:regenerate];
+                    }
+                    token2 = [MidtransTransactionTokenResponse modelObjectWithDictionary:@{@"token":token}
+                                                                      transactionDetails:reConstructTransactionDetail
+                                                                         customerDetails:customerDetailsMock
+                                                                             itemDetails:itemDetails];
+                    
+                    completion(token2,NULL);
                 }
-                token2 = [MidtransTransactionTokenResponse modelObjectWithDictionary:@{@"token":token}
-                                                                  transactionDetails:reConstructTransactionDetail
-                                                                     customerDetails:customerDetailsMock
-                                                                         itemDetails:itemDetails];
-                
-                completion(token2,NULL);
             }
-            
         }
         else {
             if (completion) {
@@ -342,7 +350,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         creditCardParameter[@"type"] = @"authorize";
     }
     if ([CONFIG.customFreeText count]) {
-         dictionaryParameters[@"free_text"] = CONFIG.customFreeText;
+        dictionaryParameters[@"free_text"] = CONFIG.customFreeText;
     }
     [dictionaryParameters setValue:creditCardParameter forKey:@"credit_card"];
     
@@ -360,9 +368,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         dictionaryParameters[@"permata_va"] = @{@"recipient_name":[CONFIG.customPermataVARecipientName uppercaseString]};
     }
     if ( [CONFIG customBCASubcompanyCode].length>0 && [CONFIG customBCAVANumber].length > 0) {
-         dictionaryParameters[@"bca_va"] = @{@"sub_company_code":CONFIG.customBCASubcompanyCode,
-                                             @"va_number":CONFIG.customBCAVANumber
-                                             };
+        dictionaryParameters[@"bca_va"] = @{@"sub_company_code":CONFIG.customBCASubcompanyCode,
+                                            @"va_number":CONFIG.customBCAVANumber
+        };
     }
     if ([CONFIG customBNIVANumber].length > 0) {
         dictionaryParameters[@"bni_va"] = @{@"va_number":CONFIG.customBNIVANumber};
@@ -393,36 +401,26 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                 parameters:dictionaryParameters
                                   callback:^(id response, NSError *error)
      {
-         MidtransTransactionTokenResponse *token;
-         if (response) {
-             id errorResponse = response[@"error_messages"];
-             if (errorResponse) {
-                 NSString *errorMessage;
-                 if ([errorResponse isKindOfClass:[NSArray class]]) {
-                     errorMessage = [errorResponse firstObject];
-                 }
-                 else if ([errorResponse isKindOfClass:[NSString class]]) {
-                     errorMessage = errorResponse;
-                 }
-                 else {
-                     errorMessage = @"Checkout error";
-                 }
-                 error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
-                                             code:0
-                                         userInfo:@{NSLocalizedDescriptionKey:errorMessage}];
-             }
-             else {
-                 token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
-                                                                  transactionDetails:transactionDetails
-                                                                     customerDetails:customerDetails
-                                                                         itemDetails:itemDetails];
-             }
-         }
-         
-         if (completion) {
-             completion(token, error);
-         }
-     }];
+        MidtransTransactionTokenResponse *token;
+        if (response) {
+            id errorResponse = response[@"error_messages"];
+            if (errorResponse) {
+                error = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                            code:0
+                                        userInfo:@{NSLocalizedDescriptionKey:[self getErrorMessageFromErrorResponse:errorResponse]}];
+            }
+            else {
+                token = [MidtransTransactionTokenResponse modelObjectWithDictionary:(NSDictionary *)response
+                                                                 transactionDetails:transactionDetails
+                                                                    customerDetails:customerDetails
+                                                                        itemDetails:itemDetails];
+            }
+        }
+        
+        if (completion) {
+            completion(token, error);
+        }
+    }];
     
     
 }
@@ -430,14 +428,14 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
                                           itemDetails:(nullable NSArray<MidtransItemDetail*> *)itemDetails
                                       customerDetails:(nullable MidtransCustomerDetails *)customerDetails
                                            completion:(void (^_Nullable)(MidtransTransactionTokenResponse *_Nullable token, NSError *_Nullable error))completion {
-   [self requestTransactionTokenWithTransactionDetails:transactionDetails
-                                           itemDetails:itemDetails
-                                       customerDetails:customerDetails
-                                           customField:nil
-                                             binFilter:nil
-                                    blacklistBinFilter:nil
-                                 transactionExpireTime:nil
-                                            completion:completion];
+    [self requestTransactionTokenWithTransactionDetails:transactionDetails
+                                            itemDetails:itemDetails
+                                        customerDetails:customerDetails
+                                            customField:nil
+                                              binFilter:nil
+                                     blacklistBinFilter:nil
+                                  transactionExpireTime:nil
+                                             completion:completion];
 }
 
 - (void)requestPaymentlistWithToken:(NSString * _Nonnull )token
@@ -466,6 +464,20 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
             }
         }
     }];
+}
+
+- (NSString *)getErrorMessageFromErrorResponse:(id)errorResponse {
+    NSString *errorMessage;
+    if ([errorResponse isKindOfClass:[NSArray class]]) {
+        errorMessage = [errorResponse firstObject];
+    }
+    else if ([errorResponse isKindOfClass:[NSString class]]) {
+        errorMessage = errorResponse;
+    }
+    else {
+        errorMessage = @"Checkout error";
+    }
+    return errorMessage;
 }
 
 @end

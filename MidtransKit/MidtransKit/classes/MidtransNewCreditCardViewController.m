@@ -484,6 +484,7 @@ MidtransCommonTSCViewControllerDelegate
         [self.promoArray removeAllObjects];
         [self.promoArray addObjectsFromArray:self.currentPromo];
     } else {
+       [self updateAmountTotal:[AddOnConstructor new]];
         self.currentPromoSelected = @"";
         self.currentPromoIndex = nil;
         self.prevPromoIndex = nil;

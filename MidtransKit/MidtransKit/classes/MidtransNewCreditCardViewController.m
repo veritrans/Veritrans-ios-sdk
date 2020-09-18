@@ -694,6 +694,23 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
+- (void) validateCreditCardDataForm {
+    NSError *error;
+    if ([self.view.creditCardNumberTextField.text SNPisEmpty]){
+        [self.view.creditCardNumberTextField.text isValidCreditCardNumber:&error];
+    }
+    else if ([self.view.cardExpireTextField.text SNPisEmpty]) {
+        [self.view.cardExpireTextField.text isValidExpiryDate:&error];
+    }
+    else if ([self.view.cardCVVNumberTextField.text SNPisEmpty]){
+        [self.view.cardCVVNumberTextField.text isValidCVVWithCreditCardNumber:self.view.cardCVVNumberTextField.text error:&error];
+    }
+    if (error) {
+        [self.view isViewableError:error];
+        return;
+    }
+}
+
 - (BOOL)textField:(MidtransUITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isKindOfClass:[MidtransUITextField class]]) {
         ((MidtransUITextField *) textField).warning = nil;
@@ -871,6 +888,7 @@ MidtransCommonTSCViewControllerDelegate
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
     
+    [self validateCreditCardDataForm];
     if (self.saveCreditCardOnly) {
         NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
         NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -932,7 +950,6 @@ MidtransCommonTSCViewControllerDelegate
                                                             cvv:self.view.cardCVVNumberTextField.text];
         NSError *error = nil;
         if ([creditCard isValidCreditCard:&error] == NO) {
-            [self handleRegisterCreditCardError:error];
             return;
         }
         cardNumber = creditCard.number;
@@ -960,7 +977,6 @@ MidtransCommonTSCViewControllerDelegate
     
     if (self.maskedCreditCard) {
         if (!self.view.cardCVVNumberTextField.text.length) {
-            self.view.cardCVVNumberTextField.warning = [VTClassHelper getTranslationFromAppBundleForString:@"CVV is invalid"];
             return;
         }
         
@@ -1199,7 +1215,7 @@ MidtransCommonTSCViewControllerDelegate
 - (void)handleRegisterCreditCardError:(NSError *)error {
     if ([self.view isViewableError:error] == NO) {
         [self showAlertViewWithTitle:@"Error"
-                          andMessage:error.localizedMidtransErrorMessage
+                          andMessage:error.localizedDescription
                       andButtonTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]];
     }
 }

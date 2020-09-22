@@ -662,7 +662,7 @@ MidtransCommonTSCViewControllerDelegate
     else if ([constructor.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
         MidtransUICustomAlertViewController *alertView = [[MidtransUICustomAlertViewController alloc]
                                                           initWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"redeem mandiri reward point"]
-                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"you can pay partly through the redemption of Mandiri Reward Point through your credit card"]
+                                                          message:[VTClassHelper getTranslationFromAppBundleForString:@"You can pay partly through the redemption of Mandiri Fiestpoin through your Mandiri credit / debit card"]
                                                           image:nil
                                                           delegate:nil
                                                           cancelButtonTitle:nil

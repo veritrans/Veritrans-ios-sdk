@@ -70,6 +70,7 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
 @optional
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCard:(MidtransMaskedCreditCard *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController saveCardFailed:(NSError *)error;
+@required
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result;
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result;

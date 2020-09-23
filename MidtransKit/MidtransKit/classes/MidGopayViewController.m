@@ -227,11 +227,7 @@
                 gopayDetailVC.result = result;
                 [self.navigationController pushViewController:gopayDetailVC animated:YES];
             } else {
-                NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-                
-                payResult = result;
-                
+                payResult = result;                
                 [self openGojekAppWithResult:result];
             }
             

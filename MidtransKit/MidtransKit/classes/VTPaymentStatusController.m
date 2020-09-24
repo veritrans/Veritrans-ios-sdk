@@ -10,6 +10,7 @@
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
 #import "MidtransUIThemeManager.h"
+#import "MIdtransUIBorderedView.h"
 
 typedef NS_ENUM(NSUInteger, SNPStatusType) {
     SNPStatusTypeSuccess = 1,
@@ -24,8 +25,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dueInstallmentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentTypeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dueInstallmentConstraint;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *dueInstallmentBorderView;
 
 @property (nonatomic) MidtransTransactionResult *result;
 @property (nonatomic) NSError *error;
@@ -115,13 +119,20 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         [additionalData addEntriesFromDictionary:@{@"installment available": available,
                                                    @"installment required": required}];
     }
+    [self.dueInstallmentConstraint setConstant:0];
+    [self.dueInstallmentBorderView setHidden:YES];
+    NSString *installmentTerm = self.result.additionalData[@"installment_term"];
+    if (installmentTerm) {
+        self.dueInstallmentLabel.text = installmentTerm;
+        [self.dueInstallmentBorderView setHidden:NO];
+        [self.dueInstallmentConstraint setConstant:45];
+    }
     MidtransTransactionDetails *trxDetail = self.token.transactionDetails;
     switch (self.statusType) {
         case SNPStatusTypeError: {
             [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
             self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
             self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
-            
             self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
             self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
             self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment can't be processed"];

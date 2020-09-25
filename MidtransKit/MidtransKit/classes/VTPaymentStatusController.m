@@ -121,9 +121,9 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     }
     [self.dueInstallmentConstraint setConstant:0];
     [self.dueInstallmentBorderView setHidden:YES];
-    NSString *installmentTerm = self.result.additionalData[@"installment_term"];
+    NSNumber *installmentTerm = self.result.additionalData[@"installment_term"];
     if (installmentTerm) {
-        self.dueInstallmentLabel.text = installmentTerm;
+        self.dueInstallmentLabel.text = [NSString stringWithFormat:@"%@", installmentTerm];
         [self.dueInstallmentBorderView setHidden:NO];
         [self.dueInstallmentConstraint setConstant:45];
     }

@@ -89,10 +89,11 @@
     }
 }
 - (void)dismissButtonDidTapped:(id)sender {
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
     sleep(2);
     if (self.dismissButton) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+        }];
     }
 }
 - (void)viewDidLoad {
@@ -105,7 +106,7 @@
                    andMessage:(NSString *)message
                andButtonTitle:(NSString *)buttonTitle {
     
-   UIAlertController *alert = [UIAlertController
+    UIAlertController *alert = [UIAlertController
                                 alertControllerWithTitle:title
                                 message:message
                                 preferredStyle:UIAlertControllerStyleAlert];
@@ -162,14 +163,16 @@
 
 - (void)handleTransactionError:(NSError *)error {
     if (UICONFIG.hideStatusPage) {
-        [self dismissDemoBadge];
-        NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
-        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED
-                                                            object:nil
-                                                          userInfo:userInfo];
+        
         
         [self.navigationController dismissViewControllerAnimated:YES
-                                                      completion:nil];
+                                                      completion:^{
+            [self dismissDemoBadge];
+            NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED
+                                                                object:nil
+                                                              userInfo:userInfo];
+        }];
         return;
     }
     
@@ -184,10 +187,11 @@
 
 - (void)handleTransactionResult:(MidtransTransactionResult *)result {
     if (UICONFIG.hideStatusPage) {
-        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-        [self dismissDemoBadge];
-        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+            [self dismissDemoBadge];
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+        }];
         return;
     }
     
@@ -197,39 +201,50 @@
     }
 }
 - (void)handleTransactionPending:(MidtransTransactionResult *)result {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-    [self dismissDemoBadge];
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        [self dismissDemoBadge];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    }];
+}
+- (void)handleTransactionDeny:(MidtransTransactionResult *)result {
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        [self dismissDemoBadge];
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_DENY object:nil userInfo:userInfo];
+    }];
 }
 - (void)handleSaveCardSuccess:(MidtransMaskedCreditCard *)result {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-    [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_SUCCESS object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+        [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_SUCCESS object:nil userInfo:userInfo];
+    }];
     return;
 }
 - (void)handleSaveCardError:(NSError *)error {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:error};
-    [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_FAILED object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:error};
+        [[NSNotificationCenter defaultCenter] postNotificationName:SAVE_CARD_FAILED object:nil userInfo:userInfo];
+    }];
     return;
 }
 - (void)handleTransactionSuccess:(MidtransTransactionResult *)result {
     
     if (UICONFIG.hideStatusPage) {
         [self dismissDemoBadge];
-        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
-        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+        [self.navigationController dismissViewControllerAnimated:YES completion:^{
+            NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
+            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
+        }];
         return;
     }
     
     UIViewController *vc;
     if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY]) {
-        NSError *error = [[NSError alloc] initWithDomain:MIDTRANS_ERROR_DOMAIN
-                                                    code:result.statusCode
-                                                userInfo:@{NSLocalizedDescriptionKey:result.statusMessage}];
-        vc = [VTPaymentStatusController errorTransactionWithError:error token:self.token paymentMethod:self.paymentMethod];
+        vc = [VTPaymentStatusController denyTransactionWithResult:result
+                                                            token:self.token
+                                                    paymentMethod:self.paymentMethod];
+        
     }
     else {
         id paymentID = self.paymentMethod.internalBaseClassIdentifier;

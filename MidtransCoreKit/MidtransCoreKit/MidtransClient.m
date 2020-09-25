@@ -132,23 +132,8 @@ NSString *const REGISTER_CARD_URL = @"card/register";
            
             if (completion) completion(nil, error);
         } else {
-            NSString *redirectURL = response[@"redirect_url"];
             NSString *token = response[@"token_id"];
-            if (redirectURL) {
-              
-                Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:token
-                                                                                             secureURL:[NSURL URLWithString:redirectURL]];
-                [secureController showWithCompletion:^(NSError *error) {
-                    if (error) {
-                        if (completion) completion(nil, error);
-                    } else {
-                        if (completion) completion(token, error);
-                    }
-                }];
-            } else {
-                
-                if (completion) completion(token, nil);
-            }
+            if (completion) completion(token, nil);
         }
     }];
 }

@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *totalAmountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pricePerItemLabel;
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
+@property (weak, nonatomic) IBOutlet UITextField *snaptokenTextField;
 @property (strong, nonatomic) NSNumber *totalAmount;
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
@@ -37,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalAmount = @(1);
+    self.totalAmount = @(100000);
     NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
@@ -69,8 +70,8 @@
             merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
             break;
         default:
-            clientkey = @"SB-Mid-client-zt7XrRxPQXZNvuBY";
-            merchantServer = @"https://charmenzy-mid-mobile-sandbox.herokuapp.com/";
+            clientkey = @"VT-client-yrHf-c8Sxr-ck8tx";
+            merchantServer = @"https://promo-engine-sample-server.herokuapp.com/";
             break;
     }
     [CONFIG setClientKey:clientkey
@@ -84,7 +85,7 @@
     CC_CONFIG.predefinedInstallment = [MDOptionManager shared].installmentOption.value;
     CC_CONFIG.preauthEnabled = [[MDOptionManager shared].preauthOption.value boolValue];
     CC_CONFIG.promoEnabled = [[MDOptionManager shared].promoOption.value boolValue];
-    //CC_CONFIG.showFormCredentialsUser = YES;
+    CC_CONFIG.showFormCredentialsUser = YES;
     
     /*set custom free text for bca*/
     NSDictionary *inquiryConstructor=@{@"en":@"inquiry text in English",@"id":@"inquiry Text in ID"};
@@ -123,10 +124,10 @@
                                                        postalCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_POSTAL_CODE"]
                                                       countryCode:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_COUNTRY"]];
     
-    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_FIRST_NAME"]
-                                                                             lastName:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_LAST_NAME"]
-                                                                                email:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_EMAIL"]
-                                                                                phone:[[NSUserDefaults standardUserDefaults] objectForKey:@"USER_DEMO_CONTENT_PHONE"]
+    MidtransCustomerDetails *cst = [[MidtransCustomerDetails alloc] initWithFirstName:self.userNameTextField.text
+                                                                             lastName:nil
+                                                                                email:self.emailTextField.text
+                                                                                phone:self.phoneNumberTextfield.text
                                                                       shippingAddress:addr
                                                                        billingAddress:addr];
     cst.customerIdentifier = @"3A8788CE-B96F-449C-8180-B5901A08B50A";
@@ -190,7 +191,7 @@
     if (value[2]) {
         [arrayOfCustomField addObject:@{MIDTRANS_CUSTOMFIELD_3:value[2]}];
     }
-
+    
     [[MidtransMerchantClient shared] requestTransactionTokenWithTransactionDetails:trx
                                                                        itemDetails:@[itm]
                                                                    customerDetails:cst
@@ -201,29 +202,29 @@
                                                                         completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error)
      
      {
-         if (error) {
-             
-             UIAlertController *alert = [UIAlertController
-                                                alertControllerWithTitle:@"Error"
-                                                message:error.localizedDescription
-                                                preferredStyle:UIAlertControllerStyleAlert];
-                    UIAlertAction *okButton = [UIAlertAction
-                                               actionWithTitle:@"Close"
-                                               style:UIAlertActionStyleDefault
-                                               handler:nil];
-                    [alert addAction:okButton];
-                    [self presentViewController:alert animated:YES completion:nil];
-         }
-         else {
-             
-             MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-             paymentVC.paymentDelegate = self;
-             [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
-         }
-         
-         //hide hud
-         [self.progressHUD dismissAnimated:YES];
-     }];
+        if (error) {
+            
+            UIAlertController *alert = [UIAlertController
+                                        alertControllerWithTitle:@"Error"
+                                        message:error.localizedDescription
+                                        preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *okButton = [UIAlertAction
+                                       actionWithTitle:@"Close"
+                                       style:UIAlertActionStyleDefault
+                                       handler:nil];
+            [alert addAction:okButton];
+            [self presentViewController:alert animated:YES completion:nil];
+        }
+        else {
+            
+            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            paymentVC.paymentDelegate = self;
+            [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+        }
+        
+        //hide hud
+        [self.progressHUD dismissAnimated:YES];
+    }];
 }
 
 #pragma mark - MidtransUIPaymentViewControllerDelegate
@@ -256,21 +257,96 @@
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentSuccess:(MidtransTransactionResult *)result {
     NSLog(@"[MIDTRANS] success %@", result);
+    
+    [self showAlertWithResult:result];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentPending:(MidtransTransactionResult *)result {
     NSLog(@"[MIDTRANS] pending %@", result);
+    [self showAlertWithResult:result];
 }
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentFailed:(NSError *)error {
     NSLog(@"[MIDTRANS] error %@", error);
+    [self showAlertWithError:error];
 }
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"[MIDTRANS] canceled");
+    [self showAlertCancelled];
+}
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result{
+    NSLog(@"[MIDTRANS] Deny %@", result);
+    [self showAlertWithResult:result];
+}
+
+- (void)showAlertWithResult:(MidtransTransactionResult *)result {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:[NSString stringWithFormat:@"Payment using %@", result.paymentType]
+                                message:[NSString stringWithFormat:@"Transaction id %@ status is %@", result.transactionId, result.transactionStatus]
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Close"
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+- (void)showAlertWithError:(NSError *)error {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"Error"
+                                message:[NSString stringWithFormat:@"Transaction error : %@", error.localizedFailureReason]
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Close"
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+- (void)showAlertCancelled {
+    UIAlertController *alert = [UIAlertController
+                                alertControllerWithTitle:@"Transaction Cancelled"
+                                message:@"Transaction is cancelled by user"
+                                preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *cancelButton = [UIAlertAction
+                                   actionWithTitle:@"Close"
+                                   style:UIAlertActionStyleDefault
+                                   handler:nil];
+    [alert addAction:cancelButton];
+    [self presentViewController:alert animated:YES completion:nil];
+    
 }
 
 - (IBAction)editAddressViewController:(id)sender {
     AddAddressViewController *addAddressVC = [[AddAddressViewController alloc] initWithNibName:@"AddAddressViewController" bundle:nil];
     [self.navigationController pushViewController:addAddressVC animated:YES];
 }
+- (IBAction)payWithSnapPressed:(id)sender {
+    if (!self.snaptokenTextField.text.SNPisEmpty)
+    [[MidtransMerchantClient shared]requestTransacationWithCurrentToken:self.snaptokenTextField.text completion:^(MidtransTransactionTokenResponse * _Nullable token, NSError * _Nullable error) {
+            if (error) {
+                UIAlertController *alert = [UIAlertController
+                                            alertControllerWithTitle:@"Error"
+                                            message:error.localizedDescription
+                                            preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertAction *okButton = [UIAlertAction
+                                           actionWithTitle:@"Close"
+                                           style:UIAlertActionStyleDefault
+                                           handler:nil];
+                [alert addAction:okButton];
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            else {
+                
+                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                paymentVC.paymentDelegate = self;
+                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+            }
+            //hide hud
+            [self.progressHUD dismissAnimated:YES];
+        }];
+}
+
 
 - (NSString *)formattedISOCurrencyNumber:(NSNumber *)number {
     NSNumberFormatter *currencyFormatter = [NSNumberFormatter multiCurrencyFormatter:CONFIG.currency];

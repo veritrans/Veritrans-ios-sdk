@@ -29,6 +29,7 @@
 -(void)handleTransactionError:(NSError *)error;
 -(void)handleTransactionSuccess:(MidtransTransactionResult *)result;
 -(void)handleTransactionPending:(MidtransTransactionResult *)result;
+-(void)handleTransactionDeny:(MidtransTransactionResult *)result;
 -(void)handleTransactionResult:(MidtransTransactionResult *)result;
 -(void)showGuideViewController;
 -(void)showToastInviewWithMessage:(NSString *)message;

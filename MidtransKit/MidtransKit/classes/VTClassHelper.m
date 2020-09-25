@@ -172,7 +172,11 @@
         return [VTClassHelper getTranslationFromAppBundleForString:self.localizedDescription];
     }
     else {
-        return [VTClassHelper getTranslationFromAppBundleForString:@"error_others"];
+        if (self.localizedFailureReason) {
+            return self.localizedFailureReason;
+        } else {
+            return [VTClassHelper getTranslationFromAppBundleForString:@"error_others"];
+        }
     }
 }
 @end

@@ -10,11 +10,13 @@
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
 #import "MidtransUIThemeManager.h"
+#import "MIdtransUIBorderedView.h"
 
 typedef NS_ENUM(NSUInteger, SNPStatusType) {
     SNPStatusTypeSuccess = 1,
     SNPStatusTypeError = 2,
-    SNPStatusTypePending = 3
+    SNPStatusTypePending = 3,
+    SNPStatusTypeDeny = 4
 };
 
 @interface VTPaymentStatusController ()
@@ -23,8 +25,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *amountLabel;
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dueInstallmentLabel;
 @property (weak, nonatomic) IBOutlet UILabel *paymentTypeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *dueInstallmentConstraint;
+@property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *dueInstallmentBorderView;
 
 @property (nonatomic) MidtransTransactionResult *result;
 @property (nonatomic) NSError *error;
@@ -72,6 +77,14 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     return vc;
 }
 
++ (instancetype)denyTransactionWithResult:(MidtransTransactionResult *)result token:(MidtransTransactionTokenResponse *)token paymentMethod:(MidtransPaymentListModel *)paymentMethod{
+    VTPaymentStatusController *vc = [[VTPaymentStatusController alloc] initWithNibName:NSStringFromClass([VTPaymentStatusController class]) bundle:VTBundle];
+    vc.statusType = SNPStatusTypeDeny;
+    vc.result = result;
+    vc.token = token;
+    vc.paymentMethod = paymentMethod;
+    return vc;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -82,9 +95,9 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     bar.shadowImage = [UIImage new];
     bar.translucent = YES;
     bar.titleTextAttributes = @{
-                                NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
-                                NSForegroundColorAttributeName:[UIColor whiteColor]
-                                };
+        NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
+        NSForegroundColorAttributeName:[UIColor whiteColor]
+    };
     NSMutableDictionary * additionalData = [[NSMutableDictionary alloc] init];
     if (self.result.transactionId) {
         [additionalData addEntriesFromDictionary:@{@"transaction id": self.result.transactionId}];
@@ -106,45 +119,63 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         [additionalData addEntriesFromDictionary:@{@"installment available": available,
                                                    @"installment required": required}];
     }
+    [self.dueInstallmentConstraint setConstant:0];
+    [self.dueInstallmentBorderView setHidden:YES];
+    NSNumber *installmentTerm = self.result.additionalData[@"installment_term"];
+    if (installmentTerm) {
+        self.dueInstallmentLabel.text = [NSString stringWithFormat:@"%@", installmentTerm];
+        [self.dueInstallmentBorderView setHidden:NO];
+        [self.dueInstallmentConstraint setConstant:45];
+    }
     MidtransTransactionDetails *trxDetail = self.token.transactionDetails;
     switch (self.statusType) {
-            case SNPStatusTypeError: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
-                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
-                self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
-                
-                self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
-                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment can't be processed"];
-                
-                [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(212, 56, 92)]];
-                break;
-            }
+        case SNPStatusTypeError: {
+            [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
+            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
+            self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
+            self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
+            self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment can't be processed"];
             
-            case SNPStatusTypeSuccess: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
-                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
-                self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
-                
-                self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
-                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment has been processed"];
-                
-                [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(139, 197, 63)]];
-                break;
-            }
+            [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(212, 56, 92)]];
+            break;
+        }
             
-            case SNPStatusTypePending: {
-                [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
-                self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
-                self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
-                self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
-                self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
-                self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment to proceed"];
-                
-                [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(250, 175, 63)]];
-                break;
-            }
+        case SNPStatusTypeSuccess: {
+            [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
+            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
+            self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
+            
+            self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
+            self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Your payment has been processed"];
+            
+            [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(139, 197, 63)]];
+            break;
+        }
+            
+        case SNPStatusTypePending: {
+            [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
+            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
+            self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
+            self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
+            self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment to proceed"];
+            
+            [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(250, 175, 63)]];
+            break;
+        }
+        case SNPStatusTypeDeny: {
+            [[SNPUITrackingManager shared] trackEventName:@"pg deny" additionalParameters:additionalData];
+            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
+            self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
+            self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
+            self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"message.payment.deny"];
+            
+            [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(212, 56, 92)]];
+            break;
+        }
     }
     
     self.orderIdLabel.text = trxDetail.orderId;
@@ -171,23 +202,36 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
 
 - (IBAction)finishPressed:(UIButton *)sender {
     switch (self.statusType) {
-            case SNPStatusTypeError: {
+        case SNPStatusTypeError: {
+            
+            [self dismissViewControllerAnimated:YES completion:^{
                 NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:self.error};
                 [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
-                break;
-            }
-            case SNPStatusTypeSuccess: {
+            }];
+            break;
+        }
+        case SNPStatusTypeSuccess: {
+            [self dismissViewControllerAnimated:YES completion:^{
                 NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
                 [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
-                break;
-            }
-            case SNPStatusTypePending: {
+            }];
+            break;
+        }
+        case SNPStatusTypePending: {
+            [self dismissViewControllerAnimated:YES completion:^{
                 NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
                 [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-                break;
-            }
+            }];
+            break;
+        }
+        case SNPStatusTypeDeny: {
+            [self dismissViewControllerAnimated:YES completion:^{
+                NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_DENY object:nil userInfo:userInfo];
+            }];
+            break;
+        }
     }
-    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -30,7 +30,7 @@
 @dynamic view;
 - (void)viewDidLoad {
     [super viewDidLoad];
-        self.title = [self.paymentMethod.title capitalizedString];
+    self.title = [self.paymentMethod.title capitalizedString];
     [self.navigationItem setHidesBackButton:YES];
     [self showBackButton:NO];
     self.view.tableView.estimatedRowHeight = 60;
@@ -59,7 +59,7 @@
         self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentGeneralHeader"];
     }
     
-     self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
+    self.headerView.expiredTimeLabel.text = [NSString stringWithFormat:@"%@ %@",[VTClassHelper getTranslationFromAppBundleForString:@"Please complete payment before: %@"],expireDate];
     [self.headerView updateFocusIfNeeded];
     self.view.tableView.tableHeaderView = self.headerView;
     self.headerView.vaTextField.text = self.transactionResult.indomaretPaymentCode;
@@ -72,7 +72,7 @@
     }
     self.instrunctions = [VTClassHelper instructionsFromFilePath:guidePath];
     
-     self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.totalAmountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
     [self.headerView.vaCopyButton addTarget:self action:@selector(copyButtonDidTapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.view.tableView reloadData];
@@ -104,16 +104,16 @@
             return 138.0f;
         }
         else {
-        static VTGuideCell *cell = nil;
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            cell = [self.view.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
-        });
+            static VTGuideCell *cell = nil;
+            static dispatch_once_t onceToken;
+            dispatch_once(&onceToken, ^{
+                cell = [self.view.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
+            });
             if(indexPath.row %2 ==0) {
-                 cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+                cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
             }
-        [cell setInstruction:self.instrunctions[indexPath.row] number:indexPath.row+1];
-        return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+            [cell setInstruction:self.instrunctions[indexPath.row] number:indexPath.row+1];
+            return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
     }
 }
@@ -128,10 +128,10 @@
     [MidtransUIToast createToast:[VTClassHelper getTranslationFromAppBundleForString:@"toast.copy-text"] duration:1.5 containerView:self.view];
 }
 - (IBAction)finishPaymentDidtapped:(id)sender {
-    NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
-    [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.transactionResult};
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
+    }];
 }
 
 

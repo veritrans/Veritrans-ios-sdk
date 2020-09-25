@@ -20,5 +20,8 @@
 + (instancetype)pendingTransactionWithResult:(MidtransTransactionResult *)result
                                        token:(MidtransTransactionTokenResponse *)token
                                paymentMethod:(MidtransPaymentListModel *)paymentMethod;
++ (instancetype)denyTransactionWithResult:(MidtransTransactionResult *)result
+                                    token:(MidtransTransactionTokenResponse *)token
+                            paymentMethod:(MidtransPaymentListModel *)paymentMethod;
 
 @end

@@ -169,11 +169,16 @@
 
 - (void)getFromURL:(NSString *)URL
             header:(NSDictionary *)header
-        parameters:(NSDictionary *)parameters
+        parameters:(NSDictionary *_Nullable)parameters
           callback:(void(^)(id response, NSError *error))callback
 {
     NSString *params = [parameters queryStringValue];
-    NSURL *requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
+    NSURL *requestURL;
+    if (parameters) {
+        requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@?%@", URL, params]];
+    } else {
+        requestURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", URL]];
+    }
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:[CONFIG timeoutInterval]];
@@ -201,7 +206,7 @@
 }
 
 - (void)getFromURL:(NSString *)URL
-        parameters:(NSDictionary *)parameters
+        parameters:(NSDictionary *_Nullable)parameters
           callback:(void(^)(id response, NSError *error))callback
 {
     [self getFromURL:URL header:nil parameters:parameters callback:callback];

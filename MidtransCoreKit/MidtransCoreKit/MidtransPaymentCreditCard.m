@@ -126,7 +126,10 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
         [parameters setObject:@(self.saveCard) forKey:@"save_card"];
     }
     if (self.point) {
-         [parameters setObject:self.point forKey:@"point"];
+        [parameters setObject:[NSNumber numberWithInt:self.point.intValue] forKey:@"point"];
+    }
+    if (self.bank) {
+        [parameters setObject:self.bank forKey:@"bank"];
     }
     if (self.installment) {
         [parameters setObject:self.installment forKey:@"installment"];

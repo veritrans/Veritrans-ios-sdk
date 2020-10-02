@@ -71,7 +71,7 @@
     
     UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
-        UIView *titleViewWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 50)];
+        UIView *titleViewWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
         
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:titleViewWrapper.frame];
         [imgView setImage:[MidtransImageManager merchantLogo]];

@@ -73,6 +73,7 @@ MidtransCommonTSCViewControllerDelegate
 @property (nonatomic,strong) NSNumber *currentPromoIndex;
 @property (nonatomic,strong) NSNumber *prevPromoIndex;
 @property (nonatomic,strong) AddOnConstructor *selectedPromos;
+@property (nonatomic,strong) NSNumber *totalGrossAmount;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -609,9 +610,9 @@ MidtransCommonTSCViewControllerDelegate
 - (void)updateAmountTotal:(AddOnConstructor *)constructor{
     if (constructor){
         NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [constructor.addOnDescriptions integerValue];
-        NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+        self.totalGrossAmount  = [NSNumber numberWithInteger:totalOrder];
         self.selectedPromos = constructor;
-        self.view.totalAmountPrice.text =castingNumber.formattedCurrencyNumber;
+        self.view.totalAmountPrice.text = self.totalGrossAmount.formattedCurrencyNumber;
     } else {
         self.view.totalAmountPrice.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     }
@@ -982,30 +983,26 @@ MidtransCommonTSCViewControllerDelegate
         
         if (self.selectedPromos){
             NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
-            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
-            tokenRequest = [[MidtransTokenizeRequest alloc]initWithCreditCardToken:self.maskedCreditCard.savedTokenId cvv:self.view.cardCVVNumberTextField.text grossAmount:castingNumber secure:self.responsePayment.creditCard.secure paymentTokenType:self.tokenType];
+            self.totalGrossAmount = [NSNumber numberWithInteger:totalOrder];
+            tokenRequest = [[MidtransTokenizeRequest alloc]initWithCreditCardToken:self.maskedCreditCard.savedTokenId cvv:self.view.cardCVVNumberTextField.text grossAmount:self.totalGrossAmount secure:self.responsePayment.creditCard.secure paymentTokenType:self.tokenType];
         } else {
             tokenRequest = [[MidtransTokenizeRequest alloc]initWithCreditCardToken:self.maskedCreditCard.savedTokenId cvv:self.view.cardCVVNumberTextField.text grossAmount:self.token.transactionDetails.grossAmount secure:self.responsePayment.creditCard.secure paymentTokenType:self.tokenType];
         }
-        
-        
     }
     else {
         
         if (self.selectedPromos){
             NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
-            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+            self.totalGrossAmount  = [NSNumber numberWithInteger:totalOrder];
             tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
-                                                                   grossAmount:castingNumber];
+                                                                   grossAmount:self.totalGrossAmount];
         } else {
             tokenRequest = [[MidtransTokenizeRequest alloc] initWithCreditCard:creditCard
                                                                    grossAmount:self.token.transactionDetails.grossAmount];
         }
         
     }
-    
-    [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-    
+        
     if (self.installmentTerms && self.installmentCurrentIndex !=0) {
         NSInteger installment = [self.installment.terms[self.installmentBankName][self.installmentCurrentIndex-1] integerValue];
         tokenRequest.installment = YES;

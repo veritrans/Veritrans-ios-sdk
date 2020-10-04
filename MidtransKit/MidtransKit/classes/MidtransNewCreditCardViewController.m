@@ -394,20 +394,19 @@ MidtransCommonTSCViewControllerDelegate
         if ([payAddOn.addOnName isEqualToString:SNP_CORE_CREDIT_CARD_SAVE]) {
             cell.checkButton.selected = self.isSaveCard;
             return cell;
-        }
-        else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
+        } else if ([payAddOn.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
             cell.checkButton.selected = self.bniPointActive;
-        }
-        else if(indexPath.row == [self.currentPromoIndex integerValue]){
-            cell.checkButton.selected = !cell.checkButton.selected;
-        }
-        else if ([payAddOn.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
+            return cell;
+        } else if ([payAddOn.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
             cell.checkButton.selected = self.mandiriPointActive;
+            return cell;
+        } else {
+            if(indexPath.row == [self.currentPromoIndex integerValue]){
+                cell.checkButton.selected = !cell.checkButton.selected;
+            }
+            return cell;
         }
-        
-        
-        return cell;
-    }  else {
+    } else {
         AddOnConstructor *payAddOn = [self.promoArray objectAtIndex:indexPath.row];
         AddOnConstructor *payAddOnCurrent;
         if (self.currentPromoIndex!=nil) {

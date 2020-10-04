@@ -1219,6 +1219,25 @@ MidtransCommonTSCViewControllerDelegate
 
 -(void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
+    if (self.installmentCurrentIndex != 0) {
+        [self showMandiriPoint:NO];
+    } else {
+        [self showMandiriPoint:YES];
+    }
+}
+
+- (void)showMandiriPoint:(BOOL)show {
+    if (show) {
+        if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+            [self.addOnArray addObject:self.constructMandiriPoint];
+            [self updateAddOnContent];
+        }
+    } else {
+        if ([self.addOnArray containsObject:self.constructMandiriPoint]) {
+            [self.addOnArray removeObject:self.constructMandiriPoint];
+            [self updateAddOnContent];
+        }
+    }
 }
 
 #pragma mark - observer

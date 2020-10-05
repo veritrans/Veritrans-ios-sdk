@@ -38,7 +38,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalAmount = @(100000);
+    self.totalAmount = @(150000);
     NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
@@ -70,8 +70,8 @@
             merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
             break;
         default:
-            clientkey = @"VT-client-yrHf-c8Sxr-ck8tx";
-            merchantServer = @"https://promo-engine-sample-server.herokuapp.com/";
+            clientkey = @"SB-Mid-client-hOWJXiCCDRvT0RGr";
+            merchantServer = @"https://fiesta-point-sample.herokuapp.com/";
             break;
     }
     [CONFIG setClientKey:clientkey

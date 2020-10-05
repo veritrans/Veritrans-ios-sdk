@@ -1220,9 +1220,17 @@ MidtransCommonTSCViewControllerDelegate
 -(void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
     if (self.installmentCurrentIndex != 0) {
-        [self showMandiriPoint:NO];
+        if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_BNI]){
+             [self showBNIPoint:NO];
+        } else{
+            [self showMandiriPoint:NO];
+        }
     } else {
-        [self showMandiriPoint:YES];
+        if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_BNI]){
+            [self showBNIPoint:YES];
+        } else {
+            [self showMandiriPoint:YES];
+        }
     }
 }
 

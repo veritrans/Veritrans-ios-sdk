@@ -17,7 +17,7 @@
 @property (nonatomic, nullable) NSArray <MidtransMaskedCreditCard *>*currentMaskedCards;
 -(instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nullable)token
                         paymentMethod:(MidtransPaymentListModel *_Nullable)paymentMethod
-                        tokenizedRequst:(MidtransTokenizeRequest* _Nonnull)tokenizedRequest
+                      tokenizedRequst:(MidtransTokenizeRequest* _Nonnull)tokenizedRequest
                             savedCard:(BOOL)savedCard
          andCompleteResponseOfPayment:(MidtransPaymentRequestV2Response * _Nonnull)responsePayment;
 

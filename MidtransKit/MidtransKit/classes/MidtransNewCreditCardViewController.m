@@ -599,10 +599,21 @@ MidtransCommonTSCViewControllerDelegate
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_MANDIRI_POINT]) {
         self.mandiriPointActive = !sender.selected;
+        if (self.mandiriPointActive) {
+            [self showInstallmentView:NO];
+        } else {
+            [self showInstallmentView:YES];
+        }
         [self.view.addOnTableView reloadData];
     }
     else if ([constructor.addOnName isEqualToString:SNP_CORE_BNI_POINT]) {
-        [self openCommonTSCWithBank:SNP_CORE_BNI_POINT];
+        self.bniPointActive = !sender.selected;
+        if (self.bniPointActive) {
+            [self openCommonTSCWithBank:SNP_CORE_BNI_POINT];
+            [self showInstallmentView:NO];
+        } else {
+            [self showInstallmentView:YES];
+        }
         [self.view.addOnTableView reloadData];
     }
     

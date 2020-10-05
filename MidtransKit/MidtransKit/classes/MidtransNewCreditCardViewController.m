@@ -706,7 +706,7 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
-- (void) validateCreditCardDataForm {
+- (BOOL) isValidCreditCardDataForm {
     NSError *error;
     if ([self.view.creditCardNumberTextField.text SNPisEmpty]){
         [self.view.creditCardNumberTextField.text isValidCreditCardNumber:&error];
@@ -719,7 +719,9 @@ MidtransCommonTSCViewControllerDelegate
     }
     if (error) {
         [self.view isViewableError:error];
-        return;
+        return NO;
+    } else {
+        return YES;
     }
 }
 
@@ -899,8 +901,10 @@ MidtransCommonTSCViewControllerDelegate
 }
 
 - (IBAction)submitPaymentDidtapped:(id)sender {
-    
-    [self validateCreditCardDataForm];
+    if (![self isValidCreditCardDataForm]) {
+        return;
+    } else {
+ 
     if (self.saveCreditCardOnly) {
         NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
         NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];

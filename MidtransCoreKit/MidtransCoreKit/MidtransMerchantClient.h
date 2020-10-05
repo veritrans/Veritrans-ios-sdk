@@ -71,6 +71,7 @@
 
 - (void)requestCustomerPointWithToken:(NSString * _Nonnull )token
                    andCreditCardToken:(NSString *_Nonnull)creditCardToken
+                          grossAmount:(NSNumber * _Nonnull)grossAmount
                            completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion;
 
 - (void)requestTransactionTokenWithTransactionDetails:(nonnull MidtransTransactionDetails *)transactionDetails

@@ -16,14 +16,14 @@
 #import "MIdtransUIBorderedView.h"
 #import "MidtransUIThemeManager.h"
 
-@interface SNPPointViewController ()<UITextFieldDelegate>
+@interface SNPPointViewController ()<UITextFieldDelegate, Midtrans3DSControllerDelegate>
 @property (strong, nonatomic) IBOutlet SNPPointView *view;
 @property (nonatomic,strong) NSString *creditCardToken;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic,strong)SNPPointResponse *pointResponse;
 @property (nonatomic) NSInteger attemptRetry;
 @property (nonatomic) BOOL savedCard;
-@property (nonatomic,strong) MidtransPaymentCreditCard *transaction;
+@property (nonatomic,strong) MidtransTransaction *transaction;
 @property (nonatomic,strong) NSMutableArray *pointRedeem;
 @property (nonatomic,strong) NSString *point;
 @property (nonatomic) NSInteger currentPoint;
@@ -45,9 +45,9 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-     self.point = @"0";
+    self.point = @"0";
     self.currentPoint = 0;
-     self.view.pointBankImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_badge",self.bankName] inBundle:VTBundle compatibleWithTraitCollection:nil];
+    self.view.pointBankImage.image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_badge",self.bankName] inBundle:VTBundle compatibleWithTraitCollection:nil];
     self.view.pointBankImage.contentMode = UIViewContentModeScaleAspectFit;
     if (self.currentMaskedCards) {
         self.maskedCards = [NSMutableArray arrayWithArray:self.currentMaskedCards];
@@ -76,11 +76,12 @@
         self.view.pointInputTextField.hidden = YES;
     }
     self.pointRedeem = [NSMutableArray new];
-    [self.view configureAmountTotal:self.token];
+    [self.view configureAmountTotal:self.totalGrossAmount];
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Calculating your Point"]];
-
+    
     [[MidtransMerchantClient shared] requestCustomerPointWithToken:self.token.tokenId
                                                 andCreditCardToken:self.creditCardToken
+                                                       grossAmount:self.token.transactionDetails.grossAmount
                                                         completion:^(SNPPointResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
             self.currentPoint = [response.pointBalanceAmount intValue];
@@ -89,15 +90,28 @@
             if ([self.bankName isEqualToString:SNP_CORE_BANK_BNI]) {
                 self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Your total BNI Reward Points is %i"],[response.pointBalanceAmount intValue]];
                 self.view.topTextfield.hidden = YES;
-               
+                
             } else {
-                 self.view.topTextfield.hidden = NO;
+                self.view.topTextfield.hidden = NO;
                 self.view.pointTotalTtitle.text = [NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"Current fiesta point %i"],[response.pointBalanceAmount intValue]];
                 self.view.topTextfield.text = [NSNumber numberWithInteger:0 - [response.pointBalanceAmount integerValue]].formattedCurrencyNumber;
             }
-           
+            
             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[self.pointResponse.pointBalanceAmount intValue]]];
             [self hideLoading];
+        } else {
+            [self hideLoading];
+            UIAlertController *alert = [UIAlertController
+                                        alertControllerWithTitle:@"ERROR"
+                                        message:error.localizedDescription
+                                        preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelButton = [UIAlertAction
+                                           actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                           style:UIAlertActionStyleDefault
+                                           handler:nil];
+            [alert addAction:cancelButton];
+            [self presentViewController:alert animated:YES completion:nil];
+            return;
         }
     }];
     [self.view.totalAmountBorderedView addGestureRecognizer:
@@ -116,7 +130,7 @@
     
     if ([textField isEqual:self.view.pointInputTextField]) {
         return  [self updatePoint:[textField.text stringByReplacingCharactersInRange:range withString:string]];
-
+        
     }
     else {
         return YES;
@@ -124,7 +138,7 @@
 }
 - (BOOL)updatePoint:(NSString *)amount{
     if ([amount integerValue]  <= [self.pointResponse.pointBalanceAmount intValue]) {
-        NSInteger grossAmount = [self.token.transactionDetails.grossAmount intValue] - [amount integerValue];
+        NSInteger grossAmount = [self.totalGrossAmount intValue] - [amount integerValue];
         self.point = [NSString stringWithFormat:@"%ld",(long)[amount integerValue]];
         self.currentPoint =[amount integerValue];
         self.view.finalAmountTextField.text = [NSNumber numberWithInteger:grossAmount].formattedCurrencyNumber;
@@ -144,35 +158,11 @@
 }
 - (IBAction)submitPaymentWithToken:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-    if (self.redirectURL.length) {
-        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
-                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
-        [secureController showWithCompletion:^(NSError *error) {
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self executeTransaction:NO];
-            }
-        }];
-    } else {
-        [self executeTransaction:NO];
-    }
+    [self executeTransaction:NO];
 }
 - (IBAction)payWithoutPointButton:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-    if (self.redirectURL.length) {
-        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
-                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
-        [secureController showWithCompletion:^(NSError *error) {
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self executeTransaction:YES];
-            }
-        }];
-    } else {
-        [self executeTransaction:YES];
-    }
+    [self executeTransaction:YES];
 }
 - (void)executeTransaction:(BOOL)withoutPoint {
     if (withoutPoint) {
@@ -182,66 +172,112 @@
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard
                                                                                    point:self.point];
-    MidtransTransaction *transaction = [[MidtransTransaction alloc]
-                                        initWithPaymentDetails:paymentDetail
-                                        token:self.token];
-    [[MidtransMerchantClient shared] performTransaction:transaction
+    paymentDetail.promos = self.paymentDetails.promos;
+    paymentDetail.bank = self.bankName;
+    
+    self.transaction = [[MidtransTransaction alloc]
+                        initWithPaymentDetails:paymentDetail
+                        token:self.token];
+    
+    [[MidtransMerchantClient shared] performTransaction:self.transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error)
      {
-         [self hideLoading];
-         if (error) {
+        [self hideLoading];
+        if (error) {
+            
+            
+            UIAlertController *alertController = [UIAlertController
+                                                  alertControllerWithTitle:@"ERROR"
+                                                  message:error.localizedDescription
+                                                  preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction *okAction = [UIAlertAction
+                                       actionWithTitle:NSLocalizedString(@"OK", @"OK action")
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction *action)
+                                       {
+                
+                [self.navigationController popViewControllerAnimated:YES];
+                
+            }];
+            
+            [alertController addAction:okAction];
+            [self presentViewController:alertController animated:YES completion:nil];
+        }
+        else {
+            if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
+                [self.maskedCards addObject:result.maskedCreditCard];
+                [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
+                                                        customer:self.token.customerDetails
+                                                      completion:^(id  _Nullable result, NSError * _Nullable error) {
+                    
+                }];
+            }
+            if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
+                if (result.statusCode == 201) {
+                    [self handleRBATransactionWithTransactionResult:result withTransactionData:self.transaction];
+                }
+                else {
+                    [self handleTransactionSuccess:result];
+                }
+                
+            }
+            else {
+                if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
+                    self.attemptRetry+=1;
+                    UIAlertController *alert = [UIAlertController
+                                                alertControllerWithTitle:@"ERROR"
+                                                message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
+                                                preferredStyle:UIAlertControllerStyleAlert];
+                    UIAlertAction *cancelButton = [UIAlertAction
+                                                   actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                                   style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * _Nonnull action) {
+                        [self dismissViewControllerAnimated:YES completion:nil];
+                    }];
+                    [alert addAction:cancelButton];
+                    [self presentViewController:alert animated:YES completion:nil];
+                }
+                else {
+                    if (result.statusCode == 201) {
+                        [self handleRBATransactionWithTransactionResult:result withTransactionData:self.transaction];
+                    }
+                    else {
+                        [self handleTransactionSuccess:result];
+                    }
+                    
+                }
+            }
+        }
+        
+    }];
+}
 
-             
-             UIAlertController *alertController = [UIAlertController
-                                                   alertControllerWithTitle:@"ERROR"
-                                                   message:error.localizedMidtransErrorMessage
-                                                   preferredStyle:UIAlertControllerStyleAlert];
+-(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
+                             withTransactionData:(MidtransTransaction *)transaction  {
+    
+    Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:nil
+                                                                                 secureURL:[NSURL URLWithString:[result.additionalData objectForKey:@"redirect_url"]]];
+    secureController.transcationData = transaction;
+    secureController.delegate = self;
+    [secureController showWithCompletion:^(NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
+}
 
-             UIAlertAction *okAction = [UIAlertAction
-                                        actionWithTitle:NSLocalizedString(@"OK", @"OK action")
-                                        style:UIAlertActionStyleDefault
-                                        handler:^(UIAlertAction *action)
-                                        {
-                                            
-                                            [self.navigationController popViewControllerAnimated:YES];
-                                            
-                                        }];
-             
-             [alertController addAction:okAction];
-             [self presentViewController:alertController animated:YES completion:nil];
-         }
-         else {
-             if (![CC_CONFIG tokenStorageEnabled] && result.maskedCreditCard) {
-                 [self.maskedCards addObject:result.maskedCreditCard];
-                 [[MidtransMerchantClient shared] saveMaskedCards:self.maskedCards
-                                                         customer:self.token.customerDetails
-                                                       completion:^(id  _Nullable result, NSError * _Nullable error) {
-                                                           
-                                                       }];
-             }
-             if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
-                 [self handleTransactionResult:result];
-             }
-             else {
-                 if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
-                     self.attemptRetry+=1;
-                     UIAlertController *alert = [UIAlertController
-                                                 alertControllerWithTitle:@"ERROR"
-                                                 message:[VTClassHelper getTranslationFromAppBundleForString:result.codeForLocalization]
-                                                 preferredStyle:UIAlertControllerStyleAlert];
-                     UIAlertAction *cancelButton = [UIAlertAction
-                                                    actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
-                                                    style:UIAlertActionStyleDefault
-                                                    handler:nil];
-                     [alert addAction:cancelButton];
-                     [self presentViewController:alert animated:YES completion:nil];
-                 }
-                 else {
-                     [self handleTransactionSuccess:result];
-                 }
-             }
-         }
-         
-     }];
+- (void)rbaDidGetError:(NSError *)error {
+    [self handleTransactionError:error];
+}
+
+- (void)rbaDidGetTransactionStatus:(MidtransTransactionResult *)transactionResult {
+    if (transactionResult.statusCode == 202) {
+        [self handleTransactionDeny:transactionResult];
+    } else {
+        [self handleTransactionSuccess:transactionResult];
+    }
 }
 @end

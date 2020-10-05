@@ -187,7 +187,7 @@
              
              UIAlertController *alertController = [UIAlertController
                                                    alertControllerWithTitle:@"ERROR"
-                                                   message:error.localizedMidtransErrorMessage
+                                                   message:error.localizedDescription
                                                    preferredStyle:UIAlertControllerStyleAlert];
 
              UIAlertAction *okAction = [UIAlertAction

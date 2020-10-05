@@ -1170,7 +1170,7 @@ MidtransCommonTSCViewControllerDelegate
                 self.attemptRetry += 1;
                 UIAlertController *alert = [UIAlertController
                                             alertControllerWithTitle:@"ERROR"
-                                            message:error.localizedMidtransErrorMessage
+                                            message:error.localizedDescription
                                             preferredStyle:UIAlertControllerStyleAlert];
                 UIAlertAction *cancelButton = [UIAlertAction
                                                actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]

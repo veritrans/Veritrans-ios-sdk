@@ -138,7 +138,7 @@
 }
 - (BOOL)updatePoint:(NSString *)amount{
     if ([amount integerValue]  <= [self.pointResponse.pointBalanceAmount intValue]) {
-        NSInteger grossAmount = [self.token.transactionDetails.grossAmount intValue] - [amount integerValue];
+        NSInteger grossAmount = [self.totalGrossAmount intValue] - [amount integerValue];
         self.point = [NSString stringWithFormat:@"%ld",(long)[amount integerValue]];
         self.currentPoint =[amount integerValue];
         self.view.finalAmountTextField.text = [NSNumber numberWithInteger:grossAmount].formattedCurrencyNumber;

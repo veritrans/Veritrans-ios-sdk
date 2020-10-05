@@ -780,13 +780,13 @@ MidtransCommonTSCViewControllerDelegate
                         isDebitCard = YES;
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
                             if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
                                 [self.addOnArray addObject:self.constructMandiriPoint];
                                 [self updateAddOnContent];
                             }
                         }
-                    } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI]) {
+                    } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure) {
                         isDebitCard = YES;
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
                         self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
@@ -809,7 +809,7 @@ MidtransCommonTSCViewControllerDelegate
                     isDebitCard = YES;
                 }
                 else {
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI]) {
+                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
                         if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
                             if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
                                 [self.addOnArray addObject:self.constructMandiriPoint];
@@ -818,7 +818,7 @@ MidtransCommonTSCViewControllerDelegate
                         }
                     }
                     if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] ) {
+                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure ) {
                             if (![self.addOnArray containsObject:self.constructBNIPoint]) {
                                 [self.addOnArray addObject:self.constructBNIPoint];
                                 [self updateAddOnContent];

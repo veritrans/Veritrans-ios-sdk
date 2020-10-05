@@ -425,7 +425,6 @@ MidtransCommonTSCViewControllerDelegate
         }
         return cell;
     }
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -797,7 +796,6 @@ MidtransCommonTSCViewControllerDelegate
                 
             }
             else {
-                
                 if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
                     if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
                         self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
@@ -1102,6 +1100,8 @@ MidtransCommonTSCViewControllerDelegate
             [self payWithToken:token];
         }
     }];
+        
+    }
 }
 
 - (void)payWithToken:(NSString *)token {

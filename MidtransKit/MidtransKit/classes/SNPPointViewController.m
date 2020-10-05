@@ -99,6 +99,19 @@
            
             [self updatePoint:[NSString stringWithFormat:@"%ld",(long)[self.pointResponse.pointBalanceAmount intValue]]];
             [self hideLoading];
+        } else {
+            [self hideLoading];
+            UIAlertController *alert = [UIAlertController
+                                        alertControllerWithTitle:@"ERROR"
+                                        message:error.localizedDescription
+                                        preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *cancelButton = [UIAlertAction
+                                           actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
+                                           style:UIAlertActionStyleDefault
+                                           handler:nil];
+            [alert addAction:cancelButton];
+            [self presentViewController:alert animated:YES completion:nil];
+            return;
         }
     }];
     [self.view.totalAmountBorderedView addGestureRecognizer:

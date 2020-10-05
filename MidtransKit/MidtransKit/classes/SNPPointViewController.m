@@ -16,14 +16,14 @@
 #import "MIdtransUIBorderedView.h"
 #import "MidtransUIThemeManager.h"
 
-@interface SNPPointViewController ()<UITextFieldDelegate>
+@interface SNPPointViewController ()<UITextFieldDelegate, Midtrans3DSControllerDelegate>
 @property (strong, nonatomic) IBOutlet SNPPointView *view;
 @property (nonatomic,strong) NSString *creditCardToken;
 @property (nonatomic) NSMutableArray *maskedCards;
 @property (nonatomic,strong)SNPPointResponse *pointResponse;
 @property (nonatomic) NSInteger attemptRetry;
 @property (nonatomic) BOOL savedCard;
-@property (nonatomic,strong) MidtransPaymentCreditCard *transaction;
+@property (nonatomic,strong) MidtransTransaction *transaction;
 @property (nonatomic,strong) NSMutableArray *pointRedeem;
 @property (nonatomic,strong) NSString *point;
 @property (nonatomic) NSInteger currentPoint;
@@ -213,7 +213,13 @@
                                                        }];
              }
              if ([[result.additionalData objectForKey:@"fraud_status"] isEqualToString:@"challenge"]) {
-                 [self handleTransactionResult:result];
+                if (result.statusCode == 201) {
+                    [self handleRBATransactionWithTransactionResult:result withTransactionData:self.transaction];
+                 }
+                 else {
+                     [self handleTransactionSuccess:result];
+                 }
+
              }
              else {
                  if ([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY] && self.attemptRetry<2) {
@@ -225,16 +231,53 @@
                      UIAlertAction *cancelButton = [UIAlertAction
                                                     actionWithTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"]
                                                     style:UIAlertActionStyleDefault
-                                                    handler:nil];
+                                                    handler:^(UIAlertAction * _Nonnull action) {
+                         [self dismissViewControllerAnimated:YES completion:nil];
+                     }];
                      [alert addAction:cancelButton];
                      [self presentViewController:alert animated:YES completion:nil];
                  }
                  else {
-                     [self handleTransactionSuccess:result];
+                    if (result.statusCode == 201) {
+                        [self handleRBATransactionWithTransactionResult:result withTransactionData:self.transaction];
+                     }
+                     else {
+                         [self handleTransactionSuccess:result];
+                     }
+
                  }
              }
          }
          
      }];
+}
+
+-(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
+                             withTransactionData:(MidtransTransaction *)transaction  {
+    
+    Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:nil
+                                                                                 secureURL:[NSURL URLWithString:[result.additionalData objectForKey:@"redirect_url"]]];
+    secureController.transcationData = transaction;
+    secureController.delegate = self;
+    [secureController showWithCompletion:^(NSError *error) {
+        if (error) {
+            [self handleTransactionError:error];
+        } else {
+            [self handleTransactionSuccess:result];
+        }
+    }];
+    
+}
+
+- (void)rbaDidGetError:(NSError *)error {
+    [self handleTransactionError:error];
+}
+
+- (void)rbaDidGetTransactionStatus:(MidtransTransactionResult *)transactionResult {
+    if (transactionResult.statusCode == 202) {
+        [self handleTransactionDeny:transactionResult];
+    } else {
+        [self handleTransactionSuccess:transactionResult];
+    }
 }
 @end

@@ -1240,6 +1240,20 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
+- (void)showBNIPoint:(BOOL)show {
+    if (show) {
+        if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+            [self.addOnArray addObject:self.constructBNIPoint];
+            [self updateAddOnContent];
+        }
+    } else {
+        if ([self.addOnArray containsObject:self.constructBNIPoint]) {
+            [self.addOnArray removeObject:self.constructBNIPoint];
+            [self updateAddOnContent];
+        }
+    }
+}
+
 #pragma mark - observer
 /**
  we will refactor this on next chore

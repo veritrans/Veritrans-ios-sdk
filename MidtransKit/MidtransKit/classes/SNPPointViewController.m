@@ -76,12 +76,11 @@
         self.view.pointInputTextField.hidden = YES;
     }
     self.pointRedeem = [NSMutableArray new];
-    [self.view configureAmountTotal:self.totalGrossAmount];
+    [self.view configureAmountTotal:self.token];
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Calculating your Point"]];
 
     [[MidtransMerchantClient shared] requestCustomerPointWithToken:self.token.tokenId
                                                 andCreditCardToken:self.creditCardToken
-                                                       grossAmount:self.token.transactionDetails.grossAmount
                                                         completion:^(SNPPointResponse * _Nullable response, NSError * _Nullable error) {
         if (!error) {
             self.currentPoint = [response.pointBalanceAmount intValue];

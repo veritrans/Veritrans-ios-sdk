@@ -15,6 +15,7 @@
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
+#import "MidtransDemoConfig.h"
 
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -38,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalAmount = @(150000);
+    self.totalAmount = [NSNumber numberWithInt:DEMO_APP_ITEM_PRICE];
     NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
@@ -66,12 +67,12 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = @"SB-Mid-client-61XuGAwQ8Bj8LxSS";
-            merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
+            clientkey = ONE_CLICK_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = ONE_CLICK_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = @"SB-Mid-client-hOWJXiCCDRvT0RGr";
-            merchantServer = @"https://fiesta-point-sample.herokuapp.com/";
+            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey

@@ -1025,33 +1025,71 @@ MidtransCommonTSCViewControllerDelegate
     }
     if (self.bniPointActive || self.mandiriPointActive) {
         tokenRequest.point = YES;
-        [[MidtransClient shared] generateTokenWithSkipping3DS:tokenRequest
-                                                   completion:^(NSDictionary * _Nullable token, NSError * _Nullable error) {
-            [self hideLoading];
+        [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
+        [[MidtransClient shared] generateToken:tokenRequest
+                                    completion:^(NSString * _Nullable token, NSError * _Nullable error) {
             if (error) {
-                
+                [self hideLoading];
                 [self handleTransactionError:error];
             } else {
-                SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
-                                                                                  paymentMethod:self.paymentMethod
-                                                                                  tokenizedCard: token[@"token_id"]
-                                                                                      savedCard:self.isSaveCard
-                                                                   andCompleteResponseOfPayment:self.responsePayment];
-                
-                if (self.bniPointActive) {
-                    pointVC.bankName = SNP_CORE_BANK_BNI;
-                }
-                else if (self.mandiriPointActive) {
-                    pointVC.bankName = SNP_CORE_BANK_MANDIRI;
-                }
-                pointVC.redirectURL = token[@"redirect_url"];
-                pointVC.currentMaskedCards = self.currentMaskedCards;
-                [self.navigationController pushViewController:pointVC animated:YES];
                 [self hideLoading];
+                if (self.view.contactPhoneNumberTextField.text.length > 0) {
+                    self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
+                }
+                
+                if (self.view.contactEmailTextField.text.length > 0) {
+                    self.token.customerDetails.email = self.view.contactEmailTextField.text;
+                }
+                
+                MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                                                            customer:self.token.customerDetails
+                                                                                            saveCard:self.isSaveCard
+                                                                                         installment:self.installmentTerms];
+                
+                
+                MidtransTransaction *transaction = [[MidtransTransaction alloc]
+                                                    initWithPaymentDetails:paymentDetail token:self.token];
+                
+                if (self.selectedPromos){
+                    if (self.selectedPromos.addOnAddtional) {
+                        NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+                        self.totalGrossAmount  = [NSNumber numberWithInteger:totalOrder];
+                        
+                        NSDictionary *promoConstructor = @{@"discounted_gross_amount":self.totalGrossAmount,
+                                                           @"promo_id":self.selectedPromos.addOnAddtional
+                        };
+                        
+                        paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                                         customer:self.token.customerDetails
+                                                                         saveCard:self.isSaveCard
+                                                                      installment:self.installmentTerms
+                                                                           promos:promoConstructor];
+                        transaction = [[MidtransTransaction alloc]
+                                       initWithPaymentDetails:paymentDetail token:self.token];
+                    }
+                }
+                
+                if (self.bniPointActive || self.mandiriPointActive) {
+                    [self hideLoading];
+                    
+                    SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
+                                                                                      paymentMethod:self.paymentMethod
+                                                                                      tokenizedCard:token
+                                                                                          savedCard:self.isSaveCard
+                                                                       andCompleteResponseOfPayment:self.responsePayment];
+                    if (self.bniPointActive) {
+                        pointVC.bankName = SNP_CORE_BANK_BNI;
+                    }
+                    else if (self.mandiriPointActive) {
+                        pointVC.bankName = SNP_CORE_BANK_MANDIRI;
+                    }
+                    pointVC.totalGrossAmount = self.totalGrossAmount;
+                    pointVC.paymentDetails = paymentDetail;
+                    pointVC.currentMaskedCards = self.currentMaskedCards;
+                    [self.navigationController pushViewController:pointVC animated:YES];
+                }
             }
         }];
-        
-        
         return;
     }
     

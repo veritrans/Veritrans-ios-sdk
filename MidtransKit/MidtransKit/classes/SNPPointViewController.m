@@ -158,35 +158,11 @@
 }
 - (IBAction)submitPaymentWithToken:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-    if (self.redirectURL.length) {
-        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
-                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
-        [secureController showWithCompletion:^(NSError *error) {
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self executeTransaction:NO];
-            }
-        }];
-    } else {
-        [self executeTransaction:NO];
-    }
+    [self executeTransaction:NO];
 }
 - (IBAction)payWithoutPointButton:(id)sender {
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
-    if (self.redirectURL.length) {
-        Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:self.creditCardToken
-                                                                                     secureURL:[NSURL URLWithString:self.redirectURL]];
-        [secureController showWithCompletion:^(NSError *error) {
-            if (error) {
-                [self handleTransactionError:error];
-            } else {
-                [self executeTransaction:YES];
-            }
-        }];
-    } else {
-        [self executeTransaction:YES];
-    }
+    [self executeTransaction:YES];
 }
 - (void)executeTransaction:(BOOL)withoutPoint {
     if (withoutPoint) {

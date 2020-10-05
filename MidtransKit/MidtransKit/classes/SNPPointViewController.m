@@ -171,10 +171,14 @@
                                                                                 customer:self.token.customerDetails
                                                                                 saveCard:self.savedCard
                                                                                    point:self.point];
-    MidtransTransaction *transaction = [[MidtransTransaction alloc]
+    paymentDetail.promos = self.paymentDetails.promos;
+    paymentDetail.bank = self.bankName;
+    
+    self.transaction = [[MidtransTransaction alloc]
                                         initWithPaymentDetails:paymentDetail
                                         token:self.token];
-    [[MidtransMerchantClient shared] performTransaction:transaction
+    
+    [[MidtransMerchantClient shared] performTransaction:self.transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error)
      {
          [self hideLoading];

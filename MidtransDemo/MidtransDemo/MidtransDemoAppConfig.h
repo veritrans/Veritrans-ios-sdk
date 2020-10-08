@@ -1,11 +1,10 @@
 //
-//  MidtransDemoConfig.h
+//  MidtransDemoAppConfig.h
 //  MidtransDemo
 //
-//  Created by Muhammad Fauzi Masykur on 05/10/20.
+//  Created by Muhammad Fauzi Masykur on 08/10/20.
 //  Copyright © 2020 Midtrans. All rights reserved.
 //
-
 
 /**
 *  SANDBOX CREDENTIALS
@@ -18,7 +17,7 @@ static NSString * const PROMO_MERCHANT_SERVER_URL_SANDBOX = @"https://promo-engi
 static NSString * const PROMO_MERCHANT_CLIENT_KEY_SANDBOX = @"VT-client-yrHf-c8Sxr-ck8tx";
 
 static NSString * const FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX = @"https://fiesta-point-sample.herokuapp.com/";
-static NSString * const FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-server-zUQUBGT2BM07quQ9kV1G9nRt";
+static NSString * const FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-client-hOWJXiCCDRvT0RGr";
 
 /**
 *  ITEM CONFIGURATION

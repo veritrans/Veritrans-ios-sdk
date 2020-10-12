@@ -22,7 +22,6 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
-    [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"creditcard.finish.payment"] forState:UIControlStateNormal];
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
     self.addOnTableView.scrollEnabled = false;
     self.promoTableView.scrollEnabled = false;

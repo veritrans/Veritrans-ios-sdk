@@ -78,7 +78,7 @@
         
         self.view.topWrapperView.hidden = YES;
         self.view.qrcodeWrapperView.hidden = NO;
-        [self.view.finishPaymentButton setTitle:@"Finish Payment" forState:UIControlStateNormal];
+        [self.view.finishPaymentButton setTitle:@"Pay Now" forState:UIControlStateNormal];
         [self fetchQRCode];
         NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];

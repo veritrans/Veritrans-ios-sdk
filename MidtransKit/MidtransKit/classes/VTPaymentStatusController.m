@@ -30,6 +30,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
 @property (weak, nonatomic) IBOutlet UIButton *finishButton;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *dueInstallmentConstraint;
 @property (weak, nonatomic) IBOutlet MIdtransUIBorderedView *dueInstallmentBorderView;
+@property (weak, nonatomic) IBOutlet UILabel *paymentStatusLabel;
 
 @property (nonatomic) MidtransTransactionResult *result;
 @property (nonatomic) NSError *error;
@@ -132,7 +133,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     switch (self.statusType) {
         case SNPStatusTypeError: {
             [[SNPUITrackingManager shared] trackEventName:@"pg error" additionalParameters:additionalData];
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
+            self.paymentStatusLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.failed"];
             self.amountLabel.text = trxDetail.grossAmount.formattedCurrencyNumber;
             self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
             self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
@@ -144,7 +145,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             
         case SNPStatusTypeSuccess: {
             [[SNPUITrackingManager shared] trackEventName:@"pg success" additionalParameters:additionalData];
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
+            self.paymentStatusLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.success"];
             self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
             
             self.statusIconView.image = [UIImage imageNamed:@"check" inBundle:VTBundle compatibleWithTraitCollection:nil];
@@ -157,7 +158,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             
         case SNPStatusTypePending: {
             [[SNPUITrackingManager shared] trackEventName:@"pg pending" additionalParameters:additionalData];
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
+            self.paymentStatusLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.pending"];
             self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
             self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
             self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Thank you!"];
@@ -168,7 +169,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         }
         case SNPStatusTypeDeny: {
             [[SNPUITrackingManager shared] trackEventName:@"pg deny" additionalParameters:additionalData];
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
+            self.paymentStatusLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
             self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
             self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
             self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];

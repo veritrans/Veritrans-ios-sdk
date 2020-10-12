@@ -15,7 +15,7 @@
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
-#import "MidtransDemoConfig.h"
+#import "MidtransDemoAppConfig.h"
 
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -71,8 +71,8 @@
             merchantServer = ONE_CLICK_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey

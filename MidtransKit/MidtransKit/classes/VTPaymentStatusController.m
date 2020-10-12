@@ -119,6 +119,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         [additionalData addEntriesFromDictionary:@{@"installment available": available,
                                                    @"installment required": required}];
     }
+    [self.descriptionLabel setHidden:YES];
     [self.dueInstallmentConstraint setConstant:0];
     [self.dueInstallmentBorderView setHidden:YES];
     NSNumber *installmentTerm = self.result.additionalData[@"installment_term"];
@@ -179,8 +180,11 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
     }
     
     self.orderIdLabel.text = trxDetail.orderId;
-    self.paymentTypeLabel.text = self.paymentMethod.title;
-    
+    if ([self.paymentMethod.localPaymentIdentifier isEqualToString:MIDTRANS_PAYMENT_CREDIT_CARD]) {
+        self.paymentTypeLabel.text = @"Credit/Debit Card";
+    } else {
+        self.paymentTypeLabel.text = self.paymentMethod.title;
+    }
     [self.finishButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] forState:UIControlStateNormal];
 }
 

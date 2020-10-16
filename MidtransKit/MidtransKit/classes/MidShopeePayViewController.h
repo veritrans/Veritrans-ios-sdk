@@ -8,6 +8,6 @@
 
 #import "MidtransUIPaymentController.h"
 
-@interface MidGopayViewController : MidtransUIPaymentController
+@interface MidShopeePayViewController : MidtransUIPaymentController
 
 @end

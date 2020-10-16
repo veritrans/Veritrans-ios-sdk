@@ -79,29 +79,15 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GoPay‘ payment via ‘Gojek‘ app"];
+        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app"];
     } else {
-        if (MidtransConfig.shared.environment == MidtransServerEnvironmentProduction) {
-            NSURL *gojekUrl = [NSURL URLWithString:MIDTRANS_GOPAY_PREFIX_OLD];
-            if ([[UIApplication sharedApplication] canOpenURL:gojekUrl]) {
-                self.view.gopayTopViewHeightConstraints.constant = 0.0f;
-                self.view.topWrapperView.hidden = YES;
-                
-            } else {
-                self.view.topWrapperView.hidden = NO;
-                self.view.transactionBottomDetailConstraints.constant = 0.0f;
-                self.view.finishPaymentHeightConstraints.constant =  0.0f;
-            }
-        } else {
-            self.view.gopayTopViewHeightConstraints.constant = 0.0f;
-            self.view.topWrapperView.hidden = YES;
-        }
-        
+        self.view.gopayTopViewHeightConstraints.constant = 0.0f;
+        self.view.topWrapperView.hidden = YES;
     }
     
     
     [self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GoPay"] forState:UIControlStateNormal];
-    UIImage *image = [UIImage imageNamed:@"gopay_button" inBundle:VTBundle compatibleWithTraitCollection:nil];
+    UIImage *image = [UIImage imageNamed:@"shopeepay_button" inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     [self.view.finishPaymentButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     self.view.finishPaymentButton.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;

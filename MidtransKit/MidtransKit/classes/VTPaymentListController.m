@@ -28,6 +28,7 @@
 #import "MidtransUIThemeManager.h"
 #import "UIColor+SNP_HexString.h"
 #import "MIDAlfamartViewController.h"
+#import "MidShopeePayViewController.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
@@ -398,6 +399,11 @@
         MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [midGopayVC showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+        MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [midShopeepayVC showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:midShopeepayVC animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
         MIDPaymentIndomaretViewController* vc = [[MIDPaymentIndomaretViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];

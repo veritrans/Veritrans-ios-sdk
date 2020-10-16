@@ -39,6 +39,7 @@
 @property (nonatomic) NSString *customPermataVARecipientName;
 @property (nonatomic) NSString *customBNIVANumber;
 @property (nonatomic) NSString *callbackSchemeURL;
+@property (nonatomic) NSString *shopeePayCallbackURL;
 
 @property (nonatomic) NSArray *customPaymentChannels;
 @property (nonatomic) NSDictionary *customFreeText;

@@ -61,7 +61,7 @@
                                              selector:@selector(handleGopayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    self.title = @"GoPay";
+    self.title = @"ShopeePay";
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
     self.view.tableView.tableFooterView = [UIView new];

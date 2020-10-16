@@ -198,7 +198,7 @@
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
-    paymentDetails = [[MidtransPaymentGOPAY alloc] init];
+    paymentDetails = [[MidtransPaymentShopeePay alloc] init];
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction

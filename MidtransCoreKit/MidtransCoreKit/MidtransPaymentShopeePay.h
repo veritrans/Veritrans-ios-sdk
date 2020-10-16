@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "MidtransPaymentDetails.h"
-@interface MidtransPaymentGOPAY : NSObject<MidtransPaymentDetails>
+@interface MidtransPaymentShopeePay : NSObject<MidtransPaymentDetails>
 
 @end

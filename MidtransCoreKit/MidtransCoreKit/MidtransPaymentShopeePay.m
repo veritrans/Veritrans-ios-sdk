@@ -6,10 +6,10 @@
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
 
-#import "MidtransPaymentGOPAY.h"
+#import "MidtransPaymentShopeePay.h"
 
-@implementation MidtransPaymentGOPAY
+@implementation MidtransPaymentShopeePay
 - (NSDictionary *)dictionaryValue {
-    return @{@"payment_type":MIDTRANS_PAYMENT_GOPAY};
+    return @{@"payment_type":MIDTRANS_PAYMENT_SHOPEEPAY};
 }
 @end

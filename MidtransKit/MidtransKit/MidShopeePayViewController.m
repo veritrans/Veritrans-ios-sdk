@@ -102,7 +102,7 @@
         self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
         [self.view.tableView reloadData];
     } else {
-        NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", MIDTRANS_PAYMENT_GOPAY];
+        NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", MIDTRANS_PAYMENT_SHOPEEPAY];
         
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         if (guidePath == nil) {
@@ -243,7 +243,7 @@
         NSString *title;
         NSString *content;
         title = [VTClassHelper getTranslationFromAppBundleForString:@"Finish Payment"];
-        content = [VTClassHelper getTranslationFromAppBundleForString:@"Make sure payment has been completed within the Gojek app."];
+        content = [VTClassHelper getTranslationFromAppBundleForString:@"Make sure payment has been completed within the Shopee app."];
         
         UIAlertController *alertController = [UIAlertController
                                               alertControllerWithTitle:title

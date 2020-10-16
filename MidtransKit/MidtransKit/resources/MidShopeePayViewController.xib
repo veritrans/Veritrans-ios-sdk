@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
@@ -16,7 +16,7 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidGopayViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MidShopeePayViewController">
             <connections>
                 <outlet property="view" destination="Yam-FI-530" id="4We-8P-lI8"/>
             </connections>
@@ -29,14 +29,14 @@
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y5U-NC-hLV">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="40"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gojek app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-dZ-Mle">
-                            <rect key="frame" x="90.666666666666686" y="12.333333333333332" width="233" height="15.333333333333332"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shopee app is required for this payment method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QNo-dZ-Mle">
+                            <rect key="frame" x="86.000000000000014" y="12.333333333333332" width="242.33333333333337" height="15.333333333333332"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Regular" family="Source Sans Pro" pointSize="12"/>
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gojek_icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="sJe-hw-1CB">
-                            <rect key="frame" x="66.666666666666671" y="12" width="20" height="20"/>
+                            <rect key="frame" x="62" y="12" width="20" height="20"/>
                             <constraints>
                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="JeF-50-S9Z"/>
                                 <constraint firstAttribute="height" constant="20" id="cvj-9D-J8J"/>
@@ -84,7 +84,7 @@
                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, we couldn't find Gojek app installed on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucl-1f-JoG">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unfortunately, we couldn't find Shopee app installed on your phone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ucl-1f-JoG">
                             <rect key="frame" x="103" y="245.66666666666671" width="208" height="64.333333333333343"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="208" id="4yR-GO-QZh"/>
@@ -96,7 +96,7 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Are-Z5-Oob">
                             <rect key="frame" x="8" y="536" width="398" height="30"/>
                             <color key="tintColor" red="0.091509331753330828" green="0.60178134854116272" blue="0.89301327720207258" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Install Gojek app from Appstore">
+                            <state key="normal" title="Install Shopee app from Appstore">
                                 <color key="titleColor" red="0.0063865571279999997" green="0.62833845619999995" blue="0.78163856269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
@@ -122,7 +122,7 @@
                     <rect key="frame" x="0.0" y="614" width="414" height="74"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Amount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SFi-JX-Qb1">
-                            <rect key="frame" x="15" y="17" width="75.666666666666671" height="16.333333333333329"/>
+                            <rect key="frame" x="15" y="17" width="75.666666666666671" height="16"/>
                             <fontDescription key="fontDescription" name="SourceSansPro-Semibold" family="Source Sans Pro" pointSize="13"/>
                             <color key="textColor" red="0.56078431370000004" green="0.5568627451" blue="0.58039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <nil key="highlightedColor"/>

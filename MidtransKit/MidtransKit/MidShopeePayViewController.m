@@ -40,7 +40,7 @@
     return self;
 }
 
-- (void)handleGopayStatus:(id)sender {
+- (void)handleShopeePayStatus:(id)sender {
     NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_CURRENT_TOKEN];
     [[MidtransMerchantClient shared] performCheckStatusTransactionWithToken:token completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
         if (!error) {
@@ -58,7 +58,7 @@
     
     [self createCustomBackButton];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleGopayStatus:)
+                                             selector:@selector(handleShopeePayStatus::)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     self.title = @"ShopeePay";

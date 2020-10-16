@@ -19,9 +19,12 @@ static NSString * const PROMO_MERCHANT_CLIENT_KEY_SANDBOX = @"VT-client-yrHf-c8S
 static NSString * const FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX = @"https://fiesta-point-sample.herokuapp.com/";
 static NSString * const FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-client-hOWJXiCCDRvT0RGr";
 
+static NSString * const SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION = @"https://shopeepay-merchant-server.herokuapp.com/";
+static NSString * const SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION = @"SB-Mid-server-y_GxtmVgO-xH7cgSr_TEnSIJ";
+
 /**
 *  ITEM CONFIGURATION
 */
 
-static int const DEMO_APP_ITEM_PRICE = 150000;
+static int const DEMO_APP_ITEM_PRICE = 1;
 

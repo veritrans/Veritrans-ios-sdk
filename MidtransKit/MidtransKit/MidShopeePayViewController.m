@@ -6,7 +6,7 @@
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
 
-#import "MidGopayViewController.h"
+#import "MidShopeePayViewController.h"
 #import "MIDGopayView.h"
 #import "MidGopayDetailViewController.h"
 #import "VTClassHelper.h"
@@ -18,14 +18,14 @@
 #import "MidtransUIConfiguration.h"
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
-@interface MidGopayViewController ()<UITableViewDelegate,UITableViewDataSource>
+@interface MidShopeePayViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet MIDGopayView *view;
 @property (nonatomic) NSArray *guides;
 @property (nonatomic) MidtransDirectHeader *headerView;
 @property (nonatomic, strong) UIBarButtonItem *backBarButton;
 @end
 
-@implementation MidGopayViewController {
+@implementation MidShopeePayViewController {
     MidtransTransactionResult *payResult;
 }
 

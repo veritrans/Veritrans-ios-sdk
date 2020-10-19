@@ -1,5 +1,5 @@
 //
-//  MidGopayViewController.m
+//  MidShopeePayViewController.m
 //  MidtransKit
 //
 //  Created by Vanbungkring on 11/24/17.
@@ -106,7 +106,7 @@
         
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         if (guidePath == nil) {
-            guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",MIDTRANS_PAYMENT_GOPAY] ofType:@"plist"];
+            guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_%@",MIDTRANS_PAYMENT_SHOPEEPAY] ofType:@"plist"];
         }
         self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
         [self.view.tableView reloadData];

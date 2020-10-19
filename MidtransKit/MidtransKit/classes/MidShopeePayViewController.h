@@ -1,5 +1,5 @@
 //
-//  MidGopayViewController.h
+//  MidShopeePayViewController.h
 //  MidtransKit
 //
 //  Created by Vanbungkring on 11/24/17.

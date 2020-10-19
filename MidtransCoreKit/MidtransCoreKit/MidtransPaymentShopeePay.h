@@ -1,5 +1,5 @@
 //
-//  MidtransPaymentGOPAY.h
+//  MidtransPaymentShopeePay.h
 //  MidtransCoreKit
 //
 //  Created by Vanbungkring on 11/28/17.

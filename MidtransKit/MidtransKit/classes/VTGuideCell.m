@@ -48,6 +48,20 @@
          [attrString endEditing];
         self.contentLabel.attributedText = attrString;
     }
+    else if ([[instruction.content stringsBetween:@"#" and:@"#"] count]) {
+           NSString *boldLabel = [[instruction.content stringsBetween:@"#" and:@"#"] firstObject];
+           NSString *boldString = [NSString stringWithFormat:@"#%@#", boldLabel];
+           NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
+           [attrString beginEditing];
+           [attrString addAttribute:NSFontAttributeName
+                              value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                              range:[attrString.string rangeOfString:boldString]];
+           [attrString.mutableString replaceOccurrencesOfString:@"#" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, attrString.length)];
+           [attrString replaceCharacterString:@"[token_button]"
+                                     withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
+            [attrString endEditing];
+           self.contentLabel.attributedText = attrString;
+       }
     
   
     

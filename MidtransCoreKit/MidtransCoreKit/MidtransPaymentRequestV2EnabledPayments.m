@@ -11,6 +11,7 @@
 NSString *const kMidtransPaymentRequestV2EnabledPaymentsType = @"type";
 NSString *const kMidtransPaymentRequestV2EnabledPaymentsCategory = @"category";
 NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
+NSString *const kMidtransPaymentRequestV2EnabledPaymentsAcquirer = @"acquirer";
 
 
 @interface MidtransPaymentRequestV2EnabledPayments ()
@@ -40,7 +41,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
             self.type = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsType fromDictionary:dict];
             self.status =  [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsStatus fromDictionary:dict];
             self.category = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsCategory fromDictionary:dict];
-
+        self.acquirer = [self objectOrNilForKey:kMidtransPaymentRequestV2EnabledPaymentsAcquirer fromDictionary:dict];
     }
     
     return self;
@@ -53,6 +54,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
     [mutableDict setValue:self.type forKey:kMidtransPaymentRequestV2EnabledPaymentsType];
     [mutableDict setValue:self.status forKey:kMidtransPaymentRequestV2EnabledPaymentsStatus];
     [mutableDict setValue:self.category forKey:kMidtransPaymentRequestV2EnabledPaymentsCategory];
+    [mutableDict setValue:self.acquirer forKey:kMidtransPaymentRequestV2EnabledPaymentsAcquirer];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -79,6 +81,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
     self.type = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsType];
     self.status = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsStatus];
     self.category = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsCategory];
+    self.acquirer = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2EnabledPaymentsAcquirer];
     return self;
 }
 
@@ -87,6 +90,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
     [aCoder encodeObject:_type forKey:kMidtransPaymentRequestV2EnabledPaymentsStatus];
     [aCoder encodeObject:_type forKey:kMidtransPaymentRequestV2EnabledPaymentsType];
     [aCoder encodeObject:_category forKey:kMidtransPaymentRequestV2EnabledPaymentsCategory];
+    [aCoder encodeObject:_acquirer forKey:kMidtransPaymentRequestV2EnabledPaymentsAcquirer];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -98,6 +102,7 @@ NSString *const kMidtransPaymentRequestV2EnabledPaymentsStatus = @"status";
         copy.type = [self.type copyWithZone:zone];
         copy.status = [self.type copyWithZone:zone];
         copy.category = [self.category copyWithZone:zone];
+        copy.acquirer = [self.acquirer copyWithZone:zone];
     }
     
     return copy;

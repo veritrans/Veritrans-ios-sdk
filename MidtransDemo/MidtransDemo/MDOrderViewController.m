@@ -71,12 +71,12 @@
             merchantServer = ONE_CLICK_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION;
+            merchantServer = SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentSandbox
+             environment:MidtransServerEnvironmentProduction
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
@@ -103,6 +103,7 @@
     [[MidtransNetworkLogger shared] startLogging];
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
+    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;

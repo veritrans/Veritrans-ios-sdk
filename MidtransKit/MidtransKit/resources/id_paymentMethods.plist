@@ -296,5 +296,33 @@
 		<key>shortName</key>
 		<string>alfamart</string>
 	</dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>Shopeepay</string>
+        <key>description</key>
+        <string>Bayar dengan ShopeePay</string>
+        <key>id</key>
+        <string>shopeepay</string>
+        <key>identifier</key>
+        <string>shopeepay</string>
+        <key>shortName</key>
+        <string>shopeepay</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>ShopeePay</string>
+        <key>description</key>
+        <string>Scan kode QR dengan ShopeePay atau e-wallet lainnya </string>
+        <key>id</key>
+        <string>qrisshopeepay</string>
+        <key>identifier</key>
+        <string>qrisshopeepay</string>
+        <key>shortName</key>
+        <string>shopeepay</string>
+    </dict>
 </array>
 </plist>

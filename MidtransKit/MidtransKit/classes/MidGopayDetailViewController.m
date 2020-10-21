@@ -42,7 +42,7 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = self.backBarButton;
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay With GoPay"];
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay with GoPay"];
     self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;

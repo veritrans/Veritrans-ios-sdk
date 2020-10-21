@@ -116,8 +116,11 @@
     "download.instruction": "Unduh Instruksi Pembayaran",
     "install.gojek": "Install aplikasi Gojek dari App Store",
     "Pay using GoPay": "Bayar dengan GoPay",
-    "Pay Now with GoPay":"Bayar dengan GoPay sekarang",
+    "Pay with GoPay": "Bayar dengan GoPay",
+    "Pay with ShopeePay": "Bayar dengan ShopeePay",
+    "Pay Now with GoPay":"Bayar sekarang dengan ",
     "Please complete your ‘GoPay‘ payment via ‘Gojek‘ app": "Pastikan Anda telah melakukan instalasi aplikasi Gojek di HP Anda dan memiliki saldo lebih dari Rp 10.000.",
+    "Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app": "Pastikan Anda telah melakukan instalasi aplikasi Shopee di HP Anda dan memiliki saldo lebih dari Rp 10.000.",
     "KlikBCA User ID":"KlikBCA User ID",
     "Bank Code":"Kode Bank",
     "Virtual Account Number":"Nomor Akun Virtual",
@@ -145,6 +148,8 @@
     "The connection failed because data use is currently not allowed on the device.":"Koneksi gagal karena penggunaan data tidak diizinkan di perangkat ini.",
     "Finish Payment":"Selesaikan Pembayaran",
     "Make sure payment has been completed within the Gojek app.":"Pastikan pembayaran telah berhasil dilakukan di dalam aplikasi Gojek.",
-    "Make sure the QR code successfully scanned and payment has been completed within the Gojek app.":"Pastikan kode QR berhasil dipindai dan pembayaran sudah dilakukan di dalam aplikasi Gojek."
+    "Make sure the QR code successfully scanned and payment has been completed within the Gojek app.":"Pastikan kode QR berhasil dipindai dan pembayaran sudah dilakukan di dalam aplikasi Gojek.",
+    "Make sure payment has been completed within the Shopee app.":"Pastikan pembayaran telah berhasil dilakukan di dalam aplikasi Shopee.",
+    "Make sure the QR code successfully scanned and payment has been completed within the Shopee app.":"Pastikan kode QR berhasil dipindai dan pembayaran sudah dilakukan di dalam aplikasi Shopee."
 }
 

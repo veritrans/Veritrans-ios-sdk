@@ -123,7 +123,10 @@
     "install.gojek": "Install Gojek app from App Store",
     "Pay Now with GoPay":"Pay Now with ",
     "Pay using GoPay": "Pay using GoPay",
+    "Pay with GoPay": "Pay with GoPay",
+    "Pay with ShopeePay": "Pay with ShopeePay",
     "Please complete your ‘GoPay‘ payment via ‘Gojek‘ app": "Make sure you have Gojek app installed on your phone and have GoPay balance more than Rp 10.000.",
+    "Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app": "Make sure you have Shopee app installed on your phone and have GoPay balance more than Rp 10.000.",
     "Bank Code":"Bank Code",
     "Virtual Account Number":"Virtual Account Number",
     "Please complete your payment in":"Please complete your payment in:",
@@ -150,5 +153,7 @@
     "The connection failed because data use is currently not allowed on the device.":"The connection failed because data use is currently not allowed on the device.",
     "Finish Payment":"Finish Payment",
     "Make sure payment has been completed within the Gojek app.":"Make sure payment has been completed within the Gojek app.",
-    "Make sure the QR code successfully scanned and payment has been completed within the Gojek app.":"Make sure the QR code successfully scanned and payment has been completed within the Gojek app."
+    "Make sure the QR code successfully scanned and payment has been completed within the Gojek app.":"Make sure the QR code successfully scanned and payment has been completed within the Gojek app.",
+    "Make sure payment has been completed within the Shopee app.":"Make sure payment has been completed within the Shopee app.",
+    "Make sure the QR code successfully scanned and payment has been completed within the Shopee app.":"Make sure the QR code successfully scanned and payment has been completed within the Shopee app."
 }

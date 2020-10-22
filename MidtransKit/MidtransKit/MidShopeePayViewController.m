@@ -58,7 +58,7 @@
     
     [self createCustomBackButton];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleShopeePayStatus::)
+                                             selector:@selector(handleShopeePayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     self.title = @"ShopeePay";

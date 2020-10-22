@@ -39,6 +39,8 @@
 @property (nonatomic)BOOL singlePayment;
 @property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
+@property (nonatomic) NSString* qrisAcquirer;
+
 @end
 
 @implementation VTPaymentListController;
@@ -174,7 +176,18 @@
                 
                 if (self.paymentMethodSelected.length > 0) {
                     index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                        if (IPAD) {
+                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                                return NO;
+                            } else {
+                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
+                            }
+                        } else{
+                             return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                        }
                     }];
                     
                     if (index !=NSNotFound) {
@@ -187,7 +200,18 @@
                 }
                 else {
                     index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        return [obj[@"id"] isEqualToString:enabledPayment.type];
+                        if (IPAD) {
+                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                                return NO;
+                            } else {
+                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
+                            }
+                        } else {
+                            return [obj[@"id"] isEqualToString:enabledPayment.type];
+                        }
                     }];
                 }
                 
@@ -400,7 +424,7 @@
         [midGopayVC showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY] ||[paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_QRIS_SHOPEEPAY] ) {
         MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [midShopeepayVC showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:midShopeepayVC animated:!self.singlePayment];

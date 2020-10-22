@@ -100,7 +100,7 @@
                                 <color key="titleColor" red="0.0063865571279999997" green="0.62833845619999995" blue="0.78163856269999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </state>
                             <connections>
-                                <action selector="installGOJEKappButtonDidTapped:" destination="-1" eventType="touchUpInside" id="uXw-CY-GUC"/>
+                                <action selector="installShopeeAppButtonDidTapped:" destination="-1" eventType="touchUpInside" id="uXw-CY-GUC"/>
                             </connections>
                         </button>
                     </subviews>

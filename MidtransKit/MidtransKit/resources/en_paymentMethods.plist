@@ -300,13 +300,27 @@
         <key>status</key>
         <string>&quot;&quot;</string>
         <key>title</key>
-        <string>Shopeepay</string>
+        <string>ShopeePay</string>
         <key>description</key>
-        <string>Pay with Shopeepay wallet</string>
+        <string>Pay with ShopeePay wallet</string>
         <key>id</key>
         <string>shopeepay</string>
         <key>identifier</key>
         <string>shopeepay</string>
+        <key>shortName</key>
+        <string>shopeepay</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>ShopeePay</string>
+        <key>description</key>
+        <string>Scan QR Code using ShopeePay or other e-wallets</string>
+        <key>id</key>
+        <string>qrisshopeepay</string>
+        <key>identifier</key>
+        <string>qrisshopeepay</string>
         <key>shortName</key>
         <string>shopeepay</string>
     </dict>

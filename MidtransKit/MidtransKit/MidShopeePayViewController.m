@@ -8,7 +8,7 @@
 
 #import "MidShopeePayViewController.h"
 #import "MIDGopayView.h"
-#import "MidGopayDetailViewController.h"
+#import "MidQRISDetailViewController.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
@@ -58,7 +58,7 @@
     
     [self createCustomBackButton];
     [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(handleShopeePayStatus::)
+                                             selector:@selector(handleShopeePayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
     self.title = @"ShopeePay";
@@ -79,7 +79,7 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app"];
+        self.view.gopayTopViewHeightConstraints.constant = 0.0f;
     } else {
         self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         self.view.topWrapperView.hidden = YES;
@@ -94,10 +94,10 @@
     self.view.finishPaymentButton.imageView.tintColor = [UIColor whiteColor];
     
     if (IPAD) {
-        NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
+        NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_SHOPEEPAY];
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         if (guidePath == nil) {
-            guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@",MIDTRANS_PAYMENT_GOPAY] ofType:@"plist"];
+            guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@",MIDTRANS_PAYMENT_SHOPEEPAY] ofType:@"plist"];
         }
         self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
         [self.view.tableView reloadData];
@@ -127,7 +127,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
     /* Section header is in 0th index... */
-    [label setText:@"Instructions"];
+    [label setText:@"How to pay?"];
     [view addSubview:label];
     [view setBackgroundColor:[UIColor whiteColor]]; //your background color...
     return view;
@@ -141,13 +141,7 @@
     if(indexPath.row %2 ==0) {
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 3) {
-        cell.imageBottomInstruction.hidden = NO;
-        [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-        cell.bottomNotes.hidden = NO;
-        cell.bottomImageInstructionsConstraints.constant = 120.0f;
-    }
-    if (IPAD && indexPath.row == 4) {
+    if (IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
@@ -157,13 +151,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IPAD && indexPath.row == 3) {
-        return 200;
-    }
-    if (IPAD && indexPath.row == 4) {
-        return 200;
-    }
-    else {
         if (IS_IOS8_OR_ABOVE) {
             return UITableViewAutomaticDimension;
         }
@@ -177,12 +164,11 @@
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
         
-    }
 }
-- (IBAction)installGOJEKappButtonDidTapped:(id)sender {
+- (IBAction)installShopeeAppButtonDidTapped:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
 }
-- (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
+- (void)openShopeeAppWithResult:(MidtransTransactionResult *)result {
     NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
     NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
     if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
@@ -192,13 +178,17 @@
 
 - (IBAction)finishPaymentButtonDidTapped:(id)sender {
     if (payResult) {
-        [self openGojekAppWithResult:payResult];
+        [self openShopeeAppWithResult:payResult];
         return;
     }
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
-    paymentDetails = [[MidtransPaymentShopeePay alloc] init];
+    if (IPAD) {
+        paymentDetails = [[MidtransPaymentQRIS alloc]initWithAcquirer:MIDTRANS_PAYMENT_SHOPEEPAY];
+    } else {
+         paymentDetails = [[MidtransPaymentShopeePay alloc] init];
+    }
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction
@@ -209,12 +199,12 @@
         }
         else {
             if (IPAD) {
-                MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
-                gopayDetailVC.result = result;
-                [self.navigationController pushViewController:gopayDetailVC animated:YES];
+                MidQRISDetailViewController *qrisDetailVC = [[MidQRISDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
+                qrisDetailVC.result = result;
+                [self.navigationController pushViewController:qrisDetailVC animated:YES];
             } else {
                 payResult = result;                
-                [self openGojekAppWithResult:result];
+                [self openShopeeAppWithResult:result];
             }
             
         }

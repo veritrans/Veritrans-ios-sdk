@@ -176,7 +176,18 @@
                 
                 if (self.paymentMethodSelected.length > 0) {
                     index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                        if (IPAD) {
+                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                                return NO;
+                            } else {
+                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
+                            }
+                        } else{
+                             return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                        }
                     }];
                     
                     if (index !=NSNotFound) {

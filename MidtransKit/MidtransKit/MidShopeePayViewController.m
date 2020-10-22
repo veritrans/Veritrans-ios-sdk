@@ -8,7 +8,7 @@
 
 #import "MidShopeePayViewController.h"
 #import "MIDGopayView.h"
-#import "MidGopayDetailViewController.h"
+#import "MidQRISDetailViewController.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"

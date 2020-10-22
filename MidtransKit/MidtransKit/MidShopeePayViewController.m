@@ -141,13 +141,7 @@
     if(indexPath.row %2 ==0) {
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 3) {
-        cell.imageBottomInstruction.hidden = NO;
-        [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-        cell.bottomNotes.hidden = NO;
-        cell.bottomImageInstructionsConstraints.constant = 120.0f;
-    }
-    if (IPAD && indexPath.row == 4) {
+    if (IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;

@@ -79,7 +79,7 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
-        self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app"];
+        self.view.gopayTopViewHeightConstraints.constant = 0.0f;
     } else {
         self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         self.view.topWrapperView.hidden = YES;

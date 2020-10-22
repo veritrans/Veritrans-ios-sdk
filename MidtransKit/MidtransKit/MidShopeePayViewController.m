@@ -178,13 +178,17 @@
 
 - (IBAction)finishPaymentButtonDidTapped:(id)sender {
     if (payResult) {
-        [self openGojekAppWithResult:payResult];
+        [self openShopeeAppWithResult:payResult];
         return;
     }
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
-    paymentDetails = [[MidtransPaymentShopeePay alloc] init];
+    if (IPAD) {
+        paymentDetails = [[MidtransPaymentQRIS alloc]initWithAcquirer:MIDTRANS_PAYMENT_SHOPEEPAY];
+    } else {
+         paymentDetails = [[MidtransPaymentShopeePay alloc] init];
+    }
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction

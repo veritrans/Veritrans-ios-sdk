@@ -151,13 +151,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IPAD && indexPath.row == 3) {
-        return 200;
-    }
-    if (IPAD && indexPath.row == 4) {
-        return 200;
-    }
-    else {
         if (IS_IOS8_OR_ABOVE) {
             return UITableViewAutomaticDimension;
         }

@@ -39,6 +39,8 @@
 @property (nonatomic)BOOL singlePayment;
 @property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
+@property (nonatomic) NSString* qrisAcquirer;
+
 @end
 
 @implementation VTPaymentListController;

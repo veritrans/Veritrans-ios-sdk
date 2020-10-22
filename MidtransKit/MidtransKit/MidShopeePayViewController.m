@@ -127,7 +127,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
     /* Section header is in 0th index... */
-    [label setText:@"Instructions"];
+    [label setText:@"How to pay?"];
     [view addSubview:label];
     [view setBackgroundColor:[UIColor whiteColor]]; //your background color...
     return view;

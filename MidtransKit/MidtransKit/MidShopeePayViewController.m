@@ -199,12 +199,12 @@
         }
         else {
             if (IPAD) {
-                MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
-                gopayDetailVC.result = result;
-                [self.navigationController pushViewController:gopayDetailVC animated:YES];
+                MidQRISDetailViewController *qrisDetailVC = [[MidQRISDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
+                qrisDetailVC.result = result;
+                [self.navigationController pushViewController:qrisDetailVC animated:YES];
             } else {
                 payResult = result;                
-                [self openGojekAppWithResult:result];
+                [self openShopeeAppWithResult:result];
             }
             
         }

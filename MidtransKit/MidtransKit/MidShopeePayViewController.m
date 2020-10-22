@@ -164,12 +164,11 @@
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
         
-    }
 }
-- (IBAction)installGOJEKappButtonDidTapped:(id)sender {
+- (IBAction)installShopeeAppButtonDidTapped:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
 }
-- (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
+- (void)openShopeeAppWithResult:(MidtransTransactionResult *)result {
     NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
     NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
     if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {

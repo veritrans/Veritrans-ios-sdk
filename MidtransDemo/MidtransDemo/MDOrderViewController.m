@@ -67,16 +67,16 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = ONE_CLICK_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = ONE_CLICK_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION;
-            merchantServer = SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION;
+            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentProduction
+             environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
@@ -103,7 +103,7 @@
     [[MidtransNetworkLogger shared] startLogging];
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
-    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+//    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;

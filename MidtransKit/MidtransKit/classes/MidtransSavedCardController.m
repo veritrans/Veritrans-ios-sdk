@@ -244,9 +244,13 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
     else {
         NSString *tokenTypeString = [[self.responsePayment.creditCard.savedTokens valueForKey:@"tokenType"] objectAtIndex:indexPath.row];
         
-        if ([tokenTypeString isEqualToString:@"one_click"]) {
+        if ([self.responsePayment.merchant.priorityCardFeature isEqualToString:kCreditCardTokenTypeTwoClicks] || !self.responsePayment.merchant.recurringMidIsActive) {
+            tokenTypeString = kCreditCardTokenTypeTwoClicks;
+        }
+        
+        if ([tokenTypeString isEqualToString:kCreditCardTokenTypeOneClick]) {
             self.tokenType = MTCreditCardPaymentTypeOneclick;
-        } else if ([tokenTypeString isEqualToString:@"two_clicks"]) {
+        } else if ([tokenTypeString isEqualToString:kCreditCardTokenTypeTwoClicks]) {
             self.tokenType = MTCreditCardPaymentTypeTwoclick;
         } else {
             self.tokenType = MTCreditCardPaymentTypeNormal;

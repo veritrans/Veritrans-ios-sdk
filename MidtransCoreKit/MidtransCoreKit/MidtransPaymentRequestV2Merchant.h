@@ -15,6 +15,9 @@
 @property (nonatomic, strong) NSArray *pointBanks;
 @property (nonatomic, strong) MidtransPaymentRequestV2Preference *preference;
 @property (nonatomic, strong) NSString *merchantId;
+@property (nonatomic, strong) NSString *priorityCardFeature;
+@property (nonatomic, assign) BOOL recurringMidIsActive;
+
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

@@ -14,6 +14,8 @@ NSString *const kMidtransPaymentRequestV2MerchantEnabledPrinciples = @"enabled_p
 NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
 NSString *const kMidtransPaymentRequestV2MerchantId = @"merchant_id";
 NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
+NSString *const kMidtransPaymentRequestV2MerchantPriorityCardFeature = @"priority_card_feature";
+NSString *const kMidtransPaymentRequestV2MerchantRecurringMidIsActive = @"recurring_mid_is_active";
 
 
 @interface MidtransPaymentRequestV2Merchant ()
@@ -28,6 +30,9 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
 @synthesize enabledPrinciples = _enabledPrinciples;
 @synthesize preference = _preference;
 @synthesize merchantId = _merchantId;
+@synthesize priorityCardFeature = _priorityCardFeature;
+@synthesize recurringMidIsActive = _recurringMidIsActive;
+
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -47,7 +52,8 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
         self.pointBanks = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantPointBanks fromDictionary:dict];
             self.preference = [MidtransPaymentRequestV2Preference modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2MerchantPreference]];
         self.merchantId = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantId fromDictionary:dict];
-
+        self.priorityCardFeature = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantPriorityCardFeature fromDictionary:dict];
+        self.recurringMidIsActive = [self objectOrNilForKey:kMidtransPaymentRequestV2MerchantPriorityCardFeature fromDictionary:dict];
     }
     
     return self;
@@ -82,6 +88,8 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     [mutableDict setValue:[NSArray arrayWithArray:tempArrayForPointBanks] forKey:kMidtransPaymentRequestV2MerchantPointBanks];
     [mutableDict setValue:[self.preference dictionaryRepresentation] forKey:kMidtransPaymentRequestV2MerchantPreference];
     [mutableDict setValue:self.merchantId forKey:kMidtransPaymentRequestV2MerchantId];
+    [mutableDict setValue:self.priorityCardFeature forKey:kMidtransPaymentRequestV2MerchantPriorityCardFeature];
+    [mutableDict setValue:[NSNumber numberWithBool:self.recurringMidIsActive] forKey:kMidtransPaymentRequestV2MerchantRecurringMidIsActive];
 
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -110,6 +118,8 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     self.preference = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPreference];
     self.pointBanks = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPointBanks];
     self.merchantId = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantId];
+    self.priorityCardFeature = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2MerchantPriorityCardFeature];
+    self.recurringMidIsActive = [aDecoder decodeBoolForKey:kMidtransPaymentRequestV2MerchantRecurringMidIsActive];
     return self;
 }
 
@@ -121,6 +131,8 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
     [aCoder encodeObject:_preference forKey:kMidtransPaymentRequestV2MerchantPreference];
     [aCoder encodeObject:_pointBanks forKey:kMidtransPaymentRequestV2MerchantPointBanks];
     [aCoder encodeObject:_merchantId forKey:kMidtransPaymentRequestV2MerchantId];
+    [aCoder encodeObject:_merchantId forKey:kMidtransPaymentRequestV2MerchantPriorityCardFeature];
+    [aCoder encodeBool:_recurringMidIsActive forKey:kMidtransPaymentRequestV2MerchantRecurringMidIsActive];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -134,6 +146,8 @@ NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
         copy.preference = [self.preference copyWithZone:zone];
         copy.pointBanks = [self.pointBanks copyWithZone:zone];
         copy.merchantId = [self.merchantId copyWithZone:zone];
+        copy.priorityCardFeature = [self.priorityCardFeature copyWithZone:zone];
+        copy.recurringMidIsActive = self.recurringMidIsActive;
     }
     
     return copy;

@@ -131,10 +131,7 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
         dict[kMTMaskedCreditCardCardhash] = card.maskedCard;
         dict[kMTMaskedCreditCardExpiresAt] = card.expiresAt;
         dict[kMTMaskedCreditCardTokenType] = card.tokenType;
-        
-        if ([card.tokenType isEqualToString:TokenTypeTwoClicks] && card.token) {
-            dict[kMTMaskedCreditCardIdentifier] = card.token;
-        }
+        dict[kMTMaskedCreditCardIdentifier] = card.token;
         
         MidtransMaskedCreditCard *newCard = [[MidtransMaskedCreditCard alloc] initWithDictionary:dict];
         [formattedCards addObject:newCard];

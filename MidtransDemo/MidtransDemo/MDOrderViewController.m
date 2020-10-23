@@ -153,7 +153,6 @@
     NSArray *blacklistBin = @[];
     
     //configure expire time
-    [[MidtransNetworkLogger shared] startLogging];
     
     MidtransTransactionExpire * optExpireTime = [[[MDOptionManager shared] expireTimeOption] value];
     MindtransTimeUnitType unit;

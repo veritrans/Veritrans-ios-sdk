@@ -79,7 +79,6 @@
 
     NSString *clientkey = @"your client key";
     NSString *merchantServer = @"your merchant server url";
-    [[MidtransNetworkLogger shared] startLogging];
     [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];

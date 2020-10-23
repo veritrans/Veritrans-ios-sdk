@@ -14,6 +14,8 @@ NSString *const kMidtransPaymentRequestV2MerchantEnabledPrinciples = @"enabled_p
 NSString *const kMidtransPaymentRequestV2MerchantPreference = @"preference";
 NSString *const kMidtransPaymentRequestV2MerchantId = @"merchant_id";
 NSString *const kMidtransPaymentRequestV2MerchantPointBanks = @"point_banks";
+NSString *const kMidtransPaymentRequestV2MerchantPriorityCardFeature = @"priority_card_feature";
+NSString *const kMidtransPaymentRequestV2MerchantRecurringMidIsActive = @"recurring_mid_is_active";
 
 
 @interface MidtransPaymentRequestV2Merchant ()

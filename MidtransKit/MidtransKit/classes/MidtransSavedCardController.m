@@ -31,6 +31,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @end
 
+NSString *const kCreditCardTokenTypeOneClick = @"one_click";
+NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
+
 @implementation MidtransSavedCardController
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod

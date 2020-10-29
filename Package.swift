@@ -5,11 +5,15 @@ import PackageDescription
 
 let package = Package(
     name: "Midtrans",
+    defaultLocalization: "en",
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
-            name: "Midtrans",
-            targets: ["MidtransKit", "MidtransCoreKit"]),
+            name: "MidtransKit",
+            targets: ["MidtransKit"]),
+        .library(
+            name: "MidtransCoreKit",
+            targets: ["MidtransCoreKit"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.

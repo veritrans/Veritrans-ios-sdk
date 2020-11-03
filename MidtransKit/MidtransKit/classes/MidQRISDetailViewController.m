@@ -42,7 +42,7 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = self.backBarButton;
-    NSString *qrisPaymentMethodTitle = [NSString stringWithFormat:@"Pay with %@", self.paymentMethod.title];
+    NSString *qrisPaymentMethodTitle = [NSString stringWithFormat:@"Pay with %@", self.paymentMethod.internalBaseClassIdentifier];
     self.title = [VTClassHelper getTranslationFromAppBundleForString:qrisPaymentMethodTitle];
     self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;

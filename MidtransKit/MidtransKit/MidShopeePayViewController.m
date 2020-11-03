@@ -61,7 +61,7 @@
                                              selector:@selector(handleShopeePayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    self.title = @"ShopeePay";
+    self.title = self.paymentMethod.title;
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
     self.view.tableView.tableFooterView = [UIView new];

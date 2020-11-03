@@ -16,6 +16,7 @@
 #import "MidtransUINextStepButton.h"
 #import "VTGuideCell.h"
 #import "MidtransUIConfiguration.h"
+#import "MidtransTransactionDetailViewController.h"
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
 @interface MidGopayViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -72,8 +73,7 @@
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"MidtransDirectHeader"];
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
-    
-    
+    [self.view.transactionDetailWrapper addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     
     [self.view.tableView reloadData];
     
@@ -233,6 +233,11 @@
             
         }
     }];
+}
+
+- (void)totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.transactionDetailWrapper items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 
 - (void)createCustomBackButton{

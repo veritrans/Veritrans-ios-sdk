@@ -16,6 +16,7 @@
 #import "MidtransUINextStepButton.h"
 #import "VTGuideCell.h"
 #import "MidtransUIConfiguration.h"
+#import "MidtransTransactionDetailViewController.h"
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
 @interface MidShopeePayViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -61,7 +62,7 @@
                                              selector:@selector(handleShopeePayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    self.title = @"ShopeePay";
+    self.title = self.paymentMethod.title;
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
     self.view.tableView.tableFooterView = [UIView new];
@@ -72,6 +73,7 @@
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"MidtransDirectHeader"];
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
+    [self.view.transactionDetailWrapper addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     
     
     
@@ -209,6 +211,11 @@
             
         }
     }];
+}
+
+- (void)totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.transactionDetailWrapper items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 
 - (void)createCustomBackButton{

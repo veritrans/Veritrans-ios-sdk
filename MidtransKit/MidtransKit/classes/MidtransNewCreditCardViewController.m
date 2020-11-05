@@ -830,20 +830,24 @@ MidtransCommonTSCViewControllerDelegate
                     isDebitCard = YES;
                 }
                 else {
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
-                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
-                                [self.addOnArray addObject:self.constructMandiriPoint];
-                                [self updateAddOnContent];
+                    if (self.tokenType != MTCreditCardPaymentTypeOneclick) {
+                        
+                        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
+                            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                                if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                                    [self.addOnArray addObject:self.constructMandiriPoint];
+                                    [self updateAddOnContent];
+                                }
                             }
                         }
-                    }
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure ) {
-                            if (![self.addOnArray containsObject:self.constructBNIPoint]) {
-                                [self.addOnArray addObject:self.constructBNIPoint];
-                                [self updateAddOnContent];
+                        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
+                            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure ) {
+                                if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+                                    [self.addOnArray addObject:self.constructBNIPoint];
+                                    [self updateAddOnContent];
+                                }
                             }
+                            
                         }
                         
                     }

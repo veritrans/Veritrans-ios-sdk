@@ -256,17 +256,12 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
             self.tokenType = MTCreditCardPaymentTypeNormal;
         }
             
-        if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
-            [self performOneClickWithCard:card];
+        NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
+        if (self.responsePayment.transactionDetails.orderId) {
+            [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
         }
-        else {
-            NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
-            if (self.responsePayment.transactionDetails.orderId) {
-                [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
-            }
-            [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
-            [self performTwoClicksWithCard:card];
-        }
+        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
+        [self performTwoClicksWithCard:card];
     }
 }
 - (void)totalAmountBorderedViewTapped:(id) sender {

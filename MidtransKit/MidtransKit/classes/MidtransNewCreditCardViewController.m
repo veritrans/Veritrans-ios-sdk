@@ -254,6 +254,9 @@ MidtransCommonTSCViewControllerDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
+            self.view.cardCVVNumberTextField.text = @"***";
+        }
         
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];

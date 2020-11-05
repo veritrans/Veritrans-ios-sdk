@@ -209,7 +209,25 @@ MidtransCommonTSCViewControllerDelegate
                 @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
             }];
-            [self.promoArray addObject:promoConstructor];
+            if (self.tokenType) {
+                
+                NSString *firstOneDigitCardString = [self.maskedCreditCard.maskedNumber substringToIndex:1];
+                NSString *firstSixDigitCardString = [self.maskedCreditCard.maskedNumber substringToIndex:6];
+                
+                for (NSString *bin in promos.bins) {
+                    if (bin.length == 1) {
+                        if ([bin isEqualToString:firstOneDigitCardString]) {
+                            [self.promoArray addObject:promoConstructor];
+                        }
+                    } else {
+                        if ([bin isEqualToString:firstSixDigitCardString]) {
+                            [self.promoArray addObject:promoConstructor];
+                        }
+                    }
+                }
+            } else {
+                [self.promoArray addObject:promoConstructor];
+            }
             [self.currentPromo addObject:promoConstructor];
         }
         

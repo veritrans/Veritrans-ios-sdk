@@ -62,7 +62,9 @@
 + (instancetype _Nonnull)modelWithMaskedCard:(NSString *_Nonnull)maskedCard
                                     customer:(MidtransCustomerDetails *_Nonnull)customer
                                     saveCard:(BOOL)saveCard
-                                 installment:(NSString *_Nullable)installment;
+                                 installment:(NSString *_Nullable)installment
+                                      promos:(NSDictionary *_Nullable)promos;
+
 
 + (instancetype _Nonnull)modelWithToken:(NSString *_Nonnull)token
                                customer:(MidtransCustomerDetails *_Nonnull)customer

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+        <string>Tap #Pay Now with ShopeePay#</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+        <string>#Shopee# app will open</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+        <string>Check your payment details then tap #Next#</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+    <dict>
+        <key>content</key>
+        <string>Check your ShopeePay balance then tap #Pay#</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>content</key>
+        <string>Enter your #PIN#</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+           <key>content</key>
+           <string>Your transaction is complete</string>
+           <key>image</key>
+           <string></string>
+       </dict>
+</array>
+</plist>

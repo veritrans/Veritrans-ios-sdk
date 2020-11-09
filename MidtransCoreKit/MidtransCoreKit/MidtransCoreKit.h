@@ -79,3 +79,5 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransPromoDataModels.h"
 #import "MIDUrlHandler.h"
 #import "MidtransPaymentAlfa.h"
+#import "MidtransPaymentShopeePay.h"
+#import "MidtransPaymentQRIS.h"

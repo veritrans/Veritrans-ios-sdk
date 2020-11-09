@@ -53,7 +53,6 @@
     
     NSString *clientkey = @"VT-client-E4f1bsi1LpL1p5cF";
     NSString *merchantServer = @"https://rakawm-snap.herokuapp.com";
-    [[MidtransNetworkLogger shared] startLogging];
     [CONFIG setClientKey:clientkey
              environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];

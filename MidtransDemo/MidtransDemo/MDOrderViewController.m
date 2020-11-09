@@ -15,6 +15,7 @@
 #import "MDOptionManager.h"
 #import <MidtransKit/MidtransKit.h>
 #import <JGProgressHUD/JGProgressHUD.h>
+#import "MidtransDemoAppConfig.h"
 
 @interface MDOrderViewController () <MidtransUIPaymentViewControllerDelegate,MidtransPaymentWebControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
@@ -38,7 +39,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.totalAmount = @(100000);
+    self.totalAmount = [NSNumber numberWithInt:DEMO_APP_ITEM_PRICE];
     NSString *formattedPrice = [self formattedISOCurrencyNumber:self.totalAmount];
     self.totalAmountLabel.text = self.pricePerItemLabel.text = formattedPrice;
     [self.payButton setTitle:[NSString stringWithFormat:@"Pay %@", formattedPrice] forState:UIControlStateNormal];
@@ -66,16 +67,16 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = @"SB-Mid-client-61XuGAwQ8Bj8LxSS";
-            merchantServer = @"https://fauzi-one-click-sandbox.herokuapp.com/";
+            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = @"VT-client-yrHf-c8Sxr-ck8tx";
-            merchantServer = @"https://promo-engine-sample-server.herokuapp.com/";
+            clientkey = SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION;
+            merchantServer = SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentSandbox
+             environment:MidtransServerEnvironmentProduction
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
@@ -102,6 +103,7 @@
     [[MidtransNetworkLogger shared] startLogging];
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
+    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;
@@ -151,7 +153,6 @@
     NSArray *blacklistBin = @[];
     
     //configure expire time
-    [[MidtransNetworkLogger shared] startLogging];
     
     MidtransTransactionExpire * optExpireTime = [[[MDOptionManager shared] expireTimeOption] value];
     MindtransTimeUnitType unit;

@@ -42,7 +42,7 @@
          forControlEvents:UIControlEventTouchUpInside];
     self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
     self.navigationItem.leftBarButtonItem = self.backBarButton;
-    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay With GoPay"];
+    self.title = [VTClassHelper getTranslationFromAppBundleForString:@"Pay with GoPay"];
     self.view.merchantName.text = [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_CORE_MERCHANT_NAME];
     self.view.guideTableView.delegate = self;
     self.view.guideTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -78,7 +78,7 @@
         
         self.view.topWrapperView.hidden = YES;
         self.view.qrcodeWrapperView.hidden = NO;
-        [self.view.finishPaymentButton setTitle:@"Finish Payment" forState:UIControlStateNormal];
+        [self.view.finishPaymentButton setTitle:@"Pay Now" forState:UIControlStateNormal];
         [self fetchQRCode];
         NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];

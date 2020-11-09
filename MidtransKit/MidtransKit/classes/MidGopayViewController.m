@@ -16,6 +16,7 @@
 #import "MidtransUINextStepButton.h"
 #import "VTGuideCell.h"
 #import "MidtransUIConfiguration.h"
+#import "MidtransTransactionDetailViewController.h"
 #define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
 
 @interface MidGopayViewController ()<UITableViewDelegate,UITableViewDataSource>
@@ -72,8 +73,7 @@
     self.headerView = [self.view.tableView dequeueReusableCellWithIdentifier:@"MidtransDirectHeader"];
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
     self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
-    
-    
+    [self.view.transactionDetailWrapper addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     
     [self.view.tableView reloadData];
     
@@ -141,7 +141,7 @@
     UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 5, tableView.frame.size.width, 18)];
     [label setFont:[UIFont boldSystemFontOfSize:12]];
     /* Section header is in 0th index... */
-    [label setText:@"Instructions"];
+    [label setText:@"How to Pay"];
     [view addSubview:label];
     [view setBackgroundColor:[UIColor whiteColor]]; //your background color...
     return view;
@@ -233,6 +233,11 @@
             
         }
     }];
+}
+
+- (void)totalAmountBorderedViewTapped:(id) sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.transactionDetailWrapper items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
 }
 
 - (void)createCustomBackButton{

@@ -205,10 +205,12 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
 }
 - (void)requestCustomerPointWithToken:(NSString * _Nonnull )token
                    andCreditCardToken:(NSString *_Nonnull)creditCardToken
+                          grossAmount:(NSNumber *_Nonnull)grossAmount
                            completion:(void (^_Nullable)(SNPPointResponse *_Nullable response, NSError *_Nullable error))completion {
     NSString *stringURL = [NSString stringWithFormat:@"%@/transactions/%@/point_inquiry/%@",PRIVATECONFIG.snapURL, token, creditCardToken];
     @try {
-        [[MidtransNetworking shared] getFromURL:stringURL parameters:nil callback:^(id response, NSError *error) {
+        NSDictionary *params =@{@"gross_amount":grossAmount.stringValue};
+        [[MidtransNetworking shared] getFromURL:stringURL parameters:params callback:^(id response, NSError *error) {
             if (!error) {
                 SNPPointResponse *pointResponse = [[SNPPointResponse alloc] initWithDictionary:(NSDictionary *)response];
                 if (completion) {
@@ -384,6 +386,10 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
         NSDictionary *gopay = @{@"enable_callback": @YES,
                                 @"callback_url": [CONFIG callbackSchemeURL]};
         dictionaryParameters[@"gopay"] = gopay;
+    }
+    if ([CONFIG shopeePayCallbackURL].length > 0) {
+        NSDictionary *shoopeePay = @{@"callback_url": [CONFIG callbackSchemeURL]};
+        dictionaryParameters[@"shopeepay"] = shoopeePay;
     }
     
     NSString *URL = [NSString stringWithFormat:@"%@/%@", [CONFIG merchantURL], MIDTRANS_CORE_SNAP_MERCHANT_SERVER_CHARGE];

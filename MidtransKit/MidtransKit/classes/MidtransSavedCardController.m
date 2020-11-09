@@ -31,6 +31,9 @@
 @property (weak, nonatomic) IBOutlet UILabel *orderIdLabel;
 @end
 
+NSString *const kCreditCardTokenTypeOneClick = @"one_click";
+NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
+
 @implementation MidtransSavedCardController
 - (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
             paymentMethodName:(MidtransPaymentListModel *)paymentMethod
@@ -128,10 +131,7 @@
         dict[kMTMaskedCreditCardCardhash] = card.maskedCard;
         dict[kMTMaskedCreditCardExpiresAt] = card.expiresAt;
         dict[kMTMaskedCreditCardTokenType] = card.tokenType;
-        
-        if ([card.tokenType isEqualToString:TokenTypeTwoClicks] && card.token) {
-            dict[kMTMaskedCreditCardIdentifier] = card.token;
-        }
+        dict[kMTMaskedCreditCardIdentifier] = card.token;
         
         MidtransMaskedCreditCard *newCard = [[MidtransMaskedCreditCard alloc] initWithDictionary:dict];
         [formattedCards addObject:newCard];
@@ -244,9 +244,13 @@
     else {
         NSString *tokenTypeString = [[self.responsePayment.creditCard.savedTokens valueForKey:@"tokenType"] objectAtIndex:indexPath.row];
         
-        if ([tokenTypeString isEqualToString:@"one_click"]) {
+        if ([self.responsePayment.merchant.priorityCardFeature isEqualToString:kCreditCardTokenTypeTwoClicks] || !self.responsePayment.merchant.recurringMidIsActive) {
+            tokenTypeString = kCreditCardTokenTypeTwoClicks;
+        }
+        
+        if ([tokenTypeString isEqualToString:kCreditCardTokenTypeOneClick]) {
             self.tokenType = MTCreditCardPaymentTypeOneclick;
-        } else if ([tokenTypeString isEqualToString:@"two_clicks"]) {
+        } else if ([tokenTypeString isEqualToString:kCreditCardTokenTypeTwoClicks]) {
             self.tokenType = MTCreditCardPaymentTypeTwoclick;
         } else {
             self.tokenType = MTCreditCardPaymentTypeNormal;

@@ -407,6 +407,44 @@
 		DD2A91A322CC85A80081562A /* alfamidi.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919E22CC85A70081562A /* alfamidi.png */; };
 		DD2A91A422CC85A80081562A /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919F22CC85A80081562A /* alfamidi@3x.png */; };
 		DD2A91A522CC85A80081562A /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919F22CC85A80081562A /* alfamidi@3x.png */; };
+		DD64CE3E25393F2E0069F4B4 /* shopeepay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */; };
+		DD64CE3F25393F2E0069F4B4 /* shopeepay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */; };
+		DD64CE4025393F2E0069F4B4 /* shopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3925393F2D0069F4B4 /* shopeepay@1x.png */; };
+		DD64CE4125393F2E0069F4B4 /* shopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3925393F2D0069F4B4 /* shopeepay@1x.png */; };
+		DD64CE4225393F2E0069F4B4 /* shopeepay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3A25393F2D0069F4B4 /* shopeepay@3x.png */; };
+		DD64CE4325393F2E0069F4B4 /* shopeepay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3A25393F2D0069F4B4 /* shopeepay@3x.png */; };
+		DD64CE4425393F2E0069F4B4 /* shopeepay_button@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3B25393F2D0069F4B4 /* shopeepay_button@1x.png */; };
+		DD64CE4525393F2E0069F4B4 /* shopeepay_button@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3B25393F2D0069F4B4 /* shopeepay_button@1x.png */; };
+		DD64CE4625393F2E0069F4B4 /* shopeepay_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3C25393F2D0069F4B4 /* shopeepay_button@3x.png */; };
+		DD64CE4725393F2E0069F4B4 /* shopeepay_button@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3C25393F2D0069F4B4 /* shopeepay_button@3x.png */; };
+		DD64CE4825393F2E0069F4B4 /* shopeepay_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3D25393F2E0069F4B4 /* shopeepay_button@2x.png */; };
+		DD64CE4925393F2E0069F4B4 /* shopeepay_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3D25393F2E0069F4B4 /* shopeepay_button@2x.png */; };
+		DD64CE4D253DA3880069F4B4 /* en_ipad_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE4C253DA3880069F4B4 /* en_ipad_shopeepay.plist */; };
+		DD64CE4E253DA3880069F4B4 /* en_ipad_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE4C253DA3880069F4B4 /* en_ipad_shopeepay.plist */; };
+		DD64CE56253DB9240069F4B4 /* MidQRISDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD64CE55253DB9240069F4B4 /* MidQRISDetailViewController.h */; };
+		DD64CE57253DB9240069F4B4 /* MidQRISDetailViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD64CE55253DB9240069F4B4 /* MidQRISDetailViewController.h */; };
+		DD64CE59253DB93B0069F4B4 /* MidQRISDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD64CE58253DB93B0069F4B4 /* MidQRISDetailViewController.m */; };
+		DD64CE5A253DB93B0069F4B4 /* MidQRISDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD64CE58253DB93B0069F4B4 /* MidQRISDetailViewController.m */; };
+		DD64CE5B253DB9880069F4B4 /* MidShopeePayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */; };
+		DD64CE5C253DB98C0069F4B4 /* MidShopeePayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB1F7242537284700379F50 /* MidShopeePayViewController.h */; };
+		DD64CE5E253DBADD0069F4B4 /* MidQRISDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE5D253DBADD0069F4B4 /* MidQRISDetailViewController.xib */; };
+		DD64CE5F253DBADD0069F4B4 /* MidQRISDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE5D253DBADD0069F4B4 /* MidQRISDetailViewController.xib */; };
+		DD64CE61253E8EB60069F4B4 /* id_ipad_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE60253E8EB60069F4B4 /* id_ipad_shopeepay.plist */; };
+		DD64CE62253E8EB60069F4B4 /* id_ipad_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE60253E8EB60069F4B4 /* id_ipad_shopeepay.plist */; };
+		DD64CE64253E902D0069F4B4 /* id_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE63253E902D0069F4B4 /* id_shopeepay.plist */; };
+		DD64CE65253E902D0069F4B4 /* id_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE63253E902D0069F4B4 /* id_shopeepay.plist */; };
+		DD64CE69253EA6560069F4B4 /* qrisshopeepay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */; };
+		DD64CE6A253EA6560069F4B4 /* qrisshopeepay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */; };
+		DD64CE6B253EA6560069F4B4 /* qrisshopeepay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */; };
+		DD64CE6C253EA6560069F4B4 /* qrisshopeepay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */; };
+		DD64CE6D253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */; };
+		DD64CE6E253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */; };
+		DDB1F7222536FD5100379F50 /* MidShopeePayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */; };
+		DDB1F7232536FD5100379F50 /* MidShopeePayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */; };
+		DDB1F7252537284700379F50 /* MidShopeePayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB1F7242537284700379F50 /* MidShopeePayViewController.h */; };
+		DDB1F7272537285D00379F50 /* MidShopeePayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */; };
+		DDBC2FB22537A1BA002FCD06 /* en_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */; };
+		DDBC2FB32537A1BA002FCD06 /* en_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */; };
 		E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9531E9B6F2000EF70DF /* bni_va1@2x.png */; };
 		E519C9661E9B6F2000EF70DF /* bni_va2@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E519C9551E9B6F2000EF70DF /* bni_va2@2x.png */; };
@@ -1585,6 +1623,25 @@
 		DD2A919A22CC85A70081562A /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@2x.png"; path = "resources/alfamidi@2x.png"; sourceTree = "<group>"; };
 		DD2A919E22CC85A70081562A /* alfamidi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alfamidi.png; path = resources/alfamidi.png; sourceTree = "<group>"; };
 		DD2A919F22CC85A80081562A /* alfamidi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@3x.png"; path = "resources/alfamidi@3x.png"; sourceTree = "<group>"; };
+		DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay@2x.png"; path = "resources/shopeepay@2x.png"; sourceTree = "<group>"; };
+		DD64CE3925393F2D0069F4B4 /* shopeepay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay@1x.png"; path = "resources/shopeepay@1x.png"; sourceTree = "<group>"; };
+		DD64CE3A25393F2D0069F4B4 /* shopeepay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay@3x.png"; path = "resources/shopeepay@3x.png"; sourceTree = "<group>"; };
+		DD64CE3B25393F2D0069F4B4 /* shopeepay_button@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay_button@1x.png"; path = "resources/shopeepay_button@1x.png"; sourceTree = "<group>"; };
+		DD64CE3C25393F2D0069F4B4 /* shopeepay_button@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay_button@3x.png"; path = "resources/shopeepay_button@3x.png"; sourceTree = "<group>"; };
+		DD64CE3D25393F2E0069F4B4 /* shopeepay_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay_button@2x.png"; path = "resources/shopeepay_button@2x.png"; sourceTree = "<group>"; };
+		DD64CE4C253DA3880069F4B4 /* en_ipad_shopeepay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en_ipad_shopeepay.plist; path = MidtransKit/resources/en_ipad_shopeepay.plist; sourceTree = SOURCE_ROOT; };
+		DD64CE55253DB9240069F4B4 /* MidQRISDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidQRISDetailViewController.h; sourceTree = "<group>"; };
+		DD64CE58253DB93B0069F4B4 /* MidQRISDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidQRISDetailViewController.m; path = classes/MidQRISDetailViewController.m; sourceTree = "<group>"; };
+		DD64CE5D253DBADD0069F4B4 /* MidQRISDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidQRISDetailViewController.xib; path = MidtransKit/resources/MidQRISDetailViewController.xib; sourceTree = SOURCE_ROOT; };
+		DD64CE60253E8EB60069F4B4 /* id_ipad_shopeepay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = id_ipad_shopeepay.plist; path = MidtransKit/resources/id_ipad_shopeepay.plist; sourceTree = SOURCE_ROOT; };
+		DD64CE63253E902D0069F4B4 /* id_shopeepay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = id_shopeepay.plist; path = MidtransKit/resources/id_shopeepay.plist; sourceTree = SOURCE_ROOT; };
+		DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@2x.png"; path = "resources/qrisshopeepay@2x.png"; sourceTree = "<group>"; };
+		DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@3x.png"; path = "resources/qrisshopeepay@3x.png"; sourceTree = "<group>"; };
+		DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@1x.png"; path = "resources/qrisshopeepay@1x.png"; sourceTree = "<group>"; };
+		DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidShopeePayViewController.xib; path = MidtransKit/resources/MidShopeePayViewController.xib; sourceTree = SOURCE_ROOT; };
+		DDB1F7242537284700379F50 /* MidShopeePayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidShopeePayViewController.h; path = classes/MidShopeePayViewController.h; sourceTree = "<group>"; };
+		DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidShopeePayViewController.m; sourceTree = "<group>"; };
+		DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en_shopeepay.plist; path = MidtransKit/resources/en_shopeepay.plist; sourceTree = SOURCE_ROOT; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -2347,7 +2404,11 @@
 				E57ACD84217F009500A9977F /* en_akulaku.plist */,
 				E57ACD85217F009500A9977F /* id_akulaku.plist */,
 				0C9635101FE11D7D00EF89DF /* en_gopay.plist */,
+				DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */,
+				DD64CE63253E902D0069F4B4 /* id_shopeepay.plist */,
 				0C9635111FE11D7E00EF89DF /* en_ipad_gopay.plist */,
+				DD64CE4C253DA3880069F4B4 /* en_ipad_shopeepay.plist */,
+				DD64CE60253E8EB60069F4B4 /* id_ipad_shopeepay.plist */,
 				0C96350F1FE11D7D00EF89DF /* id_gopay.plist */,
 				0C96350E1FE11D7C00EF89DF /* id_ipad_gopay.plist */,
 				0C115B7A1F73A76400327915 /* en_lang.json */,
@@ -2418,7 +2479,9 @@
 				E5F1BB271E93701100ED659D /* MidtransItemCell.xib */,
 				E5F1BB281E93701100ED659D /* MidtransLoadingView.xib */,
 				0C1CF3FD1FE898BC006D9F51 /* MidGopayViewController.xib */,
+				DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */,
 				0C96350B1FE11BDD00EF89DF /* MidGopayDetailViewController.xib */,
+				DD64CE5D253DBADD0069F4B4 /* MidQRISDetailViewController.xib */,
 				E5F1BB2A1E93701100ED659D /* MidtransPaymentGCIViewController.xib */,
 				E5F1BB2B1E93701100ED659D /* MidtransPaymentMethodHeader.xib */,
 				E5F1BB2D1E93701100ED659D /* MidtransPromoView.xib */,
@@ -2472,6 +2535,15 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */,
+				DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */,
+				DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */,
+				DD64CE3B25393F2D0069F4B4 /* shopeepay_button@1x.png */,
+				DD64CE3D25393F2E0069F4B4 /* shopeepay_button@2x.png */,
+				DD64CE3C25393F2D0069F4B4 /* shopeepay_button@3x.png */,
+				DD64CE3925393F2D0069F4B4 /* shopeepay@1x.png */,
+				DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */,
+				DD64CE3A25393F2D0069F4B4 /* shopeepay@3x.png */,
 				DD2A919E22CC85A70081562A /* alfamidi.png */,
 				DD2A919A22CC85A70081562A /* alfamidi@2x.png */,
 				DD2A919F22CC85A80081562A /* alfamidi@3x.png */,
@@ -2803,10 +2875,14 @@
 				0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */,
 				0C9634AB1FE1197700EF89DF /* MidGopayDetailViewController.h */,
 				0C9634B11FE1197900EF89DF /* MidGopayDetailViewController.m */,
+				DD64CE55253DB9240069F4B4 /* MidQRISDetailViewController.h */,
+				DD64CE58253DB93B0069F4B4 /* MidQRISDetailViewController.m */,
 				0C9634AE1FE1197800EF89DF /* MIDGopayView.h */,
 				0C9634AF1FE1197900EF89DF /* MIDGopayView.m */,
 				0C9634B01FE1197900EF89DF /* MidGopayViewController.h */,
 				0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */,
+				DDB1F7242537284700379F50 /* MidShopeePayViewController.h */,
+				DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */,
 				0C5DD8831E9E34920004DD5D /* Post Payment */,
 				E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */,
 				E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */,
@@ -3039,9 +3115,11 @@
 				E57120C01E937B790064F515 /* VTKeyboardAccessoryView.h in Headers */,
 				E57120C11E937B790064F515 /* MidtransUIButton.h in Headers */,
 				E57120C21E937B790064F515 /* MidtransUINextStepButton.h in Headers */,
+				DD64CE5C253DB98C0069F4B4 /* MidShopeePayViewController.h in Headers */,
 				0C9634C21FE119BC00EF89DF /* MIDGopayDetailView.h in Headers */,
 				E57120C31E937B790064F515 /* VTNoteTitleLabel.h in Headers */,
 				3D8BF5D61F90BE7800F35C55 /* MidtransUITableAlertViewController.h in Headers */,
+				DD64CE57253DB9240069F4B4 /* MidQRISDetailViewController.h in Headers */,
 				E57120C41E937B790064F515 /* VTSegmentedControl.h in Headers */,
 				0CB8B7D52071EF080067A0B8 /* MidtransCommonTSCViewController.h in Headers */,
 				E57120C51E937B790064F515 /* MidtransUIBaseViewController.h in Headers */,
@@ -3124,6 +3202,7 @@
 				E55F628F1E934A6D00C012C8 /* MidtransInstallmentView.h in Headers */,
 				E55F62901E934A6D00C012C8 /* MidtransInstallmentCollectionViewCell.h in Headers */,
 				E55F62921E934A6D00C012C8 /* MIdtransUICardCell.h in Headers */,
+				DD64CE56253DB9240069F4B4 /* MidQRISDetailViewController.h in Headers */,
 				E55F62931E934A6D00C012C8 /* MidtransUICCFrontView.h in Headers */,
 				E55F62941E934A6D00C012C8 /* VTCCBackView.h in Headers */,
 				E55F62951E934A6D00C012C8 /* VTPaymentHeader.h in Headers */,
@@ -3161,6 +3240,7 @@
 				E55F62AE1E934A6D00C012C8 /* MidtransUIButton.h in Headers */,
 				0C9634C11FE119BC00EF89DF /* MIDGopayDetailView.h in Headers */,
 				E55F62AF1E934A6D00C012C8 /* MidtransUINextStepButton.h in Headers */,
+				DDB1F7252537284700379F50 /* MidShopeePayViewController.h in Headers */,
 				E55F62B01E934A6D00C012C8 /* VTNoteTitleLabel.h in Headers */,
 				E55F62B11E934A6D00C012C8 /* VTSegmentedControl.h in Headers */,
 				E55F62B21E934A6D00C012C8 /* MidtransUIBaseViewController.h in Headers */,
@@ -3422,6 +3502,7 @@
 				0CAD5C9E207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib in Resources */,
 				E5EBC2C11EB0726700A568D1 /* midtrans_logo_mid@2x.png in Resources */,
 				0C6FD11B1F9DDAAB00401628 /* mandiri_badge@2x.png in Resources */,
+				DD64CE6A253EA6560069F4B4 /* qrisshopeepay@2x.png in Resources */,
 				E519C9771E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				0CCD62502005D0BA006936E5 /* prima.png in Resources */,
 				ECB02184221A979F0037C0E1 /* dandan.png in Resources */,
@@ -3462,14 +3543,18 @@
 				E58FCDBD1E94CFD500632085 /* cc_badge@2x.png in Resources */,
 				E58FCE3F1E94CFD600632085 /* other_atm_7@2x.png in Resources */,
 				E57127E01E93B7C50064F515 /* en_bca_klikpay.plist in Resources */,
+				DD64CE4925393F2E0069F4B4 /* shopeepay_button@2x.png in Resources */,
 				0CE1D2A31F67B861003A012F /* visa-mastercard-amex-seal@2x.png in Resources */,
 				0C9634F21FE11A1400EF89DF /* ic_no_gopay@3x.png in Resources */,
 				ECB0219E221BB33C0037C0E1 /* MIDAlfamartViewController.xib in Resources */,
 				E58FCE971E94CFD600632085 /* xl_tunai@2x.png in Resources */,
 				0C9635131FE11D7E00EF89DF /* id_ipad_gopay.plist in Resources */,
+				DD64CE6E253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */,
 				E58FCE1D1E94CFD600632085 /* mega.png in Resources */,
 				E571248E1E9381320064F515 /* MidtransPaymentMethodHeader.xib in Resources */,
+				DD64CE62253E8EB60069F4B4 /* id_ipad_shopeepay.plist in Resources */,
 				E58FCE691E94CFD600632085 /* plus-icon@2x.png in Resources */,
+				DD64CE3F25393F2E0069F4B4 /* shopeepay@2x.png in Resources */,
 				E58FCE7B1E94CFD600632085 /* visa-mastercard-amex.png in Resources */,
 				E519C9631E9B6F2000EF70DF /* bni_va1@2x.png in Resources */,
 				E58FCDFF1E94CFD500632085 /* mandiri_atm_1@2x.png in Resources */,
@@ -3500,6 +3585,7 @@
 				E58FCE851E94CFD600632085 /* visa-mastercard-jcb-amex@3x.png in Resources */,
 				0C9324481F7B7F6000D9A390 /* danamon_online@1.5x.png in Resources */,
 				E58FCDF51E94CFD500632085 /* InfoIcon@2x.png in Resources */,
+				DD64CE65253E902D0069F4B4 /* id_shopeepay.plist in Resources */,
 				E58FCE2D1E94CFD600632085 /* other_alto_5@2x.png in Resources */,
 				0CE1D2A91F67B861003A012F /* visa-mastercard-seal@2x.png in Resources */,
 				3D40893A1F7512F100B9A2EC /* bersama_preview@3x.png in Resources */,
@@ -3508,6 +3594,7 @@
 				E57124961E9381320064F515 /* MidtransUICCFrontView.xib in Resources */,
 				E58FCE651E94CFD600632085 /* permata.png in Resources */,
 				E57124971E9381320064F515 /* MidtransUICustomAlertViewController.xib in Resources */,
+				DD64CE4E253DA3880069F4B4 /* en_ipad_shopeepay.plist in Resources */,
 				E57124981E9381320064F515 /* MidtransUIListCell.xib in Resources */,
 				E58FCDFB1E94CFD500632085 /* kioson@2x.png in Resources */,
 				E58FCDC71E94CFD500632085 /* cimb.png in Resources */,
@@ -3515,6 +3602,8 @@
 				E58FCDD11E94CFD500632085 /* CreditCardBack@2x.png in Resources */,
 				E58FCDF31E94CFD500632085 /* indosat_dompetku@2x.png in Resources */,
 				E58FCD951E94CFD500632085 /* BackBarIcon@2x.png in Resources */,
+				DD64CE4325393F2E0069F4B4 /* shopeepay@3x.png in Resources */,
+				DDBC2FB32537A1BA002FCD06 /* en_shopeepay.plist in Resources */,
 				0CE1D2BB1F67BA53003A012F /* token_key@4x.png in Resources */,
 				E58FCDA91E94CFD500632085 /* bca_va@2x.png in Resources */,
 				DD2A91A322CC85A80081562A /* alfamidi.png in Resources */,
@@ -3560,6 +3649,7 @@
 				0CE1D2AC1F67BA35003A012F /* MidtransUIPaymentDirectViewController.xib in Resources */,
 				ECB02179221A97590037C0E1 /* alfamart_1@3x.png in Resources */,
 				ECB02170221A93620037C0E1 /* alfamart@3x.png in Resources */,
+				DD64CE6C253EA6560069F4B4 /* qrisshopeepay@3x.png in Resources */,
 				0CB8B7D72071EF430067A0B8 /* MidtransCommonTSCViewController.xib in Resources */,
 				E571249E1E9381320064F515 /* SNPPointViewController.xib in Resources */,
 				3D4089271F74E43300B9A2EC /* en_indomaret.plist in Resources */,
@@ -3593,6 +3683,7 @@
 				0C9324461F7B7F5900D9A390 /* danamon_online@3x.png in Resources */,
 				0C93244A1F7B7F6400D9A390 /* danamon_online.png in Resources */,
 				E58FCE7F1E94CFD600632085 /* visa-mastercard-amex@3x.png in Resources */,
+				DD64CE4125393F2E0069F4B4 /* shopeepay@1x.png in Resources */,
 				E58FCE931E94CFD600632085 /* Visa@2x.png in Resources */,
 				E58FCE4D1E94CFD600632085 /* other_prima_7@2x.png in Resources */,
 				E58FCDED1E94CFD500632085 /* icon_btn_plus_@2x.png in Resources */,
@@ -3636,6 +3727,7 @@
 				E58FCE471E94CFD600632085 /* other_prima_4@2x.png in Resources */,
 				E58FCDAF1E94CFD500632085 /* bni_badge@2x.png in Resources */,
 				0C9324441F7B7F5400D9A390 /* danamon_online@2x.png in Resources */,
+				DD64CE5F253DBADD0069F4B4 /* MidQRISDetailViewController.xib in Resources */,
 				E57ACD87217F009500A9977F /* en_akulaku.plist in Resources */,
 				E58FCE211E94CFD600632085 /* midtrans_lock@2x.png in Resources */,
 				0CE1D26A1F62A68E003A012F /* maintain@3x.png in Resources */,
@@ -3709,8 +3801,10 @@
 				E58FCDE71E94CFD500632085 /* hint.png in Resources */,
 				E58FCD9F1E94CFD500632085 /* bca_atm_4@2x.png in Resources */,
 				E57124B41E9381320064F515 /* VTVASuccessStatusController.xib in Resources */,
+				DD64CE4725393F2E0069F4B4 /* shopeepay_button@3x.png in Resources */,
 				E58FCE2B1E94CFD600632085 /* other_alto_4@2x.png in Resources */,
 				E57124B51E9381320064F515 /* VTXLTunaiSuccessController.xib in Resources */,
+				DD64CE4525393F2E0069F4B4 /* shopeepay_button@1x.png in Resources */,
 				0CC900421F7028C30058E93C /* en_virtualAccount.plist in Resources */,
 				3D4089191F74E35800B9A2EC /* id_permata_va.plist in Resources */,
 				E57124B61E9381320064F515 /* MidtransCreditCardAddOnComponentCell.xib in Resources */,
@@ -3784,6 +3878,7 @@
 				0C9634E11FE11A1400EF89DF /* gopay.png in Resources */,
 				0C9634E61FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */,
 				E58FCE291E94CFD600632085 /* other_alto_3@2x.png in Resources */,
+				DDB1F7232536FD5100379F50 /* MidShopeePayViewController.xib in Resources */,
 				E58FCE8F1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
 				E519C9671E9B6F2000EF70DF /* bni_va2@2x.png in Resources */,
 				3D659DE52106E5E300E57E6B /* MIDPaymentIndomaretViewController.xib in Resources */,
@@ -3817,6 +3912,7 @@
 				E58FCE6C1E94CFD600632085 /* successIcon@2x.png in Resources */,
 				0C9324451F7B7F5800D9A390 /* danamon_online@3x.png in Resources */,
 				3D5DFDC41FB458120021EB2F /* icon-help@3x.png in Resources */,
+				DD64CE6D253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */,
 				E519C9761E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
 				E5F1BB6E1E93701100ED659D /* VTBillpaySuccessController.xib in Resources */,
 				E5F1BB5F1E93701100ED659D /* MidtransSavedCardCell.xib in Resources */,
@@ -3836,6 +3932,7 @@
 				ECB0216F221A93620037C0E1 /* alfamart@3x.png in Resources */,
 				E58FCDD21E94CFD500632085 /* CreditCardBackSmall@2x.png in Resources */,
 				0CE1D27B1F62A752003A012F /* bni_va@4x.png in Resources */,
+				DD64CE69253EA6560069F4B4 /* qrisshopeepay@2x.png in Resources */,
 				0CC900351F70244A0058E93C /* en_bri_epay.plist in Resources */,
 				3DECDFE91F9DAE610001AC9A /* download@3x.png in Resources */,
 				0C9634F51FE11A1F00EF89DF /* gojek_icon@2x.png in Resources */,
@@ -3849,15 +3946,18 @@
 				0CE1D2661F62A670003A012F /* test_badge@2x.png in Resources */,
 				0CCD62452005D0BA006936E5 /* atm_bersama@2x.png in Resources */,
 				0CE1D2BA1F67BA53003A012F /* token_key@4x.png in Resources */,
+				DD64CE4625393F2E0069F4B4 /* shopeepay_button@3x.png in Resources */,
 				E58FCE041E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
 				E55F62781E93498000C012C8 /* bin.json in Resources */,
 				E5F1BB651E93701100ED659D /* MidtransUICustomAlertViewController.xib in Resources */,
 				E58FCDF81E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				3D40891C1F74E43200B9A2EC /* id_bni_va.plist in Resources */,
 				0CE1D2B61F67BA53003A012F /* token_key@2x.png in Resources */,
+				DD64CE61253E8EB60069F4B4 /* id_ipad_shopeepay.plist in Resources */,
 				0C9635021FE11A1F00EF89DF /* ic_chevron_up@3x.png in Resources */,
 				E58FCDC21E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
 				0C96350C1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */,
+				DD64CE4025393F2E0069F4B4 /* shopeepay@1x.png in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				DD2A91A022CC85A80081562A /* alfamidi@2x.png in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
@@ -3955,7 +4055,9 @@
 				E58FCDF61E94CFD500632085 /* JCB@2x.png in Resources */,
 				3D4089351F7512F100B9A2EC /* bersama_preview.png in Resources */,
 				0CD116101EDD5B14005884AD /* en_bni_va.plist in Resources */,
+				DD64CE4825393F2E0069F4B4 /* shopeepay_button@2x.png in Resources */,
 				E58FCD881E94CFD500632085 /* AlertBackground@2x.png in Resources */,
+				DDBC2FB22537A1BA002FCD06 /* en_shopeepay.plist in Resources */,
 				ECB02169221A93620037C0E1 /* akulaku@2x.png in Resources */,
 				E58FCDDA1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC81E94CFD500632085 /* cimb@2x.png in Resources */,
@@ -4011,6 +4113,7 @@
 				E58FCE121E94CFD500632085 /* mandiri@2x.png in Resources */,
 				0C9635081FE11A1F00EF89DF /* ic_no_gopay@3x.png in Resources */,
 				3D5DFDC51FB458120021EB2F /* icon-help@4x.png in Resources */,
+				DD64CE5E253DBADD0069F4B4 /* MidQRISDetailViewController.xib in Resources */,
 				E58FCDE21E94CFD500632085 /* errorIcon@2x.png in Resources */,
 				E58FCE4A1E94CFD600632085 /* other_prima_6@2x.png in Resources */,
 				E58FCDE01E94CFD500632085 /* emptyCardIcon@2x.png in Resources */,
@@ -4020,6 +4123,7 @@
 				E58FCDB21E94CFD500632085 /* bni.png in Resources */,
 				0CE1D2A41F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				E5F1BB6D1E93701100ED659D /* VTAddCardController.xib in Resources */,
+				DD64CE64253E902D0069F4B4 /* id_shopeepay.plist in Resources */,
 				0C9635001FE11A1F00EF89DF /* ic_chevron_up.png in Resources */,
 				E5F1BB851E93701100ED659D /* MidtransUIPaymentListHeader.xib in Resources */,
 				E57ACD86217F009500A9977F /* en_akulaku.plist in Resources */,
@@ -4029,6 +4133,7 @@
 				E58FCE261E94CFD600632085 /* other_alto_2@2x.png in Resources */,
 				E58FCE801E94CFD600632085 /* visa-mastercard-jcb-amex.png in Resources */,
 				0C9635071FE11A1F00EF89DF /* ic_no_gopay@2x.png in Resources */,
+				DD64CE6B253EA6560069F4B4 /* qrisshopeepay@3x.png in Resources */,
 				0CE1D2C91F67BA99003A012F /* sms@4x.png in Resources */,
 				0CC900511F702E0F0058E93C /* id_cimb_clicks.plist in Resources */,
 				E58FCE4E1E94CFD600632085 /* other_va@2x.png in Resources */,
@@ -4062,12 +4167,14 @@
 				E58FCE521E94CFD600632085 /* pendingIcon@2x.png in Resources */,
 				E5F1BB6A1E93701100ED659D /* MidtransVAHeader.xib in Resources */,
 				E58FCE881E94CFD600632085 /* visa-mastercard-jcb@2x.png in Resources */,
+				DD64CE4425393F2E0069F4B4 /* shopeepay_button@1x.png in Resources */,
 				3DECDFE71F9DAE610001AC9A /* download@2x.png in Resources */,
 				E5F1BB821E93701100ED659D /* VTVASuccessStatusController.xib in Resources */,
 				0CC900431F7028C50058E93C /* id_virtualAccount.plist in Resources */,
 				0CCD62532005D0BA006936E5 /* prima@3x.png in Resources */,
 				3D4089221F74E43200B9A2EC /* id_bca_klikpay.plist in Resources */,
 				0C9634FB1FE11A1F00EF89DF /* gopay_scan_qr_instruction@2x.png in Resources */,
+				DDB1F7222536FD5100379F50 /* MidShopeePayViewController.xib in Resources */,
 				3D40893E1F75130300B9A2EC /* alto_preview.png in Resources */,
 				E58FCD921E94CFD500632085 /* back@2x.png in Resources */,
 				E58FCE621E94CFD600632085 /* permata_va@2x.png in Resources */,
@@ -4093,6 +4200,7 @@
 				3D4089201F74E43200B9A2EC /* id_permata_va.plist in Resources */,
 				E58FCE5A1E94CFD600632085 /* permata_atm_4@2x.png in Resources */,
 				0C9324431F7B7F5400D9A390 /* danamon_online@2x.png in Resources */,
+				DD64CE4225393F2E0069F4B4 /* shopeepay@3x.png in Resources */,
 				ECB02171221A93620037C0E1 /* alfamart.png in Resources */,
 				E58FCE6A1E94CFD600632085 /* prevIcon@2x.png in Resources */,
 				E55976421EA72F770044342A /* cross@2x.png in Resources */,
@@ -4106,6 +4214,7 @@
 				0CB8B7D82071EF4C0067A0B8 /* MidtransCommonTSCViewController.xib in Resources */,
 				E58FCE3A1E94CFD600632085 /* other_atm_5@2x.png in Resources */,
 				E58FCDE61E94CFD500632085 /* hint.png in Resources */,
+				DD64CE3E25393F2E0069F4B4 /* shopeepay@2x.png in Resources */,
 				3D659DE42106E5E300E57E6B /* MIDPaymentIndomaretViewController.xib in Resources */,
 				E58FCD9E1E94CFD500632085 /* bca_atm_4@2x.png in Resources */,
 				E5F1BB701E93701100ED659D /* VTCCBackView.xib in Resources */,
@@ -4119,6 +4228,7 @@
 				E58FCDEE1E94CFD500632085 /* ImageOffer@2x.png in Resources */,
 				0CE1D2B21F67BA53003A012F /* token_key.png in Resources */,
 				0CCD624F2005D0BA006936E5 /* prima.png in Resources */,
+				DD64CE4D253DA3880069F4B4 /* en_ipad_shopeepay.plist in Resources */,
 				E58FCE901E94CFD600632085 /* visa-mastercard@3x.png in Resources */,
 				0C9634FE1FE11A1F00EF89DF /* ic_chevron_down@2x.png in Resources */,
 				E58FCE361E94CFD600632085 /* other_atm_3@2x.png in Resources */,
@@ -4206,6 +4316,7 @@
 				E57122B31E937C040064F515 /* VTPaymentHeader.m in Sources */,
 				E57122B41E937C040064F515 /* MidtransUIListCell.m in Sources */,
 				E57122B51E937C040064F515 /* MidtransLoadingIndicator.m in Sources */,
+				DD64CE5B253DB9880069F4B4 /* MidShopeePayViewController.m in Sources */,
 				E57122B61E937C040064F515 /* MidtransLoadingView.m in Sources */,
 				E57122B71E937C040064F515 /* MidtransItemCell.m in Sources */,
 				E57122B81E937C040064F515 /* MidtransCollectionViewLayout.m in Sources */,
@@ -4227,6 +4338,7 @@
 				E57122C51E937C040064F515 /* MIdtransUIDetailedTitleController.m in Sources */,
 				E57122C61E937C040064F515 /* MidtransUIXibView.m in Sources */,
 				E57122C71E937C040064F515 /* VTAlertBackgroundView.m in Sources */,
+				DD64CE5A253DB93B0069F4B4 /* MidQRISDetailViewController.m in Sources */,
 				E57122C91E937C040064F515 /* MidtransUIHudView.m in Sources */,
 				E57122CA1E937C040064F515 /* VTKeyboardAccessoryView.m in Sources */,
 				E57122CB1E937C040064F515 /* MidtransUIButton.m in Sources */,
@@ -4421,6 +4533,7 @@
 				E55F633B1E934B1C00C012C8 /* MidtransPaymentGCIViewController.m in Sources */,
 				E55F633C1E934B1C00C012C8 /* MidtransPaymentGCIView.m in Sources */,
 				E55F633D1E934B1C00C012C8 /* VTMultiGuideController.m in Sources */,
+				DD64CE59253DB93B0069F4B4 /* MidQRISDetailViewController.m in Sources */,
 				0CCD621420048F8E006936E5 /* MIDOtherVAViewController.m in Sources */,
 				E55F633E1E934B1C00C012C8 /* VTSingleGuideController.m in Sources */,
 				E55F633F1E934B1C00C012C8 /* VTSubGuideController.m in Sources */,
@@ -4428,6 +4541,7 @@
 				E55F63401E934B1C00C012C8 /* VTGuideView.m in Sources */,
 				E55F63411E934B1C00C012C8 /* VTGuideCell.m in Sources */,
 				ECB02148221A85940037C0E1 /* MIDAlfamartViewController.m in Sources */,
+				DDB1F7272537285D00379F50 /* MidShopeePayViewController.m in Sources */,
 				E55F63421E934B1C00C012C8 /* VTGroupedInstruction.m in Sources */,
 				E55F63431E934B1C00C012C8 /* VTInstruction.m in Sources */,
 				E55F63441E934B1C00C012C8 /* MidtransPaymentStatusViewController.m in Sources */,

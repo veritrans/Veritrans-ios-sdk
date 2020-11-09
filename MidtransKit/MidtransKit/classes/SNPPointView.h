@@ -25,5 +25,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *pointTopTile;
 @property (weak, nonatomic) IBOutlet UILabel *pointBottomTitle;
 
-- (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse;
+- (void)configureAmountTotal:(NSNumber *)totalGrossAmount;
 @end

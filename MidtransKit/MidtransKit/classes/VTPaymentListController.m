@@ -28,6 +28,7 @@
 #import "MidtransUIThemeManager.h"
 #import "UIColor+SNP_HexString.h"
 #import "MIDAlfamartViewController.h"
+#import "MidShopeePayViewController.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
@@ -38,6 +39,8 @@
 @property (nonatomic)BOOL singlePayment;
 @property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
+@property (nonatomic) NSString* qrisAcquirer;
+
 @end
 
 @implementation VTPaymentListController;
@@ -71,7 +74,7 @@
     
     UIImage *logo = [MidtransImageManager merchantLogo];
     if (logo != nil) {
-        UIView *titleViewWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 50)];
+        UIView *titleViewWrapper = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 120, 40)];
         
         UIImageView *imgView = [[UIImageView alloc] initWithFrame:titleViewWrapper.frame];
         [imgView setImage:[MidtransImageManager merchantLogo]];
@@ -173,7 +176,18 @@
                 
                 if (self.paymentMethodSelected.length > 0) {
                     index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                        if (IPAD) {
+                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                                return NO;
+                            } else {
+                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
+                            }
+                        } else{
+                             return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                        }
                     }];
                     
                     if (index !=NSNotFound) {
@@ -186,7 +200,18 @@
                 }
                 else {
                     index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        return [obj[@"id"] isEqualToString:enabledPayment.type];
+                        if (IPAD) {
+                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                                return NO;
+                            } else {
+                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
+                            }
+                        } else {
+                            return [obj[@"id"] isEqualToString:enabledPayment.type];
+                        }
                     }];
                 }
                 
@@ -398,6 +423,11 @@
         MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [midGopayVC showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY] ||[paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_QRIS_SHOPEEPAY] ) {
+        MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
+        [midShopeepayVC showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:midShopeepayVC animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
         MIDPaymentIndomaretViewController* vc = [[MIDPaymentIndomaretViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];

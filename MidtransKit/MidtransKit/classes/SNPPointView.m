@@ -24,7 +24,7 @@
     // Drawing code
 }
 */
-- (void)configureAmountTotal:(MidtransTransactionTokenResponse *)tokenResponse {
-    self.totalAmountPriceLabel.text = tokenResponse.transactionDetails.grossAmount.formattedCurrencyNumber;
+- (void)configureAmountTotal:(NSNumber *)totalGrossAmount {
+    self.totalAmountPriceLabel.text = totalGrossAmount.formattedCurrencyNumber;
 }
 @end

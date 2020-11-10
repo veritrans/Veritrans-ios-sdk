@@ -74,6 +74,7 @@ MidtransCommonTSCViewControllerDelegate
 @property (nonatomic,strong) NSNumber *prevPromoIndex;
 @property (nonatomic,strong) AddOnConstructor *selectedPromos;
 @property (nonatomic,strong) NSNumber *totalGrossAmount;
+@property (nonatomic,strong) MidtransPaymentCreditCard *paymentDetail;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -209,7 +210,25 @@ MidtransCommonTSCViewControllerDelegate
                 @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
                 @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
             }];
-            [self.promoArray addObject:promoConstructor];
+            if (self.tokenType) {
+                
+                NSString *firstOneDigitCardString = [self.maskedCreditCard.maskedNumber substringToIndex:1];
+                NSString *firstSixDigitCardString = [self.maskedCreditCard.maskedNumber substringToIndex:6];
+                
+                for (NSString *bin in promos.bins) {
+                    if (bin.length == 1) {
+                        if ([bin isEqualToString:firstOneDigitCardString]) {
+                            [self.promoArray addObject:promoConstructor];
+                        }
+                    } else {
+                        if ([bin isEqualToString:firstSixDigitCardString]) {
+                            [self.promoArray addObject:promoConstructor];
+                        }
+                    }
+                }
+            } else {
+                [self.promoArray addObject:promoConstructor];
+            }
             [self.currentPromo addObject:promoConstructor];
         }
         
@@ -236,6 +255,9 @@ MidtransCommonTSCViewControllerDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
+            self.view.cardCVVNumberTextField.text = @"***";
+        }
         
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
@@ -809,20 +831,24 @@ MidtransCommonTSCViewControllerDelegate
                     isDebitCard = YES;
                 }
                 else {
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
-                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
-                                [self.addOnArray addObject:self.constructMandiriPoint];
-                                [self updateAddOnContent];
+                    if (self.tokenType != MTCreditCardPaymentTypeOneclick) {
+                        
+                        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
+                            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                                if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                                    [self.addOnArray addObject:self.constructMandiriPoint];
+                                    [self updateAddOnContent];
+                                }
                             }
                         }
-                    }
-                    if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure ) {
-                            if (![self.addOnArray containsObject:self.constructBNIPoint]) {
-                                [self.addOnArray addObject:self.constructBNIPoint];
-                                [self updateAddOnContent];
+                        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
+                            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure ) {
+                                if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+                                    [self.addOnArray addObject:self.constructBNIPoint];
+                                    [self updateAddOnContent];
+                                }
                             }
+                            
                         }
                         
                     }
@@ -1039,14 +1065,14 @@ MidtransCommonTSCViewControllerDelegate
                         self.token.customerDetails.email = self.view.contactEmailTextField.text;
                     }
                     
-                    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
-                                                                                                customer:self.token.customerDetails
-                                                                                                saveCard:self.isSaveCard
-                                                                                             installment:self.installmentTerms];
+                    self.paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                                          customer:self.token.customerDetails
+                                                                          saveCard:self.isSaveCard
+                                                                       installment:self.installmentTerms];
                     
                     
                     MidtransTransaction *transaction = [[MidtransTransaction alloc]
-                                                        initWithPaymentDetails:paymentDetail token:self.token];
+                                                        initWithPaymentDetails:self.paymentDetail token:self.token];
                     
                     if (self.selectedPromos){
                         if (self.selectedPromos.addOnAddtional) {
@@ -1057,13 +1083,13 @@ MidtransCommonTSCViewControllerDelegate
                                                                @"promo_id":self.selectedPromos.addOnAddtional
                             };
                             
-                            paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
-                                                                             customer:self.token.customerDetails
-                                                                             saveCard:self.isSaveCard
-                                                                          installment:self.installmentTerms
-                                                                               promos:promoConstructor];
+                            self.paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                                                  customer:self.token.customerDetails
+                                                                                  saveCard:self.isSaveCard
+                                                                               installment:self.installmentTerms
+                                                                                    promos:promoConstructor];
                             transaction = [[MidtransTransaction alloc]
-                                           initWithPaymentDetails:paymentDetail token:self.token];
+                                           initWithPaymentDetails:self.paymentDetail token:self.token];
                         }
                     }
                     
@@ -1082,7 +1108,7 @@ MidtransCommonTSCViewControllerDelegate
                             pointVC.bankName = SNP_CORE_BANK_MANDIRI;
                         }
                         pointVC.totalGrossAmount = self.totalGrossAmount;
-                        pointVC.paymentDetails = paymentDetail;
+                        pointVC.paymentDetails = self.paymentDetail;
                         pointVC.currentMaskedCards = self.currentMaskedCards;
                         [self.navigationController pushViewController:pointVC animated:YES];
                     }
@@ -1091,16 +1117,19 @@ MidtransCommonTSCViewControllerDelegate
             return;
         }
         
-        [[MidtransClient shared] generateToken:tokenRequest
-                                    completion:^(NSString * _Nullable token, NSError * _Nullable error) {
-            if (error) {
-                [self hideLoading];
-                [self handleTransactionError:error];
-            } else {
-                [self payWithToken:token];
-            }
-        }];
-        
+        if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
+            [self payWithToken:self.token.tokenId];
+        } else {
+            [[MidtransClient shared] generateToken:tokenRequest
+                                        completion:^(NSString * _Nullable token, NSError * _Nullable error) {
+                if (error) {
+                    [self hideLoading];
+                    [self handleTransactionError:error];
+                } else {
+                    [self payWithToken:token];
+                }
+            }];
+        }
     }
 }
 
@@ -1113,53 +1142,60 @@ MidtransCommonTSCViewControllerDelegate
         self.token.customerDetails.email = self.view.contactEmailTextField.text;
     }
     
-    MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
-                                                                                customer:self.token.customerDetails
-                                                                                saveCard:self.isSaveCard
-                                                                             installment:self.installmentTerms];
-    
+    if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
+        NSDictionary *promoConstructor;
+        if (self.selectedPromos){
+            if (self.selectedPromos.addOnAddtional) {
+                NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+                NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+                
+                promoConstructor = @{@"discounted_gross_amount":castingNumber,
+                                     @"promo_id":self.selectedPromos.addOnAddtional
+                };
+            }
+        }
+        self.paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:self.maskedCreditCard.maskedNumber customer:self.token.customerDetails saveCard:NO installment:self.installmentTerms promos:promoConstructor];
+    } else {
+        self.paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                              customer:self.token.customerDetails
+                                                              saveCard:self.isSaveCard
+                                                           installment:self.installmentTerms];
+        if (self.selectedPromos){
+            if (self.selectedPromos.addOnAddtional) {
+                NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
+                NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
+                
+                NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
+                                                   @"promo_id":self.selectedPromos.addOnAddtional
+                };
+                
+                self.paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
+                                                                      customer:self.token.customerDetails
+                                                                      saveCard:self.isSaveCard
+                                                                   installment:self.installmentTerms
+                                                                        promos:promoConstructor];
+            }
+        }
+        
+        if (self.bniPointActive || self.mandiriPointActive) {
+            [self hideLoading];
+            
+            SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
+                                                                              paymentMethod:self.paymentMethod
+                                                                              tokenizedCard:token
+                                                                                  savedCard:self.isSaveCard
+                                                               andCompleteResponseOfPayment:self.responsePayment];
+            if (self.bniPointActive) {
+                pointVC.bankName = SNP_CORE_BANK_BNI;
+            }
+            else if (self.mandiriPointActive) {
+                pointVC.bankName = SNP_CORE_BANK_MANDIRI;
+            }
+        }
+    }
     
     MidtransTransaction *transaction = [[MidtransTransaction alloc]
-                                        initWithPaymentDetails:paymentDetail token:self.token];
-    
-    if (self.selectedPromos){
-        if (self.selectedPromos.addOnAddtional) {
-            NSInteger totalOrder = self.token.transactionDetails.grossAmount.integerValue - [self.selectedPromos.addOnDescriptions integerValue];
-            NSNumber *castingNumber  = [NSNumber numberWithInteger:totalOrder];
-            
-            NSDictionary *promoConstructor = @{@"discounted_gross_amount":castingNumber,
-                                               @"promo_id":self.selectedPromos.addOnAddtional
-            };
-            
-            paymentDetail = [MidtransPaymentCreditCard modelWithToken:token
-                                                             customer:self.token.customerDetails
-                                                             saveCard:self.isSaveCard
-                                                          installment:self.installmentTerms
-                                                               promos:promoConstructor];
-            transaction = [[MidtransTransaction alloc]
-                           initWithPaymentDetails:paymentDetail token:self.token];
-        }
-    }
-    
-    if (self.bniPointActive || self.mandiriPointActive) {
-        [self hideLoading];
-        
-        SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
-                                                                          paymentMethod:self.paymentMethod
-                                                                          tokenizedCard:token
-                                                                              savedCard:self.isSaveCard
-                                                           andCompleteResponseOfPayment:self.responsePayment];
-        if (self.bniPointActive) {
-            pointVC.bankName = SNP_CORE_BANK_BNI;
-        }
-        else if (self.mandiriPointActive) {
-            pointVC.bankName = SNP_CORE_BANK_MANDIRI;
-        }
-        pointVC.currentMaskedCards = self.currentMaskedCards;
-        [self.navigationController pushViewController:pointVC animated:YES];
-        return;
-    }
-    
+                                        initWithPaymentDetails:self.paymentDetail token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error)

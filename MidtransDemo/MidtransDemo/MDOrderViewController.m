@@ -67,16 +67,16 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION;
-            merchantServer = SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION;
+            clientkey = DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentProduction
+             environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;

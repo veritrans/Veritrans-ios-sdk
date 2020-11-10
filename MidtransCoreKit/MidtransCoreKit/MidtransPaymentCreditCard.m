@@ -55,7 +55,7 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
     return payment;
 }
 
-+ (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment {
++ (instancetype)modelWithMaskedCard:(NSString *)maskedCard customer:(MidtransCustomerDetails *)customer saveCard:(BOOL)saveCard installment:(NSString *)installment promos:(NSDictionary * _Nullable)promos {
     MidtransPaymentCreditCard *payment = [MidtransPaymentCreditCard new];
     if (installment !=nil) {
         payment.installment = installment;
@@ -64,6 +64,7 @@ typedef NS_ENUM(NSUInteger, MidtransPaymentCreditCardType) {
     payment.customerDetails = customer;
     payment.maskedCard = maskedCard;
     payment.saveCard = saveCard;
+    payment.promos = promos;
     return payment;
 }
 

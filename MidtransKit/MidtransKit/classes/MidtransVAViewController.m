@@ -142,6 +142,9 @@
     else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
         self.paymentType = VTVATypeBNI;
     }
+    else if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BRI_VA]) {
+        self.paymentType = VTVATypeBRI;
+    }
     
     [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {
         [[UIPasteboard generalPasteboard] setString:note.object];

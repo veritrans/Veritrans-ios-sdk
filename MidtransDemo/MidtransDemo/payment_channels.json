@@ -21,6 +21,10 @@
  },
  {
  "type": "bank_transfer",
+ "name": "Bank BRI"
+ },
+ {
+ "type": "bank_transfer",
  "name": "Other Bank"
  },
  {

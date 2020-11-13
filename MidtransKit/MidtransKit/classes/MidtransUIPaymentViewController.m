@@ -100,6 +100,9 @@
         case MidtransPaymentFeatureBankTransferBNIVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_BNI_VA;
             break;
+        case MidtransPaymentFeatureBankTransferBRIVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BRI_VA;
+            break;
         case MidtransPaymentFeatureBankTransferBCAVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_BCA_VA;
             break;

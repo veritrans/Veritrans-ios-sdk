@@ -38,6 +38,8 @@
             return MIDTRANS_PAYMENT_PERMATA_VA;
         case VTVATypeBNI:
             return MIDTRANS_PAYMENT_BNI_VA;
+        case VTVATypeBRI:
+            return MIDTRANS_PAYMENT_BRI_VA;
         case VTVATypeOther:
             return MIDTRANS_PAYMENT_OTHER_VA;
     }

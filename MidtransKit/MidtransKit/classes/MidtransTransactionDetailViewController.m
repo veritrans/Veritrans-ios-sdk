@@ -35,6 +35,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if (@available(iOS 13.0, *)) {
+        self.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
     [[SNPUITrackingManager shared] trackEventName:@"pg order summary"];
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransItemCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransItemCell"];
     self.tableView.delegate = self;

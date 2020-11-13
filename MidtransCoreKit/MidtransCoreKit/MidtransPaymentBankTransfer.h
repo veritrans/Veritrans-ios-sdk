@@ -14,6 +14,7 @@ typedef NS_ENUM(NSUInteger, MidtransVAType) {
     VTVATypeMandiri,
     VTVATypePermata,
     VTVATypeBNI,
+    VTVATypeBRI,
     VTVATypeAll,
     VTVATypeOther
 };

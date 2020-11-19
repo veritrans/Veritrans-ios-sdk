@@ -75,6 +75,7 @@ MidtransCommonTSCViewControllerDelegate
 @property (nonatomic,strong) AddOnConstructor *selectedPromos;
 @property (nonatomic,strong) NSNumber *totalGrossAmount;
 @property (nonatomic,strong) MidtransPaymentCreditCard *paymentDetail;
+@property (nonatomic) UIImage *bankIcon;
 @end
 
 @implementation MidtransNewCreditCardViewController

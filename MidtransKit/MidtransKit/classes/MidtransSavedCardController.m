@@ -212,6 +212,7 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
   //  vc.promos = self.promos;
+    vc.bankName = [self bankNameFromNumber:card.maskedNumber];
     vc.tokenType = self.tokenType;
     vc.currentMaskedCards = self.cards;
     vc.delegate = self;

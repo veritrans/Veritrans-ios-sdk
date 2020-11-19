@@ -450,18 +450,6 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IS_IOS8_OR_ABOVE) {
-        return UITableViewAutomaticDimension;
-    }
-    else {
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        [cell updateConstraintsIfNeeded];
-        [cell layoutIfNeeded];
-        float height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-        return height;
-    }
-}
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
         [tableView setLayoutMargins:UIEdgeInsetsZero];
@@ -486,10 +474,6 @@ MidtransCommonTSCViewControllerDelegate
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
     
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
 }
 
 - (void)updateAddOnContent {

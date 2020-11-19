@@ -96,7 +96,7 @@
         self.nextButton.enabled = YES;
         [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
-        [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        [self scrollInstallmentAtIndexPath:indexpath];
     }
     else {
        self.prevButton.enabled = NO;
@@ -108,10 +108,18 @@
             self.prevButton.enabled = YES;
         [self selectedIndex:self.installmentCurrentIndex];
         NSIndexPath *indexpath = [NSIndexPath indexPathForRow:self.installmentCurrentIndex inSection:0];
-        [self.installmentCollectionView scrollToItemAtIndexPath:indexpath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
+        [self scrollInstallmentAtIndexPath:indexpath];
     }
     else {
      self.nextButton.enabled = NO;
+    }
+}
+- (void)scrollInstallmentAtIndexPath:(NSIndexPath *)indexPath{
+    if (@available(iOS 14.0, *)) {
+        UICollectionViewLayoutAttributes *attributes = [self.installmentCollectionView layoutAttributesForItemAtIndexPath:[NSIndexPath indexPathForItem:self.installmentCurrentIndex inSection:0]];
+        [self.installmentCollectionView setContentOffset:CGPointMake(attributes.frame.origin.x, attributes.frame.origin.y + 8) animated:YES];
+    } else{
+        [self.installmentCollectionView scrollToItemAtIndexPath:indexPath atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally animated:YES];
     }
 }
 - (void)resetInstallmentIndex {

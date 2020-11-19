@@ -257,10 +257,11 @@ MidtransCommonTSCViewControllerDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        self.bankIcon = [self.view iconWithBankName:self.bankName];
+        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
         if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
             self.view.cardCVVNumberTextField.text = @"***";
         }
-        
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
@@ -524,9 +525,9 @@ MidtransCommonTSCViewControllerDelegate
     else {
         self.view.creditCardNumberTextField.info1Icon = nil;
     }
-    UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
+    self.bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.creditCardNumberTextField.info2Icon = bankIcon;
+        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
     });
 }
 

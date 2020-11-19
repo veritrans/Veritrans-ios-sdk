@@ -159,7 +159,8 @@ MidtransCommonTSCViewControllerDelegate
     
     self.view.promoTableView.delegate = self;
     self.view.promoTableView.dataSource = self;
-    
+    self.view.promoTableView.rowHeight = UITableViewAutomaticDimension;
+    self.view.promoTableView.estimatedRowHeight = 44;
     [self.view.promoTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
     
     [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];

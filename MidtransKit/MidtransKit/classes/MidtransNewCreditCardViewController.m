@@ -75,6 +75,7 @@ MidtransCommonTSCViewControllerDelegate
 @property (nonatomic,strong) AddOnConstructor *selectedPromos;
 @property (nonatomic,strong) NSNumber *totalGrossAmount;
 @property (nonatomic,strong) MidtransPaymentCreditCard *paymentDetail;
+@property (nonatomic) UIImage *bankIcon;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -159,7 +160,8 @@ MidtransCommonTSCViewControllerDelegate
     
     self.view.promoTableView.delegate = self;
     self.view.promoTableView.dataSource = self;
-    
+    self.view.promoTableView.rowHeight = UITableViewAutomaticDimension;
+    self.view.promoTableView.estimatedRowHeight = 44;
     [self.view.promoTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
     
     [self.view.addOnTableView registerNib:[UINib nibWithNibName:@"MidtransCreditCardAddOnComponentCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransCreditCardAddOnComponentCell"];
@@ -255,10 +257,11 @@ MidtransCommonTSCViewControllerDelegate
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
         self.view.creditCardNumberTextField.enabled = NO;
         self.view.cardExpireTextField.enabled = NO;
+        self.bankIcon = [self.view iconWithBankName:self.bankName];
+        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
         if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
             self.view.cardCVVNumberTextField.text = @"***";
         }
-        
         [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
         [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
         
@@ -449,18 +452,6 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IS_IOS8_OR_ABOVE) {
-        return UITableViewAutomaticDimension;
-    }
-    else {
-        UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-        [cell updateConstraintsIfNeeded];
-        [cell layoutIfNeeded];
-        float height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-        return height;
-    }
-}
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     if ([tableView respondsToSelector:@selector(setLayoutMargins:)]) {
         [tableView setLayoutMargins:UIEdgeInsetsZero];
@@ -485,10 +476,6 @@ MidtransCommonTSCViewControllerDelegate
         [cell setLayoutMargins:UIEdgeInsetsZero];
     }
     
-}
-
-- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return UITableViewAutomaticDimension;
 }
 
 - (void)updateAddOnContent {
@@ -538,9 +525,9 @@ MidtransCommonTSCViewControllerDelegate
     else {
         self.view.creditCardNumberTextField.info1Icon = nil;
     }
-    UIImage *bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
+    self.bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
     dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.creditCardNumberTextField.info2Icon = bankIcon;
+        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
     });
 }
 

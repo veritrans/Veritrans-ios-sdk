@@ -49,6 +49,7 @@
         self.customFieldOption = [self unArchivedObject:@"md_custom_field"];
         self.installmentOption = [self unArchivedObject:@"md_installment"];
         self.paymentChannel = [self unArchivedObject:@"md_payment_channel"];
+        self.directPaymentFeature = [self unArchivedObject:@"md_direct_payment_feature"];
     }
     return self;
 }
@@ -141,6 +142,10 @@
     _paymentChannel = paymentChannel;
     [self archiveObject:paymentChannel key:@"md_payment_channel"];
 }
+- (void)setDirectPaymentFeature:(MDOption *)directPaymentFeature {
+    _directPaymentFeature = directPaymentFeature;
+    [self archiveObject:directPaymentFeature key:@"md_direct_payment_feature"];
+}
 
 - (id)unArchivedObject:(NSString *)key {
     NSData *data = defaults_object(key);
@@ -179,5 +184,6 @@
     self.installmentOption =nil;
     self.customFieldOption = nil;
     self.paymentChannel = nil;
+    self.directPaymentFeature = nil;
 }
 @end

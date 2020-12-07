@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 @property (weak, nonatomic) IBOutlet UITextField *snaptokenTextField;
 @property (strong, nonatomic) NSNumber *totalAmount;
+@property (nonatomic) MidtransPaymentFeature directPaymentFeature;
+@property (nonatomic) MidtransUIPaymentViewController *paymentVC;
+
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
 
@@ -104,6 +107,7 @@
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
     CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+    self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;
@@ -217,10 +221,13 @@
             [self presentViewController:alert animated:YES completion:nil];
         }
         else {
-            
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-            paymentVC.paymentDelegate = self;
-            [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+            if (self.directPaymentFeature != MidtransPaymentFeatureNone) {
+                self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:self.directPaymentFeature];
+            } else {
+                self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            }
+            self.paymentVC.paymentDelegate = self;
+            [self.navigationController presentViewController:self.paymentVC animated:YES completion:nil];
         }
         
         //hide hud

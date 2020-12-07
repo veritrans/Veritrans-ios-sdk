@@ -195,7 +195,6 @@
                         model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                         model.status = enabledPayment.status;
                         [self.paymentMethodList addObject:model];
-                        [self redirectToPaymentMethodAtIndex:0];
                     }
                 }
                 else {
@@ -393,7 +392,7 @@
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]) {
         MIDDanamonOnlineViewController *vc = [[MIDDanamonOnlineViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
         [vc showDismissButton:self.singlePayment];
-        [self.navigationController pushViewController:vc animated:YES];
+        [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_ALFAMART]) {
         MIDAlfamartViewController *vc = [[MIDAlfamartViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];

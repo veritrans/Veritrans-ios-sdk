@@ -34,6 +34,7 @@
  static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
  */
 typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
+    MidtransPaymentFeatureNone,
     MidtransPaymentFeatureCreditCard,
     MidtransPaymentFeatureBankTransfer,///va
     MidtransPaymentFeatureBankTransferBCAVA,

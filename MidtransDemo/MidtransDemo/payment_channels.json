@@ -66,5 +66,13 @@
   {
     "type": "gci",
     "name": "GCI"
+  },
+  {
+    "type": "gopay",
+    "name": "GoPay"
+  },
+  {
+    "type": "shopeepay",
+    "name": "ShopeePay"
   }
 ]

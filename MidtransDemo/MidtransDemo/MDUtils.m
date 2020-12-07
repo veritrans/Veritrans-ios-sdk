@@ -77,6 +77,9 @@
     else if ([idf isEqualToString:OPTPaymanetChannel]) {
         [MDOptionManager shared].paymentChannel = option;
     }
+    else if ([idf isEqualToString:OPTDirectPayment]) {
+        [MDOptionManager shared].directPaymentFeature = option;
+    }
 }
 
 + (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names {

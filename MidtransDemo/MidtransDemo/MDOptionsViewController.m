@@ -54,6 +54,31 @@
                                                identifier:OPTAcquiringBank];
     [optAcqBank selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].issuingBankOption]];
     
+    //Direct Payment
+    options = @[[MDOption optionGeneralWithName:@"None" value:nil],
+                [MDOption optionGeneralWithName:@"Bank Transfer" value:@(MidtransPaymentFeatureBankTransfer)],
+                [MDOption optionGeneralWithName:@"Credit Card" value:@(MidtransPaymentFeatureCreditCard)],
+                [MDOption optionGeneralWithName:@"Bank Transfer BCAVA" value:@(MidtransPaymentFeatureBankTransferBCAVA)],
+                [MDOption optionGeneralWithName:@"Bank Transfer MandiriVA" value:@(MidtransPaymentFeatureBankTransferMandiriVA)],
+                [MDOption optionGeneralWithName:@"Bank Transfer BNIVA" value:@(MidtransPaymentFeatureBankTransferBNIVA)],
+                [MDOption optionGeneralWithName:@"Bank Transfer BRIVA" value:@(MidtransPaymentFeatureBankTransferBRIVA)],
+                [MDOption optionGeneralWithName:@"Bank Transfer PermataVA" value:@(MidtransPaymentFeatureBankTransferPermataVA)],
+                [MDOption optionGeneralWithName:@"Bank Transfer OtherVA" value:@(MidtransPaymentFeatureBankTransferOtherVA)],
+                [MDOption optionGeneralWithName:@"Klik BCA" value:@(MidtransPaymentFeatureKlikBCA)],
+                [MDOption optionGeneralWithName:@"Indomaret" value:@(MidtransPaymentFeatureIndomaret)],
+                [MDOption optionGeneralWithName:@"Alfamart" value:@(MidtransPaymentFeatureAlfamart)],
+                [MDOption optionGeneralWithName:@"CIMB Clicks" value:@(MidtransPaymentFeatureCIMBClicks)],
+                [MDOption optionGeneralWithName:@"BRI Epay" value:@(MidtransPaymentFeatureBRIEpay)],
+                [MDOption optionGeneralWithName:@"Akulaku" value:@(MidtransPaymentFeatureAkulaku)],
+                [MDOption optionGeneralWithName:@"Danamon Online" value:@(MidtransPaymentFeatureDanamonOnline)],
+                [MDOption optionGeneralWithName:@"Gopay" value:@(MidtransPaymentFeatureGOPAY)],
+                [MDOption optionGeneralWithName:@"ShopeePay" value:@(MidtransPaymentFeatureShopeePay)]
+    ];
+    MDOptionView *optDirectPayment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"payment_channel"]
+                                            titleTemplate:@"Direct Payment Feature %@"
+                                                  options:options
+                                               identifier:OPTDirectPayment];
+    [optDirectPayment selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].directPaymentFeature]];
     
     
     ////// auth type
@@ -259,7 +284,8 @@
                          optBNIVA,
                          optCustomField,
                          optInstallment,
-                         optPaymentChannels
+                         optPaymentChannels,
+                         optDirectPayment
                          ];
     
      [self prepareOptionViews:self.optionViews];;

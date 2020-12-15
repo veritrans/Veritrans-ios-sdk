@@ -34,33 +34,25 @@
  static NSString * const MIDTRANS_PAYMENT_KIOS_ON = @"kioson";
  */
 typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
+    MidtransPaymentFeatureNone,
     MidtransPaymentFeatureCreditCard,
     MidtransPaymentFeatureBankTransfer,///va
     MidtransPaymentFeatureBankTransferBCAVA,
     MidtransPaymentFeatureBankTransferMandiriVA,
     MidtransPaymentFeatureBankTransferBNIVA,
+    MidtransPaymentFeatureBankTransferBRIVA,
     MidtransPaymentFeatureBankTransferPermataVA,
     MidtransPaymentFeatureBankTransferOtherVA,
     MidtransPaymentFeatureKlikBCA,
     MidtransPaymentFeatureIndomaret,
-     MidtransPaymentFeatureAlfamart,
+    MidtransPaymentFeatureAlfamart,
     MidtransPaymentFeatureCIMBClicks,
-    MidtransPaymentFeatureCStore,
-    midtranspaymentfeatureBCAKlikPay,
-    MidtransPaymentFeatureMandiriEcash,
-    MidtransPaymentFeatureEchannel,
-    MidtransPaymentFeaturePermataVA,
+    MidtransPaymentFeatureBCAKlikPay,
     MidtransPaymentFeatureBRIEpay,
+    MidtransPaymentFeatureDanamonOnline,
     MidtransPaymentFeatureAkulaku,
-    MidtransPaymentFeatureTelkomselEcash,
-    MidtransPyamentFeatureDanamonOnline,
-    MidtransPaymentFeatureIndosatDompetku,
-    MidtransPaymentFeatureXLTunai,
-    MidtransPaymentFeatureMandiriClickPay,
-    MidtransPaymentFeatureKiosON,
-    MidtransPaymentFeatureGCI,
     MidtransPaymentFeatureGOPAY,
-    MidtransPaymentCreditCardForm
+    MidtransPaymentFeatureShopeePay
 };
 @class MidtransUIPaymentViewController;
 

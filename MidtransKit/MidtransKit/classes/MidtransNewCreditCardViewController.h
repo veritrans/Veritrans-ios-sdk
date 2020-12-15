@@ -20,6 +20,7 @@
 @property (nonatomic)BOOL saveCreditCardOnly;
 @property (nonatomic)BOOL noCardHash;
 @property(nonatomic)MTCreditCardPaymentType tokenType;
+@property(nonatomic, nullable)NSString *bankName;
 @property (nonatomic, nullable) NSArray <MidtransMaskedCreditCard *>*currentMaskedCards;
 
 - (instancetype _Nonnull)initWithToken:(MidtransTransactionTokenResponse *_Nonnull)token

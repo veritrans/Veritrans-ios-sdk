@@ -184,7 +184,7 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
             if (selectedIndex == 1) {
                 [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
                 
-                MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil];
+                MidtransPaymentCreditCard *paymentDetail = [MidtransPaymentCreditCard modelWithMaskedCard:card.maskedNumber customer:self.token.customerDetails saveCard:NO installment:nil promos:nil];
                 MidtransTransaction *transaction =
                 [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetail
                                                               token:self.token];
@@ -212,6 +212,7 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
                                                     creditCard:self.creditCard
                                   andCompleteResponseOfPayment:self.responsePayment];
   //  vc.promos = self.promos;
+    vc.bankName = [self bankNameFromNumber:card.maskedNumber];
     vc.tokenType = self.tokenType;
     vc.currentMaskedCards = self.cards;
     vc.delegate = self;
@@ -256,17 +257,12 @@ NSString *const kCreditCardTokenTypeTwoClicks = @"two_clicks";
             self.tokenType = MTCreditCardPaymentTypeNormal;
         }
             
-        if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
-            [self performOneClickWithCard:card];
+        NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
+        if (self.responsePayment.transactionDetails.orderId) {
+            [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
         }
-        else {
-            NSMutableDictionary *additionalData = [NSMutableDictionary dictionaryWithDictionary:@{@"card mode":@"two click"}];
-            if (self.responsePayment.transactionDetails.orderId) {
-                [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
-            }
-            [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
-            [self performTwoClicksWithCard:card];
-        }
+        [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
+        [self performTwoClicksWithCard:card];
     }
 }
 - (void)totalAmountBorderedViewTapped:(id) sender {

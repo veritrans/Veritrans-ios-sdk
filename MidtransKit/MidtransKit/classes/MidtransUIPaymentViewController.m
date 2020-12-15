@@ -43,32 +43,20 @@
         case MidtransPaymentFeatureGOPAY:
             paymentMethodSelected = MIDTRANS_PAYMENT_GOPAY;
             break;
+        case MidtransPaymentFeatureShopeePay:
+            paymentMethodSelected = MIDTRANS_PAYMENT_SHOPEEPAY;
+            break;
         case MidtransPaymentFeatureBankTransfer:
             paymentMethodSelected = MIDTRANS_PAYMENT_BANK_TRANSFER;
             break;
         case MidtransPaymentFeatureKlikBCA:
             paymentMethodSelected = MIDTRANS_PAYMENT_KLIK_BCA;
             break;
-        case midtranspaymentfeatureBCAKlikPay:
+        case MidtransPaymentFeatureBCAKlikPay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BCA_KLIKPAY;
-            break;
-        case  MidtransPaymentFeatureMandiriClickPay:
-            paymentMethodSelected = MIDTRANS_PAYMENT_MANDIRI_CLICKPAY;
             break;
         case  MidtransPaymentFeatureCIMBClicks:
             paymentMethodSelected = MIDTRANS_PAYMENT_CIMB_CLICKS;
-            break;
-        case MidtransPaymentFeatureMandiriEcash:
-            paymentMethodSelected = MIDTRANS_PAYMENT_MANDIRI_ECASH;
-            break;
-        case MidtransPaymentFeatureTelkomselEcash:
-            paymentMethodSelected = MIDTRANS_PAYMENT_TELKOMSEL_CASH;
-            break;
-        case MidtransPaymentFeatureXLTunai:
-            paymentMethodSelected = MIDTRANS_PAYMENT_XL_TUNAI;
-            break;
-        case MidtransPaymentFeatureIndosatDompetku:
-            paymentMethodSelected = MIDTRANS_PAYMENT_INDOSAT_DOMPETKU;
             break;
         case MidtransPaymentFeatureIndomaret:
             paymentMethodSelected = MIDTRANS_PAYMENT_INDOMARET;
@@ -76,14 +64,8 @@
         case MidtransPaymentFeatureAlfamart:
             paymentMethodSelected = MIDTRANS_PAYMENT_ALFAMART;
             break;
-        case MidtransPyamentFeatureDanamonOnline:
+        case MidtransPaymentFeatureDanamonOnline:
             paymentMethodSelected = MIDTRANS_PAYMENT_DANAMON_ONLINE;
-            break;
-        case MidtransPaymentFeatureKiosON:
-            paymentMethodSelected = MIDTRANS_PAYMENT_KIOS_ON;
-            break;
-        case MidtransPaymentFeatureGCI:
-            paymentMethodSelected = MIDTRANS_PAYMENT_GCI;
             break;
         case MidtransPaymentFeatureBRIEpay:
             paymentMethodSelected = MIDTRANS_PAYMENT_BRI_EPAY;
@@ -99,6 +81,9 @@
             break;
         case MidtransPaymentFeatureBankTransferBNIVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_BNI_VA;
+            break;
+        case MidtransPaymentFeatureBankTransferBRIVA:
+            paymentMethodSelected = MIDTRANS_PAYMENT_BRI_VA;
             break;
         case MidtransPaymentFeatureBankTransferBCAVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_BCA_VA;

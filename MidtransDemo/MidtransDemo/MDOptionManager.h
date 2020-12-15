@@ -32,5 +32,6 @@
 @property (nonatomic) MDOption *mandiriPointOption;
 @property (nonatomic) MDOption *installmentOption;
 @property (nonatomic) MDOption *paymentChannel;
+@property (nonatomic) MDOption *directPaymentFeature;
 - (void)resetConfiguration;
 @end

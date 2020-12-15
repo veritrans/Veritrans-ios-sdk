@@ -89,7 +89,6 @@
     }
 }
 - (void)dismissButtonDidTapped:(id)sender {
-    sleep(2);
     if (self.dismissButton) {
         [self.navigationController dismissViewControllerAnimated:YES completion:^{
             [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
@@ -250,6 +249,7 @@
         id paymentID = self.paymentMethod.internalBaseClassIdentifier;
         if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
+            [paymentID isEqualToString:MIDTRANS_PAYMENT_BRI_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {

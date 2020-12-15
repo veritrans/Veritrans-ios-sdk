@@ -57,7 +57,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self createCustomBackButton];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(handleShopeePayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
@@ -216,22 +215,6 @@
 - (void)totalAmountBorderedViewTapped:(id) sender {
     MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
     [transactionViewController presentAtPositionOfView:self.view.transactionDetailWrapper items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
-}
-
-- (void)createCustomBackButton{
-    UIButton *backButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f,
-                                                                      0.0f,
-                                                                      24.0f,
-                                                                      24.0f)];
-    
-    UIImage *image = [UIImage imageNamed:@"back" inBundle:VTBundle compatibleWithTraitCollection:nil];
-    [backButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]
-                forState:UIControlStateNormal];
-    [backButton addTarget:self
-                   action:@selector(backButtonDidTapped:)
-         forControlEvents:UIControlEventTouchUpInside];
-    self.backBarButton = [[UIBarButtonItem alloc] initWithCustomView:backButton];
-    self.navigationItem.leftBarButtonItem = self.backBarButton;
 }
 
 - (void)backButtonDidTapped:(id)sender {

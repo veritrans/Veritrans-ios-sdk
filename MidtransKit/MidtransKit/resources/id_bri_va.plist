@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM BRI</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Pada menu utama, pilih ‘Transaksi Lain’</string>
+				<key>image</key>
+				<string>bri_va1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Pembayaran’</string>
+				<key>image</key>
+				<string>bri_va2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Lainnya’</string>
+				<key>image</key>
+				<string>bri_va3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘BRIVA’</string>
+				<key>image</key>
+				<string>bri_va4</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan 15 digit ‘Nomor BRIVA’ pelanggan dan pilih ‘Benar’</string>
+				<key>image</key>
+				<string>bri_va5</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Jumlah pembayaran, nomor BRIVA dan nama merchant akan muncul pada halaman konfirmasi pembayaran Jika informasi yang dicantumkan benar, pilih ‘Ya’</string>
+				<key>image</key>
+				<string>bri_va6</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pembayaran telah selesai Simpan bukti pembayaran Anda</string>
+				<key>image</key>
+				<string>bri_va7</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Mobile Banking</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Masuk ke dalam aplikasi ‘BRI Mobile’, pilih ‘Mobile Banking BRI’.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih ‘Pembayaran’, lalu pilih ‘BRIVA’.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan nomor ‘BRIVA’.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Jumlah pembayaran, nomor pembayaran, dan nama merchant akan muncul pada halaman konfirmasi pembayaran. Jika informasi yang dicantumkan benar, pilih ‘Continue’.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan ‘Mobile Banking BRI PIN’, pilih ‘Ok’.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pembayaran telah selesai. Simpan notifikasi sebagai bukti pembayaran.</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Internet Banking</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Login pada ‘Internet Banking BRI’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih menu ‘Pembayaran &amp; Pembelian’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pilih sub menu ‘BRIVA’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan Nomor ‘BRIVA’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Jumlah pembayaran, kode bayar, dan nama merchant akan muncul pada halaman konfirmasi pembayaran Jika informasi yang dicantumkan benar, pilih ‘Kirim’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Masukkan password dan ‘mtoken’, pilih Kirim</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Pembayaran telah selesai Untuk mencetak bukti transaksi, pilih ‘Cetak’</string>
+				<key>image</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+</array>
+</plist>

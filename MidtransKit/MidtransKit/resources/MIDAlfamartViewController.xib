@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment version="2304" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -129,7 +127,7 @@
                     </userDefinedRuntimeAttributes>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u0c-UB-DDd">
-                    <rect key="frame" x="0.0" y="20" width="375" height="33"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="33"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instructions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Owg-RL-A0d">
                             <rect key="frame" x="8" y="7" width="73" height="18"/>
@@ -176,11 +174,11 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cJg-3B-9IT">
-                    <rect key="frame" x="0.0" y="82" width="375" height="456"/>
+                    <rect key="frame" x="0.0" y="62" width="375" height="476"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ydi-8k-rpc">
-                    <rect key="frame" x="0.0" y="53" width="375" height="29"/>
+                    <rect key="frame" x="0.0" y="33" width="375" height="29"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dnl-1f-3V3">
                             <rect key="frame" x="8" y="5" width="304" height="15.5"/>
@@ -270,10 +268,11 @@
                         <constraint firstAttribute="height" constant="29" id="S34-Rn-kxS"/>
                         <constraint firstItem="Dnl-1f-3V3" firstAttribute="top" secondItem="ydi-8k-rpc" secondAttribute="top" constant="5" id="hzc-Qu-9Wz"/>
                         <constraint firstItem="Dnl-1f-3V3" firstAttribute="leading" secondItem="ydi-8k-rpc" secondAttribute="leading" constant="8" id="pzY-Sj-EN3"/>
-                        <constraint firstAttribute="trailing" secondItem="Dnl-1f-3V3" secondAttribute="trailing" constant="63" id="wjI-YK-eNE"/>
+                        <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Dnl-1f-3V3" secondAttribute="trailing" constant="63" id="wjI-YK-eNE"/>
                     </constraints>
                 </view>
             </subviews>
+            <viewLayoutGuide key="safeArea" id="E4j-8a-L9C"/>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="u0c-UB-DDd" secondAttribute="trailing" id="7nh-9Y-MY4"/>
@@ -293,7 +292,6 @@
                 <constraint firstAttribute="trailing" secondItem="ydi-8k-rpc" secondAttribute="trailing" id="yn9-9M-rP2"/>
                 <constraint firstItem="ydi-8k-rpc" firstAttribute="top" secondItem="u0c-UB-DDd" secondAttribute="bottom" id="z24-St-dTh"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="E4j-8a-L9C"/>
             <point key="canvasLocation" x="23.199999999999999" y="50.824587706146929"/>
         </view>
     </objects>

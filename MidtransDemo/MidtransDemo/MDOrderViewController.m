@@ -25,6 +25,9 @@
 @property (weak, nonatomic) IBOutlet UIButton *payButton;
 @property (weak, nonatomic) IBOutlet UITextField *snaptokenTextField;
 @property (strong, nonatomic) NSNumber *totalAmount;
+@property (nonatomic) MidtransPaymentFeature directPaymentFeature;
+@property (nonatomic) MidtransUIPaymentViewController *paymentVC;
+
 @property (nonatomic) JGProgressHUD *progressHUD;
 @end
 
@@ -67,16 +70,16 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION;
-            merchantServer = SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION;
+            clientkey = DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentProduction
+             environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
@@ -104,6 +107,7 @@
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
     CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+    self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
     __weak MDOrderViewController *wself = self;
@@ -217,10 +221,13 @@
             [self presentViewController:alert animated:YES completion:nil];
         }
         else {
-            
-            MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-            paymentVC.paymentDelegate = self;
-            [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+            if (self.directPaymentFeature != MidtransPaymentFeatureNone) {
+                self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:self.directPaymentFeature];
+            } else {
+                self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+            }
+            self.paymentVC.paymentDelegate = self;
+            [self.navigationController presentViewController:self.paymentVC animated:YES completion:nil];
         }
         
         //hide hud

@@ -212,6 +212,20 @@
 		<key>shortName</key>
 		<string>atm bni</string>
 	</dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>BRI</string>
+        <key>description</key>
+        <string>Bayar dari ATM BRI atau internet banking</string>
+        <key>id</key>
+        <string>bri_va</string>
+        <key>identifier</key>
+        <string>bri_va</string>
+        <key>shortName</key>
+        <string>atm bri</string>
+    </dict>
 	<dict>
 		<key>status</key>
 		<string>&quot;&quot;</string>

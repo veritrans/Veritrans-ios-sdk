@@ -18,7 +18,7 @@
     "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button": "You will be redirected to BCA KlikPay page once you tap ‘Confirm Payment’ button",
     "payment.failed": "Payment Failed",
     "payment.pending": "Payment Pending",
-    "payment.deny":"Payment Unsuccessful",
+    "payment.deny":"Payment Denied",
     "message.payment.deny":"Transaction denied! Please try again or try another payment method.",
     "payment.pay-at": "Pay at %@",
     "clickpay.invalid-number": "Invalid Debit Number",

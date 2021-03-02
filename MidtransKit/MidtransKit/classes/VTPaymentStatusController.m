@@ -120,7 +120,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         [additionalData addEntriesFromDictionary:@{@"installment available": available,
                                                    @"installment required": required}];
     }
-    [self.descriptionLabel setHidden:YES];
+    
     [self.dueInstallmentConstraint setConstant:0];
     [self.dueInstallmentBorderView setHidden:YES];
     NSNumber *installmentTerm = self.result.additionalData[@"installment_term"];
@@ -171,8 +171,8 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
             [[SNPUITrackingManager shared] trackEventName:@"pg deny" additionalParameters:additionalData];
             self.paymentStatusLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
             self.amountLabel.text = self.result.grossAmount.formattedCurrencyNumber;
-            self.statusIconView.image = [UIImage imageNamed:@"pending" inBundle:VTBundle compatibleWithTraitCollection:nil];
-            self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"payment.deny"];
+            self.statusIconView.image = [UIImage imageNamed:@"cross" inBundle:VTBundle compatibleWithTraitCollection:nil];
+            self.titleLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Ouch!"];
             self.descriptionLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"message.payment.deny"];
             
             [self setGradientLayerColors:@[snpRGB(11, 174, 221), snpRGB(212, 56, 92)]];

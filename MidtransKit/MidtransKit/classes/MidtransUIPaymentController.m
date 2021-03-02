@@ -233,7 +233,11 @@
         [self dismissDemoBadge];
         [self.navigationController dismissViewControllerAnimated:YES completion:^{
             NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:result};
-            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
+            if([result.transactionStatus isEqualToString:MIDTRANS_TRANSACTION_STATUS_DENY]) {
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_DENY object:nil userInfo:userInfo];
+            } else {
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_SUCCESS object:nil userInfo:userInfo];
+            }
         }];
         return;
     }

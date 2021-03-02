@@ -1279,11 +1279,8 @@ MidtransCommonTSCViewControllerDelegate
 }
 
 - (void)rbaDidGetTransactionStatus:(MidtransTransactionResult *)transactionResult {
-    if (transactionResult.statusCode == 202) {
-        [self handleTransactionDeny:transactionResult];
-    } else {
-        [self handleTransactionSuccess:transactionResult];
-    }
+    [self handleTransactionSuccess:transactionResult];
+    
 }
 - (void)handleRegisterCreditCardError:(NSError *)error {
     if ([self.view isViewableError:error] == NO) {

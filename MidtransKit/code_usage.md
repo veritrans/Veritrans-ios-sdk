@@ -45,7 +45,7 @@ end
 Save the file and run the following to install `MidtransKit`.
 
 ```
-pod install --verbose
+pod install
 ```
 
 Cocoapods will download and install `MidtransKit` and also create a .xcworkspace project.
@@ -80,36 +80,35 @@ MTAcquiringBankBNI
 
 #### Enable 3D Secure
 ```
-CC_CONFIG.secure3DEnabled = YES;
-```
-
-#### Token Storage
-
-```
-CC_CONFIG.tokenStorageEnabled = YES;
+CC_CONFIG.authenticationType = MTAuthenticationType3DS;
 ```
 
 #### 1-Click
 
+To enable 1-click you need to:
+
+1. enable 3ds
+2. enable saved card
+
+
 ```
 CC_CONFIG.paymentType = MTCreditCardPaymentTypeOneclick;
+
 CC_CONFIG.saveCardEnabled = YES;
 
-//1-click need 3D secure enabled
-CC_CONFIG.tokenStorageEnabled = YES;
-
 //1-click need 3ds enabled
-CC_CONFIG.secure3DEnabled = YES;
+CC_CONFIG.authenticationType = MTAuthenticationType3DS;
 ```
 
 #### 2-Clicks
+To enable 2-clicks you only need to:
+
+1. enable saved card
+
 ```
 CC_CONFIG.paymentType = MTCreditCardPaymentTypeTwoclick;
 CC_CONFIG.saveCardEnabled = YES;
 ```
-
-You cannot use `tokenStorage` feature for 2-Click, so disable it and make sure that you're already setup your merchant server to support **save card**. You can see the documentation [here.](https://github.com/veritrans/veritrans-android/wiki/Implementation-for-Merchant-Server)
-
 
 ### Payment
 
@@ -212,6 +211,9 @@ Add two methods to your view controller, these methods are from MidtransUIPaymen
 - (void)paymentViewController_paymentCanceled:(MidtransUIPaymentViewController *)viewController {
     NSLog(@"canceled");
 }
+
+//This delegate methods is added on ios sdk v1.16.4 to handle the new3ds flow
+- (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result;
 ```
 
 ### Want to Implement Your Own Status Page

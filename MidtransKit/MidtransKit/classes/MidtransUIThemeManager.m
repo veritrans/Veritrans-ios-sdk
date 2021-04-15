@@ -31,9 +31,6 @@
 
 - (instancetype)init {
     if (self = [super init]) {
-        //register font for credit card number
-        [MidtransUIFontSource registerFontFromFile:[VTBundle pathForResource:@"OCRAEXT" ofType:@"TTF"]];
-        
         //apply default theme
         [self setStandardTheme];
     }

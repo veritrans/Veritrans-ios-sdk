@@ -890,7 +890,6 @@
 		E571230C1E937C050064F515 /* MidtransTransactionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F1754C1E13334F0000C019 /* MidtransTransactionDetailViewController.m */; };
 		E571230D1E937C050064F515 /* MidtransPaymentMethodHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F175521E135DDA0000C019 /* MidtransPaymentMethodHeader.m */; };
 		E57123131E937E860064F515 /* libMidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E57123121E937E860064F515 /* libMidtransCoreKit.a */; };
-		E57124821E9381280064F515 /* OCRAEXT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB861E93702C00ED659D /* OCRAEXT.TTF */; };
 		E57124831E9381280064F515 /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */; };
 		E57124841E9381290064F515 /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */; };
 		E57124851E9381290064F515 /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */; };
@@ -1280,7 +1279,6 @@
 		E5F1BB831E93701100ED659D /* VTXLTunaiSuccessController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB521E93701100ED659D /* VTXLTunaiSuccessController.xib */; };
 		E5F1BB841E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB531E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib */; };
 		E5F1BB851E93701100ED659D /* MidtransUIPaymentListHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB541E93701100ED659D /* MidtransUIPaymentListHeader.xib */; };
-		E5F1BB8B1E93702C00ED659D /* OCRAEXT.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB861E93702C00ED659D /* OCRAEXT.TTF */; };
 		E5F1BB8C1E93702C00ED659D /* SourceSansPro-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */; };
 		E5F1BB8D1E93702C00ED659D /* SourceSansPro-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */; };
 		E5F1BB8E1E93702C00ED659D /* SourceSansPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */; };
@@ -2052,7 +2050,6 @@
 		E5F1BB521E93701100ED659D /* VTXLTunaiSuccessController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VTXLTunaiSuccessController.xib; path = MidtransKit/resources/VTXLTunaiSuccessController.xib; sourceTree = SOURCE_ROOT; };
 		E5F1BB531E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransCreditCardAddOnComponentCell.xib; path = MidtransKit/resources/MidtransCreditCardAddOnComponentCell.xib; sourceTree = SOURCE_ROOT; };
 		E5F1BB541E93701100ED659D /* MidtransUIPaymentListHeader.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidtransUIPaymentListHeader.xib; path = MidtransKit/resources/MidtransUIPaymentListHeader.xib; sourceTree = SOURCE_ROOT; };
-		E5F1BB861E93702C00ED659D /* OCRAEXT.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = OCRAEXT.TTF; path = MidtransKit/resources/OCRAEXT.TTF; sourceTree = SOURCE_ROOT; };
 		E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Bold.ttf"; path = "MidtransKit/resources/SourceSansPro-Bold.ttf"; sourceTree = SOURCE_ROOT; };
 		E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Light.ttf"; path = "MidtransKit/resources/SourceSansPro-Light.ttf"; sourceTree = SOURCE_ROOT; };
 		E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "SourceSansPro-Regular.ttf"; path = "MidtransKit/resources/SourceSansPro-Regular.ttf"; sourceTree = SOURCE_ROOT; };
@@ -2183,7 +2180,6 @@
 		00F61AF01D145B3600C93DA0 /* Font */ = {
 			isa = PBXGroup;
 			children = (
-				E5F1BB861E93702C00ED659D /* OCRAEXT.TTF */,
 				E5F1BB871E93702C00ED659D /* SourceSansPro-Bold.ttf */,
 				E5F1BB881E93702C00ED659D /* SourceSansPro-Light.ttf */,
 				E5F1BB891E93702C00ED659D /* SourceSansPro-Regular.ttf */,
@@ -3946,7 +3942,6 @@
 				E58FCE371E94CFD600632085 /* other_atm_3@2x.png in Resources */,
 				0C9635171FE11D7E00EF89DF /* en_gopay.plist in Resources */,
 				3D4089171F74E35800B9A2EC /* id_other_va.plist in Resources */,
-				E57124821E9381280064F515 /* OCRAEXT.TTF in Resources */,
 				0CCD624E2005D0BA006936E5 /* bersama_affiliated@3x.png in Resources */,
 				3D4089411F75130300B9A2EC /* alto_preview@2x.png in Resources */,
 				3D4089431F75130300B9A2EC /* alto_preview@3x.png in Resources */,
@@ -4132,7 +4127,6 @@
 				E58FCDBE1E94CFD500632085 /* ccOfferIcon@2x.png in Resources */,
 				3D40894B1F75133200B9A2EC /* prima_preview@3x.png in Resources */,
 				DDD9623C255C715D00E81AE5 /* bri_va5@3x.png in Resources */,
-				E5F1BB8B1E93702C00ED659D /* OCRAEXT.TTF in Resources */,
 				E5F1BB611E93701100ED659D /* MidtransSavedCardFooter.xib in Resources */,
 				ECB0216D221A93620037C0E1 /* alfamart@2x.png in Resources */,
 				0CC9003B1F7026F10058E93C /* en_mandiri_ecash.plist in Resources */,

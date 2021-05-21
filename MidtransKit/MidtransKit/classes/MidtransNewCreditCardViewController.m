@@ -1295,13 +1295,13 @@ MidtransCommonTSCViewControllerDelegate
     if (self.installmentCurrentIndex != 0) {
         if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_BNI]){
             [self showBNIPoint:NO];
-        } else{
+        } else if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_MANDIRI])  {
             [self showMandiriPoint:NO];
         }
     } else {
         if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_BNI]){
             [self showBNIPoint:YES];
-        } else {
+        } else if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_MANDIRI])  {
             [self showMandiriPoint:YES];
         }
     }

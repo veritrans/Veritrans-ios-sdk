@@ -49,7 +49,7 @@
                 [self handleTransactionSuccess:result];
             }
         } else {
-            [self handleSaveCardError:error];
+            [self handleTransactionError:error];
         }
     }];
     

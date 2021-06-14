@@ -25,6 +25,9 @@ static NSString * const FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-clien
 static NSString * const SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION = @"https://shopeepay-merchant-server.herokuapp.com/";
 static NSString * const SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION = @"SB-Mid-server-y_GxtmVgO-xH7cgSr_TEnSIJ";
 
+static NSString * const UOB_MERCHANT_SERVER_URL_STAGING = @"https://fauzi-staging.herokuapp.com/";
+static NSString * const UOB_CLIENT_KEY_URL_STAGING = @"VT-client-wCJjpTZFZXctY_ID";
+
 /**
 *  ITEM CONFIGURATION
 */

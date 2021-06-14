@@ -401,12 +401,24 @@
 		3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE31F9DAE610001AC9A /* see@2x.png */; };
 		3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
 		3DECDFF61F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
+		DD152D542637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
+		DD152D552637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
+		DD152D562637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */; };
+		DD152D572637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */; };
 		DD2A91A022CC85A80081562A /* alfamidi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919A22CC85A70081562A /* alfamidi@2x.png */; };
 		DD2A91A122CC85A80081562A /* alfamidi@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919A22CC85A70081562A /* alfamidi@2x.png */; };
 		DD2A91A222CC85A80081562A /* alfamidi.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919E22CC85A70081562A /* alfamidi.png */; };
 		DD2A91A322CC85A80081562A /* alfamidi.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919E22CC85A70081562A /* alfamidi.png */; };
 		DD2A91A422CC85A80081562A /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919F22CC85A80081562A /* alfamidi@3x.png */; };
 		DD2A91A522CC85A80081562A /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919F22CC85A80081562A /* alfamidi@3x.png */; };
+		DD58D580265BCB55007A2B92 /* MIDUobViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */; };
+		DD58D586265BCB63007A2B92 /* MidUobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD58D585265BCB63007A2B92 /* MidUobViewController.m */; };
+		DD58D593265BCD6E007A2B92 /* MIDUobViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */; };
+		DD58D598265BCD71007A2B92 /* MidUobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD58D585265BCB63007A2B92 /* MidUobViewController.m */; };
+		DD58D5B2265BF1C9007A2B92 /* MIDUobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD58D5B1265BF1C9007A2B92 /* MIDUobViewController.xib */; };
+		DD58D5B3265BF1F8007A2B92 /* MIDUobViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD58D5B1265BF1C9007A2B92 /* MIDUobViewController.xib */; };
+		DD63B72626774B0C001CBDFB /* MIDUobMenuContent.h in Headers */ = {isa = PBXBuildFile; fileRef = DD63B72426774B0C001CBDFB /* MIDUobMenuContent.h */; };
+		DD63B72726774B0C001CBDFB /* MIDUobMenuContent.m in Sources */ = {isa = PBXBuildFile; fileRef = DD63B72526774B0C001CBDFB /* MIDUobMenuContent.m */; };
 		DD64CE3E25393F2E0069F4B4 /* shopeepay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */; };
 		DD64CE3F25393F2E0069F4B4 /* shopeepay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */; };
 		DD64CE4025393F2E0069F4B4 /* shopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE3925393F2D0069F4B4 /* shopeepay@1x.png */; };
@@ -443,6 +455,25 @@
 		DDB1F7232536FD5100379F50 /* MidShopeePayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */; };
 		DDB1F7252537284700379F50 /* MidShopeePayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB1F7242537284700379F50 /* MidShopeePayViewController.h */; };
 		DDB1F7272537285D00379F50 /* MidShopeePayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */; };
+		DDB878142628A7160054B86F /* en_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */; };
+		DDB878152628A7160054B86F /* en_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */; };
+		DDB878162628A7160054B86F /* id_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB878132628A7160054B86F /* id_uob_ezpay_app.plist */; };
+		DDB878172628A7160054B86F /* id_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB878132628A7160054B86F /* id_uob_ezpay_app.plist */; };
+		DDB8781A2628DEBB0054B86F /* MIDUobMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB878192628DEBB0054B86F /* MIDUobMenuController.xib */; };
+		DDB8781B2628DEBB0054B86F /* MIDUobMenuController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB878192628DEBB0054B86F /* MIDUobMenuController.xib */; };
+		DDB8781D2628DEF00054B86F /* MIDUobMenuController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB8781C2628DEF00054B86F /* MIDUobMenuController.h */; };
+		DDB8781F2628DF060054B86F /* MIDUobMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB8781E2628DF060054B86F /* MIDUobMenuController.m */; };
+		DDB878202628DF060054B86F /* MIDUobMenuController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB8781E2628DF060054B86F /* MIDUobMenuController.m */; };
+		DDB87834262FE3260054B86F /* uob_ezpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB8782E262FE3250054B86F /* uob_ezpay@2x.png */; };
+		DDB87835262FE3260054B86F /* uob_ezpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB87832262FE3250054B86F /* uob_ezpay@3x.png */; };
+		DDB87836262FE3260054B86F /* uob_ezpay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB87833262FE3250054B86F /* uob_ezpay@1x.png */; };
+		DDB87838262FE92A0054B86F /* en_uobList.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB87837262FE92A0054B86F /* en_uobList.plist */; };
+		DDB8783A263037890054B86F /* id_uobList.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB87839263037880054B86F /* id_uobList.plist */; };
+		DDB8783B263038590054B86F /* en_uobList.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB87837262FE92A0054B86F /* en_uobList.plist */; };
+		DDB8783C2630385C0054B86F /* id_uobList.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB87839263037880054B86F /* id_uobList.plist */; };
+		DDB8783D2630ACD50054B86F /* uob_ezpay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB87833262FE3250054B86F /* uob_ezpay@1x.png */; };
+		DDB8783E2630ACD70054B86F /* uob_ezpay@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB8782E262FE3250054B86F /* uob_ezpay@2x.png */; };
+		DDB8783F2630ACDA0054B86F /* uob_ezpay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB87832262FE3250054B86F /* uob_ezpay@3x.png */; };
 		DDBC2FB22537A1BA002FCD06 /* en_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */; };
 		DDBC2FB32537A1BA002FCD06 /* en_shopeepay.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */; };
 		DDD96201255AC2BD00E81AE5 /* en_bri_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDD961FD255AC2BD00E81AE5 /* en_bri_va.plist */; };
@@ -1670,9 +1701,16 @@
 		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = see.png; path = resources/see.png; sourceTree = "<group>"; };
 		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@2x.png"; path = "resources/see@2x.png"; sourceTree = "<group>"; };
 		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@3x.png"; path = "resources/see@3x.png"; sourceTree = "<group>"; };
+		DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_uob_ezpay_web.plist; path = MidtransKit/resources/en_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
+		DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_uob_ezpay_web.plist; path = MidtransKit/resources/id_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
 		DD2A919A22CC85A70081562A /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@2x.png"; path = "resources/alfamidi@2x.png"; sourceTree = "<group>"; };
 		DD2A919E22CC85A70081562A /* alfamidi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alfamidi.png; path = resources/alfamidi.png; sourceTree = "<group>"; };
 		DD2A919F22CC85A80081562A /* alfamidi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@3x.png"; path = "resources/alfamidi@3x.png"; sourceTree = "<group>"; };
+		DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDUobViewController.h; sourceTree = "<group>"; };
+		DD58D585265BCB63007A2B92 /* MidUobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidUobViewController.m; sourceTree = "<group>"; };
+		DD58D5B1265BF1C9007A2B92 /* MIDUobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDUobViewController.xib; path = MidtransKit/resources/MIDUobViewController.xib; sourceTree = SOURCE_ROOT; };
+		DD63B72426774B0C001CBDFB /* MIDUobMenuContent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDUobMenuContent.h; sourceTree = "<group>"; };
+		DD63B72526774B0C001CBDFB /* MIDUobMenuContent.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDUobMenuContent.m; sourceTree = "<group>"; };
 		DD64CE3825393F2D0069F4B4 /* shopeepay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay@2x.png"; path = "resources/shopeepay@2x.png"; sourceTree = "<group>"; };
 		DD64CE3925393F2D0069F4B4 /* shopeepay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay@1x.png"; path = "resources/shopeepay@1x.png"; sourceTree = "<group>"; };
 		DD64CE3A25393F2D0069F4B4 /* shopeepay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "shopeepay@3x.png"; path = "resources/shopeepay@3x.png"; sourceTree = "<group>"; };
@@ -1691,6 +1729,16 @@
 		DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidShopeePayViewController.xib; path = MidtransKit/resources/MidShopeePayViewController.xib; sourceTree = SOURCE_ROOT; };
 		DDB1F7242537284700379F50 /* MidShopeePayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidShopeePayViewController.h; path = classes/MidShopeePayViewController.h; sourceTree = "<group>"; };
 		DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidShopeePayViewController.m; sourceTree = "<group>"; };
+		DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_uob_ezpay_app.plist; path = MidtransKit/resources/en_uob_ezpay_app.plist; sourceTree = SOURCE_ROOT; };
+		DDB878132628A7160054B86F /* id_uob_ezpay_app.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_uob_ezpay_app.plist; path = MidtransKit/resources/id_uob_ezpay_app.plist; sourceTree = SOURCE_ROOT; };
+		DDB878192628DEBB0054B86F /* MIDUobMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDUobMenuController.xib; path = MidtransKit/resources/MIDUobMenuController.xib; sourceTree = SOURCE_ROOT; };
+		DDB8781C2628DEF00054B86F /* MIDUobMenuController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDUobMenuController.h; sourceTree = "<group>"; };
+		DDB8781E2628DF060054B86F /* MIDUobMenuController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIDUobMenuController.m; sourceTree = "<group>"; };
+		DDB8782E262FE3250054B86F /* uob_ezpay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "uob_ezpay@2x.png"; path = "resources/uob_ezpay@2x.png"; sourceTree = "<group>"; };
+		DDB87832262FE3250054B86F /* uob_ezpay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "uob_ezpay@3x.png"; path = "resources/uob_ezpay@3x.png"; sourceTree = "<group>"; };
+		DDB87833262FE3250054B86F /* uob_ezpay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "uob_ezpay@1x.png"; path = "resources/uob_ezpay@1x.png"; sourceTree = "<group>"; };
+		DDB87837262FE92A0054B86F /* en_uobList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en_uobList.plist; path = MidtransKit/resources/en_uobList.plist; sourceTree = SOURCE_ROOT; };
+		DDB87839263037880054B86F /* id_uobList.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = id_uobList.plist; path = MidtransKit/resources/id_uobList.plist; sourceTree = SOURCE_ROOT; };
 		DDBC2FB12537A1BA002FCD06 /* en_shopeepay.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en_shopeepay.plist; path = MidtransKit/resources/en_shopeepay.plist; sourceTree = SOURCE_ROOT; };
 		DDD961FD255AC2BD00E81AE5 /* en_bri_va.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = en_bri_va.plist; path = MidtransKit/resources/en_bri_va.plist; sourceTree = SOURCE_ROOT; };
 		DDD96203255AC30000E81AE5 /* id_bri_va.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; name = id_bri_va.plist; path = MidtransKit/resources/id_bri_va.plist; sourceTree = SOURCE_ROOT; };
@@ -2473,6 +2521,12 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DDB87837262FE92A0054B86F /* en_uobList.plist */,
+				DDB87839263037880054B86F /* id_uobList.plist */,
+				DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */,
+				DDB878132628A7160054B86F /* id_uob_ezpay_app.plist */,
+				DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */,
+				DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */,
 				ECB0218E221A9C6C0037C0E1 /* en_alfamart.plist */,
 				ECB02189221A9C4C0037C0E1 /* id_alfamart.plist */,
 				E57ACD84217F009500A9977F /* en_akulaku.plist */,
@@ -2572,6 +2626,7 @@
 				3D8BF5D31F90BDC400F35C55 /* MidtransUITableAlertViewController.xib */,
 				E5F1BB351E93701100ED659D /* MidtransUIListCell.xib */,
 				E5F1BB371E93701100ED659D /* MidtransUIPaymentGeneralViewController.xib */,
+				DD58D5B1265BF1C9007A2B92 /* MIDUobViewController.xib */,
 				E5F1BB381E93701100ED659D /* MidtransUIToast.xib */,
 				E5F1BB391E93701100ED659D /* MidtransVAHeader.xib */,
 				E5F1BB3A1E93701100ED659D /* MidtransVAViewController.xib */,
@@ -2591,6 +2646,7 @@
 				E5F1BB4D1E93701100ED659D /* VTSubGuideController.xib */,
 				E5F1BB4F1E93701100ED659D /* VTTwoClickController.xib */,
 				E5F1BB501E93701100ED659D /* VTVAListController.xib */,
+				DDB878192628DEBB0054B86F /* MIDUobMenuController.xib */,
 				E5F1BB511E93701100ED659D /* VTVASuccessStatusController.xib */,
 				E5F1BB521E93701100ED659D /* VTXLTunaiSuccessController.xib */,
 				E5F1BB531E93701100ED659D /* MidtransCreditCardAddOnComponentCell.xib */,
@@ -2611,6 +2667,9 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				DDB87833262FE3250054B86F /* uob_ezpay@1x.png */,
+				DDB8782E262FE3250054B86F /* uob_ezpay@2x.png */,
+				DDB87832262FE3250054B86F /* uob_ezpay@3x.png */,
 				DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */,
 				DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */,
 				DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */,
@@ -2970,6 +3029,7 @@
 		30E77E831C8401DC0090D228 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
+				DDB878182628B9350054B86F /* UOB */,
 				ECB02140221A856C0037C0E1 /* Alfa */,
 				0C9634BF1FE119BA00EF89DF /* MIDGopayDetailView.h */,
 				0C9634C01FE119BB00EF89DF /* MIDGopayDetailView.m */,
@@ -3027,6 +3087,19 @@
 				3D8AE6B521107F0C00C8D41B /* Info.plist */,
 			);
 			path = MidtransKitTests;
+			sourceTree = "<group>";
+		};
+		DDB878182628B9350054B86F /* UOB */ = {
+			isa = PBXGroup;
+			children = (
+				DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */,
+				DD58D585265BCB63007A2B92 /* MidUobViewController.m */,
+				DDB8781C2628DEF00054B86F /* MIDUobMenuController.h */,
+				DDB8781E2628DF060054B86F /* MIDUobMenuController.m */,
+				DD63B72426774B0C001CBDFB /* MIDUobMenuContent.h */,
+				DD63B72526774B0C001CBDFB /* MIDUobMenuContent.m */,
+			);
+			path = UOB;
 			sourceTree = "<group>";
 		};
 		E503AEDC1C8E8C7200F097FF /* View */ = {
@@ -3237,6 +3310,7 @@
 				3D36594420B67F6600C07158 /* MIDPaymentIndomaretViewController.h in Headers */,
 				E57120D41E937B790064F515 /* MidtransUIPaymentDirectViewController.h in Headers */,
 				E57120D51E937B790064F515 /* MidtransUIPaymentDirectView.h in Headers */,
+				DD58D593265BCD6E007A2B92 /* MIDUobViewController.h in Headers */,
 				0C9634BA1FE1197A00EF89DF /* MidGopayViewController.h in Headers */,
 				E57120D61E937B790064F515 /* MidtransDirectHeader.h in Headers */,
 				E57120D71E937B790064F515 /* MidtransUIPaymentGeneralViewController.h in Headers */,
@@ -3307,6 +3381,7 @@
 				E55F62941E934A6D00C012C8 /* VTCCBackView.h in Headers */,
 				E55F62951E934A6D00C012C8 /* VTPaymentHeader.h in Headers */,
 				0CBD65FD207DE875004DAE64 /* UIImage+Scale.h in Headers */,
+				DDB8781D2628DEF00054B86F /* MIDUobMenuController.h in Headers */,
 				E55F62961E934A6D00C012C8 /* MidtransUIListCell.h in Headers */,
 				0C108A151EEE641200843A05 /* SNPMaintainView.h in Headers */,
 				E55F62971E934A6D00C012C8 /* MidtransLoadingIndicator.h in Headers */,
@@ -3354,6 +3429,7 @@
 				0C1ADB8B1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.h in Headers */,
 				3D36593620B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */,
 				E55F62BE1E934A6D00C012C8 /* UIColor+SNP_HexString.h in Headers */,
+				DD63B72626774B0C001CBDFB /* MIDUobMenuContent.h in Headers */,
 				E55F62C01E934A6D00C012C8 /* MidtransUIPaymentController.h in Headers */,
 				E55F62C11E934A6D00C012C8 /* MidtransUIPaymentDirectViewController.h in Headers */,
 				E55F62C21E934A6D00C012C8 /* MidtransUIPaymentDirectView.h in Headers */,
@@ -3374,6 +3450,7 @@
 				3D36594320B67F6600C07158 /* MIDPaymentIndomaretViewController.h in Headers */,
 				E55F62D01E934A6D00C012C8 /* VTConfirmPaymentController.h in Headers */,
 				E55F62D11E934A6D00C012C8 /* PushAnimator.h in Headers */,
+				DD58D580265BCB55007A2B92 /* MIDUobViewController.h in Headers */,
 				E55F62D21E934A6D00C012C8 /* PopAnimator.h in Headers */,
 				E55F62D31E934A6D00C012C8 /* VTCardListController.h in Headers */,
 				E55F62D41E934A6D00C012C8 /* VTTwoClickController.h in Headers */,
@@ -3626,11 +3703,13 @@
 				E58FCD911E94CFD500632085 /* anz@2x.png in Resources */,
 				0C46FA841EEFCED8002342E2 /* TokenButtonIcon@2x.png in Resources */,
 				E58FCE051E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
+				DDB87834262FE3260054B86F /* uob_ezpay@2x.png in Resources */,
 				E571248A1E9381320064F515 /* MidtransItemCell.xib in Resources */,
 				3D4089121F74E35800B9A2EC /* id_bca_klikbca.plist in Resources */,
 				E571248B1E9381320064F515 /* MidtransLoadingView.xib in Resources */,
 				E58FCDF91E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				E58FCDC31E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
+				DDB8781B2628DEBB0054B86F /* MIDUobMenuController.xib in Resources */,
 				0C9634DF1FE11A1400EF89DF /* gojek_icon@2x.png in Resources */,
 				E58FCDE51E94CFD500632085 /* gci@2x.png in Resources */,
 				0CCD623A2005D0BA006936E5 /* alto@2x.png in Resources */,
@@ -3667,6 +3746,8 @@
 				E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */,
 				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
 				E58FCDD91E94CFD500632085 /* DetailDisclosure@2x.png in Resources */,
+				DDB878172628A7160054B86F /* id_uob_ezpay_app.plist in Resources */,
+				DDB87838262FE92A0054B86F /* en_uobList.plist in Resources */,
 				E58FCE611E94CFD600632085 /* permata_atm_7@2x.png in Resources */,
 				0C9634E91FE11A1400EF89DF /* ic_chevron_down@3x.png in Resources */,
 				E57124911E9381320064F515 /* MidtransSavedCardCell.xib in Resources */,
@@ -3735,6 +3816,7 @@
 				E58FCE831E94CFD600632085 /* visa-mastercard-jcb-amex@2x.png in Resources */,
 				E58FCDB91E94CFD500632085 /* bri.png in Resources */,
 				E58FCE351E94CFD600632085 /* other_atm_2@2x.png in Resources */,
+				DD152D552637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */,
 				0CCD62422005D0BA006936E5 /* alto_affiliated@3x.png in Resources */,
 				E58FCDF71E94CFD500632085 /* JCB@2x.png in Resources */,
 				E58FCD891E94CFD500632085 /* AlertBackground@2x.png in Resources */,
@@ -3742,6 +3824,7 @@
 				0CD116111EDD5B14005884AD /* en_bni_va.plist in Resources */,
 				E58FCDDB1E94CFD500632085 /* DisclosureIndicator@2x.png in Resources */,
 				E58FCDC91E94CFD500632085 /* cimb@2x.png in Resources */,
+				DDB87836262FE3260054B86F /* uob_ezpay@1x.png in Resources */,
 				0C9634EA1FE11A1400EF89DF /* ic_chevron_up.png in Resources */,
 				E571249B1E9381320064F515 /* MidtransUIToast.xib in Resources */,
 				E571249C1E9381320064F515 /* MidtransVAHeader.xib in Resources */,
@@ -3839,6 +3922,7 @@
 				E57124A81E9381320064F515 /* VTIndomaretSuccessController.xib in Resources */,
 				DD2A91A122CC85A80081562A /* alfamidi@2x.png in Resources */,
 				E58FCE471E94CFD600632085 /* other_prima_4@2x.png in Resources */,
+				DDB878152628A7160054B86F /* en_uob_ezpay_app.plist in Resources */,
 				E58FCDAF1E94CFD500632085 /* bni_badge@2x.png in Resources */,
 				0C9324441F7B7F5400D9A390 /* danamon_online@2x.png in Resources */,
 				DD64CE5F253DBADD0069F4B4 /* MidQRISDetailViewController.xib in Resources */,
@@ -3848,6 +3932,7 @@
 				E58FCDD71E94CFD500632085 /* DeleteIcon@2x.png in Resources */,
 				3DECDF781F99BABD0001AC9A /* icon-help@3x.png in Resources */,
 				DDD96229255C715D00E81AE5 /* bri_va1@3x.png in Resources */,
+				DD58D5B2265BF1C9007A2B92 /* MIDUobViewController.xib in Resources */,
 				0CCD625A2005D0BA006936E5 /* prima_affiliated@3x.png in Resources */,
 				E58FCDEB1E94CFD500632085 /* icon_btn_min_@2x.png in Resources */,
 				0CC900521F702E100058E93C /* id_cimb_clicks.plist in Resources */,
@@ -3865,6 +3950,7 @@
 				E57124AA1E9381320064F515 /* VTKlikbcaSuccessController.xib in Resources */,
 				ECB0216A221A93620037C0E1 /* akulaku@2x.png in Resources */,
 				E58FCE751E94CFD600632085 /* va.png in Resources */,
+				DDB87835262FE3260054B86F /* uob_ezpay@3x.png in Resources */,
 				DDD9623B255C715D00E81AE5 /* bri_va4@2x.png in Resources */,
 				0C9634E21FE11A1400EF89DF /* gopay@2x.png in Resources */,
 				0CC900541F702E160058E93C /* en_cimb_clicks.plist in Resources */,
@@ -3980,6 +4066,7 @@
 				E58FCE8B1E94CFD600632085 /* visa-mastercard-jcb@3x.png in Resources */,
 				0C9634E41FE11A1400EF89DF /* gopay_scan_qr_instruction.png in Resources */,
 				0CB8B7DA2071F65C0067A0B8 /* en_bni_point_tsc.plist in Resources */,
+				DD152D572637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */,
 				3DECDFF01F9DAE610001AC9A /* scan_cam@3x.png in Resources */,
 				E58FCDCF1E94CFD500632085 /* credit_card@2x.png in Resources */,
 				DDD96225255C715D00E81AE5 /* bri_va1@1x.png in Resources */,
@@ -4002,6 +4089,7 @@
 				E58FCDFD1E94CFD500632085 /* logo@2x.png in Resources */,
 				0C9634E11FE11A1400EF89DF /* gopay.png in Resources */,
 				0C9634E61FE11A1400EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */,
+				DDB8783A263037890054B86F /* id_uobList.plist in Resources */,
 				E58FCE291E94CFD600632085 /* other_alto_3@2x.png in Resources */,
 				DDB1F7232536FD5100379F50 /* MidShopeePayViewController.xib in Resources */,
 				E58FCE8F1E94CFD600632085 /* visa-mastercard@2x.png in Resources */,
@@ -4038,6 +4126,7 @@
 				DDD9624A255C715D00E81AE5 /* bri_va2@3x.png in Resources */,
 				DDD96238255C715D00E81AE5 /* bri_va1@2x.png in Resources */,
 				0C9324451F7B7F5800D9A390 /* danamon_online@3x.png in Resources */,
+				DDB878142628A7160054B86F /* en_uob_ezpay_app.plist in Resources */,
 				3D5DFDC41FB458120021EB2F /* icon-help@3x.png in Resources */,
 				DD64CE6D253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */,
 				E519C9761E9B6F2100EF70DF /* bni_va6@2x.png in Resources */,
@@ -4048,6 +4137,7 @@
 				0CCD624D2005D0BA006936E5 /* bersama_affiliated@3x.png in Resources */,
 				E58FCDCC1E94CFD500632085 /* citi@2x.png in Resources */,
 				3D4089391F7512F100B9A2EC /* bersama_preview@3x.png in Resources */,
+				DDB8783C2630385C0054B86F /* id_uobList.plist in Resources */,
 				E58FCE441E94CFD600632085 /* other_prima_3@2x.png in Resources */,
 				E58FCE101E94CFD500632085 /* mandiri.png in Resources */,
 				0C9324511F7B828A00D9A390 /* id_danamon_online.plist in Resources */,
@@ -4087,6 +4177,7 @@
 				E58FCDC21E94CFD500632085 /* checkbox_uncheck@2x.png in Resources */,
 				0C96350C1FE11BDE00EF89DF /* MidGopayDetailViewController.xib in Resources */,
 				DD64CE4025393F2E0069F4B4 /* shopeepay@1x.png in Resources */,
+				DD152D562637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */,
 				E5F1BB7D1E93701100ED659D /* VTSingleGuideController.xib in Resources */,
 				DD2A91A022CC85A80081562A /* alfamidi@2x.png in Resources */,
 				E58FCDE41E94CFD500632085 /* gci@2x.png in Resources */,
@@ -4146,6 +4237,7 @@
 				E58FCE641E94CFD600632085 /* permata.png in Resources */,
 				E5F1BB5E1E93701100ED659D /* MidtransPromoView.xib in Resources */,
 				E57127341E93B3290064F515 /* en_bca_klikpay.plist in Resources */,
+				DDB8781A2628DEBB0054B86F /* MIDUobMenuController.xib in Resources */,
 				E58FCDFA1E94CFD500632085 /* kioson@2x.png in Resources */,
 				ECB02183221A979F0037C0E1 /* dandan.png in Resources */,
 				3D4089371F7512F100B9A2EC /* bersama_preview@2x.png in Resources */,
@@ -4209,9 +4301,11 @@
 				E58FCDA01E94CFD500632085 /* bca_atm_5@2x.png in Resources */,
 				E58FCDDC1E94CFD500632085 /* DisclosureIndicatorGray@2x.png in Resources */,
 				3D5DFDC31FB458120021EB2F /* icon-help@2x.png in Resources */,
+				DDB878162628A7160054B86F /* id_uob_ezpay_app.plist in Resources */,
 				DDD96232255C715D00E81AE5 /* bri_va2@1x.png in Resources */,
 				3D4089241F74E43200B9A2EC /* id_other_va.plist in Resources */,
 				E58FCE1E1E94CFD600632085 /* mega@2x.png in Resources */,
+				DDB8783F2630ACDA0054B86F /* uob_ezpay@3x.png in Resources */,
 				E58FCE661E94CFD600632085 /* permata@2x.png in Resources */,
 				E5F1BB5D1E93701100ED659D /* MidtransPaymentStatusViewController.xib in Resources */,
 				0CC9003D1F7026F60058E93C /* id_mandiri_ecash.plist in Resources */,
@@ -4259,6 +4353,7 @@
 				E58FCE0C1E94CFD500632085 /* mandiri_ecash@2x.png in Resources */,
 				E58FCDB41E94CFD500632085 /* bni@2x.png in Resources */,
 				E58FCDB21E94CFD500632085 /* bni.png in Resources */,
+				DD58D5B3265BF1F8007A2B92 /* MIDUobViewController.xib in Resources */,
 				0CE1D2A41F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				E5F1BB6D1E93701100ED659D /* VTAddCardController.xib in Resources */,
 				DDD9620D255C6CC400E81AE5 /* bri_va@2x.png in Resources */,
@@ -4295,6 +4390,7 @@
 				E58FCD981E94CFD500632085 /* bca_atm_1@2x.png in Resources */,
 				E5EBC2C31EB0726B00A568D1 /* midtrans_logo_left@2x.png in Resources */,
 				E58FCE0A1E94CFD500632085 /* mandiri_clickpay@2x.png in Resources */,
+				DD152D542637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */,
 				0CE1D2721F62A71E003A012F /* arrow@2x.png in Resources */,
 				0C9635161FE11D7E00EF89DF /* en_gopay.plist in Resources */,
 				0CE1D2B81F67BA53003A012F /* token_key@3x.png in Resources */,
@@ -4323,10 +4419,12 @@
 				ECB02185221A979F0037C0E1 /* dandan@2x.png in Resources */,
 				0C9635031FE11A1F00EF89DF /* ic_gopay.png in Resources */,
 				E58FCD8A1E94CFD500632085 /* Amex@2x.png in Resources */,
+				DDB8783B263038590054B86F /* en_uobList.plist in Resources */,
 				E5F1BB771E93701100ED659D /* VTKeyboardAccessoryView.xib in Resources */,
 				E58FCE5E1E94CFD600632085 /* permata_atm_6@2x.png in Resources */,
 				E5F1BB711E93701100ED659D /* VTConfirmPaymentController.xib in Resources */,
 				E5F1BB751E93701100ED659D /* VTGuideView.xib in Resources */,
+				DDB8783E2630ACD70054B86F /* uob_ezpay@2x.png in Resources */,
 				E519C96A1E9B6F2000EF70DF /* bni_va3@2x.png in Resources */,
 				3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */,
 				E58FCE0E1E94CFD500632085 /* mandiri_va@2x.png in Resources */,
@@ -4435,6 +4533,7 @@
 				0C9634F61FE11A1F00EF89DF /* gojek_icon@3x.png in Resources */,
 				E55976431EA72F770044342A /* pending@2x.png in Resources */,
 				E5F1BB7F1E93701100ED659D /* VTPaymentStatusController.xib in Resources */,
+				DDB8783D2630ACD50054B86F /* uob_ezpay@1x.png in Resources */,
 				E58FCE561E94CFD600632085 /* permata_atm_2@2x.png in Resources */,
 				0CCD62572005D0BA006936E5 /* prima_affiliated@2x.png in Resources */,
 				3D40891F1F74E43200B9A2EC /* en_permata_va.plist in Resources */,
@@ -4540,6 +4639,7 @@
 				E57122F21E937C040064F515 /* VTTwoClickController.m in Sources */,
 				E57122F31E937C040064F515 /* MidtransSavedCardController.m in Sources */,
 				E57122F41E937C040064F515 /* MidtransSavedCardCell.m in Sources */,
+				DD58D598265BCD71007A2B92 /* MidUobViewController.m in Sources */,
 				E57122F51E937C040064F515 /* MidtransSavedCardFooter.m in Sources */,
 				ECB021AE221D24EB0037C0E1 /* MIDAlfamartPostPaymentViewController.m in Sources */,
 				0C9634C41FE119BC00EF89DF /* MIDGopayDetailView.m in Sources */,
@@ -4576,6 +4676,7 @@
 			files = (
 				0C108A061EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */,
 				0C1ADB991EEA99330054CF54 /* SNPPostPaymentGeneralView.m in Sources */,
+				DDB878202628DF060054B86F /* MIDUobMenuController.m in Sources */,
 				0C108A171EEE641200843A05 /* SNPMaintainView.m in Sources */,
 				0CB8B7D42071EF040067A0B8 /* MidtransCommonTSCViewController.m in Sources */,
 				0C1ADB8D1EEA98DE0054CF54 /* SNPPostPaymentGeneralViewController.m in Sources */,
@@ -4628,6 +4729,7 @@
 				E55F63121E934B1B00C012C8 /* VTSegmentedControl.m in Sources */,
 				E5BAD2D11E9354D10059B771 /* MBXPageViewController_vt.m in Sources */,
 				E55F63131E934B1C00C012C8 /* MidtransUIBaseViewController.m in Sources */,
+				DDB8781F2628DF060054B86F /* MIDUobMenuController.m in Sources */,
 				0CB8B7D12071EEF00067A0B8 /* MidtransCommonTSCViewController.m in Sources */,
 				E55F63141E934B1C00C012C8 /* VTBackBarButtonItem.m in Sources */,
 				E55F63181E934B1C00C012C8 /* VTClassHelper.m in Sources */,
@@ -4685,6 +4787,7 @@
 				E55F633D1E934B1C00C012C8 /* VTMultiGuideController.m in Sources */,
 				DD64CE59253DB93B0069F4B4 /* MidQRISDetailViewController.m in Sources */,
 				0CCD621420048F8E006936E5 /* MIDOtherVAViewController.m in Sources */,
+				DD58D586265BCB63007A2B92 /* MidUobViewController.m in Sources */,
 				E55F633E1E934B1C00C012C8 /* VTSingleGuideController.m in Sources */,
 				E55F633F1E934B1C00C012C8 /* VTSubGuideController.m in Sources */,
 				0C9634B71FE1197A00EF89DF /* MIDGopayView.m in Sources */,
@@ -4694,6 +4797,7 @@
 				DDB1F7272537285D00379F50 /* MidShopeePayViewController.m in Sources */,
 				E55F63421E934B1C00C012C8 /* VTGroupedInstruction.m in Sources */,
 				E55F63431E934B1C00C012C8 /* VTInstruction.m in Sources */,
+				DD63B72726774B0C001CBDFB /* MIDUobMenuContent.m in Sources */,
 				E55F63441E934B1C00C012C8 /* MidtransPaymentStatusViewController.m in Sources */,
 				E55F63451E934B1C00C012C8 /* MIdtransPaymentStatusView.m in Sources */,
 				E55F63461E934B1C00C012C8 /* VTBillpaySuccessController.m in Sources */,

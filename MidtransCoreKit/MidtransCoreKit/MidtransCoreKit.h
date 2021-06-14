@@ -81,3 +81,5 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransPaymentAlfa.h"
 #import "MidtransPaymentShopeePay.h"
 #import "MidtransPaymentQRIS.h"
+#import "MidtransPaymentUOB.h"
+

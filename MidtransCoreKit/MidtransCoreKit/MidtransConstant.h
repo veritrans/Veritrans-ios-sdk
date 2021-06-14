@@ -59,6 +59,7 @@ static NSString * const MIDTRANS_PAYMENT_VA = @"va";
 static NSString * const MIDTRANS_PAYMENT_QRIS = @"qris";
 static NSString * const MIDTRANS_PAYMENT_SHOPEEPAY = @"shopeepay";
 static NSString * const MIDTRANS_PAYMENT_QRIS_SHOPEEPAY = @"qrisshopeepay";
+static NSString * const MIDTRANS_PAYMENT_UOB = @"uob_ezpay";
 
 static NSString * const MIDTRANS_PAYMENT_BRI_EPAY = @"bri_epay";
 static NSString * const MIDTRANS_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";

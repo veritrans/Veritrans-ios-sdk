@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textStatusHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *promoNotificationView;
 - (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response;
+-(void) configureUobOptionList:(NSString *)uobOptionTitle withUobOptionDescription:(NSString*)uobOptionDescription;
 @end

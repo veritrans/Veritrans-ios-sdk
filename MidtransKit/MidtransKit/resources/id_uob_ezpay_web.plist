@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>content</key>
+            <string>Klik ‘Bayar Sekarang’, Anda akan diarahkan ke situs UOB Personal Internet Banking.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Masuk menggunakan userID &amp; password Anda.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Masukkan OTP yang dikirim via SMS ketika diminta..</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Pilih akun untuk melakukan pembayaran, lalu pilih ‘Lanjutkan’.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Periksa detail pembayaran, lalu masukkan OTP yang dikirim via SMS.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Konfirmasi pembayaran.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+    </array>
+</plist>

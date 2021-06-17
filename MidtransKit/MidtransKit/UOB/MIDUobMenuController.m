@@ -32,7 +32,8 @@
 @property (nonatomic) NSArray *uobSelectedOptions;
 @property (nonatomic) MIDUobMenuContent *MenuContentApp;
 @property (nonatomic) MIDUobMenuContent *MenuContentWeb;
-//@property (nonatomic) NSArray *MenuContents;
+@property (nonatomic) NSArray *optionImages;
+
 
 @end
 
@@ -51,6 +52,8 @@
     self.uobOptionListDescription = @[self.MenuContentApp.menuDescription, self.MenuContentWeb.menuDescription];
     self.uobSelectedOptionTitles = @[self.MenuContentApp.selectedTitle, self.MenuContentWeb.selectedTitle];
     self.uobSelectedOptions = @[self.MenuContentApp.selectedOptions, self.MenuContentWeb.selectedOptions];
+    self.optionImages = @[self.MenuContentApp.menuImage, self.MenuContentWeb.menuImage];
+
     if (self.paymentResponse.transactionDetails.orderId) {
         [[SNPUITrackingManager shared] trackEventName:@"pg select uob" additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
     } else {
@@ -84,7 +87,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
-    [cell configureUobOptionList:self.uobOptionListTitle[indexPath.row] withUobOptionDescription:self.uobOptionListDescription[indexPath.row]];
+    [cell configureUobOptionList:self.uobOptionListTitle[indexPath.row] withUobOptionDescription:self.uobOptionListDescription[indexPath.row] optionImage:self.optionImages[indexPath.row]];
     return cell;
 }
 

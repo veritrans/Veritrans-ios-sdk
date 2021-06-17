@@ -63,8 +63,8 @@
     }
 }
 
--(void) configureUobOptionList:(NSString *)uobOptionTitle withUobOptionDescription:(NSString*)uobOptionDescription {
-    self.paymentMethodLogo.image = [UIImage imageNamed:@"uob_ezpay" inBundle:VTBundle compatibleWithTraitCollection:nil];
+-(void) configureUobOptionList:(NSString *)uobOptionTitle withUobOptionDescription:(NSString*)uobOptionDescription optionImage:(NSString *)menuImage {
+    self.paymentMethodLogo.image = [UIImage imageNamed:menuImage inBundle:VTBundle compatibleWithTraitCollection:nil];
     self.paymentMethodNameLabel.text = uobOptionTitle;
     self.paymentMethodDescriptionLabel.text = uobOptionDescription;
 }

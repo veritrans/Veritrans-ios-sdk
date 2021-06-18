@@ -70,16 +70,16 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = UOB_CLIENT_KEY_URL_STAGING;
-            merchantServer = @"http://localhost:8080/";
+            clientkey = UOB_CLIENT_KEY_URL_SANDBOX;
+            merchantServer = UOB_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = UOB_CLIENT_KEY_URL_STAGING;
-            merchantServer = @"http://localhost:8080/";
+            clientkey = UOB_CLIENT_KEY_URL_SANDBOX;
+            merchantServer = UOB_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentStaging
+             environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;
@@ -106,7 +106,7 @@
     [[MidtransNetworkLogger shared] startLogging];
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
-//    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
     CONFIG.uobCallbackURL = @"demo.midtrans://";
     
     self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];

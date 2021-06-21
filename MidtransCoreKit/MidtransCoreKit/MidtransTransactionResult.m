@@ -29,6 +29,8 @@
 @property (nonatomic, readwrite) NSString *mandiriBillpayCompanyCode;
 @property (nonatomic, readwrite) NSString *virtualAccountNumber;
 @property (nonatomic, readwrite) NSURL *redirectURL;
+@property (nonatomic, readwrite) NSURL *uobEzpayWebUrl;
+@property (nonatomic, readwrite) NSURL *uobEzpayDeeplinkUrl;
 
 @end
 
@@ -95,6 +97,11 @@
         
         if (response[@"redirect_url"]) {
             self.redirectURL = [NSURL URLWithString:response[@"redirect_url"]];
+        }
+        if (response[@"uob_ezpay_web_url"]) {
+            self.uobEzpayWebUrl = [NSURL URLWithString:response[@"uob_ezpay_web_url"]];
+        }if (response[@"uob_ezpay_deeplink_url"]) {
+            self.uobEzpayDeeplinkUrl = [NSURL URLWithString:response[@"uob_ezpay_deeplink_url"]];
         }
         
         self.additionalData = mResponse;

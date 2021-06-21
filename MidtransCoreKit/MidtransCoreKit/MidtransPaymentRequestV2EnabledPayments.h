@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *status;
 @property (nonatomic, strong) NSString *category;
 @property (nonatomic, strong) NSString *acquirer;
+@property (nonatomic, strong) NSArray *mode;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

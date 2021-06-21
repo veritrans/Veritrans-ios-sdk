@@ -88,6 +88,11 @@
 @property (nonatomic,readonly) NSURL *qr_code_url;
 @property (nonatomic,readonly) NSURL *deeplink_url;
 
+
+/*uob_ezpay*/
+@property (nonatomic, readonly) NSURL *uobEzpayWebUrl;
+@property (nonatomic,readonly) NSURL *uobEzpayDeeplinkUrl;
+
 ///---------------------
 /// @name Initialization
 ///---------------------

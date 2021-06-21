@@ -40,6 +40,7 @@
 @property (nonatomic) NSString *customBNIVANumber;
 @property (nonatomic) NSString *callbackSchemeURL;
 @property (nonatomic) NSString *shopeePayCallbackURL;
+@property (nonatomic) NSString *uobCallbackURL;
 
 @property (nonatomic) NSArray *customPaymentChannels;
 @property (nonatomic) NSDictionary *customFreeText;

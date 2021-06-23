@@ -13,7 +13,7 @@
 @property (nonatomic, readwrite) NSString *menuTitle;
 @property (nonatomic, readwrite) NSString *menuDescription;
 @property (nonatomic, readwrite) NSString *selectedTitle;
-@property (nonatomic, readwrite) NSString *selectedOptions;
+@property (nonatomic, readwrite) NSString *selectedOption;
 @property (nonatomic, readwrite) NSString* menuImage;
 
 @end
@@ -25,7 +25,7 @@
         self.menuTitle = menuTitle;
         self.menuDescription = menuDescription;
         self.selectedTitle = selectedTitle;
-        self.selectedOptions = selectedOptions;
+        self.selectedOption = selectedOptions;
         
     }
     return self;
@@ -34,8 +34,8 @@
     if (self = [super init]) {
         self.menuTitle = @"UOB EZ Pay Via TMRW App";
         self.menuDescription = [VTClassHelper getTranslationFromAppBundleForString:@"Pay with TMRW app"];
-        self.selectedTitle = @"Via TMMRW App";
-        self.selectedOptions = @"app";
+        self.selectedTitle = @"Via TMRW App";
+        self.selectedOption = @"app";
         self.menuImage = @"uob_ezpay";
     }
     return self;
@@ -45,7 +45,7 @@
         self.menuTitle = @"UOB EZ Pay Via UOB Web";
         self.menuDescription = [VTClassHelper getTranslationFromAppBundleForString:@"Pay with UOB Web"];
         self.selectedTitle = @"Via UOB Web";
-        self.selectedOptions = @"web";
+        self.selectedOption = @"web";
         self.menuImage = @"uob_ezpay";
     }
     return self;

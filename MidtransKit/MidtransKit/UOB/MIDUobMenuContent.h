@@ -15,13 +15,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *menuTitle;
 @property (nonatomic, readonly) NSString *menuDescription;
 @property (nonatomic, readonly) NSString *selectedTitle;
-@property (nonatomic, readonly) NSString *selectedOptions;
+@property (nonatomic, readonly) NSString *selectedOption;
 @property (nonatomic, readonly) NSString *menuImage;
 
 - (instancetype)initWithMenuTitle:(NSString *)menuTitle
                   menuDescription:(NSString *)menuDescription
                     selectedTitle:(NSString *)selectedTitle
-                  selectedOption:(NSString *)selectedOptions;
+                  selectedOption:(NSString *)selectedOption;
 - (instancetype)initWithAppMenu;
 - (instancetype)initWithWebMenu;
 @end

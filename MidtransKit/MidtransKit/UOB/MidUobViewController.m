@@ -121,6 +121,7 @@
     [self.view.totalAmountBorderedView addGestureRecognizer:
      [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
     self.view.totalAmountLabel.textColor = [[MidtransUIThemeManager shared] themeColor];
+    [self.view.confirmPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now"] forState:UIControlStateNormal];
 }
 
 - (void)setupInstructions {

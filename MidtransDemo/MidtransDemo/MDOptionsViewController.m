@@ -72,7 +72,8 @@
                 [MDOption optionGeneralWithName:@"Akulaku" value:@(MidtransPaymentFeatureAkulaku)],
                 [MDOption optionGeneralWithName:@"Danamon Online" value:@(MidtransPaymentFeatureDanamonOnline)],
                 [MDOption optionGeneralWithName:@"Gopay" value:@(MidtransPaymentFeatureGOPAY)],
-                [MDOption optionGeneralWithName:@"ShopeePay" value:@(MidtransPaymentFeatureShopeePay)]
+                [MDOption optionGeneralWithName:@"ShopeePay" value:@(MidtransPaymentFeatureShopeePay)],
+                [MDOption optionGeneralWithName:@"UOB Ezpay" value:@(MidtransPaymentFeatureUOB)]
     ];
     MDOptionView *optDirectPayment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"payment_channel"]
                                             titleTemplate:@"Direct Payment Feature %@"

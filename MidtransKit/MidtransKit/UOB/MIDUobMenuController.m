@@ -33,6 +33,7 @@
 @property (nonatomic) MIDUobMenuContent *MenuContentApp;
 @property (nonatomic) MIDUobMenuContent *MenuContentWeb;
 @property (nonatomic) NSArray *optionImages;
+@property (nonatomic) NSMutableArray <MIDUobMenuContent *> *menuArray;
 
 
 @end
@@ -42,17 +43,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.totalAmountTextLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"total.amount"];
-    self.title = @"EZ Pay";
+    self.title = @"UOB EZ Pay";
     
     self.MenuContentApp = [[MIDUobMenuContent alloc]initWithAppMenu];
     self.MenuContentWeb = [[MIDUobMenuContent alloc]initWithWebMenu];
-
-    self.uobOptionListTitle = @[self.MenuContentApp.menuTitle, self.MenuContentWeb
-    .menuTitle];
-    self.uobOptionListDescription = @[self.MenuContentApp.menuDescription, self.MenuContentWeb.menuDescription];
-    self.uobSelectedOptionTitles = @[self.MenuContentApp.selectedTitle, self.MenuContentWeb.selectedTitle];
-    self.uobSelectedOptions = @[self.MenuContentApp.selectedOptions, self.MenuContentWeb.selectedOptions];
-    self.optionImages = @[self.MenuContentApp.menuImage, self.MenuContentWeb.menuImage];
+    
+    self.menuArray = @[self.MenuContentWeb, self.MenuContentApp].mutableCopy;
 
     if (self.paymentResponse.transactionDetails.orderId) {
         [[SNPUITrackingManager shared] trackEventName:@"pg select uob" additionalParameters:@{@"order id": self.paymentResponse.transactionDetails.orderId}];
@@ -82,12 +78,12 @@
     return 80;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.uobOptionListTitle.count;
+    return self.menuArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
-    [cell configureUobOptionList:self.uobOptionListTitle[indexPath.row] withUobOptionDescription:self.uobOptionListDescription[indexPath.row] optionImage:self.optionImages[indexPath.row]];
+    [cell configureUobOptionList:self.menuArray[indexPath.row].menuTitle withUobOptionDescription:self.menuArray[indexPath.row].menuDescription optionImage:self.menuArray[indexPath.row].menuImage];
     return cell;
 }
 
@@ -99,8 +95,8 @@
 - (void)redirectToIndex:(NSInteger)index {
     MIDUobViewController *vc = [[MIDUobViewController alloc]initWithToken:self.token paymentMethodName:self.paymentMethod];
     [vc showDismissButton:NO];
-    vc.uobSelectedOptionTitle = self.uobSelectedOptionTitles[index];
-    vc.uobSelectedOption = self.uobSelectedOptions[index];
+    vc.uobSelectedOptionTitle = self.menuArray[index].selectedTitle;
+    vc.uobSelectedOption = self.menuArray[index].selectedOption;
     [self.navigationController pushViewController:vc animated:YES];
 
 }

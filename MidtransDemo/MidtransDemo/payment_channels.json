@@ -74,5 +74,9 @@
   {
     "type": "shopeepay",
     "name": "ShopeePay"
+  },
+  {
+    "type": "uob_ezpay",
+    "name": "UOB Ezpay"
   }
 ]

@@ -1133,7 +1133,7 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
-- (void)payWithToken:(NSString *)token {
+- (void)checkForContactFields {
     if (self.view.contactPhoneNumberTextField.text.length > 0) {
         self.token.customerDetails.phone = self.view.contactPhoneNumberTextField.text;
     }
@@ -1141,6 +1141,10 @@ MidtransCommonTSCViewControllerDelegate
     if (self.view.contactEmailTextField.text.length > 0) {
         self.token.customerDetails.email = self.view.contactEmailTextField.text;
     }
+}
+
+- (void)payWithToken:(NSString *)token {
+    [self checkForContactFields];
     
     if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
         NSDictionary *promoConstructor;

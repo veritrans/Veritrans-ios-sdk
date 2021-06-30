@@ -70,12 +70,12 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = UOB_CLIENT_KEY_URL_SANDBOX;
-            merchantServer = UOB_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = UOB_CLIENT_KEY_URL_SANDBOX;
-            merchantServer = UOB_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey

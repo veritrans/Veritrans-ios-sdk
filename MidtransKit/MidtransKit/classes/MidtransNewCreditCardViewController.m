@@ -1107,6 +1107,7 @@ MidtransCommonTSCViewControllerDelegate
         if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
             [self payWithToken:self.token.tokenId];
         } else {
+            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             [[MidtransClient shared] generateToken:tokenRequest
                                         completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                 if (error) {

@@ -915,7 +915,7 @@ MidtransCommonTSCViewControllerDelegate
     if (![self isValidCreditCardDataForm]) {
         return;
     } else {
-        
+        [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
         if (self.saveCreditCardOnly) {
             NSArray *data = [self.view.cardExpireTextField.text componentsSeparatedByString:@"/"];
             NSString *expMonth = [data[0] stringByReplacingOccurrencesOfString:@" " withString:@""];
@@ -1036,7 +1036,6 @@ MidtransCommonTSCViewControllerDelegate
         }
         if (self.bniPointActive || self.mandiriPointActive) {
             tokenRequest.point = YES;
-            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             [[MidtransClient shared] generateToken:tokenRequest
                                         completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                 if (error) {
@@ -1107,7 +1106,6 @@ MidtransCommonTSCViewControllerDelegate
         if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
             [self payWithToken:self.token.tokenId];
         } else {
-            [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
             [[MidtransClient shared] generateToken:tokenRequest
                                         completion:^(NSString * _Nullable token, NSError * _Nullable error) {
                 if (error) {
@@ -1162,22 +1160,6 @@ MidtransCommonTSCViewControllerDelegate
                                                                       saveCard:self.isSaveCard
                                                                    installment:self.installmentTerms
                                                                         promos:promoConstructor];
-            }
-        }
-        
-        if (self.bniPointActive || self.mandiriPointActive) {
-            [self hideLoading];
-            
-            SNPPointViewController *pointVC = [[SNPPointViewController alloc] initWithToken:self.token
-                                                                              paymentMethod:self.paymentMethod
-                                                                              tokenizedCard:token
-                                                                                  savedCard:self.isSaveCard
-                                                               andCompleteResponseOfPayment:self.responsePayment];
-            if (self.bniPointActive) {
-                pointVC.bankName = SNP_CORE_BANK_BNI;
-            }
-            else if (self.mandiriPointActive) {
-                pointVC.bankName = SNP_CORE_BANK_MANDIRI;
             }
         }
     }

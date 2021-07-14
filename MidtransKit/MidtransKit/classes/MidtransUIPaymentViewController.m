@@ -91,6 +91,9 @@
         case MidtransPaymentFeatureBankTransferOtherVA:
             paymentMethodSelected = MIDTRANS_PAYMENT_OTHER_VA;
             break;
+        case MidtransPaymentFeatureUOB:
+            paymentMethodSelected = MIDTRANS_PAYMENT_UOB;
+            break;
         default:
             paymentMethodSelected = nil;
             break;

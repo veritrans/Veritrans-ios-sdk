@@ -63,4 +63,10 @@
     }
 }
 
+-(void) configureUobOptionList:(NSString *)uobOptionTitle withUobOptionDescription:(NSString*)uobOptionDescription optionImage:(NSString *)menuImage {
+    self.paymentMethodLogo.image = [UIImage imageNamed:menuImage inBundle:VTBundle compatibleWithTraitCollection:nil];
+    self.paymentMethodNameLabel.text = uobOptionTitle;
+    self.paymentMethodDescriptionLabel.text = uobOptionDescription;
+}
+
 @end

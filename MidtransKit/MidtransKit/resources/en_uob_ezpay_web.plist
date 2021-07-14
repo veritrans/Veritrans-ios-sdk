@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Click ‘PAY NOW’, you will be redirected to UOB Personal Internet Banking site.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Login using your userID &amp; password.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Enter OTP you'll receive via SMS when prompted.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Select the account that you would like to pay from and choose ‘Continue’.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Review your transaction details, enter the OTP you'll receive via SMS.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+    <dict>
+        <key>content</key>
+        <string>Choose ‘Confirm’ to complete the payment.</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+</array>
+</plist>

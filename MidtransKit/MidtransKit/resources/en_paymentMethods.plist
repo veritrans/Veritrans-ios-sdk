@@ -338,5 +338,19 @@
         <key>shortName</key>
         <string>shopeepay</string>
     </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>UOB EZ Pay</string>
+        <key>description</key>
+        <string>Pay with your UOB/TMRW account</string>
+        <key>id</key>
+        <string>uob_ezpay</string>
+        <key>identifier</key>
+        <string>uob_ezpay</string>
+        <key>shortName</key>
+        <string>uob</string>
+    </dict>
 </array>
 </plist>

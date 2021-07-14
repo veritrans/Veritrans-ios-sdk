@@ -29,6 +29,7 @@
 #import "UIColor+SNP_HexString.h"
 #import "MIDAlfamartViewController.h"
 #import "MidShopeePayViewController.h"
+#import "MIDUobMenuController.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
@@ -233,7 +234,6 @@
                         model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
                         model.status = enabledPayment.status;
                         [self.paymentMethodList addObject:model];
-                        
                     }
                     mainIndex++;
                 }
@@ -371,6 +371,13 @@
     
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_VA]) {
         VTVAListController *vc = [[VTVAListController alloc] initWithToken:self.token
+                                                         paymentMethodName:paymentMethod];
+        vc.paymentResponse = self.responsePayment;
+        [vc showDismissButton:self.singlePayment];
+        [self.navigationController pushViewController:vc animated:!self.singlePayment];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_UOB]) {
+        MIDUobMenuController *vc = [[MIDUobMenuController alloc] initWithToken:self.token
                                                          paymentMethodName:paymentMethod];
         vc.paymentResponse = self.responsePayment;
         [vc showDismissButton:self.singlePayment];

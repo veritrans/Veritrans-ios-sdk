@@ -59,6 +59,7 @@ static NSString * const MIDTRANS_PAYMENT_VA = @"va";
 static NSString * const MIDTRANS_PAYMENT_QRIS = @"qris";
 static NSString * const MIDTRANS_PAYMENT_SHOPEEPAY = @"shopeepay";
 static NSString * const MIDTRANS_PAYMENT_QRIS_SHOPEEPAY = @"qrisshopeepay";
+static NSString * const MIDTRANS_PAYMENT_UOB = @"uob_ezpay";
 
 static NSString * const MIDTRANS_PAYMENT_BRI_EPAY = @"bri_epay";
 static NSString * const MIDTRANS_PAYMENT_TELKOMSEL_CASH = @"telkomsel_cash";
@@ -129,9 +130,9 @@ static NSString *const MIDTRANS_UAT_BIN_URL = @"https://app.stg.midtrans.com/sna
 
 /*staging*/
 
-static NSString *const MIDTRANS_STAGING_API_URL = @"https://api.stg.midtrans.com/v2";
+static NSString *const MIDTRANS_STAGING_API_URL = @"https://app.stg.midtrans.com/snap/v2";
 static NSString *const MIDTRANS_STAGING_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
-static NSString *const MIDTRANS_STAGING_SNAP = @"https://app.stg.midtrans.com/snap/v1";
+static NSString *const MIDTRANS_STAGING_SNAP = @"https://app.stg.midtrans.com/snap/v1/snap/v1";
 static NSString *const MIDTRANS_STAGING_BIN_URL = @"https://app.stg.midtrans.com/snap/v1/bank_bins";
 
 static NSString *const MIDTRANS_TRACKING_CC_TOKEN = @"token";

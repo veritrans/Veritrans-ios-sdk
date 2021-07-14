@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>content</key>
+		<string>Click ‘PAY NOW’, you will be redirected to TMRW app.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Login using your userID &amp; password.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Select the account that you would like to pay from and choose ‘Next’.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Review your transaction details, swipe right to confirm.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+	<dict>
+		<key>content</key>
+		<string>Enter your Secure PIN for verification to complete the payment.</string>
+		<key>image</key>
+		<string></string>
+	</dict>
+</array>
+</plist>

@@ -951,6 +951,7 @@ MidtransCommonTSCViewControllerDelegate
         }
         
         if (self.installmentRequired && self.installmentCurrentIndex == 0) {
+            [self hideLoading];
             UIAlertController *alert = [UIAlertController
                                         alertControllerWithTitle:@"ERROR"
                                         message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]

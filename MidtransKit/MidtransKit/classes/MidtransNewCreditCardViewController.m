@@ -843,7 +843,7 @@ MidtransCommonTSCViewControllerDelegate
             }
             
             if (self.installmentAvailable) {
-                if ([self.filteredBinObject.bank isEqualToString:@"other"]) {
+                if (self.installment.terms[@"offline"]) {
                     self.installmentBankName = @"offline";
                 }
                 else {

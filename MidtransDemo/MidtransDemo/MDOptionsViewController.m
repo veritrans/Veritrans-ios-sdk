@@ -248,6 +248,8 @@
                  [MDOption optionComposer:MDComposerTypeRadio name:@"CIMB" value:[MDUtils installmentOfBank:@"cimb" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BCA" value:[MDUtils installmentOfBank:@"bca" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"BNI" value:[MDUtils installmentOfBank:@"bni" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"MAYBANK" value:[MDUtils installmentOfBank:@"maybank" isRequired:NO]],
+                [MDOption optionComposer:MDComposerTypeRadio name:@"BRI" value:[MDUtils installmentOfBank:@"bri" isRequired:NO]],
                 [MDOption optionComposer:MDComposerTypeRadio name:@"Offline" value:[MDUtils installmentOfBank:@"offline" isRequired:NO]]];
     MDOptionView *optInstallment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"installment"]
                                                 titleTemplate:@"Installment %@"

@@ -843,7 +843,7 @@ MidtransCommonTSCViewControllerDelegate
             }
             
             if (self.installmentAvailable) {
-                if ([self.filteredBinObject.bank isEqualToString:@"other"]) {
+                if (self.installment.terms[@"offline"]) {
                     self.installmentBankName = @"offline";
                 }
                 else {
@@ -951,6 +951,7 @@ MidtransCommonTSCViewControllerDelegate
         }
         
         if (self.installmentRequired && self.installmentCurrentIndex == 0) {
+            [self hideLoading];
             UIAlertController *alert = [UIAlertController
                                         alertControllerWithTitle:@"ERROR"
                                         message:[VTClassHelper getTranslationFromAppBundleForString:@"This transaction must use installment"]
@@ -977,6 +978,7 @@ MidtransCommonTSCViewControllerDelegate
                                                                 cvv:self.view.cardCVVNumberTextField.text];
             NSError *error = nil;
             if ([creditCard isValidCreditCard:&error] == NO) {
+                [self hideLoading];
                 return;
             }
             cardNumber = creditCard.number;
@@ -986,6 +988,7 @@ MidtransCommonTSCViewControllerDelegate
         if (self.blackListBins.count) {
             NSError *error;
             if ([MidtransClient isCreditCardNumber:cardNumber containBlacklistBins:self.blackListBins error:&error]) {
+                [self hideLoading];
                 [self.view isViewableError:error];
                 return;
             }
@@ -995,6 +998,7 @@ MidtransCommonTSCViewControllerDelegate
             NSError *error;
             if (![MidtransClient isCreditCardNumber:cardNumber eligibleForBins:self.bins error:&error] &&
                 ![MidtransClient isCreditCardNumber:self.filteredBinObject.bank eligibleForBins:self.bins error:&error]) {
+                [self hideLoading];
                 [self.view isViewableError:error];
                 return;
             }
@@ -1004,6 +1008,7 @@ MidtransCommonTSCViewControllerDelegate
         
         if (self.maskedCreditCard) {
             if (!self.view.cardCVVNumberTextField.text.length) {
+                [self hideLoading];
                 return;
             }
             

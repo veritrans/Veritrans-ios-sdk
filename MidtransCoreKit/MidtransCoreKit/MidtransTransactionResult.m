@@ -31,6 +31,7 @@
 @property (nonatomic, readwrite) NSURL *redirectURL;
 @property (nonatomic, readwrite) NSURL *uobEzpayWebUrl;
 @property (nonatomic, readwrite) NSURL *uobEzpayDeeplinkUrl;
+@property (nonatomic, readwrite) NSString *threeDSVersion;
 
 @end
 
@@ -102,6 +103,9 @@
             self.uobEzpayWebUrl = [NSURL URLWithString:response[@"uob_ezpay_web_url"]];
         }if (response[@"uob_ezpay_deeplink_url"]) {
             self.uobEzpayDeeplinkUrl = [NSURL URLWithString:response[@"uob_ezpay_deeplink_url"]];
+        }
+        if (response[@"three_ds_version"]) {
+            self.threeDSVersion = response[@"three_ds_version" ];
         }
         
         self.additionalData = mResponse;

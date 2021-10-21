@@ -19,11 +19,13 @@
 @property (nonatomic, strong) WKWebView *webView;
 @property (nonatomic, readonly) NSURL *secureURL;
 @property (nonatomic, readonly) NSString *token;
-@property (nonatomic, strong) MidtransTransaction *transcationData;
+@property (nonatomic, readonly) MidtransTransaction *transcationData;
+@property (nonatomic, readonly) MidtransTransactionResult *transactionResult;
 @property (nonatomic,strong) NSString *titleOveride;
 @property (nonatomic,weak) id<Midtrans3DSControllerDelegate>delegate;
 - (instancetype)initWithToken:(NSString *)token
-                    secureURL:(NSURL *)secureURL;
+            transactionResult:(MidtransTransactionResult *)result
+              transactionData:(MidtransTransaction*)transactionData;
 
 - (void)showWithCompletion:(void(^)(NSError *error))completion;
 

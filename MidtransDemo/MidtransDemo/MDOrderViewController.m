@@ -70,16 +70,16 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX;
-            break;
-        default:
             clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
             merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
+        default:
+            clientkey = THREE_DS_CLIENT_KEY_URL_STAGING;
+            merchantServer = THREE_DS_MERCHANT_SERVER_URL_STAGING;
+            break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentSandbox
+             environment:MidtransServerEnvironmentUat
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;

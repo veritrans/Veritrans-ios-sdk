@@ -1249,9 +1249,7 @@ MidtransCommonTSCViewControllerDelegate
 -(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
                              withTransactionData:(MidtransTransaction *)transaction  {
     
-    Midtrans3DSController *secureController = [[Midtrans3DSController alloc] initWithToken:nil
-                                                                                 secureURL:[NSURL URLWithString:[result.additionalData objectForKey:@"redirect_url"]]];
-    secureController.transcationData = transaction;
+    Midtrans3DSController *secureController = [[Midtrans3DSController alloc]initWithToken:nil transactionResult:result transactionData:transaction];
     secureController.delegate = self;
     [secureController showWithCompletion:^(NSError *error) {
         if (error) {

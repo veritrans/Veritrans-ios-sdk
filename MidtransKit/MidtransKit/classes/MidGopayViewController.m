@@ -273,7 +273,13 @@
         [alertController addAction:okAction];
         [self presentViewController:alertController animated:YES completion:nil];
     } else {
-        [self.navigationController popViewControllerAnimated:YES];
+        if (self.isDirectPayment == YES) {
+            [self.navigationController dismissViewControllerAnimated:YES completion:^{
+                [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+            }];
+        } else {
+            [self.navigationController popViewControllerAnimated:YES];
+        }
     }
 }
 

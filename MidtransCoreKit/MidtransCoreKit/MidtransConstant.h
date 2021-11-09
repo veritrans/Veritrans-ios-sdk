@@ -10,7 +10,7 @@
  *  error domain
  */
 
-static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.18.2";
+static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.20.0";
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
@@ -125,8 +125,8 @@ static NSString *const MIDTRANS_PRODUCTION_BIN_URL = @"https://app.midtrans.com/
 
 static NSString *const MIDTRANS_UAT_API_URL = @"https://api.stg.midtrans.com/v2";
 static NSString *const MIDTRANS_UAT_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
-static NSString *const MIDTRANS_UAT_SNAP = @"https://app.stg.midtrans.com/snap/v1";
-static NSString *const MIDTRANS_UAT_BIN_URL = @"https://app.stg.midtrans.com/snap/v1/bank_bins";
+static NSString *const MIDTRANS_UAT_SNAP = @"https://midtrans-checkout.stg.veritrans.co.id/snap/v1";
+static NSString *const MIDTRANS_UAT_BIN_URL = @"https://midtrans-checkout.stg.veritrans.co.id/snap/v1/bank_bins";
 
 /*staging*/
 

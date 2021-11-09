@@ -88,6 +88,7 @@
 @property (nonatomic,readonly) NSURL *qr_code_url;
 @property (nonatomic,readonly) NSURL *deeplink_url;
 
+@property (nonatomic,readonly) NSString *threeDSVersion;
 
 /*uob_ezpay*/
 @property (nonatomic, readonly) NSURL *uobEzpayWebUrl;

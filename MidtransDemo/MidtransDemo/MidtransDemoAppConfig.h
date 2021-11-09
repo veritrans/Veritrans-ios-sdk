@@ -28,6 +28,9 @@ static NSString * const SHOPEEPAY_MERCHANT_CLIENT_KEY_PRODUCTION = @"SB-Mid-serv
 static NSString * const UOB_MERCHANT_SERVER_URL_SANDBOX = @"https://fauzi-uob-sandbox.herokuapp.com/";
 static NSString * const UOB_CLIENT_KEY_URL_SANDBOX = @"d4b273bc-201c-42ae-8a35-c9bf48c1152b ";
 
+static NSString * const THREE_DS_MERCHANT_SERVER_URL_STAGING = @"http://localhost:4000/";
+static NSString * const THREE_DS_CLIENT_KEY_URL_STAGING = @"Mid-client-CRvqd42B-DsfG5qd";
+
 /**
 *  ITEM CONFIGURATION
 */

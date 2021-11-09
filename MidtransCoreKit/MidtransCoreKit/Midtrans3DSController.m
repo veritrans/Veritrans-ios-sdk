@@ -11,20 +11,31 @@
 #import "MidtransConstant.h"
 #import "MidtransMerchantClient.h"
 #import "MidtransTransaction.h"
+
+static NSString *const oldThreeDSCallbackPattern = @"callback";
+static NSString *const newThreeDSCallbackPattern = @"result-completion";
+static NSString *const threeDSVersionOne = @"1";
+
 @interface Midtrans3DSController() <WKNavigationDelegate>
 @property (nonatomic) NSURL *secureURL;
 @property (nonatomic) NSString *token;
 @property (nonatomic) UIViewController *rootViewController;
 @property (nonatomic, copy) void (^completion)(NSError *error);
+@property (nonatomic, strong) MidtransTransaction *transcationData;
+@property (nonatomic, strong) MidtransTransactionResult *transactionResult;
 @end
 
 @implementation Midtrans3DSController
 
-- (instancetype)initWithToken:(NSString *)token secureURL:(NSURL *)secureURL
+- (instancetype)initWithToken:(NSString *)token
+            transactionResult:(MidtransTransactionResult *)result
+              transactionData:(MidtransTransaction*)transactionData;
 {
     if (self = [super init]) {
-        self.secureURL = secureURL;
+        self.transactionResult = result;
+        self.secureURL = result.redirectURL;
         self.token = token;
+        self.transcationData = transactionData;
     }
     return self;
 }
@@ -96,38 +107,48 @@
     }];
 }
 
+- (BOOL)isThreeDSOldVersion {
+    if ([self.transactionResult.threeDSVersion isEqualToString:threeDSVersionOne] || self.transactionResult.threeDSVersion == nil || self.transactionResult.threeDSVersion.length == 0) {
+        return YES;
+    } else {
+        return NO;
+    }
+}
+
+- (void)handleCheckStatusForThreeDS {
+    [[MidtransMerchantClient shared] performCheckStatusRBA:self.transcationData completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
+        if (error) {
+            if ([self.delegate respondsToSelector:@selector(rbaDidGetError:)]) {
+                [self dismissViewControllerAnimated:YES completion:^{
+                    [self.delegate rbaDidGetError:error];
+                }];
+            }
+        }
+        else {
+            if ([self.delegate respondsToSelector:@selector(rbaDidGetTransactionStatus:)]) {
+                [self dismissViewControllerAnimated:YES completion:^{
+                    [self.delegate rbaDidGetTransactionStatus:result];
+                }];
+            }
+        }
+    }];
+}
+
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
     
     [self scaleTo3DSSize];
     //filter request
-    NSURL *request = webView.URL;
+    NSString *requestURL = webView.URL.absoluteString;
     ////this is for rba
-    if (request.pathComponents.count >3 && [request.pathComponents[4] isEqualToString:@"callback"] ) {
-        
-        [[MidtransMerchantClient shared] performCheckStatusRBA:self.transcationData completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
-            if (error) {
-                if ([self.delegate respondsToSelector:@selector(rbaDidGetError:)]) {
-                    [self dismissViewControllerAnimated:YES completion:^{
-                        [self.delegate rbaDidGetError:error];
-                    }];
-                }
-            }
-            else {
-                if ([self.delegate respondsToSelector:@selector(rbaDidGetTransactionStatus:)]) {
-                    [self dismissViewControllerAnimated:YES completion:^{
-                        [self.delegate rbaDidGetTransactionStatus:result];
-                    }];
-                }
-            }
-        }];
-    }
-    if (request.pathComponents.count > 3 && [request.pathComponents[3] isEqualToString:@"callback"]) {
-        
-        [self dismissViewControllerAnimated:YES completion:^{
-            if (self.completion) self.completion(nil);
-        }];
+    if ([self isThreeDSOldVersion]) {
+        if ([requestURL containsString:oldThreeDSCallbackPattern]) {
+            [self handleCheckStatusForThreeDS];
+        }
+    } else {
+        if ([requestURL containsString:newThreeDSCallbackPattern]) {
+            [self handleCheckStatusForThreeDS];
+        }
     }
 }
-
 @end

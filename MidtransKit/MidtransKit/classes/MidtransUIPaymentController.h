@@ -15,9 +15,13 @@
 @interface MidtransUIPaymentController : MidtransUIBaseViewController
 @property (nonatomic,strong) MidtransTransactionTokenResponse *token;
 @property (nonatomic,strong) MidtransPaymentListModel *paymentMethod;
+@property (nonatomic, readonly) BOOL isDirectPayment;
 
 -(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
            paymentMethodName:(MidtransPaymentListModel *)paymentMethod;
+-(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+           paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+        directPaymentFeature:(BOOL)isDirectPayment;
 
 -(void)showBackButton:(BOOL)show;
 -(void)showDismissButton:(BOOL)show;

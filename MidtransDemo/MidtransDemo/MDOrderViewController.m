@@ -74,12 +74,12 @@
             merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = THREE_DS_CLIENT_KEY_URL_STAGING;
-            merchantServer = THREE_DS_MERCHANT_SERVER_URL_STAGING;
+            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey
-             environment:MidtransServerEnvironmentUat
+             environment:MidtransServerEnvironmentSandbox
        merchantServerURL:merchantServer];
     
     UICONFIG.hideStatusPage = NO;

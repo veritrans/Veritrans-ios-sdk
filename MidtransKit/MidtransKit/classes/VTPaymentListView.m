@@ -32,6 +32,9 @@
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
     self.tableView.tableFooterView = [UIView new];
+    if (@available(iOS 15, *)){
+        [self.tableView setSectionHeaderTopPadding:0];
+        }
     [self.tableView registerNib:[UINib nibWithNibName:@"MidtransUIListCell" bundle:VTBundle] forCellReuseIdentifier:@"MidtransUIListCell"];
 }
 

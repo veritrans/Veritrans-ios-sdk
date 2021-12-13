@@ -457,6 +457,12 @@
 		DD64CE6C253EA6560069F4B4 /* qrisshopeepay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */; };
 		DD64CE6D253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */; };
 		DD64CE6E253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */; };
+		DDA485FC27630B0800D9A0AC /* brimo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485F627630B0700D9A0AC /* brimo@2x.png */; };
+		DDA485FD27630B0800D9A0AC /* brimo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485FA27630B0700D9A0AC /* brimo@3x.png */; };
+		DDA485FE27630B0800D9A0AC /* brimo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485FB27630B0700D9A0AC /* brimo@1x.png */; };
+		DDA485FF27630B1000D9A0AC /* brimo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485FA27630B0700D9A0AC /* brimo@3x.png */; };
+		DDA4860027630B1000D9A0AC /* brimo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485F627630B0700D9A0AC /* brimo@2x.png */; };
+		DDA4860127630B1000D9A0AC /* brimo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485FB27630B0700D9A0AC /* brimo@1x.png */; };
 		DDB1F7222536FD5100379F50 /* MidShopeePayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */; };
 		DDB1F7232536FD5100379F50 /* MidShopeePayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */; };
 		DDB1F7252537284700379F50 /* MidShopeePayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB1F7242537284700379F50 /* MidShopeePayViewController.h */; };
@@ -1729,6 +1735,9 @@
 		DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@2x.png"; path = "resources/qrisshopeepay@2x.png"; sourceTree = "<group>"; };
 		DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@3x.png"; path = "resources/qrisshopeepay@3x.png"; sourceTree = "<group>"; };
 		DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@1x.png"; path = "resources/qrisshopeepay@1x.png"; sourceTree = "<group>"; };
+		DDA485F627630B0700D9A0AC /* brimo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brimo@2x.png"; path = "resources/brimo@2x.png"; sourceTree = "<group>"; };
+		DDA485FA27630B0700D9A0AC /* brimo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brimo@3x.png"; path = "resources/brimo@3x.png"; sourceTree = "<group>"; };
+		DDA485FB27630B0700D9A0AC /* brimo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brimo@1x.png"; path = "resources/brimo@1x.png"; sourceTree = "<group>"; };
 		DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidShopeePayViewController.xib; path = MidtransKit/resources/MidShopeePayViewController.xib; sourceTree = SOURCE_ROOT; };
 		DDB1F7242537284700379F50 /* MidShopeePayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidShopeePayViewController.h; path = classes/MidShopeePayViewController.h; sourceTree = "<group>"; };
 		DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidShopeePayViewController.m; sourceTree = "<group>"; };
@@ -2742,6 +2751,9 @@
 				DDD96207255C6CC400E81AE5 /* bri_va@1.png */,
 				DDD96208255C6CC400E81AE5 /* bri_va@2x.png */,
 				DDD96206255C6CC400E81AE5 /* bri_va@3x.png */,
+				DDA485FB27630B0700D9A0AC /* brimo@1x.png */,
+				DDA485F627630B0700D9A0AC /* brimo@2x.png */,
+				DDA485FA27630B0700D9A0AC /* brimo@3x.png */,
 				E5EBC2BE1EB0726700A568D1 /* midtrans_logo_mid@2x.png */,
 				E5EBC2BF1EB0726700A568D1 /* midtrans_logo_right@2x.png */,
 				3D40893B1F75130300B9A2EC /* alto_preview.png */,
@@ -3716,6 +3728,7 @@
 				E571248D1E9381320064F515 /* MidtransPaymentGCIViewController.xib in Resources */,
 				3D4089181F74E35800B9A2EC /* id_paymentMethods.plist in Resources */,
 				3D4089141F74E35800B9A2EC /* id_bca_va.plist in Resources */,
+				DDA485FC27630B0800D9A0AC /* brimo@2x.png in Resources */,
 				0CE1D2B91F67BA53003A012F /* token_key@3x.png in Resources */,
 				3D4089111F74E35800B9A2EC /* en_permata_va.plist in Resources */,
 				3D4089131F74E35800B9A2EC /* id_bca_klikpay.plist in Resources */,
@@ -3741,6 +3754,7 @@
 				3D4089161F74E35800B9A2EC /* id_mandiri_clickpay.plist in Resources */,
 				3D4089101F74E35800B9A2EC /* en_mandiri_clickpay.plist in Resources */,
 				E519C9731E9B6F2100EF70DF /* bni_va5@2x.png in Resources */,
+				DDA485FD27630B0800D9A0AC /* brimo@3x.png in Resources */,
 				0C9634E51FE11A1400EF89DF /* gopay_scan_qr_instruction@2x.png in Resources */,
 				E571248F1E9381320064F515 /* MidtransPaymentStatusViewController.xib in Resources */,
 				E57124901E9381320064F515 /* MidtransPromoView.xib in Resources */,
@@ -3943,6 +3957,7 @@
 				3D40894C1F75133200B9A2EC /* prima_preview@3x.png in Resources */,
 				0CCD624C2005D0BA006936E5 /* bersama_affiliated@2x.png in Resources */,
 				ECB0218F221A9C6C0037C0E1 /* en_alfamart.plist in Resources */,
+				DDA485FE27630B0800D9A0AC /* brimo@1x.png in Resources */,
 				0C9634F31FE11A1400EF89DF /* reload.png in Resources */,
 				E58FCE0B1E94CFD500632085 /* mandiri_clickpay@2x.png in Resources */,
 				DDD96241255C715D00E81AE5 /* bri_va5@1x.png in Resources */,
@@ -4153,6 +4168,7 @@
 				0CC900351F70244A0058E93C /* en_bri_epay.plist in Resources */,
 				3DECDFE91F9DAE610001AC9A /* download@3x.png in Resources */,
 				0C9634F51FE11A1F00EF89DF /* gojek_icon@2x.png in Resources */,
+				DDA4860127630B1000D9A0AC /* brimo@1x.png in Resources */,
 				3DECDFE51F9DAE610001AC9A /* download.png in Resources */,
 				DDD96228255C715D00E81AE5 /* bri_va1@3x.png in Resources */,
 				E57ACD88217F009500A9977F /* id_akulaku.plist in Resources */,
@@ -4193,6 +4209,7 @@
 				E58FCE1C1E94CFD600632085 /* mega.png in Resources */,
 				E58FCE681E94CFD600632085 /* plus-icon@2x.png in Resources */,
 				0C9635061FE11A1F00EF89DF /* ic_no_gopay.png in Resources */,
+				DDA4860027630B1000D9A0AC /* brimo@2x.png in Resources */,
 				E58FCE7A1E94CFD600632085 /* visa-mastercard-amex.png in Resources */,
 				E519C9621E9B6F2000EF70DF /* bni_va1@2x.png in Resources */,
 				E5F1BB761E93701100ED659D /* VTIndomaretSuccessController.xib in Resources */,
@@ -4273,6 +4290,7 @@
 				ECB021B3221D251B0037C0E1 /* MIDAlfamartPostPaymentViewController.xib in Resources */,
 				E58FCE081E94CFD500632085 /* mandiri_atm_6@2x.png in Resources */,
 				0C9634FD1FE11A1F00EF89DF /* ic_chevron_down.png in Resources */,
+				DDA485FF27630B1000D9A0AC /* brimo@3x.png in Resources */,
 				E58FCDF01E94CFD500632085 /* indomaret@2x.png in Resources */,
 				E58FCE6E1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */,
 				0CDAA763203EA19D009419B3 /* gopay_scan_1.png in Resources */,

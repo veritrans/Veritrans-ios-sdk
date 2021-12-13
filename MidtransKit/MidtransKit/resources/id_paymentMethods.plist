@@ -132,9 +132,9 @@
 		<key>status</key>
 		<string>&quot;&quot;</string>
 		<key>title</key>
-		<string>e-Pay BRI</string>
+		<string>BRImo</string>
 		<key>description</key>
-		<string>Bayar menggunakan akun e-Pay BRI</string>
+		<string>Bayar menggunakan akun BRImo</string>
 		<key>id</key>
 		<string>bri_epay</string>
 		<key>identifier</key>

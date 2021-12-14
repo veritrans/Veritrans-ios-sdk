@@ -24,6 +24,9 @@
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"echannel"]) {
         imagePath = @"mandiri_va";
     }
+    if ([paymentList.internalBaseClassIdentifier isEqualToString:@"bri_epay"]) {
+        imagePath = @"brimo";
+    }
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
         if (response.promos.promos.count) {
             self.promoNotificationView.hidden =  NO;

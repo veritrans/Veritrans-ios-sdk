@@ -4,14 +4,14 @@
 <array>
     <dict>
         <key>content</key>
-        <string>Please make sure that you have a User ID for BRI e-Pay and have registered your mTOKEN before going through with the payment</string>
+        <string>Please make sure that you have a User ID for BRImo and have registered your mTOKEN before going through with the payment</string>
         <key>image</key>
         <string></string>
     </dict>
 	
     <dict>
         <key>content</key>
-        <string>To obtain a User ID for BRI e-Pay, please register at the nearest BRI ATM</string>
+        <string>To obtain a User ID for BRImo, please register at the nearest BRI ATM</string>
         <key>image</key>
         <string></string>
     </dict>
@@ -25,7 +25,7 @@
 	
     <dict>
         <key>content</key>
-        <string>Payment via BRI e-Pay will be processed online and your BRI bank account balance will be deducted automatically based on your total amount</string>
+        <string>Payment via BRImo will be processed online and your BRI bank account balance will be deducted automatically based on your total amount</string>
         <key>image</key>
         <string></string>
     </dict>

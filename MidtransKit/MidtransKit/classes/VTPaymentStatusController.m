@@ -89,16 +89,7 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.navigationItem setHidesBackButton:YES];
-    
-    UINavigationBar *bar = self.navigationController.navigationBar;
-    [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-    bar.shadowImage = [UIImage new];
-    bar.translucent = YES;
-    bar.titleTextAttributes = @{
-        NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
-        NSForegroundColorAttributeName:[UIColor whiteColor]
-    };
+    [self setupNavigationController];
     NSMutableDictionary * additionalData = [[NSMutableDictionary alloc] init];
     if (self.result.transactionId) {
         [additionalData addEntriesFromDictionary:@{@"transaction id": self.result.transactionId}];
@@ -187,6 +178,23 @@ typedef NS_ENUM(NSUInteger, SNPStatusType) {
         self.paymentTypeLabel.text = self.paymentMethod.title;
     }
     [self.finishButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Close"] forState:UIControlStateNormal];
+}
+
+-(void)setupNavigationController{
+    [self.navigationItem setHidesBackButton:YES];
+    if (@available(iOS 13.0, *)) {
+        self.navigationController.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+        self.navigationController.navigationBar.backgroundColor = [UIColor clearColor];
+        [[self.navigationController.view viewWithTag:MIDTRANS_UI_PAYMENT_STATUS_BAR_TAG] removeFromSuperview];
+    }
+    UINavigationBar *bar = self.navigationController.navigationBar;
+    [bar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    bar.shadowImage = [UIImage new];
+    bar.translucent = YES;
+    bar.titleTextAttributes = @{
+        NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
+        NSForegroundColorAttributeName:[UIColor whiteColor]
+    };
 }
 
 - (void)setGradientLayerColors:(NSArray <UIColor*>*)colors {

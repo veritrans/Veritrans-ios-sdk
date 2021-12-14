@@ -49,7 +49,9 @@ static NSString *const threeDSVersionOne = @"1";
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if (@available(iOS 13.0, *)) {
+        self.navigationController.overrideUserInterfaceStyle = UIUserInterfaceStyleLight;
+    }
     self.title =self.titleOveride.length?self.titleOveride:NSLocalizedString(@"3D Secure", nil);
     self.title = @"Credit Card";
     

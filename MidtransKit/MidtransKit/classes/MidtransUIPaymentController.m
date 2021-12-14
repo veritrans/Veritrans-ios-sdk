@@ -34,6 +34,8 @@
 @property (nonatomic) MidtransLoadingView *loadingView;
 @property (nonatomic) SNPMaintainView *maintainView;
 @property (nonatomic) BOOL dismissButton;
+@property (nonatomic) BOOL isDirectPayment;
+
 
 @end
 
@@ -46,6 +48,19 @@
         self.paymentMethod = paymentMethod;
     }
     return self;
+}
+
+-(instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
+           paymentMethodName:(MidtransPaymentListModel *)paymentMethod
+        directPaymentFeature:(BOOL)isDirectPayment{
+    self = [[[self class] alloc] initWithNibName:NSStringFromClass([self class]) bundle:VTBundle];
+    if (self) {
+        self.token = token;
+        self.paymentMethod = paymentMethod;
+        self.isDirectPayment = isDirectPayment;
+    }
+    return self;
+    
 }
 
 -(void)showBackButton:(BOOL)show  {

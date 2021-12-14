@@ -120,19 +120,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationBar.translucent = false;
-    // to remove 1 px border below nav bar
-    
-    [self.navigationBar setBackgroundImage:[UIImage new]
-                            forBarPosition:UIBarPositionAny
-                                barMetrics:UIBarMetricsDefault];
-    [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
-    self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
-                                               NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
-    self.navigationBar.barTintColor = [UIColor whiteColor];
-    self.navigationBar.tintColor = [[MidtransUIThemeManager shared] themeColor];
-    
+    [self setupNavigationBar];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionSuccess:) name:TRANSACTION_SUCCESS object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionFailed:) name:TRANSACTION_FAILED object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(transactionDeny:) name:TRANSACTION_DENY object:nil];
@@ -148,6 +136,40 @@
         [self.paymentDelegate paymentViewController:self saveCard:sender.userInfo[TRANSACTION_RESULT_KEY]];
     }
 }
+
+- (void)setupNavigationBar {
+    self.navigationBar.translucent = NO;
+    [self.navigationBar setBackgroundImage:[UIImage new]
+                            forBarPosition:UIBarPositionAny
+                                barMetrics:UIBarMetricsDefault];
+    [self.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationBar setShadowImage:[[UIImage alloc] init]];
+    self.navigationBar.tintColor = [[MidtransUIThemeManager shared] themeColor];
+    
+    if (@available(iOS 15.0, *)) {
+        self.navigationBar.backgroundColor = [UIColor whiteColor];
+        self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
+                                                   NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
+        UIView * statusBarView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, [[UIApplication sharedApplication] statusBarFrame].size.height)];
+        statusBarView.backgroundColor = [UIColor whiteColor];
+        statusBarView.tag = MIDTRANS_UI_PAYMENT_STATUS_BAR_TAG;
+        [self.view addSubview:statusBarView];
+    } else {
+        self.navigationBar.titleTextAttributes = @{NSFontAttributeName:[[MidtransUIThemeManager shared].themeFont fontRegularWithSize:17],
+                                                   NSForegroundColorAttributeName:[UIColor colorWithRed:3/255. green:3/255. blue:3/255. alpha:1]};
+        self.navigationBar.barTintColor = [UIColor whiteColor];
+    }
+}
+
+- (UIStatusBarStyle)preferredStatusBarStyle
+{
+    if (@available(iOS 13.0, *)) {
+        return UIStatusBarStyleDarkContent;
+    } else {
+        return UIStatusBarStyleDefault;
+    }
+}
+
 - (void)saveCardFailed:(NSNotification *)sender {
     [self dismissDemoBadge];
     if ([self.paymentDelegate respondsToSelector:@selector(paymentViewController:saveCardFailed:)]) {

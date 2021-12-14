@@ -427,13 +427,11 @@
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
-        MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
-        [midGopayVC showDismissButton:self.singlePayment];
+        MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod directPaymentFeature:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY] ||[paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_QRIS_SHOPEEPAY] ) {
-        MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod];
-        [midShopeepayVC showDismissButton:self.singlePayment];
+        MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod directPaymentFeature:self.singlePayment];
         [self.navigationController pushViewController:midShopeepayVC animated:!self.singlePayment];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {

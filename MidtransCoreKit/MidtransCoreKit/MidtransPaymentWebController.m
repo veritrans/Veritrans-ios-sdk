@@ -113,9 +113,20 @@
     }
 }
 
-- (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation {
-    NSString *requestURL = webView.URL.absoluteString;
-    
+- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
+    if (![webView.URL.scheme isEqual:@"http"] &&
+        ![webView.URL.scheme isEqual:@"https"] &&
+        ![webView.URL.scheme isEqual:@"about:blank"]) {
+        if ([[UIApplication sharedApplication]canOpenURL:webView.URL]) {
+            [[UIApplication sharedApplication]openURL:webView.URL];
+        }
+    }
+    NSString *requestURL = [navigationAction.request.URL absoluteString];
+    decisionHandler(WKNavigationActionPolicyAllow);
+    [self dismissWebviewWithURL:requestURL];
+}
+
+- (void)dismissWebviewWithURL: (NSString*)requestURL {
     if (([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS] && [requestURL containsString:@"cimb-clicks/response"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] && [requestURL containsString:@"id="]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
@@ -125,18 +136,5 @@
             [self.delegate webPaymentController_transactionPending:self];
         }
     }
-    
-    [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
-}
-
-- (void)webView:(WKWebView *)webView decidePolicyForNavigationAction:(WKNavigationAction *)navigationAction decisionHandler:(void (^)(WKNavigationActionPolicy))decisionHandler {
-    if (![webView.URL.scheme isEqual:@"http"] &&
-        ![webView.URL.scheme isEqual:@"https"] &&
-        ![webView.URL.scheme isEqual:@"about:blank"]) {
-        if ([[UIApplication sharedApplication]canOpenURL:webView.URL]) {
-            [[UIApplication sharedApplication]openURL:webView.URL];
-        }
-    }
-    decisionHandler(WKNavigationActionPolicyAllow);
 }
 @end

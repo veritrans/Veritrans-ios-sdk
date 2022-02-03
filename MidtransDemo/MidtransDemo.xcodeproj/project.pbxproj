@@ -33,6 +33,8 @@
 		DD79468627A1585700A68A62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD79468427A1585700A68A62 /* Main.storyboard */; };
 		DD79468827A1585900A68A62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD79468727A1585900A68A62 /* Assets.xcassets */; };
 		DD79468B27A1585900A68A62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD79468927A1585900A68A62 /* LaunchScreen.storyboard */; };
+		DDB4234E27A2801F002B7383 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */; };
+		DDB4234F27A2801F002B7383 /* MidtransCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		E529544E1EBAF8E60076BEC8 /* MDAlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E529544C1EBAF8E60076BEC8 /* MDAlertViewController.m */; };
 		E52954561EBB01890076BEC8 /* MDAlertInputCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E52954541EBB01890076BEC8 /* MDAlertInputCell.m */; };
 		E52954571EBB01890076BEC8 /* MDAlertInputCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E52954551EBB01890076BEC8 /* MDAlertInputCell.xib */; };
@@ -129,6 +131,17 @@
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DDB4235027A2801F002B7383 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DDB4234F27A2801F002B7383 /* MidtransCoreKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
@@ -167,6 +180,7 @@
 		DD79468C27A1585900A68A62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
 		DDB1F6FB252F338400379F50 /* MidtransDemoAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransDemoAppConfig.h; sourceTree = "<group>"; };
+		DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MidtransCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E529544B1EBAF8E60076BEC8 /* MDAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAlertViewController.h; sourceTree = "<group>"; };
 		E529544C1EBAF8E60076BEC8 /* MDAlertViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAlertViewController.m; sourceTree = "<group>"; };
 		E529544D1EBAF8E60076BEC8 /* MDAlertViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDAlertViewController.xib; sourceTree = "<group>"; };
@@ -244,6 +258,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB4234E27A2801F002B7383 /* MidtransCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -510,6 +525,7 @@
 		EC16E625E4533EAA44E1C9D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */,
 				DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */,
 				F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */,
 				C9F2FB9DC837424A9DE9E4EF /* libPods-MidtransDemoUITests.a */,
@@ -527,6 +543,7 @@
 				DD79467827A1585600A68A62 /* Sources */,
 				DD79467927A1585600A68A62 /* Frameworks */,
 				DD79467A27A1585600A68A62 /* Resources */,
+				DDB4235027A2801F002B7383 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

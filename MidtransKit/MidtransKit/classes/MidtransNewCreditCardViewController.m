@@ -1249,7 +1249,7 @@ MidtransCommonTSCViewControllerDelegate
 -(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
                              withTransactionData:(MidtransTransaction *)transaction  {
     
-    Midtrans3DSController *secureController = [[Midtrans3DSController alloc]initWithToken:nil transactionResult:result transactionData:transaction];
+    Midtrans3DSController *secureController = [[Midtrans3DSController alloc]initWithToken:self.token.tokenId transactionResult:result transactionData:transaction];
     secureController.delegate = self;
     [secureController showWithCompletion:^(NSError *error) {
         if (error) {

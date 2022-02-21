@@ -19,6 +19,7 @@ static NSString *const threeDSVersionOne = @"1";
 @interface Midtrans3DSController() <WKNavigationDelegate>
 @property (nonatomic) NSURL *secureURL;
 @property (nonatomic) NSString *token;
+@property (nonatomic) NSString *threeDSVersion;
 @property (nonatomic) UIViewController *rootViewController;
 @property (nonatomic, copy) void (^completion)(NSError *error);
 @property (nonatomic, strong) MidtransTransaction *transcationData;
@@ -35,7 +36,19 @@ static NSString *const threeDSVersionOne = @"1";
         self.transactionResult = result;
         self.secureURL = result.redirectURL;
         self.token = token;
+        self.threeDSVersion = result.threeDSVersion;
         self.transcationData = transactionData;
+    }
+    return self;
+}
+
+- (instancetype)initWithToken:(NSString *)transacationToken
+                  redirectURL:(NSString *)redirectURL
+               threeDSVersion:(NSString *)threeDSVersion{
+    if (self = [super init]) {
+        self.secureURL = [NSURL URLWithString:redirectURL];
+        self.token = transacationToken;
+        self.threeDSVersion = threeDSVersion;
     }
     return self;
 }
@@ -110,7 +123,7 @@ static NSString *const threeDSVersionOne = @"1";
 }
 
 - (BOOL)isThreeDSOldVersion {
-    if ([self.transactionResult.threeDSVersion isEqualToString:threeDSVersionOne] || self.transactionResult.threeDSVersion == nil || self.transactionResult.threeDSVersion.length == 0) {
+    if ([self.threeDSVersion isEqualToString:threeDSVersionOne] || self.threeDSVersion == nil || self.threeDSVersion.length == 0) {
         return YES;
     } else {
         return NO;
@@ -118,7 +131,7 @@ static NSString *const threeDSVersionOne = @"1";
 }
 
 - (void)handleCheckStatusForThreeDS {
-    [[MidtransMerchantClient shared] performCheckStatusRBA:self.transcationData completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
+    [[MidtransMerchantClient shared] performCheckStatusTransactionWithToken:self.token completion:^(MidtransTransactionResult * _Nullable result, NSError * _Nullable error) {
         if (error) {
             if ([self.delegate respondsToSelector:@selector(rbaDidGetError:)]) {
                 [self dismissViewControllerAnimated:YES completion:^{

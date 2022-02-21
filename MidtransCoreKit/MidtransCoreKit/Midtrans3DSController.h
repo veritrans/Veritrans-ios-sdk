@@ -27,6 +27,10 @@
             transactionResult:(MidtransTransactionResult *)result
               transactionData:(MidtransTransaction*)transactionData;
 
+- (instancetype)initWithToken:(NSString *)transacationToken
+                  redirectURL:(NSString *)redirectURL
+              threeDSVersion:(NSString *)threeDSVersion;
+
 - (void)showWithCompletion:(void(^)(NSError *error))completion;
 
 @end

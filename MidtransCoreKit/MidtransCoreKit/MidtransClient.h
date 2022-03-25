@@ -12,6 +12,7 @@
 #import "MidtransTokenizeRequest.h"
 #import "MidtransMaskedCreditCard.h"
 #import "MidtransTransactionResult.h"
+#import "MIDExbinResponse.h"
 
 /**
  `VTClient` wraps various services offered by Veritrans server. Note that Veritrans offers many payment services, but not all of wrapped by this object because most the of service are supposed to be executed server-side.
@@ -49,6 +50,7 @@
 
 - (void)requestCardBINForInstallmentWithCompletion:(void (^_Nullable)(NSArray *_Nullable binResponse, NSError *_Nullable error))completion;
 
+- (void)requestBINDataWithNumber:(NSString *_Nonnull)cardNumber completion:(void (^_Nullable)(MIDExbinResponse *_Nullable binResponse, NSError *_Nullable error))completion;
 /**
  Register a credit card to be stored in Veritrans server.
  

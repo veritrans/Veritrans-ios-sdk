@@ -76,6 +76,12 @@ MidtransCommonTSCViewControllerDelegate
 @property (nonatomic,strong) NSNumber *totalGrossAmount;
 @property (nonatomic,strong) MidtransPaymentCreditCard *paymentDetail;
 @property (nonatomic) UIImage *bankIcon;
+@property (nonatomic) MIDExbinData *binData;
+@property (nonatomic) NSString *originNumber;
+@property (nonatomic) NSString *previousUsedCardNumber;
+@property (nonatomic) NSString *requestedNumber;
+@property (nonatomic) NSArray *binDataArray;
+@property (nonatomic) BOOL isBinDataFoundOnCache;
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -519,34 +525,89 @@ MidtransCommonTSCViewControllerDelegate
 }
 
 - (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
-    if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
-        self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+    self.isBinDataFoundOnCache = NO;
+    self.previousUsedCardNumber = number;
+        if( [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_EXBIN_DATA] != nil) {
+            NSArray *savedResponse =  [self loadCustomObjectWithKey:MIDTRANS_EXBIN_DATA];
+            NSLog(@"bin data ada %@",savedResponse);
+            self.binDataArray = [NSArray arrayWithArray:[self loadCustomObjectWithKey:MIDTRANS_EXBIN_DATA]];
+            for (MIDExbinData * bindata in self.binDataArray) {
+                NSLog(@"datanya yeayy %@", bindata);
+                if (number == bindata.bin) {
+                    self.binData = bindata;
+                    self.isBinDataFoundOnCache = YES;
+                    NSLog(@"datanya match nih %@", bindata);
+                    break;
+                }
+            }
+        }
+    
+    if (self.isBinDataFoundOnCache) {
+        self.bankIcon = [self.view iconWithBankName:self.binData.bankCode];
+        [self setupCreditCardBankIcon:self.bankIcon];
+        NSLog(@"sukses make cache");
+    } else {
+        [[MidtransClient shared] requestBINDataWithNumber:number completion:^(MIDExbinResponse * _Nullable binResponse, NSError * _Nullable error) {
+            if (binResponse) {
+                NSLog(@"abis request kudu di save nih");
+                [self saveBinDataToCache:binResponse.data];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    self.bankIcon = [self.view iconWithBankName:binResponse.data.bankCode];
+                    [self setupCreditCardBankIcon:self.bankIcon];
+                    NSLog(@"sukses make exbin");
+                });
+            }
+        }];
     }
-    else {
-        self.view.creditCardNumberTextField.info1Icon = nil;
+}
+
+-(void)saveBinDataToCache:(MIDExbinData *)binData{
+    
+    NSMutableArray *binDataArray = [[NSMutableArray alloc]init];
+    [binDataArray addObject:binData];
+    NSLog(@"bindata jumlah awal %lu", (unsigned long)binDataArray.count);
+    if( [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_EXBIN_DATA] != nil) {
+        [binDataArray addObjectsFromArray:[self loadCustomObjectWithKey:MIDTRANS_EXBIN_DATA]];
     }
-    self.bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
-    });
+    NSLog(@"bindata jumlah akhir %lu", (unsigned long)binDataArray.count);
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:binDataArray];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:MIDTRANS_EXBIN_DATA];
+}
+
+-(NSArray *)loadCustomObjectWithKey:(NSString *)key{
+    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSArray *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
+}
+
+-(void)setupCreditCardBankIcon:(UIImage *)icon {
+    self.view.creditCardNumberTextField.info2Icon = icon;
+    [self.view.creditCardNumberTextField layoutSubviews];
 }
 
 #pragma mark - VTCardFormatterDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
     NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:originNumber] lowercaseString]]) {
+        self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:originNumber];
+    }
+    else {
+        self.view.creditCardNumberTextField.info1Icon = nil;
+    }
     if (self.promoAvailable) {
         [self updatePromoViewWithCreditCardNumber:originNumber];
     }
     [self matchBINNumberWithInstallment:originNumber];
-    
-    [self updateCreditCardTextFieldInfoWithNumber:originNumber];
-    
-    [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
-        self.bankBinList = binResponse;
-        [self matchBINNumberWithInstallment:originNumber];
-        [self updateCreditCardTextFieldInfoWithNumber:originNumber];
-    }];
+    if (originNumber.length >= 6  && ![self.previousUsedCardNumber isEqualToString:[originNumber substringToIndex:6]]) {
+        NSLog(@"1 tempNumber %@ dan origin Number %@ dan requestnya %@", self.previousUsedCardNumber, originNumber, [originNumber substringToIndex:6]);
+        [self updateCreditCardTextFieldInfoWithNumber:[originNumber substringToIndex:6]];
+    } else if (originNumber.length < 6) {
+        self.previousUsedCardNumber = nil;
+        self.bankIcon = nil;
+        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
+    }
 }
 - (void)reformatCardNumber {
     NSString *cardNumber = self.view.cardCVVNumberTextField.text;
@@ -732,6 +793,8 @@ MidtransCommonTSCViewControllerDelegate
         return YES;
     }
 }
+
+
 
 - (BOOL)textField:(MidtransUITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
     if ([textField isKindOfClass:[MidtransUITextField class]]) {

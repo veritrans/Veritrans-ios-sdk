@@ -114,7 +114,7 @@ static NSString * const MIDTRANS_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your 
 static NSString *const MIDTRANS_SANDBOX_API_URL = @"https://api.sandbox.midtrans.com/v2";
 static NSString *const MIDTRANS_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
 static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.midtrans.com/snap/v1";
-static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://app.sandbox.midtrans.com/snap/v1/bank_bins";
+static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://api.sandbox.midtrans.com/v1/bins/";
 
 static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.midtrans.com/v2";
 static NSString *const MIDTRANS_PRODUCTION_SNAP = @"https://app.midtrans.com/snap/v1";
@@ -176,6 +176,9 @@ static NSString *const MIDTRANS_CORE_TRANSACTION_ID = @"transaction_id";
 static NSString *const MIDTRANS_CORE_MERCHANT_LOGO_KEY = @"merchant_logo_key";
 static NSString *const MIDTRANS_CORE_MERCHANT_NAME = @"merchant_name";
 static NSString *const MIDTRANS_CORE_CURRENT_TOKEN = @"current_token";
+
+static NSString *const MIDTRANS_EXBIN_DATA = @"exbin_data";
+
 
 static NSString *const SNP_CORE_BNI_POINT = @"BNI_POINT";
 static NSString *const SNP_CORE_MANDIRI_POINT = @"MANDIRI_POINT";

@@ -156,4 +156,37 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     }];
 }
 
+- (void)requestBINDataWithNumber:(NSString *_Nonnull)cardNumber completion:(void (^_Nullable)(MIDExbinResponse *_Nullable binResponse, NSError *_Nullable error))completion {
+    NSData *data = [MidtransConfig.shared.clientKey dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *clientKeyBase64 = [data base64EncodedStringWithOptions:kNilOptions];
+    NSString *clientKey = [NSString stringWithFormat:@"Basic %@", clientKeyBase64];
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",[PRIVATECONFIG binURL], cardNumber];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSMutableURLRequest *urlRequest = [[NSMutableURLRequest alloc] initWithURL:url];
+    
+    [urlRequest setHTTPMethod:@"GET"];
+    [urlRequest addValue:clientKey forHTTPHeaderField:@"Authorization"];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:urlRequest completionHandler:^(NSData *data, NSURLResponse *response, NSError *error)
+                                      {
+        NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)response;
+        if (httpResponse.statusCode == 200) {
+            NSError *parseError = nil;
+            NSDictionary *responseDictionary = [NSJSONSerialization JSONObjectWithData:data options:0 error:&parseError];
+            MIDExbinResponse *binResponse = [[MIDExbinResponse alloc] initWithDictionary:responseDictionary];
+            completion(binResponse, nil);
+        }
+        else {
+            NSError *err = [NSError errorWithDomain:[PRIVATECONFIG binURL]
+                                               code:httpResponse.statusCode
+                                           userInfo:@{
+                NSLocalizedDescriptionKey:httpResponse.description
+            }];
+            completion(nil, err);
+        }
+    }];
+    [dataTask resume];
+}
+
 @end

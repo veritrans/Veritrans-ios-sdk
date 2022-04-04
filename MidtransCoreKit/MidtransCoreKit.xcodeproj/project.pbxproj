@@ -72,6 +72,8 @@
 		DDA6BF7927FA9B0500296359 /* MIDExbinData.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA6BF7727FA9B0500296359 /* MIDExbinData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDA6BF7A27FA9B0500296359 /* MIDExbinData.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA6BF7827FA9B0500296359 /* MIDExbinData.m */; };
 		DDA6BF7B27FA9B0A00296359 /* MIDExbinData.h in Headers */ = {isa = PBXBuildFile; fileRef = DDA6BF7727FA9B0500296359 /* MIDExbinData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DDA6BF7C27FAA48100296359 /* MIDExbinResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA6BF7327FA9A8A00296359 /* MIDExbinResponse.m */; };
+		DDA6BF7D27FAA48400296359 /* MIDExbinData.m in Sources */ = {isa = PBXBuildFile; fileRef = DDA6BF7827FA9B0500296359 /* MIDExbinData.m */; };
 		DDB30C342642359D00BC1235 /* MidtransPaymentUOB.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB30C332642359D00BC1235 /* MidtransPaymentUOB.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDB30C39264235BC00BC1235 /* MidtransPaymentUOB.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB30C38264235BC00BC1235 /* MidtransPaymentUOB.m */; };
 		DDB30C472642375300BC1235 /* MidtransPaymentUOB.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB30C332642359D00BC1235 /* MidtransPaymentUOB.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1368,9 +1370,11 @@
 				E571201D1E937A2C0064F515 /* MidtransPaymentRequestV2ItemDetails.m in Sources */,
 				DD64CE54253DB3CC0069F4B4 /* MidtransPaymentQRIS.m in Sources */,
 				ECB0213D221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */,
+				DDA6BF7D27FAA48400296359 /* MIDExbinData.m in Sources */,
 				E571201E1E937A2C0064F515 /* MidtransPaymentRequestV2Merchant.m in Sources */,
 				E571201F1E937A2C0064F515 /* MidtransPaymentRequestV2Preference.m in Sources */,
 				E57120201E937A2C0064F515 /* MidtransPaymentRequestV2Response.m in Sources */,
+				DDA6BF7C27FAA48100296359 /* MIDExbinResponse.m in Sources */,
 				E546D1FC217EFF4C006D4650 /* MidtransPaymentAkulaku.m in Sources */,
 				E57120211E937A2C0064F515 /* MidtransPaymentRequestV2ShippingAddress.m in Sources */,
 				E57120221E937A2C0064F515 /* MidtransPaymentRequestV2TransactionDetails.m in Sources */,

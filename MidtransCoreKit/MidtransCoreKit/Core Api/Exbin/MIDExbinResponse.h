@@ -7,10 +7,16 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MIDExbinData.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDExbinResponse : NSObject
+@interface MIDExbinResponse : NSObject <NSCoding, NSCopying>
+@property (nonatomic, strong) MIDExbinData *data;
+
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
 
 @end
 

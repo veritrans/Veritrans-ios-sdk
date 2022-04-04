@@ -10,7 +10,21 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MIDExbinData : NSObject
+@interface MIDExbinData : NSObject <NSCoding, NSCopying>
+
+@property (nonatomic, strong) NSString *countryName;
+@property (nonatomic, strong) NSString *countryCode;
+@property (nonatomic, strong) NSString *channel;
+@property (nonatomic, strong) NSString *brand;
+@property (nonatomic, strong) NSString *binType;
+@property (nonatomic, strong) NSString *binClass;
+@property (nonatomic, strong) NSString *bin;
+@property (nonatomic, strong) NSString *bankCode;
+@property (nonatomic, strong) NSString *bank;
+
++ (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
+- (instancetype)initWithDictionary:(NSDictionary *)dict;
+- (NSDictionary *)dictionaryRepresentation;
 
 @end
 

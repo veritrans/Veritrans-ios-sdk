@@ -70,12 +70,12 @@
     CC_CONFIG.paymentType = [[MDOptionManager shared].ccTypeOption.value integerValue];
     switch (CC_CONFIG.paymentType) {
         case MTCreditCardPaymentTypeOneclick:
-            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX;
             break;
         default:
-            clientkey = PROMO_MERCHANT_CLIENT_KEY_SANDBOX;
-            merchantServer = PROMO_MERCHANT_SERVER_URL_SANDBOX;
+            clientkey = DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX;
+            merchantServer = DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX;
             break;
     }
     [CONFIG setClientKey:clientkey
@@ -107,7 +107,7 @@
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
     CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
-    CONFIG.uobCallbackURL = @"demo.midtrans://";
+//    CONFIG.uobCallbackURL = @"demo.midtrans://";
     
     self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];
     

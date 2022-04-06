@@ -521,7 +521,7 @@ MidtransCommonTSCViewControllerDelegate
 }
 
 - (void)getCrediCardBinData:(NSString *)number {
-    NSString *binNumber =  [number substringToIndex:6];
+    NSString *binNumber =  [number substringToIndex:MIDTRANS_SUPPORTED_BIN_LENGTH];
     self.isBinDataFoundOnCache = NO;
         if( [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_EXBIN_DATA] != nil) {
             self.binDataArray = [NSArray arrayWithArray:[self loadCustomObjectWithKey:MIDTRANS_EXBIN_DATA]];

@@ -537,7 +537,7 @@ MidtransCommonTSCViewControllerDelegate
     if (self.isBinDataFoundOnCache) {
         [self updateCreditCardBankIcon];
     } else {
-        [[MidtransClient shared] requestBINDataWithNumber:number completion:^(MIDExbinResponse * _Nullable binResponse, NSError * _Nullable error) {
+        [[MidtransClient shared] requestBINDataWithNumber:binNumber completion:^(MIDExbinResponse * _Nullable binResponse, NSError * _Nullable error) {
             if (binResponse) {
                 self.binData = binResponse.data;
                 [self saveBinDataToCache:binResponse.data];
@@ -581,8 +581,7 @@ MidtransCommonTSCViewControllerDelegate
 #pragma mark - VTCardFormatterDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
-    NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    [self updateCardPrincipleIcon:originNumber];
+    NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; 
     [self updateCreditCardAttributes:originNumber];
     
 }
@@ -599,6 +598,7 @@ MidtransCommonTSCViewControllerDelegate
 -(void)updateCreditCardAttributes:(NSString *)number{
     
     if (number.length >= MIDTRANS_SUPPORTED_BIN_LENGTH) {
+        [self updateCardPrincipleIcon:number];
         [self getCrediCardBinData:number];
         [self checkBankPoint];
         [self checkInstallment];

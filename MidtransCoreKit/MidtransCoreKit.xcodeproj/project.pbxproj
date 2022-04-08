@@ -80,6 +80,10 @@
 		DDB30C4B2642375600BC1235 /* MidtransPaymentUOB.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB30C38264235BC00BC1235 /* MidtransPaymentUOB.m */; };
 		DDBC2FB82537C0C3002FCD06 /* MidtransPaymentShopeePay.h in Headers */ = {isa = PBXBuildFile; fileRef = DDBC2FB72537C0C3002FCD06 /* MidtransPaymentShopeePay.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DDBC2FBB2537C0EB002FCD06 /* MidtransPaymentShopeePay.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBC2FBA2537C0EB002FCD06 /* MidtransPaymentShopeePay.m */; };
+		DDBCB0EF27FDC3ED00D06C55 /* MidtransBinDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = DDBCB0ED27FDC3ED00D06C55 /* MidtransBinDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DDBCB0F027FDC3ED00D06C55 /* MidtransBinDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = DDBCB0ED27FDC3ED00D06C55 /* MidtransBinDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DDBCB0F127FDC3ED00D06C55 /* MidtransBinDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBCB0EE27FDC3ED00D06C55 /* MidtransBinDetails.m */; };
+		DDBCB0F227FDC3ED00D06C55 /* MidtransBinDetails.m in Sources */ = {isa = PBXBuildFile; fileRef = DDBCB0EE27FDC3ED00D06C55 /* MidtransBinDetails.m */; };
 		E546D1F9217EFF4C006D4650 /* MidtransPaymentAkulaku.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1F7217EFF4B006D4650 /* MidtransPaymentAkulaku.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E546D1FA217EFF4C006D4650 /* MidtransPaymentAkulaku.h in Headers */ = {isa = PBXBuildFile; fileRef = E546D1F7217EFF4B006D4650 /* MidtransPaymentAkulaku.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E546D1FB217EFF4C006D4650 /* MidtransPaymentAkulaku.m in Sources */ = {isa = PBXBuildFile; fileRef = E546D1F8217EFF4B006D4650 /* MidtransPaymentAkulaku.m */; };
@@ -478,6 +482,8 @@
 		DDB30C38264235BC00BC1235 /* MidtransPaymentUOB.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentUOB.m; sourceTree = "<group>"; };
 		DDBC2FB72537C0C3002FCD06 /* MidtransPaymentShopeePay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentShopeePay.h; sourceTree = "<group>"; };
 		DDBC2FBA2537C0EB002FCD06 /* MidtransPaymentShopeePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentShopeePay.m; sourceTree = "<group>"; };
+		DDBCB0ED27FDC3ED00D06C55 /* MidtransBinDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransBinDetails.h; sourceTree = "<group>"; };
+		DDBCB0EE27FDC3ED00D06C55 /* MidtransBinDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransBinDetails.m; sourceTree = "<group>"; };
 		E50D85D21D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentMandiriECash.h; sourceTree = "<group>"; };
 		E50D85D31D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentMandiriECash.m; sourceTree = "<group>"; };
 		E50D85E31D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentBCAKlikpay.h; sourceTree = "<group>"; };
@@ -675,6 +681,8 @@
 				009A7E671DBF06E600049358 /* MidtransPaymentRequestV2TransactionDetails.m */,
 				E511CF4A1E48612300926FC7 /* MidtransObtainedPromo.h */,
 				E511CF4B1E48612300926FC7 /* MidtransObtainedPromo.m */,
+				DDBCB0ED27FDC3ED00D06C55 /* MidtransBinDetails.h */,
+				DDBCB0EE27FDC3ED00D06C55 /* MidtransBinDetails.m */,
 			);
 			name = PaymentRequestV2;
 			sourceTree = "<group>";
@@ -1024,6 +1032,7 @@
 				E57120561E937A790064F515 /* Midtrans3DSController.h in Headers */,
 				0C313E171FCD2BEA0074366F /* MIDGOPAYDataModels.h in Headers */,
 				E57120571E937A790064F515 /* MidtransPaymentWebController.h in Headers */,
+				DDBCB0F027FDC3ED00D06C55 /* MidtransBinDetails.h in Headers */,
 				E57120581E937A790064F515 /* SNPPointDataModels.h in Headers */,
 				E57120591E937A790064F515 /* SNPPointResponse.h in Headers */,
 				E571205A1E937A790064F515 /* MidtransBinDataModels.h in Headers */,
@@ -1125,6 +1134,7 @@
 				E55F63591E934C4700C012C8 /* MidtransConfig.h in Headers */,
 				0C313E141FCD2BE90074366F /* MIDGOPAYDataModels.h in Headers */,
 				E55F635A1E934C4700C012C8 /* MidtransPrivateConfig.h in Headers */,
+				DDBCB0EF27FDC3ED00D06C55 /* MidtransBinDetails.h in Headers */,
 				E55F635B1E934C4700C012C8 /* MidtransCreditCardConfig.h in Headers */,
 				E55F635C1E934C4700C012C8 /* MidtransHelper.h in Headers */,
 				E55F635D1E934C4700C012C8 /* MidtransNetworking.h in Headers */,
@@ -1386,6 +1396,7 @@
 				E57120281E937A2C0064F515 /* MidtransAddress.m in Sources */,
 				E57120291E937A2C0064F515 /* MidtransCustomerDetails.m in Sources */,
 				0C93243A1F7B76F500D9A390 /* MidtransPaymentDanamonOnline.m in Sources */,
+				DDBCB0F227FDC3ED00D06C55 /* MidtransBinDetails.m in Sources */,
 				E571202A1E937A2C0064F515 /* MidtransCreditCard.m in Sources */,
 				E571202B1E937A2C0064F515 /* MidtransMaskedCreditCard.m in Sources */,
 				E571202C1E937A2C0064F515 /* MidtransTransactionResult.m in Sources */,
@@ -1422,6 +1433,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDBCB0F127FDC3ED00D06C55 /* MidtransBinDetails.m in Sources */,
 				E55F639B1E934C6400C012C8 /* NSString+MidtransValidation.m in Sources */,
 				E55F639C1E934C6400C012C8 /* SNPUITrackingManager.m in Sources */,
 				E55F639D1E934C6400C012C8 /* MidtransImageManager.m in Sources */,

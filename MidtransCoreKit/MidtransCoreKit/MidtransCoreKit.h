@@ -84,4 +84,5 @@ FOUNDATION_EXPORT const unsigned char MidtransCoreKitVersionString[];
 #import "MidtransPaymentUOB.h"
 #import "MIDExbinData.h"
 #import "MIDExbinResponse.h"
+#import "MidtransBinDetails.h"
 

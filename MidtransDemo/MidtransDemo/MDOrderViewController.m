@@ -107,7 +107,7 @@
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";
     CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
-//    CONFIG.uobCallbackURL = @"demo.midtrans://";
+    CONFIG.uobCallbackURL = @"demo.midtrans://";
     
     self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];
     

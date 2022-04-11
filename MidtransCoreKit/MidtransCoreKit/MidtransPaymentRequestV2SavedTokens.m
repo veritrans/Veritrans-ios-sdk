@@ -12,6 +12,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensTokenType = @"token_type";
 NSString *const kMidtransPaymentRequestV2SavedTokensExpiresAt = @"expires_at";
 NSString *const kMidtransPaymentRequestV2SavedTokensMaskedCard = @"masked_card";
 NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
+NSString *const kMidtransPaymentRequestV2binDetail = @"bin_detail";
 
 
 @interface MidtransPaymentRequestV2SavedTokens ()
@@ -43,6 +44,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
         self.expiresAt = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensExpiresAt fromDictionary:dict];
         self.maskedCard = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensMaskedCard fromDictionary:dict];
         self.token = [self objectOrNilForKey:kMidtransPaymentRequestV2SavedTokensToken fromDictionary:dict];
+        self.binDetails = [MidtransBinDetails modelObjectWithDictionary:[dict objectForKey:kMidtransPaymentRequestV2binDetail]];
     }
     
     return self;
@@ -56,6 +58,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
     [mutableDict setValue:self.expiresAt forKey:kMidtransPaymentRequestV2SavedTokensExpiresAt];
     [mutableDict setValue:self.maskedCard forKey:kMidtransPaymentRequestV2SavedTokensMaskedCard];
     [mutableDict setValue:self.token forKey:kMidtransPaymentRequestV2SavedTokensToken];
+    [mutableDict setValue:[self.binDetails dictionaryRepresentation] forKey:kMidtransPaymentRequestV2binDetail];
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
 
@@ -82,6 +85,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
     self.expiresAt = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensExpiresAt];
     self.maskedCard = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensMaskedCard];
     self.token = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2SavedTokensToken];
+    self.binDetails = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2binDetail];
     return self;
 }
 
@@ -91,6 +95,8 @@ NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
     [aCoder encodeObject:_expiresAt forKey:kMidtransPaymentRequestV2SavedTokensExpiresAt];
     [aCoder encodeObject:_maskedCard forKey:kMidtransPaymentRequestV2SavedTokensMaskedCard];
     [aCoder encodeObject:_token forKey:kMidtransPaymentRequestV2SavedTokensToken];
+    [aCoder encodeObject:self.binDetails forKey:kMidtransPaymentRequestV2binDetail];
+    
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -102,6 +108,7 @@ NSString *const kMidtransPaymentRequestV2SavedTokensToken = @"token";
         copy.tokenType = [self.tokenType copyWithZone:zone];
         copy.expiresAt = [self.expiresAt copyWithZone:zone];
         copy.maskedCard = [self.maskedCard copyWithZone:zone];
+        copy.binDetails = [self.binDetails copyWithZone:zone];
     }
     
     return copy;

@@ -54,6 +54,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
 @interface MidtransNetworkOperation() <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 @property (nonatomic) NSURLConnection *connection;
 @property (nonatomic) NSURLRequest *request;
+@property (nonatomic) NSHTTPURLResponse *httpResponse;
 @property (nonatomic, copy) void (^callback)(id response, NSError *error);
 @end
 
@@ -109,6 +110,7 @@ NSString *const kMTNetworkOperationError = @"mt_error";
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     [_responseData setLength:0];
+    self.httpResponse = (NSHTTPURLResponse *)response;
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
@@ -172,7 +174,17 @@ NSString *const kMTNetworkOperationError = @"mt_error";
             }
         }
         else {
-            if (self.callback) self.callback(responseObject, nil);
+            if (self.httpResponse.statusCode == 200) {
+                if (self.callback) self.callback(responseObject, nil);
+            }
+            else {
+                NSError *err = [NSError errorWithDomain:MIDTRANS_ERROR_DOMAIN
+                                                   code:self.httpResponse.statusCode
+                                               userInfo:@{
+                    NSLocalizedDescriptionKey:self.httpResponse.description
+                }];
+                if (self.callback) self.callback(nil, err);
+            }
         }
     }
     

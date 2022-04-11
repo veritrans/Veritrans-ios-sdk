@@ -11,7 +11,6 @@
 		0C1CF4061FE8ABD3006D9F51 /* AddAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CF4041FE8ABD3006D9F51 /* AddAddressViewController.m */; };
 		0C1CF4071FE8ABD3006D9F51 /* AddAddressViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C1CF4051FE8ABD3006D9F51 /* AddAddressViewController.xib */; };
 		0C1CF40A1FE8ACDF006D9F51 /* AddAddressView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C1CF4091FE8ACDF006D9F51 /* AddAddressView.m */; };
-		0C9634A61FDE57F200EF89DF /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C9634A51FDE57F200EF89DF /* bin.json */; };
 		0CE373A81EC064C2000C80A9 /* MDAddCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */; };
 		0CE373A91EC064C2000C80A9 /* MDAddCardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */; };
 		0CE373AA1EC064C2000C80A9 /* MDAlertViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE3739C1EC064C2000C80A9 /* MDAlertViewController.xib */; };
@@ -151,7 +150,6 @@
 		0C1CF4051FE8ABD3006D9F51 /* AddAddressViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddAddressViewController.xib; sourceTree = "<group>"; };
 		0C1CF4081FE8ACDF006D9F51 /* AddAddressView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddAddressView.h; sourceTree = "<group>"; };
 		0C1CF4091FE8ACDF006D9F51 /* AddAddressView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddAddressView.m; sourceTree = "<group>"; };
-		0C9634A51FDE57F200EF89DF /* bin.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = bin.json; sourceTree = "<group>"; };
 		0CE373991EC064C2000C80A9 /* MDAddCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAddCardViewController.h; sourceTree = "<group>"; };
 		0CE3739A1EC064C2000C80A9 /* MDAddCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDAddCardViewController.m; sourceTree = "<group>"; };
 		0CE3739B1EC064C2000C80A9 /* MDAddCardViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDAddCardViewController.xib; sourceTree = "<group>"; };
@@ -395,7 +393,6 @@
 				E56437061E83A72F008726D0 /* Info.plist */,
 				E56436F61E83A72F008726D0 /* main.m */,
 				E56A2D581EC05B04000C5A87 /* payment_channels.json */,
-				0C9634A51FDE57F200EF89DF /* bin.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -697,7 +694,6 @@
 				E5D7FEC91E83B4810086A8A4 /* MDOptionView.xib in Resources */,
 				E5A539FB1E88F82A001617C8 /* MDImageCollectionViewCell.xib in Resources */,
 				E5A53A001E88F82A001617C8 /* MDProductViewController.xib in Resources */,
-				0C9634A61FDE57F200EF89DF /* bin.json in Resources */,
 				E5D7FED51E83CBB80086A8A4 /* MDOptionCell.xib in Resources */,
 				0C1CF4071FE8ABD3006D9F51 /* AddAddressViewController.xib in Resources */,
 				E5A53A051E88F82A001617C8 /* SourceSansPro-Regular.ttf in Resources */,

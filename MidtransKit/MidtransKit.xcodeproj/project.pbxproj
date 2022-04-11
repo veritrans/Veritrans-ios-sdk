@@ -554,7 +554,6 @@
 		E55976411EA72F770044342A /* check@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E55976381EA71B760044342A /* check@2x.png */; };
 		E55976421EA72F770044342A /* cross@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E55976391EA71B760044342A /* cross@2x.png */; };
 		E55976431EA72F770044342A /* pending@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E559763A1EA71B760044342A /* pending@2x.png */; };
-		E55F62781E93498000C012C8 /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = E55F62771E93498000C012C8 /* bin.json */; };
 		E55F628E1E934A6D00C012C8 /* MidtransUICustomAlertViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C3998461E39DAF300CF5F6D /* MidtransUICustomAlertViewController.h */; };
 		E55F628F1E934A6D00C012C8 /* MidtransInstallmentView.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2B8E521E260E4B007901CB /* MidtransInstallmentView.h */; };
 		E55F62901E934A6D00C012C8 /* MidtransInstallmentCollectionViewCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C2B8E691E275928007901CB /* MidtransInstallmentCollectionViewCell.h */; };
@@ -985,7 +984,6 @@
 		E57127E01E93B7C50064F515 /* en_bca_klikpay.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127221E93B3290064F515 /* en_bca_klikpay.plist */; };
 		E57127E11E93B7C50064F515 /* en_bca_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57127231E93B3290064F515 /* en_bca_va.plist */; };
 		E57127EC1E93B7C50064F515 /* snap_colors.plist in Resources */ = {isa = PBXBuildFile; fileRef = E571272E1E93B3290064F515 /* snap_colors.plist */; };
-		E57127F01E93B7C50064F515 /* bin.json in Resources */ = {isa = PBXBuildFile; fileRef = E55F62771E93498000C012C8 /* bin.json */; };
 		E57ACD86217F009500A9977F /* en_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD84217F009500A9977F /* en_akulaku.plist */; };
 		E57ACD87217F009500A9977F /* en_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD84217F009500A9977F /* en_akulaku.plist */; };
 		E57ACD88217F009500A9977F /* id_akulaku.plist in Resources */ = {isa = PBXBuildFile; fileRef = E57ACD85217F009500A9977F /* id_akulaku.plist */; };
@@ -1843,7 +1841,6 @@
 		E55976381EA71B760044342A /* check@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "check@2x.png"; path = "resources/check@2x.png"; sourceTree = "<group>"; };
 		E55976391EA71B760044342A /* cross@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cross@2x.png"; path = "resources/cross@2x.png"; sourceTree = "<group>"; };
 		E559763A1EA71B760044342A /* pending@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "pending@2x.png"; path = "resources/pending@2x.png"; sourceTree = "<group>"; };
-		E55F62771E93498000C012C8 /* bin.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = bin.json; path = MidtransKit/resources/bin.json; sourceTree = SOURCE_ROOT; };
 		E56455011D23A5DB00CE5FA4 /* MidtransUINextStepButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUINextStepButton.h; path = classes/MidtransUINextStepButton.h; sourceTree = "<group>"; };
 		E56455021D23A5DB00CE5FA4 /* MidtransUINextStepButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUINextStepButton.m; path = classes/MidtransUINextStepButton.m; sourceTree = "<group>"; };
 		E56455051D23ABF000CE5FA4 /* VTNoteTitleLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTNoteTitleLabel.h; path = classes/VTNoteTitleLabel.h; sourceTree = "<group>"; };
@@ -2589,7 +2586,6 @@
 				0CC9003F1F7028C00058E93C /* en_virtualAccount.plist */,
 				0CC900401F7028C00058E93C /* id_virtualAccount.plist */,
 				E571272E1E93B3290064F515 /* snap_colors.plist */,
-				E55F62771E93498000C012C8 /* bin.json */,
 				0C9324501F7B814D00D9A390 /* id_danamon_online.plist */,
 				0C93244D1F7B810B00D9A390 /* en_danamon_online.plist */,
 				0CB8B7D92071F65C0067A0B8 /* en_bni_point_tsc.plist */,
@@ -4006,7 +4002,6 @@
 				E57124B21E9381320064F515 /* VTTwoClickController.xib in Resources */,
 				0CCD62462005D0BA006936E5 /* atm_bersama@2x.png in Resources */,
 				0C9634F11FE11A1400EF89DF /* ic_no_gopay@2x.png in Resources */,
-				E57127F01E93B7C50064F515 /* bin.json in Resources */,
 				E58FCDC11E94CFD500632085 /* checkbox_checked@2x.png in Resources */,
 				DDD9622D255C715D00E81AE5 /* bri_va6@1x.png in Resources */,
 				E58FCE5B1E94CFD600632085 /* permata_atm_4@2x.png in Resources */,
@@ -4182,7 +4177,6 @@
 				0CE1D2BA1F67BA53003A012F /* token_key@4x.png in Resources */,
 				DD64CE4625393F2E0069F4B4 /* shopeepay_button@3x.png in Resources */,
 				E58FCE041E94CFD500632085 /* mandiri_atm_4@2x.png in Resources */,
-				E55F62781E93498000C012C8 /* bin.json in Resources */,
 				E5F1BB651E93701100ED659D /* MidtransUICustomAlertViewController.xib in Resources */,
 				E58FCDF81E94CFD500632085 /* JCBDark@2x.png in Resources */,
 				3D40891C1F74E43200B9A2EC /* id_bni_va.plist in Resources */,

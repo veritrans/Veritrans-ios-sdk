@@ -156,4 +156,20 @@ NSString *const REGISTER_CARD_URL = @"card/register";
     }];
 }
 
+- (void)requestBINDataWithNumber:(NSString *_Nonnull)cardNumber completion:(void (^_Nullable)(MIDExbinResponse *_Nullable binResponse, NSError *_Nullable error))completion {
+    NSData *data = [MidtransConfig.shared.clientKey dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *clientKeyBase64 = [data base64EncodedStringWithOptions:kNilOptions];
+    NSString *clientKey = [NSString stringWithFormat:@"Basic %@", clientKeyBase64];
+    NSString *urlString = [NSString stringWithFormat:@"%@%@",[PRIVATECONFIG binURL], cardNumber];
+    
+    [[MidtransNetworking shared] getFromURL:urlString header:@{@"Authorization":clientKey} parameters:nil callback:^(id response, NSError *error) {
+        if (error) {
+            if (completion) completion(nil, error);
+        } else {
+            MIDExbinResponse *binResponse = [[MIDExbinResponse alloc] initWithDictionary:response];
+            if (completion) completion(binResponse, nil);
+        }
+    }];
+}
+
 @end

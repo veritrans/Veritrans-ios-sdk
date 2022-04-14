@@ -586,16 +586,20 @@ MidtransCommonTSCViewControllerDelegate
     
 }
 
--(void)updateCardPrincipleIcon:(NSString*)number {
+- (void)updateCardPrincipleIcon:(NSString*)number {
     if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
         self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
     }
     else {
-        self.view.creditCardNumberTextField.info1Icon = nil;
+        [self resetCardPrincipleIconToInitialState];
     }
 }
 
--(void)updateCreditCardAttributes:(NSString *)number{
+- (void)resetCardPrincipleIconToInitialState {
+    self.view.creditCardNumberTextField.info1Icon = nil;
+}
+
+- (void)updateCreditCardAttributes:(NSString *)number{
     
     if (number.length >= MIDTRANS_SUPPORTED_BIN_LENGTH) {
         [self updateCardPrincipleIcon:number];
@@ -607,6 +611,7 @@ MidtransCommonTSCViewControllerDelegate
         self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
         [self resetPointToInitialState];
         [self resetInstallmentToInitialState];
+        [self resetCardPrincipleIconToInitialState];
     }
     [self updatePromoViewWithCreditCardNumber:number];
 }

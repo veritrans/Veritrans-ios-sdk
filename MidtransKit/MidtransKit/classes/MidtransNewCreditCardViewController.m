@@ -600,9 +600,8 @@ MidtransCommonTSCViewControllerDelegate
 }
 
 - (void)updateCreditCardAttributes:(NSString *)number{
-    
+    [self updateCardPrincipleIcon:number];
     if (number.length >= MIDTRANS_SUPPORTED_BIN_LENGTH) {
-        [self updateCardPrincipleIcon:number];
         [self getCrediCardBinData:number];
         [self checkBankPoint];
         [self checkInstallment];
@@ -611,7 +610,6 @@ MidtransCommonTSCViewControllerDelegate
         self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
         [self resetPointToInitialState];
         [self resetInstallmentToInitialState];
-        [self resetCardPrincipleIconToInitialState];
     }
     [self updatePromoViewWithCreditCardNumber:number];
 }

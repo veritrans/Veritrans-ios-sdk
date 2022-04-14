@@ -554,7 +554,7 @@ MidtransCommonTSCViewControllerDelegate
     [self setupCreditCardBankIcon:self.bankIcon];
 }
 
--(void)saveBinDataToCache:(MIDExbinData *)binData{
+- (void)saveBinDataToCache:(MIDExbinData *)binData{
     
     NSMutableArray *binDataArray = [[NSMutableArray alloc]init];
     [binDataArray addObject:binData];
@@ -567,13 +567,13 @@ MidtransCommonTSCViewControllerDelegate
     [defaults setObject:encodedObject forKey:MIDTRANS_EXBIN_DATA];
 }
 
--(NSArray *)loadCustomObjectWithKey:(NSString *)key{
+- (NSArray *)loadCustomObjectWithKey:(NSString *)key{
     NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:key];
     NSArray *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
     return object;
 }
 
--(void)setupCreditCardBankIcon:(UIImage *)icon {
+- (void)setupCreditCardBankIcon:(UIImage *)icon {
     self.view.creditCardNumberTextField.info2Icon = icon;
     [self.view.creditCardNumberTextField layoutSubviews];
 }
@@ -616,7 +616,7 @@ MidtransCommonTSCViewControllerDelegate
     [self updatePromoViewWithCreditCardNumber:number];
 }
 
--(void)checkBankPoint {
+- (void)checkBankPoint {
     if ([self.binData.binType isEqualToString:kCardTypeCredit] && (self.tokenType != MTCreditCardPaymentTypeOneclick) && self.creditCardInfo.secure){
         
         if ([self.binData.bankCode.lowercaseString isEqualToString:SNP_CORE_BANK_MANDIRI]) {
@@ -638,7 +638,7 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
--(void)resetPointToInitialState{
+- (void)resetPointToInitialState{
     if ([self.addOnArray containsObject:self.constructBNIPoint]) {
         [self.addOnArray removeObject:self.constructBNIPoint];
         [self updateAddOnContent];
@@ -648,7 +648,7 @@ MidtransCommonTSCViewControllerDelegate
         [self updateAddOnContent];
     }
 }
--(void)resetInstallmentToInitialState {
+- (void)resetInstallmentToInitialState {
     if (self.installmentValueObject.count > 0) {
         self.installmentCurrentIndex = 0;
         [self.installmentValueObject removeAllObjects];
@@ -1246,7 +1246,7 @@ MidtransCommonTSCViewControllerDelegate
         }
     }];
 }
--(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
+- (void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
                              withTransactionData:(MidtransTransaction *)transaction  {
     
     Midtrans3DSController *secureController = [[Midtrans3DSController alloc]initWithToken:self.token.tokenId transactionResult:result transactionData:transaction];
@@ -1276,7 +1276,7 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
--(void)installmentSelectedIndex:(NSInteger)index {
+- (void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
     if (self.installmentCurrentIndex != 0) {
         if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_BNI]){

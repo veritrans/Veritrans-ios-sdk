@@ -211,7 +211,7 @@ static NSString *const MIDTRANS_GOPAY_PREFIX_OLD = @"gojek://";
 static NSString *const MIDTRANS_GOPAY_PREFIX_NEW = @"https://gojek.link/";
 
 static NSString *const MIDTRANS_EXBIN_DATA = @"exbin_data";
-static NSInteger const MIDTRANS_SUPPORTED_BIN_LENGTH =  6;
+static NSInteger const MIDTRANS_SUPPORTED_BIN_LENGTH =  8;
 
 /**
  *  if needed we maybe need it as is to detect ios version and also device version

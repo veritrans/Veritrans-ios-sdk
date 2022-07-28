@@ -27,6 +27,12 @@
 #import "MidtransTransactionDetailViewController.h"
 #import "MidtransUIThemeManager.h"
 
+static NSString *const kCardTypeDebit = @"DEBIT";
+static NSString *const kCardTypeCredit = @"CREDIT";
+static NSString *const kInstallmentChannelOffline = @"offline";
+static NSString *const kInstallmentChannelOnline = @"online";
+static NSString *const kInstallmentChannelOnlineOffline = @"online_offline";
+
 @interface MidtransNewCreditCardViewController () <
 UITableViewDelegate,
 UITableViewDataSource,
@@ -76,6 +82,11 @@ MidtransCommonTSCViewControllerDelegate
 @property (nonatomic,strong) NSNumber *totalGrossAmount;
 @property (nonatomic,strong) MidtransPaymentCreditCard *paymentDetail;
 @property (nonatomic) UIImage *bankIcon;
+@property (nonatomic) MIDExbinData *binData;
+@property (nonatomic) NSString *requestedNumber;
+@property (nonatomic) NSArray *binDataArray;
+@property (nonatomic) BOOL isBinDataFoundOnCache;
+@property (nonatomic) BOOL isBinMatchWithPromo; 
 @end
 
 @implementation MidtransNewCreditCardViewController
@@ -202,40 +213,12 @@ MidtransCommonTSCViewControllerDelegate
     self.installment = [[MidtransPaymentRequestV2Installment alloc]
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
     
-    self.promos = self.responsePayment.promos;
-    
-    if (self.promos.promos.count) {
-        for (MidtransPromoPromos *promos in self.promos.promos) {
-            AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
-                @"addOnName":SNP_PROMO,
-                @"addOnTitle":promos.name,
-                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
-                @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
-            }];
-            if (self.tokenType) {
-                
-                NSString *firstOneDigitCardString = [self.maskedCreditCard.maskedNumber substringToIndex:1];
-                NSString *firstSixDigitCardString = [self.maskedCreditCard.maskedNumber substringToIndex:6];
-                
-                for (NSString *bin in promos.bins) {
-                    if (bin.length == 1) {
-                        if ([bin isEqualToString:firstOneDigitCardString]) {
-                            [self.promoArray addObject:promoConstructor];
-                        }
-                    } else {
-                        if ([bin isEqualToString:firstSixDigitCardString]) {
-                            [self.promoArray addObject:promoConstructor];
-                        }
-                    }
-                }
-            } else {
-                [self.promoArray addObject:promoConstructor];
-            }
-            [self.currentPromo addObject:promoConstructor];
+    if (self.responsePayment.promos) {
+        self.promos = self.responsePayment.promos;
+        if (self.promos.promos.count) {
+            self.promoAvailable = YES;
+            [self updatePromoViewWithCreditCardNumber:nil];
         }
-        
-        [self updatePromoContent];
-        self.promoAvailable = YES;
     }
     
     if (self.installment.terms) {
@@ -248,10 +231,6 @@ MidtransCommonTSCViewControllerDelegate
     self.bins = self.creditCardInfo.whitelistBins;
     self.blackListBins = self.creditCardInfo.blacklistBins;
     
-    self.bankBinList = [NSJSONSerialization JSONObjectWithData:[[NSData alloc]
-                                                                initWithContentsOfFile:[VTBundle pathForResource:@"bin" ofType:@"json"]]
-                                                       options:kNilOptions error:nil];
-    
     if (self.maskedCreditCard) {
         self.view.creditCardNumberTextField.text = self.maskedCreditCard.formattedNumber;
         self.view.cardExpireTextField.text = @"\u2022\u2022 / \u2022\u2022";
@@ -262,8 +241,7 @@ MidtransCommonTSCViewControllerDelegate
         if (self.tokenType == MTCreditCardPaymentTypeOneclick) {
             self.view.cardCVVNumberTextField.text = @"***";
         }
-        [self matchBINNumberWithInstallment:self.maskedCreditCard.maskedNumber];
-        [self updateCreditCardTextFieldInfoWithNumber:self.maskedCreditCard.maskedNumber];
+        [self updateCreditCardAttributes:self.maskedCreditCard.maskedNumber];
         
         self.view.creditCardNumberTextField.textColor = [UIColor grayColor];
         self.view.cardExpireTextField.textColor = [UIColor grayColor];
@@ -487,66 +465,212 @@ MidtransCommonTSCViewControllerDelegate
     [self.view.promoTableView reloadData];
 }
 - (void)updatePromoViewWithCreditCardNumber:(NSString *)number {
-    [self.promos dictionaryRepresentation];
-    if (number.length == 0) {
-        [self.promoArray removeAllObjects];
-        [self.promoArray addObjectsFromArray:self.currentPromo];
-    } else {
-        [self updateAmountTotal:[AddOnConstructor new]];
-        self.currentPromoSelected = @"";
-        self.currentPromoIndex = nil;
-        self.prevPromoIndex = nil;
-        NSArray *filtered = [self.promos.promos filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"bins CONTAINS [cd] %@", [NSString stringWithFormat:@"%@", number]]];
-        
-        if (filtered.count) {
+    if (self.promoAvailable) {
+        if (number.length == 0) {
             [self.promoArray removeAllObjects];
-            [self updatePromoContent];
+            if (self.currentPromo.count) {
+                [self.promoArray addObjectsFromArray:self.currentPromo];
+            } else {
+                for (MidtransPromoPromos *promos in self.promos.promos) {
+                    AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
+                        @"addOnName":SNP_PROMO,
+                        @"addOnTitle":promos.name,
+                        @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
+                        @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
+                    }];
+                    [self.promoArray addObject:promoConstructor];
+                }
+                [self.currentPromo addObjectsFromArray:self.promoArray];
+            }
         } else {
-            [self updatePromoContent];
+            [self.promoArray removeAllObjects];
+            [self updateAmountTotal:[AddOnConstructor new]];
+            self.currentPromoSelected = @"";
+            self.currentPromoIndex = nil;
+            self.prevPromoIndex = nil;
+            for (MidtransPromoPromos *promos in self.promos.promos) {
+                AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
+                    @"addOnName":SNP_PROMO,
+                    @"addOnTitle":promos.name,
+                    @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
+                    @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
+                }];
+                self.isBinMatchWithPromo = NO;
+                if (promos.bins.count) {
+                    for (NSString* bins in promos.bins  ) {
+                        if (number.length >= bins.length) {
+                            if ([[number substringToIndex:bins.length] isEqualToString:bins]) {
+                                self.isBinMatchWithPromo = YES;
+                            }
+                        } else if (bins.length >= number.length){
+                            if ([[bins substringToIndex:number.length] isEqualToString:number]) {
+                                self.isBinMatchWithPromo = YES;
+                            }
+                        }
+                    }
+                } else {
+                    self.isBinMatchWithPromo = YES;
+                }
+                if (self.isBinMatchWithPromo) {
+                    [self.promoArray addObject:promoConstructor];
+                }
+            }
         }
-        for (MidtransPromoPromos *promos in filtered) {
-            AddOnConstructor *promoConstructor = [[AddOnConstructor alloc] initWithDictionary:@{
-                @"addOnName":SNP_PROMO,
-                @"addOnTitle":promos.name,
-                @"addOnDescriptions":[NSString stringWithFormat:@"%0.f",promos.calculatedDiscountAmount],
-                @"addOnAdditional":[NSString stringWithFormat:@"%0.f",promos.promosIdentifier]
-            }];
-            [self.promoArray addObject:promoConstructor];
-        }
+        [self updatePromoContent];
     }
-    [self updatePromoContent];
-    
 }
 
-- (void)updateCreditCardTextFieldInfoWithNumber:(NSString *)number {
-    if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
-        self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
+- (void)getCrediCardBinData:(NSString *)number {
+    NSString *binNumber =  [number substringToIndex:MIDTRANS_SUPPORTED_BIN_LENGTH];
+    self.isBinDataFoundOnCache = NO;
+        if( [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_EXBIN_DATA] != nil) {
+            self.binDataArray = [NSArray arrayWithArray:[self loadCustomObjectWithKey:MIDTRANS_EXBIN_DATA]];
+            for (MIDExbinData * bindata in self.binDataArray) {
+                if ([binNumber isEqualToString:bindata.bin]) {
+                    self.binData = bindata;
+                    self.isBinDataFoundOnCache = YES;
+                    break;
+                }
+            }
+        }
+    
+    if (self.isBinDataFoundOnCache) {
+        [self updateCreditCardBankIcon];
+    } else {
+        [[MidtransClient shared] requestBINDataWithNumber:binNumber completion:^(MIDExbinResponse * _Nullable binResponse, NSError * _Nullable error) {
+            if (binResponse) {
+                self.binData = binResponse.data;
+                [self saveBinDataToCache:binResponse.data];
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [self updateCreditCardBankIcon];
+                });
+            }
+        }];
     }
-    else {
-        self.view.creditCardNumberTextField.info1Icon = nil;
+}
+
+- (void)updateCreditCardBankIcon{
+    self.bankIcon = [self.view iconWithBankName:self.binData.bankCode];
+    [self setupCreditCardBankIcon:self.bankIcon];
+}
+
+- (void)saveBinDataToCache:(MIDExbinData *)binData{
+    
+    NSMutableArray *binDataArray = [[NSMutableArray alloc]init];
+    [binDataArray addObject:binData];
+
+    if( [[NSUserDefaults standardUserDefaults] objectForKey:MIDTRANS_EXBIN_DATA] != nil) {
+        [binDataArray addObjectsFromArray:[self loadCustomObjectWithKey:MIDTRANS_EXBIN_DATA]];
     }
-    self.bankIcon = [self.view iconWithBankName:self.filteredBinObject.bank];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
-    });
+    NSData *encodedObject = [NSKeyedArchiver archivedDataWithRootObject:binDataArray];
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:encodedObject forKey:MIDTRANS_EXBIN_DATA];
+}
+
+- (NSArray *)loadCustomObjectWithKey:(NSString *)key{
+    NSData *encodedObject = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+    NSArray *object = [NSKeyedUnarchiver unarchiveObjectWithData:encodedObject];
+    return object;
+}
+
+- (void)setupCreditCardBankIcon:(UIImage *)icon {
+    self.view.creditCardNumberTextField.info2Icon = icon;
+    [self.view.creditCardNumberTextField layoutSubviews];
 }
 
 #pragma mark - VTCardFormatterDelegate
 
 - (void)formatter_didTextFieldChange:(MidtransUICardFormatter *)formatter {
-    NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (self.promoAvailable) {
-        [self updatePromoViewWithCreditCardNumber:originNumber];
+    NSString *originNumber = [self.view.creditCardNumberTextField.text stringByReplacingOccurrencesOfString:@" " withString:@""]; 
+    [self updateCreditCardAttributes:originNumber];
+    
+}
+
+- (void)updateCardPrincipleIcon:(NSString*)number {
+    if ([self.responsePayment.merchant.enabledPrinciples containsObject:[[MidtransCreditCardHelper nameFromString:number] lowercaseString]]) {
+        self.view.creditCardNumberTextField.info1Icon = [self.view iconDarkWithNumber:number];
     }
-    [self matchBINNumberWithInstallment:originNumber];
-    
-    [self updateCreditCardTextFieldInfoWithNumber:originNumber];
-    
-    [[MidtransClient shared] requestCardBINForInstallmentWithCompletion:^(NSArray * _Nullable binResponse, NSError * _Nullable error) {
-        self.bankBinList = binResponse;
-        [self matchBINNumberWithInstallment:originNumber];
-        [self updateCreditCardTextFieldInfoWithNumber:originNumber];
-    }];
+    else {
+        [self resetCardPrincipleIconToInitialState];
+    }
+}
+
+- (void)resetCardPrincipleIconToInitialState {
+    self.view.creditCardNumberTextField.info1Icon = nil;
+}
+
+- (void)updateCreditCardAttributes:(NSString *)number{
+    [self updateCardPrincipleIcon:number];
+    if (number.length >= MIDTRANS_SUPPORTED_BIN_LENGTH) {
+        [self getCrediCardBinData:number];
+        [self checkBankPoint];
+        [self checkInstallment];
+    } else if (number.length < MIDTRANS_SUPPORTED_BIN_LENGTH) {
+        self.bankIcon = nil;
+        self.view.creditCardNumberTextField.info2Icon = self.bankIcon;
+        [self resetPointToInitialState];
+        [self resetInstallmentToInitialState];
+    }
+    [self updatePromoViewWithCreditCardNumber:number];
+}
+
+- (void)checkBankPoint {
+    if ([self.binData.binType isEqualToString:kCardTypeCredit] && (self.tokenType != MTCreditCardPaymentTypeOneclick) && self.creditCardInfo.secure){
+        
+        if ([self.binData.bankCode.lowercaseString isEqualToString:SNP_CORE_BANK_MANDIRI]) {
+            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
+                if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
+                    [self.addOnArray addObject:self.constructMandiriPoint];
+                    [self updateAddOnContent];
+                }
+            }
+        }
+        if ([self.binData.bankCode.lowercaseString isEqualToString:SNP_CORE_BANK_BNI]) {
+            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI]) {
+                if (![self.addOnArray containsObject:self.constructBNIPoint]) {
+                    [self.addOnArray addObject:self.constructBNIPoint];
+                    [self updateAddOnContent];
+                }
+            }
+        }
+    }
+}
+
+- (void)resetPointToInitialState{
+    if ([self.addOnArray containsObject:self.constructBNIPoint]) {
+        [self.addOnArray removeObject:self.constructBNIPoint];
+        [self updateAddOnContent];
+    }
+    if ([self.addOnArray containsObject:self.constructMandiriPoint]) {
+        [self.addOnArray removeObject:self.constructMandiriPoint];
+        [self updateAddOnContent];
+    }
+}
+- (void)resetInstallmentToInitialState {
+    if (self.installmentValueObject.count > 0) {
+        self.installmentCurrentIndex = 0;
+        [self.installmentValueObject removeAllObjects];
+        [self.installmentsContentView resetInstallmentIndex];
+    }
+    [self showInstallmentView:NO];
+}
+
+
+- (void)checkInstallment{
+    if (self.installmentAvailable) {
+        if (self.installment.terms[@"offline"]) {
+            self.installmentBankName = @"offline";
+        }
+        else {
+            self.installmentBankName = self.binData.bankCode.lowercaseString;
+        }
+        
+        if (![self.binData.binType.lowercaseString isEqualToString:kCardTypeDebit]) {
+            [self.installmentValueObject setArray:@[@"0"]];
+            [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
+            [self showInstallmentView:YES];
+        }
+    }
 }
 - (void)reformatCardNumber {
     NSString *cardNumber = self.view.cardCVVNumberTextField.text;
@@ -768,132 +892,6 @@ MidtransCommonTSCViewControllerDelegate
                                               onViewController:self.navigationController
                                                     completion:nil];
     }
-}
-
-- (void)matchBINNumberWithInstallment:(NSString *)binNumber {
-    if (binNumber.length >= 6) {
-        if (self.installmentValueObject.count) {
-            return;
-        }
-        
-        NSPredicate *predicate = [NSPredicate predicateWithFormat:
-                                  @"SELF['bins'] CONTAINS %@", [binNumber substringToIndex:6]];
-        NSArray *filtered  = [self.bankBinList filteredArrayUsingPredicate:predicate];
-        BOOL isDebitCard = NO;
-        if (filtered.count) {
-            self.filteredBinObject = [[MidtransBinResponse alloc] initWithDictionary:[filtered firstObject]];
-            if (filtered.count > 1) {
-                NSArray *debitCard  = [filtered filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF['bank'] CONTAINS 'debit'"]];
-                if (debitCard.count) {
-                    MidtransBinResponse *debitCardObject = [[MidtransBinResponse alloc] initWithDictionary:[debitCard firstObject]];
-                    if ([debitCardObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
-                        isDebitCard = YES;
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                        if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
-                            if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
-                                [self.addOnArray addObject:self.constructMandiriPoint];
-                                [self updateAddOnContent];
-                            }
-                        }
-                    } else if ([debitCardObject.bank containsString:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure) {
-                        isDebitCard = YES;
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
-                    }
-                }
-                
-            }
-            else {
-                if ([self.filteredBinObject.bank containsString:SNP_CORE_DEBIT_CARD]) {
-                    if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_MANDIRI]) {
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.Mandiri Debit Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_MANDIRI;
-                        
-                    }
-                    else if ([self.filteredBinObject.bank containsString:SNP_CORE_BANK_BNI]) {
-                        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"BNI Card"];
-                        self.filteredBinObject.bank = SNP_CORE_BANK_BNI;
-                    }
-                    isDebitCard = YES;
-                }
-                else {
-                    if (self.tokenType != MTCreditCardPaymentTypeOneclick) {
-                        
-                        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_MANDIRI] && self.creditCardInfo.secure) {
-                            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_MANDIRI]) {
-                                if (![self.addOnArray containsObject:self.constructMandiriPoint]) {
-                                    [self.addOnArray addObject:self.constructMandiriPoint];
-                                    [self updateAddOnContent];
-                                }
-                            }
-                        }
-                        if ([self.filteredBinObject.bank isEqualToString:SNP_CORE_BANK_BNI]) {
-                            if ([self.responsePayment.merchant.pointBanks containsObject:SNP_CORE_BANK_BNI] && self.creditCardInfo.secure ) {
-                                if (![self.addOnArray containsObject:self.constructBNIPoint]) {
-                                    [self.addOnArray addObject:self.constructBNIPoint];
-                                    [self updateAddOnContent];
-                                }
-                            }
-                            
-                        }
-                        
-                    }
-                }
-            }
-            
-            if (self.installmentAvailable) {
-                if (self.installment.terms[@"offline"]) {
-                    self.installmentBankName = @"offline";
-                }
-                else {
-                    self.installmentBankName = self.filteredBinObject.bank;
-                }
-                
-                if (!isDebitCard) {
-                    [self.installmentValueObject setArray:@[@"0"]];
-                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
-                    [self showInstallmentView:YES];
-                }
-            }
-        }
-        else {
-            self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
-            if ([[self.installment.terms objectForKey:@"offline"] count]) {
-                if (!isDebitCard) {
-                    self.installmentBankName = @"offline";
-                    [self.installmentValueObject setArray:@[@"0"]];
-                    [self.installmentValueObject addObjectsFromArray:[self.installment.terms objectForKey:self.installmentBankName]];
-                    [self showInstallmentView:YES];
-                }
-            }
-        }
-    }
-    else {
-        if ([self.addOnArray containsObject:self.constructBNIPoint]) {
-            [self.addOnArray removeObject:self.constructBNIPoint];
-            [self updateAddOnContent];
-        }
-        if ([self.addOnArray containsObject:self.constructMandiriPoint]) {
-            [self.addOnArray removeObject:self.constructMandiriPoint];
-            [self updateAddOnContent];
-        }
-        
-        
-        self.title = [VTClassHelper getTranslationFromAppBundleForString:@"creditcard.input.title"];
-        self.filteredBinObject.bank = nil;
-        self.view.creditCardNumberTextField.info2Icon = nil;
-        
-        if (self.installmentValueObject.count > 0) {
-            self.installmentCurrentIndex = 0;
-            [self.installmentValueObject removeAllObjects];
-            [self.installmentsContentView resetInstallmentIndex];
-        }
-        
-        [self showInstallmentView:NO];
-        
-    }
-    
 }
 
 - (void)showInstallmentView:(BOOL)show {
@@ -1246,7 +1244,7 @@ MidtransCommonTSCViewControllerDelegate
         }
     }];
 }
--(void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
+- (void)handleRBATransactionWithTransactionResult:(MidtransTransactionResult *)result
                              withTransactionData:(MidtransTransaction *)transaction  {
     
     Midtrans3DSController *secureController = [[Midtrans3DSController alloc]initWithToken:self.token.tokenId transactionResult:result transactionData:transaction];
@@ -1276,7 +1274,7 @@ MidtransCommonTSCViewControllerDelegate
     }
 }
 
--(void)installmentSelectedIndex:(NSInteger)index {
+- (void)installmentSelectedIndex:(NSInteger)index {
     self.installmentCurrentIndex = index;
     if (self.installmentCurrentIndex != 0) {
         if ([self.installmentBankName isEqualToString:SNP_CORE_BANK_BNI]){

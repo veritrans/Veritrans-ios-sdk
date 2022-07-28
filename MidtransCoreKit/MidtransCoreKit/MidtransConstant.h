@@ -10,7 +10,7 @@
  *  error domain
  */
 
-static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.20.2";
+static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.22.0";
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
@@ -114,12 +114,12 @@ static NSString * const MIDTRANS_MESSAGE_CLIENT_KEY_NOT_SET = @"Please set your 
 static NSString *const MIDTRANS_SANDBOX_API_URL = @"https://api.sandbox.midtrans.com/v2";
 static NSString *const MIDTRANS_SANDBOX_MIXPANEL = @"cc005b296ca4ce612fe3939177c668bb";
 static NSString *const MIDTRANS_SANDBOX_SNAP = @"https://app.sandbox.midtrans.com/snap/v1";
-static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://app.sandbox.midtrans.com/snap/v1/bank_bins";
+static NSString *const MIDTRANS_SANDBOX_BIN_URL = @"https://api.sandbox.midtrans.com/v1/bins/";
 
 static NSString *const MIDTRANS_PRODUCTION_API_URL = @"https://api.midtrans.com/v2";
 static NSString *const MIDTRANS_PRODUCTION_SNAP = @"https://app.midtrans.com/snap/v1";
 static NSString *const MIDTRANS_PRODUCTION_MIXPANEL = @"0269722c477a0e085fde32e0248c6003";
-static NSString *const MIDTRANS_PRODUCTION_BIN_URL = @"https://app.midtrans.com/snap/v1/bank_bins";
+static NSString *const MIDTRANS_PRODUCTION_BIN_URL = @"https://api.midtrans.com/v1/bins/";
 
 /*uat*/
 
@@ -209,6 +209,9 @@ static NSInteger const MIDTRANS_ERROR_CODE_INVALID_VALUE = -50;
 
 static NSString *const MIDTRANS_GOPAY_PREFIX_OLD = @"gojek://";
 static NSString *const MIDTRANS_GOPAY_PREFIX_NEW = @"https://gojek.link/";
+
+static NSString *const MIDTRANS_EXBIN_DATA = @"exbin_data";
+static NSInteger const MIDTRANS_SUPPORTED_BIN_LENGTH =  8;
 
 /**
  *  if needed we maybe need it as is to detect ios version and also device version

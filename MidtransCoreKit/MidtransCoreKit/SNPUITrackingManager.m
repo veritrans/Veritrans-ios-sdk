@@ -23,7 +23,7 @@
     [defaultParameters setObject:[MidtransHelper nullifyIfNil:token] forKey:@"token"];
     [defaultParameters setObject:@"iOS" forKey:@"platform"];
     [defaultParameters setObject:[MidtransDeviceHelper currentCPUUsage] forKey:@"cpu"];
-    [defaultParameters setObject:[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"] forKey:@"sdk version"];
+    [defaultParameters setObject:MIDTRANS_SDK_CURRENT_VERSION forKey:@"sdk version"];
     [defaultParameters setObject:[MidtransDeviceHelper applicationName]?[MidtransDeviceHelper applicationName]:@"-" forKey:@"host_app"];
     
     [defaultParameters setObject:[NSString stringWithFormat:@"width = %f, height = %f", [MidtransDeviceHelper screenSize].width, [MidtransDeviceHelper screenSize].height] forKey:@"screen_size"];

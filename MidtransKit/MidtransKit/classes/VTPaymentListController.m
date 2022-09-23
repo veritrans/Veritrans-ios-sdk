@@ -54,7 +54,6 @@
     if (self.responsePayment.transactionDetails.orderId) {
         [additionalData addEntriesFromDictionary:@{@"order id":self.responsePayment.transactionDetails.orderId}];
     }
-    [[SNPUITrackingManager shared] trackEventName:@"pg cc card details" additionalParameters:additionalData];
     self.view.delegate = self;
     if ([self.paymentMethodSelected isEqualToString:MIDTRANS_CREDIT_CARD_FORM]) {
         MidtransNewCreditCardViewController *creditCardVC  = [[MidtransNewCreditCardViewController alloc] initWithToken:nil paymentMethodName:nil andCreditCardData:nil andCompleteResponseOfPayment:nil];

@@ -4,13 +4,13 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tekan tombol &quot;Bayar Sekarang&quot;, lalu Anda akan diarahkan ke halaman Pusat Pembayaran Akulaku.</string>
+		<string>Tekan tombol &quot;Bayar Sekarang&quot;, lalu Anda akan diarahkan ke halaman Pusat Pembayaran Akulaku PayLater.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Pilih tenor cicilan yang diinginkan, lalu Login ke akun Akulaku Anda dengan memasukkan nomor ponsel dan password.</string>
+		<string>Pilih tenor cicilan yang diinginkan, lalu Login ke akun Akulaku PayLater Anda dengan memasukkan nomor ponsel dan password.</string>
 		<key>image</key>
 		<string></string>
 	</dict>

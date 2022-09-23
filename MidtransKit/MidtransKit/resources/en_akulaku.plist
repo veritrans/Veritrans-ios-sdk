@@ -4,13 +4,13 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Click the &quot;Pay Now&quot; button, then you will be directed to the Akulaku Payment Center page.</string>
+		<string>Click the &quot;Pay Now&quot; button, then you will be directed to the Akulaku PayLater Payment Center page.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Select the desired installment tenure, then Login to your Akulaku account by entering your mobile number and password.</string>
+		<string>Select the desired installment tenure, then Login to your Akulaku PayLater account by entering your mobile number and password.</string>
 		<key>image</key>
 		<string></string>
 	</dict>

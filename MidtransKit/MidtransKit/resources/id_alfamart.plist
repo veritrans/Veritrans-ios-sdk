@@ -4,27 +4,39 @@
 <array>
 	<dict>
 		<key>content</key>
-		<string>Tekan tombol &quot;Bayar Sekarang&quot;, lalu Anda akan diarahkan ke halaman Pusat Pembayaran Akulaku.</string>
+        <string>Setelah melakukan konfirmasi pembayaran, Anda akan diberikan Kode Pembayaran yang unik.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Pilih tenor cicilan yang diinginkan, lalu Login ke akun Akulaku Anda dengan memasukkan nomor ponsel dan password.</string>
+		<string>Salinlah Kode Pembayaran Anda dan jumlah pembayaran yang akan dibayarkan. Jangan Khawatir, Kami juga akan mengirimkan salinan Kode Pembayaran dan Instruksi Pembayaran melalui email kepada Anda.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Masukkan kode verifikasi (OTP) yang telah dikirimkan ke ponsel Anda, lalu klik tombol &quot;Selanjutnya&quot;.</string>
+		<string>Silakan pergi ke gerai Alfamart, Alfamidi, atau Dan+Dan terdekat dan berikanlah nomor Kode Pembayaran Anda ke kasir.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-		<string>Akan tampil halaman konfirmasi, lalu Anda dapat menyelesaikan transaksi.</string>
+		<string>Kasir akan mengkonfirmasi transaksi dengan menanyakan jumlah transaksi dan nama merchant.</string>
 		<key>image</key>
 		<string></string>
 	</dict>
+    <dict>
+        <key>content</key>
+        <string>Konfirmasikan pembayaran Anda ke kasir.</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>content</key>
+        <string>Transaksi Anda berhasil! Anda akan mendapatkan email konfirmasi pembayaran dan simpanlah struk transaksi Anda.</string>
+        <key>image</key>
+        <string></string>
+    </dict>
 </array>
 </plist>

@@ -78,5 +78,9 @@
   {
     "type": "uob_ezpay",
     "name": "UOB Ezpay"
+  },
+  {
+    "type": "akulaku",
+    "name": "Akulaku PayLater"
   }
 ]

@@ -16,7 +16,7 @@
 
 @implementation MDNavigationViewController
 
-static NSInteger const MIDTRANS_DEMO_PAYMENT_STATUS_BAR_TAG = 1001;
+static NSInteger const MIDTRANS_DEMO_PAYMENT_STATUS_BAR_TAG = 1002;
 
 - (void)viewDidLoad {
     [super viewDidLoad];

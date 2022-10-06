@@ -15,7 +15,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih Transfer</string>
+				<string>Pilih ‘Transfer’</string>
 				<key>image</key>
 				<string>bni_va2</string>
 			</dict>
@@ -27,25 +27,25 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih Ke Rekening BNI</string>
+				<string>Pilih ‘Ke Rekening BNI’</string>
 				<key>image</key>
 				<string>bni_va4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan No. Virtual Account BNI yang dituju, lalu pilih Tekan Jika Benar</string>
+				<string>Masukkan No. ‘Virtual Account’ BNI yang dituju, lalu pilih ‘Tekan Jika Benar’</string>
 				<key>image</key>
 				<string>bni_va5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan jumlah tagihan yang akan Anda bayar secara lengkap, lalu pilih Tekan Jika Benar</string>
+				<string>Masukkan ‘jumlah tagihan yang akan Anda bayar’ secara lengkap, lalu pilih ‘Tekan Jika Benar’</string>
 				<key>image</key>
 				<string>bni_va6</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Detil pembayaran anda akan muncul pada halaman konfirmasi. Jika informasi telah sesuai pilih Tekan Jika Ya</string>
+				<string>‘Detil pembayaran anda’ akan muncul pada halaman konfirmasi. Jika informasi telah sesuai pilih ‘Tekan Jika Ya’</string>
 				<key>image</key>
 				<string>bni_va7</string>
 			</dict>
@@ -64,31 +64,31 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih Transfer</string>
+				<string>Pilih ‘Transfer’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih Antar Rekening BNI</string>
+				<string>Pilih ‘Antar Rekening BNI’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih Input Rekening Baru.</string>
+				<string>Pilih ‘Input Rekening Baru’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan nomor rekening, lalu tekan ‘Lanjut’</string>
+				<string>Masukkan nomor rekening, lalu tekan ‘Lanjut’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan Password Transaksi lalu tekan ‘Lanjut’ </string>
+				<string>Masukkan ‘Password Transaksi’ lalu tekan ‘Lanjut’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -101,49 +101,49 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Ketik alamat https://ibank.bni.co.id kemudian klik Masuk</string>
+				<string>Ketik alamat ‘https://ibank.bni.co.id’ kemudian klik ‘Masuk’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Silakan masukkan User ID dan Password</string>
+				<string>Silakan masukkan ‘User ID’ dan ‘Password’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Klik menu Transfer kemudian pilih Tambah Rekening Favorit</string>
+				<string>Klik menu ‘Transfer’ kemudian pilih ‘Tambah Rekening Favorit’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan nama, nomor rekening, dan email, lalu klik Lanjut</string>
+				<string>Masukkan nama, nomor rekening, dan email, lalu klik ‘Lanjut’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan Kode Otentikasi dari token Anda dan klik Lanjut</string>
+				<string>Masukkan ‘Kode Otentikasi’ dari token Anda dan klik ‘Lanjut’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Kembali ke menu utama dan pilih Transfer lalu Transfer Antar Rekening BNI</string>
+				<string>Kembali ke menu utama dan pilih ‘Transfer’ lalu ‘Transfer Antar Rekening BNI’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih rekening yang telah Anda favoritkan sebelumnya di Rekening Tujuan lalu lanjutkan pengisian, dan tekan Lanjut</string>
+				<string>Pilih rekening yang telah Anda favoritkan sebelumnya di ‘Rekening Tujuan’ lalu lanjutkan pengisian, dan tekan ‘Lanjut’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pastikan detail transaksi Anda benar, lalu masukkan Kode Otentikasi dan tekan Lanjut</string>
+				<string>Pastikan detail transaksi Anda benar, lalu masukkan ‘Kode Otentikasi’ dan tekan ‘Lanjut’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

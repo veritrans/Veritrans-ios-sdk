@@ -4,31 +4,31 @@
 <array>
 	<dict>
 		<key>content</key>
-        <string>Tap #Pay Now with ShopeePay#</string>
+        <string>Tap ‘Pay Now with ShopeePay’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-        <string>#Shopee# app will open</string>
+        <string>‘Shopee’ app will open</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-        <string>Check your payment details then tap #Next#</string>
+        <string>Check your payment details then tap ‘Next’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
     <dict>
         <key>content</key>
-        <string>Check your ShopeePay balance then tap #Pay#</string>
+        <string>Check your ShopeePay balance then tap‘ Pay’</string>
         <key>image</key>
         <string></string>
     </dict>
     <dict>
         <key>content</key>
-        <string>Enter your #PIN#</string>
+        <string>Enter your ‘PIN’</string>
         <key>image</key>
         <string></string>
     </dict>

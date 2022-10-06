@@ -4,25 +4,25 @@
 <array>
 	<dict>
 		<key>content</key>
-        <string>Buka aplikasi #Shopee# atau #e-wallet lain# anda</string>
+        <string>Buka aplikasi ‘Shopee’ atau ‘e-wallet lain’ anda</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-        <string>#Scan# kode QR yang ada di monitor anda</string>
+        <string>‘Scan’ kode QR yang ada di monitor anda</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-        <string>Cek detail transaksi anda, lalu tekan #Bayar#</string>
+        <string>Cek detail transaksi anda, lalu tekan ‘Bayar’</string>
 		<key>image</key>
 		<string></string>
 	</dict>
 	<dict>
 		<key>content</key>
-        <string>Masukkan #PIN# anda</string>
+        <string>Masukkan ‘PIN’ anda</string>
 		<key>image</key>
 		<string></string>
 	</dict>

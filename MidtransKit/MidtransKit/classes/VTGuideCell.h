@@ -14,5 +14,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageBottomInstruction;
 @property (weak, nonatomic) IBOutlet VTTapableLabel *bottomNotes;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomImageInstructionsConstraints;
+@property (nonatomic) NSString *otherVaProcessor;
 - (void)setInstruction:(VTInstruction *)instruction number:(NSInteger)number;
 @end

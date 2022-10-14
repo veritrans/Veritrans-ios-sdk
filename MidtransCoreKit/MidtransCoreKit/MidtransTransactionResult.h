@@ -83,6 +83,7 @@
  Virtual account number transaction, will not be nil if use bank transfer transaction except for Mandiri, because it's considered as Billpay
  */
 @property (nonatomic, readonly) NSString *virtualAccountNumber;
+@property (nonatomic, readonly) NSString *bank;
 
 @property (nonatomic, readonly) NSURL *redirectURL;
 @property (nonatomic,readonly) NSURL *qr_code_url;

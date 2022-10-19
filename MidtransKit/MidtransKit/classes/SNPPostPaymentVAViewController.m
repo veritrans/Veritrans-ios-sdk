@@ -207,12 +207,7 @@
 
 - (void)selectTabAtIndex:(NSInteger)index {
     VTGroupedInstruction *groupedInst = self.mainInstructions[index];
-    if ([groupedInst.name containsString:@"ATM"] || [groupedInst.name containsString:@"atm"] ||[groupedInst.name containsString:@"Alto"] || [groupedInst.name containsString:@"ALTO"]) {
-        [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Complete Payment at ATM"] forState: UIControlStateNormal];
-    }
-    else {
-        [self.finishPaymentButton setTitle:[NSString stringWithFormat:[VTClassHelper getTranslationFromAppBundleForString:@"payment.finish-button-title-via"],groupedInst.name] forState:UIControlStateNormal];
-    }
+    [self.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Complete Payment at ATM"] forState: UIControlStateNormal];
     self.subInstructions = groupedInst.instructions;
     [self.tableView reloadData];
 }

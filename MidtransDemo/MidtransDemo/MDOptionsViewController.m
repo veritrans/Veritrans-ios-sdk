@@ -69,7 +69,7 @@
                 [MDOption optionGeneralWithName:@"Alfamart" value:@(MidtransPaymentFeatureAlfamart)],
                 [MDOption optionGeneralWithName:@"CIMB Clicks" value:@(MidtransPaymentFeatureCIMBClicks)],
                 [MDOption optionGeneralWithName:@"BRI Epay" value:@(MidtransPaymentFeatureBRIEpay)],
-                [MDOption optionGeneralWithName:@"Akulaku" value:@(MidtransPaymentFeatureAkulaku)],
+                [MDOption optionGeneralWithName:@"Akulaku PayLater" value:@(MidtransPaymentFeatureAkulaku)],
                 [MDOption optionGeneralWithName:@"Danamon Online" value:@(MidtransPaymentFeatureDanamonOnline)],
                 [MDOption optionGeneralWithName:@"Gopay" value:@(MidtransPaymentFeatureGOPAY)],
                 [MDOption optionGeneralWithName:@"ShopeePay" value:@(MidtransPaymentFeatureShopeePay)],

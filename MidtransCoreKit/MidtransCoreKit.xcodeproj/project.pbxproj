@@ -1741,6 +1741,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransCoreKit",
@@ -1753,7 +1754,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransCoreKit/RG",
 				);
-				MARKETING_VERSION = 1.20.2;
+				MARKETING_VERSION = 1.23.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1776,6 +1777,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransCoreKit",
@@ -1788,7 +1790,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransCoreKit/RG",
 				);
-				MARKETING_VERSION = 1.20.2;
+				MARKETING_VERSION = 1.23.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

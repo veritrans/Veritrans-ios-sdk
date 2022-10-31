@@ -28,6 +28,7 @@
 @property (nonatomic, readwrite) NSString *deeplinkUrl;
 @property (nonatomic, readwrite) NSString *mandiriBillpayCompanyCode;
 @property (nonatomic, readwrite) NSString *virtualAccountNumber;
+@property (nonatomic, readwrite) NSString *bank;
 @property (nonatomic, readwrite) NSURL *redirectURL;
 @property (nonatomic, readwrite) NSURL *uobEzpayWebUrl;
 @property (nonatomic, readwrite) NSURL *uobEzpayDeeplinkUrl;
@@ -85,6 +86,7 @@
         if (response[@"va_numbers"]) {
             NSDictionary *vaData = response[@"va_numbers"][0];
             self.virtualAccountNumber = vaData[@"va_number"];
+            self.bank = vaData[@"bank"];
         }
         if (response[@"qr_code_url"]) {
             self.qrcodeUrl = response[@"qr_code_url"];

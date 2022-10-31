@@ -27,7 +27,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the number 013 (Bank Permata Code) and choose ‘Correct’</string>
+				<string>Enter ‘[BANK_CODE]’ (Bank [BANK_NAME] Code) and choose ‘Correct’</string>
 				<key>image</key>
 				<string>other_prima_4</string>
 			</dict>
@@ -76,19 +76,19 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the number 013 (code 013 and 16-digit Virtual Account Number) </string>
+				<string>Enter ‘[BANK_CODE]’ ([BANK_NAME] code) and ‘16 digit Account No.’ and press ‘Correct’</string>
 				<key>image</key>
 				<string>other_atm_4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the full amount to be paid. If the amount entered is not the same as the invoiced amount, the transaction will be declined</string>
+				<string>Enter the ‘full amount to be paid’ and press ‘Correct’. If the amount entered is not the same as the invoiced amount, the transaction will be declined</string>
 				<key>image</key>
 				<string>other_atm_5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Empty the transfer reference number and press ‘Correct’</string>
+				<string>Empty the transfer reference number and press ‘Correct’.</string>
 				<key>image</key>
 				<string>other_atm_6</string>
 			</dict>
@@ -107,43 +107,43 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>On the main menu choose ‘Others Transaction’</string>
+				<string>On the main menu, Choose ‘Other Transaction’</string>
 				<key>image</key>
 				<string>other_alto_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Payment’</string>
+				<string>Choose ‘Transfer’</string>
 				<key>image</key>
 				<string>other_alto_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Other Payment’</string>
+				<string>Choose ‘Other Bank Account’.</string>
 				<key>image</key>
 				<string>other_alto_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Virtual Account’</string>
+				<string>Enter ‘[BANK_CODE]’ (Bank [BANK_NAME] code) and choose ‘Correct’.</string>
 				<key>image</key>
 				<string>other_alto_4</string>
 			</dict>
+            <dict>
+                <key>content</key>
+                <string>Enter the full amount to be paid and press ‘Correct’. If the amount entered is not the same as the invoiced amount, the transaction will be declined.</string>
+                <key>image</key>
+                <string>other_alto_5</string>
+            </dict>
 			<dict>
 				<key>content</key>
 				<string>Enter 16 digits payment Account No. and press ‘Correct’</string>
-				<key>image</key>
-				<string>other_alto_5</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
 				<key>image</key>
 				<string>other_alto_6</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose your payment account and press ‘Correct’</string>
+				<string>Amount to be paid, account number, and merchant name will appear on the payment confirmation page. If the information is correct, press ‘Correct’</string>
 				<key>image</key>
 				<string>other_alto_7</string>
 			</dict>

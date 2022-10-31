@@ -10,6 +10,16 @@
 #import "VTClassHelper.h"
 #import "VTKITConstant.h"
 #import "VTTapableLabel.h"
+
+static NSString *const BANK_CODE_BNI = @"009";
+static NSString *const BANK_CODE_BRI = @"002";
+static NSString *const BANK_CODE_PERMATA = @"013";
+static NSString *const BANK_BRI = @"BRI";
+static NSString *const BANK_BNI = @"BNI";
+static NSString *const BANK_PERMATA = @"Permata";
+static NSString *const BANK_CODE_INSTRUCTION_PLACEHOLDER = @"[BANK_CODE]";
+static NSString *const BANK_NAME_INSTRUCTION_PLACEHOLDER = @"[BANK_NAME]";
+
 @interface VTGuideCell()
 @property (strong, nonatomic) IBOutlet UILabel *numberLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *illustrationView;
@@ -22,279 +32,26 @@
 
 - (void)setInstruction:(VTInstruction *)instruction number:(NSInteger)number {
     self.numberLabel.text = [NSString stringWithFormat:@"%li.", (long)number];
-     if ([[instruction.content stringsBetween:@"**" and:@"**"] count]) {
-        NSString *boldLabel = [[instruction.content stringsBetween:@"**" and:@"**"] firstObject];
-        NSString *cleanString = [[instruction.content stringByReplacingOccurrencesOfString:@"**" withString:@""] stringByReplacingOccurrencesOfString:@"**" withString:@""];
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:cleanString];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:boldLabel]];
-        [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
+    if ([[instruction.content stringsBetween:@"‘" and:@"’"] count]) {
+        self.contentLabel.attributedText = [self applyBoldToStringFromContent:[self replacePlaceholderFromContent:instruction.content]];
     }
-    else if ([[instruction.content stringsBetween:@"‘" and:@"’"] count]) {
-        NSString *boldLabel = [[instruction.content stringsBetween:@"‘" and:@"’"] firstObject];
-        NSString *cleanString = [[instruction.content stringByReplacingOccurrencesOfString:@"‘" withString:@""] stringByReplacingOccurrencesOfString:@"’" withString:@""];
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:cleanString];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:boldLabel]];
-        
-       
-        [attrString replaceCharacterString:@"[token_button]"
-                                  withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-         [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
-    }
-    else if ([[instruction.content stringsBetween:@"#" and:@"#"] count]) {
-           NSString *boldLabel = [[instruction.content stringsBetween:@"#" and:@"#"] firstObject];
-           NSString *boldString = [NSString stringWithFormat:@"#%@#", boldLabel];
-           NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-           [attrString beginEditing];
-           [attrString addAttribute:NSFontAttributeName
-                              value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                              range:[attrString.string rangeOfString:boldString]];
-           [attrString.mutableString replaceOccurrencesOfString:@"#" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, attrString.length)];
-           [attrString replaceCharacterString:@"[token_button]"
-                                     withIcon:[UIImage imageNamed:@"TokenButtonIcon" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-            [attrString endEditing];
-           self.contentLabel.attributedText = attrString;
-       }
-    
-  
-    
-    else if ([instruction.content containsString:@"To BNI Account then Add New Account"]) {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:@"To BNI Account then Add New Account"]];
-        
-        [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
-    }
-    
-   else  if ([instruction.content containsString:@"To BNI Account"]) {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:@"To BNI Account"]];
-        
-        [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
-    }
-   else  if ([instruction.content containsString:@"Payment Code"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Payment Code"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"total amount"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"total amount"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Alfamart, Alfamidi,or Dan+Dan"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Alfamart, Alfamidi,or Dan+Dan"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Alfamidi"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Alfamidi"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Dan+Dan"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Dan+Dan"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Alfamart"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Alfamart"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Alfamidi"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Alfamidi"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Dan+Dan"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Dan+Dan"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"transaction amount"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"transaction amount"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Code number"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Code number"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"merchant name"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"merchant name"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Next"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Next"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Set Destination Account"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Set Destination Account"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else if ([instruction.content containsString:@"4 for Belanja Online"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"4 for Belanja Online"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Set Destination Account"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Set Destination Account"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else  if ([instruction.content containsString:@"Add Destination Account"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Add Destination Account"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-   else if ([instruction.content containsString:@"Correct"]) {
-       NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-       [attrString beginEditing];
-       [attrString addAttribute:NSFontAttributeName
-                          value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                          range:[attrString.string rangeOfString:@"Correct"]];
-       
-       [attrString endEditing];
-       self.contentLabel.attributedText = attrString;
-   }
-    else if ([instruction.content containsString:@"Transfer"]) {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:@"Transfer"]];
-        
-        [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
-    }
-    else if ([instruction.content containsString:@"Connect"]) {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:@"Connect"]];
-        
-        [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
-    }
-
-    else if ([instruction.content containsString:@"Transfer to BNI Account"]) {
-        NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:instruction.content];
-        [attrString beginEditing];
-        [attrString addAttribute:NSFontAttributeName
-                           value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
-                           range:[attrString.string rangeOfString:@"Transfer to BNI Account"]];
-        
-        [attrString endEditing];
-        self.contentLabel.attributedText = attrString;
-    }
-
     else {
         self.contentLabel.tapableText = instruction.content;
     }
-    
-//    self.backgroundColor = (number % 2 == 0) ? [UIColor whiteColor] : [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    [self setImageFromInstruction:instruction];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
+}
 
+- (UIImage *)setImageFromInstruction:(VTInstruction *)instruction {
     UIImage *image = [UIImage imageNamed:instruction.image inBundle:VTBundle compatibleWithTraitCollection:nil];
+    if ([instruction.content containsString:BANK_NAME_INSTRUCTION_PLACEHOLDER] ||
+        [instruction.content containsString:BANK_CODE_INSTRUCTION_PLACEHOLDER]) {
+        if ([self.otherVaProcessor isEqualToString:MIDTRANS_PAYMENT_BRI_VA] ||
+            [self.otherVaProcessor isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
+            image = [UIImage imageNamed:[NSString stringWithFormat:@"%@_%@",instruction.image, self.otherVaProcessor] inBundle:VTBundle compatibleWithTraitCollection:nil];
+        }
+    }
     if (image) {
         self.illustrationView.image = image;
         self.illustrationWidth.constant = image.size.width + 13;
@@ -303,9 +60,62 @@
         self.illustrationView.image = nil;
         self.illustrationWidth.constant = 0;
     }
-    
-    [self setNeedsLayout];
-    [self layoutIfNeeded];
+    return image;
+}
+
+- (NSString *)replacePlaceholderFromContent:(NSString *)content {
+    NSString *filledString = [[content
+                              stringByReplacingOccurrencesOfString:BANK_CODE_INSTRUCTION_PLACEHOLDER
+                              withString:[self getBankCodeFromOtherVaProcessor:self.otherVaProcessor]]
+                             stringByReplacingOccurrencesOfString:BANK_NAME_INSTRUCTION_PLACEHOLDER
+                             withString:[self getBankNameFromOtherVaProcessor:self.otherVaProcessor]];
+    return filledString;
+}
+
+- (NSAttributedString *)applyBoldToStringFromContent:(NSString *)content {
+    NSMutableArray *boldLabelArray = [NSMutableArray arrayWithArray:[content stringsBetween:@"‘" and:@"’"]];
+    NSString *cleanedString = [[content stringByReplacingOccurrencesOfString:@"‘" withString:@""] stringByReplacingOccurrencesOfString:@"’" withString:@""];
+    NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc] initWithString:cleanedString];
+    for (NSString *boldLabel in boldLabelArray){
+        [attributedString beginEditing];
+        [attributedString addAttribute:NSFontAttributeName
+                                 value:[UIFont fontWithName:FONT_NAME_BOLD size:12.0]
+                                 range:[attributedString.string rangeOfString:boldLabel]];
+        [attributedString endEditing];
+    }
+    return attributedString;
+}
+
+- (NSString *)getBankCodeFromOtherVaProcessor:(NSString*)processor {
+    if([processor isEqualToString:MIDTRANS_PAYMENT_BNI_VA]){
+        return BANK_CODE_BNI;
+    }
+    else if([processor isEqualToString:MIDTRANS_PAYMENT_BRI_VA]){
+        return BANK_CODE_BRI;
+    }
+    else {
+        return BANK_CODE_PERMATA;
+    }
+}
+
+- (NSString *)getBankNameFromOtherVaProcessor:(NSString*)processor {
+    if([processor isEqualToString:MIDTRANS_PAYMENT_BNI_VA]){
+        return BANK_BNI;
+    }
+    else if([processor isEqualToString:MIDTRANS_PAYMENT_BRI_VA]){
+        return BANK_BRI;
+    }
+    else {
+        return BANK_PERMATA;
+    }
+}
+
+- (void)adjustBackgroundColor:(NSInteger)number {
+    if (number %2 == 0) {
+        self.contentView.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
+    } else {
+        self.contentView.backgroundColor = [UIColor whiteColor];
+    }
 }
 
 @end

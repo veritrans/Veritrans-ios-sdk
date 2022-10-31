@@ -36,7 +36,7 @@
         self.title = @"BRI E-Pay";
     }
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
-        self.title = @"Akulaku";
+        self.title = @"Akulaku PayLater";
     }
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
         self.title = @"BCA KlikPay";

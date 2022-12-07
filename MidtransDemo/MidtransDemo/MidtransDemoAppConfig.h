@@ -19,7 +19,7 @@ static NSString * const DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX = @"VT-client-yrH
 static NSString * const PROMO_MERCHANT_SERVER_URL_SANDBOX = @"https://charmenzy-mid-mobile-sandbox.herokuapp.com/";
 static NSString * const PROMO_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-client-zt7XrRxPQXZNvuBY";
 
-static NSString * const FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX = @"https://fiesta-point-sample.herokuapp.com/";
+static NSString * const FIESTAPOINT_MERCHANT_SERVER_URL_SANDBOX = @"https://snap-merchant-server.herokuapp.com/api/";
 static NSString * const FIESTAPOINT_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-client-hOWJXiCCDRvT0RGr";
 
 static NSString * const SHOPEEPAY_MERCHANT_SERVER_URL_PRODUCTION = @"https://shopeepay-merchant-server.herokuapp.com/";

@@ -342,6 +342,20 @@
         <key>status</key>
         <string>&quot;&quot;</string>
         <key>title</key>
+        <string>GoPay/e-Wallet Lainnya</string>
+        <key>description</key>
+        <string>Scan kode QR dengan GoPay atau e-wallet lainnya </string>
+        <key>id</key>
+        <string>qrisgopay</string>
+        <key>identifier</key>
+        <string>qrisgopay</string>
+        <key>shortName</key>
+        <string>gopay</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
         <string>UOB EZ Pay</string>
         <key>description</key>
         <string>Bayar melalui akun UOB/TMRW Anda</string>

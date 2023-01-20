@@ -342,6 +342,20 @@
         <key>status</key>
         <string>&quot;&quot;</string>
         <key>title</key>
+        <string>GoPay/other e-Wallets</string>
+        <key>description</key>
+        <string>Scan QR Code using GoPay or other e-wallets</string>
+        <key>id</key>
+        <string>qrisgopay</string>
+        <key>identifier</key>
+        <string>qrisgopay</string>
+        <key>shortName</key>
+        <string>gopay</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
         <string>UOB EZ Pay</string>
         <key>description</key>
         <string>Pay with your UOB/TMRW account</string>

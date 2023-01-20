@@ -180,7 +180,7 @@
                             if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
                                 self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
                                 return [obj[@"id"] isEqualToString:self.qrisAcquirer];
-                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY] || [enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
                                 return NO;
                             } else {
                                  return [obj[@"id"] isEqualToString:enabledPayment.type];
@@ -203,7 +203,8 @@
                             if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
                                 self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
                                 return [obj[@"id"] isEqualToString:self.qrisAcquirer];
-                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]) {
+                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]
+                                       ||[enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
                                 return NO;
                             } else {
                                  return [obj[@"id"] isEqualToString:enabledPayment.type];
@@ -425,7 +426,8 @@
         [vc showDismissButton:self.singlePayment];
         [self.navigationController pushViewController:vc animated:!self.singlePayment];
     }
-    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_GOPAY]
+             ||[paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_QRIS_GOPAY]) {
         MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token paymentMethodName:paymentMethod directPaymentFeature:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
     }

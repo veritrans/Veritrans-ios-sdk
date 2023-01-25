@@ -18,7 +18,8 @@
 @property (nonatomic, readwrite) NSString *orderId;
 @property (nonatomic, readwrite) NSString *paymentType;
 @property (nonatomic, readwrite) NSDictionary *additionalData;
-@property (nonatomic, readwrite) NSDate *transactionTime;
+@property (nonatomic, readwrite) NSString *transactionTime;
+@property (nonatomic, readwrite) NSString *qrisExpirationRaw;
 @property (nonatomic, readwrite) NSNumber *grossAmount;
 @property (nonatomic, readwrite) NSString *indomaretPaymentCode;
 @property (nonatomic, readwrite) NSString *alfamartExpireTime;
@@ -53,14 +54,8 @@
         if (rawGrossAmount) {
             self.grossAmount = @([rawGrossAmount doubleValue]);
         }
-        
-        id rawTransactionTime = [mResponse objectThenDeleteForKey:@"transaction_time"];
-        if (rawTransactionTime) {
-            NSDateFormatter *formatter = [NSObject dateFormatterWithIdentifier:@"vt.date"];
-            formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss";
-            self.transactionTime = [formatter dateFromString:rawTransactionTime];
-        }
-        
+        self.transactionTime = [mResponse objectThenDeleteForKey:@"transaction_time"];
+        self.qrisExpirationRaw = [mResponse objectThenDeleteForKey:@"qris_expiration_raw"];
         if (response[@"saved_token_id" ]) {
             NSDictionary *maskedCardObject = @{@"masked_card":response[@"masked_card"],
                                                @"saved_token_id":response[@"saved_token_id"],

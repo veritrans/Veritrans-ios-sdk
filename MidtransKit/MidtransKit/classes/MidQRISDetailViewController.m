@@ -54,22 +54,19 @@
     
     //Get current year
     self.view.expireTimesLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your payment in"];
-    NSDate *currentYear=[[NSDate alloc]init];
-    currentYear=[NSDate date];
-    NSDateFormatter *formatter1 = [[NSDateFormatter alloc] init];
-    [formatter1 setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    [formatter1 setDateFormat:@"yyyy"];
-    NSString *currentYearString = [formatter1 stringFromDate:currentYear];
     
+    NSDateFormatter *expiredDateFormatter = [[NSDateFormatter alloc] init];
+    [expiredDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    [expiredDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss Z"];
     
-    NSDateFormatter *expireFormatter = [[NSDateFormatter alloc] init];
-    [expireFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
-    [expireFormatter setDateFormat:@"dd MMMM HH:mm yyyy"];
+    NSDateFormatter *startDateFormatter = [[NSDateFormatter alloc] init];
+    [startDateFormatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"en_US"]];
+    [startDateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
     
+    NSDate *endDate = [expiredDateFormatter dateFromString:self.result.qrisExpirationRaw];
+    NSDate *startDate = [startDateFormatter dateFromString:self.result.transactionTime];
+    self.deltaTime = [endDate timeIntervalSinceDate:startDate];
     
-    
-    NSDate *endDate = [expireFormatter dateFromString: [[[self.result.additionalData objectForKey:@"qris_expiration"] stringByReplacingOccurrencesOfString:@"WIB" withString:@""] stringByAppendingString:currentYearString]];
-    self.deltaTime = [endDate timeIntervalSinceDate:self.result.transactionTime];
     self.currSeconds = self.deltaTime % 60;
     self.currMinute = (self.deltaTime / 60) % 60;
     self.currHours = self.deltaTime / 3600;
@@ -79,10 +76,10 @@
     self.view.qrcodeWrapperView.hidden = NO;
     [self.view.finishPaymentButton setTitle:@"Pay Now" forState:UIControlStateNormal];
     [self fetchQRCode];
-    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_SHOPEEPAY];
+    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", self.paymentMethod.shortName];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
     if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@",MIDTRANS_PAYMENT_SHOPEEPAY] ofType:@"plist"];
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@",self.paymentMethod.shortName] ofType:@"plist"];
     }
     NSMutableArray *arrayOfGuide = [NSMutableArray new];
     arrayOfGuide = [NSMutableArray arrayWithArray:[VTClassHelper instructionsFromFilePath:guidePath]];

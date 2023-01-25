@@ -37,7 +37,7 @@
 /**
  The date and time when transaction recorded.
  */
-@property(nonatomic, readonly) NSDate *transactionTime;
+@property(nonatomic, readonly) NSString *transactionTime;
 
 /**
  The order ID for this transaction. This value is generated client-side.
@@ -88,6 +88,7 @@
 @property (nonatomic, readonly) NSURL *redirectURL;
 @property (nonatomic,readonly) NSURL *qr_code_url;
 @property (nonatomic,readonly) NSURL *deeplink_url;
+@property (nonatomic,readonly) NSString *qrisExpirationRaw;
 
 @property (nonatomic,readonly) NSString *threeDSVersion;
 

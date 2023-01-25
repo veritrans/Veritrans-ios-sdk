@@ -8,7 +8,7 @@
 
 #import "MidGopayViewController.h"
 #import "MIDGopayView.h"
-#import "MidGopayDetailViewController.h"
+#import "MidQRISDetailViewController.h"
 #import "VTClassHelper.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MIdtransUIBorderedView.h"
@@ -60,7 +60,7 @@
                                              selector:@selector(handleGopayStatus:)
                                                  name:UIApplicationDidBecomeActiveNotification
                                                object:nil];
-    self.title = @"GoPay";
+    self.title = self.paymentMethod.title;
     self.view.tableView.delegate = self;
     self.view.tableView.dataSource = self;
     self.view.tableView.tableFooterView = [UIView new];
@@ -77,6 +77,7 @@
     
     if (IPAD) {
         self.view.topWrapperView.hidden = YES;
+        self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GoPay‘ payment via ‘Gojek‘ app"];
     } else {
         if (MidtransConfig.shared.environment == MidtransServerEnvironmentProduction) {
@@ -153,13 +154,7 @@
     if(indexPath.row %2 ==0) {
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 3) {
-        cell.imageBottomInstruction.hidden = NO;
-        [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
-        cell.bottomNotes.hidden = NO;
-        cell.bottomImageInstructionsConstraints.constant = 120.0f;
-    }
-    if (IPAD && indexPath.row == 4) {
+    if (IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
@@ -169,13 +164,6 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IPAD && indexPath.row == 3) {
-        return 200;
-    }
-    if (IPAD && indexPath.row == 4) {
-        return 200;
-    }
-    else {
         if (IS_IOS8_OR_ABOVE) {
             return UITableViewAutomaticDimension;
         }
@@ -188,8 +176,6 @@
             [cell setInstruction:self.guides[indexPath.row] number:indexPath.row+1];
             return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
         }
-        
-    }
 }
 - (IBAction)installGOJEKappButtonDidTapped:(id)sender {
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
@@ -210,7 +196,11 @@
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
-    paymentDetails = [[MidtransPaymentGOPAY alloc] init];
+    if (IPAD) {
+        paymentDetails = [[MidtransPaymentQRIS alloc]initWithAcquirer:MIDTRANS_PAYMENT_GOPAY];
+    } else {
+         paymentDetails = [[MidtransPaymentShopeePay alloc] init];
+    }
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     
     [[MidtransMerchantClient shared] performTransaction:transaction
@@ -221,7 +211,7 @@
         }
         else {
             if (IPAD) {
-                MidGopayDetailViewController *gopayDetailVC = [[MidGopayDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
+                MidQRISDetailViewController *gopayDetailVC = [[MidQRISDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
                 gopayDetailVC.result = result;
                 [self.navigationController pushViewController:gopayDetailVC animated:YES];
             } else {

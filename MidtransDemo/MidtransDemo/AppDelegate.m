@@ -11,10 +11,10 @@
 #import "MDProductViewController.h"
 #import "MDUtils.h"
 #import <MidtransCoreKit/MidtransCoreKit.h>
-#import <Crashlytics/Crashlytics.h>
+//#import <Crashlytics/Crashlytics.h>
 #import "MDNavigationViewController.h"
 #import "MDOptionManager.h"
-#import <Fabric/Fabric.h>
+//#import <Fabric/Fabric.h>
 @interface AppDelegate ()
 
 @end
@@ -65,7 +65,7 @@
      */
     [MDOptionManager shared];
     
-    [Fabric with:@[[Crashlytics class]]];
+//    [Fabric with:@[[Crashlytics class]]];
     MDProductViewController *pvc = [[MDProductViewController alloc] initWithNibName:@"MDProductViewController" bundle:nil];
     MDOptionsViewController *ovc = [[MDOptionsViewController alloc] initWithNibName:@"MDOptionsViewController" bundle:nil];
     MDNavigationViewController *nvc = [MDNavigationViewController new];

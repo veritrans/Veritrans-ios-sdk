@@ -559,7 +559,6 @@
 				E56436EE1E83A72F008726D0 /* Sources */,
 				E56436EF1E83A72F008726D0 /* Frameworks */,
 				E56436F01E83A72F008726D0 /* Resources */,
-				E56FD2FF21802B5C00AAA098 /* ShellScript */,
 				EC135A9896725303FB9B255A /* [CP] Copy Pods Resources */,
 				DD64CE3225382F6A0069F4B4 /* Embed Frameworks */,
 			);
@@ -734,15 +733,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-MidtransDemo-checkManifestLockResult.txt",
 			);
@@ -751,31 +746,13 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		E56FD2FF21802B5C00AAA098 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "FabricApiKey=$(sed -n '2p' < fabric_config.txt)\nFabricSecretKey=$(sed -n '4p' < fabric_config.txt)\nINFO_PLIST=\"$BUILT_PRODUCTS_DIR/$INFOPLIST_PATH\"\n/usr/libexec/PlistBuddy -c \"Set :Fabric:APIKey $FabricApiKey\" \"$INFO_PLIST\"\n\n\"${PODS_ROOT}/Fabric/run\" $FabricApiKey $FabricSecretKey\n";
-		};
 		EC135A9896725303FB9B255A /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/BKMoneyKit/BKMoneyKit.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -784,7 +761,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */

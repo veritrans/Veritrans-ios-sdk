@@ -10,8 +10,6 @@ target 'MidtransDemo' do
     pod 'JGProgressHUD'
     pod 'ACFloatingTextfield-Objc'
     pod 'IQKeyboardManager'
-    pod 'Fabric'
-    pod 'Crashlytics'
     pod 'BKMoneyKit', '~> 0.0'
     
 #    pod 'MidtransKit', :path => '../'

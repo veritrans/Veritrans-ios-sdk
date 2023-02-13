@@ -199,7 +199,7 @@
     if (IPAD) {
         paymentDetails = [[MidtransPaymentQRIS alloc]initWithAcquirer:MIDTRANS_PAYMENT_GOPAY];
     } else {
-         paymentDetails = [[MidtransPaymentShopeePay alloc] init];
+         paymentDetails = [[MidtransPaymentGOPAY alloc] init];
     }
     MidtransTransaction *transaction = [[MidtransTransaction alloc] initWithPaymentDetails:paymentDetails token:self.token];
     

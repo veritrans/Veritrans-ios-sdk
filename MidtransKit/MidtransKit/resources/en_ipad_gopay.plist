@@ -2,47 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<dict>
-		<key>content</key>
-		<string>Tap ‘Pay Now with GoPay’ </string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>‘QR Code’ will appear on the next page to be scanned</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Open ‘Gojek app’ on your phone</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Tap ‘SCAN QR’</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Point Your Camera to the ‘QR Code’</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Check your payment details in ‘QR Code’ app and then tap Pay</string>
-		<key>image</key>
-		<string></string>
-	</dict>
-	<dict>
-		<key>content</key>
-		<string>Done</string>
-		<key>image</key>
-		<string></string>
-	</dict>
+    <dict>
+        <key>content</key>
+        <string>Open your ‘Gojek’ or ‘other e-wallet apps’</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>content</key>
+        <string>‘Scan’ QR Code shown on your screen</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>content</key>
+        <string>Check your payment details in the app, then tap ‘Pay’</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>content</key>
+        <string>Enter your ‘PIN’</string>
+        <key>image</key>
+        <string></string>
+    </dict>
+    <dict>
+        <key>content</key>
+        <string>Your transaction is complete</string>
+        <key>image</key>
+        <string></string>
+    </dict>
 </array>
 </plist>

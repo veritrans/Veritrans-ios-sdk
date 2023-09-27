@@ -336,15 +336,15 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }
     if (CC_CONFIG.authenticationTypeString!=nil || [CC_CONFIG.authenticationTypeString length]>0) {
         if (CC_CONFIG.authenticationType == MTAuthenticationTypeNone) {
-            [creditCardParameter setValue:@"false" forKey:@"secure"];
+            [creditCardParameter setValue:@(NO) forKey:@"secure"];
             creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
         }
         else  if(CC_CONFIG.authenticationType == MTAuthenticationType3DS) {
-            [creditCardParameter setValue:@"true" forKey:@"secure"];
+            [creditCardParameter setValue:@(YES) forKey:@"secure"];
             creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
         }
         else  if(CC_CONFIG.authenticationType == MTAuthenticationTypeRBA) {
-            [creditCardParameter setValue:@"false" forKey:@"secure"];
+            [creditCardParameter setValue:@(NO) forKey:@"secure"];
             creditCardParameter[@"authentication"] = CC_CONFIG.authenticationTypeString;
         }
     }
@@ -400,7 +400,7 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     
     if (CC_CONFIG.promoEnabled) {
         NSMutableDictionary *promoParam = [NSMutableDictionary new];
-        promoParam[@"enabled"] = @"YES";
+        promoParam[@"enabled"] = @(YES);
         if (CC_CONFIG.allowedPromoCodes) {
             promoParam[@"allowed_promo_codes"] = CC_CONFIG.allowedPromoCodes;
         }

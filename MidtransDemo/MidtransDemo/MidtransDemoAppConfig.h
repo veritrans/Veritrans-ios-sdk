@@ -13,7 +13,7 @@
 static NSString * const ONE_CLICK_MERCHANT_SERVER_URL_SANDBOX = @"https://fauzi-one-click-sandbox.herokuapp.com/";
 static NSString * const ONE_CLICK_MERCHANT_CLIENT_KEY_SANDBOX = @"SB-Mid-client-61XuGAwQ8Bj8LxSS";
 
-static NSString * const DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX = @"https://promo-engine-sample-server.herokuapp.com/";
+static NSString * const DEMO_STORE_MERCHANT_SERVER_URL_SANDBOX = @"https://demo.midtrans.com/api/";
 static NSString * const DEMO_STORE_MERCHANT_CLIENT_KEY_SANDBOX = @"VT-client-yrHf-c8Sxr-ck8tx";
 
 static NSString * const PROMO_MERCHANT_SERVER_URL_SANDBOX = @"https://charmenzy-mid-mobile-sandbox.herokuapp.com/";

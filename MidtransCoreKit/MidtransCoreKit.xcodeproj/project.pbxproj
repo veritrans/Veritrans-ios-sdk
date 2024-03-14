@@ -78,6 +78,7 @@
 		9A8AD7B82BA2A16E00781590 /* Merchant.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A32BA2A16E00781590 /* Merchant.pb.swift */; };
 		9A8AD7B92BA2A16E00781590 /* EventMeta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */; };
 		9A8AD7BA2BA2A16E00781590 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */; };
+		9A8AD7C02BA2ACF900781590 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */; };
 		DD1F2A50218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A51218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A52218AD29100D73039 /* MIDUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F2A4F218AD29100D73039 /* MIDUrlHandler.m */; };
@@ -384,7 +385,7 @@
 		E571208F1E937A790064F515 /* MidtransPromoEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511CF3A1E48355600926FC7 /* MidtransPromoEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120901E937A790064F515 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CDEC8C1E9340CA0032DC3B /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5CDEC8E1E9340CA0032DC3B /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CDEC8C1E9340CA0032DC3B /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */; };
+		E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ECB0213A221A6FC90037C0E1 /* MidtransPaymentAlfa.h in Headers */ = {isa = PBXBuildFile; fileRef = ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECB0213B221A6FC90037C0E1 /* MidtransPaymentAlfa.h in Headers */ = {isa = PBXBuildFile; fileRef = ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECB0213C221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB02139221A6FC90037C0E1 /* MidtransPaymentAlfa.m */; };
@@ -519,6 +520,7 @@
 		9A8AD7A32BA2A16E00781590 /* Merchant.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.pb.swift; sourceTree = "<group>"; };
 		9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMeta.pb.swift; sourceTree = "<group>"; };
 		9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/swift/libswift_Concurrency.tbd; sourceTree = DEVELOPER_DIR; };
 		B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDUrlHandler.h; sourceTree = "<group>"; };
@@ -653,6 +655,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A8AD7C02BA2ACF900781590 /* libswift_Concurrency.tbd in Frameworks */,
 				E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1065,6 +1068,7 @@
 		A0C9D60C2D536437D42CFD0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */,
 				305494461C75A01900938C17 /* Foundation.framework */,
 				EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */,
 				2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */,

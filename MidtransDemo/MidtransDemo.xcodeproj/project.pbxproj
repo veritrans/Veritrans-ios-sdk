@@ -21,9 +21,8 @@
 		0CE373AF1EC064C2000C80A9 /* MDProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A41EC064C2000C80A9 /* MDProfileViewController.xib */; };
 		0CE373B01EC064C2000C80A9 /* MDSaveCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */; };
 		0CE373B11EC064C2000C80A9 /* MDSaveCardFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */; };
-		162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */; };
-		DD64CE3025382F6A0069F4B4 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */; };
-		DD64CE3125382F6A0069F4B4 /* MidtransCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
+		9A8AD7BE2BA2AC5200781590 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8AD7BD2BA2AC5200781590 /* libswift_Concurrency.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
 		DD79467F27A1585600A68A62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79467E27A1585600A68A62 /* AppDelegate.swift */; };
 		DD79468127A1585600A68A62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79468027A1585600A68A62 /* SceneDelegate.swift */; };
 		DD79468327A1585700A68A62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79468227A1585600A68A62 /* ViewController.swift */; };
@@ -88,17 +87,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		DD64CE3225382F6A0069F4B4 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				DD64CE3125382F6A0069F4B4 /* MidtransCoreKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		DDB4235027A2801F002B7383 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -135,6 +123,7 @@
 		0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDSaveCardFooter.m; sourceTree = "<group>"; };
 		0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MDSaveCardFooter.xib; sourceTree = "<group>"; };
 		5C11021525267A24FA5F14A7 /* Pods-MidtransDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		9A8AD7BD2BA2AC5200781590 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = usr/lib/swift/libswift_Concurrency.tbd; sourceTree = SDKROOT; };
 		C9F2FB9DC837424A9DE9E4EF /* libPods-MidtransDemoUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemoUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MidtransCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD79467C27A1585600A68A62 /* CoreKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +221,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD64CE3025382F6A0069F4B4 /* MidtransCoreKit.framework in Frameworks */,
+				9A8AD7BE2BA2AC5200781590 /* libswift_Concurrency.tbd in Frameworks */,
 				162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -477,6 +466,7 @@
 		EC16E625E4533EAA44E1C9D6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9A8AD7BD2BA2AC5200781590 /* libswift_Concurrency.tbd */,
 				DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */,
 				DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */,
 				F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */,
@@ -515,7 +505,6 @@
 				E56436EF1E83A72F008726D0 /* Frameworks */,
 				E56436F01E83A72F008726D0 /* Resources */,
 				EC135A9896725303FB9B255A /* [CP] Copy Pods Resources */,
-				DD64CE3225382F6A0069F4B4 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -970,6 +959,37 @@
 				INFOPLIST_FILE = MidtransDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"ACFloatingTextfield-Objc\"",
+					"-l\"BKMoneyKit\"",
+					"-l\"CHRTextFieldFormatter\"",
+					"-l\"ClickstreamLib\"",
+					"-l\"GRDB.swift\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"JGProgressHUD\"",
+					"-l\"MidtransKit\"",
+					"-l\"ReachabilitySwift\"",
+					"-l\"SwiftProtobuf\"",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -993,6 +1013,37 @@
 				INFOPLIST_FILE = MidtransDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SDKROOT)/usr/lib/swift",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-l\"ACFloatingTextfield-Objc\"",
+					"-l\"BKMoneyKit\"",
+					"-l\"CHRTextFieldFormatter\"",
+					"-l\"ClickstreamLib\"",
+					"-l\"GRDB.swift\"",
+					"-l\"IQKeyboardManager\"",
+					"-l\"JGProgressHUD\"",
+					"-l\"MidtransKit\"",
+					"-l\"ReachabilitySwift\"",
+					"-l\"SwiftProtobuf\"",
+					"-l\"sqlite3\"",
+					"-framework",
+					"\"CoreGraphics\"",
+					"-framework",
+					"\"CoreTelephony\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"QuartzCore\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+					"-framework",
+					"\"UIKit\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

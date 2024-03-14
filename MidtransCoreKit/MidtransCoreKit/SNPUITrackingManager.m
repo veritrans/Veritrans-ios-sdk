@@ -13,10 +13,12 @@
 #import "MidtransNetworking.h"
 #import "MidtransDeviceHelper.h"
 #import "MidtransHelper.h"
+#import <MidtransKit/MidtransCoreKit/MidtransCoreKit-Swift.h>
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 
 @implementation NSDictionary (SNPUITrackingManager)
 
+AnalyticsManager *analyticsManager;
 - (NSMutableDictionary*)SNPUITrackingManageraddDefaultParameter{
     NSString *token = [PRIVATECONFIG mixpanelToken];
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
@@ -65,6 +67,8 @@
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         sharedInstance = [[SNPUITrackingManager alloc] init];
+        analyticsManager = [AnalyticsManager new] ;
+        [analyticsManager initialiseClickstream];
     });
     return sharedInstance;
 }
@@ -76,7 +80,7 @@
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
     [self sendTrackingData:event];
-    
+    [analyticsManager trackEventWithEventName:eventName properties:parameters];
 }
 - (void)trackEventName:(NSString *)eventName {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
@@ -84,7 +88,7 @@
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
     [self sendTrackingData:event];
-    
+    [analyticsManager trackEventWithEventName:eventName properties:parameters];
 }
 - (void)sendTrackingData:(NSDictionary *)dictionary {
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];

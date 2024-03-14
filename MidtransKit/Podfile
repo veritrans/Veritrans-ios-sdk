@@ -1,0 +1,31 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+
+target 'MidtransKit' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+  pod 'MidtransCoreKit', :path => '../'
+
+  # Pods for MidtransKit
+
+  target 'MidtransKitTests' do
+    # Pods for testing
+  end
+
+end
+
+target 'MidtransKitResources' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MidtransKitResources
+
+end
+
+target 'MidtransKitStatic' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MidtransKitStatic
+
+end

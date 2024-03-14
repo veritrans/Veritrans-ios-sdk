@@ -12,8 +12,8 @@ target 'MidtransDemo' do
     pod 'IQKeyboardManager'
     pod 'BKMoneyKit', '~> 0.0'
     
-#    pod 'MidtransKit', :path => '../'
-#    pod 'MidtransCoreKit', :path => '../'
+    pod 'MidtransKit', :path => '../'
+    pod 'MidtransCoreKit', :path => '../'
 #    
 #    target 'MidtransDemoUITests' do
 #        inherit! :search_paths

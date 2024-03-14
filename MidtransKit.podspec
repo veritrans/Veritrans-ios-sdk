@@ -7,7 +7,7 @@ s.homepage         = "https://veritrans.co.id/"
 s.license          = 'MIT'
 s.author           = { "veritrans" => "dev@veritrans.co.id" }
 s.source           = { :git => 'https://github.com/veritrans/Veritrans-ios-sdk.git', :tag => s.version}
-s.platform     = :ios, '9.0'
+s.platform     = :ios, '12.0'
 s.requires_arc = true
 
 s.subspec 'UI' do |sp|

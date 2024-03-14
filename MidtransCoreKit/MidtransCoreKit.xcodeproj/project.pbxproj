@@ -54,7 +54,30 @@
 		0CB8B7C7206B55C10067A0B8 /* MidtransPromoPromoDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7B9206B558D0067A0B8 /* MidtransPromoPromoDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CB8B7C8206B55C10067A0B8 /* MidtransPromoPromos.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7BB206B558D0067A0B8 /* MidtransPromoPromos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CB8B7C9206B55C10067A0B8 /* MidtransPromoResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7BD206B558D0067A0B8 /* MidtransPromoResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		202A3CF71967E6912568A39C /* Pods_MidtransCoreKitStatic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF119750F0998DB7FC3D665C /* Pods_MidtransCoreKitStatic.framework */; };
 		3D85847D2111C52500899462 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CDEC8A1E9340CA0032DC3B /* MidtransCoreKit.framework */; };
+		829CEBCC74D75F5E84623421 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */; };
+		9A8AD7A62BA2A16E00781590 /* ContractsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7902BA2A16E00781590 /* ContractsFactory.swift */; };
+		9A8AD7A72BA2A16E00781590 /* ProductCommons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7912BA2A16E00781590 /* ProductCommons.swift */; };
+		9A8AD7A82BA2A16E00781590 /* ChargeParams.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7932BA2A16E00781590 /* ChargeParams.pb.swift */; };
+		9A8AD7A92BA2A16E00781590 /* ExbinResponse.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7942BA2A16E00781590 /* ExbinResponse.pb.swift */; };
+		9A8AD7AA2BA2A16E00781590 /* Payment.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7952BA2A16E00781590 /* Payment.pb.swift */; };
+		9A8AD7AB2BA2A16E00781590 /* ChargeResponse.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7962BA2A16E00781590 /* ChargeResponse.pb.swift */; };
+		9A8AD7AC2BA2A16E00781590 /* TransactionDetail.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7972BA2A16E00781590 /* TransactionDetail.pb.swift */; };
+		9A8AD7AD2BA2A16E00781590 /* Device.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7982BA2A16E00781590 /* Device.pb.swift */; };
+		9A8AD7AE2BA2A16E00781590 /* CreditCard.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7992BA2A16E00781590 /* CreditCard.pb.swift */; };
+		9A8AD7AF2BA2A16E00781590 /* GopayTokenization.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD79A2BA2A16E00781590 /* GopayTokenization.pb.swift */; };
+		9A8AD7B02BA2A16E00781590 /* Page.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD79B2BA2A16E00781590 /* Page.pb.swift */; };
+		9A8AD7B12BA2A16E00781590 /* App.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD79C2BA2A16E00781590 /* App.pb.swift */; };
+		9A8AD7B22BA2A16E00781590 /* Result3DS.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD79D2BA2A16E00781590 /* Result3DS.pb.swift */; };
+		9A8AD7B32BA2A16E00781590 /* Exchange.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD79E2BA2A16E00781590 /* Exchange.pb.swift */; };
+		9A8AD7B42BA2A16E00781590 /* GopayTokenizationResponse.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD79F2BA2A16E00781590 /* GopayTokenizationResponse.pb.swift */; };
+		9A8AD7B52BA2A16E00781590 /* Action.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A02BA2A16E00781590 /* Action.pb.swift */; };
+		9A8AD7B62BA2A16E00781590 /* PageDetail.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A12BA2A16E00781590 /* PageDetail.pb.swift */; };
+		9A8AD7B72BA2A16E00781590 /* Product.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A22BA2A16E00781590 /* Product.pb.swift */; };
+		9A8AD7B82BA2A16E00781590 /* Merchant.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A32BA2A16E00781590 /* Merchant.pb.swift */; };
+		9A8AD7B92BA2A16E00781590 /* EventMeta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */; };
+		9A8AD7BA2BA2A16E00781590 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */; };
 		DD1F2A50218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A51218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A52218AD29100D73039 /* MIDUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F2A4F218AD29100D73039 /* MIDUrlHandler.m */; };
@@ -361,6 +384,7 @@
 		E571208F1E937A790064F515 /* MidtransPromoEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511CF3A1E48355600926FC7 /* MidtransPromoEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120901E937A790064F515 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CDEC8C1E9340CA0032DC3B /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5CDEC8E1E9340CA0032DC3B /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CDEC8C1E9340CA0032DC3B /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */; };
 		ECB0213A221A6FC90037C0E1 /* MidtransPaymentAlfa.h in Headers */ = {isa = PBXBuildFile; fileRef = ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECB0213B221A6FC90037C0E1 /* MidtransPaymentAlfa.h in Headers */ = {isa = PBXBuildFile; fileRef = ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECB0213C221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB02139221A6FC90037C0E1 /* MidtransPaymentAlfa.m */; };
@@ -459,6 +483,8 @@
 		0CB8B7BE206B558D0067A0B8 /* MidtransPromoResponse.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPromoResponse.m; sourceTree = "<group>"; };
 		0CD7EA981E03D0820036C187 /* MIdtransPaymentGCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentGCI.h; sourceTree = "<group>"; };
 		0CD7EA991E03D0820036C187 /* MIdtransPaymentGCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransPaymentGCI.m; sourceTree = "<group>"; };
+		21789F5997938CA7EF0C850A /* Pods-MidtransCoreKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit/Pods-MidtransCoreKit.debug.xcconfig"; sourceTree = "<group>"; };
+		2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransCoreKit_MidtransCoreKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransConstant.h; sourceTree = "<group>"; };
 		305494461C75A01900938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3054944B1C75A08900938C17 /* MidtransAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransAddress.h; sourceTree = "<group>"; };
@@ -470,6 +496,31 @@
 		30D9ABFA1C76FD1D00F858AE /* MidtransNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransNetworkOperation.h; sourceTree = "<group>"; };
 		30D9ABFB1C76FD1D00F858AE /* MidtransNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransNetworkOperation.m; sourceTree = "<group>"; };
 		3D8584782111C52500899462 /* MidtransCoreKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MidtransCoreKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		520F8AFE1E6B61C53A137568 /* Pods-MidtransCoreKit-MidtransCoreKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit-MidtransCoreKitTests.release.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests.release.xcconfig"; sourceTree = "<group>"; };
+		69234A8803E0B3AC3648FDEA /* Pods-MidtransCoreKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit.release.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit/Pods-MidtransCoreKit.release.xcconfig"; sourceTree = "<group>"; };
+		9A8AD7902BA2A16E00781590 /* ContractsFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContractsFactory.swift; sourceTree = "<group>"; };
+		9A8AD7912BA2A16E00781590 /* ProductCommons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductCommons.swift; sourceTree = "<group>"; };
+		9A8AD7932BA2A16E00781590 /* ChargeParams.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeParams.pb.swift; sourceTree = "<group>"; };
+		9A8AD7942BA2A16E00781590 /* ExbinResponse.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExbinResponse.pb.swift; sourceTree = "<group>"; };
+		9A8AD7952BA2A16E00781590 /* Payment.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Payment.pb.swift; sourceTree = "<group>"; };
+		9A8AD7962BA2A16E00781590 /* ChargeResponse.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChargeResponse.pb.swift; sourceTree = "<group>"; };
+		9A8AD7972BA2A16E00781590 /* TransactionDetail.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionDetail.pb.swift; sourceTree = "<group>"; };
+		9A8AD7982BA2A16E00781590 /* Device.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Device.pb.swift; sourceTree = "<group>"; };
+		9A8AD7992BA2A16E00781590 /* CreditCard.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditCard.pb.swift; sourceTree = "<group>"; };
+		9A8AD79A2BA2A16E00781590 /* GopayTokenization.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopayTokenization.pb.swift; sourceTree = "<group>"; };
+		9A8AD79B2BA2A16E00781590 /* Page.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Page.pb.swift; sourceTree = "<group>"; };
+		9A8AD79C2BA2A16E00781590 /* App.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.pb.swift; sourceTree = "<group>"; };
+		9A8AD79D2BA2A16E00781590 /* Result3DS.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Result3DS.pb.swift; sourceTree = "<group>"; };
+		9A8AD79E2BA2A16E00781590 /* Exchange.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exchange.pb.swift; sourceTree = "<group>"; };
+		9A8AD79F2BA2A16E00781590 /* GopayTokenizationResponse.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GopayTokenizationResponse.pb.swift; sourceTree = "<group>"; };
+		9A8AD7A02BA2A16E00781590 /* Action.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Action.pb.swift; sourceTree = "<group>"; };
+		9A8AD7A12BA2A16E00781590 /* PageDetail.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageDetail.pb.swift; sourceTree = "<group>"; };
+		9A8AD7A22BA2A16E00781590 /* Product.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Product.pb.swift; sourceTree = "<group>"; };
+		9A8AD7A32BA2A16E00781590 /* Merchant.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Merchant.pb.swift; sourceTree = "<group>"; };
+		9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMeta.pb.swift; sourceTree = "<group>"; };
+		9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
+		B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDUrlHandler.h; sourceTree = "<group>"; };
 		DD1F2A4F218AD29100D73039 /* MIDUrlHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MIDUrlHandler.m; sourceTree = "<group>"; };
 		DD64CE4F253DB2FF0069F4B4 /* MidtransPaymentQRIS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentQRIS.h; sourceTree = "<group>"; };
@@ -484,6 +535,7 @@
 		DDBC2FBA2537C0EB002FCD06 /* MidtransPaymentShopeePay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentShopeePay.m; sourceTree = "<group>"; };
 		DDBCB0ED27FDC3ED00D06C55 /* MidtransBinDetails.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransBinDetails.h; sourceTree = "<group>"; };
 		DDBCB0EE27FDC3ED00D06C55 /* MidtransBinDetails.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MidtransBinDetails.m; sourceTree = "<group>"; };
+		DF119750F0998DB7FC3D665C /* Pods_MidtransCoreKitStatic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransCoreKitStatic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E50D85D21D0EC64E00F26D2E /* MidtransPaymentMandiriECash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentMandiriECash.h; sourceTree = "<group>"; };
 		E50D85D31D0EC64E00F26D2E /* MidtransPaymentMandiriECash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentMandiriECash.m; sourceTree = "<group>"; };
 		E50D85E31D0ECB7000F26D2E /* MidtransPaymentBCAKlikpay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentBCAKlikpay.h; sourceTree = "<group>"; };
@@ -575,6 +627,8 @@
 		E5FBC7F01E39E3FF006B574D /* MidtransNetworkLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransNetworkLogger.m; sourceTree = "<group>"; };
 		ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentAlfa.h; sourceTree = "<group>"; };
 		ECB02139221A6FC90037C0E1 /* MidtransPaymentAlfa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentAlfa.m; sourceTree = "<group>"; };
+		EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB53B4963F6F4557E601F428 /* Pods-MidtransCoreKitStatic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.release.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -583,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D85847D2111C52500899462 /* MidtransCoreKit.framework in Frameworks */,
+				829CEBCC74D75F5E84623421 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -590,6 +645,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202A3CF71967E6912568A39C /* Pods_MidtransCoreKitStatic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +653,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +852,7 @@
 		2EDAA3A01D0A7597009EC90D /* Tracking */ = {
 			isa = PBXGroup;
 			children = (
+				9A8AD78F2BA2A12900781590 /* Clickstream */,
 				0C68F0421F8B3A7F0026416D /* RayGun */,
 				0C19235F1E430A7A00B3BBDB /* New Tracking */,
 			);
@@ -933,6 +991,7 @@
 				3D8584872111C92400899462 /* MidtransCoreKitTests */,
 				3054943B1C759FF800938C17 /* Products */,
 				A0C9D60C2D536437D42CFD0A /* Frameworks */,
+				6672B4A032E238C325964785 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -954,10 +1013,62 @@
 			path = MidtransCoreKit;
 			sourceTree = "<group>";
 		};
+		6672B4A032E238C325964785 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				21789F5997938CA7EF0C850A /* Pods-MidtransCoreKit.debug.xcconfig */,
+				69234A8803E0B3AC3648FDEA /* Pods-MidtransCoreKit.release.xcconfig */,
+				B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */,
+				520F8AFE1E6B61C53A137568 /* Pods-MidtransCoreKit-MidtransCoreKitTests.release.xcconfig */,
+				DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */,
+				FB53B4963F6F4557E601F428 /* Pods-MidtransCoreKitStatic.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		9A8AD78F2BA2A12900781590 /* Clickstream */ = {
+			isa = PBXGroup;
+			children = (
+				9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */,
+				9A8AD7902BA2A16E00781590 /* ContractsFactory.swift */,
+				9A8AD7912BA2A16E00781590 /* ProductCommons.swift */,
+				9A8AD7922BA2A16E00781590 /* Protos */,
+			);
+			path = Clickstream;
+			sourceTree = "<group>";
+		};
+		9A8AD7922BA2A16E00781590 /* Protos */ = {
+			isa = PBXGroup;
+			children = (
+				9A8AD7932BA2A16E00781590 /* ChargeParams.pb.swift */,
+				9A8AD7942BA2A16E00781590 /* ExbinResponse.pb.swift */,
+				9A8AD7952BA2A16E00781590 /* Payment.pb.swift */,
+				9A8AD7962BA2A16E00781590 /* ChargeResponse.pb.swift */,
+				9A8AD7972BA2A16E00781590 /* TransactionDetail.pb.swift */,
+				9A8AD7982BA2A16E00781590 /* Device.pb.swift */,
+				9A8AD7992BA2A16E00781590 /* CreditCard.pb.swift */,
+				9A8AD79A2BA2A16E00781590 /* GopayTokenization.pb.swift */,
+				9A8AD79B2BA2A16E00781590 /* Page.pb.swift */,
+				9A8AD79C2BA2A16E00781590 /* App.pb.swift */,
+				9A8AD79D2BA2A16E00781590 /* Result3DS.pb.swift */,
+				9A8AD79E2BA2A16E00781590 /* Exchange.pb.swift */,
+				9A8AD79F2BA2A16E00781590 /* GopayTokenizationResponse.pb.swift */,
+				9A8AD7A02BA2A16E00781590 /* Action.pb.swift */,
+				9A8AD7A12BA2A16E00781590 /* PageDetail.pb.swift */,
+				9A8AD7A22BA2A16E00781590 /* Product.pb.swift */,
+				9A8AD7A32BA2A16E00781590 /* Merchant.pb.swift */,
+				9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */,
+			);
+			path = Protos;
+			sourceTree = "<group>";
+		};
 		A0C9D60C2D536437D42CFD0A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				305494461C75A01900938C17 /* Foundation.framework */,
+				EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */,
+				2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */,
+				DF119750F0998DB7FC3D665C /* Pods_MidtransCoreKitStatic.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1217,9 +1328,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D8584822111C52500899462 /* Build configuration list for PBXNativeTarget "MidtransCoreKitTests" */;
 			buildPhases = (
+				409E966396AA889065622F17 /* [CP] Check Pods Manifest.lock */,
 				3D8584742111C52500899462 /* Sources */,
 				3D8584752111C52500899462 /* Frameworks */,
 				3D8584762111C52500899462 /* Resources */,
+				2FFAA6A31B8FA752C150807B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1235,6 +1348,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5711F5D1E93789C0064F515 /* Build configuration list for PBXNativeTarget "MidtransCoreKitStatic" */;
 			buildPhases = (
+				6312D06786972F18EAA4E799 /* [CP] Check Pods Manifest.lock */,
 				E5711F511E93789C0064F515 /* Sources */,
 				E5711F521E93789C0064F515 /* Frameworks */,
 				E5711F531E93789C0064F515 /* CopyFiles */,
@@ -1253,6 +1367,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5CDEC8F1E9340CA0032DC3B /* Build configuration list for PBXNativeTarget "MidtransCoreKit" */;
 			buildPhases = (
+				902C44865AF9D34C2ADDFCA0 /* [CP] Check Pods Manifest.lock */,
 				E5CDEC851E9340CA0032DC3B /* Sources */,
 				E5CDEC861E9340CA0032DC3B /* Frameworks */,
 				E5CDEC871E9340CA0032DC3B /* Headers */,
@@ -1290,6 +1405,7 @@
 					E5CDEC891E9340CA0032DC3B = {
 						CreatedOnToolsVersion = 8.3;
 						DevelopmentTeam = G92YEQF267;
+						LastSwiftMigration = 1430;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -1330,6 +1446,99 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2FFAA6A31B8FA752C150807B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ClickstreamLib/ClickstreamLib.framework",
+				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ClickstreamLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		409E966396AA889065622F17 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransCoreKit-MidtransCoreKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6312D06786972F18EAA4E799 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransCoreKitStatic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		902C44865AF9D34C2ADDFCA0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransCoreKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D8584742111C52500899462 /* Sources */ = {
@@ -1435,6 +1644,7 @@
 			files = (
 				DDBCB0F127FDC3ED00D06C55 /* MidtransBinDetails.m in Sources */,
 				E55F639B1E934C6400C012C8 /* NSString+MidtransValidation.m in Sources */,
+				9A8AD7A82BA2A16E00781590 /* ChargeParams.pb.swift in Sources */,
 				E55F639C1E934C6400C012C8 /* SNPUITrackingManager.m in Sources */,
 				E55F639D1E934C6400C012C8 /* MidtransImageManager.m in Sources */,
 				DDB30C39264235BC00BC1235 /* MidtransPaymentUOB.m in Sources */,
@@ -1443,10 +1653,14 @@
 				E55F639F1E934C6400C012C8 /* MidtransLuhn.m in Sources */,
 				E55F63A01E934C6400C012C8 /* MidtransConfig.m in Sources */,
 				E55F63A11E934C6400C012C8 /* MidtransPrivateConfig.m in Sources */,
+				9A8AD7A62BA2A16E00781590 /* ContractsFactory.swift in Sources */,
 				E55F63A21E934C6400C012C8 /* MidtransCreditCardConfig.m in Sources */,
 				E55F63A31E934C6400C012C8 /* MidtransHelper.m in Sources */,
+				9A8AD7B92BA2A16E00781590 /* EventMeta.pb.swift in Sources */,
 				E55F63A41E934C6400C012C8 /* MidtransNetworking.m in Sources */,
 				0C50726F1F8C88A0008F4339 /* SNPErrorLogManager.m in Sources */,
+				9A8AD7B52BA2A16E00781590 /* Action.pb.swift in Sources */,
+				9A8AD7AE2BA2A16E00781590 /* CreditCard.pb.swift in Sources */,
 				E55F63A51E934C6400C012C8 /* MidtransNetworkOperation.m in Sources */,
 				E5711FFB1E9379E80064F515 /* MidtransVirtualAccountModel.m in Sources */,
 				E55F63A61E934C6400C012C8 /* MidtransNetworkLogger.m in Sources */,
@@ -1455,19 +1669,25 @@
 				E55F63A81E934C6400C012C8 /* Midtrans3DSController.m in Sources */,
 				E55F63A91E934C6400C012C8 /* MidtransPaymentWebController.m in Sources */,
 				E5711FF81E9379B90064F515 /* MidtransPaymentListModel.m in Sources */,
+				9A8AD7AC2BA2A16E00781590 /* TransactionDetail.pb.swift in Sources */,
 				E55F63AD1E934C6400C012C8 /* MidtransPromo.m in Sources */,
 				0C313E161FCD2BE90074366F /* MIDGOPAYResponse.m in Sources */,
 				E55F63AE1E934C6400C012C8 /* MidtransPaymentRequestV2Installment.m in Sources */,
+				9A8AD7B02BA2A16E00781590 /* Page.pb.swift in Sources */,
 				E55F63B01E934C6400C012C8 /* MidtransPaymentRequestV2Terms.m in Sources */,
 				E55F63B11E934C6400C012C8 /* MidtransPaymentRequestV2SavedTokens.m in Sources */,
 				E55F63B21E934C6400C012C8 /* MidtransPaymentRequestV2BillingAddress.m in Sources */,
+				9A8AD7A92BA2A16E00781590 /* ExbinResponse.pb.swift in Sources */,
 				0C1B35D51ED6B106003F6806 /* SNPFreeTextResponse.m in Sources */,
 				E55F63B31E934C6400C012C8 /* MidtransPaymentRequestV2Callbacks.m in Sources */,
 				E55F63B41E934C6400C012C8 /* MidtransPaymentRequestV2CreditCard.m in Sources */,
 				E55F63B51E934C6400C012C8 /* MidtransPaymentRequestV2CustomerDetails.m in Sources */,
 				E5711FEE1E9379660064F515 /* MidtransBinResponse.m in Sources */,
 				E55F63B61E934C6400C012C8 /* MidtransPaymentRequestV2EnabledPayments.m in Sources */,
+				9A8AD7B12BA2A16E00781590 /* App.pb.swift in Sources */,
+				9A8AD7AD2BA2A16E00781590 /* Device.pb.swift in Sources */,
 				0CB8B7C3206B558D0067A0B8 /* MidtransPromoPromos.m in Sources */,
+				9A8AD7B72BA2A16E00781590 /* Product.pb.swift in Sources */,
 				E55F63B71E934C6400C012C8 /* MidtransPaymentRequestV2ItemDetails.m in Sources */,
 				E55F63B81E934C6400C012C8 /* MidtransPaymentRequestV2Merchant.m in Sources */,
 				E55F63B91E934C6400C012C8 /* MidtransPaymentRequestV2Preference.m in Sources */,
@@ -1475,9 +1695,11 @@
 				E55F63BB1E934C6400C012C8 /* MidtransPaymentRequestV2ShippingAddress.m in Sources */,
 				E546D1FB217EFF4C006D4650 /* MidtransPaymentAkulaku.m in Sources */,
 				E55F63BC1E934C6400C012C8 /* MidtransPaymentRequestV2TransactionDetails.m in Sources */,
+				9A8AD7B22BA2A16E00781590 /* Result3DS.pb.swift in Sources */,
 				0CB8B7C1206B558D0067A0B8 /* MidtransPromoPromoDetails.m in Sources */,
 				E55F63BD1E934C6400C012C8 /* MidtransObtainedPromo.m in Sources */,
 				E55F63BE1E934C6400C012C8 /* MidtransTransactionTokenResponse.m in Sources */,
+				9A8AD7BA2BA2A16E00781590 /* AnalyticsManager.swift in Sources */,
 				E55F63C11E934C6400C012C8 /* MidtransItemDetail.m in Sources */,
 				E55F63C21E934C6400C012C8 /* MidtransAddress.m in Sources */,
 				E55F63C31E934C6400C012C8 /* MidtransCustomerDetails.m in Sources */,
@@ -1497,9 +1719,13 @@
 				E55F63CF1E934C6400C012C8 /* MidtransPaymentCIMBClicks.m in Sources */,
 				E55F63D01E934C6400C012C8 /* MidtransTransaction.m in Sources */,
 				E55F63D11E934C6400C012C8 /* MidtransTransactionDetails.m in Sources */,
+				9A8AD7AB2BA2A16E00781590 /* ChargeResponse.pb.swift in Sources */,
 				E55F63D21E934C6400C012C8 /* MidtransTokenizeRequest.m in Sources */,
 				ECB0213C221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */,
+				9A8AD7B82BA2A16E00781590 /* Merchant.pb.swift in Sources */,
+				9A8AD7AA2BA2A16E00781590 /* Payment.pb.swift in Sources */,
 				DDA6BF7A27FA9B0500296359 /* MIDExbinData.m in Sources */,
+				9A8AD7B62BA2A16E00781590 /* PageDetail.pb.swift in Sources */,
 				0C1B35D31ED6B106003F6806 /* SNPFreeTextPayment.m in Sources */,
 				E55F63D31E934C6400C012C8 /* MidtransPaymentKlikBCA.m in Sources */,
 				E55F63D41E934C6400C012C8 /* MidtransPaymentTelkomselCash.m in Sources */,
@@ -1509,11 +1735,15 @@
 				E55F63D71E934C6400C012C8 /* MidtransPaymentKiosOn.m in Sources */,
 				DD1F2A52218AD29100D73039 /* MIDUrlHandler.m in Sources */,
 				E55F63D81E934C6400C012C8 /* MIdtransPaymentGCI.m in Sources */,
+				9A8AD7B42BA2A16E00781590 /* GopayTokenizationResponse.pb.swift in Sources */,
 				0C313E1E1FCD2C5A0074366F /* MidtransPaymentGOPAY.m in Sources */,
 				E5711FF41E9379950064F515 /* SNPPointResponse.m in Sources */,
+				9A8AD7AF2BA2A16E00781590 /* GopayTokenization.pb.swift in Sources */,
 				E55F63D91E934C6400C012C8 /* MidtransMerchantClient.m in Sources */,
 				E57120001E937A030064F515 /* MidtransTransactionExpire.m in Sources */,
 				E55F63DA1E934C6400C012C8 /* MidtransClient.m in Sources */,
+				9A8AD7B32BA2A16E00781590 /* Exchange.pb.swift in Sources */,
+				9A8AD7A72BA2A16E00781590 /* ProductCommons.swift in Sources */,
 				E55F63DB1E934C6400C012C8 /* MidtransPromoEngine.m in Sources */,
 				0C1B35CF1ED6B106003F6806 /* SNPFreeTextFreeText.m in Sources */,
 				DDBC2FBB2537C0EB002FCD06 /* MidtransPaymentShopeePay.m in Sources */,
@@ -1632,7 +1862,9 @@
 		};
 		3D8584802111C52500899462 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1656,7 +1888,9 @@
 		};
 		3D8584812111C52500899462 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 520F8AFE1E6B61C53A137568 /* Pods-MidtransCoreKit-MidtransCoreKitTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1680,6 +1914,7 @@
 		};
 		E5711F5B1E93789C0064F515 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1705,6 +1940,7 @@
 		};
 		E5711F5C1E93789C0064F515 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FB53B4963F6F4557E601F428 /* Pods-MidtransCoreKitStatic.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -1730,9 +1966,11 @@
 		};
 		E5CDEC901E9340CA0032DC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 21789F5997938CA7EF0C850A /* Pods-MidtransCoreKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1748,7 +1986,7 @@
 				);
 				INFOPLIST_FILE = MidtransCoreKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1758,6 +1996,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -1766,9 +2006,11 @@
 		};
 		E5CDEC911E9340CA0032DC3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69234A8803E0B3AC3648FDEA /* Pods-MidtransCoreKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -1784,7 +2026,7 @@
 				);
 				INFOPLIST_FILE = MidtransCoreKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1794,6 +2036,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";

@@ -24,8 +24,6 @@
 		162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */; };
 		DD64CE3025382F6A0069F4B4 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */; };
 		DD64CE3125382F6A0069F4B4 /* MidtransCoreKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		DD64CE3325382F6B0069F4B4 /* MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDACCED6220BEB27007503EC /* MidtransKit.framework */; };
-		DD64CE3425382F6B0069F4B4 /* MidtransKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDACCED6220BEB27007503EC /* MidtransKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DD79467F27A1585600A68A62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79467E27A1585600A68A62 /* AppDelegate.swift */; };
 		DD79468127A1585600A68A62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79468027A1585600A68A62 /* SceneDelegate.swift */; };
 		DD79468327A1585700A68A62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79468227A1585600A68A62 /* ViewController.swift */; };
@@ -80,34 +78,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DDACCED5220BEB27007503EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E5CDEC971E9340E80032DC3B;
-			remoteInfo = MidtransKit;
-		};
-		DDACCED7220BEB27007503EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E57120961E937B140064F515;
-			remoteInfo = MidtransKitStatic;
-		};
-		DDACCED9220BEB27007503EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E57123F41E9380E80064F515;
-			remoteInfo = MidtransKitResources;
-		};
-		DDACCEDB220BEB27007503EC /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D8AE6B121107F0C00C8D41B;
-			remoteInfo = MidtransKitTests;
-		};
 		E5C7516B1E8B912F001F47D9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = E56436EA1E83A72F008726D0 /* Project object */;
@@ -125,7 +95,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				DD64CE3125382F6A0069F4B4 /* MidtransCoreKit.framework in Embed Frameworks */,
-				DD64CE3425382F6B0069F4B4 /* MidtransKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,7 +145,6 @@
 		DD79468727A1585900A68A62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD79468A27A1585900A68A62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DD79468C27A1585900A68A62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransKit.xcodeproj; path = ../MidtransKit/MidtransKit.xcodeproj; sourceTree = "<group>"; };
 		DDB1F6FB252F338400379F50 /* MidtransDemoAppConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MidtransDemoAppConfig.h; sourceTree = "<group>"; };
 		DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MidtransCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E529544B1EBAF8E60076BEC8 /* MDAlertViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDAlertViewController.h; sourceTree = "<group>"; };
@@ -265,7 +233,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD64CE3025382F6A0069F4B4 /* MidtransCoreKit.framework in Frameworks */,
-				DD64CE3325382F6B0069F4B4 /* MidtransKit.framework in Frameworks */,
 				162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -315,17 +282,6 @@
 			path = CoreKitDemo;
 			sourceTree = "<group>";
 		};
-		DDACCECE220BEB26007503EC /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				DDACCED6220BEB27007503EC /* MidtransKit.framework */,
-				DDACCED8220BEB27007503EC /* libMidtransKitStatic.a */,
-				DDACCEDA220BEB27007503EC /* MidtransKit.bundle */,
-				DDACCEDC220BEB27007503EC /* MidtransKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E52954521EBB00EC0076BEC8 /* alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -348,7 +304,6 @@
 		E56436E91E83A72F008726D0 = {
 			isa = PBXGroup;
 			children = (
-				DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */,
 				E56436F41E83A72F008726D0 /* MidtransDemo */,
 				E5C751671E8B912F001F47D9 /* MidtransDemoUITests */,
 				DD79467D27A1585600A68A62 /* CoreKitDemo */,
@@ -629,12 +584,6 @@
 			mainGroup = E56436E91E83A72F008726D0;
 			productRefGroup = E56436F31E83A72F008726D0 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = DDACCECE220BEB26007503EC /* Products */;
-					ProjectRef = DDACCECD220BEB26007503EC /* MidtransKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E56436F11E83A72F008726D0 /* MidtransDemo */,
@@ -643,37 +592,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		DDACCED6220BEB27007503EC /* MidtransKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MidtransKit.framework;
-			remoteRef = DDACCED5220BEB27007503EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DDACCED8220BEB27007503EC /* libMidtransKitStatic.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMidtransKitStatic.a;
-			remoteRef = DDACCED7220BEB27007503EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DDACCEDA220BEB27007503EC /* MidtransKit.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MidtransKit.bundle;
-			remoteRef = DDACCED9220BEB27007503EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		DDACCEDC220BEB27007503EC /* MidtransKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MidtransKitTests.xctest;
-			remoteRef = DDACCEDB220BEB27007503EC /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		DD79467A27A1585600A68A62 /* Resources */ = {
@@ -752,16 +670,18 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/BKMoneyKit/BKMoneyKit.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/MidtransKit/MidtransKit.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BKMoneyKit.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MidtransKit.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1048,6 +968,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MidtransDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1070,6 +991,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = MidtransDemo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

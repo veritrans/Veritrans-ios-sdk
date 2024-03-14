@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		03272490F3C1401368E812BC /* Pods_MidtransKitResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E461A9C58DC446380D77EF9C /* Pods_MidtransKitResources.framework */; };
 		0C108A041EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 0C108A021EEE368F00843A05 /* SNPPostPaymentGeneralHeader.h */; };
 		0C108A051EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A031EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m */; };
 		0C108A061EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C108A031EEE368F00843A05 /* SNPPostPaymentGeneralHeader.m */; };
@@ -185,9 +186,9 @@
 		0CC900421F7028C30058E93C /* en_virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC9003F1F7028C00058E93C /* en_virtualAccount.plist */; };
 		0CC900431F7028C50058E93C /* id_virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900401F7028C00058E93C /* id_virtualAccount.plist */; };
 		0CC900441F7028C60058E93C /* id_virtualAccount.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900401F7028C00058E93C /* id_virtualAccount.plist */; };
-		0CC900451F702A250058E93C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		0CC900461F702A290058E93C /* (null) in Resources */ = {isa = PBXBuildFile; };
-		0CC900471F702A330058E93C /* (null) in Resources */ = {isa = PBXBuildFile; };
+		0CC900451F702A250058E93C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		0CC900461F702A290058E93C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		0CC900471F702A330058E93C /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		0CC9004A1F702ADF0058E93C /* en_echannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900491F702ADD0058E93C /* en_echannel.plist */; };
 		0CC9004B1F702AE00058E93C /* en_echannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900491F702ADD0058E93C /* en_echannel.plist */; };
 		0CC9004C1F702AE40058E93C /* id_echannel.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0CC900481F702ADC0058E93C /* id_echannel.plist */; };
@@ -310,6 +311,7 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
+		1057EBF5D0C2441EB49F1B39 /* Pods_MidtransKitStatic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5159A3ACA3061C99B0921B68 /* Pods_MidtransKitStatic.framework */; };
 		3D0E6C341FB95C6100E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
 		3D0E6C351FB95C6300E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
 		3D36593620B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */; };
@@ -401,6 +403,8 @@
 		3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE31F9DAE610001AC9A /* see@2x.png */; };
 		3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
 		3DECDFF61F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
+		80DE8C70B875F7EF542464C8 /* Pods_MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097B86EE9DBA63FB1DBA8A3 /* Pods_MidtransKit.framework */; };
+		B6E204CC0DE7E1F40ACFC9FB /* Pods_MidtransKit_MidtransKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8838322677079FAC9F342FDA /* Pods_MidtransKit_MidtransKitTests.framework */; };
 		DD152D542637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
 		DD152D552637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
 		DD152D562637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */; };
@@ -1273,7 +1277,6 @@
 		E58FCE951E94CFD600632085 /* VisaDark@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD861E94CFD500632085 /* VisaDark@2x.png */; };
 		E58FCE961E94CFD600632085 /* xl_tunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD871E94CFD500632085 /* xl_tunai@2x.png */; };
 		E58FCE971E94CFD600632085 /* xl_tunai@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E58FCD871E94CFD500632085 /* xl_tunai@2x.png */; };
-		E58FCEA11E94D07900632085 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */; };
 		E5BAD2CE1E9354D10059B771 /* IHKeyboardAvoiding_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BAD2C81E9354D10059B771 /* IHKeyboardAvoiding_vt.h */; };
 		E5BAD2CF1E9354D10059B771 /* IHKeyboardAvoiding_vt.m in Sources */ = {isa = PBXBuildFile; fileRef = E5BAD2C91E9354D10059B771 /* IHKeyboardAvoiding_vt.m */; };
 		E5BAD2D01E9354D10059B771 /* MBXPageViewController_vt.h in Headers */ = {isa = PBXBuildFile; fileRef = E5BAD2CA1E9354D10059B771 /* MBXPageViewController_vt.h */; };
@@ -1395,27 +1398,6 @@
 			remoteGlobalIDString = E5CDEC961E9340E80032DC3B;
 			remoteInfo = MidtransKit;
 		};
-		E55E2A3E21816ED400225869 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 3D8584782111C52500899462;
-			remoteInfo = MidtransCoreKitTests;
-		};
-		E58FCE9D1E94D06900632085 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E5CDEC8A1E9340CA0032DC3B;
-			remoteInfo = MidtransCoreKit;
-		};
-		E58FCE9F1E94D06900632085 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = E5711F551E93789C0064F515;
-			remoteInfo = MidtransCoreKitStatic;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1451,6 +1433,7 @@
 		00F61B1E1D1481FD00C93DA0 /* MidtransUIPaymentDirectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUIPaymentDirectViewController.m; path = classes/MidtransUIPaymentDirectViewController.m; sourceTree = "<group>"; };
 		00F61B241D14825100C93DA0 /* MidtransUIPaymentDirectView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIPaymentDirectView.h; path = classes/MidtransUIPaymentDirectView.h; sourceTree = "<group>"; };
 		00F61B251D14825100C93DA0 /* MidtransUIPaymentDirectView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransUIPaymentDirectView.m; path = classes/MidtransUIPaymentDirectView.m; sourceTree = "<group>"; };
+		069E6B03D82A6A204F0BE7DF /* Pods-MidtransKit-MidtransKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit-MidtransKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MidtransKit-MidtransKitTests/Pods-MidtransKit-MidtransKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		0C0EADC01E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransCreditCardAddOnComponentCell.h; path = classes/MidtransCreditCardAddOnComponentCell.h; sourceTree = "<group>"; };
 		0C0EADC11E3712E4002C0400 /* MidtransCreditCardAddOnComponentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidtransCreditCardAddOnComponentCell.m; path = classes/MidtransCreditCardAddOnComponentCell.m; sourceTree = "<group>"; };
 		0C0EADD01E3787EE002C0400 /* AddOnConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AddOnConstructor.h; path = classes/AddOnConstructor.h; sourceTree = "<group>"; };
@@ -1643,6 +1626,7 @@
 		0CF74F231E6E847B006C0393 /* SNPPointViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPointViewController.m; path = classes/SNPPointViewController.m; sourceTree = "<group>"; };
 		0CF74F271E6E8531006C0393 /* SNPPointView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SNPPointView.h; path = classes/SNPPointView.h; sourceTree = "<group>"; };
 		0CF74F281E6E8531006C0393 /* SNPPointView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SNPPointView.m; path = classes/SNPPointView.m; sourceTree = "<group>"; };
+		2C287A83611631D14D2A20D6 /* Pods-MidtransKit-MidtransKitTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit-MidtransKitTests.release.xcconfig"; path = "Target Support Files/Pods-MidtransKit-MidtransKitTests/Pods-MidtransKit-MidtransKitTests.release.xcconfig"; sourceTree = "<group>"; };
 		3005E2A61C7C239A00064169 /* VTClassHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTClassHelper.h; path = classes/VTClassHelper.h; sourceTree = "<group>"; };
 		3005E2A71C7C239A00064169 /* VTClassHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTClassHelper.m; path = classes/VTClassHelper.m; sourceTree = "<group>"; };
 		300F5CA41C7C0EB200DA6E13 /* VTCardListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTCardListController.h; path = classes/VTCardListController.h; sourceTree = "<group>"; };
@@ -1677,6 +1661,7 @@
 		30E879861C88EDE1000C0F4B /* VTTwoClickController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTTwoClickController.m; path = classes/VTTwoClickController.m; sourceTree = "<group>"; };
 		30FC52B91C7D65880094F837 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+TextDirectionality.h"; path = "MidtransKit/classes/NSString+TextDirectionality.h"; sourceTree = SOURCE_ROOT; };
 		30FC52BA1C7D65880094F837 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+TextDirectionality.m"; path = "MidtransKit/classes/NSString+TextDirectionality.m"; sourceTree = SOURCE_ROOT; };
+		39A749453799573EBA9952C4 /* Pods-MidtransKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.debug.xcconfig"; path = "Target Support Files/Pods-MidtransKit/Pods-MidtransKit.debug.xcconfig"; sourceTree = "<group>"; };
 		3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDDanamonOnlineViewController.h; path = classes/MIDDanamonOnlineViewController.h; sourceTree = "<group>"; };
 		3D36593420B5258F00C07158 /* MIDDanamonOnlineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MIDDanamonOnlineViewController.m; path = classes/MIDDanamonOnlineViewController.m; sourceTree = "<group>"; };
 		3D36594020B67F6600C07158 /* MIDPaymentIndomaretViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MIDPaymentIndomaretViewController.h; path = classes/MIDPaymentIndomaretViewController.h; sourceTree = "<group>"; };
@@ -1723,6 +1708,14 @@
 		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = see.png; path = resources/see.png; sourceTree = "<group>"; };
 		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@2x.png"; path = "resources/see@2x.png"; sourceTree = "<group>"; };
 		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@3x.png"; path = "resources/see@3x.png"; sourceTree = "<group>"; };
+		4C19CCFE8359815A5C8BADAB /* Pods-MidtransKitResources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitResources.debug.xcconfig"; path = "Target Support Files/Pods-MidtransKitResources/Pods-MidtransKitResources.debug.xcconfig"; sourceTree = "<group>"; };
+		5159A3ACA3061C99B0921B68 /* Pods_MidtransKitStatic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKitStatic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		69EDC90FEC32014BABE5152E /* Pods-MidtransKitStatic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitStatic.release.xcconfig"; path = "Target Support Files/Pods-MidtransKitStatic/Pods-MidtransKitStatic.release.xcconfig"; sourceTree = "<group>"; };
+		7A666B7FE9F4AA4D070CD8BB /* Pods-MidtransKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.release.xcconfig"; path = "Target Support Files/Pods-MidtransKit/Pods-MidtransKit.release.xcconfig"; sourceTree = "<group>"; };
+		8838322677079FAC9F342FDA /* Pods_MidtransKit_MidtransKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKit_MidtransKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9097B86EE9DBA63FB1DBA8A3 /* Pods_MidtransKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D7F8CBAC12DEDA9DBD80ED26 /* Pods-MidtransKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransKitStatic/Pods-MidtransKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
+		DAC03449F556E17EE7E629DA /* Pods-MidtransKitResources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitResources.release.xcconfig"; path = "Target Support Files/Pods-MidtransKitResources/Pods-MidtransKitResources.release.xcconfig"; sourceTree = "<group>"; };
 		DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_uob_ezpay_web.plist; path = MidtransKit/resources/en_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
 		DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_uob_ezpay_web.plist; path = MidtransKit/resources/id_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
 		DD2A919A22CC85A70081562A /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@2x.png"; path = "resources/alfamidi@2x.png"; sourceTree = "<group>"; };
@@ -1800,6 +1793,7 @@
 		DDE86E502975FBEF0084FC2F /* qrisgopay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisgopay@1x.png"; path = "resources/qrisgopay@1x.png"; sourceTree = "<group>"; };
 		DDE86E542975FBEF0084FC2F /* qrisgopay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisgopay@2x.png"; path = "resources/qrisgopay@2x.png"; sourceTree = "<group>"; };
 		DDE86E552975FBEF0084FC2F /* qrisgopay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisgopay@3x.png"; path = "resources/qrisgopay@3x.png"; sourceTree = "<group>"; };
+		E461A9C58DC446380D77EF9C /* Pods_MidtransKitResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKitResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E503AECB1C8E889C00F097FF /* VTVAListController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVAListController.h; path = classes/VTVAListController.h; sourceTree = "<group>"; };
 		E503AECC1C8E889C00F097FF /* VTVAListController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVAListController.m; path = classes/VTVAListController.m; sourceTree = "<group>"; };
 		E503AED51C8E8AF800F097FF /* MidtransUIListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransUIListCell.h; path = classes/MidtransUIListCell.h; sourceTree = "<group>"; };
@@ -2044,7 +2038,6 @@
 		E58FCD851E94CFD500632085 /* Visa@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Visa@2x.png"; path = "MidtransKit/resources/Visa@2x.png"; sourceTree = SOURCE_ROOT; };
 		E58FCD861E94CFD500632085 /* VisaDark@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "VisaDark@2x.png"; path = "MidtransKit/resources/VisaDark@2x.png"; sourceTree = SOURCE_ROOT; };
 		E58FCD871E94CFD500632085 /* xl_tunai@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "xl_tunai@2x.png"; path = "MidtransKit/resources/xl_tunai@2x.png"; sourceTree = SOURCE_ROOT; };
-		E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = MidtransCoreKit.xcodeproj; path = ../MidtransCoreKit/MidtransCoreKit.xcodeproj; sourceTree = "<group>"; };
 		E5A35F9E1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VTVATransactionStatusViewModel.h; path = classes/VTVATransactionStatusViewModel.h; sourceTree = "<group>"; };
 		E5A35F9F1D225A9D006D7AF4 /* VTVATransactionStatusViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VTVATransactionStatusViewModel.m; path = classes/VTVATransactionStatusViewModel.m; sourceTree = "<group>"; };
 		E5AA78AD1E657EF2007D8022 /* MidtransVAViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidtransVAViewController.h; path = classes/MidtransVAViewController.h; sourceTree = "<group>"; };
@@ -2168,6 +2161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8AE6B621107F0C00C8D41B /* MidtransKit.framework in Frameworks */,
+				B6E204CC0DE7E1F40ACFC9FB /* Pods_MidtransKit_MidtransKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2176,6 +2170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E57123131E937E860064F515 /* libMidtransCoreKit.a in Frameworks */,
+				1057EBF5D0C2441EB49F1B39 /* Pods_MidtransKitStatic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2183,6 +2178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				03272490F3C1401368E812BC /* Pods_MidtransKitResources.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2190,7 +2186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E58FCEA11E94D07900632085 /* MidtransCoreKit.framework in Frameworks */,
+				80DE8C70B875F7EF542464C8 /* Pods_MidtransKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2445,12 +2441,12 @@
 		305494121C759EDF00938C17 = {
 			isa = PBXGroup;
 			children = (
-				E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */,
 				E5CDEC981E9340E80032DC3B /* MidtransKit */,
 				E57123F51E9380E80064F515 /* MidtransKitResources */,
 				3D8AE6B221107F0C00C8D41B /* MidtransKitTests */,
 				3054941C1C759EDF00938C17 /* Products */,
 				305494991C75A4E700938C17 /* Frameworks */,
+				F02079EA4B9B6A2F4AA20289 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2484,6 +2480,10 @@
 				E529405D1CFEC639000180D3 /* AVFoundation.framework */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
+				9097B86EE9DBA63FB1DBA8A3 /* Pods_MidtransKit.framework */,
+				8838322677079FAC9F342FDA /* Pods_MidtransKit_MidtransKitTests.framework */,
+				E461A9C58DC446380D77EF9C /* Pods_MidtransKitResources.framework */,
+				5159A3ACA3061C99B0921B68 /* Pods_MidtransKitStatic.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3243,16 +3243,6 @@
 			name = Status;
 			sourceTree = "<group>";
 		};
-		E58FCE991E94D06900632085 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */,
-				E58FCEA01E94D06900632085 /* libMidtransCoreKit.a */,
-				E55E2A3F21816ED400225869 /* MidtransCoreKitTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		E5CDEC981E9340E80032DC3B /* MidtransKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -3280,6 +3270,21 @@
 				ECB021B6221D25960037C0E1 /* MIDAlfamartPostPaymentView.m */,
 			);
 			name = Alfa;
+			sourceTree = "<group>";
+		};
+		F02079EA4B9B6A2F4AA20289 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				39A749453799573EBA9952C4 /* Pods-MidtransKit.debug.xcconfig */,
+				7A666B7FE9F4AA4D070CD8BB /* Pods-MidtransKit.release.xcconfig */,
+				069E6B03D82A6A204F0BE7DF /* Pods-MidtransKit-MidtransKitTests.debug.xcconfig */,
+				2C287A83611631D14D2A20D6 /* Pods-MidtransKit-MidtransKitTests.release.xcconfig */,
+				4C19CCFE8359815A5C8BADAB /* Pods-MidtransKitResources.debug.xcconfig */,
+				DAC03449F556E17EE7E629DA /* Pods-MidtransKitResources.release.xcconfig */,
+				D7F8CBAC12DEDA9DBD80ED26 /* Pods-MidtransKitStatic.debug.xcconfig */,
+				69EDC90FEC32014BABE5152E /* Pods-MidtransKitStatic.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -3547,9 +3552,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3D8AE6BD21107F0C00C8D41B /* Build configuration list for PBXNativeTarget "MidtransKitTests" */;
 			buildPhases = (
+				98125FFD0300338B7F3E624E /* [CP] Check Pods Manifest.lock */,
 				3D8AE6AD21107F0C00C8D41B /* Sources */,
 				3D8AE6AE21107F0C00C8D41B /* Frameworks */,
 				3D8AE6AF21107F0C00C8D41B /* Resources */,
+				DC6AC9F3820586C39A62CD0B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -3565,6 +3572,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E571209E1E937B140064F515 /* Build configuration list for PBXNativeTarget "MidtransKitStatic" */;
 			buildPhases = (
+				DCFF0965A4BDE448EB6CEB2F /* [CP] Check Pods Manifest.lock */,
 				E57120921E937B140064F515 /* Sources */,
 				E57120931E937B140064F515 /* Frameworks */,
 				E57120941E937B140064F515 /* CopyFiles */,
@@ -3583,6 +3591,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E57123F71E9380E80064F515 /* Build configuration list for PBXNativeTarget "MidtransKitResources" */;
 			buildPhases = (
+				7BF4B9B07DA79D565CAA21AF /* [CP] Check Pods Manifest.lock */,
 				E57123F01E9380E80064F515 /* Sources */,
 				E57123F11E9380E80064F515 /* Frameworks */,
 				E57123F21E9380E80064F515 /* Resources */,
@@ -3600,6 +3609,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E5CDEC9C1E9340E80032DC3B /* Build configuration list for PBXNativeTarget "MidtransKit" */;
 			buildPhases = (
+				DD958B119A6342E19B25152C /* [CP] Check Pods Manifest.lock */,
 				E5CDEC921E9340E80032DC3B /* Sources */,
 				E5CDEC931E9340E80032DC3B /* Frameworks */,
 				E5CDEC941E9340E80032DC3B /* Headers */,
@@ -3658,12 +3668,6 @@
 			mainGroup = 305494121C759EDF00938C17;
 			productRefGroup = 3054941C1C759EDF00938C17 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = E58FCE991E94D06900632085 /* Products */;
-					ProjectRef = E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				E5CDEC961E9340E80032DC3B /* MidtransKit */,
@@ -3673,30 +3677,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		E55E2A3F21816ED400225869 /* MidtransCoreKitTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = MidtransCoreKitTests.xctest;
-			remoteRef = E55E2A3E21816ED400225869 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E58FCE9E1E94D06900632085 /* MidtransCoreKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = MidtransCoreKit.framework;
-			remoteRef = E58FCE9D1E94D06900632085 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		E58FCEA01E94D06900632085 /* libMidtransCoreKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMidtransCoreKit.a;
-			remoteRef = E58FCE9F1E94D06900632085 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		3D8AE6AF21107F0C00C8D41B /* Resources */ = {
@@ -4299,7 +4279,7 @@
 				ECB02183221A979F0037C0E1 /* dandan.png in Resources */,
 				3D4089371F7512F100B9A2EC /* bersama_preview@2x.png in Resources */,
 				0C9635051FE11A1F00EF89DF /* ic_gopay@3x.png in Resources */,
-				0CC900461F702A290058E93C /* (null) in Resources */,
+				0CC900461F702A290058E93C /* BuildFile in Resources */,
 				E58FCDC61E94CFD500632085 /* cimb.png in Resources */,
 				E58FCDDE1E94CFD500632085 /* echannel@2x.png in Resources */,
 				0C9634FC1FE11A1F00EF89DF /* gopay_scan_qr_instruction@3x.png in Resources */,
@@ -4382,7 +4362,7 @@
 				3D8BF5D51F90BE6800F35C55 /* MidtransUITableAlertViewController.xib in Resources */,
 				E58FCE581E94CFD600632085 /* permata_atm_3@2x.png in Resources */,
 				3DECDFEB1F9DAE610001AC9A /* scan_cam.png in Resources */,
-				0CC900471F702A330058E93C /* (null) in Resources */,
+				0CC900471F702A330058E93C /* BuildFile in Resources */,
 				E5F1BB641E93701100ED659D /* MidtransUICCFrontView.xib in Resources */,
 				E58FCE061E94CFD500632085 /* mandiri_atm_5@2x.png in Resources */,
 				3DECDFF31F9DAE610001AC9A /* see@2x.png in Resources */,
@@ -4572,7 +4552,7 @@
 				E5F1BB831E93701100ED659D /* VTXLTunaiSuccessController.xib in Resources */,
 				ECB0217C221A97590037C0E1 /* alfamart_1@2x.png in Resources */,
 				E57127351E93B3290064F515 /* en_bca_va.plist in Resources */,
-				0CC900451F702A250058E93C /* (null) in Resources */,
+				0CC900451F702A250058E93C /* BuildFile in Resources */,
 				0CCD62552005D0BA006936E5 /* prima_affiliated.png in Resources */,
 				0CCD62432005D0BA006936E5 /* atm_bersama.png in Resources */,
 				E58FCE761E94CFD600632085 /* va@2x.png in Resources */,
@@ -4607,6 +4587,121 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BF4B9B07DA79D565CAA21AF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransKitResources-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98125FFD0300338B7F3E624E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransKit-MidtransKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DC6AC9F3820586C39A62CD0B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MidtransKit-MidtransKitTests/Pods-MidtransKit-MidtransKitTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ClickstreamLib/ClickstreamLib.framework",
+				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ClickstreamLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransKit-MidtransKitTests/Pods-MidtransKit-MidtransKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DCFF0965A4BDE448EB6CEB2F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransKitStatic-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD958B119A6342E19B25152C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransKit-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		3D8AE6AD21107F0C00C8D41B /* Sources */ = {
@@ -5003,6 +5098,7 @@
 		};
 		3D8AE6B921107F0C00C8D41B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 069E6B03D82A6A204F0BE7DF /* Pods-MidtransKit-MidtransKitTests.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5027,6 +5123,7 @@
 		};
 		3D8AE6BA21107F0C00C8D41B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2C287A83611631D14D2A20D6 /* Pods-MidtransKit-MidtransKitTests.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5051,6 +5148,7 @@
 		};
 		E571209C1E937B140064F515 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7F8CBAC12DEDA9DBD80ED26 /* Pods-MidtransKitStatic.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5067,6 +5165,7 @@
 		};
 		E571209D1E937B140064F515 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69EDC90FEC32014BABE5152E /* Pods-MidtransKitStatic.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5083,6 +5182,7 @@
 		};
 		E57123F81E9380E80064F515 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C19CCFE8359815A5C8BADAB /* Pods-MidtransKitResources.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5108,6 +5208,7 @@
 		};
 		E57123F91E9380E80064F515 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAC03449F556E17EE7E629DA /* Pods-MidtransKitResources.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5132,6 +5233,7 @@
 		};
 		E5CDEC9D1E9340E80032DC3B /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39A749453799573EBA9952C4 /* Pods-MidtransKit.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5147,7 +5249,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MidtransKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 1.24.1;
 				ONLY_ACTIVE_ARCH = YES;
@@ -5163,6 +5265,7 @@
 		};
 		E5CDEC9E1E9340E80032DC3B /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7A666B7FE9F4AA4D070CD8BB /* Pods-MidtransKit.release.xcconfig */;
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
@@ -5178,7 +5281,7 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = MidtransKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MARKETING_VERSION = 1.24.1;
 				ONLY_ACTIVE_ARCH = YES;

@@ -99,7 +99,7 @@
 }
 - (void)setClickstreamEventVisualiserOption:(MDOption *)clickstreamEventVisualiserOption {
     _clickstreamEventVisualiserOption = clickstreamEventVisualiserOption;
-    [self archiveObject:clickstreamEventVisualiserOption key:@"md_clickstreamEventVisualiser"];
+//    [self archiveObject:clickstreamEventVisualiserOption key:@"md_clickstreamEventVisualiser"];
 }
 - (void)setPreauthOption:(MDOption *)preauthOption {
     _preauthOption = preauthOption;

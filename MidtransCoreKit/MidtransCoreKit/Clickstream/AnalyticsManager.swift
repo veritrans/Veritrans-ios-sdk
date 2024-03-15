@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import ClickstreamLib
+import Clickstream
 import UIKit
 import SwiftProtobuf
 
@@ -16,6 +16,8 @@ public class AnalyticsManager: NSObject {
     private var clickstream: Clickstream?
     
     @objc public static let shared = AnalyticsManager()
+    
+    static var eventsWindow: EventsTrackerWindow?
         
     private override init() { }
     
@@ -163,4 +165,44 @@ extension AnalyticsManager {
             return [:]
         }
     }
+    
+    @objc public func closeEventVisualizer() {
+            AnalyticsManager.eventsWindow = nil
+            UserDefaults.standard.set(false, forKey: EventStatus.displayStatus.rawValue)
+    }
+    
+    @objc public func openEventVisualizer() {
+        guard AnalyticsManager.eventsWindow == nil else {
+            return
+        }
+        if UserDefaults.standard.object(forKey: EventStatus.displayStatus.rawValue) == nil {
+            UserDefaults.standard.set(true, forKey: EventStatus.displayStatus.rawValue)
+        } else if let state = UserDefaults.standard.object(forKey: EventStatus.displayStatus.rawValue) as? Bool, !state {
+            UserDefaults.standard.set(true, forKey: EventStatus.displayStatus.rawValue)
+        } else {
+            UserDefaults.standard.set(false, forKey: EventStatus.displayStatus.rawValue)
+        }
+        AnalyticsManager.enableEventVisusalizerButton()
+    }
+    
+    @objc static func enableEventVisusalizerButton() {
+        /// Do not initialize EventsVisualizerHomeController if it was initialized before
+        if AnalyticsManager.eventsWindow == nil {
+            AnalyticsManager.eventsWindow = EventsTrackerWindow()
+            
+            let rootVC = EventsVisualizerHomeController()
+            
+            AnalyticsManager.eventsWindow?.rootViewController = rootVC
+            AnalyticsManager.eventsWindow?.delegate = rootVC
+            AnalyticsManager.eventsWindow?.makeKeyAndVisible()
+            AnalyticsManager.eventsWindow?.isOpaque = false
+            AnalyticsManager.eventsWindow?.windowLevel = .statusBar
+            AnalyticsManager.eventsWindow?.backgroundColor = UIColor.white.withAlphaComponent(0.0)
+            AnalyticsManager.eventsWindow?.becomeFirstResponder()
+        }
+    }
+}
+
+enum EventStatus: String {
+    case displayStatus
 }

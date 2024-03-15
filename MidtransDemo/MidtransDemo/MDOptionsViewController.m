@@ -386,8 +386,11 @@
     [MDUtils saveOptionWithView:optionView option:option];
     //TODO: Move this logic
     if ([optionView.identifier isEqualToString:ClickstreamEventVisualiser] && [option.name isEqualToString:@"Enable"]) {
-        [[SNPUITrackingManager shared] openClickstreamEventVisualizer:self];
+        [[SNPUITrackingManager shared] openClickstreamEventVisualizer];
+    } else if ([optionView.identifier isEqualToString:ClickstreamEventVisualiser] && [option.name isEqualToString:@"Disable"]) {
+        [[SNPUITrackingManager shared] closeClickstreamEventVisualizer];
     }
+    
 }
 - (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option {
     [self showAlertAtOptionView:optionView option:option usePredefinedValue:NO];

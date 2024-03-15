@@ -1,4 +1,4 @@
-import ClickstreamLib
+import Clickstream
 import SwiftProtobuf
 // Added to show all timestamps related fields in EventVisualiser details screen.
 extension SwiftProtobuf.Google_Protobuf_Timestamp: CollectionMapper { }

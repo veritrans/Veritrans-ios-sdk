@@ -80,6 +80,7 @@
 		9A8AD7BA2BA2A16E00781590 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */; };
 		9A8AD7C02BA2ACF900781590 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */; };
 		9A8AD7C42BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */; };
+		9ADB73FC2BA4E133006B2B95 /* EventsVisualizerHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADB73FB2BA4E133006B2B95 /* EventsVisualizerHomeController.swift */; };
 		DD1F2A50218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A51218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A52218AD29100D73039 /* MIDUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F2A4F218AD29100D73039 /* MIDUrlHandler.m */; };
@@ -523,6 +524,7 @@
 		9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/swift/libswift_Concurrency.tbd; sourceTree = DEVELOPER_DIR; };
 		9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventVisualizer+ClickStreamContracts.swift"; sourceTree = "<group>"; };
+		9ADB73FB2BA4E133006B2B95 /* EventsVisualizerHomeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsVisualizerHomeController.swift; sourceTree = "<group>"; };
 		B375992F623841E1D07B36BB /* libPods-MidtransCoreKit-MidtransCoreKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransCoreKit-MidtransCoreKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
@@ -1034,6 +1036,7 @@
 		9A8AD78F2BA2A12900781590 /* Clickstream */ = {
 			isa = PBXGroup;
 			children = (
+				9ADB73FB2BA4E133006B2B95 /* EventsVisualizerHomeController.swift */,
 				9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */,
 				9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */,
 				9A8AD7902BA2A16E00781590 /* ContractsFactory.swift */,
@@ -1704,6 +1707,7 @@
 				9A8AD7AB2BA2A16E00781590 /* ChargeResponse.pb.swift in Sources */,
 				E55F63D21E934C6400C012C8 /* MidtransTokenizeRequest.m in Sources */,
 				ECB0213C221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */,
+				9ADB73FC2BA4E133006B2B95 /* EventsVisualizerHomeController.swift in Sources */,
 				9A8AD7B82BA2A16E00781590 /* Merchant.pb.swift in Sources */,
 				9A8AD7AA2BA2A16E00781590 /* Payment.pb.swift in Sources */,
 				DDA6BF7A27FA9B0500296359 /* MIDExbinData.m in Sources */,

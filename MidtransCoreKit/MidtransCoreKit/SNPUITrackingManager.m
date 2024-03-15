@@ -89,7 +89,6 @@
                             @"properties":parameters};
     [self sendTrackingData:event];
     [[AnalyticsManager shared] trackEventWithEventName:eventName properties:parameters];
-    [[AnalyticsManager shared] openEventVisualizerOnController:self];
 }
 - (void)sendTrackingData:(NSDictionary *)dictionary {
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
@@ -99,7 +98,10 @@
     [[MidtransNetworking shared] getFromURL:URL parameters:parameter callback:nil];
     
 }
-- (void)openClickstreamEventVisualizer:(UIViewController *)viewController {
-    [[AnalyticsManager shared] openEventVisualizerOnController:viewController];
+- (void)openClickstreamEventVisualizer {
+    [[AnalyticsManager shared] openEventVisualizer];
+}
+- (void)closeClickstreamEventVisualizer {
+    [[AnalyticsManager shared] closeEventVisualizer];
 }
 @end

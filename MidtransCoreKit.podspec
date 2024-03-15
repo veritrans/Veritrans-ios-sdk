@@ -12,6 +12,6 @@ s.swift_version    = '5.0'
 s.requires_arc = true
 s.source_files = 'MidtransCoreKit/MidtransCoreKit/**/*.{h,m}', 'MidtransCoreKit/MidtransCoreKit/**/*.swift'
 s.frameworks    = 'UIKit', 'Foundation'
-s.dependency 'ClickstreamLib', '2.0.21'
+s.dependency 'Clickstream', '~> 2.0.23'
 s.static_framework = true
 end

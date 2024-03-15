@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <UIKit/UIKit.h>
 @interface SNPUITrackingManager : NSObject
 + (SNPUITrackingManager *)shared;
 - (void)trackEventName:(NSString *)eventName;

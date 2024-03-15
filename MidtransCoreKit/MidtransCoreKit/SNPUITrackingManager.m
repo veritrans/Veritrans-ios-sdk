@@ -14,11 +14,8 @@
 #import "MidtransDeviceHelper.h"
 #import "MidtransHelper.h"
 
-// Use below import for running MidtransCoreKit app
-//#import <MidtransCoreKit/MidtransCoreKit-Swift.h>
+#import <MidtransCoreKit/MidtransCoreKit-Swift.h>
 
-// Use below import for running MidtransDemo app
-#import <MidtransCoreKit-Swift.h>
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 
 @implementation NSDictionary (SNPUITrackingManager)

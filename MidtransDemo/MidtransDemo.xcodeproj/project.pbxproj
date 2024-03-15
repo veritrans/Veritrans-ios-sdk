@@ -21,8 +21,8 @@
 		0CE373AF1EC064C2000C80A9 /* MDProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A41EC064C2000C80A9 /* MDProfileViewController.xib */; };
 		0CE373B01EC064C2000C80A9 /* MDSaveCardFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CE373A61EC064C2000C80A9 /* MDSaveCardFooter.m */; };
 		0CE373B11EC064C2000C80A9 /* MDSaveCardFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CE373A71EC064C2000C80A9 /* MDSaveCardFooter.xib */; };
-		162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */; settings = {ATTRIBUTES = (Required, ); }; };
 		9A8AD7BE2BA2AC5200781590 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8AD7BD2BA2AC5200781590 /* libswift_Concurrency.tbd */; settings = {ATTRIBUTES = (Weak, ); }; };
+		DA518A0E7533D8FA1DCB481E /* Pods_MidtransDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FBDE2B63E323F814857CAF50 /* Pods_MidtransDemo.framework */; };
 		DD79467F27A1585600A68A62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79467E27A1585600A68A62 /* AppDelegate.swift */; };
 		DD79468127A1585600A68A62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79468027A1585600A68A62 /* SceneDelegate.swift */; };
 		DD79468327A1585700A68A62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79468227A1585600A68A62 /* ViewController.swift */; };
@@ -204,8 +204,8 @@
 		E5D7FEDE1E83D81E0086A8A4 /* SourceSansPro-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSansPro-Light.ttf"; sourceTree = "<group>"; };
 		E5D7FEE11E83D8F10086A8A4 /* MDUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDUtils.h; sourceTree = "<group>"; };
 		E5D7FEE21E83D8F10086A8A4 /* MDUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDUtils.m; sourceTree = "<group>"; };
-		F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F724BE8B0AB574A14BDDE958 /* Pods-MidtransDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo.release.xcconfig"; sourceTree = "<group>"; };
+		FBDE2B63E323F814857CAF50 /* Pods_MidtransDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +222,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8AD7BE2BA2AC5200781590 /* libswift_Concurrency.tbd in Frameworks */,
-				162A6491B8EA7B2111D0EE8B /* libPods-MidtransDemo.a in Frameworks */,
+				DA518A0E7533D8FA1DCB481E /* Pods_MidtransDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,8 +469,8 @@
 				9A8AD7BD2BA2AC5200781590 /* libswift_Concurrency.tbd */,
 				DDB4234D27A2801F002B7383 /* MidtransCoreKit.framework */,
 				DD64CE2B25382F360069F4B4 /* MidtransCoreKit.framework */,
-				F475184464CE4B41C821F095 /* libPods-MidtransDemo.a */,
 				C9F2FB9DC837424A9DE9E4EF /* libPods-MidtransDemoUITests.a */,
+				FBDE2B63E323F814857CAF50 /* Pods_MidtransDemo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -505,6 +505,7 @@
 				E56436EF1E83A72F008726D0 /* Frameworks */,
 				E56436F01E83A72F008726D0 /* Resources */,
 				EC135A9896725303FB9B255A /* [CP] Copy Pods Resources */,
+				80A361BF4F62683BDB2A7713 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -635,6 +636,40 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		80A361BF4F62683BDB2A7713 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ACFloatingTextfield-Objc/ACFloatingTextfield_Objc.framework",
+				"${BUILT_PRODUCTS_DIR}/BKMoneyKit/BKMoneyKit.framework",
+				"${BUILT_PRODUCTS_DIR}/CHRTextFieldFormatter/CHRTextFieldFormatter.framework",
+				"${BUILT_PRODUCTS_DIR}/ClickstreamLib/ClickstreamLib.framework",
+				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ACFloatingTextfield_Objc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BKMoneyKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHRTextFieldFormatter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ClickstreamLib.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JGProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CEDED3EB7D698C258676F030 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -660,12 +695,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-MidtransDemo/Pods-MidtransDemo-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/BKMoneyKit/BKMoneyKit.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/MidtransKit/MidtransKit.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/BKMoneyKit.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MidtransKit.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -964,31 +997,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
+					"\"-ld_classic\"",
 					"$(inherited)",
-					"-ObjC",
-					"-l\"ACFloatingTextfield-Objc\"",
-					"-l\"BKMoneyKit\"",
-					"-l\"CHRTextFieldFormatter\"",
-					"-l\"ClickstreamLib\"",
-					"-l\"GRDB.swift\"",
-					"-l\"IQKeyboardManager\"",
-					"-l\"JGProgressHUD\"",
-					"-l\"MidtransKit\"",
-					"-l\"ReachabilitySwift\"",
-					"-l\"SwiftProtobuf\"",
-					"-l\"sqlite3\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1018,31 +1028,8 @@
 					"$(SDKROOT)/usr/lib/swift",
 				);
 				OTHER_LDFLAGS = (
+					"\"-ld_classic\"",
 					"$(inherited)",
-					"-ObjC",
-					"-l\"ACFloatingTextfield-Objc\"",
-					"-l\"BKMoneyKit\"",
-					"-l\"CHRTextFieldFormatter\"",
-					"-l\"ClickstreamLib\"",
-					"-l\"GRDB.swift\"",
-					"-l\"IQKeyboardManager\"",
-					"-l\"JGProgressHUD\"",
-					"-l\"MidtransKit\"",
-					"-l\"ReachabilitySwift\"",
-					"-l\"SwiftProtobuf\"",
-					"-l\"sqlite3\"",
-					"-framework",
-					"\"CoreGraphics\"",
-					"-framework",
-					"\"CoreTelephony\"",
-					"-framework",
-					"\"Foundation\"",
-					"-framework",
-					"\"QuartzCore\"",
-					"-framework",
-					"\"SystemConfiguration\"",
-					"-framework",
-					"\"UIKit\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.demo;
 				PRODUCT_NAME = "$(TARGET_NAME)";

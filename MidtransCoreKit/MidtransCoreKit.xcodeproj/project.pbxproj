@@ -54,9 +54,9 @@
 		0CB8B7C7206B55C10067A0B8 /* MidtransPromoPromoDetails.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7B9206B558D0067A0B8 /* MidtransPromoPromoDetails.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CB8B7C8206B55C10067A0B8 /* MidtransPromoPromos.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7BB206B558D0067A0B8 /* MidtransPromoPromos.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0CB8B7C9206B55C10067A0B8 /* MidtransPromoResponse.h in Headers */ = {isa = PBXBuildFile; fileRef = 0CB8B7BD206B558D0067A0B8 /* MidtransPromoResponse.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1C26F60B16CF8A8ED77924D5 /* libPods-MidtransCoreKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2F6C14362AA7A86BC7ED056A /* libPods-MidtransCoreKit.a */; };
 		202A3CF71967E6912568A39C /* Pods_MidtransCoreKitStatic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF119750F0998DB7FC3D665C /* Pods_MidtransCoreKitStatic.framework */; };
 		3D85847D2111C52500899462 /* MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5CDEC8A1E9340CA0032DC3B /* MidtransCoreKit.framework */; };
-		829CEBCC74D75F5E84623421 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */; };
 		9A8AD7A62BA2A16E00781590 /* ContractsFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7902BA2A16E00781590 /* ContractsFactory.swift */; };
 		9A8AD7A72BA2A16E00781590 /* ProductCommons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7912BA2A16E00781590 /* ProductCommons.swift */; };
 		9A8AD7A82BA2A16E00781590 /* ChargeParams.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7932BA2A16E00781590 /* ChargeParams.pb.swift */; };
@@ -386,11 +386,11 @@
 		E571208F1E937A790064F515 /* MidtransPromoEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = E511CF3A1E48355600926FC7 /* MidtransPromoEngine.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57120901E937A790064F515 /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CDEC8C1E9340CA0032DC3B /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5CDEC8E1E9340CA0032DC3B /* MidtransCoreKit.h in Headers */ = {isa = PBXBuildFile; fileRef = E5CDEC8C1E9340CA0032DC3B /* MidtransCoreKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ECB0213A221A6FC90037C0E1 /* MidtransPaymentAlfa.h in Headers */ = {isa = PBXBuildFile; fileRef = ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECB0213B221A6FC90037C0E1 /* MidtransPaymentAlfa.h in Headers */ = {isa = PBXBuildFile; fileRef = ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		ECB0213C221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB02139221A6FC90037C0E1 /* MidtransPaymentAlfa.m */; };
 		ECB0213D221A6FC90037C0E1 /* MidtransPaymentAlfa.m in Sources */ = {isa = PBXBuildFile; fileRef = ECB02139221A6FC90037C0E1 /* MidtransPaymentAlfa.m */; };
+		F7482FBD2C39238A92217A14 /* libPods-MidtransCoreKit-MidtransCoreKitTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B375992F623841E1D07B36BB /* libPods-MidtransCoreKit-MidtransCoreKitTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -486,8 +486,8 @@
 		0CD7EA981E03D0820036C187 /* MIdtransPaymentGCI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIdtransPaymentGCI.h; sourceTree = "<group>"; };
 		0CD7EA991E03D0820036C187 /* MIdtransPaymentGCI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MIdtransPaymentGCI.m; sourceTree = "<group>"; };
 		21789F5997938CA7EF0C850A /* Pods-MidtransCoreKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit/Pods-MidtransCoreKit.debug.xcconfig"; sourceTree = "<group>"; };
-		2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransCoreKit_MidtransCoreKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2ED4518D1D09C4D7008BAED8 /* MidtransConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransConstant.h; sourceTree = "<group>"; };
+		2F6C14362AA7A86BC7ED056A /* libPods-MidtransCoreKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransCoreKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		305494461C75A01900938C17 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3054944B1C75A08900938C17 /* MidtransAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransAddress.h; sourceTree = "<group>"; };
 		3054944C1C75A08900938C17 /* MidtransAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransAddress.m; sourceTree = "<group>"; };
@@ -523,6 +523,7 @@
 		9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/swift/libswift_Concurrency.tbd; sourceTree = DEVELOPER_DIR; };
 		9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventVisualizer+ClickStreamContracts.swift"; sourceTree = "<group>"; };
+		B375992F623841E1D07B36BB /* libPods-MidtransCoreKit-MidtransCoreKitTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MidtransCoreKit-MidtransCoreKitTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDUrlHandler.h; sourceTree = "<group>"; };
@@ -631,7 +632,6 @@
 		E5FBC7F01E39E3FF006B574D /* MidtransNetworkLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransNetworkLogger.m; sourceTree = "<group>"; };
 		ECB02138221A6FC90037C0E1 /* MidtransPaymentAlfa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MidtransPaymentAlfa.h; sourceTree = "<group>"; };
 		ECB02139221A6FC90037C0E1 /* MidtransPaymentAlfa.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidtransPaymentAlfa.m; sourceTree = "<group>"; };
-		EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransCoreKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB53B4963F6F4557E601F428 /* Pods-MidtransCoreKitStatic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.release.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -641,7 +641,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D85847D2111C52500899462 /* MidtransCoreKit.framework in Frameworks */,
-				829CEBCC74D75F5E84623421 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework in Frameworks */,
+				F7482FBD2C39238A92217A14 /* libPods-MidtransCoreKit-MidtransCoreKitTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,7 +658,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A8AD7C02BA2ACF900781590 /* libswift_Concurrency.tbd in Frameworks */,
-				E7C074135632DDED44DDC45F /* Pods_MidtransCoreKit.framework in Frameworks */,
+				1C26F60B16CF8A8ED77924D5 /* libPods-MidtransCoreKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1073,9 +1073,9 @@
 			children = (
 				9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */,
 				305494461C75A01900938C17 /* Foundation.framework */,
-				EDBF2EFD042E9803B534ECDE /* Pods_MidtransCoreKit.framework */,
-				2AC9968FF305B5080CA2B559 /* Pods_MidtransCoreKit_MidtransCoreKitTests.framework */,
 				DF119750F0998DB7FC3D665C /* Pods_MidtransCoreKitStatic.framework */,
+				2F6C14362AA7A86BC7ED056A /* libPods-MidtransCoreKit.a */,
+				B375992F623841E1D07B36BB /* libPods-MidtransCoreKit-MidtransCoreKitTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1339,7 +1339,6 @@
 				3D8584742111C52500899462 /* Sources */,
 				3D8584752111C52500899462 /* Frameworks */,
 				3D8584762111C52500899462 /* Resources */,
-				2FFAA6A31B8FA752C150807B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1455,30 +1454,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2FFAA6A31B8FA752C150807B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/ClickstreamLib/ClickstreamLib.framework",
-				"${BUILT_PRODUCTS_DIR}/GRDB.swift/GRDB.framework",
-				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ClickstreamLib.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRDB.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		409E966396AA889065622F17 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

@@ -403,8 +403,8 @@
 		3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE31F9DAE610001AC9A /* see@2x.png */; };
 		3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
 		3DECDFF61F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
-		80DE8C70B875F7EF542464C8 /* Pods_MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9097B86EE9DBA63FB1DBA8A3 /* Pods_MidtransKit.framework */; };
-		B6E204CC0DE7E1F40ACFC9FB /* Pods_MidtransKit_MidtransKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8838322677079FAC9F342FDA /* Pods_MidtransKit_MidtransKitTests.framework */; };
+		7A1CFEC0B952C3948FEB1C51 /* Pods_MidtransKit_MidtransKitTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40648E6EA59A086F73EB1D25 /* Pods_MidtransKit_MidtransKitTests.framework */; };
+		93CD0C616E961CA21DF61796 /* Pods_MidtransKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1BF2883FF42AA27220AC8E /* Pods_MidtransKit.framework */; };
 		DD152D542637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
 		DD152D552637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
 		DD152D562637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */; };
@@ -1708,12 +1708,12 @@
 		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = see.png; path = resources/see.png; sourceTree = "<group>"; };
 		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@2x.png"; path = "resources/see@2x.png"; sourceTree = "<group>"; };
 		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@3x.png"; path = "resources/see@3x.png"; sourceTree = "<group>"; };
+		40648E6EA59A086F73EB1D25 /* Pods_MidtransKit_MidtransKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKit_MidtransKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C19CCFE8359815A5C8BADAB /* Pods-MidtransKitResources.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitResources.debug.xcconfig"; path = "Target Support Files/Pods-MidtransKitResources/Pods-MidtransKitResources.debug.xcconfig"; sourceTree = "<group>"; };
 		5159A3ACA3061C99B0921B68 /* Pods_MidtransKitStatic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKitStatic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		69EDC90FEC32014BABE5152E /* Pods-MidtransKitStatic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitStatic.release.xcconfig"; path = "Target Support Files/Pods-MidtransKitStatic/Pods-MidtransKitStatic.release.xcconfig"; sourceTree = "<group>"; };
 		7A666B7FE9F4AA4D070CD8BB /* Pods-MidtransKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKit.release.xcconfig"; path = "Target Support Files/Pods-MidtransKit/Pods-MidtransKit.release.xcconfig"; sourceTree = "<group>"; };
-		8838322677079FAC9F342FDA /* Pods_MidtransKit_MidtransKitTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKit_MidtransKitTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9097B86EE9DBA63FB1DBA8A3 /* Pods_MidtransKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E1BF2883FF42AA27220AC8E /* Pods_MidtransKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MidtransKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7F8CBAC12DEDA9DBD80ED26 /* Pods-MidtransKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransKitStatic/Pods-MidtransKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
 		DAC03449F556E17EE7E629DA /* Pods-MidtransKitResources.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransKitResources.release.xcconfig"; path = "Target Support Files/Pods-MidtransKitResources/Pods-MidtransKitResources.release.xcconfig"; sourceTree = "<group>"; };
 		DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_uob_ezpay_web.plist; path = MidtransKit/resources/en_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
@@ -2161,7 +2161,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3D8AE6B621107F0C00C8D41B /* MidtransKit.framework in Frameworks */,
-				B6E204CC0DE7E1F40ACFC9FB /* Pods_MidtransKit_MidtransKitTests.framework in Frameworks */,
+				7A1CFEC0B952C3948FEB1C51 /* Pods_MidtransKit_MidtransKitTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2186,7 +2186,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				80DE8C70B875F7EF542464C8 /* Pods_MidtransKit.framework in Frameworks */,
+				93CD0C616E961CA21DF61796 /* Pods_MidtransKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2480,10 +2480,10 @@
 				E529405D1CFEC639000180D3 /* AVFoundation.framework */,
 				305494291C759F0100938C17 /* Foundation.framework */,
 				305494271C759EFC00938C17 /* UIKit.framework */,
-				9097B86EE9DBA63FB1DBA8A3 /* Pods_MidtransKit.framework */,
-				8838322677079FAC9F342FDA /* Pods_MidtransKit_MidtransKitTests.framework */,
 				E461A9C58DC446380D77EF9C /* Pods_MidtransKitResources.framework */,
 				5159A3ACA3061C99B0921B68 /* Pods_MidtransKitStatic.framework */,
+				8E1BF2883FF42AA27220AC8E /* Pods_MidtransKit.framework */,
+				40648E6EA59A086F73EB1D25 /* Pods_MidtransKit_MidtransKitTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -3556,7 +3556,7 @@
 				3D8AE6AD21107F0C00C8D41B /* Sources */,
 				3D8AE6AE21107F0C00C8D41B /* Frameworks */,
 				3D8AE6AF21107F0C00C8D41B /* Resources */,
-				DC6AC9F3820586C39A62CD0B /* [CP] Embed Pods Frameworks */,
+				8ACCA480F9AA343FE22DF933 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -4611,29 +4611,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		98125FFD0300338B7F3E624E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MidtransKit-MidtransKitTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		DC6AC9F3820586C39A62CD0B /* [CP] Embed Pods Frameworks */ = {
+		8ACCA480F9AA343FE22DF933 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -4655,6 +4633,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MidtransKit-MidtransKitTests/Pods-MidtransKit-MidtransKitTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		98125FFD0300338B7F3E624E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MidtransKit-MidtransKitTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		DCFF0965A4BDE448EB6CEB2F /* [CP] Check Pods Manifest.lock */ = {

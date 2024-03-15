@@ -80,6 +80,9 @@
     else if ([idf isEqualToString:OPTDirectPayment]) {
         [MDOptionManager shared].directPaymentFeature = option;
     }
+    else if ([idf isEqualToString:ClickstreamEventVisualiser]) {
+        [MDOptionManager shared].clickstreamEventVisualiserOption = option;
+    }
 }
 
 + (NSArray <MDPayment*>*)paymentChannelsWithNames:(NSArray <NSString*>*)names {

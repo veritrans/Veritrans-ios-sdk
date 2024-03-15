@@ -33,5 +33,6 @@
 @property (nonatomic) MDOption *installmentOption;
 @property (nonatomic) MDOption *paymentChannel;
 @property (nonatomic) MDOption *directPaymentFeature;
+@property (nonatomic) MDOption *clickstreamEventVisualiserOption;
 - (void)resetConfiguration;
 @end

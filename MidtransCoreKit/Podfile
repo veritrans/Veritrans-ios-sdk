@@ -5,6 +5,7 @@ target 'MidtransCoreKit' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   pod 'ClickstreamLib', :git => 'https://github.com/gojek/clickstream-ios.git', :tag => '2.0.21'
+  pod 'ClickstreamLib/EventVisualizer', :git => 'https://github.com/gojek/clickstream-ios.git', :tag => '2.0.21'
   # Pods for MidtransCoreKit
 
   target 'MidtransCoreKitTests' do

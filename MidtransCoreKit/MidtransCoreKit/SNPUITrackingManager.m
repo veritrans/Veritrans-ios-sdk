@@ -13,12 +13,16 @@
 #import "MidtransNetworking.h"
 #import "MidtransDeviceHelper.h"
 #import "MidtransHelper.h"
+
+// Use below import for running MidtransCoreKit app
+//#import <MidtransCoreKit/MidtransCoreKit-Swift.h>
+
+// Use below import for running MidtransDemo app
 #import <MidtransCoreKit-Swift.h>
 #define timeStamp [NSString stringWithFormat:@"%0.f",[[NSDate date] timeIntervalSince1970] * 1000]
 
 @implementation NSDictionary (SNPUITrackingManager)
 
-AnalyticsManager *analyticsManager;
 - (NSMutableDictionary*)SNPUITrackingManageraddDefaultParameter{
     NSString *token = [PRIVATECONFIG mixpanelToken];
     NSMutableDictionary *defaultParameters = [NSMutableDictionary new];
@@ -67,8 +71,7 @@ AnalyticsManager *analyticsManager;
     static dispatch_once_t once;
     dispatch_once(&once, ^{
         sharedInstance = [[SNPUITrackingManager alloc] init];
-        analyticsManager = [AnalyticsManager new] ;
-        [analyticsManager initialiseClickstream];
+        [[AnalyticsManager shared] initialiseClickstream];
     });
     return sharedInstance;
 }
@@ -80,7 +83,7 @@ AnalyticsManager *analyticsManager;
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
     [self sendTrackingData:event];
-    [analyticsManager trackEventWithEventName:eventName properties:parameters];
+    [[AnalyticsManager shared] trackEventWithEventName:eventName properties:parameters];
 }
 - (void)trackEventName:(NSString *)eventName {
     NSMutableDictionary *parameters = [NSMutableDictionary new];
@@ -88,7 +91,8 @@ AnalyticsManager *analyticsManager;
     NSDictionary *event = @{@"event":eventName,
                             @"properties":parameters};
     [self sendTrackingData:event];
-    [analyticsManager trackEventWithEventName:eventName properties:parameters];
+    [[AnalyticsManager shared] trackEventWithEventName:eventName properties:parameters];
+    [[AnalyticsManager shared] openEventVisualizerOnController:self];
 }
 - (void)sendTrackingData:(NSDictionary *)dictionary {
     NSData *decoded = [NSJSONSerialization dataWithJSONObject:dictionary options:NSJSONWritingPrettyPrinted error:nil];
@@ -97,5 +101,8 @@ AnalyticsManager *analyticsManager;
     NSDictionary *parameter = @{@"data":base64String};
     [[MidtransNetworking shared] getFromURL:URL parameters:parameter callback:nil];
     
+}
+- (void)openClickstreamEventVisualizer:(UIViewController *)viewController {
+    [[AnalyticsManager shared] openEventVisualizerOnController:viewController];
 }
 @end

@@ -15,6 +15,10 @@ public class AnalyticsManager: NSObject {
     
     private var clickstream: Clickstream?
     
+    @objc public static let shared = AnalyticsManager()
+        
+    private override init() { }
+    
     /// Initialise Clickstream
     @objc public func initialiseClickstream() {
         
@@ -52,8 +56,12 @@ public class AnalyticsManager: NSObject {
                                                                       properties: properties), var _message = message as? ProductCommons {
             
             let eventGuid = UUID().uuidString
+            
             let meta = Midtrans_Clickstream_Meta_EventMeta.with {
                 $0.eventGuid = eventGuid
+                $0.app = self.appData(properties: properties)
+                $0.device = self.deviceData(properties: properties)
+                $0.merchant = self.merchantData(properties: properties)
             }
             _message.meta = meta
             _message.eventTimestamp = Google_Protobuf_Timestamp(date: Date())
@@ -65,8 +73,35 @@ public class AnalyticsManager: NSObject {
                 print(error.localizedDescription)
                 return
             }
-            
         }
+    }
+    
+    private func appData(properties: [String: Any]) -> Midtrans_Clickstream_Meta_App {
+        let app = Midtrans_Clickstream_Meta_App.with {
+            $0.sdkVersion = properties["sdk version"] as? String ?? ""
+            $0.appName = properties["host_app"] as? String ?? ""
+        }
+        return app
+    }
+    
+    private func deviceData(properties: [String: Any]) -> Midtrans_Clickstream_Meta_Device {
+        let device = Midtrans_Clickstream_Meta_Device.with {
+            $0.platform = properties["platform"] as? String ?? ""
+            $0.osVersion = properties["os_version"] as? String ?? ""
+            $0.model = properties["Device Model"] as? String ?? ""
+            $0.deviceID = properties["Device ID"] as? String ?? ""
+            $0.deviceType = properties["Device Type"] as? String ?? ""
+            $0.osVersion = properties["os_version"] as? String ?? ""
+        }
+        return device
+    }
+    
+    private func merchantData(properties: [String: Any]) -> Midtrans_Clickstream_Meta_Merchant {
+        let merchant = Midtrans_Clickstream_Meta_Merchant.with {
+            $0.merchantName = properties["merchant"] as? String ?? ""
+            $0.merchantID = properties["merchant_id"] as? String ?? ""
+        }
+        return merchant
     }
     
     /// De-initialize Clickstream

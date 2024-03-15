@@ -50,6 +50,7 @@
         self.installmentOption = [self unArchivedObject:@"md_installment"];
         self.paymentChannel = [self unArchivedObject:@"md_payment_channel"];
         self.directPaymentFeature = [self unArchivedObject:@"md_direct_payment_feature"];
+        self.clickstreamEventVisualiserOption = [self unArchivedObject:@"md_clickstreamEventVisualiser"];
     }
     return self;
 }
@@ -95,6 +96,10 @@
 - (void)setPromoOption:(MDOption *)promoOption {
     _promoOption = promoOption;
     [self archiveObject:promoOption key:@"md_promo"];
+}
+- (void)setClickstreamEventVisualiserOption:(MDOption *)clickstreamEventVisualiserOption {
+    _clickstreamEventVisualiserOption = clickstreamEventVisualiserOption;
+    [self archiveObject:clickstreamEventVisualiserOption key:@"md_clickstreamEventVisualiser"];
 }
 - (void)setPreauthOption:(MDOption *)preauthOption {
     _preauthOption = preauthOption;
@@ -185,5 +190,6 @@
     self.customFieldOption = nil;
     self.paymentChannel = nil;
     self.directPaymentFeature = nil;
+    self.clickstreamEventVisualiserOption = nil;
 }
 @end

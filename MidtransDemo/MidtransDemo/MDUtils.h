@@ -48,6 +48,7 @@ static NSString *const OPTCustomField = @"OPTCustomField";
 static NSString *const OPTInstallment = @"OPTInstallment";
 static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";
 static NSString *const OPTDirectPayment= @"OPTDirectPayment";
+static NSString *const ClickstreamEventVisualiser = @"ClickstreamEventVisualiser";
 
 static NSString *const BankBCAKey = @"bca";
 static NSString *const BankMandiriKey = @"mandiri";

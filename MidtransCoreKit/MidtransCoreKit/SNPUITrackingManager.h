@@ -12,4 +12,5 @@
 + (SNPUITrackingManager *)shared;
 - (void)trackEventName:(NSString *)eventName;
 - (void)trackEventName:(NSString *)eventName additionalParameters:(NSDictionary *)additionalParameters;
+- (void)openClickstreamEventVisualizer:(UIViewController *)viewController;
 @end

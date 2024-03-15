@@ -79,6 +79,7 @@
 		9A8AD7B92BA2A16E00781590 /* EventMeta.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */; };
 		9A8AD7BA2BA2A16E00781590 /* AnalyticsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */; };
 		9A8AD7C02BA2ACF900781590 /* libswift_Concurrency.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */; };
+		9A8AD7C42BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */; };
 		DD1F2A50218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A51218AD29100D73039 /* MIDUrlHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DD1F2A52218AD29100D73039 /* MIDUrlHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = DD1F2A4F218AD29100D73039 /* MIDUrlHandler.m */; };
@@ -521,6 +522,7 @@
 		9A8AD7A42BA2A16E00781590 /* EventMeta.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventMeta.pb.swift; sourceTree = "<group>"; };
 		9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnalyticsManager.swift; sourceTree = "<group>"; };
 		9A8AD7BF2BA2ACF900781590 /* libswift_Concurrency.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libswift_Concurrency.tbd; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.3.sdk/usr/lib/swift/libswift_Concurrency.tbd; sourceTree = DEVELOPER_DIR; };
+		9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EventVisualizer+ClickStreamContracts.swift"; sourceTree = "<group>"; };
 		B51B3CAEA2EAAD1A9EE3D9FE /* Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKit-MidtransCoreKitTests/Pods-MidtransCoreKit-MidtransCoreKitTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DAB993FDC07F021054B370A0 /* Pods-MidtransCoreKitStatic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MidtransCoreKitStatic.debug.xcconfig"; path = "Target Support Files/Pods-MidtransCoreKitStatic/Pods-MidtransCoreKitStatic.debug.xcconfig"; sourceTree = "<group>"; };
 		DD1F2A4E218AD29100D73039 /* MIDUrlHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MIDUrlHandler.h; sourceTree = "<group>"; };
@@ -1032,6 +1034,7 @@
 		9A8AD78F2BA2A12900781590 /* Clickstream */ = {
 			isa = PBXGroup;
 			children = (
+				9A8AD7C32BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift */,
 				9A8AD7A52BA2A16E00781590 /* AnalyticsManager.swift */,
 				9A8AD7902BA2A16E00781590 /* ContractsFactory.swift */,
 				9A8AD7912BA2A16E00781590 /* ProductCommons.swift */,
@@ -1751,6 +1754,7 @@
 				E55F63DB1E934C6400C012C8 /* MidtransPromoEngine.m in Sources */,
 				0C1B35CF1ED6B106003F6806 /* SNPFreeTextFreeText.m in Sources */,
 				DDBC2FBB2537C0EB002FCD06 /* MidtransPaymentShopeePay.m in Sources */,
+				9A8AD7C42BA39E5200781590 /* EventVisualizer+ClickStreamContracts.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

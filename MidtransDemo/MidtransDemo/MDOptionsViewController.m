@@ -14,6 +14,7 @@
 #import "MDAlertViewController.h"
 #import <MidtransKit/MidtransKit.h>
 #import "MDPayment.h"
+#import <MidtransCoreKit/MidtransCoreKit.h>
 
 @interface MDOptionsViewController () <MDOptionViewDelegate, MDAlertViewControllerDelegate>
 @property (strong, nonatomic) IBOutlet UIView *optionContainer;
@@ -266,6 +267,16 @@
                                                           options:options
                                                        identifier:OPTPaymanetChannel];
     [optPaymentChannels selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].paymentChannel]];
+    
+    // Clickstream Event Visualiser
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:@NO],
+                [MDOption optionGeneralWithName:@"Enable" value:@YES]];
+    MDOptionView *clickstreamEventVisualizer = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+                                          titleTemplate:@"Clickstream Event Visualiser %@d"
+                                                options:options
+                                             identifier:ClickstreamEventVisualiser];
+    [clickstreamEventVisualizer selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].clickstreamEventVisualiserOption]];
+    
     if (self.optionViews.count) {
         [self prepareOptionViews:@[]];;
     }
@@ -288,7 +299,8 @@
                          optCustomField,
                          optInstallment,
                          optPaymentChannels,
-                         optDirectPayment
+                         optDirectPayment,
+                         clickstreamEventVisualizer
                          ];
     
      [self prepareOptionViews:self.optionViews];;
@@ -372,6 +384,10 @@
 }
 - (void)optionView:(MDOptionView *)optionView didTapOption:(MDOption *)option {
     [MDUtils saveOptionWithView:optionView option:option];
+    //TODO: Move this logic
+    if ([optionView.identifier isEqualToString:ClickstreamEventVisualiser] && [option.name isEqualToString:@"Enable"]) {
+        [[SNPUITrackingManager shared] openClickstreamEventVisualizer:self];
+    }
 }
 - (void)optionView:(MDOptionView *)optionView didTapComposerOption:(MDOption *)option {
     [self showAlertAtOptionView:optionView option:option usePredefinedValue:NO];

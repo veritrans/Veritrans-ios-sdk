@@ -12,6 +12,7 @@
 import Foundation
 import SwiftProtobuf
 
+///CorrespondsTo: "testing event name 1", "testing event name 2"
 public class Midtrans_Clickstream_Products_Events_Ui_Page {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -227,37 +228,48 @@ extension Midtrans_Clickstream_Products_Events_Ui_Page: ProductCommons { }
 
 public extension Midtrans_Clickstream_Products_Events_Ui_Page {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
+         
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic,  propertyPath: String = "") {
+
 
         // Mapping product type from ServiceType property
         if let type: String = properties["ServiceType"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else if let type: String = properties["servicetype"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else if let type: String = properties["Servicetype"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else if let type: String = properties["serviceType"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else if let type: String = properties["Service Type"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         }  else if let type: String = properties["service type"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else if let type: String = properties["Service type"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else if let type: String = properties["service Type"] as? String {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: type.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: type.lowercased())
         } else {
-            self.product = Midtrans_Clickstream_Products_Common_Product(properties: properties, eventName: eventName.lowercased())
+            self.product = Midtrans_Clickstream_Products_Common_Product(properties: &properties, eventName: eventName.lowercased())
         }
          
-        self.eventName = eventName
- self.pageDetail = Midtrans_Clickstream_Products_Common_PageDetail(properties: properties, eventName: eventName) 
- self.action = Midtrans_Clickstream_Products_Common_Action(properties: properties, eventName: eventName) 
- self.gopayTokenization = Midtrans_Clickstream_Products_Common_GopayTokenization(properties: properties, eventName: eventName) 
- self.payment = Midtrans_Clickstream_Products_Common_Payment(properties: properties, eventName: eventName) 
- self.exchange = Midtrans_Clickstream_Products_Common_Exchange(properties: properties, eventName: eventName) 
+        self.eventName = eventName 
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
+ self.pageDetail = Midtrans_Clickstream_Products_Common_PageDetail(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)page_detail") 
+ self.action = Midtrans_Clickstream_Products_Common_Action(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)action") 
+ self.gopayTokenization = Midtrans_Clickstream_Products_Common_GopayTokenization(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)gopay_tokenization") 
+ self.payment = Midtrans_Clickstream_Products_Common_Payment(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)payment") 
+ self.exchange = Midtrans_Clickstream_Products_Common_Exchange(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)exchange") 
     }
 }

@@ -38,6 +38,7 @@ public class Midtrans_Clickstream_Products_Common_Exchange {
     set {_uniqueStorage()._statusCode = newValue}
   }
 
+  ///MappedTo: "status message"
   public var statusMessage: String {
     get {return _storage._statusMessage}
     set {_uniqueStorage()._statusMessage = newValue}
@@ -262,18 +263,42 @@ extension Midtrans_Clickstream_Products_Common_Exchange: SwiftProtobuf.Message, 
 
 public extension Midtrans_Clickstream_Products_Common_Exchange {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
          
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
+          
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
         if let requestName: String = properties["RequestName"] as? String {
             self.requestName = requestName
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["RequestName"] ?? []) + ["\(mappedPropertyPath)request_name"], forKey: "RequestName")
+                properties["mappedProperties"] = mappedProperties
+            }
         }
- self.chargeParams = Midtrans_Clickstream_Products_Common_ChargeParams(properties: properties, eventName: eventName) 
- self.chargeResponse = Midtrans_Clickstream_Products_Common_ChargeResponse(properties: properties, eventName: eventName) 
- self.gopayTokenizationResponse = Midtrans_Clickstream_Products_Common_GopayTokenizationResponse(properties: properties, eventName: eventName) 
- self.result3Ds = Midtrans_Clickstream_Products_Common_Result3DS(properties: properties, eventName: eventName) 
- self.exbinResponse = Midtrans_Clickstream_Products_Common_ExbinResponse(properties: properties, eventName: eventName) 
+        if let statusMessage: String = properties["status message"] as? String {
+            self.statusMessage = statusMessage
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["status message"] ?? []) + ["\(mappedPropertyPath)status_message"], forKey: "status message")
+                properties["mappedProperties"] = mappedProperties
+            }
+        }
+ self.chargeParams = Midtrans_Clickstream_Products_Common_ChargeParams(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)charge_params") 
+ self.chargeResponse = Midtrans_Clickstream_Products_Common_ChargeResponse(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)charge_response") 
+ self.gopayTokenizationResponse = Midtrans_Clickstream_Products_Common_GopayTokenizationResponse(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)gopay_tokenization_response") 
+ self.result3Ds = Midtrans_Clickstream_Products_Common_Result3DS(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)result3_ds") 
+ self.exbinResponse = Midtrans_Clickstream_Products_Common_ExbinResponse(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)exbin_response") 
     }
 }

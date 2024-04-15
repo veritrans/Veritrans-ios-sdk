@@ -74,10 +74,19 @@ extension Midtrans_Clickstream_Products_Common_Action: SwiftProtobuf.Message, Sw
 
 public extension Midtrans_Clickstream_Products_Common_Action {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
+         
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
          
     }
 }

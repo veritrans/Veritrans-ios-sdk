@@ -68,13 +68,29 @@ extension Midtrans_Clickstream_Products_Common_Payment: SwiftProtobuf.Message, S
 
 public extension Midtrans_Clickstream_Products_Common_Payment {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
          
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
+          
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
         if let paymentMethodName: String = properties["Payment Method Name"] as? String {
             self.paymentMethodName = paymentMethodName
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["Payment Method Name"] ?? []) + ["\(mappedPropertyPath)payment_method_name"], forKey: "Payment Method Name")
+                properties["mappedProperties"] = mappedProperties
+            }
         }
     }
 }

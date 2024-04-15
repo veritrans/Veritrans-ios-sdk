@@ -125,11 +125,22 @@ extension Midtrans_Clickstream_Meta_TransactionDetail: SwiftProtobuf.Message, Sw
 
 public extension Midtrans_Clickstream_Meta_TransactionDetail {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
          
- self.creditCard = Midtrans_Clickstream_Meta_CreditCard(properties: properties, eventName: eventName) 
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
+          
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
+ self.creditCard = Midtrans_Clickstream_Meta_CreditCard(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)credit_card") 
     }
 }

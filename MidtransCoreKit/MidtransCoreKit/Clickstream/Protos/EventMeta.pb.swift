@@ -188,14 +188,25 @@ extension Midtrans_Clickstream_Meta_EventMeta: SwiftProtobuf.Message, SwiftProto
 
 public extension Midtrans_Clickstream_Meta_EventMeta {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
          
- self.merchant = Midtrans_Clickstream_Meta_Merchant(properties: properties, eventName: eventName) 
- self.app = Midtrans_Clickstream_Meta_App(properties: properties, eventName: eventName) 
- self.device = Midtrans_Clickstream_Meta_Device(properties: properties, eventName: eventName) 
- self.transaction = Midtrans_Clickstream_Meta_TransactionDetail(properties: properties, eventName: eventName) 
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
+          
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
+ self.merchant = Midtrans_Clickstream_Meta_Merchant(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)merchant") 
+ self.app = Midtrans_Clickstream_Meta_App(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)app") 
+ self.device = Midtrans_Clickstream_Meta_Device(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)device") 
+ self.transaction = Midtrans_Clickstream_Meta_TransactionDetail(properties: &properties, eventName: eventName, propertyPath: "\(mappedPropertyPath)transaction") 
     }
 }

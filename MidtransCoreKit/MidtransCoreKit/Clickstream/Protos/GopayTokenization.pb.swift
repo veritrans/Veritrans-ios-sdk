@@ -20,6 +20,7 @@ public class Midtrans_Clickstream_Products_Common_GopayTokenization {
   ///MappedTo: "gopaytokenizationenabled"
   public var gopayTokenizationEnabled: Bool = false
 
+  ///MappedTo: "gopay_tokenization_linked"
   public var gopayTokenizationLinked: Bool = false
 
   public var gopayBalance: String = String()
@@ -75,13 +76,37 @@ extension Midtrans_Clickstream_Products_Common_GopayTokenization: SwiftProtobuf.
 
 public extension Midtrans_Clickstream_Products_Common_GopayTokenization {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
          
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
+          
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
         if let gopayTokenizationEnabled: Bool = properties["gopaytokenizationenabled"] as? Bool {
             self.gopayTokenizationEnabled = gopayTokenizationEnabled
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["gopaytokenizationenabled"] ?? []) + ["\(mappedPropertyPath)gopay_tokenization_enabled"], forKey: "gopaytokenizationenabled")
+                properties["mappedProperties"] = mappedProperties
+            }
+        }
+        if let gopayTokenizationLinked: Bool = properties["gopay_tokenization_linked"] as? Bool {
+            self.gopayTokenizationLinked = gopayTokenizationLinked
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["gopay_tokenization_linked"] ?? []) + ["\(mappedPropertyPath)gopay_tokenization_linked"], forKey: "gopay_tokenization_linked")
+                properties["mappedProperties"] = mappedProperties
+            }
         }
     }
 }

@@ -17,8 +17,10 @@ public class Midtrans_Clickstream_Products_Common_PageDetail {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
+  ///MappedTo: "pageName"
   public var pageName: String = String()
 
+  ///MappedTo: "stepnumberINT", "stepnumberString::string"
   public var stepNumber: Int32 = 0
 
   public var abTestingVariant: Dictionary<String,String> = [:]
@@ -81,10 +83,51 @@ extension Midtrans_Clickstream_Products_Common_PageDetail: SwiftProtobuf.Message
 
 public extension Midtrans_Clickstream_Products_Common_PageDetail {
          
-    @objc public convenience init(properties: [String:Any],
-         eventName: String) {
+    init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic) {
 
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName,
+                  product: product, propertyPath: "")
+    }
          
+    internal init(properties: inout [String:Any],
+         eventName: String,
+         product:Midtrans_Clickstream_Products_Common_Product? = .generic, propertyPath: String = "") {
+
+          
+        let mappedPropertyPath = "\(propertyPath.isEmpty ? "" : "\(propertyPath).")"
+        
+        if let pageName: String = properties["pageName"] as? String {
+            self.pageName = pageName
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["pageName"] ?? []) + ["\(mappedPropertyPath)page_name"], forKey: "pageName")
+                properties["mappedProperties"] = mappedProperties
+            }
+        }
+        if let stepNumber: Int32 = properties["stepnumberINT"] as? Int32 {
+            self.stepNumber = Int32(stepNumber)
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["stepnumberINT"] ?? []) + ["\(mappedPropertyPath)step_number"], forKey: "stepnumberINT")
+                properties["mappedProperties"] = mappedProperties
+            }
+        } else if let stepNumber: Int = properties["stepnumberINT"] as? Int, stepNumber <= Int(Int32.max ) {
+            self.stepNumber = Int32(stepNumber)
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["stepnumberINT"] ?? []) + ["\(mappedPropertyPath)step_number"], forKey: "stepnumberINT")
+                properties["mappedProperties"] = mappedProperties
+            }
+        } else if let stepNumber: String = properties["stepnumberString"] as? String {
+            self.stepNumber = Int32(stepNumber) ?? 0
+
+            if var mappedProperties = properties["mappedProperties"] as? [String: [String]] {
+                mappedProperties.updateValue((mappedProperties["stepnumberString"] ?? []) + ["\(mappedPropertyPath)step_number"], forKey: "stepnumberString")
+                properties["mappedProperties"] = mappedProperties
+            }
+        }
     }
 }

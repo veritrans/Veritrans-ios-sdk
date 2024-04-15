@@ -56,10 +56,15 @@ extension Midtrans_Clickstream_Products_Common_Product: SwiftProtobuf._ProtoName
 }
 
 public extension Midtrans_Clickstream_Products_Common_Product {
-         
-    init(properties: [String:Any],
+
+    init(properties: inout [String:Any],
          eventName: String) {
-         self.init()
+         self.init(properties: &properties,
+                  eventName: eventName, propertyPath: "")
+    }
+         
+    internal init(properties: inout [String:Any],
+         eventName: String, propertyPath: String = "") {
          
         switch eventName {
         

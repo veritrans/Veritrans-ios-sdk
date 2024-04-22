@@ -401,6 +401,7 @@
 		3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE31F9DAE610001AC9A /* see@2x.png */; };
 		3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
 		3DECDFF61F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
+		DD100F3E2BD6361500930FB3 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = DD100F3A2BD6361500930FB3 /* PrivacyInfo.xcprivacy */; };
 		DD152D542637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
 		DD152D552637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */; };
 		DD152D562637771A00B1E166 /* id_uob_ezpay_web.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */; };
@@ -1723,6 +1724,7 @@
 		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = see.png; path = resources/see.png; sourceTree = "<group>"; };
 		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@2x.png"; path = "resources/see@2x.png"; sourceTree = "<group>"; };
 		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@3x.png"; path = "resources/see@3x.png"; sourceTree = "<group>"; };
+		DD100F3A2BD6361500930FB3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		DD152D522637771900B1E166 /* en_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_uob_ezpay_web.plist; path = MidtransKit/resources/en_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
 		DD152D532637771A00B1E166 /* id_uob_ezpay_web.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_uob_ezpay_web.plist; path = MidtransKit/resources/id_uob_ezpay_web.plist; sourceTree = SOURCE_ROOT; };
 		DD2A919A22CC85A70081562A /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@2x.png"; path = "resources/alfamidi@2x.png"; sourceTree = "<group>"; };
@@ -2445,6 +2447,7 @@
 		305494121C759EDF00938C17 = {
 			isa = PBXGroup;
 			children = (
+				DD100F3A2BD6361500930FB3 /* PrivacyInfo.xcprivacy */,
 				E58FCE981E94D06900632085 /* MidtransCoreKit.xcodeproj */,
 				E5CDEC981E9340E80032DC3B /* MidtransKit */,
 				E57123F51E9380E80064F515 /* MidtransKitResources */,
@@ -4207,6 +4210,7 @@
 				0CE1D27B1F62A752003A012F /* bni_va@4x.png in Resources */,
 				DD64CE69253EA6560069F4B4 /* qrisshopeepay@2x.png in Resources */,
 				0CC900351F70244A0058E93C /* en_bri_epay.plist in Resources */,
+				DD100F3E2BD6361500930FB3 /* PrivacyInfo.xcprivacy in Resources */,
 				3DECDFE91F9DAE610001AC9A /* download@3x.png in Resources */,
 				0C9634F51FE11A1F00EF89DF /* gojek_icon@2x.png in Resources */,
 				DDA4860127630B1000D9A0AC /* brimo@1x.png in Resources */,
@@ -5149,7 +5153,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.24.1;
+				MARKETING_VERSION = 1.24.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -5180,7 +5184,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.24.1;
+				MARKETING_VERSION = 1.24.2;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

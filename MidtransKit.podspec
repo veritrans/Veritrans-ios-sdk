@@ -18,7 +18,7 @@ s.source_files = 'MidtransKit/MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
     'MidtransKit' => ['MidtransKit/MidtransKit/resources/*', 'MidtransKit/PrivacyInfo.xcprivacy']
 }
-s.dependency 'MidtransCoreKit', '1.24.1'
+s.dependency 'MidtransCoreKit', '1.24.2'
 s.static_framework = true
 s.default_subspec = 'UI'
 

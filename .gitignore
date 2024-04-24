@@ -9,3 +9,5 @@ xcuserdata/
 DerivedData/
 build/
 fabric_config.txt
+MidtransCoreKit/MidtransCoreKit.xcframework
+MidtransKit/MidtransKit.xcframework

@@ -1,13 +1,14 @@
 Pod::Spec.new do |s|
 
 s.name             = "MidtransKit"
-s.version          = "1.24.1"
+s.version          = "1.24.2"
 s.summary          = "Veritrans mobile SDK beta version"
 s.homepage         = "https://veritrans.co.id/"
 s.license          = 'MIT'
 s.author           = { "veritrans" => "dev@veritrans.co.id" }
 s.source           = { :git => 'https://github.com/veritrans/Veritrans-ios-sdk.git', :tag => s.version}
 s.platform     = :ios, '9.0'
+
 s.requires_arc = true
 
 s.subspec 'UI' do |sp|
@@ -15,7 +16,7 @@ end
 
 s.source_files = 'MidtransKit/MidtransKit/**/*.{h,m}'
 s.resource_bundles = {
-    'MidtransKit' => ['MidtransKit/MidtransKit/resources/*']
+    'MidtransKit' => ['MidtransKit/MidtransKit/resources/*', 'MidtransKit/PrivacyInfo.xcprivacy']
 }
 s.dependency 'MidtransCoreKit', '1.24.1'
 s.static_framework = true

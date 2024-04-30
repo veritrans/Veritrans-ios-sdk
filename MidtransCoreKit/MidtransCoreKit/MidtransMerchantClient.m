@@ -377,7 +377,9 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     if ([CONFIG customBNIVANumber].length > 0) {
         dictionaryParameters[@"bni_va"] = @{@"va_number":CONFIG.customBNIVANumber};
     }
-    
+    if ([CONFIG customCimbVANumber].length > 0) {
+        dictionaryParameters[@"cimb_va"] = @{@"va_number":CONFIG.customCimbVANumber};
+    }
     if (CONFIG.customPaymentChannels.count > 0) {
         dictionaryParameters[@"enabled_payments"] = CONFIG.customPaymentChannels;
     }

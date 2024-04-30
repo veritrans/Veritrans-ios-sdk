@@ -33,7 +33,7 @@
 @property (nonatomic) double timeoutInterval;
 
 @property (nonatomic) NSString *customPermataVANumber;
-
+@property (nonatomic) NSString *customCimbVANumber;
 @property (nonatomic) NSString *customBCAVANumber;
 @property (nonatomic) NSString *customBCASubcompanyCode;
 @property (nonatomic) NSString *customPermataVARecipientName;

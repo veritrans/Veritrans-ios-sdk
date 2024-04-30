@@ -16,6 +16,7 @@ typedef NS_ENUM(NSUInteger, MidtransVAType) {
     VTVATypeBNI,
     VTVATypeBRI,
     VTVATypeAll,
+    VTVATypeCIMB,
     VTVATypeOther
 };
 

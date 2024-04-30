@@ -378,10 +378,13 @@
                 [self presentViewController:alert animated:YES completion:nil];
             }
             else {
-                
-                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-                paymentVC.paymentDelegate = self;
-                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+                if (self.directPaymentFeature != MidtransPaymentFeatureNone) {
+                    self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:self.directPaymentFeature];
+                } else {
+                    self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                }
+                self.paymentVC.paymentDelegate = self;
+                [self.navigationController presentViewController:self.paymentVC animated:YES completion:nil];
             }
             //hide hud
             [self.progressHUD dismissAnimated:YES];

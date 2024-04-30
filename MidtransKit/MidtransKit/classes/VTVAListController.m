@@ -109,7 +109,9 @@
     vc.response = self.paymentResponse;
     if (self.vaList.count == 1) {
         [vc showDismissButton:YES];
+        [self.navigationController pushViewController:vc animated:NO];
+    } else {
+        [self.navigationController pushViewController:vc animated:YES];
     }
-    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

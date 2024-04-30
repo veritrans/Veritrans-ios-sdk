@@ -52,6 +52,16 @@
         <key>id</key>
         <string>bri_va</string>
     </dict>
+    <dict>
+        <key>shortName</key>
+        <string>atm cimb</string>
+        <key>title</key>
+        <string>CIMB Niaga</string>
+        <key>description</key>
+        <string>Bayar dari ATM CIMB atau internet banking</string>
+        <key>id</key>
+        <string>cimb_va</string>
+    </dict>
 	<dict>
 		<key>shortName</key>
 		<string>atm all</string>

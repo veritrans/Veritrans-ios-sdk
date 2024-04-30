@@ -106,10 +106,7 @@
     CONFIG.customCimbVANumber = [MDOptionManager shared].cimbVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
     
-    CONFIG.callbackSchemeURL = @"demo.midtrans://";
-    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
-    CONFIG.uobCallbackURL = @"demo.midtrans://";
-    
+    [self handleDeeplinkUrlConfig];
     self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
@@ -286,6 +283,22 @@
 - (void)paymentViewController:(MidtransUIPaymentViewController *)viewController paymentDeny:(MidtransTransactionResult *)result{
     NSLog(@"[MIDTRANS] Deny %@", result);
     [self showAlertWithResult:result];
+}
+
+- (void)handleDeeplinkUrlConfig{
+    NSArray *selectedEnabledPayments = [MDOptionManager shared].paymentChannel.value;
+    for (NSDictionary* enabledPayment in selectedEnabledPayments){
+        NSString *paymentType = [enabledPayment valueForKey:@"type"];
+        if ([paymentType isEqualToString:@"gopay"]) {
+            CONFIG.callbackSchemeURL = @"demo.midtrans://";
+        }
+        if ([paymentType isEqualToString:@"shopeepay"]) {
+            CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+        }
+        if ([paymentType isEqualToString:@"uob_ezpay"]) {
+            CONFIG.uobCallbackURL = @"demo.midtrans://";
+        }
+    }
 }
 
 - (void)showAlertWithResult:(MidtransTransactionResult *)result {

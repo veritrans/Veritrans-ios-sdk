@@ -190,5 +190,7 @@
     self.customFieldOption = nil;
     self.paymentChannel = nil;
     self.directPaymentFeature = nil;
+    self.bniVAOption = nil;
+    self.cimbVAOption = nil;
 }
 @end

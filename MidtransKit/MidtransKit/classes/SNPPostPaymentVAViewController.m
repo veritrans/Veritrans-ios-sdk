@@ -81,6 +81,10 @@
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bni_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"bni_expiration" ];
     }
+    else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_CIMB_VA]) {
+        vaNumber = [self.transactionResult.additionalData objectForKey:@"cimb_va_number"];
+        expireDate = [self.transactionResult.additionalData objectForKey:@"cimb_expiration" ];
+    }
     else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BRI_VA]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bri_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"bri_expiration" ];

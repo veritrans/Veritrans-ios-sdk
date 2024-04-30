@@ -71,7 +71,8 @@
     [self.headerView.reloadButton addTarget:self action:@selector(reloadInstruction) forControlEvents:UIControlEventTouchUpInside];
     [self addNavigationToTextFields:@[self.headerView.emailTextField]];
     self.headerView.keySMSviewConstraints.constant = 0.0f;
-    if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentId isEqualToString:MIDTRANS_PAYMENT_BCA_VA] || [self.paymentId isEqualToString:MIDTRANS_PAYMENT_BRI_VA]) {
+    if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentId isEqualToString:MIDTRANS_PAYMENT_BCA_VA] || [self.paymentId isEqualToString:MIDTRANS_PAYMENT_BRI_VA] || [self.paymentId isEqualToString:MIDTRANS_PAYMENT_CIMB_VA]
+        ) {
         self.headerView.keySMSviewConstraints.constant = 0.0f;
         self.headerView.keyView.hidden = YES;
     }
@@ -123,6 +124,9 @@
     }
     else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BRI_VA]) {
         self.paymentType = VTVATypeBRI;
+    }
+    else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_CIMB_VA]) {
+        self.paymentType = VTVATypeCIMB;
     }
     
     [[NSNotificationCenter defaultCenter] addObserverForName:VTTapableLabelDidTapLink object:nil queue:[NSOperationQueue mainQueue] usingBlock:^(NSNotification * _Nonnull note) {

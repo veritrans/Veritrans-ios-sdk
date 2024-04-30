@@ -25,6 +25,10 @@
  },
  {
  "type": "bank_transfer",
+ "name": "Bank CIMB"
+ },
+ {
+ "type": "bank_transfer",
  "name": "Other Bank"
  },
  {

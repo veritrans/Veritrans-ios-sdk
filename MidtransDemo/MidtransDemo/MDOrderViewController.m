@@ -305,6 +305,11 @@
                 CONFIG.shopeePayCallbackURL = nil;
                 CONFIG.callbackSchemeURL = nil;
             }
+            if ([paymentType isEqualToString:@"bank_transfer"]) {
+                CONFIG.uobCallbackURL = nil;
+                CONFIG.shopeePayCallbackURL = nil;
+                CONFIG.callbackSchemeURL = nil;
+            }
         }
     } else {
         CONFIG.callbackSchemeURL = @"demo.midtrans://";

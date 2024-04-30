@@ -287,17 +287,29 @@
 
 - (void)handleDeeplinkUrlConfig{
     NSArray *selectedEnabledPayments = [MDOptionManager shared].paymentChannel.value;
-    for (NSDictionary* enabledPayment in selectedEnabledPayments){
-        NSString *paymentType = [enabledPayment valueForKey:@"type"];
-        if ([paymentType isEqualToString:@"gopay"]) {
-            CONFIG.callbackSchemeURL = @"demo.midtrans://";
+    if (selectedEnabledPayments) {
+        for (NSDictionary* enabledPayment in selectedEnabledPayments){
+            NSString *paymentType = [enabledPayment valueForKey:@"type"];
+            if ([paymentType isEqualToString:@"gopay"]) {
+                CONFIG.callbackSchemeURL = @"demo.midtrans://";
+                CONFIG.shopeePayCallbackURL = nil;
+                CONFIG.uobCallbackURL = nil;
+            }
+            if ([paymentType isEqualToString:@"shopeepay"]) {
+                CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+                CONFIG.callbackSchemeURL = nil;
+                CONFIG.uobCallbackURL = nil;
+            }
+            if ([paymentType isEqualToString:@"uob_ezpay"]) {
+                CONFIG.uobCallbackURL = @"demo.midtrans://";
+                CONFIG.shopeePayCallbackURL = nil;
+                CONFIG.callbackSchemeURL = nil;
+            }
         }
-        if ([paymentType isEqualToString:@"shopeepay"]) {
-            CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
-        }
-        if ([paymentType isEqualToString:@"uob_ezpay"]) {
-            CONFIG.uobCallbackURL = @"demo.midtrans://";
-        }
+    } else {
+        CONFIG.callbackSchemeURL = @"demo.midtrans://";
+        CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+        CONFIG.uobCallbackURL = @"demo.midtrans://";
     }
 }
 

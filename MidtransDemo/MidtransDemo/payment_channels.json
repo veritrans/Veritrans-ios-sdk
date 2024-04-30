@@ -8,23 +8,23 @@
     "name": "Bank Transfer"
   },
  {
- "type": "bank_transfer",
+ "type": "mandiri_va",
  "name": "Bank Mandiri"
  },
  {
- "type": "bank_transfer",
+ "type": "bca_va",
  "name": "Bank BCA"
  },
  {
- "type": "bank_transfer",
+ "type": "bni_va",
  "name": "Bank BNI"
  },
  {
- "type": "bank_transfer",
+ "type": "bri_va",
  "name": "Bank BRI"
  },
  {
- "type": "bank_transfer",
+ "type": "cimb_va",
  "name": "Bank CIMB"
  },
  {

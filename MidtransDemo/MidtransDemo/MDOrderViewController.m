@@ -103,6 +103,7 @@
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
+    CONFIG.customCimbVANumber = [MDOptionManager shared].cimbVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
     
     CONFIG.callbackSchemeURL = @"demo.midtrans://";

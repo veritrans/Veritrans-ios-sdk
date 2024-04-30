@@ -44,7 +44,8 @@
         self.mandiriPointOption = [self unArchivedObject:@"md_mandiri_point"];
         self.permataVAOption = [self unArchivedObject:@"md_permata_va"];
         self.bcaVAOption = [self unArchivedObject:@"md_bca_va"];
-        self.bniVAOption = [self unArchivedObject:@"md_bni_va"];;
+        self.bniVAOption = [self unArchivedObject:@"md_bni_va"];
+        self.cimbVAOption = [self unArchivedObject:@"md_cimb_va"];
         self.bniPointOption = [self unArchivedObject:@"md_bni_point"];
         self.customFieldOption = [self unArchivedObject:@"md_custom_field"];
         self.installmentOption = [self unArchivedObject:@"md_installment"];
@@ -129,6 +130,10 @@
 - (void)setBniVAOption:(MDOption *)bniVAOption {
     _bniVAOption = bniVAOption;
     [self archiveObject:bniVAOption key:@"md_bni_va"];
+}
+- (void)setCimbVAOption:(MDOption *)cimbVAOption {
+    _cimbVAOption = cimbVAOption;
+    [self archiveObject:cimbVAOption key:@"md_cimb_va"];
 }
 - (void)setCustomFieldOption:(MDOption *)customFieldOption {
     _customFieldOption = customFieldOption;

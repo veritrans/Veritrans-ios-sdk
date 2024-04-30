@@ -28,6 +28,7 @@
 @property (nonatomic) MDOption *permataVAOption;
 @property (nonatomic) MDOption *bcaVAOption;
 @property (nonatomic) MDOption *bniVAOption;
+@property (nonatomic) MDOption *cimbVAOption;
 @property (nonatomic) MDOption *customFieldOption;
 @property (nonatomic) MDOption *mandiriPointOption;
 @property (nonatomic) MDOption *installmentOption;

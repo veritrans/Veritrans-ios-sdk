@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>ATM CIMB Niaga</string>
+		<key>guides</key>
+		<array>
+			<dict>
+				<key>content</key>
+				<string>Select ‘bill payment’ menu.</string>
+				<key>image</key>
+				<string>cimb_va1</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Select ‘virtual account’.</string>
+				<key>image</key>
+				<string>cimb_va2</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Input ‘virtual account number’, ‘then confirm’.</string>
+				<key>image</key>
+				<string>cimb_va3</string>
+			</dict>
+			<dict>
+				<key>content</key>
+				<string>Payment completed.</string>
+				<key>image</key>
+				<string>cimb_va4</string>
+			</dict>
+		</array>
+	</dict>
+    <dict>
+        <key>name</key>
+        <string>OCTO Clicks</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Select ‘bill payment’ menu.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘mobile virtual account’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Input ‘virtual account number’, then click ‘continue to verify details’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select send ‘OTP to proceed’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Input ‘OTP’ sent to your mobile number, then ‘confirm’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Payment completed.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>OCTO Mobile</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Select ‘transfer’ menu.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘transfer to other CIMB Niaga account’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select your source account: ‘CASA’ or ‘rekening ponsel’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Input the ‘virtual account number’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Input the ‘payable amount’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Follow the instructions to complete the payment.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Payment completed.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+        </array>
+    </dict>
+</array>
+</plist>

@@ -2,158 +2,128 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <array>
-	<dict>
-		<key>name</key>
-		<string>ATM BNI</string>
-		<key>guides</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>On the main menu, choose ‘Other Transaction’</string>
-				<key>image</key>
-				<string>bni_va1</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Choose ‘Transfer’</string>
-				<key>image</key>
-				<string>bni_va2</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Choose ‘Savings Account’</string>
-				<key>image</key>
-				<string>bni_va3</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Choose ‘To BNI Account’</string>
-				<key>image</key>
-				<string>bni_va4</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter ‘BNI virtual account number’ and press ‘Correct’</string>
-				<key>image</key>
-				<string>bni_va5</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter the ‘full amount to be paid’ and press ‘Correct’</string>
-				<key>image</key>
-				<string>bni_va6</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Your payment details will appear on the confirmation page. If the information is correct press ‘Correct’</string>
-				<key>image</key>
-				<string>bni_va7</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>Mobile Banking</string>
-		<key>guides</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>Open the BNI Mobile Banking app and login</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Click ‘Transfer’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Click ‘To BNI Account’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Click ‘Input New Account’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter account numbers, an then click ‘Continue’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input the ‘Transaction Password’ and then click ‘Continue’ and you are done. </string>
-				<key>image</key>
-				<string></string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>Internet Banking</string>
-		<key>guides</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>Go to ‘https://ibank.bni.co.id’ and then click ‘Login’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Continue login with your ‘User ID’ and ‘Password’.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Click ‘Transfer’ and then ‘Add Favorite Account’ and choose ‘Antar Rekening BNI’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Enter account name, account number, and email and then click ‘Continue’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input the ‘Authentification Code’ from your token and then click ‘Continue’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Back to main menu and select ‘Transfer’ and then ‘Transfer Antar Rekening BNI’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Pick the account that you just created in the previous step as ‘Rekening Tujuan’ and fill in the rest before clicking ‘Continue’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Check whether the details are correct, if they are, please input the ‘Authentification Code’ and click ‘Continue’ and you are done</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Your transaction is done</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-		</array>
-	</dict>
+    <dict>
+        <key>name</key>
+        <string>ATM BNI</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Select ‘others’ on the main menu.</string>
+                <key>image</key>
+                <string>bni_va1</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘transfer’.</string>
+                <key>image</key>
+                <string>bni_va2</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘to BNI account’.</string>
+                <key>image</key>
+                <string>bni_va3</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Insert the ‘payment account number’.</string>
+                <key>image</key>
+                <string>bni_va4</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Insert the ‘payable amount’, then confirm’.</string>
+                <key>image</key>
+                <string>bni_va5</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Payment completed.</string>
+                <key>image</key>
+                <string>bni_va6</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>Internet Banking</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Select ‘transaction’, then ‘transfer administration info’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘set destination account’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Insert ‘account info’, then ‘Confirm’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘transfer’, then ‘transfer to BNI account’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Insert ‘payment details’, then ‘confirm’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Payment completed.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>Mobile Banking</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Select ‘transfer’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select ‘virtual account billing’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Select the ‘debit account’ you want to use.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Insert the ‘virtual account number’, then ‘confirm’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Payment completed.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+        </array>
+    </dict>
 </array>
 </plist>

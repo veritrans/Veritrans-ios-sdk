@@ -294,22 +294,18 @@
                 CONFIG.callbackSchemeURL = @"demo.midtrans://";
                 CONFIG.shopeePayCallbackURL = nil;
                 CONFIG.uobCallbackURL = nil;
-            }
-            if ([paymentType isEqualToString:@"shopeepay"]) {
+            } else if ([paymentType isEqualToString:@"shopeepay"]) {
                 CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
                 CONFIG.callbackSchemeURL = nil;
                 CONFIG.uobCallbackURL = nil;
-            }
-            if ([paymentType isEqualToString:@"uob_ezpay"]) {
+            } else if ([paymentType isEqualToString:@"uob_ezpay"]) {
                 CONFIG.uobCallbackURL = @"demo.midtrans://";
                 CONFIG.shopeePayCallbackURL = nil;
                 CONFIG.callbackSchemeURL = nil;
-            }
-            if ([paymentType isEqualToString:@"bank_transfer"]) {
+            } else {
                 CONFIG.uobCallbackURL = nil;
                 CONFIG.shopeePayCallbackURL = nil;
-                CONFIG.callbackSchemeURL = nil;
-            }
+                CONFIG.callbackSchemeURL = nil;}
         }
     } else {
         CONFIG.callbackSchemeURL = @"demo.midtrans://";

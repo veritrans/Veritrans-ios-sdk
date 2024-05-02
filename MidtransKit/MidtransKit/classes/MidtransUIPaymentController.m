@@ -269,6 +269,7 @@
         if ([paymentID isEqualToString:MIDTRANS_PAYMENT_BCA_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_BNI_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_BRI_VA] ||
+            [paymentID isEqualToString:MIDTRANS_PAYMENT_CIMB_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_ALL_VA] ||
             [paymentID isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {

@@ -216,6 +216,20 @@
         <key>status</key>
         <string>&quot;&quot;</string>
         <key>title</key>
+        <string>CIMB Niaga</string>
+        <key>description</key>
+        <string>Bayar dari ATM CIMB Niaga atau internet banking</string>
+        <key>id</key>
+        <string>cimb_va</string>
+        <key>identifier</key>
+        <string>cimb_va</string>
+        <key>shortName</key>
+        <string>atm cimb</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
         <string>BRI</string>
         <key>description</key>
         <string>Bayar dari ATM BRI atau internet banking</string>

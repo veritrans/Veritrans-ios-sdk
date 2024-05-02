@@ -44,6 +44,7 @@ static NSString *const OPTMandiriPoint = @"OPTMandiriPoint";
 static NSString *const OPTPermataVA = @"OPTPermataVA";
 static NSString *const OPTBCAVA = @"OPTBCAVA";
 static NSString *const OPTBNIVA = @"OPTBNIVA";
+static NSString *const OPTCIMBVA = @"OPTCIMBVA";
 static NSString *const OPTCustomField = @"OPTCustomField";
 static NSString *const OPTInstallment = @"OPTInstallment";
 static NSString *const OPTPaymanetChannel = @"OPTPaymanetChannel";

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+    <dict>
+        <key>name</key>
+        <string>ATM CIMB Niaga</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Pilih ‘pembayaran’ pada menu utama.</string>
+                <key>image</key>
+                <string>cimb_va1</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pilih ‘virtual account’.</string>
+                <key>image</key>
+                <string>cimb_va2</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Masukkan ‘nomor virtual account’, lalu ‘konfirmasi’.</string>
+                <key>image</key>
+                <string>cimb_va3</string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pembayaran selesai.</string>
+                <key>image</key>
+                <string>cimb_va4</string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>OCTO Clicks</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Pilih ‘pembayaran tagihan’ pada menu utama.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pilih ‘mobile rekening virtual’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Masukkan ‘nomor virtual account’, lalu klik ‘lanjut untuk verifikasi detail’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pilih kirim OTP untuk ‘lanjut’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Masukkan ‘OTP’ yang dikirimkan ke nomor HP Anda, lalu ‘konfirmasi’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pembayaran selesai.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+        </array>
+    </dict>
+    <dict>
+        <key>name</key>
+        <string>OCTO Mobile</string>
+        <key>guides</key>
+        <array>
+            <dict>
+                <key>content</key>
+                <string>Pilih menu ‘transfer’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pilih ‘transfer to other CIMB Niaga account’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pilih sumber dana: ‘CASA’ atau ‘rekening ponsel’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Masukkan ‘nomor virtual account’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Masukkan ‘jumlah yang akan dibayar’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Ikuti instruksi untuk menyelesaikan pembayaran.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pembayaran selesai.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+        </array>
+    </dict>
+</array>
+</plist>

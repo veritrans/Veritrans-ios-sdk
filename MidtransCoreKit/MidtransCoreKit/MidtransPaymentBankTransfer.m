@@ -42,6 +42,8 @@
             return MIDTRANS_PAYMENT_BRI_VA;
         case VTVATypeOther:
             return MIDTRANS_PAYMENT_OTHER_VA;
+        case VTVATypeCIMB:
+            return MIDTRANS_PAYMENT_CIMB_VA;
     }
 }
 

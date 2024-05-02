@@ -84,8 +84,10 @@
     }
     self.headerView.smsChargeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"SMS Charges may be applied for this payment method"];
     [self.headerView.expandBankListButton addTarget:self action:@selector(displayBankList) forControlEvents:UIControlEventTouchUpInside];
+    self.headerView.expandBankListButton.hidden = YES;
     [self.headerView updateConstraints];
     [self.headerView layoutIfNeeded];
+    
     
     NSString* filenameByLanguage;
     filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_%@", self.paymentId];
@@ -227,10 +229,10 @@
         [self.headerView.expandBankListButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Total 83 registered banks"] forState:UIControlStateNormal];
     } else if (index == 1) {
         if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BNI_VA] || [self.paymentId isEqualToString:MIDTRANS_PAYMENT_BCA_VA]) {
-            self.headerView.keySMSviewConstraints.constant = 40.0f;
+            self.headerView.keySMSviewConstraints.constant = 0.0f;
             self.headerView.keyView.hidden = YES;
         }
-        self.headerView.keyView.hidden = NO;
+        self.headerView.keyView.hidden = YES;
         if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA]) {
             
             self.headerView.otherAtmIconsImageView.image = [UIImage imageNamed:@"alto_preview" inBundle:VTBundle compatibleWithTraitCollection:nil];
@@ -251,13 +253,13 @@
     }
     
     if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_OTHER_VA]) {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
-        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 0.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
     } else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_PERMATA_VA] && index == 1) {
-        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 24.0f;
-        self.headerView.payNoticeLabelHeightConstraint.constant = 84.0f;
-        self.headerView.expandListButtonHeightConstraint.constant = 24.0f;
+        self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
+        self.headerView.payNoticeLabelHeightConstraint.constant = 0.0f;
+        self.headerView.expandListButtonHeightConstraint.constant = 0.0f;
     } else {
         self.headerView.otherAtmIconsHeightLayoutConstraint.constant = 0.0f;
         self.headerView.payNoticeLabelHeightConstraint.constant = 0.0f;

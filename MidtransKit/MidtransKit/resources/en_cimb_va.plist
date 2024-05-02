@@ -21,7 +21,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Input ‘virtual account number’, ‘then confirm’.</string>
+				<string>Input ‘virtual account number’, then ‘confirm’.</string>
 				<key>image</key>
 				<string>cimb_va3</string>
 			</dict>

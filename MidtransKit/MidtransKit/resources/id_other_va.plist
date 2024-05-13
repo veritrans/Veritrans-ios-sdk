@@ -9,43 +9,43 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Pada menu utama, pilih ‘Transaksi Lainnya’</string>
+				<string>Pilih ‘transaksi lainnya pada menu utama’.</string>
 				<key>image</key>
 				<string>other_prima_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Transfer’</string>
+				<string>Pilih ‘transfer’.</string>
 				<key>image</key>
 				<string>other_prima_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Ke Rek Bank Lain’</string>
+				<string>Pilih ‘rekening bank lain’.</string>
 				<key>image</key>
 				<string>other_prima_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan ‘[BANK_CODE]’ (kode bank [BANK_NAME]) lalu tekan ‘Benar’</string>
+				<string>Masukkan 002 sebagai ‘kode bank’.</string>
 				<key>image</key>
 				<string>other_prima_4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan jumlah tagihan yang akan Anda bayar secara lengkap, lalu tekan ‘Benar’.</string>
+				<string>Masukkan ‘jumlah yang akan dibayar’.</string>
 				<key>image</key>
 				<string>other_prima_5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan 16 digit No. Rekening Pembayaran yang dituju, lalu tekan ‘Benar’</string>
+				<string>Masukkan ‘nomor rekening pembayaran’, lalu ‘konfirmasi’.</string>
 				<key>image</key>
 				<string>other_prima_6</string>
 			</dict>
 			<dict>
 				<key>content</key>
-                <string>Detail pembayaran Anda akan muncul pada halaman konfirmasi. jika informasi telah sesuai tekan ‘Ya’</string>
+                <string>Pembayaran berhasil.</string>
 				<key>image</key>
 				<string>other_prima_7</string>
 			</dict>
@@ -58,43 +58,43 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Pada menu utama, pilih ‘Transaksi Lainnya’</string>
+				<string>Pilih ‘transaksi lainnya’ pada menu utama.</string>
 				<key>image</key>
 				<string>other_atm_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Transfer’</string>
+				<string>Pilih ‘transfer’.</string>
 				<key>image</key>
 				<string>other_atm_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Antar Bank Online’</string>
+				<string>Pilih ‘antar bank online’.</string>
 				<key>image</key>
 				<string>other_atm_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan ‘[BANK_CODE]’ dan 16-digit No. Rekening lalu tekan ‘Benar’</string>
+				<string>Masukkan 002 sebagai ‘kode bank’.</string>
 				<key>image</key>
 				<string>other_atm_4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan jumlah tagihan yang akan Anda bayar secara lengkap, lalu tekan ‘Benar’.</string>
+				<string>Masukkan ‘jumlah yang akan dibayar’.</string>
 				<key>image</key>
 				<string>other_atm_5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Kosongkan No. referensi, lalu tekan ‘Benar’</string>
+				<string>Masukkan ‘nomor rekening pembayaran’, lalu ‘konfirmasi’.</string>
 				<key>image</key>
 				<string>other_atm_6</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Detail pembayaran Anda akan muncul pada halaman konfirmasi. Jika informasi telah sesuai tekan ‘Benar’</string>
+				<string>Pembayaran berhasil.</string>
 				<key>image</key>
 				<string>other_atm_7</string>
 			</dict>
@@ -107,43 +107,43 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Pada menu utama, pilih ‘Transaksi Lainnya’</string>
+				<string>Pilih ‘transaksi lainnya’ pada menu utama.</string>
 				<key>image</key>
 				<string>other_alto_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Transfer’</string>
+				<string>Pilih ‘transfer’.</string>
 				<key>image</key>
 				<string>other_alto_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Akun Bank Lainnya’</string>
+				<string>Pilih ‘rekening bank lain’.</string>
 				<key>image</key>
 				<string>other_alto_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan ‘[BANK_CODE]’ dan 16-digit No. Rekening lalu tekan ‘Benar’</string>
+				<string>Masukkan 002 sebagai ‘kode bank’.</string>
 				<key>image</key>
 				<string>other_alto_4</string>
 			</dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan jumlah tagihan yang akan Anda bayar secara lengkap, lalu tekan ‘Benar’.</string>
+                <string>Masukkan ‘jumlah yang akan dibayar’.</string>
                 <key>image</key>
                 <string>other_alto_5</string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan 16 digit No. Rekening Pembayaran yang dituju, lalu tekan ‘Benar’</string>
+                <string>Masukkan ‘nomor rekening pembayaran’, lalu ‘konfirmasi’.</string>
                 <key>image</key>
                 <string>other_alto_6</string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Detail pembayaran Anda akan muncul pada halaman konfirmasi. jika informasi telah sesuai tekan ‘Ya’</string>
+                <string>Pembayaran berhasil.</string>
                 <key>image</key>
                 <string>other_prima_7</string>
             </dict>

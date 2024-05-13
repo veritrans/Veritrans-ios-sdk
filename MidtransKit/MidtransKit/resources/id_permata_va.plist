@@ -4,97 +4,79 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>ATM Permata</string>
+		<string>ATM Permata/ALTO</string>
 		<key>guides</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Pada menu utama pilih ‘Transaksi Lainnya’</string>
+				<string>Pilih ‘transaksi lainnya’ pada menu utama.</string>
 				<key>image</key>
 				<string>permata_atm_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Pembayaran’</string>
+				<string>Pilih ‘pembayaran’</string>
 				<key>image</key>
 				<string>permata_atm_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Pembayaran Lainnya’</string>
+				<string>Pilih ‘pembayaran Lainnya’</string>
 				<key>image</key>
 				<string>permata_atm_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Virtual Account’</string>
+				<string>Pilih ‘virtual account’</string>
 				<key>image</key>
 				<string>permata_atm_4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan 16 digit No. Virtual Account yang dituju dan tekan ‘Benar’</string>
+				<string>Masukkan ‘nomor virtual account Permata’, lalu konfirmasi’.</string>
 				<key>image</key>
 				<string>permata_atm_5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Detail pembayaran anda akan muncul pada halaman konfirmasi. Jika informasi telah sesuai tekan ‘Benar’</string>
+				<string>Pembayaran berhasil.</string>
 				<key>image</key>
 				<string>permata_atm_6</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Pilih rekening pembayaran Anda dan tekan ‘Benar’</string>
-				<key>image</key>
-				<string>permata_atm_7</string>
 			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Alto</string>
+		<string>Via bank lainnya</string>
 		<key>guides</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Pada menu utama pilih ‘Transaksi Lainnya’</string>
+				<string>Pilih ‘bank &amp; cara bayar’ (ATM/internet/mobile banking) ‘yang Anda inginkan’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Pembayaran’</string>
+				<string>Pilih ‘transfer ke bank lain’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Pembayaran Lainnya’</string>
+				<string>Masukkan ‘nomor virtual account’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Pilih ‘Virtual Account’</string>
+				<string>Masukkan ‘jumlah yang akan dibayar, lalu konfirmasi’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Masukkan 16 digit No. Virtual Account yang dituju dan tekan ‘Benar’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Detail pembayaran anda akan muncul pada halaman konfirmasi. Jika informasi telah sesuai tekan ‘Benar’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Pilih rekening pembayaran Anda dan tekan ‘Benar’</string>
+				<string>Pembayaran selesai.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

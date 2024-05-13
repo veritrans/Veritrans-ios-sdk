@@ -47,7 +47,7 @@
             [self.view.tokenViewIcon setImage:[[UIImage imageNamed:@"sms" inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
         }
         self.view.topConstraints.constant = 40.0f;
-        self.view.tokenView.hidden = NO;
+        self.view.tokenView.hidden = YES;
         self.view.tokenViewConstraints.constant = 40.0f;
         [self updateViewConstraints];
     }

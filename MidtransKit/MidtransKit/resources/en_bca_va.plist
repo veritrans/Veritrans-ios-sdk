@@ -9,37 +9,37 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>On the main menu, choose ‘Other Transaction’</string>
+				<string>Select ‘other transactions’ on the main menu.</string>
 				<key>image</key>
 				<string>bca_atm_1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Transfer’</string>
+				<string>Select ‘transfer’</string>
 				<key>image</key>
 				<string>bca_atm_2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘To BCA Virtual Account’</string>
+				<string>Select to ‘BCA virtual account’.</string>
 				<key>image</key>
 				<string>bca_atm_3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter your payment code (11 digit code) and press ‘Correct’</string>
+				<string>Insert ‘BCA virtual account number’.</string>
 				<key>image</key>
 				<string>bca_atm_4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter the full amount to be paid and press ‘Correct’</string>
+				<string>Insert the ‘payable amount’, then ‘confirm’.</string>
 				<key>image</key>
 				<string>bca_atm_5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Your payment details will appear on the confirmation page. If the information is correct press ‘Yes’</string>
+				<string>Payment completed.</string>
 				<key>image</key>
 				<string>bca_atm_6</string>
 			</dict>
@@ -47,42 +47,36 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>KlikBCA</string>
+		<string>Klik BCA</string>
 		<key>guides</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Choose menu ‘Fund Transfer’</string>
+				<string>Select ‘fund transfer’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Transfer to BCA Virtual Account’</string>
+				<string>Select ‘transfer to BCA virtual account’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>‘Input BCA Virtual Account Number’ or ‘Choose from Transfer List’ and click ‘Continue’</string>
+				<string>Insert ‘BCA virtual account number’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Amount to be paid, account number and Merchant name will appear on the payment confirmation page, if the information is right click ‘Continue’</string>
+				<string>Insert the ‘payable amount’, then ‘confirm’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Get your ‘BCA token’ and input KEYBCA Response ‘APPLI 1’ and click ‘Submit’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Your transaction is Done</string>
+				<string>Payment completed.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -95,43 +89,31 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Log in to your BCA Mobile app</string>
+				<string>Select ‘m-Transfer’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string> Choose ‘m-BCA’, then input your m-BCA access code</string>
+				<string>Select ‘BCA virtual account’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string> Choose ‘m-Transfer’, then choose BCA Virtual Account</string>
+				<string>Insert ‘BCA virtual account number’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Input  ‘Virtual Account Number’ or choose an existing account from Daftar Transfer </string>
+				<string>Insert the ‘payable amount’, then ‘confirm’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Input the payable amount</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input your ‘ m-BCA’ pin </string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Payment is finished. Save the notification as your payment receipt.</string>
+				<string>Payment completed.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

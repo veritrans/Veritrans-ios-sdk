@@ -1,135 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-<array>
-	<dict>
-		<key>name</key>
-		<string>Livin’ by Mandiri</string>
-		<key>guides</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>Select ‘payment’ on the main menu.</string>
-				<key>image</key>
-				<string>mandiri_atm_1</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Select ‘Ecommerce’.</string>
-				<key>image</key>
-				<string>mandiri_atm_2</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Select ‘Midtrans’ in the service provider field.</string>
-				<key>image</key>
-				<string>mandiri_atm_3</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input ‘virtual account number’ in the ‘payment code’ field.</string>
-				<key>image</key>
-				<string>mandiri_atm_4</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Click ‘continue’ to confirm.</string>
-				<key>image</key>
-				<string>mandiri_atm_5</string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Payment complete.</string>
-				<key>image</key>
-				<string>mandiri_atm_6</string>
-			</dict>
-		</array>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>ATM Mandiri</string>
-		<key>guides</key>
-		<array>
-			<dict>
-				<key>content</key>
-				<string>Select ‘pay/buy’ on the main menu.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Select ‘others’.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Select ‘multi payment’.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input Midtrans company code ‘70012’.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input ‘payment code’, then ‘confirm’.</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-            <dict>
-                <key>content</key>
-                <string>Payment complete.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-		</array>
-	</dict>
-    <dict>
-        <key>name</key>
-        <string>Internet Banking</string>
-        <key>guides</key>
-        <array>
-            <dict>
-                <key>content</key>
-                <string>Select ‘payment’ on the main menu.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Select ‘multi payment’.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Select ‘from account’.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Select ‘Midtrans’ in the ‘service provider’ field.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Input ‘payment code’, then ‘confirm’.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Payment complete.</string>
-                <key>image</key>
-                <string></string>
-            </dict>
-        </array>
-    </dict>
-</array>
+    <array>
+        <dict>
+            <key>name</key>
+            <string>Livin’ by Mandiri</string>
+            <key>guides</key>
+            <array>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘payment’ on the main menu.</string>
+                    <key>image</key>
+                    <string>mandiri_atm_1</string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘Ecommerce’.</string>
+                    <key>image</key>
+                    <string>mandiri_atm_2</string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘Midtrans’ in the service provider field.</string>
+                    <key>image</key>
+                    <string>mandiri_atm_3</string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Input ‘virtual account number’ in the ‘payment code’ field.</string>
+                    <key>image</key>
+                    <string>mandiri_atm_4</string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Click ‘continue’ to confirm.</string>
+                    <key>image</key>
+                    <string>mandiri_atm_5</string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Payment complete.</string>
+                    <key>image</key>
+                    <string>mandiri_atm_6</string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>ATM Mandiri</string>
+            <key>guides</key>
+            <array>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘pay/buy’ on the main menu.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘others’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘multi payment’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Input Midtrans company code ‘70012’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Input ‘payment code’, then ‘confirm’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Payment complete.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+            </array>
+        </dict>
+        <dict>
+            <key>name</key>
+            <string>Mandiri Internet Banking</string>
+            <key>guides</key>
+            <array>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘payment’ on the main menu.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘multi payment’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘from account’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Select ‘Midtrans’ in the ‘service provider’ field.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Input ‘payment code’, then ‘confirm’.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+                <dict>
+                    <key>content</key>
+                    <string>Payment complete.</string>
+                    <key>image</key>
+                    <string></string>
+                </dict>
+            </array>
+        </dict>
+    </array>
 </plist>

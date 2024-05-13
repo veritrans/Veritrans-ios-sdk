@@ -9,31 +9,31 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Select ‘other transaction’ on the main menu</string>
+				<string>Select ‘other transaction’ on the main menu.</string>
 				<key>image</key>
 				<string>bri_va1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Select ‘payment’</string>
+				<string>Select ‘payment’.</string>
 				<key>image</key>
 				<string>bri_va2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Select ‘other’</string>
+				<string>Select ‘other’.</string>
 				<key>image</key>
 				<string>bri_va3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Select ‘BRIVA’</string>
+				<string>Select ‘BRIVA’.</string>
 				<key>image</key>
 				<string>bri_va4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Insert ‘BRIVA’ number, then ‘confirm’.</string>
+				<string>Insert ‘BRIVA number’, then ‘confirm’.</string>
 				<key>image</key>
 				<string>bri_va5</string>
 			</dict>
@@ -64,7 +64,7 @@
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Insert ‘BRIVA Number’, then ‘confirm’.</string>
+				<string>Insert ‘BRIVA number’, then ‘confirm’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

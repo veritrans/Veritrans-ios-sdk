@@ -33,7 +33,7 @@
             </dict>
             <dict>
                 <key>content</key>
-                <string>Insert the ‘payable amount’, then confirm’.</string>
+                <string>Insert the ‘payable amount’, then ‘confirm’.</string>
                 <key>image</key>
                 <string>bni_va5</string>
             </dict>
@@ -64,7 +64,7 @@
             </dict>
             <dict>
                 <key>content</key>
-                <string>Insert ‘account info’, then ‘Confirm’.</string>
+                <string>Insert ‘account info’, then ‘confirm’.</string>
                 <key>image</key>
                 <string></string>
             </dict>

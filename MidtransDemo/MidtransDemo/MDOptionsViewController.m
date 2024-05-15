@@ -63,6 +63,7 @@
                 [MDOption optionGeneralWithName:@"Bank Transfer BNIVA" value:@(MidtransPaymentFeatureBankTransferBNIVA)],
                 [MDOption optionGeneralWithName:@"Bank Transfer BRIVA" value:@(MidtransPaymentFeatureBankTransferBRIVA)],
                 [MDOption optionGeneralWithName:@"Bank Transfer PermataVA" value:@(MidtransPaymentFeatureBankTransferPermataVA)],
+                [MDOption optionGeneralWithName:@"Bank Transfer CIMBVA" value:@(MidtransPaymentFeatureBankTransferCIMBVA)],
                 [MDOption optionGeneralWithName:@"Bank Transfer OtherVA" value:@(MidtransPaymentFeatureBankTransferOtherVA)],
                 [MDOption optionGeneralWithName:@"Klik BCA" value:@(MidtransPaymentFeatureKlikBCA)],
                 [MDOption optionGeneralWithName:@"Indomaret" value:@(MidtransPaymentFeatureIndomaret)],
@@ -230,6 +231,14 @@
                                              identifier:OPTBNIVA];
     [optBNIVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].bniVAOption]];
     
+    options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
+                [MDOption optionComposer:MDComposerTypeText name:@"Enable" value:@""]];
+    MDOptionView *optCIMBVA = [MDOptionView viewWithIcon:[UIImage imageNamed:@"custom_bca_va"]
+                                          titleTemplate:@"Custom CIMB VA %@d"
+                                                options:options
+                                             identifier:OPTCIMBVA];
+    [optCIMBVA selectOptionAtIndex:[options indexOfOption:[MDOptionManager shared].cimbVAOption]];
+    
     /////////////
     //custom field
     options = @[[MDOption optionGeneralWithName:@"Disable" value:nil],
@@ -285,6 +294,7 @@
                          optPermataVA,
                          optBCAVA,
                          optBNIVA,
+                         optCIMBVA,
                          optCustomField,
                          optInstallment,
                          optPaymentChannels,
@@ -480,7 +490,7 @@
            usePredefinedValue:(BOOL)usePredefinedValue {
     NSString *idf = optionView.identifier;
     if ([idf isEqualToString:OPTPermataVA] ||
-        [idf isEqualToString:OPTBCAVA] ||[idf isEqualToString:OPTBNIVA]) {
+        [idf isEqualToString:OPTBCAVA] ||[idf isEqualToString:OPTBNIVA] ||[idf isEqualToString:OPTCIMBVA]) {
         MDAlertViewController *alert = [MDAlertViewController alertWithTitle:@"Enable Custom VA Number"
                                                               predefinedText:option.value
                                                             inputPlaceholder:@"Custom VA Number"];

@@ -103,12 +103,10 @@
     CONFIG.customBCAVANumber = [MDOptionManager shared].bcaVAOption.value;
     CONFIG.customBNIVANumber = [MDOptionManager shared].bniVAOption.value;
     CONFIG.customPermataVANumber = [MDOptionManager shared].permataVAOption.value;
+    CONFIG.customCimbVANumber = [MDOptionManager shared].cimbVAOption.value;
     [[MidtransNetworkLogger shared] startLogging];
     
-    CONFIG.callbackSchemeURL = @"demo.midtrans://";
-    CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
-    CONFIG.uobCallbackURL = @"demo.midtrans://";
-    
+    [self handleDeeplinkUrlConfig];
     self.directPaymentFeature = [[MDOptionManager shared].directPaymentFeature.value intValue];
     
     self.amountView.backgroundColor = [UIColor mdThemeColor];
@@ -287,6 +285,35 @@
     [self showAlertWithResult:result];
 }
 
+- (void)handleDeeplinkUrlConfig{
+    NSArray *selectedEnabledPayments = [MDOptionManager shared].paymentChannel.value;
+    if (selectedEnabledPayments) {
+        for (NSDictionary* enabledPayment in selectedEnabledPayments){
+            NSString *paymentType = [enabledPayment valueForKey:@"type"];
+            if ([paymentType isEqualToString:@"gopay"]) {
+                CONFIG.callbackSchemeURL = @"demo.midtrans://";
+                CONFIG.shopeePayCallbackURL = nil;
+                CONFIG.uobCallbackURL = nil;
+            } else if ([paymentType isEqualToString:@"shopeepay"]) {
+                CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+                CONFIG.callbackSchemeURL = nil;
+                CONFIG.uobCallbackURL = nil;
+            } else if ([paymentType isEqualToString:@"uob_ezpay"]) {
+                CONFIG.uobCallbackURL = @"demo.midtrans://";
+                CONFIG.shopeePayCallbackURL = nil;
+                CONFIG.callbackSchemeURL = nil;
+            } else {
+                CONFIG.uobCallbackURL = nil;
+                CONFIG.shopeePayCallbackURL = nil;
+                CONFIG.callbackSchemeURL = nil;}
+        }
+    } else {
+        CONFIG.callbackSchemeURL = @"demo.midtrans://";
+        CONFIG.shopeePayCallbackURL = @"demo.midtrans://";
+        CONFIG.uobCallbackURL = @"demo.midtrans://";
+    }
+}
+
 - (void)showAlertWithResult:(MidtransTransactionResult *)result {
     UIAlertController *alert = [UIAlertController
                                 alertControllerWithTitle:[NSString stringWithFormat:@"Payment using %@", result.paymentType]
@@ -347,10 +374,13 @@
                 [self presentViewController:alert animated:YES completion:nil];
             }
             else {
-                
-                MidtransUIPaymentViewController *paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
-                paymentVC.paymentDelegate = self;
-                [self.navigationController presentViewController:paymentVC animated:YES completion:nil];
+                if (self.directPaymentFeature != MidtransPaymentFeatureNone) {
+                    self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token andPaymentFeature:self.directPaymentFeature];
+                } else {
+                    self.paymentVC = [[MidtransUIPaymentViewController alloc] initWithToken:token];
+                }
+                self.paymentVC.paymentDelegate = self;
+                [self.navigationController presentViewController:self.paymentVC animated:YES completion:nil];
             }
             //hide hud
             [self.progressHUD dismissAnimated:YES];

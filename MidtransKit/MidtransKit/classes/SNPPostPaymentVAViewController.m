@@ -65,6 +65,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
     self.footerView = [self.tableView dequeueReusableCellWithIdentifier:@"SNPPostPaymentFooter"];
+    self.footerView.hidden = YES;
     [self.footerView.downloadInstructionButton addTarget:self action:@selector(downloadButtonDidtapped:) forControlEvents:UIControlEventTouchUpInside];
     [self.headerView.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
     [self.headerViewBillPay.tabSwitch addTarget:self action:@selector(tabChanged:) forControlEvents:UIControlEventValueChanged];
@@ -80,6 +81,10 @@
     else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BNI_VA]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bni_va_number"];
         expireDate = [self.transactionResult.additionalData objectForKey:@"bni_expiration" ];
+    }
+    else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_CIMB_VA]) {
+        vaNumber = [self.transactionResult.additionalData objectForKey:@"cimb_va_number"];
+        expireDate = [self.transactionResult.additionalData objectForKey:@"cimb_expiration" ];
     }
     else if ([self.paymentId isEqualToString:MIDTRANS_PAYMENT_BRI_VA]) {
         vaNumber = [self.transactionResult.additionalData objectForKey:@"bri_va_number"];

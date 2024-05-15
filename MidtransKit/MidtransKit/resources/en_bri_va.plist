@@ -9,86 +9,68 @@
 		<array>
 			<dict>
 				<key>content</key>
-				<string>On the main menu, choose ‘Other Transaction’</string>
+				<string>Select ‘other transaction’ on the main menu.</string>
 				<key>image</key>
 				<string>bri_va1</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Payment’</string>
+				<string>Select ‘payment’.</string>
 				<key>image</key>
 				<string>bri_va2</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Other’</string>
+				<string>Select ‘other’.</string>
 				<key>image</key>
 				<string>bri_va3</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘BRIVA’</string>
+				<string>Select ‘BRIVA’.</string>
 				<key>image</key>
 				<string>bri_va4</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Enter your BRIVA (max 15 code digits) and press ‘Correct’</string>
+				<string>Insert ‘BRIVA number’, then ‘confirm’.</string>
 				<key>image</key>
 				<string>bri_va5</string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Amount to be paid, BRIVA number and merchant name will appear on the payment confirmation page. If the information is correct, press ‘YES’</string>
+				<string>Payment completed.</string>
 				<key>image</key>
 				<string>bri_va6</string>
 			</dict>
-			<dict>
-				<key>content</key>
-				<string>Payment is finished. Save your payment receipt</string>
-				<key>image</key>
-				<string>bri_va7</string>
-			</dict>
 		</array>
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Mobile Banking</string>
+		<string>IB BRI</string>
 		<key>guides</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Login to your BRI Mobile app, Choose ‘Mobile Banking BRI’</string>
+				<string>Select ‘payment &amp; purchase’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Payment’, then choose ‘BRIVA’</string>
+				<string>Select ‘BRIVA’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>input ‘BRIVA number’</string>
+				<string>Insert ‘BRIVA number’, then ‘confirm’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Amount to be paid, payment code and merchant name will appear on the payment confirmation page. If the information is correct, choose ‘Continue’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input your ‘Mobile Banking BRI PIN’, choose ‘OK’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Payment is finished. Save the notification as your payment receipt.</string>
+				<string>Payment completed.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
@@ -96,48 +78,30 @@
 	</dict>
 	<dict>
 		<key>name</key>
-		<string>Internet Banking</string>
+		<string>BRImo</string>
 		<key>guides</key>
 		<array>
 			<dict>
 				<key>content</key>
-				<string>Login to your ‘Internet Banking BRI’</string>
+				<string>Select ‘payment’</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose ‘Payment &amp; Purchase’</string>
+				<string>Select ‘BRIVA’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Choose Sub menu ‘BRIVA’</string>
+				<string>Insert ‘BRIVA number’, then ‘confirm’.</string>
 				<key>image</key>
 				<string></string>
 			</dict>
 			<dict>
 				<key>content</key>
-				<string>Input ‘BRIVA number’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Amount to be paid, payment code, and merchant name will appear on the payment confirmation page. If the information is correct, choose ‘Send’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Input ‘password’ and ‘mToken’, choose ‘Send’</string>
-				<key>image</key>
-				<string></string>
-			</dict>
-			<dict>
-				<key>content</key>
-				<string>Payment is finished, choose ‘Print’ to have payment receipt</string>
+				<string>Payment completed.</string>
 				<key>image</key>
 				<string></string>
 			</dict>

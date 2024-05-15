@@ -4,79 +4,73 @@
 <array>
     <dict>
         <key>name</key>
-        <string>ATM BCA</string>
+        <string>ATM CIMB Niaga</string>
         <key>guides</key>
         <array>
             <dict>
                 <key>content</key>
-                <string>Pilih ‘transaksi lainnya’ pada menu utama.</string>
+                <string>Pilih ‘pembayaran’ pada menu utama.</string>
                 <key>image</key>
-                <string>bca_atm_1</string>
+                <string>cimb_va1</string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Pilih ‘transfer’</string>
+                <string>Pilih ‘virtual account’.</string>
                 <key>image</key>
-                <string>bca_atm_2</string>
+                <string>cimb_va2</string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Pilih ke rekening ‘BCA virtual account’.</string>
+                <string>Masukkan ‘nomor virtual account’, lalu ‘konfirmasi’.</string>
                 <key>image</key>
-                <string>bca_atm_3</string>
+                <string>cimb_va3</string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan ‘nomor BCA virtual account’.</string>
+                <string>Pembayaran selesai.</string>
                 <key>image</key>
-                <string>bca_atm_4</string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Masukkan ‘jumlah yang akan dibayar’, lalu ‘konfirmasi’.</string>
-                <key>image</key>
-                <string>bca_atm_5</string>
-            </dict>
-            <dict>
-                <key>content</key>
-                <string>Pembayaran berhasil.</string>
-                <key>image</key>
-                <string>bca_atm_6</string>
+                <string>cimb_va4</string>
             </dict>
         </array>
     </dict>
     <dict>
         <key>name</key>
-        <string>Klik BCA</string>
+        <string>OCTO Clicks</string>
         <key>guides</key>
         <array>
             <dict>
                 <key>content</key>
-                <string>Pilih ‘transfer dana’.</string>
+                <string>Pilih ‘pembayaran tagihan’ pada menu utama.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Pilih ‘transfer ke BCA virtual account’.</string>
+                <string>Pilih ‘mobile rekening virtual’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan ‘nomor BCA virtual account’.</string>
+                <string>Masukkan ‘nomor virtual account’, lalu klik ‘lanjut untuk verifikasi detail’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan ‘jumlah yang akan dibayar’, lalu ‘konfirmasi’.</string>
+                <string>Pilih kirim OTP untuk ‘lanjut’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Pembayaran berhasil.</string>
+                <string>Masukkan ‘OTP’ yang dikirimkan ke nomor HP Anda, lalu ‘konfirmasi’.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pembayaran selesai.</string>
                 <key>image</key>
                 <string></string>
             </dict>
@@ -84,42 +78,48 @@
     </dict>
     <dict>
         <key>name</key>
-        <string>m-BCA</string>
+        <string>OCTO Mobile</string>
         <key>guides</key>
         <array>
             <dict>
                 <key>content</key>
-                <string>Pilih ‘m-Transfer’.</string>
+                <string>Pilih menu ‘transfer’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Pilih ‘BCA virtual account’.</string>
+                <string>Pilih ‘transfer to other CIMB Niaga account’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan ‘nomor BCA virtual account’.</string>
+                <string>Pilih sumber dana: ‘CASA’ atau ‘rekening ponsel’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Masukkan ‘jumlah yang akan dibayar’, lalu ‘konfirmasi’.</string>
+                <string>Masukkan ‘nomor virtual account’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Konfirmasi pembayaran.</string>
+                <string>Masukkan ‘jumlah yang akan dibayar’.</string>
                 <key>image</key>
                 <string></string>
             </dict>
             <dict>
                 <key>content</key>
-                <string>Pembayaran berhasil.</string>
+                <string>Ikuti instruksi untuk menyelesaikan pembayaran.</string>
+                <key>image</key>
+                <string></string>
+            </dict>
+            <dict>
+                <key>content</key>
+                <string>Pembayaran selesai.</string>
                 <key>image</key>
                 <string></string>
             </dict>

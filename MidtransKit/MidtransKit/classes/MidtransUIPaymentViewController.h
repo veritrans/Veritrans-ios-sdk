@@ -43,6 +43,7 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeatureBankTransferBRIVA,
     MidtransPaymentFeatureBankTransferPermataVA,
     MidtransPaymentFeatureBankTransferOtherVA,
+    MidtransPaymentFeatureBankTransferCIMBVA,
     MidtransPaymentFeatureKlikBCA,
     MidtransPaymentFeatureIndomaret,
     MidtransPaymentFeatureAlfamart,

@@ -41,6 +41,7 @@ static NSString * const MIDTRANS_PAYMENT_GOPAY = @"gopay";
 static NSString * const MIDTRANS_PAYMENT_ALFAMART = @"alfamart";
 static NSString * const MIDTRANS_PAYMENT_INDOMARET = @"indomaret";
 static NSString * const MIDTRANS_PAYMENT_AKULAKU = @"akulaku";
+static NSString * const MIDTRANS_PAYMENT_KREDIVO = @"kredivo";
 static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const MIDTRANS_PAYMENT_DANAMON_ONLINE = @"danamon_online";
 static NSString * const MIDTRANS_PAYMENT_CSTORE = @"cstore";

@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MidtransPaymentDetails.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MidtransPaymentKredivo : NSObject
+@interface MidtransPaymentKredivo : NSObject <MidtransPaymentDetails>
 
 @end
 

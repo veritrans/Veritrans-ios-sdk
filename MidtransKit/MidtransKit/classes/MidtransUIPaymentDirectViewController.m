@@ -37,6 +37,7 @@
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]  ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU] ||
+               [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KREDIVO] ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET] ||
                [self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_DANAMON_ONLINE]  ||

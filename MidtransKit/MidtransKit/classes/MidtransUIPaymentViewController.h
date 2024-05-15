@@ -54,7 +54,9 @@ typedef NS_ENUM(NSInteger, MidtransPaymentFeature) {
     MidtransPaymentFeatureAkulaku,
     MidtransPaymentFeatureGOPAY,
     MidtransPaymentFeatureShopeePay,
-    MidtransPaymentFeatureUOB    
+    MidtransPaymentFeatureUOB,
+    MidtransPaymentFeatureKredivo
+    
 };
 @class MidtransUIPaymentViewController;
 

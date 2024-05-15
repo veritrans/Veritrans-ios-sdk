@@ -380,5 +380,19 @@
         <key>shortName</key>
         <string>uob</string>
     </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
+        <string>Kredivo</string>
+        <key>description</key>
+        <string>Pay with Kredivo</string>
+        <key>id</key>
+        <string>kredivo</string>
+        <key>identifier</key>
+        <string>kredivo</string>
+        <key>shortName</key>
+        <string>kredivo</string>
+    </dict>
 </array>
 </plist>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <dict>
+            <key>content</key>
+            <string>Klik ‘Bayar sekarang’ dan Anda akan diarahkan ke halaman Kredivo.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Login ke akun Kredivo Anda.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Pilih jangka waktu cicilan yang diinginkan.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Masukkan kode OTP yang telah dikirimkan ke nomor HP-mu.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Klik ‘Bayar’.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+        <dict>
+            <key>content</key>
+            <string>Anda akan mendapatkan konfirmasi pada layar jika transaksi berhasil.</string>
+            <key>image</key>
+            <string></string>
+        </dict>
+    </array>
+</plist>

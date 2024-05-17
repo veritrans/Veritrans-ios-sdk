@@ -89,6 +89,9 @@
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
         paymentDetails = [[MidtransPaymentAkulaku alloc] init];
     }
+    else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_KREDIVO]) {
+        paymentDetails = [[MidtransPaymentKredivo alloc] init];
+    }
     else if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_CIMB_CLICKS]) {
         paymentDetails = [[MidtransPaymentCIMBClicks alloc] init];
     }

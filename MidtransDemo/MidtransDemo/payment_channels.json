@@ -86,5 +86,9 @@
   {
     "type": "akulaku",
     "name": "Akulaku PayLater"
+  },
+  {
+    "type": "kredivo",
+    "name": "Kredivo"
   }
 ]

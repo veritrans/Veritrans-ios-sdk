@@ -38,6 +38,9 @@
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU]) {
         self.title = @"Akulaku PayLater";
     }
+    else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_KREDIVO]) {
+        self.title = @"Kredivo";
+    }
     else if ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY]) {
         self.title = @"BCA KlikPay";
     }
@@ -133,6 +136,7 @@
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BCA_KLIKPAY] && [requestURL containsString:@"id="]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_MANDIRI_ECASH] && [requestURL containsString:@"notify"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_AKULAKU] && [requestURL containsString:@"akulaku/callback"]) ||
+        ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_KREDIVO] && [requestURL containsString:@"order_id"]) ||
         ([self.paymentIdentifier isEqualToString:MIDTRANS_PAYMENT_BRI_EPAY] && [requestURL containsString:@"briPayment"])) {
         if ([self.delegate respondsToSelector:@selector(webPaymentController_transactionPending:)]) {
             [self.delegate webPaymentController_transactionPending:self];

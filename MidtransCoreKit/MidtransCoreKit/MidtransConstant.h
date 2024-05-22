@@ -10,7 +10,7 @@
  *  error domain
  */
 
-static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.25.0";
+static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.26.0";
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
@@ -41,6 +41,7 @@ static NSString * const MIDTRANS_PAYMENT_GOPAY = @"gopay";
 static NSString * const MIDTRANS_PAYMENT_ALFAMART = @"alfamart";
 static NSString * const MIDTRANS_PAYMENT_INDOMARET = @"indomaret";
 static NSString * const MIDTRANS_PAYMENT_AKULAKU = @"akulaku";
+static NSString * const MIDTRANS_PAYMENT_KREDIVO = @"kredivo";
 static NSString * const MIDTRANS_PAYMENT_CIMB_CLICKS = @"cimb_clicks";
 static NSString * const MIDTRANS_PAYMENT_DANAMON_ONLINE = @"danamon_online";
 static NSString * const MIDTRANS_PAYMENT_CSTORE = @"cstore";

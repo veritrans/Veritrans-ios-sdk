@@ -480,6 +480,18 @@
 		DDB1F7232536FD5100379F50 /* MidShopeePayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */; };
 		DDB1F7252537284700379F50 /* MidShopeePayViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DDB1F7242537284700379F50 /* MidShopeePayViewController.h */; };
 		DDB1F7272537285D00379F50 /* MidShopeePayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */; };
+		DDB675832BF2BB0C00AF5D2C /* en_kredivo.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB6757E2BF2BB0B00AF5D2C /* en_kredivo.plist */; };
+		DDB675842BF2BB0C00AF5D2C /* en_kredivo.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB6757E2BF2BB0B00AF5D2C /* en_kredivo.plist */; };
+		DDB675852BF2BB0C00AF5D2C /* id_kredivo.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB675822BF2BB0B00AF5D2C /* id_kredivo.plist */; };
+		DDB675862BF2BB0C00AF5D2C /* id_kredivo.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB675822BF2BB0B00AF5D2C /* id_kredivo.plist */; };
+		DDB6758B2BF31CD200AF5D2C /* kredivo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB675872BF31CD200AF5D2C /* kredivo@1x.png */; };
+		DDB6758C2BF31CD200AF5D2C /* kredivo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB675872BF31CD200AF5D2C /* kredivo@1x.png */; };
+		DDB6758D2BF31CD200AF5D2C /* kredivo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB675882BF31CD200AF5D2C /* kredivo@2x.png */; };
+		DDB6758E2BF31CD200AF5D2C /* kredivo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB675882BF31CD200AF5D2C /* kredivo@2x.png */; };
+		DDB6758F2BF31CD200AF5D2C /* kredivo@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB675892BF31CD200AF5D2C /* kredivo@4x.png */; };
+		DDB675902BF31CD200AF5D2C /* kredivo@4x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB675892BF31CD200AF5D2C /* kredivo@4x.png */; };
+		DDB675912BF31CD200AF5D2C /* kredivo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB6758A2BF31CD200AF5D2C /* kredivo@3x.png */; };
+		DDB675922BF31CD200AF5D2C /* kredivo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDB6758A2BF31CD200AF5D2C /* kredivo@3x.png */; };
 		DDB878142628A7160054B86F /* en_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */; };
 		DDB878152628A7160054B86F /* en_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */; };
 		DDB878162628A7160054B86F /* id_uob_ezpay_app.plist in Resources */ = {isa = PBXBuildFile; fileRef = DDB878132628A7160054B86F /* id_uob_ezpay_app.plist */; };
@@ -1629,6 +1641,12 @@
 		DDB1F7212536FD5100379F50 /* MidShopeePayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MidShopeePayViewController.xib; path = MidtransKit/resources/MidShopeePayViewController.xib; sourceTree = SOURCE_ROOT; };
 		DDB1F7242537284700379F50 /* MidShopeePayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidShopeePayViewController.h; path = classes/MidShopeePayViewController.h; sourceTree = "<group>"; };
 		DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidShopeePayViewController.m; sourceTree = "<group>"; };
+		DDB6757E2BF2BB0B00AF5D2C /* en_kredivo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_kredivo.plist; path = MidtransKit/resources/en_kredivo.plist; sourceTree = SOURCE_ROOT; };
+		DDB675822BF2BB0B00AF5D2C /* id_kredivo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_kredivo.plist; path = MidtransKit/resources/id_kredivo.plist; sourceTree = SOURCE_ROOT; };
+		DDB675872BF31CD200AF5D2C /* kredivo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kredivo@1x.png"; path = "resources/kredivo@1x.png"; sourceTree = "<group>"; };
+		DDB675882BF31CD200AF5D2C /* kredivo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kredivo@2x.png"; path = "resources/kredivo@2x.png"; sourceTree = "<group>"; };
+		DDB675892BF31CD200AF5D2C /* kredivo@4x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kredivo@4x.png"; path = "resources/kredivo@4x.png"; sourceTree = "<group>"; };
+		DDB6758A2BF31CD200AF5D2C /* kredivo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "kredivo@3x.png"; path = "resources/kredivo@3x.png"; sourceTree = "<group>"; };
 		DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_uob_ezpay_app.plist; path = MidtransKit/resources/en_uob_ezpay_app.plist; sourceTree = SOURCE_ROOT; };
 		DDB878132628A7160054B86F /* id_uob_ezpay_app.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_uob_ezpay_app.plist; path = MidtransKit/resources/id_uob_ezpay_app.plist; sourceTree = SOURCE_ROOT; };
 		DDB878192628DEBB0054B86F /* MIDUobMenuController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDUobMenuController.xib; path = MidtransKit/resources/MIDUobMenuController.xib; sourceTree = SOURCE_ROOT; };
@@ -2353,6 +2371,8 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DDB6757E2BF2BB0B00AF5D2C /* en_kredivo.plist */,
+				DDB675822BF2BB0B00AF5D2C /* id_kredivo.plist */,
 				DDB87837262FE92A0054B86F /* en_uobList.plist */,
 				DDB87839263037880054B86F /* id_uobList.plist */,
 				DDB8780F2628A7160054B86F /* en_uob_ezpay_app.plist */,
@@ -2500,6 +2520,10 @@
 		30AB739C1C7D57B6001F42FE /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				DDB675872BF31CD200AF5D2C /* kredivo@1x.png */,
+				DDB675882BF31CD200AF5D2C /* kredivo@2x.png */,
+				DDB6758A2BF31CD200AF5D2C /* kredivo@3x.png */,
+				DDB675892BF31CD200AF5D2C /* kredivo@4x.png */,
 				DDE86E502975FBEF0084FC2F /* qrisgopay@1x.png */,
 				DDE86E542975FBEF0084FC2F /* qrisgopay@2x.png */,
 				DDE86E552975FBEF0084FC2F /* qrisgopay@3x.png */,
@@ -3520,6 +3544,7 @@
 				E58FCDA71E94CFD500632085 /* bca_klikpay@2x.png in Resources */,
 				3DECDFE81F9DAE610001AC9A /* download@2x.png in Resources */,
 				E57124921E9381320064F515 /* MidtransSavedCardController.xib in Resources */,
+				DDB6758E2BF31CD200AF5D2C /* kredivo@2x.png in Resources */,
 				E58FCE191E94CFD600632085 /* maybank.png in Resources */,
 				E58FCDBF1E94CFD500632085 /* ccOfferIcon@2x.png in Resources */,
 				0C9635151FE11D7E00EF89DF /* id_gopay.plist in Resources */,
@@ -3556,6 +3581,7 @@
 				0CE1D2BB1F67BA53003A012F /* token_key@4x.png in Resources */,
 				E58FCDA91E94CFD500632085 /* bca_va@2x.png in Resources */,
 				DD2A91A322CC85A80081562A /* alfamidi.png in Resources */,
+				DDB675922BF31CD200AF5D2C /* kredivo@3x.png in Resources */,
 				E571249A1E9381320064F515 /* MidtransUIPaymentGeneralViewController.xib in Resources */,
 				0CBA28D21F98B3FE00F651C7 /* MIDV2PaymentListViewController.xib in Resources */,
 				ECB021B4221D251B0037C0E1 /* MIDAlfamartPostPaymentViewController.xib in Resources */,
@@ -3572,6 +3598,7 @@
 				DD63B76E267A0C68001CBDFB /* uob_ezpay@1x.png in Resources */,
 				E58FCDF11E94CFD500632085 /* indomaret@2x.png in Resources */,
 				E58FCE6F1E94CFD600632085 /* telkomsel_cash@2x.png in Resources */,
+				DDB6758C2BF31CD200AF5D2C /* kredivo@1x.png in Resources */,
 				E58FCE831E94CFD600632085 /* visa-mastercard-jcb-amex@2x.png in Resources */,
 				E58FCDB91E94CFD500632085 /* bri.png in Resources */,
 				DD152D552637771A00B1E166 /* en_uob_ezpay_web.plist in Resources */,
@@ -3702,6 +3729,7 @@
 				E58FCE531E94CFD600632085 /* pendingIcon@2x.png in Resources */,
 				0CC900181F7014E60058E93C /* id_indomaret.plist in Resources */,
 				0CE1D2731F62A71E003A012F /* arrow@2x.png in Resources */,
+				DDB675842BF2BB0C00AF5D2C /* en_kredivo.plist in Resources */,
 				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
 				0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */,
 				0CC9002C1F70207D0058E93C /* id_telkomsel_cash.plist in Resources */,
@@ -3733,6 +3761,7 @@
 				ECB02172221A93620037C0E1 /* alfamart.png in Resources */,
 				E58FCE6B1E94CFD600632085 /* prevIcon@2x.png in Resources */,
 				E559763C1EA71B760044342A /* cross@2x.png in Resources */,
+				DDB675902BF31CD200AF5D2C /* kredivo@4x.png in Resources */,
 				E57124B31E9381320064F515 /* VTVAListController.xib in Resources */,
 				DD63B76C267A0C68001CBDFB /* uob_ezpay@3x.png in Resources */,
 				0CE1D2D01F67BBDE003A012F /* SNPPostPaymentGeneralViewController.xib in Resources */,
@@ -3754,6 +3783,7 @@
 				0C5DD88D1E9E355A0004DD5D /* SNPPostPaymentVAViewController.xib in Resources */,
 				E57124B71E9381320064F515 /* MidtransUIPaymentListHeader.xib in Resources */,
 				E58FCDEF1E94CFD500632085 /* ImageOffer@2x.png in Resources */,
+				DDB675862BF2BB0C00AF5D2C /* id_kredivo.plist in Resources */,
 				E58FCE911E94CFD600632085 /* visa-mastercard@3x.png in Resources */,
 				0C9635171FE11D7E00EF89DF /* en_gopay.plist in Resources */,
 				3D4089171F74E35800B9A2EC /* id_other_va.plist in Resources */,
@@ -3828,6 +3858,7 @@
 				0CE1D2B41F67BA53003A012F /* token_key@1.5x.png in Resources */,
 				0CE1D2C11F67BA99003A012F /* sms.png in Resources */,
 				E58FCE161E94CFD500632085 /* MasterCardDark@2x.png in Resources */,
+				DDB675832BF2BB0C00AF5D2C /* en_kredivo.plist in Resources */,
 				0C93244E1F7B810B00D9A390 /* en_danamon_online.plist in Resources */,
 				0CE1D2CF1F67BBDE003A012F /* SNPPostPaymentGeneralViewController.xib in Resources */,
 				0CC900291F7020780058E93C /* en_telkomsel_cash.plist in Resources */,
@@ -3937,6 +3968,7 @@
 				E58FCE641E94CFD600632085 /* permata.png in Resources */,
 				E5F1BB5E1E93701100ED659D /* MidtransPromoView.xib in Resources */,
 				E57127341E93B3290064F515 /* en_bca_klikpay.plist in Resources */,
+				DDB675852BF2BB0C00AF5D2C /* id_kredivo.plist in Resources */,
 				DDB8781A2628DEBB0054B86F /* MIDUobMenuController.xib in Resources */,
 				E58FCDFA1E94CFD500632085 /* kioson@2x.png in Resources */,
 				ECB02183221A979F0037C0E1 /* dandan.png in Resources */,
@@ -3965,6 +3997,7 @@
 				0CE1D2A21F67B861003A012F /* visa-mastercard-amex-seal@2x.png in Resources */,
 				E58FCE501E94CFD600632085 /* padlock1@2x.png in Resources */,
 				0CC9002B1F70207C0058E93C /* id_telkomsel_cash.plist in Resources */,
+				DDB675912BF31CD200AF5D2C /* kredivo@3x.png in Resources */,
 				E5EBC2C51EB0726B00A568D1 /* midtrans_logo_right@2x.png in Resources */,
 				ECB021B3221D251B0037C0E1 /* MIDAlfamartPostPaymentViewController.xib in Resources */,
 				0C9634FD1FE11A1F00EF89DF /* ic_chevron_down.png in Resources */,
@@ -4017,6 +4050,7 @@
 				E5F1BB641E93701100ED659D /* MidtransUICCFrontView.xib in Resources */,
 				3DECDFF31F9DAE610001AC9A /* see@2x.png in Resources */,
 				E58FCE7E1E94CFD600632085 /* visa-mastercard-amex@3x.png in Resources */,
+				DDB6758F2BF31CD200AF5D2C /* kredivo@4x.png in Resources */,
 				0CCD623F2005D0BA006936E5 /* alto_affiliated@2x.png in Resources */,
 				ECB02190221AA0C60037C0E1 /* en_alfamart.plist in Resources */,
 				E58FCE921E94CFD600632085 /* Visa@2x.png in Resources */,
@@ -4046,6 +4080,7 @@
 				DD58D5B3265BF1F8007A2B92 /* MIDUobViewController.xib in Resources */,
 				0CE1D2A41F67B861003A012F /* visa-mastercard-jcb-amex-seal@2x.png in Resources */,
 				E5F1BB6D1E93701100ED659D /* VTAddCardController.xib in Resources */,
+				DDB6758B2BF31CD200AF5D2C /* kredivo@1x.png in Resources */,
 				DDD9620D255C6CC400E81AE5 /* bri_va@2x.png in Resources */,
 				DD64CE64253E902D0069F4B4 /* id_shopeepay.plist in Resources */,
 				0C9635001FE11A1F00EF89DF /* ic_chevron_up.png in Resources */,
@@ -4195,6 +4230,7 @@
 				0CE1D2951F67A0C8003A012F /* MidtransNewCreditCardViewController.xib in Resources */,
 				0C9634F61FE11A1F00EF89DF /* gojek_icon@3x.png in Resources */,
 				E55976431EA72F770044342A /* pending@2x.png in Resources */,
+				DDB6758D2BF31CD200AF5D2C /* kredivo@2x.png in Resources */,
 				E5F1BB7F1E93701100ED659D /* VTPaymentStatusController.xib in Resources */,
 				DDE86E5A2975FBEF0084FC2F /* qrisgopay@3x.png in Resources */,
 				0CCD62572005D0BA006936E5 /* prima_affiliated@2x.png in Resources */,
@@ -4745,7 +4781,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.25.0;
+				MARKETING_VERSION = 1.26.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4776,7 +4812,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.25.0;
+				MARKETING_VERSION = 1.26.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

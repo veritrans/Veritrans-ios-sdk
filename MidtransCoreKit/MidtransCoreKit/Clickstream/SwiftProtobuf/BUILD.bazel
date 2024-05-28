@@ -1,0 +1,16 @@
+load("//:bazel-scripts/framework.bzl", "apple_library")
+
+apple_library(
+    name = "SwiftProtobuf",
+    srcs = glob(["Sources/SwiftProtobuf/**/*.swift"]),
+    features = [
+        "-objc_link_flag",
+        "-swift.objc_link_flag",
+    ],
+    platforms = {"ios": "9.0"},
+    swift_version = "5.0",
+    visibility = ["//visibility:public"],
+    xcconfig = {
+        "BUILD_LIBRARY_FOR_DISTRIBUTION": "YES"
+    },
+)

@@ -11,4 +11,5 @@
 @class MidtransPaymentRequestV2Response;
 @interface VTVAListController : MidtransUIPaymentController
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *paymentResponse;
+@property (nonatomic) MidtransPromoPromoDetails *promos;
 @end

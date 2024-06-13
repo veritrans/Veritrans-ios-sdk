@@ -17,6 +17,7 @@
 @property (nonatomic) NSArray *paymentMethods;
 @property (nonatomic) BOOL shouldExpand;
 @property (nonatomic,strong) MidtransPaymentRequestV2Response *responsePayment;
+@property (nonatomic,strong) MidtransPromoPromoDetails *promos;
 @property (nonatomic) NSArray *items;
 @end
 
@@ -47,10 +48,11 @@
     CGContextStrokePath(currentContext);
 }
 
-- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response {
+- (void)setPaymentMethods:(NSArray *)paymentMethods andItems:(NSArray *)items withResponse:(MidtransPaymentRequestV2Response *)response promos:(MidtransPromoPromoDetails *)promos {
     
     self.responsePayment = response;
     self.items = items;
+    self.promos = promos;
     
     self.headerView.priceAmountLabel.text = response.transactionDetails.grossAmount.formattedCurrencyNumber;
     
@@ -73,7 +75,7 @@
     if (!cell) {
         cell = [[MidtransUIListCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"MidtransUIListCell"];
     }
-    [cell configurePaymetnList:self.paymentMethods[indexPath.row] withFullPaymentResponse:self.responsePayment];
+    [cell configurePaymentList:self.paymentMethods[indexPath.row] withFullPaymentResponse:self.responsePayment promos:self.promos];
     return cell;
 }
 

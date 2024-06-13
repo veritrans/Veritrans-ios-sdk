@@ -88,7 +88,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MidtransUIListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"MidtransUIListCell"];
-    [cell configurePaymetnList:self.vaList[indexPath.row] withFullPaymentResponse:self.paymentResponse];
+    [cell configurePaymentList:self.vaList[indexPath.row] withFullPaymentResponse:self.paymentResponse promos:self.promos];
     return cell;
 }
 

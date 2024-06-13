@@ -22,6 +22,7 @@
 @property (nonatomic, strong) MidtransPaymentRequestV2Callbacks *callbacks;
 @property (nonatomic, strong) MidtransTransactionExpire *expire;
 @property (nonatomic, strong) NSDictionary *custom;
+@property (nonatomic, strong) NSArray *featureTypes;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

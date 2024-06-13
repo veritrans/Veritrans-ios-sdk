@@ -27,6 +27,7 @@ NSString *const kMidtransPaymentRequestV2ResponseCallbacks = @"callbacks";
 NSString *const kMIdtransPaymentRequestV2ResponseExpire  = @"expiry";
 NSString *const KMidtransPaymentRequestV2ResponseCustomField =@"custom";
 NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
+NSString *const kMidtransCheckoutResponseFeatureTypes = @"feature_types";
 
 @interface MidtransPaymentRequestV2Response ()
 
@@ -45,6 +46,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
 @synthesize token = _token;
 @synthesize promos = _promos;
 @synthesize callbacks = _callbacks;
+@synthesize featureTypes = _featureTypes;
 
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict
@@ -94,6 +96,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
         self.expire = [MidtransTransactionExpire modelObjectWithDictionary:[dict objectForKey:kMIdtransPaymentRequestV2ResponseExpire]];
         self.custom  = [self objectOrNilForKey:KMidtransPaymentRequestV2ResponseCustomField fromDictionary:dict];
         self.promos = [MidtransPromoPromoDetails modelObjectWithDictionary:[dict objectForKey:kMidtransCheckoutResponsePromo]];
+        self.featureTypes = [self objectOrNilForKey:kMidtransCheckoutResponseFeatureTypes fromDictionary:dict];
     }
     
     
@@ -136,6 +139,15 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
     
    
     [mutableDict setValue:self.promos forKey:kMidtransCheckoutResponsePromo];
+    NSMutableArray *tempArrayForFeatureTypes = [NSMutableArray array];
+    for (NSObject *subArrayObject in self.featureTypes) {
+        if ([subArrayObject respondsToSelector:@selector(dictionaryRepresentation)]) {
+            [tempArrayForFeatureTypes addObject:[subArrayObject performSelector:@selector(dictionaryRepresentation)]];
+        } else {
+            [tempArrayForFeatureTypes addObject:subArrayObject];
+        }
+    }
+    [mutableDict setValue:[NSArray arrayWithArray:tempArrayForFeatureTypes] forKey:kMidtransCheckoutResponseFeatureTypes];
     
     return [NSDictionary dictionaryWithDictionary:mutableDict];
 }
@@ -168,6 +180,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
     self.callbacks = [aDecoder decodeObjectForKey:kMidtransPaymentRequestV2ResponseCallbacks];
     self.expire = [aDecoder decodeObjectForKey:kMIdtransPaymentRequestV2ResponseExpire];
     self.custom = [aDecoder decodeObjectForKey:KMidtransPaymentRequestV2ResponseCustomField];
+    self.featureTypes = [aDecoder decodeObjectForKey:kMidtransCheckoutResponseFeatureTypes];
     return self;
 }
 
@@ -182,6 +195,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
     [aCoder encodeObject:_itemDetails forKey:kMidtransPaymentRequestV2ResponseItemDetails];
     [aCoder encodeObject:_token forKey:kMidtransPaymentRequestV2ResponseToken];
     [aCoder encodeObject:_callbacks forKey:kMidtransPaymentRequestV2ResponseCallbacks];
+    [aCoder encodeObject:_featureTypes forKey:kMidtransCheckoutResponseFeatureTypes];
 }
 
 - (id)copyWithZone:(NSZone *)zone
@@ -198,6 +212,7 @@ NSString *const kMidtransCheckoutResponsePromo = @"promo_details";
         copy.itemDetails = [self.itemDetails copyWithZone:zone];
         copy.token = [self.token copyWithZone:zone];
         copy.callbacks = [self.callbacks copyWithZone:zone];
+        copy.featureTypes = [self.featureTypes copyWithZone:zone];
     }
     
     return copy;

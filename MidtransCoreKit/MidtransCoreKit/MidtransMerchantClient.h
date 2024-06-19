@@ -14,6 +14,7 @@
 #import "MidtransTransactionExpire.h"
 #import "MidtransTransactionResult.h"
 #import "MidtransPaymentRequestV2SavedTokens.h"
+#import "MidtransPromoResponse.h"
 
 @class MidtransTransactionTokenResponse,MidtransPaymentRequestV2Response,SNPPointResponse;
 /**
@@ -88,5 +89,8 @@
 - (void)deleteMaskedCreditCard:(MidtransMaskedCreditCard *_Nonnull)maskedCard
                          token:(MidtransTransactionTokenResponse *_Nonnull)token
                     completion:(void(^_Nullable)(BOOL success))completion;
+
+- (void)getPromoWithToken:(NSString * _Nonnull )token
+               completion:(void (^_Nullable)(MidtransPromoPromoDetails *_Nullable promoResponse, NSError *_Nullable error))completion;
 
 @end

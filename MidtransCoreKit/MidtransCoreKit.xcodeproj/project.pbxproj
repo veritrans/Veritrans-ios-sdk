@@ -1770,7 +1770,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransCoreKit/RG",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.27.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -1806,7 +1806,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/MidtransCoreKit/RG",
 				);
-				MARKETING_VERSION = 1.26.0;
+				MARKETING_VERSION = 1.27.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransCoreKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

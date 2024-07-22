@@ -10,7 +10,7 @@
  *  error domain
  */
 
-static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.26.0";
+static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.27.0";
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
@@ -99,6 +99,7 @@ static NSString * const ENDPOINT_CHARGE = @"%@/transactions/%@/pay";
 static NSString * const ENDPOINT_CHECK_STATUS_RBA = @"%@/transactions/%@/status";
 static NSString * const ENDPOINT_TRANSACTION_DETAIL = @"%@/transactions/%@";
 static NSString * const ENDPOINT_PAYMENT_PAGES = @"%@/payment_pages/%@";
+static NSString * const ENDPOINT_PROMO = @"%@/promos/%@/search";
 
 static NSString * const NOTIFICATION_GOPAY_STATUS = @"NOTIFICATION_GOPAY_STATUS";
 /**
@@ -215,6 +216,7 @@ static NSString *const MIDTRANS_GOPAY_PREFIX_NEW = @"https://gojek.link/";
 
 static NSString *const MIDTRANS_EXBIN_DATA = @"exbin_data";
 static NSInteger const MIDTRANS_SUPPORTED_BIN_LENGTH =  8;
+static NSString *const FEATURE_TYPES_PROMO = @"PROMO";
 
 /**
  *  if needed we maybe need it as is to detect ios version and also device version

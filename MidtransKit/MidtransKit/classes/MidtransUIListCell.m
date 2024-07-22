@@ -16,7 +16,7 @@
     self.promoNotificationView.layer.cornerRadius = 5.0f;
     self.promoNotificationView.layer.masksToBounds = YES;
 }
-- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response {
+- (void)configurePaymentList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response promos:(MidtransPromoPromoDetails *)promos {
     self.promoNotificationView.hidden =  YES;
     self.paymentMethodNameLabel.text = paymentList.title;
     self.paymentMethodDescriptionLabel.text = paymentList.internalBaseClassDescription;
@@ -28,7 +28,7 @@
         imagePath = @"brimo";
     }
     if ([paymentList.internalBaseClassIdentifier isEqualToString:@"credit_card"]) {
-        if (response.promos.promos.count) {
+        if (promos.promos.count) {
             self.promoNotificationView.hidden =  NO;
         }
     }

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-@class MidtransPaymentListModel,MidtransPaymentRequestV2Response;
+
+@class MidtransPaymentListModel,MidtransPaymentRequestV2Response, MidtransPromoPromoDetails;
 @interface MidtransUIListCell : UITableViewCell
 @property (nonatomic) NSDictionary *item;
 @property (weak, nonatomic) IBOutlet UIView *unavailableVIew;
@@ -18,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *tscTextStatusLabel;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *textStatusHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *promoNotificationView;
-- (void)configurePaymetnList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response;
+- (void)configurePaymentList:(MidtransPaymentListModel *)paymentList withFullPaymentResponse:(MidtransPaymentRequestV2Response *)response promos:(MidtransPromoPromoDetails *)promos;
 -(void) configureUobOptionList:(NSString *)uobOptionTitle withUobOptionDescription:(NSString*)uobOptionDescription
                    optionImage:(NSString *)menuImage;
 @end

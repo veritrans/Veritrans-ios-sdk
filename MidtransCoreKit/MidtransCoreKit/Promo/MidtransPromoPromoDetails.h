@@ -6,12 +6,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "MidtransPromoPromos.h"
 
 
 
 @interface MidtransPromoPromoDetails : NSObject <NSCoding, NSCopying>
 
-@property (nonatomic, strong) NSArray *promos;
+@property (nonatomic, strong) NSArray <MidtransPromoPromos *>*promos;
+;
 
 + (instancetype)modelObjectWithDictionary:(NSDictionary *)dict;
 - (instancetype)initWithDictionary:(NSDictionary *)dict;

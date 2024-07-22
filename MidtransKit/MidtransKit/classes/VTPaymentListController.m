@@ -41,6 +41,7 @@
 @property (nonatomic) BOOL bankTransferOnly;
 @property (nonatomic) CGFloat tableHeaderHeight;
 @property (nonatomic) NSString* qrisAcquirer;
+@property (nonatomic) MidtransPromoPromoDetails* promoResponse;
 
 @end
 
@@ -116,8 +117,7 @@
         [alert addAction:okButton];
         [self presentViewController:alert animated:YES completion:nil];
         
-    }
-    
+    }    
     [[MidtransMerchantClient shared] requestPaymentlistWithToken:self.token.tokenId
                                                       completion:^(MidtransPaymentRequestV2Response * _Nullable response, NSError * _Nullable error)
      {
@@ -128,130 +128,137 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
         if (response) {
             
-            NSArray* strings = [response.enabledPayments valueForKeyPath:@"@distinctUnionOfObjects.type"];
-            [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
-            
-            NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
-            NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
-            
-            [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
-            
-            //applying SNAP color if any
-            UIColor *snapColor = [self colorFromSnapScheme:response.merchant.preference.colorScheme];
-            [MidtransUIThemeManager applySnapThemeColor:snapColor];
-            [self reloadThemeColor];
-            
-            //handle payment list
-            self.responsePayment = response;
-            bool vaAlreadyAdded = 0;
-            NSInteger mainIndex = 0;
-            MidtransPaymentListModel *model;
-            
-            NSDictionary *vaDictionaryBuilder = @{@"description":[VTClassHelper getTranslationFromAppBundleForString:@"Pay from ATM Bersama, Prima or Alto"],
-                                                  @"id":@"va",
-                                                  @"identifier":@"va",
-                                                  @"shortName":@"atm transfer",
-                                                  @"title":@"ATM/Bank Transfer"
-            };
-            
-            NSArray *paymentAvailable = response.enabledPayments;
-            if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
-                model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                [self.paymentMethodList insertObject:model atIndex:0];
-                [self hideLoading];
-                self.singlePayment = YES;
-                [self redirectToPaymentMethodAtIndex:0];
-            }
-            if (self.paymentMethodSelected.length > 0) {
-                /*special case*/
-                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
-                NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
-                if (!results.count) {
-                    self.view.emptyView.hidden = NO;
-                    return ;
-                }
-            }
-            for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
-                NSInteger index ;
-                
-                if (self.paymentMethodSelected.length > 0) {
-                    index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        if (IPAD) {
-                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
-                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
-                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
-                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY] || [enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
-                                return NO;
-                            } else {
-                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
-                            }
-                        } else{
-                             return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
-                        }
-                    }];
-                    
-                    if (index !=NSNotFound) {
-                        self.singlePayment = YES;
-                        model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
-                        model.status = enabledPayment.status;
-                        [self.paymentMethodList addObject:model];
+            if ([response.featureTypes containsObject:FEATURE_TYPES_PROMO]) {
+                [[MidtransMerchantClient shared]getPromoWithToken:response.token completion:^(MidtransPromoPromoDetails * _Nullable promoResponse, NSError * _Nullable error) {
+                    if (response) {
+                        self.promoResponse = promoResponse;
                     }
-                }
-                else {
-                    index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                        if (IPAD) {
-                            if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
-                                self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
-                                return [obj[@"id"] isEqualToString:self.qrisAcquirer];
-                            } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]
-                                       ||[enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
-                                return NO;
-                            } else {
-                                 return [obj[@"id"] isEqualToString:enabledPayment.type];
-                            }
-                        } else {
-                            return [obj[@"id"] isEqualToString:enabledPayment.type];
+                    NSArray* strings = [response.enabledPayments valueForKeyPath:@"@distinctUnionOfObjects.type"];
+                    [[NSUserDefaults standardUserDefaults] setObject:strings forKey:MIDTRANS_TRACKING_ENABLED_PAYMENTS];
+                    
+                    NSMutableArray *array = [[NSMutableArray alloc] initWithArray:response.merchant.enabledPrinciples];
+                    NSString *imagePath = [NSString stringWithFormat:@"%@-seal",[array componentsJoinedByString:@"-"]];
+                    
+                    [self.view.secureBadgeImage setImage:[[UIImage imageNamed:imagePath inBundle:VTBundle compatibleWithTraitCollection:nil] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]];
+                    
+                    //applying SNAP color if any
+                    UIColor *snapColor = [self colorFromSnapScheme:response.merchant.preference.colorScheme];
+                    [MidtransUIThemeManager applySnapThemeColor:snapColor];
+                    [self reloadThemeColor];
+                    
+                    //handle payment list
+                    self.responsePayment = response;
+                    bool vaAlreadyAdded = 0;
+                    NSInteger mainIndex = 0;
+                    MidtransPaymentListModel *model;
+                    
+                    NSDictionary *vaDictionaryBuilder = @{@"description":[VTClassHelper getTranslationFromAppBundleForString:@"Pay from ATM Bersama, Prima or Alto"],
+                                                          @"id":@"va",
+                                                          @"identifier":@"va",
+                                                          @"shortName":@"atm transfer",
+                                                          @"title":@"ATM/Bank Transfer"
+                    };
+                    
+                    NSArray *paymentAvailable = response.enabledPayments;
+                    if ([self.paymentMethodSelected isEqualToString:@"bank_transfer"]) {
+                        model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                        [self.paymentMethodList insertObject:model atIndex:0];
+                        [self hideLoading];
+                        self.singlePayment = YES;
+                        [self redirectToPaymentMethodAtIndex:0];
+                    }
+                    if (self.paymentMethodSelected.length > 0) {
+                        /*special case*/
+                        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"type==%@",self.paymentMethodSelected];
+                        NSArray *results = [response.enabledPayments filteredArrayUsingPredicate:predicate];
+                        if (!results.count) {
+                            self.view.emptyView.hidden = NO;
+                            return ;
                         }
-                    }];
-                }
-                
-                if (index != NSNotFound) {
-                    if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
-                        if (response.enabledPayments.count == 1) {
-                            self.bankTransferOnly = 1;
+                    }
+                    for (MidtransPaymentRequestV2EnabledPayments *enabledPayment in paymentAvailable) {
+                        NSInteger index ;
+                        
+                        if (self.paymentMethodSelected.length > 0) {
+                            index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                if (IPAD) {
+                                    if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                        self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                        return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                                    } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY] || [enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+                                        return NO;
+                                    } else {
+                                         return [obj[@"id"] isEqualToString:enabledPayment.type];
+                                    }
+                                } else{
+                                     return [obj[@"id"] isEqualToString:self.paymentMethodSelected];
+                                }
+                            }];
+                            
+                            if (index !=NSNotFound) {
+                                self.singlePayment = YES;
+                                model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                                model.status = enabledPayment.status;
+                                [self.paymentMethodList addObject:model];
+                            }
+                        }
+                        else {
+                            index = [paymentList indexOfObjectPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                                if (IPAD) {
+                                    if ([enabledPayment.type isEqualToString: MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
+                                        self.qrisAcquirer = [NSString stringWithFormat:@"%@%@",enabledPayment.type, enabledPayment.acquirer];
+                                        return [obj[@"id"] isEqualToString:self.qrisAcquirer];
+                                    } else if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_SHOPEEPAY]
+                                               ||[enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_GOPAY]) {
+                                        return NO;
+                                    } else {
+                                         return [obj[@"id"] isEqualToString:enabledPayment.type];
+                                    }
+                                } else {
+                                    return [obj[@"id"] isEqualToString:enabledPayment.type];
+                                }
+                            }];
                         }
                         
-                        if (!vaAlreadyAdded) {
-                            model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
-                            model.status = enabledPayment.status;
-                            self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
-                            vaAlreadyAdded = YES;
+                        if (index != NSNotFound) {
+                            if ([enabledPayment.category isEqualToString:@"bank_transfer"] || [enabledPayment.type isEqualToString:@"echannel"]) {
+                                if (response.enabledPayments.count == 1) {
+                                    self.bankTransferOnly = 1;
+                                }
+                                
+                                if (!vaAlreadyAdded) {
+                                    model = [[MidtransPaymentListModel alloc] initWithDictionary:vaDictionaryBuilder];
+                                    model.status = enabledPayment.status;
+                                    self.paymentMethodList.count > 0 ? [self.paymentMethodList insertObject:model atIndex:1]:[self.paymentMethodList addObject:model];
+                                    vaAlreadyAdded = YES;
+                                }
+                            }
+                            
+                            else {
+                                self.bankTransferOnly = 0;
+                                model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
+                                model.status = enabledPayment.status;
+                                [self.paymentMethodList addObject:model];
+                            }
+                            mainIndex++;
                         }
+                        [self hideLoading];
+                        if (response.enabledPayments.count) {
+                            [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response promos:self.promoResponse];
+                        }
+                        else if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count == 1) {
+                            self.singlePayment = YES;
+                            [self redirectToPaymentMethodAtIndex:0];
+                        }
+                        
                     }
-                    
-                    else {
-                        self.bankTransferOnly = 0;
-                        model = [[MidtransPaymentListModel alloc] initWithDictionary:paymentList[index]];
-                        model.status = enabledPayment.status;
-                        [self.paymentMethodList addObject:model];
+                    if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count ==1 || self.bankTransferOnly) {
+                        self.singlePayment = YES;
+                        [self redirectToPaymentMethodAtIndex:0];
                     }
-                    mainIndex++;
-                }
-                [self hideLoading];
-                if (response.enabledPayments.count) {
-                    [self.view setPaymentMethods:self.paymentMethodList andItems:self.token.itemDetails withResponse:response];
-                }
-                else if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count == 1) {
-                    self.singlePayment = YES;
-                    [self redirectToPaymentMethodAtIndex:0];
-                }
-                
+                    [self hideLoading];
+                }];
             }
-            if (self.paymentMethodSelected.length > 0 || response.enabledPayments.count ==1 || self.bankTransferOnly) {
-                self.singlePayment = YES;
-                [self redirectToPaymentMethodAtIndex:0];
-            }
-            
         }
         else {
             [self hideLoading];
@@ -260,8 +267,6 @@
             NSDictionary *userInfo = @{TRANSACTION_ERROR_KEY:error};
             [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_FAILED object:nil userInfo:userInfo];
         }
-        
-        [self hideLoading];
     }];
     
 }
@@ -336,7 +341,7 @@
                                                                   initWithToken:self.token
                                                                   paymentMethodName:paymentMethod
                                                                   andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
-            creditCardVC.promos = self.responsePayment.promos;
+            creditCardVC.promos = self.promoResponse;
             [creditCardVC showDismissButton:self.singlePayment];
             [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];
         }
@@ -362,7 +367,7 @@
                                                                       initWithToken:self.token
                                                                       paymentMethodName:paymentMethod
                                                                       andCreditCardData:self.responsePayment.creditCard andCompleteResponseOfPayment:self.responsePayment];
-                creditCardVC.promos = self.responsePayment.promos;
+                creditCardVC.promos = self.promoResponse;
                 [creditCardVC showDismissButton:self.singlePayment];
                 
                 [self.navigationController pushViewController:creditCardVC animated:!self.singlePayment];

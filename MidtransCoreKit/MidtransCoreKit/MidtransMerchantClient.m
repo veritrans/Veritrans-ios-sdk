@@ -478,6 +478,24 @@ NSString *const FETCH_MASKEDCARD_URL = @"%@/users/%@/tokens";
     }];
 }
 
+- (void)getPromoWithToken:(NSString * _Nonnull )token
+               completion:(void (^_Nullable)(MidtransPromoPromoDetails *_Nullable promoResponse, NSError *_Nullable error))completion {
+    NSString *URL = [NSString stringWithFormat:ENDPOINT_PROMO, [PRIVATECONFIG snapURL], token];
+    [[MidtransNetworking shared] postToURL:URL parameters:nil callback:^(id response, NSError *error) {
+        if (response) {
+            MidtransPromoPromoDetails *promoResponse = [[MidtransPromoPromoDetails alloc] initWithDictionary:response];
+            if (completion) {
+                completion(promoResponse, error);
+            }
+        }
+        else {
+            if (completion) {
+                completion(nil, error);
+            }
+        }
+    }];
+}
+
 - (NSString *)getErrorMessageFromErrorResponse:(id)errorResponse {
     NSString *errorMessage;
     if ([errorResponse isKindOfClass:[NSArray class]]) {

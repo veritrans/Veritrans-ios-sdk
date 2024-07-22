@@ -10,6 +10,7 @@
 #import "MidtransConfig.h"
 #import "MidtransConstant.h"
 #import "SNPErrorLogManager.h"
+#import "MidtransPrivateConfig.h"
 @implementation NSData (decode)
 
 - (NSData*)SNPvalidateUTF8 {
@@ -112,7 +113,11 @@
                                                            timeoutInterval:[CONFIG timeoutInterval]];
     [request setHTTPMethod:@"DELETE"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
+    if (MidtransPrivateConfig.shared.isSnapTokenFlow) {
+        [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
+    } else {
+        [request addValue:@"mobile-ios/sdk-flow" forHTTPHeaderField:@"X-Source"];
+    }
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     [request addValue:MIDTRANS_SDK_CURRENT_VERSION forHTTPHeaderField:@"X-Source-Version"];
     for (NSString *key in [header allKeys]) {
@@ -137,7 +142,11 @@
     [request setHTTPMethod:@"POST"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [request addValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
+    if (MidtransPrivateConfig.shared.isSnapTokenFlow) {
+        [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
+    } else {
+        [request addValue:@"mobile-ios/sdk-flow" forHTTPHeaderField:@"X-Source"];
+    }
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     [request addValue:MIDTRANS_SDK_CURRENT_VERSION forHTTPHeaderField:@"X-Source-Version"];
     
@@ -182,7 +191,11 @@
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:requestURL
                                                                cachePolicy:NSURLRequestUseProtocolCachePolicy
                                                            timeoutInterval:[CONFIG timeoutInterval]];
-    [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
+    if (MidtransPrivateConfig.shared.isSnapTokenFlow) {
+        [request addValue:@"mobile-ios" forHTTPHeaderField:@"X-Source"];
+    } else {
+        [request addValue:@"mobile-ios/sdk-flow" forHTTPHeaderField:@"X-Source"];
+    }
     [request addValue:@"ios" forHTTPHeaderField:@"X-Mobile-Platform"];
     [request addValue:MIDTRANS_SDK_CURRENT_VERSION forHTTPHeaderField:@"X-Source-Version"];
     

@@ -213,8 +213,7 @@ MidtransCommonTSCViewControllerDelegate
     self.installment = [[MidtransPaymentRequestV2Installment alloc]
                         initWithDictionary: [[self.creditCardInfo dictionaryRepresentation] valueForKey:@"installment"]];
     
-    if (self.responsePayment.promos) {
-        self.promos = self.responsePayment.promos;
+    if (self.promos) {
         if (self.promos.promos.count) {
             self.promoAvailable = YES;
             [self updatePromoViewWithCreditCardNumber:nil];

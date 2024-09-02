@@ -542,7 +542,6 @@
 
 - (void)handlePaymentListResponse:(MidtransPaymentRequestV2Response * _Nullable)response error:(NSError * _Nullable)error {
     if (response) {
-        response.featureTypes = nil;
         [self updateMerchantPreferencesWithResponse:response];
         [self handlePromotionsIfAvailable:response];
         [self processResponse:response];

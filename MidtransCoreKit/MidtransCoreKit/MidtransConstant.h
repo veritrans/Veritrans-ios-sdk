@@ -15,7 +15,6 @@ static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
 static NSString * const GOJEK_APPSTORE_URL = @"https://apps.apple.com/id/app/gojek/id944875099";
-static NSString * const SHOPEE_APPSTORE_URL = @"https://apps.apple.com/id/app/shopee-indonesia/id959841443";
 static NSString * const MIDTRANS_ERROR_DOMAIN = @"error.midtrans.com";
 
 /**

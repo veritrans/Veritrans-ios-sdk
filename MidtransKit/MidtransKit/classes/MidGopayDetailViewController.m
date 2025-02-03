@@ -5,7 +5,7 @@
 //  Created by Vanbungkring on 11/28/17.
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
-#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPAD (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidGopayDetailViewController.h"
 #import "MIDGopayDetailView.h"
@@ -51,7 +51,7 @@
     [self.view.guideTableView registerNib:[UINib nibWithNibName:@"MidtransDirectHeader" bundle:VTBundle] forCellReuseIdentifier:@"MidtransDirectHeader"];
     [self.view.guideTableView registerNib:[UINib nibWithNibName:@"VTGuideCell" bundle:VTBundle] forCellReuseIdentifier:@"VTGuideCell"];
     
-    if (IPAD) {
+    if (IS_IPAD) {
         
         //Get current year
         self.view.expireTimesLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your payment in"];
@@ -128,7 +128,7 @@
     NSString *content;
     title = [VTClassHelper getTranslationFromAppBundleForString:@"Finish Payment"];
     content = [VTClassHelper getTranslationFromAppBundleForString:@"Make sure payment has been completed within the Gojek app."];
-    if (IPAD) {
+    if (IS_IPAD) {
         content = [VTClassHelper getTranslationFromAppBundleForString:@"Make sure the QR code successfully scanned and payment has been completed within the Gojek app."];
     }
     UIAlertController *alertController = [UIAlertController
@@ -178,7 +178,7 @@
     [self processCheckOut];
 }
 - (void)processCheckOut {
-    if (IPAD) {
+    if (IS_IPAD) {
         [self.navigationController dismissViewControllerAnimated:YES completion:^{
             NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
             [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_PENDING object:nil userInfo:userInfo];
@@ -186,7 +186,9 @@
     } else {
         NSURL *gojekConstructURL = [NSURL URLWithString:[self.result.additionalData objectForKey:@"deeplink_url"]];
         if ([[UIApplication sharedApplication] canOpenURL:gojekConstructURL]) {
-            [[UIApplication sharedApplication] openURL:gojekConstructURL];
+            [[UIApplication sharedApplication] openURL:gojekConstructURL
+                                               options:@{}
+                                     completionHandler:nil];
         }
         [self.navigationController dismissViewControllerAnimated:YES completion:^{
             NSDictionary *userInfo = @{TRANSACTION_RESULT_KEY:self.result};
@@ -237,13 +239,13 @@
     if(indexPath.row %2 ==0) {
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 1) {
+    if (IS_IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_1" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
         cell.bottomNotes.hidden = NO;
     }
-    if (IPAD && indexPath.row == 2) {
+    if (IS_IPAD && indexPath.row == 2) {
         cell.imageBottomInstruction.hidden = NO;
         cell.bottomNotes.hidden = YES;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
@@ -254,10 +256,10 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (IPAD && indexPath.row == 1) {
+    if (IS_IPAD && indexPath.row == 1) {
         return 200;
     }
-    if (IPAD && indexPath.row == 2) {
+    if (IS_IPAD && indexPath.row == 2) {
         return 200;
     }
     else {

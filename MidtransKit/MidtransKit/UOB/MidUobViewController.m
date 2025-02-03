@@ -104,7 +104,9 @@
     }
     NSURL *uobWebURL = [NSURL URLWithString:uobWebStringURL];
     if ([[UIApplication sharedApplication] canOpenURL:uobWebURL]) {
-        [[UIApplication sharedApplication] openURL:uobWebURL];
+        [[UIApplication sharedApplication] openURL:uobWebURL
+                                           options:@{}
+                                 completionHandler:nil];
     }
 }
 

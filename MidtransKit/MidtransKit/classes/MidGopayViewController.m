@@ -178,13 +178,19 @@
         }
 }
 - (IBAction)installGOJEKappButtonDidTapped:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
+    NSURL *appURL = [NSURL URLWithString:GOJEK_APPSTORE_URL];
+    [[UIApplication sharedApplication] openURL:appURL
+                                       options:@{}
+                             completionHandler:nil];
 }
 - (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
     NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
     NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
+    
     if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
-        [[UIApplication sharedApplication] openURL:deeplinkURL];
+        [[UIApplication sharedApplication] openURL:deeplinkURL
+                                           options:@{}
+                                 completionHandler:nil];
     }
 }
 

@@ -167,10 +167,6 @@
         
 }
 - (IBAction)installShopeeAppButtonDidTapped:(id)sender {
-    NSURL *appURL = [NSURL URLWithString:SHOPEE_APPSTORE_URL];
-    [[UIApplication sharedApplication] openURL:appURL
-                                       options:@{}
-                             completionHandler:nil];
 }
 - (void)openShopeeAppWithResult:(MidtransTransactionResult *)result {
     NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];

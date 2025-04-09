@@ -5,7 +5,7 @@
 //  Created by Nanang Rafsanjani on 2/22/16.
 //  Copyright © 2016 Veritrans. All rights reserved.
 //
-#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPAD (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
 #import "VTPaymentListController.h"
 #import "VTClassHelper.h"
 #import "MidtransUIListCell.h"
@@ -298,10 +298,22 @@
 }
 
 - (void)redirectToGopayOrShopeePay:(MidtransPaymentListModel *)paymentMethod {
-    MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token
-                                                                     paymentMethodName:paymentMethod
-                                                                  directPaymentFeature:self.singlePayment];
-    [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
+    NSString *identifier = [paymentMethod.internalBaseClassIdentifier stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    if ([identifier caseInsensitiveCompare:MIDTRANS_PAYMENT_GOPAY] == NSOrderedSame ||
+        [identifier caseInsensitiveCompare:MIDTRANS_PAYMENT_QRIS_GOPAY] == NSOrderedSame) {
+        
+        MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token
+                                                                         paymentMethodName:paymentMethod
+                                                                      directPaymentFeature:self.singlePayment];
+        [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
+        
+    } else {
+        MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token
+                                                                                     paymentMethodName:paymentMethod
+                                                                                  directPaymentFeature:self.singlePayment];
+        [self.navigationController pushViewController:midShopeepayVC animated:!self.singlePayment];
+    }
 }
 
 - (void)redirectToIndomaretPayment:(MidtransPaymentListModel *)paymentMethod {
@@ -441,7 +453,7 @@
 
 - (NSInteger)findPaymentMethodIndexInList:(NSArray *)paymentList forEnabledPayment:(MidtransPaymentRequestV2EnabledPayments *)enabledPayment {
     return [paymentList indexOfObjectPassingTest:^BOOL(id obj, NSUInteger idx, BOOL *stop) {
-        if (IPAD) {
+        if (IS_IPAD) {
             if ([enabledPayment.type isEqualToString:MIDTRANS_PAYMENT_QRIS] && enabledPayment.acquirer) {
                 self.qrisAcquirer = [NSString stringWithFormat:@"%@%@", enabledPayment.type, enabledPayment.acquirer];
                 return [obj[@"id"] isEqualToString:self.qrisAcquirer];

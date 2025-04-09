@@ -3396,7 +3396,7 @@
 					};
 					E5CDEC961E9340E80032DC3B = {
 						CreatedOnToolsVersion = 8.3;
-						DevelopmentTeam = G92YEQF267;
+						DevelopmentTeam = Q28L7TLQ68;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -4772,7 +4772,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = G92YEQF267;
+				DEVELOPMENT_TEAM = Q28L7TLQ68;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4781,7 +4781,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.27.1;
+				MARKETING_VERSION = 1.28.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -4803,7 +4803,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = G92YEQF267;
+				DEVELOPMENT_TEAM = Q28L7TLQ68;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -4812,7 +4812,7 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 1.27.1;
+				MARKETING_VERSION = 1.28.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.midtrans.MidtransKit;
 				PRODUCT_NAME = "$(TARGET_NAME)";

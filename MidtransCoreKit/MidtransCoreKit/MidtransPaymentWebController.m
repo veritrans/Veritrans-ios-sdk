@@ -123,7 +123,9 @@
         ![webView.URL.scheme isEqual:@"https"] &&
         ![webView.URL.scheme isEqual:@"about:blank"]) {
         if ([[UIApplication sharedApplication]canOpenURL:webView.URL]) {
-            [[UIApplication sharedApplication]openURL:webView.URL];
+            [[UIApplication sharedApplication] openURL:webView.URL
+                                               options:@{}
+                                     completionHandler:nil];
         }
     }
     NSString *requestURL = [navigationAction.request.URL absoluteString];

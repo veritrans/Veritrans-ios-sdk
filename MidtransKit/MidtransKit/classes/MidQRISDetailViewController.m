@@ -5,7 +5,7 @@
 //  Created by Vanbungkring on 11/28/17.
 //  Copyright © 2017 Midtrans. All rights reserved.
 //
-#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPAD (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
 #import <MidtransCoreKit/MidtransCoreKit.h>
 #import "MidQRISDetailViewController.h"
 #import "MIDGopayDetailView.h"
@@ -206,7 +206,7 @@
     if(indexPath.row %2 ==0) {
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 1) {
+    if (IS_IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         cell.bottomNotes.hidden = YES;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];

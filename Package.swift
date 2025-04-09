@@ -18,7 +18,7 @@ let package = Package(
     ],
     dependencies: [],
     targets: [
-        .binaryTarget(name: "MidtransCoreKit", url: "https://github.com/veritrans/Midtrans-xcframework/releases/download/1.27.1/MidtransCoreKit.xcframework-1.27.1.zip", checksum: "59558c074aaaf9e2b53c7f30bcaf111467acaef41e3f33ced6fa3abb4bfbe642"),
-        .binaryTarget(name: "MidtransKit", url: "https://github.com/veritrans/Midtrans-xcframework/releases/download/1.27.1/MidtransKit.xcframework-1.27.1.zip", checksum: "e111d8d67a346abd2cfc58185407068a2d2caf7bafca818df5342b285c3897fd")
+        .binaryTarget(name: "MidtransCoreKit", url: "https://github.com/veritrans/Midtrans-xcframework/releases/download/1.28.0/MidtransCoreKit.xcframework-1.28.0.zip", checksum: "7834333a072988fd87acdee448932f906321e3ccc842e707b17d46f19c72a3eb"),
+        .binaryTarget(name: "MidtransKit", url: "https://github.com/veritrans/Midtrans-xcframework/releases/download/1.28.0/MidtransKit.xcframework-1.28.0.zip", checksum: "f8cfe766582842df6ab53ef853616f0ba6db2deddf3584990a017968907df31f")
     ]
 )

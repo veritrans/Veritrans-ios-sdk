@@ -10,11 +10,11 @@
  *  error domain
  */
 
-static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.27.1";
+static NSString * const MIDTRANS_SDK_CURRENT_VERSION = @"1.28.0";
 static NSString * const MIDTRANS_CUSTOMFIELD_1 = @"custom_field1";
 static NSString * const MIDTRANS_CUSTOMFIELD_2 = @"custom_field2";
 static NSString * const MIDTRANS_CUSTOMFIELD_3 = @"custom_field3";
-static NSString * const GOJEK_APP_ITUNES_LINK = @"itms://itunes.apple.com/us/app/apple-store/id944875099?mt=8";
+static NSString * const GOJEK_APPSTORE_URL = @"https://apps.apple.com/id/app/gojek/id944875099";
 static NSString * const MIDTRANS_ERROR_DOMAIN = @"error.midtrans.com";
 
 /**

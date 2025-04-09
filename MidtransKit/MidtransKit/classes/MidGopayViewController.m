@@ -17,7 +17,7 @@
 #import "VTGuideCell.h"
 #import "MidtransUIConfiguration.h"
 #import "MidtransTransactionDetailViewController.h"
-#define IPAD UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad
+#define IS_IPAD (UIDevice.currentDevice.userInterfaceIdiom == UIUserInterfaceIdiomPad)
 
 @interface MidGopayViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) IBOutlet MIDGopayView *view;
@@ -75,7 +75,7 @@
     
     [self.view.tableView reloadData];
     
-    if (IPAD) {
+    if (IS_IPAD) {
         self.view.topWrapperView.hidden = YES;
         self.view.gopayTopViewHeightConstraints.constant = 0.0f;
         self.view.topNoticeLabel.text = [VTClassHelper getTranslationFromAppBundleForString:@"Please complete your ‘GoPay‘ payment via ‘Gojek‘ app"];
@@ -106,7 +106,7 @@
     self.view.finishPaymentButton.semanticContentAttribute = UISemanticContentAttributeForceRightToLeft;
     self.view.finishPaymentButton.imageView.tintColor = [UIColor whiteColor];
     
-    if (IPAD) {
+    if (IS_IPAD) {
         NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
         NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
         if (guidePath == nil) {
@@ -154,7 +154,7 @@
     if(indexPath.row %2 ==0) {
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
-    if (IPAD && indexPath.row == 1) {
+    if (IS_IPAD && indexPath.row == 1) {
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:[UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil]];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
@@ -178,13 +178,19 @@
         }
 }
 - (IBAction)installGOJEKappButtonDidTapped:(id)sender {
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:GOJEK_APP_ITUNES_LINK]];
+    NSURL *appURL = [NSURL URLWithString:GOJEK_APPSTORE_URL];
+    [[UIApplication sharedApplication] openURL:appURL
+                                       options:@{}
+                             completionHandler:nil];
 }
 - (void)openGojekAppWithResult:(MidtransTransactionResult *)result {
     NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
     NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
+    
     if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
-        [[UIApplication sharedApplication] openURL:deeplinkURL];
+        [[UIApplication sharedApplication] openURL:deeplinkURL
+                                           options:@{}
+                                 completionHandler:nil];
     }
 }
 
@@ -196,7 +202,7 @@
     
     [self showLoadingWithText:[VTClassHelper getTranslationFromAppBundleForString:@"Processing your transaction"]];
     id<MidtransPaymentDetails>paymentDetails;
-    if (IPAD) {
+    if (IS_IPAD) {
         paymentDetails = [[MidtransPaymentQRIS alloc]initWithAcquirer:MIDTRANS_PAYMENT_GOPAY];
     } else {
          paymentDetails = [[MidtransPaymentGOPAY alloc] init];
@@ -210,7 +216,7 @@
             [self showToastInviewWithMessage:error.description];
         }
         else {
-            if (IPAD) {
+            if (IS_IPAD) {
                 MidQRISDetailViewController *gopayDetailVC = [[MidQRISDetailViewController  alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
                 gopayDetailVC.result = result;
                 [self.navigationController pushViewController:gopayDetailVC animated:YES];

@@ -310,6 +310,7 @@
 		0CEF032F1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CEF032B1EA3E6F900EA1EE0 /* SNPPostPaymentFooter.m */; };
 		0CEF03331EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
 		0CEF03341EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0CEF03321EA3E72D00EA1EE0 /* SNPPostPaymentFooter.xib */; };
+		21C690FFFE3144CEA6AA7FEC /* other_qris@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AF818A8F8F44EB9C247A61 /* other_qris@3x.png */; };
 		3D0E6C341FB95C6100E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
 		3D0E6C351FB95C6300E6CC43 /* SourceSansPro-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3D53E3981FB589A0009EE1C9 /* SourceSansPro-Semibold.ttf */; };
 		3D36593620B5258F00C07158 /* MIDDanamonOnlineViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3D36593320B5258F00C07158 /* MIDDanamonOnlineViewController.h */; };
@@ -401,6 +402,11 @@
 		3DECDFF41F9DAE610001AC9A /* see@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE31F9DAE610001AC9A /* see@2x.png */; };
 		3DECDFF51F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
 		3DECDFF61F9DAE610001AC9A /* see@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3DECDFE41F9DAE610001AC9A /* see@3x.png */; };
+		73D16830C22A4AB2AD1402CF /* other_qris@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D272C2B0DB4BB2A804E293 /* other_qris@2x.png */; };
+		93791A617A5E4A088B974890 /* other_qris@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866A865C57C84A1F91A25C9F /* other_qris@1x.png */; };
+		9C124D220521410EB6161B3B /* other_qris@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = 866A865C57C84A1F91A25C9F /* other_qris@1x.png */; };
+		A48897D24D454A83883E75C7 /* other_qris@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46AF818A8F8F44EB9C247A61 /* other_qris@3x.png */; };
+		B3E748BD640C4A018C3DA3A9 /* other_qris@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 90D272C2B0DB4BB2A804E293 /* other_qris@2x.png */; };
 		DD0752FF2BDA337A00F7079F /* en_cimb_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0752FB2BDA337A00F7079F /* en_cimb_va.plist */; };
 		DD0753002BDA337A00F7079F /* en_cimb_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0752FB2BDA337A00F7079F /* en_cimb_va.plist */; };
 		DD0753022BDA339200F7079F /* id_cimb_va.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD0753012BDA339200F7079F /* id_cimb_va.plist */; };
@@ -424,6 +430,16 @@
 		DD2A91A322CC85A80081562A /* alfamidi.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919E22CC85A70081562A /* alfamidi.png */; };
 		DD2A91A422CC85A80081562A /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919F22CC85A80081562A /* alfamidi@3x.png */; };
 		DD2A91A522CC85A80081562A /* alfamidi@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD2A919F22CC85A80081562A /* alfamidi@3x.png */; };
+		DD3F801C2EE00F5A00D75F6D /* id_ipad_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F801A2EE00F5A00D75F6D /* id_ipad_other_qris.plist */; };
+		DD3F801D2EE00F5A00D75F6D /* en_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F80192EE00F5A00D75F6D /* en_other_qris.plist */; };
+		DD3F801E2EE00F5A00D75F6D /* en_ipad_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F80182EE00F5A00D75F6D /* en_ipad_other_qris.plist */; };
+		DD3F801F2EE00F5A00D75F6D /* id_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F801B2EE00F5A00D75F6D /* id_other_qris.plist */; };
+		DD3F80202EE00F5A00D75F6D /* id_ipad_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F801A2EE00F5A00D75F6D /* id_ipad_other_qris.plist */; };
+		DD3F80212EE00F5A00D75F6D /* en_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F80192EE00F5A00D75F6D /* en_other_qris.plist */; };
+		DD3F80222EE00F5A00D75F6D /* en_ipad_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F80182EE00F5A00D75F6D /* en_ipad_other_qris.plist */; };
+		DD3F80232EE00F5A00D75F6D /* id_other_qris.plist in Resources */ = {isa = PBXBuildFile; fileRef = DD3F801B2EE00F5A00D75F6D /* id_other_qris.plist */; };
+		DD3F80342EE013BB00D75F6D /* MidOtherQRISViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3F80332EE013BB00D75F6D /* MidOtherQRISViewController.xib */; };
+		DD3F80352EE013BB00D75F6D /* MidOtherQRISViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = DD3F80332EE013BB00D75F6D /* MidOtherQRISViewController.xib */; };
 		DD58D580265BCB55007A2B92 /* MIDUobViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */; };
 		DD58D586265BCB63007A2B92 /* MidUobViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD58D585265BCB63007A2B92 /* MidUobViewController.m */; };
 		DD58D593265BCD6E007A2B92 /* MIDUobViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */; };
@@ -470,6 +486,10 @@
 		DD64CE6C253EA6560069F4B4 /* qrisshopeepay@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */; };
 		DD64CE6D253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */; };
 		DD64CE6E253EA6560069F4B4 /* qrisshopeepay@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */; };
+		DD7F50142F27687000039C08 /* MidOtherQRISViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7F50132F27687000039C08 /* MidOtherQRISViewController.m */; };
+		DD7F50152F27687000039C08 /* MidOtherQRISViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD7F50132F27687000039C08 /* MidOtherQRISViewController.m */; };
+		DD7F50172F27687E00039C08 /* MidOtherQRISViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD7F50162F27687E00039C08 /* MidOtherQRISViewController.h */; };
+		DD7F50182F27687E00039C08 /* MidOtherQRISViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = DD7F50162F27687E00039C08 /* MidOtherQRISViewController.h */; };
 		DDA485FC27630B0800D9A0AC /* brimo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485F627630B0700D9A0AC /* brimo@2x.png */; };
 		DDA485FD27630B0800D9A0AC /* brimo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485FA27630B0700D9A0AC /* brimo@3x.png */; };
 		DDA485FE27630B0800D9A0AC /* brimo@1x.png in Resources */ = {isa = PBXBuildFile; fileRef = DDA485FB27630B0700D9A0AC /* brimo@1x.png */; };
@@ -1600,6 +1620,9 @@
 		3DECDFE21F9DAE610001AC9A /* see.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = see.png; path = resources/see.png; sourceTree = "<group>"; };
 		3DECDFE31F9DAE610001AC9A /* see@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@2x.png"; path = "resources/see@2x.png"; sourceTree = "<group>"; };
 		3DECDFE41F9DAE610001AC9A /* see@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "see@3x.png"; path = "resources/see@3x.png"; sourceTree = "<group>"; };
+		46AF818A8F8F44EB9C247A61 /* other_qris@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "other_qris@3x.png"; path = "resources/other_qris@3x.png"; sourceTree = "<group>"; };
+		866A865C57C84A1F91A25C9F /* other_qris@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "other_qris@1x.png"; path = "resources/other_qris@1x.png"; sourceTree = "<group>"; };
+		90D272C2B0DB4BB2A804E293 /* other_qris@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "other_qris@2x.png"; path = "resources/other_qris@2x.png"; sourceTree = "<group>"; };
 		DD0752FB2BDA337A00F7079F /* en_cimb_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = en_cimb_va.plist; path = MidtransKit/resources/en_cimb_va.plist; sourceTree = SOURCE_ROOT; };
 		DD0753012BDA339200F7079F /* id_cimb_va.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = id_cimb_va.plist; path = MidtransKit/resources/id_cimb_va.plist; sourceTree = SOURCE_ROOT; };
 		DD100F3A2BD6361500930FB3 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -1612,6 +1635,11 @@
 		DD2A919A22CC85A70081562A /* alfamidi@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@2x.png"; path = "resources/alfamidi@2x.png"; sourceTree = "<group>"; };
 		DD2A919E22CC85A70081562A /* alfamidi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = alfamidi.png; path = resources/alfamidi.png; sourceTree = "<group>"; };
 		DD2A919F22CC85A80081562A /* alfamidi@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "alfamidi@3x.png"; path = "resources/alfamidi@3x.png"; sourceTree = "<group>"; };
+		DD3F80182EE00F5A00D75F6D /* en_ipad_other_qris.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_ipad_other_qris.plist; path = MidtransKit/resources/en_ipad_other_qris.plist; sourceTree = SOURCE_ROOT; };
+		DD3F80192EE00F5A00D75F6D /* en_other_qris.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = en_other_qris.plist; path = MidtransKit/resources/en_other_qris.plist; sourceTree = SOURCE_ROOT; };
+		DD3F801A2EE00F5A00D75F6D /* id_ipad_other_qris.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_ipad_other_qris.plist; path = MidtransKit/resources/id_ipad_other_qris.plist; sourceTree = SOURCE_ROOT; };
+		DD3F801B2EE00F5A00D75F6D /* id_other_qris.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = id_other_qris.plist; path = MidtransKit/resources/id_other_qris.plist; sourceTree = SOURCE_ROOT; };
+		DD3F80332EE013BB00D75F6D /* MidOtherQRISViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = MidOtherQRISViewController.xib; path = MidtransKit/resources/MidOtherQRISViewController.xib; sourceTree = SOURCE_ROOT; };
 		DD58D57F265BCB55007A2B92 /* MIDUobViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MIDUobViewController.h; sourceTree = "<group>"; };
 		DD58D585265BCB63007A2B92 /* MidUobViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MidUobViewController.m; sourceTree = "<group>"; };
 		DD58D5B1265BF1C9007A2B92 /* MIDUobViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MIDUobViewController.xib; path = MidtransKit/resources/MIDUobViewController.xib; sourceTree = SOURCE_ROOT; };
@@ -1635,6 +1663,8 @@
 		DD64CE66253EA6550069F4B4 /* qrisshopeepay@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@2x.png"; path = "resources/qrisshopeepay@2x.png"; sourceTree = "<group>"; };
 		DD64CE67253EA6550069F4B4 /* qrisshopeepay@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@3x.png"; path = "resources/qrisshopeepay@3x.png"; sourceTree = "<group>"; };
 		DD64CE68253EA6560069F4B4 /* qrisshopeepay@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "qrisshopeepay@1x.png"; path = "resources/qrisshopeepay@1x.png"; sourceTree = "<group>"; };
+		DD7F50132F27687000039C08 /* MidOtherQRISViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = MidOtherQRISViewController.m; path = classes/MidOtherQRISViewController.m; sourceTree = "<group>"; };
+		DD7F50162F27687E00039C08 /* MidOtherQRISViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = MidOtherQRISViewController.h; path = classes/MidOtherQRISViewController.h; sourceTree = "<group>"; };
 		DDA485F627630B0700D9A0AC /* brimo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brimo@2x.png"; path = "resources/brimo@2x.png"; sourceTree = "<group>"; };
 		DDA485FA27630B0700D9A0AC /* brimo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brimo@3x.png"; path = "resources/brimo@3x.png"; sourceTree = "<group>"; };
 		DDA485FB27630B0700D9A0AC /* brimo@1x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "brimo@1x.png"; path = "resources/brimo@1x.png"; sourceTree = "<group>"; };
@@ -2371,6 +2401,10 @@
 		306838861C7EF3AC0064A305 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DD3F80182EE00F5A00D75F6D /* en_ipad_other_qris.plist */,
+				DD3F80192EE00F5A00D75F6D /* en_other_qris.plist */,
+				DD3F801A2EE00F5A00D75F6D /* id_ipad_other_qris.plist */,
+				DD3F801B2EE00F5A00D75F6D /* id_other_qris.plist */,
 				DDB6757E2BF2BB0B00AF5D2C /* en_kredivo.plist */,
 				DDB675822BF2BB0B00AF5D2C /* id_kredivo.plist */,
 				DDB87837262FE92A0054B86F /* en_uobList.plist */,
@@ -2446,6 +2480,7 @@
 		306838871C7EF3B80064A305 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DD3F80332EE013BB00D75F6D /* MidOtherQRISViewController.xib */,
 				0CB8B7D62071EF420067A0B8 /* MidtransCommonTSCViewController.xib */,
 				3D659DE32106E5E300E57E6B /* MIDDanamonOnlineViewController.xib */,
 				3D659DE22106E5E300E57E6B /* MIDPaymentIndomaretViewController.xib */,
@@ -2527,6 +2562,9 @@
 				DDE86E502975FBEF0084FC2F /* qrisgopay@1x.png */,
 				DDE86E542975FBEF0084FC2F /* qrisgopay@2x.png */,
 				DDE86E552975FBEF0084FC2F /* qrisgopay@3x.png */,
+				866A865C57C84A1F91A25C9F /* other_qris@1x.png */,
+				90D272C2B0DB4BB2A804E293 /* other_qris@2x.png */,
+				46AF818A8F8F44EB9C247A61 /* other_qris@3x.png */,
 				DD63B763267A0C68001CBDFB /* uob_ezpay@1x.png */,
 				DD63B75C267A0C67001CBDFB /* uob_ezpay@2x.png */,
 				DD63B762267A0C67001CBDFB /* uob_ezpay@3x.png */,
@@ -2842,6 +2880,8 @@
 				0C9634B21FE1197A00EF89DF /* MidGopayViewController.m */,
 				DDB1F7242537284700379F50 /* MidShopeePayViewController.h */,
 				DDB1F7262537285D00379F50 /* MidShopeePayViewController.m */,
+				DD7F50132F27687000039C08 /* MidOtherQRISViewController.m */,
+				DD7F50162F27687E00039C08 /* MidOtherQRISViewController.h */,
 				0C5DD8831E9E34920004DD5D /* Post Payment */,
 				E5E436451CE3290900F688ED /* MidtransUIPaymentController.h */,
 				E5E436461CE3290900F688ED /* MidtransUIPaymentController.m */,
@@ -3120,6 +3160,7 @@
 				E57120DC1E937B790064F515 /* SNPPointViewController.h in Headers */,
 				E57120DD1E937B790064F515 /* SNPPointView.h in Headers */,
 				E57120DE1E937B790064F515 /* AddOnConstructor.h in Headers */,
+				DD7F50172F27687E00039C08 /* MidOtherQRISViewController.h in Headers */,
 				ECB021B8221D25960037C0E1 /* MIDAlfamartPostPaymentView.h in Headers */,
 				E57120DF1E937B790064F515 /* MidtransCreditCardAddOnComponentCell.h in Headers */,
 				E57120E01E937B790064F515 /* MidtransNewCreditCardViewController.h in Headers */,
@@ -3205,6 +3246,7 @@
 				E55F62A61E934A6D00C012C8 /* MIdtransUIBorderedView.h in Headers */,
 				E55F62A71E934A6D00C012C8 /* MidtransUIRoundedLabel.h in Headers */,
 				0CCD621320048F8E006936E5 /* MIDOtherVAViewController.h in Headers */,
+				DD7F50182F27687E00039C08 /* MidOtherQRISViewController.h in Headers */,
 				E55F62A81E934A6D00C012C8 /* MIdtransUIDetailedTitleController.h in Headers */,
 				E55F62A91E934A6D00C012C8 /* MidtransUIXibView.h in Headers */,
 				E55F62AA1E934A6D00C012C8 /* VTAlertBackgroundView.h in Headers */,
@@ -3475,6 +3517,9 @@
 				E58FCE6D1E94CFD600632085 /* successIcon@2x.png in Resources */,
 				0CAD5C9E207CC1AF00E8956B /* SNPPostPaymentIndomaretHeader.xib in Resources */,
 				DDE86E5B2975FBEF0084FC2F /* qrisgopay@3x.png in Resources */,
+				9C124D220521410EB6161B3B /* other_qris@1x.png in Resources */,
+				73D16830C22A4AB2AD1402CF /* other_qris@2x.png in Resources */,
+				21C690FFFE3144CEA6AA7FEC /* other_qris@3x.png in Resources */,
 				E5EBC2C11EB0726700A568D1 /* midtrans_logo_mid@2x.png in Resources */,
 				0C6FD11B1F9DDAAB00401628 /* mandiri_badge@2x.png in Resources */,
 				DD64CE6A253EA6560069F4B4 /* qrisshopeepay@2x.png in Resources */,
@@ -3733,6 +3778,10 @@
 				E57124AB1E9381320064F515 /* VTMandiriClickpayController.xib in Resources */,
 				0C9324521F7B828B00D9A390 /* id_danamon_online.plist in Resources */,
 				0CC9002C1F70207D0058E93C /* id_telkomsel_cash.plist in Resources */,
+				DD3F80202EE00F5A00D75F6D /* id_ipad_other_qris.plist in Resources */,
+				DD3F80212EE00F5A00D75F6D /* en_other_qris.plist in Resources */,
+				DD3F80222EE00F5A00D75F6D /* en_ipad_other_qris.plist in Resources */,
+				DD3F80232EE00F5A00D75F6D /* id_other_qris.plist in Resources */,
 				0CCD62402005D0BA006936E5 /* alto_affiliated@2x.png in Resources */,
 				E57ACD89217F009500A9977F /* id_akulaku.plist in Resources */,
 				E57124AC1E9381320064F515 /* VTMultiGuideController.xib in Resources */,
@@ -3813,6 +3862,7 @@
 				3DECDF761F99BABD0001AC9A /* icon-help@1.5x.png in Resources */,
 				E58FCE1B1E94CFD600632085 /* maybank@2x.png in Resources */,
 				3DECDFEC1F9DAE610001AC9A /* scan_cam.png in Resources */,
+				DD3F80352EE013BB00D75F6D /* MidOtherQRISViewController.xib in Resources */,
 				DD0753032BDA339200F7079F /* id_cimb_va.plist in Resources */,
 				0C9634E81FE11A1400EF89DF /* ic_chevron_down@2x.png in Resources */,
 				0CE1D2CA1F67BA99003A012F /* sms@4x.png in Resources */,
@@ -4096,6 +4146,10 @@
 				DD23C9982BDFBDF400C1139B /* cimb_va@1x.png in Resources */,
 				0CC900511F702E0F0058E93C /* id_cimb_clicks.plist in Resources */,
 				E58FCE4E1E94CFD600632085 /* other_va@2x.png in Resources */,
+				DD3F801C2EE00F5A00D75F6D /* id_ipad_other_qris.plist in Resources */,
+				DD3F801D2EE00F5A00D75F6D /* en_other_qris.plist in Resources */,
+				DD3F801E2EE00F5A00D75F6D /* en_ipad_other_qris.plist in Resources */,
+				DD3F801F2EE00F5A00D75F6D /* id_other_qris.plist in Resources */,
 				E5F1BB7B1E93701100ED659D /* VTPaymentListController.xib in Resources */,
 				0CC9001D1F7015AC0058E93C /* en_indosat_dompetku.plist in Resources */,
 				E5F1BB8C1E93702C00ED659D /* SourceSansPro-Bold.ttf in Resources */,
@@ -4127,6 +4181,7 @@
 				DD64CE4425393F2E0069F4B4 /* shopeepay_button@1x.png in Resources */,
 				3DECDFE71F9DAE610001AC9A /* download@2x.png in Resources */,
 				E5F1BB821E93701100ED659D /* VTVASuccessStatusController.xib in Resources */,
+				DD3F80342EE013BB00D75F6D /* MidOtherQRISViewController.xib in Resources */,
 				0CC900431F7028C50058E93C /* id_virtualAccount.plist in Resources */,
 				0CCD62532005D0BA006936E5 /* prima@3x.png in Resources */,
 				3D4089221F74E43200B9A2EC /* id_bca_klikpay.plist in Resources */,
@@ -4233,6 +4288,9 @@
 				DDB6758D2BF31CD200AF5D2C /* kredivo@2x.png in Resources */,
 				E5F1BB7F1E93701100ED659D /* VTPaymentStatusController.xib in Resources */,
 				DDE86E5A2975FBEF0084FC2F /* qrisgopay@3x.png in Resources */,
+				93791A617A5E4A088B974890 /* other_qris@1x.png in Resources */,
+				B3E748BD640C4A018C3DA3A9 /* other_qris@2x.png in Resources */,
+				A48897D24D454A83883E75C7 /* other_qris@3x.png in Resources */,
 				0CCD62572005D0BA006936E5 /* prima_affiliated@2x.png in Resources */,
 				3D40891F1F74E43200B9A2EC /* en_permata_va.plist in Resources */,
 			);
@@ -4329,6 +4387,7 @@
 				0CCD621920048FA3006936E5 /* MIDOtherVAViewController.m in Sources */,
 				E57122EB1E937C040064F515 /* MidtransNewCreditCardViewController.m in Sources */,
 				E57122EC1E937C040064F515 /* MidtransNewCreditCardView.m in Sources */,
+				DD7F50152F27687000039C08 /* MidOtherQRISViewController.m in Sources */,
 				E57122ED1E937C040064F515 /* VTCvvInfoController.m in Sources */,
 				E57122EE1E937C040064F515 /* VTConfirmPaymentController.m in Sources */,
 				E57122EF1E937C040064F515 /* PushAnimator.m in Sources */,
@@ -4437,6 +4496,7 @@
 				ECB021B9221D25960037C0E1 /* MIDAlfamartPostPaymentView.m in Sources */,
 				E55F631B1E934B1C00C012C8 /* MidtransUIThemeManager.m in Sources */,
 				E55F631C1E934B1C00C012C8 /* MidtransUIFontSource.m in Sources */,
+				DD7F50142F27687000039C08 /* MidOtherQRISViewController.m in Sources */,
 				E55F631D1E934B1C00C012C8 /* UIFont+IBCustomFonts.m in Sources */,
 				0CBA28BF1F98B15300F651C7 /* MIDV2PaymentListViewController.m in Sources */,
 				E55F631E1E934B1C00C012C8 /* MidtransUICardFormatter.m in Sources */,

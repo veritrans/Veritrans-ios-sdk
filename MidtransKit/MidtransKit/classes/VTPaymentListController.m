@@ -30,6 +30,7 @@
 #import "MIDAlfamartViewController.h"
 #import "MidShopeePayViewController.h"
 #import "MIDUobMenuController.h"
+#import "MidOtherQRISViewController.h"
 #define DEFAULT_HEADER_HEIGHT 80;
 #define SMALL_HEADER_HEIGHT 40;
 
@@ -146,6 +147,9 @@
     }
     else if ([self isGopayOrShopeePay:paymentMethod.internalBaseClassIdentifier]) {
         [self redirectToGopayOrShopeePay:paymentMethod];
+    }
+    else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_QRIS]) {
+        [self redirectToOtherQRIS:paymentMethod];
     }
     else if ([paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_INDOMARET]) {
         [self redirectToIndomaretPayment:paymentMethod];
@@ -299,21 +303,28 @@
 
 - (void)redirectToGopayOrShopeePay:(MidtransPaymentListModel *)paymentMethod {
     NSString *identifier = [paymentMethod.internalBaseClassIdentifier stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
+
     if ([identifier caseInsensitiveCompare:MIDTRANS_PAYMENT_GOPAY] == NSOrderedSame ||
         [identifier caseInsensitiveCompare:MIDTRANS_PAYMENT_QRIS_GOPAY] == NSOrderedSame) {
-        
+
         MidGopayViewController *midGopayVC = [[MidGopayViewController alloc] initWithToken:self.token
                                                                          paymentMethodName:paymentMethod
                                                                       directPaymentFeature:self.singlePayment];
         [self.navigationController pushViewController:midGopayVC animated:!self.singlePayment];
-        
+
     } else {
         MidShopeePayViewController *midShopeepayVC = [[MidShopeePayViewController alloc] initWithToken:self.token
                                                                                      paymentMethodName:paymentMethod
                                                                                   directPaymentFeature:self.singlePayment];
         [self.navigationController pushViewController:midShopeepayVC animated:!self.singlePayment];
     }
+}
+
+- (void)redirectToOtherQRIS:(MidtransPaymentListModel *)paymentMethod {
+    MidOtherQRISViewController *otherQrisVC = [[MidOtherQRISViewController alloc] initWithToken:self.token
+                                                                              paymentMethodName:paymentMethod
+                                                                           directPaymentFeature:self.singlePayment];
+    [self.navigationController pushViewController:otherQrisVC animated:!self.singlePayment];
 }
 
 - (void)redirectToIndomaretPayment:(MidtransPaymentListModel *)paymentMethod {
@@ -367,9 +378,10 @@
     }
     
     if ([self shouldRedirectToSinglePayment]) {
+        self.singlePayment = YES;
         [self redirectToPaymentMethodAtIndex:0];
     }
-    
+
     [self hideLoading];
 }
 

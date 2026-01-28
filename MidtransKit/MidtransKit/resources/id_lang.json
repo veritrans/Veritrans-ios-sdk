@@ -120,6 +120,11 @@
     "Pay with ShopeePay": "Bayar dengan ShopeePay",
     "Pay with qrisshopeepay": "Bayar dengan ShopeePay/e-Wallet Lainnya",
     "Pay with qrisgopay": "Bayar dengan GoPay/e-Wallet Lainnya",
+    "Pay with QRIS": "Bayar dengan QRIS",
+    "Download QRIS": "Unduh QRIS",
+    "QR code not available": "Kode QR tidak tersedia",
+    "Failed to save image": "Gagal menyimpan gambar",
+    "QR code saved to Photos": "Kode QR disimpan ke Foto",
     "Pay Now with GoPay":"Bayar sekarang dengan ",
     "Please complete your ‘GoPay‘ payment via ‘Gojek‘ app": "Pastikan Anda telah melakukan instalasi aplikasi Gojek di HP Anda dan memiliki saldo lebih dari Rp 10.000.",
     "Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app": "Pastikan Anda telah melakukan instalasi aplikasi Shopee di HP Anda dan memiliki saldo lebih dari Rp 10.000.",
@@ -156,6 +161,7 @@
     "Make sure payment has been completed within the UOB app.":"Pastikan pembayaran telah berhasil dilakukan di dalam aplikasi UOB.",
     "Pay with TMRW app":"Bayar melalui aplikasi TMRW",
     "Pay with UOB Web":"Bayar melalu UOB Personal Internet Banking",
-    "Pay Now":"Bayar Sekarang"
+    "Pay Now":"Bayar Sekarang",
+    "Back to Merchant":"Kembali ke Merchant"
 }
 

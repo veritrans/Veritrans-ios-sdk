@@ -90,8 +90,6 @@
     }
 
     self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
-    NSLog(@"[OtherQRIS] Loaded guides from: %@", guidePath);
-    NSLog(@"[OtherQRIS] Number of guides: %lu", (unsigned long)self.guides.count);
     [self.view.tableView reloadData];
 }
 
@@ -125,25 +123,12 @@
         cell.backgroundColor = [UIColor colorWithRed:0.95 green:0.95 blue:0.95 alpha:1.0];
     }
 
-    NSLog(@"[OtherQRIS] cellForRowAtIndexPath: row=%ld", (long)indexPath.row);
-
     // Show scan QR image for the second instruction (index 1) - always show for other_qris
     if (indexPath.row == 1) {
-        NSLog(@"[OtherQRIS] Row 1 - Setting up scan image");
-
         UIImage *scanImage = [UIImage imageNamed:@"gopay_scan_2" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        NSLog(@"[OtherQRIS] Image loaded: %@, size: %@", scanImage ? @"YES" : @"NO", NSStringFromCGSize(scanImage.size));
-        NSLog(@"[OtherQRIS] VTBundle: %@", VTBundle);
-        NSLog(@"[OtherQRIS] Cell imageView before: hidden=%d, constraint=%f", cell.imageBottomInstruction.hidden, cell.bottomImageInstructionsConstraints.constant);
-
         cell.imageBottomInstruction.hidden = NO;
         [cell.imageBottomInstruction setImage:scanImage];
         cell.bottomImageInstructionsConstraints.constant = 120.0f;
-
-        NSLog(@"[OtherQRIS] Cell imageView after: hidden=%d, constraint=%f, image=%@",
-              cell.imageBottomInstruction.hidden,
-              cell.bottomImageInstructionsConstraints.constant,
-              cell.imageBottomInstruction.image ? @"SET" : @"NIL");
     }
     [cell setInstruction:self.guides[indexPath.row] number:indexPath.row + 1];
     return cell;

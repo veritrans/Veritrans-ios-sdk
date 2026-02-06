@@ -96,18 +96,26 @@
     [self.view.transactionDetailWrapper addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
 
     // Show download button in navbar only for other_qris payment method
-    if ([self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_QRIS]) {
-        UIButton *downloadButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 24.0f, 24.0f)];
-        UIImage *downloadImage = [UIImage imageNamed:@"download" inBundle:VTBundle compatibleWithTraitCollection:nil];
-        if (downloadImage) {
-            [downloadButton setImage:[downloadImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-        } else {
-            [downloadButton setTitle:@"⬇" forState:UIControlStateNormal];
-        }
-        [downloadButton addTarget:self action:@selector(downloadQRButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
-        UIBarButtonItem *downloadBarButton = [[UIBarButtonItem alloc] initWithCustomView:downloadButton];
-        self.navigationItem.rightBarButtonItem = downloadBarButton;
+    [self setupDownloadButtonIfNeeded];
+}
+
+- (void)setupDownloadButtonIfNeeded {
+    if (![self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_QRIS]) {
+        return;
     }
+
+    UIButton *downloadButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 24.0f, 24.0f)];
+    UIImage *downloadImage = [UIImage imageNamed:@"download" inBundle:VTBundle compatibleWithTraitCollection:nil];
+
+    if (!downloadImage) {
+        [downloadButton setTitle:@"⬇" forState:UIControlStateNormal];
+    } else {
+        [downloadButton setImage:[downloadImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    }
+
+    [downloadButton addTarget:self action:@selector(downloadQRButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *downloadBarButton = [[UIBarButtonItem alloc] initWithCustomView:downloadButton];
+    self.navigationItem.rightBarButtonItem = downloadBarButton;
 }
 - (void)startTimer{
     self.timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownFired) userInfo:nil repeats:YES];
@@ -193,12 +201,13 @@
     NSString *imageUrl = [self.result.additionalData objectForKey:@"qris_url"];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         [self hideLoading];
-        if (!error) {
-            self.view.qrcodeImage.image = [UIImage imageWithData:data];
-        } else {
+
+        if (error) {
             self.view.qrcodeReloadImage.hidden = NO;
+            return;
         }
-        
+
+        self.view.qrcodeImage.image = [UIImage imageWithData:data];
     }];
 }
 
@@ -269,9 +278,10 @@
 - (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
     if (error) {
         [self showToastInviewWithMessage:[VTClassHelper getTranslationFromAppBundleForString:@"Failed to save image"]];
-    } else {
-        [self showToastInviewWithMessage:[VTClassHelper getTranslationFromAppBundleForString:@"QR code saved to Photos"]];
+        return;
     }
+
+    [self showToastInviewWithMessage:[VTClassHelper getTranslationFromAppBundleForString:@"QR code saved to Photos"]];
 }
 
 @end

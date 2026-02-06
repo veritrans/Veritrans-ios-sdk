@@ -28,15 +28,6 @@
 
 @dynamic view;
 
-- (instancetype)initWithToken:(MidtransTransactionTokenResponse *)token
-            paymentMethodName:(MidtransPaymentListModel *)paymentMethod
-                     merchant:(MidtransPaymentRequestV2Merchant *)merchant {
-    if (self = [super initWithToken:token paymentMethodName:paymentMethod]) {
-        // Initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
 
@@ -70,27 +61,32 @@
     // Set button title for QRIS
     [self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay with QRIS"] forState:UIControlStateNormal];
 
-    // Load instructions - always use ipad version since other_qris always shows QRIS
-    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_OTHER_QRIS];
-    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+    // Load instructions
+    [self loadPaymentGuides];
+}
+
+#pragma mark - Private Methods
+
+- (void)loadPaymentGuides {
+    NSString *guidePath = [self guidePathForPaymentMethod:MIDTRANS_PAYMENT_OTHER_QRIS];
 
     if (guidePath == nil) {
-        // Fallback to English
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@", MIDTRANS_PAYMENT_OTHER_QRIS] ofType:@"plist"];
-    }
-
-    if (guidePath == nil) {
-        // Fallback to gopay ipad instructions
-        filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", MIDTRANS_PAYMENT_GOPAY];
-        guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
-    }
-
-    if (guidePath == nil) {
-        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@", MIDTRANS_PAYMENT_GOPAY] ofType:@"plist"];
+        guidePath = [self guidePathForPaymentMethod:MIDTRANS_PAYMENT_GOPAY];
     }
 
     self.guides = [VTClassHelper instructionsFromFilePath:guidePath];
     [self.view.tableView reloadData];
+}
+
+- (NSString *)guidePathForPaymentMethod:(NSString *)paymentMethod {
+    NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", paymentMethod];
+    NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
+
+    if (guidePath == nil) {
+        guidePath = [VTBundle pathForResource:[NSString stringWithFormat:@"en_ipad_%@", paymentMethod] ofType:@"plist"];
+    }
+
+    return guidePath;
 }
 
 #pragma mark - UITableViewDataSource
@@ -160,14 +156,15 @@
     [[MidtransMerchantClient shared] performTransaction:transaction
                                              completion:^(MidtransTransactionResult *result, NSError *error) {
         [self hideLoading];
+
         if (error || !result) {
             [self showToastInviewWithMessage:error.localizedDescription ?: @"Payment failed"];
-        } else {
-            // Always show QR code detail view
-            MidQRISDetailViewController *qrisDetailVC = [[MidQRISDetailViewController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
-            qrisDetailVC.result = result;
-            [self.navigationController pushViewController:qrisDetailVC animated:YES];
+            return;
         }
+
+        MidQRISDetailViewController *qrisDetailVC = [[MidQRISDetailViewController alloc] initWithToken:self.token paymentMethodName:self.paymentMethod];
+        qrisDetailVC.result = result;
+        [self.navigationController pushViewController:qrisDetailVC animated:YES];
     }];
 }
 
@@ -177,13 +174,14 @@
 }
 
 - (void)backButtonDidTapped:(id)sender {
-    if (self.isDirectPayment == YES) {
-        [self.navigationController dismissViewControllerAnimated:YES completion:^{
-            [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
-        }];
-    } else {
+    if (!self.isDirectPayment) {
         [self.navigationController popViewControllerAnimated:YES];
+        return;
     }
+
+    [self.navigationController dismissViewControllerAnimated:YES completion:^{
+        [[NSNotificationCenter defaultCenter] postNotificationName:TRANSACTION_CANCELED object:nil];
+    }];
 }
 
 @end

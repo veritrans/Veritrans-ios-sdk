@@ -133,15 +133,14 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (IS_IOS8_OR_ABOVE) {
         return UITableViewAutomaticDimension;
-    } else {
-        static VTGuideCell *cell = nil;
-        static dispatch_once_t onceToken;
-        dispatch_once(&onceToken, ^{
-            cell = [self.view.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
-        });
-        [cell setInstruction:self.guides[indexPath.row] number:indexPath.row + 1];
-        return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     }
+    static VTGuideCell *cell = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        cell = [self.view.tableView dequeueReusableCellWithIdentifier:@"VTGuideCell"];
+        });
+    [cell setInstruction:self.guides[indexPath.row] number:indexPath.row + 1];
+    return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
 }
 
 #pragma mark - Actions

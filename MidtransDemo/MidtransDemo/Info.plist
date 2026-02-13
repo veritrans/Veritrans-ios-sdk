@@ -46,6 +46,8 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>We need access to save your QR code to Photos</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Bariol_Regular.otf</string>

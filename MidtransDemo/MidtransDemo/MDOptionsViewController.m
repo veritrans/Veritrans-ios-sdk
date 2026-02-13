@@ -75,7 +75,8 @@
                 [MDOption optionGeneralWithName:@"Gopay" value:@(MidtransPaymentFeatureGOPAY)],
                 [MDOption optionGeneralWithName:@"ShopeePay" value:@(MidtransPaymentFeatureShopeePay)],
                 [MDOption optionGeneralWithName:@"UOB Ezpay" value:@(MidtransPaymentFeatureUOB)],
-                [MDOption optionGeneralWithName:@"Kredivo" value:@(MidtransPaymentFeatureKredivo)]
+                [MDOption optionGeneralWithName:@"Kredivo" value:@(MidtransPaymentFeatureKredivo)],
+                [MDOption optionGeneralWithName:@"Other QRIS" value:@(MidtransPaymentFeatureOtherQRIS)]
     ];
     MDOptionView *optDirectPayment = [MDOptionView viewWithIcon:[UIImage imageNamed:@"payment_channel"]
                                             titleTemplate:@"Direct Payment Feature %@"

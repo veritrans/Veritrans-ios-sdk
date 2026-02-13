@@ -127,6 +127,11 @@
     "Pay with ShopeePay": "Pay with ShopeePay",
     "Pay with qrisshopeepay": "Pay with ShopeePay/other e-Wallets",
     "Pay with qrisgopay": "Pay with GoPay/other e-Wallets",
+    "Pay with QRIS": "Pay with QRIS",
+    "Download QRIS": "Download QRIS",
+    "QR code not available": "QR code not available",
+    "Failed to save image": "Failed to save image",
+    "QR code saved to Photos": "QR code saved to Photos",
     "Please complete your ‘GoPay‘ payment via ‘Gojek‘ app": "Make sure you have Gojek app installed on your phone and have GoPay balance more than Rp 10.000.",
     "Please complete your ‘ShopeePay‘ payment via ‘Shopee‘ app": "Make sure you have Shopee app installed on your phone and have GoPay balance more than Rp 10.000.",
     "Bank Code":"Bank Code",
@@ -162,4 +167,5 @@
     "Pay with TMRW app":"Pay with TMRW app",
     "Pay with UOB Web":"Pay with UOB Personal Internet Banking",
     "Pay Now":"Pay Now",
+    "Back to Merchant":"Back to Merchant",
 }

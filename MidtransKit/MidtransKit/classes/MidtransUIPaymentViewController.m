@@ -100,6 +100,9 @@
         case MidtransPaymentFeatureKredivo:
             paymentMethodSelected = MIDTRANS_PAYMENT_KREDIVO;
             break;
+        case MidtransPaymentFeatureOtherQRIS:
+            paymentMethodSelected = MIDTRANS_PAYMENT_OTHER_QRIS;
+            break;
         default:
             paymentMethodSelected = nil;
             break;

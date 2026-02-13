@@ -14,6 +14,7 @@
 #import "MIdtransUIBorderedView.h"
 #import "VTGuideCell.h"
 #import "VTClassHelper.h"
+#import "MidtransTransactionDetailViewController.h"
 @interface MidQRISDetailViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic) NSArray *guides;
 @property (strong, nonatomic) IBOutlet MIDGopayDetailView *view;
@@ -74,7 +75,7 @@
     
     self.view.topWrapperView.hidden = YES;
     self.view.qrcodeWrapperView.hidden = NO;
-    [self.view.finishPaymentButton setTitle:@"Pay Now" forState:UIControlStateNormal];
+    [self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Back to Merchant"] forState:UIControlStateNormal];
     [self fetchQRCode];
     NSString *filenameByLanguage = [[MidtransDeviceHelper deviceCurrentLanguage] stringByAppendingFormat:@"_ipad_%@", self.paymentMethod.shortName];
     NSString *guidePath = [VTBundle pathForResource:filenameByLanguage ofType:@"plist"];
@@ -89,6 +90,32 @@
     
     
     self.view.amountLabel.text = self.token.transactionDetails.grossAmount.formattedCurrencyNumber;
+    self.view.orderIdLabel.text = self.token.transactionDetails.orderId;
+
+    // Add tap gesture for transaction detail
+    [self.view.transactionDetailWrapper addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(totalAmountBorderedViewTapped:)]];
+
+    // Show download button in navbar only for other_qris payment method
+    [self setupDownloadButtonIfNeeded];
+}
+
+- (void)setupDownloadButtonIfNeeded {
+    if (![self.paymentMethod.internalBaseClassIdentifier isEqualToString:MIDTRANS_PAYMENT_OTHER_QRIS]) {
+        return;
+    }
+
+    UIButton *downloadButton = [[UIButton alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 24.0f, 24.0f)];
+    UIImage *downloadImage = [UIImage imageNamed:@"download" inBundle:VTBundle compatibleWithTraitCollection:nil];
+
+    if (!downloadImage) {
+        [downloadButton setTitle:@"⬇" forState:UIControlStateNormal];
+    } else {
+        [downloadButton setImage:[downloadImage imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    }
+
+    [downloadButton addTarget:self action:@selector(downloadQRButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem *downloadBarButton = [[UIBarButtonItem alloc] initWithCustomView:downloadButton];
+    self.navigationItem.rightBarButtonItem = downloadBarButton;
 }
 - (void)startTimer{
     self.timer=[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(countDownFired) userInfo:nil repeats:YES];
@@ -174,12 +201,13 @@
     NSString *imageUrl = [self.result.additionalData objectForKey:@"qris_url"];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:imageUrl]] queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
         [self hideLoading];
-        if (!error) {
-            self.view.qrcodeImage.image = [UIImage imageWithData:data];
-        } else {
+
+        if (error) {
             self.view.qrcodeReloadImage.hidden = NO;
+            return;
         }
-        
+
+        self.view.qrcodeImage.image = [UIImage imageWithData:data];
     }];
 }
 
@@ -229,6 +257,31 @@
         [cell setInstruction:self.guides[indexPath.row] number:indexPath.row+1];
         return [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
     }
+}
+
+- (void)totalAmountBorderedViewTapped:(id)sender {
+    MidtransTransactionDetailViewController *transactionViewController = [[MidtransTransactionDetailViewController alloc] initWithNibName:@"MidtransTransactionDetailViewController" bundle:VTBundle];
+    [transactionViewController presentAtPositionOfView:self.view.transactionDetailWrapper items:self.token.itemDetails grossAmount:self.token.transactionDetails.grossAmount];
+}
+
+- (void)downloadQRButtonTapped:(id)sender {
+    UIImage *qrImage = self.view.qrcodeImage.image;
+
+    if (qrImage == nil) {
+        [self showToastInviewWithMessage:[VTClassHelper getTranslationFromAppBundleForString:@"QR code not available"]];
+        return;
+    }
+
+    UIImageWriteToSavedPhotosAlbum(qrImage, self, @selector(image:didFinishSavingWithError:contextInfo:), nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo:(void *)contextInfo {
+    if (error) {
+        [self showToastInviewWithMessage:[VTClassHelper getTranslationFromAppBundleForString:@"Failed to save image"]];
+        return;
+    }
+
+    [self showToastInviewWithMessage:[VTClassHelper getTranslationFromAppBundleForString:@"QR code saved to Photos"]];
 }
 
 @end

@@ -384,6 +384,20 @@
         <key>status</key>
         <string>&quot;&quot;</string>
         <key>title</key>
+        <string>QRIS</string>
+        <key>description</key>
+        <string>Scan QR Code using any e-wallet</string>
+        <key>id</key>
+        <string>other_qris</string>
+        <key>identifier</key>
+        <string>other_qris</string>
+        <key>shortName</key>
+        <string>other_qris</string>
+    </dict>
+    <dict>
+        <key>status</key>
+        <string>&quot;&quot;</string>
+        <key>title</key>
         <string>Kredivo</string>
         <key>description</key>
         <string>Pay with Kredivo</string>

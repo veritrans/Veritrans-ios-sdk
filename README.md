@@ -1,3 +1,9 @@
+>[!IMPORTANT]
+[IMPORTANT NOTICE] 
+Starting from March 2026, Corekit SDK's support will be phased out, and soon to be deprecated. We strongly recommend starting migrating to use our Core API (https://docs.midtrans.com/docs/custom-interface-core-api), or use our UIKit instead. Any changes made from March 2026 are solely made to support UIKit.
+
+Should you have any questions, please do not leave any questions in this repo. Please contact our support instead at support@midtrans.com or chat with our support team [here](https://midtrans.com/id/kontak-kami)
+
 [![Build Status](https://travis-ci.org/veritrans/Veritrans-ios-sdk.svg?branch=development)](https://travis-ci.org/veritrans/Veritrans-ios-sdk)
 [![codecov](https://codecov.io/gh/veritrans/Veritrans-ios-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/veritrans/Veritrans-ios-sdk)
 
@@ -9,16 +15,16 @@ To see the overview of Veritrans SDK, please read [here](https://github.com/veri
 
 We provide two implementation modes on this SDK:
 
-##### 1. UI Flow
-To see the implementation guides please read [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransKit/code_usage.md)
+##### 1. UIKit
+To see the implementation guides please read [here](https://docs.midtrans.com/reference/ios-sdk)
 
 If you are using Swift, please read the integration guide [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransKit/code_usage_swift.md)
 
-##### 2. Core Flow
+##### 2. CoreKit (Deprecated Soon)
 To see the implementation guides please read [here](https://github.com/veritrans/Veritrans-ios-sdk/blob/master/MidtransCoreKit/code_usage.md)
 
 ##### 3. Sample / Demo App
-To see the sample app (contais UI flow), you can clone this project, enter project's directory `cd MidtransDemo`, run `pod install` then now you can open the `MidtransDemo.xcworkspace` file.
+To see the sample app (contais UIKit), you can clone this project, enter project's directory `cd MidtransDemo`, run `pod install` then now you can open the `MidtransDemo.xcworkspace` file.
 
 dependencies
 ##### 4. Backend (merchant server) implementation

@@ -87,7 +87,7 @@
     }
     
     
-    [self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with GoPay"] forState:UIControlStateNormal];
+    [self.view.finishPaymentButton setTitle:[VTClassHelper getTranslationFromAppBundleForString:@"Pay Now with ShopeePay"] forState:UIControlStateNormal];
     UIImage *image = [UIImage imageNamed:@"shopeepay_button" inBundle:VTBundle compatibleWithTraitCollection:nil];
     
     [self.view.finishPaymentButton setImage:[image imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
@@ -169,9 +169,11 @@
 - (IBAction)installShopeeAppButtonDidTapped:(id)sender {
 }
 - (void)openShopeeAppWithResult:(MidtransTransactionResult *)result {
-    NSString *gojekDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
-    NSURL *deeplinkURL = [NSURL URLWithString:gojekDeeplinkString];
-    if ([[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
+    NSString *shopeeDeeplinkString = [result.additionalData objectForKey:@"deeplink_url"];
+    if (!shopeeDeeplinkString) return;
+
+    NSURL *deeplinkURL = [NSURL URLWithString:shopeeDeeplinkString];
+    if (deeplinkURL && [[UIApplication sharedApplication] canOpenURL:deeplinkURL]) {
         [[UIApplication sharedApplication] openURL:deeplinkURL
                                            options:@{}
                                  completionHandler:nil];

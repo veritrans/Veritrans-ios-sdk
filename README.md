@@ -9,25 +9,6 @@
 >Should you have any questions, please do not leave any questions in this repo. Please contact our support instead at [support@midtrans.com](mailto:email@example.com) or chat with our support team [here](https://midtrans.com/contact-us).
 
 
->[!IMPORTANT]
->❗️IMPORTANT NOTICE
->
->Starting June 2026, we will gradually cease support for Mobile SDK in Midtrans. We encourage you in the meantime to start migrating to our Snap Checkout or Core API to ensure you're getting the best experience and security standard for your payment gateway implementation.
->
->For new merchants onboarding/integrating after March 6th 2026, please use our Core API or Snap Checkout instead as newer integration will not be supported. This page will be maintained for our existing users, until support is completely ceased, to give enough time for merchants to migrate.
-
->[!IMPORTANT]
->
->
->Starting from March 2026, Corekit SDK's support will be phased out, and soon to be deprecated.
->
->We strongly recommend starting migrating to use our Core API (https://docs.midtrans.com/docs/custom-interface-core-api), or use our UIKit instead. Any changes made from March 2026 are solely made to support UIKit.
->
->Should you have any questions, please do not leave any questions in this repo. Please contact our support instead at support@midtrans.com or chat with our support team [here](https://midtrans.com/id/kontak-kami)
-
-
-
-
 [![Build Status](https://travis-ci.org/veritrans/Veritrans-ios-sdk.svg?branch=development)](https://travis-ci.org/veritrans/Veritrans-ios-sdk)
 [![codecov](https://codecov.io/gh/veritrans/Veritrans-ios-sdk/branch/master/graph/badge.svg)](https://codecov.io/gh/veritrans/Veritrans-ios-sdk)
 

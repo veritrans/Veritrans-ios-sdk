@@ -1,3 +1,21 @@
+
+>[!IMPORTANT]
+>❗️IMPORTANT NOTICE
+>
+>We would like to inform you that the Mobile SDK for both iOS and Android is being deprecated. Effective on June 2026, all support for Mobile SDK will be fully discontinued.
+>
+>Midtrans strongly recommends starting migrating to use [Midtrans Core API](https://docs.midtrans.com/docs/custom-interface-core-api)
+>
+>Should you have any questions, please do not leave any questions in this repo. Please contact our support instead at [support@midtrans.com](mailto:email@example.com) or chat with our support team [here](https://midtrans.com/contact-us).
+
+
+>[!IMPORTANT]
+>❗️IMPORTANT NOTICE
+>
+>Starting June 2026, we will gradually cease support for Mobile SDK in Midtrans. We encourage you in the meantime to start migrating to our Snap Checkout or Core API to ensure you're getting the best experience and security standard for your payment gateway implementation.
+>
+>For new merchants onboarding/integrating after March 6th 2026, please use our Core API or Snap Checkout instead as newer integration will not be supported. This page will be maintained for our existing users, until support is completely ceased, to give enough time for merchants to migrate.
+
 >[!IMPORTANT]
 >
 >
@@ -7,12 +25,6 @@
 >
 >Should you have any questions, please do not leave any questions in this repo. Please contact our support instead at support@midtrans.com or chat with our support team [here](https://midtrans.com/id/kontak-kami)
 
->[!IMPORTANT]
->❗️IMPORTANT NOTICE
->
->Starting June 2026, we will gradually cease support for Mobile SDK in Midtrans. We encourage you in the meantime to start migrating to our Snap Checkout or Core API to ensure you're getting the best experience and security standard for your payment gateway implementation.
->
->For new merchants onboarding/integrating after March 6th 2026, please use our Core API or Snap Checkout instead as newer integration will not be supported. This page will be maintained for our existing users, until support is completely ceased, to give enough time for merchants to migrate.
 
 
 
